@@ -1,124 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.baseEditMark.MarkData;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class kq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public String b;
+    public View c;
 
-    public static void a(String str) {
+    public kq8() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(String str, Object obj) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, obj) == null) && (obj instanceof MarkData)) {
-            MarkData markData = (MarkData) obj;
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("tid", markData.getId());
-            statisticItem.param("fname", markData.getForumName());
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1413831834:
-                    if (str.equals("c14062")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1413831833:
-                    if (str.equals("c14063")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -1413831832:
-                    if (str.equals("c14064")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -1413831831:
-                    if (str.equals("c14065")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1413831828:
-                    if (str.equals("c14068")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1413831827:
-                    if (str.equals("c14069")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2 && c != 3) {
-                        if (c == 4) {
-                            d(markData, statisticItem);
-                            statisticItem.param("obj_source", "1");
-                        }
-                    } else {
-                        statisticItem.param("obj_id", markData.getUesrId());
-                    }
-                } else {
-                    d(markData, statisticItem);
-                    statisticItem.param("obj_id", markData.getUesrId());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public View a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0906, (ViewGroup) null);
+            this.a = inflate;
+            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f0922fc);
+            this.a.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
+            this.a.setBackgroundColor(er8.a(str));
+        }
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            View view2 = this.c;
+            if (z) {
+                i = 0;
             } else {
-                d(markData, statisticItem);
+                i = 4;
             }
-            TiebaStatic.log(statisticItem);
+            view2.setVisibility(i);
         }
     }
 
-    public static void c(String str, boolean z, MarkData markData) {
+    public void c(TbPageContext<?> tbPageContext) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), markData}) != null) || markData == null || StringUtils.isNull(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("tid", markData.getId());
-        statisticItem.param("fname", markData.getForumName());
-        if (z) {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "1");
-        } else {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "2");
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    public static void d(MarkData markData, StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, markData, statisticItem) == null) {
-            if (markData.is_deleted()) {
-                statisticItem.param("obj_param1", "3");
-            } else if (markData.isRedTipShow() && !StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) {
-                statisticItem.param("obj_param1", "1");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            hx4 layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
             } else {
-                statisticItem.param("obj_param1", "2");
+                z = false;
             }
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
+            this.a.setBackgroundColor(er8.a(this.b));
         }
     }
 }

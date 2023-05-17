@@ -1,67 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import android.util.Log;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class rq3 implements ur2 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class rq3 extends ie3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qo1 a;
-
-        public a(rq3 rq3Var, qo1 qo1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rq3Var, qo1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qo1Var;
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return true;
         }
+        return invokeLL.booleanValue;
+    }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                if (bundle == null) {
-                    this.a.a(0);
-                    return;
-                }
-                String string = bundle.getString("invoiceInfo");
-                if (TextUtils.isEmpty(string)) {
-                    this.a.a(0);
-                } else {
-                    this.a.b(xk3.d(string));
-                }
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130229, "Lcom/baidu/tieba/rq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948130229, "Lcom/baidu/tieba/rq3;");
+                return;
+            }
+        }
+        a = qp1.a;
+        try {
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        } catch (Exception unused) {
         }
     }
 
@@ -69,21 +63,61 @@ public class rq3 implements ur2 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ur2
-    public void a(Context context, String str, String str2, qo1 qo1Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, qo1Var) == null) && context != null && qo1Var != null) {
-            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, qq3.class, new a(this, qo1Var));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (nl3.f()) {
+                CookieManager.getInstance().flush();
+                return;
+            }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
+        }
+    }
+
+    @Override // com.baidu.tieba.ie3, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String str2 = "";
+            try {
+                str2 = CookieManager.getInstance().getCookie(str);
+                if (a) {
+                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                }
+            } catch (Exception unused) {
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (a) {
+                Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
+                Log.d("RealCookieManager", "storeCookie cookies: " + list);
+            }
+            try {
+                for (String str2 : list) {
+                    CookieManager.getInstance().setCookie(str, str2);
+                }
+                a();
+            } catch (Exception unused) {
+            }
         }
     }
 }

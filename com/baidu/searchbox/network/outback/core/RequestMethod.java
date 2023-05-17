@@ -5,7 +5,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum RequestMethod {
     GET("GET"),
     POST("POST"),
@@ -19,7 +19,7 @@ public enum RequestMethod {
     public final String value;
 
     /* renamed from: com.baidu.searchbox.network.outback.core.RequestMethod$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$network$outback$core$RequestMethod;
 

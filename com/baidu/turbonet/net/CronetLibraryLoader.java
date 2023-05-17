@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yca;
+import com.baidu.tieba.wea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.turbonet.net.TurbonetEngine;
 import java.util.ArrayList;
 import java.util.List;
 @JNINamespace
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CronetLibraryLoader {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
@@ -37,7 +37,7 @@ public class CronetLibraryLoader {
 
     public static native String nativeGetTurboNetVersion();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class CronetLibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            yca.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
+            wea.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
             if (d) {
                 return nativeGetTurboNetHandler();
             }
@@ -140,7 +140,7 @@ public class CronetLibraryLoader {
                 ContextUtils.b(context.getApplicationContext());
                 builder.m();
                 ContextUtils.c();
-                yca.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
+                wea.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.b(context.getApplicationContext());
                 if (!b.isAlive()) {
                     b.start();

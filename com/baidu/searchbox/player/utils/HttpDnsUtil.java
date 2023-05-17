@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class HttpDnsUtil {
     public static void preResolveHosts(@Nullable List<String> list) {
         CyberPlayerManager.preResolveHosts(list);

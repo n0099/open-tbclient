@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static final Parcelable.Creator<SapiAccount> CREATOR;
     public static final String SAPI_ACCOUNT_APP = "app";
@@ -144,7 +144,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         return getBooleanExtra(ExtraProperty.EXTRA_IS_SOCIAL_ACCOUNT, false);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DispersionCertification implements NoProguard {
         public Map<String, String> tplStokenMap = new HashMap();
 
@@ -170,7 +170,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ExtraProperty implements NoProguard {
         public static final String EXTRA_ACCOUNT_TYPE = "account_type";
         public static final String EXTRA_IS_GUEST_ACCOUNT = "is_guest_account";

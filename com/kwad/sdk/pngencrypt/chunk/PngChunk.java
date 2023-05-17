@@ -1,7 +1,7 @@
 package com.kwad.sdk.pngencrypt.chunk;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class PngChunk {
     public final com.kwad.sdk.pngencrypt.k akJ;
     public final String alB;
@@ -12,7 +12,7 @@ public abstract class PngChunk {
     public boolean alO = false;
     public int alP = -1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum ChunkOrderingConstraint {
         NONE,
         BEFORE_PLTE_AND_IDAT,

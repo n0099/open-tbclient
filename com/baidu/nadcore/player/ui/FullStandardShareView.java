@@ -6,7 +6,7 @@ import android.view.View;
 import com.baidu.nadcore.video.videoplayer.ui.BaseVideoPlayEndUI;
 import com.baidu.nadcore.video.videoplayer.widget.ImageTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FullStandardShareView extends BaseVideoPlayEndUI implements View.OnClickListener {
     public ImageTextView b;
 
@@ -32,7 +32,7 @@ public class FullStandardShareView extends BaseVideoPlayEndUI implements View.On
     public void onClick(View view2) {
         BaseVideoPlayEndUI.a aVar = this.a;
         if (aVar != null) {
-            aVar.a(view2);
+            aVar.onItemClick(view2);
         }
     }
 

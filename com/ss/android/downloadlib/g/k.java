@@ -1,7 +1,7 @@
 package com.ss.android.downloadlib.g;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k {
     public static void a(String str) {
         c(null, str, null);

@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaFlexibleTypeDeserializer implements FlexibleTypeDeserializer {
     public static final JavaFlexibleTypeDeserializer INSTANCE = new JavaFlexibleTypeDeserializer();
 

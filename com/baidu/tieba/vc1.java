@@ -1,96 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
+import android.text.Layout;
+import android.text.Selection;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.method.Touch;
+import android.text.style.ClickableSpan;
+import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.tieba.d41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class vc1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class vc1 extends LinkMovementMethod {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948235877, "Lcom/baidu/tieba/vc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948235877, "Lcom/baidu/tieba/vc1;");
-                return;
-            }
-        }
-        char[] cArr = {21704};
-        a = cArr;
-        b = new String(cArr);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onLinkTouch(TextView textView, MotionEvent motionEvent);
+
+        void onNoLinkTouch(TextView textView, MotionEvent motionEvent);
     }
 
-    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    public vc1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            Intrinsics.checkNotNullParameter(subTag, "subTag");
-            if (TextUtils.isEmpty(subTag)) {
-                subTag = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
-            }
-            return subTag;
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2) {
-        InterceptResult invokeCommon;
-        float e;
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2)})) == null) {
-            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                if (textView.getMeasuredWidth() > 0) {
-                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
-                } else {
-                    e = ((d41.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
-                }
-                float f = e - ((i - 1) * 10);
-                Intrinsics.checkNotNull(str);
-                int length = str.length() + 1;
-                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
-                if (f < textView.getPaint().measureText(spannableStringBuilder.toString())) {
-                    String a2 = a(spannableStringBuilder.toString(), b, f, textView.getPaint(), drawable.getIntrinsicWidth());
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                    spannableStringBuilder2.setSpan(new uc1(drawable), a2.length() - b.length(), a2.length(), 17);
-                    return spannableStringBuilder2;
-                }
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                spannableStringBuilder.setSpan(new uc1(drawable), length, spannableStringBuilder.length(), 17);
-                return spannableStringBuilder;
-            }
-            return new SpannableStringBuilder("");
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
+    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action != 1 && action != 0) {
+                return Touch.onTouchEvent(textView, spannable, motionEvent);
+            }
+            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
+            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
+            int scrollX = x + textView.getScrollX();
+            int scrollY = y + textView.getScrollY();
+            Layout layout = textView.getLayout();
+            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
+            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
+            if (objArr.length != 0) {
+                if (action == 1) {
+                    objArr[0].onClick(textView);
+                } else if (action == 0) {
+                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
+                }
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onLinkTouch(textView, motionEvent);
+                }
+                return true;
+            }
+            a aVar2 = this.a;
+            if (aVar2 != null) {
+                aVar2.onNoLinkTouch(textView, motionEvent);
+            }
+            Selection.removeSelection(spannable);
+            super.onTouchEvent(textView, spannable, motionEvent);
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

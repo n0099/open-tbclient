@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.favrite.FavSyncPoi;
 import com.baidu.platform.comapi.basestruct.Point;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static FavoritePoiInfo a(FavSyncPoi favSyncPoi) {
         if (favSyncPoi != null && favSyncPoi.c != null && !favSyncPoi.b.equals("")) {

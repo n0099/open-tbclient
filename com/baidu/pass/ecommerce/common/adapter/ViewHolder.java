@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.common.adapter;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewHolder<D> {
     public View convertView;
 

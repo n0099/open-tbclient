@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.activeConfig;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.cr4;
+import com.baidu.tieba.ls4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cr4 mData;
+    public ls4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigHTTPResMsg() {
@@ -36,13 +36,13 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public cr4 getData() {
+    public ls4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (cr4) invokeV.objValue;
+        return (ls4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class ActiveConfigHTTPResMsg extends HttpResponsedMessage {
                 setErrorString(activeConfigResIdl.error.usermsg);
             }
             if (activeConfigResIdl.data != null) {
-                cr4 cr4Var = new cr4();
-                this.mData = cr4Var;
-                cr4Var.c(activeConfigResIdl.data);
+                ls4 ls4Var = new ls4();
+                this.mData = ls4Var;
+                ls4Var.c(activeConfigResIdl.data);
             }
         }
     }

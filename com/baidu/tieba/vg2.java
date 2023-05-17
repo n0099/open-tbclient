@@ -6,11 +6,71 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class vg2 {
+/* loaded from: classes7.dex */
+public final class vg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vg2 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public vg2 a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new vg2(null);
+        }
+
+        public vg2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (vg2) invokeV.objValue;
+        }
+
+        public b b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                this.a.b = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b c(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.a.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+    }
 
     public vg2() {
         Interceptable interceptable = $ic;
@@ -26,38 +86,34 @@ public class vg2 {
         }
     }
 
-    public static vg2 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (vg2.class) {
-                    if (a == null) {
-                        a = new vg2();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (vg2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x42.k("SwanRecoveryManager", "RecoverPlatform");
-            dh2 dh2Var = new dh2();
-            dh2Var.a = 1;
-            tg2.c(dh2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public int b(int i) {
-        InterceptResult invokeI;
+    public /* synthetic */ vg2(a aVar) {
+        this();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return bh2.c(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "V8EngineModel{mType=" + this.a + ", mID='" + this.b + "', mViewMode=" + this.c + '}';
         }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 }

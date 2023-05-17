@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.impls;
 
 import android.text.TextUtils;
 import com.ss.android.socialbase.downloader.downloader.s;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class q implements s {
     public final long[] a;
 

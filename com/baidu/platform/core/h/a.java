@@ -2,7 +2,7 @@ package com.baidu.platform.core.h;
 
 import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a();
 

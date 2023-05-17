@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultAMediaPlayer extends AMediaPlayer {
     public MediaPlayer internalPlayer;
     public final DefaultAMediaPlayerListenerHolder mInternalListenerAdapter;
@@ -54,7 +54,7 @@ public class DefaultAMediaPlayer extends AMediaPlayer {
         return false;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class DefaultAMediaPlayerListenerHolder implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener {
         public boolean isErrorHappened;
         public final WeakReference<DefaultAMediaPlayer> mWeakMediaPlayer;

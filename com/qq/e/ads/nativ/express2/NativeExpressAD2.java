@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public AdLoadListener j;
     public List<Integer> k;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface AdLoadListener extends NativeAbstractAD.BasicADListener {
         void onLoadSuccess(List<NativeExpressADData2> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AdLoadListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

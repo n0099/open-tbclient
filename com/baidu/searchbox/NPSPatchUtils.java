@@ -6,7 +6,7 @@ import java.io.Closeable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NPSPatchUtils {
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;
 

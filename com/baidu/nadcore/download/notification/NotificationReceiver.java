@@ -6,11 +6,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.el0;
-import com.baidu.tieba.jk0;
+import com.baidu.tieba.ul0;
+import com.baidu.tieba.zk0;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NotificationReceiver extends BroadcastReceiver {
     public static final String INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH = "key_download_path";
     public static final String INTENT_PARAMS_KEY_EXTRA_PARAM = "key_extra_param";
@@ -39,8 +39,8 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
 
     private void installApk(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !el0.c(str2)) {
-            el0.d(new File(str));
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !ul0.c(str2)) {
+            ul0.d(new File(str));
         }
     }
 
@@ -50,11 +50,11 @@ public class NotificationReceiver extends BroadcastReceiver {
             installApk(str3, str2);
             str6 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
         } else {
-            el0.g(str2);
+            ul0.g(str2);
             str6 = ClogBuilder.LogType.OPEN_APP.type;
         }
         collapseStatusBar(context);
-        jk0.f().h(str6, str5, str4, str);
+        zk0.f().h(str6, str5, str4, str);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -107,14 +107,14 @@ public class NotificationReceiver extends BroadcastReceiver {
             if (c != 1) {
                 if (c != 2) {
                     if (c == 3) {
-                        jk0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                        zk0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
                         return;
                     }
                     return;
                 }
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    jk0.f().a(intExtra);
+                    zk0.f().a(intExtra);
                     return;
                 }
                 return;

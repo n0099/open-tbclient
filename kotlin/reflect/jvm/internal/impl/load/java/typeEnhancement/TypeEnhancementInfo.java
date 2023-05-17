@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TypeEnhancementInfo {
     public final Map<Integer, JavaTypeQualifiers> map;
 

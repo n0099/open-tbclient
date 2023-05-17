@@ -30,14 +30,14 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class am {
     public static volatile String c;
     public static volatile int d;
     public final Handler b = new Handler(Looper.getMainLooper());
     public final b a = new b();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Callable<List<c>> {
         public Activity a;
         public final int e = 160;
@@ -199,7 +199,7 @@ public class am {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public final String a;
         public final View b;
@@ -220,7 +220,7 @@ public class am {
         c = "";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public final Paint b = new Paint(2);
         public Bitmap a = null;

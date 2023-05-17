@@ -8,17 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes4.dex */
-public class fp2 extends rl2<iq2> {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class fp2 extends an2<rp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rl2
+    @Override // com.baidu.tieba.an2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getCurrentPosition" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
     }
 
     public fp2() {
@@ -36,14 +37,24 @@ public class fp2 extends rl2<iq2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
+    @Override // com.baidu.tieba.an2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) == null) {
-            command.ret = iq2Var.getCurrentPosition();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rp2Var) == null) {
             String str = command.what;
-            d(iq2Var, str, "Position: " + command.ret, false);
+            d(rp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                if (jSONObject.has("status") && jSONObject.has("userId")) {
+                    long optLong = jSONObject.optLong("userId", -1L);
+                    boolean optBoolean = jSONObject.optBoolean("status");
+                    if (pp2.a(optLong)) {
+                        rp2Var.p(optLong, optBoolean);
+                    }
+                }
+            }
         }
     }
 }

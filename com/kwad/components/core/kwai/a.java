@@ -7,21 +7,21 @@ import android.widget.TextView;
 import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements View.OnClickListener {
     @Nullable
     public ImageView CO;
     @Nullable
     public ImageView CP;
     @Nullable
-    public InterfaceC0602a CQ;
+    public InterfaceC0616a CQ;
     @Nullable
     public TextView mTitle;
     public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0602a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0616a {
         void r(View view2);
 
         void s(View view2);
@@ -31,7 +31,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091264);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09129f);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -40,16 +40,16 @@ public final class a implements View.OnClickListener {
     }
 
     private void initView() {
-        this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091261);
-        this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091262);
-        ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091263);
+        this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09129c);
+        this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09129d);
+        ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09129e);
         this.CP = imageView;
         imageView.setOnClickListener(this);
         this.CO.setOnClickListener(this);
     }
 
-    public final void a(@Nullable InterfaceC0602a interfaceC0602a) {
-        this.CQ = interfaceC0602a;
+    public final void a(@Nullable InterfaceC0616a interfaceC0616a) {
+        this.CQ = interfaceC0616a;
     }
 
     public final void a(b bVar) {

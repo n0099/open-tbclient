@@ -1,7 +1,20 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface jh1 {
-    void a();
 
-    void b(dh1 dh1Var);
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class jh1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static int a(Context context, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) {
+            return (int) ((f * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f);
+        }
+        return invokeLF.intValue;
+    }
 }

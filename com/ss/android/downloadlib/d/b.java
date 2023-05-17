@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends SQLiteOpenHelper {
     public static final String[] a = {"_id", LegoListActivityConfig.AD_ID, "req_id", "time"};
 

@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.api;
 
 import com.yy.mobile.perf.taskexecutor.IYYTaskExecutor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ExecutorProvider {
     public static IYYTaskExecutor iyyTaskExecutor;
 

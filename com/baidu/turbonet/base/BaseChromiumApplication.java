@@ -6,8 +6,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ada;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.xea;
+import com.baidu.tieba.yea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,19 +18,19 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseChromiumApplication extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean a;
-    public zca<c> b;
+    public xea<c> b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         void a(Activity activity, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class BaseChromiumApplication extends Application {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,7 +218,7 @@ public class BaseChromiumApplication extends Application {
                 return;
             }
         }
-        this.b = new zca<>();
+        this.b = new xea<>();
         this.a = z;
     }
 
@@ -227,7 +227,7 @@ public class BaseChromiumApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             super.attachBaseContext(context);
-            ada.b(this);
+            yea.b(this);
         }
     }
 

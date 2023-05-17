@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.imageloader.core.assist.deque;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
     public static final long serialVersionUID = -4114786347960826192L;
 

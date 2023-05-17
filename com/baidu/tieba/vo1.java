@@ -1,44 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class vo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isEnded", z);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context.getPackageManager().checkPermission(str, context.getPackageName()) == 0) {
+                return true;
             }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeZ.objValue;
-    }
-
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", kx3.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 }

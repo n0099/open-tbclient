@@ -1,83 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public interface sp {
-    void a(long j, long j2);
+/* loaded from: classes7.dex */
+public final class sp {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final TaskStatus a;
+    public final pp b;
+    public final TaskProcessData c;
+    public final String d;
 
-    void onCancel();
-
-    void onFinish();
-
-    void onPause();
-
-    void onResume();
-
-    void onStart();
-
-    /* loaded from: classes6.dex */
-    public static class a implements sp {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.sp
-        public void a(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+    public sp(TaskStatus taskStatus, pp ppVar, TaskProcessData taskProcessData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskStatus, ppVar, taskProcessData, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = taskStatus;
+        this.b = ppVar;
+        this.c = taskProcessData;
+        this.d = str;
+    }
 
-        @Override // com.baidu.tieba.sp
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "taskStatus:" + this.a + "\n uiConfig:" + this.b + "\n totalProcess:" + this.c + "\n extra:" + this.d;
         }
-
-        @Override // com.baidu.tieba.sp
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.sp
-        public void onPause() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.sp
-        public void onResume() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.sp
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

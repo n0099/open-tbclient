@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
 import java.io.PrintStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h extends Exception {
     public Throwable a;
     public int b;

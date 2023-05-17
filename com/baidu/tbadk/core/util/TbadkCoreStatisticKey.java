@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbadkCoreStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FOLLOW_LIVE_LIVE_ITEM_CLICK = "c12677";
@@ -63,6 +63,8 @@ public class TbadkCoreStatisticKey {
     public static final String FUN_AD_SHOW_ERROR = "c14199";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_CLICK = "c13348";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_SHOW = "c13347";
+    public static final String GROUP_CHAT_ICON_CLICK = "c15277";
+    public static final String GROUP_CHAT_ICON_EXPLORE = "c15276";
     public static final String GROUP_CHAT_RICHTEXT_LINK_CLICK_KEY = "c15272";
     public static final String GROUP_CHAT_RICHTEXT_LINK_EXPOSE_KEY = "c15271";
     public static final String HEADLINES_2_SHOW = "c15240";
@@ -90,6 +92,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_AIAPPS_START = "c13606";
     public static final String KEY_AIAPPS_START_FAIL = "c13607";
     public static final String KEY_AI_APP_SHARE_CLICK = "c13531";
+    public static final String KEY_ALBUM_SHARE_TYPE = "c15288";
     public static final String KEY_ANNOUNCE_AREA = "c13447";
     public static final String KEY_ANTI_DIALOG_NEG_CLICK = "c12535";
     public static final String KEY_ANTI_DIALOG_POS_CLICK = "c12536";
@@ -229,6 +232,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_SHOW = "c14147";
     public static final String KEY_TOPIC_DETAIL_CARD_AGREE_CLICK = "c13358";
     public static final String KEY_TOPIC_DETAIL_TO_PB_AGREE_CLICK = "c14394";
+    public static final String KEY_TOPIC_SHARE_TYPE = "c15287";
     public static final String KEY_TRANSFER_BTN_CLICK = "c13567";
     public static final String KEY_UPDATE_OFFLINE_PACK = "c14055";
     public static final String KEY_USER_BAN_PAY_HINT_CLICK = "c14685";
@@ -309,7 +313,7 @@ public class TbadkCoreStatisticKey {
     public static final String YULE_GAME_EAST_EGG_VIEW = "c10852";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AntiLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int LOCATE_CHAT = 6;
@@ -353,7 +357,7 @@ public class TbadkCoreStatisticKey {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class HeadlinesFrontCardLocateValue {
         public static /* synthetic */ Interceptable $ic = null;
         public static int ACTIVITY_LOCATE = 2;

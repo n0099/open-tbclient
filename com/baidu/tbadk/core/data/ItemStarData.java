@@ -9,13 +9,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HeadItem;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ItemStarData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<SingleItemStar> list;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class SingleItemStar implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

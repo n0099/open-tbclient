@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UnitDrawableDecoder implements ResourceDecoder<Drawable, Drawable> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder

@@ -8,7 +8,7 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Tensor implements AutoCloseable {
     public DataType datatype;
     public long nativeHandle;

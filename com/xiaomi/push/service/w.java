@@ -6,7 +6,7 @@ import com.xiaomi.push.gg;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bg;
 import java.util.Collection;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class w extends XMPushService.j {
     public XMPushService a;
 
@@ -29,37 +29,37 @@ public class w extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "register app";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         bg.b next;
-        t m757a = u.m757a((Context) this.a);
-        if (m757a == null) {
+        t m776a = u.m776a((Context) this.a);
+        if (m776a == null) {
             try {
-                m757a = u.a(this.a, this.f1009a, this.b, this.c);
+                m776a = u.a(this.a, this.f1009a, this.b, this.c);
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to register push account. " + e);
             }
         }
-        if (m757a == null) {
+        if (m776a == null) {
             com.xiaomi.channel.commonutils.logger.b.d("no account for registration.");
             x.a(this.a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m101a("do registration now.");
-        Collection<bg.b> m714a = bg.a().m714a("5");
-        if (m714a.isEmpty()) {
-            next = m757a.a(this.a);
+        com.xiaomi.channel.commonutils.logger.b.m120a("do registration now.");
+        Collection<bg.b> m733a = bg.a().m733a("5");
+        if (m733a.isEmpty()) {
+            next = m776a.a(this.a);
             ah.a(this.a, next);
             bg.a().a(next);
         } else {
-            next = m714a.iterator().next();
+            next = m733a.iterator().next();
         }
-        if (!this.a.m674c()) {
+        if (!this.a.m693c()) {
             x.a(this.f1009a, this.f1010a);
             this.a.a(true);
             return;

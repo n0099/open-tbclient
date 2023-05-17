@@ -4,12 +4,12 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KernelCacheAssistant {
     public static final String KEY_REUSE_KERNEL_ID = "videoPlayerReuseID";
     public final HashMap<String, BaseKernelLayer> mKernelCache;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Holder {
         public static final KernelCacheAssistant mInstance = new KernelCacheAssistant();
     }

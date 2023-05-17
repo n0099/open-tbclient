@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.Request;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseTarget<Z> implements Target<Z> {
     public Request request;
 

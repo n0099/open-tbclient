@@ -1,7 +1,7 @@
 package com.kwad.components.ad.interstitial.b;
 
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends b {
     public c gh;
     public AdInfo mAdInfo;

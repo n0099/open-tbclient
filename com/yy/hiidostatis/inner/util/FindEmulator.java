@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.kuaishou.weapon.p0.h;
@@ -18,7 +19,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FindEmulator {
     public static int emurs;
     public static boolean isCheck;
@@ -31,7 +32,7 @@ public class FindEmulator {
     public static final String[] known_geny_files = {"/dev/socket/genyd", "/dev/socket/baseband_genyd"};
     public static final String[] known_qemu_drivers = {"goldfish"};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Property {
         public String name;
         public String seek_value;
@@ -42,7 +43,7 @@ public class FindEmulator {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class tcp {
         public int id;
         public long localIp;
@@ -308,7 +309,7 @@ public class FindEmulator {
         Class<?> loadClass;
         Method method;
         try {
-            if (Build.VERSION.SDK_INT > 27 || (classLoader = context.getClassLoader()) == null || (loadClass = classLoader.loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP)) == null || (method = loadClass.getMethod("get", String.class)) == null) {
+            if (Build.VERSION.SDK_INT > 27 || (classLoader = context.getClassLoader()) == null || (loadClass = classLoader.loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP)) == null || (method = loadClass.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class)) == null) {
                 return null;
             }
             return (String) method.invoke(loadClass, str);

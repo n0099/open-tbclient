@@ -1,86 +1,95 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Environment;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.util.zip.GZIPInputStream;
-/* loaded from: classes6.dex */
-public class tp4 {
+/* loaded from: classes7.dex */
+public class tp4 implements up4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    @NonNull
-    public static String a(@NonNull File file) throws IOException {
-        InterceptResult invokeL;
+    public tp4(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            String canonicalPath = file.getCanonicalPath();
-            if (!canonicalPath.endsWith("/")) {
-                return canonicalPath + "/";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return canonicalPath;
         }
-        return (String) invokeL.objValue;
+        this.a = context.getApplicationContext();
     }
 
-    @NonNull
-    public static String c(@NonNull String str) {
-        InterceptResult invokeL;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
-            if (guessContentTypeFromName == null) {
-                return "text/plain";
-            }
-            return guessContentTypeFromName;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !TextUtils.equals("mounted", Environment.getExternalStorageState()) || !cq4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            return;
         }
-        return (String) invokeL.objValue;
+        aq4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
     }
 
-    @NonNull
-    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.up4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            return d(file.getPath(), new FileInputStream(file));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !cq4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
+                return true;
+            }
+            return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
         }
-        return (InputStream) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Nullable
-    public static File b(@NonNull File file, @NonNull String str) throws IOException {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.up4
+    /* renamed from: b */
+    public String get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            String a = a(file);
-            String canonicalPath = new File(file, str).getCanonicalPath();
-            if (canonicalPath.startsWith(a)) {
-                return new File(canonicalPath);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c();
         }
-        return (File) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeLL;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
-            if (str.endsWith(".svgz")) {
-                return new GZIPInputStream(inputStream);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !cq4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
+                return null;
             }
-            return inputStream;
+            File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
+            if (!file.exists()) {
+                return null;
+            }
+            return aq4.c(file);
         }
-        return (InputStream) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.up4
+    /* renamed from: d */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            e(str);
+        }
     }
 }

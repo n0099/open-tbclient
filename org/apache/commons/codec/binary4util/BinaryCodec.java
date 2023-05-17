@@ -7,7 +7,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static final int BIT_0 = 1;
     public static final int BIT_1 = 2;

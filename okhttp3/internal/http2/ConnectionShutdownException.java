@@ -1,6 +1,6 @@
 package okhttp3.internal.http2;
 
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ConnectionShutdownException extends IOException {
 }

@@ -18,9 +18,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be9;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.od0;
+import com.baidu.tieba.ee0;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.xf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class McnVideoAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
@@ -44,21 +44,21 @@ public class McnVideoAdView extends FrameLayout {
     public float g;
     public float h;
     public boolean i;
-    public od0 j;
+    public ee0 j;
     public c k;
     public final Handler l;
     public ViewParent m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
-        void a(od0 od0Var);
+        void a(ee0 ee0Var);
 
-        void b(od0 od0Var);
+        void b(ee0 ee0Var);
 
-        void c(od0 od0Var);
+        void c(ee0 ee0Var);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,18 +182,18 @@ public class McnVideoAdView extends FrameLayout {
         g();
     }
 
-    private void setData(od0 od0Var) {
+    private void setData(ee0 ee0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, this, od0Var) != null) || od0Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, this, ee0Var) != null) || ee0Var == null) {
             return;
         }
-        this.j = od0Var;
-        this.b.N(od0Var.a, 10, false);
-        if (!StringUtils.isNull(od0Var.b)) {
-            this.c.setText(od0Var.b);
+        this.j = ee0Var;
+        this.b.N(ee0Var.a, 10, false);
+        if (!StringUtils.isNull(ee0Var.b)) {
+            this.c.setText(ee0Var.b);
         }
-        if (!StringUtils.isNull(od0Var.c)) {
-            this.d.setText(od0Var.c);
+        if (!StringUtils.isNull(ee0Var.c)) {
+            this.d.setText(ee0Var.c);
         }
     }
 
@@ -222,11 +222,11 @@ public class McnVideoAdView extends FrameLayout {
         g();
     }
 
-    public void l(od0 od0Var, ViewGroup viewGroup) {
+    public void l(ee0 ee0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, od0Var, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ee0Var, viewGroup) == null) {
             this.i = true;
-            setData(od0Var);
+            setData(ee0Var);
             viewGroup.removeView(this);
             viewGroup.addView(this);
             if (viewGroup instanceof FrameLayout) {
@@ -243,7 +243,7 @@ public class McnVideoAdView extends FrameLayout {
             }
             c cVar = this.k;
             if (cVar != null) {
-                cVar.c(od0Var);
+                cVar.c(ee0Var);
             }
         }
     }
@@ -280,10 +280,10 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void k(od0 od0Var, ViewGroup viewGroup) {
+    public void k(ee0 ee0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, od0Var, viewGroup) == null) {
-            l(od0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, ee0Var, viewGroup) == null) {
+            l(ee0Var, viewGroup);
             if (this.e != null) {
                 clearAnimation();
                 startAnimation(this.e);
@@ -300,11 +300,11 @@ public class McnVideoAdView extends FrameLayout {
 
     public final void e() {
         Context context;
-        od0 od0Var;
+        ee0 ee0Var;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (od0Var = this.j) != null && (str = od0Var.d) != null) {
-            be9.a(context, str, null, null, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (ee0Var = this.j) != null && (str = ee0Var.d) != null) {
+            xf9.a(context, str, null, null, null);
             c cVar = this.k;
             if (cVar != null) {
                 cVar.b(this.j);
@@ -356,7 +356,7 @@ public class McnVideoAdView extends FrameLayout {
             this.b.setConrers(5);
             this.b.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
             this.b.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.b.setRadius(ii.g(this.a, R.dimen.tbds20));
+            this.b.setRadius(ri.g(this.a, R.dimen.tbds20));
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.mcn_video_ad_open_anim);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.mcn_video_ad_close_anim);
             this.f = loadAnimation;

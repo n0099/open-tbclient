@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Ac3Reader implements ElementaryStreamReader {
     public static final int HEADER_SIZE = 8;
     public static final int STATE_FINDING_SYNC = 0;

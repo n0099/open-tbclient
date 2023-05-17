@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.appcreate;
 import android.util.Log;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PreInitSwanDataTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

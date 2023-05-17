@@ -6,7 +6,7 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JSONArrayAdapter extends TypeAdapter<JSONArray> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.gson.TypeAdapter

@@ -8,7 +8,7 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fg {
     public int a;
 
@@ -27,7 +27,7 @@ public class fg {
     /* renamed from: a  reason: collision with other field name */
     public bk f367a = bk.a();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final fg a = new fg();
     }
@@ -40,11 +40,11 @@ public class fg {
             }
             return null;
         }
-        ez m398a = m398a();
-        m398a.a(ey.CHANNEL_STATS_COUNTER.a());
-        m398a.c(aVar.f145a);
-        m398a.c(aVar.f147a);
-        return m398a;
+        ez m417a = m417a();
+        m417a.a(ey.CHANNEL_STATS_COUNTER.a());
+        m417a.c(aVar.f145a);
+        m417a.c(aVar.f147a);
+        return m417a;
     }
 
     private fa a(int i) {
@@ -59,10 +59,10 @@ public class fg {
             faVar.b(a2);
         } catch (ix unused) {
         }
-        LinkedList<bk.a> m216a = this.f367a.m216a();
-        while (m216a.size() > 0) {
+        LinkedList<bk.a> m235a = this.f367a.m235a();
+        while (m235a.size() > 0) {
             try {
-                ez a3 = a(m216a.getLast());
+                ez a3 = a(m235a.getLast());
                 if (a3 != null) {
                     a3.b(a2);
                 }
@@ -72,7 +72,7 @@ public class fg {
                 if (a3 != null) {
                     arrayList.add(a3);
                 }
-                m216a.removeLast();
+                m235a.removeLast();
             } catch (ix | NoSuchElementException unused2) {
             }
         }
@@ -88,12 +88,12 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static fg m396a() {
+    public static fg m415a() {
         return a.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m397a() {
+    private void m416a() {
         if (!this.f370a || System.currentTimeMillis() - this.f366a <= this.a) {
             return;
         }
@@ -102,10 +102,10 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ez m398a() {
+    public synchronized ez m417a() {
         ez ezVar;
         ezVar = new ez();
-        ezVar.a(bi.m209a((Context) this.f368a.f363a));
+        ezVar.a(bi.m228a((Context) this.f368a.f363a));
         ezVar.f340a = (byte) 0;
         ezVar.f344b = 1;
         ezVar.d((int) (System.currentTimeMillis() / 1000));
@@ -113,7 +113,7 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized fa m399a() {
+    public synchronized fa m418a() {
         fa faVar;
         faVar = null;
         if (b()) {
@@ -127,7 +127,7 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m400a(int i) {
+    public void m419a(int i) {
         if (i > 0) {
             int i2 = i * 1000;
             if (i2 > 604800000) {
@@ -154,12 +154,12 @@ public class fg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m401a() {
+    public boolean m420a() {
         return this.f370a;
     }
 
     public boolean b() {
-        m397a();
-        return this.f370a && this.f367a.m215a() > 0;
+        m416a();
+        return this.f370a && this.f367a.m234a() > 0;
     }
 }

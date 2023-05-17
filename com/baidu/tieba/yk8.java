@@ -1,72 +1,83 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.AbConfigService;
-import com.baidu.searchbox.live.nps.util.PluginUtils;
-import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yk8 implements AbConfigService {
+/* loaded from: classes8.dex */
+public class yk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public Object getSwitch(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public String getSwitch(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public yk8() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yk8(String str) {
+        this(str, "000");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
-    public boolean getSwitch(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public yk8(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
-            if ("android_live_enable_nps_multi_plugin_online".equals(str)) {
-                return true;
-            }
-            if ("android_live_enable_nps_multi_plugin".equals(str)) {
-                if (PluginUtils.isLivenpsMatchMultiNps()) {
-                    return true;
-                }
-                return false;
-            } else if (!MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH.equals(str) && !"android_live_media_pre_inflate_queue".equals(str) && !"live_android_mixview_pager".equals(str)) {
-                return true;
-            } else {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLZ.booleanValue;
+        this.a = str;
+        this.b = str2;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.DEBUG, this.b, str, str2);
+        }
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.ERROR, this.b, str, str2);
+        }
+    }
+
+    public void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.INFO, this.b, str, str2);
+        }
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            TbLogManager.log(this.a, TbLogManager.Level.WARN, this.b, str, str2);
+        }
     }
 }

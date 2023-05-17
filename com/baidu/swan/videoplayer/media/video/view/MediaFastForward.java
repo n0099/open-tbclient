@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.videoplayer.widget.MediaController;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class MediaFastForward extends FrameLayout {
     public View a;
     public ImageView b;
@@ -71,14 +71,14 @@ public final class MediaFastForward extends FrameLayout {
 
     public final void d(Context context) {
         Resources resources = getResources();
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b2, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08e3, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f8f);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913cd);
-        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091c5a);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706fc), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706fb));
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fc3);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091408);
+        this.d = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091cae);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07084e), resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07084d));
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812a5);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081414);
         this.a.setLayoutParams(layoutParams);
     }
 

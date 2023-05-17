@@ -6,7 +6,7 @@ import com.kwad.components.core.response.model.AdResultData;
 import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     @NonNull
     public final b EI;
@@ -20,29 +20,29 @@ public final class a {
     public d HR;
 
     /* renamed from: com.kwad.components.core.k.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0601a {
+    /* loaded from: classes9.dex */
+    public static class C0615a {
         public b EI;
         public com.kwad.components.core.k.b HN;
         public boolean HP;
         public boolean HQ;
 
-        public final C0601a a(@NonNull com.kwad.components.core.k.b bVar) {
+        public final C0615a a(@NonNull com.kwad.components.core.k.b bVar) {
             this.HN = bVar;
             return this;
         }
 
-        public final C0601a aw(boolean z) {
+        public final C0615a aw(boolean z) {
             this.HP = true;
             return this;
         }
 
-        public final C0601a ax(boolean z) {
+        public final C0615a ax(boolean z) {
             this.HQ = z;
             return this;
         }
 
-        public final C0601a c(b bVar) {
+        public final C0615a c(b bVar) {
             this.EI = bVar;
             return this;
         }
@@ -55,15 +55,15 @@ public final class a {
         }
     }
 
-    public a(C0601a c0601a) {
-        this.EI = c0601a.EI;
-        this.HN = c0601a.HN;
-        this.HP = c0601a.HP;
-        this.HQ = c0601a.HQ;
+    public a(C0615a c0615a) {
+        this.EI = c0615a.EI;
+        this.HN = c0615a.HN;
+        this.HP = c0615a.HP;
+        this.HQ = c0615a.HQ;
     }
 
-    public /* synthetic */ a(C0601a c0601a, byte b) {
-        this(c0601a);
+    public /* synthetic */ a(C0615a c0615a, byte b) {
+        this(c0615a);
     }
 
     public static void a(@NonNull a aVar, int i, String str, boolean z) {

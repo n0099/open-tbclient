@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.structure;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface JavaMethod extends JavaMember, JavaTypeParameterListOwner {
     JavaAnnotationArgument getAnnotationParameterDefaultValue();
 
@@ -11,7 +11,7 @@ public interface JavaMethod extends JavaMember, JavaTypeParameterListOwner {
 
     List<JavaValueParameter> getValueParameters();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static boolean getHasAnnotationParameterDefaultValue(JavaMethod javaMethod) {
             if (javaMethod.getAnnotationParameterDefaultValue() != null) {

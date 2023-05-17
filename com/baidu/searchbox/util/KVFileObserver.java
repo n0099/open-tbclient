@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KVFileObserver {
     public static final boolean DEBUG = false;
     public static final String TAG = "KVFileObserver";

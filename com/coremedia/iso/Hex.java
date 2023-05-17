@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.ByteArrayOutputStream;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Hex {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] DIGITS;

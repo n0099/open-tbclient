@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk;
 
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m {
     public static m a;
 

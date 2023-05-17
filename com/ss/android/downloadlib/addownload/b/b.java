@@ -3,7 +3,7 @@ package com.ss.android.downloadlib.addownload.b;
 import android.util.Pair;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public long a;
     public long b;

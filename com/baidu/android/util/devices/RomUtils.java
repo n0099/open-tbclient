@@ -4,11 +4,14 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.connect.DoveRuntime;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -96,7 +99,7 @@ public class RomUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return getProp(PROP_RO_BUILD_VERSION_INCREMENTAL);
+            return getProp("ro.build.version.incremental");
         }
         return (String) invokeV.objValue;
     }
@@ -126,7 +129,7 @@ public class RomUtils {
     public static String getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             if (sRomVersion == null) {
                 check();
             }
@@ -138,7 +141,7 @@ public class RomUtils {
     public static boolean is360() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
             if (!check("QIKU") && !check("360")) {
                 return false;
             }
@@ -150,7 +153,7 @@ public class RomUtils {
     public static boolean isEmui() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             return check("EMUI");
         }
         return invokeV.booleanValue;
@@ -159,7 +162,7 @@ public class RomUtils {
     public static boolean isFlyme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
             return check("FLYME");
         }
         return invokeV.booleanValue;
@@ -168,7 +171,7 @@ public class RomUtils {
     public static boolean isFlymeQuickly() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
             String str = Build.DISPLAY;
             if (!TextUtils.isEmpty(str) && str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
                 return true;
@@ -181,7 +184,7 @@ public class RomUtils {
     public static boolean isMagicBoxDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
             String str = Build.MANUFACTURER;
             String str2 = Build.PRODUCT;
             if (str.equalsIgnoreCase("MagicBox") && str2.equalsIgnoreCase("MagicBox")) {
@@ -195,7 +198,7 @@ public class RomUtils {
     public static boolean isMiBox2Device() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
             String str = Build.MANUFACTURER;
             String str2 = Build.PRODUCT;
             if (str.equalsIgnoreCase("Xiaomi") && str2.equalsIgnoreCase("dredd")) {
@@ -209,7 +212,7 @@ public class RomUtils {
     public static boolean isMiui() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
             return check("MIUI");
         }
         return invokeV.booleanValue;
@@ -218,7 +221,7 @@ public class RomUtils {
     public static boolean isMiuiOrXiaoMi() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
             if (!check("MIUI") && !check(ROM_XIAOMI)) {
                 return false;
             }
@@ -230,7 +233,7 @@ public class RomUtils {
     public static boolean isNubia() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
             return check(ROM_NUBIA);
         }
         return invokeV.booleanValue;
@@ -239,7 +242,7 @@ public class RomUtils {
     public static boolean isOppo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
             return check("OPPO");
         }
         return invokeV.booleanValue;
@@ -248,7 +251,7 @@ public class RomUtils {
     public static boolean isSmartisan() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             return check("SMARTISAN");
         }
         return invokeV.booleanValue;
@@ -257,7 +260,7 @@ public class RomUtils {
     public static boolean isVivo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
             return check("VIVO");
         }
         return invokeV.booleanValue;
@@ -481,17 +484,35 @@ public class RomUtils {
         return (String) invokeV.objValue;
     }
 
+    public static String getProp(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (!DoveRuntime.getIDoveIoc().getPropOptEnable()) {
+                return getPropByRuntimeExec(str);
+            }
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                return (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return getPropByRuntimeExec(str);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String getProp(String str) {
+    public static String getPropByRuntimeExec(String str) {
         InterceptResult invokeL;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             BufferedReader bufferedReader3 = null;
             try {
                 try {

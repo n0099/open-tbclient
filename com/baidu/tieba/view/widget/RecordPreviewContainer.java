@@ -13,17 +13,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d3a;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.f5a;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
-import com.baidu.tieba.yla;
+import com.baidu.tieba.wna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RecordPreviewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,11 +51,11 @@ public class RecordPreviewContainer extends FrameLayout {
     public f v;
     public boolean w;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(MotionEvent motionEvent, int i);
 
@@ -64,7 +64,7 @@ public class RecordPreviewContainer extends FrameLayout {
         void c();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(MotionEvent motionEvent);
 
@@ -81,7 +81,7 @@ public class RecordPreviewContainer extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class RecordPreviewContainer extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public class RecordPreviewContainer extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -413,11 +413,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < yla.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < wna.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = d3a.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = d3a.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = f5a.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = f5a.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -425,8 +425,8 @@ public class RecordPreviewContainer extends FrameLayout {
                 if (this.r == null) {
                     k();
                 }
-                int l = ii.l(getContext());
-                int j = ii.j(getContext());
+                int l = ri.l(getContext());
+                int j = ri.j(getContext());
                 this.r.setTranslationX(motionEvent.getX() - (l * 0.5f));
                 this.r.setTranslationY(motionEvent.getY() - (j * 0.5f));
                 this.r.d();
@@ -509,7 +509,7 @@ public class RecordPreviewContainer extends FrameLayout {
         }
         ImageView imageView = new ImageView(getContext());
         this.s = imageView;
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080af8);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080c1f);
         if (this.s != null) {
             int width = getWidth();
             int width2 = this.s.getWidth();
@@ -528,9 +528,9 @@ public class RecordPreviewContainer extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onFinishInflate();
             this.n = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
-            this.d = ii.l(getContext());
-            this.c = ii.j(getContext());
-            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f09053c);
+            this.d = ri.l(getContext());
+            this.c = ri.j(getContext());
+            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f090553);
             this.o = new Handler();
             postDelayed(new a(this), 4000L);
         }

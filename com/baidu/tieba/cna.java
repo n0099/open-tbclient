@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class cna {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public interface cna {
 
-    public static int a(Context context, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onCompletion();
+
+        boolean onError(int i, int i2, Object obj);
+
+        boolean onInfo(int i, int i2, Object obj);
     }
+
+    void release();
+
+    void setListener(a aVar);
+
+    void setSource(ArrayList<String> arrayList);
+
+    void start();
 }

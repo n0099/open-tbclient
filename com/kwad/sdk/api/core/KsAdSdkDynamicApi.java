@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.METHOD, ElementType.CONSTRUCTOR})
 @Keep
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface KsAdSdkDynamicApi {
     String value() default "";
 }

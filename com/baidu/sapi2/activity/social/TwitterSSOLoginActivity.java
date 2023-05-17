@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TwitterSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {

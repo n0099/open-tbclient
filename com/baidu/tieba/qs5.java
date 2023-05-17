@@ -1,211 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import com.squareup.wire.Wire;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class qs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlertDialog a;
 
-    public static final void a(Wire wire, Class<? extends Message> cls) {
-        File[] listFiles;
-        String name;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, wire, cls) == null) && wire != null && cls != null) {
-            String str = "wire_" + cls.getName();
-            File file = new File(TbadkCoreApplication.getInst().getCacheDir(), str + "_" + TbConfig.getVersion());
-            byte[] bArr = null;
-            try {
-                if (file.exists() && (bArr = b(file)) != null) {
-                    wire.parseFrom(bArr, cls);
-                }
-                if (bArr == null) {
-                    byte[] bArr2 = (byte[]) bc.c(cls, "toByteArray", new Object[0]).invoke(c(cls, new HashSet()), new Object[0]);
-                    wire.parseFrom(bArr2, cls);
-                    d(file, bArr2);
-                }
-            } catch (Throwable th) {
-                BdLog.detailException(th);
-                try {
-                    file.delete();
-                } catch (Throwable unused) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qs5 a;
+
+        public a(qs5 qs5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            File cacheDir = TbadkCoreApplication.getInst().getCacheDir();
-            if (cacheDir == null || (listFiles = cacheDir.listFiles()) == null) {
+            this.a = qs5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
+                this.a.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ qs5 b;
+
+        public b(qs5 qs5Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs5Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = qs5Var;
+            this.a = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.b.a != null) {
+                    this.b.a.dismiss();
+                }
+                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
+                    yu4.s(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
+                }
+            }
+        }
+    }
+
+    public qs5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return o65.m().i("key_member_auto_ban_renewal_show", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null && alertDialog.isShowing()) {
+                this.a.dismiss();
+            }
+            if (activity == null) {
                 return;
             }
-            for (File file2 : listFiles) {
-                if (file2 != null && (name = file2.getName()) != null && name.startsWith(str) && !file.getName().equals(name)) {
-                    try {
-                        file2.delete();
-                    } catch (Throwable unused2) {
-                    }
-                }
-            }
-        }
-    }
-
-    public static byte[] b(File file) {
-        InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            byte[] bArr = null;
-            if (file == null) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                    try {
-                        byte[] bArr2 = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr2, 0, 1024);
-                            if (read == -1) {
-                                break;
-                            }
-                            byteArrayOutputStream.write(bArr2, 0, read);
-                        }
-                        bArr = byteArrayOutputStream.toByteArray();
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th.getMessage());
-                            return bArr;
-                        } finally {
-                            ji.e(fileInputStream);
-                            ji.f(byteArrayOutputStream);
-                        }
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    byteArrayOutputStream = null;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                byteArrayOutputStream = null;
-                fileInputStream = null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static final Object c(Class<?> cls, HashSet<Class<?>> hashSet) {
-        InterceptResult invokeLL;
-        Field[] declaredFields;
-        Type[] actualTypeArguments;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, hashSet)) == null) {
-            if (hashSet != null && !hashSet.contains(cls)) {
-                hashSet.add(cls);
-                try {
-                    Class<?> cls2 = Class.forName(cls.getName() + "$Builder");
-                    Method declaredMethod = cls2.getDeclaredMethod("build", Boolean.TYPE);
-                    Object newInstance = cls2.newInstance();
-                    for (Field field : cls2.getDeclaredFields()) {
-                        Class<?> type = field.getType();
-                        if (type != null) {
-                            if (bc.e(type, Message.class)) {
-                                Object c = c(type, hashSet);
-                                if (c != null) {
-                                    if (bc.e(c.getClass(), Message.class)) {
-                                        field.setAccessible(true);
-                                        field.set(newInstance, c);
-                                    } else {
-                                        BdLog.e("");
-                                    }
-                                }
-                            } else if (bc.e(type, List.class)) {
-                                Type genericType = field.getGenericType();
-                                if ((genericType instanceof ParameterizedType) && (actualTypeArguments = ((ParameterizedType) genericType).getActualTypeArguments()) != null && actualTypeArguments.length > 0) {
-                                    try {
-                                        Class cls3 = (Class) actualTypeArguments[0];
-                                        if (bc.e(cls3, Message.class)) {
-                                            ArrayList arrayList = new ArrayList();
-                                            Object c2 = c(cls3, hashSet);
-                                            if (c2 != null) {
-                                                if (bc.e(c2.getClass(), Message.class)) {
-                                                    arrayList.add(c2);
-                                                } else {
-                                                    BdLog.e("");
-                                                }
-                                                field.setAccessible(true);
-                                                field.set(newInstance, arrayList);
-                                            }
-                                        }
-                                    } catch (Throwable unused) {
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    return declaredMethod.invoke(newInstance, Boolean.TRUE);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static final boolean d(File file, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, file, bArr)) == null) {
-            if (file == null || bArr == null) {
-                return false;
-            }
-            FileOutputStream fileOutputStream = null;
-            try {
-                if (file.exists() && !file.delete()) {
-                    return false;
-                }
-                if (!file.createNewFile()) {
-                    return false;
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    fileOutputStream2.write(bArr, 0, bArr.length);
-                    fileOutputStream2.flush();
-                    ji.f(fileOutputStream2);
-                    return true;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    try {
-                        BdLog.e(th.getMessage());
-                        return false;
-                    } finally {
-                        ji.f(fileOutputStream);
-                    }
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return invokeLL.booleanValue;
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.protocol_confirm, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.goto_see_more, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            tBAlertBuilder.w(R.string.member_reminder);
+            tBAlertBuilder.m(R.string.cancel_member_auto_renewal);
+            tBAlertBuilder.u(aVar2, aVar);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.n(3);
+            this.a = tBAlertBuilder.z();
+            o65.m().w("key_member_auto_ban_renewal_show", true);
+            aVar.a(new a(this));
+            aVar2.a(new b(this, activity));
         }
     }
 }

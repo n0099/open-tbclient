@@ -1,376 +1,298 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.facebook.common.util.UriUtil;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringNumberConversionsKt;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class kq0 {
+/* loaded from: classes6.dex */
+public class kq0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a i;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public List<c> a;
-    @JvmField
-    public String b;
-    @JvmField
-    public b c;
-    @JvmField
-    public long d;
-    @JvmField
-    public long e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
-    @JvmField
-    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921599, "Lcom/baidu/tieba/kq0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947921599, "Lcom/baidu/tieba/kq0;");
-                return;
-            }
+    public static void e(int i, int i2, String str, String str2, int i3, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3}) == null) {
         }
-        i = new a(null);
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a b;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        @JvmField
-        public String a;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-653103423, "Lcom/baidu/tieba/kq0$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-653103454, "Lcom/baidu/tieba/kq0$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-653103423, "Lcom/baidu/tieba/kq0$b;");
+                    classClinitInterceptable.invokePostClinit(-653103454, "Lcom/baidu/tieba/kq0$a;");
                     return;
                 }
             }
-            b = new a(null);
-        }
-
-        /* loaded from: classes5.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
+            int[] iArr = new int[AdBaseModel.STYLE.values().length];
+            a = iArr;
+            try {
+                iArr[AdBaseModel.STYLE.SMALL_IMAGE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-
-            public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-                this();
+            try {
+                a[AdBaseModel.STYLE.BIG_IMAGE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-
-            @JvmStatic
-            public final b a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                    if (jSONObject == null) {
-                        return null;
-                    }
-                    b bVar = new b();
-                    String str = "立即下载";
-                    String optString = jSONObject.optString("init_text", "立即下载");
-                    if (optString != null) {
-                        str = optString;
-                    }
-                    bVar.a = str;
-                    return bVar;
-                }
-                return (b) invokeL.objValue;
+            try {
+                a[AdBaseModel.STYLE.PORTRAIT_VIDEO.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+            try {
+                a[AdBaseModel.STYLE.VIDEO.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
-            this.a = "";
+            try {
+                a[AdBaseModel.STYLE.THREE_IMAGE.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[AdBaseModel.STYLE.FLOAT.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[AdBaseModel.STYLE.MAX.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[AdBaseModel.STYLE.REWARD_VIDEO_LP.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                a[AdBaseModel.STYLE.REWARD_VIDEO_LP_IMPL.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a e;
-        public transient /* synthetic */ FieldHolder $fh;
-        @JvmField
-        public String a;
-        @JvmField
-        public int[] b;
-        @JvmField
-        public String c;
-        @JvmField
-        public String d;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-653103392, "Lcom/baidu/tieba/kq0$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+    @NonNull
+    public static List<AdBaseModel> a(JSONObject jSONObject, @NonNull String[] strArr) throws ParseError {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, strArr)) == null) {
+            if (jSONObject != null) {
+                String optString = jSONObject.optString("locCode");
+                if (!TextUtils.isEmpty(optString)) {
+                    int length = strArr.length;
+                    int i = 0;
+                    while (true) {
+                        if (i >= length) {
+                            str = "";
+                            break;
+                        }
+                        str = strArr[i];
+                        if (!TextUtils.isEmpty(str) && optString.startsWith(str)) {
+                            break;
+                        }
+                        i++;
+                    }
+                    if (!TextUtils.isEmpty(str)) {
+                        JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
+                        if (optJSONArray != null && optJSONArray.length() != 0) {
+                            ArrayList arrayList = new ArrayList();
+                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                try {
+                                    AdBaseModel b = b(str, optJSONArray.optJSONObject(i2));
+                                    if (b.c == null) {
+                                        o11.b(arrayList, b);
+                                    }
+                                } catch (ParseError e) {
+                                    f(e, 0, null);
+                                }
+                            }
+                            return arrayList;
+                        }
+                        throw ParseError.parseError(34, "", str);
+                    }
+                    throw ParseError.parseError(46, "", optString + "#" + TextUtils.join("#", strArr));
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-653103392, "Lcom/baidu/tieba/kq0$c;");
-                    return;
-                }
+                throw ParseError.parseError(33, "");
             }
-            e = new a(null);
+            throw ParseError.parseError(32, "");
         }
+        return (List) invokeLL.objValue;
+    }
 
-        /* loaded from: classes5.dex */
-        public static final class a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
+    @NonNull
+    public static AdBaseModel b(String str, JSONObject jSONObject) throws ParseError {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
+            if (jSONObject != null) {
+                boolean z = true;
+                if (jSONObject.optInt("advisible", 1) != 0) {
+                    z = false;
                 }
-            }
-
-            public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-                this();
-            }
-
-            @JvmStatic
-            public final c a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                    if (jSONObject == null) {
-                        return null;
-                    }
-                    c cVar = new c();
-                    String optString = jSONObject.optString("text", "");
-                    if (optString == null) {
-                        optString = "";
-                    }
-                    cVar.a = optString;
-                    cVar.b = c.e.b(jSONObject.optString("highlight_range", ""), cVar.a);
-                    String optString2 = jSONObject.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR, "");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "json.optString(\"text_color\", \"\")");
-                    cVar.c = optString2;
-                    String optString3 = jSONObject.optString("highlight_color", "");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "json.optString(\"highlight_color\", \"\")");
-                    cVar.d = optString3;
-                    return cVar;
+                String str2 = null;
+                if (z && jSONObject.has("ext_info")) {
+                    str2 = jSONObject.optString("ext_info", null);
                 }
-                return (c) invokeL.objValue;
-            }
-
-            @JvmStatic
-            public final int[] b(String str, String str2) {
-                InterceptResult invokeLL;
-                boolean z;
-                String str3;
-                Integer intOrNull;
-                Integer intOrNull2;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                    if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                        z = false;
+                if (str2 == null) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("extra");
+                    if (optJSONArray != null && optJSONArray.length() != 0) {
+                        int length = optJSONArray.length();
+                        int i = 0;
+                        while (true) {
+                            if (i >= length) {
+                                break;
+                            }
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                String optString = optJSONObject.optString("k");
+                                String optString2 = optJSONObject.optString("v");
+                                if (!TextUtils.isEmpty(optString2) && TextUtils.equals("extraParam", optString)) {
+                                    str2 = optString2;
+                                    break;
+                                }
+                            }
+                            i++;
+                        }
                     } else {
-                        z = true;
+                        throw ParseError.parseError(36, "", str);
                     }
-                    if (z) {
-                        return null;
-                    }
-                    List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
-                    if (split$default.size() == 2 && (str3 = (String) CollectionsKt___CollectionsKt.getOrNull(split$default, 0)) != null && (intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(str3)) != null) {
-                        int intValue = intOrNull.intValue();
-                        String str4 = (String) CollectionsKt___CollectionsKt.getOrNull(split$default, 1);
-                        if (str4 != null && (intOrNull2 = StringsKt__StringNumberConversionsKt.toIntOrNull(str4)) != null) {
-                            int intValue2 = intOrNull2.intValue();
-                            if (intValue >= 0 && intValue2 <= str2.length() && intValue < intValue2) {
-                                return new int[]{intValue, intValue2};
+                }
+                if (str2 != null) {
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("material");
+                    if (optJSONArray2 != null && optJSONArray2.length() != 0) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(0);
+                        if (optJSONObject2 != null) {
+                            try {
+                                JSONArray jSONArray = new JSONArray(optJSONObject2.optString("info"));
+                                if (jSONArray.length() != 0) {
+                                    JSONObject optJSONObject3 = jSONArray.optJSONObject(0);
+                                    if (optJSONObject3 != null) {
+                                        int optInt = jSONObject.optInt("floor");
+                                        AdBaseModel d = d(str, optInt, optJSONObject3, str2);
+                                        if (d != null) {
+                                            d.n = optJSONObject2.optInt("imTimeSign", -1);
+                                            ParseError parseError = d.c;
+                                            if (parseError != null) {
+                                                f(parseError, jSONObject.optInt("floor"), d.f.d);
+                                                return d;
+                                            }
+                                            return d;
+                                        } else if (z) {
+                                            return new AdBaseModel(hq0.a(str, optInt, new JSONObject(), new JSONObject(), str2), new JSONObject());
+                                        } else {
+                                            throw ParseError.contentError(24, "", str2);
+                                        }
+                                    }
+                                    throw ParseError.parseError(41, str2, str);
+                                }
+                                throw ParseError.parseError(40, str2, str);
+                            } catch (JSONException unused) {
+                                throw ParseError.parseError(40, str2, str);
                             }
                         }
+                        throw ParseError.parseError(39, str2, str);
                     }
-                    return null;
+                    throw ParseError.parseError(38, str2, str);
                 }
-                return (int[]) invokeLL.objValue;
+                throw ParseError.parseError(37, "", str);
             }
+            throw ParseError.parseError(35, "", str);
         }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.c = "";
-            this.d = "";
-        }
+        return (AdBaseModel) invokeLL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final kq0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                kq0 kq0Var = new kq0();
-                kq0Var.a = kq0.i.b(jSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST));
-                String optString = jSONObject.optString("icon", "");
-                Intrinsics.checkNotNullExpressionValue(optString, "json.optString(\"icon\", \"\")");
-                kq0Var.b = optString;
-                kq0Var.c = b.b.a(jSONObject.optJSONObject("download_text"));
-                kq0Var.d = jSONObject.optLong("interval", 3000L);
-                kq0Var.e = jSONObject.optLong("start_delay", 3000L);
-                String optString2 = jSONObject.optString("background_color", "");
-                Intrinsics.checkNotNullExpressionValue(optString2, "json.optString(\"background_color\", \"\")");
-                kq0Var.f = optString2;
-                String optString3 = jSONObject.optString("cmd", "");
-                Intrinsics.checkNotNullExpressionValue(optString3, "json.optString(\"cmd\", \"\")");
-                kq0Var.g = optString3;
-                Intrinsics.checkNotNullExpressionValue(jSONObject.optString("type", ""), "json.optString(\"type\", \"\")");
-                Intrinsics.checkNotNullExpressionValue(jSONObject.optString("style", ""), "json.optString(\"style\", \"\")");
-                kq0Var.h = jSONObject.optInt("show_count", 0);
-                jSONObject.optDouble("max_width", 0.6d);
-                return kq0Var;
-            }
-            return (kq0) invokeL.objValue;
-        }
-
-        @JvmStatic
-        public final List<c> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        c a = c.e.a(jSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
-                        }
-                    }
-                    return arrayList;
-                }
-                return new ArrayList();
-            }
-            return (List) invokeL.objValue;
-        }
-    }
-
-    public kq0() {
+    @NonNull
+    public static AdBaseModel[] c(String str, String[] strArr) throws ParseError {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                JSONObject optJSONObject = p11.c(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject != null) {
+                    if (optJSONObject.optInt("status", 0) == 0) {
+                        JSONArray optJSONArray = optJSONObject.optJSONArray("ad");
+                        if (optJSONArray != null) {
+                            int length = optJSONArray.length();
+                            ArrayList arrayList = new ArrayList();
+                            for (int i = 0; i < length; i++) {
+                                try {
+                                    o11.c(arrayList, a(optJSONArray.optJSONObject(i), strArr));
+                                } catch (ParseError e) {
+                                    f(e, 0, null);
+                                }
+                            }
+                            return (AdBaseModel[]) arrayList.toArray(new AdBaseModel[0]);
+                        }
+                        throw ParseError.parseError(44, "");
+                    }
+                    throw ParseError.parseError(42, "");
+                }
+                throw ParseError.parseError(31, "");
+            }
+            throw ParseError.parseError(29, "");
+        }
+        return (AdBaseModel[]) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static AdBaseModel d(@NonNull String str, int i, @NonNull JSONObject jSONObject, @NonNull String str2) throws ParseError {
+        InterceptResult invokeLILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65539, null, str, i, jSONObject, str2)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
+            if (optJSONObject == null) {
+                return null;
+            }
+            hq0 a2 = hq0.a(str, i, jSONObject, optJSONObject, str2);
+            switch (a.a[a2.a.ordinal()]) {
+                case 1:
+                case 2:
+                    return new xp0(a2, jSONObject);
+                case 3:
+                    return new iq0(a2, jSONObject);
+                case 4:
+                    return new pq0(a2, jSONObject);
+                case 5:
+                    return new mq0(a2, jSONObject);
+                case 6:
+                case 7:
+                case 8:
+                    return new AdBaseModel(a2, jSONObject);
+                case 9:
+                    return new lq0(a2, jSONObject);
+                default:
+                    throw ParseError.contentError(23, a2.a.value);
             }
         }
-        this.a = new ArrayList();
-        this.b = "";
-        this.d = 3000L;
-        this.e = 3000L;
-        this.f = "";
-        this.g = "";
+        return (AdBaseModel) invokeLILL.objValue;
+    }
+
+    public static void f(ParseError parseError, int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65541, null, parseError, i, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = parseError.mExtraParam;
+            }
+            String str2 = parseError.mPid;
+            e(parseError.mType, parseError.mReason, parseError.mTplName, str2, i, str);
+        }
     }
 }

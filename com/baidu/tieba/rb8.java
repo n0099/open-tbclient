@@ -1,109 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.app.Activity;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class rb8 extends vm<qb8, CardViewHolder<vb8>> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class rb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ji6 b;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rb8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    @Override // com.baidu.tieba.vm
-    public sn getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
-        }
-        return (sn) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardViewHolder<vb8> onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean a(List<BotsDTO.BotListDTO.SkillDTO.ItemsDTO> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            vb8 vb8Var = new vb8(this.a, viewGroup);
-            ji6 ji6Var = this.b;
-            if (ji6Var != null) {
-                vb8Var.k(ji6Var);
-            }
-            return new CardViewHolder<>(vb8Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void x(ji6 ji6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ji6Var) == null) {
-            this.b = ji6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qb8 qb8Var, CardViewHolder<vb8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qb8Var, cardViewHolder})) == null) {
-            if (qb8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().z(this.c);
-                vb8 a = cardViewHolder.a();
-                if (i == 0) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            for (BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO : list) {
+                if (itemsDTO != null && !ListUtils.isEmpty(itemsDTO.getOpts()) && ListUtils.getCount(itemsDTO.getOpts()) > 0 && ListUtils.getItem(itemsDTO.getOpts(), 0) != null) {
+                    BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = ((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) ListUtils.getItem(itemsDTO.getOpts(), 0)).getExt();
+                    if (itemsDTO.getItemType() == 0) {
+                        continue;
+                    } else if (itemsDTO.getItemType() == 1 && (ext == null || StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize()))) {
+                        c(itemsDTO.getItemType());
+                        return false;
+                    } else if (!itemsDTO.isOptional() && itemsDTO.getItemType() == 2 && (ext == null || ListUtils.isEmpty(ext.getAtUserInfos()))) {
+                        c(itemsDTO.getItemType());
+                        return false;
+                    }
                 }
-                a.A(z);
-                cardViewHolder.a().i(qb8Var);
-                return cardViewHolder.getView();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Nullable
+    public static List<String> b(@Nullable List<AtSelectData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (list != null && !ListUtils.isEmpty(list) && ListUtils.getCount(list) > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (AtSelectData atSelectData : list) {
+                    if (atSelectData != null) {
+                        arrayList.add(atSelectData.getUid());
+                    }
+                }
+                return arrayList;
             }
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public static void c(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (i == 1) {
+                str = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0928);
+            } else if (i == 2) {
+                str = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0927);
+            } else {
+                str = "";
+            }
+            Activity currentActivity = TbadkApplication.getInst().getCurrentActivity();
+            if (currentActivity != null) {
+                BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
+                bdTopToast.h(false);
+                bdTopToast.g(str);
+                bdTopToast.i((ViewGroup) currentActivity.findViewById(16908290));
+            }
+        }
     }
 }

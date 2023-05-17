@@ -17,7 +17,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ma9;
+import com.baidu.tieba.ic9;
 import com.baidu.tieba.play.VideoControllerView;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.view.VideoFullscreenButton;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,11 +37,11 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
     public int e;
     public View.OnClickListener f;
     public boolean g;
-    public ma9 h;
+    public ic9 h;
     public TbImageView i;
     public TBLottieAnimationView j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,18 +111,18 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 if (this.a.b != null && this.a.d != null) {
                     this.a.b.start();
-                    this.a.d.i(0, this.a.b.getDuration());
-                    this.a.d.p();
+                    this.a.d.l(0, this.a.b.getDuration());
+                    this.a.d.t();
                 }
                 if (this.a.i != null) {
                     this.a.i.setVisibility(8);
                 }
-                this.a.F1();
+                this.a.E1();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,12 +151,12 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b != null && this.a.d != null) {
                 this.a.b.start();
-                this.a.d.p();
+                this.a.d.t();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,7 +203,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         }
     }
 
-    public final void F1() {
+    public final void E1() {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tBLottieAnimationView = this.j) != null) {
@@ -275,7 +275,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
             if (customVideoView != null) {
                 customVideoView.start();
                 this.b.seekTo(this.e);
-                this.d.p();
+                this.d.t();
             }
         }
     }
@@ -285,7 +285,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003a);
+            setContentView(R.layout.obfuscated_res_0x7f0d003b);
             initData();
             G1();
             initView();
@@ -303,7 +303,7 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
             this.c = (VideoInfo) serializableExtra;
         }
         this.g = intent.getBooleanExtra(GpVideoPreviewActivityConfig.KEY_IS_SUPPORT_FULLSCREEN, false);
-        this.h = new ma9(this);
+        this.h = new ic9(this);
     }
 
     public final void initView() {
@@ -311,10 +311,10 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c0d);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091169);
-            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080aaf));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091c0f);
+            this.a = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c61);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0911a3);
+            ((ImageView) this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bd6));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091c63);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
@@ -324,16 +324,16 @@ public class GpVideoPreviewActivity extends BaseActivity<GpVideoPreviewActivity>
                 this.i.setGifIconSupport(false);
                 this.i.N(this.c.getThumbPath(), 10, false);
             }
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0922d5);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f092339);
             this.j = tBLottieAnimationView;
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lotti_video_loading);
             H1();
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091c0b);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091c5f);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
-            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f092717);
+            VideoFullscreenButton videoFullscreenButton = (VideoFullscreenButton) findViewById(R.id.obfuscated_res_0x7f092783);
             if (this.g && (videoInfo = this.c) != null && videoInfo.getVideoWidth() > this.c.getVideoHeight()) {
                 videoFullscreenButton.setVisibility(0);
             } else {

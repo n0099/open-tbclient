@@ -1,16 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,18 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class hw2 implements fw2 {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class hw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BitmapRegionDecoder a;
-    public final Object b;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +39,16 @@ public class hw2 implements fw2 {
                 return;
             }
         }
-        c = ho1.a;
+        boolean z = qp1.a;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
     }
 
     public hw2() {
@@ -60,145 +64,45 @@ public class hw2 implements fw2 {
                 return;
             }
         }
-        this.b = new Object();
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    @Override // com.baidu.tieba.fw2
-    public boolean isReady() {
+    public static hw2 a(JSONObject jSONObject, hw2 hw2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, hw2Var)) == null) {
+            hw2 hw2Var2 = new hw2();
+            if (jSONObject != null) {
+                hw2Var2.a = jSONObject.optString("audioId", hw2Var.a);
+                hw2Var2.b = jSONObject.optString("slaveId", hw2Var.b);
+                hw2Var2.e = jSONObject.optBoolean("autoplay", hw2Var.e);
+                hw2Var2.f = jSONObject.optBoolean("loop", hw2Var.f);
+                hw2Var2.c = jSONObject.optString("src", hw2Var.c);
+                hw2Var2.d = jSONObject.optInt("startTime", hw2Var.d);
+                hw2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", hw2Var.g);
+                hw2Var2.h = jSONObject.optInt(CriusAttrConstants.POSITION, hw2Var.h);
+                hw2Var2.i = (float) jSONObject.optDouble("volume", hw2Var.i);
+                hw2Var2.j = jSONObject.optString("cb", hw2Var.j);
+            }
+            return hw2Var2;
+        }
+        return (hw2) invokeLL.objValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            BitmapRegionDecoder bitmapRegionDecoder = this.a;
-            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fw2
-    public void recycle() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.recycle();
-        }
-    }
-
-    @Override // com.baidu.tieba.fw2
-    public Point a(Context context, Bitmap bitmap) throws Exception {
-        InputStream inputStream;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bitmap)) == null) {
-            try {
-                inputStream = b(bitmap);
-                try {
-                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
-                    bo4.d(inputStream);
-                    return new Point(this.a.getWidth(), this.a.getHeight());
-                } catch (Throwable th) {
-                    th = th;
-                    bo4.d(inputStream);
-                    throw th;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
-            }
-        } else {
-            return (Point) invokeLL.objValue;
-        }
-    }
-
-    @Override // com.baidu.tieba.fw2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decodeRegion(Rect rect, int i) {
-        InterceptResult invokeLI;
-        Bitmap decodeRegion;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i)) == null) {
-            synchronized (this.b) {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = i;
-                options.inPreferredConfig = Bitmap.Config.RGB_565;
-                decodeRegion = this.a.decodeRegion(rect, options);
-                if (decodeRegion == null) {
-                    if (!c) {
-                        x42.k("SkiaImageRegionDecoder", "bitmap is null");
-                    } else {
-                        throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
-                    }
-                }
-            }
-            return decodeRegion;
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public InputStream b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
-            if (bitmap.hasAlpha()) {
-                compressFormat = Bitmap.CompressFormat.PNG;
-            }
-            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
-            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fw2
-    public Point init(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Resources resourcesForApplication;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
-                }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else {
-                    if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                        try {
-                            i = Integer.parseInt(pathSegments.get(0));
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    i = 0;
-                }
-                this.a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
-            } else if (uri2.startsWith("file:///android_asset/")) {
-                this.a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
-            } else if (uri2.startsWith("file://")) {
-                this.a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
-            } else {
-                InputStream inputStream = null;
-                try {
-                    inputStream = context.getContentResolver().openInputStream(uri);
-                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
-                } finally {
-                    bo4.d(inputStream);
-                }
-            }
-            return new Point(this.a.getWidth(), this.a.getHeight());
-        }
-        return (Point) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

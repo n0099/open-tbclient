@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String b = "gzip";
@@ -43,7 +44,7 @@ public class m {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +188,7 @@ public class m {
                     httpsURLConnection.setReadTimeout(5000);
                     httpsURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                     httpsURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                    if (str2.equalsIgnoreCase("post")) {
+                    if (str2.equalsIgnoreCase(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND)) {
                         httpsURLConnection.setDoInput(true);
                         httpsURLConnection.setDoOutput(true);
                         httpsURLConnection.setUseCaches(false);
@@ -495,7 +496,7 @@ public class m {
                     if (!TextUtils.isEmpty(b2) && a2 != null) {
                         a2.setRequestProperty("env", b2);
                     }
-                    if (str.equalsIgnoreCase("post")) {
+                    if (str.equalsIgnoreCase(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND)) {
                         byte[] bytes = nVar.c() != null ? nVar.c().toString().getBytes() : null;
                         if (bytes != null && bytes.length > 0) {
                             a2.setRequestProperty("Content-Length", String.valueOf(bytes.length));

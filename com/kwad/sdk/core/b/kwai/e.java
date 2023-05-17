@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.contentalliance.coupon.model.ActivityInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e implements com.kwad.sdk.core.d<ActivityInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(ActivityInfo activityInfo, JSONObject jSONObject) {

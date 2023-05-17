@@ -1,98 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.data.ItemState;
+import com.baidu.tieba.danmu.data.state.DrawState;
+import com.baidu.tieba.fq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import tbclient.ItemManage.DataReq;
-import tbclient.ItemManage.ItemManageReqIdl;
-/* loaded from: classes4.dex */
-public class dq6 implements dl5 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class dq6 implements fq6.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final int b;
 
-    @Override // com.baidu.tieba.cl5
-    public HashMap<String, Object> P() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cl5
-    public HashMap<String, String> T() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public dq6(int i, int i2) {
+    public dq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fq6.a
+    public void a(ko6 item, long j, kq6 displayer, eo6 config) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{item, Long.valueOf(j), displayer, config}) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            DrawState f = item.f();
+            if (item.i().compareTo(ItemState.Measured) >= 0) {
+                f.A((displayer.getWidth() - f.q()) * 0.5f);
+                f.H(true);
+                return;
+            }
+            f.H(false);
         }
-        return invokeV.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = 1;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a++;
-        }
-    }
-
-    @Override // com.baidu.tieba.fl5
-    public Object q(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            DataReq.Builder builder = new DataReq.Builder();
-            builder.pn = Integer.valueOf(this.a);
-            builder.rn = 15;
-            builder.tab_id = Integer.valueOf(this.b);
-            ItemManageReqIdl.Builder builder2 = new ItemManageReqIdl.Builder();
-            DataReq build = builder.build(false);
-            builder2.data = build;
-            jr5.a(build, false);
-            return builder2.build(false);
-        }
-        return invokeZ.objValue;
     }
 }

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class MultiplexProducer<K, T extends Closeable> implements Producer<T> {
     public static final String EXTRAS_STARTED_AS_PREFETCH = "started_as_prefetch";
     public final String mDedupedRequestsCountKey;
@@ -35,7 +35,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     public abstract K getKey(ProducerContext producerContext);
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class Multiplexer {
         public final CopyOnWriteArraySet<Pair<Consumer<T>, ProducerContext>> mConsumerContextPairs = Sets.newCopyOnWriteArraySet();
         @GuardedBy("Multiplexer.this")
@@ -53,7 +53,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         @Nullable
         public BaseProducerContext mMultiplexProducerContext;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public class ForwardingConsumer extends BaseConsumer<T> {
             public ForwardingConsumer() {
             }

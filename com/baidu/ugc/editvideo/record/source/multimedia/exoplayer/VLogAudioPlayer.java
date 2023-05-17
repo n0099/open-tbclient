@@ -4,8 +4,8 @@ import android.media.MediaMetadataRetriever;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.tieba.hla;
-import com.baidu.tieba.lla;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.jna;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VLogAudioPlayer {
     public static final int STATE_ERROR = -1;
     public static final int STATE_IDLE = 0;
@@ -87,12 +87,12 @@ public class VLogAudioPlayer {
     };
     public Handler mPlayerHandler = new Handler(MultiMediaDataSourceTimerManager.getInstance().getPlayerLooper());
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnProgressListener {
         void getCurrentDuration(long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ProgressTimerTask extends TimerTask {
         public ProgressTimerTask() {
         }
@@ -106,7 +106,7 @@ public class VLogAudioPlayer {
                     return;
                 }
             } else if (VLogAudioPlayer.this.mMediaPlayer != null) {
-                hla.e(VLogAudioPlayer.TAG, "是否静音：" + VLogAudioPlayer.this.isMute);
+                fna.e(VLogAudioPlayer.TAG, "是否静音：" + VLogAudioPlayer.this.isMute);
                 if (!VLogAudioPlayer.this.isMute) {
                     try {
                         VLogAudioPlayer.this.updateVolume(VLogAudioPlayer.this.mMediaPlayer.getCurrentPosition());
@@ -325,7 +325,7 @@ public class VLogAudioPlayer {
             AudioPlayData audioPlayData2 = list.get(i);
             if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                 mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                int b = lla.b(mediaMetadataRetriever.extractMetadata(9), 0);
+                int b = jna.b(mediaMetadataRetriever.extractMetadata(9), 0);
                 audioPlayData2.realDuration = b;
                 if (audioPlayData == null) {
                     if (b <= 0) {
@@ -527,7 +527,7 @@ public class VLogAudioPlayer {
                 for (int i = 0; i < list.size(); i++) {
                     AudioPlayData audioPlayData = (AudioPlayData) list.get(i);
                     if (audioPlayData != null) {
-                        VLogAudioPlayer.this.handledAudioList.add(audioPlayData.m79clone());
+                        VLogAudioPlayer.this.handledAudioList.add(audioPlayData.m98clone());
                     }
                 }
                 VLogAudioPlayer vLogAudioPlayer = VLogAudioPlayer.this;
@@ -537,7 +537,7 @@ public class VLogAudioPlayer {
     }
 
     public void setMute(boolean z) {
-        hla.e(TAG, "设置静音");
+        fna.e(TAG, "设置静音");
         this.isMute = z;
         setVolume(0.0f);
     }
@@ -570,7 +570,7 @@ public class VLogAudioPlayer {
         schedule(new Runnable() { // from class: com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogAudioPlayer.10
             @Override // java.lang.Runnable
             public void run() {
-                hla.e(VLogAudioPlayer.TAG, "设置音量为 = " + f);
+                fna.e(VLogAudioPlayer.TAG, "设置音量为 = " + f);
                 VLogAudioPlayer.this.setVolumeInternal(f);
             }
         });

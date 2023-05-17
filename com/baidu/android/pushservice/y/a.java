@@ -42,13 +42,13 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.y.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0038a implements Callback {
+    public class C0041a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ClientEventInfo a;
         public final /* synthetic */ a b;
 
-        public C0038a(a aVar, ClientEventInfo clientEventInfo) {
+        public C0041a(a aVar, ClientEventInfo clientEventInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,7 +202,7 @@ public class a {
     public void a(byte[] bArr, String str, ClientEventInfo clientEventInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, bArr, str, clientEventInfo) == null) {
-            this.b.newCall(a(bArr, str, true)).enqueue(new C0038a(this, clientEventInfo));
+            this.b.newCall(a(bArr, str, true)).enqueue(new C0041a(this, clientEventInfo));
         }
     }
 

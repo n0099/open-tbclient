@@ -16,18 +16,18 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.sb;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
+import com.baidu.tieba.y85;
+import com.baidu.tieba.yb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SystemHelpSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
     public Context c;
     public BaseActivity.LoadDataCallBack d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                p75.a();
+                y85.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");
@@ -126,7 +126,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,10 +160,10 @@ public class SystemHelpSettingModel extends BdBaseModel {
             long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                sb sbVar = new sb();
-                String a = sbVar.a("image", true, false, true);
+                yb ybVar = new yb();
+                String a = ybVar.a("image", true, false, true);
                 String cacheDir = FileHelper.getCacheDir();
-                String a2 = sbVar.a("images", true, false, true);
+                String a2 = ybVar.a("images", true, false, true);
                 String str = cacheDir + "voice";
                 long directorySize = FileHelper.getDirectorySize(a, false);
                 long directorySize2 = FileHelper.getDirectorySize(a2, false);
@@ -178,7 +178,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
                 long j2 = directorySize + directorySize3 + fileSize + directorySize2 + j;
                 float f = ((float) j2) + 0.0f;
                 if (j2 >= 10485.76d && this.a.get() != null) {
-                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0b87);
+                    return String.format("%.2f", Float.valueOf(f / 1048576.0f)) + this.a.get().getString(R.string.obfuscated_res_0x7f0f0c08);
                 }
                 return "";
             }
@@ -211,7 +211,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -224,21 +224,21 @@ public class SystemHelpSettingModel extends BdBaseModel {
         this.c = systemHelpSettingActivity.getPageContext().getPageActivity();
     }
 
-    public void b0(boolean z) {
+    public void a0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             TbadkCoreApplication.getInst().setHeadsetModeOn(z);
         }
     }
 
-    public void c0(BaseActivity.LoadDataCallBack loadDataCallBack) {
+    public void b0(BaseActivity.LoadDataCallBack loadDataCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, loadDataCallBack) == null) {
             this.d = loadDataCallBack;
         }
     }
 
-    public void Y() {
+    public void X() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
             b bVar = new b(this, null);
@@ -247,7 +247,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void Z() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -257,7 +257,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
         }
     }
 
-    public void a0() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null) {
             c cVar = new c(this, this.c);

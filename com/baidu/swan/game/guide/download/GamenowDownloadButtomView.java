@@ -11,7 +11,7 @@ import android.view.View;
 import androidx.annotation.ColorInt;
 import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GamenowDownloadButtomView extends View {
     public Paint a;
     public int b;
@@ -27,7 +27,7 @@ public class GamenowDownloadButtomView extends View {
     public DownloadState l;
     public float m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static final /* synthetic */ int[] a;
 
@@ -59,9 +59,9 @@ public class GamenowDownloadButtomView extends View {
         this.m = -1.0f;
         this.a.setAntiAlias(true);
         this.g.setAntiAlias(true);
-        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070142);
-        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f0602fe);
-        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f0602ff);
+        this.i = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070149);
+        this.b = context.getResources().getColor(R.color.obfuscated_res_0x7f060412);
+        this.c = context.getResources().getColor(R.color.obfuscated_res_0x7f060413);
     }
 
     public final void a(Canvas canvas, RectF rectF) {

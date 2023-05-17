@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AddFriend.AddFriendReqIdl;
 import tbclient.AddFriend.ReqData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RequestAddFriendMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

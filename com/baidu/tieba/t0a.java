@@ -1,7 +1,10 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface t0a {
-    void d(boolean z);
 
-    void g(float f);
+import com.baidu.tieba.video.editvideo.data.MusicData;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface t0a {
+    void o1(String str, int i, String str2);
+
+    void setMusicData(List<MusicData> list);
 }

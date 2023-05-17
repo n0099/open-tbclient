@@ -1,7 +1,7 @@
 package com.facebook.common.file;
 
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface FileTreeVisitor {
     void postVisitDirectory(File file);
 

@@ -1,284 +1,139 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes7.dex */
-public class ym {
+import java.lang.ref.WeakReference;
+/* loaded from: classes8.dex */
+public class ym extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<c> a;
-    public ArrayList<c> b;
-    public a c;
+    public int a;
+    public int b;
+    public WeakReference<Drawable> c;
+    public int d;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void onPreLoad();
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ym ymVar, View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ymVar, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public int b;
-        public TypeAdapter.ViewHolder c;
-        public Object d;
-        public boolean e;
-
-        public c(ym ymVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ymVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ym() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ym(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
     }
 
-    public void a(View view2, Object obj, boolean z, boolean z2, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ym(Context context, Bitmap bitmap, int i) {
+        super(context, bitmap, i);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || view2 == null) {
-            return;
-        }
-        c cVar = new c(this);
-        cVar.c = new TypeAdapter.ViewHolder(view2);
-        cVar.d = obj;
-        cVar.e = z2;
-        int id = BdUniqueId.gen().getId();
-        cVar.b = id;
-        cVar.a = id;
-        if (i >= 0 && i <= this.b.size()) {
-            this.b.add(i, cVar);
-        } else {
-            this.b.add(cVar);
-        }
-    }
-
-    public void b(View view2, Object obj, boolean z, boolean z2, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) != null) || view2 == null) {
-            return;
-        }
-        c cVar = new c(this);
-        cVar.c = new TypeAdapter.ViewHolder(view2);
-        cVar.d = obj;
-        cVar.e = z2;
-        int id = BdUniqueId.gen().getId();
-        cVar.b = id;
-        cVar.a = id;
-        if (i >= 0 && i <= this.a.size()) {
-            this.a.add(i, cVar);
-        } else {
-            this.a.add(cVar);
-        }
-    }
-
-    public TypeAdapter.ViewHolder c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            TextView textView = new TextView(context);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0b16));
-            int d = ii.d(context, 15.0f);
-            textView.setPadding(d, d, d, d);
-            textView.setHeight(0);
-            return new b(this, textView);
-        }
-        return (TypeAdapter.ViewHolder) invokeL.objValue;
-    }
-
-    public boolean j(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bitmap, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Bitmap) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            for (int i = 0; i < this.b.size(); i++) {
-                c cVar = this.b.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    this.b.remove(i);
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean k(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ym(Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            for (int i = 0; i < this.a.size(); i++) {
-                c cVar = this.a.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    this.a.remove(i);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int d(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            for (int i = 0; i < this.b.size(); i++) {
-                c cVar = this.b.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public c e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            Iterator<c> it = this.b.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next != null && i == next.b) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public int f(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                c cVar = this.a.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public c g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            Iterator<c> it = this.a.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next != null && i == next.b) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public void l(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.c = aVar;
         }
     }
 
-    public int h() {
+    public final Drawable a() {
         InterceptResult invokeV;
+        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.c;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
+            }
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.c = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        return invokeV.intValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    public int i() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.size();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
         }
-        return invokeV.intValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f + this.b, ((i5 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.d);
+            a.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.b + this.a;
+        }
+        return invokeCommon.intValue;
     }
 }

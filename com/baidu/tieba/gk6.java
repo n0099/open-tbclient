@@ -1,84 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PbGoodsData;
-import com.baidu.tbadk.core.data.PbLinkData;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
-import com.baidu.tieba.rw6;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gk6 implements rw6.i {
+/* loaded from: classes5.dex */
+public class gk6 extends kk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId Q0;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gk6() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947796855, "Lcom/baidu/tieba/gk6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947796855, "Lcom/baidu/tieba/gk6;");
+                return;
+            }
+        }
+        Q0 = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.kk6, com.baidu.tieba.ck6, com.baidu.tieba.jy4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kk6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return Q0;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public gk6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rw6.l
-    public void a(@NonNull ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            ((SingleLinkCardView) viewGroup).d();
-        }
-    }
-
-    @Override // com.baidu.tieba.rw6.i
-    @NonNull
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new SingleLinkCardView(context);
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.rw6.i
-    public void update(@NonNull ViewGroup viewGroup, @NonNull ux6 ux6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, ux6Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
-            az6 d = ux6Var.d();
-            if (d.i() == 6) {
-                PbGoodsData pbGoodsData = new PbGoodsData();
-                pbGoodsData.title = d.h();
-                pbGoodsData.picUrl = d.f();
-                pbGoodsData.price = d.c();
-                pbGoodsData.linkUrl = d.e();
-                pbGoodsData.sort = d.g();
-                pbGoodsData.linkFrom = d.d();
-                pbGoodsData.goodsUrlH5 = d.a();
-                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            PbLinkData pbLinkData = new PbLinkData();
-            pbLinkData.title = d.h();
-            pbLinkData.linkUrl = d.e();
-            pbLinkData.picUrl = d.f();
-            pbLinkData.linkFrom = d.d();
-            pbLinkData.extTxt = d.c();
-            pbLinkData.sort = d.g();
-            pbLinkData.urlType = d.i();
-            pbLinkData.content1 = d.a();
-            pbLinkData.content2 = d.b();
-            ((SingleLinkCardView) viewGroup).a(pbLinkData);
         }
+        this.a = threadData;
+    }
+
+    public static boolean Z(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isBJHNormalThreadType();
+        }
+        return invokeL.booleanValue;
     }
 }

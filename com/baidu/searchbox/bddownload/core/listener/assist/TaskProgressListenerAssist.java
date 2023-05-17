@@ -9,12 +9,12 @@ import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TaskProgressListenerAssist implements ListenerAssist, ListenerModelHandler.ModelCreator<Listener1Model> {
     public TaskProgressListenerCallback callback;
     public final ListenerModelHandler<Listener1Model> modelHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface TaskProgressListenerCallback {
         void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
@@ -27,7 +27,7 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         void taskStart(@NonNull DownloadTask downloadTask, @NonNull Listener1Model listener1Model);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Listener1Model implements ListenerModelHandler.ListenerModel {
         public int blockCount;
         public final AtomicLong currentOffset = new AtomicLong();

@@ -1,50 +1,101 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import android.widget.CompoundButton;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.hka;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class w2a implements hka.b {
+import java.util.ArrayList;
+/* loaded from: classes8.dex */
+public class w2a {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean o;
-    public static boolean p;
-    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public boolean c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public SurfaceTexture l;
-    public volatile boolean m;
-    public volatile boolean n;
+    public boolean a;
+    public g06 b;
+    public NEGFeedBackView.b c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948220067, "Lcom/baidu/tieba/w2a;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public class a implements NEGFeedBackView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w2a a;
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void b(h05 h05Var, CompoundButton compoundButton, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h05Var, compoundButton, z) == null) {
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void c(h05 h05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h05Var) == null) {
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948220067, "Lcom/baidu/tieba/w2a;");
+
+        public a(w2a w2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w2aVar;
+        }
+
+        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
+        public void a(ArrayList<Integer> arrayList, String str, h05 h05Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, h05Var) == null) && arrayList != null && h05Var != null) {
+                StringBuilder sb = new StringBuilder();
+                int size = arrayList.size();
+                int i = 0;
+                for (int i2 = 0; i2 < size; i2++) {
+                    sb.append(arrayList.get(i2));
+                    sb.append(",");
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                int i3 = h05Var.n;
+                int i4 = 3;
+                if (i3 == 0) {
+                    i = 1;
+                } else if (i3 == 40) {
+                    i = 2;
+                } else if (i3 == 49 || i3 == 69) {
+                    i = 3;
+                }
+                boolean z = h05Var.r;
+                if (this.a.a) {
+                    if (!z) {
+                        i4 = 2;
+                    }
+                } else if (z) {
+                    i4 = 5;
+                } else {
+                    i4 = 4;
+                }
+                StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", h05Var.f()).param("nid", h05Var.e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", h05Var.c()).param("obj_param1", h05Var.k).param("obj_source", h05Var.l).param("obj_id", h05Var.m).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
+            }
         }
     }
 
@@ -52,91 +103,69 @@ public abstract class w2a implements hka.b {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = -1;
-        this.m = false;
-        this.n = false;
+        this.a = false;
+        this.c = new a(this);
     }
 
-    @Override // com.baidu.tieba.hka.b
-    public boolean a() {
-        InterceptResult invokeV;
+    public void b() {
+        g06 g06Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.m;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (g06Var = this.b) != null) {
+            g06Var.h();
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hka.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hka.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hka.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hka.b
-    public void j(boolean z) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.n = z;
+            this.a = z;
         }
     }
 
-    @Override // com.baidu.tieba.hka.b
-    public void m(boolean z) {
+    public void d(TbPageContext tbPageContext, VideoItemData videoItemData, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.m = z;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) != null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+            return;
         }
+        if (this.b == null) {
+            this.b = new g06(tbPageContext);
+        }
+        h05 negFeedBackData = videoItemData.getNegFeedBackData();
+        if (negFeedBackData == null) {
+            negFeedBackData = new h05();
+        }
+        String str = videoItemData.thread_id;
+        String str2 = videoItemData.forum_id;
+        negFeedBackData.r = z;
+        negFeedBackData.o(str);
+        negFeedBackData.l(str2);
+        this.b.r(this.a);
+        this.b.p(this.c);
+        this.b.o(negFeedBackData);
+        this.b.q(true);
+        this.b.h();
+        this.b.s();
+        if (this.a) {
+            if (z) {
+                i = 3;
+            } else {
+                i = 2;
+            }
+        } else if (z) {
+            i = 5;
+        } else {
+            i = 4;
+        }
+        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", i).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
     }
 }

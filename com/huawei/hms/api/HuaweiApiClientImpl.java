@@ -70,7 +70,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClient, ServiceConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object A;
@@ -112,13 +112,13 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e implements ResultCallback<ResolveResult<ConnectResp>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HuaweiApiClientImpl a;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -187,13 +187,13 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class f implements ResultCallback<ResolveResult<DisconnectResp>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HuaweiApiClientImpl a;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -262,7 +262,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -305,7 +305,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -348,7 +348,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends IAIDLCallback.Stub {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -391,7 +391,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d extends PendingResultImpl<Status, IMessageEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,7 +429,7 @@ public class HuaweiApiClientImpl extends HuaweiApiClient implements InnerApiClie
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class g implements ResultCallback<ResolveResult<JosGetNoticeResp>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

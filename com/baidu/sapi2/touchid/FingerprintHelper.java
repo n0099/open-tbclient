@@ -7,10 +7,9 @@ import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.view.View;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FingerprintHelper extends FingerprintManager.AuthenticationCallback {
     public static final int AUTH_CANCLE = -2;
     public static final int AUTH_CHAGE_LOGIN_TYPE = -3;
@@ -29,7 +28,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void showFirstVerifyDialog() {
         dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
-        this.fingerprintDialog.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
+        this.fingerprintDialog.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 FingerprintHelper.this.stopAuthenticate();
@@ -40,7 +39,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
 
     private void showTryAgainVerifyDialog() {
         dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
-        this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
+        this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 FingerprintHelper.this.stopAuthenticate();
@@ -126,7 +125,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
     private void showTryAgainLoginDialog() {
         dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
         StatService.onEvent("fingerprint_try_again_dialog_show", null);
-        this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
+        this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 FingerprintHelper.this.stopAuthenticate();

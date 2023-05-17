@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
-import com.baidu.tieba.l94;
+import com.baidu.tieba.i94;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,90 +10,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class m94 extends EventTargetImpl {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+/* loaded from: classes6.dex */
+public class m94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public hf2 a;
-    public f24 b;
+    public ArrayList<i94> a;
+    public String b;
     public String c;
+    public int d;
 
-    /* loaded from: classes5.dex */
-    public class a implements l94.a {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m94 a;
-
-        public a(m94 m94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m94Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m94Var;
-        }
-
-        @Override // com.baidu.tieba.l94.a
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) {
-                return;
-            }
-            this.a.C(false);
-            r84.j(this.a.c, i, "");
-        }
-
-        @Override // com.baidu.tieba.l94.a
-        public void a(int i, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || !this.a.hasEventListener("progressupdate")) {
-                return;
-            }
-            n94 n94Var = new n94();
-            n94Var.progress = i;
-            n94Var.totalBytesWritten = j;
-            n94Var.totalBytesExpectedToWrite = j2;
-            JSEvent jSEvent = new JSEvent("progressupdate");
-            jSEvent.data = n94Var;
-            if (m94.d) {
-                Log.i("LoadSubpackageTask", "progress :" + i + "totalBytesWritten :" + j + "totalBytesExpectedToWrite :" + j2);
-            }
-            this.a.dispatchEvent(jSEvent);
-        }
-
-        @Override // com.baidu.tieba.l94.a
-        public void success() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                m94 m94Var = this.a;
-                this.a.C(m94Var.D(m94Var.c));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
+        public final /* synthetic */ k94 a;
         public final /* synthetic */ m94 b;
 
-        public b(m94 m94Var, boolean z) {
+        public a(m94 m94Var, k94 k94Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m94Var, Boolean.valueOf(z)};
+                Object[] objArr = {m94Var, k94Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -111,26 +46,19 @@ public class m94 extends EventTargetImpl {
                 }
             }
             this.b = m94Var;
-            this.a = z;
+            this.a = k94Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a) {
-                    if (this.b.b != null) {
-                        this.b.b.c();
-                        if (m94.d) {
-                            Log.i("LoadSubpackageTask", "success call");
-                        }
-                    }
-                } else if (this.b.b != null) {
-                    this.b.b.a();
-                    if (m94.d) {
-                        Log.i("LoadSubpackageTask", "fail call");
-                    }
-                }
+                ArrayList<long[]> e = this.b.e();
+                l94 l94Var = new l94();
+                l94Var.a = this.b.b;
+                l94Var.b = e;
+                l94Var.c = this.b.c;
+                x54.i().b(l94Var, this.a);
             }
         }
     }
@@ -148,95 +76,88 @@ public class m94 extends EventTargetImpl {
                 return;
             }
         }
-        d = ho1.a;
+        e = qp1.a;
     }
 
-    public final void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = null;
-            this.c = null;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m94(hf2 hf2Var) {
-        super(hf2Var);
+    public m94(ArrayList<j94> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hf2Var};
+            Object[] objArr = {arrayList, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = hf2Var;
-    }
-
-    public void E(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-            G();
-            F(jsObject);
-            if (TextUtils.isEmpty(this.c)) {
-                if (d) {
-                    Log.i("LoadSubpackageTask", IActiveUploadListener.PARAM_ERR_MSG);
-                }
-                r84.j(this.c, 2111, "");
-                return;
-            }
-            l94.a(this.c, new a(this));
+        if (e) {
+            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
         }
+        ArrayList<i94> d = d(arrayList);
+        this.a = d;
+        this.b = str;
+        this.c = str2;
+        this.d = d.size();
     }
 
-    public final void F(JsObject jsObject) {
-        e02 F;
+    public void c(k94 k94Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jsObject) != null) || jsObject == null || (F = e02.F(jsObject)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, k94Var) != null) || k94Var == null) {
             return;
         }
-        this.b = f24.e(F);
-        try {
-            this.c = F.g("name");
-        } catch (JSTypeMismatchException e) {
-            if (d) {
-                e.printStackTrace();
-            }
-            ja4.d(this.a, e);
-            G();
-        }
+        am3.l(new a(this, k94Var), "clipVideo");
     }
 
-    public final void C(boolean z) {
-        hf2 hf2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (hf2Var = this.a) != null) {
-            hf2Var.runOnJSThread(new b(this, z));
-        }
-    }
-
-    public final boolean D(String str) {
+    public final ArrayList<i94> d(ArrayList<j94> arrayList) {
         InterceptResult invokeL;
+        i94 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+            ArrayList<i94> arrayList2 = new ArrayList<>();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<j94> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    j94 next = it.next();
+                    if (next != null && (a2 = next.a()) != null) {
+                        arrayList2.add(a2);
+                    }
+                }
             }
-            String str2 = kt2.U().z() + k94.b().c(str, 2);
-            String c = k94.b().c(str, 3);
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(c)) {
-                return false;
-            }
-            this.a.a0(str2, c);
-            return true;
+            return arrayList2;
         }
-        return invokeL.booleanValue;
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public ArrayList<long[]> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<long[]> arrayList = new ArrayList<>();
+            if (this.d == 0) {
+                return arrayList;
+            }
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
+            }
+            Collections.sort(this.a, new i94.a());
+            i94 i94Var = this.a.get(0);
+            for (int i = 1; i < this.d; i++) {
+                i94 i94Var2 = this.a.get(i);
+                if (!i94Var.b(i94Var2)) {
+                    arrayList.add(i94.a(i94Var));
+                    i94Var = i94Var2;
+                }
+            }
+            arrayList.add(i94.a(i94Var));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

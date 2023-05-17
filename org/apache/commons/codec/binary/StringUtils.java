@@ -1,7 +1,7 @@
 package org.apache.commons.codec.binary;
 
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StringUtils {
     public static byte[] getBytesIso8859_1(String str) {
         return getBytesUnchecked(str, "ISO-8859-1");

@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.system;
 import android.graphics.Bitmap;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneable {
     public static Method cloneMethod;
     public final android.webkit.WebHistoryItem mItem;
@@ -30,7 +30,7 @@ public final class WebHistoryItemImpl extends WebHistoryItem implements Cloneabl
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebHistoryItem
     /* renamed from: clone */
-    public final WebHistoryItem mo82clone() {
+    public final WebHistoryItem mo101clone() {
         try {
             if (cloneMethod != null && this.mItem != null) {
                 return from((android.webkit.WebHistoryItem) cloneMethod.invoke(this.mItem, null));

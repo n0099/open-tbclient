@@ -20,7 +20,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener, View.OnLayoutChangeListener {
     public static final boolean DEBUG = false;
     public static final int DEBUG_CHECK_GL_ERROR = 1;
@@ -48,31 +48,31 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public Renderer mRenderer;
     public final WeakReference<GLTextureView> mThisWeakRef;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EGLConfigChooser {
         EGLConfig chooseConfig(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EGLContextFactory {
         EGLContext createContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void destroyContext(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface EGLWindowSurfaceFactory {
         EGLSurface createWindowSurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
         void destroySurface(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface GLWrapper {
         GL wrap(GL gl);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Renderer {
         void onDrawFrame(GL10 gl10);
 
@@ -85,7 +85,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public abstract class BaseConfigChooser implements EGLConfigChooser {
         public int[] mConfigSpec;
 
@@ -132,7 +132,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ComponentSizeChooser extends BaseConfigChooser {
         public int mAlphaSize;
         public int mBlueSize;
@@ -179,7 +179,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DefaultContextFactory implements EGLContextFactory {
         public int EGL_CONTEXT_CLIENT_VERSION;
 
@@ -206,7 +206,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultWindowSurfaceFactory implements EGLWindowSurfaceFactory {
         public DefaultWindowSurfaceFactory() {
         }
@@ -227,7 +227,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EglHelper {
         public EGL10 mEgl;
         public EGLConfig mEglConfig;
@@ -381,7 +381,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GLThread extends Thread {
         public EglHelper mEglHelper;
         public boolean mExited;
@@ -779,7 +779,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GLThreadManager {
         public static String TAG = "GLThreadManager";
         public static final int kGLES_20 = 131072;
@@ -867,7 +867,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LogWriter extends Writer {
         public StringBuilder mBuilder = new StringBuilder();
 
@@ -902,7 +902,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SimpleEGLConfigChooser extends ComponentSizeChooser {
         /* JADX WARN: Illegal instructions before constructor call */
         /*

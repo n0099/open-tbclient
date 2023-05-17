@@ -8,17 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.l17;
-import com.baidu.tieba.rw6;
+import com.baidu.tieba.ey6;
+import com.baidu.tieba.y27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class CardPlayVoiceView extends LinearLayout implements l17 {
+/* loaded from: classes5.dex */
+public class CardPlayVoiceView extends LinearLayout implements y27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rw6.h a;
+    public final ey6.h a;
     public ViewGroup b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,7 +39,7 @@ public class CardPlayVoiceView extends LinearLayout implements l17 {
                 return;
             }
         }
-        this.a = rw6.a().f();
+        this.a = ey6.a().f();
         a(context);
     }
 
@@ -62,7 +62,7 @@ public class CardPlayVoiceView extends LinearLayout implements l17 {
                 return;
             }
         }
-        this.a = rw6.a().f();
+        this.a = ey6.a().f();
         a(context);
     }
 
@@ -85,7 +85,7 @@ public class CardPlayVoiceView extends LinearLayout implements l17 {
                 return;
             }
         }
-        this.a = rw6.a().f();
+        this.a = ey6.a().f();
         a(context);
     }
 
@@ -105,7 +105,7 @@ public class CardPlayVoiceView extends LinearLayout implements l17 {
         }
     }
 
-    @Override // com.baidu.tieba.l17
+    @Override // com.baidu.tieba.y27
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

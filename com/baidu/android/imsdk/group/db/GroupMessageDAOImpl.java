@@ -1032,13 +1032,13 @@ public class GroupMessageDAOImpl {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0046, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x0047, code lost:
         if (r3.isClosed() == false) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0057, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0058, code lost:
         if (r3.isClosed() == false) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0059, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x005a, code lost:
         r3.close();
      */
     /*

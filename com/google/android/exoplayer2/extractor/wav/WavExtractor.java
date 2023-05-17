@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WavExtractor implements Extractor, SeekMap {
     public static final ExtractorsFactory FACTORY = new ExtractorsFactory() { // from class: com.google.android.exoplayer2.extractor.wav.WavExtractor.1
         @Override // com.google.android.exoplayer2.extractor.ExtractorsFactory

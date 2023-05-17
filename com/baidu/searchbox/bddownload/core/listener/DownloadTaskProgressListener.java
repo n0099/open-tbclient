@@ -10,7 +10,7 @@ import com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist;
 import com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadTaskProgressListener implements DownloadListener, TaskProgressListenerAssist.TaskProgressListenerCallback, ListenerAssist {
     public final TaskProgressListenerAssist assist;
 

@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileUtil {
     public void copyDirFromAssets(Context context, String str, String str2) {
         try {

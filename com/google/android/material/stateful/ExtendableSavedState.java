@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.collection.SimpleArrayMap;
 import androidx.customview.view.AbsSavedState;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExtendableSavedState extends AbsSavedState {
     public static final Parcelable.Creator<ExtendableSavedState> CREATOR = new Parcelable.ClassLoaderCreator<ExtendableSavedState>() { // from class: com.google.android.material.stateful.ExtendableSavedState.1
         /* JADX DEBUG: Method merged with bridge method */

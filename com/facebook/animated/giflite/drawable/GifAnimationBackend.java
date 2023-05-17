@@ -12,7 +12,7 @@ import java.io.Closeable;
 import java.io.FileInputStream;
 import java.io.IOException;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GifAnimationBackend implements AnimationBackend {
     public final int[] mFrameStartTimes;
     public final GifMetadataDecoder mGifDecoder;

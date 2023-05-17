@@ -6,7 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeSet;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class V8Timer implements V8Engine.V8StatusListener {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final boolean DEBUG = false;
@@ -21,7 +21,7 @@ public class V8Timer implements V8Engine.V8StatusListener {
 
     public native void nativeTimeOutCallback(long j);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class TimeTask implements Runnable {
         public volatile boolean mRemoved;
         public boolean mRepeat;

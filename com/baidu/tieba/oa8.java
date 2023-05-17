@@ -1,48 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tieba.immessagecenter.im.chat.personaltalk.InvatateAnswerSettingActivity;
-import com.baidu.tieba.immessagecenter.im.chat.personaltalk.PersonalTalkSettingViewSettingView;
+import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class oa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InvatateAnswerSettingActivity a;
-    public final NavigationBar b;
-    public final View c;
-    public final HeadImageView d;
-    public final TextView e;
-    public final UserIconBox f;
-    public final TextView g;
-    public ImageView h;
-    public TbSettingTextTipView i;
-    public TbSettingTextTipView j;
-    public TbSettingTextTipView k;
-    public RelativeLayout l;
-    public View m;
-    public PersonalTalkSettingViewSettingView n;
+    public final String a;
+    public final RoundTbImageView b;
+    public final RoundTbImageView c;
+    public final String d;
 
-    public oa8(InvatateAnswerSettingActivity invatateAnswerSettingActivity) {
+    public oa8(@NonNull String str, @NonNull RoundTbImageView roundTbImageView, @NonNull RoundTbImageView roundTbImageView2, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {invatateAnswerSettingActivity};
+            Object[] objArr = {str, roundTbImageView, roundTbImageView2, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,82 +32,49 @@ public class oa8 {
                 return;
             }
         }
-        this.a = invatateAnswerSettingActivity;
-        invatateAnswerSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d06f8);
-        View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f091b17);
-        this.c = findViewById;
-        NavigationBar navigationBar = (NavigationBar) findViewById.findViewById(R.id.view_navigation_bar);
-        this.b = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f1479));
-        this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView = (PersonalTalkSettingViewSettingView) this.a.findViewById(R.id.obfuscated_res_0x7f092035);
-        this.n = personalTalkSettingViewSettingView;
-        personalTalkSettingViewSettingView.a.setVisibility(0);
-        c(f55.m().i("key_question_msg_no_remind", false));
-        this.n.b.setVisibility(8);
-        this.l = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0926bf);
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f09214a);
-        this.j = tbSettingTextTipView;
-        tbSettingTextTipView.setVisibility(8);
-        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090130);
-        this.k = tbSettingTextTipView2;
-        tbSettingTextTipView2.setVisibility(8);
-        TbSettingTextTipView tbSettingTextTipView3 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092149);
-        this.i = tbSettingTextTipView3;
-        tbSettingTextTipView3.setVisibility(8);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091b54);
-        this.d = headImageView;
-        headImageView.setIsRound(true);
-        this.d.setGodIconWidth(R.dimen.tbds47);
-        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fce);
-        this.e = textView;
-        textView.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0a25));
-        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fcc);
-        this.h = imageView;
-        imageView.setVisibility(8);
-        this.f = (UserIconBox) this.a.findViewById(R.id.user_icon_box);
-        TextView textView2 = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926a0);
-        this.g = textView2;
-        textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0dcd));
-        this.m = this.a.findViewById(R.id.obfuscated_res_0x7f0908db);
+        this.a = str;
+        this.b = roundTbImageView;
+        this.c = roundTbImageView2;
+        this.d = str2;
     }
 
-    public void a(int i) {
+    @NonNull
+    public RoundTbImageView a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.getLayoutMode().k(this.c);
-            this.b.onChangeSkinType(this.a.getPageContext(), i);
-            this.d.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08087a));
-            g35 d = g35.d(this.e);
-            d.C(R.string.F_X02);
-            d.B(R.dimen.T_X04);
-            d.w(R.color.CAM_X0105);
-            g35 d2 = g35.d(this.g);
-            d2.C(R.string.F_X01);
-            d2.B(R.dimen.T_X08);
-            d2.w(R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (RoundTbImageView) invokeV.objValue;
     }
 
-    public void b(BdSwitchView.b bVar) {
-        PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
+    @NonNull
+    public RoundTbImageView b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && (personalTalkSettingViewSettingView = this.n) != null) {
-            personalTalkSettingViewSettingView.setSwitchStateChangeListener(bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (RoundTbImageView) invokeV.objValue;
     }
 
-    public void c(boolean z) {
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (z) {
-                this.n.a.g();
-            } else {
-                this.n.a.e();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

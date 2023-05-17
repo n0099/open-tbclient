@@ -1,101 +1,289 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StringHelper;
+import android.graphics.Paint;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.d07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-import tbclient.FeedVideoComponent;
-import tbclient.ThumbnailInfo;
-import tbclient.VideoField;
-/* loaded from: classes4.dex */
-public final class f07 {
+/* loaded from: classes5.dex */
+public final class f07 implements d07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final b07 b;
+    public final String c;
+    public final int d;
+    public final boolean e;
+    public final Integer f;
+    public final String g;
+    public final Integer h;
+    public int i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public int m;
+    public String n;
+    public String o;
+    public b07 p;
 
-    public static final String a(String schema, uy6 feedExtraData) {
-        InterceptResult invokeLL;
-        boolean z;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, schema, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            String a = b17.a(schema, "author_is_living", feedExtraData.a().a().get("author_is_living"));
-            String str = feedExtraData.a().a().get("yy_ext");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (z) {
-                Intrinsics.checkNotNullExpressionValue(a, "{\n        result\n    }");
-                return a;
+            if (obj instanceof f07) {
+                f07 f07Var = (f07) obj;
+                return Intrinsics.areEqual(this.a, f07Var.a) && Intrinsics.areEqual(this.b, f07Var.b) && Intrinsics.areEqual(this.c, f07Var.c) && this.d == f07Var.d && this.e == f07Var.e && Intrinsics.areEqual(this.f, f07Var.f) && Intrinsics.areEqual(this.g, f07Var.g) && Intrinsics.areEqual(this.h, f07Var.h);
             }
-            String a2 = b17.a(a, "yy_ext", str);
-            Intrinsics.checkNotNullExpressionValue(a2, "{\n        SchemaUtil.app…yy_ext\", yyExtInfo)\n    }");
-            return a2;
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final xx6 b(VideoField videoField, oz6 videoSchemaData, uy6 feedExtraData) {
-        InterceptResult invokeLLL;
-        String str;
-        boolean z;
+    public final void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, videoField, videoSchemaData, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(videoField, "videoField");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            nz6 nz6Var = new nz6();
-            ThumbnailInfo thumbnailInfo = videoField.thumbnail;
-            if (thumbnailInfo != null) {
-                str = thumbnailInfo.url;
-            } else {
-                str = null;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v8, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            b07 b07Var = this.b;
+            int hashCode2 = (hashCode + (b07Var == null ? 0 : b07Var.hashCode())) * 31;
+            String str = this.c;
+            int hashCode3 = (((hashCode2 + (str == null ? 0 : str.hashCode())) * 31) + this.d) * 31;
+            boolean z = this.e;
+            int i = z;
+            if (z != 0) {
+                i = 1;
             }
-            nz6Var.a = str;
-            Integer num = videoField.is_vertical;
-            if (num != null && num.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
+            int i2 = (hashCode3 + i) * 31;
+            Integer num = this.f;
+            int hashCode4 = (i2 + (num == null ? 0 : num.hashCode())) * 31;
+            String str2 = this.g;
+            int hashCode5 = (hashCode4 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            Integer num2 = this.h;
+            return hashCode5 + (num2 != null ? num2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return "EnableDegradeTextData(text=" + this.a + ", textColor=" + this.b + ", schema=" + this.c + ", priority=" + this.d + ", degradeEnable=" + this.e + ", degradeLength=" + this.f + ", degradeSuffix=" + this.g + ", degradePriority=" + this.h + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public f07(String text, b07 b07Var, String str, int i, boolean z, Integer num, String str2, Integer num2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {text, b07Var, str, Integer.valueOf(i), Boolean.valueOf(z), num, str2, num2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            nz6Var.b = z;
-            Integer num2 = videoField.width;
-            Intrinsics.checkNotNullExpressionValue(num2, "videoField.width");
-            num2.intValue();
-            Integer num3 = videoField.height;
-            Intrinsics.checkNotNullExpressionValue(num3, "videoField.height");
-            num3.intValue();
+        }
+        Intrinsics.checkNotNullParameter(text, "text");
+        this.a = text;
+        this.b = b07Var;
+        this.c = str;
+        this.d = i;
+        this.e = z;
+        this.f = num;
+        this.g = str2;
+        this.h = num2;
+        this.i = i;
+        this.j = z;
+        this.k = true;
+        this.l = text;
+        this.m = text.length();
+        reset();
+    }
+
+    @Override // com.baidu.tieba.d07
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.d07
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.d07
+    public String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.n;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final b07 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (b07) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.o;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final b07 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (b07) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d07
+    public int getPriority() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.d07
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.k = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.d07
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.i = this.d;
+            this.j = this.e;
+            this.k = true;
+            String str = this.a;
+            this.l = str;
+            this.m = str.length();
+        }
+    }
+
+    @Override // com.baidu.tieba.d07
+    public boolean Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.m--;
             StringBuilder sb = new StringBuilder();
-            sb.append(StringHelper.stringForVideoTime(videoField.duration.intValue() * 1000));
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String string = pw6.a.getString(R.string.play_count_new);
-            Intrinsics.checkNotNullExpressionValue(string, "FeedAppContext.getString(R.string.play_count_new)");
-            String format = String.format(string, Arrays.copyOf(new Object[]{StringHelper.numFormatOverWan(videoField.play_count.intValue())}, 1));
-            Intrinsics.checkNotNullExpressionValue(format, "format(format, *args)");
-            sb.append(format);
-            nz6Var.c = sb.toString();
-            return new xx6(nz6Var, videoSchemaData, vy6.b(feedExtraData, "video_click"), null, 8, null);
+            String substring = this.a.substring(0, this.m);
+            Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
+            sb.append(substring);
+            sb.append(this.g);
+            this.l = sb.toString();
+            int i = this.m;
+            Integer num = this.f;
+            Intrinsics.checkNotNull(num);
+            if (i > num.intValue()) {
+                return false;
+            }
+            Integer num2 = this.h;
+            Intrinsics.checkNotNull(num2);
+            this.i = num2.intValue();
+            this.j = false;
+            return true;
         }
-        return (xx6) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final void c(FeedVideoComponent feedVideoComponent, List<s17<?>> dataList, oz6 videoSchemaData, uy6 feedExtraData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(d07 d07Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, feedVideoComponent, dataList, videoSchemaData, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedVideoComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(videoSchemaData, "videoSchemaData");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            VideoField videoField = feedVideoComponent.video_info;
-            if (videoField != null) {
-                dataList.add(new t17(b(videoField, videoSchemaData, feedExtraData), "video"));
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, d07Var)) == null) {
+            return d07.a.a(this, d07Var);
         }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.d07
+    public int n(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
+            Paint paint = new Paint();
+            paint.setTextSize(i);
+            return (int) paint.measureText(this.l);
+        }
+        return invokeII.intValue;
     }
 }

@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ResponseBody implements Closeable {
     public static final int DEFAULT_BUFFER_SIZE = 8192;
     @Nullable
@@ -25,7 +25,7 @@ public abstract class ResponseBody implements Closeable {
 
     public abstract InputStream inputStream();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BomAwareReader extends Reader {
         public final BufferedInputStream bis;
         public final Charset charset;

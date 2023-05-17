@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bd {
     public static long a = 0;
 

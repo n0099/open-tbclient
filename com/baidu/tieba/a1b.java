@@ -1,37 +1,31 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class a1b {
+/* loaded from: classes4.dex */
+public abstract class a1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, z0b z0bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, z0bVar)) == null) {
-            return s0b.g(str, z0bVar.c());
-        }
-        return (String) invokeLL.objValue;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void onFinish();
     }
 
-    public static String b(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bArr)) == null) {
-            return s0b.g(str, bArr);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947563735, "Lcom/baidu/tieba/a1b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947563735, "Lcom/baidu/tieba/a1b;");
+            }
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            return s0b.k(str, bArr);
-        }
-        return (String) invokeLL.objValue;
     }
 }

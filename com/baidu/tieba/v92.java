@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,31 +10,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class v92 extends SwanAppWebViewManager implements Object<NgWebView>, t92 {
+/* loaded from: classes7.dex */
+public final class v92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String w;
+    public final r92 a;
+    public boolean b;
+    public boolean c;
+    public ia2 d;
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void L0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void V0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final v92 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.t92
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-389840356, "Lcom/baidu/tieba/v92$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-389840356, "Lcom/baidu/tieba/v92$b;");
+                    return;
+                }
+            }
+            a = new v92(null);
         }
     }
 
@@ -53,75 +62,121 @@ public class v92 extends SwanAppWebViewManager implements Object<NgWebView>, t92
                 return;
             }
         }
-        x = ho1.a;
+        e = qp1.a;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.fu1
-    public String a() {
+    public static v92 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.w;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (v92) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t92
-    public v62 e() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return s();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (v62) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.fu1
-    public void onJSLoaded() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            re2.U().w0(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v92(Context context) {
-        super(context);
+    public v92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.w = da2.b();
+        s92 s92Var = new s92();
+        this.a = s92Var;
+        s92Var.a(new u92(this.a.getLooper()));
     }
 
-    @Override // com.baidu.tieba.t92
-    public void D(le2 le2Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, le2Var) != null) || le2Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                g62.i("WhitePageMonitor", Log.getStackTraceString(new Throwable(">>> check skeleton_dev, callback = " + this.d)));
+            }
+            ia2 ia2Var = this.d;
+            if (ia2Var != null) {
+                ia2Var.a();
+                this.d = null;
+            }
         }
-        if (x) {
-            Log.d("SwanAppMasterManager", "pathList item: " + le2Var.b);
-        }
-        this.b.getSettings().setCodeCacheSetting(q62.a("appjs", le2Var.b));
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.fu1
-    public void loadUrl(String str) {
+    public /* synthetic */ v92(a aVar) {
+        this();
+    }
+
+    public void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            super.loadUrl(str);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            i(j);
+            j(false);
+        }
+    }
+
+    public void g(ia2 ia2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ia2Var) == null) {
+            this.d = ia2Var;
+        }
+    }
+
+    public void h(q92 q92Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, q92Var) == null) {
+            this.a.b(q92Var);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void i(long j) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            if (e) {
+                Log.d("WhitePageMonitor", ">> update first white screen timestamp, delay " + j + " ms");
+            }
+            if (j < 3000 && j > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.b = z;
         }
     }
 }

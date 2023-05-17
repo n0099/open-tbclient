@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class b {
-    public InterfaceC0046b cp;
+    public InterfaceC0049b cp;
     public HandlerThread cq;
     public a cr;
     public boolean ct;
@@ -72,13 +72,13 @@ public class b {
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0046b {
+    public interface InterfaceC0049b {
         void a(int i, String str, long j);
     }
 
-    public b(InterfaceC0046b interfaceC0046b) {
+    public b(InterfaceC0049b interfaceC0049b) {
         this.cp = null;
-        this.cp = interfaceC0046b;
+        this.cp = interfaceC0049b;
         if (this.cq == null) {
             HandlerThread handlerThread = new HandlerThread("AnimeHandlerThread");
             this.cq = handlerThread;
@@ -338,9 +338,9 @@ public class b {
         a aVar;
         if (this.co == null || this.f1030cn == null) {
             com.baidu.ar.h.b.aS("retryChangeStyle input data error!");
-            InterfaceC0046b interfaceC0046b = this.cp;
-            if (interfaceC0046b != null) {
-                interfaceC0046b.a(203, "retryChangeStyle input data error", 0L);
+            InterfaceC0049b interfaceC0049b = this.cp;
+            if (interfaceC0049b != null) {
+                interfaceC0049b.a(203, "retryChangeStyle input data error", 0L);
                 return;
             }
             return;

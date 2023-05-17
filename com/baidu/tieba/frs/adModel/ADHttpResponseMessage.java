@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.adModel;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.z87;
+import com.baidu.tieba.ma7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetADList.GetADListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ADHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int has_more;
-    public List<z87> list;
+    public List<ma7> list;
     public long offset;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -64,15 +64,15 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
             return;
         }
         for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
-            z87 z87Var = new z87();
-            z87Var.k(getADListResIdl.data.ad_list.get(i2));
+            ma7 ma7Var = new ma7();
+            ma7Var.l(getADListResIdl.data.ad_list.get(i2));
             if (getADListResIdl.data.ad_list.size() - 1 == i2) {
-                z87Var.m(true);
+                ma7Var.m(true);
             } else {
-                z87Var.m(false);
+                ma7Var.m(false);
             }
-            if (z87Var.j() == 0 || z87Var.j() == 2) {
-                this.list.add(z87Var);
+            if (ma7Var.k() == 0 || ma7Var.k() == 2) {
+                this.list.add(ma7Var);
             }
         }
         this.has_more = getADListResIdl.data.has_more.intValue();
@@ -88,7 +88,7 @@ public class ADHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List<z87> getList() {
+    public List<ma7> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

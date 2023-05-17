@@ -51,7 +51,7 @@ import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt__SequencesKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectClassUtilKt {
     public static final Map<Class<? extends Function<?>>, Integer> FUNCTION_CLASSES;
     public static final List<KClass<? extends Object>> PRIMITIVE_CLASSES;

@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.gg;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cj extends XMPushService.j {
     public final /* synthetic */ XMPushService a;
 
@@ -22,13 +22,13 @@ public class cj extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "send mi push message";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         try {
             ah.a(this.a, this.f972a, this.f973a);
         } catch (gg e) {

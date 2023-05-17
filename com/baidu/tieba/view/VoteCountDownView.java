@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class VoteCountDownView extends LinearLayout {
     public CountDownTimer f;
     public b g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a();
+        void onFinished();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class VoteCountDownView extends LinearLayout {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.g) != null) {
-            bVar.a();
+            bVar.onFinished();
         }
     }
 

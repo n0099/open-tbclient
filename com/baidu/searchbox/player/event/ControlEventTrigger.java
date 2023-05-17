@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ControlEventTrigger extends SingleTargetTrigger {
     @PublicMethod
     public void prepare() {

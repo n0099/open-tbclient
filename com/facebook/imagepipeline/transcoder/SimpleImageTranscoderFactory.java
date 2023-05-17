@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.transcoder;
 
 import com.facebook.imageformat.ImageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SimpleImageTranscoderFactory implements ImageTranscoderFactory {
     public final int mMaxBitmapSize;
 

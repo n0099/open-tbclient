@@ -183,7 +183,7 @@ public class KeyAttributes extends Key {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0055, code lost:
         if (r1.equals(androidx.constraintlayout.motion.widget.Key.TRANSITION_PATH_ROTATE) != false) goto L12;
      */
     @Override // androidx.constraintlayout.motion.widget.Key

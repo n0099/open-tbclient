@@ -7,7 +7,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
 import java.nio.charset.Charset;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a implements b, c, Cloneable, ByteChannel {
     public static final byte[] c = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     @Nullable

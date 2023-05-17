@@ -7,7 +7,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.download.center.clearcache.MainClearCache;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClearCacheUtils {
     public static final long DEFAULT_LAST_CLEAR_TIME = 0;
     public static final long DISPLAY_THRESHOLD = 5242880;

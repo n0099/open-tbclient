@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class co extends Handler {
     public final /* synthetic */ XMPushService a;
 

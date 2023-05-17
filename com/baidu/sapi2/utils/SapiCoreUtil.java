@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiCoreUtil {
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";
     public static final String TAG = "SapiCoreUtil";
@@ -361,13 +361,13 @@ public class SapiCoreUtil {
                         } else if ("loginType".equals(name)) {
                             if ("oneKeyLogin".equals(newPullParser.nextText()) || "business_from_one_key_login".equals(str)) {
                                 String operatorType = new OneKeyLoginSdkCall().getOperatorType();
-                                if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
+                                if ("CM".equals(operatorType)) {
                                     SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CM.getName());
                                     continue;
-                                } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+                                } else if ("CU".equals(operatorType)) {
                                     SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CU.getName());
                                     continue;
-                                } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC.equals(operatorType)) {
+                                } else if ("CT".equals(operatorType)) {
                                     SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CT.getName());
                                     continue;
                                 } else {

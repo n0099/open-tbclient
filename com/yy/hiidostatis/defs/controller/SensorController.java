@@ -15,7 +15,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static final int CACHE_HEAD_LENGTH = 5;
     public static final int CACHE_LENGTH = 10;
@@ -57,7 +57,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class BatteryInfo {
         public int chargePlugged;
         public int level;
@@ -87,7 +87,7 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SensorRecord {
         public long time;
         public float[] value;
@@ -229,7 +229,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                 statisContent2.put(KEY_ACCEL, prefString2);
             }
             if (prefString3 != null && !prefString3.isEmpty()) {
-                statisContent2.put(KEY_LIGHT, prefString3);
+                statisContent2.put("light", prefString3);
             }
             if (prefString4 != null && !prefString4.isEmpty()) {
                 statisContent2.put(KEY_BATLV, prefString4);
@@ -318,7 +318,7 @@ public class SensorController implements SensorEventListener, SensorListener {
         StatisContent params = toParams();
         String str = params.get(KEY_GYRO);
         String str2 = params.get(KEY_ACCEL);
-        String str3 = params.get(KEY_LIGHT);
+        String str3 = params.get("light");
         String str4 = params.get(KEY_BATLV);
         if (str != null && !str.isEmpty()) {
             DefaultPreference.getPreference().setPrefString(context, "SENSOR_gyro", str);
@@ -365,7 +365,7 @@ public class SensorController implements SensorEventListener, SensorListener {
         statisContent.put(KEY_ACCEL, sb.toString());
         sb.setLength(0);
         recordToString(this.countLight, this.lightCache, sb);
-        statisContent.put(KEY_LIGHT, sb.toString());
+        statisContent.put("light", sb.toString());
         if (this.initiateBattery != null) {
             BatteryInfo currentBatttery = BatteryInfo.getCurrentBatttery(this.context);
             statisContent.put(KEY_BATLV, this.initiateBattery.toString() + "|" + currentBatttery.toString());

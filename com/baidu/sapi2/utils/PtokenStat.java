@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiContext;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PtokenStat {
     public static final String FILLNAME_WIDGE = "fillname_widge";
     public static final String LOGIN = "login_";

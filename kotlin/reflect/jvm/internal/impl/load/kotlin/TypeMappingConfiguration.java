@@ -3,10 +3,10 @@ package kotlin.reflect.jvm.internal.impl.load.kotlin;
 import java.util.Collection;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface TypeMappingConfiguration<T> {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static <T> String getPredefinedFullInternalNameForClass(TypeMappingConfiguration<? extends T> typeMappingConfiguration, ClassDescriptor classDescriptor) {
             return null;

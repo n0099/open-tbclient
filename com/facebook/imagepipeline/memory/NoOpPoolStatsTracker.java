@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.memory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NoOpPoolStatsTracker implements PoolStatsTracker {
     public static NoOpPoolStatsTracker sInstance;
 

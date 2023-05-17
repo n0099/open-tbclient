@@ -7,11 +7,11 @@ import com.kwad.components.ad.feed.a.i;
 import com.kwad.components.ad.feed.a.j;
 import com.kwad.components.ad.feed.a.k;
 import com.kwad.components.model.FeedType;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
 
     /* renamed from: com.kwad.components.ad.feed.c$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] cI;
 

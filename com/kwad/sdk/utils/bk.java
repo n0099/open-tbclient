@@ -2,7 +2,6 @@ package com.kwad.sdk.utils;
 
 import android.text.TextUtils;
 import com.baidu.android.util.io.ZipUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.Closeable;
@@ -18,10 +17,10 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bk {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends ZipOutputStream {
         public Map<String, Integer> aps;
 
@@ -40,7 +39,7 @@ public final class bk {
                 zipEntry2 = zipEntry;
                 num = 1;
             } else {
-                zipEntry2 = new ZipEntry(zipEntry.getName().replaceFirst(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "(" + num2 + ")."));
+                zipEntry2 = new ZipEntry(zipEntry.getName().replaceFirst("\\.", "(" + num2 + ")."));
                 num = Integer.valueOf(num2.intValue() + 1);
             }
             this.aps.put(name, num);

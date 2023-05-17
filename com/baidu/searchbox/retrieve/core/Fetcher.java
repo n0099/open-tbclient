@@ -12,7 +12,7 @@ import com.baidu.searchbox.retrieve.upload.FetchUploadManager;
 import com.baidu.searchbox.retrieve.upload.IUploadListener;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Fetcher {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "Fetcher";

@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
     public int appId;
     public int currencyType;

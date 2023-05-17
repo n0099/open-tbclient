@@ -1,19 +1,19 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.ig;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
     public static b f981a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         boolean a(ig igVar);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
     }
 
@@ -25,12 +25,12 @@ public class i {
         String str;
         if (a == null || igVar == null) {
             str = "rc params is null, not cpra";
-        } else if (com.xiaomi.push.j.m632a(com.xiaomi.push.s.m643a())) {
+        } else if (com.xiaomi.push.j.m651a(com.xiaomi.push.s.m662a())) {
             return a.a(igVar);
         } else {
             str = "rc app not permission to cpra";
         }
-        com.xiaomi.channel.commonutils.logger.b.m101a(str);
+        com.xiaomi.channel.commonutils.logger.b.m120a(str);
         return false;
     }
 }

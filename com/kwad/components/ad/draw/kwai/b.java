@@ -6,7 +6,7 @@ import com.kwad.components.core.c.a.c;
 import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.sdk.mvp.a {
     @Nullable
     public KsDrawAd.AdInteractionListener aJ;

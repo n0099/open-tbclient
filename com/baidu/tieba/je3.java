@@ -1,47 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.fe3;
-import com.baidu.tieba.us2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.setting.oauth.TaskState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class je3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class je3<ResultDataT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ResultDataT a;
+    public TaskState b;
+    public OAuthException c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880369, "Lcom/baidu/tieba/je3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947880369, "Lcom/baidu/tieba/je3;");
+    public je3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
-        b = er2.g0().u() * 1024;
+        this.b = TaskState.INIT;
     }
 
-    public static boolean c() {
+    public OAuthException a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b > 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (OAuthException) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            OAuthException oAuthException = this.c;
+            if (oAuthException == null) {
+                return 0;
+            }
+            return oAuthException.mErrorCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TaskState.FINISHED == this.b && this.c == null) {
                 return true;
             }
             return false;
@@ -49,60 +66,18 @@ public class je3 {
         return invokeV.booleanValue;
     }
 
-    public static boolean a(@NonNull String str) {
-        InterceptResult invokeL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = TaskState.FINISHED;
+            this.c = null;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(@NonNull String str) {
-        InterceptResult invokeL;
+    public void d(OAuthException oAuthException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!c()) {
-                return false;
-            }
-            boolean a2 = a(str);
-            if (a2) {
-                d(str);
-            }
-            return a2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(@NonNull String str) {
-        x73 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (b0 = x73.b0()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            us2.a W = b0.W();
-            SwanCoreVersion M = kt2.U().M();
-            int k = b0.k();
-            jSONObject.putOpt("scheme", W.W());
-            jSONObject.putOpt("swanjs", ch3.i(M, k));
-            if (str != null && str.length() > 1024) {
-                jSONObject.putOpt("params", str.substring(0, 1024));
-            }
-            fe3.b bVar = new fe3.b(10020);
-            bVar.j(rl3.n().e());
-            bVar.i(jSONObject.toString());
-            bVar.h(b0.getAppId());
-            bVar.m();
-            x42.k("SwanAppParamChecker", "10020, params: " + str);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, oAuthException) == null) {
+            this.c = oAuthException;
         }
     }
 }

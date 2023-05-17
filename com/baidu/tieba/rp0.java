@@ -1,139 +1,130 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class rp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final AdBaseModel.STYLE a;
-    @NonNull
-    public final String b;
-    @NonNull
-    public String c;
-    @NonNull
-    public final String d;
-    @NonNull
-    public final String e;
-    @NonNull
-    public final String f;
-    @NonNull
-    public final String g;
-    @NonNull
-    public final String h;
-    @NonNull
-    public final String i;
-    @NonNull
-    public final List<String> j;
-    @NonNull
-    public final List<kp0> k;
-    @NonNull
-    public final String l;
-    @NonNull
-    public final String m;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
 
-    public rp0(@NonNull AdBaseModel.STYLE style, @NonNull String str, int i, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull String str2) {
-        int length;
-        int length2;
+    public rp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {style, str, Integer.valueOf(i), jSONObject, jSONObject2, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = style;
-        this.b = jSONObject2.optString("id");
-        this.c = jSONObject2.optString("scheme");
-        if (!TextUtils.isEmpty(str2)) {
-            this.d = str2;
-        } else {
-            this.d = jSONObject2.optString("ext_info");
-        }
-        this.e = jSONObject2.optString("user_name");
-        this.f = jSONObject2.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.g = jSONObject2.optString("title");
-        if (jSONObject2.optInt("title_lines", 0) > 0) {
-        }
-        this.h = jSONObject2.optString("tag", "广告");
-        this.i = jSONObject2.optString("recommend_reason");
-        this.j = new ArrayList();
-        JSONArray optJSONArray = jSONObject2.optJSONArray("recommend_reason");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        for (int i4 = 0; i4 < length; i4++) {
-            String optString = optJSONArray.optString(i4);
-            if (!TextUtils.isEmpty(optString)) {
-                y01.b(this.j, optString);
-            }
-        }
-        this.k = new ArrayList();
-        JSONArray optJSONArray2 = jSONObject2.optJSONArray("pic_list");
-        if (optJSONArray2 == null) {
-            length2 = 0;
-        } else {
-            length2 = optJSONArray2.length();
-        }
-        for (int i5 = 0; i5 < length2; i5++) {
-            JSONObject optJSONObject = optJSONArray2.optJSONObject(i5);
-            if (optJSONObject != null) {
-                y01.b(this.k, kp0.a(optJSONObject));
-            }
-        }
-        jq0.a(jSONObject2.optJSONArray("lottie_list"));
-        this.l = jSONObject2.optString("refer_url");
-        this.m = jSONObject2.optString("prerender_scheme");
     }
 
-    public static rp0 a(String str, int i, JSONObject jSONObject, JSONObject jSONObject2, String str2) throws ParseError {
-        InterceptResult invokeCommon;
-        AdBaseModel.STYLE style;
+    public final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), jSONObject, jSONObject2, str2})) == null) {
-            try {
-                style = AdBaseModel.STYLE.from(jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE, "hidden"));
-            } catch (Throwable unused) {
-                style = null;
-            }
-            AdBaseModel.STYLE style2 = style;
-            if (style2 != null) {
-                return new rp0(style2, str, i, jSONObject, jSONObject2, str2);
-            }
-            throw ParseError.contentError(24, jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (rp0) invokeCommon.objValue;
+        return invokeV.longValue;
     }
 
-    public void b() {
+    public final long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (kp0 kp0Var : this.k) {
-                kp0Var.b();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public final long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
+    }
+
+    public final void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public final void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public final void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public final void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public final void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.a = j;
+        }
+    }
+
+    public final void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.e = j;
         }
     }
 }

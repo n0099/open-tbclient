@@ -1,169 +1,138 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
-public class kd0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "kd0";
+/* loaded from: classes6.dex */
+public class kd0 implements Cloneable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaMuxer a;
-    public volatile boolean b;
-    public ld0 c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947909106, "Lcom/baidu/tieba/kd0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947909106, "Lcom/baidu/tieba/kd0;");
-        }
-    }
+    public float a;
+    public float b;
+    public MirrorType c;
+    public int d;
+    public ScaleType e;
+    public float f;
+    public int g;
 
     public kd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
+        this.a = 0.0f;
+        this.b = 0.0f;
+        this.c = MirrorType.NO_MIRROR;
+        this.d = 0;
+        this.e = ScaleType.FIT_XY;
+        this.f = 1.0f;
+        this.g = -90;
     }
 
-    public boolean c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public kd0 clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return (kd0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (kd0) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public MirrorType d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (MirrorType) invokeV.objValue;
+    }
+
+    public ScaleType e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (ScaleType) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.floatValue;
     }
 
-    public void d() {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
-            this.a.release();
-            this.a = null;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.d = i;
         }
     }
 
-    public synchronized void e() {
+    public void j(MirrorType mirrorType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                boolean z = true;
-                try {
-                    this.a.start();
-                    this.b = true;
-                } catch (Exception unused) {
-                    Log.e(d, "startMuxer error!!!");
-                    z = false;
-                }
-                if (this.c != null) {
-                    this.c.a(z);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
+            this.c = mirrorType;
         }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                boolean z = false;
-                try {
-                    this.a.stop();
-                    this.b = false;
-                    z = true;
-                } catch (Exception unused) {
-                    Log.e(d, "stopMuxer error!!!");
-                }
-                if (this.c != null) {
-                    this.c.b(z);
-                }
-            }
-        }
-    }
-
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                try {
-                    int addTrack = this.a.addTrack(mediaFormat);
-                    if (addTrack >= 0) {
-                        return addTrack;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Log.e(d, "addMuxerTrack error!!!");
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean b(String str, int i, ld0 ld0Var) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, ld0Var)) == null) {
-            if (!nd0.a(str)) {
-                nd0.b(str);
-            }
-            try {
-                this.a = new MediaMuxer(str, i);
-                this.c = ld0Var;
-                this.b = false;
-                return true;
-            } catch (Exception e) {
-                Log.e(d, "initMovieMuxer init error!!!");
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLIL.booleanValue;
-    }
-
-    public boolean g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo)) == null) {
-            if (i != -1) {
-                try {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                    return true;
-                } catch (Exception unused) {
-                    Log.e(d, "startMuxer error!!!");
-                    return false;
-                }
-            }
-            return false;
-        }
-        return invokeILL.booleanValue;
     }
 }

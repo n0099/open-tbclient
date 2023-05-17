@@ -14,7 +14,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TimeTypeAdapter extends TypeAdapter<Time> {
     public static final TypeAdapterFactory FACTORY = new TypeAdapterFactory() { // from class: com.google.gson.internal.bind.TimeTypeAdapter.1
         @Override // com.google.gson.TypeAdapterFactory

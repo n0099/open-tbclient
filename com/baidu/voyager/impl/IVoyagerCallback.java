@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IVoyagerCallback extends IInterface {
     void onFailure(String str, String str2) throws RemoteException;
 
     void onSuccess(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IVoyagerCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.voyager.impl.IVoyagerCallback";
@@ -32,7 +32,7 @@ public interface IVoyagerCallback extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements IVoyagerCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IVoyagerCallback sDefaultImpl;
@@ -199,7 +199,7 @@ public interface IVoyagerCallback extends IInterface {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Default implements IVoyagerCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

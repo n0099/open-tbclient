@@ -13,16 +13,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScrollRecyclerView extends RecyclerView {
     public final CompositeScrollListener compositeScrollListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface RecyclerViewItemClickListener<T> {
         void onItemClickListener(int i, T t);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CompositeScrollListener extends RecyclerView.OnScrollListener {
         public final List<RecyclerView.OnScrollListener> scrollListenerList;
 

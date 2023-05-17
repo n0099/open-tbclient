@@ -14,7 +14,7 @@ import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EcommerceRouter implements NoProguard {
     public static EcommerceRouter instance;
     public AddressManageCallback addressManageCallback;

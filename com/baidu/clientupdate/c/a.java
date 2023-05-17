@@ -19,6 +19,7 @@ import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.clientupdate.d.j;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static StringBuilder A;
@@ -202,8 +203,8 @@ public final class a {
             }
             try {
                 properties.load(fileInputStream);
-                if (properties.getProperty("server") != null) {
-                    this.u = String.valueOf(properties.getProperty("server"));
+                if (properties.getProperty(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_SERVER) != null) {
+                    this.u = String.valueOf(properties.getProperty(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_SERVER));
                 }
                 LogUtil.logD("BaiduParamManager", "设置server:" + this.u);
                 fileInputStream.close();

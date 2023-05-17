@@ -3,7 +3,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AnyAIDecoder extends AbstractExpandedDecoder {
     public static final int HEADER_SIZE = 5;
 

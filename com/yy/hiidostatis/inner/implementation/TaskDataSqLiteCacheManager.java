@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TaskDataSqLiteCacheManager {
     public static final int MAX_CACHE_SIZE = 100;
     public ConcurrentHashMap<String, AtomicInteger> actRemain;

@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeRoundingFilter {
     @DoNotStrip
     public static native void nativeAddRoundedCornersFilter(Bitmap bitmap, int i, int i2, int i3, int i4);

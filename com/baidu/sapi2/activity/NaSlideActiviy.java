@@ -23,7 +23,7 @@ import com.baidu.searchbox.widget.SlidingPaneLayout;
 import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NaSlideActiviy extends AppCompatActivity {
     public static final String g = "NaSlideActivity";
     public static final boolean h = true;

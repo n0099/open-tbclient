@@ -1,5 +1,5 @@
 package com.baidu.live.business.refresh;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadAnimStrategy {
     public static LoadAnimStrategy sInstance;
     public String loadMoreLottieRecRes;
@@ -40,7 +40,7 @@ public class LoadAnimStrategy {
     public int pullDownLottieResId3;
     public int pullEndFrame;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Holder {
         public static final LoadAnimStrategy INSTANCE = new LoadAnimStrategy();
     }

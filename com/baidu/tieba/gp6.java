@@ -6,63 +6,79 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class gp6 {
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public abstract class gp6<T> extends bp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    public gp6(int i, int i2) {
+    public abstract T c(lo6 lo6Var);
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gp6(int i, boolean z) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public /* synthetic */ gp6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
+    }
+
+    @Override // com.baidu.tieba.bp6
+    public boolean b(ko6 item, nq6 timer, eo6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (!this.d) {
+                return false;
+            }
+            boolean contains = this.c.contains(c(item.e()));
+            if (this.b) {
+                if (contains) {
+                    return false;
+                }
+                return true;
+            }
+            return contains;
         }
-        return invokeV.intValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('[' char), (wrap: int : 0x000e: IGET  (r1v3 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.gp6 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.gp6.a int), ('x' char), (wrap: int : 0x0018: IGET  (r1v5 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.gp6 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.gp6.b int), (']' char)] */
-    public String toString() {
+    public final Set<T> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append('[');
-            sb.append(this.a);
-            sb.append('x');
-            sb.append(this.b);
-            sb.append(']');
-            return sb.toString();
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
         }
-        return (String) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 }

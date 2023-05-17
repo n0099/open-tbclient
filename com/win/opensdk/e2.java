@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e2 {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -40,7 +41,7 @@ public class e2 {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, uri) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW", uri);
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, uri);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             uri.getScheme();
             if (h2.a(uri)) {
@@ -76,7 +77,7 @@ public class e2 {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, uri)) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(uri);
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             String str = null;

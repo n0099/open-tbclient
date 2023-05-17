@@ -5,7 +5,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapframework.open.aidl.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends b.a {
     public final /* synthetic */ d a;
 

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.result;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetCertStatusResult extends SapiResult {
     public static final int CODE_BUSINESS_RESULT_OK = 110000;
     public static final int CODE_BUSINESS_RESULT_RISK_CONTROL = 50000;
@@ -30,7 +30,7 @@ public class GetCertStatusResult extends SapiResult {
     public boolean isChild;
     public String status;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GuarderInfo {
         public String certCode;
         public String certType;

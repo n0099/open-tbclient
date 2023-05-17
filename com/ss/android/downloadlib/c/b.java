@@ -5,7 +5,7 @@ import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.socialbase.downloader.depend.m;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements m {
     @Override // com.ss.android.socialbase.downloader.depend.m
     public void a(DownloadInfo downloadInfo) throws BaseException {

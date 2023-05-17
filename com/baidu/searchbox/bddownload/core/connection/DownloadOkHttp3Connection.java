@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadOkHttp3Connection implements DownloadConnection, DownloadConnection.Connected {
     public static final String TAG = "DownloadOkHttp3Connection";
     @NonNull
@@ -23,7 +23,7 @@ public class DownloadOkHttp3Connection implements DownloadConnection, DownloadCo
     public final Request.Builder requestBuilder;
     public Response response;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Factory implements DownloadConnection.Factory {
         public volatile OkHttpClient client;
         public OkHttpClient.Builder clientBuilder;

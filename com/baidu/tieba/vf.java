@@ -1,73 +1,72 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.network.http.IHttpNet;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes7.dex */
 public class vf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile boolean a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public Map<String, List<String>> h;
+    public byte[] i;
+    public int j;
 
-    public static int a(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
+    public vf() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
-            long b = b(inputStream, outputStream);
-            if (b > 2147483647L) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (int) b;
         }
-        return invokeLL.intValue;
+        this.a = false;
+        this.b = -1;
+        this.c = -1;
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "net error";
     }
 
-    public static long b(InputStream inputStream, OutputStream outputStream) throws IOException {
-        InterceptResult invokeLL;
+    public void a(IHttpNet iHttpNet) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
-            if (inputStream == null) {
-                return -1L;
-            }
-            byte[] bArr = new byte[4096];
-            long j = 0;
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (-1 != read) {
-                    outputStream.write(bArr, 0, read);
-                    j += read;
-                } else {
-                    return j;
-                }
-            }
-        } else {
-            return invokeLL.longValue;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, iHttpNet) != null) || iHttpNet == null) {
+            return;
         }
+        this.b = iHttpNet.getResponseCode();
+        this.d = iHttpNet.getContentEncoding();
+        this.e = iHttpNet.getContentType();
+        this.f = iHttpNet.getContentLength() + "";
+        this.h = iHttpNet.b();
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && str.contains("vnd.wap.wml")) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == 200) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static byte[] d(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(inputStream, byteArrayOutputStream);
-            return byteArrayOutputStream.toByteArray();
-        }
-        return (byte[]) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

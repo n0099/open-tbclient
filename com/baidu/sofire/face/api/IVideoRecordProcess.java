@@ -1,5 +1,5 @@
 package com.baidu.sofire.face.api;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IVideoRecordProcess {
     int cancelRecord();
 

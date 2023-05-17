@@ -8,17 +8,17 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements b.a {
     public static final String a = Boolean.toString(true);
-    public InterfaceC0089a b;
+    public InterfaceC0092a b;
     public String c;
     public String d;
     public ArrayList<String> e = null;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0089a {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0092a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -187,12 +187,12 @@ public class a implements b.a {
         this.b.a(str, j, -1, str2 + ",networkstatus:" + o.i() + ",url:" + str);
     }
 
-    public void a(String str, String str2, String str3, InterfaceC0089a interfaceC0089a) {
-        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0089a == null) {
+    public void a(String str, String str2, String str3, InterfaceC0092a interfaceC0092a) {
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0092a == null) {
             return;
         }
         this.c = str2;
-        this.b = interfaceC0089a;
+        this.b = interfaceC0092a;
         this.d = str3;
         o.b(str3);
         CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);

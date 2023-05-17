@@ -1,93 +1,153 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class dy9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class dy9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<List<DressItemData>> a;
+    public TbPageContext<?> b;
+    public zx9 c;
 
-    public static final void a() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            tx9.b();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
+        return invokeI.longValue;
     }
 
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
-            } else {
-                f55.m().d();
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public BubbleItemView b;
+        public BubbleItemView c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public static final Application d() {
-        InterceptResult invokeV;
+    public dy9(TbPageContext<?> tbPageContext, zx9 zx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ey9.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, zx9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Application) invokeV.objValue;
+        this.b = tbPageContext;
+        this.c = zx9Var;
     }
 
-    public static final String e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public List<DressItemData> getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return rx9.a();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeI.objValue;
     }
 
-    public static final String f() {
-        InterceptResult invokeV;
+    public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String cacheDir = FileHelper.getCacheDir();
-            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
-            return cacheDir;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final int h() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return zx9.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public static final boolean c(File file) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            return FileHelper.deleteFileOrDir(file);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            List<DressItemData> item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0182, viewGroup, false);
+                aVar = new a();
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f09251e);
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903dc);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903dd);
+                view2.setTag(aVar);
+            }
+            if (item != null) {
+                if (i == 0) {
+                    aVar.a.setVisibility(0);
+                } else {
+                    aVar.a.setVisibility(8);
+                }
+                aVar.b.d(item.get(0));
+                aVar.b.setController(this.c);
+                aVar.b.setFromBubbleGroup(false);
+                if (item.size() > 1) {
+                    aVar.c.d(item.get(1));
+                    aVar.c.setController(this.c);
+                    aVar.c.setFromBubbleGroup(false);
+                } else {
+                    aVar.c.e();
+                }
+            }
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static final File g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
-            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
-            return GetFileByAbsolutePath;
-        }
-        return (File) invokeL.objValue;
+        return (View) invokeILL.objValue;
     }
 }

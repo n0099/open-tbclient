@@ -5,7 +5,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaUtils {
     public static final Map<String, String> ADDITIONAL_ALLOWED_MIME_TYPES = ImmutableMap.of("mkv", "video/x-matroska", "glb", "model/gltf-binary", "flv", "flv-application/octet-stream");
 

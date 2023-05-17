@@ -14,15 +14,15 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.wp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SmartBubbleAnimatedView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,12 +39,12 @@ public class SmartBubbleAnimatedView extends View {
     public int k;
     public boolean l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class SmartBubbleAnimatedView extends View {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                layoutParams.height = ii.g(this.a.getContext(), R.dimen.tbds83);
+                layoutParams.height = ri.g(this.a.getContext(), R.dimen.tbds83);
                 this.a.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                 this.a.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
                 if (this.a.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -92,7 +92,7 @@ public class SmartBubbleAnimatedView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class SmartBubbleAnimatedView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class SmartBubbleAnimatedView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -320,19 +320,19 @@ public class SmartBubbleAnimatedView extends View {
     public final void d(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) {
-            this.f.setColor(un9.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+            this.f.setColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.g.setTextSize(ii.g(getContext(), R.dimen.tbds32));
-            this.k = ii.g(getContext(), R.dimen.tbds83);
+            this.g.setTextSize(ri.g(getContext(), R.dimen.tbds32));
+            this.k = ri.g(getContext(), R.dimen.tbds83);
         }
     }
 
     public void e(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f.setColor(un9.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
+            this.f.setColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), 0.83f));
             this.g.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.g.setTextSize(ii.g(getContext(), R.dimen.tbds32));
+            this.g.setTextSize(ri.g(getContext(), R.dimen.tbds32));
             invalidate();
         }
     }
@@ -371,7 +371,7 @@ public class SmartBubbleAnimatedView extends View {
             this.d.addUpdateListener(new a(this));
             this.d.setDuration(400L);
             this.d.start();
-            jg.a().postDelayed(new b(this), this.b);
+            sg.a().postDelayed(new b(this), this.b);
         }
     }
 

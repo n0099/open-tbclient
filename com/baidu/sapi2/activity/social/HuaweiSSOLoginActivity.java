@@ -7,14 +7,14 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i0b;
+import com.baidu.tieba.g2b;
 import com.huawei.hms.common.ApiException;
 import com.huawei.hms.support.hwid.HuaweiIdAuthManager;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParams;
 import com.huawei.hms.support.hwid.request.HuaweiIdAuthParamsHelper;
 import com.huawei.hms.support.hwid.result.AuthHuaweiId;
 import com.huawei.hms.support.hwid.service.HuaweiIdAuthService;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String p = HuaweiSSOLoginActivity.class.getSimpleName();
     public static final int q = 1002;
@@ -79,7 +79,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 1002) {
-            i0b parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+            g2b parseAuthResultFromIntent = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
             if (parseAuthResultFromIntent.h()) {
                 AuthHuaweiId authHuaweiId = (AuthHuaweiId) parseAuthResultFromIntent.e();
                 String str = p;
@@ -93,7 +93,7 @@ public class HuaweiSSOLoginActivity extends BaseSSOLoginActivity {
             String str3 = p;
             Log.i(str3, "signIn failed: " + ((ApiException) parseAuthResultFromIntent.d()).getStatusCode());
         } else if (i == 1003) {
-            i0b parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
+            g2b parseAuthResultFromIntent2 = HuaweiIdAuthManager.parseAuthResultFromIntent(intent);
             if (parseAuthResultFromIntent2.h()) {
                 AuthHuaweiId authHuaweiId2 = (AuthHuaweiId) parseAuthResultFromIntent2.e();
                 Log.i(p, "signIn get code success.");

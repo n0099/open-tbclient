@@ -8,7 +8,7 @@ import com.baidu.searchbox.player.assistant.KernelCacheAssistant;
 import com.baidu.searchbox.player.interfaces.IKernelLayerReuseHelper;
 import com.baidu.searchbox.player.layer.BaseKernelLayer;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsKernelReuseHelper implements IKernelLayerReuseHelper {
     public abstract boolean performAutoDetachCache(@NonNull BDVideoPlayer bDVideoPlayer, @Nullable String str);
 

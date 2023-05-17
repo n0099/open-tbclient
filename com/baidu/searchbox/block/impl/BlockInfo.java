@@ -3,7 +3,7 @@ package com.baidu.searchbox.block.impl;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BlockInfo {
     public String mCurrentPage;
     public String mLogId;

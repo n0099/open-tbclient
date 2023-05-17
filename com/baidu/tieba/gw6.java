@@ -1,82 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gw6 extends vm<lw6, ForumEmotionViewHolder> {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes5.dex */
+public class gw6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public kw6 b;
-    public fw6 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw6(TbPageContext<?> tbPageContext, kw6 kw6Var, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, kw6Var, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808387, "Lcom/baidu/tieba/gw6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947808387, "Lcom/baidu/tieba/gw6;");
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = kw6Var;
+        a = Pattern.compile("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)");
+        b = Pattern.compile("#\\([^#\\)\\(]+\\)$");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public ForumEmotionViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static int a(CharSequence charSequence) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
+            int i = 0;
+            if (charSequence != null && charSequence.length() != 0) {
+                Matcher matcher = a.matcher(charSequence);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                        i++;
+                    }
+                }
+                Matcher matcher2 = Pattern.compile("#\\(meme,[collect_]?[a-zA-Z0-9_,]+\\)").matcher(charSequence);
+                while (matcher2.find()) {
+                    String[] split = matcher2.group().split(",");
+                    if (split != null && split.length == 5) {
+                        i++;
+                    }
+                }
+                Matcher matcher3 = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(charSequence);
+                while (matcher3.find()) {
+                    String[] split2 = matcher3.group().split(",");
+                    if (split2 != null && split2.length == 6) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(CharSequence charSequence) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, charSequence)) == null) {
+            int i = 0;
+            if (charSequence != null && charSequence.length() != 0) {
+                Matcher matcher = a.matcher(charSequence);
+                while (matcher.find()) {
+                    String group = matcher.group();
+                    if (MessageManager.getInstance().findTask(2004608) != null && (runTask = MessageManager.getInstance().runTask(2004608, Boolean.class, group)) != null && (runTask.getData() instanceof Boolean) && ((Boolean) runTask.getData()).booleanValue()) {
+                        i++;
+                    }
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.a);
-            ForumEmotionViewHolder forumEmotionViewHolder = new ForumEmotionViewHolder(this.a, forumEmotionItemView);
-            forumEmotionItemView.b(TbadkCoreApplication.getInst().getSkinType());
-            return forumEmotionViewHolder;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String replaceAll = str.replaceAll(uh5.h, EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT).replaceAll("meme,diy_", EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+            Matcher matcher = Pattern.compile("#\\(meme,net_[a-zA-Z0-9_\\-\\.\\%,]+\\)").matcher(replaceAll);
+            StringBuilder sb = new StringBuilder(replaceAll);
+            int i = 0;
+            while (matcher.find()) {
+                String[] split = matcher.group().split(",");
+                if (split != null && split.length == 6) {
+                    StringBuilder sb2 = new StringBuilder();
+                    int start = matcher.start() - i;
+                    int end = matcher.end() - i;
+                    for (int i2 = 0; i2 < split.length; i2++) {
+                        if (i2 != 1) {
+                            sb2.append(split[i2]);
+                            if (i2 < split.length - 1) {
+                                sb2.append(",");
+                            }
+                        }
+                    }
+                    i += (end - start) - sb2.toString().length();
+                    if (start >= 0 && end <= sb.length()) {
+                        sb.replace(start, end, sb2.toString());
+                    }
+                }
+            }
+            return sb.toString();
         }
-        return (ForumEmotionViewHolder) invokeL.objValue;
-    }
-
-    public void u(fw6 fw6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fw6Var) == null) {
-            this.c = fw6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lw6 lw6Var, ForumEmotionViewHolder forumEmotionViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lw6Var, forumEmotionViewHolder})) == null) {
-            forumEmotionViewHolder.l(lw6Var, this.b, this.c, i);
-            return forumEmotionViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 }

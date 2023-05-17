@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.StateInfo;
 import tbclient.VirtualImageInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ProfileVirtualImageInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ProfileVirtualImageInfo instance;

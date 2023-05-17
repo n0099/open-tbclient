@@ -1,34 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetPendantByCategory.ThemePendantInMain;
+import tbclient.ThemeBgProp;
+/* loaded from: classes6.dex */
 public class lx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<DressItemData> b;
 
-    public static void a(TbPageContext<?> tbPageContext, String str) {
+    public lx9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
-            b(tbPageContext, str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) && !StringUtils.isNull(str) && tbPageContext != null) {
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
-                bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
-            }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<DressItemData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c(ThemePendantInMain themePendantInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
+            return;
+        }
+        this.a = themePendantInMain.pendant_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import android.webkit.ValueCallback;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CookieManager {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final CookieManager mInstance = new CookieManager();

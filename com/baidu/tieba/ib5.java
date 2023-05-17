@@ -1,88 +1,134 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tbadk.data.IconStampData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ib5 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String c(int i) {
-        InterceptResult invokeI;
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return null;
-                        }
-                        return "reply_7_times.mp4";
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (i == 1) {
+                str2 = "index";
+            } else if (i == 2) {
+                str2 = "pb_live";
+            } else if (i == 3) {
+                int i2 = a;
+                if (i2 == 1) {
+                    str2 = "video_bar_live";
+                } else {
+                    if (i2 == 2) {
+                        str2 = "video_immer_live";
                     }
-                    return "post_7_times.mp4";
+                    str2 = "";
                 }
-                return "reply_1_times.mp4";
+            } else {
+                if (i == 4) {
+                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
+                }
+                str2 = "";
             }
-            return "post_1_times.mp4";
+            return str + "?source=" + str2;
         }
-        return (String) invokeI.objValue;
+        return (String) invokeLI.objValue;
     }
 
-    public static boolean a(IconStampData iconStampData) {
+    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
-            if (iconStampData == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
+            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
+                b = liveRemindRecommendData.getShowPage();
+                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
+                if (liveRemindRecommendData.getShowPage() == 3) {
+                    String c = c();
+                    if (liveIconScheme.contains("closeLink")) {
+                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
+                    }
+                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
+                }
+                return liveIconScheme;
             }
-            String c = c(iconStampData.stampType);
-            if (TextUtils.isEmpty(c)) {
-                return false;
-            }
-            File file = new File(am.b(c));
-            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || !file.exists()) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void b(boolean z) {
-        String c;
-        String c2;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            if (z) {
-                c = c(1);
-                c2 = c(3);
-            } else {
-                c = c(2);
-                c2 = c(4);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            int i = a;
+            if (i == 1) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
             }
-            if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
-                String str = BdBaseApplication.getInst().getResHashMap().get(c2);
-                if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
-                    RequestParams requestParams = new RequestParams();
-                    requestParams.setRunType(wl.a);
-                    requestParams.setRunNode("aps");
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add("com.baidu.tieba.resloader." + c);
-                    arrayList.add("com.baidu.tieba.resloader." + c2);
-                    requestParams.addChannel(new vl(arrayList, (DefaultDownloadCallback) null));
-                    PmsManager.getInstance().execute(requestParams);
-                }
+            if (i == 2) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
             }
+            int i2 = b;
+            if (i2 == 1) {
+                return "index_gz";
+            }
+            if (i2 == 2) {
+                return AddFriendActivityConfig.TYPE_PB_HEAD;
+            }
+            return YYLiveUtil.SOURCE_NOT_DEFINE;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        }
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return "";
+            }
+            String queryParameter = parse.getQueryParameter("source");
+            if (StringUtils.isNull(queryParameter)) {
+                return "";
+            }
+            return queryParameter;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            a = i;
         }
     }
 }

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AlaChallengeInfo extends Message {
     public static final String DEFAULT_EXT = "";
     public static final String DEFAULT_RIVALHLSURL = "";
@@ -23,7 +23,7 @@ public final class AlaChallengeInfo extends Message {
     public static final Long DEFAULT_CHALLENGEID = 0L;
     public static final Long DEFAULT_WINNINGNUM = 0L;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<AlaChallengeInfo> {
         public Long challengeId;
         public String ext;

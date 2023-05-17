@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,92 +8,156 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class tq extends oq {
+import java.util.Comparator;
+import java.util.PriorityQueue;
+/* loaded from: classes7.dex */
+public final class tq {
     public static /* synthetic */ Interceptable $ic;
-    public static final UniqueId b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
+    /* loaded from: classes7.dex */
+    public static final class a<T> implements Comparator<SubTaskState> {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(264328819, "Lcom/baidu/tieba/tq$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(264328819, "Lcom/baidu/tieba/tq$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        public final UniqueId a() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public final int compare(SubTaskState subTaskState, SubTaskState subTaskState2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return (UniqueId) invokeV.objValue;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subTaskState, subTaskState2)) == null) {
+                if (subTaskState.getTaskStatus().getCurActiveTime() - subTaskState2.getTaskStatus().getCurActiveTime() == 0) {
+                    return 0;
+                }
+                if (subTaskState.getTaskStatus().getCurActiveTime() - subTaskState2.getTaskStatus().getCurActiveTime() > 0) {
+                    return -1;
+                }
+                return 1;
             }
-            return tq.b;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+            return invokeLL.intValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318160, "Lcom/baidu/tieba/tq;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static final class b<T> implements Comparator<SubTaskState> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(264328850, "Lcom/baidu/tieba/tq$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(264328850, "Lcom/baidu/tieba/tq$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448318160, "Lcom/baidu/tieba/tq;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-        c = new a(null);
-        UniqueId gen = UniqueId.gen("TaskBackFlowCancelEvent");
-        Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowCancelEvent\")");
-        b = gen;
-    }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + c.a().getAlias() + ':' + a().toJson();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public final int compare(SubTaskState subTaskState, SubTaskState subTaskState2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, subTaskState, subTaskState2)) == null) {
+                if (subTaskState.getTaskStatus().getCurActiveTime() - subTaskState2.getTaskStatus().getCurActiveTime() == 0) {
+                    return 0;
+                }
+                if (subTaskState.getTaskStatus().getCurActiveTime() - subTaskState2.getTaskStatus().getCurActiveTime() > 0) {
+                    return 1;
+                }
+                return -1;
+            }
+            return invokeLL.intValue;
         }
-        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tq(TaskInfo taskInfo) {
-        super(taskInfo);
+    public static final PriorityQueue<SubTaskState> a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TaskInfo) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            return c(i);
+        }
+        return (PriorityQueue) invokeI.objValue;
+    }
+
+    public static final PriorityQueue<SubTaskState> c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            return new PriorityQueue<>(i + 1, b.a);
+        }
+        return (PriorityQueue) invokeI.objValue;
+    }
+
+    public static final PriorityQueue<SubTaskState> d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return new PriorityQueue<>(i + 1, a.a);
+        }
+        return (PriorityQueue) invokeI.objValue;
+    }
+
+    public static final void b(PriorityQueue<SubTaskState> priorityQueue, SubTaskState subTaskState, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, priorityQueue, subTaskState, i) == null) {
+            priorityQueue.add(subTaskState);
+            while (priorityQueue.size() > i) {
+                priorityQueue.poll();
             }
         }
     }

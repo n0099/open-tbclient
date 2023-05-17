@@ -16,7 +16,7 @@ import com.baidu.searchbox.debug.data.TextItemInfo;
 import java.util.ArrayList;
 import java.util.List;
 @DebugInfoProvider(enable = false, type = "Debug_Fetures")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusOperationProvider extends DebugDataGroupProvider {
     public View.OnClickListener criusBaseListener = new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.CriusOperationProvider.1
         @Override // android.view.View.OnClickListener

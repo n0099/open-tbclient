@@ -10,7 +10,7 @@ import com.kwad.sdk.crash.report.ReportEvent;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public final void a(final List<ReportEvent> list, @Nullable final CountDownLatch countDownLatch) {
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "CrashReportRequestManager request");

@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@TargetApi(23)
-/* loaded from: classes3.dex */
+import com.google.protobuf.CodedInputStream;
+/* loaded from: classes4.dex */
 public class b51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
-    }
-
-    public static boolean a(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public static PendingIntent a(Context context, int i, Intent intent, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            return activity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (activity instanceof a) {
-                ((a) activity).validateRequestPermissionsRequestCode(i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), intent, Integer.valueOf(i2)})) == null) {
+            if (Build.VERSION.SDK_INT >= 31) {
+                return PendingIntent.getBroadcast(context, i, intent, i2 | CodedInputStream.DEFAULT_SIZE_LIMIT);
             }
-            activity.requestPermissions(strArr, i);
+            return PendingIntent.getBroadcast(context, i, intent, i2);
         }
+        return (PendingIntent) invokeCommon.objValue;
     }
 }

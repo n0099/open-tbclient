@@ -6,7 +6,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.search.core.PoiDetailInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiDetailSearchResult> CREATOR = new b();
     public List<PoiDetailInfo> a;

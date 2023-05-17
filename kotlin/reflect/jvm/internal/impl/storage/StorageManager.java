@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.storage;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface StorageManager {
     <T> T compute(Function0<? extends T> function0);
 

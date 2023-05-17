@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PollingModeInfo {
     public int hasPolledTimes;
     public int pollInterval;

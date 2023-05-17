@@ -1,5 +1,5 @@
 package com.baidu.nadcore.download.consts;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum AdDownloadCode {
     SUCCESS(0),
     ERROR_START_FAIL(1),

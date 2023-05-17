@@ -1,14 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gi4 implements hi4 {
+/* loaded from: classes5.dex */
+public class gi4 extends ei4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String o;
+    public String p;
+    public int q;
+    public boolean r;
+    public String s;
 
     public gi4() {
         Interceptable interceptable = $ic;
@@ -24,13 +30,16 @@ public class gi4 implements hi4 {
         }
     }
 
-    @Override // com.baidu.tieba.hi4
-    public th4 c(String str, int i) throws Exception {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.ei4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            return rh4.a(str, i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (super.a() && !TextUtils.isEmpty(this.p)) {
+                return true;
+            }
+            return false;
         }
-        return (th4) invokeLI.objValue;
+        return invokeV.booleanValue;
     }
 }

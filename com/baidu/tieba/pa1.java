@@ -1,187 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wb1;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.qq.e.comm.constants.Constants;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class pa1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
-    public final String c;
-    public wb1 d;
-    public TextView e;
-    public TextView f;
-    public f g;
-    public e h;
+    public final ra1 a;
+    public boolean b;
+    public int c;
+    public final JSONObject d;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void onCancel();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(String str, String str2, String str3, String str4);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa1 a;
-
-        public a(pa1 pa1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa1Var;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                if (i != 6 && i != 0) {
-                    return false;
-                }
-                if (i != 0 || keyEvent == null || keyEvent.getAction() != 1) {
-                    this.a.f();
-                    return true;
-                }
-                return true;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa1 a;
-
-        public b(pa1 pa1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.h != null) {
-                this.a.h.onCancel();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa1 a;
-
-        public c(pa1 pa1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && this.a.h != null) {
-                this.a.h.onCancel();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pa1 a;
-
-        public d(pa1 pa1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pa1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pa1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.a.f();
-            }
-        }
-    }
-
-    public pa1(Context context, String str, String str2) {
+    public pa1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -191,79 +32,124 @@ public class pa1 {
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-        c();
+        this.b = true;
+        this.c = -1;
+        this.d = new JSONObject();
+        ra1 ra1Var = new ra1();
+        this.a = ra1Var;
+        ra1Var.a = System.currentTimeMillis();
     }
 
-    public void g(e eVar) {
+    public String a(String str, long j, long j2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.h = eVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(Constants.KEYS.AD_INFO, str);
+                jSONObject.put("isbrowser", String.valueOf(j));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("aderrorcode", String.valueOf(j2));
+                jSONObject2.put("multipleaccess", String.valueOf(z));
+                jSONObject2.put(PrefetchEvent.MODULE, "0");
+                jSONObject.put("adext", jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public void b(String str, String str2, String str3, String str4, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) != null) || this.a == null) {
+            return;
+        }
+        if (str3 == null) {
+            str3 = "";
+        }
+        l21 g = new l21().g("1006");
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("ext", str2);
+            g.b("f1", jSONObject.toString());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("timing", str);
+            g.b("f2", jSONObject2.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        ra1 ra1Var = this.a;
+        g.b("f3", str4);
+        g.b("f4", String.valueOf(j));
+        g.b("f6", String.valueOf(this.c));
+        g.b("f7", "ad");
+        g.b("f14", "");
+        g.b("f15", String.valueOf(this.a.a));
+        g.b("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - ra1Var.d) + ra1Var.e)) * 1.0f) / 1000.0f)));
+        g.b("f17", str3);
+        g.b("f18", String.valueOf(this.a.b));
+        g.b("f19", String.valueOf(this.a.c));
+        g.b("f20", String.valueOf(this.a.d));
+        g.b("f21", String.valueOf(this.a.f));
+        g.c("f23", this.d);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ra1 ra1Var = this.a;
+            ra1Var.a = 0L;
+            ra1Var.e = 0L;
+            ra1Var.f = 0L;
+            ra1Var.d = 0L;
+            ra1Var.c = 0L;
+            ra1Var.b = 0L;
         }
     }
 
-    public void h(f fVar) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.g = fVar;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d = System.currentTimeMillis();
+            ra1 ra1Var = this.a;
+            long j = ra1Var.d - ra1Var.c;
+            if (j < 0) {
+                j = 0;
+            }
+            this.a.e += j;
         }
     }
 
-    public final void c() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = View.inflate(this.a, R.layout.nad_browser_http_authentication, null);
-            this.e = (TextView) inflate.findViewById(R.id.username_edit);
-            TextView textView = (TextView) inflate.findViewById(R.id.password_edit);
-            this.f = textView;
-            textView.setOnEditorActionListener(new a(this));
-            String string = this.a.getString(R.string.nad_sign_in_to, this.b, this.c);
-            wb1.a aVar = new wb1.a(this.a);
-            aVar.r(string);
-            aVar.i(17301543);
-            aVar.s(inflate);
-            aVar.o(R.string.nad_http_authentication_login, new d(this));
-            aVar.l(R.string.nad_http_authentication_cancel, new c(this));
-            aVar.n(new b(this));
-            wb1 a2 = aVar.a();
-            this.d = a2;
-            a2.getWindow().setSoftInputMode(4);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.c = System.currentTimeMillis();
+            if (this.b) {
+                ra1 ra1Var = this.a;
+                long j = ra1Var.c - ra1Var.a;
+                if (j < 0) {
+                    j = 0;
+                }
+                this.a.e = j;
+                this.b = false;
+            }
         }
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.getText().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.getText().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void f() {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fVar = this.g) != null) {
-            fVar.a(this.b, this.c, e(), d());
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.b = System.currentTimeMillis();
         }
     }
 
-    public void i() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            v31.b(this.d);
-            this.e.requestFocus();
+            this.a.f = System.currentTimeMillis();
         }
     }
 }

@@ -1,104 +1,57 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.util.Pools;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class fp6 {
+/* loaded from: classes5.dex */
+public final class fp6 extends bp6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fp6 a;
-    public static final Pools.SimplePool<RectF> b;
-    public static final Pools.SimplePool<PointF> c;
-    public static final Pools.SimplePool<ym6> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771869, "Lcom/baidu/tieba/fp6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947771869, "Lcom/baidu/tieba/fp6;");
-                return;
-            }
-        }
-        a = new fp6();
-        b = new Pools.SimplePool<>(200);
-        c = new Pools.SimplePool<>(200);
-        d = new Pools.SimplePool<>(1000);
-    }
-
-    public fp6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fp6(boolean z) {
+        super(64);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = z;
     }
 
-    public final PointF b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PointF acquire = c.acquire();
-            if (acquire == null) {
-                return new PointF();
-            }
-            return acquire;
-        }
-        return (PointF) invokeV.objValue;
+    public /* synthetic */ fp6(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? false : z);
     }
 
-    public final RectF c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bp6
+    public boolean b(ko6 item, nq6 timer, eo6 config) {
+        InterceptResult invokeLLL;
+        Long p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RectF acquire = b.acquire();
-            if (acquire == null) {
-                return new RectF();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (this.b && (p = item.e().p()) != null && p.longValue() == 0) {
+                return true;
             }
-            return acquire;
+            return false;
         }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final ym6 a(zm6 data, DanmakuPlayer player) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(player, "player");
-            ym6 acquire = d.acquire();
-            if (acquire != null) {
-                acquire.l(data);
-                acquire.q(player.m().w());
-            } else {
-                acquire = null;
-            }
-            if (acquire == null) {
-                return new ym6(data, player);
-            }
-            return acquire;
-        }
-        return (ym6) invokeLL.objValue;
+        return invokeLLL.booleanValue;
     }
 }

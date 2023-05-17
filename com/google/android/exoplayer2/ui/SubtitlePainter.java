@@ -19,7 +19,7 @@ import android.util.Log;
 import com.google.android.exoplayer2.text.CaptionStyleCompat;
 import com.google.android.exoplayer2.text.Cue;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SubtitlePainter {
     public static final float INNER_PADDING_RATIO = 0.125f;
     public static final String TAG = "SubtitlePainter";

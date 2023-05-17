@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,16 +52,16 @@ public class AlarmReceiver extends BroadcastReceiver {
             str = "bkb";
         }
         try {
-            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f12c0), "UTF-8");
+            str2 = URLEncoder.encode(context.getString(R.string.obfuscated_res_0x7f0f1391), "UTF-8");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         String str3 = "tiebaclient://swan/Rz2DrtP6l7EcuE3rRzeAscUxQk3Zvphj/pages/fbLive/fbLive/?match_id=" + stringExtra + "&type=" + str + "/?_baiduboxapp=%7B%22from%22:%221191003800000000%22%7D&callback=_bdbox_js_275&upgrade=0&tbcfrom=web_search&swanName=" + str2;
         try {
             Intent intent2 = new Intent(context, DealIntentService.class);
-            intent2.putExtra(DealIntentService.KEY_CLASS, 37);
+            intent2.putExtra("class", 37);
             intent2.putExtra(IntentConfig.KEY_AI_APP_SCHEMA, str3);
-            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0b7e), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
+            NotificationHelper.showNotification(context, 2001, stringExtra3 + context.getString(R.string.obfuscated_res_0x7f0f0bff), "", "", PendingIntent.getService(context, 2001, intent2, 134217728), false);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

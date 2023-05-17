@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -26,7 +26,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QzoneShare extends BaseApi {
     public static final String SHARE_TO_QQ_APP_NAME = "appName";
     public static final String SHARE_TO_QQ_AUDIO_URL = "audio_url";
@@ -162,9 +162,9 @@ public class QzoneShare extends BaseApi {
                                 stringBuffer.append("&cflag=" + Base64.encodeToString(l.i(String.valueOf(i3)), 2));
                                 SLog.v("openSDK_LOG.QzoneShare", "doshareToQzone, url: " + stringBuffer.toString());
                                 com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-                                intent = new Intent("android.intent.action.VIEW");
+                                intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                                 intent.setData(Uri.parse(stringBuffer.toString()));
-                                intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+                                intent.putExtra("pkg_name", activity.getPackageName());
                                 if (l.g(activity, "4.6.0")) {
                                 }
                                 if (a(intent)) {
@@ -208,9 +208,9 @@ public class QzoneShare extends BaseApi {
                             stringBuffer.append("&cflag=" + Base64.encodeToString(l.i(String.valueOf(i3)), 2));
                             SLog.v("openSDK_LOG.QzoneShare", "doshareToQzone, url: " + stringBuffer.toString());
                             com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-                            intent = new Intent("android.intent.action.VIEW");
+                            intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                             intent.setData(Uri.parse(stringBuffer.toString()));
-                            intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+                            intent.putExtra("pkg_name", activity.getPackageName());
                             if (l.g(activity, "4.6.0")) {
                             }
                             if (a(intent)) {
@@ -292,9 +292,9 @@ public class QzoneShare extends BaseApi {
         stringBuffer.append("&cflag=" + Base64.encodeToString(l.i(String.valueOf(i3)), 2));
         SLog.v("openSDK_LOG.QzoneShare", "doshareToQzone, url: " + stringBuffer.toString());
         com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-        intent = new Intent("android.intent.action.VIEW");
+        intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(Uri.parse(stringBuffer.toString()));
-        intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+        intent.putExtra("pkg_name", activity.getPackageName());
         if (l.g(activity, "4.6.0")) {
             if (a(intent)) {
                 UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_OLD_QZSHARE, iUiListener);

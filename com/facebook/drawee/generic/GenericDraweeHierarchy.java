@@ -19,7 +19,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.interfaces.SettableDraweeHierarchy;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public static final int ACTUAL_IMAGE_INDEX = 2;
     public static final int BACKGROUND_IMAGE_INDEX = 0;

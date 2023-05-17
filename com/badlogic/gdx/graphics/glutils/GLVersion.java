@@ -2,8 +2,7 @@ package com.badlogic.gdx.graphics.glutils;
 
 import com.badlogic.gdx.Application;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.o0;
+import com.baidu.tieba.s0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -136,7 +135,7 @@ public class GLVersion {
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             Matcher matcher = Pattern.compile(str).matcher(str2);
             if (matcher.find()) {
-                String[] split = matcher.group(1).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = matcher.group(1).split("\\.");
                 this.a = c(split[0], 2);
                 if (split.length >= 2) {
                     c(split[1], 0);
@@ -147,7 +146,7 @@ public class GLVersion {
                 }
                 return;
             }
-            Application application = o0.a;
+            Application application = s0.a;
             application.log("GLVersion", "Invalid version string: " + str2);
             this.a = 2;
         }
@@ -178,7 +177,7 @@ public class GLVersion {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException unused) {
-                Application application = o0.a;
+                Application application = s0.a;
                 application.error("LibGDX GL", "Error parsing number: " + str + ", assuming: " + i);
                 return i;
             }

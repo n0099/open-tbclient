@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.atomData.ForumSearchActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.forumsearch.message.SearchPostForumHttpResponseMessage;
 import com.baidu.tieba.forumsearch.message.SearchPostForumSocketResponseMessage;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumSearchStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +53,8 @@ public class ForumSearchStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            xo9.f(309466, SearchPostForumSocketResponseMessage.class, false);
-            xo9.c(309466, CmdConfigHttp.CMD_SEARCH_POST_FORUM, TbConfig.SEARCH_POST_FORUM, SearchPostForumHttpResponseMessage.class, false, false, true, false);
+            zq9.f(309466, SearchPostForumSocketResponseMessage.class, false);
+            zq9.c(309466, CmdConfigHttp.CMD_SEARCH_POST_FORUM, TbConfig.SEARCH_POST_FORUM, SearchPostForumHttpResponseMessage.class, false, false, true, false);
         }
     }
 }

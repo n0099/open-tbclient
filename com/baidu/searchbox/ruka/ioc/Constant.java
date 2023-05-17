@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ruka.ioc;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class Constant {
     public static final String KEY_ANR_TIMESTAMP = "anrTimeStamp";
     public static final String KEY_APP_VERSION = "appversion";

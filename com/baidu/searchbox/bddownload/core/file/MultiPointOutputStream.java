@@ -30,7 +30,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MultiPointOutputStream {
     public static final ExecutorService FILE_IO_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload file io", false));
     public static final String TAG = "MultiPointOutputStream";
@@ -61,7 +61,7 @@ public class MultiPointOutputStream {
     public final Runnable syncRunnable;
     public final DownloadTask task;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StreamsState {
         public boolean isNoMoreStream;
         public List<Integer> noMoreStreamBlockList = new ArrayList();

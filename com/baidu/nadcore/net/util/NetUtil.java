@@ -3,7 +3,7 @@ package com.baidu.nadcore.net.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetUtil {
     public static boolean a(Context context) {
         NetworkInfo activeNetworkInfo;
@@ -14,7 +14,7 @@ public class NetUtil {
         return activeNetworkInfo.isConnectedOrConnecting();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetworkStateEnum {
         NO("no"),
         WIFI("wifi"),

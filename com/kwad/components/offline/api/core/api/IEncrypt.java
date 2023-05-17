@@ -1,7 +1,7 @@
 package com.kwad.components.offline.api.core.api;
 
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IEncrypt {
     String getFileMD5(File file);
 

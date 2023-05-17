@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface m_a extends IInterface {
 
     @Keep
     /* renamed from: com.heytap.openid.m_a$m_a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static abstract class AbstractBinderC0538m_a extends Binder implements m_a {
+    /* loaded from: classes9.dex */
+    public static abstract class AbstractBinderC0552m_a extends Binder implements m_a {
         public static /* synthetic */ Interceptable $ic;
         @Keep
         public static final String m_a;
@@ -26,14 +26,14 @@ public interface m_a extends IInterface {
 
         @Keep
         /* renamed from: com.heytap.openid.m_a$m_a$m_a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0539m_a implements m_a {
+        /* loaded from: classes9.dex */
+        public static class C0553m_a implements m_a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             @Keep
             public IBinder m_a;
 
-            public C0539m_a(IBinder iBinder) {
+            public C0553m_a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

@@ -10,7 +10,7 @@ import android.util.Log;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.dns.cache.DnsCacheHelper;
 import com.baidu.searchbox.dns.util.DnsUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConnectManager {
     public static long DELAY = 5000;
     public static String NET_CHANGE_ACTION = "android.net.conn.CONNECTIVITY_CHANGE";
@@ -24,7 +24,7 @@ public class ConnectManager {
     public boolean mIsInit = false;
     public ConncetStatusReceiver mReceiver;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ConncetStatusReceiver extends BroadcastReceiver {
         public ConncetStatusReceiver() {
         }

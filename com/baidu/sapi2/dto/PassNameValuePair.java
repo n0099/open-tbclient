@@ -2,7 +2,7 @@ package com.baidu.sapi2.dto;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassNameValuePair implements Parcelable {
     public static final Parcelable.Creator<PassNameValuePair> CREATOR = new Parcelable.Creator<PassNameValuePair>() { // from class: com.baidu.sapi2.dto.PassNameValuePair.1
         /* JADX DEBUG: Method merged with bridge method */

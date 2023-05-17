@@ -23,7 +23,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.tieba.R;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomSheetDialog extends AppCompatDialog {
     public BottomSheetBehavior<FrameLayout> behavior;
     @NonNull
@@ -104,10 +104,10 @@ public class BottomSheetDialog extends AppCompatDialog {
     public static int getThemeResId(@NonNull Context context, int i) {
         if (i == 0) {
             TypedValue typedValue = new TypedValue();
-            if (context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400f5, typedValue, true)) {
+            if (context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0400fb, typedValue, true)) {
                 return typedValue.resourceId;
             }
-            return R.style.obfuscated_res_0x7f10023b;
+            return R.style.obfuscated_res_0x7f100245;
         }
         return i;
     }
@@ -139,9 +139,9 @@ public class BottomSheetDialog extends AppCompatDialog {
 
     private FrameLayout ensureContainerAndBehavior() {
         if (this.container == null) {
-            FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d022d, null);
+            FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0240, null);
             this.container = frameLayout;
-            BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f090852));
+            BottomSheetBehavior<FrameLayout> from = BottomSheetBehavior.from((FrameLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f09086f));
             this.behavior = from;
             from.addBottomSheetCallback(this.bottomSheetCallback);
             this.behavior.setHideable(this.cancelable);
@@ -196,18 +196,18 @@ public class BottomSheetDialog extends AppCompatDialog {
 
     private View wrapInBottomSheet(int i, @Nullable View view2, @Nullable ViewGroup.LayoutParams layoutParams) {
         ensureContainerAndBehavior();
-        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0907aa);
+        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) this.container.findViewById(R.id.obfuscated_res_0x7f0907c8);
         if (i != 0 && view2 == null) {
             view2 = getLayoutInflater().inflate(i, (ViewGroup) coordinatorLayout, false);
         }
-        FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f090852);
+        FrameLayout frameLayout = (FrameLayout) this.container.findViewById(R.id.obfuscated_res_0x7f09086f);
         frameLayout.removeAllViews();
         if (layoutParams == null) {
             frameLayout.addView(view2);
         } else {
             frameLayout.addView(view2, layoutParams);
         }
-        coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f09251f).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
+        coordinatorLayout.findViewById(R.id.obfuscated_res_0x7f09258a).setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.bottomsheet.BottomSheetDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
                 BottomSheetDialog bottomSheetDialog = BottomSheetDialog.this;

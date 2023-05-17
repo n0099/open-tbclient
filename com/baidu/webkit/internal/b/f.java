@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.MailTo;
 import android.net.Uri;
-/* loaded from: classes7.dex */
+import com.baidu.searchbox.IntentConstants;
+/* loaded from: classes8.dex */
 public final class f extends g {
     @Override // com.baidu.webkit.internal.b.g
     public final boolean a(Context context, String str) {
@@ -14,13 +15,13 @@ public final class f extends g {
         if (!str.startsWith("mailto:")) {
             if (str.startsWith("rtsp:")) {
                 try {
-                    context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                    context.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 return true;
             } else if (str.startsWith("ftp://")) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
                 intent.addCategory("android.intent.category.BROWSABLE");
                 return g.a(context, intent);
             } else {

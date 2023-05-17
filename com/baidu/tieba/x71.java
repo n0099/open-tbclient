@@ -1,127 +1,57 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.nadcore.webview.activity.NadWebViewActivity;
+import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.c91;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.io.Serializable;
-import java.nio.charset.Charset;
 import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Charsets;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class x71 {
+@Service
+/* loaded from: classes8.dex */
+public final class x71 extends ni0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d a;
-    public final Intent b;
+    public final String a;
 
-    /* loaded from: classes7.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public String c;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(x71 x71Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x71Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final a c(HashMap<String, String> paramsMap) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paramsMap)) == null) {
-                Intrinsics.checkNotNullParameter(paramsMap, "paramsMap");
-                this.a = TextUtils.equals((CharSequence) a11.b(paramsMap, "append"), "1");
-                this.b = (String) a11.b(paramsMap, "forbidautorotate");
-                this.c = (String) a11.b(paramsMap, "layoutfullscreen");
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("needAppend", this.a);
-                jSONObject.put("forbidAutoRotate", this.b);
-                jSONObject.put("fullScreen", this.c);
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …\n            }.toString()");
-                return jSONObject2;
-            }
-            return (String) invokeV.objValue;
-        }
+    @Override // com.baidu.tieba.ni0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public final class b {
+    @Override // com.baidu.tieba.ni0
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a implements c91.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-        public final int c;
-        public String d;
-        public int e;
-        public double f;
+        public final /* synthetic */ x71 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ HashMap c;
+        public final /* synthetic */ ti0 d;
+        public final /* synthetic */ pi0 e;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public b(x71 x71Var) {
+        public a(x71 x71Var, Context context, HashMap hashMap, ti0 ti0Var, pi0 pi0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x71Var};
+                Object[] objArr = {x71Var, context, hashMap, ti0Var, pi0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -131,670 +61,44 @@ public final class x71 {
                     return;
                 }
             }
-            this.a = 1;
-            this.b = 2;
-            this.c = 3;
+            this.a = x71Var;
+            this.b = context;
+            this.c = hashMap;
+            this.d = ti0Var;
+            this.e = pi0Var;
         }
 
-        public final b c(String data) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.c91.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                JSONObject c = z01.c(data);
-                Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(data)");
-                this.d = c.optString("defer_charge_url");
-                this.e = c.optInt("defer_type", this.c);
-                this.f = c.optDouble("defer_time", 0.0d);
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final double b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.f;
-            }
-            return invokeV.doubleValue;
-        }
-
-        public final boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                int i = this.e;
-                if ((i != this.b && i != this.c) || this.f <= 0 || TextUtils.isEmpty(this.d)) {
-                    return false;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = 0;
+                boolean i2 = this.a.i(this.b, this.c, false);
+                String str = this.a.a;
+                h91.a(str, "调起SDK落地页, 结果 " + i2);
+                x71 x71Var = this.a;
+                ti0 ti0Var = this.d;
+                pi0 pi0Var = this.e;
+                if (!i2) {
+                    i = 1001;
                 }
-                return true;
+                x71Var.c(ti0Var, pi0Var, i, i2);
             }
-            return invokeV.booleanValue;
         }
 
-        public final boolean e() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.c91.b
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                int i = this.e;
-                if ((i == this.a || i == this.c) && !TextUtils.isEmpty(this.d)) {
-                    return true;
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                h91.c(this.b, "初始化失败，降级为原生打开");
             }
-            return invokeV.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("deferChargeUrl", this.d);
-                jSONObject.put("deferType", this.e);
-                jSONObject.put("deferTime", this.f);
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …\n            }.toString()");
-                return jSONObject2;
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.f;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.g;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final c f(String data) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, data)) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                JSONObject c = z01.c(data);
-                Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(data)");
-                this.g = c.optString("key");
-                this.a = c.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                this.b = c.optString("download_url");
-                this.c = c.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
-                this.d = c.optString("close_virtual_progress");
-                this.e = c.optString("apk_label");
-                this.f = c.optString("apk_icon");
-                return this;
-            }
-            return (c) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("pkgName", this.a);
-                jSONObject.put(TTDownloadField.TT_DOWNLOAD_URL, this.b);
-                jSONObject.put("contentLength", this.c);
-                jSONObject.put("closeVirtualProgress", this.d);
-                jSONObject.put("apkLabel", this.e);
-                jSONObject.put("apkIcon", this.f);
-                jSONObject.put("key", this.g);
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …\n            }.toString()");
-                return jSONObject2;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public final class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public boolean j;
-        public boolean k;
-        public a l;
-        public e m;
-        public b n;
-        public c o;
-        public f p;
-        public final /* synthetic */ x71 q;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public d(x71 x71Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x71Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.q = x71Var;
-        }
-
-        public final void o(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-                this.j = z;
-            }
-        }
-
-        public final boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return !TextUtils.equals(this.d, "0");
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final a c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.l;
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public final b d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.n;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public final c e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.o;
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public final String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.i;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.g;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.f;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final e j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.m;
-            }
-            return (e) invokeV.objValue;
-        }
-
-        public final f k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return this.p;
-            }
-            return (f) invokeV.objValue;
-        }
-
-        public final String l() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final boolean n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                return this.j;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final d m(Intent intent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, intent)) == null) {
-                Intrinsics.checkNotNullParameter(intent, "intent");
-                Bundle extras = intent.getExtras();
-                String str = null;
-                if (extras != null) {
-                    Intrinsics.checkNotNullExpressionValue(extras, "intent.extras ?: return null");
-                    Serializable serializable = extras.getSerializable("map");
-                    if (!(serializable instanceof HashMap)) {
-                        serializable = null;
-                    }
-                    HashMap<String, String> hashMap = (HashMap) serializable;
-                    if (hashMap != null) {
-                        if (hashMap != null) {
-                            if (hashMap == null || hashMap.isEmpty()) {
-                                return null;
-                            }
-                            this.b = (String) a11.b(hashMap, LegoListActivityConfig.AD_ID);
-                            this.a = (String) a11.b(hashMap, "url");
-                            this.e = (String) a11.b(hashMap, "ext_info");
-                            this.f = (String) a11.b(hashMap, TiebaStatic.Params.REFER);
-                            this.c = (String) a11.b(hashMap, "charge_url");
-                            this.d = (String) a11.b(hashMap, "ad_invoke_flag");
-                            this.g = (String) a11.b(hashMap, "lp_real_url");
-                            this.h = (String) a11.b(hashMap, "log_switch");
-                            this.i = (String) a11.b(hashMap, "lp_org_type");
-                            this.k = TextUtils.equals((CharSequence) a11.b(hashMap, "downgrade_to_native"), "1");
-                            a aVar = new a(this.q);
-                            aVar.c(hashMap);
-                            this.l = aVar;
-                            String sdScriptStr = (String) a11.b(hashMap, "sdk_script");
-                            if (!TextUtils.isEmpty(sdScriptStr)) {
-                                e eVar = new e(this.q);
-                                Intrinsics.checkNotNullExpressionValue(sdScriptStr, "sdScriptStr");
-                                eVar.c(sdScriptStr);
-                                this.m = eVar;
-                            }
-                            String deferChargeStr = (String) a11.b(hashMap, "defer_charge");
-                            if (!TextUtils.isEmpty(deferChargeStr)) {
-                                b bVar = new b(this.q);
-                                Intrinsics.checkNotNullExpressionValue(deferChargeStr, "deferChargeStr");
-                                bVar.c(deferChargeStr);
-                                this.n = bVar;
-                            }
-                            String downloadStr = (String) a11.b(hashMap, "download");
-                            if (!TextUtils.isEmpty(downloadStr)) {
-                                c cVar = new c();
-                                Intrinsics.checkNotNullExpressionValue(downloadStr, "downloadStr");
-                                cVar.f(downloadStr);
-                                this.o = cVar;
-                            }
-                            String splashStr = (String) a11.b(hashMap, SpeedStatsUtils.UBC_VALUE_SPLASH);
-                            if (!TextUtils.isEmpty(splashStr)) {
-                                f fVar = new f();
-                                Intrinsics.checkNotNullExpressionValue(splashStr, "splashStr");
-                                fVar.e(splashStr);
-                                this.p = fVar;
-                            }
-                            x71 x71Var = this.q;
-                            String str2 = this.f;
-                            String str3 = this.c;
-                            b bVar2 = this.n;
-                            if (bVar2 != null) {
-                                str = bVar2.a();
-                            }
-                            this.f = x71Var.c(str2, str3, str);
-                            return this;
-                        }
-                        throw new NullPointerException("null cannot be cast to non-null type java.util.HashMap<kotlin.String, kotlin.String>");
-                    }
-                }
-                return null;
-            }
-            return (d) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("url", this.a);
-                jSONObject.put("adId", this.b);
-                jSONObject.put("chargeUrl", this.c);
-                jSONObject.put("invokeFlag", this.d);
-                jSONObject.put("extInfo", this.e);
-                jSONObject.put(TiebaStatic.Params.REFER, this.f);
-                jSONObject.put("lpRealUrl", this.g);
-                jSONObject.put("logSwitch", this.h);
-                jSONObject.put("lpOrgType", this.i);
-                jSONObject.put("downgrade", this.k);
-                jSONObject.put("containerParams", this.l);
-                jSONObject.put("sdkScript", this.m);
-                jSONObject.put("deferCharge", this.n);
-                jSONObject.put("download", this.o);
-                jSONObject.put(SpeedStatsUtils.UBC_VALUE_SPLASH, this.p);
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …\n            }.toString()");
-                return jSONObject2;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public final class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public e(x71 x71Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x71Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final e c(String data) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                JSONObject c = z01.c(data);
-                Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(data)");
-                this.a = c.optString("receive_title_script");
-                this.b = c.optString("start_load_script");
-                return this;
-            }
-            return (e) invokeL.objValue;
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("receiveTitleScript", this.a);
-                jSONObject.put("startLoadScript", this.b);
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …\n            }.toString()");
-                return jSONObject2;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public long b;
-        public String c;
-        public String d;
-        public String e;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.c = "";
-            this.d = "";
-            this.e = "";
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final long d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.b;
-            }
-            return invokeV.longValue;
-        }
-
-        public final f e(String data) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                JSONObject c = z01.c(data);
-                Intrinsics.checkNotNullExpressionValue(c, "JSONUtils.newJSONObject(data)");
-                this.a = c.optString("html_url_filter_params");
-                this.b = c.optLong("ad_click_real_time", 0L);
-                this.c = c.optString("splash_launch_type");
-                this.d = c.optString("xuzhang_ext");
-                String mUa = c.optString("m_ua", "mua");
-                if (!TextUtils.isEmpty(mUa)) {
-                    Intrinsics.checkNotNullExpressionValue(mUa, "mUa");
-                    Charset charset = Charsets.UTF_8;
-                    if (mUa != null) {
-                        byte[] bytes = mUa.getBytes(charset);
-                        Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
-                        byte[] decode = Base64.decode(bytes, 0);
-                        Intrinsics.checkNotNullExpressionValue(decode, "Base64.decode(mUa.toByteArray(), Base64.DEFAULT)");
-                        this.e = new String(decode, Charsets.UTF_8);
-                    } else {
-                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                    }
-                }
-                String mPn = c.optString("m_pn");
-                if (!TextUtils.isEmpty(mPn)) {
-                    Intrinsics.checkNotNullExpressionValue(mPn, "mPn");
-                    Charset charset2 = Charsets.UTF_8;
-                    if (mPn != null) {
-                        byte[] bytes2 = mPn.getBytes(charset2);
-                        Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
-                        byte[] decode2 = Base64.decode(bytes2, 0);
-                        Intrinsics.checkNotNullExpressionValue(decode2, "Base64.decode(mPn.toByteArray(), Base64.DEFAULT)");
-                        new String(decode2, Charsets.UTF_8);
-                    } else {
-                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                    }
-                }
-                return this;
-            }
-            return (f) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("filterParams", this.a);
-                jSONObject.put("splashRealClickTime", this.b);
-                jSONObject.put("splashBootType", this.c);
-                jSONObject.put("splashExt", this.d);
-                String jSONObject2 = jSONObject.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …\n            }.toString()");
-                return jSONObject2;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public x71(Intent intent) {
+    public x71() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -804,41 +108,110 @@ public final class x71 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(intent, "intent");
-        this.b = intent;
-        this.a = new d(this).m(this.b);
+        this.a = "EasyBrowseInterceptor";
     }
 
-    public final d b() {
+    public final boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (vm0.b().a().a("use_nairobi", 0) != 1) {
+                return false;
+            }
+            return true;
         }
-        return (d) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        String str4;
+    @Override // com.baidu.tieba.ni0
+    public boolean d(Context context, pi0 schemeModel, Map<String, Object> map, ti0 ti0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, ti0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            int i = 0;
+            if (!j()) {
+                h91.c(context, "未命中新架构");
+                return false;
             }
-            Intrinsics.checkNotNull(str);
-            if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "__CHARGE_URL__", false, 2, (Object) null) && !TextUtils.isEmpty(str2)) {
-                Intrinsics.checkNotNull(str2);
-                str4 = StringsKt__StringsJVMKt.replace(str, "__CHARGE_URL__", str2, false);
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            f21.b((String) q11.b(d, "charge_url"));
+            int b = y71.b(context.getApplicationContext(), new a(this, context, d, ti0Var, schemeModel));
+            if (b == 0) {
+                c(ti0Var, schemeModel, 1001, false);
+                h91.d(new IllegalStateException("web app init failed, state=" + b));
+                return false;
+            } else if (2 != b && 1 != b) {
+                if (4 == b) {
+                    h91.c(context, "初始化失败，降级为原生打开");
+                    h(context, schemeModel, ti0Var);
+                    return true;
+                } else if (5 == b) {
+                    h91.c(context, "低版本不支持t7，降级为原生打开");
+                    h(context, schemeModel, ti0Var);
+                    return true;
+                } else {
+                    boolean i2 = i(context, d, false);
+                    String str = this.a;
+                    h91.a(str, "调起SDK落地页, 结果 " + i2);
+                    if (!i2) {
+                        i = 1001;
+                    }
+                    c(ti0Var, schemeModel, i, i2);
+                    return true;
+                }
             } else {
-                str4 = null;
+                h91.c(context, "正在初始化，降级为原生打开");
+                h(context, schemeModel, ti0Var);
+                return true;
             }
-            if (StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) "__DEFER_CHARGE_URL__", false, 2, (Object) null) && !TextUtils.isEmpty(str3)) {
-                Intrinsics.checkNotNull(str3);
-                return StringsKt__StringsJVMKt.replace(str, "__DEFER_CHARGE_URL__", str3, false);
-            }
-            return str4;
         }
-        return (String) invokeLLL.objValue;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void h(Context context, pi0 pi0Var, ti0 ti0Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, pi0Var, ti0Var) == null) {
+            HashMap<String, String> d = pi0Var.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            d.put("downgrade_to_native", "1");
+            boolean i2 = i(context, pi0Var.d(), true);
+            if (i2) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            c(ti0Var, pi0Var, i, i2);
+        }
+    }
+
+    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
+        InterceptResult invokeLLZ;
+        String str;
+        Class cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
+            if (!z && !u71.a().a(hashMap, u71.b())) {
+                h91.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
+                return false;
+            }
+            if (hashMap != null) {
+                str = hashMap.remove("newbrowser");
+            } else {
+                str = null;
+            }
+            if (Intrinsics.areEqual("1", str)) {
+                cls = NadWebViewActivityStandard.class;
+            } else {
+                cls = NadWebViewActivity.class;
+            }
+            Intent intent = new Intent(context, cls);
+            intent.putExtra("map", hashMap);
+            return l41.d(context, intent);
+        }
+        return invokeLLZ.booleanValue;
     }
 }

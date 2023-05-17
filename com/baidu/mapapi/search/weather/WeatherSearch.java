@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.weather;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WeatherSearch extends n {
     public com.baidu.platform.core.i.a a = new com.baidu.platform.core.i.e();
 

@@ -9,7 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ANRPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static String ACTIVE_ANR_UPLOAD_TYPE = "1";
     public static String PASSIVE_ANR_UPLOAD_TYPE = "0";

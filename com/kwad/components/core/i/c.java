@@ -2,7 +2,7 @@ package com.kwad.components.core.i;
 
 import com.kwad.components.core.m.i;
 import com.kwad.sdk.api.core.fragment.KsFragment;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends KsFragment implements com.kwad.sdk.g.kwai.b {
     public final com.kwad.sdk.g.kwai.a mBackPressDelete = new com.kwad.sdk.g.kwai.a();
     public boolean enableDestroyer = true;

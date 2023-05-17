@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vh6;
+import com.baidu.tieba.hj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.f != null && !StringUtils.isNull(this.a.f.getForum_name())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), vh6.g())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForum_name(), hj6.g())));
                 if (this.a.h != null) {
                     this.a.h.onClick(view2);
                 }
@@ -176,12 +176,12 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0204, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0214, (ViewGroup) this, true);
             this.a = (ClickableHeaderImageView) inflate.findViewById(R.id.card_home_page_normal_thread_user_header);
             this.b = (TextView) inflate.findViewById(R.id.thread_info_forum_name);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b4);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092418);
             this.d = (TextView) inflate.findViewById(R.id.thread_info_address);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0908b3);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0908d0);
             setGravity(16);
             d();
             this.b.setOnClickListener(this.i);

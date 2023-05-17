@@ -3,7 +3,7 @@ package org.aspectj.runtime.reflect;
 import java.lang.reflect.Method;
 import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AdviceSignature;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AdviceSignatureImpl extends CodeSignatureImpl implements AdviceSignature {
     public Method adviceMethod;
     public Class returnType;

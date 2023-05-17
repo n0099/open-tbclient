@@ -10,7 +10,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MainClearCache extends BaseClearCache {
     public static final String CALCULATE_TASK_NAME = "getMainCacheSize";
     public static final String CLEAR_CACHE_FORCE_LIST_KEY = "clear_cache";
@@ -21,12 +21,12 @@ public class MainClearCache extends BaseClearCache {
     public static final List<BaseClearCache> sSubClearCacheList = new ArrayList();
     public List<BaseClearCache> mShowClearCacheList = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MainClearCacheCallback extends BaseClearCache.CacheClearCallback {
         void onItemClearCacheResult(BaseClearCache baseClearCache, long j, boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MainClearSizeCallback extends BaseClearCache.CacheSizeCallback {
         void onItemCacheSizeResult(BaseClearCache baseClearCache, long j);
     }

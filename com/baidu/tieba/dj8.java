@@ -1,76 +1,77 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dj8 {
+/* loaded from: classes5.dex */
+public class dj8 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
+    public boolean a;
+    public int b;
+    public int c;
+    public boolean d;
+    public jj8 e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public dj8(String str) {
-        this(str, "000");
+    public dj8(jj8 jj8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {jj8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = false;
+        this.e = jj8Var;
     }
 
-    public dj8(String str, String str2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = str2;
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.DEBUG, this.b, str, str2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public void b(String str, String str2) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.ERROR, this.b, str, str2);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public void c(String str, String str2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            TbLogManager.log(this.a, TbLogManager.Level.INFO, this.b, str, str2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        jj8 jj8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (jj8Var = this.e) == null) {
+            return;
+        }
+        if (!this.d) {
+            jj8Var.j(this.b, this.c, this.a, 2);
+        }
+        this.e.j(this.b, this.c, this.a, 1);
     }
 }

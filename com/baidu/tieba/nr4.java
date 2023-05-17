@@ -1,77 +1,139 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.Base64;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.GetTokenHttpResponsedMessage;
+import com.baidu.tbadk.BdToken.GetTokenRequestMessage;
+import com.baidu.tbadk.BdToken.GetTokenSocketResponsedMessage;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class nr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public b b;
+    public fb c;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, js4 js4Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends fb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nr4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nr4 nr4Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            addParam.eventStat();
+            this.a = nr4Var;
+        }
+
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.a = false;
+                if (responsedMessage != null && responsedMessage.getError() == 0) {
+                    if (!(responsedMessage instanceof GetTokenSocketResponsedMessage)) {
+                        if (!(responsedMessage instanceof GetTokenHttpResponsedMessage)) {
+                            return;
+                        }
+                        this.a.d(true, ((GetTokenHttpResponsedMessage) responsedMessage).getData());
+                        return;
+                    }
+                    this.a.d(true, ((GetTokenSocketResponsedMessage) responsedMessage).getData());
+                    return;
+                }
+                this.a.d(false, null);
+            }
         }
     }
 
-    public static void d(String str) {
+    public nr4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            a = str;
-            addParam.eventStat();
+        }
+        this.a = false;
+        this.c = new a(this, CmdConfigHttp.CMD_GET_TOKEN, 309608);
+        f();
+        e();
+    }
+
+    public final void d(boolean z, js4 js4Var) {
+        b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, js4Var) == null) && (bVar = this.b) != null) {
+            bVar.a(z, js4Var);
         }
     }
 
-    public static void b(String str, String str2) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
-            }
-            addParam.eventStat();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a) {
+            return;
+        }
+        this.a = true;
+        GetTokenRequestMessage getTokenRequestMessage = new GetTokenRequestMessage();
+        getTokenRequestMessage.setToken(Base64.encodeToString(str.getBytes(), 2));
+        getTokenRequestMessage.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
+        MessageManager.getInstance().sendMessage(getTokenRequestMessage);
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 
-    public static void c(int i, int i2) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
-            if (!StringUtils.isNull(b)) {
-                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
-            }
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            addParam.eventStat();
-            b = null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            zq9.h(309608, GetTokenSocketResponsedMessage.class, false, false);
+            zq9.c(309608, CmdConfigHttp.CMD_GET_TOKEN, TbConfig.URL_GET_TOKEN, GetTokenHttpResponsedMessage.class, false, false, false, false);
         }
     }
 
-    public static void e() {
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            a = null;
-            addParam.eventStat();
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 }

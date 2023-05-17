@@ -4,7 +4,7 @@ import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import com.baidu.searchbox.retrieve.upload.FetchTaskObj;
 import com.baidu.searchbox.retrieve.upload.FetchUploadManager;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTask implements IFetchTask {
     @Override // com.baidu.searchbox.retrieve.inter.IFetchTask
     public void reportDispatch(String str, String str2, String str3, JSONObject jSONObject, String str4) {

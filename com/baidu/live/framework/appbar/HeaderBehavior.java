@@ -10,7 +10,7 @@ import android.widget.OverScroller;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     public Runnable d;
     public OverScroller e;
@@ -27,7 +27,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
     public void N(CoordinatorLayout coordinatorLayout, V v) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public final CoordinatorLayout a;
         public final V b;

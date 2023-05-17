@@ -1,28 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.csa;
+import com.baidu.tieba.zwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-/* loaded from: classes7.dex */
-public final class ywa implements Runnable {
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
+public class ywa implements zwa.a<zra> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Context a;
-    public final /* synthetic */ ArCoreApk.a b;
-    public final /* synthetic */ vwa c;
+    public final /* synthetic */ zwa a;
 
-    public ywa(vwa vwaVar, Context context, ArCoreApk.a aVar) {
+    public ywa(zwa zwaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vwaVar, context, aVar};
+            Object[] objArr = {zwaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,28 +30,32 @@ public final class ywa implements Runnable {
                 return;
             }
         }
-        this.c = vwaVar;
-        this.a = context;
-        this.b = aVar;
+        this.a = zwaVar;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.zwa.a
+    public void a(zra zraVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zraVar) == null) {
+            LogPrinter.v("SerialSlotId:%s is totally same with oldOne", zraVar.a);
         }
-        try {
-            aVar = this.c.d;
-            String str = this.a.getApplicationInfo().packageName;
-            vwa vwaVar = this.c;
-            l = vwa.l();
-            aVar.a(str, l, new com.google.ar.core.u(this));
-        } catch (RemoteException e) {
-            Log.e("ARCore-InstallService", "requestInfo threw", e);
-            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.baidu.tieba.zwa.a
+    public void b(zra zraVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zraVar) == null) {
+            zra zraVar2 = zraVar;
+            LogPrinter.v("Update SerialSlotId:%s", zraVar2.a);
+            HashMap<String, esa> hashMap = this.a.c;
+            String str = zraVar2.a;
+            hashMap.put(str, new esa(str, new lsa(this, zraVar2)));
+            csa csaVar = this.a.b;
+            synchronized (csaVar.a) {
+                csaVar.a(zraVar2.a).add(new csa.b(zraVar2));
+            }
         }
     }
 }

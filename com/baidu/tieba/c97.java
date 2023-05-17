@@ -1,884 +1,199 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ValueAnimator;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.ad.FrsAdVideoView;
-import com.baidu.tieba.frs.ad.ScanningView;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.math.BigDecimal;
-/* loaded from: classes3.dex */
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import tbclient.FrsTabInfo;
+/* loaded from: classes5.dex */
 public class c97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
-    public final ScanningView b;
-    public final Activity c;
-    public final b9<?> d;
-    public final ViewGroup e;
-    public final FrsAdVideoView f;
-    public final TbImageView g;
-    public final AnimatorSet h;
-    public final AnimatorSet i;
-    public long j;
-    public ForumData k;
-    public zn9 l;
-    public Dialog m;
-    public int n;
-    public int o;
-    public final n p;
+    public List<FrsTabInfo> a;
+    public final List<xi5> b;
+    public Context c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    /* loaded from: classes3.dex */
-    public interface n {
-        void a();
-
-        void b();
-
-        void c();
-
-        void d();
-
-        void e();
-
-        void f();
-    }
-
-    /* loaded from: classes3.dex */
-    public interface o extends View.OnClickListener {
-        void L(int i);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements o {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        /* renamed from: com.baidu.tieba.c97$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0233a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0233a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.p();
-                }
-            }
-        }
-
-        public a(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // com.baidu.tieba.c97.o
-        public void L(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && i == 3) {
-                this.a.a.post(new RunnableC0233a(this));
-                this.a.p.f();
-            }
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && !sv5.a(this.a.c, this.a.l.i())) {
-                dk7.b((TbPageContext) g9.a(this.a.c), this.a.l.k(), this.a.l.p(), this.a.l.j());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ ViewGroup.LayoutParams e;
-        public final /* synthetic */ c97 f;
-
-        public b(c97 c97Var, int i, int i2, int i3, int i4, ViewGroup.LayoutParams layoutParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), layoutParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = c97Var;
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-            this.d = i4;
-            this.e = layoutParams;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                int i = this.a;
-                int i2 = i - ((int) ((i - this.b) * floatValue));
-                int i3 = this.c;
-                int i4 = i3 - ((int) ((i3 - this.d) * floatValue));
-                ViewGroup.LayoutParams layoutParams = this.e;
-                if (i2 != layoutParams.width || i4 != layoutParams.height) {
-                    ViewGroup.LayoutParams layoutParams2 = this.e;
-                    layoutParams2.width = i2;
-                    layoutParams2.height = i4;
-                    c97 c97Var = this.f;
-                    FrsAdVideoView frsAdVideoView = c97Var.f;
-                    int i5 = this.f.n;
-                    int i6 = this.f.o;
-                    ViewGroup.LayoutParams layoutParams3 = this.e;
-                    c97Var.v(frsAdVideoView, i5, i6, layoutParams3.width, layoutParams3.height, this.f.e.getHeight());
-                    this.f.f.setLayoutParams(this.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        public c(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 2));
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.b.e();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        public d(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.f.setVisibility(8);
-                lg.a(this.a.m, this.a.c);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements n {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        public e(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // com.baidu.tieba.c97.n
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                bk7.a("common_click", this.a.l, this.a.k, 2, "video");
-            }
-        }
-
-        @Override // com.baidu.tieba.c97.n
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                bk7.k("common_exp", this.a.l, this.a.k, 2, "video");
-            }
-        }
-
-        @Override // com.baidu.tieba.c97.n
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                bk7.a("common_click", this.a.l, this.a.k, 2, "frontpage");
-            }
-        }
-
-        @Override // com.baidu.tieba.c97.n
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                bk7.g("c14592", this.a.l, this.a.k);
-            }
-        }
-
-        @Override // com.baidu.tieba.c97.n
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                bk7.k("common_exp", this.a.l, this.a.k, 2, "frontpage");
-            }
-        }
-
-        @Override // com.baidu.tieba.c97.n
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                bk7.g("c14593", this.a.l, this.a.k);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements DialogInterface.OnKeyListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        public f(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // android.content.DialogInterface.OnKeyListener
-        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
-                if (i == 4) {
-                    this.a.p.f();
-                    return false;
-                }
-                return false;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class g implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                r15.s("frsAd");
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class h implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ ViewGroup.LayoutParams e;
-        public final /* synthetic */ c97 f;
-
-        public h(c97 c97Var, int i, int i2, int i3, int i4, ViewGroup.LayoutParams layoutParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), layoutParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = c97Var;
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-            this.d = i4;
-            this.e = layoutParams;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                int i = this.a;
-                int i2 = i + ((int) ((this.b - i) * floatValue));
-                int i3 = this.c;
-                int i4 = i3 + ((int) ((this.d - i3) * floatValue));
-                ViewGroup.LayoutParams layoutParams = this.e;
-                if (i2 != layoutParams.width || i4 != layoutParams.height) {
-                    ViewGroup.LayoutParams layoutParams2 = this.e;
-                    layoutParams2.width = i2;
-                    layoutParams2.height = i4;
-                    c97 c97Var = this.f;
-                    FrsAdVideoView frsAdVideoView = c97Var.f;
-                    int i5 = this.f.n;
-                    int i6 = this.f.o;
-                    ViewGroup.LayoutParams layoutParams3 = this.e;
-                    c97Var.v(frsAdVideoView, i5, i6, layoutParams3.width, layoutParams3.height, this.f.e.getHeight());
-                    this.f.f.setLayoutParams(this.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class i extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup.LayoutParams a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ c97 d;
-
-        public i(c97 c97Var, ViewGroup.LayoutParams layoutParams, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var, layoutParams, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = c97Var;
-            this.a = layoutParams;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                int[] iArr = new int[2];
-                this.d.b.getLocationInWindow(iArr);
-                c97 c97Var = this.d;
-                c97Var.n = iArr[0] + (c97Var.b.getWidth() / 2);
-                c97 c97Var2 = this.d;
-                c97Var2.o = iArr[1] + (c97Var2.b.getHeight() / 2);
-                ViewGroup.LayoutParams layoutParams = this.a;
-                layoutParams.width = this.b;
-                layoutParams.height = this.c;
-                c97 c97Var3 = this.d;
-                FrsAdVideoView frsAdVideoView = c97Var3.f;
-                int i = this.d.n;
-                int i2 = this.d.o;
-                ViewGroup.LayoutParams layoutParams2 = this.a;
-                c97Var3.v(frsAdVideoView, i, i2, layoutParams2.width, layoutParams2.height, this.d.e.getHeight());
-                this.d.f.setLayoutParams(this.a);
-                this.d.f.setVisibility(0);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class j implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ViewGroup.LayoutParams c;
-        public final /* synthetic */ c97 d;
-
-        public j(c97 c97Var, int i, int i2, ViewGroup.LayoutParams layoutParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var, Integer.valueOf(i), Integer.valueOf(i2), layoutParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = c97Var;
-            this.a = i;
-            this.b = i2;
-            this.c = layoutParams;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                int l = this.a + ((int) ((ii.l(this.d.c) - this.a) * floatValue));
-                int height = this.b + ((int) ((this.d.e.getHeight() - this.b) * floatValue));
-                ViewGroup.LayoutParams layoutParams = this.c;
-                if (l != layoutParams.width || height != layoutParams.height) {
-                    ViewGroup.LayoutParams layoutParams2 = this.c;
-                    layoutParams2.width = l;
-                    layoutParams2.height = height;
-                    c97 c97Var = this.d;
-                    FrsAdVideoView frsAdVideoView = c97Var.f;
-                    int i = this.d.n;
-                    int i2 = this.d.o;
-                    ViewGroup.LayoutParams layoutParams3 = this.c;
-                    c97Var.v(frsAdVideoView, i, i2, layoutParams3.width, layoutParams3.height, this.d.e.getHeight());
-                    this.d.f.setLayoutParams(this.c);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class k extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        public k(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.f.y(1000L);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class l implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c97 a;
-
-        public l(c97 c97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c97Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (new BigDecimal(floatValue).compareTo(new BigDecimal(this.a.g.getAlpha())) != 0) {
-                    this.a.g.setAlpha(floatValue);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class m implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup.LayoutParams a;
-        public final /* synthetic */ c97 b;
-
-        public m(c97 c97Var, ViewGroup.LayoutParams layoutParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c97Var, layoutParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = c97Var;
-            this.a = layoutParams;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                int intValue = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                ViewGroup.LayoutParams layoutParams = this.a;
-                if (intValue != layoutParams.height) {
-                    layoutParams.height = intValue;
-                    c97 c97Var = this.b;
-                    FrsAdVideoView frsAdVideoView = c97Var.f;
-                    int i = this.b.n;
-                    int i2 = this.b.o;
-                    ViewGroup.LayoutParams layoutParams2 = this.a;
-                    c97Var.v(frsAdVideoView, i, i2, layoutParams2.width, layoutParams2.height, this.b.e.getHeight());
-                    this.b.f.setLayoutParams(this.a);
-                }
-            }
-        }
-    }
-
-    public c97(Context context, View view2, TbImageView tbImageView) {
+    public c97(Context context, List<FrsTabInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, tbImageView};
+            Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new AnimatorSet();
-        this.i = new AnimatorSet();
-        this.p = new e(this);
-        this.a = view2;
-        this.g = tbImageView;
-        this.b = (ScanningView) view2.findViewById(R.id.obfuscated_res_0x7f090d27);
-        if (!(context instanceof b9)) {
-            this.c = null;
-            this.e = null;
-            this.f = null;
-            this.d = null;
-            return;
-        }
-        b9<?> b9Var = (b9) context;
-        this.d = b9Var;
-        Activity pageActivity = b9Var.getPageContext().getPageActivity();
-        this.c = pageActivity;
-        this.e = (ViewGroup) pageActivity.findViewById(16908290);
-        FrsAdVideoView frsAdVideoView = new FrsAdVideoView(this.c);
-        this.f = frsAdVideoView;
-        frsAdVideoView.setVisibility(8);
-        this.f.setStateListener(new a(this));
-        this.f.setFrsAdVideoStatisticListener(this.p);
+        this.a = list;
+        this.b = new LinkedList();
+        this.c = context;
     }
 
-    public void p() {
+    public void a(xi5 xi5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null && this.e != null && this.f != null) {
-            int[] iArr = new int[2];
-            this.b.getLocationInWindow(iArr);
-            this.n = iArr[0] + (this.b.getWidth() / 2);
-            this.o = iArr[1] + (this.b.getHeight() / 2);
-            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            ValueAnimator ofInt = ValueAnimator.ofInt(this.e.getHeight(), this.e.getWidth());
-            ofInt.setDuration(200L);
-            ofInt.addUpdateListener(new m(this, layoutParams));
-            int width = this.e.getWidth();
-            int width2 = (this.e.getWidth() * 3) / 4;
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat.setDuration(200L);
-            ofFloat.addUpdateListener(new b(this, width, width2, this.e.getWidth(), width2 / 5, layoutParams));
-            ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat2.setDuration(320L);
-            ofFloat2.addListener(new c(this));
-            ofFloat2.setStartDelay(640L);
-            ofFloat2.start();
-            this.i.addListener(new d(this));
-            this.i.play(ofInt).before(ofFloat);
-            this.i.start();
-        }
-    }
-
-    public final void t() {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (activity = this.c) != null && !activity.isFinishing()) {
-            Dialog dialog = new Dialog(this.c, R.style.obfuscated_res_0x7f1001b6);
-            this.m = dialog;
-            dialog.requestWindowFeature(1);
-            this.m.setContentView(this.f);
-            this.m.setCancelable(true);
-            this.m.setCanceledOnTouchOutside(true);
-            if (this.m.getWindow() != null) {
-                this.m.getWindow().getDecorView().setSystemUiVisibility(1280);
-                this.m.getWindow().addFlags(Integer.MIN_VALUE);
-                this.m.getWindow().setStatusBarColor(0);
-                this.m.getWindow().setNavigationBarColor(0);
-                WindowManager.LayoutParams attributes = this.m.getWindow().getAttributes();
-                if (attributes != null) {
-                    attributes.width = -1;
-                    attributes.height = -1;
-                    if (Build.VERSION.SDK_INT >= 28) {
-                        attributes.layoutInDisplayCutoutMode = 1;
-                    }
-                    this.m.getWindow().setAttributes(attributes);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, xi5Var) == null) && xi5Var != null && xi5Var.b() != null) {
+            for (xi5 xi5Var2 : this.b) {
+                if (xi5Var2 != null && xi5Var2.b() != null && xi5Var2.b().e == xi5Var.b().e) {
+                    return;
                 }
             }
-            this.m.setOnKeyListener(new f(this));
-            this.m.setOnDismissListener(new g(this));
-            lg.i(this.m, this.c);
-            f55 m2 = f55.m();
-            m2.A("key_frs_video_ad_last_show_time" + this.j, System.currentTimeMillis());
-            this.p.e();
-            r15.m("frsAd");
+            this.b.add(xi5Var);
         }
     }
 
-    public void u() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.c != null && this.e != null && this.f != null) {
-            t();
-            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            int width = this.b.getWidth() / 3;
-            int height = this.b.getHeight() / 9;
-            int l2 = (ii.l(this.c) * 2) / 3;
-            int l3 = (ii.l(this.c) * 2) / 3;
-            int[] iArr = new int[2];
-            this.b.getLocationInWindow(iArr);
-            this.n = iArr[0] + (this.b.getWidth() / 2);
-            this.o = iArr[1] + (this.b.getHeight() / 2);
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat.setDuration(180L);
-            ofFloat.addUpdateListener(new h(this, width, l2, height, l3, layoutParams));
-            ofFloat.addListener(new i(this, layoutParams, width, height));
-            ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat2.setDuration(520L);
-            ofFloat2.addUpdateListener(new j(this, l2, l3, layoutParams));
-            this.h.addListener(new k(this));
-            ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat3.setDuration(360L);
-            ofFloat3.setStartDelay(240L);
-            ofFloat3.addUpdateListener(new l(this));
-            ofFloat3.start();
-            ValueAnimator ofFloat4 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            ofFloat4.setDuration(1000L);
-            this.h.setStartDelay(300L);
-            this.h.play(ofFloat).before(ofFloat2).before(ofFloat4);
-            this.h.start();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void q() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f.r();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void r() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f.isPlayStarted()) {
-            this.f.stopPlay();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void s(zn9 zn9Var, ForumData forumData, long j2) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{zn9Var, forumData, Long.valueOf(j2)}) == null) && this.c != null && this.e != null && this.f != null && zn9Var != null && !StringUtils.isNull(zn9Var.q())) {
-            this.j = j2;
-            this.k = forumData;
-            this.l = zn9Var;
-            this.f.setVideoData(zn9Var.q(), this.l.b());
-            this.b.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void v(View view2, int i2, int i3, int i4, int i5, int i6) {
+    public List<FrsTabInfo> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            int i7 = i2 - (i4 / 2);
-            int max = Math.max(i3 - (i5 / 2), 0);
-            if (max + i5 > i6) {
-                max = i6 - i5;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<xi5> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public boolean h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i >= 100 || ListUtils.isEmpty(this.a)) {
+                return false;
             }
-            float f2 = i7;
-            if (view2.getX() != f2 || view2.getY() != max) {
-                view2.setX(f2);
-                view2.setY(max);
+            for (FrsTabInfo frsTabInfo : this.a) {
+                if (frsTabInfo.tab_id.intValue() == i) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            LinkedList linkedList = new LinkedList();
+            LinkedList linkedList2 = new LinkedList();
+            for (FrsTabInfo frsTabInfo : this.a) {
+                boolean z = false;
+                Iterator<xi5> it = this.b.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    xi5 next = it.next();
+                    if (next.b() != null && frsTabInfo.tab_id.intValue() == next.b().e) {
+                        linkedList.add(next);
+                        z = true;
+                        break;
+                    }
+                }
+                if (!z) {
+                    linkedList2.add(frsTabInfo);
+                }
+            }
+            if (!ListUtils.isEmpty(linkedList2)) {
+                this.a.removeAll(linkedList2);
+            }
+            this.b.clear();
+            if (!ListUtils.isEmpty(linkedList)) {
+                this.b.addAll(linkedList);
             }
         }
     }

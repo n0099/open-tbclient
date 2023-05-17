@@ -1,38 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.os.Build;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class dz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, int i2, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.BIG_PAGE_ADD_EMOTION);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_source", i2);
-            statisticItem.param("room_id", j);
-            statisticItem.param("fid", j2);
-            TiebaStatic.log(statisticItem);
+    /* loaded from: classes5.dex */
+    public static abstract class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+
+        public abstract boolean a();
+
+        public abstract void b(Runnable runnable);
+
+        public abstract void c(int i);
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
         }
     }
 
-    public static void b(int i, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.BIG_PAGE_AI_EMOTION_BORAD);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("room_id", j);
-            statisticItem.param("fid", j2);
-            TiebaStatic.log(statisticItem);
+    /* loaded from: classes5.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.dz7.a
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
         }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(View view2) {
+            super(view2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((View) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.dz7.a
+        public void b(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+                this.a.post(runnable);
+            }
+        }
+
+        @Override // com.baidu.tieba.dz7.a
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                View view2 = this.a;
+                view2.scrollTo(i, view2.getScrollY());
+            }
+        }
+    }
+
+    public static final a a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            if (Build.VERSION.SDK_INT >= 14) {
+                return new gz7(view2);
+            }
+            return new b(view2);
+        }
+        return (a) invokeL.objValue;
     }
 }

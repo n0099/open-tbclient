@@ -9,7 +9,7 @@ import com.baidu.searchbox.elasticthread.scheduler.DredgeManager;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RealTimeStatusPrinter {
     public static final boolean DEBUG = false;
     public static final String TAG = "ElasticRealTimeStatus";

@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.outback.request;
 import com.baidu.searchbox.network.outback.core.Response;
 import com.baidu.searchbox.network.outback.core.ResponseBody;
 import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatResponse {
     public Response realResponse;
     public NetworkStatRecord statRecord;

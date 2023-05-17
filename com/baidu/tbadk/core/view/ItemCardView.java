@@ -51,17 +51,17 @@ import com.baidu.tbadk.widget.ProgressButton;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.l65;
-import com.baidu.tieba.n65;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.v65;
+import com.baidu.tieba.e85;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.n45;
+import com.baidu.tieba.n75;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.u75;
+import com.baidu.tieba.w75;
+import com.baidu.tieba.wp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,7 +74,7 @@ import java.text.DecimalFormat;
 import java.util.List;
 import tbclient.ApkDetail;
 import tbclient.Item;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ItemCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int J;
@@ -129,7 +129,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ItemEllipsisView extends EMTextView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class ItemCardView extends LinearLayout {
         public boolean c;
         public int d;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public interface b {
             int a();
 
@@ -148,7 +148,7 @@ public class ItemCardView extends LinearLayout {
             SpannableStringBuilder d(Layout layout);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a extends LinkMovementMethod {
             public static /* synthetic */ Interceptable $ic;
             public static a a;
@@ -342,7 +342,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ItemCardDownloadButton.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +367,7 @@ public class ItemCardView extends LinearLayout {
         }
 
         @Override // com.baidu.tbadk.core.view.itemcard.download.ItemCardDownloadButton.e
-        public void a(int i) {
+        public void onClick(int i) {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -378,7 +378,7 @@ public class ItemCardView extends LinearLayout {
                 } else {
                     i2 = 0;
                 }
-                int a = n65.a(intValue, i2);
+                int a = w75.a(intValue, i2);
                 if (objTypeByDownloadMode > 0 && a != 4) {
                     ItemCardHelper.p(this.a.E, this.a.k, objTypeByDownloadMode, this.a.l, a, "");
                 }
@@ -386,7 +386,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -428,13 +428,13 @@ public class ItemCardView extends LinearLayout {
                     } else {
                         i = 0;
                     }
-                    ItemCardHelper.p(this.a.E, this.a.k, objTypeByDownloadMode, this.a.l, n65.a(intValue, i), str);
+                    ItemCardHelper.p(this.a.E, this.a.k, objTypeByDownloadMode, this.a.l, w75.a(intValue, i), str);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements ItemCardDownloadButton.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -465,7 +465,7 @@ public class ItemCardView extends LinearLayout {
         }
 
         @Override // com.baidu.tbadk.core.view.itemcard.download.ItemCardDownloadButton.e
-        public void a(int i) {
+        public void onClick(int i) {
             int objTypeByDownloadMode;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (objTypeByDownloadMode = this.d.f.getObjTypeByDownloadMode()) > 0) {
@@ -474,7 +474,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -515,7 +515,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements ItemEllipsisView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +562,7 @@ public class ItemCardView extends LinearLayout {
                 int lineEnd = layout.getLineEnd(this.a.H - 1);
                 TextPaint paint = this.a.b.getPaint();
                 int measuredWidth = (int) (this.a.b.getMeasuredWidth() - this.a.s);
-                if (!hi.isEmpty(this.a.j) && paint != null && measuredWidth > 0) {
+                if (!qi.isEmpty(this.a.j) && paint != null && measuredWidth > 0) {
                     while (lineEnd > 0) {
                         if (this.a.j.length() >= lineEnd) {
                             if (measuredWidth > paint.measureText(this.a.j.substring(lineStart, lineEnd - 1) + StringHelper.STRING_MORE)) {
@@ -623,7 +623,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements ItemEllipsisView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -693,12 +693,12 @@ public class ItemCardView extends LinearLayout {
                 if (paint == null) {
                     return spannableStringBuilder;
                 }
-                if (!hi.isEmpty(this.a.o)) {
+                if (!qi.isEmpty(this.a.o)) {
                     width -= (int) (ItemCardView.Q + paint.measureText(((Object) this.a.getContext().getText(R.string.item_version)) + this.a.o));
                 }
                 if (ListUtils.getCount(this.a.n) > 0) {
                     for (int i = 0; i < this.a.n.size(); i++) {
-                        if (!hi.isEmpty((String) this.a.n.get(i))) {
+                        if (!qi.isEmpty((String) this.a.n.get(i))) {
                             float measureText = width - paint.measureText(((String) this.a.n.get(i)) + " ");
                             if (measureText <= 0.0f) {
                                 break;
@@ -709,9 +709,9 @@ public class ItemCardView extends LinearLayout {
                         }
                     }
                 }
-                if (!hi.isEmpty(this.a.o)) {
+                if (!qi.isEmpty(this.a.o)) {
                     if (spannableStringBuilder.length() > 1) {
-                        spannableStringBuilder.setSpan(new v65(ItemCardView.Q), spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 33);
+                        spannableStringBuilder.setSpan(new e85(ItemCardView.Q), spannableStringBuilder.length() - 1, spannableStringBuilder.length(), 33);
                     }
                     spannableStringBuilder.append(this.a.getContext().getText(R.string.item_version));
                     spannableStringBuilder.append((CharSequence) this.a.o);
@@ -722,7 +722,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements ItemEllipsisView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -774,26 +774,26 @@ public class ItemCardView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layout, z)) == null) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                if (!hi.isEmpty(this.b.q) || !hi.isEmpty(this.b.r)) {
+                if (!qi.isEmpty(this.b.q) || !qi.isEmpty(this.b.r)) {
                     int length = spannableStringBuilder.length();
                     spannableStringBuilder.append((CharSequence) " |");
                     int i = length + 1;
-                    spannableStringBuilder.setSpan(new v65(ItemCardView.R), length, i, 33);
-                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{un9.a(SkinManager.getColor(R.color.CAM_X0108), e35.b(R.string.A_X10))}), null), i, length + 2, 33);
-                    if (!hi.isEmpty(this.b.q)) {
+                    spannableStringBuilder.setSpan(new e85(ItemCardView.R), length, i, 33);
+                    spannableStringBuilder.setSpan(new TextAppearanceSpan(null, Typeface.DEFAULT.getStyle(), UtilHelper.getDimenPixelSize(R.dimen.T_X10), new ColorStateList(new int[][]{new int[0]}, new int[]{wp9.a(SkinManager.getColor(R.color.CAM_X0108), n45.b(R.string.A_X10))}), null), i, length + 2, 33);
+                    if (!qi.isEmpty(this.b.q)) {
                         int length2 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");
                         spannableStringBuilder.append((CharSequence) this.b.getContext().getString(R.string.item_download_privacy));
                         int i2 = length2 + 1;
-                        spannableStringBuilder.setSpan(new v65(ItemCardView.R), length2, i2, 33);
+                        spannableStringBuilder.setSpan(new e85(ItemCardView.R), length2, i2, 33);
                         spannableStringBuilder.setSpan(new h(this.b.getContext(), this.b.q), i2, length2 + 3, 33);
                     }
-                    if (!hi.isEmpty(this.b.r)) {
+                    if (!qi.isEmpty(this.b.r)) {
                         int length3 = spannableStringBuilder.length();
                         spannableStringBuilder.append((CharSequence) " ");
                         spannableStringBuilder.append((CharSequence) this.b.getContext().getString(R.string.item_download_authority));
                         int i3 = length3 + 1;
-                        spannableStringBuilder.setSpan(new v65(ItemCardView.R), length3, i3, 33);
+                        spannableStringBuilder.setSpan(new e85(ItemCardView.R), length3, i3, 33);
                         spannableStringBuilder.setSpan(new h(this.b.getContext(), this.b.r), i3, length3 + 3, 33);
                     }
                 }
@@ -851,7 +851,7 @@ public class ItemCardView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class h extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -882,8 +882,8 @@ public class ItemCardView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Context context = this.a.get();
-                if (!hi.isEmpty(this.b) && context != null && (g9.a(context) instanceof TbPageContext)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(context), new String[]{this.b});
+                if (!qi.isEmpty(this.b) && context != null && (m9.a(context) instanceof TbPageContext)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(context), new String[]{this.b});
                 }
             }
         }
@@ -910,15 +910,15 @@ public class ItemCardView extends LinearLayout {
                 return;
             }
         }
-        J = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
-        K = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
-        L = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
-        M = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
-        N = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
-        O = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds195);
-        P = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        Q = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004);
-        R = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        J = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+        K = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+        L = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds234);
+        M = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds156);
+        N = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds146);
+        O = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds195);
+        P = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        Q = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004);
+        R = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -945,7 +945,7 @@ public class ItemCardView extends LinearLayout {
     private void setTag(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65561, this, list) == null) {
-            if ((list == null || list.isEmpty() || !F(list)) && hi.isEmpty(this.o)) {
+            if ((list == null || list.isEmpty() || !F(list)) && qi.isEmpty(this.o)) {
                 this.c.setVisibility(8);
                 return;
             }
@@ -1240,7 +1240,7 @@ public class ItemCardView extends LinearLayout {
     public final void L() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (hi.isEmpty(this.p) && hi.isEmpty(this.q) && hi.isEmpty(this.r)) {
+            if (qi.isEmpty(this.p) && qi.isEmpty(this.q) && qi.isEmpty(this.r)) {
                 this.d.setVisibility(8);
                 return;
             }
@@ -1292,7 +1292,7 @@ public class ItemCardView extends LinearLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 str2 = "";
             } else {
                 str2 = str;
@@ -1353,9 +1353,9 @@ public class ItemCardView extends LinearLayout {
             this.f = itemCardDownloadButton;
             itemCardDownloadButton.setClickCallback(new a(this));
             this.g = (TBSpecificationBtn) findViewById(R.id.order_or_download);
-            f65 f65Var = new f65();
-            f65Var.q(R.color.CAM_X0304);
-            this.g.setConfig(f65Var);
+            o75 o75Var = new o75();
+            o75Var.q(R.color.CAM_X0304);
+            this.g.setConfig(o75Var);
             this.a.setDrawCorner(true);
             this.a.setConrers(15);
             this.a.setRadiusById(this.z);
@@ -1377,9 +1377,9 @@ public class ItemCardView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             SkinManager.setBackgroundColor(this, this.w);
-            g35.d(this.b).w(this.y);
-            g35.d(this.c).w(R.color.CAM_X0109);
-            g35 d2 = g35.d(this.d);
+            p45.d(this.b).w(this.y);
+            p45.d(this.c).w(R.color.CAM_X0109);
+            p45 d2 = p45.d(this.d);
             d2.y(R.dimen.M_T_X001);
             d2.w(R.color.CAM_X0109);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -1406,9 +1406,9 @@ public class ItemCardView extends LinearLayout {
             this.B = false;
             this.D = false;
             this.H = 2;
-            f65 f65Var = new f65();
-            f65Var.q(R.color.CAM_X0304);
-            this.g.setConfig(f65Var);
+            o75 o75Var = new o75();
+            o75Var.q(R.color.CAM_X0304);
+            this.g.setConfig(o75Var);
             this.a.setDrawCorner(true);
             this.a.setConrers(15);
             this.a.setRadiusById(this.z);
@@ -1481,10 +1481,10 @@ public class ItemCardView extends LinearLayout {
             this.B = false;
             this.f.setVisibility(8);
             if (this.A) {
-                l65 l65Var = new l65(itemData, this.E, str);
+                u75 u75Var = new u75(itemData, this.E, str);
                 boolean equals = ItemCardHelper.f.equals(itemData.buttonName);
-                ItemCardHelper.n(this.g, l65Var);
-                ItemData a2 = l65Var.a();
+                ItemCardHelper.n(this.g, u75Var);
+                ItemData a2 = u75Var.a();
                 this.g.setText(a2.buttonName);
                 this.g.k();
                 int e2 = ItemCardHelper.e(a2.buttonName);
@@ -1524,9 +1524,9 @@ public class ItemCardView extends LinearLayout {
             this.f.setVisibility(8);
             this.h.setVisibility(8);
             if (this.A) {
-                l65 l65Var = new l65(itemData, this.E, "");
-                ItemCardHelper.n(this.g, l65Var);
-                itemData = l65Var.a();
+                u75 u75Var = new u75(itemData, this.E, "");
+                ItemCardHelper.n(this.g, u75Var);
+                itemData = u75Var.a();
                 this.g.setText(itemData.buttonName);
                 this.g.k();
             }
@@ -1568,8 +1568,8 @@ public class ItemCardView extends LinearLayout {
             return;
         }
         TBSpecificationButtonConfig styleConfig = this.g.getStyleConfig();
-        if (styleConfig instanceof f65) {
-            ((f65) styleConfig).q(R.color.CAM_X0304);
+        if (styleConfig instanceof o75) {
+            ((o75) styleConfig).q(R.color.CAM_X0304);
         }
         this.o = "";
         this.p = "";
@@ -1590,9 +1590,9 @@ public class ItemCardView extends LinearLayout {
         this.f.setClickCallback(new c(this, i2, i3, itemData));
         this.f.setCustomColorBtn(SkinManager.getColor(R.color.CAM_X0303), false);
         this.f.setUserProgressTextGradientModel(true);
-        e65 e65Var = new e65();
-        e65Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.g.setConfig(e65Var);
+        n75 n75Var = new n75();
+        n75Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.g.setConfig(n75Var);
         this.b.setText(A(this.j));
         this.a.N(itemData.mIconUrl, i, false);
         setTag(itemData.mTags);
@@ -1607,8 +1607,8 @@ public class ItemCardView extends LinearLayout {
             return;
         }
         TBSpecificationButtonConfig styleConfig = this.g.getStyleConfig();
-        if (styleConfig instanceof f65) {
-            ((f65) styleConfig).q(R.color.CAM_X0304);
+        if (styleConfig instanceof o75) {
+            ((o75) styleConfig).q(R.color.CAM_X0304);
         }
         this.o = "";
         this.p = "";
@@ -1626,9 +1626,9 @@ public class ItemCardView extends LinearLayout {
             this.q = apkDetail.privacy_url;
             this.r = apkDetail.authority_url;
         }
-        e65 e65Var = new e65();
-        e65Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.g.setConfig(e65Var);
+        n75 n75Var = new n75();
+        n75Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.g.setConfig(n75Var);
         this.h.setOnClickListener(new d(this, i3, i4, itemData));
         this.b.setText(A(this.j));
         this.a.N(itemData.mIconUrl, i, false);

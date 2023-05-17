@@ -1,27 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.pm.Signature;
+import android.util.Base64;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class ol {
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes6.dex */
+public final class ol {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nl a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized nl a() {
-        InterceptResult invokeV;
-        nl nlVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ol.class) {
-                if (a == null) {
-                    a = new nl();
-                }
-                nlVar = a;
-            }
-            return nlVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448313200, "Lcom/baidu/tieba/ol;")) == null) {
+            return;
         }
-        return (nl) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448313200, "Lcom/baidu/tieba/ol;");
+        }
+    }
+
+    public static byte[] a(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, signatureArr)) == null) {
+            if (signatureArr != null) {
+                int i = 0;
+                for (Signature signature : signatureArr) {
+                    i += signature.toByteArray().length;
+                }
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                for (Signature signature2 : signatureArr) {
+                    byte[] byteArray = signature2.toByteArray();
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
+                }
+                return bArr;
+            }
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        NoSuchAlgorithmException e;
+        String str;
+        byte[] digest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            try {
+                digest = MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (NoSuchAlgorithmException e2) {
+                e = e2;
+                str = null;
+            }
+            if (digest == null) {
+                return null;
+            }
+            str = Base64.encodeToString(digest, 0);
+            if (str != null) {
+                try {
+                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    if (BdLog.isDebugMode()) {
+                        e.printStackTrace();
+                    }
+                    return str;
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, signatureArr)) == null) {
+            if (signatureArr != null && (a = a(signatureArr)) != null) {
+                return b(a);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

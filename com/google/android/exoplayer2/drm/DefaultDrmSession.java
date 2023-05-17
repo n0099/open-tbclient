@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
     public static final int MAX_LICENSE_DURATION_TO_RENEW = 60;
     public static final int MSG_KEYS = 1;
@@ -46,7 +46,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     public int state = 2;
     public final UUID uuid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ProvisioningManager<T extends ExoMediaCrypto> {
         void onProvisionCompleted();
 
@@ -56,7 +56,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class PostRequestHandler extends Handler {
         public PostRequestHandler(Looper looper) {
             super(looper);
@@ -111,7 +111,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class PostResponseHandler extends Handler {
         public PostResponseHandler(Looper looper) {
             super(looper);

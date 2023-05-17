@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes7.dex */
-public class zn2 extends rl2<io2> {
+/* loaded from: classes8.dex */
+public class zn2 extends an2<qp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rl2
+    @Override // com.baidu.tieba.an2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "subscribeRemoteStream" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoHeight" : (String) invokeV.objValue;
     }
 
     public zn2() {
@@ -36,20 +36,14 @@ public class zn2 extends rl2<io2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
+    @Override // com.baidu.tieba.an2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull io2 io2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull qp2 qp2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, io2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qp2Var) == null) {
+            command.ret = qp2Var.getVideoHeight();
             String str = command.what;
-            d(io2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Long) {
-                long longValue = ((Long) obj).longValue();
-                if (go2.a(longValue)) {
-                    io2Var.k0(longValue);
-                }
-            }
+            d(qp2Var, str, "Height: " + command.ret, true);
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.baidu.searchbox.network.outback.base;
 
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface RequestHandler {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Default implements RequestHandler {
         @Override // com.baidu.searchbox.network.outback.base.RequestHandler
         public void preExecuteRequest() throws IOException {

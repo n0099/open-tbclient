@@ -1,45 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class be5 {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class be5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm a;
-    public tm b;
-    public int c;
-    public int d;
+    public String a;
+    public String b;
 
-    public abstract String b(int i);
-
-    public abstract int c();
-
-    public abstract String f();
-
-    public abstract String g();
-
-    public abstract EmotionGroupType h();
-
-    public abstract int i();
-
-    public abstract boolean j();
-
-    public abstract int l();
-
-    public abstract boolean m(String str);
-
-    public abstract tm n(String str);
-
-    public abstract tm o(String str);
-
-    public void p(int i) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
         }
     }
 
@@ -57,73 +46,53 @@ public abstract class be5 {
         }
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public tm d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (tm) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public tm e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (tm) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int k() {
-        InterceptResult invokeV;
+    public static be5 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void r(tm tmVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, tmVar) == null) {
-            if (tmVar != null) {
-                tmVar.p();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            this.a = tmVar;
+            be5 be5Var = new be5();
+            be5Var.d(jSONObject.optString("common_color"));
+            be5Var.e(jSONObject.optString("dark_color"));
+            be5Var.f(jSONObject.optString("font_color"));
+            be5Var.g(jSONObject.optString("light_color"));
+            be5Var.h(jSONObject.optString("pattern_image"));
+            return be5Var;
+        }
+        return (be5) invokeL.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void s(tm tmVar) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, tmVar) == null) {
-            if (tmVar != null) {
-                tmVar.p();
-            }
-            this.b = tmVar;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
         }
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.es5;
+import com.baidu.tieba.hw6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.u78;
-import com.baidu.tieba.uu6;
-import com.baidu.tieba.vq5;
+import com.baidu.tieba.n98;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,23 +25,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
     public static final int MSG_TYPE = 102;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @vq5(serialize = false)
+    @es5(serialize = false)
     public CharSequence cacheText;
     @Nullable
     public BotsDTO.BotListDTO.SkillDTO.ItemsDTO fileItem;
     @Nullable
     @SerializedName("robot_params")
     public Map<String, Object> robotParams;
-    @vq5(serialize = false)
+    @es5(serialize = false)
     public String text;
-    @vq5(serialize = false)
+    @es5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -54,8 +54,8 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements uu6.i {
+    /* loaded from: classes6.dex */
+    public class a implements hw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleTextImageMsg a;
@@ -78,7 +78,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
             this.a = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.uu6.i
+        @Override // com.baidu.tieba.hw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -140,7 +140,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -232,7 +232,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            uu6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            hw6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }
@@ -254,7 +254,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
             super.setSdkMsg(str, str2);
             if (this.robotParams != null && (itemsDTO = this.fileItem) != null && itemsDTO.isFileType() && (opts = this.fileItem.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
                 ext.setPicPath(str2);
-                u78.o(this.robotParams, this.fileItem);
+                n98.o(this.robotParams, this.fileItem);
             }
         }
     }

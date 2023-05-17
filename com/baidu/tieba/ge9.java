@@ -1,229 +1,152 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.content.Intent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.FrsAppLegoViewHolder;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.pushdialog.data.PushDialogHttpResMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogReqNetMsg;
+import com.baidu.tieba.pushdialog.data.PushDialogSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class ge9 extends p67<AdvertAppInfo, FrsAppLegoViewHolder> {
+/* loaded from: classes5.dex */
+public class ge9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvertAppInfo.ILegoAdvert l;
-    public wd9 m;
-    public String n;
+    public PushDialogActivity a;
+    public String b;
+    public long c;
 
-    /* loaded from: classes4.dex */
-    public class a implements pg8 {
+    /* loaded from: classes5.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdvertAppInfo a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ ge9 a;
 
-        public a(ge9 ge9Var, AdvertAppInfo advertAppInfo, int i, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ge9 ge9Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ge9Var, advertAppInfo, Integer.valueOf(i), str};
+                Object[] objArr = {ge9Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = advertAppInfo;
-            this.b = i;
-            this.c = str;
+            this.a = ge9Var;
         }
 
-        @Override // com.baidu.tieba.pg8
-        public void a(int i, HashMap<String, Object> hashMap) {
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
-                if (be9.h(i)) {
-                    of9.g(this.a, this.b, hashMap, i);
-                } else {
-                    of9.n(this.a, this.b, this.c, null, hashMap);
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof PushDialogHttpResMsg) {
+                    this.a.f((PushDialogHttpResMsg) responsedMessage);
+                } else if (responsedMessage instanceof PushDialogSocketResMsg) {
+                    this.a.g((PushDialogSocketResMsg) responsedMessage);
                 }
-                xg8.c(this.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge9(wd9 wd9Var, BdUniqueId bdUniqueId, String str) {
-        super(wd9Var.t(), bdUniqueId);
+    public ge9(PushDialogActivity pushDialogActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wd9Var, bdUniqueId, str};
+            Object[] objArr = {pushDialogActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = null;
-        this.m = wd9Var;
-        this.n = str;
+        this.a = pushDialogActivity;
+        pushDialogActivity.registerListener(new a(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_DATA, 309614));
+        Intent intent = this.a.getIntent();
+        if (intent != null) {
+            this.b = intent.getStringExtra("thread_id");
+            this.c = intent.getLongExtra("task_id", 0L);
+            if (StringUtils.isNull(this.b)) {
+                this.a.finish();
+            }
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: G */
-    public View getView(int i, View view2, ViewGroup viewGroup, AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeCommon;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, advertAppInfo})) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null) {
-                return null;
-            }
-            this.l = iLegoAdvert;
-            if (H(view2)) {
-                FrsAppLegoViewHolder onCreateViewHolder = onCreateViewHolder(viewGroup);
-                this.viewholder = onCreateViewHolder;
-                if (onCreateViewHolder == null) {
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long g = pg.g(this.b, 0L);
+            if (g == 0) {
+                PushDialogActivity pushDialogActivity = this.a;
+                if (pushDialogActivity != null) {
+                    pushDialogActivity.B1(false, null);
+                    return;
                 }
-                view2 = onCreateViewHolder.getView();
+                return;
             }
-            View view3 = view2;
-            return onFillViewHolder(i, view3, viewGroup, advertAppInfo, (FrsAppLegoViewHolder) view3.getTag());
+            PushDialogReqNetMsg pushDialogReqNetMsg = new PushDialogReqNetMsg();
+            pushDialogReqNetMsg.setTask_id(this.c);
+            pushDialogReqNetMsg.setTid(g);
+            MessageManager.getInstance().sendMessage(pushDialogReqNetMsg);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public final boolean H(View view2) {
-        InterceptResult invokeL;
-        V v;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == 0 || this.l == null || !((FrsAppLegoViewHolder) v).getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(((FrsAppLegoViewHolder) this.viewholder).getClass()) || !(view2.getTag(R.id.tag_first) instanceof AdvertAppInfo.ILegoAdvert)) {
-                return true;
-            }
-            return !this.l.isReusable((AdvertAppInfo.ILegoAdvert) view2.getTag(R.id.tag_first));
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: I */
-    public FrsAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (this.l == null || (view2 = (View) qg8.h().a(this.c, this.l, 1)) == null) {
-                return null;
-            }
-            view2.setTag(R.id.tag_first, this.l);
-            return new FrsAppLegoViewHolder((lh8) view2);
-        }
-        return (FrsAppLegoViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: J */
-    public FrsAppLegoViewHolder onCreateViewHolder(ViewGroup viewGroup, AdvertAppInfo advertAppInfo) {
-        InterceptResult invokeLL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, advertAppInfo)) == null) {
-            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null) {
-                this.l = iLegoAdvert;
-                return onCreateViewHolder(viewGroup);
-            }
-            return null;
-        }
-        return (FrsAppLegoViewHolder) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p67, com.baidu.tieba.vm
-    /* renamed from: K */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, AdvertAppInfo advertAppInfo, FrsAppLegoViewHolder frsAppLegoViewHolder) {
-        InterceptResult invokeCommon;
+    public final void f(PushDialogHttpResMsg pushDialogHttpResMsg) {
+        PushDialogActivity pushDialogActivity;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, advertAppInfo, frsAppLegoViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) advertAppInfo, (AdvertAppInfo) frsAppLegoViewHolder);
-            if (this.m == null) {
-                return null;
-            }
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            this.l = iLegoAdvert;
-            if (iLegoAdvert == null || view2 == null) {
-                return null;
-            }
-            if (this.c.getPageActivity() instanceof ph0) {
-                advertAppInfo.r = rh0.b(advertAppInfo.r, (ph0) this.c.getPageActivity(), frsAppLegoViewHolder.itemView);
-            }
-            yv4 layoutMode = this.c.getLayoutMode();
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, pushDialogHttpResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            if (pushDialogHttpResMsg.getError() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            layoutMode.l(z);
-            this.c.getLayoutMode().k(view2);
-            String V = this.m.V();
-            int p1 = this.m.p1();
-            fx4.b(advertAppInfo);
-            advertAppInfo.t = V;
-            advertAppInfo.u = 2;
-            lh8 lh8Var = (lh8) view2;
-            lh8Var.setFromCDN(this.a);
-            lh8Var.update(this.l);
-            gf9.e(advertAppInfo, lh8Var, V, this.n, 2, -1);
-            this.m.u0();
-            lh8Var.setAfterClickSchemeListener(new a(this, advertAppInfo, p1, V));
-            if (td9.class.isAssignableFrom(view2.getClass())) {
-                frsAppLegoViewHolder.b(((td9) view2).getVideoOrVrView());
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void M(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.n = str;
+            pushDialogActivity.B1(z, pushDialogHttpResMsg.getData());
         }
     }
 
-    @Override // com.baidu.tieba.p67
-    public void x() {
+    public final void g(PushDialogSocketResMsg pushDialogSocketResMsg) {
+        PushDialogActivity pushDialogActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            V v = this.viewholder;
-            if (v != 0) {
-                ((FrsAppLegoViewHolder) v).a();
-            }
-            super.x();
+        if ((interceptable == null || interceptable.invokeL(1048580, this, pushDialogSocketResMsg) == null) && (pushDialogActivity = this.a) != null) {
+            pushDialogActivity.B1(!pushDialogSocketResMsg.hasError(), pushDialogSocketResMsg.getData());
         }
     }
 }

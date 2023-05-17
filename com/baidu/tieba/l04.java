@@ -1,133 +1,49 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.appsearchlib.Info;
-import com.baidu.tieba.kd3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class l04 extends d04 {
+/* loaded from: classes6.dex */
+public class l04 extends m14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements kd3.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bl2 a;
-
-        public a(l04 l04Var, bl2 bl2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l04Var, bl2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bl2Var;
-        }
-
-        @Override // com.baidu.tieba.kd3.f
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == -1) {
-                    l04.c(this.a, "202");
-                } else if (i == 1) {
-                    l04.c(this.a, BasicPushStatus.SUCCESS_CODE);
-                } else {
-                    this.a.onFail(101, "noPermission");
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889049, "Lcom/baidu/tieba/l04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947889049, "Lcom/baidu/tieba/l04;");
-                return;
-            }
-        }
-        c = ho1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l04() {
-        super("addShortcutToDesktop");
+        super("getAvailableSpace");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public static void c(bl2 bl2Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, bl2Var, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", str);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-            }
-            bl2Var.a(jSONObject);
-        }
-    }
-
-    @Override // com.baidu.tieba.d04
-    public xz1 a(JSONObject jSONObject, bl2 bl2Var) {
+    @Override // com.baidu.tieba.m14
+    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 != null && b0.w() != null && b0.W() != null) {
-                if (kd3.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
-                    c(bl2Var, Info.kBaiduPIDValue);
-                    return null;
-                }
-                kd3.j(b0.w(), b0.W(), 1, new a(this, bl2Var));
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("data", um3.c());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            bl2Var.onFail(100, "swan or activity is null");
-            if (c) {
-                Log.d("AddShortcutToDesktop", "swan or activity is null");
-                return null;
-            }
+            km2Var.onSuccess(jSONObject2);
             return null;
         }
-        return (xz1) invokeLL.objValue;
+        return (g12) invokeLL.objValue;
     }
 }

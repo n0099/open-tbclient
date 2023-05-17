@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.a9;
 import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static LinkedHashMap<String, List<EmotionImageData>> c;
@@ -32,7 +32,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(String str, List<EmotionImageData> list);
 
@@ -49,7 +49,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
                     this.a.a.a(str, queryMatchEmotionResponseMessage.getData());
-                    this.a.Z(str, queryMatchEmotionResponseMessage.getData());
+                    this.a.Y(str, queryMatchEmotionResponseMessage.getData());
                     return;
                 }
                 return;
@@ -126,18 +126,18 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QueryMatchEmotionModel(a9<Object> a9Var) {
-        super(a9Var);
+    public QueryMatchEmotionModel(g9<Object> g9Var) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -149,7 +149,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public final List<EmotionImageData> X(String str) {
+    public final List<EmotionImageData> W(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -162,14 +162,14 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void Y(String str, b bVar) {
+    public void X(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
             this.a = bVar;
             if (bVar == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(X(str))) {
+            if (!ListUtils.isEmpty(W(str))) {
                 this.a.a(str, c.get(str));
                 return;
             }
@@ -180,7 +180,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    public final void Z(String str, List<EmotionImageData> list) {
+    public final void Y(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && !ListUtils.isEmpty(list)) {
             if (c == null) {

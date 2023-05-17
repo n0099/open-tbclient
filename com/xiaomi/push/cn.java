@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import java.text.SimpleDateFormat;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cn {
     public static String a;
 
@@ -27,7 +27,7 @@ public class cn {
         hlVar.b(str);
         hlVar.a(true);
         hlVar.b(System.currentTimeMillis());
-        hlVar.g(bw.a(context).m229a());
+        hlVar.g(bw.a(context).m248a());
         hlVar.e("com.xiaomi.xmsf");
         hlVar.f("");
         hlVar.c("push_stat");

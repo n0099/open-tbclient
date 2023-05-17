@@ -1,68 +1,59 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class y22 extends u22 {
+import org.json.JSONArray;
+/* loaded from: classes8.dex */
+public class y22 extends m22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<d12> k;
-    public m12 l;
+    public Rect a;
 
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y22(String str) {
-        super(str);
+    public y22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = new ArrayList();
-        m12 m12Var = new m12(str);
-        this.l = m12Var;
-        this.k.add(m12Var);
     }
 
-    public int h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l.c();
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && this.a != null) {
+            int alpha = n22Var.b.getAlpha();
+            n22Var.c(n22Var.b);
+            canvas.drawRect(this.a, n22Var.b);
+            n22Var.b.setAlpha(alpha);
         }
-        return invokeV.intValue;
     }
 
-    public List<d12> i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.k;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = xm3.g((float) jSONArray.optDouble(0));
+                    int g2 = xm3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, xm3.g((float) jSONArray.optDouble(2)) + g, xm3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return (List) invokeV.objValue;
     }
 }

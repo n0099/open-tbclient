@@ -5,7 +5,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchBasicTimer {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String EXPIRED = "expiredTime";

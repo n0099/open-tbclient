@@ -24,7 +24,7 @@ import com.baidu.sapi2.views.logindialog.bean.QuickLoginResult;
 import com.baidu.sapi2.views.logindialog.enums.QuickLoginType;
 import com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HistoryLoginView extends RelativeLayout {
     public static final String j = "quick_login";
     public Context a;
@@ -37,7 +37,7 @@ public class HistoryLoginView extends RelativeLayout {
     public LoginHistoryModel h;
     public ILoginConfirmCallback i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements AsyncImageLoader.IAsyncImageLoaderListener {
         public a() {
         }

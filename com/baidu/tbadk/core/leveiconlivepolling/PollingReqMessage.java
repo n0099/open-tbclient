@@ -8,7 +8,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,11 +16,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Loop.DataReq;
 import tbclient.Loop.LoopReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PollingReqMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long chatroomId;
+    public Integer chatroomMask;
     public String dataType;
     public String forumName;
     public String mListMsg;
@@ -83,6 +84,10 @@ public class PollingReqMessage extends NetMessage {
                 if (!TextUtils.isEmpty(this.mListMsg)) {
                     builder.chatroom_new_msg = this.mListMsg;
                 }
+                Integer num = this.chatroomMask;
+                if (num != null) {
+                    builder.chatroom_mask = num;
+                }
             }
             if (!StringUtils.isNull(this.forumName)) {
                 builder.forum_name = this.forumName;
@@ -96,7 +101,7 @@ public class PollingReqMessage extends NetMessage {
                 }
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jr5.a(builder, true);
+                ss5.a(builder, true);
             }
             LoopReqIdl.Builder builder2 = new LoopReqIdl.Builder();
             builder2.data = builder.build(false);
@@ -114,10 +119,19 @@ public class PollingReqMessage extends NetMessage {
         return invokeV.longValue;
     }
 
-    public String getDataType() {
+    public int getChatroomMask() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.chatroomMask.intValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public String getDataType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.dataType;
         }
         return (String) invokeV.objValue;
@@ -126,7 +140,7 @@ public class PollingReqMessage extends NetMessage {
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.forumName;
         }
         return (String) invokeV.objValue;
@@ -135,7 +149,7 @@ public class PollingReqMessage extends NetMessage {
     public String getUniqueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.uniqueId;
         }
         return (String) invokeV.objValue;
@@ -143,35 +157,42 @@ public class PollingReqMessage extends NetMessage {
 
     public void setChatroomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
             this.chatroomId = j;
+        }
+    }
+
+    public void setChatroomMask(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.chatroomMask = Integer.valueOf(i);
         }
     }
 
     public void setDataRoomListMsg(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.mListMsg = str;
         }
     }
 
     public void setDataType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.dataType = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.forumName = str;
         }
     }
 
     public void setUniqueId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.uniqueId = str;
         }
     }

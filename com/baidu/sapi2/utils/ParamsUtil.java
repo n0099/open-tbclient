@@ -12,6 +12,7 @@ import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.dns.policy.LocalDnsPolicy;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
@@ -24,14 +25,14 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ParamsUtil implements NoProguard {
     public static String getAdapterParamValue(boolean z, boolean z2) {
         return z ? "3" : z2 ? "8" : "";
     }
 
     /* renamed from: com.baidu.sapi2.utils.ParamsUtil$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction;
 
@@ -77,7 +78,7 @@ public class ParamsUtil implements NoProguard {
         hashMap.put("clientfrom", "native");
         hashMap.put("tpl", sapiConfiguration.tpl);
         hashMap.put("login_share_strategy", sapiConfiguration.loginShareStrategy().getStrValue());
-        hashMap.put("client", "android");
+        hashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         if (z) {
             if (sapiConfiguration.customActionBarEnabled) {
                 str = "3";
@@ -305,7 +306,7 @@ public class ParamsUtil implements NoProguard {
         hashMap.put("act", "optional");
         hashMap.put("supportGuestAccount", "1");
         hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, sapiConfiguration.twitterAppKey);
-        hashMap.put("client", "android");
+        hashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         hashMap.put("clientfrom", "native");
         return str + SapiUtils.mapToUrlParams(hashMap, false);
     }

@@ -26,7 +26,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecAudioRenderer extends MediaCodecRenderer implements MediaClock {
     public boolean allowPositionDiscontinuity;
     public final AudioSink audioSink;
@@ -54,7 +54,7 @@ public class MediaCodecAudioRenderer extends MediaCodecRenderer implements Media
     public void onAudioTrackUnderrun(int i, long j, long j2) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
         public AudioSinkListener() {
         }

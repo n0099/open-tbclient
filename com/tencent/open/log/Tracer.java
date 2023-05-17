@@ -1,7 +1,7 @@
 package com.tencent.open.log;
 
 import com.tencent.open.log.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class Tracer {
     public volatile int a;
     public volatile boolean b;

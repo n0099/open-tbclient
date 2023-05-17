@@ -1,13 +1,22 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+import android.graphics.Bitmap;
+import java.io.File;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
 public interface ut1 {
-    void a(Context context, qm3<Boolean> qm3Var);
 
-    void b(boolean z, qm3<String> qm3Var);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onResult(String str);
+    }
 
-    void c(Context context, qm3<String> qm3Var);
+    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
 
-    void d(qm3<Integer> qm3Var);
+    void b(Context context, String str, String str2, String str3);
+
+    void c(HashMap<String, String> hashMap, File file, a aVar);
+
+    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
 }

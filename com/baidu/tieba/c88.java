@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface c88 {
-    void a(String str);
+    void a(long j);
 
-    void isFailed();
+    void b(long j);
 }

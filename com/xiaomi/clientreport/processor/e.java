@@ -16,30 +16,30 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static PerfClientReport a(PerfClientReport perfClientReport, String str) {
-        long[] m112a;
-        if (perfClientReport == null || (m112a = m112a(str)) == null) {
+        long[] m131a;
+        if (perfClientReport == null || (m131a = m131a(str)) == null) {
             return null;
         }
-        perfClientReport.perfCounts = m112a[0];
-        perfClientReport.perfLatencies = m112a[1];
+        perfClientReport.perfCounts = m131a[0];
+        perfClientReport.perfLatencies = m131a[1];
         return perfClientReport;
     }
 
     public static PerfClientReport a(String str) {
         PerfClientReport perfClientReport = null;
         try {
-            String[] m113a = m113a(str);
-            if (m113a == null || m113a.length < 4 || TextUtils.isEmpty(m113a[0]) || TextUtils.isEmpty(m113a[1]) || TextUtils.isEmpty(m113a[2]) || TextUtils.isEmpty(m113a[3])) {
+            String[] m132a = m132a(str);
+            if (m132a == null || m132a.length < 4 || TextUtils.isEmpty(m132a[0]) || TextUtils.isEmpty(m132a[1]) || TextUtils.isEmpty(m132a[2]) || TextUtils.isEmpty(m132a[3])) {
                 return null;
             }
             perfClientReport = PerfClientReport.getBlankInstance();
-            perfClientReport.production = Integer.parseInt(m113a[0]);
-            perfClientReport.clientInterfaceId = m113a[1];
-            perfClientReport.reportType = Integer.parseInt(m113a[2]);
-            perfClientReport.code = Integer.parseInt(m113a[3]);
+            perfClientReport.production = Integer.parseInt(m132a[0]);
+            perfClientReport.clientInterfaceId = m132a[1];
+            perfClientReport.reportType = Integer.parseInt(m132a[2]);
+            perfClientReport.code = Integer.parseInt(m132a[3]);
             return perfClientReport;
         } catch (Exception unused) {
             com.xiaomi.channel.commonutils.logger.b.c("parse per key error");
@@ -64,7 +64,7 @@ public class e {
     /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.CharSequence] */
     /* JADX WARN: Type inference failed for: r5v9, types: [java.lang.Object] */
     /* renamed from: a  reason: collision with other method in class */
-    public static HashMap<String, String> m111a(String str) {
+    public static HashMap<String, String> m130a(String str) {
         HashMap hashMap = new HashMap();
         if (TextUtils.isEmpty(str) || !new File(str).exists()) {
             return hashMap;
@@ -143,7 +143,7 @@ public class e {
         try {
             file = new File(str + ".lock");
             try {
-                y.m764a(file);
+                y.m783a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     FileLock lock = randomAccessFile.getChannel().lock();
@@ -311,25 +311,25 @@ public class e {
         FileLock fileLock = null;
         try {
             File file = new File(str + ".lock");
-            y.m764a(file);
+            y.m783a(file);
             randomAccessFile = new RandomAccessFile(file, "rw");
         } catch (Throwable unused) {
             randomAccessFile = null;
         }
         try {
             fileLock = randomAccessFile.getChannel().lock();
-            HashMap<String, String> m111a = m111a(str);
+            HashMap<String, String> m130a = m130a(str);
             for (com.xiaomi.clientreport.data.a aVar : aVarArr) {
                 if (aVar != null) {
                     String a = a((PerfClientReport) aVar);
                     long j = ((PerfClientReport) aVar).perfCounts;
                     long j2 = ((PerfClientReport) aVar).perfLatencies;
                     if (!TextUtils.isEmpty(a) && j > 0 && j2 >= 0) {
-                        a(m111a, a, j, j2);
+                        a(m130a, a, j, j2);
                     }
                 }
             }
-            a(str, m111a);
+            a(str, m130a);
             if (fileLock != null && fileLock.isValid()) {
                 try {
                     fileLock.release();
@@ -373,12 +373,12 @@ public class e {
         if (TextUtils.isEmpty(str2)) {
             sb = new StringBuilder();
         } else {
-            long[] m112a = m112a(str2);
-            if (m112a == null || m112a[0] <= 0 || m112a[1] < 0) {
+            long[] m131a = m131a(str2);
+            if (m131a == null || m131a[0] <= 0 || m131a[1] < 0) {
                 sb = new StringBuilder();
             } else {
-                j += m112a[0];
-                j2 += m112a[1];
+                j += m131a[0];
+                j2 += m131a[1];
                 sb = new StringBuilder();
             }
         }
@@ -389,7 +389,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long[] m112a(String str) {
+    public static long[] m131a(String str) {
         long[] jArr = new long[2];
         try {
             String[] split = str.split("#");
@@ -405,7 +405,7 @@ public class e {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String[] m113a(String str) {
+    public static String[] m132a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

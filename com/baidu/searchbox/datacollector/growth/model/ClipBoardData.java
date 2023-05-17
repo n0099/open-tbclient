@@ -2,7 +2,7 @@ package com.baidu.searchbox.datacollector.growth.model;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClipBoardData {
     public String mDownChannel;
     public JSONObject mExtend;
@@ -10,7 +10,7 @@ public class ClipBoardData {
     public String mSchema;
     public String mSource;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public JSONObject extend;
         public String source = "";

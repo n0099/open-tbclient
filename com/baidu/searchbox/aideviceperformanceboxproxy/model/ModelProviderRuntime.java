@@ -9,7 +9,7 @@ import com.baidu.searchbox.aideviceperformanceboxproxy.amendedstaticscore.Defaul
 import com.baidu.searchbox.aideviceperformanceboxproxy.device.DefaultDeviceInfoModelProvider;
 import com.baidu.searchbox.aideviceperformanceboxproxy.dynamic.DefaultDynamicModelProvider;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ModelProviderRuntime {
     @Inject(force = false)
     public static IAmendedDeviceScoreModelProvider amendedDeviceScoreModelProvider() {

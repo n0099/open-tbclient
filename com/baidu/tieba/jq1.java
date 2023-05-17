@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jq1 implements os1 {
+@Autowired
+/* loaded from: classes6.dex */
+public class jq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.os1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
+    public gt1 a;
 
     public jq1() {
         Interceptable interceptable = $ic;
@@ -32,5 +28,28 @@ public class jq1 implements os1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @NonNull
+    public gt1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = b();
+            }
+            return this.a;
+        }
+        return (gt1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public gt1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new bq3();
+        }
+        return (gt1) invokeV.objValue;
     }
 }

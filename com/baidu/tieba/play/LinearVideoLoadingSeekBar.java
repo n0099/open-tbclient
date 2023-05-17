@@ -12,14 +12,14 @@ import android.widget.SeekBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.wp9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LinearVideoLoadingSeekBar extends SeekBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
     public final int d;
     public Handler e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
         this.b = 1;
         this.c = false;
         this.e = new a(this);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.LinearVideoLoadingSeekBar);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.LinearVideoLoadingSeekBar);
         this.d = obtainStyledAttributes.getColor(1, -16777216);
         this.b = obtainStyledAttributes.getDimensionPixelSize(0, this.b);
         obtainStyledAttributes.recycle();
@@ -183,7 +183,7 @@ public class LinearVideoLoadingSeekBar extends SeekBar {
             } else {
                 max = Math.max(255 - ((this.a * 255) / width), 30) / 255.0f;
             }
-            paint.setColor(un9.a(this.d, max));
+            paint.setColor(wp9.a(this.d, max));
             paint.setStrokeWidth(this.b);
             float f = width / 2.0f;
             int i2 = this.a;

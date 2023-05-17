@@ -6,7 +6,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChargeCurrencyResponse implements IBaseJsonResponse {
     public int appid;
     public String closeRiskEnhance;

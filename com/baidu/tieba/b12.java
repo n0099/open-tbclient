@@ -1,172 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Calendar;
-import java.util.HashMap;
-import org.json.JSONException;
+import java.util.Collection;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class b12 extends u02 {
+/* loaded from: classes4.dex */
+public class b12 extends BasePendingOperation {
     public static /* synthetic */ Interceptable $ic;
+    public static final CopyOnWriteArrayList<String> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public uy1 a;
+    public g93 b;
+    public JSONObject c;
+    public String d;
+    public String e;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z22 a;
-        public final /* synthetic */ CanvasView b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ x73 e;
-        public final /* synthetic */ CallbackHandler f;
-
-        public a(b12 b12Var, z22 z22Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, x73 x73Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b12Var, z22Var, canvasView, str, unitedSchemeEntity, x73Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z22Var;
-            this.b = canvasView;
-            this.c = str;
-            this.d = unitedSchemeEntity;
-            this.e = x73Var;
-            this.f = callbackHandler;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i2 = this.a.i(this.b, this.c);
-                HashMap<String, String> params = this.d.getParams();
-                if (params != null && !params.isEmpty()) {
-                    String str = params.get("params");
-                    String str2 = null;
-                    JSONObject jSONObject = new JSONObject();
-                    if (str != null) {
-                        try {
-                            str2 = new JSONObject(str).optString("cb");
-                            jSONObject.putOpt("tempFilePath", ff3.J(this.c, this.e.b));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        if (i2) {
-                            i = 0;
-                        } else {
-                            i = 1001;
-                        }
-                        this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i).toString());
-                    }
-                }
-            }
-        }
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b12(u83 u83Var) {
-        super(u83Var, "/swanAPI/canvas/toTempFilePath");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592038, "Lcom/baidu/tieba/b12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947592038, "Lcom/baidu/tieba/b12;");
+                return;
+            }
+        }
+        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+        f = copyOnWriteArrayList;
+        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
+        f.add("https://dxp.baidu.com/mini");
+        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
+        f.add("https://eclick.baidu.com/se.jpg");
+        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
+    }
+
+    public b12(@NonNull uy1 uy1Var, @NonNull g93 g93Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {uy1Var, g93Var, jSONObject, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = uy1Var;
+        this.b = g93Var;
+        this.c = jSONObject;
+        this.d = str;
+        this.e = str2;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        String str;
-        f72 H;
+    public static Collection<String> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            z22 m = m(unitedSchemeEntity);
-            if (m == null) {
-                x42.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
-                unitedSchemeEntity.result = l(201);
-                return false;
-            }
-            String x = ff3.x(x73Var.b);
-            if (TextUtils.isEmpty(x)) {
-                x42.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-                unitedSchemeEntity.result = l(201);
-                return false;
-            }
-            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
-            if (m.h()) {
-                str = str2 + ".jpg";
-            } else {
-                str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
-            }
-            String str3 = str;
-            if (TextUtils.isEmpty(m.c) && (H = kt2.U().H()) != null) {
-                m.c = H.w3();
-            }
-            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
-                CanvasView a2 = y32.a(m);
-                if (a2 == null) {
-                    x42.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
-                    unitedSchemeEntity.result = l(201);
-                    return false;
-                }
-                rk3.k(new a(this, m, a2, str3, unitedSchemeEntity, x73Var, callbackHandler), "tempFilePath");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-            x42.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
-            unitedSchemeEntity.result = l(201);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
         }
-        return invokeLLLL.booleanValue;
+        return (Collection) invokeV.objValue;
     }
 
-    public z22 m(UnitedSchemeEntity unitedSchemeEntity) {
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return e(this.c.optString("url"));
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return String.format("%s : %s", this.b.getAppId(), this.c.optString("url"));
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public BasePendingOperation.OperationType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST;
+        }
+        return (BasePendingOperation.OperationType) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.I(this.b, this.c, this.d, this.e);
+        }
+    }
+
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new z22(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return null;
+            int size = f.size();
+            for (int i = 0; i < size; i++) {
+                String str2 = f.get(i);
+                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (z22) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

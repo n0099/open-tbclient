@@ -1,102 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+@Autowired
+/* loaded from: classes7.dex */
 public class rg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public rg4(int i, String str) {
-        this(i, str, "");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public rg4(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-    }
-
-    public rg4(int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.a = i;
-        this.b = str;
-        this.e = str2;
-        this.c = str3;
-    }
-
-    public rg4 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (rg4) invokeL.objValue;
-    }
-
-    public String toString() {
+    @Inject
+    public static rl4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "PMSError{errorNo=" + this.a + ", errorMsg='" + this.b + "', httpCode=" + this.f + ", tipMsg='" + this.e + "', errorDetail='" + this.d + "'}";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return qs2.a();
         }
-        return (String) invokeV.objValue;
+        return (rl4) invokeV.objValue;
+    }
+
+    @Inject
+    public static pg4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return vs2.a();
+        }
+        return (pg4) invokeV.objValue;
+    }
+
+    @Inject
+    public static yh4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return xs2.a();
+        }
+        return (yh4) invokeV.objValue;
     }
 }

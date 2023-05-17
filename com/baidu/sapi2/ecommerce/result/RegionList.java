@@ -2,7 +2,7 @@ package com.baidu.sapi2.ecommerce.result;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RegionList implements NoProguard {
     public String nameListStr;
     public String regionListStr;

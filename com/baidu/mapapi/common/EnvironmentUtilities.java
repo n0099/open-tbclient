@@ -3,7 +3,7 @@ package com.baidu.mapapi.common;
 import android.content.Context;
 import com.baidu.mapsdkplatform.comapi.util.g;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EnvironmentUtilities {
     public static String a;
     public static String b;

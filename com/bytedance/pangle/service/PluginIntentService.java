@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class PluginIntentService extends IntentService implements a {
     public static final String TAG = "PluginService";
 

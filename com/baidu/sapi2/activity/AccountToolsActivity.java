@@ -14,7 +14,7 @@ import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountToolsActivity extends Activity {
     public static final String EXTRA_ACCOUNT_TOOLS_TYPE = "ACCOUNT_TOOLS_TYPE";
     public static final String EXTRA_SWEEP_LIGHT_LOADING = "sweepLightLoading";

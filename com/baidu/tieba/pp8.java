@@ -1,145 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.nw4;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskHttpResMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskReqMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class pp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public int b;
+    public int c;
+    public long d;
+    public fb e;
 
-    public static String[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                NetWork netWork = new NetWork(TbConfig.PassConfig.GET_CERT_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                JSONObject jSONObject = new JSONObject(new String(netWork.getNetData()));
-                return new String[]{jSONObject.optString("cert_id"), jSONObject.optString("cert")};
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String[]) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, String str, int i2, int i3, long j);
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return UtilHelper.getWifiMac(TbadkCoreApplication.getInst().getApp());
+    /* loaded from: classes7.dex */
+    public class a extends fb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pp8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pp8 pp8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pp8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return UtilHelper.getGprsIpAddress();
+            this.a = pp8Var;
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
+            if (!z && !(responsedMessage instanceof FinishMemberTaskSocketMessage)) {
+                return;
+            }
+            if (z) {
+                this.a.b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+            } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
+                this.a.b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+            }
+            if (this.a.a != null) {
+                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c, this.a.d);
+            }
+        }
     }
 
-    public static String c(ArrayList<BasicNameValuePair> arrayList, String str) {
-        InterceptResult invokeLL;
+    public pp8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, str)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            HashMap hashMap = new HashMap();
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                arrayList2.add(arrayList.get(i).getName());
-                hashMap.put(arrayList.get(i).getName(), arrayList.get(i).getValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Collections.sort(arrayList2);
-            StringBuffer stringBuffer = new StringBuffer();
-            Iterator it = arrayList2.iterator();
-            while (it.hasNext()) {
-                String str2 = (String) it.next();
-                stringBuffer.append(str2);
-                stringBuffer.append("=");
-                try {
-                    String str3 = (String) hashMap.get(str2);
-                    if (!TextUtils.isEmpty(str3)) {
-                        stringBuffer.append(URLEncoder.encode(str3, "UTF-8"));
-                    }
-                } catch (UnsupportedEncodingException e) {
-                    BdLog.e(e.getMessage());
-                }
-                stringBuffer.append("&");
-            }
-            stringBuffer.append("sign_key=" + str);
-            return pi.c(stringBuffer.toString());
         }
-        return (String) invokeLL.objValue;
+        this.a = null;
+        this.e = new a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+        zq9.h(309429, FinishMemberTaskSocketMessage.class, false, false);
+        zq9.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public static nw4.b d(nw4.b bVar) {
-        InterceptResult invokeL;
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bVar)) == null) {
-            if (bVar == null) {
-                return null;
-            }
-            try {
-                String[] a = a();
-                if (a == null) {
-                    return null;
-                }
-                ArrayList<BasicNameValuePair> arrayList = new ArrayList<>();
-                arrayList.add(new BasicNameValuePair("crypttype", "1"));
-                arrayList.add(new BasicNameValuePair("tpl", TbConfig.PassConfig.TPL));
-                arrayList.add(new BasicNameValuePair("appid", "1"));
-                arrayList.add(new BasicNameValuePair(DnsModel.CLIENTIP_KEY, b()));
-                arrayList.add(new BasicNameValuePair("cert_id", a[0]));
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", bVar.a);
-                jSONObject.put("ptoken", bVar.b);
-                jSONObject.put("cuid", DeviceId.getDeviceID(TbadkCoreApplication.getInst().getApp()));
-                jSONObject.put("clientid", TbadkCoreApplication.getInst().getImei());
-                arrayList.add(new BasicNameValuePair(TableDefine.DB_TABLE_USERINFO, new ow4().a(a[1], jSONObject.toString())));
-                arrayList.add(new BasicNameValuePair(FunAdSdk.PLATFORM_SIG, c(arrayList, TbConfig.PassConfig.ENC_KEY)));
-                NetWork netWork = new NetWork(TbConfig.PassConfig.LOGIN_BDUSS_URL);
-                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
-                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
-                netWork.setPostData(arrayList);
-                netWork.getNetContext().getRequest().mRequestGzip = true;
-                netWork.getNetContext().getRequest().mIsBaiduServer = false;
-                String postNetData = netWork.postNetData();
-                if (!netWork.getNetContext().getResponse().isRequestSuccess() || hi.isEmpty(postNetData)) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject(postNetData);
-                if (!"0".equals(jSONObject2.optString("errno"))) {
-                    return null;
-                }
-                nw4.b bVar2 = new nw4.b();
-                bVar2.a = jSONObject2.optString("bduss");
-                bVar2.b = jSONObject2.optString("ptoken");
-                jSONObject2.optString("uname");
-                return bVar2;
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
         }
-        return (nw4.b) invokeL.objValue;
+    }
+
+    public void f(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.d = j;
+            this.c = i;
+            FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
+            finishMemberTaskReqMessage.setTaskId(j);
+            MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+        }
     }
 }

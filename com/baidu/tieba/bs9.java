@@ -1,32 +1,43 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class bs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public String c;
+    public as9 d;
+    public as9 e;
+    public as9 f;
 
-    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
+    public bs9(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
-            cs9.b(mainTabScheduleStrategy);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-    }
-
-    public static void b(Runnable runnable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
-            cs9.f(new hs9(runnable, i));
-        }
-    }
-
-    public static void c(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
-            cs9.f(new js9(view2, i));
-        }
+        this.a = false;
+        this.b = null;
+        this.c = null;
+        this.d = new as9();
+        this.e = new as9();
+        this.f = new as9();
+        this.c = str;
+        this.b = str2;
+        this.a = z;
     }
 }

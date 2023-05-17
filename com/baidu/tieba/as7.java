@@ -1,132 +1,111 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class as7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Drawable[] a(String str) {
-        InterceptResult invokeL;
+    public static void a(View view2, Object obj, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            Drawable[] drawableArr = new Drawable[2];
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fce, WebPManager.ResourceStateType.NORMAL);
-                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fff, WebPManager.ResourceStateType.NORMAL);
-                        } else {
-                            drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fcd, WebPManager.ResourceStateType.NORMAL);
-                            drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ffe, WebPManager.ResourceStateType.NORMAL);
-                        }
-                    } else {
-                        drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fcf, WebPManager.ResourceStateType.NORMAL);
-                        drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081000, WebPManager.ResourceStateType.NORMAL);
-                    }
-                } else {
-                    drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fd1, WebPManager.ResourceStateType.NORMAL);
-                    drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081002, WebPManager.ResourceStateType.NORMAL);
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, view2, obj, i, str) == null) {
+            if (obj instanceof qs7) {
+                qs7 qs7Var = (qs7) obj;
+                if (qs7Var.e) {
+                    StatisticItem statisticItem = new StatisticItem("c13736");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                    statisticItem.eventStat();
+                    return;
                 }
-            } else {
-                drawableArr[0] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080fd0, WebPManager.ResourceStateType.NORMAL);
-                drawableArr[1] = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f081001, WebPManager.ResourceStateType.NORMAL);
+                StatisticItem statisticItem2 = new StatisticItem("c13735");
+                statisticItem2.param("obj_locate", str);
+                statisticItem2.param("topic_id", qs7Var.a);
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
+                statisticItem2.eventStat();
+            } else if (obj instanceof ss7) {
+                ThreadData threadData = ((ss7) obj).f;
+                StatisticItem statisticItem3 = new StatisticItem("c13738");
+                statisticItem3.param("obj_type", str);
+                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
+                if (threadData != null) {
+                    statisticItem3.param("tid", threadData.getTid());
+                    statisticItem3.param("fid", threadData.getFid());
+                }
+                statisticItem3.eventStat();
+            } else if (obj instanceof jy4) {
+                d(view2);
+                if (!c(view2)) {
+                    return;
+                }
+                ThreadData threadData2 = ((jy4) obj).getThreadData();
+                StatisticItem statisticItem4 = new StatisticItem("c13738");
+                statisticItem4.param("obj_type", str);
+                statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
+                if (threadData2 != null) {
+                    statisticItem4.param("tid", threadData2.getTid());
+                    statisticItem4.param("fid", threadData2.getFid());
+                }
+                statisticItem4.eventStat();
             }
-            return drawableArr;
         }
-        return (Drawable[]) invokeL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(String str) {
-        InterceptResult invokeL;
-        char c;
+    public static void b(View view2, Object obj, String str) {
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -1581702362:
-                    if (str.equals("share_num")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -6986408:
-                    if (str.equals("care_num")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 975378291:
-                    if (str.equals("agree_num")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 2103869862:
-                    if (str.equals("comment_num")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, obj, str) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13825");
+            statisticItem.param("obj_type", str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (obj instanceof ss7) {
+                threadData = ((ss7) obj).f;
+            } else if (obj instanceof jy4) {
+                threadData = ((jy4) obj).getThreadData();
+            } else {
+                threadData = null;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab2);
-                        }
-                        return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab1);
-                    }
-                    return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab3);
-                }
-                return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab5);
+            if (threadData != null) {
+                statisticItem.param("tid", threadData.getTid());
+                statisticItem.param("fid", threadData.getFid());
             }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0ab4);
+            statisticItem.eventStat();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            int id = view2.getId();
+            if (id != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, view2) != null) || !(view2 instanceof TbImageView)) {
+            return;
+        }
+        StatisticItem addParam = new StatisticItem("c14675").addParam("uid", TbadkCoreApplication.getCurrentAccount());
+        if (UbsABTestHelper.isImgClickToPb()) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        addParam.addParam(TiebaStatic.Params.OBJ_TO, i).eventStat();
     }
 }

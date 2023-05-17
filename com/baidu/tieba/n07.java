@@ -1,58 +1,169 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ClickableSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes5.dex */
-public final class n07 implements i07 {
+/* loaded from: classes6.dex */
+public final class n07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final int f;
+    public final int g;
+    public final String h;
+    public final String i;
 
-    public n07() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof n07) {
+                n07 n07Var = (n07) obj;
+                return Intrinsics.areEqual(this.a, n07Var.a) && Intrinsics.areEqual(this.b, n07Var.b) && Intrinsics.areEqual(this.c, n07Var.c) && Intrinsics.areEqual(this.d, n07Var.d) && Intrinsics.areEqual(this.e, n07Var.e) && this.f == n07Var.f && this.g == n07Var.g && Intrinsics.areEqual(this.h, n07Var.h) && Intrinsics.areEqual(this.i, n07Var.i);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? (((((((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f) * 31) + this.g) * 31) + this.h.hashCode()) * 31) + this.i.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "LinkInfoData(title=" + this.a + ", linkUrl=" + this.b + ", picUrl=" + this.c + ", linkFrom=" + this.d + ", extTxt=" + this.e + ", sort=" + this.f + ", urlType=" + this.g + ", content1=" + this.h + ", content2=" + this.i + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public n07(String title, String linkUrl, String picUrl, String linkFrom, String extTxt, int i, int i2, String content1, String content2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {title, linkUrl, picUrl, linkFrom, extTxt, Integer.valueOf(i), Integer.valueOf(i2), content1, content2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(title, "title");
+        Intrinsics.checkNotNullParameter(linkUrl, "linkUrl");
+        Intrinsics.checkNotNullParameter(picUrl, "picUrl");
+        Intrinsics.checkNotNullParameter(linkFrom, "linkFrom");
+        Intrinsics.checkNotNullParameter(extTxt, "extTxt");
+        Intrinsics.checkNotNullParameter(content1, "content1");
+        Intrinsics.checkNotNullParameter(content2, "content2");
+        this.a = title;
+        this.b = linkUrl;
+        this.c = picUrl;
+        this.d = linkFrom;
+        this.e = extTxt;
+        this.f = i;
+        this.g = i2;
+        this.h = content1;
+        this.i = content2;
     }
 
-    @Override // com.baidu.tieba.i07
-    public SpannableString b(Context context, jz6 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        oy6 b;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            mz6 f = richTextData.f();
-            SpannableString spannableString = new SpannableString(f.c());
-            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
-                if ((clickableSpan instanceof j07) && (b = f.b()) != null) {
-                    ((j07) clickableSpan).a(y27.a.a(b));
-                }
-                int length = f.c().length();
-                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
-                    length = f.c().length() - 1;
-                }
-                spannableString.setSpan(clickableSpan, 0, length, 33);
-            }
-            return spannableString;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
     }
 }

@@ -16,7 +16,7 @@ import com.kwad.components.ad.reward.l;
 import com.kwad.components.core.widget.KSCornerImageView;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class s extends d implements View.OnClickListener {
     public AdTemplate adTemplate;
     public TextView eQ;
@@ -42,7 +42,7 @@ public final class s extends d implements View.OnClickListener {
         this.wj = viewGroup;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04a3, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c0, viewGroup, false);
         this.pV = viewGroup2;
         this.mContext = viewGroup2.getContext();
         initView();
@@ -50,8 +50,8 @@ public final class s extends d implements View.OnClickListener {
 
     private SpannableString V(String str) {
         SpannableString spannableString = new SpannableString("再看" + str + "秒，即可获得奖励");
-        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060625));
-        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f060625));
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06078d));
+        ForegroundColorSpan foregroundColorSpan2 = new ForegroundColorSpan(this.mContext.getResources().getColor(R.color.obfuscated_res_0x7f06078d));
         StyleSpan styleSpan = new StyleSpan(1);
         int length = spannableString.length();
         spannableString.setSpan(foregroundColorSpan, 2, length - 7, 34);
@@ -61,14 +61,14 @@ public final class s extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091348);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09134a);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091346);
-        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091349);
-        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091347);
-        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133a);
-        this.f1081vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091345);
-        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091344);
+        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091383);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091385);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091381);
+        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091384);
+        this.iv = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091382);
+        this.wk = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091375);
+        this.f1081vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091380);
+        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f09137f);
         this.f1081vi.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.it.setOnClickListener(this);

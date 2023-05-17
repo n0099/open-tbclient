@@ -26,7 +26,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ProducerSequenceFactory {
     @VisibleForTesting
     public Producer<EncodedImage> mBackgroundLocalContentUriFetchToEncodedMemorySequence;

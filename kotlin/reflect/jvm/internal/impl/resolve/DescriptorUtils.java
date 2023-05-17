@@ -3,7 +3,6 @@ package kotlin.reflect.jvm.internal.impl.resolve;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.down.request.task.ProgressInfo;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.facebook.imagepipeline.memory.BitmapPoolType;
 import com.google.gson.internal.bind.TypeAdapters;
 import java.util.Collection;
@@ -40,7 +39,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinTypeKt;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DescriptorUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final FqName CONTINUATION_INTERFACE_FQ_NAME_EXPERIMENTAL;
@@ -196,7 +195,7 @@ public class DescriptorUtils {
                 objArr[0] = "type";
                 break;
             case 29:
-                objArr[0] = ImageViewerConfig.FROM_OTHER;
+                objArr[0] = "other";
                 break;
             case 35:
                 objArr[0] = "classKind";
@@ -624,7 +623,7 @@ public class DescriptorUtils {
         if (classDescriptor2 == null) {
             $$$reportNull$$$0(25);
         }
-        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2026getSupertypes()) {
+        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2045getSupertypes()) {
             if (isSameClass(kotlinType, classDescriptor2.getOriginal())) {
                 return true;
             }
@@ -639,9 +638,9 @@ public class DescriptorUtils {
         if (declarationDescriptor == null) {
             $$$reportNull$$$0(29);
         }
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor != null) {
-            DeclarationDescriptor original = mo2025getDeclarationDescriptor.getOriginal();
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor != null) {
+            DeclarationDescriptor original = mo2044getDeclarationDescriptor.getOriginal();
             if ((original instanceof ClassifierDescriptor) && (declarationDescriptor instanceof ClassifierDescriptor) && ((ClassifierDescriptor) declarationDescriptor).getTypeConstructor().equals(((ClassifierDescriptor) original).getTypeConstructor())) {
                 return true;
             }
@@ -660,7 +659,7 @@ public class DescriptorUtils {
         if (isSameClass(kotlinType, declarationDescriptor)) {
             return true;
         }
-        for (KotlinType kotlinType2 : kotlinType.getConstructor().mo2026getSupertypes()) {
+        for (KotlinType kotlinType2 : kotlinType.getConstructor().mo2045getSupertypes()) {
             if (isSubtypeOfClass(kotlinType2, declarationDescriptor)) {
                 return true;
             }
@@ -688,7 +687,7 @@ public class DescriptorUtils {
         if (typeConstructor == null) {
             $$$reportNull$$$0(44);
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) typeConstructor.mo2025getDeclarationDescriptor();
+        ClassDescriptor classDescriptor = (ClassDescriptor) typeConstructor.mo2044getDeclarationDescriptor();
         if (classDescriptor == null) {
             $$$reportNull$$$0(45);
         }
@@ -809,7 +808,7 @@ public class DescriptorUtils {
         if (classDescriptor == null) {
             $$$reportNull$$$0(42);
         }
-        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2026getSupertypes()) {
+        for (KotlinType kotlinType : classDescriptor.getTypeConstructor().mo2045getSupertypes()) {
             ClassDescriptor classDescriptorForType = getClassDescriptorForType(kotlinType);
             if (classDescriptorForType.getKind() != ClassKind.INTERFACE) {
                 return classDescriptorForType;
@@ -916,11 +915,11 @@ public class DescriptorUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(18);
         }
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor == null) {
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor == null) {
             return null;
         }
-        return getContainingModuleOrNull(mo2025getDeclarationDescriptor);
+        return getContainingModuleOrNull(mo2044getDeclarationDescriptor);
     }
 
     public static Visibility getDefaultConstructorVisibility(ClassDescriptor classDescriptor) {

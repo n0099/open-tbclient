@@ -1,99 +1,151 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.b73;
+import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class u42 {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class u42 extends w42 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public JSONObject j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public JSONArray o;
+    public float p;
+    @Nullable
+    public JSONObject q;
+    public long r;
+    public String s;
 
-    /* loaded from: classes6.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x73 a;
-
-        public a(x73 x73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u42(String str, @NonNull String str2) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = x73Var;
         }
+        this.k = 0;
+        this.m = 0;
+        this.p = -1.0f;
+        this.s = "";
+    }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
-            }
+    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.j = jSONObject.optJSONObject("style");
+        this.q = jSONObject.optJSONObject(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+        i();
+        h();
+    }
+
+    @Override // com.baidu.tieba.w42
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            super.g(jSONObject);
+            i();
+            h();
         }
     }
 
-    public static boolean a() {
+    @Override // com.baidu.tieba.w42
+    public Object clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        x73 M;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = x73.M()) != null) {
-            v42.c(z);
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f01a3;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0117;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            u42 u42Var = (u42) super.clone();
+            if (this.j != null) {
+                try {
+                    u42Var.j = new JSONObject(this.j.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            b73.a aVar = new b73.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0153));
-            aVar.x(context.getString(i));
-            aVar.n(new fn3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f011a, new a(M));
-            aVar.X();
+            if (this.o != null) {
+                try {
+                    u42Var.o = new JSONArray(this.o.toString());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            if (this.q != null) {
+                try {
+                    u42Var.q = new JSONObject(this.q.toString());
+                } catch (JSONException e3) {
+                    e3.printStackTrace();
+                }
+            }
+            return u42Var;
+        }
+        return invokeV.objValue;
+    }
+
+    public final void h() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.q) != null) {
+            try {
+                this.r = Long.parseLong(jSONObject.optString("duration"));
+            } catch (Exception unused) {
+                g62.b("Component-Model-View", "duration occurs exception");
+                this.r = 0L;
+            }
+            this.s = this.q.optString("easing");
+        }
+    }
+
+    public final void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (jSONObject = this.j) != null) {
+            try {
+                this.k = Color.parseColor(jSONObject.optString("bgColor"));
+            } catch (Exception unused) {
+                g62.b("Component-Model-View", "backgroundColor occurs exception");
+                this.k = 0;
+            }
+            this.l = this.j.optInt("borderWidth");
+            try {
+                this.m = Color.parseColor(this.j.optString("borderColor"));
+            } catch (Exception unused2) {
+                g62.b("Component-Model-View", "borderColor occurs exception");
+                this.m = 0;
+            }
+            this.n = xm3.g(this.j.optInt("borderRadius"));
+            this.p = gm3.b(this.j, NativeConstants.OPACITY, -1.0f);
+            this.o = this.j.optJSONArray(CriusAttrConstants.PADDING);
         }
     }
 }

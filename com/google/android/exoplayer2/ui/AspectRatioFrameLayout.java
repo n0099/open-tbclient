@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AspectRatioFrameLayout extends FrameLayout {
     public static final float MAX_ASPECT_RATIO_DEFORMATION_FRACTION = 0.01f;
     public static final int RESIZE_MODE_FILL = 3;
@@ -19,7 +19,7 @@ public final class AspectRatioFrameLayout extends FrameLayout {
     public float videoAspectRatio;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface ResizeMode {
     }
 

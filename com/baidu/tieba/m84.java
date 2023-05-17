@@ -1,48 +1,67 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.down.retry.HttpRetryStatistic;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m84 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public int m;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926528, "Lcom/baidu/tieba/m84;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926528, "Lcom/baidu/tieba/m84;");
+                return;
+            }
+        }
+        a = qp1.a;
+    }
 
     public m84() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public <T> void a(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ clipMaxDuration=" + this.a + " , clipMinDuration=" + this.b + " , topicSource=" + this.c + " , publishURL=" + this.e + " , publishType=" + this.k + " , publishTitle=" + this.d + " , atURL=" + this.g + " , topicURL=" + this.h + " , musicURL=" + this.f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, responseCallback) == null) {
+            if (a) {
+                Log.d("requestWithUrlAndBody", HttpRetryStatistic.RETRY_URL + str + "\nbody:" + str2);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            ts1 e = ns2.e();
+            if (e.h() && e.g(str)) {
+                e.e(str, str2, responseCallback);
+                return;
+            }
+            kg4.g().postStringRequest().url(str).cookieManager(ns2.q().a()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
-        return (String) invokeV.objValue;
     }
 }

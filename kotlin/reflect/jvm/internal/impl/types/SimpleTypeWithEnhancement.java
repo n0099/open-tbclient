@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 import kotlin.TypeCastException;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SimpleTypeWithEnhancement extends DelegatingSimpleType implements TypeWithEnhancement {
     public final SimpleType delegate;
     public final KotlinType enhancement;

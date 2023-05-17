@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kx5;
+import com.baidu.tieba.wy5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VerticalViewPager extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] h0;
@@ -95,7 +95,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public kx5 g0;
+    public wy5 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -116,7 +116,7 @@ public class VerticalViewPager extends ViewGroup {
     public boolean y;
     public int z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void onAdapterChanged(PagerAdapter pagerAdapter, PagerAdapter pagerAdapter2);
     }
@@ -131,7 +131,7 @@ public class VerticalViewPager extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -140,7 +140,7 @@ public class VerticalViewPager extends ViewGroup {
         public ClassLoader loader;
         public int position;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a implements ParcelableCompatCreatorCallbacks<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +264,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +321,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Comparator<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +353,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -384,7 +384,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,7 +419,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -444,7 +444,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -539,7 +539,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -584,7 +584,7 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class h implements Comparator<View> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -960,11 +960,11 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(kx5.b bVar) {
-        kx5 kx5Var;
+    public void setEventListener(wy5.b bVar) {
+        wy5 wy5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (kx5Var = this.g0) != null) {
-            kx5Var.f(bVar);
+        if ((interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) && (wy5Var = this.g0) != null) {
+            wy5Var.f(bVar);
         }
     }
 
@@ -3056,7 +3056,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new kx5(this);
+            this.g0 = new wy5(this);
         }
     }
 

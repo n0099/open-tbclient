@@ -3,20 +3,20 @@ package com.baidu.tieba.forumSquare;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.f57;
-import com.baidu.tieba.g57;
+import com.baidu.tieba.s67;
+import com.baidu.tieba.t67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f57 a;
+    public s67 a;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fm5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.on5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,13 +37,13 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    public f57 x1() {
+    public s67 x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (f57) invokeV.objValue;
+        return (s67) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -51,9 +51,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            g57 g57Var = this.a.d;
-            if (g57Var != null) {
-                g57Var.a(i);
+            t67 t67Var = this.a.d;
+            if (t67Var != null) {
+                t67Var.a(i);
             }
         }
     }
@@ -63,9 +63,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            f57 f57Var = new f57(this, getPageContext());
-            this.a = f57Var;
-            f57Var.k(getIntent());
+            s67 s67Var = new s67(this, getPageContext());
+            this.a = s67Var;
+            s67Var.k(getIntent());
             setContentView(this.a.d.e());
             this.a.m();
         }

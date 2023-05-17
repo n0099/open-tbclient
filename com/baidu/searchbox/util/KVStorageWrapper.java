@@ -6,11 +6,11 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.android.util.KVStorageRuntime;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.do1;
+import com.baidu.tieba.mp1;
 import java.util.ArrayList;
 import java.util.Set;
-/* loaded from: classes2.dex */
-public class KVStorageWrapper extends do1 {
+/* loaded from: classes4.dex */
+public class KVStorageWrapper extends mp1 {
     public static final boolean DEBUG = false;
     public static final String TAG = "KVStorageWrapper";
     public Handler mMainThreadHandler;
@@ -22,7 +22,7 @@ public class KVStorageWrapper extends do1 {
         this.mModified = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences
     public boolean getBoolean(String str, boolean z) {
         if (str == null) {
             return z;
@@ -30,7 +30,7 @@ public class KVStorageWrapper extends do1 {
         return super.getBoolean(str, z);
     }
 
-    @Override // com.baidu.tieba.do1, com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public float getFloat(String str, float f) {
         if (str == null) {
             return f;
@@ -54,7 +54,7 @@ public class KVStorageWrapper extends do1 {
         return super.getLong(str, j);
     }
 
-    @Override // com.baidu.tieba.do1, com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public String getString(String str, String str2) {
         if (str == null) {
             return str2;
@@ -62,7 +62,7 @@ public class KVStorageWrapper extends do1 {
         return super.getString(str, str2);
     }
 
-    @Override // com.baidu.tieba.do1, com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
     public Set<String> getStringSet(String str, Set<String> set) {
         if (str == null) {
             return set;
@@ -70,7 +70,7 @@ public class KVStorageWrapper extends do1 {
         return super.getStringSet(str, set);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
         if (str == null) {
             return this;
@@ -83,7 +83,7 @@ public class KVStorageWrapper extends do1 {
         return super.putBoolean(str, z);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putFloat(String str, float f) {
         if (str == null) {
             return this;
@@ -96,7 +96,7 @@ public class KVStorageWrapper extends do1 {
         return super.putFloat(str, f);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putInt(String str, int i) {
         if (str == null) {
             return this;
@@ -109,7 +109,7 @@ public class KVStorageWrapper extends do1 {
         return super.putInt(str, i);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putLong(String str, long j) {
         if (str == null) {
             return this;
@@ -122,7 +122,7 @@ public class KVStorageWrapper extends do1 {
         return super.putLong(str, j);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putString(String str, String str2) {
         if (str == null) {
             return this;
@@ -135,7 +135,7 @@ public class KVStorageWrapper extends do1 {
         return super.putString(str, str2);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
         if (str == null) {
             return this;
@@ -163,7 +163,7 @@ public class KVStorageWrapper extends do1 {
         this.mModified = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences
     public boolean contains(String str) {
         if (str == null) {
             return false;
@@ -171,7 +171,7 @@ public class KVStorageWrapper extends do1 {
         return super.contains(str);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         synchronized (this) {
             if (this.mObserver == null) {
@@ -181,7 +181,7 @@ public class KVStorageWrapper extends do1 {
         }
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor remove(String str) {
         if (str == null) {
             return this;
@@ -194,7 +194,7 @@ public class KVStorageWrapper extends do1 {
         return super.remove(str);
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         synchronized (this) {
             if (this.mObserver == null) {
@@ -240,18 +240,18 @@ public class KVStorageWrapper extends do1 {
         }
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public void apply() {
         super.apply();
         notifyObserver();
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor clear() {
         return super.clear();
     }
 
-    @Override // com.baidu.tieba.do1, android.content.SharedPreferences.Editor
+    @Override // com.baidu.tieba.mp1, android.content.SharedPreferences.Editor
     public boolean commit() {
         boolean commit = super.commit();
         notifyObserver();

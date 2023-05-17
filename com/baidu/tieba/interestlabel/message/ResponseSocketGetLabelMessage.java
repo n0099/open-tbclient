@@ -2,7 +2,7 @@ package com.baidu.tieba.interestlabel.message;
 
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.mf8;
+import com.baidu.tieba.hh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
             GetTagListResIdl getTagListResIdl = (GetTagListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetTagListResIdl.class);
-            mf8 mf8Var = null;
+            hh8 hh8Var = null;
             if (getTagListResIdl == null) {
                 return null;
             }
@@ -56,10 +56,10 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
                 requestGetLabelMessage = null;
             }
             if (requestGetLabelMessage != null) {
-                mf8Var = requestGetLabelMessage.getLabelDataSet();
+                hh8Var = requestGetLabelMessage.getLabelDataSet();
             }
-            if (mf8Var != null) {
-                mf8Var.c(getTagListResIdl.data);
+            if (hh8Var != null) {
+                hh8Var.c(getTagListResIdl.data);
             }
             return getTagListResIdl;
         }

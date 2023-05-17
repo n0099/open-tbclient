@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,288 +12,126 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes3.dex */
-public class cg3 implements ag3 {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class cg3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile boolean b;
+    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public bg3 a;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes5.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final gg3 a;
+        public JSONObject b;
+        public final long c;
+        public final String d;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-891282499, "Lcom/baidu/tieba/cg3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-891282499, "Lcom/baidu/tieba/cg3$a;");
+        public a(@NonNull gg3 gg3Var, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gg3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.RELATIVE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.BD_FILE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public cg3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ag3
-    @NonNull
-    public synchronized bg3 d() {
-        InterceptResult invokeV;
-        bg3 bg3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new dg3();
+            this.a = gg3Var;
+            this.d = str;
+            this.c = gg3Var.l();
+            synchronized (cg3.c) {
+                if (cg3.b) {
+                    cg3.c.add(this);
                 }
-                bg3Var = this.a;
-            }
-            return bg3Var;
-        }
-        return (bg3) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return "";
-            }
-            return ff3.z(b0.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return "";
-            }
-            return ff3.x(b0.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return str;
-            }
-            return ff3.H(str, b0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return ff3.G(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return "";
-            }
-            return ff3.n(b0.b, str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return null;
-            }
-            return ff3.L(str, b0, b0.k0());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return str;
-            }
-            return ff3.I(str, b0.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return null;
-            }
-            return ff3.M(str, b0.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return ff3.F(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return ff3.K(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            String t = bo4.t(str);
-            if (TextUtils.isEmpty(t)) {
-                return g(str);
-            }
-            return g(str) + "." + t;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            int indexOf = str.indexOf("../");
-            if (indexOf == 0) {
-                String substring = str.substring(3);
-                if (TextUtils.isEmpty(substring) || !substring.contains("../")) {
-                    return false;
-                }
-                return true;
-            } else if (indexOf <= 0) {
-                return false;
-            } else {
-                return true;
             }
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ag3
-    public boolean j(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947673754, "Lcom/baidu/tieba/cg3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            PathType s = ff3.s(str);
-            if (z) {
-                s = o(str, s);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947673754, "Lcom/baidu/tieba/cg3;");
+                return;
             }
-            if (s == PathType.ERROR) {
-                return false;
-            }
-            return true;
         }
-        return invokeLZ.booleanValue;
+        a = qp1.a;
+        b = false;
+        c = new ArrayList();
     }
 
-    public final PathType o(String str, PathType pathType) {
-        InterceptResult invokeLL;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, pathType)) == null) {
-            int i = a.a[pathType.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return PathType.ERROR;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (c) {
+                b = true;
+                c.clear();
+            }
+        }
+    }
+
+    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
+            return;
+        }
+        hybridUbcFlow.D("networkStatus", String.valueOf(t03.c()));
+        if (e33.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        long g2 = g.g();
+        synchronized (c) {
+            if (a) {
+                Log.d("SwanReqStatisticManager", "size=" + c.size());
+            }
+            b = false;
+            JSONArray jSONArray = new JSONArray();
+            for (a aVar : c) {
+                if (aVar.c <= g2) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", aVar.d);
+                        if (aVar.a != null) {
+                            aVar.a.p(jSONObject);
+                        }
+                        if (aVar.b != null) {
+                            Iterator<String> keys = aVar.b.keys();
+                            while (keys.hasNext()) {
+                                String next = keys.next();
+                                jSONObject.put(next, aVar.b.get(next));
+                            }
+                        }
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        if (a) {
+                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
+                        }
                     }
-                    return pathType;
                 }
-                if (str.startsWith("bdfile://code" + File.separator) || "bdfile://code".equals(str)) {
-                    return PathType.RELATIVE;
-                }
-                return pathType;
-            } else if (n(str)) {
-                return PathType.ERROR;
-            } else {
-                return pathType;
+            }
+            if (jSONArray.length() > 0) {
+                hybridUbcFlow.D("requests", jSONArray.toString());
             }
         }
-        return (PathType) invokeLL.objValue;
     }
 }

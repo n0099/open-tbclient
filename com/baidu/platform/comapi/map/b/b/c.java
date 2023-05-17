@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,11 +82,11 @@ public class c extends a {
     public void a(com.baidu.platform.comapi.map.b.a.b bVar, MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, motionEvent) == null) {
-            a.C0124a c0124a = bVar.b;
-            a.C0124a c0124a2 = bVar.c;
+            a.C0128a c0128a = bVar.b;
+            a.C0128a c0128a2 = bVar.c;
             MapStatus mapStatus = this.d.getMapStatus();
-            double d = c0124a2.a.b - c0124a.a.b;
-            double d2 = c0124a2.b.b - c0124a.b.b;
+            double d = c0128a2.a.b - c0128a.a.b;
+            double d2 = c0128a2.b.b - c0128a.b.b;
             int i = ((d * d2) > 0.0d ? 1 : ((d * d2) == 0.0d ? 0 : -1));
             if (i > 0) {
                 a(d, mapStatus);

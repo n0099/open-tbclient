@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u implements a {
     public x a = x.a;
 

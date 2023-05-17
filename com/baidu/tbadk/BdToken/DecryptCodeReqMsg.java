@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.DecryptCode.DataReq;
 import tbclient.DecryptCode.DecryptCodeReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DecryptCodeReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class DecryptCodeReqMsg extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.tieba_code = this.code;
-                jr5.c(builder, true, true, true);
+                ss5.c(builder, true, true, true);
                 DecryptCodeReqIdl.Builder builder2 = new DecryptCodeReqIdl.Builder();
                 builder2.data = builder.build(true);
                 return builder2.build(true);

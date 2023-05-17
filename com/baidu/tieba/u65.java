@@ -1,108 +1,138 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.text.style.ReplacementSpan;
+import android.content.Context;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class u65 extends ReplacementSpan {
+/* loaded from: classes7.dex */
+public class u65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public long a;
+    public Context b;
+    public View c;
+    public TextView d;
+    public ImageView e;
+    public Toast f;
+    public Handler g;
+    public Runnable h;
 
-    public u65(int i, int i2, int i3, int i4, int i5, int i6, int i7) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u65 a;
+
+        public a(u65 u65Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u65Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u65Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.f != null) {
+                    this.a.f.cancel();
+                }
+                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
+                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
+                }
+            }
+        }
+    }
+
+    public u65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 0;
-        this.j = 0;
-        this.b = i;
-        this.c = i2;
-        this.d = i3;
-        this.e = i4;
-        this.f = i5;
-        this.g = i6;
-        this.h = i7;
+        this.a = 3000L;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.h = new a(this);
+        this.b = TbadkCoreApplication.getInst().getContext();
+        this.g = new Handler();
     }
 
-    public void a(int i) {
+    public void c(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.j = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.icon_toast_game_error);
+            e(this.c);
         }
     }
 
-    public void b(int i) {
+    public void d(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.i = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (TextView) inflate.findViewById(R.id.tip_text);
+            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
+            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ri.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setText(charSequence);
+            this.e.setImageResource(R.drawable.icon_toast_game_ok);
+            e(this.c);
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public void e(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            float textSize = paint.getTextSize();
-            int color = paint.getColor();
-            float f2 = f + this.h;
-            paint.setTextSize(this.d);
-            paint.setColor(SkinManager.getColor(this.b));
-            paint.setAntiAlias(true);
-            int i6 = i3 + i5;
-            int i7 = this.d;
-            int i8 = this.c;
-            int i9 = this.g;
-            int i10 = this.i;
-            RectF rectF = new RectF(f2, ((((i6 - i7) - i8) - i9) / 2) + i10, (this.a + f2) - this.j, ((((i6 + i7) + i8) + i9) / 2) + i10);
-            int i11 = this.c;
-            canvas.drawRoundRect(rectF, i11, i11, paint);
-            paint.setColor(SkinManager.getColor(this.e));
-            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            canvas.drawText(charSequence, i, i2, f2 + this.c + this.f, (int) ((rectF.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), paint);
-            paint.setTextSize(textSize);
-            paint.setColor(color);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.g.removeCallbacks(this.h);
+            if (this.f == null) {
+                this.f = new Toast(this.b);
+            }
+            this.g.postDelayed(this.h, this.a);
+            this.f.setView(view2);
+            this.f.setDuration(1);
+            this.f.setGravity(17, 0, 0);
+            GreyUtil.grey(this.f);
+            this.f.show();
         }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            float textSize = paint.getTextSize();
-            paint.setTextSize(this.d);
-            this.a = (int) (paint.measureText(charSequence, i, i2) + (this.c * 2) + (this.f * 2) + this.j);
-            paint.setTextSize(textSize);
-            return this.a;
-        }
-        return invokeCommon.intValue;
     }
 }

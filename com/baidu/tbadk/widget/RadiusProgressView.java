@@ -16,13 +16,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.wp9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RadiusProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = un9.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = wp9.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -107,7 +107,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = un9.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = wp9.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -148,7 +148,7 @@ public class RadiusProgressView extends View {
         this.d = 100;
         this.e = Color.parseColor("#FFFFFFFF");
         this.f = Color.parseColor("#FFFFFFFF");
-        this.g = un9.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
+        this.g = wp9.a(SkinManager.getColor(R.color.CAM_X0336), 0.4f);
         this.h = SkinManager.getColor(R.color.CAM_X0336);
         this.i = new RectF();
         this.j = new RectF();
@@ -167,7 +167,7 @@ public class RadiusProgressView extends View {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.RadiusProgressView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.RadiusProgressView);
             this.b = obtainStyledAttributes.getDimensionPixelSize(2, this.b);
             this.c = obtainStyledAttributes.getInt(1, this.c);
             this.e = obtainStyledAttributes.getColor(4, this.e);

@@ -8,14 +8,14 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.uva;
+import com.baidu.tieba.sxa;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BlockMonitor implements IBlockMonitor {
     public static final int DEFAULT_BLOCK_TIMEOUT = 2000;
     public static final String SEPARATOR = "\r\n";
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public uva mBlockWatchDog = null;
+    public sxa mBlockWatchDog = null;
 
-    /* loaded from: classes2.dex */
-    public static class BlockListenerImpl implements uva.f {
+    /* loaded from: classes3.dex */
+    public static class BlockListenerImpl implements sxa.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.uva.f
+        @Override // com.baidu.tieba.sxa.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        uva uvaVar;
-        if (this.mMonitorStarted && (uvaVar = this.mBlockWatchDog) != null) {
-            uvaVar.interrupt();
+        sxa sxaVar;
+        if (this.mMonitorStarted && (sxaVar = this.mBlockWatchDog) != null) {
+            sxaVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        uva uvaVar = new uva(i);
-        this.mBlockWatchDog = uvaVar;
-        uvaVar.e();
+        sxa sxaVar = new sxa(i);
+        this.mBlockWatchDog = sxaVar;
+        sxaVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

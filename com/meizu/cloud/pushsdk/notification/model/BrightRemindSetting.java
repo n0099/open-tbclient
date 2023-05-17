@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BrightRemindSetting implements Parcelable {
     public static final String BRIGHT_REMIND = "br";
     public static final String BRIGHT_REMIND_SETTING = "bs";

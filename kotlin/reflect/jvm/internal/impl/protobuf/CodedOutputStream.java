@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CodedOutputStream {
     public final byte[] buffer;
     public final int limit;
@@ -96,7 +96,7 @@ public final class CodedOutputStream {
         return (j >> 63) ^ (j << 1);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class OutOfSpaceException extends IOException {
         public OutOfSpaceException() {
             super("CodedOutputStream was writing to a flat byte array and ran out of space.");

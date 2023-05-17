@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.face.liveness.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static final int h = 0;
     public static final int i = 1;

@@ -2,16 +2,16 @@ package com.baidu.nadcore.requester;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.bq0;
+import com.baidu.tieba.rq0;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestParameters {
     public final String a;
     public final int b;
     public final String c;
     public final String d;
     @Nullable
-    public final bq0 e;
+    public final rq0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
@@ -24,7 +24,7 @@ public class RequestParameters {
     public final Map<String, String> l;
     public final boolean m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SlotType {
         DEFAULT,
         SPLASH,
@@ -34,12 +34,12 @@ public class RequestParameters {
         REWARD
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public String a;
         public String c;
         public String d;
-        public bq0 e;
+        public rq0 e;
         public String g;
         public String i;
         public String j;
@@ -86,7 +86,7 @@ public class RequestParameters {
         this.l = bVar.l;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum RefreshType {
         NONE(null),
         PULL_UP("3"),

@@ -11,7 +11,7 @@ import com.baidu.searchbox.bddownload.core.exception.DownloadSecurityException;
 import com.baidu.searchbox.bddownload.core.exception.FileBusyAfterRunException;
 import com.baidu.searchbox.bddownload.core.exception.ServerCanceledException;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointRemoteCheck {
     public boolean acceptRange;
     public ResumeFailedCause failedCause;

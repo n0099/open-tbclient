@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static String a(int i) {
         return (i >>> 24) == 1 ? "android:" : "";

@@ -1,45 +1,17 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface im0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
-    public static final im0 b = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "eventbus");
 
-    @NonNull
-    String[] a();
+    <T extends hm0> void a(@Nullable T t);
 
-    /* loaded from: classes4.dex */
-    public static class a implements im0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    <T extends hm0> void b(@NonNull Object obj, @NonNull km0<T> km0Var);
 
-        @Override // com.baidu.tieba.im0
-        @NonNull
-        public String[] a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-        }
+    <T extends hm0> void c(@NonNull Object obj, int i, @NonNull km0<T> km0Var);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void unregister(@NonNull Object obj);
 }

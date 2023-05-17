@@ -24,13 +24,13 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoChannelHeaderLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,12 +50,12 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
     public boolean n;
     public final Animator.AnimatorListener o;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements NewPagerSlidingTabBaseStrip.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -392,41 +392,41 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d094b, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091e32);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092201);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d097f, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091e8e);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092264);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
             this.b.setNormalSelectorColorResId(R.color.CAM_X0103);
             this.b.setRectPaintColor(R.color.CAM_X0101);
-            this.b.B(ii.g(context, R.dimen.T_X06), ii.g(context, R.dimen.T_X04), ii.g(context, R.dimen.tbds10), ii.g(context, R.dimen.T_X04), true);
-            this.b.setIndicatorOffset(ii.g(context, R.dimen.tbds64));
-            this.b.setIndicatorOvershot(ii.g(context, R.dimen.tbds8));
-            this.b.setIndicatorRadius(ii.g(context, R.dimen.tbds8));
-            this.b.setIndicatorMarginBottom(ii.g(context, R.dimen.tbds10));
-            this.b.setmIndicatorWidth(ii.g(context, R.dimen.tbds42));
-            this.b.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(ii.g(context, R.dimen.tbds166), -1));
+            this.b.B(ri.g(context, R.dimen.T_X06), ri.g(context, R.dimen.T_X04), ri.g(context, R.dimen.tbds10), ri.g(context, R.dimen.T_X04), true);
+            this.b.setIndicatorOffset(ri.g(context, R.dimen.tbds64));
+            this.b.setIndicatorOvershot(ri.g(context, R.dimen.tbds8));
+            this.b.setIndicatorRadius(ri.g(context, R.dimen.tbds8));
+            this.b.setIndicatorMarginBottom(ri.g(context, R.dimen.tbds10));
+            this.b.setmIndicatorWidth(ri.g(context, R.dimen.tbds42));
+            this.b.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(ri.g(context, R.dimen.tbds166), -1));
             this.b.E();
             this.b.setOnTabItemClickListener(new b(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e5);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f2);
             this.c = textView;
-            g35 d2 = g35.d(textView);
+            p45 d2 = p45.d(textView);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X10);
             d2.C(R.string.F_X01);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0301);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c85);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd9);
             this.d = textView2;
-            g35 d3 = g35.d(textView2);
+            p45 d3 = p45.d(textView2);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X07);
             d3.C(R.string.F_X02);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c83);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091cd7);
             this.e = findViewById;
-            ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -ii.g(context, R.dimen.tbds20), 0, 0);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091c84);
+            ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -ri.g(context, R.dimen.tbds20), 0, 0);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091cd8);
             this.f = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             if (this.f.isAnimating()) {
@@ -466,7 +466,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    ii.N(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d30));
+                    ri.N(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0db6));
                     return;
                 }
                 d dVar = this.i;

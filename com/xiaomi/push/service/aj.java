@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.bg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class aj implements bg.b.a {
     public final /* synthetic */ XMPushService a;
 
@@ -16,7 +16,7 @@ public final class aj implements bg.b.a {
             x.a(this.a, true);
             x.a(this.a);
         } else if (cVar2 == bg.c.unbind) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("onChange unbind");
+            com.xiaomi.channel.commonutils.logger.b.m120a("onChange unbind");
             x.a(this.a, ErrorCode.ERROR_SERVICE_UNAVAILABLE, " the push is not connected.");
         }
     }

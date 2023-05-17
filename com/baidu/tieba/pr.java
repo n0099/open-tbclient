@@ -1,159 +1,237 @@
 package com.baidu.tieba;
 
-import com.baidu.bdptask.bdtls.DH;
-import com.baidu.bdptask.bdtls.RSA;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.framework.utils.DebugTrace;
-import com.baidu.tieba.cr;
-import com.baidu.tieba.dr;
-import com.baidu.tieba.er;
-import com.baidu.tieba.fr;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.nr;
+import com.baidu.tieba.or;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
-/* loaded from: classes5.dex */
-public class pr {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class pr {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final or a;
+    public final byte[] b;
+    public final int c;
+    public final byte[] d;
+    public final List<nr> e;
 
-    public static jr a(nr nrVar, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, nrVar, bArr)) == null) {
-            jr jrVar = null;
-            if (nrVar == null || bArr == null || bArr.length == 0) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314347, "Lcom/baidu/tieba/pr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            try {
-                if (bArr[0] != 2) {
-                    return null;
-                }
-                jr jrVar2 = new jr();
-                try {
-                    gr a = gr.a(Arrays.copyOfRange(bArr, 1, bArr.length));
-                    if (a == null) {
-                        return null;
-                    }
-                    jrVar2.a(a);
-                    List<er> b = a.b();
-                    if (b == null) {
-                        return null;
-                    }
-                    for (er erVar : b) {
-                        int a2 = erVar.a();
-                        byte[] b2 = erVar.b();
-                        if (a2 == 0) {
-                            int a3 = vr.a(RSA.decrypt(b2));
-                            nrVar.e(DH.getDHSecretKey(a3, nrVar.o().intValue(), nrVar.p().intValue()));
-                            nrVar.l(Integer.valueOf(a3));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448314347, "Lcom/baidu/tieba/pr;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
+
+    @JvmStatic
+    public static final pr a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? f.b(bArr) : (pr) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof pr) {
+                    pr prVar = (pr) obj;
+                    if (Intrinsics.areEqual(this.a, prVar.a) && Intrinsics.areEqual(this.b, prVar.b)) {
+                        if (!(this.c == prVar.c) || !Intrinsics.areEqual(this.d, prVar.d) || !Intrinsics.areEqual(this.e, prVar.e)) {
                         }
                     }
-                    if (a.e() == null) {
-                        return null;
-                    }
-                    cr.a d = cr.d();
-                    d.a(a.e());
-                    nrVar.h(d.b().a());
-                    if (nrVar.q() == null) {
-                        return null;
-                    }
-                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + a.c();
-                    DebugTrace debugTrace = DebugTrace.a;
-                    debugTrace.a("liftTime=" + a.c());
-                    DebugTrace debugTrace2 = DebugTrace.a;
-                    debugTrace2.a("expireTime=" + currentTimeMillis);
-                    nrVar.c(currentTimeMillis);
-                    if (a.d() != null) {
-                        nrVar.j(a.d());
-                        return jrVar2;
-                    }
-                    return jrVar2;
-                } catch (Exception e) {
-                    e = e;
-                    jrVar = jrVar2;
-                    DebugTrace debugTrace3 = DebugTrace.a;
-                    debugTrace3.a("exception=" + e.getMessage());
-                    return jrVar;
                 }
-            } catch (Exception e2) {
-                e = e2;
+                return false;
             }
-        } else {
-            return (jr) invokeLL.objValue;
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            or orVar = this.a;
+            int hashCode = (orVar != null ? orVar.hashCode() : 0) * 31;
+            byte[] bArr = this.b;
+            int hashCode2 = (((hashCode + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31) + this.c) * 31;
+            byte[] bArr2 = this.d;
+            int hashCode3 = (hashCode2 + (bArr2 != null ? Arrays.hashCode(bArr2) : 0)) * 31;
+            List<nr> list = this.e;
+            return hashCode3 + (list != null ? list.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ServerHello(random=" + this.a + ", cipherSuiteBytes=" + Arrays.toString(this.b) + ", lifeTime=" + this.c + ", SKRBytes=" + Arrays.toString(this.d) + ", extensions=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final pr b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                return a(ot.a(bArr));
+            }
+            return (pr) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final pr a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str == null || TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("get raw data:" + str);
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    or.b bVar = or.c;
+                    String optString = jSONObject.optString("Random");
+                    Intrinsics.checkExpressionValueIsNotNull(optString, "dataObj.optString(\"Random\")");
+                    or b = bVar.b(optString);
+                    String optString2 = jSONObject.optString("CipherSuite");
+                    int optInt = jSONObject.optInt("LifeTime");
+                    String optString3 = jSONObject.optString("SKR");
+                    LinkedList linkedList = new LinkedList();
+                    JSONArray optJSONArray = jSONObject.optJSONArray("Extensions");
+                    if (optJSONArray != null) {
+                        int length = optJSONArray.length();
+                        for (int i = 0; i < length; i++) {
+                            String item = optJSONArray.optString(i);
+                            nr.b bVar2 = nr.c;
+                            Intrinsics.checkExpressionValueIsNotNull(item, "item");
+                            nr b2 = bVar2.b(item);
+                            if (b2 != null) {
+                                linkedList.add(b2);
+                            }
+                        }
+                    }
+                    return new pr(b, ot.b(optString2), optInt, ot.b(optString3), linkedList);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    DebugTrace debugTrace2 = DebugTrace.a;
+                    debugTrace2.a("can not parse server hello:" + e.getMessage());
+                    return null;
+                }
+            }
+            return (pr) invokeL.objValue;
         }
     }
 
-    public static byte[] b(nr nrVar, jr jrVar) throws Exception {
-        InterceptResult invokeLL;
-        byte[] encrypt;
+    public pr(or orVar, byte[] bArr, int i, byte[] bArr2, List<nr> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, nrVar, jrVar)) == null) {
-            if (jrVar == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {orVar, bArr, Integer.valueOf(i), bArr2, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
-            byte[] bArr = new byte[32];
-            new Random().nextBytes(bArr);
-            fr.a a = fr.a();
-            a.a(Integer.valueOf(currentTimeMillis));
-            a.b(ct.a(bArr));
-            fr c = a.c();
-            int dHGroupId = DH.getDHGroupId();
-            int dHSecret = DH.getDHSecret();
-            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
-            nrVar.d(Integer.valueOf(dHGroupId));
-            nrVar.g(Integer.valueOf(dHSecret));
-            nrVar.i(Integer.valueOf(dHPublicKey));
-            byte[] d = vr.d(dHPublicKey);
-            if (d == null || (encrypt = RSA.encrypt(d)) == null) {
-                return null;
-            }
-            byte[] bytes = dt.b(ft.b(ys.a()), false).getBytes();
-            LinkedList linkedList = new LinkedList();
-            er.a d2 = er.d();
-            d2.a(0);
-            d2.b(ct.a(encrypt));
-            linkedList.offer(d2.c());
-            er.a d3 = er.d();
-            d3.a(1);
-            d3.b(ct.a(new byte[]{0}));
-            linkedList.offer(d3.c());
-            er.a d4 = er.d();
-            d4.a(2);
-            d4.b(ct.a(vr.d(dHGroupId)));
-            linkedList.offer(d4.c());
-            er.a d5 = er.d();
-            d5.a(3);
-            d5.b(ct.a(bytes));
-            linkedList.offer(d5.c());
-            if (ar.c.h().c()) {
-                DebugTrace debugTrace = DebugTrace.a;
-                debugTrace.a("groupId encode=" + dHGroupId);
-                DebugTrace debugTrace2 = DebugTrace.a;
-                debugTrace2.a("secretC encode=" + dHSecret);
-                DebugTrace debugTrace3 = DebugTrace.a;
-                debugTrace3.a("pubKey encode=" + dHPublicKey);
-                DebugTrace debugTrace4 = DebugTrace.a;
-                debugTrace4.a("signature encode=" + new String(bytes));
-            }
-            dr.a d6 = dr.d();
-            Iterator it = linkedList.iterator();
-            while (it.hasNext()) {
-                d6.a((er) it.next());
-            }
-            d6.b(c);
-            d6.c(ct.a(or.a));
-            byte[] a2 = d6.d().a();
-            ByteBuffer allocate = ByteBuffer.allocate(a2.length + 1);
-            allocate.put((byte) 1);
-            allocate.put(a2);
-            return allocate.array();
         }
-        return (byte[]) invokeLL.objValue;
+        this.a = orVar;
+        this.b = bArr;
+        this.c = i;
+        this.d = bArr2;
+        this.e = list;
+    }
+
+    public final List<nr> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final byte[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ot.d(this.b);
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public final byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ot.d(this.d);
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

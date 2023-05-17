@@ -16,13 +16,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.be9;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.d57;
 import com.baidu.tieba.downloadball.DownloadFloatBall;
 import com.baidu.tieba.downloadball.DownloadFloatBallManager;
-import com.baidu.tieba.q37;
-import com.baidu.tieba.t37;
-import com.baidu.tieba.tp6;
-import com.baidu.tieba.w8;
+import com.baidu.tieba.fr6;
+import com.baidu.tieba.g57;
+import com.baidu.tieba.xf9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000b\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\u0018\u0000 ;2\u00020\u0001:\u0002;<B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0018\u001a\u00020\u0019H\u0002J\b\u0010\u001a\u001a\u00020\u0019H\u0002J\b\u0010\u001b\u001a\u00020\u0019H\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001fH\u0002J\b\u0010 \u001a\u00020\u0019H\u0002J\u000e\u0010!\u001a\u00020\u00192\u0006\u0010\"\u001a\u00020#J^\u0010$\u001a\u00020\u00192\u0006\u0010%\u001a\u00020&2\u0006\u0010'\u001a\u00020\u001d2\u0006\u0010(\u001a\u00020\u001d2\u0006\u0010)\u001a\u00020\u001d2\u0006\u0010*\u001a\u00020\u001d2\u0006\u0010+\u001a\u00020\u001d2\u0006\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020\u001d2\u0006\u0010/\u001a\u00020-2\u0006\u00100\u001a\u00020\u001d2\u0006\u00101\u001a\u00020\u001dJ\u000e\u00102\u001a\u00020\u00192\u0006\u00103\u001a\u000204J\u0016\u00105\u001a\u00020\u00192\u0006\u0010%\u001a\u00020&2\u0006\u00106\u001a\u00020&J\u0018\u00107\u001a\u00020\u00192\u0006\u00108\u001a\u00020\u001d2\u0006\u00109\u001a\u00020&H\u0002J\u0018\u0010:\u001a\u00020\u00192\u0006\u00108\u001a\u00020\u001d2\u0006\u00109\u001a\u00020-H\u0002R\u0018\u0010\u0003\u001a\u0004\u0018\u00010\u00048BX\u0082\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u001f\u0010\u0007\u001a\u00060\bR\u00020\u00008BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000b\u0010\f\u001a\u0004\b\t\u0010\nR#\u0010\r\u001a\n \u000f*\u0004\u0018\u00010\u000e0\u000e8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\f\u001a\u0004\b\u0010\u0010\u0011R\u001b\u0010\u0013\u001a\u00020\u00148BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0017\u0010\f\u001a\u0004\b\u0015\u0010\u0016¨\u0006="}, d2 = {"Lcom/baidu/tieba/downloadball/DownloadFloatBallManager;", "", "()V", "downloadBall", "Lcom/baidu/tieba/downloadball/DownloadFloatBall;", "getDownloadBall", "()Lcom/baidu/tieba/downloadball/DownloadFloatBall;", "downloadStatusCallback", "Lcom/baidu/tieba/downloadball/DownloadFloatBallManager$DownloadStatusCallback;", "getDownloadStatusCallback", "()Lcom/baidu/tieba/downloadball/DownloadFloatBallManager$DownloadStatusCallback;", "downloadStatusCallback$delegate", "Lkotlin/Lazy;", "mPreference", "Landroid/content/SharedPreferences;", "kotlin.jvm.PlatformType", "getMPreference", "()Landroid/content/SharedPreferences;", "mPreference$delegate", "tbDownloadManager", "Lcom/baidu/tieba/filedownloader/TbDownloadManager;", "getTbDownloadManager", "()Lcom/baidu/tieba/filedownloader/TbDownloadManager;", "tbDownloadManager$delegate", "clearSpInfo", "", "closeCurrentAppBall", "generatorFloatBallData", "getFoldText", "", "downloadData", "Lcom/baidu/tbadk/download/DownloadData;", "hide", "installSuccess", "intent", "Landroid/content/Intent;", "saveDownloadInfo", "isStart", "", "gameUrl", "gameId", "apkName", "apkIcon", "apkVersion", PushService.APP_VERSION_CODE, "", "pkgName", "source", "extInfo", PrefetchEvent.EVENT_KEY_PAGE_URL, "setData", "data", "Lcom/baidu/tieba/downloadball/DownloadFloatBallData;", "show", "isColdBoot", "spPutBoolean", "key", "value", "spPutInt", "Companion", "DownloadStatusCallback", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class DownloadFloatBallManager {
     public static /* synthetic */ Interceptable $ic;
     public static final a e;
@@ -64,7 +64,7 @@ public final class DownloadFloatBallManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? e.a() : (DownloadFloatBallManager) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,13 +97,13 @@ public final class DownloadFloatBallManager {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public final class b implements t37 {
+    /* loaded from: classes5.dex */
+    public final class b implements g57 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadFloatBallManager a;
 
-        @Override // com.baidu.tieba.t37
+        @Override // com.baidu.tieba.g57
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -111,7 +111,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.t37
+        @Override // com.baidu.tieba.g57
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
@@ -138,7 +138,7 @@ public final class DownloadFloatBallManager {
             this.a = downloadFloatBallManager;
         }
 
-        @Override // com.baidu.tieba.t37
+        @Override // com.baidu.tieba.g57
         public void c(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
@@ -148,7 +148,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.t37
+        @Override // com.baidu.tieba.g57
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -157,7 +157,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.t37
+        @Override // com.baidu.tieba.g57
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -166,7 +166,7 @@ public final class DownloadFloatBallManager {
             }
         }
 
-        @Override // com.baidu.tieba.t37
+        @Override // com.baidu.tieba.g57
         public void f(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
@@ -207,7 +207,7 @@ public final class DownloadFloatBallManager {
 
     public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && be9.i(DownloadFloatBallConfig.o.a().k())) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && xf9.i(DownloadFloatBallConfig.o.a().k())) {
             n();
             e();
         }
@@ -231,13 +231,13 @@ public final class DownloadFloatBallManager {
         return (SharedPreferences) invokeV.objValue;
     }
 
-    public final q37 m() {
+    public final d57 m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return (q37) this.b.getValue();
+            return (d57) this.b.getValue();
         }
-        return (q37) invokeV.objValue;
+        return (d57) invokeV.objValue;
     }
 
     public final void n() {
@@ -309,14 +309,14 @@ public final class DownloadFloatBallManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.a == null) {
-                Activity b2 = w8.f().b();
+                Activity b2 = c9.f().b();
                 if (b2 == null) {
                     return null;
                 }
                 synchronized (this) {
                     if (this.a == null) {
                         final DownloadFloatBall downloadFloatBall = new DownloadFloatBall(b2);
-                        downloadFloatBall.o(new View.OnClickListener() { // from class: com.baidu.tieba.sp6
+                        downloadFloatBall.o(new View.OnClickListener() { // from class: com.baidu.tieba.er6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -328,7 +328,7 @@ public final class DownloadFloatBallManager {
                                 }
                             }
                         });
-                        downloadFloatBall.n(new View.OnClickListener() { // from class: com.baidu.tieba.rp6
+                        downloadFloatBall.n(new View.OnClickListener() { // from class: com.baidu.tieba.dr6
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -356,7 +356,7 @@ public final class DownloadFloatBallManager {
         if (interceptable == null || interceptable.invokeLLL(65539, null, this_apply, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this_apply, "$this_apply");
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (!this_apply.k() && (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(w8.f().b())) != null) {
+            if (!this_apply.k() && (currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(c9.f().b())) != null) {
                 UrlManager.getInstance().dealOneLink(currentPageContext, new String[]{this_apply.b().d()});
                 this$0.f();
             }
@@ -375,7 +375,7 @@ public final class DownloadFloatBallManager {
         }
     }
 
-    public final void q(tp6 data) {
+    public final void q(fr6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -392,7 +392,7 @@ public final class DownloadFloatBallManager {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (h = h()) != null) {
             DownloadData downloadData = new DownloadData(DownloadFloatBallConfig.o.a().c() + ".v" + DownloadFloatBallConfig.o.a().d());
             downloadData.setName(DownloadFloatBallConfig.o.a().c());
-            tp6 b2 = h.b();
+            fr6 b2 = h.b();
             b2.h(m().e(downloadData));
             b2.j(DownloadFloatBallConfig.o.a().b());
             b2.m(m().d(downloadData));
@@ -405,14 +405,14 @@ public final class DownloadFloatBallManager {
     }
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0051: INVOKE  (r5v4 int A[REMOVE]) = 
-      (wrap: com.baidu.tieba.q37 : 0x004d: INVOKE  (r1v3 com.baidu.tieba.q37 A[REMOVE]) = (r4v0 'this' com.baidu.tieba.downloadball.DownloadFloatBallManager A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: com.baidu.tieba.downloadball.DownloadFloatBallManager.m():com.baidu.tieba.q37)
+      (wrap: com.baidu.tieba.d57 : 0x004d: INVOKE  (r1v3 com.baidu.tieba.d57 A[REMOVE]) = (r4v0 'this' com.baidu.tieba.downloadball.DownloadFloatBallManager A[IMMUTABLE_TYPE, THIS]) type: VIRTUAL call: com.baidu.tieba.downloadball.DownloadFloatBallManager.m():com.baidu.tieba.d57)
       (r5v0 com.baidu.tbadk.download.DownloadData)
-     type: VIRTUAL call: com.baidu.tieba.q37.d(com.baidu.tbadk.download.DownloadData):int), ('%' char)] */
+     type: VIRTUAL call: com.baidu.tieba.d57.d(com.baidu.tbadk.download.DownloadData):int), ('%' char)] */
     public final String j(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, downloadData)) == null) {
-            if (be9.i(DownloadFloatBallConfig.o.a().k())) {
+            if (xf9.i(DownloadFloatBallConfig.o.a().k())) {
                 return DownloadFloatBallConfig.o.a().f();
             }
             int e2 = m().e(downloadData);

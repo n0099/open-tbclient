@@ -9,20 +9,20 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.ir6;
-import com.baidu.tieba.pn9;
-import com.baidu.tieba.rn9;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.rp9;
+import com.baidu.tieba.tp9;
+import com.baidu.tieba.vs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ir6 a;
+    public vs6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -46,7 +46,7 @@ public class EnterForumAdModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,27 +111,27 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public ir6 a0() {
+    public vs6 Z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ir6) invokeV.objValue;
+        return (vs6) invokeV.objValue;
     }
 
-    public void b0() {
+    public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
         }
     }
 
-    public void c0(Context context) {
-        ir6 ir6Var;
+    public void b0(Context context) {
+        vs6 vs6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (ir6Var = this.a) != null && ir6Var.a()) {
-            rn9.g().c(g9.a(context).getUniqueId(), pn9.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (vs6Var = this.a) != null && vs6Var.a()) {
+            tp9.g().c(m9.a(context).getUniqueId(), rp9.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

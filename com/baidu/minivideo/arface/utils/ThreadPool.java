@@ -16,20 +16,20 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic;
     public static volatile c a;
     public static volatile c b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LIFOLinkedBlockingDeque<T> extends LinkedBlockingDeque<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4114786347960826192L;
@@ -75,7 +75,7 @@ public class ThreadPool {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class QueueProcessingType {
         public static final /* synthetic */ QueueProcessingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -140,7 +140,7 @@ public class ThreadPool {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public static final AtomicInteger e;
@@ -211,7 +211,7 @@ public class ThreadPool {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final int f;

@@ -1,5 +1,5 @@
 package com.google.protobuf;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WireFormat {
     public static final int MESSAGE_SET_ITEM = 1;
     public static final int MESSAGE_SET_MESSAGE = 3;
@@ -29,7 +29,7 @@ public final class WireFormat {
         return (i << 3) | i2;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum FieldType {
         DOUBLE(JavaType.DOUBLE, 1),
         FLOAT(JavaType.FLOAT, 5),
@@ -91,7 +91,7 @@ public final class WireFormat {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum JavaType {
         INT(0),
         LONG(0L),

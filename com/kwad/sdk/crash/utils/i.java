@@ -1,5 +1,5 @@
 package com.kwad.sdk.crash.utils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public static String M(long j) {
         String valueOf;

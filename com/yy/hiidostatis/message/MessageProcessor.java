@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface MessageProcessor {
     Message process(Message message);
 }

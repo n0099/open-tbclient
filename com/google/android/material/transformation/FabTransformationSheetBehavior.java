@@ -17,7 +17,7 @@ import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     @Nullable
     public Map<View, Integer> importantForAccessibilityMap;
@@ -34,9 +34,9 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public FabTransformationBehavior.FabTransformationSpec onCreateMotionSpec(Context context, boolean z) {
         int i;
         if (z) {
-            i = R.animator.obfuscated_res_0x7f02000e;
+            i = R.animator.obfuscated_res_0x7f02000f;
         } else {
-            i = R.animator.obfuscated_res_0x7f02000d;
+            i = R.animator.obfuscated_res_0x7f02000e;
         }
         FabTransformationBehavior.FabTransformationSpec fabTransformationSpec = new FabTransformationBehavior.FabTransformationSpec();
         fabTransformationSpec.timings = MotionSpec.createFromResource(context, i);

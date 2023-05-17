@@ -1,8 +1,8 @@
 package rx.exceptions;
 
-import com.baidu.tieba.s9b;
+import com.baidu.tieba.rbb;
 import java.util.HashSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AssemblyStackTraceException extends RuntimeException {
     public static final long serialVersionUID = 2038859767182585852L;
 
@@ -29,14 +29,14 @@ public final class AssemblyStackTraceException extends RuntimeException {
         while (th.getCause() != null) {
             th = th.getCause();
             if (!hashSet.add(th)) {
-                s9b.j(this);
+                rbb.j(this);
                 return;
             }
         }
         try {
             th.initCause(this);
         } catch (IllegalStateException unused) {
-            s9b.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
+            rbb.j(new RuntimeException("Received an exception with a cause set to null, instead of being unset. To fix this, look down the chain of causes. The last exception had a cause explicitly set to null. It should be unset instead.", th));
         }
     }
 

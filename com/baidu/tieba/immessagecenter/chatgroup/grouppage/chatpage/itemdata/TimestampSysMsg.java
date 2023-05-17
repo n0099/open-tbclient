@@ -3,8 +3,8 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hi;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TimestampSysMsg extends BaseSysMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
@@ -77,7 +77,7 @@ public class TimestampSysMsg extends BaseSysMsg {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,9 +95,9 @@ public class TimestampSysMsg extends BaseSysMsg {
             Calendar calendar = Calendar.getInstance(Locale.CHINA);
             calendar.setTimeInMillis(j);
             if (sCalendar.get(1) == calendar.get(1) && sCalendar.get(6) == calendar.get(6)) {
-                return hi.getDateStringHm(calendar.getTime());
+                return qi.getDateStringHm(calendar.getTime());
             }
-            return hi.getDateStringMdHm(calendar.getTime());
+            return qi.getDateStringMdHm(calendar.getTime());
         }
         return (String) invokeJ.objValue;
     }

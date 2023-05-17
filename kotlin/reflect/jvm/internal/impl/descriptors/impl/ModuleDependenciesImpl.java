@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ModuleDependenciesImpl implements ModuleDependencies {
     public final List<ModuleDescriptorImpl> allDependencies;
     public final List<ModuleDescriptorImpl> expectedByDependencies;

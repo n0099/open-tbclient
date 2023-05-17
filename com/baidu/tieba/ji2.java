@@ -1,144 +1,110 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.jj2;
-import com.baidu.tieba.mj2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class ji2<P extends jj2, R extends mj2> {
+import java.io.File;
+/* loaded from: classes6.dex */
+public class ji2 implements fi2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public P a;
-    @NonNull
-    public R b;
+    public final String[] a;
+    public final Pair<String, String>[] b;
 
-    public abstract String b(int i);
-
-    @Nullable
-    public abstract ExtensionCore c();
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884182, "Lcom/baidu/tieba/ji2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947884182, "Lcom/baidu/tieba/ji2;");
-                return;
-            }
-        }
-        c = ho1.a;
-    }
-
-    @NonNull
-    public P e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (P) invokeV.objValue;
-    }
-
-    @NonNull
-    public R f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (R) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.q();
-        }
-    }
-
-    public ji2(@NonNull P p, @NonNull R r) {
+    public ji2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p, r};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = p;
-        this.b = r;
+        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
+        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
-    public <T extends dj2> Exception a(T t) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.fi2
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            arraySet.addAll((ArraySet<? extends String>) d());
+            arraySet.addAll((ArraySet<? extends String>) c());
+            arraySet.addAll((ArraySet<? extends String>) b());
+            return arraySet;
+        }
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final ArraySet<String> b() {
+        InterceptResult invokeV;
+        Pair<String, String>[] pairArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            File file2 = new File(qp4.d());
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (Pair<String, String> pair : this.b) {
+                arraySet.addAll((ArraySet<? extends String>) rh2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
+                arraySet.addAll((ArraySet<? extends String>) rh2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
             }
-            return this.b.e(t);
+            g62.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
+            return arraySet;
         }
-        return (Exception) invokeL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 
-    public void g(@Nullable qm3<Exception> qm3Var) {
+    public final ArraySet<String> c() {
+        InterceptResult invokeV;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, qm3Var) == null) {
-            this.a.p(qm3Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            String d = qp4.d();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String J = kp4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
+                if (!TextUtils.isEmpty(J)) {
+                    arraySet.add(J);
+                }
+                String J2 = kp4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                if (!TextUtils.isEmpty(J2)) {
+                    arraySet.add(J2);
+                }
+            }
+            g62.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
+            return arraySet;
         }
+        return (ArraySet) invokeV.objValue;
     }
 
-    @NonNull
-    public ExtensionCore d() {
+    public final ArraySet<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.a.a.c();
-            if (oj2.f(c2)) {
-                ExtensionCore extensionCore = new ExtensionCore();
-                extensionCore.extensionCoreVersionCode = 0L;
-                extensionCore.extensionCoreVersionName = "0";
-                extensionCore.extensionCorePath = b(c2);
-                extensionCore.extensionCoreType = 2;
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
-                }
-                return extensionCore;
+            ArraySet<String> arraySet = new ArraySet<>();
+            String J = kp4.J(new File(xh3.d()));
+            if (!TextUtils.isEmpty(J)) {
+                arraySet.add(J);
             }
-            ExtensionCore h = this.a.h();
-            ExtensionCore f = this.b.f();
-            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
-                }
-                return f;
-            }
-            if (c) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
-            }
-            return h;
+            g62.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+            return arraySet;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

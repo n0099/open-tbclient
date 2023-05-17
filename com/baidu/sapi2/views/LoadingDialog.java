@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadingDialog extends Dialog implements NoProguard {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder implements NoProguard {
         public Context a;
         public String b;
@@ -45,8 +45,8 @@ public class LoadingDialog extends Dialog implements NoProguard {
 
         public LoadingDialog createDialog() {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f1003f7);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0923e2);
+            LoadingDialog loadingDialog = new LoadingDialog(this.a, R.style.obfuscated_res_0x7f100409);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092446);
             if (this.c) {
                 textView.setText(this.b);
             } else {

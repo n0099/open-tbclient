@@ -1,173 +1,199 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
-import android.media.ExifInterface;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.k93;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class d93 extends u93 {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes5.dex */
+public final class d93 implements zn3<k93.a> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, zn3<k93.a>> a;
+    public final List<bo3<k93.a, Boolean>> b;
 
-    public final String l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            switch (i) {
-                case 0:
-                case 1:
-                    return MapBundleKey.OfflineMapKey.OFFLINE_UPDATE;
-                case 2:
-                    return "up-mirrored";
-                case 3:
-                    return "down";
-                case 4:
-                    return "down-mirrored";
-                case 5:
-                    return "left-mirrored";
-                case 6:
-                    return "left";
-                case 7:
-                    return "right-mirrored";
-                case 8:
-                    return "right";
-                default:
-                    return "";
+    /* loaded from: classes5.dex */
+    public class a implements zn3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn3 a;
+        public final /* synthetic */ d93 b;
+
+        public a(d93 d93Var, zn3 zn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d93Var, zn3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = d93Var;
+            this.a = zn3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+                this.b.a.put(str, this.a);
             }
         }
-        return (String) invokeI.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d93(u83 u83Var) {
-        super(u83Var, "/swanAPI/getImageInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class b implements zn3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d93 a;
+
+        public b(d93 d93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d93Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.a.remove(str);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659339, "Lcom/baidu/tieba/d93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659339, "Lcom/baidu/tieba/d93;");
                 return;
             }
         }
+        c = qp1.a;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public d93() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                x42.c("getImageInfo", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String optString = xk3.d(unitedSchemeEntity.getParam("params")).optString("src");
-            if (TextUtils.isEmpty(optString)) {
-                x42.c("getImageInfo", "path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject jSONObject = null;
-            if (ff3.s(optString) == PathType.BD_FILE) {
-                jSONObject = k(ff3.M(optString, x73Var.b), optString);
-            } else if (ff3.s(optString) == PathType.RELATIVE) {
-                jSONObject = k(ff3.L(optString, x73Var, x73Var.k0()), optString);
-            }
-            if (jSONObject != null) {
-                x42.i("getImageInfo", "getImgInfo success");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "image not found");
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        this.a = new HashMap();
+        this.b = new ArrayList();
     }
 
-    public final ExifInterface j(String str) {
+    public d93 c(bo3<k93.a, Boolean> bo3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bo3Var)) == null) {
+            if (bo3Var != null) {
+                this.b.add(bo3Var);
             }
-            try {
-                return new ExifInterface(str);
-            } catch (IOException unused) {
-                return null;
-            }
+            return this;
         }
-        return (ExifInterface) invokeL.objValue;
+        return (d93) invokeL.objValue;
     }
 
-    public final JSONObject k(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    public d93 g(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            x42.i("getImageInfo", "getImgInfo start");
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+            if (strArr != null && strArr.length > 0) {
+                yn3.d(new b(this), strArr);
             }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            int i = 1;
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            String str4 = options.outMimeType;
-            if (!TextUtils.isEmpty(str4)) {
-                String[] split = str4.split("/");
-                str3 = split[split.length - 1];
-            } else {
-                str3 = "";
-            }
-            if (!TextUtils.equals("png", str3)) {
-                ExifInterface j = j(str);
-                if (j == null) {
-                    return null;
-                }
-                i = j.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, 1);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i3);
-                jSONObject.put("path", str2);
-                jSONObject.put("orientation", l(i));
-                jSONObject.put("type", str3);
-            } catch (JSONException e) {
-                x42.c("getImageInfo", "getImgInfo failed by json exception");
-                if (u93.b) {
-                    e.printStackTrace();
-                }
-            }
-            x42.i("getImageInfo", "getImgInfo end");
-            return jSONObject;
+            return this;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (d93) invokeL.objValue;
+    }
+
+    public final boolean d(k93.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
+            if (aVar == null) {
+                return false;
+            }
+            for (bo3<k93.a, Boolean> bo3Var : this.b) {
+                if (bo3Var != null && !bo3Var.a(aVar).booleanValue()) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zn3
+    /* renamed from: e */
+    public void a(k93.a aVar) {
+        zn3<k93.a> zn3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            if (c) {
+                Log.i("EventHandler", "handle: " + aVar);
+            }
+            if (d(aVar) && (zn3Var = this.a.get(aVar.b)) != null) {
+                zn3Var.a(aVar);
+            }
+        }
+    }
+
+    public d93 f(zn3<k93.a> zn3Var, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, zn3Var, strArr)) == null) {
+            if (zn3Var != null && strArr != null && strArr.length > 0) {
+                yn3.d(new a(this, zn3Var), strArr);
+            }
+            return this;
+        }
+        return (d93) invokeLL.objValue;
     }
 }

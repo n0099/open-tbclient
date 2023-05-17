@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_BOTTOM = 16;
     public static final int ALIGN_CENTER_HORIZONTAL = 4;

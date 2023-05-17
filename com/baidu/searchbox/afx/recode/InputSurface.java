@@ -10,7 +10,7 @@ import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.baidu.webkit.internal.monitor.MonitorType;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InputSurface {
     public static final int EGL_RECORDABLE_ANDROID = 12610;
     public static final String TAG = "InputSurface";

@@ -1,7 +1,7 @@
 package com.vivo.push.d.a;
 
 import android.content.Intent;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     String a();
 

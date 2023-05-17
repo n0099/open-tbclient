@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.BinaryVersion;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.NameResolver;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ClassData {
     public final ProtoBuf.Class classProto;
     public final BinaryVersion metadataVersion;

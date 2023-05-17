@@ -12,7 +12,7 @@ import com.huawei.hms.support.api.entity.auth.PermissionInfo;
 import com.huawei.hms.support.api.entity.auth.Scope;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Api<O extends ApiOptions> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +20,22 @@ public class Api<O extends ApiOptions> {
     public List<ConnectionPostProcessor> mConnetctPostList;
     public final Options<O> mOption;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ApiOptions {
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public interface HasOptions extends ApiOptions {
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public interface NotRequiredOptions extends ApiOptions {
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public interface Optional extends HasOptions, NotRequiredOptions {
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class NoOptions implements NotRequiredOptions {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class Api<O extends ApiOptions> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Options<O> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

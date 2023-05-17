@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.y60;
+import com.baidu.tieba.h70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -190,7 +190,7 @@ public class IMSendMsg extends Message {
             return (IMSendMsg) invokeCommon.objValue;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:73:0x0234 A[Catch: JSONException -> 0x024f, TryCatch #1 {JSONException -> 0x024f, blocks: (B:21:0x007e, B:23:0x0085, B:25:0x00a2, B:27:0x00ad, B:29:0x00b3, B:30:0x00bc, B:32:0x00c2, B:33:0x00cc, B:35:0x00d3, B:37:0x00d9, B:38:0x00e2, B:40:0x00e8, B:41:0x00f2, B:71:0x01f9, B:73:0x0234, B:74:0x0241, B:42:0x00f9, B:44:0x0101, B:46:0x0159, B:47:0x015e, B:48:0x0169, B:52:0x017e, B:56:0x018e, B:53:0x0182, B:55:0x018a, B:58:0x019c, B:60:0x01af, B:61:0x01b7, B:63:0x01bd, B:64:0x01cb, B:66:0x01df, B:67:0x01e4, B:69:0x01eb, B:70:0x01ee), top: B:88:0x0071 }] */
+        /* JADX WARN: Removed duplicated region for block: B:73:0x023a A[Catch: JSONException -> 0x0255, TryCatch #0 {JSONException -> 0x0255, blocks: (B:21:0x007f, B:23:0x0086, B:25:0x00a3, B:27:0x00af, B:29:0x00b5, B:30:0x00be, B:32:0x00c4, B:33:0x00ce, B:35:0x00d5, B:37:0x00db, B:38:0x00e4, B:40:0x00ea, B:41:0x00f4, B:71:0x01fd, B:73:0x023a, B:74:0x0247, B:42:0x00fb, B:44:0x0103, B:46:0x015c, B:47:0x0161, B:48:0x016c, B:52:0x0182, B:56:0x0192, B:53:0x0186, B:55:0x018e, B:58:0x01a0, B:60:0x01b3, B:61:0x01bb, B:63:0x01c1, B:64:0x01cf, B:66:0x01e3, B:67:0x01e8, B:69:0x01ef, B:70:0x01f2), top: B:86:0x0072 }] */
         @Override // com.baidu.android.imsdk.chatmessage.request.IMSendMsg.IRequestMsgConstructor
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -223,15 +223,15 @@ public class IMSendMsg extends Message {
                     atUsers = chatMsg.getAtUsers();
                     castids = chatMsg.getCastids();
                     LogUtils.d(IMSendMsg.TAG, "IMSendMsg " + contacter + " " + msgType + GlideException.IndentedAppendable.INDENT + sendMsgContent);
-                } catch (JSONException e) {
-                    e = e;
-                    str = IMSendMsg.TAG;
-                }
-                try {
+                    try {
+                    } catch (JSONException e) {
+                        e = e;
+                        LogUtils.e(str, "Exception ", e);
+                        return jSONObject;
+                    }
                 } catch (JSONException e2) {
                     e = e2;
-                    LogUtils.e(str, "Exception ", e);
-                    return jSONObject;
+                    str = IMSendMsg.TAG;
                 }
                 if (chatMsg.getCategory() != 0) {
                     int category = chatMsg.getCategory();
@@ -308,7 +308,7 @@ public class IMSendMsg extends Message {
                     }
                 }
                 jSONObject.put(RequestContants.EXTRA_TO_USER, contacter);
-                if ((chatMsg.getContacter() & Constants.PAFLAG) != 0) {
+                if ((chatMsg.getContacter() & 17592186044416L) != 0) {
                     jSONObject.put(Constants.EXTRA_PAUID_TYPE, contacter);
                 }
                 if (chatMsg.getCategory() == 7) {
@@ -470,11 +470,11 @@ public class IMSendMsg extends Message {
         return (ChatMsg) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x00ca A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0119  */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x012b  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0184  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x019f  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00cd A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x011c  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x012e  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0187  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x01a2  */
     @Override // com.baidu.android.imsdk.request.Message
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -527,13 +527,6 @@ public class IMSendMsg extends Message {
                         if (j2 != -1) {
                         }
                         if (1 == getChatMsg().getCategory()) {
-                            try {
-                                JSONObject jSONObject2 = new JSONObject(getChatMsg().getMsgContent());
-                                jSONObject2.put("tips", getChatMsg().getTips());
-                                getChatMsg().setMsgContent(jSONObject2.toString());
-                            } catch (Exception e2) {
-                                LogUtils.e(TAG, "handleMessageResult exception: " + e2);
-                            }
                         }
                         if (!this.mFromMedia) {
                         }
@@ -544,7 +537,7 @@ public class IMSendMsg extends Message {
                         debugInfo.msgId = msgId;
                         debugInfo.clientSource = chatMsg.getSource();
                         this.ubcData.setDebugInfo(debugInfo);
-                        y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                        h70.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                     }
                 }
                 if (jSONObject.has("auto_risk_control_status")) {
@@ -561,11 +554,11 @@ public class IMSendMsg extends Message {
                         str3 = optString;
                     }
                     i4 = jSONObject.optInt("remain_msg_num", -1);
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
-            } catch (Exception e4) {
-                exc = e4;
+            } catch (Exception e3) {
+                exc = e3;
                 i2 = -1;
                 j = -1;
             }
@@ -574,8 +567,8 @@ public class IMSendMsg extends Message {
                 try {
                     LogUtils.d(TAG, "handleMessageResult :" + jSONObject.toString());
                     j2 = j;
-                } catch (Exception e5) {
-                    exc = e5;
+                } catch (Exception e4) {
+                    exc = e4;
                     i2 = i3;
                     i6 = i4;
                     LogUtils.e(TAG, "handle IMSendMsg exception :", exc);
@@ -594,6 +587,13 @@ public class IMSendMsg extends Message {
                     if (j2 != -1) {
                     }
                     if (1 == getChatMsg().getCategory()) {
+                        try {
+                            JSONObject jSONObject2 = new JSONObject(getChatMsg().getMsgContent());
+                            jSONObject2.put("tips", getChatMsg().getTips());
+                            getChatMsg().setMsgContent(jSONObject2.toString());
+                        } catch (Exception e5) {
+                            LogUtils.e(TAG, "handleMessageResult exception: " + e5);
+                        }
                     }
                     if (!this.mFromMedia) {
                     }
@@ -604,7 +604,7 @@ public class IMSendMsg extends Message {
                     debugInfo2.msgId = msgId;
                     debugInfo2.clientSource = chatMsg2.getSource();
                     this.ubcData.setDebugInfo(debugInfo2);
-                    y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    h70.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             } catch (Exception e6) {
                 e = e6;
@@ -637,7 +637,7 @@ public class IMSendMsg extends Message {
                 debugInfo22.msgId = msgId;
                 debugInfo22.clientSource = chatMsg22.getSource();
                 this.ubcData.setDebugInfo(debugInfo22);
-                y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                h70.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             }
             if (i5 != 0 && !z) {
                 context2 = context;
@@ -675,7 +675,7 @@ public class IMSendMsg extends Message {
             debugInfo222.msgId = msgId;
             debugInfo222.clientSource = chatMsg222.getSource();
             this.ubcData.setDebugInfo(debugInfo222);
-            y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            h70.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

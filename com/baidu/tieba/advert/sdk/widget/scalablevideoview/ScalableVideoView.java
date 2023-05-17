@@ -11,16 +11,16 @@ import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ez5;
-import com.baidu.tieba.t26;
-import com.baidu.tieba.u26;
+import com.baidu.tieba.f46;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.a = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ez5.scaleStyle, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q06.scaleStyle, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
@@ -293,7 +293,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void f(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new t26(new u26(getWidth(), getHeight()), new u26(i, i2)).m(this.a)) != null) {
+        if ((interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new f46(new g46(getWidth(), getHeight()), new g46(i, i2)).m(this.a)) != null) {
             setTransform(m);
         }
     }

@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.ov4;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ClickableHeaderImageView extends HeadImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadData U0;
     public boolean V0;
     public View.OnClickListener W0;
-    public ov4 X0;
+    public xw4 X0;
     public View.OnClickListener Y0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,8 +59,8 @@ public class ClickableHeaderImageView extends HeadImageView {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ov4 ov4Var = this.a.X0;
-                if ((ov4Var != null && ov4Var.a(view2)) || this.a.U0 == null) {
+                xw4 xw4Var = this.a.X0;
+                if ((xw4Var != null && xw4Var.a(view2)) || this.a.U0 == null) {
                     return;
                 }
                 if (this.a.V0) {
@@ -69,8 +69,8 @@ public class ClickableHeaderImageView extends HeadImageView {
                     author = this.a.U0.getAuthor();
                 }
                 if (author != null && !StringUtils.isNull(author.getName_show()) && !StringUtils.isNull(author.getUserId())) {
-                    long g = gg.g(author.getUserId(), 0L);
-                    if (g == gg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
+                    long g = pg.g(author.getUserId(), 0L);
+                    if (g == pg.g(TbadkCoreApplication.getCurrentAccount(), 0L)) {
                         z = true;
                     } else {
                         z = false;
@@ -149,10 +149,10 @@ public class ClickableHeaderImageView extends HeadImageView {
         setData(threadData);
     }
 
-    public void setOnInterceptClickEventListener(ov4 ov4Var) {
+    public void setOnInterceptClickEventListener(xw4 xw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ov4Var) == null) {
-            this.X0 = ov4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xw4Var) == null) {
+            this.X0 = xw4Var;
         }
     }
 

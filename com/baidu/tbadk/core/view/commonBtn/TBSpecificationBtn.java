@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.n75;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TBSpecificationBtn extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class TBSpecificationBtn extends View {
     public boolean m;
     public TBSpecificationButtonConfig.a n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements TBSpecificationButtonConfig.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -326,12 +326,12 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            e65 e65Var = new e65();
-            this.b = e65Var;
-            e65Var.t = this.n;
+            n75 n75Var = new n75();
+            this.b = n75Var;
+            n75Var.t = this.n;
             Paint paint = new Paint();
             this.d = paint;
-            paint.setTextSize(ii.g(getContext(), R.dimen.T_X08));
+            paint.setTextSize(ri.g(getContext(), R.dimen.T_X08));
             this.d.setAntiAlias(true);
         }
     }
@@ -487,7 +487,7 @@ public class TBSpecificationBtn extends View {
     public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.d.setTextSize(ii.g(getContext(), i));
+            this.d.setTextSize(ri.g(getContext(), i));
             Paint paint = this.d;
             String str = this.e;
             paint.getTextBounds(str, 0, str.length(), this.h);

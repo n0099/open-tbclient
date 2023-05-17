@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum State {
     BEGINNING,
     MIDDLE,

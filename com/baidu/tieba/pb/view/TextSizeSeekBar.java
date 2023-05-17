@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.tw8;
+import com.baidu.tieba.oy8;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TextSizeSeekBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class TextSizeSeekBar extends View {
         }
         this.j = 1;
         this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070299);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a5);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070352);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
         d(context);
     }
@@ -94,8 +94,8 @@ public class TextSizeSeekBar extends View {
         }
         this.j = 1;
         this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070299);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a5);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070352);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
         d(context);
     }
@@ -121,8 +121,8 @@ public class TextSizeSeekBar extends View {
         }
         this.j = 1;
         this.p = new ArrayList<>(4);
-        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070299);
-        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
+        this.q = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a5);
+        this.r = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070352);
         this.s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
         d(context);
     }
@@ -193,7 +193,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        tw8.a(Math.abs(i - 3));
+                        oy8.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -272,11 +272,11 @@ public class TextSizeSeekBar extends View {
             super.onMeasure(i, i2);
             if (this.a == 0 || this.b == 0) {
                 this.a = View.MeasureSpec.getSize(i);
-                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e4) * 2;
-                if (UtilHelper.isFoldScreen() && this.a > ii.m(getContext(), true) - dimensionPixelSize) {
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ec) * 2;
+                if (UtilHelper.isFoldScreen() && this.a > ri.m(getContext(), true) - dimensionPixelSize) {
                     this.a -= dimensionPixelSize;
                 }
-                int dimensionPixelSize2 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025e);
+                int dimensionPixelSize2 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070372);
                 this.b = dimensionPixelSize2;
                 this.c = (this.a - this.d) / 3;
                 this.f = dimensionPixelSize2 / 2;

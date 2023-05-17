@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static String[] a;
@@ -16,8 +16,8 @@ public final class a {
     public ArrayList<String> b;
 
     /* renamed from: com.vivo.push.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0737a {
+    /* loaded from: classes10.dex */
+    public static class C0751a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return C0737a.a;
+            return C0751a.a;
         }
         return (a) invokeV.objValue;
     }

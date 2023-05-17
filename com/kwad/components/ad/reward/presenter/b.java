@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends a {
     public ImageView px;
     public AdInfo py;
@@ -54,7 +54,7 @@ public class b extends a {
     }
 
     public int gS() {
-        return R.id.obfuscated_res_0x7f0911ee;
+        return R.id.obfuscated_res_0x7f091229;
     }
 
     public int gT() {

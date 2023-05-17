@@ -1,271 +1,180 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b73;
+import com.baidu.pass.ecommerce.StatKey;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class p72 {
+import java.util.ArrayList;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class p72 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
-    public final String c;
-    public b73 d;
-    public TextView e;
-    public TextView f;
-    public f g;
-    public e h;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void onCancel();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(String str, String str2, String str3, String str4);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p72 a;
-
-        public a(p72 p72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p72Var;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                if (i != 6 && i != 0) {
-                    return false;
-                }
-                if (i != 0 || keyEvent == null || keyEvent.getAction() != 1) {
-                    this.a.f();
-                    return true;
-                }
-                return true;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p72 a;
-
-        public b(p72 p72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p72Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.h != null) {
-                this.a.h.onCancel();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p72 a;
-
-        public c(p72 p72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p72Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && this.a.h != null) {
-                this.a.h.onCancel();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p72 a;
-
-        public d(p72 p72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p72Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.a.f();
-            }
-        }
-    }
-
-    public p72(Context context, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p72(da3 da3Var) {
+        super(da3Var, "/swanAPI/setPhoneContact");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
-        this.c = str2;
-        c();
     }
 
-    public void g(e eVar) {
+    @SuppressLint({"BDOfflineUrl"})
+    private void insert(Context context, o72 o72Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.h = eVar;
+        if (interceptable == null || interceptable.invokeLLL(65537, this, context, o72Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
+            intent.putExtra("name", o72Var.d());
+            intent.putExtra("email", o72Var.r);
+            intent.putParcelableArrayListExtra("data", k(o72Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
         }
     }
 
-    public void h(f fVar) {
+    public final void j(Context context, o72 o72Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.g = fVar;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, o72Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
+            intent.setType("vnd.android.cursor.item/contact");
+            intent.putExtra("name", o72Var.d());
+            intent.putExtra("email", o72Var.r);
+            intent.putParcelableArrayListExtra("data", k(o72Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
         }
     }
 
-    public final void c() {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d009c, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.username_edit);
-            TextView textView = (TextView) inflate.findViewById(R.id.password_edit);
-            this.f = textView;
-            textView.setOnEditorActionListener(new a(this));
-            String replace = this.a.getText(R.string.obfuscated_res_0x7f0f01cc).toString().replace("[(s1)]", this.b).replace("[(s2)]", this.c);
-            b73.a aVar = new b73.a(this.a);
-            aVar.V(replace);
-            aVar.u(17301543);
-            aVar.W(inflate);
-            aVar.O(R.string.obfuscated_res_0x7f0f0195, new d(this));
-            aVar.B(R.string.obfuscated_res_0x7f0f0112, new c(this));
-            aVar.K(new b(this));
-            b73 c2 = aVar.c();
-            this.d = c2;
-            c2.getWindow().setSoftInputMode(4);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (context != null && callbackHandler != null && g93Var != null) {
+                if (g93Var.n0()) {
+                    if (db3.b) {
+                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                    return false;
+                }
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                if (db3.b) {
+                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
+                }
+                String optString = optParamsAsJo.optString("action");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                o72 a = o72.a(optParamsAsJo);
+                if (!a.t()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                this.c = optParamsAsJo.optString("cb");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != -1183792455) {
+                    if (hashCode == 3108362 && optString.equals(StatKey.EDITADDR_TAG_STAGE_EDIT)) {
+                        c = 1;
+                    }
+                } else if (optString.equals("insert")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                        return false;
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    j(context, a, callbackHandler);
+                    return true;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                insert(context, a, callbackHandler);
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public final ArrayList<ContentValues> k(o72 o72Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f.getText().toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, o72Var)) == null) {
+            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
+            arrayList.add(o72Var.j());
+            arrayList.add(o72Var.h());
+            arrayList.add(o72Var.s());
+            arrayList.add(o72Var.i());
+            arrayList.add(o72Var.g());
+            arrayList.add(o72Var.r());
+            arrayList.add(o72Var.k());
+            arrayList.add(o72Var.o());
+            arrayList.add(o72Var.n());
+            arrayList.add(o72Var.m());
+            arrayList.add(o72Var.l());
+            arrayList.add(o72Var.b());
+            arrayList.add(o72Var.p());
+            arrayList.add(o72Var.e());
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.getText().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void f() {
-        f fVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (fVar = this.g) != null) {
-            fVar.a(this.b, this.c, e(), d());
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.show();
-            this.e.requestFocus();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
+            try {
+                context.startActivity(intent);
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, DnsModel.MSG_OK).toString());
+                }
+            } catch (Exception e) {
+                if (db3.b) {
+                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
+                }
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                }
+            }
         }
     }
 }

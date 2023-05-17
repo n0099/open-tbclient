@@ -17,7 +17,7 @@ import kotlin.reflect.jvm.internal.impl.incremental.components.NoLookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class InlineClassesUtilsKt {
     public static final boolean isGetterOfUnderlyingPropertyOfInlineClass(CallableDescriptor callableDescriptor) {
         if (callableDescriptor instanceof PropertyGetterDescriptor) {
@@ -38,9 +38,9 @@ public final class InlineClassesUtilsKt {
     }
 
     public static final boolean isInlineClassType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor != null) {
-            return isInlineClass(mo2025getDeclarationDescriptor);
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor != null) {
+            return isInlineClass(mo2044getDeclarationDescriptor);
         }
         return false;
     }
@@ -80,20 +80,20 @@ public final class InlineClassesUtilsKt {
     }
 
     public static final ValueParameterDescriptor underlyingRepresentation(ClassDescriptor classDescriptor) {
-        ClassConstructorDescriptor mo2019getUnsubstitutedPrimaryConstructor;
+        ClassConstructorDescriptor mo2038getUnsubstitutedPrimaryConstructor;
         List<ValueParameterDescriptor> valueParameters;
-        if (!classDescriptor.isInline() || (mo2019getUnsubstitutedPrimaryConstructor = classDescriptor.mo2019getUnsubstitutedPrimaryConstructor()) == null || (valueParameters = mo2019getUnsubstitutedPrimaryConstructor.getValueParameters()) == null) {
+        if (!classDescriptor.isInline() || (mo2038getUnsubstitutedPrimaryConstructor = classDescriptor.mo2038getUnsubstitutedPrimaryConstructor()) == null || (valueParameters = mo2038getUnsubstitutedPrimaryConstructor.getValueParameters()) == null) {
             return null;
         }
         return (ValueParameterDescriptor) CollectionsKt___CollectionsKt.singleOrNull((List<? extends Object>) valueParameters);
     }
 
     public static final ValueParameterDescriptor unsubstitutedUnderlyingParameter(KotlinType kotlinType) {
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (!(mo2025getDeclarationDescriptor instanceof ClassDescriptor)) {
-            mo2025getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (!(mo2044getDeclarationDescriptor instanceof ClassDescriptor)) {
+            mo2044getDeclarationDescriptor = null;
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) mo2025getDeclarationDescriptor;
+        ClassDescriptor classDescriptor = (ClassDescriptor) mo2044getDeclarationDescriptor;
         if (classDescriptor == null) {
             return null;
         }

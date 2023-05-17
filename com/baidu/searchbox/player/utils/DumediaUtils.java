@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DumediaUtils {
     public static final int DEFAULT_INSTALL_TYPE = 31;
 

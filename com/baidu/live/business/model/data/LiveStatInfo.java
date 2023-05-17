@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveStatInfo implements Parcelable {
     public static final Parcelable.Creator<LiveStatInfo> CREATOR = new Parcelable.Creator<LiveStatInfo>() { // from class: com.baidu.live.business.model.data.LiveStatInfo.1
         /* JADX DEBUG: Method merged with bridge method */

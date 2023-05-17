@@ -3,7 +3,7 @@ package com.baidu.searchbox.common.security;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceIdBag implements Parcelable {
     public static final int CODE_BACKGROUD = -1;
     public static final int CODE_CACHE = 1;

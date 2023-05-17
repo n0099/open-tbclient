@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StyleTemplatesConfig extends BaseOfflineCompoJsonParse<StyleTemplatesConfig> implements Serializable {
     public static final long serialVersionUID = -6279192768068169498L;
     public List<StyleTemplate> styleTemplates = new ArrayList();

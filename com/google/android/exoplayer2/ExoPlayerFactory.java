@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.drm.DrmSessionManager;
 import com.google.android.exoplayer2.drm.FrameworkMediaCrypto;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ExoPlayerFactory {
     public static ExoPlayer newInstance(Renderer[] rendererArr, TrackSelector trackSelector) {
         return newInstance(rendererArr, trackSelector, new DefaultLoadControl());

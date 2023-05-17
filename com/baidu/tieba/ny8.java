@@ -1,76 +1,128 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFirstFloorEmptyHolder;
-import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class ny8 extends jy8<pp9, PbFirstFloorEmptyHolder> {
+/* loaded from: classes6.dex */
+public class ny8 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PbFragment g;
+    public int a;
+    public long b;
+    public long c;
+    public b d;
+    public long e;
+    public Handler f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ny8(PbFragment pbFragment, BdUniqueId type) {
-        super(pbFragment, type);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void b();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ny8 a;
+
+        public a(ny8 ny8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ny8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ny8Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 2) {
+                    if (i == 1 && this.a.a == 1) {
+                        if (this.a.d != null) {
+                            this.a.d.a();
+                        }
+                        this.a.a = 0;
+                        this.a.b = 0L;
+                        this.a.c = 0L;
+                        return;
+                    }
+                    return;
+                }
+                this.a.a = 0;
+                this.a.b = 0L;
+                this.a.c = 0L;
+            }
+        }
+    }
+
+    public ny8(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, type};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((z29) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.g = pbFragment;
+        this.a = 0;
+        this.b = 0L;
+        this.c = 0L;
+        this.e = 500L;
+        this.f = new a(this);
+        this.d = bVar;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public PbFirstFloorEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view2 = new View(this.g.getContext());
-            view2.setVisibility(8);
-            return new PbFirstFloorEmptyHolder(view2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                if (this.d == null) {
+                    return false;
+                }
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b = System.currentTimeMillis();
+                    this.f.sendEmptyMessageDelayed(1, this.e);
+                } else if (i == 2) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    this.c = currentTimeMillis;
+                    if (currentTimeMillis - this.b < this.e) {
+                        this.d.b();
+                    }
+                    this.f.sendEmptyMessage(2);
+                }
+            }
+            return true;
         }
-        return (PbFirstFloorEmptyHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jy8, com.baidu.tieba.vm
-    /* renamed from: x */
-    public View onFillViewHolder(int i, View convertView, ViewGroup parent, pp9 data, PbFirstFloorEmptyHolder viewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, viewHolder})) == null) {
-            Intrinsics.checkNotNullParameter(convertView, "convertView");
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            View view2 = viewHolder.getView();
-            Intrinsics.checkNotNullExpressionValue(view2, "viewHolder.view");
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
+        return invokeLL.booleanValue;
     }
 }

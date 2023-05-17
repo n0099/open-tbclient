@@ -2,29 +2,95 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.fw1;
-/* loaded from: classes6.dex */
-public interface qr1 {
-    @NonNull
-    bd3 a(Activity activity, boolean z, String str, String str2);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.om2;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class qr1 implements vt1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    gd3 b(Activity activity, fw1.d dVar, Bundle bundle);
+    @Override // com.baidu.tieba.vt1
+    public boolean a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 
-    @NonNull
-    hd3 c(Activity activity, String str, String str2, boolean z, boolean z2);
+    @Override // com.baidu.tieba.vt1
+    public void b(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+        }
+    }
 
-    @NonNull
-    cd3 d(Context context, boolean z, boolean z2, String[] strArr, String str, boolean z3);
+    @Override // com.baidu.tieba.vt1
+    public void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
 
-    @NonNull
-    fd3 e(Context context);
+    @Override // com.baidu.tieba.vt1
+    public void e(g93 g93Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, g93Var) == null) {
+        }
+    }
 
-    @NonNull
-    ed3 f(Context context);
+    @Override // com.baidu.tieba.vt1
+    public void g(g93 g93Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, g93Var) == null) {
+        }
+    }
 
-    @NonNull
-    dd3 g(Context context, String str);
+    public qr1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.vt1
+    public void d(@NonNull CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, callbackHandler) == null) {
+            callbackHandler.handleSchemeDispatchCallback("", "");
+        }
+    }
+
+    @Override // com.baidu.tieba.vt1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return context.getString(R.string.obfuscated_res_0x7f0f0187);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vt1
+    public void h(@NonNull Activity activity, String str, String str2, nm2 nm2Var, om2.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048583, this, activity, str, str2, nm2Var, bVar) == null) && bVar != null) {
+            bVar.a();
+        }
+    }
 }

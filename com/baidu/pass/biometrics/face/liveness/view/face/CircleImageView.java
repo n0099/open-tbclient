@@ -23,7 +23,7 @@ import android.view.ViewOutlineProvider;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.ImageView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CircleImageView extends ImageView {
     public static final int A = 255;
     public static final boolean B = false;
@@ -54,7 +54,7 @@ public class CircleImageView extends ImageView {
     public boolean s;
     public boolean t;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
@@ -74,7 +74,7 @@ public class CircleImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends ViewOutlineProvider {
         public b() {
         }

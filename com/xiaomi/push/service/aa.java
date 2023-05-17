@@ -5,7 +5,7 @@ import com.xiaomi.push.gg;
 import com.xiaomi.push.id;
 import com.xiaomi.push.service.XMPushService;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class aa extends XMPushService.j {
     public final /* synthetic */ id a;
 
@@ -21,16 +21,16 @@ public final class aa extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "send ack message for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         Map<String, String> map = null;
         try {
-            if (com.xiaomi.push.j.m632a((Context) this.f878a)) {
+            if (com.xiaomi.push.j.m651a((Context) this.f878a)) {
                 try {
                     map = ag.a((Context) this.f878a, this.a);
                 } catch (Throwable unused) {

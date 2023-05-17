@@ -3,14 +3,14 @@ package com.baidu.tbadk.growth;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ig5;
+import com.baidu.tieba.rh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActivityChangeSchemeHttpResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,10 +67,10 @@ public class ActivityChangeSchemeHttpResMsg extends JsonHttpResponsedMessage {
                 if (jSONObject2 != null) {
                     this.scheme = jSONObject2.optString("scheme");
                 }
-                ig5.d(true, this.data);
+                rh5.d(true, this.data);
                 return;
             }
-            ig5.d(false, this.data);
+            rh5.d(false, this.data);
         }
     }
 }

@@ -225,7 +225,7 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:139:0x0326  */
+    /* JADX WARN: Removed duplicated region for block: B:139:0x0329  */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -262,25 +262,26 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                     i2 = jSONObject.optInt("has_more", 0);
                     try {
                         i3 = jSONObject.optInt("total_unread_num", 0);
-                        try {
-                            iMMediaGetChatSessionRequest2.writeServerUnreadnum(i3);
-                            i4 = jSONObject.optInt("consult_unread_num", 0);
-                        } catch (JSONException e) {
-                            e = e;
-                            str = TAG;
-                            hashMap = hashMap3;
-                            hashMap2 = hashMap5;
-                            i4 = 0;
-                            i5 = 0;
-                            LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
-                            i6 = 1010;
-                            iMMediaGetChatSessionRequest = this;
-                            ChatSessionManagerImpl chatSessionManagerImpl = ChatSessionManagerImpl.getInstance(iMMediaGetChatSessionRequest.mContext);
-                            boolean z = true;
-                            if (i2 != 1) {
-                            }
-                            chatSessionManagerImpl.onMediaGetChatSessionRequest(i6, z, iMMediaGetChatSessionRequest.readTotalUnreadnum(i3), i4, i5, hashMap, hashMap4, hashMap2, iMMediaGetChatSessionRequest.mKey);
+                    } catch (JSONException e) {
+                        e = e;
+                        str = TAG;
+                        hashMap = hashMap3;
+                        hashMap2 = hashMap5;
+                        i3 = 0;
+                        i4 = 0;
+                        i5 = 0;
+                        LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);
+                        i6 = 1010;
+                        iMMediaGetChatSessionRequest = this;
+                        ChatSessionManagerImpl chatSessionManagerImpl = ChatSessionManagerImpl.getInstance(iMMediaGetChatSessionRequest.mContext);
+                        boolean z = true;
+                        if (i2 != 1) {
                         }
+                        chatSessionManagerImpl.onMediaGetChatSessionRequest(i6, z, iMMediaGetChatSessionRequest.readTotalUnreadnum(i3), i4, i5, hashMap, hashMap4, hashMap2, iMMediaGetChatSessionRequest.mKey);
+                    }
+                    try {
+                        iMMediaGetChatSessionRequest2.writeServerUnreadnum(i3);
+                        i4 = jSONObject.optInt("consult_unread_num", 0);
                         try {
                             i5 = jSONObject.optInt("top_has_more");
                             try {
@@ -632,7 +633,6 @@ public class IMMediaGetChatSessionRequest extends IMMediaBaseHttpRequest {
                         str = TAG;
                         hashMap = hashMap3;
                         hashMap2 = hashMap5;
-                        i3 = 0;
                         i4 = 0;
                         i5 = 0;
                         LogUtils.e(str, "IMMediaGetChatSessionRequest JSONException", e);

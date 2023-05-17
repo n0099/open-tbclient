@@ -5,13 +5,13 @@ import com.meizu.cloud.pushsdk.d.e.a;
 import com.meizu.cloud.pushsdk.d.f.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends com.meizu.cloud.pushsdk.d.e.a {
     public static final String n = "a";
     public static ScheduledExecutorService o;
 
-    public a(a.C0671a c0671a) {
-        super(c0671a);
+    public a(a.C0685a c0685a) {
+        super(c0685a);
         b.a(this.k);
         c();
     }

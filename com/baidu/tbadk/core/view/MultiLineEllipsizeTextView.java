@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MultiLineEllipsizeTextView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class MultiLineEllipsizeTextView extends EMTextView {
     public int c;
     public a d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z);
     }
@@ -123,9 +123,9 @@ public class MultiLineEllipsizeTextView extends EMTextView {
             super.onMeasure(i, i2);
             CharSequence text = getText();
             Rect rect = new Rect();
-            if (!hi.isEmpty(text.toString())) {
+            if (!qi.isEmpty(text.toString())) {
                 TextPaint paint = getPaint();
-                if (!hi.isEmpty(this.b)) {
+                if (!qi.isEmpty(this.b)) {
                     String str2 = this.b;
                     paint.getTextBounds(str2, 0, str2.length() - 1, rect);
                 }

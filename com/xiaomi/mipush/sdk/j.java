@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class j implements Runnable {
     public final /* synthetic */ Context a;
 
@@ -40,11 +40,11 @@ public final class j implements Runnable {
             i++;
         }
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("ASSEMBLE_PUSH : receive incorrect token");
+            com.xiaomi.channel.commonutils.logger.b.m120a("ASSEMBLE_PUSH : receive incorrect token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m101a("ASSEMBLE_PUSH : receive correct token");
+        com.xiaomi.channel.commonutils.logger.b.m120a("ASSEMBLE_PUSH : receive correct token");
         i.d(this.a, this.f84a, str);
-        i.m165a(this.a);
+        i.m184a(this.a);
     }
 }

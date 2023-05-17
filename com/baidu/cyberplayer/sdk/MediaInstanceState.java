@@ -6,7 +6,7 @@ import android.view.Surface;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaInstanceState {
     public static final int INSTANCE_STATE_ACTIVE = 1;
     public static final int INSTANCE_STATE_INACTIVE = 0;

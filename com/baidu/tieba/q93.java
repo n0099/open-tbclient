@@ -1,110 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class q93 extends u93 {
+import java.io.File;
+import java.util.Map;
+import java.util.TreeMap;
+/* loaded from: classes7.dex */
+public final class q93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, v93> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(q93 q93Var, Context context) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046622, "Lcom/baidu/tieba/q93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q93Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("bundle_key_preload_preload_scene", "5");
-                v43.k(this.a, bundle);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q93(u83 u83Var) {
-        super(u83Var, "/swanAPI/preloadSwanCore");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948046622, "Lcom/baidu/tieba/q93;");
                 return;
             }
         }
+        b = qp1.a;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        int optInt;
+    public q93() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (u93.b) {
-                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (!ProcessUtils.isMainProcess()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
-                return false;
-            }
-            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                optInt = 0;
-            } else {
-                optInt = a2.optInt(DelayTB.DELAY, 0);
-            }
-            if (optInt < 0) {
-                optInt = 0;
-            }
-            if (u93.b) {
-                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
-            }
-            rl3.b0(new a(this, context), optInt);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+        this.a = null;
+    }
+
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            File d = n43.d(str2);
+            if (d == null || !d.exists()) {
+                if (str.endsWith(File.separator)) {
+                    d = new File(str + str2 + ".json");
+                } else {
+                    d = new File(str + File.separator + str2 + ".json");
+                }
+            }
+            if (b) {
+                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
+            }
+            if (!d.exists()) {
+                return null;
+            }
+            return cs2.m(d);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public v93 a(String str, @NonNull String str2, @NonNull v93 v93Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, v93Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                v93 d = d(str, str2, v93Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return v93Var;
+        }
+        return (v93) invokeLLL.objValue;
+    }
+
+    public final v93 d(String str, String str2, @NonNull v93 v93Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, v93Var)) == null) {
+            String c = c(str, str2);
+            if (TextUtils.isEmpty(c)) {
+                return v93Var;
+            }
+            return v93.b(c, v93Var);
+        }
+        return (v93) invokeLLL.objValue;
+    }
+
+    public v93 b(String str, String str2, @NonNull v93 v93Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, v93Var)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (this.a == null) {
+                    this.a = new TreeMap();
+                }
+                v93 v93Var2 = this.a.get(str2);
+                if (v93Var2 != null) {
+                    return v93Var2;
+                }
+                v93 d = d(str, str2, v93Var);
+                this.a.put(str2, d);
+                return d;
+            }
+            return v93Var;
+        }
+        return (v93) invokeLLL.objValue;
     }
 }

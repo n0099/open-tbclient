@@ -1,47 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.helios.ids.gaid.GaidProvider;
-import com.baidu.helios.ids.oid.OaidProvider;
-import com.baidu.tieba.u40;
+import android.content.ContentProviderClient;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import com.baidu.tieba.n50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class m50 implements u40.a {
+/* loaded from: classes6.dex */
+public class m50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public m50() {
+    public static void a(Context context, n50.a aVar) {
+        Bundle call;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return;
+            }
+            try {
+                Uri parse = Uri.parse("content://cn.nubia.identity/identity");
+                if (Build.VERSION.SDK_INT > 17) {
+                    ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(parse);
+                    if (acquireContentProviderClient != null) {
+                        call = acquireContentProviderClient.call("getOAID", null, null);
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            acquireContentProviderClient.close();
+                        } else {
+                            acquireContentProviderClient.release();
+                        }
+                    } else {
+                        call = null;
+                    }
+                } else {
+                    call = context.getContentResolver().call(parse, "getOAID", (String) null, (Bundle) null);
+                }
+                aVar.a(true, (call == null || call.getInt("code", -1) != 0) ? null : call.getString("id"));
+            } catch (Throwable unused) {
+                aVar.a(false, null);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.u40.a
-    public List<t40> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new v40());
-            arrayList.add(new OaidProvider());
-            arrayList.add(new GaidProvider());
-            arrayList.add(new i50());
-            arrayList.add(new x40());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

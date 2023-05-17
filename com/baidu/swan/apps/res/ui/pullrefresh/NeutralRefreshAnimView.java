@@ -14,13 +14,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.ol3;
-import com.baidu.tieba.rk3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.am3;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.xm3;
+/* loaded from: classes4.dex */
 public class NeutralRefreshAnimView extends View {
-    public static final boolean s = ho1.a;
-    public static final int t = ol3.g(3.5f);
+    public static final boolean s = qp1.a;
+    public static final int t = xm3.g(3.5f);
     public static final int u = Color.parseColor("#000000");
     public static final int v;
     public static final int w;
@@ -53,7 +53,7 @@ public class NeutralRefreshAnimView extends View {
         return i;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public final /* synthetic */ int a;
         public final /* synthetic */ int b;
@@ -70,7 +70,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public b() {
         }
@@ -86,7 +86,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public c() {
         }
@@ -102,7 +102,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Animator.AnimatorListener {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
@@ -126,7 +126,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements ValueAnimator.AnimatorUpdateListener {
         public e() {
         }
@@ -141,7 +141,7 @@ public class NeutralRefreshAnimView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public f() {
         }
@@ -157,7 +157,7 @@ public class NeutralRefreshAnimView extends View {
     }
 
     static {
-        int g = ol3.g(18.0f);
+        int g = xm3.g(18.0f);
         v = g;
         w = g >> 1;
     }
@@ -272,7 +272,7 @@ public class NeutralRefreshAnimView extends View {
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         super.onSizeChanged(i, i2, i3, i4);
         if (i > 0 && i2 > 0) {
-            rk3.j(new a(i, i2), "CreateBitmapOnSizeChanged");
+            am3.j(new a(i, i2), "CreateBitmapOnSizeChanged");
         }
     }
 

@@ -13,14 +13,14 @@ import com.kwai.adclient.kscommerciallogger.model.c;
 import java.util.Random;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class k {
     public static volatile boolean aaa;
     public static float aab;
     public static float aac;
     public static float aad;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void f(String str, String str2, boolean z);
     }

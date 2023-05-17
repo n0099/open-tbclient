@@ -5,7 +5,7 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExtraInfo {
     public String a = "";
     public String b = "";

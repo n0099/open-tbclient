@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BdImageViewTouchBase extends ImageView {
     public e a;
     public Matrix b;
@@ -38,26 +38,26 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public g x;
     public boolean y;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum DisplayType {
         NONE,
         FIT_TO_SCREEN,
         FIT_IF_BIGGER
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         double a(double d, double d2, double d3, double d4);
 
         double b(double d, double d2, double d3, double d4);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(Drawable drawable);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void a(boolean z, int i, int i2, int i3, int i4);
     }
@@ -76,7 +76,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
     public void s(float f2) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public final /* synthetic */ Drawable a;
         public final /* synthetic */ Matrix b;
@@ -96,7 +96,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public double a = 0.0d;
         public double b = 0.0d;
@@ -132,7 +132,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public final /* synthetic */ float a;
         public final /* synthetic */ long b;
@@ -164,7 +164,7 @@ public abstract class BdImageViewTouchBase extends ImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements e {
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.e
         public double a(double d, double d2, double d3, double d4) {

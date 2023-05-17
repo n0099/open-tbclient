@@ -1,14 +1,18 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.location.BDAbstractLocationListener;
+import com.baidu.location.BDLocation;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.gt2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,63 +20,259 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ld4 {
+import java.util.concurrent.TimeUnit;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class ld4 implements gt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int f;
+    public static final boolean c;
+    public static final long d;
+    public static final c e;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public boolean d;
-    public b e;
+    public LocationClient a;
+    public LocationClientOption b;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(boolean z);
+    public static boolean q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 65 || i == 61 || i == 161 || i == 66 || i == 68 : invokeI.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends AnimatorListenerAdapter {
+    @Override // com.baidu.tieba.gt2
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt2
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gt2
+    public void f(gt2.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ ld4 c;
+        public final /* synthetic */ ld4 a;
 
-        public a(ld4 ld4Var, boolean z, int i) {
+        public a(ld4 ld4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ld4Var, Boolean.valueOf(z), Integer.valueOf(i)};
+                Object[] objArr = {ld4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = ld4Var;
-            this.a = z;
-            this.b = i;
+            this.a = ld4Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                animator.removeAllListeners();
-                if (!this.a) {
-                    this.c.c(this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a.requestLocation();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements gt2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(ld4 ld4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ld4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (this.c.e != null) {
-                    this.c.e.a(this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.gt2.a
+        public void a(fc3 fc3Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, fc3Var) == null) && ld4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpSuccess::= result=" + fc3Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.gt2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ld4.c) {
+                Log.i("SwanAppLocationImpl", "onWarmUpFailed:: errCode=" + i);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public BDLocation b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0L;
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+
+        /* JADX INFO: Access modifiers changed from: private */
+        public synchronized void update(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bDLocation) == null) {
+                synchronized (this) {
+                    this.b = bDLocation;
+                    this.a = System.currentTimeMillis();
+                }
+            }
+        }
+
+        public synchronized BDLocation c(long j) {
+            InterceptResult invokeJ;
+            BDLocation bDLocation;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+                synchronized (this) {
+                    if (d(j)) {
+                        bDLocation = this.b;
+                    } else {
+                        bDLocation = null;
+                    }
+                }
+                return bDLocation;
+            }
+            return (BDLocation) invokeJ.objValue;
+        }
+
+        public synchronized boolean d(long j) {
+            InterceptResult invokeJ;
+            boolean z;
+            boolean z2;
+            boolean z3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                synchronized (this) {
+                    long currentTimeMillis = System.currentTimeMillis() - this.a;
+                    if (this.b != null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (currentTimeMillis < j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z && z2) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                    if (ld4.c) {
+                        Log.i("SwanAppLocationImpl", String.format("hitCache[%b] hasInfo[%b] isAgeOk[%b] cacheAge[%d] timeout[%d]", Boolean.valueOf(z3), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(currentTimeMillis), Long.valueOf(j)));
+                    }
+                }
+                return z3;
+            }
+            return invokeJ.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends BDAbstractLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LocationClient a;
+        public gt2.a b;
+        public String c;
+        public boolean d;
+
+        public d(LocationClient locationClient, gt2.a aVar, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {locationClient, aVar, str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = locationClient;
+            this.b = aVar;
+            this.c = str;
+            this.d = z;
+        }
+
+        @Override // com.baidu.location.BDAbstractLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                this.a.unRegisterLocationListener(this);
+                int locType = bDLocation.getLocType();
+                if (!ld4.q(locType)) {
+                    if (!this.d) {
+                        this.b.onFailed(locType);
+                        return;
+                    }
+                    return;
+                }
+                ld4.e.update(bDLocation);
+                if (!this.d) {
+                    this.b.a(ld4.o(bDLocation, this.c));
                 }
             }
         }
@@ -91,83 +291,166 @@ public class ld4 {
                 return;
             }
         }
-        f = ol3.g(58.0f);
+        c = qp1.a;
+        d = TimeUnit.MINUTES.toMillis(3L);
+        e = new c(null);
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gt2
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long p = p();
+            if (e.b == null || (p > 0 && !e.d(p))) {
+                if (c) {
+                    Log.i("SwanAppLocationImpl", "onWarmUp");
+                }
+                b("gcj02", false, true, new b(this));
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public ld4(View view2, FrameLayout frameLayout, View view3) {
+    public ld4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, frameLayout, view3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
-        }
-        this.a = view2;
-        this.b = frameLayout;
-        this.c = view3;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            layoutParams.height = this.a.getHeight() - (i * 2);
-            this.a.setLayoutParams(layoutParams);
         }
     }
 
-    public void e(boolean z) {
+    @Override // com.baidu.tieba.gt2
+    public fc3 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.b(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            BDLocation bDLocation = e.b;
+            if (bDLocation == null) {
+                return null;
             }
-            this.d = z;
-            int i = f;
-            if (z) {
-                i = -i;
-            }
-            float[] fArr = new float[2];
-            if (z) {
-                fArr[0] = 0.0f;
-                fArr[1] = i;
-            } else {
-                fArr[0] = -i;
-                fArr[1] = 0.0f;
-            }
-            float[] fArr2 = new float[2];
-            if (z) {
-                fArr2[0] = 0.0f;
-                fArr2[1] = i * 2;
-            } else {
-                fArr2[0] = (-i) * 2;
-                fArr2[1] = 0.0f;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
-            animatorSet.setDuration(200L);
-            animatorSet.start();
-            animatorSet.addListener(new a(this, z, i));
-            if (z) {
-                c(i);
-            }
+            return o(bDLocation, bDLocation.getCoorType());
         }
+        return (fc3) invokeV.objValue;
+    }
+
+    public final long p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return d;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.gt2
+    public double[] g(@NonNull fc3 fc3Var, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, fc3Var, str)) == null) {
+            return n(fc3Var.b, fc3Var.c, fc3Var.a, str);
+        }
+        return (double[]) invokeLL.objValue;
+    }
+
+    public static BDLocation m(double d2, double d3, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str})) == null) {
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d3);
+            bDLocation.setLatitude(d2);
+            if (TextUtils.equals(str, "gcj02")) {
+                return bDLocation;
+            }
+            if (TextUtils.equals(str, "bd09")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
+            }
+            if (TextUtils.equals(str, "bd09ll")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            }
+            if (TextUtils.equals(str, "wgs84")) {
+                return LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            return bDLocation;
+        }
+        return (BDLocation) invokeCommon.objValue;
+    }
+
+    public static fc3 o(BDLocation bDLocation, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bDLocation, str)) == null) {
+            double longitude = bDLocation.getLongitude();
+            double latitude = bDLocation.getLatitude();
+            if (!TextUtils.equals(str, bDLocation.getCoorType())) {
+                BDLocation m = m(latitude, longitude, str);
+                longitude = m.getLongitude();
+                latitude = m.getLatitude();
+            }
+            return new fc3(str, longitude, latitude, bDLocation.getSpeed(), bDLocation.getRadius(), bDLocation.getAltitude(), bDLocation.getCountry(), bDLocation.getCountryCode(), bDLocation.getCity(), bDLocation.getCityCode(), bDLocation.getProvince(), bDLocation.getDistrict(), bDLocation.getStreet(), bDLocation.getStreetNumber());
+        }
+        return (fc3) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gt2
+    public void b(String str, boolean z, boolean z2, gt2.a aVar) {
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), aVar}) == null) {
+            BDLocation c2 = e.c(p());
+            if (c2 != null) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                aVar.a(o(c2, str));
+            }
+            if (this.a == null) {
+                this.a = new LocationClient(AppRuntime.getAppContext());
+                LocationClientOption locationClientOption = new LocationClientOption();
+                locationClientOption.setCoorType("gcj02");
+                locationClientOption.setScanSpan(0);
+                locationClientOption.setIgnoreKillProcess(true);
+                locationClientOption.setIsNeedAddress(true);
+                this.a.setLocOption(locationClientOption);
+                this.b = locationClientOption;
+                this.a.start();
+            }
+            this.a.registerLocationListener(new d(this.a, aVar, str, z3));
+            this.b.setIsNeedAltitude(z2);
+            this.a.setLocOption(this.b);
+            an3.a0(new a(this));
+        }
+    }
+
+    public final double[] n(double d2, double d3, String str, String str2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), str, str2})) == null) {
+            double[] dArr = new double[2];
+            if (TextUtils.equals(str2, "gcj02")) {
+                return dArr;
+            }
+            BDLocation bDLocation = new BDLocation();
+            bDLocation.setLongitude(d2);
+            bDLocation.setLatitude(d3);
+            if (TextUtils.equals(str2, "bd09")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09");
+            } else if (TextUtils.equals(str2, "bd09ll")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "bd09ll");
+            } else if (TextUtils.equals(str2, "wgs84")) {
+                bDLocation = LocationClient.getBDLocationInCoorType(bDLocation, "gcj2wgs");
+            }
+            dArr[0] = bDLocation.getLongitude();
+            dArr[1] = bDLocation.getLatitude();
+            return dArr;
+        }
+        return (double[]) invokeCommon.objValue;
     }
 }

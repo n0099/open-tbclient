@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoginHistoryLoginModel {
     public static final long SECONDS_OF_ONE_DAY = 86400;
 

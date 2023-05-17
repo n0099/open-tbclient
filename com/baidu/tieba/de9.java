@@ -1,87 +1,168 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.CardAdvertAppEmptyHolder;
+import com.baidu.live.arch.utils.LiveActivityHelper;
+import com.baidu.tieba.push.PushExtData;
+import com.baidu.tieba.push.PushRemindInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class de9 extends vm<si6, CardAdvertAppEmptyHolder> implements vd9 {
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes5.dex */
+public class de9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public final Set<Activity> a;
 
-    @Override // com.baidu.tieba.vd9
-    public void setIsFromCDN(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(de9 de9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = de9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            n15 n15Var;
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof n15) && (n15Var = (n15) customResponsedMessage.getData()) != null && (activity = n15Var.b) != null && n15Var.c != null) {
+                if (this.a.e(activity.getClass().getName())) {
+                    if (!Lifecycle.Event.ON_START.equals(n15Var.c)) {
+                        if (Lifecycle.Event.ON_DESTROY.equals(n15Var.c)) {
+                            this.a.a.remove(n15Var.b);
+                        }
+                    } else if (this.a.a.contains(n15Var.b)) {
+                    } else {
+                        this.a.a.add(n15Var.b);
+                    }
+                }
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public de9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final de9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-864321613, "Lcom/baidu/tieba/de9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-864321613, "Lcom/baidu/tieba/de9$b;");
+                    return;
+                }
+            }
+            a = new de9();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701809, "Lcom/baidu/tieba/de9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947701809, "Lcom/baidu/tieba/de9;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        b = new String[]{LiveActivityHelper.MIX_ACTIVITY_NAME, LiveActivityHelper.MIX_TRANSLUCENT_ACTIVITY_NAME};
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardAdvertAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public de9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashSet();
+    }
+
+    public static de9 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (de9) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2921698));
+        }
+    }
+
+    public void f(PushExtData pushExtData, PushRemindInfo pushRemindInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, pushExtData, pushRemindInfo) == null) && !this.a.isEmpty()) {
+            new ce9((Activity) this.a.toArray()[0], pushExtData, pushRemindInfo).t();
+        }
+    }
+
+    public final boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view2 = new View(this.a.getPageActivity());
-            view2.setVisibility(8);
-            return new CardAdvertAppEmptyHolder(view2);
-        }
-        return (CardAdvertAppEmptyHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, si6 si6Var, CardAdvertAppEmptyHolder cardAdvertAppEmptyHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, si6Var, cardAdvertAppEmptyHolder})) == null) {
-            AdvertAppInfo c = si6Var.c();
-            if (c != null) {
-                fx4 fx4Var = c.i;
-                if (c.c == -1001) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            for (String str2 : b) {
+                if (str2.equals(str)) {
+                    return true;
                 }
-                fx4.e(fx4Var, si6Var.position, z);
             }
-            return cardAdvertAppEmptyHolder.getView();
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

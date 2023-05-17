@@ -14,7 +14,6 @@ import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.collection.ArrayMap;
 import androidx.core.content.res.TypedArrayUtils;
 import com.baidu.searchbox.live.ubc.MediaLivePluginLogger;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import org.xmlpull.v1.XmlPullParser;
@@ -36,7 +35,7 @@ public class TransitionInflater {
     private Object createCustom(AttributeSet attributeSet, Class<?> cls, String str) {
         Object newInstance;
         Class<? extends U> asSubclass;
-        String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
+        String attributeValue = attributeSet.getAttributeValue(null, "class");
         if (attributeValue != null) {
             try {
                 synchronized (CONSTRUCTORS) {
@@ -56,7 +55,7 @@ public class TransitionInflater {
         throw new InflateException(str + " tag must have a 'class' attribute");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x017d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x0180, code lost:
         return r3;
      */
     /*
@@ -141,7 +140,7 @@ public class TransitionInflater {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0054, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x0056, code lost:
         return r1;
      */
     /*

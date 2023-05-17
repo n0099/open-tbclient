@@ -15,6 +15,7 @@ import android.os.Build;
 import android.os.UserHandle;
 import com.baidu.ar.plugin.reflect.FieldUtils;
 import com.baidu.ar.plugin.reflect.MethodUtils;
+import com.baidu.searchbox.common.security.PermissionStorage;
 import com.vivo.push.PushClientConstants;
 import java.io.File;
 import java.lang.reflect.Method;
@@ -88,7 +89,7 @@ public class PackageParserAPI22 extends PackageParser {
 
     @Override // com.baidu.ar.plugin.PackageParser
     public List getPermissions() {
-        return (List) FieldUtils.readField(this.mPackage, "permissions");
+        return (List) FieldUtils.readField(this.mPackage, PermissionStorage.PermissionItem.TABLE_NAME);
     }
 
     @Override // com.baidu.ar.plugin.PackageParser

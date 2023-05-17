@@ -8,6 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.IntentConstants;
 import com.ss.android.download.api.config.IDownloadButtonClickListener;
 import com.ss.android.download.api.config.OnItemClickListener;
 import com.ss.android.download.api.config.s;
@@ -30,7 +31,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e implements f, m.a {
     public static final String a = "e";
     public WeakReference<Context> e;
@@ -53,17 +54,17 @@ public class e implements f, m.a {
     public d d = new d(this.b);
     public final boolean s = com.ss.android.socialbase.downloader.g.a.c().a("ttdownloader_callback_twice");
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(long j);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends AsyncTask<String, Void, DownloadInfo> {
         public c() {
         }
@@ -680,7 +681,7 @@ public class e implements f, m.a {
     }
 
     public boolean e() {
-        if (j.i().optInt("quick_app_enable_switch", 0) != 0 || this.n.getQuickAppModel() == null || TextUtils.isEmpty(this.n.getQuickAppModel().a()) || !com.ss.android.downloadlib.addownload.c.a(this.h) || !com.ss.android.downloadlib.g.l.a(getContext(), new Intent("android.intent.action.VIEW", Uri.parse(this.n.getQuickAppModel().a())))) {
+        if (j.i().optInt("quick_app_enable_switch", 0) != 0 || this.n.getQuickAppModel() == null || TextUtils.isEmpty(this.n.getQuickAppModel().a()) || !com.ss.android.downloadlib.addownload.c.a(this.h) || !com.ss.android.downloadlib.g.l.a(getContext(), new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(this.n.getQuickAppModel().a())))) {
             return false;
         }
         return true;

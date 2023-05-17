@@ -1,143 +1,100 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
-/* loaded from: classes6.dex */
-public class teb extends Dialog {
+/* loaded from: classes7.dex */
+public class teb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public AbsPayMessageReceiver b;
-    public PayFlowType c;
-    public Context d;
+    public Handler a;
+    public boolean b;
+    public Runnable c;
 
-    /* loaded from: classes6.dex */
-    public class a extends AbsPayMessageReceiver {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ teb this$0;
+        public final /* synthetic */ teb a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(teb tebVar, PayFlowType payFlowType) {
-            super(payFlowType);
+        public a(teb tebVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tebVar, payFlowType};
+                Object[] objArr = {tebVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((PayFlowType) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.this$0 = tebVar;
+            this.a = tebVar;
         }
 
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onAllPayFlowViewRelease() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                RLog.info(this.this$0.a, "onAllPayFlowViewRelease");
-                this.this$0.dismiss();
-            }
-        }
-
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onDialogPayFlowViewRelease() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                RLog.info(this.this$0.a, "onDialogPayFlowViewRelease");
-                this.this$0.dismiss();
-            }
-        }
-
-        @Override // tv.athena.revenue.payui.view.AbsPayMessageReceiver
-        public void onWalletPayFlowViewRelease() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.info(this.this$0.a, "onWalletPayFlowViewRelease");
-                this.this$0.dismiss();
+                RLog.info("PayFrequencyManager", "mResetFrequencyRunnable mIsFrequency:" + this.a.b + " to false");
+                this.a.b = false;
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public teb(Context context, int i, PayFlowType payFlowType) {
-        super(context, i);
+    public teb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), payFlowType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "AutoHideSoftInputDialog";
-        this.a += "@" + hashCode();
-        this.d = context;
-        this.c = payFlowType;
+        this.a = new Handler(Looper.getMainLooper());
+        this.b = false;
+        this.c = new a(this);
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            RLog.info(this.a, "onCreate");
-            this.b = new a(this, this.c);
-            ydb.d(getContext(), this.b);
-        }
-    }
-
-    @Override // android.app.Dialog, android.content.DialogInterface
-    public void dismiss() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View currentFocus = getCurrentFocus();
-            if (currentFocus instanceof EditText) {
-                ((InputMethodManager) getContext().getSystemService("input_method")).hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
-            }
-            if (heb.a.a(this.d)) {
-                super.dismiss();
-            }
+            RLog.info("PayFrequencyManager", "destory mIsFrequency:" + this.b);
+            this.b = false;
+            this.a.removeCallbacks(this.c);
         }
     }
 
-    @Override // android.app.Dialog
-    public void onStop() {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.onStop();
-            RLog.info(this.a, MissionEvent.MESSAGE_STOP);
-            if (this.b != null) {
-                ydb.e(getContext(), this.b);
-                this.b = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RLog.info("PayFrequencyManager", "setIsFrequency from:" + this.b + " to:" + z);
+            this.b = z;
+            this.a.removeCallbacks(this.c);
+            if (this.b) {
+                this.a.postDelayed(this.c, 3000L);
             }
         }
     }

@@ -2,12 +2,12 @@ package com.baidu.ugc.editvideo.filter;
 
 import android.text.TextUtils;
 import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.tieba.bma;
+import com.baidu.tieba.zna;
 import com.google.gson.Gson;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FilterValue implements Serializable {
     public static final String DEFAULT_FILTER_VALUE = "origin";
     public static final int DU_FILTER = 2;
@@ -56,7 +56,7 @@ public class FilterValue implements Serializable {
     }
 
     public static FilterValue parseToBean(String str) {
-        if (bma.a(str)) {
+        if (zna.a(str)) {
             return null;
         }
         try {

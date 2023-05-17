@@ -2,10 +2,10 @@ package kotlin.reflect.jvm.internal.impl.types.model;
 
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeSystemContext;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface TypeSystemInferenceExtensionContext extends TypeSystemCommonSuperTypesContext, TypeSystemContext {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static List<SimpleTypeMarker> fastCorrespondingSupertypes(TypeSystemInferenceExtensionContext typeSystemInferenceExtensionContext, SimpleTypeMarker simpleTypeMarker, TypeConstructorMarker typeConstructorMarker) {
             return TypeSystemContext.DefaultImpls.fastCorrespondingSupertypes(typeSystemInferenceExtensionContext, simpleTypeMarker, typeConstructorMarker);

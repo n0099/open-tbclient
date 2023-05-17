@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Process;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class v14 {
+import java.util.Calendar;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class v14 extends m14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,61 +41,97 @@ public class v14 {
                 return;
             }
         }
-        a = ho1.a;
+        c = qp1.a;
     }
 
-    public v14(JsObject jsObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v14() {
+        super("GetAppUseDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        e02 F = e02.F(jsObject);
-        if (F == null) {
-            return;
-        }
-        x73 M = x73.M();
-        if (M == null) {
-            a(F, false, b("internal error"));
-            return;
-        }
-        try {
-            boolean m = F.m("mixWithOther", false);
-            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
-            if (a) {
-                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
+    }
+
+    @Override // com.baidu.tieba.m14
+    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
+            if (jSONObject == null) {
+                km2Var.onFail(202, "params may be error");
+                return null;
             }
-            a(F, true, "setInnerAudioOption:ok");
-        } catch (Exception unused) {
-            x42.c("InnerAudioOptionApi", "set swanApp global var error");
-            a(F, false, b("internal error"));
+            if (c) {
+                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                km2Var.onFail(202, "params may be error");
+            } else {
+                b(optString, km2Var);
+            }
+            return null;
+        }
+        return (g12) invokeLL.objValue;
+    }
+
+    public final void b(String str, @NonNull km2 km2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, km2Var) == null) {
+            try {
+                if (c()) {
+                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
+                        if (queryUsageStats.size() == 0) {
+                            km2Var.onFail(101, "noPermission");
+                            return;
+                        }
+                        for (UsageStats usageStats : queryUsageStats) {
+                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
+                                JSONObject jSONObject = new JSONObject();
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
+                                jSONObject.put("data", jSONObject2);
+                                km2Var.onSuccess(jSONObject);
+                                return;
+                            }
+                        }
+                        km2Var.onFail(31016, "no package info");
+                        return;
+                    }
+                    km2Var.onFail(31016, "no package info");
+                    return;
+                }
+                km2Var.onFail(101, "noPermission");
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                km2Var.onFail(31011, "app is not installed");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
-    public final void a(e02 e02Var, boolean z, String str) {
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{e02Var, Boolean.valueOf(z), str}) == null) {
-            g24 g24Var = new g24();
-            g24Var.errMsg = str;
-            ja4.call(e02Var, z, g24Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
+                return true;
+            }
+            return false;
         }
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return String.format("setInnerAudioOption:fail %s", str);
-        }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

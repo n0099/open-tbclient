@@ -8,12 +8,12 @@ import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,14 +84,14 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 return;
             }
         }
-        this.a = ii.g(TbadkApplication.getInst(), R.dimen.tbds22);
+        this.a = ri.g(TbadkApplication.getInst(), R.dimen.tbds22);
         LayoutInflater.from(context).inflate(R.layout.thread_forum_enter_button_container_layout, this);
         this.b = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_one);
         this.c = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_two);
         this.d = (ThreadForumEnterButton) findViewById(R.id.forum_enter_button_three);
         this.e = findViewById(R.id.bottom_placeholder);
-        int l = (((ii.l(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
-        int l2 = (((ii.l(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
+        int l = (((ri.l(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
+        int l2 = (((ri.l(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
     }
 
     public void a() {

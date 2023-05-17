@@ -10,7 +10,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClass;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaPackage;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaPackage extends ReflectJavaElement implements JavaPackage {
     public final FqName fqName;
 

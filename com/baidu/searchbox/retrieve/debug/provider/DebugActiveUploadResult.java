@@ -11,7 +11,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadResult;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DebugActiveUploadResult implements IActiveUploadResult {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String SOURCE = "test";

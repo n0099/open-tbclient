@@ -1,72 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nz2;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
-/* loaded from: classes5.dex */
-public class j64 implements Interceptor {
+import java.net.MalformedURLException;
+@Service
+/* loaded from: classes6.dex */
+public class j64 implements nq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nz2.b a;
-    public final dz2 b;
-
-    /* loaded from: classes5.dex */
-    public class a implements dz2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j64 a;
-
-        public a(j64 j64Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j64Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j64Var;
-        }
-
-        @Override // com.baidu.tieba.dz2
-        public void a(long j, long j2, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-                if (this.a.a == null) {
-                    if (ho1.a) {
-                        Log.e("onProgress", "DownloadProgressInterceptor.mIProgressCallback == null");
-                    }
-                } else if (j2 == -1 && j != 0) {
-                    this.a.a.b(0, j, j2);
-                } else if (j2 > 52428800) {
-                    this.a.a.a(j2);
-                    this.a.a = null;
-                } else if (j2 > 0 && j <= j2 && j != 0) {
-                    int floor = (int) Math.floor((100 * j) / j2);
-                    if (floor <= 100) {
-                        this.a.a.b(floor, j, j2);
-                    }
-                } else {
-                    this.a.a.c(j, j2);
-                    this.a.a = null;
-                }
-            }
-        }
-    }
 
     public j64() {
         Interceptable interceptable = $ic;
@@ -78,27 +24,45 @@ public class j64 implements Interceptor {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new a(this);
     }
 
-    public void c(nz2.b bVar) {
+    @Override // com.baidu.tieba.nq1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.a = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c34.g();
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
+    @Override // com.baidu.tieba.nq1
+    public boolean b() {
+        InterceptResult invokeV;
+        m82 m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (g93.M() != null && g93.M().w0()) {
+                p82 V = tu2.U().V();
+                if (V == null || (m = V.m()) == null || !(m instanceof d54)) {
+                    return true;
+                }
+                return ((d54) m).G3();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nq1
+    public String c(String str) throws MalformedURLException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            Response proceed = chain.proceed(chain.request());
-            return proceed.newBuilder().body(new gz2(proceed.body(), this.b)).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return c34.d(str);
         }
-        return (Response) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

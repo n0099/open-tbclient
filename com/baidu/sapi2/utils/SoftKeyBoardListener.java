@@ -6,20 +6,20 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import com.baidu.sapi2.NoProguard;
 import java.io.PrintStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SoftKeyBoardListener implements NoProguard {
     public View a;
     public int b;
     public OnSoftKeyBoardChangeListener c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnSoftKeyBoardChangeListener extends NoProguard {
         void keyBoardHide(int i);
 
         void keyBoardShow(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public a() {
         }

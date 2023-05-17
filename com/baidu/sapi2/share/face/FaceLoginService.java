@@ -18,7 +18,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceLoginService {
     public static final int FACE_SHARE_V2_MAX_ACCOUNT_SIZE = 10;
     public static final String KEY_FACE_LOGIN_LIVINGUNAMES = "livingunames";

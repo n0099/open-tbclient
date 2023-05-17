@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.CancelForbiddenForumResMsg;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class sg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
 
     public sg9() {
         Interceptable interceptable = $ic;
@@ -26,28 +28,28 @@ public class sg9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        b();
     }
 
-    public void a(String str) {
+    public static sg9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM);
-            httpMessage.addParam("forum_id", str);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            sg9 sg9Var = new sg9();
+            jSONObject.optString("brand_name");
+            sg9Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            sg9Var.b = jSONObject.optString("button_scheme");
+            sg9Var.c = jSONObject.optString("cmd_scheme");
+            jSONObject.optString("icon");
+            sg9Var.d = jSONObject.optString("operate_recommend_reason");
+            sg9Var.e = jSONObject.optLong("trans_animation_delay", 0L);
+            sg9Var.f = jSONObject.optInt("layout_upgrade", 0);
+            return sg9Var;
         }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANCEL_FORBIDDEN_FORUM, TbConfig.SERVER_ADDRESS + TbConfig.URL_CANCEL_FORBIDDEN_FORUM);
-            tbHttpMessageTask.setResponsedClass(CancelForbiddenForumResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
+        return (sg9) invokeL.objValue;
     }
 }

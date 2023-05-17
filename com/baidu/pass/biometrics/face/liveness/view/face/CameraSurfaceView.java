@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CameraSurfaceView extends SurfaceView {
     public static final String e = "CameraPreview";
     public static final int f = 480;
@@ -25,7 +25,7 @@ public class CameraSurfaceView extends SurfaceView {
     public Point c;
     public Path d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public int a;
         public int b;

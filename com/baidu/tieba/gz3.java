@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.manage.Download;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,33 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class gz3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class gz3 implements o64 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "hasDownloadApk";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public long d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947811177, "Lcom/baidu/tieba/gz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947811177, "Lcom/baidu/tieba/gz3;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947811177, "Lcom/baidu/tieba/gz3;")) == null) {
+            return;
         }
-        e = ho1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947811177, "Lcom/baidu/tieba/gz3;");
+        }
     }
 
     public gz3() {
@@ -56,136 +49,48 @@ public class gz3 {
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = System.currentTimeMillis();
+        this.a = "com.baidu.gamenow";
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public gz3(@NonNull Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = "";
-        this.c = "";
-        this.d = System.currentTimeMillis();
-        this.a = download.getUrl();
-        this.b = download.getKeyByUser();
-        String fromParam = download.getFromParam();
-        if (!TextUtils.isEmpty(fromParam)) {
-            try {
-                JSONObject jSONObject = new JSONObject(fromParam);
-                this.c = jSONObject.optString("apk_id");
-                this.d = jSONObject.optLong("download_time", System.currentTimeMillis());
-            } catch (JSONException e2) {
-                if (e) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!Environment.getExternalStorageState().equals("mounted")) {
-                return null;
-            }
-            String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public gz3 a(String str) {
+    @Override // com.baidu.tieba.o64
+    public boolean a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (gz3) invokeL.objValue;
-    }
-
-    public gz3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (gz3) invokeL.objValue;
-    }
-
-    public gz3 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (gz3) invokeL.objValue;
-    }
-
-    public Download b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("apk_id", this.c);
-                jSONObject.put("download_time", this.d);
-            } catch (JSONException e2) {
-                if (e) {
-                    e2.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (!(obj instanceof Download)) {
+                return false;
             }
-            download.setFromParam(jSONObject.toString());
-            download.setMimetype("application/vnd.android.package-archive");
-            download.setWifiOnly(false);
-            String d = d();
-            if (!TextUtils.isEmpty(d)) {
-                download.setSavedPathForUser(d);
+            Download download = (Download) obj;
+            if (TextUtils.equals(kz3.a, download.getKeyByUser())) {
+                return true;
             }
-            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return download;
+            return TextUtils.isEmpty(gm3.d(download.getFromParam()).optString("apk_id"));
         }
-        return (Download) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.o64
+    public void b(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        oz3 oz3Var = new oz3((Download) obj);
+        c04.n().f("reallyDownloaded", new b04(), oz3Var.m(), oz3Var.j(), oz3Var.l());
+    }
+
+    @Override // com.baidu.tieba.o64
+    public void c(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) != null) || !(obj instanceof Download)) {
+            return;
+        }
+        Download download = (Download) obj;
+        oz3 oz3Var = new oz3(download);
+        c04.n().f("statusInstalled", new b04(), download.getKeyByUser(), oz3Var.j(), oz3Var.l());
+        if (TextUtils.equals(oz3Var.m(), this.a)) {
+            uh3.a().putBoolean(b, true);
+            c04.n().p(13, oz3Var.m(), oz3Var.h(), oz3Var.l());
+        }
     }
 }

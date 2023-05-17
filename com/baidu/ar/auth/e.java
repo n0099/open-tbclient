@@ -3,7 +3,6 @@ package com.baidu.ar.auth;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -53,7 +52,7 @@ public class e {
 
     public static byte[] a(byte[] bArr, byte[] bArr2) {
         int i = 0;
-        PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(bArr, 0)));
+        PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(bArr, 0)));
         Cipher cipher = Cipher.getInstance("RSA/None/PKCS1Padding");
         cipher.init(2, generatePublic);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

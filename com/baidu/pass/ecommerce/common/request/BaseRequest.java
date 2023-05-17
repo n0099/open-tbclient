@@ -14,13 +14,14 @@ import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import java.net.HttpCookie;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseRequest {
     public static final String CLIENT = "android";
     public static final String CLIENT_FROM = "native";
@@ -38,7 +39,7 @@ public abstract class BaseRequest {
     public long OPTION_NET_LOADING_LIMIT_TIME = 300;
     public HttpHashMapWrap paramsMap = new HttpHashMapWrap() { // from class: com.baidu.pass.ecommerce.common.request.BaseRequest.1
         {
-            put("client", "android");
+            put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
             put("clientfrom", "native");
             put("tpl", BaseRequest.this.configuration.tpl);
             if (BaseRequest.this.addressManageDTO != null) {

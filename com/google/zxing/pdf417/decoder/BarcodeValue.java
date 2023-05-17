@@ -4,7 +4,7 @@ import com.google.zxing.pdf417.PDF417Common;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BarcodeValue {
     public final Map<Integer, Integer> values = new HashMap();
 

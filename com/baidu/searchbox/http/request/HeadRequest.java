@@ -3,7 +3,7 @@ package com.baidu.searchbox.http.request;
 import com.baidu.searchbox.http.AbstractHttpManager;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
     @Override // com.baidu.searchbox.http.request.HttpRequest
     public RequestBody buildOkRequestBody() {
@@ -20,7 +20,7 @@ public class HeadRequest extends HttpRequest<HeadRequestBuilder> {
     public void initExtraHttpRequest(HeadRequestBuilder headRequestBuilder) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HeadRequestBuilder extends HttpRequestBuilder<HeadRequestBuilder> {
         public HeadRequestBuilder(AbstractHttpManager abstractHttpManager) {
             super(abstractHttpManager);

@@ -7,14 +7,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.appcompat.widget.AppCompatEditText;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ol3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.xm3;
+/* loaded from: classes4.dex */
 public class ClearableEditText extends AppCompatEditText {
-    public static final int b = ol3.g(10.0f);
+    public static final int b = xm3.g(10.0f);
     public Drawable a;
 
     public final void init() {
-        this.a = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080198);
+        this.a = getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801b0);
     }
 
     public ClearableEditText(Context context) {

@@ -1,5 +1,5 @@
 package com.google.zxing.common.reedsolomon;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class GenericGFPoly {
     public final int[] coefficients;
     public final GenericGF field;

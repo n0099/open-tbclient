@@ -1,25 +1,19 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
-/* loaded from: classes4.dex */
-public class goa implements UBCCloudConfigObserver {
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class goa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static ArrayList<Integer> a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,58 +29,33 @@ public class goa implements UBCCloudConfigObserver {
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        ArrayList<Integer> arrayList = new ArrayList<>(4);
+        a = arrayList;
+        arrayList.add(10000);
+        a.add(10001);
+        a.add(10002);
+        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
+        a.add(-1);
     }
 
-    public goa() {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = uoa.a();
             }
+            if (TextUtils.isEmpty(b)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            if (b.toUpperCase().contains("HUAWEI")) {
+                return 10001;
+            }
+            if (!b.toUpperCase().contains(RomUtils.ROM_XIAOMI)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            return 10002;
         }
-    }
-
-    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
-    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
-        String optString;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            if (a) {
-                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
-                    return;
-                }
-                return;
-            }
-            if (jSONObject == null) {
-                optString = "0";
-            } else {
-                try {
-                    optString = jSONObject.optString("version_asc");
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
-                }
-            }
-            if (!"0".equals(optString)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ((eoa) ServiceManager.getService(eoa.a)).b(new JSONObject(str), z);
-        }
+        return invokeV.intValue;
     }
 }

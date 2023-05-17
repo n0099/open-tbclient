@@ -8,7 +8,7 @@ import com.kwad.sdk.api.core.IProgressRemoteView;
 import com.kwad.sdk.api.core.RemoteViewBuilder;
 import com.kwad.sdk.service.ServiceProvider;
 import com.kwad.sdk.service.kwai.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public IProgressRemoteView Xn;
 

@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fc extends XMPushService.j {
     public final /* synthetic */ fb a;
 
@@ -13,13 +13,13 @@ public class fc extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "Handling bind stats";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a  reason: collision with other method in class */
-    public void mo393a() {
+    public void mo412a() {
         this.a.c();
     }
 }

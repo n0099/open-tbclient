@@ -2,19 +2,19 @@ package com.baidu.swan.apps.commonsync;
 
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.tieba.x42;
+import com.baidu.tieba.g62;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CommonSyncServerData implements Serializable, NoProGuard {
     public int count = 0;
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class MetaItemInfo implements NoProGuard {
         public String appKey;
         public String appName;
@@ -51,7 +51,7 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
                     metaItemInfo.appKey = optJSONObject.getString("AppKey");
                     metaItemInfo.payProtected = optJSONObject.getInt("PayProtected");
                 } catch (JSONException e) {
-                    x42.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
+                    g62.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
                     metaItemInfo = null;
                 }
                 if (metaItemInfo != null) {

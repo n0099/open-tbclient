@@ -1,5 +1,5 @@
 package com.baidu.searchbox.net.update.v2;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActionData<T> {
     public T data;
     public String traceId;

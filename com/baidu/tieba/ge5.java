@@ -1,136 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.inputtool.InputView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class ge5 extends ud5 {
+import org.json.JSONObject;
+import tbclient.UserTaskInfo;
+/* loaded from: classes5.dex */
+public class ge5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int u;
-    public static final int[] v;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputView t;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947791058, "Lcom/baidu/tieba/ge5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947791058, "Lcom/baidu/tieba/ge5;");
-                return;
-            }
-        }
-        u = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds26);
-        v = new int[]{4, 17, 24, 3, 9, 6, 44};
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge5(Context context, boolean z) {
-        super(context, (String) null, 3);
+    public ge5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        i(context, z);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ge5(Context context, boolean z, boolean z2) {
-        super(context, (String) null, 3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        i(context, z);
-        InputView inputView = this.t;
-        if (inputView != null) {
-            inputView.setNeedFaceMaxCount(z2);
         }
     }
 
-    public SpanGroupEditText g() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.t;
+            return this.f;
         }
-        return (SpanGroupEditText) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public List<AtSelectData> h() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.t.getSpanGroupManager().w();
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void i(Context context, boolean z) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
-            this.o = false;
-            this.n = 2;
-            this.p = v;
-            InputView inputView = new InputView(context, z);
-            this.t = inputView;
-            this.m = inputView;
-            RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -1);
-            int i = u;
-            ((LinearLayout.LayoutParams) layoutParams).topMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i;
-            ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
-            ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-            ((View) this.m).setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void j(boolean z) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            ((InputView) this.m).setIsOnlyLocalEmotion(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optLong("id");
+        this.a = jSONObject.optString("name");
+        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+        this.c = jSONObject.optString("task_icon_url");
+        this.d = jSONObject.optInt("status");
+        jSONObject.optInt("target_num");
+        jSONObject.optInt("curr_num");
+        jSONObject.optInt("task_type");
+        this.e = jSONObject.optInt("weight");
+        this.f = jSONObject.optString("act_type");
+        this.g = jSONObject.optString("target_scheme");
+    }
+
+    public void i(UserTaskInfo userTaskInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userTaskInfo) != null) || userTaskInfo == null) {
+            return;
+        }
+        userTaskInfo.id.longValue();
+        this.a = userTaskInfo.name;
+        this.b = userTaskInfo.brief;
+        this.c = userTaskInfo.task_icon_url;
+        this.d = userTaskInfo.status.intValue();
+        userTaskInfo.target_num.intValue();
+        userTaskInfo.curr_num.intValue();
+        userTaskInfo.task_type.intValue();
+        this.e = userTaskInfo.weight.intValue();
+        this.f = userTaskInfo.act_type;
+        this.g = userTaskInfo.target_scheme;
     }
 }

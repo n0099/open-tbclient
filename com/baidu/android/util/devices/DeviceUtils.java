@@ -17,6 +17,7 @@ import com.baidu.android.util.devices.IDevices;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1021,7 +1022,7 @@ public class DeviceUtils implements IDevices {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "hw_sc.build.os.version");
+                return (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "hw_sc.build.os.version");
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "";

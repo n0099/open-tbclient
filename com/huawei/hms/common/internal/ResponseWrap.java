@@ -2,7 +2,6 @@ package com.huawei.hms.common.internal;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.JsonUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResponseWrap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResponseWrap";
@@ -66,7 +65,7 @@ public class ResponseWrap {
                 this.responseHeader.setSrvName(JsonUtil.getStringValue(jSONObject, "srv_name"));
                 this.responseHeader.setApiName(JsonUtil.getStringValue(jSONObject, "api_name"));
                 this.responseHeader.setAppID(JsonUtil.getStringValue(jSONObject, "app_id"));
-                this.responseHeader.setPkgName(JsonUtil.getStringValue(jSONObject, EmotionResourceInfo.JSON_KEY_PKG_NAME));
+                this.responseHeader.setPkgName(JsonUtil.getStringValue(jSONObject, "pkg_name"));
                 this.responseHeader.setSessionId(JsonUtil.getStringValue(jSONObject, "session_id"));
                 this.responseHeader.setTransactionId(JsonUtil.getStringValue(jSONObject, CommonCode.MapKey.TRANSACTION_ID));
                 this.responseHeader.setResolution(JsonUtil.getStringValue(jSONObject, CommonCode.MapKey.HAS_RESOLUTION));
@@ -113,7 +112,7 @@ public class ResponseWrap {
                 jSONObject.put("srv_name", this.responseHeader.getSrvName());
                 jSONObject.put("api_name", this.responseHeader.getApiName());
                 jSONObject.put("app_id", this.responseHeader.getAppID());
-                jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, this.responseHeader.getPkgName());
+                jSONObject.put("pkg_name", this.responseHeader.getPkgName());
                 jSONObject.put(CommonCode.MapKey.TRANSACTION_ID, this.responseHeader.getTransactionId());
                 jSONObject.put(CommonCode.MapKey.HAS_RESOLUTION, this.responseHeader.getResolution());
                 String sessionId = this.responseHeader.getSessionId();

@@ -1,104 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class eh3 {
+/* loaded from: classes5.dex */
+public class eh3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947734297, "Lcom/baidu/tieba/eh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947734297, "Lcom/baidu/tieba/eh3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eh3(da3 da3Var) {
+        super(da3Var, "/swanAPI/getStorageInfo");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File c = c();
-            if (c.exists()) {
-                bo4.j(c);
-            }
-        }
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return lg3.a().getLong("aiapps_cur_debug_ver_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new File(ps2.d().get(0).a, "/aiapps_debug_swan_core/");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (!c.exists()) {
-                c.mkdirs();
-            }
-            return new File(c, "debugSwanCore.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            File file = new File(c().getPath(), "pkginfo.json");
-            if (!file.exists()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
                 return false;
             }
-            JSONObject jSONObject = null;
+            pg3 f0 = g93Var.f0();
+            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject = new JSONObject(bo4.E(file));
+                jSONObject.put(SavedStateHandle.KEYS, new JSONArray((Collection) f0.g().a()));
+                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_CURRENT_SIZE, f0.e() / 1024);
+                jSONObject.put("limitSize", f0.n() / 1024);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
             } catch (JSONException e) {
-                if (a) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "JSONException");
+                if (db3.b) {
                     e.printStackTrace();
                 }
-            }
-            if (jSONObject == null) {
                 return false;
             }
-            String optString = jSONObject.optString("version_name");
-            if (!TextUtils.isEmpty(optString)) {
-                lg3.a().putLong("aiapps_cur_debug_ver_key", ml3.b(optString));
-                return true;
-            }
-            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

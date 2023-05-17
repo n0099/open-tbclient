@@ -1,12 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.tieba.vs2;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,53 +19,170 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class sg2 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class sg2 extends og2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static String c;
-    public static String d;
+    public static final boolean o;
+    public static final Object p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    @Override // com.baidu.tieba.qg2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends EventTargetImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
+        public qg2 a;
+        public hl2 b;
+        @V8JavascriptField
+        public pg2 env;
 
-        public a(Bundle bundle) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qg2 qg2Var, String str) {
+            super(qg2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bundle};
+                Object[] objArr = {qg2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((JSRuntime) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = bundle;
+            this.a = qg2Var;
+            pg2 pg2Var = new pg2();
+            this.env = pg2Var;
+            pg2Var.basePath = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @JavascriptInterface
+        @SuppressLint({"BDThrowableCheck"})
+        public String getAPIs(int i) {
+            InterceptResult invokeI;
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vs2.a aVar = (vs2.a) new vs2.a().s(this.a);
-                af3 af3Var = new af3();
-                af3Var.a = qe3.n(0);
-                af3Var.b = "launch";
-                af3Var.e = "repeatlaunch";
-                af3Var.a("launchInterval", Long.valueOf(aVar.l("launch_interval", -1L)));
-                af3Var.j(aVar);
-                af3Var.d(aVar.s0().getString(UBCCloudControlProcessor.UBC_KEY));
-                af3Var.b(qe3.k(aVar.W()));
-                qe3.onEvent(af3Var);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (sg2.o) {
+                    if (f53.p()) {
+                        str = tl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                    } else {
+                        str = "";
+                    }
+                    g62.b("SwanAppV8Engine", "getAPIs res:" + str);
+                    return str;
+                }
+                String d = tl3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                g62.b("SwanAppV8Engine", "getAPIs description:" + d);
+                if (TextUtils.isEmpty(d)) {
+                    if (!sg2.o) {
+                        kl3.c(tl3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d, Boolean.TRUE)));
+                    } else {
+                        tl3.i();
+                        throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d));
+                    }
+                } else {
+                    kl3.d();
+                }
+                return d;
+            }
+            return (String) invokeI.objValue;
+        }
+
+        @JavascriptInterface
+        public String getDevToolsResponse() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (sg2.o) {
+                    Log.d("SwanAppV8Engine", "getDevToolsResponse = " + sg2.q);
+                }
+                return sg2.q;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public String getEnvVariables() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return qt2.a(this.a);
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public hl2 getFileSystemManager() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.b == null) {
+                    this.b = new hl2((og2) this.a);
+                }
+                return this.b;
+            }
+            return (hl2) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public JSONObject getNACanIUseMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                JSONObject b = h03.b();
+                g62.k("SwanAppV8Engine", "getNACanIUseMap - " + b.toString());
+                return b;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public boolean lockMaster() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                g62.k("SwanAppV8Engine", "lockMaster");
+                synchronized (sg2.p) {
+                    try {
+                        try {
+                            sg2.p.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @JavascriptInterface
+        public void setDevToolsResponse(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                if (sg2.o) {
+                    Log.d("SwanAppV8Engine", "setDevToolsResponse = " + str);
+                }
+                sg2.q = str;
             }
         }
     }
@@ -78,56 +200,42 @@ public class sg2 {
                 return;
             }
         }
-        a = ho1.a;
+        o = qp1.a;
+        p = new Object();
+        q = "";
     }
 
-    public static long a() {
+    @Override // com.baidu.tieba.og2
+    @NonNull
+    public EventTarget A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return System.currentTimeMillis() - b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            a aVar = new a(this, this.b.getInitBasePath());
+            aVar.env.config = mi3.b();
+            return aVar;
         }
-        return invokeV.longValue;
+        return (EventTarget) invokeV.objValue;
     }
 
-    public static void c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sg2(@NonNull String str, @NonNull lh2 lh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, lh2Var, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            b = System.currentTimeMillis();
-        }
-    }
-
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - b;
-            if (currentTimeMillis < 800 && TextUtils.equals(c, str) && TextUtils.equals(d, str2)) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, lh2Var, v8ThreadDelegatePolicy};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (lh2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (a && z) {
-                Log.d("SeriesLaunchChecker", "CurrentLaunchInterval:" + currentTimeMillis + ",PreventSeriesLaunchInterval:800");
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(bundle), "SeriesLaunchChecker", 3);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            c = str;
-            d = str2;
         }
     }
 }

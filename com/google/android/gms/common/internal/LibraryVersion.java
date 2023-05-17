@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LibraryVersion {
     public static final GmsLogger zza = new GmsLogger("LibraryVersion", "");
     public static LibraryVersion zzb = new LibraryVersion();

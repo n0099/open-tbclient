@@ -17,7 +17,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
     public float mAspectRatio;

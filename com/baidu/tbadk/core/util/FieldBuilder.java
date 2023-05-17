@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.util;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FieldBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EQ = "=";
@@ -48,7 +48,7 @@ public class FieldBuilder {
 
     public void append(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) && !hi.isEmpty(str) && obj != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, obj) == null) && !qi.isEmpty(str) && obj != null) {
             try {
                 if (this.builder == null) {
                     StringBuilder sb = new StringBuilder();

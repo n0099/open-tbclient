@@ -2,6 +2,7 @@ package com.meizu.cloud.pushsdk.c.g;
 
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.EOFException;
 import java.io.IOException;
@@ -10,7 +11,7 @@ import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements c, d, Cloneable {
     public static final byte[] c = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     public j a;
@@ -353,7 +354,7 @@ public final class b implements c, d, Cloneable {
             }
             z = true;
         }
-        if (j >= 100000000) {
+        if (j >= CoolPraiseView.BILLION) {
             i2 = j < BasicLabelFormatter.TRILLION ? j < 10000000000L ? j < 1000000000 ? 9 : 10 : j < 100000000000L ? 11 : 12 : j < 1000000000000000L ? j < 10000000000000L ? 13 : j < 100000000000000L ? 14 : 15 : j < 100000000000000000L ? j < 10000000000000000L ? 16 : 17 : j < 1000000000000000000L ? 18 : 19;
         } else if (j >= 10000) {
             i2 = j < 1000000 ? j < 100000 ? 5 : 6 : j < 10000000 ? 7 : 8;

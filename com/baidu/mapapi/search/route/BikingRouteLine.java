@@ -12,7 +12,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable {
     public static final Parcelable.Creator<BikingRouteLine> CREATOR = new a();
 
@@ -21,7 +21,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BikingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<BikingStep> CREATOR = new b();
         public int d;

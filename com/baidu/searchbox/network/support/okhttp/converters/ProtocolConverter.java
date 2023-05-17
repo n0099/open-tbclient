@@ -2,7 +2,7 @@ package com.baidu.searchbox.network.support.okhttp.converters;
 
 import com.baidu.searchbox.network.outback.core.Protocol;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ProtocolConverter {
     public static Protocol fromOks(okhttp3.Protocol protocol) {
         return Protocol.get(protocol.toString());

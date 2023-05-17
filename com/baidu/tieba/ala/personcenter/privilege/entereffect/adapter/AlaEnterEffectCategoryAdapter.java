@@ -11,19 +11,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fb6;
-import com.baidu.tieba.vm;
+import com.baidu.tieba.en;
+import com.baidu.tieba.rc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class AlaEnterEffectCategoryAdapter extends vm<fb6, ViewHolder> {
+/* loaded from: classes4.dex */
+public class AlaEnterEffectCategoryAdapter extends en<rc6, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,14 +48,14 @@ public class AlaEnterEffectCategoryAdapter extends vm<fb6, ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0909bf);
-            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901d1);
+            this.a = (TextView) getView().findViewById(R.id.obfuscated_res_0x7f0909e7);
+            this.b = getView().findViewById(R.id.obfuscated_res_0x7f0901de);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, fb6.b);
+        super(context, rc6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -85,26 +85,26 @@ public class AlaEnterEffectCategoryAdapter extends vm<fb6, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: t */
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00ee, (ViewGroup) null));
+            return new ViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d00f0, (ViewGroup) null));
         }
         return (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fb6 fb6Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rc6 rc6Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fb6Var, viewHolder})) == null) {
-            if (fb6Var != null) {
-                viewHolder.a.setText(fb6Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rc6Var, viewHolder})) == null) {
+            if (rc6Var != null) {
+                viewHolder.a.setText(rc6Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);

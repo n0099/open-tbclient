@@ -20,7 +20,7 @@ import com.huawei.hms.activity.BridgeActivity;
 import com.huawei.hms.api.BindingFailedResolution;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BinderAdapter implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BINDER_SYSTEM_ERROR = -1;
@@ -37,7 +37,7 @@ public class BinderAdapter implements ServiceConnection {
     public final String mService;
     public IBinder serviceBinder;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BinderCallBack {
         void onBinderFailed(int i);
 

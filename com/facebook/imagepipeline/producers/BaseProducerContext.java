@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BaseProducerContext implements ProducerContext {
     public static final Set<String> INITIAL_KEYS = ImmutableSet.of((Object[]) new String[]{"id", ProducerContext.ExtraKeys.SOURCE_URI});
     public static final String ORIGIN_SUBCATEGORY_DEFAULT = "default";

@@ -24,7 +24,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g implements m.a {
     public long a;
     public com.ss.android.downloadlib.addownload.b.e b;
@@ -32,7 +32,7 @@ public class g implements m.a {
     public e d;
     public b e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(DownloadInfo downloadInfo);
     }
@@ -41,7 +41,7 @@ public class g implements m.a {
     public void a(Message message) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends com.ss.android.socialbase.downloader.depend.a {
         public m a;
 

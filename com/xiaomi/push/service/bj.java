@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bj extends XMPushService.j {
     public final /* synthetic */ bg.b.c a;
 
@@ -14,13 +14,13 @@ public class bj extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "check peer job";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         bg a = bg.a();
         bg.b bVar = this.a.f942a;
         if (a.a(bVar.g, bVar.f938b).f929a == null) {

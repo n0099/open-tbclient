@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public class tp2 extends rl2<iq2> {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class tp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.rl2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
-    }
+    public long a;
+    public String b;
+    public int c;
 
     public tp2() {
         Interceptable interceptable = $ic;
@@ -36,26 +30,20 @@ public class tp2 extends rl2<iq2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
-        Object obj;
-        boolean z;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) != null) || (obj = command.obj) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("userId", this.a);
+                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
+                jSONObject.put("volumeLevel", this.c);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        ArrayList arrayList = (ArrayList) obj;
-        if (command.arg1 != 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        String str = (String) arrayList.get(0);
-        String f = tg3.l().f(str, (String) arrayList.get(1));
-        command.ret = iq2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
-        String str2 = command.what;
-        d(iq2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
+        return (JSONObject) invokeV.objValue;
     }
 }

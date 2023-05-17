@@ -1,45 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jk5 implements pj5<LiveStartClickDataEvent> {
+/* compiled from: ChatFloatEntranceService.java */
+/* loaded from: classes6.dex */
+public final /* synthetic */ class jk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jk5() {
+    public static kk5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (kk5) ServiceManager.getService(kk5.a);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pj5
-    /* renamed from: a */
-    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
-            if (liveStartClickDataEvent == null) {
-                return false;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (kk5) invokeV.objValue;
     }
 }

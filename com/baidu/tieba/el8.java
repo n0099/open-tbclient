@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class el8 implements FollowStatusService {
+import tbclient.HotForum.HotTopicList;
+/* loaded from: classes5.dex */
+public class el8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
 
     public el8() {
         Interceptable interceptable = $ic;
@@ -26,16 +29,39 @@ public class el8 implements FollowStatusService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.FollowStatusService
-    public void saveFollowStatus(boolean z, String str, String str2) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-            UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
-            aVar.a = true;
-            aVar.c = str;
-            aVar.d = z;
-            aVar.e = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new UpdateAttentionMessage(aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(HotTopicList hotTopicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) && hotTopicList != null) {
+            this.a = hotTopicList.topic_id.longValue();
+            this.b = hotTopicList.topic_name;
+            this.c = hotTopicList.tag.intValue();
         }
     }
 }

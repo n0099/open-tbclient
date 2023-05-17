@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.model.StubTypeMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StubType extends SimpleType implements StubTypeMarker {
     public final TypeConstructor constructor;
     public final boolean isMarkedNullable;

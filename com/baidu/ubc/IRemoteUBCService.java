@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IRemoteUBCService extends IInterface {
     void flowAddEvent(Flow flow, String str, String str2) throws RemoteException;
 
@@ -42,7 +42,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void uploadLocalDatas() throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.ubc.IRemoteUBCService";
@@ -69,7 +69,7 @@ public interface IRemoteUBCService extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements IRemoteUBCService {
             public static /* synthetic */ Interceptable $ic;
             public static IRemoteUBCService sDefaultImpl;
@@ -662,7 +662,7 @@ public interface IRemoteUBCService extends IInterface {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Default implements IRemoteUBCService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

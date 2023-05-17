@@ -1,71 +1,102 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedPicComponent;
-import tbclient.PicInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final String c;
 
-    public static final tx6 a(List<PicInfo> picInfoList, String schema, uy6 feedExtraData) {
-        InterceptResult invokeLLL;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, picInfoList, schema, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(picInfoList, "picInfoList");
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            ly6 ly6Var = new ly6();
-            ArrayList arrayList = new ArrayList();
-            for (PicInfo picInfo : picInfoList) {
-                iz6 iz6Var = new iz6();
-                iz6Var.a = picInfo.small_pic_url;
-                Integer num = picInfo.width;
-                Intrinsics.checkNotNullExpressionValue(num, "component.width");
-                iz6Var.b = num.intValue();
-                Integer num2 = picInfo.height;
-                Intrinsics.checkNotNullExpressionValue(num2, "component.height");
-                iz6Var.c = num2.intValue();
-                Double d = picInfo.crop_point_width_ratio;
-                Intrinsics.checkNotNullExpressionValue(d, "component.crop_point_width_ratio");
-                iz6Var.d = d.doubleValue();
-                Double d2 = picInfo.crop_point_height_ratio;
-                Intrinsics.checkNotNullExpressionValue(d2, "component.crop_point_height_ratio");
-                iz6Var.e = d2.doubleValue();
-                arrayList.add(iz6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            ly6Var.a = arrayList;
-            return new tx6(ly6Var, schema, vy6.b(feedExtraData, "image_click"), null, 8, null);
+            if (obj instanceof b07) {
+                b07 b07Var = (b07) obj;
+                return this.a == b07Var.a && Intrinsics.areEqual(this.b, b07Var.b) && Intrinsics.areEqual(this.c, b07Var.c);
+            }
+            return false;
         }
-        return (tx6) invokeLLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final void b(FeedPicComponent feedPicComponent, List<s17<?>> dataList, uy6 feedExtraData) {
-        boolean z;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, feedPicComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedPicComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<PicInfo> list = feedPicComponent.pics;
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a * 31;
+            String str = this.b;
+            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public b07(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            List<PicInfo> pics = feedPicComponent.pics;
-            Intrinsics.checkNotNullExpressionValue(pics, "pics");
-            String schema = feedPicComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            dataList.add(new t17(a(pics, schema, feedExtraData), "pic"));
         }
+        this.a = i;
+        this.b = str;
+        this.c = str2;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

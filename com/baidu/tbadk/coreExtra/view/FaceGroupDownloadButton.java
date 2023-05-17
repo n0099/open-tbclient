@@ -13,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(api = 21)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FaceGroupDownloadButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class FaceGroupDownloadButton extends View {
     public int h;
     public int i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -281,8 +281,8 @@ public class FaceGroupDownloadButton extends View {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Paint paint = new Paint(1);
             this.e = paint;
-            paint.setTextSize(ii.g(getContext(), R.dimen.T_X08));
-            this.g = ii.g(getContext(), R.dimen.L_X02);
+            paint.setTextSize(ri.g(getContext(), R.dimen.T_X08));
+            this.g = ri.g(getContext(), R.dimen.L_X02);
             e();
         }
     }

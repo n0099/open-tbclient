@@ -30,7 +30,7 @@ import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a implements c {
     public final Context a;
     public final PushNotificationBuilder b;

@@ -1,189 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.util.Log;
-import android.view.Surface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.afx.recode.OutputSurface;
-import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.FaceUnityUtils;
-import com.faceunity.gles.FullFrameRect;
-import com.faceunity.gles.Texture2dProgram;
-import com.faceunity.wrapper.faceunity;
-/* loaded from: classes4.dex */
-public class cz9 implements SurfaceTexture.OnFrameAvailableListener {
+import java.util.Date;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class cz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static int m;
-    public static int n;
-    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public SurfaceTexture a;
-    public Surface b;
-    public Object c;
-    public boolean d;
-    public Context e;
-    public String f;
-    public int g;
-    public int h;
-    public FullFrameRect i;
-    public FullFrameRect j;
-    public int k;
-    public final float[] l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947692199, "Lcom/baidu/tieba/cz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947692199, "Lcom/baidu/tieba/cz9;");
+    public static void a(ClientUpdateInfo clientUpdateInfo, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, clientUpdateInfo, str) == null) && clientUpdateInfo != null && !TextUtils.isEmpty(str)) {
+            if (!LooperBlockSwitch.getIsOn()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
                 return;
             }
-        }
-        o = new int[]{0, 0, 0};
-    }
-
-    public Surface d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (Surface) invokeV.objValue;
-    }
-
-    public cz9(Context context, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("is_force_update", clientUpdateInfo.mIsForceUpdate);
+                jSONObject.put("status", clientUpdateInfo.mStatus);
+                jSONObject.put("reverson", clientUpdateInfo.mReverson);
+                jSONObject.put("content_url", clientUpdateInfo.mContentUrl);
+                jSONObject.put("apk_md5_rsa", str);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-        }
-        this.c = new Object();
-        this.f = "normal";
-        this.l = new float[16];
-        this.e = context;
-        this.f = str;
-        this.g = i;
-        this.h = i2;
-        f();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                while (!this.d) {
-                    try {
-                        this.c.wait(500L);
-                        if (!this.d) {
-                            throw new RuntimeException("Surface frame wait timed out");
-                        }
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-                this.d = false;
-            }
-            b("before updateTexImage");
-            this.a.updateTexImage();
+            a35.p(TbadkCoreApplication.getInst().getApp(), "lcUpdateDialog", jSONObject);
         }
     }
 
-    public void e() {
+    public static void b(xb5 xb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.release();
-            this.b = null;
-            this.a = null;
-            FullFrameRect fullFrameRect = this.i;
-            if (fullFrameRect != null) {
-                fullFrameRect.release(false);
-                this.i = null;
-            }
-            faceunity.fuDestroyItem(n);
-            int[] iArr = o;
-            n = 0;
-            iArr[1] = 0;
-            faceunity.fuDestroyItem(m);
-            int[] iArr2 = o;
-            m = 0;
-            iArr2[0] = 0;
-            faceunity.fuOnDeviceLost();
-        }
-    }
-
-    public void b(String str) {
-        int glGetError;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
+        if ((interceptable != null && interceptable.invokeL(65537, null, xb5Var) != null) || xb5Var == null) {
             return;
         }
-        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
-        throw new RuntimeException(str + ": glError " + glGetError);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.updateTexImage();
-            this.a.getTransformMatrix(this.l);
-            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
-            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
-            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
-            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
+        VersionData u = xb5Var.u();
+        TbadkCoreApplication.getInst().setVersionData(u);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (u.forceUpdate()) {
+            if (xb5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0 && !LooperBlockSwitch.getIsOn()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, xb5Var.j())));
+                return;
+            }
+            return;
+        }
+        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
+        Long valueOf2 = Long.valueOf(new Date().getTime());
+        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && xb5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            TbSingleton.getInstance().setSyncModel(xb5Var);
+            if (TbSingleton.getInstance().hasPerformedFirstLoginTest() && !LooperBlockSwitch.getIsOn()) {
+                TbSingleton.getInstance();
+                TbSingleton.setExceptInsertAdDiaShow(true);
+                w06.d();
+            }
+            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
         }
     }
 
-    public final void f() {
+    public static void c(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
-            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
-            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
-            this.j = fullFrameRect;
-            this.k = fullFrameRect.createTextureObject();
-            this.a = new SurfaceTexture(this.k);
-            this.b = new Surface(this.a);
-            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
-            m = upFaceUnity;
-            o[0] = upFaceUnity;
-            this.a.setOnFrameAvailableListener(this);
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
+            return;
         }
-    }
-
-    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
-    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
-            Log.d(OutputSurface.TAG, "new frame available");
-            synchronized (this.c) {
-                if (!this.d) {
-                    this.d = true;
-                    this.c.notifyAll();
-                } else {
-                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
-                }
+        TbadkCoreApplication.getInst().setVersionData(versionData);
+        TbadkCoreApplication.getInst().refreshNewVersion(true);
+        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+            if (versionData.forceUpdate()) {
+                a(clientUpdateInfo, str);
+            } else if ((Long.valueOf(new Date().getTime()).longValue() - Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime()).longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
+                a(clientUpdateInfo, str);
             }
         }
     }

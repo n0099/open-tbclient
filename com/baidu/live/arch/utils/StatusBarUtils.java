@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatusBarUtils {
     public View actionBarView;
     public boolean lightStatusBar;
     public boolean transparentStatusBar;
     public Window window;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public View actionBarView;
         public boolean lightStatusBar = false;

@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.route;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.route.TransitRouteLine;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class p implements Parcelable.Creator<TransitRouteLine.TransitStep> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

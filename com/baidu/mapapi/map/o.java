@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class o implements Runnable {
     public final /* synthetic */ int a;
     public final /* synthetic */ int b;

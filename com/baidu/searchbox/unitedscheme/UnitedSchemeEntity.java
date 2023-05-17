@@ -6,10 +6,11 @@ import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class UnitedSchemeEntity implements Cloneable {
     public static final String UNITED_SCHEME = SchemeConfig.getSchemeHead() + "://";
     public boolean callbackInvoked;
+    public HashMap<String, String> mInvokeInfo;
     public boolean mOnlyVerify;
     public String mPageUrl;
     public HashMap<String, String> mParams;
@@ -23,12 +24,15 @@ public class UnitedSchemeEntity implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public UnitedSchemeEntity m44clone() {
+    public UnitedSchemeEntity m58clone() {
         Uri uri = this.mUri;
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(uri, this.mSource, UnitedSchemeUtility.getPaths(uri), (HashMap) this.mParams.clone());
         unitedSchemeEntity.originEntity = this;
         unitedSchemeEntity.callbackInvoked = this.callbackInvoked;
         unitedSchemeEntity.mReferUrl = this.mReferUrl;
+        unitedSchemeEntity.mOnlyVerify = this.mOnlyVerify;
+        unitedSchemeEntity.mPageUrl = this.mPageUrl;
+        unitedSchemeEntity.mInvokeInfo = this.mInvokeInfo;
         return unitedSchemeEntity;
     }
 
@@ -38,6 +42,10 @@ public class UnitedSchemeEntity implements Cloneable {
             return strArr[0];
         }
         return null;
+    }
+
+    public HashMap<String, String> getInvokeInfo() {
+        return this.mInvokeInfo;
     }
 
     public String getPageUrl() {
@@ -123,6 +131,10 @@ public class UnitedSchemeEntity implements Cloneable {
     public void resetUriAndPath(Uri uri) {
         this.mUri = uri;
         this.mPaths = UnitedSchemeUtility.getPaths(uri);
+    }
+
+    public void setInvokeInfo(HashMap<String, String> hashMap) {
+        this.mInvokeInfo = hashMap;
     }
 
     public void setOnlyVerify(boolean z) {

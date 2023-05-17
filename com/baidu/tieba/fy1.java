@@ -1,39 +1,40 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aw1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class fy1 extends dy1 {
+/* loaded from: classes5.dex */
+public class fy1 extends zx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
+    @Override // com.baidu.tieba.jx1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BrightnessApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PullDownRefreshApi" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements aw1.b {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fy1 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ fy1 b;
 
-        public a(fy1 fy1Var) {
+        public a(fy1 fy1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fy1Var};
+                Object[] objArr = {fy1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,41 +44,49 @@ public class fy1 extends dy1 {
                     return;
                 }
             }
-            this.a = fy1Var;
+            this.b = fy1Var;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.aw1.b
-        public xz1 a(x73 x73Var) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x73Var)) == null) {
-                float a = vh3.c().a(x73Var.w());
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", a);
-                    return new xz1(0, jSONObject);
-                } catch (JSONException e) {
-                    this.a.p("json put data fail", e, false);
-                    return xz1.c();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                p82 V = tu2.U().V();
+                if (V == null) {
+                    g62.c("PullDownRefreshApi", "manager is null");
+                    this.b.d(this.a, new g12(1001));
+                } else if (!(V.m() instanceof o82)) {
+                    g62.c("PullDownRefreshApi", "top fragment error");
+                    this.b.d(this.a, new g12(1001));
+                } else {
+                    o82 o82Var = (o82) V.m();
+                    if (o82Var.h0() == null) {
+                        g62.c("PullDownRefreshApi", "view is null");
+                        this.b.d(this.a, new g12(1001));
+                        return;
+                    }
+                    o82Var.h0().w(false);
+                    g62.i("PullDownRefreshApi", "refresh complete");
+                    this.b.d(this.a, new g12(0));
                 }
             }
-            return (xz1) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fy1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public fy1(@NonNull hx1 hx1Var) {
+        super(hx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
+            Object[] objArr = {hx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
+                super((hx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,13 +94,24 @@ public class fy1 extends dy1 {
         }
     }
 
-    public xz1 y() {
-        InterceptResult invokeV;
+    public g12 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getBrightness", false);
-            return k(true, new a(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#stopPullDownRefresh", false);
+            Pair<g12, JSONObject> s = s(str);
+            g12 g12Var = (g12) s.first;
+            if (!g12Var.isSuccess()) {
+                return g12Var;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                p("cb is empty", null, true);
+                return new g12(1001, "cb is empty");
+            }
+            an3.e0(new a(this, optString));
+            return g12.f();
         }
-        return (xz1) invokeV.objValue;
+        return (g12) invokeL.objValue;
     }
 }

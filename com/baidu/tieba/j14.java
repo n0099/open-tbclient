@@ -1,37 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class j14 {
+import java.util.HashMap;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class j14 implements bv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b73 a;
+    public HashMap<String, Boolean> a;
+    public i14 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    /* loaded from: classes6.dex */
+    public class a implements km2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-        public final /* synthetic */ DialogInterface.OnClickListener e;
-        public final /* synthetic */ j14 f;
+        public final /* synthetic */ km2 a;
+        public final /* synthetic */ j14 b;
 
-        public a(j14 j14Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+        public a(j14 j14Var, km2 km2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j14Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
+                Object[] objArr = {j14Var, km2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,27 +40,25 @@ public class j14 {
                     return;
                 }
             }
-            this.f = j14Var;
-            this.a = activity;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-            this.e = onClickListener;
+            this.b = j14Var;
+            this.a = km2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.km2
+        public void onFail(int i, @Nullable String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f.a != null && this.f.a.isShowing()) {
-                    this.f.a.dismiss();
-                }
-                Activity activity = this.a;
-                if (activity == null || activity.isFinishing()) {
-                    return;
-                }
-                b73.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
-                this.f.a = d.X();
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.b.g(false);
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.km2
+        public void onSuccess(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                this.b.g(true);
+                this.a.onSuccess(jSONObject);
             }
         }
     }
@@ -76,42 +73,81 @@ public class j14 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new i14();
     }
 
-    public void e() {
-        b73 b73Var;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (b73Var = this.a) != null) {
-            if (b73Var.isShowing()) {
-                this.a.dismiss();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            g93 b0 = g93.b0();
+            if (b0 != null) {
+                return b0.O();
             }
-            this.a = null;
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final b73.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
+    public boolean f() {
+        InterceptResult invokeV;
+        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
-            b73.a aVar = new b73.a(activity);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new fn3());
-            aVar.m(z);
-            aVar.Q(R.color.obfuscated_res_0x7f06093f);
-            aVar.f(true);
-            aVar.P(str2, onClickListener);
-            return aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
+                return false;
+            }
+            return bool.booleanValue();
         }
-        return (b73.a) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.bv1
+    @Nullable
+    public g12 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
-            rl3.a0(new a(this, activity, str, str2, z, onClickListener));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, km2Var)) == null) {
+            if (f()) {
+                km2Var.onSuccess(null);
+                return null;
+            }
+            return this.b.a(jSONObject, c(km2Var));
+        }
+        return (g12) invokeLLL.objValue;
+    }
+
+    public final km2 c(@NonNull km2 km2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, km2Var)) == null) {
+            return new a(this, km2Var);
+        }
+        return (km2) invokeL.objValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return TextUtils.equals(this.b.a, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            String d = d();
+            if (TextUtils.isEmpty(d)) {
+                return;
+            }
+            this.a.put(d, Boolean.valueOf(z));
         }
     }
 }

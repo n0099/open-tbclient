@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NewUrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME = "com.baidu.tieba://";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Jump {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String JUMP_TO_TBWEBVIEW = "com.baidu.tieba://tbwebview";

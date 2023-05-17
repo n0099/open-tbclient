@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DiskEmotionOperate extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
     public DiskPicHeader mDiskPicHeader;
     public BitmapFactory.Options mOptions;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DiskPicHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static byte GIF_FLAG = Byte.MIN_VALUE;
@@ -226,7 +226,7 @@ public class DiskEmotionOperate extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
             super.setData(bArr);
-            if (!isGif() && ii.D(bArr)) {
+            if (!isGif() && ri.D(bArr)) {
                 setGif(true);
             }
         }

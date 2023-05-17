@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static k a = null;

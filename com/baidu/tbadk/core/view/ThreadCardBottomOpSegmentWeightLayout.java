@@ -9,19 +9,19 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r55;
+import com.baidu.tieba.a75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.g u0;
+    public AgreeView.g v0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AgreeView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.u0 = new a(this);
+        this.v0 = new a(this);
     }
 
     public final void T(boolean z) {
@@ -113,7 +113,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.u0 = new a(this);
+        this.v0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -121,9 +121,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.K();
-            this.e.setVisibilityListener(this.u0);
+            this.e.setVisibilityListener(this.v0);
             this.e.A(true);
-            r55.b(this);
+            a75.b(this);
         }
     }
 

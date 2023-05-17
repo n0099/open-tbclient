@@ -719,14 +719,14 @@ public class AccessibilityNodeInfoCompat {
         SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
         if (spansFromViewTags == null) {
             SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-            view2.setTag(R.id.obfuscated_res_0x7f09221e, sparseArray);
+            view2.setTag(R.id.obfuscated_res_0x7f092282, sparseArray);
             return sparseArray;
         }
         return spansFromViewTags;
     }
 
     private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view2) {
-        return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f09221e);
+        return (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092282);
     }
 
     public static AccessibilityNodeInfoCompat obtain(View view2) {
@@ -1709,7 +1709,7 @@ public class AccessibilityNodeInfoCompat {
             removeCollectedSpans(view2);
             ClickableSpan[] clickableSpans = getClickableSpans(charSequence);
             if (clickableSpans != null && clickableSpans.length > 0) {
-                getExtras().putInt(SPANS_ACTION_ID_KEY, R.id.obfuscated_res_0x7f090034);
+                getExtras().putInt(SPANS_ACTION_ID_KEY, R.id.obfuscated_res_0x7f090041);
                 SparseArray<WeakReference<ClickableSpan>> orCreateSpansFromViewTags = getOrCreateSpansFromViewTags(view2);
                 for (int i2 = 0; clickableSpans != null && i2 < clickableSpans.length; i2++) {
                     int idForClickableSpan = idForClickableSpan(clickableSpans[i2], orCreateSpansFromViewTags);

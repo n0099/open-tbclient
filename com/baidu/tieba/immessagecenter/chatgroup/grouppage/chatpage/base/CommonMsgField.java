@@ -7,11 +7,11 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.es5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.AbilityEffectItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BubbleInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ExcellentInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.UserExtraInfo;
-import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CommonMsgField extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_ANDROID = "android";
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @vq5(deserialize = false, serialize = false)
+    @es5(deserialize = false, serialize = false)
     public AbilityEffectItem abilityEffectItem;
     @Nullable
     @SerializedName("bubble_info")
@@ -46,13 +46,13 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public String from;
     public boolean isLocalMsgId;
     public int level;
-    @vq5(serialize = false)
     @SerializedName("msg_id")
+    @es5(serialize = false)
     public long msgId;
-    @vq5(serialize = false)
     @SerializedName("msg_key")
+    @es5(serialize = false)
     public String msgKey;
-    @vq5(serialize = false)
+    @es5(serialize = false)
     public String portrait;
     @Nullable
     @SerializedName("quick_operate")
@@ -60,18 +60,25 @@ public class CommonMsgField extends OrmObject implements Serializable {
     @SerializedName("robot_role")
     public int robotRole;
     public int role;
-    @vq5(serialize = false)
     @SerializedName("room_id")
+    @es5(serialize = false)
     public long roomId;
+    @Nullable
+    @SerializedName("second_data")
+    public List<EnableDegradeUserData> secondDegradeUserDataList;
+    @Nullable
+    @SerializedName("task_info")
+    @es5(serialize = false)
+    public TaskInfo taskInfo;
     public int type;
     @Nullable
     @SerializedName("user_extra_info")
     public UserExtraInfo userExtraInfo;
-    @vq5(serialize = false)
     @SerializedName("user_id")
+    @es5(serialize = false)
     public long userId;
-    @vq5(serialize = false)
     @SerializedName("user_name")
+    @es5(serialize = false)
     public String userName;
     @Nullable
     public String version;
@@ -240,10 +247,30 @@ public class CommonMsgField extends OrmObject implements Serializable {
         return invokeV.longValue;
     }
 
-    public int getType() {
+    @Nullable
+    public List<EnableDegradeUserData> getSecondDegradeUserDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.secondDegradeUserDataList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Nullable
+    public TaskInfo getTaskInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.taskInfo;
+        }
+        return (TaskInfo) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.type;
         }
         return invokeV.intValue;
@@ -253,7 +280,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public UserExtraInfo getUserExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.userExtraInfo;
         }
         return (UserExtraInfo) invokeV.objValue;
@@ -262,7 +289,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.userId;
         }
         return invokeV.longValue;
@@ -271,7 +298,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public String getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.userName;
         }
         return (String) invokeV.objValue;
@@ -280,7 +307,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return Objects.hash(this.msgKey);
         }
         return invokeV.intValue;
@@ -289,7 +316,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public boolean isLocalMsgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.isLocalMsgId;
         }
         return invokeV.booleanValue;
@@ -298,7 +325,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
     public boolean isRobot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             if (this.robotRole > 0) {
                 return true;
             }
@@ -309,7 +336,7 @@ public class CommonMsgField extends OrmObject implements Serializable {
 
     public void setFromAndroid() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             this.from = "android";
         }
     }
@@ -355,28 +382,28 @@ public class CommonMsgField extends OrmObject implements Serializable {
 
     public void setAbilityEffectItem(@Nullable AbilityEffectItem abilityEffectItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, abilityEffectItem) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, abilityEffectItem) == null) {
             this.abilityEffectItem = abilityEffectItem;
         }
     }
 
     public void setBubbleInfo(@Nullable BubbleInfo bubbleInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bubbleInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, bubbleInfo) == null) {
             this.bubbleInfo = bubbleInfo;
         }
     }
 
     public void setContent(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048603, this, map) == null) {
             this.content = map;
         }
     }
 
     public void setEnableDegradeUserDataList(@Nullable List<EnableDegradeUserData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, list) == null) {
             this.enableDegradeUserDataList = list;
         }
     }
@@ -384,91 +411,98 @@ public class CommonMsgField extends OrmObject implements Serializable {
     @Nullable
     public void setExcellentInfo(ExcellentInfo excellentInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, excellentInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, excellentInfo) == null) {
             this.excellentInfo = excellentInfo;
         }
     }
 
     public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
             this.forumId = j;
         }
     }
 
     public void setLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
             this.level = i;
         }
     }
 
     public void setLocalMsgId(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             this.isLocalMsgId = z;
         }
     }
 
     public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j) == null) {
             this.msgId = j;
         }
     }
 
     public void setMsgKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
             this.msgKey = str;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.portrait = str;
         }
     }
 
     public void setRobotRole(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
             this.robotRole = i;
         }
     }
 
     public void setRole(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             this.role = i;
         }
     }
 
     public void setRoomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
             this.roomId = j;
+        }
+    }
+
+    public void setSecondDegradeUserDataList(@Nullable List<EnableDegradeUserData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, list) == null) {
+            this.secondDegradeUserDataList = list;
         }
     }
 
     public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
             this.type = i;
         }
     }
 
     public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
             this.userId = j;
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048619, this, str) == null) {
             this.userName = str;
         }
     }

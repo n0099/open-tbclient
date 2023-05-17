@@ -1,7 +1,7 @@
 package com.baidu.livesdk.api.http.download;
 
 import com.baidu.livesdk.api.http.HttpRequestEntity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadEntity extends HttpRequestEntity {
     public String localPath;
 

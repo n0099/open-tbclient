@@ -1,26 +1,26 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.k5b;
-import com.baidu.tieba.l5b;
-import com.baidu.tieba.p5b;
-import com.baidu.tieba.q5b;
-import com.baidu.tieba.t6b;
+import com.baidu.tieba.i7b;
+import com.baidu.tieba.j7b;
+import com.baidu.tieba.n7b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.s8b;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
-public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements l5b, q5b, k5b<T> {
+/* loaded from: classes10.dex */
+public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements j7b, o7b, i7b<T> {
     public static final Object EMPTY = new Object();
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long serialVersionUID = -1364393685005146274L;
-    public final p5b<? super T> child;
+    public final n7b<? super T> child;
     public volatile boolean done;
     public boolean emitting;
     public boolean missed;
-    public t6b<? super T> parent;
+    public s8b<? super T> parent;
     public Throwable terminal;
     public final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public boolean isUnsubscribed() {
         if (get() == Long.MIN_VALUE) {
             return true;
@@ -28,32 +28,32 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         return false;
     }
 
-    @Override // com.baidu.tieba.k5b
+    @Override // com.baidu.tieba.i7b
     public void onCompleted() {
         this.done = true;
         emit();
     }
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public void unsubscribe() {
         if (get() >= 0) {
             getAndSet(Long.MIN_VALUE);
         }
     }
 
-    public OperatorOnBackpressureLatest$LatestEmitter(p5b<? super T> p5bVar) {
-        this.child = p5bVar;
+    public OperatorOnBackpressureLatest$LatestEmitter(n7b<? super T> n7bVar) {
+        this.child = n7bVar;
         lazySet(-4611686018427387904L);
     }
 
-    @Override // com.baidu.tieba.k5b
+    @Override // com.baidu.tieba.i7b
     public void onError(Throwable th) {
         this.terminal = th;
         this.done = true;
         emit();
     }
 
-    @Override // com.baidu.tieba.k5b
+    @Override // com.baidu.tieba.i7b
     public void onNext(T t) {
         this.value.lazySet(t);
         emit();
@@ -139,7 +139,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // com.baidu.tieba.l5b
+    @Override // com.baidu.tieba.j7b
     public void request(long j) {
         long j2;
         int i;

@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectJavaType;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaArrayType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaArrayType extends ReflectJavaType implements JavaArrayType {
     public final ReflectJavaType componentType;
     public final Type reflectType;

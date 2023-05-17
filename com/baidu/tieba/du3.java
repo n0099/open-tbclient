@@ -1,70 +1,185 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.net.Uri;
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+/* loaded from: classes5.dex */
 public class du3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Method a;
+    public Method b;
+    public Object c;
 
-    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
-            return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716999, "Lcom/baidu/tieba/du3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716999, "Lcom/baidu/tieba/du3;");
+                return;
+            }
         }
-        return invokeLLL.intValue;
+        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
     }
 
-    @Nullable
-    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
-        InterceptResult invokeLL;
+    public static Class<?> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String[] strArr = d;
+            for (int i = 0; i < strArr.length; i++) {
+                try {
+                    return kd4.a(strArr[i]);
+                } catch (Throwable unused) {
+                }
+            }
             return null;
         }
-        return (Uri) invokeLL.objValue;
+        return (Class) invokeV.objValue;
     }
 
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != null && this.a != null && this.b != null) {
+                return true;
+            }
+            return false;
         }
-        return (Cursor) invokeLLLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
-        InterceptResult invokeLLLL;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                Object invoke = this.b.invoke(this.c, new Object[0]);
+                if (invoke == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
+            }
         }
-        return invokeLLLL.intValue;
+        return invokeV.intValue;
     }
 
-    public du3() {
+    public du3(Class<?> cls, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        if (cls == null) {
+            return;
+        }
+        try {
+            this.c = a(context, cls);
+            Method i3 = kd4.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+            Method i4 = kd4.i(cls, "perfLockRelease", new Class[0]);
+            this.b = i4;
+            if (i4 != null) {
+                i4.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static du3 b(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                cls = d();
+                try {
+                    id4.c(cls);
+                } catch (Throwable unused) {
+                }
+            } catch (Throwable unused2) {
+                cls = null;
+            }
+            return new du3(cls, context);
+        }
+        return (du3) invokeL.objValue;
+    }
+
+    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
+            Object obj = null;
+            try {
+                Constructor c = kd4.c(cls, Context.class);
+                if (c != null) {
+                    obj = c.newInstance(context);
+                }
+            } catch (Throwable unused) {
+            }
+            if (obj == null) {
+                try {
+                    return kd4.m(cls);
+                } catch (Throwable unused2) {
+                    return obj;
+                }
+            }
+            return obj;
+        }
+        return invokeLL.objValue;
+    }
+
+    public int e(int i, int... iArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
+                if (invoke == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
+            }
+        }
+        return invokeIL.intValue;
     }
 }

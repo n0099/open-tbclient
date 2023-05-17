@@ -16,7 +16,7 @@ import com.baidu.searchbox.retrieve.file.util.fetch.FetchTaskManager;
 import java.util.ArrayList;
 import java.util.List;
 @DebugInfoProvider(enable = false, type = "Debug_Fetures")
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchDebugConfigProvider extends DebugDataGroupProvider {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String DEBUG_TITLE = "YaLog回捞上传测试";

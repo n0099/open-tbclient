@@ -8,13 +8,13 @@ import com.yy.hiidostatis.message.MessageStore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MessageStoreProxy implements MessageStore {
     public TaskDataSqLiteCacheManager cacheManager;
     public Context context;
 
     /* renamed from: com.yy.hiidostatis.message.storage.MessageStoreProxy$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority;
 

@@ -1,146 +1,157 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes3.dex */
-public class bv5 extends BdAsyncTask<Void, Void, String> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public abstract class bv5<T> extends cv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public NetWork c;
-    public a d;
+    public int b;
+    public List<T> c;
+    public Context d;
+    public LayoutInflater e;
+    public yw4<T> f;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(boolean z, String str);
+    public abstract void f(dv5 dv5Var, T t, int i);
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public T a;
+        public int b;
+        public final /* synthetic */ bv5 c;
+
+        public a(bv5 bv5Var, T t, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bv5Var, t, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = bv5Var;
+            this.a = t;
+            this.b = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            yw4<T> yw4Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (yw4Var = this.c.f) != null) {
+                T t = this.a;
+                int i = this.b;
+                yw4Var.d(view2, t, i, i);
+            }
+        }
     }
 
-    public bv5(String str, String str2, a aVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public bv5(Context context, int i) {
+        this(context, null, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, aVar};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (List) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.d = aVar;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public bv5(Context context, List<T> list, int i) {
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists()) {
-                return true;
-            }
-            try {
-                return file.mkdirs();
-            } catch (Exception e) {
-                TiebaStatic.file(e, hi.join("FileHelper", ".", "CheckTempDir", " ", str));
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, list, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || hi.isEmpty(str)) {
-            return;
-        }
-        FileHelper.deleteFileOrDir(new File(str));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            if (hi.isEmpty(this.a) || hi.isEmpty(this.b) || !b(this.a)) {
-                return null;
-            }
-            String c = pi.c(this.b);
-            String str = this.a + c + "/";
-            if (e(str)) {
-                return c;
-            }
-            NetWork netWork = new NetWork();
-            this.c = netWork;
-            netWork.setUrl(this.b);
-            String str2 = this.a + c + ".zip";
-            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
-                c(str2);
-                return c;
-            }
-            c(str2);
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (hi.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory() && (list = file.list()) != null && list.length > 0) {
-                return true;
-            }
-            file.delete();
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (!hi.isEmpty(str) && !hi.isEmpty(str2)) {
-                return n45.b(str, str2);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.d == null) {
-            return;
-        }
-        if (!hi.isEmpty(str)) {
-            this.d.a(true, str);
+        this.d = context;
+        if (list == null) {
+            arrayList = new ArrayList();
         } else {
-            this.d.a(false, null);
+            arrayList = new ArrayList(list);
+        }
+        this.c = arrayList;
+        this.b = i;
+        this.e = LayoutInflater.from(this.d);
+    }
+
+    @Override // com.baidu.tieba.cv5
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cv5
+    public View b(int i, ViewGroup viewGroup) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
+            View inflate = this.e.inflate(this.b, viewGroup, false);
+            dv5 dv5Var = new dv5(inflate);
+            T t = this.c.get(i);
+            f(dv5Var, t, i);
+            dv5Var.c(new a(this, t, i));
+            return inflate;
+        }
+        return (View) invokeIL.objValue;
+    }
+
+    public void g(List<T> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            this.c = list;
+            c();
+        }
+    }
+
+    public void h(yw4<T> yw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yw4Var) == null) {
+            this.f = yw4Var;
         }
     }
 }

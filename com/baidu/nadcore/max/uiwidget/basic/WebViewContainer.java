@@ -7,9 +7,9 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-import com.baidu.tieba.d41;
+import com.baidu.tieba.t41;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebViewContainer extends FrameLayout {
     public OverScroller a;
     public float b;
@@ -29,27 +29,27 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         boolean a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void onScroll(int i, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e extends GestureDetector.SimpleOnGestureListener {
         public final WebViewContainer a;
 
@@ -156,7 +156,7 @@ public class WebViewContainer extends FrameLayout {
     }
 
     public void setMinFlingVelocity(int i) {
-        this.m = d41.c.a(getContext(), i);
+        this.m = t41.c.a(getContext(), i);
     }
 
     public void setMinTopMargin(int i) {

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.vi.VIContext;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final AtomicBoolean a;

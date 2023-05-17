@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.base.utils;
 import android.app.Activity;
 import android.app.Dialog;
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewUtility {
     public static int dip2pxForBio(float f, int[] iArr) {
         float f2 = 2.0f;

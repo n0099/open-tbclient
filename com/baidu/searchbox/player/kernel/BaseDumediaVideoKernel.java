@@ -9,13 +9,13 @@ import com.baidu.searchbox.player.interfaces.IDnsProcessListener;
 import com.baidu.searchbox.player.model.MPDUrlModel;
 import com.baidu.searchbox.player.model.VideoUrlModel;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseDumediaVideoKernel extends AbsVideoKernel {
     public final DumediaInfoConverter mConverter = new DumediaInfoConverter(this);
 
     public abstract void setVideoViewCallBack(DumediaInfoConverter dumediaInfoConverter);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CyberPlayerHttpDNS implements CyberPlayerManager.HttpDNS {
         public final IDnsProcessListener dns;
 

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.d.d.a.a.b;
 import com.vivo.push.util.u;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a implements com.vivo.push.d.d.a.a.b {
     public static /* synthetic */ Interceptable $ic;
     public static final b.a<a> a;

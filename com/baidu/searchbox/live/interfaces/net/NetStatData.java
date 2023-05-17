@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.net;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetStatData {
     public boolean isCached;
     public volatile long requestTimestamp;

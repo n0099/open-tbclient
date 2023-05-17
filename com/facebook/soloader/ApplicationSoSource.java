@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ApplicationSoSource extends SoSource {
     public Context applicationContext;
     public int flags;

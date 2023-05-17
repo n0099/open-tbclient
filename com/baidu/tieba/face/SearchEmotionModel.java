@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.vu6;
+import com.baidu.tieba.iw6;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SearchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(String str, vu6 vu6Var);
+        void a(String str, iw6 iw6Var);
 
         void onFail(int i, String str);
     }
@@ -44,7 +44,7 @@ public class SearchEmotionModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class SearchEmotionModel extends BdBaseModel {
                 return;
             }
             if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                ii.Q(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                ri.Q(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
             }
             this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
         }
@@ -114,7 +114,7 @@ public class SearchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void W(String str, int i, int i2, b bVar) {
+    public void V(String str, int i, int i2, b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) && bVar != null && !TextUtils.isEmpty(str)) {
             this.a = bVar;

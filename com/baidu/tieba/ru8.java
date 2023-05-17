@@ -1,57 +1,306 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.wu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ru8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class ru8 implements Object<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public SimpleDragSortListView b;
+    public View c;
+    public lu8 d;
+    public pu8 e;
+    public ri5 f;
+    public FrameLayout g;
+    public boolean h;
+    public ju8 i;
+    public NoDataView j;
+    public NoNetworkView k;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static String a = "c12585";
-        public static String b = "c12586";
+    /* loaded from: classes7.dex */
+    public class a implements wu5.i {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ru8 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-448766985, "Lcom/baidu/tieba/ru8$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(ru8 ru8Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ru8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-448766985, "Lcom/baidu/tieba/ru8$a;");
+            this.a = ru8Var;
+        }
+
+        @Override // com.baidu.tieba.wu5.i
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                this.a.d.a(i, i2);
             }
         }
     }
 
-    public static CustomDialogData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("tb_hudong")) != null && !TextUtils.isEmpty(optJSONObject.optString("content"))) {
-                try {
-                    return CustomDialogData.praseJSON(new JSONObject(Uri.decode(optJSONObject.optString("content"))));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ ru8 b;
+
+        public b(ru8 ru8Var, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ru8Var, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return null;
+            this.b = ru8Var;
+            this.a = list;
         }
-        return (CustomDialogData) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.j();
+                if (this.b.d != null && this.a != null) {
+                    this.b.d.update(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ru8 a;
+
+        public c(ru8 ru8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ru8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ru8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null) {
+                this.a.d.update();
+            }
+        }
+    }
+
+    public ru8(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = false;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0315, (ViewGroup) null, false);
+        this.c = inflate;
+        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091793);
+        this.k = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
+        this.e = new pu8(this.c.findViewById(R.id.obfuscated_res_0x7f0909aa), tbPageContext.getString(R.string.obfuscated_res_0x7f0f05fe));
+        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f091792);
+        this.b = simpleDragSortListView;
+        simpleDragSortListView.setDivider(null);
+        this.b.setOverScrollMode(2);
+        this.b.setVerticalScrollBarEnabled(false);
+        k();
+        this.d = new lu8(tbPageContext, this.b, this.i);
+        l();
+        this.k.a(this);
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && z) {
+            l();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void d() {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f != null && (frameLayout = this.g) != null) {
+            frameLayout.setVisibility(8);
+            this.f.dettachView(this.g);
+            this.f = null;
+        }
+    }
+
+    public final void f() {
+        NoDataView noDataView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (noDataView = this.j) != null && noDataView.getParent() == this.g) {
+            this.j.setVisibility(8);
+            this.g.removeView(this.j);
+            this.g.setVisibility(8);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            sg.a().post(new c(this));
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            d();
+            f();
+        }
+    }
+
+    public final void j() {
+        SimpleDragSortListView simpleDragSortListView;
+        pu8 pu8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (simpleDragSortListView = this.b) != null && !this.h && (pu8Var = this.e) != null) {
+            this.h = true;
+            simpleDragSortListView.setEmptyView(pu8Var.a());
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ju8 ju8Var = new ju8(this.b);
+            this.i = ju8Var;
+            ju8Var.c(new a(this));
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            pu8 pu8Var = this.e;
+            if (pu8Var != null) {
+                pu8Var.b(i);
+            }
+            FrameLayout frameLayout = this.g;
+            if (frameLayout != null) {
+                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i);
+            }
+            pu8 pu8Var2 = this.e;
+            if (pu8Var2 != null) {
+                SkinManager.setBackgroundColor(pu8Var2.a(), R.color.CAM_X0201, i);
+            }
+            SimpleDragSortListView simpleDragSortListView = this.b;
+            if (simpleDragSortListView != null) {
+                SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i);
+            }
+            NoNetworkView noNetworkView = this.k;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a, i);
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a != null && this.g != null) {
+            i();
+            this.g.setVisibility(0);
+            ri5 ri5Var = new ri5(this.a.getPageActivity());
+            this.f = ri5Var;
+            ri5Var.attachView(this.g, true);
+            this.f.onChangeSkinType();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a != null && this.g != null) {
+            i();
+            this.g.setVisibility(0);
+            NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ri.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07034d)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0601)), null, true);
+            this.j = b2;
+            b2.setVisibility(0);
+            this.j.d(this.a);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public void update(List<EmotionPackageData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            sg.a().post(new b(this, list));
+        }
     }
 }

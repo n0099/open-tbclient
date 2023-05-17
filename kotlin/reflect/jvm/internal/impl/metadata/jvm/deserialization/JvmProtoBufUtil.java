@@ -22,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization.JvmMemberSignature;
 import kotlin.reflect.jvm.internal.impl.protobuf.ExtensionRegistryLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JvmProtoBufUtil {
     public static final ExtensionRegistryLite EXTENSION_REGISTRY;
     public static final JvmProtoBufUtil INSTANCE = new JvmProtoBufUtil();

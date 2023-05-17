@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccessibleUtils {
     public static void accessible(Context context, String str) {
         if (TextUtils.isEmpty(str)) {

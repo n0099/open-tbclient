@@ -5,7 +5,7 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ActivitySpeedStats extends AbstractSpeedStats {
     public static final String CHECK_CLIENT_CONFIG_MESSAGE_DURATION = "checkClientConfigMessage";
     public static final String CREATE_START_GAP_DURATION = "onCreate2StartGap";

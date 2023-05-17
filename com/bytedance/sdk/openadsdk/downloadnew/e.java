@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e extends a {
     public static volatile e a;
     public final Context b;

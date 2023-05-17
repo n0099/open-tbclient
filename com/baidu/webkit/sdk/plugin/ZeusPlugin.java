@@ -1,13 +1,13 @@
 package com.baidu.webkit.sdk.plugin;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ZeusPlugin {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
         boolean onCallback(ZeusPlugin zeusPlugin, String str, Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Command {
         public static final int MAX_POOL_SIZE = 50;
         public static Command sPool;

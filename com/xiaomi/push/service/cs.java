@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cs extends XMPushService.j {
     public final /* synthetic */ XMPushService a;
 
@@ -13,13 +13,13 @@ public class cs extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "prepare the mi push account.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         ah.a(this.a);
         if (com.xiaomi.push.bi.b(this.a)) {
             this.a.a(true);

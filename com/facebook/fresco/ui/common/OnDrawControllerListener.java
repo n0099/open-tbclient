@@ -1,5 +1,5 @@
 package com.facebook.fresco.ui.common;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface OnDrawControllerListener<INFO> {
     void onImageDrawn(String str, INFO info, DimensionsInfo dimensionsInfo);
 }

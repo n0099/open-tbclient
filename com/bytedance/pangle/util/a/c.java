@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static long a(ByteBuffer byteBuffer, int i) {
         return byteBuffer.getInt(i) & 4294967295L;

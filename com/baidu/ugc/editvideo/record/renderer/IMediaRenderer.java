@@ -1,23 +1,23 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
-import com.baidu.tieba.nf0;
+import com.baidu.tieba.dg0;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IMediaRenderer extends IMediaLifeCycleIncludeGlThread {
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface TextureMode {
         public static final int TEXTURE_MODE_2D = 1;
         public static final int TEXTURE_MODE_EXT = 0;
     }
 
-    void onDrawFrame(nf0 nf0Var, int i, float[] fArr);
+    void onDrawFrame(dg0 dg0Var, int i, float[] fArr);
 
     void onGLLocation(GLViewPortLocation gLViewPortLocation);
 

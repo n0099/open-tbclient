@@ -3,7 +3,7 @@ package com.baidu.tieba.funAd.strategy;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qx4;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,8 +16,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class FunAdSidConfigData extends qx4 implements Serializable {
+/* loaded from: classes5.dex */
+public class FunAdSidConfigData extends zy4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<String> mBearSidList;
@@ -97,7 +97,7 @@ public class FunAdSidConfigData extends qx4 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qx4
+    @Override // com.baidu.tieba.zy4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {

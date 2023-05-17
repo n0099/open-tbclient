@@ -6,7 +6,7 @@ import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import com.baidu.searchbox.bddownload.core.download.DownloadChain;
 import com.baidu.searchbox.bddownload.core.interceptor.Interceptor;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CallServerInterceptor implements Interceptor.Connect {
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
     @NonNull

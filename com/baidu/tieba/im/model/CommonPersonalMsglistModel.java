@@ -6,16 +6,16 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.c48;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.s58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class CommonPersonalMsglistModel extends MsglistModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
                     if (userData != null && userData.getUserId() != null) {
-                        if (this.this$0.mUser.getUserId().equals(String.valueOf(c48.p(chatMessage)))) {
+                        if (this.this$0.mUser.getUserId().equals(String.valueOf(s58.q(chatMessage)))) {
                             this.this$0.sendMsgFail(chatMessage);
                         }
                     }
@@ -185,7 +185,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
                     if (userData != null && userData.getUserId() != null) {
-                        if (this.this$0.mUser.getUserId().equals(String.valueOf(c48.p(chatMessage)))) {
+                        if (this.this$0.mUser.getUserId().equals(String.valueOf(s58.q(chatMessage)))) {
                             this.this$0.sendMsgFail(chatMessage);
                         }
                     }

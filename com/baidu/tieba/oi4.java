@@ -1,99 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class oi4 extends dh4<ui4> {
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class oi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    @Override // com.baidu.tieba.dh4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oi4(String str, sf4 sf4Var, dj4 dj4Var) {
-        super(sf4Var, dj4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, sf4Var, dj4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((sf4) objArr2[0], (dj4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dh4
-    /* renamed from: x */
-    public ui4 u(JSONObject jSONObject) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            return el4.i(this.d, jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String a = pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(pp4.a(str, "cuid", rg4.b().g()), "uuid", rg4.b().e()), "ut", rg4.b().I()), "ua", pp4.b(rg4.b().h())), "host_app", rg4.b().c()), "host_app_ver", rg4.b().h()), "host_os", hp4.f()), "host_os_ver", hp4.g()), "network", hp4.e()), "sdk_ver", rg4.b().b()), "ut_score", String.valueOf(rg4.b().a()));
+            String q = rg4.b().q();
+            if (!TextUtils.isEmpty(q)) {
+                return pp4.a(a, "sid", q);
+            }
+            return a;
         }
-        return (ui4) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dh4
-    /* renamed from: v */
-    public boolean f(ui4 ui4Var) {
-        InterceptResult invokeL;
-        List<xg4> list;
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ui4Var)) == null) {
-            if (ui4Var == null || (list = ui4Var.a) == null) {
-                return false;
-            }
-            for (xg4 xg4Var : list) {
-                if (!xg4Var.a()) {
-                    return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map != null) {
+                for (String str2 : map.keySet()) {
+                    if (!TextUtils.isEmpty(map.get(str2))) {
+                        str = pp4.a(str, str2, map.get(str2));
+                    }
                 }
             }
-            return true;
+            return str;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dh4
-    /* renamed from: w */
-    public rg4 t(ui4 ui4Var) {
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/getopenbundleid";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h() + "/fetchpkglist";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/getpkg";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/getplugin";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/updatecore";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return rg4.b().E();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ui4Var)) == null) {
-            this.a.E();
-            fl4 fl4Var = new fl4();
-            p(ui4Var.a, fl4Var);
-            if (fl4Var.n() == 0) {
-                this.a.F();
-                return null;
-            }
-            this.a.G(fl4Var);
-            ih4.d(ui4Var, this.a);
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return a(str);
         }
-        return (rg4) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String j(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
+            return b(a(str), map);
+        }
+        return (String) invokeLL.objValue;
     }
 }

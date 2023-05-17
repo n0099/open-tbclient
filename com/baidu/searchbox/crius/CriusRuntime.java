@@ -3,7 +3,7 @@ package com.baidu.searchbox.crius;
 import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusRuntime {
     public static final boolean DEBUG = AppConfig.isDebug();
 

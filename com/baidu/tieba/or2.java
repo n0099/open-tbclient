@@ -1,27 +1,39 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class or2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class or2 extends mr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nr2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized nr2 a() {
-        InterceptResult invokeV;
-        nr2 nr2Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public or2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (or2.class) {
-                if (a == null) {
-                    a = new nr2();
-                }
-                nr2Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return nr2Var;
         }
-        return (nr2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qr2, com.baidu.tieba.pr2
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
+        }
     }
 }

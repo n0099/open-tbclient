@@ -10,6 +10,7 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,7 +140,7 @@ public class IMSendMsgRequest extends BaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("appid=");
+            sb.append(AccountConstants.PROFESSION_APPROVE_URL_APPID);
             sb.append(Utility.readAppId(this.mContext));
             sb.append("&sdk_version=");
             sb.append(IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));

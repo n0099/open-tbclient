@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Base64;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QzonePublish extends BaseApi {
     public static final String HULIAN_CALL_BACK = "hulian_call_back";
     public static final String HULIAN_EXTRA_SCENE = "hulian_extra_scene";
@@ -134,9 +134,9 @@ public class QzonePublish extends BaseApi {
                             String str9 = str5;
                             SLog.v(str9, "doPublishToQzone, url: " + stringBuffer.toString());
                             com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-                            intent = new Intent("android.intent.action.VIEW");
+                            intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                             intent.setData(Uri.parse(stringBuffer.toString()));
-                            intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+                            intent.putExtra("pkg_name", activity.getPackageName());
                             if (!a(intent)) {
                             }
                             SLog.i(SLog.TAG, "doPublishToQzone() --end");
@@ -179,9 +179,9 @@ public class QzonePublish extends BaseApi {
                 String str92 = str5;
                 SLog.v(str92, "doPublishToQzone, url: " + stringBuffer.toString());
                 com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-                intent = new Intent("android.intent.action.VIEW");
+                intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setData(Uri.parse(stringBuffer.toString()));
-                intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+                intent.putExtra("pkg_name", activity.getPackageName());
                 if (!a(intent)) {
                 }
                 SLog.i(SLog.TAG, "doPublishToQzone() --end");
@@ -254,9 +254,9 @@ public class QzonePublish extends BaseApi {
                 String str922 = str5;
                 SLog.v(str922, "doPublishToQzone, url: " + stringBuffer.toString());
                 com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-                intent = new Intent("android.intent.action.VIEW");
+                intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setData(Uri.parse(stringBuffer.toString()));
-                intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+                intent.putExtra("pkg_name", activity.getPackageName());
                 if (!a(intent)) {
                     a(activity, Constants.REQUEST_QZONE_SHARE, intent, false);
                     d.a().a(0, "SHARE_CHECK_SDK", Constants.DEFAULT_UIN, this.c.getAppId(), String.valueOf(4), Long.valueOf(SystemClock.elapsedRealtime()), 0, 1, "hasActivityForIntent success");
@@ -296,9 +296,9 @@ public class QzonePublish extends BaseApi {
         String str9222 = str5;
         SLog.v(str9222, "doPublishToQzone, url: " + stringBuffer.toString());
         com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-        intent = new Intent("android.intent.action.VIEW");
+        intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(Uri.parse(stringBuffer.toString()));
-        intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+        intent.putExtra("pkg_name", activity.getPackageName());
         if (!a(intent)) {
         }
         SLog.i(SLog.TAG, "doPublishToQzone() --end");

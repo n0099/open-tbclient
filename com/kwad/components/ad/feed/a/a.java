@@ -8,7 +8,7 @@ import com.baidu.tieba.R;
 import com.kwad.components.ad.widget.DownloadProgressView;
 import com.kwad.components.core.widget.ComplianceTextView;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     public com.kwad.components.ad.feed.b dd;
 
@@ -17,7 +17,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
     }
 
     public final void bf() {
-        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091203);
+        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09123e);
         if (!com.kwad.sdk.core.response.a.a.ao(this.mAdInfo)) {
             complianceTextView.setVisibility(8);
             return;
@@ -28,7 +28,7 @@ public abstract class a extends com.kwad.components.core.widget.b<AdTemplate> {
 
     public final void g(boolean z) {
         if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo) && com.kwad.components.ad.feed.kwai.b.bd() && getApkDownloadHelper() != null) {
-            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0911dc);
+            DownloadProgressView downloadProgressView = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091217);
             if (!z || getApkDownloadHelper().mI() == 2) {
                 com.kwad.components.ad.feed.b bVar = this.dd;
                 if (bVar != null) {

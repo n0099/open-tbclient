@@ -1,52 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
-/* loaded from: classes4.dex */
-public class cv8 implements ev8 {
+/* loaded from: classes5.dex */
+public class cv8<V> implements mv8<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserInfo a;
-    public ExcellentPbThreadInfo b;
-    public List<Post> c;
-    public List<User> d;
+    public InterestSelectionStyleAModel a;
+    public vu8 b;
+    public BaseInterestSelectionFragment c;
 
-    @Override // com.baidu.tieba.ev8
-    public int getErroCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ev8
-    public String getErrorText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public cv8(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
+    public cv8(BaseInterestSelectionFragment baseInterestSelectionFragment, vu8 vu8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
+            Object[] objArr = {baseInterestSelectionFragment, vu8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,64 +30,42 @@ public class cv8 implements ev8 {
                 return;
             }
         }
-        this.a = userInfo;
-        this.b = excellentPbThreadInfo;
-        this.c = list;
-        this.d = list2;
+        this.c = baseInterestSelectionFragment;
+        this.b = vu8Var;
+        this.a = new InterestSelectionStyleAModel(vu8Var, this);
     }
 
-    @Override // com.baidu.tieba.ev8
-    public List<Post> getPostList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mv8
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.H1();
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
-    public ExcellentPbThreadInfo getThreadInfo() {
-        InterceptResult invokeV;
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.onDestroy();
         }
-        return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
-    public UserInfo getUserInfo() {
-        InterceptResult invokeV;
+    public void c() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
+            interestSelectionStyleAModel.Z();
         }
-        return (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
-    public List<User> getUserList() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mv8
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
+            baseInterestSelectionFragment.I1(str);
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ev8
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        List<ExcContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
-            if (excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

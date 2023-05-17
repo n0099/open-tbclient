@@ -2,12 +2,12 @@ package com.facebook.imagepipeline.producers;
 
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BranchOnSeparateImagesProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer1;
     public final Producer<EncodedImage> mInputProducer2;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class OnFirstImageConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public ProducerContext mProducerContext;
 

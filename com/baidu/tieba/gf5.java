@@ -1,74 +1,394 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.protobuf.CodedInputStream;
-/* loaded from: classes4.dex */
-public class gf5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class gf5 extends jf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @TargetApi(16)
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 16) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947792019, "Lcom/baidu/tieba/gf5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947792019, "Lcom/baidu/tieba/gf5;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        jf5.d.put("image_emoticon", "呵呵");
+        jf5.d.put("image_emoticon2", "哈哈");
+        jf5.d.put("image_emoticon3", "吐舌");
+        jf5.d.put("image_emoticon4", "啊");
+        jf5.d.put("image_emoticon5", "酷");
+        jf5.d.put("image_emoticon6", "怒");
+        jf5.d.put("image_emoticon7", "开心");
+        jf5.d.put("image_emoticon8", "汗");
+        jf5.d.put("image_emoticon9", "泪");
+        jf5.d.put("image_emoticon10", "黑线");
+        jf5.d.put("image_emoticon11", "鄙视");
+        jf5.d.put("image_emoticon12", "不高兴");
+        jf5.d.put("image_emoticon13", "真棒");
+        jf5.d.put("image_emoticon14", "钱");
+        jf5.d.put("image_emoticon15", "疑问");
+        jf5.d.put("image_emoticon16", "阴险");
+        jf5.d.put("image_emoticon17", "吐");
+        jf5.d.put("image_emoticon18", "咦");
+        jf5.d.put("image_emoticon19", "委屈");
+        jf5.d.put("image_emoticon20", "花心");
+        jf5.d.put("image_emoticon21", "呼~");
+        jf5.d.put("image_emoticon22", "笑眼");
+        jf5.d.put("image_emoticon23", "冷");
+        jf5.d.put("image_emoticon24", "太开心");
+        jf5.d.put("image_emoticon25", "滑稽");
+        jf5.d.put("image_emoticon26", "勉强");
+        jf5.d.put("image_emoticon27", "狂汗");
+        jf5.d.put("image_emoticon28", "乖");
+        jf5.d.put("image_emoticon29", "睡觉");
+        jf5.d.put("image_emoticon30", "惊哭");
+        jf5.d.put("image_emoticon31", "生气");
+        jf5.d.put("image_emoticon32", "惊讶");
+        jf5.d.put("image_emoticon33", "喷");
+        jf5.d.put("image_emoticon34", "爱心");
+        jf5.d.put("image_emoticon35", "心碎");
+        jf5.d.put("image_emoticon36", "玫瑰");
+        jf5.d.put("image_emoticon37", "礼物");
+        jf5.d.put("image_emoticon38", "彩虹");
+        jf5.d.put("image_emoticon39", "星星月亮");
+        jf5.d.put("image_emoticon40", "太阳");
+        jf5.d.put("image_emoticon41", "钱币");
+        jf5.d.put("image_emoticon42", "灯泡");
+        jf5.d.put("image_emoticon43", "茶杯");
+        jf5.d.put("image_emoticon44", "蛋糕");
+        jf5.d.put("image_emoticon45", "音乐");
+        jf5.d.put("image_emoticon46", "haha");
+        jf5.d.put("image_emoticon47", "胜利");
+        jf5.d.put("image_emoticon48", "大拇指");
+        jf5.d.put("image_emoticon49", "弱");
+        jf5.d.put("image_emoticon50", "OK");
+        jf5.d.put("image_emoticon61", "哼");
+        jf5.d.put("image_emoticon62", "吃瓜");
+        jf5.d.put("image_emoticon63", "扔便便");
+        jf5.d.put("image_emoticon64", "惊恐");
+        jf5.d.put("image_emoticon65", "哎呦");
+        jf5.d.put("image_emoticon66", "小乖");
+        jf5.d.put("image_emoticon67", "捂嘴笑");
+        jf5.d.put("image_emoticon68", "你懂的");
+        jf5.d.put("image_emoticon69", "what");
+        jf5.d.put("image_emoticon70", "酸爽");
+        jf5.d.put("image_emoticon71", "呀咩爹");
+        jf5.d.put("image_emoticon72", "笑尿");
+        jf5.d.put("image_emoticon73", "挖鼻");
+        jf5.d.put("image_emoticon74", "犀利");
+        jf5.d.put("image_emoticon75", "小红脸");
+        jf5.d.put("image_emoticon76", "懒得理");
+        jf5.d.put("image_emoticon77", "沙发");
+        jf5.d.put("image_emoticon78", "手纸");
+        jf5.d.put("image_emoticon79", "香蕉");
+        jf5.d.put("image_emoticon80", "便便");
+        jf5.d.put("image_emoticon81", "药丸");
+        jf5.d.put("image_emoticon82", "红领巾");
+        jf5.d.put("image_emoticon83", "蜡烛");
+        jf5.d.put("image_emoticon84", "三道杠");
+        jf5.d.put("image_emoticon85", "暗中观察");
+        jf5.d.put("image_emoticon86", "吃瓜");
+        jf5.d.put("image_emoticon87", "喝酒");
+        jf5.d.put("image_emoticon88", "嘿嘿嘿");
+        jf5.d.put("image_emoticon89", "噗");
+        jf5.d.put("image_emoticon90", "困成狗");
+        jf5.d.put("image_emoticon91", "微微一笑");
+        jf5.d.put("image_emoticon92", "托腮");
+        jf5.d.put("image_emoticon93", "摊手");
+        jf5.d.put("image_emoticon94", "柯基暗中观察");
+        jf5.d.put("image_emoticon95", "欢呼");
+        jf5.d.put("image_emoticon96", "炸药");
+        jf5.d.put("image_emoticon97", "突然兴奋");
+        jf5.d.put("image_emoticon98", "紧张");
+        jf5.d.put("image_emoticon99", "黑头瞪眼");
+        jf5.d.put("image_emoticon100", "黑头高兴");
+        jf5.d.put("image_emoticon125", "奥特曼");
+        jf5.d.put("image_emoticon126", "不听");
+        jf5.d.put("image_emoticon127", "干饭");
+        jf5.d.put("image_emoticon128", "望远镜");
+        jf5.d.put("image_emoticon129", "菜狗");
+        jf5.d.put("image_emoticon130", "老虎");
+        jf5.d.put("image_emoticon131", "嗷呜");
+        jf5.d.put("image_emoticon132", "烟花");
+        jf5.d.put("image_emoticon133", "香槟");
+        jf5.d.put("image_emoticon134", "文字啊");
+        jf5.d.put("image_emoticon135", "文字对");
+        jf5.d.put("image_emoticon136", "鼠1");
+        jf5.d.put("image_emoticon137", "鼠2");
+        jf5.d.put("image_emoticon101", "不跟丑人说话");
+        jf5.d.put("image_emoticon102", "么么哒");
+        jf5.d.put("image_emoticon103", "亲亲才能起来");
+        jf5.d.put("image_emoticon104", "伦家只是宝宝");
+        jf5.d.put("image_emoticon105", "你是我的人");
+        jf5.d.put("image_emoticon106", "假装看不见");
+        jf5.d.put("image_emoticon107", "单身等撩");
+        jf5.d.put("image_emoticon108", "吓到宝宝了");
+        jf5.d.put("image_emoticon109", "哈哈哈");
+        jf5.d.put("image_emoticon110", "嗯嗯");
+        jf5.d.put("image_emoticon111", "好幸福");
+        jf5.d.put("image_emoticon112", "宝宝不开心");
+        jf5.d.put("image_emoticon113", "小姐姐别走");
+        jf5.d.put("image_emoticon114", "小姐姐在吗");
+        jf5.d.put("image_emoticon115", "小姐姐来啦");
+        jf5.d.put("image_emoticon116", "小姐姐来玩呀");
+        jf5.d.put("image_emoticon117", "我养你");
+        jf5.d.put("image_emoticon118", "我是不会骗你的");
+        jf5.d.put("image_emoticon119", "扎心了");
+        jf5.d.put("image_emoticon120", "无聊");
+        jf5.d.put("image_emoticon121", "月亮代表我的心");
+        jf5.d.put("image_emoticon122", "来追我呀");
+        jf5.d.put("image_emoticon123", "爱你的形状");
+        jf5.d.put("image_emoticon124", "白眼");
+        jf5.d.put("ali_001", "赖皮");
+        jf5.d.put("ali_002", "感动");
+        jf5.d.put("ali_003", "十分惊讶");
+        jf5.d.put("ali_004", "怒气");
+        jf5.d.put("ali_005", "哭泣");
+        jf5.d.put("ali_006", "吃惊");
+        jf5.d.put("ali_007", "嘲弄");
+        jf5.d.put("ali_008", "飘过");
+        jf5.d.put("ali_009", "转圈哭");
+        jf5.d.put("ali_010", "神经病");
+        jf5.d.put("ali_011", "揪耳朵");
+        jf5.d.put("ali_012", "惊汗");
+        jf5.d.put("ali_013", "隐身");
+        jf5.d.put("ali_014", "不要嘛");
+        jf5.d.put("ali_015", "遁");
+        jf5.d.put("ali_016", "不公平");
+        jf5.d.put("ali_017", "爬来了");
+        jf5.d.put("ali_018", "蛋花哭");
+        jf5.d.put("ali_019", "温暖");
+        jf5.d.put("ali_020", "点头");
+        jf5.d.put("ali_021", "撒钱");
+        jf5.d.put("ali_022", "献花");
+        jf5.d.put("ali_023", "寒");
+        jf5.d.put("ali_024", "傻笑");
+        jf5.d.put("ali_025", "扭扭");
+        jf5.d.put("ali_026", "疯");
+        jf5.d.put("ali_027", "抓狂");
+        jf5.d.put("ali_028", "抓");
+        jf5.d.put("ali_029", "蜷");
+        jf5.d.put("ali_030", "挠墙");
+        jf5.d.put("ali_031", "狂笑");
+        jf5.d.put("ali_032", "抱枕");
+        jf5.d.put("ali_033", "吼叫");
+        jf5.d.put("ali_034", "嚷");
+        jf5.d.put("ali_035", "唠叨");
+        jf5.d.put("ali_036", "捏脸");
+        jf5.d.put("ali_037", "爆笑");
+        jf5.d.put("ali_038", "郁闷");
+        jf5.d.put("ali_039", "潜水");
+        jf5.d.put("ali_040", "十分开心");
+        jf5.d.put("ali_041", "冷笑话");
+        jf5.d.put("ali_042", "顶！");
+        jf5.d.put("ali_043", "潜");
+        jf5.d.put("ali_044", "画圈圈");
+        jf5.d.put("ali_045", "玩电脑");
+        jf5.d.put("ali_046", "狂吐");
+        jf5.d.put("ali_047", "哭着跑");
+        jf5.d.put("ali_048", "阿狸侠");
+        jf5.d.put("ali_049", "冷死了");
+        jf5.d.put("ali_050", "惆怅~");
+        jf5.d.put("ali_051", "摸头");
+        jf5.d.put("ali_052", "蹭");
+        jf5.d.put("ali_053", "打滚");
+        jf5.d.put("ali_054", "叩拜");
+        jf5.d.put("ali_055", "摸");
+        jf5.d.put("ali_056", "数钱");
+        jf5.d.put("ali_057", "拖走");
+        jf5.d.put("ali_058", "热");
+        jf5.d.put("ali_059", "加1");
+        jf5.d.put("ali_060", "压力");
+        jf5.d.put("ali_061", "表逼我");
+        jf5.d.put("ali_062", "人呢");
+        jf5.d.put("ali_063", "摇晃");
+        jf5.d.put("ali_064", "打地鼠");
+        jf5.d.put("ali_065", "这个屌");
+        jf5.d.put("ali_066", "恐慌");
+        jf5.d.put("ali_067", "晕乎乎");
+        jf5.d.put("ali_068", "浮云");
+        jf5.d.put("ali_069", "给力");
+        jf5.d.put("ali_070", "杯具了");
+        jf5.d.put("b01", "微笑");
+        jf5.d.put("b02", "帅哥");
+        jf5.d.put("b03", "美女");
+        jf5.d.put("b04", "老大");
+        jf5.d.put("b05", "哈哈哈");
+        jf5.d.put("b06", "奸笑");
+        jf5.d.put("b07", "傻乐");
+        jf5.d.put("b08", "飞吻");
+        jf5.d.put("b09", "害羞");
+        jf5.d.put("b10", "花痴");
+        jf5.d.put("b11", "憧憬");
+        jf5.d.put("b12", "你牛");
+        jf5.d.put("b13", "鼓掌");
+        jf5.d.put("b14", "可爱");
+        jf5.d.put("b15", "太委屈");
+        jf5.d.put("b16", "大哭");
+        jf5.d.put("b17", "泪奔");
+        jf5.d.put("b18", "寻死");
+        jf5.d.put("b19", "非常惊讶");
+        jf5.d.put("b20", "表示疑问");
+        jf5.d.put("yz_001", "焦糖舞");
+        jf5.d.put("yz_002", "翻滚");
+        jf5.d.put("yz_003", "拍屁股做鬼脸");
+        jf5.d.put("yz_004", "不");
+        jf5.d.put("yz_005", "河蟹掉啦");
+        jf5.d.put("yz_006", "哦耶");
+        jf5.d.put("yz_007", "我倒");
+        jf5.d.put("yz_008", "投降");
+        jf5.d.put("shoubai_emoji_face_01", "微笑");
+        jf5.d.put("shoubai_emoji_face_02", "开心");
+        jf5.d.put("shoubai_emoji_face_03", "期待");
+        jf5.d.put("shoubai_emoji_face_04", "大笑");
+        jf5.d.put("shoubai_emoji_face_05", "鼓掌");
+        jf5.d.put("shoubai_emoji_face_06", "悠闲");
+        jf5.d.put("shoubai_emoji_face_07", "笑哭");
+        jf5.d.put("shoubai_emoji_face_08", "不要啊");
+        jf5.d.put("shoubai_emoji_face_09", "啊");
+        jf5.d.put("shoubai_emoji_face_10", "哟");
+        jf5.d.put("shoubai_emoji_face_11", "汗");
+        jf5.d.put("shoubai_emoji_face_12", "抠鼻");
+        jf5.d.put("shoubai_emoji_face_13", "哼");
+        jf5.d.put("shoubai_emoji_face_14", "发怒");
+        jf5.d.put("shoubai_emoji_face_15", "委屈");
+        jf5.d.put("shoubai_emoji_face_16", "不高兴");
+        jf5.d.put("shoubai_emoji_face_17", "囧");
+        jf5.d.put("shoubai_emoji_face_18", "惊哭");
+        jf5.d.put("shoubai_emoji_face_19", "大哭");
+        jf5.d.put("shoubai_emoji_face_20", "流泪");
+        jf5.d.put("shoubai_emoji_face_21", "害羞");
+        jf5.d.put("shoubai_emoji_face_22", "亲亲");
+        jf5.d.put("shoubai_emoji_face_23", "色");
+        jf5.d.put("shoubai_emoji_face_24", "舔屏");
+        jf5.d.put("shoubai_emoji_face_25", "得意");
+        jf5.d.put("shoubai_emoji_face_26", "疑问");
+        jf5.d.put("shoubai_emoji_face_27", "晕");
+        jf5.d.put("shoubai_emoji_face_28", "大哈");
+        jf5.d.put("shoubai_emoji_face_29", "二哈");
+        jf5.d.put("shoubai_emoji_face_30", "三哈");
+        jf5.d.put("shoubai_emoji_face_31", "白眼");
+        jf5.d.put("shoubai_emoji_face_32", "阴险");
+        jf5.d.put("shoubai_emoji_face_33", "你懂的");
+        jf5.d.put("shoubai_emoji_face_34", "偷笑");
+        jf5.d.put("shoubai_emoji_face_35", "睡觉");
+        jf5.d.put("shoubai_emoji_face_36", "哈欠");
+        jf5.d.put("shoubai_emoji_face_37", "再见");
+        jf5.d.put("shoubai_emoji_face_38", "鄙视");
+        jf5.d.put("shoubai_emoji_face_39", "抓狂");
+        jf5.d.put("shoubai_emoji_face_40", "咒骂");
+        jf5.d.put("shoubai_emoji_face_41", "衰");
+        jf5.d.put("shoubai_emoji_face_42", "骷髅");
+        jf5.d.put("shoubai_emoji_face_43", "嘘");
+        jf5.d.put("shoubai_emoji_face_44", "闭嘴");
+        jf5.d.put("shoubai_emoji_face_45", "呆");
+        jf5.d.put("shoubai_emoji_face_46", "什么鬼");
+        jf5.d.put("shoubai_emoji_face_47", "吐");
+        jf5.d.put("shoubai_emoji_face_48", "已阅");
+        jf5.d.put("shoubai_emoji_face_49", "同上");
+        jf5.d.put("shoubai_emoji_face_50", "友军");
+        jf5.d.put("shoubai_emoji_face_51", "爱钱");
+        jf5.d.put("shoubai_emoji_face_52", "Freestyle");
+        jf5.d.put("shoubai_emoji_face_53", "国宝");
+        jf5.d.put("shoubai_emoji_face_54", "羊驼");
+        jf5.d.put("shoubai_emoji_face_55", "鲜花");
+        jf5.d.put("shoubai_emoji_face_56", "中国加油");
+        jf5.d.put("shoubai_emoji_face_57", "庆祝");
+        jf5.d.put("shoubai_emoji_face_58", "生日蛋糕");
+        jf5.d.put("shoubai_emoji_face_59", "MicDrop");
+        jf5.d.put("shoubai_emoji_face_60", "赞同");
+        jf5.d.put("shoubai_emoji_face_61", "药丸");
+        jf5.d.put("shoubai_emoji_face_62", "蜡烛");
+        jf5.d.put("shoubai_emoji_face_63", "鸡蛋");
+        jf5.d.put("shoubai_emoji_face_64", "浪");
+        jf5.d.put("shoubai_emoji_face_65", "打call");
+        jf5.d.put("shoubai_emoji_face_66", "尬笑");
+        jf5.d.put("shoubai_emoji_face_67", "坏笑");
+        jf5.d.put("shoubai_emoji_face_68", "没眼看");
+        jf5.d.put("shoubai_emoji_face_69", "嘿哈");
+        jf5.d.put("shoubai_emoji_face_70", "前面的别走");
+        jf5.d.put("shoubai_emoji_face_71", "滑稽");
+        jf5.d.put("shoubai_emoji_face_72", "捂脸");
+        jf5.d.put("shoubai_emoji_face_73", "左捂脸");
+        jf5.d.put("shoubai_emoji_face_74", "666");
+        jf5.d.put("shoubai_emoji_face_75", "2018");
+        jf5.d.put("shoubai_emoji_face_76", "福");
+        jf5.d.put("shoubai_emoji_face_77", "红包");
+        jf5.d.put("shoubai_emoji_face_78", "鞭炮");
+        jf5.d.put("shoubai_emoji_face_79", "财神");
+        jf5.d.put("shoubai_emoji_face_80", "饺子");
+        jf5.d.put("shoubai_emoji_face_81", "车票");
+        jf5.d.put("shoubai_emoji_face_82", "火车");
+        jf5.d.put("shoubai_emoji_face_83", "飞机");
+        jf5.d.put("shoubai_emoji_face_84", "射门");
+        jf5.d.put("shoubai_emoji_face_85", "红牌");
+        jf5.d.put("shoubai_emoji_face_86", "黄牌");
+        jf5.d.put("shoubai_emoji_face_87", "哨子");
+        jf5.d.put("shoubai_emoji_face_88", "比分");
+        jf5.d.put("shoubai_emoji_face_89", "啤酒");
+        jf5.d.put("shoubai_emoji_face_90", "足球");
+        jf5.d.put("shoubai_emoji_face_91", "大力神杯");
+        jf5.d.put("shoubai_emoji_face_92", "锦鲤");
+        jf5.d.put("shoubai_emoji_face_93", "2019");
+        jf5.d.put("shoubai_emoji_face_94", "猪年");
+        jf5.d.put("shoubai_emoji_face_95", "双手鼓掌");
+        jf5.d.put("shoubai_emoji_face_96", "火焰");
+        jf5.d.put("shoubai_emoji_face_97", "祈福");
+        jf5.d.put("shoubai_emoji_face_98", "亲吻");
+        jf5.d.put("shoubai_emoji_face_99", "天使");
+        jf5.d.put("shoubai_emoji_face_100", "樱花");
+        jf5.d.put("shoubai_emoji_face_101", "加油");
+        jf5.d.put("shoubai_emoji_face_102", "泡泡枪");
+        jf5.d.put("shoubai_emoji_face_103", "气球");
+        jf5.d.put("shoubai_emoji_face_104", "棒棒糖");
+        jf5.d.put("shoubai_emoji_face_105", "小黄鸭");
+        jf5.d.put("shoubai_emoji_face_106", "粽子");
+        jf5.d.put("bearchildren_01", "熊-88");
+        jf5.d.put("bearchildren_02", "熊-HI");
+        jf5.d.put("bearchildren_03", "熊-人艰不拆");
+        jf5.d.put("bearchildren_04", "熊-啥");
+        jf5.d.put("bearchildren_05", "熊-大哭");
+        jf5.d.put("bearchildren_06", "熊-失落");
+        jf5.d.put("bearchildren_07", "熊-怒赞");
+        jf5.d.put("bearchildren_08", "熊-惊呆了");
+        jf5.d.put("bearchildren_09", "熊-李菊福");
+        jf5.d.put("bearchildren_10", "熊-来信砍");
+        jf5.d.put("bearchildren_11", "熊-欢迎入群");
+        jf5.d.put("bearchildren_12", "熊-牛闪闪");
+        jf5.d.put("bearchildren_13", "熊-生日快乐");
+        jf5.d.put("bearchildren_14", "熊-石化");
+        jf5.d.put("bearchildren_15", "熊-羞羞哒");
+        jf5.d.put("bearchildren_16", "熊-肥皂必杀");
+        jf5.d.put("bearchildren_17", "熊-谢谢你");
+        jf5.d.put("bearchildren_18", "熊-跳舞");
+        jf5.d.put("bearchildren_19", "熊-霹雳舞");
+        jf5.d.put("bearchildren_20", "熊-鼓掌");
     }
 
-    public static boolean b(Activity activity) {
-        InterceptResult invokeL;
+    public gf5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    @TargetApi(19)
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(View view2, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == ff5.a(view2.getContext())) {
-                return false;
-            }
-            int h = ef5.h(view2.getContext());
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (layoutParams == null) {
-                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
-                return true;
-            }
-            layoutParams.height = h;
-            view2.requestLayout();
-            return true;
-        }
-        return invokeLI.booleanValue;
     }
 }

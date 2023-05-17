@@ -22,7 +22,7 @@ import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.VideoAdValidity;
 import java.util.HashMap;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class ExpressRewardVideoAD extends LiteAbstractAD<RVADI2> {
     public ServerSideVerificationOptions i;
     public ExpressRewardVideoAdListener j;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

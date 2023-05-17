@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface TrackOutput {
     void format(Format format);
 
@@ -14,7 +14,7 @@ public interface TrackOutput {
 
     void sampleMetadata(long j, int i, int i2, int i3, CryptoData cryptoData);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CryptoData {
         public final int clearBlocks;
         public final int cryptoMode;

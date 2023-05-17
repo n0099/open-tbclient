@@ -7,8 +7,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.pxa;
-import com.baidu.tieba.sxa;
+import com.baidu.tieba.nza;
+import com.baidu.tieba.qza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HonorApiAvailability {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class PackageStates {
         public static /* synthetic */ Interceptable $ic;
         public static final PackageStates DISABLED;
@@ -94,11 +94,11 @@ public class HonorApiAvailability {
         }
     }
 
-    public static sxa a(Context context) {
+    public static qza a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            sxa sxaVar = new sxa();
+            qza qzaVar = new qza();
             Intent intent = new Intent();
             intent.setComponent(new ComponentName("android", "com.hihonor.android.pushagentproxy.HiPushService"));
             List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 128);
@@ -107,15 +107,15 @@ public class HonorApiAvailability {
                 if (it.hasNext()) {
                     ResolveInfo next = it.next();
                     String str = next.serviceInfo.applicationInfo.packageName;
-                    String e = pxa.e(context, str);
-                    sxaVar.f(str);
-                    sxaVar.g(next.serviceInfo.name);
-                    sxaVar.h(e);
+                    String e = nza.e(context, str);
+                    qzaVar.f(str);
+                    qzaVar.g(next.serviceInfo.name);
+                    qzaVar.h(e);
                 }
             }
-            return sxaVar;
+            return qzaVar;
         }
-        return (sxa) invokeL.objValue;
+        return (qza) invokeL.objValue;
     }
 
     public static int b(Context context) {
@@ -124,7 +124,7 @@ public class HonorApiAvailability {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             if (context != null) {
-                sxa a = a(context);
+                qza a = a(context);
                 String c = a.c();
                 String str = "service package name is " + c;
                 if (TextUtils.isEmpty(c)) {

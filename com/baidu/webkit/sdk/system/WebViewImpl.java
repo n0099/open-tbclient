@@ -32,7 +32,7 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     public final WebView.DelegateAdapter mDelegate;
     public WebSettings mSettings;
@@ -41,7 +41,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public WebViewClient mWebViewClient;
     public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FindAdapter implements WebView.FindListener {
         public final WebView.FindListener mListener;
 
@@ -55,7 +55,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PictureAdapter implements WebView.PictureListener {
         public final WebView.PictureListener mListener;
 
@@ -69,7 +69,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         public WebView.WebViewTransport mTransport;
         public com.baidu.webkit.sdk.WebView mWebViewGeneric;

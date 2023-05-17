@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static final boolean DEBUG = MiniShellRuntime.INSTANCE.isDebug();
     public final SharedPreferences mSp;

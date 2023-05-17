@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.eventbus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EventPoster {
     public Class<?> eventType;
     public IActionHandler handler;

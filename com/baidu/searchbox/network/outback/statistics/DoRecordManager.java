@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DoRecordManager {
     public static final boolean DEBUG = false;
     public static int DEFAULT_INITIAL_CAPACITY = 50;

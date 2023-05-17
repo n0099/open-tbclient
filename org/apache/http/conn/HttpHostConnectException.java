@@ -3,7 +3,7 @@ package org.apache.http.conn;
 import java.net.ConnectException;
 import org.apache.http.HttpHost;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpHostConnectException extends ConnectException {
     public HttpHostConnectException(HttpHost httpHost, ConnectException connectException) {
         throw new RuntimeException("Stub!");

@@ -1,5 +1,5 @@
 package com.baidu.live.business.view.emotion;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EmotionStrategy {
     public static EmotionStrategy sInstance;
     public float emptyHeight;
@@ -36,7 +36,7 @@ public class EmotionStrategy {
     public int recPlaceHolderRes;
     public int videoBarPlaceHolderRes;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Holder {
         public static final EmotionStrategy INSTANCE = new EmotionStrategy();
     }

@@ -1,4 +1,4 @@
 package com.yy.hiidostatis.defs.controller;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BmHisController {
 }

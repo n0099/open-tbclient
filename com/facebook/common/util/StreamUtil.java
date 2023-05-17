@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StreamUtil {
     public static byte[] getBytesFromStream(InputStream inputStream) throws IOException {
         return getBytesFromStream(inputStream, inputStream.available());

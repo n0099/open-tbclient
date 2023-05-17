@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class tm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2) {
-        InterceptResult invokeL;
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            return view2.hasOverlappingRendering();
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
+            activity.invalidateOptionsMenu();
         }
-        return invokeL.booleanValue;
     }
 }

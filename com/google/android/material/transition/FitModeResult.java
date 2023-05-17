@@ -1,5 +1,5 @@
 package com.google.android.material.transition;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FitModeResult {
     public final float currentEndHeight;
     public final float currentEndWidth;

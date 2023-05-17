@@ -1,7 +1,7 @@
 package com.huawei.hms.push.task;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j0b;
+import com.baidu.tieba.h2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.huawei.hms.common.internal.TaskApiCall;
 import com.huawei.hms.push.utils.PushBiUtil;
 import com.huawei.hms.support.api.client.Status;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseVoidTask extends TaskApiCall<PushClient, Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,19 +53,19 @@ public class BaseVoidTask extends TaskApiCall<PushClient, Void> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, j0b<Void> j0bVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, h2b<Void> h2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, j0bVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, pushClient, responseErrorCode, str, h2bVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("BaseVoidTask", "Operate succeed");
-                j0bVar.setResult(null);
+                h2bVar.setResult(null);
             } else {
                 HMSLog.e("BaseVoidTask", "Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    j0bVar.c(fromCode.toApiException());
+                    h2bVar.c(fromCode.toApiException());
                 } else {
-                    j0bVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    h2bVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             PushBiUtil.reportExit(pushClient.getContext(), getUri(), responseErrorCode);

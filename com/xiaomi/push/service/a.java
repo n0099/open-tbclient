@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static volatile a a;
 
@@ -48,13 +48,13 @@ public class a {
         File file = new File(context.getFilesDir(), str);
         FileLock fileLock2 = null;
         if (!file.exists()) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("No ready file to get data from " + str);
+            com.xiaomi.channel.commonutils.logger.b.m120a("No ready file to get data from " + str);
             return null;
         }
         synchronized (obj) {
             try {
                 File file2 = new File(context.getFilesDir(), str2);
-                com.xiaomi.push.y.m764a(file2);
+                com.xiaomi.push.y.m783a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
             } catch (Exception e) {
                 e = e;
@@ -125,7 +125,7 @@ public class a {
             try {
                 try {
                     File file = new File(context.getFilesDir(), str3);
-                    com.xiaomi.push.y.m764a(file);
+                    com.xiaomi.push.y.m783a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {

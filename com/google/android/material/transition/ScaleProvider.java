@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ScaleProvider implements VisibilityAnimatorProvider {
     public boolean growing;
     public float incomingEndScale;

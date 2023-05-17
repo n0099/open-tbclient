@@ -1,70 +1,161 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.Process;
+import android.telephony.TelephonyManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.FileInputStream;
-import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class pe0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948059022, "Lcom/baidu/tieba/pe0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948059022, "Lcom/baidu/tieba/pe0;");
-                return;
-            }
-        }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    }
-
-    public static String a(String str) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            byte[] bArr = new byte[1024];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            le0.c("DpNetworkUtils", "getNetWorkInfo()");
+            if (context == null) {
+                return null;
+            }
             try {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read > 0) {
-                        messageDigest.update(bArr, 0, read);
-                    } else {
-                        fileInputStream.close();
-                        return b(messageDigest.digest());
-                    }
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager != null) {
+                    return connectivityManager.getActiveNetworkInfo();
                 }
             } catch (Exception unused) {
-                return "";
             }
-        } else {
-            return (String) invokeL.objValue;
+            return null;
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            le0.c("DpNetworkUtils", "shouldCheckPermission()");
+            return Build.VERSION.SDK_INT >= 23;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            le0.c("DpNetworkUtils", "checkPermissionGranted()");
+            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
+    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean d(Context context) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
+            return invokeL.booleanValue;
+        }
+        le0.c("DpNetworkUtils", "checkPhonePermission()");
+        boolean z2 = true;
+        if (!b()) {
+            return true;
+        }
+        if (context == null) {
+            return false;
+        }
+        try {
+            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, com.kuaishou.weapon.p0.h.c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+                z = false;
+                if (Build.VERSION.SDK_INT < 16) {
+                    if (!z) {
+                        if (!c(context, "android.permission.READ_CALL_LOG")) {
+                            z2 = false;
+                        }
+                    }
+                    return z2;
+                }
+                return z;
+            }
+            z = true;
+            if (Build.VERSION.SDK_INT < 16) {
+            }
+        } catch (Throwable unused) {
+            return false;
         }
     }
 
-    public static String b(byte[] bArr) {
+    public static String e(Context context) {
         InterceptResult invokeL;
+        int i;
+        TelephonyManager telephonyManager;
+        String subscriberId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            le0.c("DpNetworkUtils", "getNetworkStatisticsData()");
+            NetworkInfo a = a(context);
+            int i2 = 3;
+            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
+                i = 0;
+            } else if (a.getType() == 0) {
+                switch (a.getSubtype()) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        i = 2;
+                        break;
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        i = 3;
+                        break;
+                    case 13:
+                        i = 4;
+                        break;
+                    default:
+                        i = 1;
+                        break;
+                }
+            } else {
+                i = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
             }
-            return sb.toString();
+            int i3 = 99;
+            try {
+                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager)) == null) {
+                    i2 = 0;
+                } else {
+                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
+                        if (!subscriberId.startsWith("46001")) {
+                            i2 = subscriberId.startsWith("46003") ? 2 : 99;
+                        }
+                    }
+                    i2 = 1;
+                }
+                i3 = i2;
+            } catch (Throwable th) {
+                le0.e("DpNetworkUtils", "network changed: " + th);
+            }
+            return i + "_" + i3;
         }
         return (String) invokeL.objValue;
     }

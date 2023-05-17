@@ -54,7 +54,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StatisAPIOld implements IStatisApi {
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
     public static final String KEY_MAGIC = "HiidoData";

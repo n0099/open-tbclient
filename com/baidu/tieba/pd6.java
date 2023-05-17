@@ -1,73 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class pd6 extends nd6<MonitorWebView> {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes7.dex */
+public class pd6 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 2;
+    public static int c = 3;
+    public static int d = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pd6(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948058247, "Lcom/baidu/tieba/pd6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.od6
-    /* renamed from: g */
-    public synchronized void a(@NonNull MonitorWebView monitorWebView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, monitorWebView) == null) {
-            synchronized (this) {
-                if (d(monitorWebView)) {
-                    monitorWebView.s();
-                } else if (c()) {
-                    monitorWebView.s();
-                    e(monitorWebView);
-                } else {
-                    monitorWebView.destroy();
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948058247, "Lcom/baidu/tieba/pd6;");
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.nd6
-    /* renamed from: f */
-    public synchronized MonitorWebView b() {
-        InterceptResult invokeV;
-        MonitorWebView monitorWebView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                monitorWebView = (MonitorWebView) super.b();
-                if (monitorWebView != null) {
-                    monitorWebView.u();
-                }
-            }
-            return monitorWebView;
-        }
-        return (MonitorWebView) invokeV.objValue;
     }
 }

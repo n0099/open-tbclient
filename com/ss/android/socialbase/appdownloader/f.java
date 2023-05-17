@@ -15,7 +15,7 @@ import com.ss.android.socialbase.downloader.downloader.s;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f {
     public boolean A;
     public int C;

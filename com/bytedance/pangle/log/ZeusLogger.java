@@ -4,12 +4,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.bytedance.pangle.GlobalParam;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ZeusLogger {
     public static final String TAG = "Zeus";
     public static final String TAG_ACTIVITY = "Zeus/activity";
@@ -144,7 +143,7 @@ public class ZeusLogger {
                 c.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
             }
         }
-        jSONObject.putOpt("log_tag", ImageViewerConfig.FROM_OTHER);
+        jSONObject.putOpt("log_tag", "other");
         if (!TextUtils.isEmpty(str3)) {
         }
         jSONObject2.putOpt("message", c.a(prefixTraceInfo));

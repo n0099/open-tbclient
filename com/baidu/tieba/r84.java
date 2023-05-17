@@ -1,138 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+/* loaded from: classes7.dex */
 public class r84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile r84 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        y84 y84Var = new y84();
-        y84Var.a = str;
-        o84.c().a(new n84(50000, y84Var));
-    }
-
-    public static void b(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        y84 y84Var = new y84();
-        y84Var.a = str;
-        o84.c().a(new n84(90000, y84Var));
-    }
-
-    public static void e(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        y84 y84Var = new y84();
-        y84Var.a = str;
-        o84.c().a(new n84(60000, y84Var));
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        y84 y84Var = new y84();
-        y84Var.a = str;
-        o84.c().a(new n84(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, y84Var));
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            w84 w84Var = new w84();
-            w84Var.b = str;
-            w84Var.a = str2;
-            o84.c().a(new n84(30000, w84Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    public static void c(String str, int i, String str2, boolean z) {
+    public r84() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            v84 v84Var = new v84();
-            v84Var.b = str;
-            v84Var.c = i;
-            v84Var.d = z ? 1 : 0;
-            v84Var.a = str2;
-            o84.c().a(new n84(DefaultOggSeeker.MATCH_BYTE_RANGE, v84Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void h(String str, int i, String str2, boolean z) {
+    public static r84 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            v84 v84Var = new v84();
-            v84Var.b = str;
-            v84Var.c = i;
-            v84Var.d = z ? 1 : 0;
-            v84Var.a = str2;
-            o84.c().a(new n84(70000, v84Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (r84.class) {
+                    if (c == null) {
+                        c = new r84();
+                    }
+                }
+            }
+            return c;
+        }
+        return (r84) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                return "";
+            }
+            return this.b + File.separator + "index.js";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public static void k(String str, int i, String str2, boolean z) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            v84 v84Var = new v84();
-            v84Var.b = str;
-            v84Var.c = i;
-            v84Var.d = z ? 1 : 0;
-            v84Var.a = str2;
-            o84.c().a(new n84(110000, v84Var));
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            y84 y84Var = new y84();
-            y84Var.a = str;
-            o84.c().a(new n84(20000, y84Var));
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            y84 y84Var = new y84();
-            y84Var.a = str;
-            o84.c().a(new n84(10000, y84Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            y84 y84Var = new y84();
-            y84Var.a = str;
-            o84.c().a(new n84(120000, y84Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            x84 x84Var = new x84();
-            x84Var.b = str;
-            x84Var.c = i;
-            x84Var.a = str2;
-            o84.c().a(new n84(80000, x84Var));
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
         }
     }
 }

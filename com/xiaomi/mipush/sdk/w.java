@@ -3,7 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class w implements Runnable {
     public final /* synthetic */ Context a;
 

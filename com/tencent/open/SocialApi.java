@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SocialApi {
     public SocialApiIml a;
 

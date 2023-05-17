@@ -1,144 +1,197 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.KeyguardManager;
-import android.app.WallpaperManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.PowerManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.WholeDisplayGridView;
+import com.baidu.tieba.nx9;
+import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ox9 {
-    public static /* synthetic */ Interceptable $ic;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ox9 extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int e = 16;
     public transient /* synthetic */ FieldHolder $fh;
-    public KeyguardManager a;
-    public PowerManager b;
-    public PowerManager.WakeLock c;
-    public KeyguardManager.KeyguardLock d;
-    public Context e;
+    public AvatarPendantActivity a;
+    public List<lx9> b;
+    public mx9 c;
+    public nx9.a d;
 
-    public ox9() {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948047769, "Lcom/baidu/tieba/ox9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948047769, "Lcom/baidu/tieba/ox9;");
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public WholeDisplayGridView b;
+        public View c;
+
+        public b(ox9 ox9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ox9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(ox9 ox9Var, a aVar) {
+            this(ox9Var);
+        }
+    }
+
+    public ox9(AvatarPendantActivity avatarPendantActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {avatarPendantActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        try {
-            Application app = TbadkCoreApplication.getInst().getApp();
-            this.e = app;
-            PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.b = powerManager;
-            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.c = newWakeLock;
-            newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
-            this.a = keyguardManager;
-            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        this.a = avatarPendantActivity;
     }
 
-    public static Drawable a() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public lx9 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            try {
-                Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
-                if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
-                    return null;
-                }
-                int min = Math.min(ii.l(inst), bitmap.getWidth());
-                int min2 = Math.min(ii.j(inst), bitmap.getHeight());
-                try {
-                    try {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    } catch (Throwable unused) {
-                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th.getMessage());
-                    return null;
-                }
-            } catch (Exception unused2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<lx9> list = this.b;
+            if (list != null && list.size() > 0 && i >= 0 && i < getCount()) {
+                return this.b.get(i);
             }
-        } else {
-            return (Drawable) invokeV.objValue;
+            return null;
+        }
+        return (lx9) invokeI.objValue;
+    }
+
+    public void b(nx9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.d = aVar;
         }
     }
 
-    public boolean b() {
+    public void c(List<lx9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<lx9> list = this.b;
+            if (list != null) {
+                return list.size();
             }
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.isScreenOn();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                this.d.reenableKeyguard();
-                if (this.c != null) {
-                    this.c.release();
-                    this.c = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0132, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09063a);
+                bVar.b = (WholeDisplayGridView) view2.findViewById(R.id.obfuscated_res_0x7f09031c);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0914c6);
+                view2.setTag(bVar);
             }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.c == null) {
-                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.c = newWakeLock;
-                    newWakeLock.setReferenceCounted(false);
-                }
-                if (this.c != null) {
-                    this.c.acquire(10000L);
-                    this.d.disableKeyguard();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
+            lx9 item = getItem(i);
+            if (StringUtils.isNull(item.a())) {
+                bVar.a.setVisibility(8);
+            } else {
+                bVar.a.setVisibility(0);
+                bVar.a.setText(qi.cutString(item.a(), e));
             }
+            if (item != null && !ListUtils.isEmpty(item.b())) {
+                mx9 mx9Var = new mx9(this.a);
+                this.c = mx9Var;
+                mx9Var.d(item.b());
+                bVar.b.setAdapter((ListAdapter) this.c);
+                this.c.c(this.d);
+            }
+            if (i == getCount() - 1) {
+                bVar.c.setVisibility(8);
+            } else {
+                bVar.c.setVisibility(0);
+            }
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0109);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

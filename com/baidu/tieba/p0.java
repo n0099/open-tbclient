@@ -1,19 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface p0 {
-    boolean a(int i, int i2, int i3, int i4);
+    void a(int i, int i2);
 
-    boolean b(int i, int i2, int i3, int i4);
+    void create();
 
-    boolean c(float f, float f2);
+    void dispose();
 
-    boolean d(int i, int i2, int i3);
+    void pause();
 
-    boolean e(int i, int i2);
+    void render();
 
-    boolean f(int i);
-
-    boolean g(int i);
-
-    boolean h(char c);
+    void resume();
 }

@@ -27,7 +27,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.EnumValue;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaAnnotationTargetMapper {
     public static final JavaAnnotationTargetMapper INSTANCE = new JavaAnnotationTargetMapper();
     public static final Map<String, EnumSet<KotlinTarget>> targetNameLists = MapsKt__MapsKt.mapOf(TuplesKt.to("PACKAGE", EnumSet.noneOf(KotlinTarget.class)), TuplesKt.to("TYPE", EnumSet.of(KotlinTarget.CLASS, KotlinTarget.FILE)), TuplesKt.to("ANNOTATION_TYPE", EnumSet.of(KotlinTarget.ANNOTATION_CLASS)), TuplesKt.to("TYPE_PARAMETER", EnumSet.of(KotlinTarget.TYPE_PARAMETER)), TuplesKt.to("FIELD", EnumSet.of(KotlinTarget.FIELD)), TuplesKt.to("LOCAL_VARIABLE", EnumSet.of(KotlinTarget.LOCAL_VARIABLE)), TuplesKt.to("PARAMETER", EnumSet.of(KotlinTarget.VALUE_PARAMETER)), TuplesKt.to("CONSTRUCTOR", EnumSet.of(KotlinTarget.CONSTRUCTOR)), TuplesKt.to("METHOD", EnumSet.of(KotlinTarget.FUNCTION, KotlinTarget.PROPERTY_GETTER, KotlinTarget.PROPERTY_SETTER)), TuplesKt.to("TYPE_USE", EnumSet.of(KotlinTarget.TYPE)));

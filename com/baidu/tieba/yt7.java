@@ -1,77 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.personalize.data.RecPersonalizeRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.Personalized.DataRes;
-/* loaded from: classes7.dex */
-public class yt7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class yt7 extends en<j26, CardViewHolder<f26>> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public f26 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948341773, "Lcom/baidu/tieba/yt7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yt7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948341773, "Lcom/baidu/tieba/yt7;");
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            t05.d();
-            me<byte[]> c = t05.c("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-            if (c != null) {
-                c.e("0", new byte[0], 0L);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.a = tbPageContext;
     }
 
-    public static DataRes b() {
-        InterceptResult invokeV;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            t05.d();
-            me<byte[]> c = t05.c("tb.rec_old_data", TbadkCoreApplication.getCurrentAccount());
-            if (c != null && (bArr = c.get("0")) != null && bArr.length != 0) {
-                try {
-                    return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                } catch (IOException e) {
-                    BdLog.e(e);
-                }
-            }
-            return null;
-        }
-        return (DataRes) invokeV.objValue;
-    }
-
-    public static boolean c(ResponsedMessage responsedMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: s */
+    public CardViewHolder<f26> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, responsedMessage)) == null) {
-            if (responsedMessage == null || responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof RecPersonalizeRequest) || ((RecPersonalizeRequest) responsedMessage.getOrginalMessage().getExtra()).getLoadType() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new f26(this.a);
+            return new CardViewHolder<>(this.b);
         }
-        return invokeL.booleanValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j26 j26Var, CardViewHolder<f26> cardViewHolder) {
+        t(i, view2, viewGroup, j26Var, cardViewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, j26 j26Var, CardViewHolder<f26> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j26Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(j26Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

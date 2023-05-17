@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ju1 {
-    void a(z62 z62Var);
-
-    void b(z62 z62Var);
+    uo4 l();
 }

@@ -8,26 +8,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co4;
-import com.baidu.tieba.fe4;
+import com.baidu.tieba.lp4;
+import com.baidu.tieba.of4;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    public List<fe4> a = new ArrayList();
-    public List<fe4> b = new ArrayList();
+    public List<of4> a = new ArrayList();
+    public List<of4> b = new ArrayList();
     public int c;
     public Context d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends RecyclerView.ViewHolder {
         public SwanAppMenuItemView a;
         public SwanAppMenuItemView b;
 
         public a(View view2) {
             super(view2);
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090ac7);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090af2);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f092049);
         }
     }
 
@@ -94,7 +94,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: m */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d088d, viewGroup, false);
+        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d08be, viewGroup, false);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -105,11 +105,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return new a(inflate);
     }
 
-    public void n(List<List<fe4>> list, boolean z, int i) {
+    public void n(List<List<of4>> list, boolean z, int i) {
         int max;
         float f;
-        List<fe4> list2;
-        List<fe4> list3;
+        List<of4> list2;
+        List<of4> list3;
         this.a.clear();
         this.b.clear();
         if (list == null) {
@@ -132,10 +132,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         } else {
             f = 5.0f;
         }
-        if (co4.d()) {
+        if (lp4.d()) {
             Context context = this.d;
-            if ((context instanceof Activity) && co4.e((Activity) context)) {
-                max = co4.a((Activity) this.d);
+            if ((context instanceof Activity) && lp4.e((Activity) context)) {
+                max = lp4.a((Activity) this.d);
             }
         }
         this.c = (int) (max / f);

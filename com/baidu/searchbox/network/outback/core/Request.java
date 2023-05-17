@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Request {
     public static final int REQUESTFROM_FEED = 1;
     public static final int REQUESTFROM_FRESCO = 2;
@@ -55,7 +55,7 @@ public class Request {
     public final UrlWrapper url;
     public int writeTimeout;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder<R extends Builder> {
         public String bdTraceId;
         @Nullable

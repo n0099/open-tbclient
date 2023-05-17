@@ -1,42 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
-/* loaded from: classes4.dex */
+import org.json.JSONObject;
+import tbclient.CartoonThread;
+/* loaded from: classes5.dex */
 public class ez4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<a> b;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public long a;
+    public int b;
 
     public ez4() {
         Interceptable interceptable = $ic;
@@ -52,57 +31,43 @@ public class ez4 {
         }
     }
 
-    public ArrayList<a> a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public void c(PbPresent pbPresent) {
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) != null) || pbPresent == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = pbPresent.total.intValue();
-        List<PbPresentList> list = pbPresent.list;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (PbPresentList pbPresentList : pbPresent.list) {
-                if (pbPresentList != null) {
-                    a aVar = new a();
-                    pbPresentList.gift_id.intValue();
-                    String str = pbPresentList.gift_name;
-                    aVar.a = pbPresentList.thumbnail_url;
-                    pbPresentList.num.intValue();
-                    this.b.add(aVar);
-                }
-            }
+        try {
+            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
+            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
     }
 
-    public void d(ArrayList<a> arrayList) {
+    public void d(CartoonThread cartoonThread) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b = arrayList;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
+            return;
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
-        }
+        this.a = cartoonThread.cartoon_id.longValue();
+        this.b = cartoonThread.chapter_id.intValue();
     }
 }

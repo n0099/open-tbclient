@@ -14,14 +14,14 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.language.bm.Languages;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Lang {
     public static final String LANGUAGE_RULES_RN = "org/apache/commons/codec/language/bm/lang.txt";
     public static final Map<NameType, Lang> Langs = new EnumMap(NameType.class);
     public final Languages languages;
     public final List<LangRule> rules;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class LangRule {
         public final boolean acceptOnMatch;
         public final Set<String> languages;

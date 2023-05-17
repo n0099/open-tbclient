@@ -38,7 +38,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String L = null;
@@ -68,7 +68,7 @@ public class e {
     public long I;
     public long J;
     public long K;
-    public HandlerC0102e M;
+    public HandlerC0106e M;
     public long O;
     public long P;
     public a R;
@@ -111,7 +111,7 @@ public class e {
     public long z;
 
     @TargetApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends GnssMeasurementsEvent.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class e {
     }
 
     @TargetApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends GnssNavigationMessage.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +182,7 @@ public class e {
     }
 
     @TargetApi(24)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends GnssStatus.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -317,7 +317,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements GpsStatus.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -439,14 +439,14 @@ public class e {
     }
 
     /* renamed from: com.baidu.location.c.e$e  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class HandlerC0102e extends Handler {
+    /* loaded from: classes3.dex */
+    public static class HandlerC0106e extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<e> a;
         public e b;
 
-        public HandlerC0102e(e eVar) {
+        public HandlerC0106e(e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -498,7 +498,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements LocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -592,7 +592,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements GpsStatus.NmeaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -630,7 +630,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h implements LocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1278,7 +1278,7 @@ public class e {
                         this.g = (LocationManager) serviceContext.getSystemService("location");
                     } catch (Exception unused) {
                     }
-                    this.M = new HandlerC0102e(this);
+                    this.M = new HandlerC0106e(this);
                 }
             }
         }

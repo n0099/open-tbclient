@@ -11,7 +11,7 @@ import com.kuaishou.weapon.p0.h;
 import java.io.FileInputStream;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiDeviceUtils {
     public static String mImei;
 

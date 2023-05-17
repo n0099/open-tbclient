@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public String a;
     public final String b;
@@ -46,7 +46,7 @@ public class c {
         this.m = aVar.n;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public String a;
         public String b;

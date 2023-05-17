@@ -1,127 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class q43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONObject g;
+    public String h;
+    public g12 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041817, "Lcom/baidu/tieba/q43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948041817, "Lcom/baidu/tieba/q43;");
-                return;
+    public q43() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = ho1.a;
     }
 
-    public static void a(Message message) {
-        Bundle bundle;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            if (a) {
-                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            g12 g12Var = this.i;
+            if (g12Var != null && !g12Var.isSuccess()) {
+                return true;
             }
-            int i = message.arg1;
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("SwanPluginFunPageModel{providerAppKey='");
+            sb.append(this.a);
+            sb.append('\'');
+            sb.append(", providerRootPath='");
+            sb.append(this.c);
+            sb.append('\'');
+            sb.append(", providerVersion='");
+            sb.append(this.d);
+            sb.append('\'');
+            sb.append(", componentId='");
+            sb.append(this.f);
+            sb.append('\'');
+            sb.append(", cb='");
+            sb.append(this.h);
+            sb.append('\'');
+            sb.append(", pageParams=");
+            sb.append(this.g);
+            sb.append(", swanApiResult=");
+            g12 g12Var = this.i;
+            if (g12Var == null) {
+                a = null;
             } else {
-                bundle = null;
+                a = g12Var.a();
             }
-            y33.a(i, str2, str, bundle);
+            sb.append(a);
+            sb.append('}');
+            return sb.toString();
         }
-    }
-
-    public static void b(Message message) {
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            y33.a(-1000, str2, str, bundle);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void c(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
-            }
-            Bundle bundle = (Bundle) obj;
-            a43 a43Var = new a43(bundle.getString("key_observer_id", ""));
-            a43Var.setResult(bundle.getBundle("key_result_data"));
-            b43.b().c(a43Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void d(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
-            }
-            Bundle bundle = (Bundle) obj;
-            a43 a43Var = new a43(bundle.getString("key_observer_id", ""));
-            a43Var.setResult(bundle.getBundle("key_result_data"));
-            b43.b().c(a43Var);
-        }
-    }
-
-    public static void e(int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
-            n43 e = n43.e();
-            p43 p43Var = new p43(126, bundle);
-            p43Var.a(i);
-            e.h(p43Var);
-        }
-    }
-
-    public static void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
-            n43.e().h(new p43(21, bundle));
-        }
+        return (String) invokeV.objValue;
     }
 }

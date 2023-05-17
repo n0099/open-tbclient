@@ -1,113 +1,263 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeExpressADView;
-import com.qq.e.ads.nativ.NativeExpressMediaListener;
-import com.qq.e.comm.util.AdError;
-/* loaded from: classes7.dex */
-public class zsa implements NativeExpressMediaListener {
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class zsa extends fta<mta> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<mta, TTNativeAd.AdInteractionListener> f;
 
-    public zsa(ysa ysaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ysaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public class a implements TTAdNative.NativeAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zsa a;
+
+        public a(zsa zsaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zsaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zsaVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
+        public void onNativeAdLoad(List<TTNativeAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d("onNativeAdLoad", new Object[0]);
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onNativeAdLoad error: list is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTNativeAd tTNativeAd : list) {
+                    arrayList.add(new mta(tTNativeAd));
+                }
+                this.a.onAdLoaded((List) arrayList);
             }
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoCached(NativeExpressADView nativeExpressADView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zsa(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid, true);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = new FunNativeAdListenerHelper<>(this);
+    }
+
+    public void h(FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, funAdSlot) == null) {
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
+            Ssp.Pid pid = this.mPid;
+            this.e.loadNativeAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoComplete(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+    /* loaded from: classes8.dex */
+    public class b implements TTNativeAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final mta a;
+        public final /* synthetic */ zsa b;
+
+        public b(zsa zsaVar, mta mtaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zsaVar, mtaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zsaVar;
+            this.a = mtaVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdShow(TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdShow(this.a);
+            }
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoError(NativeExpressADView nativeExpressADView, AdError adError) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, nativeExpressADView, adError) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.f.destroy((mta) obj);
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoInit(NativeExpressADView nativeExpressADView) {
+    public void f(Activity activity, mta mtaVar, ViewGroup viewGroup, com.fun.module.csj.g0 g0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, mtaVar, viewGroup, g0Var, adInteractionListener) == null) {
+            ((TTNativeAd) mtaVar.a).setActivityForDownloadApp(activity);
+            ((TTNativeAd) mtaVar.a).registerViewForInteraction(viewGroup, g0Var.getClickViews(), g0Var.getCreativeViews(), adInteractionListener);
+            ((TTNativeAd) mtaVar.a).setDownloadListener(g0Var.getDownloadListener());
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoLoading(NativeExpressADView nativeExpressADView) {
+    public final void g(Context context, mta mtaVar, String str, ViewGroup viewGroup, List<View> list, List<View> list2, TTNativeAd.AdInteractionListener adInteractionListener, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, mtaVar, str, viewGroup, list, list2, adInteractionListener, funAdInteractionListener}) == null) {
+            if (viewGroup instanceof FunNativeView) {
+                viewGroup = ((FunNativeView) viewGroup).getRoot();
+            }
+            this.f.startShow(mtaVar, str, this.mPid, adInteractionListener, funAdInteractionListener);
+            if (context instanceof Activity) {
+                ((TTNativeAd) mtaVar.a).setActivityForDownloadApp((Activity) context);
+            }
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (list2 == null) {
+                list2 = new ArrayList<>();
+            }
+            ((TTNativeAd) mtaVar.a).registerViewForInteraction(viewGroup, list, list2, adInteractionListener);
         }
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageClose(NativeExpressADView nativeExpressADView) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
+            return new cta((mta) obj, str, this.mPid, this);
         }
+        return (FunNativeAd) invokeLLL.objValue;
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPageOpen(NativeExpressADView nativeExpressADView) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
+            mta mtaVar = (mta) obj;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, mtaVar, new cta(mtaVar, str, this.mPid, this), new dta(this, this, mtaVar));
         }
+        return (FunNativeAd2) invokeLLL.objValue;
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoPause(NativeExpressADView nativeExpressADView) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    /* renamed from: l */
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, mta mtaVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, mtaVar)) == null) {
+            onShowStart(mtaVar);
+            com.fun.module.csj.g0 a2 = ata.a((TTNativeAd) mtaVar.a);
+            if (a2 == null) {
+                onAdError(mtaVar, 0, "AdView present failed");
+                return false;
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(a2);
+            f(activity, mtaVar, viewGroup, a2, new bta(this, mtaVar, null, str));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoReady(NativeExpressADView nativeExpressADView, long j) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, nativeExpressADView, j) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.NativeExpressMediaListener
-    public void onVideoStart(NativeExpressADView nativeExpressADView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, nativeExpressADView) == null) {
-            LogPrinter.d();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            onLoadStart(funAdSlot);
+            h(funAdSlot);
         }
     }
 }

@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_SCHEMA = "isFromSchema";
@@ -199,9 +199,9 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!hi.isEmpty(str)) {
+            if (!qi.isEmpty(str)) {
                 if (str.indexOf("_client_version=") < 0) {
-                    if (hi.isEmpty(Uri.parse(str).getQuery())) {
+                    if (qi.isEmpty(Uri.parse(str).getQuery())) {
                         str = str + "?_client_version=" + TbConfig.getVersion();
                     } else {
                         str = str + "&_client_version=" + TbConfig.getVersion();
@@ -239,7 +239,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                ii.Q(getContext(), getContext().getString(R.string.web_view_corrupted));
+                ri.Q(getContext(), getContext().getString(R.string.web_view_corrupted));
                 return false;
             }
             return true;

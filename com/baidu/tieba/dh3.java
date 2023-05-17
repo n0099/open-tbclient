@@ -1,96 +1,85 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class dh3 {
+@Deprecated
+/* loaded from: classes5.dex */
+public class dh3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947704506, "Lcom/baidu/tieba/dh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947704506, "Lcom/baidu/tieba/dh3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dh3(da3 da3Var) {
+        super(da3Var, "/swanAPI/setStorageSync");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
     }
 
-    public static JSONObject b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("abTestSwitch", a());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (dh3.class) {
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "release cache ab obj ");
-                }
-                b = null;
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
-        }
-    }
-
-    public static synchronized JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (dh3.class) {
-                if (b != null) {
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "return cache obj : " + b.toString());
+            String Q = hz1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (pg3.b(Q)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
+                return false;
+            } else {
+                String P = hz1.P(optParamsAsJo);
+                if (P == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                } else if (pg3.c(P)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
+                    return false;
+                } else {
+                    pg3 f0 = g93Var.f0();
+                    if (f0.m(Q, P)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
+                        return false;
                     }
-                    return b;
+                    f0.g().putString(Q, P);
+                    cl3.h.update();
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                    return true;
                 }
-                JSONObject rawSwitch = er2.g0().getRawSwitch();
-                if (rawSwitch == null) {
-                    b = new JSONObject();
-                    if (a) {
-                        Log.d("SwanCoreConfigHelper", "raw switch is null, return empty obj");
-                    }
-                    return b;
-                }
-                Iterator<String> keys = rawSwitch.keys();
-                while (keys.hasNext()) {
-                    if (!keys.next().startsWith("swanswitch")) {
-                        keys.remove();
-                    }
-                }
-                b = rawSwitch;
-                if (a) {
-                    Log.d("SwanCoreConfigHelper", "return new obj : " + b.toString());
-                }
-                return b;
             }
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -17,7 +17,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Cookie {
     public final String domain;
     public final long expiresAt;
@@ -33,7 +33,7 @@ public final class Cookie {
     public static final Pattern DAY_OF_MONTH_PATTERN = Pattern.compile("(\\d{1,2})[^\\d]*");
     public static final Pattern TIME_PATTERN = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         @Nullable
         public String domain;

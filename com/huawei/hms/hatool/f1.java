@@ -1,14 +1,13 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f1 extends o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +43,7 @@ public class f1 extends o {
             jSONObject.put("chifer", this.f);
             jSONObject.put("timestamp", this.b);
             jSONObject.put("servicetag", this.c);
-            jSONObject.put(BaseJsonData.TAG_REQUESTID, this.e);
+            jSONObject.put("requestid", this.e);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;

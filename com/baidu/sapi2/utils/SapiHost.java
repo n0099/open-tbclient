@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import android.util.Base64;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiHost {
     public static final String ACTION_INTERCEPT_URL = "aHR0cHM6Ly93YXAuYmFpZHUuY29tL2FjdGlvbl9pbnRlcmNlcHRfYW5kcm9pZA==";
     public static final String DOMAIN_BAIDU_HTTPS_URL = "aHR0cHM6Ly93d3cuYmFpZHUuY29t";

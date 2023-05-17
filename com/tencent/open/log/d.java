@@ -6,17 +6,17 @@ import android.os.Environment;
 import android.os.StatFs;
 import java.io.File;
 import java.text.SimpleDateFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public static final boolean a(int i, int i2) {
             return i2 == (i & i2);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static final class b {
         public static boolean a() {
             String externalStorageState = Environment.getExternalStorageState();
@@ -34,7 +34,7 @@ public class d {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class c {
         public File a;
         public long b;
@@ -80,8 +80,8 @@ public class d {
     }
 
     /* renamed from: com.tencent.open.log.d$d  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C0735d {
+    /* loaded from: classes10.dex */
+    public static final class C0749d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);

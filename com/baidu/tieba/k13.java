@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +12,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class k13 implements j13 {
+/* loaded from: classes6.dex */
+public class k13 implements zn3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile k13 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile i13 a;
-    public volatile i23 b;
+
+    /* loaded from: classes6.dex */
+    public class a implements i13 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UbcFlowEvent a;
+        public final /* synthetic */ UbcFlowEvent b;
+        public final /* synthetic */ k13 c;
+
+        public a(k13 k13Var, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k13Var, ubcFlowEvent, ubcFlowEvent2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = k13Var;
+            this.a = ubcFlowEvent;
+            this.b = ubcFlowEvent2;
+        }
+
+        @Override // com.baidu.tieba.i13
+        public boolean a(l13 l13Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l13Var)) == null) {
+                if (l13Var == null) {
+                    return false;
+                }
+                return this.c.c(l13Var, this.a, this.b);
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +73,7 @@ public class k13 implements j13 {
                 return;
             }
         }
-        c = ho1.a;
+        a = qp1.a;
     }
 
     public k13() {
@@ -48,115 +89,57 @@ public class k13 implements j13 {
                 return;
             }
         }
-        i();
-    }
-
-    public static k13 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (k13.class) {
-                    if (d == null) {
-                        d = new k13();
-                    }
-                }
-            }
-            return d;
-        }
-        return (k13) invokeV.objValue;
-    }
-
-    public i13 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (i13) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a == null) {
-                this.a = new g13();
-            }
-            if (this.b == null) {
-                this.b = new k23();
-            }
+        j13.f().g();
+        if (a) {
+            Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
         }
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
+    public final boolean c(@NonNull l13 l13Var, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return j();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public i23 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (i23) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.j13
-    public void end(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !k()) {
-            return;
-        }
-        if (c) {
-            Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
-        }
-        this.a.end(j);
-        this.b.end(j);
-        m(j);
-    }
-
-    @Override // com.baidu.tieba.j13
-    public void start(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048583, this, j) != null) || !k()) {
-            return;
-        }
-        if (c) {
-            Log.d("StartUpInfoMarker", "aiapp start at - " + j);
-        }
-        this.a.start(j);
-        this.b.start(j);
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                return true;
-            }
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return false;
-            }
-            String appId = b0.getAppId();
-            if (!TextUtils.isEmpty(appId) && zz1.b(appId) != 0) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l13Var, ubcFlowEvent, ubcFlowEvent2)) == null) {
+            long b = l13Var.b();
+            if (b >= ubcFlowEvent.g() && b <= ubcFlowEvent2.g()) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final void m(long j) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zn3
+    /* renamed from: d */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            tj3.i.update((sj3<Long>) Long.valueOf(j));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            if (a) {
+                Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
+            }
+            if (hybridUbcFlow == null) {
+                return;
+            }
+            UbcFlowEvent g = hybridUbcFlow.g("naStart");
+            UbcFlowEvent g2 = hybridUbcFlow.g("na_first_meaningful_paint");
+            if (g != null && g2 != null) {
+                j13.f().h(new a(this, g, g2));
+                j13.f().a(hybridUbcFlow);
+                if (a) {
+                    Log.d("MaUpdateReporter", "na_start ts - " + g.g());
+                    Log.d("MaUpdateReporter", "fmp_end ts - " + g2.g());
+                    return;
+                }
+                return;
+            }
+            if (a) {
+                if (g == null) {
+                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
+                } else {
+                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
+                }
+            }
+            j13.f().c();
         }
     }
 }

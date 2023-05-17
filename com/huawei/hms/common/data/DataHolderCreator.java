@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.safeparcel.SafeParcelReader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DataHolderCreator implements Parcelable.Creator<DataHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

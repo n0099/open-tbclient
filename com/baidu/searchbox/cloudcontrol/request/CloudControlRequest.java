@@ -29,7 +29,7 @@ import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlRequest {
     public static final String DEFAULT_TIME = "300";
     public static final String REQUEST_CONTENT_TYPE = "application/json";
@@ -44,7 +44,7 @@ public class CloudControlRequest {
     public static final String TAG = "CloudControlRequest";
     public final SharedPrefsWrapper mSharedPrefsWrapper = CloudControlManager.getInstance().getSharedPrefsWrapper();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CloudControlResponseCallback extends ResponseCallback<CloudControlData> {
         public HashMap<String, Object> mCheckData;
         public long mContentLength;

@@ -17,29 +17,29 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e2a;
-import com.baidu.tieba.kx5;
-import com.baidu.tieba.od9;
+import com.baidu.tieba.g4a;
+import com.baidu.tieba.kf9;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
+import com.baidu.tieba.wy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
+/* loaded from: classes7.dex */
+public class AdVideoFlowFragment extends BaseFragment implements wy5.b, g4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public od9 c;
+    public kf9 c;
     public VideoItemModel d;
     public int e;
     public int f;
     public CustomMessageListener g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,8 +134,8 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.e2a
-    public VideoItemModel M0() {
+    @Override // com.baidu.tieba.g4a
+    public VideoItemModel N0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -149,11 +149,11 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            od9 od9Var = this.c;
-            if (od9Var == null) {
+            kf9 kf9Var = this.c;
+            if (kf9Var == null) {
                 return;
             }
-            od9Var.onDestroy();
+            kf9Var.onDestroy();
         }
     }
 
@@ -174,11 +174,11 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            od9 od9Var = this.c;
-            if (od9Var == null) {
+            kf9 kf9Var = this.c;
+            if (kf9Var == null) {
                 return;
             }
-            od9Var.onPause();
+            kf9Var.onPause();
         }
     }
 
@@ -187,48 +187,48 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPrimary();
-            od9 od9Var = this.c;
-            if (od9Var == null) {
+            kf9 kf9Var = this.c;
+            if (kf9Var == null) {
                 return;
             }
-            od9Var.onPrimary(isPrimary());
+            kf9Var.onPrimary(isPrimary());
         }
     }
 
-    @Override // com.baidu.tieba.kx5.b
+    @Override // com.baidu.tieba.wy5.b
     public void onViewClick() {
-        od9 od9Var;
+        kf9 kf9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (od9Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (kf9Var = this.c) == null) {
             return;
         }
-        od9Var.onViewClick();
+        kf9Var.onViewClick();
     }
 
-    @Override // com.baidu.tieba.kx5.b
+    @Override // com.baidu.tieba.wy5.b
     public void onViewDragToRight() {
-        od9 od9Var;
+        kf9 kf9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (od9Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (kf9Var = this.c) == null) {
             return;
         }
-        od9Var.onViewDragToRight();
+        kf9Var.onViewDragToRight();
     }
 
-    @Override // com.baidu.tieba.e2a
-    public int y() {
+    @Override // com.baidu.tieba.g4a
+    public int u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public void F1(od9 od9Var) {
+    public void G1(kf9 kf9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, od9Var) == null) {
-            this.c = od9Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, kf9Var) == null) {
+            this.c = kf9Var;
         }
     }
 
@@ -253,18 +253,18 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             super.setUserVisibleHint(z);
-            od9 od9Var = this.c;
-            if (od9Var == null) {
+            kf9 kf9Var = this.c;
+            if (kf9Var == null) {
                 return;
             }
-            od9Var.onUserVisibleHint(z);
+            kf9Var.onUserVisibleHint(z);
         }
     }
 
-    @Override // com.baidu.tieba.e2a
+    @Override // com.baidu.tieba.g4a
     public void v0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.e = i;
         }
     }
@@ -282,11 +282,11 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
                 this.d = (VideoItemModel) arguments.get("video_data");
                 this.f = arguments.getInt(VideoPlayActivityConfig.CURRENT_TYPE);
             }
-            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_return40, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808c1, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808bf, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808c6, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808c7, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
+            this.c.setDrawables(WebPManager.getMaskDrawable((int) R.drawable.icon_pure_video_play208, WebPManager.ResourceStateType.NORMAL), WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_return40, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0809e8, WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e6, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ed, SkinManager.getColor(R.color.CAM_X0104), WebPManager.ResourceStateType.NORMAL_DISABLE), WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809ee, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
             this.c.updateTiebaData(this.f, this.d);
-            GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0077, (ViewGroup) null);
+            GestureInterceptTouchFrameLayout gestureInterceptTouchFrameLayout = (GestureInterceptTouchFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0079, (ViewGroup) null);
             this.a = gestureInterceptTouchFrameLayout;
-            FrameLayout frameLayout = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(R.id.obfuscated_res_0x7f09009d);
+            FrameLayout frameLayout = (FrameLayout) gestureInterceptTouchFrameLayout.findViewById(R.id.obfuscated_res_0x7f0900aa);
             this.b = frameLayout;
             frameLayout.removeAllViews();
             this.b.addView((View) this.c);
@@ -297,13 +297,13 @@ public class AdVideoFlowFragment extends BaseFragment implements kx5.b, e2a {
         return (View) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kx5.b
+    @Override // com.baidu.tieba.wy5.b
     public void t0(float f, float f2) {
-        od9 od9Var;
+        kf9 kf9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (od9Var = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (kf9Var = this.c) == null) {
             return;
         }
-        od9Var.onViewDoubleClick();
+        kf9Var.onViewDoubleClick();
     }
 }

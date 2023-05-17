@@ -1,21 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.ColorEgg;
-/* loaded from: classes7.dex */
+import java.io.ByteArrayInputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.security.cert.CertificateException;
+import javax.security.cert.X509Certificate;
+import org.json.JSONArray;
+/* loaded from: classes8.dex */
 public class xx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public int b;
 
     public xx4() {
         Interceptable interceptable = $ic;
@@ -27,50 +35,54 @@ public class xx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList<>();
     }
 
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
+    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c(ColorEgg colorEgg) {
-        InterceptResult invokeL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
-            this.b = 0;
-            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
-                return false;
-            }
-            for (String str : colorEgg.holiday_words) {
-                if (!StringUtils.isNull(str)) {
-                    this.a.add(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
+                JSONArray jSONArray = new JSONArray();
+                byte[] bytes = str2.getBytes("UTF-8");
+                if (bytes.length % 116 == 0) {
+                    length = bytes.length / 116;
+                } else {
+                    length = (bytes.length / 116) + 1;
                 }
+                for (int i = 0; i < length; i++) {
+                    if (1 == length) {
+                        jSONArray.put(ji.j(b(publicKey, bytes)));
+                    } else if (i != length - 1) {
+                        byte[] bArr = new byte[116];
+                        System.arraycopy(bytes, i * 116, bArr, 0, 116);
+                        jSONArray.put(ji.j(b(publicKey, bArr)));
+                    } else {
+                        int i2 = i * 116;
+                        int length2 = bytes.length - i2;
+                        byte[] bArr2 = new byte[length2];
+                        System.arraycopy(bytes, i2, bArr2, 0, length2);
+                        jSONArray.put(ji.j(b(publicKey, bArr2)));
+                    }
+                }
+                return ji.j(jSONArray.toString().getBytes("UTF-8"));
             }
-            if (this.a.size() <= 0) {
-                return false;
-            }
-            this.b = colorEgg.style_flag.intValue();
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, key);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

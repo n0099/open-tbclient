@@ -2,8 +2,8 @@ package com.baidu.tieba.forumMember.tbtitle.model.res;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c57;
 import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
+import com.baidu.tieba.p67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetLevelInfo.DataRes;
 import tbclient.GetLevelInfo.GetLevelInfoResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class GetLevelInfoHttpResponsedMessage extends HttpResponsedMessage {
                 getLevelInfoRequestMessage = null;
             }
             if (getLevelInfoRequestMessage != null) {
-                c57 c57Var = new c57();
-                c57Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
+                p67 p67Var = new p67();
+                p67Var.c(getLevelInfoRequestMessage.getForumId() + "", bArr);
             }
         }
     }

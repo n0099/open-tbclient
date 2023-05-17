@@ -6,7 +6,7 @@ import android.util.Property;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.util.WeakHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DrawableAlphaProperty extends Property<Drawable, Integer> {
     public static final Property<Drawable, Integer> DRAWABLE_ALPHA_COMPAT = new DrawableAlphaProperty();
     public final WeakHashMap<Drawable, Integer> alphaCache;

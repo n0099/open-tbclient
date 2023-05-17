@@ -1,5 +1,5 @@
 package com.baidu.pass.http;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public /* synthetic */ class a {
     public static final /* synthetic */ int[] a;
 

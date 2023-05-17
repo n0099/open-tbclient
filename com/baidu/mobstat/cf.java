@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cw;
 import java.net.InetSocketAddress;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class cf implements ch {
     @Override // com.baidu.mobstat.ch
     public void a(ce ceVar, cw cwVar) {

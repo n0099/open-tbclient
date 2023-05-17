@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.VideoTemplate.DataReq;
 import tbclient.VideoTemplate.VideoTemplateReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AnniversaryReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class AnniversaryReqMsg extends NetMessage {
                 builder.f1391common = this.f1059common;
                 builder.source = Integer.valueOf(this.mSource);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    jr5.a(builder, true);
+                    ss5.a(builder, true);
                 }
                 VideoTemplateReqIdl.Builder builder2 = new VideoTemplateReqIdl.Builder();
                 builder2.data = builder.build(false);

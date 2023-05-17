@@ -25,7 +25,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class d0 {
                 if (map != null && map.size() > 0) {
                     for (Object obj : map.keySet()) {
                         if (obj.toString().length() > 1 && !obj.toString().equals(context.getPackageName())) {
-                            File file = new File("/data/data" + File.separator + obj.toString());
+                            File file = new File(com.baidu.searchbox.antivr.b.a + File.separator + obj.toString());
                             if (file.exists() && file.canWrite()) {
                                 return obj.toString();
                             }

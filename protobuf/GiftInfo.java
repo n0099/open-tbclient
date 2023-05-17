@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GiftInfo extends Message {
     public static final String DEFAULT_GIFTNAME = "";
     public static final String DEFAULT_ICON = "";
@@ -26,7 +26,7 @@ public final class GiftInfo extends Message {
     public static final Integer DEFAULT_GIFTID = 0;
     public static final Long DEFAULT_SENDERID = 0L;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<GiftInfo> {
         public Integer giftId;
         public String giftName;

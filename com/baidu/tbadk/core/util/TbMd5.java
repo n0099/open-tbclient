@@ -4,7 +4,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tieba.pi;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbMd5 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] HEX_DIGITS;
@@ -113,7 +113,7 @@ public class TbMd5 {
             File file = new File(packageInfo.applicationInfo.publicSourceDir);
             if (file.exists()) {
                 try {
-                    return pi.b(new FileInputStream(file));
+                    return yi.b(new FileInputStream(file));
                 } catch (FileNotFoundException e) {
                     BdLog.detailException(e);
                 }
@@ -132,7 +132,7 @@ public class TbMd5 {
                 return null;
             }
             try {
-                return pi.d(signatureArr[0].toCharsString().getBytes());
+                return yi.d(signatureArr[0].toCharsString().getBytes());
             } catch (Exception e) {
                 BdLog.detailException(e);
                 return null;
@@ -145,7 +145,7 @@ public class TbMd5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return pi.c(str);
+            return yi.c(str);
         }
         return (String) invokeL.objValue;
     }

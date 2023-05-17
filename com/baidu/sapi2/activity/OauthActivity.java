@@ -24,13 +24,14 @@ import com.baidu.sapi2.utils.enums.QrLoginAction;
 import com.baidu.sapi2.views.LoadingDialog;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OauthActivity extends BaseActivity {
     public static final String E = "extra_calling_app_id";
     public static final String F = "extra_oauth_result_json";
@@ -105,7 +106,7 @@ public class OauthActivity extends BaseActivity {
             public void onSuccess(SsoHashResult ssoHashResult) {
                 String str;
                 HashMap hashMap = new HashMap();
-                hashMap.put("client", "android");
+                hashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
                 hashMap.put("clientfrom", "native");
                 hashMap.put("suppcheck", "1");
                 if (OauthActivity.this.B == 0) {

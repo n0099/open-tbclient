@@ -31,14 +31,14 @@ import com.baidu.tbadk.widget.TbCornersImageView;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj5;
-import com.baidu.tieba.ez7;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.d78;
+import com.baidu.tieba.i78;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.l58;
-import com.baidu.tieba.q58;
-import com.baidu.tieba.z58;
+import com.baidu.tieba.lk5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.r78;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ChatItemViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static final int u;
@@ -63,15 +63,15 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
     public TextView k;
     public TbRichTextView l;
     public TextView m;
-    public z58 n;
+    public r78 n;
     public LinearLayout o;
     public TextView p;
     public long q;
-    public q58 r;
+    public i78 r;
     public View s;
     public CustomMessageListener t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,12 +100,12 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
 
         /* renamed from: onMessage  reason: avoid collision after fix types in other method */
         public void onMessage2(CustomResponsedMessage customResponsedMessage) {
-            z58 z58Var;
+            r78 r78Var;
             ChatRoomInfo chatRoomInfo;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921766 && (customResponsedMessage.getData() instanceof Map)) {
                 Map map = (Map) customResponsedMessage.getData();
-                if (!map.isEmpty() && (z58Var = this.a.n) != null && z58Var.a() != null && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.n.a().getRoomId()))) != null) {
+                if (!map.isEmpty() && (r78Var = this.a.n) != null && r78Var.a() != null && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.n.a().getRoomId()))) != null) {
                     this.a.n.c(chatRoomInfo);
                     ChatItemViewHolder chatItemViewHolder = this.a;
                     chatItemViewHolder.o(chatRoomInfo, chatItemViewHolder.n.b());
@@ -120,7 +120,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -151,8 +151,8 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.r != null) {
-                    z58 z58Var = this.a.n;
-                    if (z58Var != null && z58Var.a() != null) {
+                    r78 r78Var = this.a.n;
+                    if (r78Var != null && r78Var.a() != null) {
                         j = this.a.n.a().getRoomId();
                     } else {
                         j = this.a.q;
@@ -165,7 +165,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
                 }
                 TbPageContext tbPageContext = this.a.a;
                 if (tbPageContext != null && (pageActivity = tbPageContext.getPageActivity()) != null) {
-                    cj5.a().d(pageActivity, this.a.q, "source_from_group_chat_dialog");
+                    lk5.a().c(pageActivity, this.a.q, "source_from_group_chat_dialog");
                 }
                 this.a.m();
                 this.a.p.setVisibility(8);
@@ -187,18 +187,18 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        u = ii.g(TbadkApplication.getInst(), R.dimen.tbds450);
+        u = ri.g(TbadkApplication.getInst(), R.dimen.tbds450);
         v = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds4);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChatItemViewHolder(@NonNull View view2, q58 q58Var) {
+    public ChatItemViewHolder(@NonNull View view2, i78 i78Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, q58Var};
+            Object[] objArr = {view2, i78Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -210,20 +210,20 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             }
         }
         this.t = new a(this, 2921766);
-        this.r = q58Var;
+        this.r = i78Var;
         this.s = view2;
-        this.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e30);
-        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e2c);
-        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e4e);
+        this.f = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e5d);
+        this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e59);
+        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e7e);
         this.g = (HeadImageView) view2.findViewById(R.id.chat_head);
         this.h = (TbCornersImageView) view2.findViewById(R.id.svg_head);
         this.i = (BarImageView) view2.findViewById(R.id.forum_head);
-        this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e1e);
+        this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e4b);
         this.k = (TextView) view2.findViewById(R.id.chat_name);
         this.l = (TbRichTextView) view2.findViewById(R.id.last_chat_content);
         this.m = (TextView) view2.findViewById(R.id.new_message);
-        this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e20);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090683);
+        this.o = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e4d);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09069b);
         this.l.setMaxLines(1);
         this.l.setAddTruncateListener(true);
         this.l.setTextEllipsize(TextUtils.TruncateAt.END);
@@ -231,9 +231,9 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
         this.l.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X08));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(3, R.id.chat_name);
-        layoutParams.topMargin = ii.g(TbadkApplication.getInst(), R.dimen.M_H_X001);
-        layoutParams.bottomMargin = ii.g(TbadkApplication.getInst(), R.dimen.M_H_X001);
-        layoutParams.rightMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds162);
+        layoutParams.topMargin = ri.g(TbadkApplication.getInst(), R.dimen.M_H_X001);
+        layoutParams.bottomMargin = ri.g(TbadkApplication.getInst(), R.dimen.M_H_X001);
+        layoutParams.rightMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds162);
         this.o.setLayoutParams(layoutParams);
         this.f.setOnClickListener(new b(this));
     }
@@ -249,9 +249,9 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
                 if (!TextUtils.isEmpty(chatRoomInfo.getNewMessage().getContent())) {
                     str = str + chatRoomInfo.getNewMessage().getContent();
                 }
-                this.l.setText(new TbRichText(ez7.c(str, 1)));
+                this.l.setText(new TbRichText(s08.c(str, 1)));
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.topMargin = ii.g(TbadkApplication.getInst(), R.dimen.M_H_X003);
+                layoutParams.topMargin = ri.g(TbadkApplication.getInst(), R.dimen.M_H_X003);
                 this.k.setLayoutParams(layoutParams);
                 this.l.setVisibility(0);
             } else {
@@ -269,15 +269,15 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
                 }
                 if (chatRoomInfo.getUnreadNum() < 10) {
                     LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams3.rightMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds13);
-                    layoutParams3.leftMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds13);
-                    layoutParams3.topMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds2);
-                    layoutParams3.bottomMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds2);
+                    layoutParams3.rightMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds13);
+                    layoutParams3.leftMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds13);
+                    layoutParams3.topMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds2);
+                    layoutParams3.bottomMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds2);
                     this.m.setLayoutParams(layoutParams3);
                 } else {
                     LinearLayout.LayoutParams layoutParams4 = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams4.rightMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds10);
-                    layoutParams4.leftMargin = ii.g(TbadkApplication.getInst(), R.dimen.tbds10);
+                    layoutParams4.rightMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds10);
+                    layoutParams4.leftMargin = ri.g(TbadkApplication.getInst(), R.dimen.tbds10);
                     this.m.setLayoutParams(layoutParams4);
                 }
             } else {
@@ -285,7 +285,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             }
             if (chatRoomInfo.getAtInfo() != null && chatRoomInfo.getAtInfo().getCountAll() > 0) {
                 this.p.setVisibility(0);
-                this.p.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0882));
+                this.p.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08f0));
                 return;
             }
             this.p.setVisibility(8);
@@ -320,12 +320,12 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
     @SuppressLint({"ResourceAsColor"})
-    public void d(@NonNull l58 l58Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void d(@NonNull d78 d78Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l58Var, tbPageContext, i) == null) && (l58Var instanceof z58)) {
-            z58 z58Var = (z58) l58Var;
-            this.n = z58Var;
-            if (z58Var != null && z58Var.a() != null) {
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d78Var, tbPageContext, i) == null) && (d78Var instanceof r78)) {
+            r78 r78Var = (r78) d78Var;
+            this.n = r78Var;
+            if (r78Var != null && r78Var.a() != null) {
                 ChatRoomInfo a2 = this.n.a();
                 if (a2.getName() != null) {
                     this.k.setText(MeasureTextLength.fitTextLabel(a2.getName(), StringHelper.STRING_MORE, MeasureTextLength.spaceLength(u), this.k.getPaint(), ""));
@@ -369,24 +369,24 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            g35 d = g35.d(this.k);
+            p45 d = p45.d(this.k);
             d.B(R.dimen.T_X07);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0105);
             this.l.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            z58 z58Var = this.n;
-            if (z58Var != null && z58Var.a() != null && this.n.a().isLocationScrolled()) {
+            r78 r78Var = this.n;
+            if (r78Var != null && r78Var.a() != null && this.n.a().isLocationScrolled()) {
                 i2 = R.color.CAM_X0313;
                 i = R.string.A_X03;
             } else {
                 i = R.string.A_X06;
                 i2 = R.color.CAM_X0211;
             }
-            g35 d2 = g35.d(this.d);
+            p45 d2 = p45.d(this.d);
             d2.o(R.string.J_X06);
             d2.e(i);
             d2.f(i2);
-            g35 d3 = g35.d(this.m);
+            p45 d3 = p45.d(this.m);
             d3.B(R.dimen.T_X10);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0108);
@@ -397,7 +397,7 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             this.g.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.g.setPlaceHolder(1);
             this.g.setDrawBorder(true);
-            g35 d4 = g35.d(this.p);
+            p45 d4 = p45.d(this.p);
             d4.B(R.dimen.T_X08);
             d4.C(R.string.F_X01);
             d4.w(R.color.CAM_X0301);

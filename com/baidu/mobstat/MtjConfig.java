@@ -2,19 +2,19 @@ package com.baidu.mobstat;
 
 import com.baidu.android.util.devices.RomUtils;
 import com.ss.android.download.api.constant.BaseConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MtjConfig {
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
     public static final String BAIDU_MTJ_PUSH_MSG = "Baidu_mtj_push_msg";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum FeedTrackStrategy {
         TRACK_ALL,
         TRACK_SINGLE,
         TRACK_NONE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum PushPlatform {
         BAIDUYUN("baiduyun", 0),
         JIGUANG("jiguang", 1),

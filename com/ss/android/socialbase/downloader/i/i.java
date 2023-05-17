@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.i;
 
 import kotlin.text.Typography;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static String a(String str, String str2, String[] strArr) {
         StringBuilder sb = new StringBuilder(str);

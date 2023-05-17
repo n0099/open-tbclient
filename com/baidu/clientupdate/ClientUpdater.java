@@ -15,6 +15,7 @@ import com.baidu.clientupdate.appinfo.RuleInfo;
 import com.baidu.clientupdate.d.j;
 import com.baidu.clientupdate.download.Download;
 import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +32,7 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ClientUpdater {
     public static /* synthetic */ Interceptable $ic;
     public static ClientUpdater e;
@@ -95,7 +96,7 @@ public final class ClientUpdater {
             l = new a(this);
         }
         this.i = new b(this);
-        this.j = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+        this.j = new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
         this.n = com.baidu.clientupdate.c.a.a(context);
     }
 

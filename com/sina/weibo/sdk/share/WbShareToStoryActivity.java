@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WbShareToStoryActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class WbShareToStoryActivity extends BaseActivity {
                             return;
                         }
                         try {
-                            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("sinaweibo://story/publish?forceedit=1&finish=true"));
+                            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("sinaweibo://story/publish?forceedit=1&finish=true"));
                             intent.setPackage(intent.getStringExtra(WBConstants.SHARE_START_PACKAGE));
                             intent.putExtra("storyData", storyObject);
                             this.this$0.startActivity(intent);

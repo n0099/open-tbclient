@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CommonAdapter<T> extends BaseAdapter {
     public List<T> items = new ArrayList();
     public LayoutInflater layoutInflater;

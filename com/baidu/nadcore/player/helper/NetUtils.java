@@ -5,12 +5,12 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.as0;
+import com.baidu.tieba.qs0;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetUtils {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetStatus {
         NET_DOWN,
         NET_WIFI,
@@ -36,7 +36,7 @@ public class NetUtils {
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         ConnectivityManager connectivityManager;
-        Context b = as0.b();
+        Context b = qs0.b();
         if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
             return null;
         }

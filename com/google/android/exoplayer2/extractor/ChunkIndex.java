@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.extractor;
 
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ChunkIndex implements SeekMap {
     public final long durationUs;
     public final long[] durationsUs;

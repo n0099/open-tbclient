@@ -4,7 +4,7 @@ import android.app.Activity;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.LiveGetHostActivitiesService;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveActivityHelper {
     public static final String MEDIA_ACTIVITY_NAME = "com.baidu.searchbox.live.list.LiveListActivity";
     public static final String MIX_ACTIVITY_NAME = "com.baidu.searchbox.live.list.MixLiveActivity";

@@ -2,7 +2,7 @@ package com.google.protobuf;
 
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InvalidProtocolBufferException extends IOException {
     public static final long serialVersionUID = -1616151763072450476L;
     public MessageLite unfinishedMessage;

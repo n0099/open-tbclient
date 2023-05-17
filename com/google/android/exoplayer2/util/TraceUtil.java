@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import android.annotation.TargetApi;
 import android.os.Trace;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TraceUtil {
     public static void endSection() {
         if (Util.SDK_INT >= 18) {

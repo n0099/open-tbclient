@@ -9,7 +9,7 @@ import java.io.Closeable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CloseableReferenceFactory {
     public final CloseableReference.LeakHandler mLeakHandler;
 

@@ -1,36 +1,66 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes6.dex */
-public class ut3 implements bt1 {
+/* loaded from: classes7.dex */
+public class ut3 implements rt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vt3 a;
+    public boolean b;
 
-    public ut3() {
+    public ut3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.baidu.tieba.rt3
+    public void b(int i) {
+        vt3 vt3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (vt3Var = this.a) != null && vt3Var.c()) {
+            vt3 vt3Var2 = this.a;
+            if (vt3Var2.d(vt3Var2.a(), "", 0) != 0) {
+                return;
+            }
+            this.b = true;
         }
     }
 
-    @Override // com.baidu.tieba.bt1
-    public void a(String str, yx2 yx2Var, Context context) {
+    @Override // com.baidu.tieba.rt3
+    public void a() {
+        vt3 vt3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, yx2Var, context) == null) {
-            g03.e().a(str, yx2Var, context);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (vt3Var = this.a) != null && vt3Var.c()) {
+            this.b = false;
+            vt3 vt3Var2 = this.a;
+            vt3Var2.d(vt3Var2.a(), "", -1);
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = vt3.b(context);
         }
     }
 }

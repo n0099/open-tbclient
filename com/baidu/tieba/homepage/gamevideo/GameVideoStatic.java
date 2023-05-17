@@ -6,8 +6,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoHttpResMessage;
 import com.baidu.tieba.homepage.gamevideo.message.GameVideoSocketResMessage;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.zn5;
+import com.baidu.tieba.ip5;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GameVideoStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class GameVideoStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            zn5 zn5Var = new zn5(309646);
-            zn5Var.setResponsedClass(GameVideoSocketResMessage.class);
-            zn5Var.g(true);
-            MessageManager.getInstance().registerTask(zn5Var);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, xo9.a(TbConfig.URL_GAME_VIDEO, 309646));
+            ip5 ip5Var = new ip5(309646);
+            ip5Var.setResponsedClass(GameVideoSocketResMessage.class);
+            ip5Var.g(true);
+            MessageManager.getInstance().registerTask(ip5Var);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GAME_VIDEO, zq9.a(TbConfig.URL_GAME_VIDEO, 309646));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(GameVideoHttpResMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -1,23 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class km6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class km6 implements i37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Runnable runnable, @NonNull String str, int i) {
+    @Override // com.baidu.tieba.i37
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, runnable, str, i) == null) {
-            if (!((vh) ServiceManager.getService(vh.a)).threadABTest()) {
-                new Thread(runnable).start();
-            } else {
-                ExecutorUtilsExt.postOnElastic(runnable, str, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    public km6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.i37
+    public Map<String, String> a(uz6 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("page_from", ImageViewerConfig.FROM_CONCERN);
+            return linkedHashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

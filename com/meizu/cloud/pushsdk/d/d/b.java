@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.d.d;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends SQLiteOpenHelper {
     public static final String a = b.class.getName();
     public static b b;

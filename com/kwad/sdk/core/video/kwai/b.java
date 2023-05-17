@@ -13,6 +13,7 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.kwad.sdk.service.ServiceProvider;
 import java.io.FileDescriptor;
@@ -20,7 +21,7 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.sdk.core.video.kwai.a {
     public final MediaPlayer adE;
     public final a adF;
@@ -29,7 +30,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
     public final Object adI;
     public boolean adJ;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnTimedTextListener, MediaPlayer.OnVideoSizeChangedListener {
         public final WeakReference<b> mWeakMediaPlayer;
 
@@ -155,7 +156,7 @@ public final class b extends com.kwad.sdk.core.video.kwai.a {
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", MimeTypes.VIDEO_MP4);
         hashMap.put(Util.ACCEPT_RANGES, "bytes");
-        hashMap.put("Status", "206");
+        hashMap.put("Status", CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_KEY_BACK);
         hashMap.put("Cache-control", "no-cache");
         setDataSource(((com.kwad.sdk.service.kwai.d) ServiceProvider.get(com.kwad.sdk.service.kwai.d.class)).getContext(), Uri.parse(bVar.videoUrl), hashMap);
     }

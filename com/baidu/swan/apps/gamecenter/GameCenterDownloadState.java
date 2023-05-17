@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.gamecenter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum GameCenterDownloadState {
     WAITING,
     DOWNLOADING,

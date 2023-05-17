@@ -1,40 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.ju3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class lu3 implements at1 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class lu3 extends ju3.a {
     public static /* synthetic */ Interceptable $ic;
+    public static final lu3 b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955327, "Lcom/baidu/tieba/lu3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947955327, "Lcom/baidu/tieba/lu3;");
+                return;
+            }
+        }
+        b = new lu3();
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public lu3() {
+        super(r0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ju3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.at1
-    public ln4 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ku3();
-        }
-        return (ln4) invokeV.objValue;
+        ju3 a = ku3.a();
+        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
     }
 }

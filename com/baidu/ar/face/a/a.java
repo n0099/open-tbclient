@@ -13,7 +13,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0057a {
+    public class C0060a {
         public String pN;
         public String pO;
         public String pP;
@@ -22,7 +22,7 @@ public class a {
         public String pS;
         public String pT;
 
-        public C0057a() {
+        public C0060a() {
         }
     }
 
@@ -37,9 +37,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C0057a qd;
-        public C0057a qe;
-        public C0057a qf;
+        public C0060a qd;
+        public C0060a qe;
+        public C0060a qf;
         public int qg;
 
         public b() {
@@ -110,41 +110,41 @@ public class a {
         }
     }
 
-    private C0057a f(JSONObject jSONObject) {
-        C0057a c0057a = new C0057a();
+    private C0060a f(JSONObject jSONObject) {
+        C0060a c0060a = new C0060a();
         try {
             String string = jSONObject.getString("track_param_0");
-            c0057a.pN = string;
+            c0060a.pN = string;
             if (TextUtils.isEmpty(string)) {
-                c0057a.pN = "";
+                c0060a.pN = "";
             } else {
-                c0057a.pN = this.pL + c0057a.pN;
+                c0060a.pN = this.pL + c0060a.pN;
             }
             String string2 = jSONObject.getString("track_param_1");
-            c0057a.pO = string2;
+            c0060a.pO = string2;
             if (TextUtils.isEmpty(string2)) {
-                c0057a.pO = "";
+                c0060a.pO = "";
             } else {
-                c0057a.pO = this.pL + c0057a.pO;
+                c0060a.pO = this.pL + c0060a.pO;
             }
             String string3 = jSONObject.getString("track_param_2");
-            c0057a.pP = string3;
+            c0060a.pP = string3;
             if (TextUtils.isEmpty(string3)) {
-                c0057a.pP = "";
+                c0060a.pP = "";
             } else {
-                c0057a.pP = this.pL + c0057a.pP;
+                c0060a.pP = this.pL + c0060a.pP;
             }
             String string4 = jSONObject.getString("track_param_3");
-            c0057a.pQ = string4;
+            c0060a.pQ = string4;
             if (TextUtils.isEmpty(string4)) {
-                c0057a.pQ = "";
+                c0060a.pQ = "";
             } else {
-                c0057a.pQ = this.pL + c0057a.pQ;
+                c0060a.pQ = this.pL + c0060a.pQ;
             }
-            c0057a.pR = jSONObject.getString("trackingSmoothAlpha");
-            c0057a.pS = jSONObject.getString("trackingSmoothThreshold");
-            c0057a.pT = jSONObject.getString("trackingMouthThreshold");
-            return c0057a;
+            c0060a.pR = jSONObject.getString("trackingSmoothAlpha");
+            c0060a.pS = jSONObject.getString("trackingSmoothThreshold");
+            c0060a.pT = jSONObject.getString("trackingMouthThreshold");
+            return c0060a;
         } catch (JSONException e) {
             com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
             e.printStackTrace();

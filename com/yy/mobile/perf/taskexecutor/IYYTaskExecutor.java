@@ -1,5 +1,5 @@
 package com.yy.mobile.perf.taskexecutor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IYYTaskExecutor extends ITaskExecutor {
     IQueueTaskExecutor createAQueueExcuter();
 

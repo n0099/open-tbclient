@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static final Charset a = Charset.forName("UTF-8");
 

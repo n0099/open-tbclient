@@ -10,7 +10,7 @@ import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static final AtomicReference<byte[]> a = new AtomicReference<>();
 

@@ -49,7 +49,7 @@ import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ArdUtil {
     public static final int NET_2G = 1;
     public static final int NET_3G = 2;

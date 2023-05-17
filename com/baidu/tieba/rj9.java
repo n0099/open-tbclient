@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class rj9 implements sj9 {
+/* loaded from: classes7.dex */
+public class rj9 implements hc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,16 +25,13 @@ public class rj9 implements sj9 {
         }
     }
 
-    @Override // com.baidu.tieba.sj9
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hc5
+    public gc5 a(Context context, fc5 fc5Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if ((networkStatRecord != null && networkStatRecord.from == 3 && aw4.e()) || networkStatRecord == null || networkStatRecord.exception == null) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, fc5Var)) == null) {
+            return new qj9(context, fc5Var);
         }
-        return invokeL.booleanValue;
+        return (gc5) invokeLL.objValue;
     }
 }

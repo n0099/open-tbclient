@@ -2,18 +2,18 @@ package com.baidu.tbadk.coreExtra.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.n85;
+import com.baidu.tieba.w95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n85 mData;
+    public w95 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChannelConfigResponseMessage(int i) {
@@ -39,18 +39,18 @@ public class ChannelConfigResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && jSONObject != null && isSuccess()) {
-            n85 n85Var = new n85();
-            this.mData = n85Var;
-            n85Var.c(jSONObject);
+            w95 w95Var = new w95();
+            this.mData = w95Var;
+            w95Var.c(jSONObject);
         }
     }
 
-    public n85 getData() {
+    public w95 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (n85) invokeV.objValue;
+        return (w95) invokeV.objValue;
     }
 }

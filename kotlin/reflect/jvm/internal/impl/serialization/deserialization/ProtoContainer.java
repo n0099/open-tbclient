@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.deserialization.NameResolver;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.TypeTable;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ProtoContainer {
     public final NameResolver nameResolver;
     public final SourceElement source;
@@ -17,7 +17,7 @@ public abstract class ProtoContainer {
 
     public abstract FqName debugFqName();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Class extends ProtoContainer {
         public final ClassId classId;
         public final ProtoBuf.Class classProto;
@@ -65,7 +65,7 @@ public abstract class ProtoContainer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Package extends ProtoContainer {
         public final FqName fqName;
 

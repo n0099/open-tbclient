@@ -20,14 +20,14 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SysUtil {
     public static final byte APK_SIGNATURE_VERSION = 1;
     public static final String TAG = "SysUtil";
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LollipopSysdeps {
         @DoNotOptimize
         public static boolean is64Bit() throws ErrnoException {
@@ -74,7 +74,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(23)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MarshmallowSysdeps {
         @DoNotOptimize
         public static boolean is64Bit() {

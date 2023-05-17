@@ -1,29 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.appcompat.widget.ActivityChooserModel;
-import androidx.collection.ArraySet;
+import android.annotation.SuppressLint;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes3.dex */
-public class ah2 implements wg2 {
+@SuppressLint({"SwanDebugLog"})
+/* loaded from: classes4.dex */
+public class ah2 implements V8Engine.V8EngineConsole {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
-    public final Pair<String, String>[] b;
+    public og2 a;
+    public boolean b;
 
-    public ah2() {
+    public ah2(og2 og2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {og2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,78 +31,73 @@ public class ah2 implements wg2 {
                 return;
             }
         }
-        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
-        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
+        this.b = true;
+        this.a = og2Var;
     }
 
-    @Override // com.baidu.tieba.wg2
-    public ArraySet<String> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onDebugConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            arraySet.addAll((ArraySet<? extends String>) d());
-            arraySet.addAll((ArraySet<? extends String>) c());
-            arraySet.addAll((ArraySet<? extends String>) b());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet<String> b() {
-        InterceptResult invokeV;
-        Pair<String, String>[] pairArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            File file2 = new File(ho4.d());
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (Pair<String, String> pair : this.b) {
-                arraySet.addAll((ArraySet<? extends String>) ig2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
-                arraySet.addAll((ArraySet<? extends String>) ig2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.m0() + str);
             }
-            x42.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
-            return arraySet;
+            os2.h().e(2, str);
         }
-        return (ArraySet) invokeV.objValue;
     }
 
-    public final ArraySet<String> c() {
-        InterceptResult invokeV;
-        String[] strArr;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onInfoConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            String d = ho4.d();
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String J = bo4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
-                if (!TextUtils.isEmpty(J)) {
-                    arraySet.add(J);
-                }
-                String J2 = bo4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
-                if (!TextUtils.isEmpty(J2)) {
-                    arraySet.add(J2);
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (this.b) {
+                Log.i("V8Console", this.a.m0() + str);
             }
-            x42.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
-            return arraySet;
+            os2.h().e(3, str);
         }
-        return (ArraySet) invokeV.objValue;
     }
 
-    public final ArraySet<String> d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onLogConsole(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            String J = bo4.J(new File(og3.d()));
-            if (!TextUtils.isEmpty(J)) {
-                arraySet.add(J);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (this.b) {
+                Log.v("V8Console", this.a.m0() + str);
             }
-            x42.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
-            return arraySet;
+            os2.h().e(1, str);
         }
-        return (ArraySet) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onTraceConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (this.b) {
+                Log.d("V8Console", this.a.m0() + str);
+            }
+            os2.h().e(6, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onErrorConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            os2.h().e(4, str);
+            Log.e("V8Console", this.a.m0() + str);
+            fu1 p0 = ns2.p0();
+            p0.e("V8Console", this.a.m0() + str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
+    public void onWarnConsole(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            os2.h().e(5, str);
+            Log.w("V8Console", this.a.m0() + str);
+            fu1 p0 = ns2.p0();
+            p0.w("V8Console", this.a.m0() + str);
+        }
     }
 }

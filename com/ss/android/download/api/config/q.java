@@ -1,5 +1,5 @@
 package com.ss.android.download.api.config;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface q {
     void a(String str);
 

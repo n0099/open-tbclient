@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class z26 {
+/* loaded from: classes8.dex */
+public class z26 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public Map<String, String> e;
-    public String f;
-    public String g;
-    public String h;
 
     public z26() {
         Interceptable interceptable = $ic;
@@ -30,5 +25,18 @@ public class z26 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
+            }
+            return new CustomResponsedMessage<>(2001178, d36.f().e());
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

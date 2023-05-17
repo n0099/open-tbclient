@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface KsAppDownloadListener {
     @KsAdSdkApi
     @Keep

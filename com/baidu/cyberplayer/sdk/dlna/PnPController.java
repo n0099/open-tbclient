@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.dlna;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PnPController {
     public CtrlPointProvider a;
 

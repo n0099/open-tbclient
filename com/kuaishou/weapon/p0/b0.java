@@ -1,6 +1,7 @@
 package com.kuaishou.weapon.p0;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b0 a;
@@ -213,7 +214,7 @@ public class b0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             try {
-                Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, str);
+                Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(null, str);
                 if (invoke != null) {
                     return (String) invoke;
                 }

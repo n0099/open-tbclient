@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Loop.YyLiveInfoSimple;
 import tbclient.YyExt;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveRemindRecommendData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PAGE_LOCATE_BIG_PIC = 2;

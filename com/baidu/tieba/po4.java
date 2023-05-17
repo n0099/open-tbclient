@@ -1,196 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.util.UUID;
-/* loaded from: classes5.dex */
-public class po4 implements lo4<String> {
+/* loaded from: classes7.dex */
+public class po4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
-    @Override // com.baidu.tieba.lo4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lo4
-    /* renamed from: h */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-        }
-    }
-
-    public po4(Context context) {
+    public po4(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = str;
+        this.b = i;
+        this.c = i2;
     }
 
-    public static byte[] g(byte[]... bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            int i = 0;
-            for (byte[] bArr2 : bArr) {
-                i += bArr2.length;
-            }
-            byte[] bArr3 = new byte[i];
-            int i2 = 0;
-            for (byte[] bArr4 : bArr) {
-                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
-                i2 += bArr4.length;
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final String b() {
+    public String a() {
         InterceptResult invokeV;
-        byte[] g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
-            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
-            if (Build.VERSION.SDK_INT < 23) {
-                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
-            } else {
-                g = g(bytes2, bytes);
-            }
-            return so4.b(g, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public final String e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                str = (String) Build.class.getField("SERIAL").get(null);
-                try {
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        Method declaredMethod = Build.class.getDeclaredMethod("getString", String.class);
-                        declaredMethod.setAccessible(true);
-                        str = (String) declaredMethod.invoke(null, "ro.serialno");
-                    }
-                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                        str = f("ro.serialno");
-                    }
-                } catch (Exception unused) {
-                }
-            } catch (Exception unused2) {
-                str = null;
-            }
-            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
-                return null;
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lo4
-    /* renamed from: c */
-    public String get() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b();
+            int i = this.e;
+            if (i != 0 && i == this.c) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @SuppressLint({"HardwareIds"})
-    public final String d() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String a = ct3.b.a(this.a);
-            if (TextUtils.isEmpty(a)) {
-                a = e();
-            }
-            if (TextUtils.isEmpty(a)) {
-                a = UUID.randomUUID().toString();
-            }
-            if (a == null) {
-                return "";
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final String f(String str) {
-        InterceptResult invokeL;
-        BufferedReader bufferedReader;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            BufferedReader bufferedReader2 = null;
-            try {
-                try {
-                    Runtime runtime = Runtime.getRuntime();
-                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
-                } catch (Throwable th) {
-                    th = th;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                long currentTimeMillis = System.currentTimeMillis();
+                long j = this.d;
+                if (j != 0 && (currentTimeMillis - j) / 1000 <= this.b && this.e >= this.c) {
+                    return true;
                 }
-            } catch (IOException unused) {
-            }
-            try {
-                String readLine = bufferedReader.readLine();
-                ro4.a(bufferedReader);
-                if (readLine == null) {
-                    return "";
+                long j2 = this.d;
+                if (j2 == 0) {
+                    this.d = currentTimeMillis;
+                } else if ((currentTimeMillis - j2) / 1000 > this.b) {
+                    this.d = currentTimeMillis;
+                    this.e = 0;
                 }
-                return readLine;
-            } catch (IOException unused2) {
-                bufferedReader2 = bufferedReader;
-                ro4.a(bufferedReader2);
-                ro4.a(bufferedReader2);
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = bufferedReader;
-                ro4.a(bufferedReader2);
-                throw th;
+                this.e++;
             }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

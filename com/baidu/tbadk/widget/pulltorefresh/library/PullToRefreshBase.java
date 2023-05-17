@@ -19,11 +19,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.RotateLoadingLayout;
-import com.baidu.tieba.tv5;
-import com.baidu.tieba.uv5;
-import com.baidu.tieba.vv5;
-import com.baidu.tieba.wv5;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.fx5;
+import com.baidu.tieba.gx5;
+import com.baidu.tieba.hx5;
+import com.baidu.tieba.ix5;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,24 +59,24 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public d<T> v;
     public PullToRefreshBase<T>.h w;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase, State state, Mode mode);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
 
         void b(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void a();
     }
@@ -132,7 +132,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class AnimationStyle {
         public static final /* synthetic */ AnimationStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -231,7 +231,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -381,7 +381,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Orientation {
         public static final /* synthetic */ Orientation[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -447,7 +447,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -547,7 +547,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -581,7 +581,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -614,7 +614,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -703,7 +703,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -763,7 +763,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.i.setHeaderScroll(round);
                 }
                 if (this.f && this.b != this.h) {
-                    wv5.a(this.i, this);
+                    ix5.a(this.i, this);
                     return;
                 }
                 g gVar = this.e;
@@ -888,20 +888,20 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         l(context, attributeSet);
     }
 
-    public uv5 h(boolean z, boolean z2) {
+    public gx5 h(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            uv5 uv5Var = new uv5();
+            gx5 gx5Var = new gx5();
             if (z && this.h.showHeaderLoadingLayout()) {
-                uv5Var.a(this.r);
+                gx5Var.a(this.r);
             }
             if (z2 && this.h.showFooterLoadingLayout()) {
-                uv5Var.a(this.s);
+                gx5Var.a(this.s);
             }
-            return uv5Var;
+            return gx5Var;
         }
-        return (uv5) invokeCommon.objValue;
+        return (gx5) invokeCommon.objValue;
     }
 
     public final void B(int i) {
@@ -1118,13 +1118,13 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return invokeV.intValue;
     }
 
-    public final tv5 getLoadingLayoutProxy() {
+    public final fx5 getLoadingLayoutProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return j(true, true);
         }
-        return (tv5) invokeV.objValue;
+        return (fx5) invokeV.objValue;
     }
 
     public final Mode getMode() {
@@ -1351,13 +1351,13 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    public final tv5 j(boolean z, boolean z2) {
+    public final fx5 j(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             return h(z, z2);
         }
-        return (tv5) invokeCommon.objValue;
+        return (fx5) invokeCommon.objValue;
     }
 
     public void setLoadingDrawable(Drawable drawable, Mode mode) {
@@ -1501,7 +1501,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
             }
             setGravity(17);
             this.a = ViewConfiguration.get(context).getScaledTouchSlop();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.PullToRefresh);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.PullToRefresh);
             if (obtainStyledAttributes.hasValue(12)) {
                 this.h = Mode.mapIntToValue(obtainStyledAttributes.getInteger(12, 0));
             }
@@ -1519,7 +1519,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.j.setBackgroundDrawable(drawable);
                 }
             } else if (obtainStyledAttributes.hasValue(0)) {
-                vv5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+                hx5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
                 Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
                 if (drawable2 != null) {
                     this.j.setBackgroundDrawable(drawable2);

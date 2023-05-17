@@ -1,132 +1,132 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStreamReader;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.zip.GZIPInputStream;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+/* loaded from: classes6.dex */
 public class nl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006229, "Lcom/baidu/tieba/nl2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948006229, "Lcom/baidu/tieba/nl2;");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                return Long.compare(file.lastModified(), file2.lastModified());
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public static void a() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            String y = ql2.y(AppRuntime.getAppContext());
+            if (TextUtils.isEmpty(y)) {
                 return;
             }
-        }
-        a = ho1.a;
-        b = new byte[]{31, -117};
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static File a(byte[] bArr, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
-            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
-                byte[] bArr2 = b;
-                bArr[0] = bArr2[0];
-                bArr[1] = bArr2[1];
-                try {
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
-                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
-                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                    try {
-                        StringBuilder sb = new StringBuilder();
-                        while (true) {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            sb.append(readLine);
+            File file = new File(y);
+            if (!file.exists() || !file.isDirectory() || (listFiles = file.listFiles()) == null) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                if (file2.isDirectory()) {
+                    String str = file2.getAbsolutePath() + File.separator + "aigames/sandbox";
+                    File file3 = new File(str);
+                    if (file3.exists() && file3.isDirectory()) {
+                        String str2 = y + File.separator + "swangame/anonymous/sandbox";
+                        if (!file3.renameTo(new File(str2))) {
+                            ql2.e(str, str2);
+                            ql2.j(str);
                         }
-                        if (a) {
-                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
-                        }
-                        String string = new JSONObject(sb.toString()).getString(pl2.l);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", string);
-                        }
-                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
-                        File file2 = new File(file, pl2.l);
-                        new FileOutputStream(file2).write(doFinal);
-                        if (a) {
-                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
-                        }
-                        bufferedReader.close();
-                        inputStreamReader.close();
-                        gZIPInputStream.close();
-                        byteArrayInputStream.close();
-                        return file2;
-                    } finally {
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
                     }
                 }
             }
-            return null;
         }
-        return (File) invokeLL.objValue;
     }
 
-    public static Cipher b(int i) throws Exception {
-        InterceptResult invokeI;
+    public static void b() {
+        File[] d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
-            return cipher;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (d = os2.m().d()) == null) {
+            return;
         }
-        return (Cipher) invokeI.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                messageDigest.update(bArr);
-                return bo4.T(messageDigest.digest(), "", false);
-            } catch (NoSuchAlgorithmException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
+        ArrayList arrayList = new ArrayList();
+        for (File file : d) {
+            String name = file.getName();
+            if (name.startsWith("aigame_storage_") && !name.endsWith("_anonymous.xml")) {
+                arrayList.add(file);
             }
         }
-        return (String) invokeL.objValue;
+        Collections.sort(arrayList, new a());
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            File file2 = (File) it.next();
+            String absolutePath = file2.getAbsolutePath();
+            int lastIndexOf = absolutePath.lastIndexOf("_");
+            String str = absolutePath.substring(0, lastIndexOf) + "_anonymous.xml";
+            if (!absolutePath.equals(str)) {
+                File file3 = new File(str);
+                if (file3.exists()) {
+                    kp4.L(file3);
+                }
+                if (!file2.renameTo(file3)) {
+                    kp4.f(file2, file3);
+                    kp4.L(file2);
+                }
+            }
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || !uh3.a().getBoolean("swan_game_data_migration", true)) {
+            return;
+        }
+        uh3.a().putBoolean("swan_game_data_migration", false);
+        if (js2.a) {
+            Log.d("DataMigrationUtils", "before migrate " + System.currentTimeMillis());
+        }
+        a();
+        if (js2.a) {
+            Log.d("DataMigrationUtils", "in migrate " + System.currentTimeMillis());
+        }
+        b();
+        if (js2.a) {
+            Log.d("DataMigrationUtils", "end migrate " + System.currentTimeMillis());
+        }
     }
 }

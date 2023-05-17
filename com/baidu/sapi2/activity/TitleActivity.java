@@ -31,7 +31,7 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.tieba.R;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class TitleActivity extends Activity implements View.OnClickListener {
     public View bottomBackView;
     public View bottomBackViewSingleBtn;
@@ -365,11 +365,11 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
         }
         SapiConfiguration sapiConfiguration = this.configuration;
         if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-            setTheme(R.style.obfuscated_res_0x7f100183);
+            setTheme(R.style.obfuscated_res_0x7f10018d);
         } else {
             SapiConfiguration sapiConfiguration2 = this.configuration;
             if (sapiConfiguration2 != null && sapiConfiguration2.isNightMode) {
-                setTheme(R.style.obfuscated_res_0x7f100184);
+                setTheme(R.style.obfuscated_res_0x7f10018e);
             }
         }
         SapiConfiguration sapiConfiguration3 = this.configuration;
@@ -537,24 +537,24 @@ public abstract class TitleActivity extends Activity implements View.OnClickList
             childAt.setFitsSystemWindows(true);
         }
         if (this.useTitle) {
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09240b);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092425);
-            this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092417);
-            this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f092416);
-            this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f092418);
-            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091f6d);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091f6c);
-            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f09241d);
-            this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f092431);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09246f);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092489);
+            this.mLeftBtnTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09247b);
+            this.mLeftBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f09247a);
+            this.mRightBtn = (Button) findViewById(R.id.obfuscated_res_0x7f09247c);
+            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fca);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fc9);
+            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f092481);
+            this.mRightBtnClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f092495);
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.showBottomBack) {
                 if (sapiConfiguration.isShowBottomBackText) {
-                    if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092172)) != null) {
+                    if (this.bottomBackView == null && (viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0921d5)) != null) {
                         this.bottomBackView = viewStub2.inflate();
-                        this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e89);
-                        this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091f6b);
-                        this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e8c);
-                        this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ed5);
+                        this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee5);
+                        this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091fc8);
+                        this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ee8);
+                        this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f31);
                         ViewUtility.setOnClickListener(this.mBottomBackBtnIv, this);
                         ViewUtility.setOnClickListener(this.mBottomBackTvText, this);
                         ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);

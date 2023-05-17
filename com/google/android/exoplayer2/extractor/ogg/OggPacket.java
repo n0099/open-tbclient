@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class OggPacket {
     public boolean populated;
     public int segmentCount;

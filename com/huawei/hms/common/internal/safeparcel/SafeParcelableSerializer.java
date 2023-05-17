@@ -14,7 +14,7 @@ import com.huawei.hms.common.internal.Preconditions;
 import com.huawei.hms.common.util.Base64Utils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SafeParcelableSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

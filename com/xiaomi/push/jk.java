@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class jk extends jn {
     public InputStream a;
 
@@ -40,7 +40,7 @@ public class jk extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a  reason: collision with other method in class */
-    public void mo639a(byte[] bArr, int i, int i2) {
+    public void mo658a(byte[] bArr, int i, int i2) {
         OutputStream outputStream = this.f817a;
         if (outputStream == null) {
             throw new jo(1, "Cannot write to null outputStream");

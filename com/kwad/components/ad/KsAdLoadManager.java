@@ -8,10 +8,10 @@ import com.kwad.components.core.a.f;
 import com.kwad.components.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class KsAdLoadManager {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Holder {
         INSTANCE;
         

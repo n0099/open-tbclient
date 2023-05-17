@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.depend;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface r {
     boolean a(long j, long j2, q qVar);
 }

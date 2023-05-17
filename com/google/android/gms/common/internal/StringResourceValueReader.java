@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
 import com.google.android.gms.common.annotation.KeepForSdk;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StringResourceValueReader {
     public final Resources zza;
     public final String zzb;
@@ -17,7 +17,7 @@ public class StringResourceValueReader {
         Preconditions.checkNotNull(context);
         Resources resources = context.getResources();
         this.zza = resources;
-        this.zzb = resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f044b);
+        this.zzb = resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f048e);
     }
 
     @Nullable

@@ -19,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.types.model.TypeArgumentMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeParameterMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeVariance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SimpleClassicTypeSystemContext implements ClassicTypeSystemContext {
     public static final SimpleClassicTypeSystemContext INSTANCE = new SimpleClassicTypeSystemContext();
 

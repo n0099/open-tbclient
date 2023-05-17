@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bl {
 
     /* renamed from: a  reason: collision with other field name */
@@ -55,7 +55,7 @@ public class bl {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m217a(String str) {
+    public static byte[] m236a(String str) {
         return a(str.toCharArray());
     }
 
@@ -179,6 +179,6 @@ public class bl {
     }
 
     public static String b(String str) {
-        return new String(m217a(str));
+        return new String(m236a(str));
     }
 }

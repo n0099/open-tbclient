@@ -22,7 +22,7 @@ import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.enums.AccountType;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareResultProxyActivity extends Activity implements NoProguard {
     public static final String KEY_EXTRA_PARAMS = "key_extra_params";
     public static final String KEY_PKG = "key_pkg";

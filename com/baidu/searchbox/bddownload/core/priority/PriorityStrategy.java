@@ -1,10 +1,10 @@
 package com.baidu.searchbox.bddownload.core.priority;
 
 import com.baidu.searchbox.bddownload.DownloadTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PriorityStrategy {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Priority {
         DEFAULT,
         BACKGROUND,

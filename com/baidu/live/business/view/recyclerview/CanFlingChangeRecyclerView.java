@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CanFlingChangeRecyclerView extends RecyclerView {
     public CanFlingChangeRecyclerView(Context context) {
         super(context);

@@ -1,58 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes5.dex */
-public class jcb implements web {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import java.util.List;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+/* loaded from: classes6.dex */
+public interface jcb {
+    void addLogDelegate(IRLogDelegate iRLogDelegate);
 
-    @Override // com.baidu.tieba.web
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
 
-    public jcb(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-        this.b = i2;
-    }
+    List<IRevenue> getAllRevenue();
 
-    @Override // com.baidu.tieba.web
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PaySignDialogListener", "PaySignDialogListener cancel clickArea:" + cancelType);
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                kdb.d(this.a, this.b, "64", "", "", "");
-            }
-        }
-    }
+    IMiddleRevenue getMiddleRevenue(int i, int i2);
+
+    IRevenue getRevenue(int i, int i2);
+
+    kcb getYYPayMiddleService(int i, int i2);
+
+    void removeRevenueConfig(int i, int i2);
+
+    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
 }

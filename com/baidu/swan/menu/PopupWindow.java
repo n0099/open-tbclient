@@ -16,10 +16,10 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de4;
+import com.baidu.tieba.mf4;
 import java.lang.ref.WeakReference;
 @SuppressLint({"ClickableViewAccessibility", "BDThrowableCheck", "SyntheticAccessor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PopupWindow {
     public static final int[] P = {16842922};
     public int A;
@@ -64,12 +64,12 @@ public class PopupWindow {
     public int y;
     public int z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onDismiss();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewTreeObserver.OnScrollChangedListener {
         public a() {
         }
@@ -91,7 +91,7 @@ public class PopupWindow {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends FrameLayout {
         public c(Context context) {
             super(context);
@@ -200,9 +200,9 @@ public class PopupWindow {
         if (i == -1) {
             if (this.d) {
                 if (this.G) {
-                    return R.style.obfuscated_res_0x7f10016f;
+                    return R.style.obfuscated_res_0x7f100179;
                 }
-                return R.style.obfuscated_res_0x7f10016e;
+                return R.style.obfuscated_res_0x7f100178;
             }
             return 0;
         }
@@ -352,7 +352,7 @@ public class PopupWindow {
         this.M = new a();
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, de4.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, mf4.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

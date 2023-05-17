@@ -1,82 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class n93 extends u93 {
+/* loaded from: classes6.dex */
+public final class n93 extends e93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n93(u83 u83Var) {
-        super(u83Var, "/swanAPI/performancePanel");
+    public n93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.e93, com.baidu.tieba.f93
+    public pi4 I() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (!kt2.U().N() && !u93.b) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not debug app model");
-                return false;
-            } else if (x73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                    return false;
-                }
-                JSONArray optJSONArray = optParamsAsJo.optJSONArray("data");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            String optString = optJSONObject.optString("slaveId");
-                            String optString2 = optJSONObject.optString("actionName");
-                            long optLong = optJSONObject.optLong("timestamp", -1L);
-                            if (u93.b) {
-                                Log.i("performancePanel", "slaveId: " + optString + ", actionName: " + optString2 + ", timestamp: " + optLong);
-                            }
-                            o23.b().d(optString, optString2, optLong);
-                        }
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty data");
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new tc2(this);
         }
-        return invokeLLLL.booleanValue;
+        return (pi4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.e93, com.baidu.tieba.f93
+    public qb3 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new sb3(this);
+        }
+        return (qb3) invokeV.objValue;
     }
 }

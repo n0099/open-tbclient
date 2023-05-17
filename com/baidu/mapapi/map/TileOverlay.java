@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TileOverlay {
     public static final String b = "TileOverlay";
     public static int f;

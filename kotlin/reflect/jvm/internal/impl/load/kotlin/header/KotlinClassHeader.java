@@ -11,7 +11,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization.JvmBytecodeBinaryVersion;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization.JvmMetadataVersion;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class KotlinClassHeader {
     public final JvmBytecodeBinaryVersion bytecodeVersion;
     public final String[] data;
@@ -23,7 +23,7 @@ public final class KotlinClassHeader {
     public final String packageName;
     public final String[] strings;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Kind {
         UNKNOWN(0),
         CLASS(1),
@@ -41,7 +41,7 @@ public final class KotlinClassHeader {
             return Companion.getById(i);
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Companion {
             public Companion() {
             }

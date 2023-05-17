@@ -4,7 +4,7 @@ import java.io.IOException;
 import okhttp3.Request;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BufferedRequestBody extends OutputStreamRequestBody {
     public final Buffer buffer;
     public long contentLength;

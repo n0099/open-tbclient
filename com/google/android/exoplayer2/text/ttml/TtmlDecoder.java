@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TtmlDecoder extends SimpleSubtitleDecoder {
     public static final String ATTR_BEGIN = "begin";
     public static final String ATTR_DURATION = "dur";
@@ -35,7 +35,7 @@ public final class TtmlDecoder extends SimpleSubtitleDecoder {
     public static final Pattern PERCENTAGE_COORDINATES = Pattern.compile("^(\\d+\\.?\\d*?)% (\\d+\\.?\\d*?)%$");
     public static final FrameAndTickRate DEFAULT_FRAME_AND_TICK_RATE = new FrameAndTickRate(30.0f, 1, 1);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class FrameAndTickRate {
         public final float effectiveFrameRate;
         public final int subFrameRate;

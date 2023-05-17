@@ -1,7 +1,7 @@
 package com.baidu.mapapi.navi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WayPointInfo {
     public String a;
     public LatLng b;

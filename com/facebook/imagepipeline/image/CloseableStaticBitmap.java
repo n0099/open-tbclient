@@ -10,7 +10,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CloseableStaticBitmap extends CloseableBitmap implements HasBitmap {
     public volatile Bitmap mBitmap;
     @GuardedBy("this")

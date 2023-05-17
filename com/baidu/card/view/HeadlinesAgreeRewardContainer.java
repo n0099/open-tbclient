@@ -6,14 +6,14 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.xz4;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.h15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadlinesAgreeRewardContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,18 +39,18 @@ public class HeadlinesAgreeRewardContainer extends LinearLayout {
         }
     }
 
-    public void setData(xz4 xz4Var) {
+    public void setData(g15 g15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xz4Var) != null) || xz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g15Var) != null) || g15Var == null) {
             return;
         }
         removeAllViews();
-        List<yz4> j = xz4Var.j();
+        List<h15> j = g15Var.j();
         if (ListUtils.isEmpty(j)) {
             return;
         }
-        for (yz4 yz4Var : j) {
-            a(yz4Var);
+        for (h15 h15Var : j) {
+            a(h15Var);
         }
     }
 
@@ -97,15 +97,15 @@ public class HeadlinesAgreeRewardContainer extends LinearLayout {
         b(context);
     }
 
-    public final void a(yz4 yz4Var) {
+    public final void a(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, yz4Var) != null) || yz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, h15Var) != null) || h15Var == null) {
             return;
         }
         HeadlinesAgreeRewardItemView headlinesAgreeRewardItemView = new HeadlinesAgreeRewardItemView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         layoutParams.weight = 1.0f;
-        headlinesAgreeRewardItemView.setData(yz4Var);
+        headlinesAgreeRewardItemView.setData(h15Var);
         addView(headlinesAgreeRewardItemView, layoutParams);
     }
 

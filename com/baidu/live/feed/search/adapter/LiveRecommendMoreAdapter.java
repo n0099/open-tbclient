@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.Live16Ratio9ItemView;
 import com.baidu.live.business.Live4Ratio5ItemView;
 import com.baidu.live.business.base.LiveFeedBaseHolder;
@@ -18,10 +17,9 @@ import com.baidu.live.feed.search.holder.LiveSearchNullDataViewHolder;
 import com.baidu.live.feed.search.holder.LiveSearchResultViewHolder;
 import com.baidu.live.feed.search.holder.ShowAllViewHolder;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc0;
+import com.baidu.tieba.tc0;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.ArrayList;
@@ -33,7 +31,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000|\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0013\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010!\n\u0002\b\u0004\n\u0002\u0010%\n\u0002\u0010\u0000\n\u0002\b\u0010\u0018\u0000 m2\u00020\u0001:\u0003mnoB\u0017\u0012\u0006\u0010A\u001a\u00020@\u0012\u0006\u0010e\u001a\u00020'¢\u0006\u0004\bk\u0010lJ\u001d\u0010\u0006\u001a\u00020\u00052\u000e\u0010\u0004\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\r\u0010\t\u001a\u00020\b¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\bH\u0016¢\u0006\u0004\b\u000b\u0010\nJ\u0017\u0010\r\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\bH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0015\u0010\u000f\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\b¢\u0006\u0004\b\u000f\u0010\u000eJ\u0015\u0010\u0011\u001a\u00020\u00102\u0006\u0010\f\u001a\u00020\b¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\u0010¢\u0006\u0004\b\u0013\u0010\u0014J\u001f\u0010\u0017\u001a\u00020\u00052\u0006\u0010\u0016\u001a\u00020\u00152\u0006\u0010\f\u001a\u00020\bH\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u001f\u0010\u001c\u001a\u00020\u00152\u0006\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u001b\u001a\u00020\bH\u0016¢\u0006\u0004\b\u001c\u0010\u001dJ\u0017\u0010\u001e\u001a\u00020\u00052\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\u0017\u0010 \u001a\u00020\u00052\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b \u0010\u001fJ\u0017\u0010!\u001a\u00020\u00052\u0006\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b!\u0010\u001fJ\r\u0010\"\u001a\u00020\u0005¢\u0006\u0004\b\"\u0010#J\u001d\u0010%\u001a\u00020\u00052\u0006\u0010\f\u001a\u00020\b2\u0006\u0010\u0016\u001a\u00020$¢\u0006\u0004\b%\u0010&J\u0017\u0010)\u001a\u00020\u00052\b\u0010(\u001a\u0004\u0018\u00010'¢\u0006\u0004\b)\u0010*J5\u0010/\u001a\u00020\u00052\u000e\u0010+\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00030\u00022\u000e\u0010-\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010,0\u00022\u0006\u0010.\u001a\u00020\u0010¢\u0006\u0004\b/\u00100J\u0015\u00101\u001a\u00020\u00052\u0006\u0010\f\u001a\u00020\b¢\u0006\u0004\b1\u00102J\u0015\u00104\u001a\u00020\u00052\u0006\u00103\u001a\u00020\b¢\u0006\u0004\b4\u00102J\r\u00105\u001a\u00020\u0005¢\u0006\u0004\b5\u0010#J\u0015\u00107\u001a\u00020\u00052\u0006\u00106\u001a\u00020'¢\u0006\u0004\b7\u0010*J/\u00108\u001a\u00020\u00052\u0010\u0010\u0004\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010\u00022\u0006\u00106\u001a\u00020'2\u0006\u0010.\u001a\u00020\u0010¢\u0006\u0004\b8\u00109J\u001d\u0010<\u001a\u00020'2\u0006\u0010:\u001a\u00020'2\u0006\u0010;\u001a\u00020\b¢\u0006\u0004\b<\u0010=R\u0016\u0010>\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010?R\u0019\u0010A\u001a\u00020@8\u0006@\u0006¢\u0006\f\n\u0004\bA\u0010B\u001a\u0004\bC\u0010DR\u0018\u0010E\u001a\u0004\u0018\u00010'8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bE\u0010FR\u0016\u0010G\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010?R\"\u0010H\u001a\u00020\u00108\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bH\u0010I\u001a\u0004\bH\u0010\u0014\"\u0004\bJ\u0010KR,\u0010M\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\b\u0018\u00010L8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bM\u0010N\u001a\u0004\bO\u0010P\"\u0004\bQ\u0010RR$\u0010T\u001a\u0004\u0018\u00010S8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bT\u0010U\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR \u0010+\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\u0003\u0018\u00010Z8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010[R,\u0010-\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010,\u0018\u00010\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b-\u0010[\u001a\u0004\b\\\u0010]\"\u0004\b^\u0010\u0007R%\u0010a\u001a\u000e\u0012\u0004\u0012\u00020'\u0012\u0004\u0012\u00020`0_8\u0006@\u0006¢\u0006\f\n\u0004\ba\u0010b\u001a\u0004\bc\u0010dR\u0019\u0010e\u001a\u00020'8\u0006@\u0006¢\u0006\f\n\u0004\be\u0010F\u001a\u0004\bf\u0010gR$\u00106\u001a\u0004\u0018\u00010'8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u0010F\u001a\u0004\bh\u0010g\"\u0004\bi\u0010*R \u0010j\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\b\u0018\u00010L8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bj\u0010N¨\u0006p"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter;", "androidx/recyclerview/widget/RecyclerView$Adapter", "", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "list", "", "addNew", "(Ljava/util/List;)V", "", "getFooterStatus", "()I", "getItemCount", CriusAttrConstants.POSITION, "getItemViewType", "(I)I", "getRecommendPosition", "", "isBottomView", "(I)Z", "isEmptyList", "()Z", "Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "holder", "onBindViewHolder", "(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V", "Landroid/view/ViewGroup;", "parent", "viewType", "onCreateViewHolder", "(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;", "onViewAttachedToWindow", "(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V", "onViewDetachedFromWindow", "onViewRecycled", "resetData", "()V", "Lcom/baidu/live/feed/search/holder/LiveSearchResultViewHolder;", "resultDataProcess", "(ILcom/baidu/live/feed/search/holder/LiveSearchResultViewHolder;)V", "", "roomId", "setCurrentRoom", "(Ljava/lang/String;)V", "lists", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "resultList", "isRecommend", "setData", "(Ljava/util/List;Ljava/util/List;Z)V", "setFollowStatus", "(I)V", "status", "setFooterStatus", "showMoreClick", "showNullText", "showNoResult", "showRecommend", "(Ljava/util/List;Ljava/lang/String;Z)V", "content", "num", "wordNumCheck", "(Ljava/lang/String;I)Ljava/lang/String;", "Num", "I", "Landroid/content/Context;", "context", "Landroid/content/Context;", "getContext", "()Landroid/content/Context;", "currentRoomId", "Ljava/lang/String;", "footerStatus", "isShowMore", "Z", "setShowMore", "(Z)V", "Ljava/util/ArrayList;", "itemNum", "Ljava/util/ArrayList;", "getItemNum", "()Ljava/util/ArrayList;", "setItemNum", "(Ljava/util/ArrayList;)V", "Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$OnItemClickListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$OnItemClickListener;", "getListener", "()Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$OnItemClickListener;", "setListener", "(Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$OnItemClickListener;)V", "", "Ljava/util/List;", "getResultList", "()Ljava/util/List;", "setResultList", "", "", "resultMap", "Ljava/util/Map;", "getResultMap", "()Ljava/util/Map;", "scene", "getScene", "()Ljava/lang/String;", "getShowNullText", "setShowNullText", "typeList", "<init>", "(Landroid/content/Context;Ljava/lang/String;)V", "Companion", "MoreFooterHolder", "OnItemClickListener", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final Companion Companion = new Companion(null);
     public static final int ITEM_TYPE_FOOTER = 6;
@@ -58,7 +56,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
     public final Map<String, Object> resultMap = new HashMap();
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\b\b\bf\u0018\u00002\u00020\u0001J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H&¢\u0006\u0004\b\u0005\u0010\u0006J\u001f\u0010\u000b\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u000b\u0010\fJ!\u0010\u000e\u001a\u00020\u00042\b\u0010\b\u001a\u0004\u0018\u00010\r2\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u000e\u0010\u000fJ!\u0010\u0010\u001a\u00020\u00042\b\u0010\b\u001a\u0004\u0018\u00010\r2\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u0010\u0010\u000fJ\u000f\u0010\u0011\u001a\u00020\u0004H&¢\u0006\u0004\b\u0011\u0010\u0012J\u001f\u0010\u0014\u001a\u00020\u00042\u0006\u0010\u0013\u001a\u00020\u00072\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u0014\u0010\fJ\u000f\u0010\u0015\u001a\u00020\u0004H&¢\u0006\u0004\b\u0015\u0010\u0012JG\u0010\u001c\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u00162\u000e\u0010\u0019\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\r0\u00182\u000e\u0010\u001a\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u00182\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\u001b\u001a\u00020\u0002H&¢\u0006\u0004\b\u001c\u0010\u001dJ?\u0010\u001e\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\u00162\u000e\u0010\u0019\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\r0\u00182\u000e\u0010\u001a\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\u00070\u00182\u0006\u0010\n\u001a\u00020\tH&¢\u0006\u0004\b\u001e\u0010\u001f¨\u0006 "}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$OnItemClickListener;", "Lkotlin/Any;", "", "jumpScheme", "", "jumpAuthorView", "(Ljava/lang/String;)V", "Lcom/baidu/live/business/model/data/LiveSearchResultInfo;", "itemInfo", "", CriusAttrConstants.POSITION, "onFollowClick", "(Lcom/baidu/live/business/model/data/LiveSearchResultInfo;I)V", "Lcom/baidu/live/business/model/data/LiveRoomEntity;", "onItemShow", "(Lcom/baidu/live/business/model/data/LiveRoomEntity;I)V", "onRecItemClick", "onRetryLoadMore", "()V", "resultInfo", "onSearchResultItemClick", "onShowMoreClick", "", "resultType", "", "lists", "resultList", "type", "onUbcResult", "(ZLjava/util/List;Ljava/util/List;ILjava/lang/String;)V", "onUbcResultClick", "(ZLjava/util/List;Ljava/util/List;I)V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnItemClickListener {
         void jumpAuthorView(String str);
 
@@ -79,8 +77,8 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         void onUbcResultClick(boolean z, List<? extends LiveRoomEntity> list, List<? extends LiveSearchResultInfo> list2, int i);
     }
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u0000 \u001b2\u00020\u0001:\u0001\u001bB\u000f\u0012\u0006\u0010\u0018\u001a\u00020\u000e¢\u0006\u0004\b\u001a\u0010\u0014J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\"\u0010\b\u001a\u00020\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\"\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\"\u0010\u0015\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0012\"\u0004\b\u0017\u0010\u0014R\u0019\u0010\u0018\u001a\u00020\u000e8\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0010\u001a\u0004\b\u0019\u0010\u0012¨\u0006\u001c"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$MoreFooterHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "", "status", "", "setStatus", "(I)V", "Landroid/widget/TextView;", "errorView", "Landroid/widget/TextView;", "getErrorView", "()Landroid/widget/TextView;", "setErrorView", "(Landroid/widget/TextView;)V", "Landroid/view/View;", "loadingView", "Landroid/view/View;", "getLoadingView", "()Landroid/view/View;", "setLoadingView", "(Landroid/view/View;)V", "noMoreView", "getNoMoreView", "setNoMoreView", NativeConstants.TYPE_VIEW, "getView", "<init>", "Companion", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u0000 \u001b2\u00020\u0001:\u0001\u001bB\u000f\u0012\u0006\u0010\u0018\u001a\u00020\u000e¢\u0006\u0004\b\u001a\u0010\u0014J\u0015\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0005\u0010\u0006R\"\u0010\b\u001a\u00020\u00078\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\b\u0010\t\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\"\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010\u0010\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\"\u0010\u0015\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0010\u001a\u0004\b\u0016\u0010\u0012\"\u0004\b\u0017\u0010\u0014R\u0019\u0010\u0018\u001a\u00020\u000e8\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u0010\u0010\u001a\u0004\b\u0019\u0010\u0012¨\u0006\u001c"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$MoreFooterHolder;", "androidx/recyclerview/widget/RecyclerView$ViewHolder", "", "status", "", "setStatus", "(I)V", "Landroid/widget/TextView;", "errorView", "Landroid/widget/TextView;", "getErrorView", "()Landroid/widget/TextView;", "setErrorView", "(Landroid/widget/TextView;)V", "Landroid/view/View;", "loadingView", "Landroid/view/View;", "getLoadingView", "()Landroid/view/View;", "setLoadingView", "(Landroid/view/View;)V", "noMoreView", "getNoMoreView", "setNoMoreView", "view", "getView", "<init>", "Companion", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    /* loaded from: classes3.dex */
     public static final class MoreFooterHolder extends RecyclerView.ViewHolder {
         public static final Companion Companion = new Companion(null);
         public static final int STATUS_ERROR = 4;
@@ -95,7 +93,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         public final View f1035view;
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$MoreFooterHolder$Companion;", "", "STATUS_ERROR", "I", "STATUS_GONE", "STATUS_LOADING", "STATUS_NO_MORE", "<init>", "()V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Companion {
             public Companion() {
             }
@@ -108,13 +106,13 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         public MoreFooterHolder(View view2) {
             super(view2);
             this.f1035view = view2;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09154c);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091588);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "view.findViewById(R.id.l…mend_more_footer_loading)");
             this.loadingView = findViewById;
-            View findViewById2 = this.f1035view.findViewById(R.id.obfuscated_res_0x7f09154d);
+            View findViewById2 = this.f1035view.findViewById(R.id.obfuscated_res_0x7f091589);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "view.findViewById(R.id.l…mmend_more_footer_nomore)");
             this.noMoreView = findViewById2;
-            View findViewById3 = this.f1035view.findViewById(R.id.obfuscated_res_0x7f09154a);
+            View findViewById3 = this.f1035view.findViewById(R.id.obfuscated_res_0x7f091586);
             Intrinsics.checkExpressionValueIsNotNull(findViewById3, "view.findViewById(R.id.l…ommend_more_footer_error)");
             this.errorView = (TextView) findViewById3;
         }
@@ -185,7 +183,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u000b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\n\u0010\u000bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003R\u0016\u0010\u0007\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0007\u0010\u0003R\u0016\u0010\b\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\b\u0010\u0003R\u0016\u0010\t\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\t\u0010\u0003¨\u0006\f"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$Companion;", "", "ITEM_TYPE_FOOTER", "I", "ITEM_TYPE_GAME_16_9", "ITEM_TYPE_MID", "ITEM_TYPE_NULL", "ITEM_TYPE_SEARCH", "ITEM_TYPE_SHOPPING_4_5", "ITEM_TYPE_SHOW_4_5", "<init>", "()V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -538,12 +536,12 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i == 1) {
-            View view2 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05a9, null);
+            View view2 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05c8, null);
             Context context = this.context;
             Intrinsics.checkExpressionValueIsNotNull(view2, "view");
             return new LiveSearchResultViewHolder(context, view2, this.scene);
         } else if (i == 2) {
-            return new ShowAllViewHolder(this.context, View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05ab, null), this.scene);
+            return new ShowAllViewHolder(this.context, View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05ca, null), this.scene);
         } else if (i == 3) {
             Live4Ratio5ItemView live4Ratio5ItemView = new Live4Ratio5ItemView(this.context);
             live4Ratio5ItemView.setScene(this.scene);
@@ -557,9 +555,9 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
             live16Ratio9ItemView.setScene(this.scene);
             return new LiveFeedBaseHolder(live16Ratio9ItemView);
         } else if (i == 7) {
-            return new LiveSearchNullDataViewHolder(View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05aa, null));
+            return new LiveSearchNullDataViewHolder(View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05c9, null));
         } else {
-            View view3 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05a8, null);
+            View view3 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05c7, null);
             Intrinsics.checkExpressionValueIsNotNull(view3, "view");
             return new MoreFooterHolder(view3);
         }
@@ -646,28 +644,28 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
                 liveSearchResultViewHolder.d().setVisibility(0);
                 liveSearchResultViewHolder.d().setText("已关注");
                 liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT);
-                liveSearchResultViewHolder.d().setTextColor(dc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
-                dc0 f = dc0.f();
+                liveSearchResultViewHolder.d().setTextColor(tc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
+                tc0 f = tc0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                 String r = f.r();
                 if (Intrinsics.areEqual(r, "day")) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080db0);
-                } else if (Intrinsics.areEqual(r, LiveFeedPageSdk.UI_MODE_NIGHT)) {
-                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080db1);
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080ee0);
+                } else if (Intrinsics.areEqual(r, "night")) {
+                    liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080ee1);
                 }
             }
         } else {
             liveSearchResultViewHolder.d().setVisibility(0);
             liveSearchResultViewHolder.d().setText("关注");
             liveSearchResultViewHolder.d().setTypeface(Typeface.DEFAULT_BOLD);
-            liveSearchResultViewHolder.d().setTextColor(dc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
-            dc0 f2 = dc0.f();
+            liveSearchResultViewHolder.d().setTextColor(tc0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
+            tc0 f2 = tc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
             String r2 = f2.r();
             if (Intrinsics.areEqual(r2, "day")) {
-                liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080dae);
-            } else if (Intrinsics.areEqual(r2, LiveFeedPageSdk.UI_MODE_NIGHT)) {
-                liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080daf);
+                liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080ede);
+            } else if (Intrinsics.areEqual(r2, "night")) {
+                liveSearchResultViewHolder.d().setBackgroundResource(R.drawable.obfuscated_res_0x7f080edf);
             }
         }
         liveSearchResultViewHolder.f().setVisibility(8);
@@ -682,12 +680,12 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         if (bool.booleanValue()) {
             liveSearchResultViewHolder.f().setVisibility(0);
             liveSearchResultViewHolder.e().setVisibility(0);
-            dc0 f3 = dc0.f();
+            tc0 f3 = tc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r3 = f3.r();
             if (Intrinsics.areEqual(r3, "day")) {
                 liveSearchResultViewHolder.f().setAnimation("lottie/liveshow_rank_avatar_live_tag_day.json");
-            } else if (Intrinsics.areEqual(r3, LiveFeedPageSdk.UI_MODE_NIGHT)) {
+            } else if (Intrinsics.areEqual(r3, "night")) {
                 liveSearchResultViewHolder.f().setAnimation("lottie/liveshow_rank_avatar_live_tag_night.json");
             }
             liveSearchResultViewHolder.f().playAnimation();

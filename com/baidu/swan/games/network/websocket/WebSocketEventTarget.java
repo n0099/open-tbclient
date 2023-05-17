@@ -6,20 +6,20 @@ import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.tieba.b74;
-import com.baidu.tieba.c74;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.y64;
-import com.baidu.tieba.z64;
+import com.baidu.tieba.h84;
+import com.baidu.tieba.i84;
+import com.baidu.tieba.k84;
+import com.baidu.tieba.l84;
+import com.baidu.tieba.qp1;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
-    public static final boolean b = ho1.a;
+    public static final boolean b = qp1.a;
     public SocketTaskState a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum SocketTaskState {
         IDLE,
         OPEN,
@@ -44,24 +44,24 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         } else {
             optString = jSONObject.optString("reason");
         }
-        x("close", new y64(i, optString));
+        x("close", new h84(i, optString));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onMessage(String str) {
-        x("message", new b74(str));
+        x("message", new k84(str));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onOpen(Map<String, String> map) {
         this.a = SocketTaskState.OPEN;
-        x("open", new c74(new JSONObject(map)));
+        x("open", new l84(new JSONObject(map)));
     }
 
     @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         if (this.a == SocketTaskState.IDLE) {
-            x("error", new z64(th.getMessage()));
+            x("error", new i84(th.getMessage()));
         }
     }
 
@@ -77,6 +77,6 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         int remaining = byteBuffer.remaining();
         byte[] bArr = new byte[remaining];
         byteBuffer.get(bArr);
-        x("message", new b74(new JsArrayBuffer(bArr, remaining)));
+        x("message", new k84(new JsArrayBuffer(bArr, remaining)));
     }
 }

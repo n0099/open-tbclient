@@ -5,18 +5,18 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface c extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements c {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0093a implements c {
+        /* loaded from: classes3.dex */
+        public static class C0096a implements c {
             public IBinder a;
 
-            public C0093a(IBinder iBinder) {
+            public C0096a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -129,7 +129,7 @@ public interface c extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayerFactory");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0093a(iBinder) : (c) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof c)) ? new C0096a(iBinder) : (c) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

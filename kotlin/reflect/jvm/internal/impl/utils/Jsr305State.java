@@ -11,7 +11,7 @@ import kotlin.jvm.JvmField;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Jsr305State {
     public static final Companion Companion = new Companion(null);
     @JvmField
@@ -58,7 +58,7 @@ public final class Jsr305State {
         return "Jsr305State(global=" + this.global + ", migration=" + this.migration + ", user=" + this.user + ", enableCompatqualCheckerFrameworkAnnotations=" + this.enableCompatqualCheckerFrameworkAnnotations + SmallTailInfo.EMOTION_SUFFIX;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

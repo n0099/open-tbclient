@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DisjointKeysUnionTypeSubstitution extends TypeSubstitution {
     public static final Companion Companion = new Companion(null);
     public final TypeSubstitution first;
@@ -19,7 +19,7 @@ public final class DisjointKeysUnionTypeSubstitution extends TypeSubstitution {
         return false;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -77,11 +77,11 @@ public final class DisjointKeysUnionTypeSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2030get(KotlinType kotlinType) {
-        TypeProjection mo2030get = this.first.mo2030get(kotlinType);
-        if (mo2030get == null) {
-            return this.second.mo2030get(kotlinType);
+    public TypeProjection mo2049get(KotlinType kotlinType) {
+        TypeProjection mo2049get = this.first.mo2049get(kotlinType);
+        if (mo2049get == null) {
+            return this.second.mo2049get(kotlinType);
         }
-        return mo2030get;
+        return mo2049get;
     }
 }

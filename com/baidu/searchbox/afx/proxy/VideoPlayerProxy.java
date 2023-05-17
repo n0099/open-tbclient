@@ -18,14 +18,14 @@ import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     public static final String TAG = "VideoPlayerProxy";
     public final VideoPlayer.PlayTask mPlayTask;
     public final VideoPlayer mVideoPlayer;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.VideoPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
 

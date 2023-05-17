@@ -17,7 +17,7 @@ import com.xiaomi.push.bi;
 import com.xiaomi.push.ha;
 import com.xiaomi.push.l;
 import com.xiaomi.push.service.ServiceClient;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetworkStatusReceiver extends BroadcastReceiver {
     public static boolean a;
     public boolean b;
@@ -34,7 +34,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context) {
-        if (!ao.a(context).m138a() && b.m145a(context).m154c() && !b.m145a(context).m157f()) {
+        if (!ao.a(context).m157a() && b.m164a(context).m173c() && !b.m164a(context).m176f()) {
             try {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -44,9 +44,9 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
-        ha.m466a(context);
-        if (bi.b(context) && ao.a(context).m141b()) {
-            ao.a(context).m142c();
+        ha.m485a(context);
+        if (bi.b(context) && ao.a(context).m160b()) {
+            ao.a(context).m161c();
         }
         if (bi.b(context)) {
             if ("syncing".equals(af.a(context).a(au.DISABLE_PUSH))) {

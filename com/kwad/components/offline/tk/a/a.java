@@ -5,7 +5,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.kwad.components.offline.api.core.api.ILoggerReporter;
 import com.kwad.components.offline.api.core.soloader.SoLoadListener;
 import com.kwad.components.offline.api.tk.ITkOfflineCompo;
@@ -22,7 +21,7 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.i;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static long Qz;
     public static final AtomicBoolean Qr = new AtomicBoolean(false);
@@ -111,7 +110,7 @@ public final class a {
         com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.components.offline.tk.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0673b, com.kwai.sodler.lib.ext.b
             public void a(c cVar) {
                 super.a((AnonymousClass1) cVar);
             }
@@ -122,7 +121,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0673b, com.kwai.sodler.lib.ext.b
             /* renamed from: b */
             public void c(c cVar) {
                 super.c((AnonymousClass1) cVar);
@@ -132,7 +131,7 @@ public final class a {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0673b, com.kwai.sodler.lib.ext.b
             /* renamed from: c */
             public void b(c cVar) {
                 String str9;
@@ -148,7 +147,7 @@ public final class a {
                         TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
                     }
                 }
-                str9 = ImageViewerConfig.FROM_OTHER;
+                str9 = "other";
                 TkLoggerReporter.get().reportTKSODownload(ILoggerReporter.Category.ERROR_LOG, new TKDownloadMsg().setRetryCount(cVar.Fp()).setErrorReason(str9).setDownloadState(2).toJson());
             }
 
@@ -156,12 +155,12 @@ public final class a {
                 soLoadListener.onLoaded();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0673b, com.kwai.sodler.lib.ext.b
             public final /* synthetic */ void a(f fVar, com.kwai.sodler.lib.a.a aVar) {
                 qB();
             }
 
-            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0673b, com.kwai.sodler.lib.ext.b
             public final /* bridge */ /* synthetic */ void a(f fVar, PluginError pluginError) {
                 a(pluginError);
             }

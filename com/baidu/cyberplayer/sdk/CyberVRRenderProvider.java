@@ -4,17 +4,17 @@ import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.TextureView;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CyberVRRenderProvider {
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface INotSupportCallback {
         void onNotSupport(int i);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IOnSurfaceReadyCallback {
         void onSurfaceReady(Surface surface);
     }

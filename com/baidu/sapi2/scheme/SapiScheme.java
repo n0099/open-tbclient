@@ -11,10 +11,11 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.IntentConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiScheme {
     public static final String ACTION_SC_APP_OTP = "otp";
     public static final String EXTRA_ACHIEVE_SC_APP_DATA = "achieve_sc_app_data";
@@ -42,7 +43,7 @@ public class SapiScheme {
     }
 
     private void startActivityForResult(Activity activity, String str) throws Exception {
-        activity.startActivityForResult(new Intent("android.intent.action.VIEW", Uri.parse(str)), 3001);
+        activity.startActivityForResult(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)), 3001);
     }
 
     private String buildScheme(String str, String str2, List<PassNameValuePair> list) {

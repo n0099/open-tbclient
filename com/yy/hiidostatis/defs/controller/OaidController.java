@@ -13,18 +13,18 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum OaidController {
     INSTANCE;
     
     public OaidHelper oaidHelper = new OaidHelper();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OaidInitListener {
         void initFinish(boolean z, String str, String str2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class OaidHelper {
         public static final long TIME_OUT = 20000;
         public volatile int beginTime;

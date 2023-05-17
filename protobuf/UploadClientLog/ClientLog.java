@@ -2,7 +2,7 @@ package protobuf.UploadClientLog;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ClientLog extends Message {
     public static final String DEFAULT_ET = "";
     public static final String DEFAULT_NET = "";
@@ -17,7 +17,7 @@ public final class ClientLog extends Message {
     public static final Integer DEFAULT_PUSHCNT = 0;
     public static final Integer DEFAULT_PROCESS_TYPE = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<ClientLog> {
         public String et;
         public String net;

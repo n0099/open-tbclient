@@ -5,14 +5,14 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.pg;
 import com.baidu.tieba.write.data.CreateTagResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class QuestionTagCreateResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_SPECIAL_CHAR = 230049;
@@ -45,11 +45,11 @@ public class QuestionTagCreateResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            setError(gg.e(jSONObject.optString("errno"), 0));
+            setError(pg.e(jSONObject.optString("errno"), 0));
             if (getError() == 230049) {
                 setErrorString(jSONObject.optString("errmsg"));
             } else if (getError() != 0) {
-                setErrorString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b1));
+                setErrorString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0501));
             }
             if (getError() != 0) {
                 return;

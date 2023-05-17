@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.atomData.EmotionImageActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.c48;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.tieba.s58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /* JADX WARN: Code restructure failed: missing block: B:18:0x002b, code lost:
         r0 = r0.getContent();
      */
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.af
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.jf
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -94,7 +94,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             super.D(view2, i, i2, j);
-            if (i != 7 || !I1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !c48.x(msg) || content == null) {
+            if (i != 7 || !I1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !s58.z(msg) || content == null) {
                 return;
             }
             JSONObject jSONObject = null;

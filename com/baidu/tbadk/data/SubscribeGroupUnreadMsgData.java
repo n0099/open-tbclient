@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Loop.ChatroomMessageTabData;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SubscribeGroupUnreadMsgData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4434967430479553722L;

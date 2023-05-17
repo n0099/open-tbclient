@@ -3,7 +3,7 @@ package com.baidu.tieba.forumsearch.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a67;
+import com.baidu.tieba.n77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a67 mSearchData;
+    public n77 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumSocketResponseMessage() {
@@ -36,13 +36,13 @@ public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage
         }
     }
 
-    public a67 getSearchData() {
+    public n77 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mSearchData;
         }
-        return (a67) invokeV.objValue;
+        return (n77) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -59,9 +59,9 @@ public class SearchPostForumSocketResponseMessage extends SocketResponsedMessage
                     setErrorString(searchPostForumResIdl.error.usermsg);
                 }
                 if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
-                    a67 a67Var = new a67(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-                    this.mSearchData = a67Var;
-                    a67Var.b(searchPostForumResIdl.data);
+                    n77 n77Var = new n77(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                    this.mSearchData = n77Var;
+                    n77Var.b(searchPostForumResIdl.data);
                 }
             }
             return searchPostForumResIdl;

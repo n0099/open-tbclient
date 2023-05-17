@@ -683,28 +683,25 @@ public class PaInfoDBManager extends DBBase {
         return invokeCommon.booleanValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0065 */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004c, code lost:
-        if (r13 != null) goto L19;
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
+        if (r13 != null) goto L18;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x004e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x004f, code lost:
         r13.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x0060, code lost:
-        if (r13 == null) goto L20;
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x0061, code lost:
+        if (r13 == null) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0064, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0065, code lost:
         return r1;
      */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r13v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r13v4 */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0069 A[Catch: all -> 0x006d, TryCatch #4 {, blocks: (B:9:0x000f, B:11:0x0015, B:22:0x004f, B:31:0x0064, B:35:0x0069, B:36:0x006c), top: B:47:0x000f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public PaInfo getPaInfoByThirdId(String str) {
         InterceptResult invokeL;
+        Throwable th;
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -714,13 +711,13 @@ public class PaInfoDBManager extends DBBase {
             }
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
+                if (openDatabase == null) {
+                    return null;
+                }
                 try {
-                    if (openDatabase == null) {
-                        return null;
-                    }
-                    try {
-                        cursor = openDatabase.query(TableDefine.DB_TABLE_PA_SUBSCRIBE, null, "third_ext LIKE '%\"third_id\":\"" + ((String) str) + "\"%'", null, null, null, null, String.valueOf(1));
-                        if (cursor != null) {
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_PA_SUBSCRIBE, null, "third_ext LIKE '%\"third_id\":\"" + str + "\"%'", null, null, null, null, String.valueOf(1));
+                    if (cursor != null) {
+                        try {
                             try {
                                 if (cursor.moveToFirst()) {
                                     paInfo = constructPaInfo(cursor);
@@ -729,20 +726,23 @@ public class PaInfoDBManager extends DBBase {
                                 e = e;
                                 LogUtils.e(TAG, "getPaInfoByThirdId:", e);
                             }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            throw th;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
-                        cursor = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        str = 0;
-                        if (str != 0) {
-                            str.close();
-                        }
-                        throw th;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Exception e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    cursor = null;
+                    if (cursor != null) {
+                    }
+                    throw th;
                 }
             }
         } else {

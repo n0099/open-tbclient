@@ -21,8 +21,8 @@ import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mq0;
-import com.baidu.tieba.zn0;
+import com.baidu.tieba.cr0;
+import com.baidu.tieba.po0;
 import java.util.concurrent.TimeUnit;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -33,7 +33,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0000\u0018\u00002\u00020\u0001B'\b\u0007\u0012\u0006\u0010@\u001a\u00020?\u0012\n\b\u0002\u0010B\u001a\u0004\u0018\u00010A\u0012\b\b\u0002\u0010C\u001a\u00020\u0004¢\u0006\u0004\bD\u0010EJ5\u0010\f\u001a\u00020\u000b2\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\t0\bH\u0016¢\u0006\u0004\b\f\u0010\rJ\u0017\u0010\u0010\u001a\u00020\u000b2\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0010\u0010\u0011J\u000f\u0010\u0013\u001a\u00020\u0012H\u0016¢\u0006\u0004\b\u0013\u0010\u0014J\u0017\u0010\u0017\u001a\u00020\u000b2\u0006\u0010\u0016\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0017\u0010\u0018J\u0017\u0010\u0019\u001a\u00020\u000b2\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0019\u0010\u0011J-\u0010\u001c\u001a\u00020\u000b2\u0006\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u000e2\f\u0010\u001b\u001a\b\u0012\u0004\u0012\u00020\u000b0\bH\u0017¢\u0006\u0004\b\u001c\u0010\u001dJ\u0017\u0010\u001f\u001a\u00020\u000b2\u0006\u0010\u001e\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u001f\u0010\u0018R\u001d\u0010%\u001a\u00020 8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b!\u0010\"\u001a\u0004\b#\u0010$R\u001d\u0010*\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b'\u0010\"\u001a\u0004\b(\u0010)R\u001d\u0010-\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b+\u0010\"\u001a\u0004\b,\u0010)R\u001d\u00100\u001a\u00020&8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\"\u001a\u0004\b/\u0010)R\u001d\u00105\u001a\u0002018B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b2\u0010\"\u001a\u0004\b3\u00104R\u0016\u0010\u001a\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u00106R\u001d\u0010;\u001a\u0002078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b8\u0010\"\u001a\u0004\b9\u0010:R\u001d\u0010>\u001a\u0002078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b<\u0010\"\u001a\u0004\b=\u0010:¨\u0006F"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadVideoRewardCountDownView;", "Lcom/baidu/nadcore/lp/reward/view/AbsRewardCountDownView;", "Landroid/view/ViewGroup;", "viewGroup", "", "index", "", "animation", "Lkotlin/Function0;", "Landroid/view/ViewGroup$MarginLayoutParams;", SapiUtils.KEY_QR_LOGIN_LP, "", "attachToViewGroup", "(Landroid/view/ViewGroup;IZLkotlin/Function0;)V", "Lcom/baidu/nadcore/model/RewardData;", "rewardData", "doTaskComplete", "(Lcom/baidu/nadcore/model/RewardData;)V", "", "getMillisUntilFinished", "()J", "", "url", "loadLottieAnimation", "(Ljava/lang/String;)V", "resetUI", "taskDuration", "onFinish", "setData", "(ILcom/baidu/nadcore/model/RewardData;Lkotlin/Function0;)V", "tips", "showRewardTips", "Lcom/baidu/nadcore/widget/AdImageView;", "ivIcon$delegate", "Lkotlin/Lazy;", "getIvIcon", "()Lcom/baidu/nadcore/widget/AdImageView;", "ivIcon", "Landroid/widget/LinearLayout;", "llContent$delegate", "getLlContent", "()Landroid/widget/LinearLayout;", "llContent", "llCountDown$delegate", "getLlCountDown", "llCountDown", "llLimit$delegate", "getLlLimit", "llLimit", "Lcom/airbnb/lottie/LottieAnimationView;", "lottieView$delegate", "getLottieView", "()Lcom/airbnb/lottie/LottieAnimationView;", "lottieView", "I", "Landroid/widget/TextView;", "tvCountDown$delegate", "getTvCountDown", "()Landroid/widget/TextView;", "tvCountDown", "tvDesc$delegate", "getTvDesc", "tvDesc", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     public final Lazy h;
     public final Lazy i;
@@ -88,18 +88,18 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         return (TextView) this.m.getValue();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b<T> implements LottieListener<LottieComposition> {
         public b() {
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends AnimatorListenerAdapter {
 
             /* renamed from: com.baidu.nadcore.lp.reward.view.NadVideoRewardCountDownView$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes2.dex */
-            public static final class C0116a implements ValueAnimator.AnimatorUpdateListener {
-                public C0116a() {
+            /* loaded from: classes3.dex */
+            public static final class C0120a implements ValueAnimator.AnimatorUpdateListener {
+                public C0120a() {
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -122,7 +122,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.5f);
-                ofFloat.addUpdateListener(new C0116a());
+                ofFloat.addUpdateListener(new C0120a());
                 ofFloat.setDuration(200L).start();
             }
         }
@@ -138,12 +138,12 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
-        public final /* synthetic */ mq0 b;
+        public final /* synthetic */ cr0 b;
 
-        public a(mq0 mq0Var) {
-            this.b = mq0Var;
+        public a(cr0 cr0Var) {
+            this.b = cr0Var;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -165,7 +165,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class c<T> implements LottieListener<Throwable> {
         public c() {
         }
@@ -178,17 +178,17 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static final class d extends zn0 {
-        public final /* synthetic */ mq0 k;
+    /* loaded from: classes3.dex */
+    public static final class d extends po0 {
+        public final /* synthetic */ cr0 k;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(mq0 mq0Var, int i, long j, long j2) {
+        public d(cr0 cr0Var, int i, long j, long j2) {
             super(j, j2);
-            this.k = mq0Var;
+            this.k = cr0Var;
         }
 
-        @Override // com.baidu.tieba.zn0
+        @Override // com.baidu.tieba.po0
         public void l() {
             Function0<Unit> countDownFinish = NadVideoRewardCountDownView.this.getCountDownFinish();
             if (countDownFinish != null) {
@@ -197,7 +197,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             NadVideoRewardCountDownView.this.q(this.k);
         }
 
-        @Override // com.baidu.tieba.zn0
+        @Override // com.baidu.tieba.po0
         public void m(long j) {
             Function0<Unit> bigCardShowCallback;
             Function0<Unit> suspendShowCallback;
@@ -213,14 +213,14 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class e implements Runnable {
         public e() {
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            zn0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
+            po0 countDownTime = NadVideoRewardCountDownView.this.getCountDownTime();
             if (countDownTime != null) {
                 countDownTime.n();
             }
@@ -255,7 +255,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final LinearLayout invoke() {
-                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f091580);
+                View findViewById = NadVideoRewardCountDownView.this.findViewById(R.id.obfuscated_res_0x7f0915bc);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.ll_limit)");
                 return (LinearLayout) findViewById;
             }
@@ -351,9 +351,9 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         getTvDesc().setText(tips);
     }
 
-    public final void q(mq0 mq0Var) {
+    public final void q(cr0 cr0Var) {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f, 1.0f);
-        ofFloat.addUpdateListener(new a(mq0Var));
+        ofFloat.addUpdateListener(new a(cr0Var));
         ofFloat.setDuration(400L).start();
     }
 
@@ -386,7 +386,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
     public long getMillisUntilFinished() {
         long j;
         long millis = TimeUnit.SECONDS.toMillis(this.o);
-        zn0 countDownTime = getCountDownTime();
+        po0 countDownTime = getCountDownTime();
         if (countDownTime != null) {
             j = countDownTime.j();
         } else {
@@ -409,10 +409,10 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
         }
     }
 
-    public final void s(mq0 mq0Var) {
+    public final void s(cr0 cr0Var) {
         getTvCountDown().setVisibility(0);
         getIvIcon().setVisibility(0);
-        getTvDesc().setText(mq0Var.z());
+        getTvDesc().setText(cr0Var.z());
         getLlLimit().setVisibility(8);
         getLottieView().setVisibility(8);
         getLlCountDown().setAlpha(1.0f);
@@ -421,7 +421,7 @@ public final class NadVideoRewardCountDownView extends AbsRewardCountDownView {
 
     @Override // com.baidu.nadcore.lp.reward.view.AbsRewardCountDownView
     @SuppressLint({"SetTextI18n"})
-    public void setData(int i, mq0 rewardData, Function0<Unit> onFinish) {
+    public void setData(int i, cr0 rewardData, Function0<Unit> onFinish) {
         Intrinsics.checkNotNullParameter(rewardData, "rewardData");
         Intrinsics.checkNotNullParameter(onFinish, "onFinish");
         s(rewardData);

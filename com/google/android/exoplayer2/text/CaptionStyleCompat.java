@@ -6,7 +6,7 @@ import android.view.accessibility.CaptioningManager;
 import com.google.android.exoplayer2.util.Util;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CaptionStyleCompat {
     public static final CaptionStyleCompat DEFAULT = new CaptionStyleCompat(-1, -16777216, 0, 0, -1, null);
     public static final int EDGE_TYPE_DEPRESSED = 4;
@@ -23,7 +23,7 @@ public final class CaptionStyleCompat {
     public final int windowColor;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface EdgeType {
     }
 

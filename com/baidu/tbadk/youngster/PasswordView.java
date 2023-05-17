@@ -17,9 +17,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.wp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PasswordView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,12 +50,12 @@ public class PasswordView extends RelativeLayout {
     public Runnable o;
     public Runnable p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface g {
         void onComplete();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,12 +83,12 @@ public class PasswordView extends RelativeLayout {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.e != null) {
-                ii.O(this.a.getContext(), this.a.e);
+                ri.O(this.a.getContext(), this.a.e);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +259,7 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    jg.a().post(this.b.p);
+                    sg.a().post(this.b.p);
                     return;
                 }
                 this.a.setVisibility(8);
@@ -267,7 +267,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -426,7 +426,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(ii.g(getContext(), R.dimen.tbds3), un9.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(ri.g(getContext(), R.dimen.tbds3), wp9.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -510,8 +510,8 @@ public class PasswordView extends RelativeLayout {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            jg.a().removeCallbacks(this.o);
-            jg.a().postDelayed(this.o, 300L);
+            sg.a().removeCallbacks(this.o);
+            sg.a().postDelayed(this.o, 300L);
         }
     }
 
@@ -520,8 +520,8 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            jg.a().removeCallbacks(this.o);
-            jg.a().removeCallbacks(this.p);
+            sg.a().removeCallbacks(this.o);
+            sg.a().removeCallbacks(this.p);
             i();
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.pass.ecommerce.common.request;
 
 import com.baidu.pass.ecommerce.common.MapObject;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseMapObjectRequest extends BaseRequest {
     public String relativeUrl;
 

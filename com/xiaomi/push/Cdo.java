@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.os.Build;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Cdo {
     public static void a(byte[] bArr) {
         if (bArr.length >= 2) {
@@ -20,20 +20,20 @@ public class Cdo {
     }
 
     public static byte[] a(String str, byte[] bArr) {
-        byte[] m217a = bl.m217a(str);
+        byte[] m236a = bl.m236a(str);
         try {
-            a(m217a);
-            return h.a(m217a, bArr);
+            a(m236a);
+            return h.a(m236a, bArr);
         } catch (Exception unused) {
             return null;
         }
     }
 
     public static byte[] b(String str, byte[] bArr) {
-        byte[] m217a = bl.m217a(str);
+        byte[] m236a = bl.m236a(str);
         try {
-            a(m217a);
-            return h.b(m217a, bArr);
+            a(m236a);
+            return h.b(m236a, bArr);
         } catch (Exception unused) {
             return null;
         }

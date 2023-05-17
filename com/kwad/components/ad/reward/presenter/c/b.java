@@ -14,7 +14,7 @@ import com.kwad.sdk.components.h;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.az;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
     public final com.kwad.components.core.webview.b.d.a mt = new com.kwad.components.core.webview.b.d.a() { // from class: com.kwad.components.ad.reward.presenter.c.b.4
         @Override // com.kwad.components.core.webview.b.d.a
@@ -38,13 +38,13 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         this.nM.mRootContainer.postDelayed(new Runnable() { // from class: com.kwad.components.ad.reward.presenter.c.b.3
             @Override // java.lang.Runnable
             public final void run() {
-                int m94if = b.this.m94if();
+                int m113if = b.this.m113if();
                 int S = b.this.S(i);
                 if (b.this.to != null) {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) b.this.to.getLayoutParams();
                     layoutParams.width = -1;
-                    layoutParams.topMargin = m94if;
-                    layoutParams.height = (az.getScreenHeight(b.this.getContext()) - m94if) - S;
+                    layoutParams.topMargin = m113if;
+                    layoutParams.height = (az.getScreenHeight(b.this.getContext()) - m113if) - S;
                     b.this.to.setLayoutParams(layoutParams);
                 }
             }
@@ -58,7 +58,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public int m94if() {
+    public int m113if() {
         ViewGroup viewGroup;
         int height;
         if (this.tj.getHeight() > 0) {
@@ -107,8 +107,8 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         this.tp = ig();
         this.nM.a(this.mt);
         hVar.c(this.tp);
-        hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0609a() { // from class: com.kwad.components.ad.reward.presenter.c.b.1
-            @Override // com.kwad.components.core.webview.b.a.InterfaceC0609a
+        hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0623a() { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            @Override // com.kwad.components.core.webview.b.a.InterfaceC0623a
             public final void ii() {
                 com.kwad.components.ad.reward.model.b.P(b.this.nM.mContext);
             }
@@ -163,12 +163,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09125d);
-        this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09125f);
-        this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091297);
-        this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09125c);
-        this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09129d);
-        this.tm = findViewById(R.id.obfuscated_res_0x7f091203);
+        this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091298);
+        this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09129a);
+        this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912d2);
+        this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091297);
+        this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912d8);
+        this.tm = findViewById(R.id.obfuscated_res_0x7f09123e);
     }
 
     @Override // com.kwad.components.ad.reward.presenter.c.a, com.kwad.sdk.mvp.Presenter

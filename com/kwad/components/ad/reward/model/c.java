@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.r;
 import java.io.File;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;

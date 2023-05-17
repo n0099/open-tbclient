@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0125a a;
+    public a.InterfaceC0129a a;
     public MapController b;
     public com.baidu.platform.comapi.map.b.a.b c;
     public com.baidu.platform.comapi.map.b.a.a d;

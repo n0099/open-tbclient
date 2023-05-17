@@ -4,7 +4,7 @@ import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveSearchResultInfo {
     public LiveStatInfo statInfo;
     public String question = "";

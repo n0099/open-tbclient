@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     public View a;
     public ImageView b;

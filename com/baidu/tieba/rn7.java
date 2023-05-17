@@ -1,34 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.BannerImage;
-import tbclient.RecomTopicList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class rn7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rn7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<ThreadData> b;
-    public ox4 c;
-    public ny4 d;
-    public uv7 e;
-    @Nullable
-    public String f;
-    public vq8 g;
+    public Map<String, FunAdSidConfigData> a;
 
     public rn7() {
         Interceptable interceptable = $ic;
@@ -43,175 +34,107 @@ public class rn7 {
                 return;
             }
         }
-        this.a = true;
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(c());
     }
 
-    public ox4 a() {
+    public final Map<String, FunAdSidConfigData> c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ox4) invokeV.objValue;
-    }
-
-    public ny4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (ny4) invokeV.objValue;
-    }
-
-    public uv7 c() {
-        InterceptResult invokeV;
+        FunAdSidConfigData d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            HashMap hashMap = new HashMap();
+            for (String str : sn7.e().c()) {
+                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
+                    hashMap.put(str, d);
+                }
+            }
+            return hashMap;
         }
-        return (uv7) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public vq8 d() {
+    public static rn7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (rn7.class) {
+                    if (b == null) {
+                        b = new rn7();
+                    }
+                }
+            }
+            return b;
         }
-        return (vq8) invokeV.objValue;
+        return (rn7) invokeV.objValue;
     }
 
-    public ArrayList<ThreadData> e() {
-        InterceptResult invokeV;
+    public final FunAdSidConfigData a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
+            funAdSidConfigData.parserJson(jSONObject);
+            return funAdSidConfigData;
         }
-        return (ArrayList) invokeV.objValue;
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    public FunAdSidConfigData b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return null;
         }
-        return invokeV.booleanValue;
+        return (FunAdSidConfigData) invokeL.objValue;
     }
 
-    public void g(JSONObject jSONObject) {
-        int i;
+    public final FunAdSidConfigData d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            JSONObject jSONObject = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = sn7.g().getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return a(jSONObject);
+        }
+        return (FunAdSidConfigData) invokeL.objValue;
+    }
+
+    public final void g(String str) {
+        FunAdSidConfigData funAdSidConfigData;
+        JSONObject json;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
             return;
         }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_list");
-            boolean z = false;
-            if (optJSONArray != null) {
-                this.b = new ArrayList<>(optJSONArray.length());
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    if (jSONObject2 != null) {
-                        ThreadData threadData = new ThreadData();
-                        threadData.isFromFeedTab = true;
-                        threadData.isFromLocal = "local".equals(this.f);
-                        threadData.parserJson(jSONObject2);
-                        threadData.insertItemToTitleOrAbstractText();
-                        this.b.add(threadData);
-                    }
-                }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("banner_list");
-            if (optJSONArray2 != null) {
-                this.c = new ox4();
-                ArrayList arrayList = new ArrayList();
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    JSONObject optJSONObject = optJSONArray2.optJSONObject(i3);
-                    if (optJSONObject != null) {
-                        BannerImage.Builder builder = new BannerImage.Builder();
-                        builder.ahead_url = optJSONObject.optString("ahead_url");
-                        builder.img_url = optJSONObject.optString(BigdayActivityConfig.IMG_URL);
-                        builder.title = optJSONObject.optString("title");
-                        arrayList.add(builder.build(true));
-                    }
-                }
-                this.c.parserProtobuf(arrayList);
-            }
-            JSONArray optJSONArray3 = jSONObject.optJSONArray("grid");
-            if (optJSONArray3 != null && optJSONArray3.length() >= 4) {
-                this.d = new ny4();
-                ArrayList arrayList2 = new ArrayList();
-                for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                    JSONObject optJSONObject2 = optJSONArray3.optJSONObject(i4);
-                    if (optJSONObject2 != null) {
-                        BannerImage.Builder builder2 = new BannerImage.Builder();
-                        builder2.ahead_url = optJSONObject2.optString("ahead_url");
-                        builder2.img_url = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                        builder2.title = optJSONObject2.optString("title");
-                        arrayList2.add(builder2.build(true));
-                    }
-                }
-                this.d.parserProtobuf(arrayList2);
-            }
-            JSONArray optJSONArray4 = jSONObject.optJSONArray("module_list");
-            JSONArray jSONArray = null;
-            int i5 = 0;
-            while (true) {
-                if (i5 < optJSONArray4.length()) {
-                    JSONObject optJSONObject3 = optJSONArray4.optJSONObject(i5);
-                    if ("hot_topic".equals(optJSONObject3.optString("type"))) {
-                        jSONArray = optJSONObject3.optJSONArray("hot_topic");
-                        i = optJSONObject3.optInt(CriusAttrConstants.POSITION);
-                        break;
-                    }
-                    i5++;
-                } else {
-                    i = 0;
-                    break;
-                }
-            }
-            if (jSONArray != null && jSONArray.length() >= 4) {
-                ArrayList arrayList3 = new ArrayList();
-                for (int i6 = 0; i6 < jSONArray.length(); i6++) {
-                    JSONObject optJSONObject4 = jSONArray.optJSONObject(i6);
-                    if (optJSONObject4 != null && i6 < 6) {
-                        RecomTopicList.Builder builder3 = new RecomTopicList.Builder();
-                        builder3.topic_id = Long.valueOf(gg.g(optJSONObject4.optString("topic_id"), 0L));
-                        builder3.topic_name = optJSONObject4.optString(IntentConfig.TOPIC_NAME);
-                        builder3.topic_desc = optJSONObject4.optString("topic_desc");
-                        builder3.tag = Integer.valueOf(optJSONObject4.optInt("tag"));
-                        builder3.topic_pic = optJSONObject4.optString("topic_pic");
-                        builder3.type = Integer.valueOf(optJSONObject4.optInt("type"));
-                        builder3.discuss_num = Long.valueOf(gg.g(optJSONObject4.optString("discuss_num"), 0L));
-                        arrayList3.add(builder3.build(true));
-                    }
-                    uv7 uv7Var = new uv7();
-                    this.e = uv7Var;
-                    uv7Var.floorPosition = i;
-                    uv7Var.parserProtobuf(arrayList3);
-                }
-            }
-            if (jSONObject.optInt("has_more", 1) == 1) {
-                z = true;
-            }
-            this.a = z;
-            JSONObject optJSONObject5 = jSONObject.optJSONObject("nearby_person");
-            if (optJSONObject5 != null) {
-                vq8 vq8Var = new vq8();
-                this.g = vq8Var;
-                vq8Var.a(optJSONObject5);
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        EditorHelper.putString(sn7.g(), str, json.toString());
     }
 
-    public void h(String str) {
+    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f = str;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
+            this.a.put(str, funAdSidConfigData);
+            g(str);
         }
     }
 }

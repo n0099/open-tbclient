@@ -26,12 +26,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class at {
     public static Context WF;
     public static Map<String, i> aoc = new HashMap();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends i<com.kwad.sdk.f.kwai.b> {
         public static com.kwad.sdk.f.kwai.b aod;
 
@@ -111,7 +111,7 @@ public final class at {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends i<List<com.kwad.sdk.f.kwai.e>> implements SensorEventListener {
         public d aoe;
         public d aof;
@@ -250,14 +250,14 @@ public final class at {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class c implements SensorEventListener {
         @Override // android.hardware.SensorEventListener
         public void onAccuracyChanged(Sensor sensor, int i) {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d {
         public SensorEvent aol;
         public long timestamp = System.currentTimeMillis();
@@ -275,7 +275,7 @@ public final class at {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class e extends i<com.kwad.sdk.f.kwai.f> {
         public e(boolean z) {
             super(z);

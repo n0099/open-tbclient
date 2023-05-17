@@ -9,14 +9,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -138,12 +138,12 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         this.d = 0;
         this.a = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.c = ii.l(inst);
-        this.d = ii.j(inst);
+        this.c = ri.l(inst);
+        this.d = ri.j(inst);
         this.e = inst.getResources().getDisplayMetrics().density;
     }
 
-    public void c0(String str) {
+    public void b0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             a aVar = new a(this, str);

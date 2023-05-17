@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BitEncoding {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final boolean FORCE_8TO7_ENCODING;

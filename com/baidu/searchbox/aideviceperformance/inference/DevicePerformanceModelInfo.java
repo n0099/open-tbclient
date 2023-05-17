@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aideviceperformance.inference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DevicePerformanceModelInfo {
     public String modelPath;
     public long versionCode;

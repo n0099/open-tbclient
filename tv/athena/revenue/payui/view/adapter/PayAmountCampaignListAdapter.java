@@ -15,19 +15,19 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import java.util.List;
 import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
     public List<GiftBagItemInfo> a;
     public PayUIKitConfig b;
     public Context c;
     public b d;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface b {
-        void a(int i);
+        void onClick(int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public final /* synthetic */ c a;
 
@@ -38,12 +38,12 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             if (PayAmountCampaignListAdapter.this.d != null) {
-                PayAmountCampaignListAdapter.this.d.a(this.a.getAdapterPosition());
+                PayAmountCampaignListAdapter.this.d.onClick(this.a.getAdapterPosition());
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class c extends RecyclerView.ViewHolder {
         public TextView a;
         public TextView b;
@@ -54,7 +54,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
             super(view2);
             this.a = (TextView) view2.findViewById(R.id.tv_name);
             this.b = (TextView) view2.findViewById(R.id.tv_num);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09102e);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091066);
             this.d = (TextView) view2.findViewById(R.id.tv_type);
         }
     }

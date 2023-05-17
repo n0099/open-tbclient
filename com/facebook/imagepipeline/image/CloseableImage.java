@@ -6,7 +6,7 @@ import java.io.Closeable;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nonnull;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class CloseableImage implements Closeable, ImageInfo, HasImageMetadata {
     public static final String TAG = "CloseableImage";
     public static final String[] mImageExtrasList = {ProducerContext.ExtraKeys.ENCODED_SIZE, ProducerContext.ExtraKeys.ENCODED_WIDTH, ProducerContext.ExtraKeys.ENCODED_HEIGHT, ProducerContext.ExtraKeys.SOURCE_URI, "image_format", "bitmap_config"};

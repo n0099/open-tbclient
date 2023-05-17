@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.BinaryVersion;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IncompatibleVersionErrorData<T extends BinaryVersion> {
     public final T actualVersion;
     public final ClassId classId;

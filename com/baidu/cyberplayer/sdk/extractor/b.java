@@ -11,7 +11,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends ExtractorProvider {
     public MediaExtractor a = new MediaExtractor();
 

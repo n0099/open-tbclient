@@ -1,46 +1,59 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-/* loaded from: classes3.dex */
-public class bh implements Comparator<ah> {
+/* loaded from: classes5.dex */
+public class bh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bh() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
+            if (BdNetTypeUtil.isWifiNet()) {
+                return "WIFI";
+            }
+            if (BdNetTypeUtil.isMobileNet()) {
+                int curOperatorType = BdNetTypeUtil.curOperatorType();
+                StringBuilder sb = new StringBuilder();
+                if (curOperatorType != 1) {
+                    if (curOperatorType != 2) {
+                        if (curOperatorType != 3) {
+                            sb.append('N');
+                        } else {
+                            sb.append('T');
+                        }
+                    } else {
+                        sb.append('U');
+                    }
+                } else {
+                    sb.append('M');
+                }
+                if (BdNetTypeUtil.isWap()) {
+                    sb.append("_WAP_");
+                } else {
+                    sb.append("_NET_");
+                }
+                if (BdNetTypeUtil.is3GNet()) {
+                    sb.append("3G");
+                } else if (BdNetTypeUtil.is4GNet()) {
+                    sb.append("4G");
+                } else if (BdNetTypeUtil.is2GNet()) {
+                    sb.append("2G");
+                } else {
+                    sb.append('N');
+                }
+                return sb.toString();
+            }
+            return "unknown";
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(ah ahVar, ah ahVar2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ahVar, ahVar2)) == null) {
-            int i = (ahVar.c > ahVar2.c ? 1 : (ahVar.c == ahVar2.c ? 0 : -1));
-            if (i > 0) {
-                return 1;
-            }
-            if (i == 0) {
-                return 0;
-            }
-            return -1;
-        }
-        return invokeLL.intValue;
+        return (String) invokeL.objValue;
     }
 }

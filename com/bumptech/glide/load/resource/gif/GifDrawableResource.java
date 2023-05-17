@@ -3,7 +3,7 @@ package com.bumptech.glide.load.resource.gif;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.load.engine.Initializable;
 import com.bumptech.glide.load.resource.drawable.DrawableResource;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GifDrawableResource extends DrawableResource<GifDrawable> implements Initializable {
     public GifDrawableResource(GifDrawable gifDrawable) {
         super(gifDrawable);

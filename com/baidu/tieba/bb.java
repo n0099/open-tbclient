@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.MessageListener;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class bb extends MessageListener<SocketResponsedMessage> {
+/* loaded from: classes4.dex */
+public abstract class bb<T> extends z9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int mCmd;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bb(int i) {
-        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,32 +22,28 @@ public abstract class bb extends MessageListener<SocketResponsedMessage> {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.mCmd = 0;
+        this.mCmd = i;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bb(int i, boolean z) {
-        super(i, z);
+    public int getCmd() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.mCmd;
+        }
+        return invokeV.intValue;
+    }
+
+    public void setCmd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mCmd = i;
         }
     }
 }

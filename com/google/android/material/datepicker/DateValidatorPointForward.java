@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import com.google.android.material.datepicker.CalendarConstraints;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DateValidatorPointForward implements CalendarConstraints.DateValidator {
     public static final Parcelable.Creator<DateValidatorPointForward> CREATOR = new Parcelable.Creator<DateValidatorPointForward>() { // from class: com.google.android.material.datepicker.DateValidatorPointForward.1
         /* JADX DEBUG: Method merged with bridge method */

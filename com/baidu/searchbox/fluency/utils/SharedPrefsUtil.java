@@ -1,14 +1,14 @@
 package com.baidu.searchbox.fluency.utils;
 
 import com.baidu.android.util.sp.SharedPrefsWrapper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SharedPrefsUtil {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FpsPreferences extends SharedPrefsWrapper {
         public static final String FLUENCY_FPS_PREF_NAME = "com.baidu.searchbox.fluency.fps.pref";
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Holder {
             public static final FpsPreferences INSTANCE = new FpsPreferences();
         }

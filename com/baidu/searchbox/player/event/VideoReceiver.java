@@ -10,7 +10,8 @@ import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.helper.NetUtils;
 import com.baidu.searchbox.player.utils.BdBatteryUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+/* loaded from: classes3.dex */
 public class VideoReceiver extends BroadcastReceiver {
     public static final String ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION";
     public static final String TAG = "BdVideoReceiver";
@@ -19,7 +20,7 @@ public class VideoReceiver extends BroadcastReceiver {
     public int mLastVolume = -1;
     public final VideoReceiverListener mListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface VideoReceiverListener {
         void onBatteryChanged(int i);
 
@@ -108,7 +109,7 @@ public class VideoReceiver extends BroadcastReceiver {
                 }
                 break;
             case -1172645946:
-                if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                if (action.equals(NetworkMonitor.NET_CHANGE_ACTION)) {
                     c = 0;
                     break;
                 }
@@ -199,7 +200,7 @@ public class VideoReceiver extends BroadcastReceiver {
 
     public void registerReceiver() {
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
         intentFilter.addAction("android.intent.action.DATE_CHANGED");
         intentFilter.addAction("android.intent.action.SCREEN_OFF");
         intentFilter.addAction("android.intent.action.USER_PRESENT");

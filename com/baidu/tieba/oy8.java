@@ -1,249 +1,83 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewStub;
-import android.webkit.WebView;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class oy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub a;
-    public PbGiftListView b;
-    public ViewStub c;
-    public LinearLayout d;
-    public View e;
-    public BaseWebView f;
 
-    public void f(int i) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if ((interceptable == null || interceptable.invokeI(65536, null, i) == null) && TbadkCoreApplication.getInst().getFontSize() != i) {
+            TbadkCoreApplication.getInst().setFontSize(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements BaseWebView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        public a(oy8 oy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements BaseWebView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(oy8 oy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oy8 a;
-
-        public c(oy8 oy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oy8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.f != null) {
-                        this.a.f.destroy();
-                        this.a.f = null;
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-    }
-
-    public oy8(View view2) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            if (fontSize == 0) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_xlarge);
             }
+            if (fontSize == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_big);
+            }
+            if (fontSize == 2) {
+                return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_mid);
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.toast_font_size_small);
         }
-        this.a = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090dd0);
-        this.c = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09149d);
+        return (String) invokeV.objValue;
     }
 
-    public void a() {
-        BaseWebView baseWebView;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (baseWebView = this.f) != null) {
-            baseWebView.removeAllViews();
-            this.f.getSettings().setBuiltInZoomControls(true);
-            this.f.setVisibility(8);
-            jg.a().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
-        }
-    }
-
-    public void b(ez4 ez4Var, String str, String str2, long j, long j2, long j3) {
-        ViewStub viewStub;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{ez4Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (ez4Var != null && !ListUtils.isEmpty(ez4Var.a()) && (viewStub = this.a) != null) {
-                if (this.b == null) {
-                    this.b = (PbGiftListView) viewStub.inflate();
-                }
-                this.b.setVisibility(0);
-                this.b.g(ez4Var, str, str2, j, j2, j3);
-                this.b.i();
-                return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 3;
+            if (fontSize == 0) {
+                i = 1;
+            } else if (fontSize == 1) {
+                i = 2;
             }
-            PbGiftListView pbGiftListView = this.b;
-            if (pbGiftListView != null) {
-                pbGiftListView.setVisibility(8);
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
             }
+            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
+            b.f(R.drawable.icon_word_t_size);
+            b.d(0);
+            b.o();
         }
     }
 
-    public void c(ty4 ty4Var) {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ty4Var) == null) && ty4Var != null && !hi.isEmpty(ty4Var.e())) {
-            BaseWebView baseWebView = this.f;
-            if ((baseWebView == null || !baseWebView.getIsLoaded()) && ty4Var.c() == ty4.g && this.c != null) {
-                if (ty4Var.f()) {
-                    LinearLayout linearLayout = this.d;
-                    if (linearLayout != null) {
-                        linearLayout.setVisibility(8);
-                        return;
-                    }
-                    return;
-                }
-                if (this.d == null) {
-                    LinearLayout linearLayout2 = (LinearLayout) this.c.inflate();
-                    this.d = linearLayout2;
-                    this.e = linearLayout2.findViewById(R.id.obfuscated_res_0x7f091498);
-                    this.f = (BaseWebView) this.d.findViewById(R.id.obfuscated_res_0x7f09149e);
-                }
-                this.e.setVisibility(0);
-                SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-                this.f.setVisibility(0);
-                this.f.setFocusable(false);
-                this.f.setBackgroundColor(0);
-                this.f.getSettings().setCacheMode(-1);
-                this.f.setVerticalScrollBarEnabled(false);
-                this.f.setHorizontalScrollBarEnabled(false);
-                this.f.getSettings().setAllowFileAccess(true);
-                this.f.getSettings().setAppCacheEnabled(true);
-                this.f.getSettings().setDomStorageEnabled(true);
-                this.f.getSettings().setDatabaseEnabled(true);
-                this.f.setOnLoadUrlListener(new a(this));
-                this.f.setOnPageFinishedListener(new b(this));
-                this.f.loadUrl(ty4Var.e());
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 2;
+            if (fontSize == 0 || fontSize == 1) {
+                i = 0;
+            } else if (fontSize == 2) {
+                i = 1;
             }
-        }
-    }
-
-    public void d() {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (baseWebView = this.f) != null) {
-            try {
-                baseWebView.onPause();
-            } catch (Exception e) {
-                e.printStackTrace();
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
             }
-        }
-    }
-
-    public void e() {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (baseWebView = this.f) != null) {
-            try {
-                baseWebView.onResume();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
+            b.f(R.drawable.icon_word_t_size);
+            b.d(0);
+            b.o();
         }
     }
 }

@@ -13,7 +13,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.facebook.common.util.UriUtil;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     public static final String ANDROID_PACKAGE_NAME = "android";
     public static final int ID_PATH_SEGMENTS = 1;

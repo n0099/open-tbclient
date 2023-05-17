@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.editvideo.data;
 
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.ugc.editvideo.magicmusic.EffectType;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EffectData {
     public int baseType;
     public EffectType effectType;

@@ -9,7 +9,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static final Class<?> TAG = AnimatedDrawableBackendFrameRenderer.class;
     public AnimatedDrawableBackend mAnimatedDrawableBackend;

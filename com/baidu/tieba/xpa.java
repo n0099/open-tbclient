@@ -1,59 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.content.res.AssetManager;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eqa;
-import com.baidu.tieba.qva;
-import com.baidu.tieba.tpa;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.comm.constants.Constants;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
+import java.nio.channels.FileChannel;
 import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class xpa {
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+/* loaded from: classes8.dex */
+public class xpa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Double> a;
-    public static final Handler b;
-    public static FunAdSdk.SdkInitializeCallback c;
-    public static final Handler d;
-    public static final bva e;
-    public static final qva f;
-    public static boolean g;
-    public static volatile boolean h;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,581 +43,627 @@ public final class xpa {
                 return;
             }
         }
-        a = new HashMap();
-        b = new a(Looper.getMainLooper());
-        HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
-        handlerThread.start();
-        d = new b(handlerThread.getLooper());
-        e = new bva();
-        f = new qva();
+        a = AppConfig.isDebug();
     }
 
-    /* loaded from: classes7.dex */
-    public static class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 200) {
-                xpa.e(false);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public final void a(wpa wpaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wpaVar) == null) {
-                String str = FunAdSdk.getFunAdConfig().appId;
-                String str2 = null;
-                try {
-                    LogPrinter.v("Start load config from assets.", new Object[0]);
-                    AssetManager assets = FunAdSdk.getAppContext().getAssets();
-                    InputStream open = assets.open(str + ".json");
-                    StringWriter stringWriter = new StringWriter();
-                    InputStreamReader inputStreamReader = new InputStreamReader(open);
-                    char[] cArr = new char[4096];
-                    while (true) {
-                        int read = inputStreamReader.read(cArr);
-                        if (-1 == read) {
-                            break;
-                        }
-                        stringWriter.write(cArr, 0, read);
-                    }
-                    String stringWriter2 = stringWriter.toString();
-                    LogPrinter.v("Config from assets load over.", new Object[0]);
-                    open.close();
-                    if (!TextUtils.isEmpty(stringWriter2)) {
-                        str2 = hqa.a(stringWriter2, str);
-                        LogPrinter.v("Config from assets decrypted over.", new Object[0]);
-                    }
-                } catch (Exception e) {
-                    LogPrinter.e(e, "The initialized config from assets cannot be loaded.", new Object[0]);
-                }
-                if (!wpaVar.b(str2)) {
-                    LogPrinter.e("Config from assets parsed failed.", new Object[0]);
-                    if (FunAdSdk.isLogEnabled()) {
-                        throw new RuntimeException("Config from assets parsed failed");
-                    }
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:68:0x016a  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(@NonNull Message message) {
-            Response perform;
-            Reporter a;
-            int i;
-            JSONObject jSONObject;
-            int i2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                boolean z2 = true;
-                switch (message.what) {
-                    case 100:
-                        HashMap hashMap = new HashMap();
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            HostAppInfo.fillReqParams(jSONObject2);
-                            Iterator<String> keys = jSONObject2.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                hashMap.put(next, jSONObject2.get(next));
-                            }
-                        } catch (JSONException unused) {
-                        }
-                        try {
-                            perform = new GetRequest("https://cd.xdplt.com/v2/z", new RequestParams(hashMap)).perform();
-                        } catch (IOException e) {
-                            LogPrinter.e(e);
-                        }
-                        if (perform != null && perform.getResponseCode() == 200) {
-                            try {
-                                jSONObject = new JSONObject(perform.getContent());
-                                i2 = jSONObject.getInt(Constants.KEYS.RET);
-                                LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
-                            } catch (JSONException e2) {
-                                LogPrinter.e(e2);
-                                a = cva.a();
-                                i = -1;
-                            }
-                            if (i2 == 200) {
-                                String string = jSONObject.getJSONObject("data").getString("content");
-                                try {
-                                } catch (Exception e3) {
-                                    LogPrinter.e(e3);
-                                    a = cva.a();
-                                    i = -2;
-                                }
-                                if (new wpa().b(hqa.a(string, FunAdSdk.getFunAdConfig().appId))) {
-                                    kqa.b.edit().putInt("key_cp_v", 5).putString("key_serv_las_d", string).apply();
-                                    xpa.a.clear();
-                                    kqa.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                    if (z2) {
-                                    }
-                                    xpa.c();
-                                    return;
-                                }
-                                a = cva.a();
-                                i = -3;
-                                a.logEvent("k_ppcfg", "st", Integer.valueOf(i));
-                                z2 = false;
-                                kqa.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                if (z2) {
-                                }
-                                xpa.c();
-                                return;
-                            }
-                            z2 = false;
-                            kqa.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                            if (z2) {
-                                xpa.b.sendEmptyMessage(200);
-                            }
-                            xpa.c();
-                            return;
-                        }
-                        LogPrinter.e("Pull ad config failed.", new Object[0]);
-                        z2 = false;
-                        kqa.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                        if (z2) {
-                        }
-                        xpa.c();
-                        return;
-                    case 101:
-                        a(new wpa());
-                        break;
-                    case 102:
-                        String str = null;
-                        try {
-                            str = hqa.a(kqa.b.getString("key_serv_las_d", null), FunAdSdk.getFunAdConfig().appId);
-                        } catch (Exception e4) {
-                            LogPrinter.e(e4, "Parsing err from latest cipher occurs, abandon the err data", new Object[0]);
-                        }
-                        if (str == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        wpa wpaVar = new wpa();
-                        if (!z && !wpaVar.b(str)) {
-                            LogPrinter.e("Config parsed failed from latest cipher data,use cipher data from assets instead", new Object[0]);
-                        } else {
-                            z2 = z;
-                        }
-                        if (z2) {
-                            a(wpaVar);
-                            kqa.b.edit().remove("key_cp_v").remove("key_serv_las_d").apply();
-                            break;
-                        } else {
-                            kqa.b.edit().putInt("key_cp_v", 5).apply();
-                            break;
-                        }
-                    default:
-                        return;
-                }
-                xpa.b.obtainMessage(200).sendToTarget();
-            }
-        }
-    }
-
-    public static int a(String str, Ssp.Pid pid) {
+    public static boolean a(File file, File file2) {
+        FileChannel fileChannel;
         InterceptResult invokeLL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            eqa eqaVar = e.b;
-            synchronized (eqaVar.a) {
-                Deque<eqa.c> deque = eqaVar.a.get(str);
-                i = 0;
-                if (deque != null) {
-                    Iterator<eqa.c> descendingIterator = deque.descendingIterator();
-                    while (true) {
-                        if (!descendingIterator.hasNext()) {
-                            break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
+            try {
+                if (!file2.getParentFile().exists()) {
+                    file2.getParentFile().mkdirs();
+                }
+                if (!file2.exists()) {
+                    file2.createNewFile();
+                }
+                FileChannel fileChannel2 = null;
+                try {
+                    FileChannel channel = new FileInputStream(file).getChannel();
+                    try {
+                        fileChannel2 = new FileOutputStream(file2).getChannel();
+                        fileChannel2.transferFrom(channel, 0L, channel.size());
+                        if (channel != null) {
+                            channel.close();
                         }
-                        eqa.c next = descendingIterator.next();
-                        if (next.a().contains(pid)) {
-                            i = next.b();
-                            break;
+                        if (fileChannel2 != null) {
+                            fileChannel2.close();
+                            return true;
                         }
+                        return true;
+                    } catch (Throwable th) {
+                        th = th;
+                        FileChannel fileChannel3 = fileChannel2;
+                        fileChannel2 = channel;
+                        fileChannel = fileChannel3;
+                        if (fileChannel2 != null) {
+                            fileChannel2.close();
+                        }
+                        if (fileChannel != null) {
+                            fileChannel.close();
+                        }
+                        throw th;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel = null;
                 }
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static gqa b(String str) {
-        InterceptResult invokeL;
-        gqa gqaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            bva bvaVar = e;
-            synchronized (bvaVar) {
-                if (bvaVar.a == null) {
-                    LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
-                    gqaVar = null;
-                } else {
-                    gqaVar = bvaVar.c.get(str);
+            } catch (IOException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return false;
                 }
+                return false;
             }
-            return gqaVar;
-        }
-        return (gqa) invokeL.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = kqa.b;
-            long j = 0;
-            long j2 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
-            if (j2 > 0) {
-                long currentTimeMillis = System.currentTimeMillis() - j2;
-                if (currentTimeMillis >= 0) {
-                    long j3 = sharedPreferences.getInt("key_config_interval", 15) * 60 * 1000;
-                    if (currentTimeMillis < j3) {
-                        j = j3 - currentTimeMillis;
-                    }
-                }
-            }
-            long max = Math.max(10000L, j);
-            LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = d;
-            handler.removeMessages(100);
-            handler.sendEmptyMessageDelayed(100, max);
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 
-    public static void d(rpa rpaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rpaVar) == null) {
-            h = true;
-            qva qvaVar = f;
-            synchronized (qvaVar.b) {
-                qvaVar.e = rpaVar;
-                qvaVar.d = 1;
-                while (!qvaVar.c.isEmpty()) {
-                    qva.a pollFirst = qvaVar.c.pollFirst();
-                    if (!qva.f && pollFirst == null) {
-                        throw new AssertionError();
-                    }
-                    qvaVar.loadAd(pollFirst.a, pollFirst.b, pollFirst.c);
-                }
-            }
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = c;
-            if (sdkInitializeCallback != null) {
-                sdkInitializeCallback.onComplete();
-            }
-            c = null;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:118:0x01f8  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x0209  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x020d  */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0238  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0110 A[Catch: all -> 0x0265, TRY_LEAVE, TryCatch #0 {, blocks: (B:38:0x00a3, B:40:0x00a7, B:42:0x00ad, B:43:0x00b5, B:62:0x0110, B:46:0x00c6, B:47:0x00d3, B:49:0x00d9, B:50:0x00e3, B:52:0x00e9, B:54:0x00f9, B:56:0x0103, B:65:0x011a, B:69:0x0122, B:73:0x0134, B:72:0x0132, B:68:0x0120), top: B:143:0x00a3 }] */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x004f, code lost:
+        if (com.baidu.tieba.xpa.a == false) goto L32;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0051, code lost:
+        r4.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0066, code lost:
+        if (com.baidu.tieba.xpa.a == false) goto L32;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void e(boolean z) {
-        boolean z2;
-        boolean z3;
-        Set<dqa> set;
-        Set<bqa> set2;
-        boolean z4;
-        char c2;
-        String str;
-        boolean z5;
-        boolean z6;
+    public static boolean g(String str, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            char c3 = 0;
-            LogPrinter.v("tryInitialize", new Object[0]);
-            if (5 == kqa.b.getInt("key_cp_v", 5)) {
-                z2 = true;
-            } else {
-                z2 = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str) || !file.exists()) {
+                return false;
             }
-            if (!z2) {
-                d.obtainMessage(102).sendToTarget();
-                return;
-            }
-            c();
-            FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            npa b2 = kqa.b();
-            tpa.a = kqa.l();
-            Object[] objArr = new Object[2];
-            if (b2 != null) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            objArr[0] = Boolean.valueOf(z3);
-            objArr[1] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
-            if (b2 == null) {
-                if (z) {
-                    d.obtainMessage(101).sendToTarget();
-                    return;
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
                 }
-                LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                qva qvaVar = f;
-                synchronized (qvaVar.b) {
-                    qvaVar.d = -1;
-                    while (!qvaVar.c.isEmpty()) {
-                        qva.a pollFirst = qvaVar.c.pollFirst();
-                        if (!qva.f && pollFirst == null) {
-                            throw new AssertionError();
-                        }
-                        pollFirst.c.onError(pollFirst.b.getSid());
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            }
+            try {
+                fileOutputStream.write(str.getBytes("UTF-8"));
+                fileOutputStream.flush();
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e3) {
+                    if (a) {
+                        e3.printStackTrace();
                     }
                 }
-                return;
-            }
-            bva bvaVar = e;
-            synchronized (bvaVar) {
-                npa npaVar = bvaVar.a;
-                if (npaVar != null) {
-                    if (npaVar.equals(b2)) {
-                        LogPrinter.d("New AdConfig equals old one, give up updating it", new Object[0]);
-                    } else {
-                        npa npaVar2 = bvaVar.a;
-                        if (npaVar2.a.size() == b2.a.size()) {
-                            HashSet hashSet = new HashSet(b2.a);
-                            for (Ssp ssp : npaVar2.a) {
-                                Iterator it = hashSet.iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        Ssp ssp2 = (Ssp) it.next();
-                                        if (ssp.type.equals(ssp2.type) && ssp.sspId.equals(ssp2.sspId)) {
-                                            it.remove();
-                                            z6 = true;
-                                            continue;
-                                            break;
-                                        }
-                                    } else {
-                                        z6 = false;
-                                        continue;
-                                        break;
-                                    }
-                                }
-                                if (!z6) {
-                                }
-                            }
-                            z5 = true;
-                            if (!z5) {
-                                LogPrinter.d("New AdConfig.ssps don't correspond to old ones, give up updating it", new Object[0]);
-                            }
-                        }
-                        z5 = false;
-                        if (!z5) {
-                        }
-                    }
-                    z4 = false;
+                return true;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileOutputStream2 = fileOutputStream;
+                if (a) {
+                    e.printStackTrace();
                 }
-                npa npaVar3 = bvaVar.a;
-                if (npaVar3 == null) {
-                    set = null;
-                } else {
-                    set = npaVar3.b;
-                }
-                bvaVar.a(set, b2.b, new lqa(bvaVar));
-                npa npaVar4 = bvaVar.a;
-                if (npaVar4 == null) {
-                    set2 = null;
-                } else {
-                    set2 = npaVar4.c;
-                }
-                bvaVar.a(set2, b2.c, new ava(bvaVar));
-                bvaVar.a = b2;
-                z4 = true;
-            }
-            if (!z4) {
-                LogPrinter.d("Do not need to reset FunAdFactory.", new Object[0]);
-                return;
-            }
-            HostAppInfo.updateCfgv(kqa.b.getLong("key_config_v", 0L));
-            if (!g) {
-                g = true;
-                fpa fpaVar = new tpa.a() { // from class: com.baidu.tieba.fpa
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.tpa.a
-                    public final void a(rpa rpaVar) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, rpaVar) == null) {
-                            xpa.d(rpaVar);
-                        }
-                    }
-                };
-                if (Looper.myLooper() == Looper.getMainLooper()) {
-                    HashMap hashMap = new HashMap();
-                    ArrayList arrayList = new ArrayList();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    for (Ssp ssp3 : b2.a) {
-                        if (!TextUtils.isEmpty(ssp3.sspId)) {
-                            if (funAdConfig.forbiddenPlatforms.contains(ssp3.type)) {
-                                Object[] objArr2 = new Object[1];
-                                objArr2[c3] = ssp3.type;
-                                LogPrinter.d("Ssp:%s is not initialized for type is forbidden", objArr2);
-                            } else {
-                                long currentTimeMillis2 = System.currentTimeMillis();
-                                String str2 = ssp3.type;
-                                str2.hashCode();
-                                int hashCode = str2.hashCode();
-                                if (hashCode != 3160) {
-                                    if (hashCode != 3175) {
-                                        if (hashCode != 3178) {
-                                            if (hashCode == 98810 && str2.equals(FunAdSdk.PLATFORM_CSJ)) {
-                                                c2 = 3;
-                                                if (c2 == 0) {
-                                                    if (c2 != 1) {
-                                                        if (c2 != 2) {
-                                                            if (c2 != 3) {
-                                                                str = null;
-                                                            } else {
-                                                                str = "com.fun.ad.sdk.channel.CsjModule";
-                                                            }
-                                                        } else {
-                                                            str = "com.fun.ad.sdk.channel.CMModule";
-                                                        }
-                                                    } else {
-                                                        str = "com.fun.ad.sdk.channel.CjModule";
-                                                    }
-                                                } else {
-                                                    str = "com.fun.ad.sdk.channel.BzModule";
-                                                }
-                                                if (str == null) {
-                                                    LogPrinter.d("sdk for %s init start", ssp3.type);
-                                                    tpa.f(ssp3.type, str, funAdConfig, hashMap, ssp3.sspId);
-                                                    LogPrinter.d("sdk for %s init end, used time :%s", ssp3.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                                                } else {
-                                                    arrayList.add(ssp3);
-                                                }
-                                                c3 = 0;
-                                            }
-                                            c2 = 65535;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        } else {
-                                            if (str2.equals(FunAdSdk.PLATFORM_CM)) {
-                                                c2 = 2;
-                                                if (c2 == 0) {
-                                                }
-                                                if (str == null) {
-                                                }
-                                                c3 = 0;
-                                            }
-                                            c2 = 65535;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        }
-                                    } else {
-                                        if (str2.equals(FunAdSdk.PLATFORM_CJ)) {
-                                            c2 = 1;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        }
-                                        c2 = 65535;
-                                        if (c2 == 0) {
-                                        }
-                                        if (str == null) {
-                                        }
-                                        c3 = 0;
-                                    }
-                                } else {
-                                    if (str2.equals(FunAdSdk.PLATFORM_BZ)) {
-                                        c2 = 0;
-                                        if (c2 == 0) {
-                                        }
-                                        if (str == null) {
-                                        }
-                                        c3 = 0;
-                                    }
-                                    c2 = 65535;
-                                    if (c2 == 0) {
-                                    }
-                                    if (str == null) {
-                                    }
-                                    c3 = 0;
-                                }
-                            }
-                        }
-                    }
-                    if (!arrayList.isEmpty()) {
-                        new Thread(new spa(arrayList, funAdConfig, hashMap, currentTimeMillis, fpaVar)).start();
-                        return;
-                    } else {
-                        tpa.e(currentTimeMillis, fpaVar, funAdConfig, hashMap);
-                        return;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e5) {
+                        e = e5;
                     }
                 }
-                throw new RuntimeException("Wrong thread");
+                return false;
+            } catch (IOException e6) {
+                e = e6;
+                fileOutputStream2 = fileOutputStream;
+                if (a) {
+                    e.printStackTrace();
+                }
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e7) {
+                        e = e7;
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException e8) {
+                        if (a) {
+                            e8.printStackTrace();
+                        }
+                    }
+                }
+                throw th;
             }
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static void b(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, file) == null) && file != null && file.exists() && file.isDirectory()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isFile()) {
+                        file2.delete();
+                    } else if (file2.isDirectory()) {
+                        b(file2);
+                    }
+                }
+            }
+            file.delete();
+        }
+    }
+
+    public static void c(ArrayList<File> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, arrayList) == null) && arrayList != null && arrayList.size() != 0) {
+            Iterator<File> it = arrayList.iterator();
+            while (it.hasNext()) {
+                it.next().delete();
+            }
+        }
+    }
+
+    public static void d(File file, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str) == null) && file != null && file.exists() && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str)) {
+            File file2 = new File(file, str);
+            if (file2.exists() && file2.isFile()) {
+                file2.delete();
+            }
+        }
+    }
+
+    public static void e(File file, List<String> list) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, file, list) == null) && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+            for (File file2 : listFiles) {
+                if (file2.isFile()) {
+                    list.add(file2.getAbsolutePath());
+                } else {
+                    e(file2, list);
+                }
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x004b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b6 */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x008c, code lost:
+        if (com.baidu.tieba.xpa.a == false) goto L48;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x008e, code lost:
+        r6.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b2, code lost:
+        if (com.baidu.tieba.xpa.a == false) goto L48;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:102:0x00b9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x00c1 A[Catch: IOException -> 0x00bd, TryCatch #12 {IOException -> 0x00bd, blocks: (B:81:0x00b9, B:85:0x00c1, B:87:0x00c6), top: B:102:0x00b9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:87:0x00c6 A[Catch: IOException -> 0x00bd, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bd, blocks: (B:81:0x00b9, B:85:0x00c1, B:87:0x00c6), top: B:102:0x00b9 }] */
+    /* JADX WARN: Type inference failed for: r3v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
+    /* JADX WARN: Type inference failed for: r3v12 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r3v9 */
+    /* JADX WARN: Type inference failed for: r6v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r6v11, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r6v14 */
+    /* JADX WARN: Type inference failed for: r6v15 */
+    /* JADX WARN: Type inference failed for: r6v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r6v2 */
+    /* JADX WARN: Type inference failed for: r6v3 */
+    /* JADX WARN: Type inference failed for: r6v5 */
+    /* JADX WARN: Type inference failed for: r6v6, types: [java.io.BufferedInputStream] */
+    /* JADX WARN: Type inference failed for: r6v8, types: [java.io.BufferedInputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String f(File file) {
+        ?? r3;
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = (r3 = interceptable).invokeL(65542, null, file)) == null) {
+            if (file == 0 || !file.exists()) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            try {
+                try {
+                    fileInputStream = new FileInputStream((File) file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+                file = 0;
+                fileInputStream = null;
+                bufferedReader = null;
+            } catch (IOException e2) {
+                e = e2;
+                file = 0;
+                fileInputStream = null;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream = null;
+                r3 = 0;
+            }
+            try {
+                file = new BufferedInputStream(fileInputStream);
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader((InputStream) file, "UTF-8"));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                        } catch (FileNotFoundException e3) {
+                            e = e3;
+                            if (a) {
+                                e.printStackTrace();
+                            }
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException e4) {
+                                    e = e4;
+                                }
+                            }
+                            if (file != 0) {
+                                file.close();
+                            }
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        } catch (IOException e5) {
+                            e = e5;
+                            if (a) {
+                                e.printStackTrace();
+                            }
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (IOException e6) {
+                                    e = e6;
+                                }
+                            }
+                            if (file != 0) {
+                                file.close();
+                            }
+                            if (fileInputStream != null) {
+                                fileInputStream.close();
+                            }
+                            return null;
+                        }
+                    }
+                    String sb2 = sb.toString();
+                    try {
+                        bufferedReader.close();
+                        file.close();
+                        fileInputStream.close();
+                    } catch (IOException e7) {
+                        if (a) {
+                            e7.printStackTrace();
+                        }
+                    }
+                    return sb2;
+                } catch (FileNotFoundException e8) {
+                    e = e8;
+                    bufferedReader = null;
+                } catch (IOException e9) {
+                    e = e9;
+                    bufferedReader = null;
+                } catch (Throwable th3) {
+                    r3 = 0;
+                    th = th3;
+                    if (r3 != 0) {
+                        try {
+                            r3.close();
+                        } catch (IOException e10) {
+                            if (a) {
+                                e10.printStackTrace();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (file != 0) {
+                        file.close();
+                    }
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException e11) {
+                e = e11;
+                file = 0;
+                bufferedReader = null;
+            } catch (IOException e12) {
+                e = e12;
+                file = 0;
+                bufferedReader = null;
+            } catch (Throwable th4) {
+                th = th4;
+                r3 = 0;
+                th = th;
+                file = r3;
+                if (r3 != 0) {
+                }
+                if (file != 0) {
+                }
+                if (fileInputStream != null) {
+                }
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static boolean h(File file, String str) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        ZipOutputStream zipOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, str)) == null) {
+            ZipOutputStream zipOutputStream2 = null;
+            try {
+                try {
+                    ArrayList<String> arrayList = new ArrayList();
+                    e(file, arrayList);
+                    if (arrayList.size() == 0) {
+                        return false;
+                    }
+                    fileOutputStream = new FileOutputStream(str);
+                    try {
+                        zipOutputStream = new ZipOutputStream(fileOutputStream);
+                    } catch (IOException e) {
+                        e = e;
+                    }
+                    try {
+                        for (String str2 : arrayList) {
+                            if (a) {
+                                Log.d("VoyagerFileUtil", "Zipping " + str2);
+                            }
+                            zipOutputStream.putNextEntry(new ZipEntry(str2.substring(file.getAbsolutePath().length() + 1, str2.length())));
+                            FileInputStream fileInputStream = new FileInputStream(str2);
+                            byte[] bArr = new byte[8192];
+                            while (true) {
+                                int read = fileInputStream.read(bArr);
+                                if (read > 0) {
+                                    zipOutputStream.write(bArr, 0, read);
+                                }
+                            }
+                            zipOutputStream.closeEntry();
+                            fileInputStream.close();
+                        }
+                        try {
+                            zipOutputStream.close();
+                        } catch (IOException e2) {
+                            if (a) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException e3) {
+                            if (a) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return true;
+                    } catch (IOException e4) {
+                        e = e4;
+                        zipOutputStream2 = zipOutputStream;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        if (zipOutputStream2 != null) {
+                            try {
+                                zipOutputStream2.close();
+                            } catch (IOException e5) {
+                                if (a) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (IOException e6) {
+                                if (a) {
+                                    e6.printStackTrace();
+                                }
+                            }
+                        }
+                        return false;
+                    } catch (Throwable th) {
+                        th = th;
+                        zipOutputStream2 = zipOutputStream;
+                        if (zipOutputStream2 != null) {
+                            try {
+                                zipOutputStream2.close();
+                            } catch (IOException e7) {
+                                if (a) {
+                                    e7.printStackTrace();
+                                }
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            try {
+                                fileOutputStream.close();
+                            } catch (IOException e8) {
+                                if (a) {
+                                    e8.printStackTrace();
+                                }
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (IOException e9) {
+                e = e9;
+                fileOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
+            }
+        } else {
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public static boolean i(List<String> list, String str, String str2) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
+        ZipOutputStream zipOutputStream;
+        ZipEntry zipEntry;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, list, str, str2)) == null) {
+            if (list != null) {
+                ZipOutputStream zipOutputStream2 = null;
+                try {
+                    if (list.size() != 0) {
+                        int length = str2.length();
+                        if (!new File(str2).exists()) {
+                            if (a) {
+                                Log.d("VoyagerFileUtil", "rootDir " + str2 + "path not exists");
+                            }
+                            return false;
+                        }
+                        fileOutputStream = new FileOutputStream(str);
+                        try {
+                            try {
+                                zipOutputStream = new ZipOutputStream(fileOutputStream);
+                            } catch (IOException e) {
+                                e = e;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                        }
+                        try {
+                            for (String str3 : list) {
+                                if (a) {
+                                    Log.d("VoyagerFileUtil", "Zipping " + str3);
+                                }
+                                if (length > 0 && str3.startsWith(str2)) {
+                                    zipEntry = new ZipEntry(str3.substring(length + 1));
+                                } else {
+                                    zipEntry = new ZipEntry(str3.substring(str3.lastIndexOf(File.separator)));
+                                }
+                                zipOutputStream.putNextEntry(zipEntry);
+                                FileInputStream fileInputStream = new FileInputStream(str3);
+                                byte[] bArr = new byte[8192];
+                                while (true) {
+                                    int read = fileInputStream.read(bArr);
+                                    if (read > 0) {
+                                        zipOutputStream.write(bArr, 0, read);
+                                    }
+                                }
+                                zipOutputStream.closeEntry();
+                                fileInputStream.close();
+                            }
+                            try {
+                                zipOutputStream.close();
+                            } catch (IOException e2) {
+                                if (a) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                            try {
+                                fileOutputStream.close();
+                                return true;
+                            } catch (IOException e3) {
+                                if (a) {
+                                    e3.printStackTrace();
+                                    return true;
+                                }
+                                return true;
+                            }
+                        } catch (IOException e4) {
+                            e = e4;
+                            zipOutputStream2 = zipOutputStream;
+                            if (a) {
+                                e.printStackTrace();
+                            }
+                            if (zipOutputStream2 != null) {
+                                try {
+                                    zipOutputStream2.close();
+                                } catch (IOException e5) {
+                                    if (a) {
+                                        e5.printStackTrace();
+                                    }
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (IOException e6) {
+                                    if (a) {
+                                        e6.printStackTrace();
+                                    }
+                                }
+                            }
+                            return false;
+                        } catch (Throwable th2) {
+                            th = th2;
+                            zipOutputStream2 = zipOutputStream;
+                            if (zipOutputStream2 != null) {
+                                try {
+                                    zipOutputStream2.close();
+                                } catch (IOException e7) {
+                                    if (a) {
+                                        e7.printStackTrace();
+                                    }
+                                }
+                            }
+                            if (fileOutputStream != null) {
+                                try {
+                                    fileOutputStream.close();
+                                } catch (IOException e8) {
+                                    if (a) {
+                                        e8.printStackTrace();
+                                    }
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                } catch (IOException e9) {
+                    e = e9;
+                    fileOutputStream = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileOutputStream = null;
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

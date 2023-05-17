@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import com.kwad.sdk.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DividerView extends View {
     public static int ORIENTATION_HORIZONTAL = 0;
     public static int ORIENTATION_VERTICAL = 1;

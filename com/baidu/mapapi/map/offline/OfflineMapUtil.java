@@ -6,7 +6,7 @@ import com.baidu.mapsdkplatform.comapi.map.q;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OfflineMapUtil {
     public static MKOLSearchRecord getSearchRecordFromLocalCityInfo(n nVar) {
         if (nVar == null) {

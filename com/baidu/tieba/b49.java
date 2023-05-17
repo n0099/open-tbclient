@@ -1,88 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class b49 extends vm<x39, PersonCenterIntervalHolder> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
+public class b49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public f49 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<en> e;
+    public View.OnClickListener f;
+    public boolean g;
+    public boolean h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b49(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public b49(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new ArrayList();
+        this.f = null;
+        this.g = false;
+        this.h = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0435, viewGroup, false));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return (PersonCenterIntervalHolder) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.vm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x39 x39Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        t(i, view2, viewGroup, x39Var, personCenterIntervalHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, x39 x39Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
-        InterceptResult invokeCommon;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x39Var, personCenterIntervalHolder})) == null) {
-            if (x39Var != null && personCenterIntervalHolder != null) {
-                int skinType = TbadkCoreApplication.getInst().getSkinType();
-                if (personCenterIntervalHolder.a != skinType) {
-                    personCenterIntervalHolder.a = skinType;
-                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, x39Var.c);
-                }
-                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
-                int i2 = x39Var.a;
-                if (i2 > 0) {
-                    layoutParams.height = i2;
-                }
-                int i3 = x39Var.b;
-                if (i3 > 0) {
-                    layoutParams.width = i3;
-                }
-                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
-                personCenterIntervalHolder.b.setOnClickListener(null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f49 f49Var = new f49(this.c, rr9.S0);
+            this.a = f49Var;
+            f49Var.e(this.f);
+            this.a.setFromCDN(this.h);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, i49.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new g49(this.c, h49.a));
+            this.d.addAdapters(this.e);
+        }
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        f49 f49Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (f49Var = this.a) != null) {
+            f49Var.I(z);
+        }
+    }
+
+    public void j(TbRichTextView.a0 a0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, a0Var) == null) {
+            this.a.n(a0Var);
+        }
+    }
+
+    public void e(ThreadData threadData, List<rn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.K(threadData);
+            if (!qi.isEmpty(this.c.L3().L0())) {
+                this.a.J(this.c.L3().L0());
             }
-            return view2;
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.L3() != null) {
+                this.a.H(this.c.L3().i1());
+            }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
     }
 }

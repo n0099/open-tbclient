@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Map;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface DrmSession<T extends ExoMediaCrypto> {
     public static final int STATE_ERROR = 1;
     public static final int STATE_OPENED = 3;
@@ -15,7 +15,7 @@ public interface DrmSession<T extends ExoMediaCrypto> {
     public static final int STATE_RELEASED = 0;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface State {
     }
 
@@ -29,7 +29,7 @@ public interface DrmSession<T extends ExoMediaCrypto> {
 
     Map<String, String> queryKeyStatus();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DrmSessionException extends Exception {
         public DrmSessionException(Throwable th) {
             super(th);

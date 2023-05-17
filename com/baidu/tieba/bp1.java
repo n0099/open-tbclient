@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface bp1 {
-    Class<? extends d72> a();
+    void a();
 }

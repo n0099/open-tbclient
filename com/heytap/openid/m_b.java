@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface m_b extends IInterface {
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class m_a extends Binder implements m_b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Keep
         /* renamed from: com.heytap.openid.m_b$m_a$m_a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0540m_a implements m_b {
+        /* loaded from: classes9.dex */
+        public static class C0554m_a implements m_b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             @Keep
             public IBinder m_a;
 
-            public C0540m_a(IBinder iBinder) {
+            public C0554m_a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

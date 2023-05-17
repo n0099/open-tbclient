@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ThemeElement extends Message {
     public static final String DEFAULT_COMMONCOLOR = "";
     public static final String DEFAULT_DARKCOLOR = "";
@@ -20,7 +20,7 @@ public final class ThemeElement extends Message {
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String patternImage;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<ThemeElement> {
         public String commonColor;
         public String darkColor;

@@ -3,8 +3,8 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.vj5;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.el5;
+/* loaded from: classes4.dex */
 public class InitMutiProcessManagerTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -21,6 +21,6 @@ public class InitMutiProcessManagerTask extends LaunchTask {
         if (PermissionUtil.isBrowseMode()) {
             return;
         }
-        vj5.f().g(TbadkCoreApplication.getInst());
+        el5.f().g(TbadkCoreApplication.getInst());
     }
 }

@@ -1,10 +1,10 @@
 package com.xiaomi.push;
 
 import java.net.UnknownHostException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class fe {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public ey a;
 
@@ -13,7 +13,7 @@ public final class fe {
     }
 
     public static a a(Exception exc) {
-        m394a(exc);
+        m413a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -43,7 +43,7 @@ public final class fe {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m394a(Exception exc) {
+    public static void m413a(Exception exc) {
         if (exc == null) {
             throw null;
         }
@@ -53,7 +53,7 @@ public final class fe {
         ey eyVar;
         ey eyVar2;
         Throwable cause;
-        m394a(exc);
+        m413a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -94,7 +94,7 @@ public final class fe {
     public static a c(Exception exc) {
         ey eyVar;
         ey eyVar2;
-        m394a(exc);
+        m413a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {
@@ -139,7 +139,7 @@ public final class fe {
     public static a d(Exception exc) {
         ey eyVar;
         ey eyVar2;
-        m394a(exc);
+        m413a(exc);
         boolean z = exc instanceof gg;
         Exception exc2 = exc;
         if (z) {

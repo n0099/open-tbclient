@@ -15,7 +15,7 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.UnsupportedEncodingException;
 import java.util.Collection;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StringUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INIT_CAPACITY = 1024;

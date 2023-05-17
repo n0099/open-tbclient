@@ -3,7 +3,7 @@ package com.baidu.sapi2.views.logindialog.enums;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.xiaomi.mipush.sdk.MiPushClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum QuickLoginType {
     HISTORY(0, "history"),
     SHARE(1, "share"),

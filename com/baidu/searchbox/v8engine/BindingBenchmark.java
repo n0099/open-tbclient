@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine;
 import android.webkit.JavascriptInterface;
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.searchbox.v8engine.event.JSEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BindingBenchmark {
     public final V8Engine mEngine;
 
@@ -27,7 +27,7 @@ public class BindingBenchmark {
     public void testVoid() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class JavaObject {
         @V8JavascriptField
         public int mInt;

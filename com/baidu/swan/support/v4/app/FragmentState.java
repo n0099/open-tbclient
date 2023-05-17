@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
-import com.baidu.tieba.sl4;
-import com.baidu.tieba.ul4;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.bn4;
+import com.baidu.tieba.dn4;
+/* loaded from: classes4.dex */
 public final class FragmentState implements Parcelable {
     public static final Parcelable.Creator<FragmentState> CREATOR = new a();
     public final Bundle mArguments;
@@ -27,7 +27,7 @@ public final class FragmentState implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<FragmentState> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -81,12 +81,12 @@ public final class FragmentState implements Parcelable {
         this.mArguments = fragment.h;
     }
 
-    public Fragment instantiate(sl4 sl4Var, Fragment fragment) {
+    public Fragment instantiate(bn4 bn4Var, Fragment fragment) {
         Fragment fragment2 = this.mInstance;
         if (fragment2 != null) {
             return fragment2;
         }
-        Context context = sl4Var.getContext();
+        Context context = bn4Var.getContext();
         Bundle bundle = this.mArguments;
         if (bundle != null) {
             bundle.setClassLoader(context.getClassLoader());
@@ -106,8 +106,8 @@ public final class FragmentState implements Parcelable {
         fragment3.y = this.mTag;
         fragment3.B = this.mRetainInstance;
         fragment3.A = this.mDetached;
-        fragment3.s = sl4Var.e;
-        if (ul4.x) {
+        fragment3.s = bn4Var.e;
+        if (dn4.x) {
             Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
         }
         return this.mInstance;

@@ -1,141 +1,289 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.util.Base64;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.graphics.Rect;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class w22 extends u22 {
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.net.URI;
+import java.util.HashMap;
+import org.json.JSONArray;
+/* loaded from: classes8.dex */
+public class w22 extends m22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
+    public String a;
+    public int b;
+    public int c;
+    public Rect d;
+    public Rect e;
+    public Bitmap f;
+    public int g;
+    public Uri h;
+    public String i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w22(String str) {
-        super(str);
+    /* loaded from: classes8.dex */
+    public class a extends BaseBitmapDataSubscriber {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DataSource a;
+        public final /* synthetic */ n22 b;
+        public final /* synthetic */ w22 c;
+
+        public a(w22 w22Var, DataSource dataSource, n22 n22Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w22Var, dataSource, n22Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = w22Var;
+            this.a = dataSource;
+            this.b = n22Var;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                if (dataSource != null) {
+                    dataSource.close();
+                }
+                this.c.g = 3;
+            }
+        }
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(@Nullable Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                if (this.a.isFinished() && bitmap != null) {
+                    this.c.f = Bitmap.createBitmap(bitmap);
+                    this.a.close();
+                    CanvasView canvasView = this.b.h;
+                    if (canvasView != null) {
+                        canvasView.postInvalidate();
+                    }
+                }
+                this.c.g = 2;
+            }
+        }
+    }
+
+    public w22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = ol3.g((float) jSONObject.optDouble("x"));
-            this.l = ol3.g((float) jSONObject.optDouble("y"));
-            this.m = ol3.g((float) jSONObject.optDouble("width"));
-            this.n = ol3.g((float) jSONObject.optDouble("height"));
-        } catch (Exception e) {
-            x42.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
-        }
+        this.g = 0;
     }
 
-    public final byte[] h(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    public final int i(JSONArray jSONArray, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = width * height;
-            int[] iArr = new int[i];
-            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-            byte[] bArr = new byte[i * 4];
-            for (int i2 = 0; i2 < i; i2++) {
-                int i3 = iArr[i2];
-                int i4 = i2 * 4;
-                bArr[i4] = (byte) Color.red(i3);
-                bArr[i4 + 1] = (byte) Color.green(i3);
-                bArr[i4 + 2] = (byte) Color.blue(i3);
-                bArr[i4 + 3] = (byte) Color.alpha(i3);
-            }
-            return bArr;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, jSONArray, i)) == null) {
+            return xm3.g((float) jSONArray.optDouble(i));
         }
-        return (byte[]) invokeL.objValue;
+        return invokeLI.intValue;
     }
 
-    public JSONObject i(@NonNull View view2) {
-        InterceptResult invokeL;
-        String str;
-        int i;
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            int measuredWidth = view2.getMeasuredWidth();
-            int measuredHeight = view2.getMeasuredHeight();
-            int i2 = 0;
-            if (measuredWidth > 0 && measuredHeight > 0) {
-                int i3 = this.k;
-                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
-                int i4 = this.l;
-                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
-                int i5 = this.m;
-                if (i5 <= 0 || this.k + i5 > measuredWidth) {
-                    i5 = measuredWidth - this.k;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) {
+            if (h(n22Var)) {
+                int alpha = n22Var.d.getAlpha();
+                n22Var.c(n22Var.d);
+                Rect rect = this.e;
+                if (rect != null) {
+                    canvas.drawBitmap(this.f, this.d, rect, n22Var.d);
+                } else {
+                    canvas.drawBitmap(this.f, this.b, this.c, n22Var.d);
                 }
-                this.m = i5;
-                int i6 = this.n;
-                if (i6 <= 0 || this.l + i6 > measuredHeight) {
-                    i6 = measuredHeight - this.l;
-                }
-                this.n = i6;
-                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawARGB(0, 0, 0, 0);
-                canvas.translate(-this.k, -this.l);
-                view2.draw(canvas);
-                Bitmap j = j(createBitmap);
-                str = Base64.encodeToString(h(j), 2);
-                i2 = j.getWidth();
-                i = j.getHeight();
-            } else {
-                x42.b("canvasGetImageData", "canvas size is invalid.");
-                str = "";
-                i = 0;
+                n22Var.d.setAlpha(alpha);
+                return;
             }
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i);
-                jSONObject.put("data", str);
+                j(n22Var);
             } catch (Exception e) {
-                x42.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    @NonNull
-    public final Bitmap j(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    public final String g(String str, g93 g93Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
-            float l = 1.0f / ol3.l(er2.c());
-            Matrix matrix = new Matrix();
-            matrix.postScale(l, l);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, g93Var)) == null) {
+            if (!TextUtils.isEmpty(str) && g93Var != null) {
+                try {
+                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
+                        str = og3.M(str, g93Var.b);
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        return null;
+                    }
+                    File file = new File(str);
+                    if (file.exists() && file.isFile()) {
+                        return file.getAbsolutePath();
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return null;
         }
-        return (Bitmap) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m22
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            g93 b0 = g93.b0();
+            try {
+                int length = jSONArray.length();
+                if (length > 0) {
+                    this.i = this.a;
+                    String optString = jSONArray.optString(0);
+                    this.a = optString;
+                    this.a = f(b0, optString);
+                }
+                if (length > 2) {
+                    this.b = i(jSONArray, 1);
+                    this.c = i(jSONArray, 2);
+                }
+                if (length > 4) {
+                    int i = this.b;
+                    int i2 = this.c;
+                    int i3 = i(jSONArray, 3);
+                    int i4 = i(jSONArray, 4);
+                    if (i3 > 0 && i4 > 0) {
+                        this.e = new Rect(i, i2, i3 + i, i4 + i2);
+                    }
+                }
+                if (length > 8) {
+                    int optInt = jSONArray.optInt(5);
+                    int optInt2 = jSONArray.optInt(6);
+                    int optInt3 = jSONArray.optInt(7);
+                    int optInt4 = jSONArray.optInt(8);
+                    if (optInt3 > 0 && optInt4 > 0) {
+                        this.d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
+                    }
+                }
+                if (b0 != null) {
+                    String g = g(this.a, b0);
+                    if (!TextUtils.isEmpty(g)) {
+                        this.f = BitmapFactory.decodeFile(g);
+                    } else if (!TextUtils.isEmpty(this.a)) {
+                        if (this.h == null || !TextUtils.equals(this.a, this.i)) {
+                            this.h = Uri.parse(this.a);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void e(HashMap<String, Bitmap> hashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) && hashMap != null && !TextUtils.isEmpty(this.a) && this.f != null && !hashMap.containsKey(this.a)) {
+            hashMap.put(this.a, this.f);
+        }
+    }
+
+    public final String f(g93 g93Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, g93Var, str)) == null) {
+            if (!TextUtils.isEmpty(str) && g93Var != null) {
+                try {
+                    if (!"bdfile".equalsIgnoreCase(URI.create(str).getScheme()) && !str.startsWith(an3.x(g93Var).getPath())) {
+                        return an3.w(g93Var, str);
+                    }
+                    return str;
+                } catch (Exception unused) {
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final boolean h(n22 n22Var) {
+        InterceptResult invokeL;
+        CanvasView canvasView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, n22Var)) == null) {
+            if (this.f != null) {
+                return true;
+            }
+            if (this.h == null || n22Var == null || (canvasView = n22Var.h) == null) {
+                return false;
+            }
+            Bitmap e = canvasView.e(this.a);
+            this.f = e;
+            if (e != null) {
+                return true;
+            }
+            Bitmap c = dm3.c(this.h, n22Var.h.getContext());
+            this.f = c;
+            if (c != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @UiThread
+    public final void j(n22 n22Var) {
+        CanvasView canvasView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, n22Var) == null) && this.g == 0 && (canvasView = n22Var.h) != null && canvasView.getContext() != null && !TextUtils.isEmpty(this.a)) {
+            this.g = 1;
+            DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.a)).build(), n22Var.h.getContext());
+            fetchDecodedImage.subscribe(new a(this, fetchDecodedImage, n22Var), UiThreadImmediateExecutorService.getInstance());
+        }
     }
 }

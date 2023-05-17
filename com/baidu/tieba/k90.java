@@ -1,80 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class k90 extends j90 {
-    public static /* synthetic */ Interceptable $ic;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+/* loaded from: classes6.dex */
+public class k90 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "lcpsdk";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean y;
-    public boolean z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k90(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947867783, "Lcom/baidu/tieba/k90;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.z = false;
-    }
-
-    @Override // com.baidu.tieba.j90, com.baidu.tieba.h90
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.g(z);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947867783, "Lcom/baidu/tieba/k90;");
         }
     }
 
-    @Override // com.baidu.tieba.j90, com.baidu.tieba.h90
-    public void l(boolean z) {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.l(z);
-            if (!this.y) {
-                u(0);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && j90.a) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
-    @Override // com.baidu.tieba.j90
-    public void u(int i) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.u(i);
-            LinearLayout linearLayout = this.e;
-            if (linearLayout == null) {
-                return;
-            }
-            this.y = false;
-            if (this.z) {
-                linearLayout.setBackgroundColor(0);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && j90.a) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
-    @Override // com.baidu.tieba.j90, com.baidu.tieba.h90
-    public void m() {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.m();
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && j90.a) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && j90.a) {
+            String str3 = a;
+            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && j90.a) {
+            String str3 = a;
+            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && j90.a) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
         }
     }
 }

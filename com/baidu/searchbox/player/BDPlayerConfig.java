@@ -8,7 +8,7 @@ import com.baidu.searchbox.player.kernel.EmptyKernelFactory;
 import com.baidu.searchbox.player.kernel.IKernelFactory;
 import com.baidu.searchbox.player.message.IMessengerFactory;
 import com.baidu.searchbox.player.message.MessengerFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDPlayerConfig {
     public static Context sApplication;
     public static boolean sIsDebugMode;

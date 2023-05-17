@@ -1,159 +1,186 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.util.gson.Holder;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.internal.C$Gson$Types;
-import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-import java.util.Collection;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsJVMKt;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.JvmClassMappingKt;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.Reflection;
-import kotlin.reflect.KClass;
-import kotlin.reflect.KClassifier;
-import kotlin.reflect.KParameter;
-import kotlin.reflect.full.KClasses;
-import kotlin.reflect.jvm.ReflectJvmMapping;
-/* loaded from: classes6.dex */
-public final class ss5 {
+import tbclient.CommonReq;
+/* loaded from: classes7.dex */
+public class ss5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ Object a(KParameter kParameter) {
-        return e(kParameter);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ KClass d(TypeToken typeToken) {
-        return h(typeToken);
-    }
-
-    public static final <T> KClass<T> h(TypeToken<T> typeToken) {
-        InterceptResult invokeL;
+    public static void a(Object obj, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, typeToken)) == null) {
-            Class<? super T> rawType = typeToken.getRawType();
-            if (rawType != null) {
-                return JvmClassMappingKt.getKotlinClass(rawType);
-            }
-            throw new NullPointerException("null cannot be cast to non-null type java.lang.Class<T of com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactoryKt.toKClass>");
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
         }
-        return (KClass) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ List b(KParameter kParameter, Class cls) {
-        return f(kParameter, cls);
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory.create(com.google.gson.Gson, com.google.gson.reflect.TypeToken<T>):com.google.gson.TypeAdapter<T>] */
-    public static final /* synthetic */ TypeToken c(TypeToken typeToken, KParameter kParameter) {
-        return g(typeToken, kParameter);
-    }
-
-    public static final Object e(KParameter kParameter) {
-        InterceptResult invokeL;
-        KClass kClass;
+    public static void b(Object obj, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, kParameter)) == null) {
-            if (kParameter.getType().isMarkedNullable()) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
+        }
+    }
+
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
+            return;
+        }
+        try {
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
             }
-            KClassifier classifier = kParameter.getType().getClassifier();
-            if (classifier instanceof KClass) {
-                kClass = (KClass) classifier;
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
+            }
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = TbConfig.SW_APID;
+            }
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.user_agent = yt5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = cl5.b();
+                    if (!StringUtils.isNull(cl5.e())) {
+                        builder.stoken = cl5.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = vx4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
+                }
+            }
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = cl5.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
+                }
+            }
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
+            }
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (o65.m().n("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
+            }
+            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            if (be9.b()) {
+                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+                builder.model = ti.g();
+                builder._os_version = ti.k();
+                builder.brand = Build.BRAND;
+                builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
             } else {
-                kClass = null;
+                builder.need_decrypt = Integer.valueOf(pg.e(be9.c(), 0));
+                String g = be9.g(HttpRequest.PHONE_IMEI);
+                if (HttpRequest.PHONE_IMEI.equals(g)) {
+                    builder._phone_imei = be9.f();
+                } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
+                    builder.iemi = be9.f();
+                }
+                String g2 = be9.g("model");
+                if ("model".equals(g2)) {
+                    builder.model = be9.h();
+                } else if ("ledom".equals(g2)) {
+                    builder.ledom = be9.h();
+                }
+                String g3 = be9.g(HttpRequest.OS_VERSION);
+                if (HttpRequest.OS_VERSION.equals(g3)) {
+                    builder._os_version = be9.j();
+                } else if ("noisrev_so".equals(g3)) {
+                    builder.noisrev_so = be9.j();
+                }
+                String g4 = be9.g("brand");
+                if ("brand".equals(g4)) {
+                    builder.brand = be9.e();
+                } else if ("dnarb".equals(g4)) {
+                    builder.dnarb = be9.e();
+                }
+                String g5 = be9.g("oaid");
+                if ("oaid".equals(g5)) {
+                    builder.oaid = be9.i();
+                } else if ("diao".equals(g5)) {
+                    builder.diao = be9.i();
+                }
+                String g6 = be9.g(HttpRequest.ANDROID_ID);
+                if (HttpRequest.ANDROID_ID.equals(g6)) {
+                    builder.android_id = be9.d();
+                } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
+                    builder.di_diordna = be9.d();
+                }
             }
-            if (kClass == null) {
-                return null;
+            if (ae9.b()) {
+                builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            } else {
+                builder.need_cam_decrypt = Integer.valueOf(pg.e(ae9.c(), 0));
+                String d = ae9.d("mac");
+                if ("mac".equals(d)) {
+                    builder.mac = ae9.e();
+                } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
+                    builder.cam = ae9.e();
+                }
             }
-            if (!KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Collection.class)) && !KClasses.isSubclassOf(kClass, Reflection.getOrCreateKotlinClass(Object[].class))) {
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(String.class))) {
-                    return "";
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Boolean.TYPE))) {
-                    return Boolean.FALSE;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Byte.TYPE))) {
-                    return (byte) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Character.TYPE))) {
-                    return (char) 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Double.TYPE))) {
-                    return Double.valueOf(0.0d);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Float.TYPE))) {
-                    return Float.valueOf(0.0f);
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Integer.class))) {
-                    return 0;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Long.TYPE))) {
-                    return 0L;
-                }
-                if (Intrinsics.areEqual(kClass, Reflection.getOrCreateKotlinClass(Short.TYPE))) {
-                    return (short) 0;
-                }
-                return Holder.OBJECT;
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
+            builder.q_type = Integer.valueOf(rx4.c().e());
+            builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(ri.i(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
             }
-            return Holder.ARRAY;
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(d55.f);
+            builder.start_scheme = d55.e();
+            builder.extra = o65.m().s("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
+            field.set(obj, builder.build(false));
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
+            }
         }
-        return invokeL.objValue;
-    }
-
-    public static final <T> List<String> f(KParameter kParameter, Class<T> cls) {
-        InterceptResult invokeLL;
-        Field field;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, kParameter, cls)) == null) {
-            String name = kParameter.getName();
-            if (name == null) {
-                return CollectionsKt__CollectionsKt.emptyList();
-            }
-            SerializedName serializedName = null;
-            try {
-                field = cls.getDeclaredField(name);
-            } catch (NoSuchFieldException unused) {
-                field = null;
-            }
-            if (field != null) {
-                serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
-            }
-            if (field != null && !Modifier.isTransient(field.getModifiers())) {
-                if (serializedName != null) {
-                    return CollectionsKt___CollectionsKt.plus((Collection) CollectionsKt__CollectionsJVMKt.listOf(serializedName.value()), (Object[]) serializedName.alternate());
-                }
-                return CollectionsKt__CollectionsJVMKt.listOf(name);
-            }
-            return CollectionsKt__CollectionsKt.emptyList();
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    public static final TypeToken<?> g(TypeToken<?> typeToken, KParameter kParameter) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, typeToken, kParameter)) == null) {
-            TypeToken<?> resolveParameterType = TypeToken.get(C$Gson$Types.resolve(typeToken.getType(), typeToken.getRawType(), ReflectJvmMapping.getJavaType(kParameter.getType())));
-            Intrinsics.checkNotNullExpressionValue(resolveParameterType, "resolveParameterType");
-            return resolveParameterType;
-        }
-        return (TypeToken) invokeLL.objValue;
     }
 }

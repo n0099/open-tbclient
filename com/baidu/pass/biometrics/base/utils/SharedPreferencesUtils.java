@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.base.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SharedPreferencesUtils {
     public static Object getParam(Context context, String str, String str2, Object obj) {
         String simpleName = obj.getClass().getSimpleName();

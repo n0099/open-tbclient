@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.HorseRace;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.s77;
+import com.baidu.tieba.f97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s77 mData;
+    public f97 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetLiveHorseRaceHttpResponseMessage() {
@@ -34,7 +34,7 @@ public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage 
                 return;
             }
         }
-        this.mData = new s77();
+        this.mData = new f97();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,12 +57,12 @@ public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage 
         }
     }
 
-    public s77 getData() {
+    public f97 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (s77) invokeV.objValue;
+        return (f97) invokeV.objValue;
     }
 }

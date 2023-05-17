@@ -1,61 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class pc8 extends oc8<vc8> implements s17<pc8> {
+/* loaded from: classes7.dex */
+public class pc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    public pc8 i() {
-        InterceptResult invokeV;
+    public static String a(UserData userData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (pc8) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pc8(zc8<vc8> data, String templateName) {
-        super(data);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((zc8) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
+            if (userData == null) {
+                return "";
+            }
+            if (UtilHelper.isFllowByPriorty(userData)) {
+                if (userData.getAuthType() == 1) {
+                    if (userData.isOfficial()) {
+                        return "";
+                    }
+                } else if (userData.getAuthType() == 2) {
+                    if (userData.isOriginal()) {
+                        return userData.getCreatorInfo().authDesc;
+                    }
+                } else if (userData.getAuthType() == 3) {
+                    if (userData.isNewGod()) {
+                        return userData.getNewGodData().getFieldName() + st5.c(userData.isVideoGod());
+                    }
+                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
+                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
+                }
+            }
+            if (TextUtils.isEmpty("") && userData.isOfficial()) {
+                return "";
+            }
+            if (TextUtils.isEmpty("") && userData.isOriginal()) {
+                return userData.getCreatorInfo().authDesc;
+            }
+            if (TextUtils.isEmpty("") && userData.isNewGod()) {
+                return userData.getNewGodData().getFieldName() + st5.c(userData.isVideoGod());
+            } else if (!TextUtils.isEmpty("") || !userData.showBazhuGrade()) {
+                return "";
+            } else {
+                return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
-    }
-
-    @Override // com.baidu.tieba.s17
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.s17
-    public /* bridge */ /* synthetic */ pc8 b() {
-        i();
-        return this;
+        return (String) invokeL.objValue;
     }
 }

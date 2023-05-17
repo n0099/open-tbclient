@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.yd5;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,31 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-/* loaded from: classes7.dex */
-public class zq6 extends yd5 {
+/* loaded from: classes8.dex */
+public class zq6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static zq6 b;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<be5> a;
-
-    @Override // com.baidu.tieba.yd5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.yd5
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    public ScoreCardInfo a;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +31,7 @@ public class zq6 extends yd5 {
                 return;
             }
         }
-        b = new zq6();
+        b = BdUniqueId.gen();
     }
 
     public zq6() {
@@ -66,72 +48,29 @@ public class zq6 extends yd5 {
         }
     }
 
-    public static synchronized zq6 e() {
-        InterceptResult invokeV;
-        zq6 zq6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (zq6.class) {
-                zq6Var = b;
-            }
-            return zq6Var;
-        }
-        return (zq6) invokeV.objValue;
-    }
-
-    public boolean g() {
+    public ScoreCardInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<be5> linkedList = this.a;
-            if (linkedList != null && linkedList.size() != 0) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (ScoreCardInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yd5
-    public void b(yd5.a aVar) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            LinkedList<be5> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<be5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    be5 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
-                    }
-                }
-            } else if (TbFaceManager.i().m() > 0) {
-                this.a = new LinkedList<>();
-                yq6 yq6Var = new yq6();
-                this.a.add(yq6Var);
-                if (aVar != null) {
-                    aVar.a(yq6Var);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean f(String str) {
-        InterceptResult invokeL;
+    public void d(ScoreCardInfo scoreCardInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<be5> linkedList = this.a;
-            if (linkedList != null) {
-                Iterator<be5> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    if (it.next().m(str)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scoreCardInfo) == null) {
+            this.a = scoreCardInfo;
         }
-        return invokeL.booleanValue;
     }
 }

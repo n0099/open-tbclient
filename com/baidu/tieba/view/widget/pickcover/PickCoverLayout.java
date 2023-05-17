@@ -17,9 +17,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
 import com.baidu.tieba.view.widget.pickcover.SlideBarView;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PickCoverLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,14 +50,14 @@ public class PickCoverLayout extends FrameLayout {
     public int o;
     public boolean p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface i {
         void a(float f);
 
         void b(long j);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements SlideBarView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +135,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +170,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +209,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +245,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -317,7 +317,7 @@ public class PickCoverLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -502,9 +502,9 @@ public class PickCoverLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             SlideBarView slideBarView = this.e;
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f081067;
+                i2 = R.drawable.obfuscated_res_0x7f0811be;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f081066;
+                i2 = R.drawable.obfuscated_res_0x7f0811bd;
             }
             slideBarView.setPickDrawable(i2);
         }
@@ -613,7 +613,7 @@ public class PickCoverLayout extends FrameLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            double l = ii.l(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            double l = ri.l(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds112);
             this.l = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
             int i2 = (int) (l / this.k);
@@ -625,20 +625,20 @@ public class PickCoverLayout extends FrameLayout {
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = (this.k * this.j) - (UtilHelper.getDimenPixelSize(R.dimen.L_X04) * 2);
             this.a.setLayoutParams(layoutParams);
-            jg.a().postDelayed(new f(this), 50L);
+            sg.a().postDelayed(new f(this), 50L);
         }
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d092e, (ViewGroup) null);
-            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f09266f);
-            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f09266d);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f09266c);
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090671);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0962, (ViewGroup) null);
+            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f0926db);
+            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f0926d9);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f0926d8);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090689);
             this.h = eMTextView;
-            g35.d(eMTextView).A(R.array.S_O_X001);
+            p45.d(eMTextView).A(R.array.S_O_X001);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.c = customLinearLayoutManager;

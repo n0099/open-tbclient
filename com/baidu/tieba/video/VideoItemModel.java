@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ny9;
+import com.baidu.tieba.p0a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoItemModel implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<VideoItemModel> CREATOR;
@@ -27,7 +27,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int dataType;
     public final int mHashCode;
-    public ny9 videoAdData;
+    public p0a videoAdData;
     public final VideoItemData videoItemData;
 
     @Override // android.os.Parcelable
@@ -40,7 +40,7 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<VideoItemModel> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,13 +118,13 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    public ny9 getVideoAdData() {
+    public p0a getVideoAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.videoAdData;
         }
-        return (ny9) invokeV.objValue;
+        return (p0a) invokeV.objValue;
     }
 
     public VideoItemData getVideoItemData() {
@@ -276,10 +276,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public void setVideoAdData(ny9 ny9Var) {
+    public void setVideoAdData(p0a p0aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ny9Var) == null) {
-            this.videoAdData = ny9Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, p0aVar) == null) {
+            this.videoAdData = p0aVar;
         }
     }
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +26,7 @@ import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public final Object mutex;
     public float percent;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a<E> {
         void a(boolean z, Collection<E> collection);
     }
@@ -439,6 +440,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
     public boolean addAll(@NonNull Collection<? extends E> collection, boolean z) {
         InterceptResult invokeLZ;
         E e;
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, collection, z)) == null) {
             synchronized (this.mutex) {
@@ -449,9 +451,14 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
                 } else {
                     e = null;
                 }
-                boolean addAll = this.c.addAll(collection);
+                try {
+                    z2 = this.c.addAll(collection);
+                } catch (Exception e3) {
+                    BdLog.e(e3);
+                    z2 = false;
+                }
                 if (z) {
-                    return addAll;
+                    return z2;
                 }
                 if (e2 != null && e != null && this.c.size() > this.maxSize) {
                     E first = this.c.first();
@@ -469,7 +476,7 @@ public class SizedSyncTreeSet<E> implements NavigableSet<E>, Serializable {
                         }
                     }
                 }
-                return addAll;
+                return z2;
             }
         }
         return invokeLZ.booleanValue;

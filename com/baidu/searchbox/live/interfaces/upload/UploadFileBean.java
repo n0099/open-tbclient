@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.upload;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UploadFileBean {
     public String ak = "";
     public String sk = "";

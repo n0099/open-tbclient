@@ -1,155 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.pm.Signature;
-import android.os.IBinder;
-import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e50;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.openid.IOpenID;
-import java.security.MessageDigest;
-/* loaded from: classes4.dex */
-public class f50 {
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+/* loaded from: classes5.dex */
+public final class f50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements ServiceConnection {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ e50.a b;
-
-        public a(Context context, e50.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = aVar;
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            Signature[] signatureArr;
-            String str;
-            Parcel obtain;
-            Parcel obtain2;
-            MessageDigest messageDigest;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
-                return;
-            }
-            iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-            String packageName = this.a.getPackageName();
-            try {
-                signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
-            } catch (Exception e) {
-                this.b.a(false, null);
-                e.printStackTrace();
-                signatureArr = null;
-            }
-            try {
-                try {
-                    if (signatureArr != null && signatureArr.length > 0) {
-                        byte[] byteArray = signatureArr[0].toByteArray();
-                        try {
-                            messageDigest = MessageDigest.getInstance("SHA1");
-                        } catch (Exception e2) {
-                            this.b.a(false, null);
-                            e2.printStackTrace();
-                        }
-                        if (messageDigest != null) {
-                            byte[] digest = messageDigest.digest(byteArray);
-                            StringBuilder sb = new StringBuilder();
-                            for (byte b : digest) {
-                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                            }
-                            str = sb.toString();
-                            obtain = Parcel.obtain();
-                            obtain2 = Parcel.obtain();
-                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                            obtain.writeString(packageName);
-                            obtain.writeString(str);
-                            obtain.writeString("OUID");
-                            iBinder.transact(1, obtain, obtain2, 0);
-                            obtain2.readException();
-                            String readString = obtain2.readString();
-                            obtain.recycle();
-                            obtain2.recycle();
-                            this.b.a(true, readString);
-                            return;
-                        }
-                    }
-                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
-                    obtain.writeString(packageName);
-                    obtain.writeString(str);
-                    obtain.writeString("OUID");
-                    iBinder.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
-                    String readString2 = obtain2.readString();
-                    obtain.recycle();
-                    obtain2.recycle();
-                    this.b.a(true, readString2);
-                    return;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                    this.b.a(false, null);
-                    obtain.recycle();
-                    obtain2.recycle();
-                    return;
-                }
-            } catch (Throwable th) {
-                obtain.recycle();
-                obtain2.recycle();
-                throw th;
-            }
-            str = null;
-            obtain = Parcel.obtain();
-            obtain2 = Parcel.obtain();
-        }
-
-        @Override // android.content.ServiceConnection
-        public void onServiceDisconnected(ComponentName componentName) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            }
-        }
+    public static byte[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50} : (byte[]) invokeV.objValue;
     }
 
-    public static void a(Context context, e50.a aVar) {
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                a aVar2 = new a(context, aVar);
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                context.bindService(intent, aVar2, 1);
-            } catch (Throwable unused) {
-                aVar.a(false, null);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 100, 94, -104, -80, 110, -17, 90, -115, -74, ExifInterface.MARKER_SOF14, ExifInterface.MARKER_SOF9, -126, 108} : (byte[]) invokeV.objValue;
+    }
+
+    public static byte[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 126, 85, -98, -93, 117, -30, 94, ExifInterface.MARKER_SOF15, ExifInterface.MARKER_SOF11, -45, ExifInterface.MARKER_SOF9, -76, 78, 117, 71, -32, -29, -30, 104, 120, -121, -9, 54, 4, 26, -98, -73, -9, -67, 94} : (byte[]) invokeV.objValue;
     }
 }

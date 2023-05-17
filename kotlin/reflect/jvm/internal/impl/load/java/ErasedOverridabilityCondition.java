@@ -20,10 +20,10 @@ import kotlin.reflect.jvm.internal.impl.resolve.OverridingUtil;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ErasedOverridabilityCondition implements ExternalOverridabilityCondition {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

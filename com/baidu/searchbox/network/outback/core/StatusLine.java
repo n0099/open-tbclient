@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.outback.core;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class StatusLine {
     public static final int HTTP_CONTINUE = 100;
     public static final int HTTP_PERM_REDIRECT = 308;

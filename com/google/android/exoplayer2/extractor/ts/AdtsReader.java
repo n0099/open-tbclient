@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AdtsReader implements ElementaryStreamReader {
     public static final int CRC_SIZE = 2;
     public static final int HEADER_SIZE = 5;

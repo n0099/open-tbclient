@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,213 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ki2 {
+/* loaded from: classes6.dex */
+public class ki2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static volatile ki2 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements qm3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qm3 a;
-        public final /* synthetic */ int b;
-
-        /* renamed from: com.baidu.tieba.ki2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0339a implements qm3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0339a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qm3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                    x42.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    qm3 qm3Var = this.a.a;
-                    if (qm3Var != null) {
-                        qm3Var.a(exc);
-                    }
-                }
-            }
-        }
-
-        public a(ki2 ki2Var, qm3 qm3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki2Var, qm3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qm3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc == null) {
-                    x42.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    qm3 qm3Var = this.a;
-                    if (qm3Var != null) {
-                        qm3Var.a(null);
-                        return;
-                    }
-                    return;
-                }
-                x42.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                ch3.o(this.b, new C0339a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements qm3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qm3 a;
-        public final /* synthetic */ int b;
-
-        /* loaded from: classes5.dex */
-        public class a implements qm3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qm3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                qm3 qm3Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (qm3Var = this.a.a) != null) {
-                    qm3Var.a(exc);
-                }
-            }
-        }
-
-        public b(ki2 ki2Var, qm3 qm3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki2Var, qm3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qm3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc != null) {
-                    qm3 qm3Var = this.a;
-                    if (qm3Var != null) {
-                        qm3Var.a(exc);
-                        return;
-                    }
-                    return;
-                }
-                gi2.h(this.b, new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ki2 a;
-
-        public c(ki2 ki2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ki2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ki2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -232,7 +30,7 @@ public class ki2 {
                 return;
             }
         }
-        a = ho1.a;
+        a = qp1.a;
     }
 
     public ki2() {
@@ -249,62 +47,38 @@ public class ki2 {
         }
     }
 
-    public static ki2 d() {
-        InterceptResult invokeV;
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (ki2.class) {
-                    if (b == null) {
-                        b = new ki2();
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return li2.b().c(i);
             }
-            return b;
-        }
-        return (ki2) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gh3.b().e(null, 0);
-            gh3.b().e(null, 1);
-            gi2.h(0, null);
-            gi2.h(1, null);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
-        }
-    }
-
-    public void c(@Nullable qm3<Exception> qm3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm3Var, i) == null) {
-            x42.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
-            g(new a(this, qm3Var, i), i);
-        }
-    }
-
-    public final void g(@Nullable qm3<Exception> qm3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, qm3Var, i) == null) {
-            gh3.b().e(new b(this, qm3Var, i), i);
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("level", i);
+            v53 c = t53.c(ki2.class, bundle);
+            int i2 = 0;
+            if (c.a()) {
+                i2 = c.a.getInt("count", 0);
+            }
             if (a) {
-                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
             }
-            ch3.l(i, i2);
-            gi2.g(i, i2);
+            return i2;
         }
+        return invokeI.intValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("level", -1);
+            Bundle bundle2 = new Bundle();
+            bundle2.putInt("count", li2.b().c(i));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WebvttExtractor implements Extractor {
     public static final Pattern LOCAL_TIMESTAMP = Pattern.compile("LOCAL:([^,]+)");
     public static final Pattern MEDIA_TIMESTAMP = Pattern.compile("MPEGTS:(\\d+)");

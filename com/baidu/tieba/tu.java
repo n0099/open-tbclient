@@ -1,46 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tu implements uu {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes7.dex */
+public interface tu {
+    public static final a a = a.b;
 
-    public tu() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    void a(String str, String str2, String str3);
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static ServiceReference a;
+        public static final /* synthetic */ a b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(264447983, "Lcom/baidu/tieba/tu$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(264447983, "Lcom/baidu/tieba/tu$a;");
+                    return;
+                }
+            }
+            b = new a();
+            a = new ServiceReference("bdptask", "yalog");
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-    }
 
-    @Override // com.baidu.tieba.uu
-    @CallSuper
-    public void a(View view2, TaskInfo taskInfo, TaskBuoyViewData taskBuoyViewData) {
-        es b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, view2, taskInfo, taskBuoyViewData) == null) && taskBuoyViewData.getTaskStatus().isFinished()) {
-            if (view2.getParent() != null) {
-                view2.setVisibility(8);
+        public final ServiceReference a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return a;
             }
-            yt v = BDPTask.m.v();
-            if (v != null && (b = v.b()) != null) {
-                b.a(taskBuoyViewData.getScheme(), 3);
-            }
+            return (ServiceReference) invokeV.objValue;
         }
     }
 }

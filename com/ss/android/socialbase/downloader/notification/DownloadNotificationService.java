@@ -12,6 +12,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.ss.android.socialbase.downloader.constants.e;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.c;
@@ -22,7 +23,7 @@ import com.ss.android.socialbase.downloader.h.g;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DownloadNotificationService extends Service {
     public static volatile long f;
     public static volatile long g;
@@ -174,7 +175,7 @@ public class DownloadNotificationService extends Service {
                             return;
                         }
                         DownloadNotificationService.this.b(notificationManager, intExtra);
-                    } else if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                    } else if (action.equals(NetworkMonitor.NET_CHANGE_ACTION)) {
                         try {
                             if (f.a((Context) DownloadNotificationService.this, "android.permission.ACCESS_NETWORK_STATE") && (connectivityManager = (ConnectivityManager) DownloadNotificationService.this.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isConnected()) {
                                 ArrayList arrayList = new ArrayList();

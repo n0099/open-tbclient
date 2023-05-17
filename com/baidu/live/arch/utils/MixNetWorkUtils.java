@@ -11,7 +11,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MixNetWorkUtils {
     public static final boolean DEBUG = false;
     public static final String NETWORK_TYPE_CELL_2G = "2g";
@@ -146,7 +146,7 @@ public class MixNetWorkUtils {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),

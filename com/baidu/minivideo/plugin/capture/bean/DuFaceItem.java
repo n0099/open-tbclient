@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
-import com.baidu.tieba.ce0;
+import com.baidu.tieba.se0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuFaceItem extends FaceItem {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean ADJUST_ZIP = false;
@@ -124,7 +124,7 @@ public class DuFaceItem extends FaceItem {
             boolean z2 = false;
             try {
                 FileUtils.unzipFile(new File(str), getFilePath());
-                z = ce0.k1(getFilePath());
+                z = se0.k1(getFilePath());
                 if (!z) {
                     LogUtils.d("DuFaceData", getFilePath() + " not verify");
                     FileUtils.deleteDir(new File(getFilePath()));

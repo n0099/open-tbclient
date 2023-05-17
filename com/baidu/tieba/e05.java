@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.LotteryRegular;
+/* loaded from: classes5.dex */
 public class e05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Application a;
-    public Activity b;
-    public Lifecycle.Event c;
+    public List<Integer> a;
 
     public e05() {
         Interceptable interceptable = $ic;
@@ -25,6 +23,18 @@ public class e05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(LotteryRegular lotteryRegular) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
+            String str = lotteryRegular.regular;
+            this.a = new ArrayList();
+            int size = lotteryRegular.chance.size();
+            for (int i = 0; i < size; i++) {
+                this.a.add(lotteryRegular.chance.get(i));
             }
         }
     }

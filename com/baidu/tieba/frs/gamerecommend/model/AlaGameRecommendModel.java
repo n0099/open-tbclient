@@ -11,17 +11,17 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.bf7;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
-import com.baidu.tieba.in;
-import com.baidu.tieba.md7;
-import com.baidu.tieba.od7;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.ze7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaGameRecommendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_PN = 1;
@@ -33,11 +33,11 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public od7 h;
+    public bf7 h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(boolean z, List<in> list);
+        void a(boolean z, List<rn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -52,7 +52,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,13 +86,13 @@ public class AlaGameRecommendModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (!alaGameRecommendReponseMessage.hasError() && alaGameRecommendReponseMessage.getError() == 0) {
-                    md7 data = alaGameRecommendReponseMessage.getData();
+                    ze7 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
                     this.a.c = data.a;
                     if (this.a.d) {
-                        AlaGameRecommendModel.c0(this.a);
+                        AlaGameRecommendModel.b0(this.a);
                     }
                     this.a.h.c(this.a.b, data);
                     if (this.a.g != null) {
@@ -124,12 +124,12 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new od7();
-        e0();
+        this.h = new bf7();
+        d0();
         registerListener();
     }
 
-    public static /* synthetic */ int c0(AlaGameRecommendModel alaGameRecommendModel) {
+    public static /* synthetic */ int b0(AlaGameRecommendModel alaGameRecommendModel) {
         int i = alaGameRecommendModel.b;
         alaGameRecommendModel.b = i + 1;
         return i;
@@ -147,7 +147,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         }
     }
 
-    public final void e0() {
+    public final void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");
@@ -173,7 +173,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public boolean e() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

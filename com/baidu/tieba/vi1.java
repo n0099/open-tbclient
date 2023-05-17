@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class vi1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+/* loaded from: classes7.dex */
+public interface vi1 {
+    void a();
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? "baiduNaSplash" : (String) invokeV.objValue;
-    }
+    void b(String str);
 
-    public static Context a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return li0.b();
-        }
-        return (Context) invokeV.objValue;
-    }
+    boolean c(String str);
+
+    void d();
+
+    void e(gl1 gl1Var);
+
+    void f();
+
+    @NonNull
+    ViewGroup g();
+
+    void onAdShow();
+
+    void onSkip();
 }

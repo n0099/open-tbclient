@@ -3,7 +3,7 @@ package org.aspectj.runtime.internal.cflowstack;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ThreadCounterImpl11 implements ThreadCounter {
     public static final int COLLECT_AT = 20000;
     public static final int MIN_COLLECT_AT = 100;
@@ -12,7 +12,7 @@ public class ThreadCounterImpl11 implements ThreadCounter {
     public Hashtable counters = new Hashtable();
     public int change_count = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Counter {
         public int value = 0;
     }

@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ze2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -27,35 +26,51 @@ public class ze2 {
                 return;
             }
         }
-        a = "content://" + we2.b + "/history_with_app";
-        b = "content://" + we2.b + "/history";
-        c = "content://" + we2.b + "/history_with_aps_pms";
+        a = qp1.a;
     }
 
-    public static Uri a() {
+    @NonNull
+    public static xe2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Uri.parse(b);
+            xe2 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
+            }
+            return b;
         }
-        return (Uri) invokeV.objValue;
+        return (xe2) invokeV.objValue;
     }
 
-    public static Uri b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Uri.parse(a);
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public static Uri c() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return Uri.parse(c);
+            ns2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
+            }
+            return 0;
         }
-        return (Uri) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public static xe2 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new ve2();
+            }
+            if (i > 0) {
+                return new ye2(i);
+            }
+            if (i == -1) {
+                return new we2();
+            }
+            return new ve2();
+        }
+        return (xe2) invokeI.objValue;
     }
 }

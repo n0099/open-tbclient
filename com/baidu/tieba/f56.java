@@ -1,58 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class f56 extends BaseCardInfo {
+/* loaded from: classes5.dex */
+public class f56 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static volatile e56 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public g56 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715170, "Lcom/baidu/tieba/f56;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715170, "Lcom/baidu/tieba/f56;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public f56() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public static synchronized e56 a() {
         InterceptResult invokeV;
+        e56 e56Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (f56.class) {
+                if (a == null) {
+                    a = new e56();
+                }
+                e56Var = a;
+            }
+            return e56Var;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (e56) invokeV.objValue;
     }
 }

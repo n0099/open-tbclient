@@ -1,293 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.res.Configuration;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.nd9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
-public final class c06 implements nd9 {
+/* loaded from: classes5.dex */
+public class c06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static c06 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<nd9.a> a;
-    public final ConcurrentHashMap<String, nd9.b> b;
-    public nd9.c c;
+    public final BaseFragmentActivity a;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nd9.a a;
-        public final /* synthetic */ c06 b;
+        public final /* synthetic */ c06 a;
 
-        public a(c06 c06Var, nd9.a aVar) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(c06 c06Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c06Var, aVar};
+                Object[] objArr = {c06Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = c06Var;
-            this.a = aVar;
+            this.a = c06Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
+                this.a.b(((Integer) customResponsedMessage.getData()).intValue(), false);
             }
-            this.b.f(this.a);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620992, "Lcom/baidu/tieba/c06;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947620992, "Lcom/baidu/tieba/c06;");
-                return;
-            }
-        }
-        d = Pattern.compile(UrlManager.patternText, 2);
-        e = new c06();
-    }
-
-    public static c06 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return e;
-        }
-        return (c06) invokeV.objValue;
-    }
-
-    public c06() {
+    public c06(@NonNull BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = new ConcurrentHashMap<>();
-        this.c = null;
+        this.a = baseFragmentActivity;
+        c();
     }
 
-    @Override // com.baidu.tieba.nd9
-    public boolean a(String str) {
-        InterceptResult invokeL;
+    public void d(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || !d.matcher(str).find()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(nd9.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (ii.E()) {
-                f(aVar);
-            } else {
-                jg.a().post(new a(this, aVar));
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
+            wm6.a().b(configuration);
         }
     }
 
-    public final void f(nd9.a aVar) {
+    public final void b(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && !this.a.contains(aVar)) {
-            this.a.add(aVar);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a).createNormalCfg(i);
+            if (TbSingleton.getInstance().getFirstOpenScheme() != null) {
+                createNormalCfg.getIntent().setData(TbSingleton.getInstance().getFirstOpenScheme());
+                TbSingleton.getInstance().setFirstOpenScheme(null);
+            }
+            this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+            this.a.finish();
+            SpeedStatsManager.getInstance().addStatsTimeStamp(3006);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getClass().getSimpleName()).param("obj_param1", 4));
         }
     }
 
-    public final String k(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (StringUtils.isNull(str) || (lastIndexOf = str.lastIndexOf(":")) < 0) {
-                return null;
-            }
-            return str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            if (str.contains(":")) {
-                return str.substring(0, str.lastIndexOf(":"));
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void o(nd9.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.registerListener(new a(this, 2921639));
         }
     }
 
-    @Override // com.baidu.tieba.nd9
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
-            h(context, strArr, false, null, z, bundle);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            wm6.a().c();
         }
     }
 
-    @Override // com.baidu.tieba.nd9
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) {
-            return h(context, strArr, false, null, false, bundle);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            wm6.a().d();
         }
-        return invokeLLL.booleanValue;
     }
 
-    public boolean g(Context context, String str, String[] strArr, boolean z, nd9.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        boolean z3;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-                return false;
-            }
-            String str2 = strArr[0];
-            nd9.b bVar = this.b.get(m(str2));
-            if (bVar != null) {
-                bVar.a(context, j(k(str2)));
-                return true;
-            }
-            Iterator<nd9.a> it = this.a.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    nd9.a next = it.next();
-                    if (next != null && next.a(context, strArr) != 3) {
-                        z3 = true;
-                        break;
-                    }
-                } else {
-                    z3 = false;
-                    break;
-                }
-            }
-            if (!z3 && this.c != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
-                }
-                n(context, str, strArr[0], z, dVar, z2, bundle);
-            }
-            return z3;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            wm6.a().e(this.a);
         }
-        return invokeCommon.booleanValue;
     }
 
-    public boolean h(Context context, String[] strArr, boolean z, nd9.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
+    public void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            return g(context, "", strArr, z, dVar, z2, bundle);
+        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
+            return;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public int i(Context context, String[] strArr) {
-        InterceptResult invokeLL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (nd9.a aVar : this.a) {
-                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                        return a2;
-                    }
-                }
-            }
-            return 3;
-        }
-        return invokeLL.intValue;
-    }
-
-    public final Map<String, String> j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            String[] split = str.split("[&]");
-            if (split == null) {
-                hashMap.put(UrlManager.DEFAULT_PARAM, str);
-                return hashMap;
-            }
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, nd9.d dVar, boolean z2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
-            this.c.a(context, str, str2, z, dVar, z2, bundle);
+        if (!km9.a(this.a.getIntent()) && !km9.b(this.a.getIntent()) && !this.a.isTaskRoot()) {
+            this.a.finish();
+        } else {
+            h();
         }
     }
 }

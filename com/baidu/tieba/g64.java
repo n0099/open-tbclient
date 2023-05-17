@@ -1,48 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class g64 {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class g64 implements lq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int progress;
-    @V8JavascriptField
-    public long totalBytesExpectedToWrite;
-    @V8JavascriptField
-    public long totalBytesWritten;
 
-    public g64(int i, long j, long j2) {
+    public g64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.progress = i;
-        this.totalBytesExpectedToWrite = j;
-        this.totalBytesWritten = j2;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lq1
+    public List<db3> a(da3 da3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TaskProgressData{progress=" + this.progress + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + ", totalBytesWritten=" + this.totalBytesWritten + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, da3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new w44(da3Var));
+            arrayList.add(new x44(da3Var));
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lq1
+    public List<db3> c(da3 da3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, da3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new p94(da3Var));
+            arrayList.add(new o94(da3Var));
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lq1
+    public List<db3> b(da3 da3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da3Var)) == null) {
+            return Arrays.asList(new j54(da3Var), new y34(da3Var), new h44(da3Var), new u44(da3Var));
+        }
+        return (List) invokeL.objValue;
     }
 }

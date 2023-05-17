@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.AgreeBanner;
 import tbclient.SimpleUser;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsHeaderPraiseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public FrameLayout d;
     public ImageView e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.url)) {
                 return;
             }
-            pt4.v(this.b.getContext(), null, this.a.url, true);
+            yu4.v(this.b.getContext(), null, this.a.url, true);
         }
     }
 
@@ -130,7 +130,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033e, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0355, this);
         a();
     }
 
@@ -139,9 +139,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce1);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ce0);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cde);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0c);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090d0b);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d09);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }
@@ -174,10 +174,10 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     headImageView.setDefaultBgResource(R.color.CAM_X0205);
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-                    headImageView.setBorderWidth(ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
+                    headImageView.setBorderWidth(ri.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
                     headImageView.N(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
-                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070303));
+                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07040b));
                     }
                     layoutParams.gravity = 5;
                     this.d.addView(headImageView, layoutParams);

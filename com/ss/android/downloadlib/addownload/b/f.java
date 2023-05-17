@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f {
     public volatile boolean a;
     public final ConcurrentHashMap<Long, DownloadModel> b;
@@ -22,7 +22,7 @@ public class f {
     public final ConcurrentHashMap<Long, DownloadController> d;
     public final ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static f a = new f();
     }

@@ -1,51 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
-public class v21 implements y21 {
+/* loaded from: classes7.dex */
+public class v21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ScheduledExecutorService a;
-    public ScheduledExecutorService b;
 
-    public v21() {
+    public static void a(Cursor cursor, x21... x21VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, x21VarArr) == null) {
+            int i = 0;
+            for (x21 x21Var : x21VarArr) {
+                for (Column column : x21Var.b().c()) {
+                    u21.h(column, cursor, i);
+                    i++;
+                }
             }
         }
-        this.a = new ScheduledThreadPoolExecutor(15);
-        this.b = new ScheduledThreadPoolExecutor(1);
     }
 
-    @Override // com.baidu.tieba.y21
-    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
+    public static void b(x21 x21Var, Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            this.a.schedule(runnable, j, TimeUnit.MILLISECONDS);
-        }
-    }
-
-    @Override // com.baidu.tieba.y21
-    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            this.b.schedule(runnable, j, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLL(65537, null, x21Var, cursor) == null) {
+            u21.i(cursor, x21Var.b().c());
         }
     }
 }

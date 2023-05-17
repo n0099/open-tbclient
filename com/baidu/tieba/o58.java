@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-/* loaded from: classes5.dex */
-public interface o58 {
-    @Nullable
-    BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class o58 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+        }
+    }
 }

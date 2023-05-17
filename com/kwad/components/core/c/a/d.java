@@ -10,7 +10,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.ai;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.sdk.core.download.kwai.b {
     public static boolean Ep;
     public static final b Eq = new b() { // from class: com.kwad.components.core.c.a.d.2
@@ -35,9 +35,9 @@ public final class d extends com.kwad.sdk.core.download.kwai.b {
         }
     };
 
-    public static int a(a.C0596a c0596a, int i) {
-        Context context = c0596a.getContext();
-        AdTemplate adTemplate = c0596a.getAdTemplate();
+    public static int a(a.C0610a c0610a, int i) {
+        Context context = c0610a.getContext();
+        AdTemplate adTemplate = c0610a.getAdTemplate();
         if (adTemplate == null || context == null) {
             return 0;
         }
@@ -46,7 +46,7 @@ public final class d extends com.kwad.sdk.core.download.kwai.b {
         com.kwad.sdk.core.c.b.a(Eq);
         int s = com.kwad.sdk.core.download.kwai.b.s(context, com.kwad.sdk.core.response.a.a.bM(com.kwad.sdk.core.response.a.d.bQ(adTemplate)));
         if (s == 1) {
-            com.kwad.sdk.core.report.a.a(adTemplate, 1, c0596a.getClientParams());
+            com.kwad.sdk.core.report.a.a(adTemplate, 1, c0610a.getClientParams());
             c(adTemplate, 1);
         } else if (s == -1) {
             com.kwad.sdk.core.report.a.k(adTemplate, 1);

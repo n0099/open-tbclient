@@ -5,7 +5,7 @@ import android.content.res.Configuration;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g extends FrameLayout {
     public h fE;
     public boolean jb;

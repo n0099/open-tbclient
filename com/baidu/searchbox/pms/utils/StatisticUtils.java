@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StatisticUtils {
     public static void sendBulkDownload(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3, int i) {
         String str;

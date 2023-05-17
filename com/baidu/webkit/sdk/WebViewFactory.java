@@ -13,7 +13,7 @@ import android.os.StrictMode;
 import android.util.AndroidRuntimeException;
 import androidx.annotation.RequiresApi;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.ApisInteractWithMario;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.EngineManager;
@@ -32,7 +32,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebViewFactory {
     public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
     public static final String CHROMIUM_LIBS_PATH = "files/zeus/libs";
@@ -83,7 +83,7 @@ public final class WebViewFactory {
     public static int sPackageInfoType = 0;
     public static final Object sProviderLock = new Object();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -104,7 +104,7 @@ public final class WebViewFactory {
             }
             Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enable_sosize_check");
-            if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
+            if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
                 if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j || j == 0) {
                     mProvider = null;
                     throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
@@ -1045,7 +1045,7 @@ public final class WebViewFactory {
                                 webView.destroy();
                             }
                             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("zeus_init_opt_enable");
-                            if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("false")) {
+                            if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
                                 z = false;
                             }
                             if (z && ABTestSDK.isOptZeusInitOptStartBrowserAloneTaskEnabled() && WebViewFactory.hasProvider()) {
@@ -1308,8 +1308,8 @@ public final class WebViewFactory {
             int[] iArr = {0, 0, 0, 0};
             int[] iArr2 = {0, 0, 0, 0};
             try {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                String[] split = str.split("\\.", 4);
+                String[] split2 = str2.split("\\.", 4);
                 iArr[0] = Integer.parseInt(split[0]);
                 iArr[1] = Integer.parseInt(split[1]);
                 iArr[2] = Integer.parseInt(split[2]);
@@ -1337,7 +1337,7 @@ public final class WebViewFactory {
     public static boolean isZeusForbiddenUnder5Enabled() {
         String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue(ZeusInitConfigUtils.PREF_KEY_NO_ZEUS_UNDER_5);
         Log.i(TAG, "no_zeus_under_5 = ".concat(String.valueOf(GetCloudSettingsValue)));
-        return GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false");
+        return GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
     }
 
     public static boolean isZeusKernelInCurrentPackage() {
@@ -1431,7 +1431,7 @@ public final class WebViewFactory {
             initCloudSetting();
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("chromium63_zeus_enable");
             Log.i(TAG, "chromium63_zeus_enable = ".concat(String.valueOf(GetCloudSettingsValue)));
-            if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
+            if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
                 z2 = true;
             } else {
                 LoadErrorCode.getInstance().trace(510);
@@ -1456,7 +1456,7 @@ public final class WebViewFactory {
         }
         try {
             String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("zeus_init_opt_enable");
-            if ((GetCloudSettingsValue == null || !GetCloudSettingsValue.equalsIgnoreCase("false")) && hasProvider()) {
+            if ((GetCloudSettingsValue == null || !GetCloudSettingsValue.equalsIgnoreCase(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) && hasProvider()) {
                 Log.i(GlobalConstants.LOG_PER_TAG, " startBrowserProcessBackground from API");
                 getProvider().startBrowserProcess(true);
             }

@@ -2,13 +2,13 @@ package com.kwad.sdk.core.videocache.b;
 
 import android.content.Context;
 import com.kwad.sdk.core.videocache.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static f afa;
 
     /* renamed from: com.kwad.sdk.core.videocache.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0638a {
+    /* loaded from: classes9.dex */
+    public static class C0652a {
         public String Qd;
     }
 

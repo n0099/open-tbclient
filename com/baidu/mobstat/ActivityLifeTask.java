@@ -5,7 +5,7 @@ import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.AutoTrack;
 import com.baidu.mobstat.ad;
 import com.baidu.mobstat.au;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActivityLifeTask {
     public static boolean a;
     public static ActivityLifeObserver.IActivityLifeCallback b;

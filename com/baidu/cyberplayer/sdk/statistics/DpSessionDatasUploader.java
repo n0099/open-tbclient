@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DpSessionDatasUploader {
     @Keep
     public static final String SAILOR_MONITOR = "sailor_monitor";

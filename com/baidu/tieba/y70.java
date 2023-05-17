@@ -1,12 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.IExternalTransferIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class y70 extends BLCPRequest {
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public final class y70 implements IExternalTransferIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -20,10 +25,23 @@ public class y70 extends BLCPRequest {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = null;
-        this.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.IExternalTransferIoc
+    public void addEvent(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            a80.b(str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.IExternalTransferIoc
+    public void addEvent(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            a80.c(str, str2);
+        }
     }
 }

@@ -1,70 +1,63 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class w63 extends Dialog {
+/* loaded from: classes8.dex */
+public class w63 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w63(@NonNull Context context, @StyleRes int i) {
-        super(context, i);
+    public w63() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = t63.b;
-    }
-
-    public void a(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            if (t63.b && z) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            this.a = z2;
         }
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a) {
-                t63.k(this);
-            }
-            boolean f = t63.f(this);
-            if (f) {
-                getWindow().setFlags(8, 8);
-            }
-            super.show();
-            if (f) {
-                getWindow().clearFlags(8);
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return c(context).getInt("softinput.height", i);
         }
+        return invokeLI.intValue;
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return c(context).edit().putInt("softinput.height", i).commit();
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == null) {
+                synchronized (w63.class) {
+                    if (a == null) {
+                        a = new th3("swan.publisher", false);
+                    }
+                }
+            }
+            return a;
+        }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

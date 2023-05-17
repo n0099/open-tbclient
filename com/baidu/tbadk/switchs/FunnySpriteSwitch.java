@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.te;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.ze;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +14,8 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 \u000f2\u00020\u0001:\u0001\u000fB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\u0015\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\bH\u0014¢\u0006\u0002\u0010\nJ\b\u0010\u000b\u001a\u00020\u0006H\u0014J\b\u0010\f\u001a\u00020\u0006H\u0014J\b\u0010\r\u001a\u00020\tH\u0014J\b\u0010\u000e\u001a\u00020\u0006H\u0014¨\u0006\u0010"}, d2 = {"Lcom/baidu/tbadk/switchs/FunnySpriteSwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "", "()[Ljava/lang/String;", "getDefaultType", "getMaxCrashTimes", "getName", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes3.dex */
-public final class FunnySpriteSwitch extends te {
+/* loaded from: classes4.dex */
+public final class FunnySpriteSwitch extends ze {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String KEY = "funny_sprite_global_switch_android";
@@ -44,16 +44,16 @@ public final class FunnySpriteSwitch extends te {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Companion.isOn() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.te
+    @Override // com.baidu.tieba.ze
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.te
+    @Override // com.baidu.tieba.ze
     /* renamed from: getCrashKeys */
-    public String[] mo55getCrashKeys() {
+    public String[] mo74getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -62,7 +62,7 @@ public final class FunnySpriteSwitch extends te {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.te
+    @Override // com.baidu.tieba.ze
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public final class FunnySpriteSwitch extends te {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.te
+    @Override // com.baidu.tieba.ze
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -82,14 +82,14 @@ public final class FunnySpriteSwitch extends te {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.te
+    @Override // com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.te
+    @Override // com.baidu.tieba.ze
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public final class FunnySpriteSwitch extends te {
     }
 
     @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0005\u001a\u00020\u0006H\u0007R\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000¨\u0006\u0007"}, d2 = {"Lcom/baidu/tbadk/switchs/FunnySpriteSwitch$Companion;", "", "()V", "KEY", "", "isOn", "", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public final class FunnySpriteSwitch extends te {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (f55.m().n(FunnySpriteSwitch.KEY, 0) != 1) {
+                if (o65.m().n(FunnySpriteSwitch.KEY, 0) != 1) {
                     return false;
                 }
                 return true;

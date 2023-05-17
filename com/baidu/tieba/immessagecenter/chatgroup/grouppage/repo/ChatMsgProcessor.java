@@ -15,16 +15,16 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.ai5;
+import com.baidu.tieba.g88;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.ki5;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.o68;
+import com.baidu.tieba.jj5;
+import com.baidu.tieba.tj5;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,8 +44,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ChatMsgProcessor implements ki5 {
+/* loaded from: classes6.dex */
+public class ChatMsgProcessor implements tj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Class<? extends BaseMsg>> a;
@@ -60,18 +60,18 @@ public class ChatMsgProcessor implements ki5 {
     @Nullable
     public k f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface h {
         @MainThread
         void a(long j, @NonNull List<BaseMsg> list, @NonNull j jVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface i {
         void a(@NonNull BaseMsg baseMsg);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface k<T extends BaseSysMsg> {
         @MainThread
         void a(@NonNull T t);
@@ -81,7 +81,7 @@ public class ChatMsgProcessor implements ki5 {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class MemoryFlag {
         public static final /* synthetic */ MemoryFlag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -198,7 +198,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,7 +287,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements SizedSyncTreeSet.a<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -326,7 +326,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -361,7 +361,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -396,7 +396,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -435,7 +435,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class g {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -482,7 +482,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -585,7 +585,7 @@ public class ChatMsgProcessor implements ki5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(ai5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(jj5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
@@ -604,14 +604,14 @@ public class ChatMsgProcessor implements ki5 {
     public final void G(@NonNull ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, chatMsg) == null) {
-            ng.c(new e(this, chatMsg));
+            wg.c(new e(this, chatMsg));
         }
     }
 
     public final void H(@NonNull BaseSysMsg baseSysMsg) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, baseSysMsg) == null) {
-            ng.c(new d(this, baseSysMsg));
+            wg.c(new d(this, baseSysMsg));
         }
     }
 
@@ -687,7 +687,7 @@ public class ChatMsgProcessor implements ki5 {
     public void C(long j2, @NonNull j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, jVar) == null) {
-            ng.c(new f(this, j2, new ArrayList(q(j2)), jVar));
+            wg.c(new f(this, j2, new ArrayList(q(j2)), jVar));
         }
     }
 
@@ -803,7 +803,7 @@ public class ChatMsgProcessor implements ki5 {
         }
     }
 
-    @Override // com.baidu.tieba.ki5
+    @Override // com.baidu.tieba.tj5
     public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
@@ -944,20 +944,20 @@ public class ChatMsgProcessor implements ki5 {
         return (BaseMsg) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0036, code lost:
-        if (android.text.TextUtils.equals(r4, r11.getCommonMsgField().getMsgKey()) != false) goto L16;
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x003b, code lost:
+        if (android.text.TextUtils.equals(r4, r11.getCommonMsgField().getMsgKey()) != false) goto L19;
      */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0095  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x009a  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final boolean S(long j2, @NonNull BaseMsg baseMsg, @NonNull j jVar) {
         InterceptResult invokeCommon;
+        Action provideAction;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), baseMsg, jVar})) == null) {
-            Action provideAction = baseMsg.provideAction();
             boolean z = false;
-            if (provideAction == null) {
+            if (!jVar.c || (provideAction = baseMsg.provideAction()) == null) {
                 return false;
             }
             Action.a b2 = provideAction.b();
@@ -1056,50 +1056,52 @@ public class ChatMsgProcessor implements ki5 {
     }
 
     @WorkerThread
-    public final void g(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
+    public final synchronized void g(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
         SizedSyncTreeSet<BaseMsg> sizedSyncTreeSet;
         BaseMsg j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
-            SizedSyncTreeSet<BaseMsg> q = q(j2);
-            SizedSyncTreeSet<BaseMsg> z4 = z(j2);
-            SizedSyncTreeSet<BaseMsg> v = v(j2);
-            z4.clear();
-            j a2 = j.a(z, z2, z3);
-            Iterator<ChatMsg> it = treeSet.iterator();
-            while (it.hasNext()) {
-                ChatMsg next = it.next();
-                if (next != null) {
-                    try {
-                        BaseMsg j4 = j(j2, next, a2);
-                        if (j4 != null) {
-                            if (iVar != null) {
-                                iVar.a(j4);
+            synchronized (this) {
+                SizedSyncTreeSet<BaseMsg> q = q(j2);
+                SizedSyncTreeSet<BaseMsg> z4 = z(j2);
+                SizedSyncTreeSet<BaseMsg> v = v(j2);
+                z4.clear();
+                j a2 = j.a(z, z2, z3);
+                Iterator<ChatMsg> it = treeSet.iterator();
+                while (it.hasNext()) {
+                    ChatMsg next = it.next();
+                    if (next != null) {
+                        try {
+                            BaseMsg j4 = j(j2, next, a2);
+                            if (j4 != null) {
+                                if (iVar != null) {
+                                    iVar.a(j4);
+                                }
+                                if (z4.isEmpty()) {
+                                    sizedSyncTreeSet = q;
+                                } else {
+                                    sizedSyncTreeSet = z4;
+                                }
+                                ChatMsg T = T(j2, next, sizedSyncTreeSet);
+                                if (T != null && (j3 = j(j2, T, a2)) != null) {
+                                    z4.add(j3);
+                                    j4.setPreTimestampMsg(j3);
+                                }
+                                z4.add(j4);
                             }
-                            if (z4.isEmpty()) {
-                                sizedSyncTreeSet = q;
-                            } else {
-                                sizedSyncTreeSet = z4;
-                            }
-                            ChatMsg T = T(j2, next, sizedSyncTreeSet);
-                            if (T != null && (j3 = j(j2, T, a2)) != null) {
-                                z4.add(j3);
-                                j4.setPreTimestampMsg(j3);
-                            }
-                            z4.add(j4);
+                        } catch (Exception e2) {
+                            g88.g("parse_msg_exception", j2, e2);
                         }
-                    } catch (Exception e2) {
-                        o68.g("parse_msg_exception", j2, e2);
                     }
                 }
-            }
-            if (!z4.isEmpty()) {
-                if (!v.isEmpty() && z3) {
-                    v.addAll(z4);
-                    return;
+                if (!z4.isEmpty()) {
+                    if (!v.isEmpty() && z3) {
+                        v.addAll(z4);
+                    } else {
+                        q.addAll(z4);
+                        wg.c(new b(this, j2, new ArrayList(q), z, z2, z3));
+                    }
                 }
-                q.addAll(z4);
-                ng.c(new b(this, j2, new ArrayList(q), z, z2, z3));
             }
         }
     }
@@ -1114,7 +1116,7 @@ public class ChatMsgProcessor implements ki5 {
     public final void i(long j2, @NonNull TreeSet<ChatMsg> treeSet, boolean z, boolean z2, boolean z3, @Nullable i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j2), treeSet, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), iVar}) == null) {
-            ng.d(new a(this, j2, treeSet, z, z2, z3, iVar));
+            wg.d(new a(this, j2, treeSet, z, z2, z3, iVar));
         }
     }
 

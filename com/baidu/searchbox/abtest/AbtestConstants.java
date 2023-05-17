@@ -1,5 +1,5 @@
 package com.baidu.searchbox.abtest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AbtestConstants {
     public static final String AGGREGATION_PAGE_RN_AB_SWITCH = "box.rnplugin.aggregationpage";
     public static final String AI_FRAMEWORK_SWITCH = "comment_AI_antispam";
@@ -55,6 +55,7 @@ public class AbtestConstants {
     public static final boolean PERF_BLOCK_DEFAULT = false;
     public static final String PREFETCH_SUCCESS_OPTIMIZE_KEY = "presuopt";
     public static final String PREFETCH_SUCCESS_OPTIMIZE_POLICY = "fragment_optimize_policy";
+    public static final String RISE_DOWN_CUID_TOAST = "rise_down_cuidtoast_android";
     public static final String SEARCH_BOX_UI_AB = "seachbox_ui_ab";
     public static final int SEARCH_BOX_UI_AB_DEFAULT = 2;
     public static final int SEARCH_BOX_UI_AB_OPEN = 3;

@@ -1,129 +1,158 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xia {
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+/* loaded from: classes8.dex */
+public final class xia {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static boolean b;
+    public static StringBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
-    public int g;
-    public String h;
 
-    public xia() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class a extends zia {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+        }
+
+        @Override // com.baidu.tieba.zia
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                StringBuffer stringBuffer = new StringBuffer();
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
+                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
+                stringBuffer.append(simpleDateFormat.format(new Date()));
+                stringBuffer.append("\t");
+                stringBuffer.append(this.a);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.b);
+                stringBuffer.append("\t");
+                stringBuffer.append(this.c);
+                cja.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, xia.c.toString());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948302713, "Lcom/baidu/tieba/xia;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948302713, "Lcom/baidu/tieba/xia;");
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.f = "";
-        this.g = 0;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        c = new StringBuffer();
+        if (wha.h() != null) {
+            a = !com.baidu.ubs.analytics.d.a.a();
+            b = true;
+            c.append("ABsdkLog-");
+            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+            c.append("_");
+            try {
+                c.append(c(sia.g(wha.h().getContext()).getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException e) {
+                fja.d(e);
+            } catch (Exception e2) {
+                fja.d(e2);
+            }
+            c.append(".log");
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean b(String str) {
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            if (a) {
+                Log.w("BaiDuUbs", str);
+            }
+            d("w", "BaiDuUbs", str);
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            if (a) {
+                Log.e("BaiDuUbs", str);
+            }
+            d("e", "BaiDuUbs", str);
+        }
+    }
+
+    public static String c(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (bArr != null && bArr.length > 0) {
+                for (byte b2 : bArr) {
+                    String hexString = Integer.toHexString(b2 & 255);
+                    if (hexString.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.a = jSONObject.optString("name");
-                this.b = jSONObject.optString("id");
-                this.c = jSONObject.optString("image");
-                this.d = jSONObject.optString("url");
-                this.e = jSONObject.optInt("progress");
-                this.f = jSONObject.optString("downloadPerSize");
-                this.g = jSONObject.optInt("status");
-                this.h = jSONObject.optString("savePath");
-                return true;
-            } catch (JSONException unused) {
-                return false;
-            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public void c(String str) {
+    public static void d(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) != null) || !b) {
+            return;
         }
+        yia.a(new a(str, str2, str3));
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public JSONObject g() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.a);
-                jSONObject.put("id", this.b);
-                jSONObject.put("image", this.c);
-                jSONObject.put("url", this.d);
-                jSONObject.put("progress", this.e);
-                jSONObject.put("downloadPerSize", this.f);
-                jSONObject.put("status", this.g);
-                jSONObject.put("savePath", this.h);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c.toString();
         }
-        return (JSONObject) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

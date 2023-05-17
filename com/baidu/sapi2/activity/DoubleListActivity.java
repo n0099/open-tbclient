@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DoubleListActivity extends SlideActiviy {
     public DoubleListCallback C;
     public ChangeUserNameDTO D;

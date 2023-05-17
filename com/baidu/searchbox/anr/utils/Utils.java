@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utils {
     public static final int CHECKPROCESS_SEPARATOR_TIMEOUT = 500;
     public static final int LOG_MONITOR_TIMEOUT = 500;

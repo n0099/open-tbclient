@@ -20,13 +20,13 @@ import okhttp3.internal.Platform;
 import okhttp3.internal.http.HttpEngine;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class HttpLoggingInterceptor implements Interceptor {
     public static final Charset UTF8 = Charset.forName("UTF-8");
     public volatile Level level;
     public final Logger logger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Level {
         NONE,
         BASIC,
@@ -34,7 +34,7 @@ public final class HttpLoggingInterceptor implements Interceptor {
         BODY
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Logger {
         public static final Logger DEFAULT = new Logger() { // from class: okhttp3.logging.HttpLoggingInterceptor.Logger.1
             @Override // okhttp3.logging.HttpLoggingInterceptor.Logger

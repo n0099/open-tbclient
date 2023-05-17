@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vg9;
+import com.baidu.tieba.xi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetDislikeList.GetDislikeListResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vg9 pageData;
+    public xi9 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbiddenForumSocketResMsg() {
@@ -36,13 +36,13 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public vg9 getPageData() {
+    public xi9 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pageData;
         }
-        return (vg9) invokeV.objValue;
+        return (xi9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getDislikeListResIdl.error.usermsg);
             }
-            vg9 vg9Var = new vg9();
-            this.pageData = vg9Var;
-            vg9Var.a(getDislikeListResIdl.data);
+            xi9 xi9Var = new xi9();
+            this.pageData = xi9Var;
+            xi9Var.a(getDislikeListResIdl.data);
             return getDislikeListResIdl;
         }
         return invokeIL.objValue;

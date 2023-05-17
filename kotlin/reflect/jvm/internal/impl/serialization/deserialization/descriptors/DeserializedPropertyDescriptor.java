@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.metadata.deserialization.VersionRequirem
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedCallableMemberDescriptor;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedMemberDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DeserializedPropertyDescriptor extends PropertyDescriptorImpl implements DeserializedCallableMemberDescriptor {
     public final DeserializedContainerSource containerSource;
     public DeserializedMemberDescriptor.CoroutinesCompatibilityMode coroutinesExperimentalCompatibilityMode;

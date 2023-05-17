@@ -1,320 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.cpu.booster.utils.CpuType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class hs3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hs3 d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<is3> a;
-    public boolean b;
-    public Timer c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947834241, "Lcom/baidu/tieba/hs3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947834241, "Lcom/baidu/tieba/hs3;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hs3 a;
-
-        public a(hs3 hs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hs3Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-737054461, "Lcom/baidu/tieba/hs3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-737054461, "Lcom/baidu/tieba/hs3$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[CpuType.values().length];
-            a = iArr;
-            try {
-                iArr[CpuType.Mtk.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[CpuType.QualComm.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[CpuType.Unknown.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
-
-    public hs3(Context context) {
-        long j;
+    public static void a(String str) {
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (cs3.a) {
+                Log.d("BDTLS", "bdtls success");
             }
-        }
-        this.a = new ArrayList();
-        if (e) {
-            j = System.currentTimeMillis();
-        } else {
-            j = 0;
-        }
-        a(context.getApplicationContext());
-        if (e) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Log.d("CPU-Booster", "collect booster cost - " + (currentTimeMillis - j) + "ms");
-        }
-    }
-
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            e = z;
-        }
-    }
-
-    public static hs3 d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (d == null) {
-                synchronized (hs3.class) {
-                    if (d == null) {
-                        d = new hs3(context);
-                    }
-                }
-            }
-            return d;
-        }
-        return (hs3) invokeL.objValue;
-    }
-
-    public static void e(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (e) {
-                Log.d("CPU-Booster", "cpu-booster preInit");
-            }
-            d(context);
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                return 200;
-            }
-            return Math.min(i, 5000);
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            if (ws3.a()) {
-                this.a.add(new js3(context));
-                this.a.add(new ls3(context));
-            } else if (ws3.b()) {
-                this.a.add(new rs3(context));
-            }
-            int i = b.a[vs3.h().ordinal()];
-            if (i != 1) {
-                if (i == 2) {
-                    this.a.add(new ts3(context));
+            rs3 m = is3.l().m();
+            if (m == null) {
+                if (cs3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
                     return;
                 }
                 return;
             }
-            this.a.add(new ps3(context));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !e) {
-            return;
-        }
-        int e2 = vs3.e();
-        StringBuilder sb = new StringBuilder(" \n\n");
-        sb.append("CPU Support Freq Info:\n");
-        for (int i = 0; i < e2; i++) {
-            ns3 a2 = vs3.a(i);
-            sb.append("CPU");
-            sb.append(a2.a);
-            sb.append(":");
-            sb.append("min-");
-            sb.append(a2.b / 1000);
-            sb.append("mHz, max-");
-            sb.append(a2.c / 1000);
-            sb.append("mHz\n");
-        }
-        sb.append("\n\n");
-        sb.append("CPU Current Freq:\n");
-        for (int i2 = 0; i2 < e2; i2++) {
-            sb.append("CPU");
-            sb.append(i2);
-            sb.append(":");
-            sb.append(vs3.j(i2) / 1000);
-            sb.append("mHz");
-            sb.append("\n");
-        }
-        if (e) {
-            Log.d("CPU-Booster", sb.toString());
-        }
-    }
-
-    public synchronized void i() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    return;
-                }
-                if (e) {
-                    Log.d("CPU-Booster", "stopBooster");
-                }
-                if (e) {
-                    j = System.currentTimeMillis();
+            try {
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
                 } else {
-                    j = 0;
+                    i = -1;
                 }
-                for (is3 is3Var : this.a) {
-                    is3Var.a();
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
                 }
-                this.b = false;
-                if (this.c != null) {
-                    this.c.cancel();
-                    this.c = null;
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
                 }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "stop booster cost - " + (currentTimeMillis - j) + "ms");
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
+                }
+                if (cs3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
+                }
+                jg3 jg3Var = new jg3();
+                jg3Var.b = str;
+                jg3Var.a("dh_group_id", Integer.valueOf(i));
+                jg3Var.a("dh_secret", Integer.valueOf(i2));
+                jg3Var.a("dh_pub_c", Integer.valueOf(i3));
+                jg3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (cs3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
+                }
+                zf3.d(jg3Var);
+            } catch (Exception e) {
+                if (cs3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public synchronized void g() {
+    public static void b(rs3 rs3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                h(3000);
+        if (interceptable == null || interceptable.invokeLL(65537, null, rs3Var, bdtls$Alert) == null) {
+            if (cs3.a) {
+                Log.d("BDTLS", "bdtls ubc");
             }
-        }
-    }
-
-    public synchronized void h(int i) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    if (e) {
-                        Log.d("CPU-Booster", "start fail -> isEnabled - true, already start - " + this.b);
+            if (rs3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
+                    } else {
+                        str = "fatal_error";
                     }
-                    return;
+                    int i4 = -1;
+                    if (rs3Var.d() != null) {
+                        i = rs3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (rs3Var.f() != null) {
+                        i2 = rs3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (rs3Var.e() != null) {
+                        i3 = rs3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (rs3Var.g() != null) {
+                        i4 = rs3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (cs3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    jg3 jg3Var = new jg3();
+                    jg3Var.b = "alert";
+                    jg3Var.e = str;
+                    jg3Var.a("dh_group_id", Integer.valueOf(i));
+                    jg3Var.a("dh_secret", Integer.valueOf(i2));
+                    jg3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    jg3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    jg3Var.a("alert_msg", str2);
+                    if (cs3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    zf3.d(jg3Var);
+                } catch (Exception e) {
+                    if (cs3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
                 }
-                if (e) {
-                    Log.d("CPU-Booster", "startBooster");
-                }
-                this.b = true;
-                int c = c(i);
-                if (e) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                for (is3 is3Var : this.a) {
-                    is3Var.b(c);
-                }
-                if (this.c == null) {
-                    Timer timer = new Timer();
-                    this.c = timer;
-                    timer.schedule(new a(this), c);
-                }
-                if (e) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Log.d("CPU-Booster", "start booster cost - " + (currentTimeMillis - j) + "ms");
-                    f();
-                }
+            } else if (cs3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
             }
         }
     }

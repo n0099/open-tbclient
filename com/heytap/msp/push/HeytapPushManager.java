@@ -17,7 +17,7 @@ import com.heytap.msp.push.mode.MessageStat;
 import com.heytap.msp.push.statis.StatisticUtils;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HeytapPushManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

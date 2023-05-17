@@ -1,112 +1,27 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ProgressBar;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
+import android.webkit.ConsoleMessage;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.OfflinePkgAutoCleanSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
-public class sf6 {
+/* loaded from: classes7.dex */
+public final class sf6 extends li6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ObjectAnimator a;
-    public ObjectAnimator b;
+    public final boolean b;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public b(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(progressBar);
-        }
-
-        public /* synthetic */ b(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (progressBar = this.a.get()) != null) {
-                progressBar.setProgress(0);
-                ug6.f(progressBar, 8);
-                progressBar.setAlpha(1.0f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public c(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(progressBar);
-        }
-
-        public /* synthetic */ c(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (progressBar = this.a.get()) != null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                int progress = progressBar.getProgress();
-                progressBar.setProgress((int) (progress + ((100 - progress) * animatedFraction)));
-            }
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sf6() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,59 +29,101 @@ public class sf6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = OfflinePkgAutoCleanSwitch.isOn();
     }
 
-    public void c() {
+    public final String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = "file://" + lg6.l().k().getAbsolutePath();
+            if (str.startsWith(str2)) {
+                String[] split = str.substring(str2.length()).split("/");
+                if (!yh6.e(split)) {
+                    return split[0];
+                }
+                return null;
             }
-            this.a = null;
-            ObjectAnimator objectAnimator2 = this.b;
-            if (objectAnimator2 != null) {
-                objectAnimator2.cancel();
-            }
-            this.b = null;
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void a(ProgressBar progressBar) {
+    @Override // com.baidu.tieba.li6, android.webkit.WebChromeClient
+    public boolean onConsoleMessage(ConsoleMessage consoleMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, progressBar) == null) {
-            ObjectAnimator objectAnimator = this.b;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, consoleMessage)) == null) {
+            if (this.b && consoleMessage != null && consoleMessage.messageLevel() == ConsoleMessage.MessageLevel.ERROR && TextUtils.equals(consoleMessage.message(), "Uncaught SyntaxError: Invalid or unexpected token")) {
+                String d = d(consoleMessage.sourceId());
+                if (!TextUtils.isEmpty(d)) {
+                    lg6.l().g(d);
+                }
             }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(progressBar, Key.ALPHA, 1.0f, 0.0f);
-            this.b = ofFloat;
-            ofFloat.setDuration(150L);
-            this.b.setInterpolator(new DecelerateInterpolator());
-            this.b.addUpdateListener(new c(progressBar, null));
-            this.b.addListener(new b(progressBar, null));
-            this.b.start();
+            return super.onConsoleMessage(consoleMessage);
         }
+        return invokeL.booleanValue;
     }
 
-    public void b(ProgressBar progressBar, int i) {
+    @Override // com.baidu.tieba.li6, android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, progressBar, i) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator == null) {
-                ObjectAnimator ofInt = ObjectAnimator.ofInt(progressBar, "progress", 0);
-                this.a = ofInt;
-                ofInt.setDuration(100L);
-                this.a.setInterpolator(new DecelerateInterpolator());
-            } else {
-                objectAnimator.cancel();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
+            if (ug.e(yg6.a(webView.getContext()))) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
-            this.a.setIntValues(progressBar.getProgress(), i);
-            this.a.start();
+            return true;
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.li6, android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            if (ug.e(yg6.a(webView.getContext()))) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.li6, android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            if (ug.e(yg6.a(webView.getContext()))) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.li6, android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (kh6.a().c(webView, str2, jsPromptResult)) {
+                wh6.b("newHybrid", "端能力执行失败：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+                return true;
+            }
+            wh6.c("newHybrid", "端能力执行成功：" + str2 + " 耗时:" + (System.currentTimeMillis() - currentTimeMillis));
+            jsPromptResult.cancel();
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

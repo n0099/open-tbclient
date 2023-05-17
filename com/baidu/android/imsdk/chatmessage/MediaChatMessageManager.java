@@ -246,7 +246,7 @@ public class MediaChatMessageManager implements IChatMessageManager {
             if (chatMsg.getCategory() == 1) {
                 return true;
             }
-            if (chatMsg.getCategory() == 0 && chatMsg.getPaid() > 0 && (chatMsg.getPaid() & Constants.PAFLAG) != 0 && (queryPaInfo = PaInfoDBManager.getInstance(this.mAppContext).queryPaInfo(chatMsg.getPaid())) != null && queryPaInfo.getSubtype() != 7) {
+            if (chatMsg.getCategory() == 0 && chatMsg.getPaid() > 0 && (chatMsg.getPaid() & 17592186044416L) != 0 && (queryPaInfo = PaInfoDBManager.getInstance(this.mAppContext).queryPaInfo(chatMsg.getPaid())) != null && queryPaInfo.getSubtype() != 7) {
                 return true;
             }
             return false;

@@ -1,13 +1,13 @@
 package com.facebook.imagepipeline.systrace;
 
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class FrescoSystrace {
     public static final ArgsBuilder NO_OP_ARGS_BUILDER = new NoOpArgsBuilder();
     @Nullable
     public static volatile Systrace sInstance = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ArgsBuilder {
         ArgsBuilder arg(String str, double d);
 
@@ -20,7 +20,7 @@ public class FrescoSystrace {
         void flush();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Systrace {
         void beginSection(String str);
 
@@ -31,7 +31,7 @@ public class FrescoSystrace {
         boolean isTracing();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class NoOpArgsBuilder implements ArgsBuilder {
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
         public ArgsBuilder arg(String str, double d) {

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ToastLoadingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,10 +49,10 @@ public class ToastLoadingView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0977, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09246d);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092470);
-            this.c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100a3);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09ad, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924d1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0924d5);
+            this.c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100b2);
             setClickable(true);
         }
     }

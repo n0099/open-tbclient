@@ -32,7 +32,7 @@ import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SoLoader {
     public static final boolean DEBUG = false;
     public static final int SOLOADER_ALLOW_ASYNC_INIT = 2;
@@ -71,7 +71,7 @@ public class SoLoader {
     public static SystemLoadLibraryWrapper sSystemLoadLibraryWrapper = null;
 
     @NotThreadSafe
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class TestOnlyUtils {
         public static void resetStatus() {
             synchronized (SoLoader.class) {
@@ -97,7 +97,7 @@ public class SoLoader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class WrongAbiError extends UnsatisfiedLinkError {
         public WrongAbiError(Throwable th, String str) {
             super("APK was built for a different platform. Supported ABIs: " + Arrays.toString(SysUtil.getSupportedAbis()) + " error: " + str);
@@ -133,7 +133,7 @@ public class SoLoader {
 
     @DoNotOptimize
     @TargetApi(14)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Api14Utils {
         public static String getClassLoaderLdLoadLibrary() {
             ClassLoader classLoader = SoLoader.class.getClassLoader();

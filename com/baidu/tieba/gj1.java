@@ -1,7 +1,26 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface gj1<T> {
-    void a(dj1<T> dj1Var);
 
-    T get();
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+/* loaded from: classes5.dex */
+public class gj1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Nullable
+    public static File a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return dj1.r(str);
+        }
+        return (File) invokeL.objValue;
+    }
 }

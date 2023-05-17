@@ -1,32 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.swan.apps.storage.PathType;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class q32 implements ImageAssetDelegate {
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
+public class q32 extends m22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
 
-    public q32(String str) {
+    public q32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,48 +26,23 @@ public class q32 implements ImageAssetDelegate {
                 return;
             }
         }
-        PathType s = ff3.s(str);
-        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
-            this.a = new File(kt2.U().G().a(str)).getParent();
+        this.a = -1;
+    }
+
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && (i = this.a) >= 0) {
+            n22Var.c.setStrokeMiter(i);
         }
     }
 
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
-        InterceptResult invokeL;
-        File file;
+    @Override // com.baidu.tieba.m22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
-            if (lottieImageAsset == null) {
-                return null;
-            }
-            String fileName = lottieImageAsset.getFileName();
-            if (TextUtils.isEmpty(fileName)) {
-                return null;
-            }
-            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf("base64,") > 0) {
-                try {
-                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inScaled = true;
-                    options.inDensity = 160;
-                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
-                } catch (IllegalArgumentException e) {
-                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
-                    return null;
-                }
-            } else if (TextUtils.isEmpty(this.a)) {
-                return null;
-            } else {
-                String dirName = lottieImageAsset.getDirName();
-                if (TextUtils.isEmpty(dirName)) {
-                    file = new File(this.a);
-                } else {
-                    file = new File(this.a, dirName);
-                }
-                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = xm3.g((float) jSONArray.optDouble(0));
         }
-        return (Bitmap) invokeL.objValue;
     }
 }

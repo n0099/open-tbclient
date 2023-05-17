@@ -1,126 +1,207 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Bundle;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.res.ui.BdMultiPicker;
+import com.baidu.tieba.l83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
-import java.util.TreeMap;
-/* loaded from: classes4.dex */
-public final class h83 {
+import org.json.JSONArray;
+/* loaded from: classes5.dex */
+public class h83 extends l83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, m83> a;
+    public BdMultiPicker c;
+    public JSONArray d;
+    public JSONArray e;
+    public BdMultiPicker.b f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777542, "Lcom/baidu/tieba/h83;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a extends l83.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONArray e;
+        public JSONArray f;
+        public boolean g;
+        public BdMultiPicker.b h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777542, "Lcom/baidu/tieba/h83;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        b = ho1.a;
+
+        @Override // com.baidu.tieba.l83.a
+        public l83 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                h83 h83Var = (h83) super.a();
+                h83Var.g(this.e);
+                h83Var.h(this.f);
+                h83Var.j(this.g);
+                h83Var.i(this.h);
+                return h83Var;
+            }
+            return (l83) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.l83.a
+        public l83 b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new h83(context);
+            }
+            return (l83) invokeL.objValue;
+        }
+
+        public a l(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+                this.e = jSONArray;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a m(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+                this.f = jSONArray;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a n(BdMultiPicker.b bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
+                this.h = bVar;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a o(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.g = z;
+                return this;
+            }
+            return (a) invokeZ.objValue;
+        }
     }
 
-    public h83() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h83(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001b9);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            File d = e33.d(str2);
-            if (d == null || !d.exists()) {
-                if (str.endsWith(File.separator)) {
-                    d = new File(str + str2 + ".json");
-                } else {
-                    d = new File(str + File.separator + str2 + ".json");
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new BdMultiPicker(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.gravity = 1;
+            this.c.setLayoutParams(layoutParams);
+            this.c.setMultiWheelData(this.d, this.e);
+            if (!this.g) {
+                this.c.setMultiSelectedListener(this.f);
             }
-            if (b) {
-                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
-            }
-            if (!d.exists()) {
-                return null;
-            }
-            return tq2.m(d);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public m83 a(String str, @NonNull String str2, @NonNull m83 m83Var) {
-        InterceptResult invokeLLL;
+    public JSONArray f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, m83Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                m83 d = d(str, str2, m83Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return m83Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.getCurrentIndex();
         }
-        return (m83) invokeLLL.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public final m83 d(String str, String str2, @NonNull m83 m83Var) {
-        InterceptResult invokeLLL;
+    public void g(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, m83Var)) == null) {
-            String c = c(str, str2);
-            if (TextUtils.isEmpty(c)) {
-                return m83Var;
-            }
-            return m83.b(c, m83Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            this.d = jSONArray;
         }
-        return (m83) invokeLLL.objValue;
     }
 
-    public m83 b(String str, String str2, @NonNull m83 m83Var) {
-        InterceptResult invokeLLL;
+    public void h(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, m83Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.a == null) {
-                    this.a = new TreeMap();
-                }
-                m83 m83Var2 = this.a.get(str2);
-                if (m83Var2 != null) {
-                    return m83Var2;
-                }
-                m83 d = d(str, str2, m83Var);
-                this.a.put(str2, d);
-                return d;
-            }
-            return m83Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jSONArray) == null) {
+            this.e = jSONArray;
         }
-        return (m83) invokeLLL.objValue;
+    }
+
+    public void i(BdMultiPicker.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f = bVar;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            e();
+            b().j(this.c);
+        }
+    }
+
+    public void k(int i, JSONArray jSONArray, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), jSONArray, Integer.valueOf(i2)}) == null) {
+            this.c.j(i, jSONArray, i2);
+        }
     }
 }

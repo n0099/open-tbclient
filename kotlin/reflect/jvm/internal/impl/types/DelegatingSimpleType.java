@@ -5,7 +5,7 @@ import kotlin.TypeCastException;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DelegatingSimpleType extends SimpleType {
     public abstract SimpleType getDelegate();
 

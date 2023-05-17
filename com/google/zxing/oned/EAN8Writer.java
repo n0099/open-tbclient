@@ -5,7 +5,7 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class EAN8Writer extends UPCEANWriter {
     public static final int CODE_WIDTH = 67;
 

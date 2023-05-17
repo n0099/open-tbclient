@@ -1,9 +1,13 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface ze5 {
-    void a(boolean z);
+/* loaded from: classes8.dex */
+public interface ze5 extends te5 {
+    void display();
 
-    int getHeight();
+    void f0();
 
-    void refreshHeight(int i);
+    int getToolId();
+
+    void hide();
+
+    void onChangeSkinType(int i);
 }

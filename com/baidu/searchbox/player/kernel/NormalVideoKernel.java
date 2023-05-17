@@ -15,9 +15,10 @@ import com.baidu.searchbox.player.interfaces.IDnsProcessListener;
 import com.baidu.searchbox.player.interfaces.OnSnapShotFrameListener;
 import com.baidu.searchbox.player.kernel.BaseDumediaVideoKernel;
 import com.baidu.searchbox.player.view.RoundOutlineProvider;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NormalVideoKernel extends BaseDumediaVideoKernel {
     public final BVideoView mVideoView = new BVideoView(BDPlayerConfig.getAppContext());
 
@@ -199,7 +200,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
             return;
         }
         this.mVideoView.setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
-        this.mVideoView.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
+        this.mVideoView.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel

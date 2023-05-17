@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class xv2 implements Comparable<Object> {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class xv2 implements fz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public ArrayList<MediaModel> d;
+    public zv2 a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
 
     public xv2() {
         Interceptable interceptable = $ic;
@@ -29,122 +28,52 @@ public class xv2 implements Comparable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.c = -16777216;
+        this.d = -1;
+        this.e = 0.0f;
     }
 
-    public String b() {
+    @Override // com.baidu.tieba.fz2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public ArrayList<MediaModel> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return super.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public void a(MediaModel mediaModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
+            zv2 zv2Var = this.a;
+            if (zv2Var != null && zv2Var.isValid() && this.d != -1) {
+                return true;
             }
-            this.d.add(mediaModel);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // java.lang.Comparable
-    public int compareTo(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            return Long.valueOf(((xv2) obj).e()).compareTo(Long.valueOf(this.c));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("radius")) {
+            return;
         }
-        return invokeL.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (!(obj instanceof xv2)) {
-                return false;
-            }
-            return this.a.equals(((xv2) obj).a);
+        zv2 zv2Var = new zv2();
+        this.a = zv2Var;
+        zv2Var.a(jSONObject);
+        if (!this.a.isValid()) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.c = j;
-        }
+        this.b = tv2.a(jSONObject.optString("color"), 0);
+        this.c = tv2.a(jSONObject.optString("fillColor"), -16777216);
+        this.d = jSONObject.optInt("radius", -1);
+        this.e = Math.abs(tv2.b(jSONObject.optDouble("strokeWidth", 0.0d)));
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "MediaDir [firstImgPath=, dirName=" + this.a + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "coordinate ->" + this.a + "color ->" + this.b + "fillColor ->" + this.c + "radius ->" + this.d + "strokeWidth ->" + this.e;
         }
         return (String) invokeV.objValue;
     }

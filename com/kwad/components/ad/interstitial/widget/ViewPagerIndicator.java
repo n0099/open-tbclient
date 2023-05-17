@@ -16,7 +16,7 @@ import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.kwad.sdk.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ViewPagerIndicator extends View {
     public int jf;
     public int jg;
@@ -36,7 +36,7 @@ public class ViewPagerIndicator extends View {
     public ValueAnimator ju;
     public final Context mContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void dS();
     }
@@ -64,8 +64,8 @@ public class ViewPagerIndicator extends View {
         this.jm = obtainStyledAttributes.getDimension(2, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
         this.jn = obtainStyledAttributes.getDimension(3, com.kwad.sdk.b.kwai.a.a(this.mContext, 50.0f));
         this.jo = obtainStyledAttributes.getDimension(4, com.kwad.sdk.b.kwai.a.a(this.mContext, 6.0f));
-        this.jg = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060611));
-        this.jf = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06062c));
+        this.jg = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060779));
+        this.jf = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060799));
         obtainStyledAttributes.recycle();
     }
 

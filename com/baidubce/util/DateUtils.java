@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DateUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static String DATA_TIME_AlternateIso8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'";

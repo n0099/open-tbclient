@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.android.os.BuildEx;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EmuiUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUILDEX_NAME = "com.huawei.android.os.BuildEx";

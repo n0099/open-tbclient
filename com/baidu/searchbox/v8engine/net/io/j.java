@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.net.io;
 
 import java.nio.charset.Charset;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class j {
     public static final Charset a = Charset.forName("UTF-8");
 

@@ -3,11 +3,12 @@ package com.baidu.tieba.write.message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import com.fun.ad.sdk.FunAdSdk;
 import java.util.Map;
 import tbclient.AddPost.AddPostReqIdl;
 import tbclient.AddPost.DataReq;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AddPostRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +49,7 @@ public class AddPostRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            jr5.c(builder, true, true, true);
+            ss5.c(builder, true, true, true);
             builder.authsid = this.requestData.get("authsid");
             builder.sig = this.requestData.get(FunAdSdk.PLATFORM_SIG);
             builder.tbs = this.requestData.get(HttpRequest.TBS);
@@ -90,7 +91,7 @@ public class AddPostRequest extends NetMessage {
             builder.lat = this.requestData.get(SuggestAddrField.KEY_LAT);
             builder.lng = this.requestData.get(SuggestAddrField.KEY_LNG);
             builder.name = this.requestData.get("name");
-            builder.sn = this.requestData.get("sn");
+            builder.sn = this.requestData.get(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN);
             builder.from_fourm_id = this.requestData.get("from_fourm_id");
             builder.tid = this.requestData.get("tid");
             builder.quote_id = this.requestData.get("quote_id");
@@ -113,7 +114,7 @@ public class AddPostRequest extends NetMessage {
             builder.jfrom = this.requestData.get("jfrom");
             builder.from_category_id = this.requestData.get("fromCategoryId");
             builder.to_category_id = this.requestData.get("toCategoryId");
-            builder.is_show_bless = Integer.valueOf(gg.e(this.requestData.get("is_show_bless"), 0));
+            builder.is_show_bless = Integer.valueOf(pg.e(this.requestData.get("is_show_bless"), 0));
             try {
                 builder.show_custom_figure = Integer.valueOf(Integer.parseInt(this.requestData.get("show_custom_figure")));
             } catch (NumberFormatException unused) {

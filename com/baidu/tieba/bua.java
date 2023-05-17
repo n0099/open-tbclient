@@ -1,46 +1,31 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.kwad.sdk.api.KsVideoPlayConfig;
-/* loaded from: classes3.dex */
-public abstract class bua<A> extends ReporterPidLoader<A> {
+import com.fun.ad.sdk.FunAdSdk;
+/* loaded from: classes5.dex */
+public class bua {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bua(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
-        super(funAdType, pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid, moduleConfigKs};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947658843, "Lcom/baidu/tieba/bua;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947658843, "Lcom/baidu/tieba/bua;");
                 return;
             }
         }
-        this.e = moduleConfigKs;
-    }
-
-    public KsVideoPlayConfig e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal).videoSoundEnable(this.e.ksVideoSoundEnable).build() : (KsVideoPlayConfig) invokeV.objValue;
+        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
     }
 }

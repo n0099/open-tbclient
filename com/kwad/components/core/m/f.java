@@ -9,7 +9,7 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.kwad.sdk.utils.bg;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f implements bg.a {
     public a IV;
     public BroadcastReceiver IW = new BroadcastReceiver() { // from class: com.kwad.components.core.m.f.1
@@ -27,7 +27,7 @@ public final class f implements bg.a {
     public Handler mHandler = new bg(this);
     public String targetPackage;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void gW();
     }

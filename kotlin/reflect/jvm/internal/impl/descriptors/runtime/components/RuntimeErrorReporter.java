@@ -4,7 +4,7 @@ import java.util.List;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ErrorReporter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RuntimeErrorReporter implements ErrorReporter {
     public static final RuntimeErrorReporter INSTANCE = new RuntimeErrorReporter();
 

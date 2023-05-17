@@ -2,7 +2,7 @@ package com.kwad.components.ad.splashscreen.b;
 
 import android.view.View;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends e implements com.kwad.sdk.widget.c {
     public View yu;
     public com.kwad.sdk.widget.f yv;
@@ -39,7 +39,7 @@ public final class a extends e implements com.kwad.sdk.widget.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.yu = findViewById(R.id.obfuscated_res_0x7f091368);
+        this.yu = findViewById(R.id.obfuscated_res_0x7f0913a3);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

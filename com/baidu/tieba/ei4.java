@@ -1,83 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ei4 extends jh4 {
+import java.util.Objects;
+/* loaded from: classes5.dex */
+public class ei4 extends ci4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zh4 a;
-    public boolean b;
+    public String g;
+    public int h;
+    public long i;
+    public String j;
+    public long k;
+    public String l;
+    public String m;
+    public String n;
 
-    public ei4(zh4 zh4Var, boolean z) {
+    public ei4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zh4Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = zh4Var;
-        this.b = z;
     }
 
-    @Override // com.baidu.tieba.jh4
-    public zh4 a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (zh4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jh4
-    public boolean b(zh4 zh4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zh4Var)) == null) {
-            zh4 zh4Var2 = this.a;
-            if (zh4Var2 == zh4Var) {
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
                 return true;
             }
-            return zh4Var2.d(zh4Var);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof ei4)) {
+                return false;
+            }
+            ei4 ei4Var = (ei4) obj;
+            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(ei4Var.j)) {
+                if (this.g.equals(ei4Var.g) && this.i == ei4Var.i) {
+                    return true;
+                }
+                return false;
+            } else if (TextUtils.equals(this.g, ei4Var.g) && this.i == ei4Var.i && TextUtils.equals(this.j, ei4Var.j)) {
+                return true;
+            } else {
+                return false;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jh4
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
-            return;
-        }
-        if (z) {
-            zh4 zh4Var = this.a;
-            zh4Var.a.b.b = 0L;
-            zh4Var.b(0);
-        }
-        xh4.b().f(this.a);
-    }
-
-    @Override // com.baidu.tieba.jh4
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
+            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
         }
         return (String) invokeV.objValue;
     }

@@ -33,11 +33,11 @@ import com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dx4;
-import com.baidu.tieba.ex4;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int a0;
@@ -76,11 +76,11 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     public ValueAnimator.AnimatorUpdateListener U;
     public Animator.AnimatorListener V;
     public ValueAnimator.AnimatorUpdateListener W;
-    public dx4 x;
+    public my4 x;
     public boolean y;
     public TbImageView z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,7 +159,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -318,7 +318,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,7 +358,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -398,16 +398,16 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             float f3;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) && z) {
-                tm tmVar = null;
+                cn cnVar = null;
                 if (this.b.z != null) {
-                    tmVar = this.b.z.getBdImage();
+                    cnVar = this.b.z.getBdImage();
                 }
-                if (tmVar == null) {
+                if (cnVar == null) {
                     return;
                 }
                 this.b.C = true;
-                int r = tmVar.r();
-                int m = tmVar.m();
+                int r = cnVar.r();
+                int m = cnVar.m();
                 if (this.b.A * r > this.b.B * m) {
                     f = this.b.A / m;
                     f3 = (this.b.B - (r * f)) * 0.5f;
@@ -434,7 +434,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -493,8 +493,8 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             TbPageContext<?> a02 = a0(getContext());
             if (a02 != null && this.x != null) {
                 Context baseContext = a02.getPageActivity().getBaseContext();
-                dx4 dx4Var = this.x;
-                if (!UtilHelper.isMatchScheme(baseContext, dx4Var.f, dx4Var.g)) {
+                my4 my4Var = this.x;
+                if (!UtilHelper.isMatchScheme(baseContext, my4Var.f, my4Var.g)) {
                     UrlManager.getInstance().dealOneLink(a02, new String[]{this.x.b}, true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921586, Boolean.FALSE));
                     return true;
@@ -661,12 +661,12 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     }
 
     public void setAdvancedAdStyle(boolean z) {
-        dx4 dx4Var;
+        my4 my4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.y = z;
-            if (z && (dx4Var = this.x) != null) {
-                this.z.N(dx4Var.a, 10, false);
+            if (z && (my4Var = this.x) != null) {
+                this.z.N(my4Var.a, 10, false);
             } else {
                 Y();
             }
@@ -687,11 +687,11 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    public void X(dx4 dx4Var, ViewGroup viewGroup) {
+    public void X(my4 my4Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, dx4Var, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, my4Var, viewGroup) == null) {
             if (viewGroup != null) {
-                this.x = dx4Var;
+                this.x = my4Var;
                 this.E = viewGroup;
                 return;
             }
@@ -748,13 +748,13 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         return (TbImageView) invokeV.objValue;
     }
 
-    public dx4 getData() {
+    public my4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.x;
         }
-        return (dx4) invokeV.objValue;
+        return (my4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.LottieSlideLoadingLayout, com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
@@ -844,8 +844,8 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             super.G(i, f2);
             if (this.y && this.z != null && this.C) {
-                ex4.a().f(f2, getLoadingPointRatio(), getShowAdPointRatio(), this.Q);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921679, ex4.a()));
+                ny4.a().f(f2, getLoadingPointRatio(), getShowAdPointRatio(), this.Q);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921679, ny4.a()));
                 this.z.getImageMatrix().setTranslate(0.0f, this.D + i);
                 float f3 = f2 * 2.0f;
                 if (f3 > 1.0f) {
@@ -874,7 +874,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                 ((BaseFragmentActivity) getContext()).setSwipeBackEnabled(this.O.booleanValue());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921586, Boolean.FALSE));
-            jg.a().removeCallbacks(this.R);
+            sg.a().removeCallbacks(this.R);
         }
     }
 
@@ -904,7 +904,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
                 this.O = Boolean.valueOf(((BaseFragmentActivity) getContext()).isSwipeBackEnabled());
                 ((BaseFragmentActivity) getContext()).setSwipeBackEnabled(false);
             }
-            int j = ii.j(getContext()) - this.I.a.getLayoutParams().height;
+            int j = ri.j(getContext()) - this.I.a.getLayoutParams().height;
             if (j < 0) {
                 j = 0;
             }
@@ -915,7 +915,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             if (i < 500) {
                 i = 500;
             }
-            jg.a().postDelayed(this.R, i);
+            sg.a().postDelayed(this.R, i);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921681));
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_ADVANCED_AD_COMPLETE_SHOW).param("fid", this.x.j).param("obj_id", this.x.i));
             ThirdStatisticHelper.sendReq(this.x.d);

@@ -3,11 +3,11 @@ package com.baidu.swan.apps.component.components.textarea;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatEditText;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanEditText extends AppCompatEditText {
     public a a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i, int i2);
     }

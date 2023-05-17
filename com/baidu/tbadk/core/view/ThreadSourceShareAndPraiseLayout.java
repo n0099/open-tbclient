@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public View.OnClickListener f;
     public boolean g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,7 +179,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
     public void setSourceFromForPb(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b.T = i;
+            this.b.U = i;
         }
     }
 
@@ -215,7 +215,7 @@ public class ThreadSourceShareAndPraiseLayout extends RelativeLayout {
             this.c = threadData;
             if (!StringUtils.isNull(threadData.getForum_name()) && !this.g) {
                 TextView textView = this.a;
-                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f06c2));
+                textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.c.getForum_name(), 10, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f0730));
                 this.a.setVisibility(0);
             } else {
                 this.a.setVisibility(8);

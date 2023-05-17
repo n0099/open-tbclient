@@ -5,7 +5,7 @@ import android.view.View;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.factory.NativeRenderFactory;
 import com.baidu.searchbox.crius.parser.CriusData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUIGifImage extends CriusUI<View> {
     public CriusUIGifImage(Context context, CriusData criusData) {
         super(context, criusData);

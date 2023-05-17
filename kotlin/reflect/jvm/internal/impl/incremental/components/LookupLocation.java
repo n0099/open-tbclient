@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.incremental.components;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface LookupLocation {
     LocationInfo getLocation();
 }

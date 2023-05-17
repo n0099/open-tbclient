@@ -1,34 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONObject;
-import tbclient.McnAdInfo;
-/* loaded from: classes7.dex */
-public class xy4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerImage;
+/* loaded from: classes8.dex */
+public class xy4 extends BaseCardInfo implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<wy4> a;
 
-    public static McnAdInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            McnAdInfo.Builder builder = new McnAdInfo.Builder();
-            if (jSONObject != null) {
-                builder.ad_start_time = Long.valueOf(jSONObject.optLong("ad_start_time"));
-                builder.ad_end_time = Long.valueOf(jSONObject.optLong("ad_end_time"));
-                builder.pic_url = jSONObject.optString("pic_url");
-                builder.jump_url = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                builder.card_title = jSONObject.optString("card_title");
-                builder.button_title = jSONObject.optString("button_title");
-                builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
-                builder.expire_time = Long.valueOf(jSONObject.optLong(PushConstants.REGISTER_STATUS_EXPIRE_TIME));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948316694, "Lcom/baidu/tieba/xy4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return builder.build(true);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948316694, "Lcom/baidu/tieba/xy4;");
+                return;
+            }
         }
-        return (McnAdInfo) invokeL.objValue;
+        b = BdUniqueId.gen();
+    }
+
+    public xy4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void parserProtobuf(List<BannerImage> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
+            return;
+        }
+        for (BannerImage bannerImage : list) {
+            wy4 wy4Var = new wy4();
+            wy4Var.d(bannerImage);
+            this.a.add(wy4Var);
+        }
     }
 }

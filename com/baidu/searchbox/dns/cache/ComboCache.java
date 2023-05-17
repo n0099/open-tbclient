@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.dns.cache.disk.DiskLruCacheHelper;
 import com.baidu.searchbox.dns.util.DnsUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ComboCache implements ICache {
     public DiskLruCacheHelper diskLruCacheHelper;
     public MemCache memCache = new MemCache();

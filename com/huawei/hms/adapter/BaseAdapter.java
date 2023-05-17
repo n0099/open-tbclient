@@ -42,7 +42,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseAdapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HMS_SESSION_INVALID = "com.huawei.hms.core.action.SESSION_INVALID";
@@ -61,14 +61,14 @@ public class BaseAdapter {
     public ResponseHeader responseHeader;
     public String transactionId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BaseCallBack {
         void onComplete(String str, String str2, Parcelable parcelable);
 
         void onError(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class BaseRequestResultCallback implements ResultCallback<ResolveResult<CoreBaseResponse>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public class BaseAdapter {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class MPendingResultImpl extends PendingResultImpl<ResolveResult<CoreBaseResponse>, CoreBaseResponse> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -4,17 +4,17 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xu5;
+import com.baidu.tieba.jw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ObservedChangeRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xu5 a;
+    public jw5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeRelativeLayout(Context context) {
@@ -57,13 +57,13 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public xu5 getOnSizeChangeListener() {
+    public jw5 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (xu5) invokeV.objValue;
+        return (jw5) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -71,9 +71,9 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            xu5 xu5Var = this.a;
-            if (xu5Var != null) {
-                xu5Var.a(this, i, i2, i3, i4);
+            jw5 jw5Var = this.a;
+            if (jw5Var != null) {
+                jw5Var.a(this, i, i2, i3, i4);
             }
         }
     }
@@ -86,10 +86,10 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void setOnSizeChangeListener(xu5 xu5Var) {
+    public void setOnSizeChangeListener(jw5 jw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xu5Var) == null) {
-            this.a = xu5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jw5Var) == null) {
+            this.a = jw5Var;
         }
     }
 }

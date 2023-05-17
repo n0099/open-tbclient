@@ -16,7 +16,7 @@ import com.baidu.searchbox.appframework.BaseActivity;
 import com.baidu.searchbox.crius.CriusLoader;
 import com.baidu.tieba.R;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DebugCriusBenchmarkActivity extends BaseActivity implements AdapterView.OnItemSelectedListener {
     public static final int BENCHMARK_INFLATE = 1;
     public static final int BENCHMARK_LAYOUT = 3;
@@ -26,7 +26,7 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startBenchmark() {
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
         int i = this.mBenchmarkWhich;
         if (i == 1) {
             benchmarkInflate(textView);
@@ -40,8 +40,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity */
     /* JADX WARN: Multi-variable type inference failed */
     private void updatePreview() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e30);
-        View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) linearLayout, false);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8c);
+        View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) linearLayout, false);
         inflate.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
         linearLayout.removeAllViews();
         linearLayout.addView(inflate);
@@ -60,10 +60,10 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Inflate");
         for (int i = 0; i < 500; i++) {
             criusBenchmarkAggregator.startTrace();
-            from.inflate(R.layout.obfuscated_res_0x7f0d016a, (ViewGroup) null);
+            from.inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) null);
             criusBenchmarkAggregator.endTrace();
             criusBenchmarkAggregator2.startTrace();
-            from.inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
+            from.inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
             criusBenchmarkAggregator2.endTrace();
         }
         textView.setText(criusBenchmarkAggregator.toString() + "\n" + criusBenchmarkAggregator2.toString());
@@ -75,8 +75,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         LayoutInflater from = LayoutInflater.from(this);
         CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Layout");
         CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Layout");
-        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d016a, (ViewGroup) null);
-        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
+        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) null);
+        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
         for (int i = 0; i < 500; i++) {
             inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
             inflate2.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -96,8 +96,8 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
         LayoutInflater from = LayoutInflater.from(this);
         CriusBenchmarkAggregator criusBenchmarkAggregator = new CriusBenchmarkAggregator("Benchmark Measure");
         CriusBenchmarkAggregator criusBenchmarkAggregator2 = new CriusBenchmarkAggregator("Flatten Measure");
-        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d016a, (ViewGroup) null);
-        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
+        View inflate = from.inflate(R.layout.obfuscated_res_0x7f0d016d, (ViewGroup) null);
+        View inflate2 = from.inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
         for (int i = 0; i < 500; i++) {
             criusBenchmarkAggregator.startTrace();
             inflate.measure(View.MeasureSpec.makeMeasureSpec(1000, 1073741824), View.MeasureSpec.makeMeasureSpec(1000, 1073741824));
@@ -114,15 +114,15 @@ public class DebugCriusBenchmarkActivity extends BaseActivity implements Adapter
     public void onCreate(Bundle bundle) {
         CriusLoader.init(this);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d002d);
+        setContentView(R.layout.obfuscated_res_0x7f0d002e);
         updatePreview();
-        ((Button) findViewById(R.id.obfuscated_res_0x7f090477)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
+        ((Button) findViewById(R.id.obfuscated_res_0x7f09048b)).setOnClickListener(new View.OnClickListener() { // from class: com.baidu.searchbox.crius.debug.DebugCriusBenchmarkActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 DebugCriusBenchmarkActivity.this.startBenchmark();
             }
         });
-        Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f0903bf);
+        Spinner spinner = (Spinner) findViewById(R.id.obfuscated_res_0x7f0903d0);
         spinner.setAdapter((SpinnerAdapter) new ArrayAdapter((Context) this, 17367048, (Object[]) new String[]{"inflate", "measure", TtmlNode.TAG_LAYOUT}));
         spinner.setOnItemSelectedListener(this);
     }

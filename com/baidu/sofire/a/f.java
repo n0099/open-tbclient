@@ -3,6 +3,7 @@ package com.baidu.sofire.a;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.ac.U;
 import com.baidu.sofire.b.i;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,13 +59,13 @@ public final class f implements Runnable {
                     a.a(this.b, intent);
                 }
                 String action = this.a.getAction();
-                if (this.c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.k.b.k(this.b) && U.sMonitorNetworkWhenUpgradeNoNet) {
+                if (this.c && NetworkMonitor.NET_CHANGE_ACTION.equals(action) && com.baidu.sofire.k.b.k(this.b) && U.sMonitorNetworkWhenUpgradeNoNet) {
                     u.a(this.b).b(new U(this.b.getApplicationContext(), 3, false));
                     z = true;
                 } else {
                     z = false;
                 }
-                if (this.c && "android.net.conn.CONNECTIVITY_CHANGE".equals(action) && com.baidu.sofire.k.b.a && !z && com.baidu.sofire.k.b.l(this.b)) {
+                if (this.c && NetworkMonitor.NET_CHANGE_ACTION.equals(action) && com.baidu.sofire.k.b.a && !z && com.baidu.sofire.k.b.l(this.b)) {
                     u.a(this.b).b(new U(this.b.getApplicationContext(), 3, false));
                 }
                 if (this.c) {

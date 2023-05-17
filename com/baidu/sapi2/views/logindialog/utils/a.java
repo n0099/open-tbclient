@@ -11,11 +11,12 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.views.logindialog.enums.QuickLoginType;
 import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.LinkedHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String a = "auto_statistic";
     public static final String b = "login_dialog";
@@ -38,13 +39,13 @@ public class a {
     }
 
     /* renamed from: com.baidu.sapi2.views.logindialog.utils.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0141a extends HttpHandlerWrap {
+    /* loaded from: classes3.dex */
+    public class C0145a extends HttpHandlerWrap {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
         }
 
-        public C0141a(boolean z) {
+        public C0145a(boolean z) {
             super(z);
         }
     }
@@ -116,7 +117,7 @@ public class a {
             httpHashMapWrap.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
             httpHashMapWrap.put("source", "native");
             httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
-            httpHashMapWrap.put("data_source", "client");
+            httpHashMapWrap.put("data_source", CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT);
             httpHashMapWrap.put("name", "auto_statistic");
             httpHashMapWrap.put("auto_statistic", Base64.encodeToString(a().getBytes(), 2));
             if (c != null) {
@@ -124,7 +125,7 @@ public class a {
                     httpHashMapWrap.put(str, c.get(str));
                 }
             }
-            new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0141a(true));
+            new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0145a(true));
             b();
         } catch (Exception e2) {
             Log.e(Log.TAG, e2.getMessage());

@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PolygonHoleOptions extends HoleOptions {
     public List<LatLng> a;
 

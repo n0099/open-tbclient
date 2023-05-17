@@ -6,7 +6,7 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class cj {
     public static int a = 1000;
     public static int b = 64;
@@ -14,14 +14,14 @@ public abstract class cj {
     public ce.b d = null;
     public cw.a e = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         NONE,
         ONEWAY,
         TWOWAY
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         MATCHED,
         NOT_MATCHED

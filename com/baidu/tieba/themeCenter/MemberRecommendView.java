@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.lw9;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.ny9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MemberRecommendView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,10 @@ public class MemberRecommendView extends FrameLayout {
     public TbImageView c;
     public TextView d;
     public TextView e;
-    public lw9 f;
+    public ny9 f;
     public int g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class MemberRecommendView extends FrameLayout {
                         str = "";
                         break;
                 }
-                if (this.a.f == null || (tbPageContext = (TbPageContext) g9.a(this.a.a)) == null) {
+                if (this.a.f == null || (tbPageContext = (TbPageContext) m9.a(this.a.a)) == null) {
                     return;
                 }
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
@@ -227,13 +227,13 @@ public class MemberRecommendView extends FrameLayout {
         return invokeV.intValue;
     }
 
-    public void e(lw9 lw9Var) {
+    public void e(ny9 ny9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lw9Var) != null) || lw9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ny9Var) != null) || ny9Var == null) {
             return;
         }
-        this.f = lw9Var;
-        this.c.N(lw9Var.b(), 10, false);
+        this.f = ny9Var;
+        this.c.N(ny9Var.b(), 10, false);
         this.d.setText(this.f.c());
         if (StringUtils.isNull(this.f.a())) {
             this.e.setVisibility(8);
@@ -246,15 +246,15 @@ public class MemberRecommendView extends FrameLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05c5, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05e5, this);
             this.b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09280c);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09287c);
             this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
             this.c.setDefaultBgResource(R.drawable.transparent_bg);
             this.c.setAutoChangeStyle(true);
             this.d = (TextView) this.b.findViewById(R.id.title_view);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0911ae);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0911e8);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

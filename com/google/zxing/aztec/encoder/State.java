@@ -2,7 +2,7 @@ package com.google.zxing.aztec.encoder;
 
 import com.google.zxing.common.BitArray;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class State {
     public static final State INITIAL_STATE = new State(Token.EMPTY, 0, 0, 0);
     public final int binaryShiftByteCount;

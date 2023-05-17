@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bh {
     public boolean a;
     public List<b> b = new ArrayList();
@@ -20,12 +20,12 @@ public class bh {
     public bj d;
     public boolean e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(View view2, boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b {
         public String a;
         public String b;
@@ -40,7 +40,7 @@ public class bh {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public String a;
         public String b;

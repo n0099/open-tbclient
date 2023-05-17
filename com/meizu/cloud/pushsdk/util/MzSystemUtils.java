@@ -12,8 +12,8 @@ import android.os.Environment;
 import android.os.PowerManager;
 import android.os.Process;
 import android.text.TextUtils;
+import com.baidu.android.ext.widget.toast.ToastUtils;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.b.i;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -21,7 +21,7 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MzSystemUtils {
     public static final String PUSH_SERVICE_PROCESS_NAME = "mzservice_v1";
     public static final String TAG = "MzSystemUtils";
@@ -29,8 +29,8 @@ public class MzSystemUtils {
     public static String sCharacteristics;
 
     public static boolean compareVersion(String str, String str2) {
-        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-        String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split = str.split("\\.");
+        String[] split2 = str2.split("\\.");
         int min = Math.min(split.length, split2.length);
         int i = 0;
         for (int i2 = 0; i2 < min; i2++) {
@@ -124,7 +124,7 @@ public class MzSystemUtils {
                 if (TextUtils.isEmpty(a)) {
                     a = i.a(RomUtils.PROP_RO_BUILD_DISPLAY_ID);
                 }
-                int intValue = Integer.valueOf(a.replace("Flyme", "").replace(" ", "").substring(0, 1)).intValue();
+                int intValue = Integer.valueOf(a.replace(ToastUtils.MEIZU_ROM, "").replace(" ", "").substring(0, 1)).intValue();
                 flymeVersion = intValue;
                 return intValue;
             }

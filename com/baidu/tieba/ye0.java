@@ -1,232 +1,211 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Point;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ye0 extends bf0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static JSONObject h;
+/* loaded from: classes8.dex */
+public class ye0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static float j = 0.0f;
+    public static float k = 0.0f;
+    public static float l = 1.0f;
+    public static float m = 1.0f;
+    public static float n;
+    public static List<Point> o;
+    public static List<Point> p;
+    public static List<Point> q;
+    public static List<Point> r;
+    public static List<List<Point>> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public af0 c;
-    public WeakReference<Context> d;
-    public String e;
-    public File f;
-    public boolean g;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public List<Point> f;
+    public List<Point> g;
+    public List<Point> h;
+    public List<Point> i;
 
-    /* loaded from: classes7.dex */
-    public class a extends AsyncTask<Void, Void, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ye0 a;
-
-        public a(ye0 ye0Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327141, "Lcom/baidu/tieba/ye0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ye0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ye0Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: b */
-        public void onPostExecute(Boolean bool) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                super.onPostExecute(bool);
-                ye0 ye0Var = this.a;
-                if (bool.booleanValue()) {
-                    i = 2;
-                } else {
-                    i = 3;
-                }
-                ye0Var.d(i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948327141, "Lcom/baidu/tieba/ye0;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.os.AsyncTask
-        /* renamed from: a */
-        public Boolean doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (ye0.h == null) {
-                    ye0.h = new JSONObject();
-                }
-                if (this.a.f == null) {
-                    try {
-                        ye0.h.put("sdcardPath", StringUtil.NULL_STRING);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    return Boolean.FALSE;
-                } else if (!this.a.g && this.a.m()) {
-                    try {
-                        ye0.h.put("exist", true);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    return Boolean.TRUE;
-                } else {
-                    if (!this.a.f.isDirectory()) {
-                        try {
-                            ye0.h.put("file-del", true);
-                        } catch (JSONException e3) {
-                            e3.printStackTrace();
-                        }
-                        this.a.f.delete();
-                    }
-                    File file = new File(this.a.f.getAbsoluteFile() + ".loading");
-                    boolean a = this.a.c.a(this.a.e, file);
-                    if (a) {
-                        try {
-                            ye0.h.put("assetsToSD", true);
-                        } catch (JSONException e4) {
-                            e4.printStackTrace();
-                        }
-                        a = file.renameTo(this.a.f);
-                    }
-                    if (!a) {
-                        try {
-                            ye0.h.put("renameTo-del", true);
-                        } catch (JSONException e5) {
-                            e5.printStackTrace();
-                        }
-                        cf0.b(file);
-                        if (this.a.f.exists()) {
-                            cf0.b(this.a.f);
-                        }
-                    }
-                    try {
-                        ye0.h.put("result", a);
-                    } catch (JSONException e6) {
-                        e6.printStackTrace();
-                    }
-                    if (this.a.l()) {
-                        gf0.a("ARSourceCopyManager", "sdk exist + " + ye0.h.toString());
-                    }
-                    return Boolean.valueOf(a);
-                }
-            }
-            return (Boolean) invokeL.objValue;
-        }
+        a();
     }
 
     public ye0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = k;
+        this.c = l;
+        this.d = m;
+        this.e = n;
+        this.f = o;
+        this.g = p;
+        this.h = q;
+        this.i = r;
     }
 
-    private Context getContext() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            WeakReference<Context> weakReference = this.d;
-            if (weakReference != null) {
-                return weakReference.get();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ArrayList arrayList = new ArrayList();
+            o = arrayList;
+            arrayList.add(new Point(0, 0));
+            o.add(new Point(255, 255));
+            ArrayList arrayList2 = new ArrayList();
+            p = arrayList2;
+            arrayList2.add(new Point(0, 0));
+            p.add(new Point(255, 255));
+            ArrayList arrayList3 = new ArrayList();
+            q = arrayList3;
+            arrayList3.add(new Point(0, 0));
+            q.add(new Point(255, 255));
+            ArrayList arrayList4 = new ArrayList();
+            r = arrayList4;
+            arrayList4.add(new Point(0, 0));
+            r.add(new Point(255, 255));
+            ArrayList arrayList5 = new ArrayList();
+            s = arrayList5;
+            arrayList5.add(o);
+            s.add(p);
+            s.add(q);
+            s.add(r);
+        }
+    }
+
+    public static ye0 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return null;
             }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new af0(getContext());
-            new a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
-        }
-    }
-
-    public final boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return de0.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = this.f;
-            if (file != null && file.isDirectory() && this.f.exists()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bf0
-    public void b() {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean m = m();
-            JSONObject jSONObject = new JSONObject();
-            h = jSONObject;
-            if (m) {
-                try {
-                    if (ee0.a) {
-                        str = "assets";
-                    } else {
-                        str = "soloader";
+            ye0 ye0Var = new ye0();
+            try {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
+                if (jSONObject2 != null) {
+                    jSONObject2.optDouble("intensity_smooth");
+                    jSONObject2.optDouble("intensity_white");
+                }
+                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
+                if (jSONObject3 != null) {
+                    jSONObject3.optDouble("intensity_smooth");
+                    jSONObject3.optDouble("intensity_white");
+                }
+                ye0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
+                ye0Var.b = (float) jSONObject.optDouble("intensity_brightness");
+                ye0Var.c = (float) jSONObject.optDouble("intensity_contrast");
+                ye0Var.d = (float) jSONObject.optDouble("intensity_saturation");
+                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    ye0Var.e = (float) optJSONObject.optDouble("intensity_curves");
+                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        ye0Var.f = new CopyOnWriteArrayList();
+                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
+                            if (jSONObject4 != null && jSONObject4.length() > 0) {
+                                i8 = jSONObject4.optInt("x");
+                                i7 = jSONObject4.optInt("y");
+                            } else {
+                                i7 = 0;
+                                i8 = 0;
+                            }
+                            ye0Var.f.add(new Point(i8, i7));
+                        }
                     }
-                    jSONObject.put("type", str);
-                    h.put("exist", m);
-                    h.put("path", this.f);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (l()) {
-                    gf0.a("ARSourceCopyManager", "sdk exist + " + h.toString());
-                }
-                d(2);
-            } else if (getContext() != null) {
-                try {
-                    if (l()) {
-                        gf0.a("ARSourceCopyManager", "sdk loading .. to " + this.f.getAbsoluteFile());
+                    JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
+                    if (jSONArray2 != null && jSONArray2.length() > 0) {
+                        ye0Var.g = new CopyOnWriteArrayList();
+                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
+                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
+                            if (jSONObject5 != null && jSONObject5.length() > 0) {
+                                i6 = jSONObject5.optInt("x");
+                                i5 = jSONObject5.optInt("y");
+                            } else {
+                                i5 = 0;
+                                i6 = 0;
+                            }
+                            ye0Var.g.add(new Point(i6, i5));
+                        }
                     }
-                    k();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
+                    if (jSONArray3 != null && jSONArray3.length() > 0) {
+                        ye0Var.h = new CopyOnWriteArrayList();
+                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
+                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
+                            if (jSONObject6 != null && jSONObject6.length() > 0) {
+                                i4 = jSONObject6.optInt("x");
+                                i3 = jSONObject6.optInt("y");
+                            } else {
+                                i3 = 0;
+                                i4 = 0;
+                            }
+                            ye0Var.h.add(new Point(i4, i3));
+                        }
+                    }
+                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
+                    if (jSONArray4 != null && jSONArray4.length() > 0) {
+                        ye0Var.i = new CopyOnWriteArrayList();
+                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
+                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
+                            if (jSONObject7 != null && jSONObject7.length() > 0) {
+                                i2 = jSONObject7.optInt("x");
+                                i = jSONObject7.optInt("y");
+                            } else {
+                                i = 0;
+                                i2 = 0;
+                            }
+                            ye0Var.i.add(new Point(i2, i));
+                        }
+                    }
                 }
+                return ye0Var;
+            } catch (JSONException unused) {
+                return null;
             }
         }
+        return (ye0) invokeL.objValue;
     }
 }

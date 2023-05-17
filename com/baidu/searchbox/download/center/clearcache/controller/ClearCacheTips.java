@@ -6,7 +6,7 @@ import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.download.center.clearcache.ClearCacheDataChangeEvent;
 import com.baidu.searchbox.download.center.clearcache.ClearCacheRuntime;
 import com.baidu.searchbox.download.center.clearcache.util.ClearCacheUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClearCacheTips {
     public static final String CLEAR_CACHE_TIPS_KEY = "clear_cache_tips_key";
 

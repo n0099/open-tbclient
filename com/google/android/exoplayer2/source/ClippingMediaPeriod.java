@@ -9,7 +9,7 @@ import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callback {
     public MediaPeriod.Callback callback;
     public final MediaPeriod mediaPeriod;
@@ -18,7 +18,7 @@ public final class ClippingMediaPeriod implements MediaPeriod, MediaPeriod.Callb
     public long endUs = C.TIME_UNSET;
     public ClippingSampleStream[] sampleStreams = new ClippingSampleStream[0];
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ClippingSampleStream implements SampleStream {
         public final long endUs;
         public final MediaPeriod mediaPeriod;

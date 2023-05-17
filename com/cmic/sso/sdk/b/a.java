@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.cmic.sso.sdk.e.c;
 import com.cmic.sso.sdk.e.m;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public C0530a c;
+    public C0544a c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,14 +41,14 @@ public class a {
     }
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0530a {
+    /* loaded from: classes8.dex */
+    public static class C0544a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public int b;
 
-        public C0530a() {
+        public C0544a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,17 +103,17 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    public C0530a b() {
+    public C0544a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            C0530a c0530a = this.c;
-            if (c0530a == null) {
-                return new C0530a();
+            C0544a c0544a = this.c;
+            if (c0544a == null) {
+                return new C0544a();
             }
-            return c0530a;
+            return c0544a;
         }
-        return (C0530a) invokeV.objValue;
+        return (C0544a) invokeV.objValue;
     }
 
     private void a(Context context) {
@@ -221,7 +221,7 @@ public class a {
             if (currentTimeMillis < 5000 && currentTimeMillis > 0) {
                 return;
             }
-            this.c = new C0530a();
+            this.c = new C0544a();
             if (!z) {
                 return;
             }
@@ -230,8 +230,8 @@ public class a {
                 c.b("UMCTelephonyManagement", "华为手机兼容性处理");
                 if (this.c.b == 0 || this.c.b == 1) {
                     if (this.c.a == -1) {
-                        C0530a c0530a = this.c;
-                        c0530a.a = c0530a.b;
+                        C0544a c0544a = this.c;
+                        c0544a.a = c0544a.b;
                     }
                     this.c.b = -1;
                 }

@@ -6,7 +6,7 @@ import android.util.Log;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.d;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SLog implements TraceLevel {
     public static final String TAG = "openSDK_LOG";
     public static boolean c;

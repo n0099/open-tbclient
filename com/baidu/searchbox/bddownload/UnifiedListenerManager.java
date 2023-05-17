@@ -11,7 +11,7 @@ import com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UnifiedListenerManager {
     public final List<Integer> autoRemoveListenerIdList = new ArrayList();
     public final DownloadListener hostListener = new DownloadListener() { // from class: com.baidu.searchbox.bddownload.UnifiedListenerManager.1

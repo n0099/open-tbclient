@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Preference {
     public SharedPreferences cacheSp;
     public boolean isBindProcess;

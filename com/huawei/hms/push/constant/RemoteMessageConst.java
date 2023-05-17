@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RemoteMessageConst {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANALYTIC_INFO = "analyticInfo";
@@ -37,7 +37,7 @@ public class RemoteMessageConst {
     public static final String URGENCY = "urgency";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class MessageBody {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MSG = "msg";
@@ -62,7 +62,7 @@ public class RemoteMessageConst {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Notification {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String AUTO_CANCEL = "autoCancel";

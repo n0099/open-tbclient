@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.am;
 import com.xiaomi.push.de;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class dg extends am.b {
     public am.b a;
 
@@ -30,10 +30,10 @@ public class dg extends am.b {
 
     @Override // com.xiaomi.push.am.b
     /* renamed from: c */
-    public void mo280c() {
+    public void mo299c() {
         am.b bVar = this.a;
         if (bVar != null) {
-            bVar.mo280c();
+            bVar.mo299c();
         }
     }
 }

@@ -1,28 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.PayChannelService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qm8 implements ThirdPartAliRechargeService {
+/* loaded from: classes7.dex */
+public class qm8 extends jk1<PayChannelService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
-        }
-    }
 
     public qm8() {
         Interceptable interceptable = $ic;
@@ -38,21 +26,15 @@ public class qm8 implements ThirdPartAliRechargeService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
-    public String aliRecharge(Activity activity, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: a */
+    public PayChannelService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
-            ls4 ls4Var = new ls4();
-            ls4Var.a = activity;
-            ls4Var.b = str;
-            ls4Var.c = z;
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, ls4Var);
-            if (runTask == null) {
-                return "";
-            }
-            return (String) runTask.getData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new rm8();
         }
-        return (String) invokeLLZ.objValue;
+        return (PayChannelService) invokeV.objValue;
     }
 }

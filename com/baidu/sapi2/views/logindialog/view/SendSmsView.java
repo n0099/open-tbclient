@@ -26,7 +26,7 @@ import com.baidu.sapi2.views.logindialog.interf.ISendSmsCallback;
 import com.baidu.sapi2.views.logindialog.interf.ISendSmsUICallback;
 import com.baidu.tieba.R;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SendSmsView extends LinearLayout {
     public static final String i = "sdk_situation";
     public static final String j = "pop_login";
@@ -40,7 +40,7 @@ public class SendSmsView extends LinearLayout {
     public ILoginConfirmCallback g;
     public ISendSmsUICallback h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -51,7 +51,7 @@ public class SendSmsView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements TextWatcher {
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -80,7 +80,7 @@ public class SendSmsView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }

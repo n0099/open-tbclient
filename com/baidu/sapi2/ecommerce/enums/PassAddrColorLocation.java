@@ -1,7 +1,7 @@
 package com.baidu.sapi2.ecommerce.enums;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum PassAddrColorLocation implements NoProguard {
     ADDRESS_ITEM_IC_TEXT_COLOR,
     ADDRESS_ITEM_IC_BG_COLOR,

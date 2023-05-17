@@ -10,7 +10,6 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import android.util.AndroidException;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +21,7 @@ import com.huawei.hms.android.SystemUtils;
 import com.huawei.hms.common.util.AGCUtils;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AVAILABLE_LOADED = "availableLoaded";
@@ -94,8 +93,8 @@ public class Util {
                 return 1;
             }
             if (StringUtil.checkVersion(str) && StringUtil.checkVersion(str2)) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = str.split("\\.");
+                String[] split2 = str2.split("\\.");
                 if (2 < split.length && 2 < split2.length) {
                     if (Integer.parseInt(split[0]) > Integer.parseInt(split2[0])) {
                         return 1;

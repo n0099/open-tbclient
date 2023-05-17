@@ -15,7 +15,7 @@ import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.d10;
+import com.baidu.tieba.m10;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,7 +27,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommonUtils {
     public static final String FALSE = "0";
     public static final String INVALID = "-1";
@@ -56,7 +56,7 @@ public class CommonUtils {
     public static String sROM = null;
     public static String sPackageName = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class VSSConstants {
         public static final String VMHWM = "VmHWM";
         public static final String VMPEAK = "VmPeak";
@@ -91,7 +91,7 @@ public class CommonUtils {
     }
 
     public static String getNetwork() {
-        return new d10().a();
+        return new m10().a();
     }
 
     public static String getOSVersion() {

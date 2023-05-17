@@ -2,7 +2,6 @@ package com.baidu.android.util.connect;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.sca;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,12 +27,12 @@ public class DoveRuntime {
         }
     }
 
-    @Inject
+    @Inject(force = false)
     public static IDoveIoc getIDoveIoc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return sca.a();
+            return IDoveIoc.EMPTY;
         }
         return (IDoveIoc) invokeV.objValue;
     }

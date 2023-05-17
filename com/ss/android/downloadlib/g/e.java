@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ss.android.download.api.download.DownloadModel;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static double a(int i) {
         return com.ss.android.socialbase.downloader.g.a.a(i).a("clean_min_install_size", 0.0d);

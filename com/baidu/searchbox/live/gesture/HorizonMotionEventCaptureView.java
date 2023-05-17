@@ -8,7 +8,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewParent;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HorizonMotionEventCaptureView extends FrameLayout {
     public static final int INVALID_POINTER = -1;
     public static final int SLID_DIRECTION_INVALID = -1;
@@ -26,7 +26,7 @@ public class HorizonMotionEventCaptureView extends FrameLayout {
     public int mTouchSlop;
     public VelocityTracker mVelocityTracker;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CaptureEvent {
         public static final int ACTION_INTERCEPT = 1;
         public static final int ACTION_MOVE = 2;

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
     public final boolean autoCallbackToUIThread;
     @Nullable
@@ -56,7 +56,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     public final String url;
     public final boolean wifiRequired;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
         public static final int DEFAULT_FLUSH_BUFFER_SIZE = 16384;
@@ -227,7 +227,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MockTaskForCompare extends IdentifiedTask {
         @Nullable
         public final String filename;
@@ -360,7 +360,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         this.id = BdDownload.with().breakpointStore().findOrCreateId(this);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TaskHideWrapper {
         public static long getLastCallbackProcessTs(DownloadTask downloadTask) {
             return downloadTask.getLastCallbackProcessTs();

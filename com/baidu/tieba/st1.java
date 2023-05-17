@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.tieba.sa3;
+/* loaded from: classes7.dex */
 public interface st1 {
-    @Nullable
-    xz1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull bl2 bl2Var);
+    boolean a(Activity activity, String str, sa3.b bVar);
+
+    boolean b(Context context, String str);
+
+    boolean c(Activity activity, Uri uri, String str);
 }

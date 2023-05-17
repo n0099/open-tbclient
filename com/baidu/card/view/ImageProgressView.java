@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.RadiusProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.xz4;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.wp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageProgressView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,15 +98,15 @@ public class ImageProgressView extends FrameLayout {
         b();
     }
 
-    public final ImageProgressItemView a(yz4 yz4Var) {
+    public final ImageProgressItemView a(h15 h15Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yz4Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h15Var)) == null) {
             ImageProgressItemView imageProgressItemView = new ImageProgressItemView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.weight = 1.0f;
             this.b.addView(imageProgressItemView, layoutParams);
-            imageProgressItemView.b(yz4Var);
+            imageProgressItemView.b(h15Var);
             return imageProgressItemView;
         }
         return (ImageProgressItemView) invokeL.objValue;
@@ -122,22 +122,22 @@ public class ImageProgressView extends FrameLayout {
         }
     }
 
-    public void c(xz4 xz4Var) {
+    public void c(g15 g15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xz4Var) != null) || xz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g15Var) != null) || g15Var == null) {
             return;
         }
-        int count = ListUtils.getCount(xz4Var.j());
+        int count = ListUtils.getCount(g15Var.j());
         if (count > 0) {
-            int e = gg.e(xz4Var.m(), 0);
+            int e = pg.e(g15Var.m(), 0);
             this.a.setMax(e);
-            this.a.setProgress(gg.e(xz4Var.g(), 0) - (e / (count * 2)));
+            this.a.setProgress(pg.e(g15Var.g(), 0) - (e / (count * 2)));
         }
         this.c.clear();
         this.b.removeAllViews();
-        if (!ListUtils.isEmpty(xz4Var.j())) {
-            for (int i = 0; i < xz4Var.j().size(); i++) {
-                this.c.add(a(xz4Var.j().get(i)));
+        if (!ListUtils.isEmpty(g15Var.j())) {
+            for (int i = 0; i < g15Var.j().size(); i++) {
+                this.c.add(a(g15Var.j().get(i)));
             }
         }
         d(TbadkCoreApplication.getInst().getSkinType());
@@ -147,9 +147,9 @@ public class ImageProgressView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.a.setSolidColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.a.setProgressColor(un9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorRight(un9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
-            this.a.setProgressColorLeft(un9.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
+            this.a.setProgressColor(wp9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorRight(wp9.a(SkinManager.getColor(R.color.CAM_X0305), 0.7f));
+            this.a.setProgressColorLeft(wp9.a(SkinManager.getColor(R.color.CAM_X0305), 0.4f));
             for (int i2 = 0; i2 < this.c.size(); i2++) {
                 this.c.get(i2).c(i);
             }

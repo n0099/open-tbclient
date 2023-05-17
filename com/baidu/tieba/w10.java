@@ -1,27 +1,304 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class w10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str, int i) {
+    public static synchronized void a(List<n8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            synchronized (w10.class) {
+                if (list != null) {
+                    if (list.size() > 0) {
+                        if (AppConfig.isDebug()) {
+                            Log.d("ExperimentManager", "deleteExpInfoList >> " + list.size());
+                        }
+                        String a = z10.a();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (!TextUtils.isEmpty(a)) {
+                                jSONObject = new JSONObject(a);
+                            }
+                            for (n8 n8Var : list) {
+                                jSONObject.remove(n8Var.c() + "_" + n8Var.b());
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        z10.f(jSONObject);
+                    }
+                }
+            }
+        }
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return z10.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return z10.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return z10.c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return z10.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject[] f(JSONObject jSONObject, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, jSONObject, i)) == null) {
+            JSONObject[] jSONObjectArr = new JSONObject[i];
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                int a = g20.a(next, i);
+                JSONObject jSONObject2 = jSONObjectArr[a];
+                if (jSONObject2 == null) {
+                    jSONObject2 = new JSONObject();
+                    jSONObjectArr[a] = jSONObject2;
+                }
+                try {
+                    Object obj = jSONObject.get(next);
+                    if (obj != null) {
+                        jSONObject2.put(next, obj);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
-            int hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode = -hashCode;
-            }
-            return hashCode % i;
+            return jSONObjectArr;
         }
-        return invokeLI.intValue;
+        return (JSONObject[]) invokeLI.objValue;
+    }
+
+    public static synchronized boolean o(JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, jSONObject, z)) == null) {
+            synchronized (w10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        int a = y8.b().a();
+                        return m(f(jSONObject, a), a, z);
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public static synchronized void g(List<n8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, list) == null) {
+            synchronized (w10.class) {
+                if (list != null) {
+                    if (list.size() != 0) {
+                        if (AppConfig.isDebug()) {
+                            Log.d("ExperimentManager", "saveExpInfoList >> " + list.size());
+                        }
+                        String a = z10.a();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (!TextUtils.isEmpty(a)) {
+                                jSONObject = new JSONObject(a);
+                            }
+                            for (n8 n8Var : list) {
+                                String str = n8Var.c() + "_" + n8Var.b();
+                                JSONObject jSONObject2 = new JSONObject();
+                                if (n8Var.e() && n8Var.d() != -1) {
+                                    jSONObject2.put("is_upload", n8Var.e());
+                                    jSONObject2.put("expired_time", n8Var.d());
+                                }
+                                jSONObject.put(str, jSONObject2);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        z10.f(jSONObject);
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) {
+            synchronized (w10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        z10.g(jSONObject);
+                    }
+                }
+            }
+        }
+    }
+
+    public static synchronized void i(JSONObject jSONObject, JSONObject jSONObject2, List<n8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, jSONObject, jSONObject2, list) == null) {
+            synchronized (w10.class) {
+                o(jSONObject2, false);
+                j(jSONObject);
+                g(list);
+            }
+        }
+    }
+
+    public static synchronized void k(JSONObject jSONObject, JSONObject jSONObject2, List<n8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, jSONObject, jSONObject2, list) == null) {
+            synchronized (w10.class) {
+                o(jSONObject2, true);
+                l(jSONObject);
+                g(list);
+            }
+        }
+    }
+
+    public static synchronized void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, jSONObject) == null) {
+            synchronized (w10.class) {
+                if (AppConfig.isDebug()) {
+                    Log.d("ExperimentManager", "saveV1SwitchData >> " + jSONObject);
+                }
+                z10.h(jSONObject);
+            }
+        }
+    }
+
+    public static synchronized boolean l(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
+            synchronized (w10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        String d = z10.d();
+                        if (!TextUtils.isEmpty(d)) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(d);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject2.put(next, jSONObject.get(next));
+                                }
+                                if (jSONObject2.length() > 0) {
+                                    z10.i(jSONObject2);
+                                    return true;
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            z10.i(jSONObject);
+                        }
+                        return false;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean m(JSONObject[] jSONObjectArr, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{jSONObjectArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                JSONObject jSONObject = jSONObjectArr[i2];
+                String e = z10.e(i2);
+                if (TextUtils.isEmpty(e)) {
+                    z10.j(jSONObject, i2);
+                } else {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(e);
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            Object obj = jSONObject.get(next);
+                            if (!jSONObject2.has(next) || z) {
+                                jSONObject2.put(next, obj);
+                            }
+                        }
+                        if (jSONObject2.length() > 0) {
+                            z10.j(jSONObject2, i2);
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static synchronized void n(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, jSONObject, i) == null) {
+            synchronized (w10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        String e = z10.e(i);
+                        if (!TextUtils.isEmpty(e)) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(e);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject2.put(next, jSONObject.get(next));
+                                }
+                                z10.j(jSONObject2, i);
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        } else {
+                            z10.j(jSONObject, i);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -18,7 +18,7 @@ public class AdvertisingIdClient {
 
     @Keep
     /* renamed from: com.huawei.hms.ads.identifier.AdvertisingIdClient$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AnonymousClass1 implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class AdvertisingIdClient {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

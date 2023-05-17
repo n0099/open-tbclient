@@ -8,7 +8,7 @@ import com.baidu.searchbox.devicescore.IDeviceScore;
 import com.baidu.searchbox.devicescore.ParamKeys;
 import com.baidu.searchbox.devicescore.ScoreMetaData;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchSpeedManager implements IDynamicScoreManager {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "LaunchSpeedManager";

@@ -1,52 +1,57 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.widget.BaseAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class vu8 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public abstract class vu8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wv8 a;
+    public int a;
+    public boolean b;
+    public final Context c;
+    public List<ev8> d;
+    public a e;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes8.dex */
+    public interface a {
+        void D1(int i);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vu8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-334250350, "Lcom/baidu/tieba/vu8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-334250350, "Lcom/baidu/tieba/vu8$b;");
-                    return;
-                }
-            }
-            a = new vu8(null);
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return null;
         }
+        return invokeI.objValue;
     }
 
-    public vu8() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public vu8(List<ev8> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,60 +61,78 @@ public class vu8 {
                 return;
             }
         }
-        this.a = wv8.a(f55.m().s("key_pb_guide_enter_forum", ""));
+        this.b = true;
+        this.d = list;
+        this.c = context;
     }
 
-    public /* synthetic */ vu8(a aVar) {
-        this();
-    }
-
-    public void d(wv8 wv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wv8Var) == null) {
-            this.a = wv8Var;
-            f55.m().B("key_pb_guide_enter_forum", wv8Var.toString());
-        }
-    }
-
-    public static vu8 b() {
+    public List<ev8> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (ev8 ev8Var : this.d) {
+                if (ev8Var.e()) {
+                    arrayList.add(ev8Var);
+                }
+            }
+            return arrayList;
         }
-        return (vu8) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            f55.m().B("key_pb_guide_enter_forum", "");
-        }
-    }
-
-    public int c() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (e()) {
-                return this.a.b;
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<ev8> list = this.d;
+            if (list == null) {
+                return 0;
             }
-            return -1;
+            return list.size();
         }
         return invokeV.intValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void c(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            wv8 wv8Var = this.a;
-            if (wv8Var != null && wv8Var.a) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.e = aVar;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void e(List<ev8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.d = list;
+        }
+    }
+
+    public void f(ev8 ev8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ev8Var) == null) {
+            if (ev8Var.e()) {
+                this.a++;
+            } else {
+                this.a--;
+            }
+        }
     }
 }

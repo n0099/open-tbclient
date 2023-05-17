@@ -1,16 +1,15 @@
 package kotlin.reflect.jvm.internal.impl.name;
 
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.jvm.functions.Function1;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FqNameUnsafe {
     public static final Name ROOT_NAME = Name.special("<root>");
-    public static final Pattern SPLIT_BY_DOTS = Pattern.compile(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+    public static final Pattern SPLIT_BY_DOTS = Pattern.compile("\\.");
     public static final Function1<String, Name> STRING_TO_NAME = new Function1<String, Name>() { // from class: kotlin.reflect.jvm.internal.impl.name.FqNameUnsafe.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // kotlin.jvm.functions.Function1

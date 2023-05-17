@@ -4,7 +4,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import com.baidu.searchbox.process.ipc.util.TranslucentUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
     public static final boolean DEBUG = false;
     public static final String ENABLE_FALLBACK_FINISH_KEY = "fallback_finish_key";

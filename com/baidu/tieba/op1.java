@@ -1,29 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-/* loaded from: classes5.dex */
-public interface op1 {
-    boolean a(View view2, dy2 dy2Var);
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+/* loaded from: classes6.dex */
+public abstract class op1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final a Companion;
+    public static final int TYPE_CHECK_CRC_FAIL = 1;
+    public static final int TYPE_EXPANSION_FAIL = 4;
+    public static final int TYPE_WRITE_FAIL = 2;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039833, "Lcom/baidu/tieba/op1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948039833, "Lcom/baidu/tieba/op1;");
+                return;
+            }
+        }
+        Companion = new a(null);
+    }
 
-    boolean c(View view2, dy2 dy2Var);
+    public void onKVCatchError(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+        }
+    }
 
-    boolean d(View view2);
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void e(wm3 wm3Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void f(wm3 wm3Var);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
 
-    void g(boolean z);
-
-    Context getContext();
-
-    FrameLayout getRootView();
-
-    boolean h();
-
-    boolean removeView(View view2);
+    public op1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

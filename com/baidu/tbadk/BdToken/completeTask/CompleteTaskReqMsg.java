@@ -5,8 +5,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.ps5;
+import com.baidu.tieba.ss5;
+import com.baidu.tieba.yt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CompleteTask.CompleteTaskReqIdl;
 import tbclient.CompleteTask.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CompleteTaskReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TASK_TYPE_DEFAULT = 0;
@@ -55,7 +55,7 @@ public class CompleteTaskReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             if (z) {
                 try {
-                    getHttpMessage().setUserAgent(ps5.b());
+                    getHttpMessage().setUserAgent(yt5.b());
                 } catch (Exception unused) {
                     return null;
                 }
@@ -68,7 +68,7 @@ public class CompleteTaskReqMsg extends NetMessage {
             if (this.mToken != null) {
                 builder.token = Base64.encodeToString(this.mToken.getBytes(), 2);
             }
-            jr5.c(builder, true, true, false);
+            ss5.c(builder, true, true, false);
             CompleteTaskReqIdl.Builder builder2 = new CompleteTaskReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

@@ -9,13 +9,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static final Map<String, String> amI;
 
@@ -63,7 +64,7 @@ public final class d {
             String str3 = amI.get(Build.BRAND);
             Uri parse = Uri.parse(str);
             Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
+            intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(parse);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 0)) {
@@ -86,7 +87,7 @@ public final class d {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         try {
             context.startActivity(intent);

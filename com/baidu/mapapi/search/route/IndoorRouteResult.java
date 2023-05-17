@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IndoorRouteResult extends SearchResult {
     public static final Parcelable.Creator<IndoorRouteResult> CREATOR = new h();
     public List<IndoorRouteLine> a;

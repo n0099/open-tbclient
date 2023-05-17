@@ -7,11 +7,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class u implements com.kwad.sdk.core.webview.kwai.a {
     public List<c> mHolders = new ArrayList();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends com.kwad.sdk.core.download.kwai.a {
         public c Mz;
 
@@ -51,12 +51,12 @@ public final class u implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends com.kwad.sdk.core.response.kwai.a {
         public long creativeId = -1;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public com.kwad.components.core.c.a.c MA;
         public a MB;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.outback.callback;
 
 import com.baidu.searchbox.network.outback.core.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DefaultResponseCallback extends ResponseCallback<Response> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */

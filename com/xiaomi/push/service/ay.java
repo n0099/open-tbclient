@@ -15,7 +15,7 @@ import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ay {
 
     /* renamed from: a  reason: collision with other field name */
@@ -30,7 +30,7 @@ public class ay {
     public static final a<String, String, String> e = new a<>("setFloat", "canFloat", "canShowFloat");
     public static final a<String, String, String> f = new a<>("setShowBadge", "canShowBadge", "canShowBadge");
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a<F, S, T> {
         public F a;
         public S b;
@@ -47,7 +47,7 @@ public class ay {
         try {
             return Settings.Global.getInt(contentResolver, "user_aggregate", 0);
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("get user aggregate failed, " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m120a("get user aggregate failed, " + e2);
             return 0;
         }
     }
@@ -111,14 +111,14 @@ public class ay {
         T t3 = null;
         try {
         } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("get value error " + e2);
+            com.xiaomi.channel.commonutils.logger.b.m120a("get value error " + e2);
         }
         if (obj instanceof Notification) {
             t2 = a((Notification) obj, str);
         } else if (obj instanceof Map) {
             t2 = ((Map) obj).get(str);
         } else if (!(obj instanceof Bundle)) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("not support get value from classType:" + obj);
+            com.xiaomi.channel.commonutils.logger.b.m120a("not support get value from classType:" + obj);
             return t3 != null ? t : t3;
         } else {
             t2 = ((Bundle) obj).get(str);
@@ -173,7 +173,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m709a(Notification notification, String str) {
+    public static void m728a(Notification notification, String str) {
         try {
             if (notification.extras != null) {
                 notification.extras.putString(HiAnalyticsConstant.BI_KEY_TARGET_PACKAGE, str);
@@ -221,7 +221,7 @@ public class ay {
                     }
                     continue;
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m101a("can't match url intent. " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m120a("can't match url intent. " + e2);
                 }
             }
         }
@@ -230,7 +230,7 @@ public class ay {
 
     public static void a(Map<String, String> map, Bundle bundle, String str) {
         if (map == null || bundle == null || TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("cp map to b fail:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m120a("cp map to b fail:" + str);
         } else if (TextUtils.isEmpty(map.get(str))) {
             bundle.remove(str);
         } else {
@@ -248,7 +248,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m710a(ContentResolver contentResolver) {
+    public static boolean m729a(ContentResolver contentResolver) {
         int a2 = a(contentResolver);
         return a2 == 1 || a2 == 2;
     }
@@ -271,7 +271,7 @@ public class ay {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Notification.Action[] m711a(Notification notification) {
+    public static Notification.Action[] m730a(Notification notification) {
         Parcelable[] parcelableArray;
         Notification.Action[] actionArr = notification.actions;
         if (actionArr != null) {

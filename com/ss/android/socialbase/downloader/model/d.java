@@ -6,7 +6,7 @@ import com.baidu.searchbox.bddownload.core.Util;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.network.g;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     public final String a;
     public final g b;

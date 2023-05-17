@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.kw4;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.tx4;
+/* loaded from: classes4.dex */
 public class InitAccountTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -16,6 +16,6 @@ public class InitAccountTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        kw4.t().z();
+        tx4.t().z();
     }
 }

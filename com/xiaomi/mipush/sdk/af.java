@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class af {
     public static volatile af a;
 
@@ -59,7 +59,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m122a(String str) {
+    public void m141a(String str) {
         synchronized (this.f50a) {
             x xVar = new x();
             xVar.a = 0;
@@ -72,7 +72,7 @@ public class af {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m123a(String str) {
+    public boolean m142a(String str) {
         synchronized (this.f50a) {
             x xVar = new x();
             xVar.f90a = str;

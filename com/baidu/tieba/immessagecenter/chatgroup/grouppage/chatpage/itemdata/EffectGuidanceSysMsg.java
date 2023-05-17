@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class EffectGuidanceSysMsg extends NoUISysMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
@@ -27,7 +27,7 @@ public class EffectGuidanceSysMsg extends NoUISysMsg {
     @SerializedName("one_key_conversation")
     public AbilityEffectItem oneKeyConversation;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Action.a<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class EffectGuidanceSysMsg extends NoUISysMsg {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoUISysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoUISysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

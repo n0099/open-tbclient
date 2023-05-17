@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CodedOutputStream {
     public static final int DEFAULT_BUFFER_SIZE = 4096;
     public static final int LITTLE_ENDIAN_32_SIZE = 4;
@@ -99,7 +99,7 @@ public final class CodedOutputStream {
         return (j >> 63) ^ (j << 1);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class OutOfSpaceException extends IOException {
         public static final long serialVersionUID = -6947486886997889499L;
 

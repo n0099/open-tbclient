@@ -18,7 +18,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KsAdSDK {
     public static Context mOriginalAppContext;
     public static String sAppTag;
@@ -28,7 +28,7 @@ public class KsAdSDK {
 
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface KsThemeModeType {
         public static final int NIGHT = 1;
         public static final int NORMAL = 0;
@@ -36,7 +36,7 @@ public class KsAdSDK {
 
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface SdkType {
         public static final int AD = 1;
         public static final int CAR = 5;

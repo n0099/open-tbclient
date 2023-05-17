@@ -15,7 +15,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDataSource<T> implements HasImageRequest {
     public final RequestListener2 mRequestListener;
     public final SettableProducerContext mSettableProducerContext;

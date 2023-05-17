@@ -1,112 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class yz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347353, "Lcom/baidu/tieba/yz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948347353, "Lcom/baidu/tieba/yz1;");
+    public yz1(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        this.a = str;
+        this.b = str2;
+        this.c = jSONObject.optBoolean("useEvent");
     }
 
-    @NonNull
-    public static Pair<Boolean, wz1> a(xv1 xv1Var, String str) {
-        InterceptResult invokeLL;
+    public void c(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, xv1Var, str)) == null) {
-            xz1 xz1Var = new xz1();
-            boolean b2 = b(str, xv1Var.a().f());
-            if (b2) {
-                xz1Var.b = 402;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, jSONObject) == null) {
+            if (this.c) {
+                tu2.U().u(new lj2(this.a, new g12(0, jSONObject)));
+                return;
             }
-            return new Pair<>(Boolean.valueOf(b2), xz1Var);
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.b);
         }
-        return (Pair) invokeLL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
+    public void e(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof fu1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
-                }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (!a) {
-                    return false;
-                }
-                throw new RuntimeException("whitelistName is empty");
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
+            if (this.c) {
+                tu2.U().u(new lj2(this.a, new g12(1001, str)));
+                return;
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.b);
+        }
+    }
+
+    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, unitedSchemeEntity, callbackHandler) == null) && this.c) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.b);
+        }
+    }
+
+    public void d(jx1 jx1Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jx1Var, jSONObject) == null) {
+            g12 g12Var = new g12(0, jSONObject);
+            if (this.c) {
+                tu2.U().u(new lj2(this.a, g12Var));
             } else {
-                String b0 = ((fu1) callbackHandler).b0();
-                if ("ai_apps_widget".equals(b0)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(b0)) {
-                    z = !o83.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(b0) && !"swan_app_alliance_choose_address_widget".equals(b0) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
-                    }
-                    return false;
-                }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
+                jx1Var.d(this.b, g12Var);
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    public void f(jx1 jx1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, jx1Var, str) == null) {
+            g12 g12Var = new g12(1001, str);
+            if (this.c) {
+                tu2.U().u(new lj2(this.a, g12Var));
+            } else {
+                jx1Var.d(this.b, g12Var);
             }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (o83.g(str2 + "/" + substring)) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return !o83.g(str);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void b(jx1 jx1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jx1Var) == null) && this.c) {
+            jx1Var.d(this.b, new g12(0));
+        }
     }
 }

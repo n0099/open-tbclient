@@ -8,8 +8,8 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseSysMsg extends BaseMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean isConvertToNormalMsg() {
@@ -72,7 +72,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ChatRoomInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Ext extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class MsgConf extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class User extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,7 +347,7 @@ public abstract class BaseSysMsg extends BaseMsg {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return gg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
+                return pg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
             }
             return invokeV.longValue;
         }
@@ -362,7 +362,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

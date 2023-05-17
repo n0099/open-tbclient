@@ -7,7 +7,7 @@ import com.baidu.platform.comapi.basestruct.Point;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpatialRelationUtil {
     public static LatLng a(LatLng latLng, LatLng latLng2, LatLng latLng3) {
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);

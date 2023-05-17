@@ -2,7 +2,7 @@ package protobuf.UpdateClientInfo;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UpdateClientInfoReqIdl extends Message {
     public static final String DEFAULT_CUID = "";
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
@@ -10,7 +10,7 @@ public final class UpdateClientInfoReqIdl extends Message {
     @ProtoField(tag = 2)
     public final DataReq data;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<UpdateClientInfoReqIdl> {
         public String cuid;
         public DataReq data;

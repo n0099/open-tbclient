@@ -1,23 +1,213 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.text.SpannableStringBuilder;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class r19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public l7a a;
+    public l7a b;
+    public EditText c;
+    public EditText d;
+    public PostWriteCallBackData e;
 
-    public static final void a(String str, String str2, String str3, String str4, String str5) {
+    public r19() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, str5) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.addParam("fid", str2);
-            statisticItem.addParam("tid", str3);
-            statisticItem.addParam("uid", str4);
-            statisticItem.addParam("obj_source", str5);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        l7a l7aVar = new l7a();
+        this.a = l7aVar;
+        l7aVar.j(R.color.CAM_X0101);
+        this.a.h(R.color.cp_cont_h_alpha85);
+        l7a l7aVar2 = new l7a();
+        this.b = l7aVar2;
+        l7aVar2.j(R.color.CAM_X0101);
+        this.b.h(R.color.cp_cont_h_alpha85);
+    }
+
+    public void a(boolean z) {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.c) != null && editText.getText() != null) {
+            int selectionEnd = this.c.getSelectionEnd();
+            SpannableStringBuilder f = this.a.f(this.c.getText());
+            if (f != null) {
+                boolean z2 = true;
+                this.a.l(true);
+                this.c.setText(f);
+                if (z && this.a.b() >= 0) {
+                    this.c.requestFocus();
+                    this.c.setSelection(this.a.b());
+                } else {
+                    this.c.setSelection(selectionEnd);
+                }
+                l7a l7aVar = this.a;
+                if (l7aVar.b() < 0) {
+                    z2 = false;
+                }
+                l7aVar.k(z2);
+            }
+        }
+    }
+
+    public void b(boolean z) {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (editText = this.d) != null && editText.getText() != null) {
+            int selectionEnd = this.d.getSelectionEnd();
+            SpannableStringBuilder f = this.b.f(this.d.getText());
+            if (f != null) {
+                boolean z2 = true;
+                this.b.l(true);
+                this.d.setText(f);
+                if (z && this.b.b() >= 0) {
+                    this.d.requestFocus();
+                    this.d.setSelection(this.b.b());
+                } else {
+                    this.d.setSelection(selectionEnd);
+                }
+                l7a l7aVar = this.b;
+                if (l7aVar.b() < 0) {
+                    z2 = false;
+                }
+                l7aVar.k(z2);
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.n(null);
+            this.a.i(null);
+            this.a.k(false);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.n(null);
+            this.b.i(null);
+            this.b.k(false);
+        }
+    }
+
+    public l7a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (l7a) invokeV.objValue;
+    }
+
+    public EditText f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (EditText) invokeV.objValue;
+    }
+
+    public l7a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (l7a) invokeV.objValue;
+    }
+
+    public PostWriteCallBackData h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return (PostWriteCallBackData) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.g();
+            this.b.g();
+            if (this.a.d()) {
+                a(false);
+            }
+            if (this.b.d()) {
+                b(false);
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.c = null;
+            this.d = null;
+        }
+    }
+
+    public void k(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.a.i(postWriteCallBackData.getSensitiveWords());
+        this.a.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.a.a())) {
+            return;
+        }
+        a(true);
+        this.e = postWriteCallBackData;
+    }
+
+    public void l(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
+            return;
+        }
+        this.b.i(postWriteCallBackData.getSensitiveWords());
+        this.b.n(postWriteCallBackData.getErrorString());
+        if (ListUtils.isEmpty(this.b.a())) {
+            return;
+        }
+        b(true);
+    }
+
+    public void m(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
+            this.c = editText;
+        }
+    }
+
+    public void n(EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
+            this.d = editText;
         }
     }
 }

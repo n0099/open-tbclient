@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.opengl.GLES20;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +12,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
-public class ed0 {
+import java.nio.Buffer;
+import java.util.LinkedList;
+/* loaded from: classes5.dex */
+public class ed0 extends dd0 implements fd0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String f = "ed0";
+    public static final String k = "ed0";
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public gd0 c;
-    public kd0 d;
-    public volatile boolean e;
+    public int a;
+    public String b;
+    public String c;
+    public jd0 d;
+    public id0 e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
     static {
         InterceptResult invokeClinit;
@@ -42,93 +45,6 @@ public class ed0 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ByteBuffer a;
-        public int b;
-        public long c;
-
-        public a(ed0 ed0Var, ByteBuffer byteBuffer, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ed0Var, byteBuffer, Integer.valueOf(i), Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = byteBuffer;
-            this.b = i;
-            this.c = j;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ed0 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ed0 ed0Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ed0Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ed0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                switch (message.what) {
-                    case 1001:
-                        this.a.k((jd0) message.obj);
-                        return;
-                    case 1002:
-                        this.a.l();
-                        return;
-                    case 1003:
-                        a aVar = (a) message.obj;
-                        this.a.h(aVar.a, aVar.b, aVar.c);
-                        return;
-                    case 1004:
-                        this.a.m();
-                        return;
-                    case 1005:
-                        this.a.j();
-                        return;
-                    case 1006:
-                        this.a.i();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
     public ed0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -142,157 +58,147 @@ public class ed0 {
                 return;
             }
         }
-        this.e = false;
+        this.b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
+        this.c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
+        new LinkedList();
     }
 
-    public final void i() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacksAndMessages(null);
-                this.b = null;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GLES20.glUseProgram(0);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            GLES20.glDeleteProgram(this.a);
+            this.a = -1;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            GLES20.glDisableVertexAttribArray(this.f);
+            GLES20.glDisableVertexAttribArray(this.i);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            GLES20.glUseProgram(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            i();
+        }
+    }
+
+    @Override // com.baidu.tieba.fd0
+    public void a(gd0 gd0Var, ld0 ld0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, gd0Var, ld0Var) == null) {
+            jd0 jd0Var = this.d;
+            if (jd0Var != null && jd0Var.e()) {
+                l();
+                d(this.d);
+                c(gd0Var, ld0Var);
+                g(gd0Var, ld0Var);
+                j();
+                k(this.d);
+                f();
+                return;
             }
-            HandlerThread handlerThread = this.a;
-            if (handlerThread != null) {
-                handlerThread.quit();
-                this.a = null;
+            Log.e(k, "onDraw filter has not been setup!!!");
+        }
+    }
+
+    public void g(gd0 gd0Var, ld0 ld0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, gd0Var, ld0Var) == null) {
+            if (ld0Var.e()) {
+                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+                GLES20.glClear(16384);
             }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 18) {
-            gd0 gd0Var = this.c;
-            if (gd0Var != null) {
-                gd0Var.i();
-                this.c.e();
+            if (ld0Var.d()) {
+                GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
+                GLES20.glBlendFunc(770, 771);
             }
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && Build.VERSION.SDK_INT >= 18) {
-            this.c.h();
-        }
-    }
-
-    public final void m() {
-        gd0 gd0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && Build.VERSION.SDK_INT >= 18 && (gd0Var = this.c) != null) {
-            gd0Var.a(true, null, 0, 0L);
-        }
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HandlerThread handlerThread = this.a;
-            if (handlerThread != null && handlerThread.isAlive()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (handler = this.b) != null) {
-            handler.removeCallbacksAndMessages(null);
-            Handler handler2 = this.b;
-            handler2.sendMessage(handler2.obtainMessage(1005));
-            Handler handler3 = this.b;
-            handler3.sendMessage(handler3.obtainMessage(1006));
-        }
-    }
-
-    public void r() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (handler = this.b) != null) {
-            handler.sendMessage(handler.obtainMessage(1002));
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && this.e) {
-            this.e = false;
-            Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1004));
-        }
-    }
-
-    public final void k(jd0 jd0Var) {
-        gd0 gd0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jd0Var) == null) && Build.VERSION.SDK_INT >= 18 && (gd0Var = this.c) != null) {
-            gd0Var.k(jd0Var, this.d);
-        }
-    }
-
-    public void g(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && byteBuffer != null && i > 0) {
-            a aVar = new a(this, byteBuffer, i, j);
-            if (this.b != null && this.e) {
-                Handler handler = this.b;
-                handler.sendMessage(handler.obtainMessage(1003, aVar));
+            GLES20.glDrawArrays(5, 0, gd0Var.e());
+            if (ld0Var.d()) {
+                GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
             }
         }
     }
 
-    public final void h(ByteBuffer byteBuffer, int i, long j) {
+    @Override // com.baidu.tieba.fd0
+    public void b(jd0 jd0Var, id0 id0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && Build.VERSION.SDK_INT >= 18) {
-            this.c.a(false, byteBuffer, i, j);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jd0Var, id0Var) == null) {
+            this.d = jd0Var;
+            this.e = id0Var;
+            e(this.b, this.c);
+            if (this.a != -1) {
+                h();
+                return;
+            }
+            throw new RuntimeException("Unable to create program");
         }
     }
 
-    public final void n(kd0 kd0Var, id0 id0Var) {
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, kd0Var, id0Var) == null) {
-            HandlerThread handlerThread = new HandlerThread("AudioRecorderThread");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.b = new b(this, this.a.getLooper());
-            try {
-                this.c = new gd0();
-            } catch (VerifyError unused) {
-                Log.e(f, "initRecorder verifyError");
-                if (this.c == null) {
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            if (this.d.getType() != 36197) {
+                str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
             }
-            this.d = kd0Var;
-            if (Build.VERSION.SDK_INT >= 18) {
-                this.c.f(id0Var);
-            }
+            this.a = nd0.c(str, str2);
         }
     }
 
-    public boolean q(jd0 jd0Var, kd0 kd0Var, id0 id0Var) {
-        InterceptResult invokeLLL;
+    public void c(gd0 gd0Var, ld0 ld0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, jd0Var, kd0Var, id0Var)) == null) {
-            if (o()) {
-                Log.e(f, "setupRecorder error! As last audio recorder thread is alive!");
-                return false;
-            }
-            n(kd0Var, id0Var);
-            Handler handler = this.b;
-            handler.sendMessage(handler.obtainMessage(1001, jd0Var));
-            this.e = true;
-            return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gd0Var, ld0Var) == null) {
+            GLES20.glUniformMatrix4fv(this.g, 1, false, ld0Var.b(), 0);
+            GLES20.glUniformMatrix4fv(this.h, 1, false, ld0Var.c(), 0);
+            GLES20.glEnableVertexAttribArray(this.f);
+            GLES20.glVertexAttribPointer(this.f, gd0Var.a(), 5126, false, gd0Var.f(), (Buffer) gd0Var.d());
+            GLES20.glEnableVertexAttribArray(this.i);
+            GLES20.glVertexAttribPointer(this.i, gd0Var.a(), 5126, false, gd0Var.c(), (Buffer) gd0Var.b());
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public void d(jd0 jd0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jd0Var) == null) {
+            GLES20.glActiveTexture(33984);
+            GLES20.glBindTexture(jd0Var.getType(), jd0Var.c());
+            GLES20.glUniform1i(this.j, 0);
+        }
+    }
+
+    public void k(jd0 jd0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, jd0Var) == null) {
+            GLES20.glBindTexture(jd0Var.getType(), 0);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.j = GLES20.glGetUniformLocation(this.a, "uTexture");
+            this.f = GLES20.glGetAttribLocation(this.a, "aPosition");
+            this.g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
+            this.h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
+            this.i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
+        }
     }
 }

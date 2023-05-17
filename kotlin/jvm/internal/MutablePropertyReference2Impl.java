@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KClass;
 import kotlin.reflect.KDeclarationContainer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MutablePropertyReference2Impl extends MutablePropertyReference2 {
     @SinceKotlin(version = "1.4")
     public MutablePropertyReference2Impl(Class cls, String str, String str2, int i) {

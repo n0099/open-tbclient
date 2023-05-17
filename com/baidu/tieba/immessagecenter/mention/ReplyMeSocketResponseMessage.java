@@ -1,15 +1,15 @@
 package com.baidu.tieba.immessagecenter.mention;
 
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.lb8;
+import com.baidu.tieba.gd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes5.dex */
-public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<lb8, ReplyMeResIdl> {
+/* loaded from: classes6.dex */
+public class ReplyMeSocketResponseMessage extends MvcSocketResponsedMessage<gd8, ReplyMeResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

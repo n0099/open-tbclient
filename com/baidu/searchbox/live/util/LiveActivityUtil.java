@@ -11,11 +11,11 @@ import com.baidu.searchbox.live.interfaces.context.PluginContextUtil;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveActivityUtil {
     public static final String TAG = "LiveActivityUtil";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnTranslucentListener {
         void onTranslucent(boolean z);
     }

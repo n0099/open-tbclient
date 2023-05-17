@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.so.SoLoader;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EncryptConstant {
     public static native String getPartRecommendAesIv();
 

@@ -1,95 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.HttpDnsClient;
+import com.baidu.tieba.ep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes4.dex */
-public final class fp {
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class fp implements HttpDnsClient.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ep a;
+    public final BDHttpDns b;
+    public final BDHttpDns.CachePolicy c;
+    public final HttpDnsClient d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304675, "Lcom/baidu/tieba/fp;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448304675, "Lcom/baidu/tieba/fp;");
+    public fp(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        BDHttpDns h = BDHttpDns.h(context);
+        this.b = h;
+        this.a = h.e();
+        this.c = this.b.c();
+        this.d = this.b.f();
     }
 
-    @JvmStatic
-    public static final mp a(is<TaskBuoyViewData, TaskBuoyViewModel> isVar, np npVar, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.bdhttpdns.HttpDnsClient.b
+    public void a(int i, HttpDnsClient.RequestParamType requestParamType, Map<String, HttpDnsClient.e> map, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, isVar, npVar, taskInfo)) == null) ? a.a(isVar, npVar, taskInfo) : (mp) invokeLLL.objValue;
-    }
-
-    @JvmStatic
-    public static final pp b(is<TaskBuoyViewData, TaskBuoyViewModel> isVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, isVar, taskBuoyViewModel, taskInfo)) == null) ? a.b(isVar, taskBuoyViewModel, taskInfo) : (pp) invokeLLL.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), requestParamType, map, str}) == null) {
+            if (i != -1) {
+                if (i != 0) {
+                    gp.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
+                } else {
+                    for (Map.Entry<String, HttpDnsClient.e> entry : map.entrySet()) {
+                        String key = entry.getKey();
+                        HttpDnsClient.e value = entry.getValue();
+                        if (value != null) {
+                            ep.a aVar = new ep.a();
+                            aVar.i(value.c());
+                            aVar.h(System.currentTimeMillis() / 1000);
+                            aVar.f(value.a());
+                            aVar.g(value.b());
+                            this.a.e(key, aVar);
+                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                            this.a.d(key);
+                        }
+                    }
+                }
+            } else if (requestParamType.equals(HttpDnsClient.RequestParamType.DNLIST_HOSTS) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
+                for (String str2 : str.split(",")) {
+                    this.a.d(str2);
                 }
             }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final mp a(is<TaskBuoyViewData, TaskBuoyViewModel> isVar, np npVar, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, isVar, npVar, taskInfo)) == null) {
-                return new mp(isVar, npVar, taskInfo);
+            if (this.b.g() > 0 && !this.d.C()) {
+                this.d.M(true);
+                gp.a("preResolve has finished", new Object[0]);
             }
-            return (mp) invokeLLL.objValue;
-        }
-
-        @JvmStatic
-        public final pp b(is<TaskBuoyViewData, TaskBuoyViewModel> isVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, isVar, taskBuoyViewModel, taskInfo)) == null) {
-                return new pp(isVar, taskBuoyViewModel, taskInfo);
-            }
-            return (pp) invokeLLL.objValue;
         }
     }
 }

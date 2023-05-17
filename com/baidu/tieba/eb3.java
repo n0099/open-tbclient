@@ -1,30 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class eb3 extends u93 {
+import com.heytap.mcssdk.PushService;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class eb3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eb3(u83 u83Var) {
-        super(u83Var, "/swanAPI/startPullDownRefresh");
+    public eb3(da3 da3Var) {
+        super(da3Var, "/swanAPI/checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,53 +42,44 @@ public class eb3 extends u93 {
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var != null) {
-                x73Var.B().I(x73Var.getAppId());
-            }
-            if (x73Var != null && x73Var.n0()) {
-                if (u93.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            JSONObject a = db3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                g62.i("SwanCheckAppInstalledAction", "params parse error");
                 return false;
             }
-            g72 V = kt2.U().V();
-            if (V == null) {
-                x42.c("startPullDownRefresh", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            String optString = a.optString("name");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parameter error");
+                g62.i("SwanCheckAppInstalledAction", "packageName empty");
                 return false;
-            } else if (!(V.m() instanceof f72)) {
-                x42.c("startPullDownRefresh", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                f72 f72Var = (f72) V.m();
-                if (f72Var.h0() == null) {
-                    x42.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                PullToRefreshBaseWebView h0 = f72Var.h0();
-                if (h0 == null) {
-                    x42.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (h0.N()) {
-                    x42.c("startPullDownRefresh", "prevent pull to refresh");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+            }
+            PackageInfo packageInfo = null;
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(optString, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                g62.d("SwanCheckAppInstalledAction", e.getMessage(), e);
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (packageInfo != null) {
+                    jSONObject.put("hasApp", true);
+                    jSONObject.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
                 } else {
-                    x42.i("startPullDownRefresh", "start pull refresh");
-                    f72Var.h0().k(true, 100L);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
+                    jSONObject.put("hasApp", false);
                 }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success"));
+            } catch (JSONException e2) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
+                g62.d("SwanCheckAppInstalledAction", e2.getMessage(), e2);
             }
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

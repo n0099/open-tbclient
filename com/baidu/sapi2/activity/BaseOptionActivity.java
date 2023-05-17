@@ -26,7 +26,7 @@ import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseOptionActivity extends AppCompatActivity implements View.OnClickListener {
     public static final int IMG_RESULT_OK_CODE = 10000;
     public static final long LIMIT_TIME = 500;

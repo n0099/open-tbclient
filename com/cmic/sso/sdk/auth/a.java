@@ -23,7 +23,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventT
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})

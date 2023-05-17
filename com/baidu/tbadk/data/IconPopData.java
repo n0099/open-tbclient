@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Loop.IconPop;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class IconPopData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.app.Application;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes4.dex */
-public class ev3 implements lr1 {
+/* loaded from: classes5.dex */
+public class ev3 implements gv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gv3
+    public void a(Application application, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        }
+    }
 
     public ev3() {
         Interceptable interceptable = $ic;
@@ -27,15 +29,5 @@ public class ev3 implements lr1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.lr1
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
-        }
-        return (String) invokeL.objValue;
     }
 }

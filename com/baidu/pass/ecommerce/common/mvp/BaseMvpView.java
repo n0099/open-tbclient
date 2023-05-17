@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseMvpView extends FrameLayout implements IBaseView {
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
     public void showLoading(int i) {

@@ -17,7 +17,7 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HTTPMgr {
     public static final String TAG = "HTTPMgr";
 

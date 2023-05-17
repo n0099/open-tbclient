@@ -9,7 +9,7 @@ import com.baidu.searchbox.network.outback.support.request.PostFileRequest;
 import com.baidu.searchbox.network.outback.support.request.PostMultiPartFormRequest;
 import com.baidu.searchbox.network.outback.support.request.PutBodyRequest;
 import com.baidu.searchbox.network.outback.support.request.PutFormRequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpRequestCompat {
     public AbstractHttpManager httpManager;
 

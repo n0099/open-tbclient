@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static boolean f;
@@ -23,7 +23,7 @@ public class c {
     public Context d;
     public Camera e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

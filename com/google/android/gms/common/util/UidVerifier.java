@@ -9,7 +9,7 @@ import com.google.android.gms.common.GoogleSignatureVerifier;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.wrappers.Wrappers;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class UidVerifier {
     @KeepForSdk
     public static boolean isGooglePlayServicesUid(@NonNull Context context, int i) {

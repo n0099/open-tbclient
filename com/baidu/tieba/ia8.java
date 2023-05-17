@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillRecentlyItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes4.dex */
-public class ia8 implements ja8 {
+/* loaded from: classes5.dex */
+public class ia8 implements g78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public ga8 a;
 
-    public ia8() {
+    public ia8(ga8 ga8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ga8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,61 +34,26 @@ public class ia8 implements ja8 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(6);
-        this.a = hashMap;
-        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a = ga8Var;
     }
 
-    @Override // com.baidu.tieba.ja8
-    public boolean a(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.g78
+    @Nullable
+    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length >= 2) {
-                ChatMessage chatMessage = chatMessageArr[0];
-                ChatMessage chatMessage2 = chatMessageArr[1];
-                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
-                    return false;
-                }
-                return this.a.containsKey(c(chatMessageArr));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == 5) {
+                return new RobotSkillItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c6, viewGroup, false), this.a);
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ja8
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
-            return;
-        }
-        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
-        View childAt = listView.getChildAt(lastVisiblePosition);
-        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
-        if (childAt != null && childAt2 != null) {
-            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
-            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.tex_msgitem_text);
-            if (chatMessageArr != null && chatMessageArr.length > 1) {
-                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
+            if (i == 4) {
+                return new RobotItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c4, viewGroup, false));
             }
-        }
-    }
-
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
-                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
+            if (i == 6) {
+                return new RobotSkillRecentlyItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c7, viewGroup, false), this.a);
             }
             return null;
         }
-        return (String) invokeL.objValue;
+        return (BaseItemViewHolder) invokeLI.objValue;
     }
 }

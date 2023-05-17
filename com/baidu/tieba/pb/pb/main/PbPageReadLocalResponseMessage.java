@@ -2,20 +2,20 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.lx8;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.qv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public qv8 pbData;
+    public lx8 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public qv8 getPbData() {
+    public lx8 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (qv8) invokeV.objValue;
+        return (lx8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,9 +73,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            qv8 qv8Var = new qv8();
-            this.pbData = qv8Var;
-            qv8Var.C0(1);
+            lx8 lx8Var = new lx8();
+            this.pbData = lx8Var;
+            lx8Var.C0(1);
             try {
                 this.pbData.B0(pbPageResIdl.data);
                 if (!this.pbData.u0()) {

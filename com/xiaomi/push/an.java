@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.xiaomi.push.am;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class an extends Handler {
     public final /* synthetic */ am a;
 
@@ -21,7 +21,7 @@ public class an extends Handler {
         if (i == 0) {
             bVar.a();
         } else if (i == 1) {
-            bVar.mo280c();
+            bVar.mo299c();
         }
         super.handleMessage(message);
     }

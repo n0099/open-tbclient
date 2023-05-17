@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.b73;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tieba.ox1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,31 +18,81 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-/* loaded from: classes7.dex */
-public class zp3 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class zp3 extends pe3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
+    public static final boolean t;
     public transient /* synthetic */ FieldHolder $fh;
+    public String s;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a implements DialogInterface.OnClickListener {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+    }
 
-        public a(b bVar) {
+    /* loaded from: classes8.dex */
+    public class c extends fe3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zp3 c;
+
+        /* loaded from: classes8.dex */
+        public class a implements zn3<Bundle> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.zn3
+            /* renamed from: b */
+            public void a(Bundle bundle) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                    if (bundle == null) {
+                        ee3.k("null stoken", Boolean.TRUE);
+                        this.a.e(new OAuthException(10001));
+                        return;
+                    }
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE, "");
+                    if (TextUtils.isEmpty(string)) {
+                        ee3.k("empty stoken", Boolean.TRUE);
+                        this.a.e(new OAuthException(10001));
+                        return;
+                    }
+                    this.a.c.s = string;
+                    this.a.d();
+                }
+            }
+        }
+
+        public c(zp3 zp3Var) {
+            ox1.d dVar;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {zp3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,21 +102,99 @@ public class zp3 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.c = zp3Var;
+            if (zp3Var.o != null && (dVar = zp3Var.n) != null && dVar.a) {
+                long j = dVar.b;
+                if (zp3.t) {
+                    Log.d("LoginRequest", "send timeout " + j + "ms msg");
+                }
+                zp3Var.o.sendEmptyMessageDelayed(1, j < 0 ? 0L : j);
+            }
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            b bVar;
-            boolean z;
+        public /* synthetic */ c(zp3 zp3Var, a aVar) {
+            this(zp3Var);
+        }
+
+        @Override // com.baidu.tieba.fe3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) && (bVar = this.a) != null) {
-                if (i == -1) {
-                    z = true;
-                } else {
-                    z = false;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                hp3.t(this.c.m, new a(this), BdZeusUtil.URL_KEY_MACHINE);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends fe3 implements sp1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zp3 c;
+
+        public b(zp3 zp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                bVar.onResult(z);
+            }
+            this.c = zp3Var;
+        }
+
+        public /* synthetic */ b(zp3 zp3Var, a aVar) {
+            this(zp3Var);
+        }
+
+        @Override // com.baidu.tieba.fe3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                boolean e = ns2.h0().e(this.c.m);
+                if (zp3.t) {
+                    Log.d("LoginRequest", "LoginPreparation isLogin : " + e + " call stack:" + Log.getStackTraceString(new Exception()));
+                }
+                if (e) {
+                    zp3 zp3Var = this.c;
+                    zp3Var.h(new c(zp3Var, null));
+                    return true;
+                }
+                this.c.M().N().f(this.c.m, this.c.p, this);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.sp1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                ee3.k("onResult :: " + i, Boolean.FALSE);
+                if (i != -2) {
+                    if (i != 0) {
+                        ee3.k("login error ERR_BY_LOGIN", Boolean.TRUE);
+                        e(new OAuthException(10004));
+                        return;
+                    }
+                    ee3.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    zp3 zp3Var = this.c;
+                    zp3Var.h(new c(zp3Var, null));
+                    d();
+                    return;
+                }
+                ee3.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                e(new OAuthException(10004));
             }
         }
     }
@@ -84,95 +212,82 @@ public class zp3 {
                 return;
             }
         }
-        a = ho1.a;
-        b = new String[]{"BLA-AL00", "R7Plus"};
+        t = qp1.a;
     }
 
-    public static DialogInterface.OnClickListener a(b bVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pe3
+    @NonNull
+    public fe3 Q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            return new a(bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(this, null);
         }
-        return (DialogInterface.OnClickListener) invokeL.objValue;
+        return (fe3) invokeV.objValue;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zp3(Activity activity, ox1.d dVar, Bundle bundle) {
+        super(activity, dVar, bundle);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, dVar, bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Activity) objArr2[0], (ox1.d) objArr2[1], (Bundle) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        x();
+        y();
+    }
+
+    @Override // com.baidu.tieba.pe3, com.baidu.tieba.de3
+    public boolean j() {
+        InterceptResult invokeV;
+        Object obj;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                boolean isEmpty = TextUtils.isEmpty(this.q);
+                if (isEmpty) {
+                    obj = M().O();
+                } else {
+                    obj = this.q;
+                }
+                jSONObject.put("ma_id", obj);
+                JSONObject jSONObject2 = new JSONObject();
+                if (isEmpty) {
+                    str = M().O();
+                } else {
+                    str = this.q;
+                }
+                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject2.put("host_key_hash", ee3.g());
+                jSONObject2.put("stoken", this.s);
+                String l = ns2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject2.put("host_api_key", l);
+                }
+                jSONObject.put("open", jSONObject2);
+            } catch (JSONException e) {
+                if (t) {
+                    e.printStackTrace();
+                }
+            }
+            v("data", jSONObject.toString());
             return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            String packageName = context.getPackageName();
-            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", packageName, null));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(b).contains(Build.MODEL)) {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 26) {
-                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                } else if (i >= 21) {
-                    intent.putExtra("app_package", context.getPackageName());
-                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
-                }
-                try {
-                    context.startActivity(intent);
-                    return;
-                } catch (Exception e) {
-                    if (a) {
-                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
-                    }
-                    c(context);
-                    return;
-                }
-            }
-            c(context);
-        }
-    }
-
-    public static void e(Context context, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
-            if (!(context instanceof Activity)) {
-                if (!a) {
-                    return;
-                }
-                throw new IllegalArgumentException("context must be activity.");
-            } else if (bVar == null) {
-            } else {
-                DialogInterface.OnClickListener a2 = a(bVar);
-                b73.a aVar = new b73.a(context);
-                aVar.n(new fn3());
-                b73 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1343);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1342));
-                aVar.y();
-                aVar.J(er2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1344, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1341, a2);
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

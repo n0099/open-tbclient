@@ -33,7 +33,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     @IdRes
     public int checkedId;
@@ -47,14 +47,14 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
     public static final String LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f100370;
+    public static final int DEF_STYLE_RES = R.style.obfuscated_res_0x7f10037b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnButtonCheckedListener {
         void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i, boolean z);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public CheckedStateTracker() {
         }
@@ -81,7 +81,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public PressedStateTracker() {
         }
@@ -188,7 +188,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CornerData {
         public static final CornerSize noCorner = new AbsoluteCornerSize(0.0f);
         public CornerSize bottomLeft;
@@ -390,7 +390,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404b8);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404d6);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

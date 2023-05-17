@@ -11,7 +11,7 @@ import com.bytedance.pangle.receiver.PluginBroadcastReceiver;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class LocalBroadcastManager {
     public static final Object f = new Object();
     public static LocalBroadcastManager g;
@@ -21,7 +21,7 @@ public final class LocalBroadcastManager {
     public final ArrayList<a> d = new ArrayList<>();
     public final Handler e;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public final Intent a;
         public final ArrayList<b> b;
@@ -32,7 +32,7 @@ public final class LocalBroadcastManager {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b {
         public final IntentFilter a;
         public final PluginBroadcastReceiver b;

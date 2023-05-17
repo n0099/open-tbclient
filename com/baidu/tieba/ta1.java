@@ -1,79 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.webkit.JavascriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ta1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements gb1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.gb1
-        public Drawable a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return null;
-            }
-            return (Drawable) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.gb1
-        public Drawable b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (Drawable) invokeL.objValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
     }
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public ta1(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return li0.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Context) invokeV.objValue;
+        this.a = aVar;
     }
 
-    @NonNull
-    @Inject(force = false)
-    public static gb1 b() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void onGoBack() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new a();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a();
         }
-        return (gb1) invokeV.objValue;
     }
 }

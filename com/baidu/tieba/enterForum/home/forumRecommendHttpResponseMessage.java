@@ -4,9 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
+import com.baidu.tieba.c25;
 import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.tieba.enterForum.model.EnterForumModel;
-import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import tbclient.ForumRecommend.LikeForum;
 import tbclient.FrsTabInfo;
 import tbclient.PrivatePopInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -154,8 +154,8 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) && bArr != null && bArr.length > 0 && getError() == 0) {
-            t05.d();
-            t05.c("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
+            c25.d();
+            c25.c("tb_forum_recommend", TbadkCoreApplication.getCurrentAccountName()).a(EnterForumModel.FORUMRECOMMEND_CACHE_KEY, bArr);
         }
     }
 
@@ -186,7 +186,7 @@ public class forumRecommendHttpResponseMessage extends TbHttpResponsedMessage {
             if (dataRes.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.hotSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.W(forumRecommendResIdl.data.hot_search);
+                hotSearchInfoData.V(forumRecommendResIdl.data.hot_search);
             }
             DataRes dataRes2 = forumRecommendResIdl.data;
             this.recommend_concern_forums = dataRes2.tag_recommend_forum;

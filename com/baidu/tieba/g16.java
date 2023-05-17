@@ -1,34 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.addresslist.relationship.ContactComparator;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes4.dex */
+import tbclient.SimpleUser;
+/* loaded from: classes5.dex */
 public class g16 {
     public static /* synthetic */ Interceptable $ic;
-    public static g16 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public List<ra5> b;
+    public final View.OnClickListener a;
+    public BaseActivity b;
+    public LinearLayout c;
+    public LinearLayout d;
+    public TbSettingTextTipView e;
+    public TbSettingTextTipView f;
+    public TextView g;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void u(List<ra5> list);
-    }
-
-    public g16() {
+    public g16(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,134 +41,67 @@ public class g16 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.b = baseActivity;
+        this.a = onClickListener;
+        b();
     }
 
-    public static synchronized g16 d() {
-        InterceptResult invokeV;
-        g16 g16Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (g16.class) {
-                if (c == null) {
-                    c = new g16();
-                }
-                g16Var = c;
-            }
-            return g16Var;
-        }
-        return (g16) invokeV.objValue;
-    }
-
-    public List<ra5> c() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public final void e() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a aVar : this.a) {
-                aVar.u(this.b);
-            }
-        }
-    }
-
-    public void a(ra5 ra5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ra5Var) == null) && this.b != null && ra5Var != null) {
-            String a2 = ra5Var.a();
-            if (TextUtils.isEmpty(a2)) {
-                a2 = "#";
-                ra5Var.j("#");
-            }
-            String e = ra5Var.e();
-            if (e == null) {
-                e = "";
-            }
-            boolean z = false;
-            boolean z2 = false;
-            for (ra5 ra5Var2 : this.b) {
-                if (e.equals(ra5Var2.e())) {
-                    z = true;
-                }
-                if (a2.equals(ra5Var2.a())) {
-                    z2 = true;
-                }
-            }
-            if (z) {
-                return;
-            }
-            if (!z2) {
-                ra5 ra5Var3 = new ra5();
-                ra5Var3.j(a2);
-                this.b.add(ra5Var3);
-            }
-            this.b.add(ra5Var);
-            Collections.sort(this.b, new ContactComparator());
-            e();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.removeAllViews();
+            this.b = null;
         }
     }
 
-    public void b(long j) {
-        List<ra5> list;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || (list = this.b) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
+            this.c = linearLayout;
+            this.d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
+            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090358);
+            this.g = (TextView) this.c.findViewById(R.id.tv_title);
+            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f090068);
+            this.e.a();
+            this.f.a();
+            this.e.setOnClickListener(this.a);
+            this.f.setOnClickListener(this.a);
+        }
+    }
+
+    public void d(SimpleUser simpleUser) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, simpleUser) != null) || simpleUser == null) {
             return;
         }
-        String str = null;
-        Iterator<ra5> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            ra5 next = it.next();
-            if (next.d() == j) {
-                str = next.a();
-                this.b.remove(next);
-                break;
-            }
-        }
-        if (str != null) {
-            ArrayList arrayList = new ArrayList();
-            for (ra5 ra5Var : this.b) {
-                if (str.equals(ra5Var.a())) {
-                    arrayList.add(ra5Var);
-                }
-            }
-            if (arrayList.size() <= 1) {
-                this.b.removeAll(arrayList);
-            }
-        }
-        e();
+        this.f.setTip(simpleUser.block_msg);
     }
 
-    public void f(a aVar) {
+    public void e(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && aVar != null && !this.a.contains(aVar)) {
-            this.a.add(aVar);
-        }
-    }
-
-    public void g(List<ra5> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                Collections.sort(list, new ContactComparator());
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            hx4 layoutMode = this.b.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            e();
-        }
-    }
-
-    public void h(a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) && aVar != null) {
-            this.a.remove(aVar);
+            layoutMode.l(z);
+            this.b.getLayoutMode().k(this.c);
+            p45 d = p45.d(this.g);
+            d.w(R.color.CAM_X0109);
+            d.f(R.color.CAM_X0204);
         }
     }
 }

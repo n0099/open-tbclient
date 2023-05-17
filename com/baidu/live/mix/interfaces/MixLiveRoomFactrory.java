@@ -1,4 +1,4 @@
 package com.baidu.live.mix.interfaces;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MixLiveRoomFactrory {
 }

@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.widget.Toast;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class g {
     public static boolean a(Context context, Intent intent) {
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);

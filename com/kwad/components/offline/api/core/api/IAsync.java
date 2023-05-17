@@ -1,7 +1,7 @@
 package com.kwad.components.offline.api.core.api;
 
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IAsync {
     void execute(Runnable runnable);
 

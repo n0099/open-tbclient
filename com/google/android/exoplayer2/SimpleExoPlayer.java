@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArraySet;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SimpleExoPlayer implements ExoPlayer {
     public static final String TAG = "SimpleExoPlayer";
     public AudioAttributes audioAttributes;
@@ -56,14 +56,14 @@ public class SimpleExoPlayer implements ExoPlayer {
     public final CopyOnWriteArraySet<TextOutput> textOutputs = new CopyOnWriteArraySet<>();
     public final CopyOnWriteArraySet<MetadataOutput> metadataOutputs = new CopyOnWriteArraySet<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface VideoListener {
         void onRenderedFirstFrame();
 
         void onVideoSizeChanged(int i, int i2, int i3, float f);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class ComponentListener implements VideoRendererEventListener, AudioRendererEventListener, TextOutput, MetadataOutput, SurfaceHolder.Callback, TextureView.SurfaceTextureListener {
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {

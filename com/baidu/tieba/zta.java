@@ -1,28 +1,28 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.ModuleConfigKs;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes7.dex */
-public class zta implements PidLoaderCreator {
+/* loaded from: classes8.dex */
+public class zta implements TTNativeExpressAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ModuleConfigKs a;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ sta c;
+    public final /* synthetic */ wta d;
 
-    public zta(ModuleConfigKs moduleConfigKs) {
+    public zta(wta wtaVar, sta staVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {moduleConfigKs};
+            Object[] objArr = {wtaVar, staVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,98 +32,54 @@ public class zta implements PidLoaderCreator {
                 return;
             }
         }
-        this.a = moduleConfigKs;
+        this.d = wtaVar;
+        this.c = staVar;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
-        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
-     */
-    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public PidLoader create(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            char c = 0;
-            try {
-                Long.parseLong(pid.pid);
-                String str = pid.type;
-                str.hashCode();
-                switch (str.hashCode()) {
-                    case -1377301807:
-                        break;
-                    case -1291455752:
-                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1187931233:
-                        if (str.equals(FunAdType.KS_NATIVE)) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1106926588:
-                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -1031178769:
-                        if (str.equals(FunAdType.KS_SPLASH)) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1860126748:
-                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 2017609999:
-                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        return new jua(pid);
-                    case 1:
-                        return new fua(pid, this.a);
-                    case 2:
-                        return new lua(pid);
-                    case 3:
-                        return new oua(pid, this.a);
-                    case 4:
-                        return new qua(pid);
-                    case 5:
-                        return new hua(pid, this.a);
-                    case 6:
-                        return new cua(pid);
-                    default:
-                        return null;
-                }
-            } catch (NumberFormatException unused) {
-                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.AdInteractionListener
+    public void onAdDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, view2, str, i) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code: " + i, new Object[0]);
+            this.d.onError(i, str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.d.onAdLoaded((wta) this.c);
+        }
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdBaseViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class BdBaseViewPager extends ViewPager {
     public float d;
     public int e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Scroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

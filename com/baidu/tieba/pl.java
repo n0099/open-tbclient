@@ -1,37 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.statistic.StatisticCallback;
+import android.content.pm.Signature;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.nps.interfa.ISignatureVerifier;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class pl implements StatisticCallback {
+@Service
+/* loaded from: classes7.dex */
+public class pl implements ISignatureVerifier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
-    public boolean addFetchStatistic2InHost(int i, String str, String str2, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
 
     public pl() {
         Interceptable interceptable = $ic;
@@ -45,5 +27,20 @@ public class pl implements StatisticCallback {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.nps.interfa.ISignatureVerifier
+    public boolean checkSignature(String str, Signature[] signatureArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, signatureArr)) == null) {
+            if (BdLog.isDebugMode()) {
+                return true;
+            }
+            String c = ol.c(signatureArr);
+            BdLog.e("new signature: " + c);
+            return "YvigAa51R7YgCp8eDveR1g==".equals(c);
+        }
+        return invokeLL.booleanValue;
     }
 }

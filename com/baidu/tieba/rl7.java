@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes6.dex */
-public interface rl7<T> {
-    void a(View view2, T t, int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class rl7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(View view2, T t, int i);
+    public abstract void a();
+
+    public abstract void b(int i);
 }

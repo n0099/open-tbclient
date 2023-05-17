@@ -14,7 +14,7 @@ import com.kwad.sdk.utils.bj;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements c {
     public static volatile b XG;
     public static final List<c> mListeners = new CopyOnWriteArrayList();

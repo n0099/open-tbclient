@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.os.Environment;
+import android.os.StatFs;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.view.BearLayout;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.StorageUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,107 +14,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class um3 {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.StringTokenizer;
+/* loaded from: classes7.dex */
+public final class um3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BearLayout a;
-    public Activity b;
-    public SwanAppBearInfo c;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback<String> {
+    /* loaded from: classes7.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public BearLayout.d a;
-        public boolean b;
+        public final String a;
 
-        public a(um3 um3Var, BearLayout.d dVar, boolean z) {
+        public a(String str, boolean z, boolean z2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {um3Var, dVar, Boolean.valueOf(z)};
+                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = dVar;
-            this.b = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || this.a == null) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("errno");
-                if (optInt == 0) {
-                    if (this.b) {
-                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                        if (optJSONObject != null) {
-                            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                this.a.a(true);
-                            }
-                            this.a.a(false);
-                        }
-                    } else {
-                        this.a.a(true);
-                    }
-                } else if (800200 == optInt) {
-                    String optString = jSONObject.optString("errmsg");
-                    BearLayout.d dVar = this.a;
-                    dVar.b("errNo:" + optInt + ",errMsg:" + optString);
-                } else {
-                    BearLayout.d dVar2 = this.a;
-                    dVar2.b("errNo:" + optInt);
-                }
-            } catch (JSONException e) {
-                if (um3.d) {
-                    e.printStackTrace();
-                    this.a.b(e.getMessage());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && um3.d) {
-                exc.printStackTrace();
-                this.a.b(exc.getMessage());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public String parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return response.body().string();
-                }
-                return "";
-            }
-            return (String) invokeLI.objValue;
+            this.a = str;
         }
     }
 
@@ -134,68 +70,236 @@ public class um3 {
                 return;
             }
         }
-        d = ho1.a;
+        a = qp1.a;
     }
 
-    public um3(Activity activity, View view2, @NonNull SwanAppBearInfo swanAppBearInfo, @IdRes int i) {
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, view2, swanAppBearInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b()) {
+                return (int) (new StatFs(Environment.getExternalStorageDirectory().getPath()).getTotalBytes() / 1024);
             }
+            return -1;
         }
-        this.b = activity;
-        this.c = swanAppBearInfo;
-        BearLayout bearLayout = (BearLayout) view2.findViewById(i);
-        this.a = bearLayout;
-        bearLayout.setVisibility(0);
-        this.a.k(activity, swanAppBearInfo, this);
+        return invokeV.intValue;
     }
 
-    public void b() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (SwanAppNetworkUtils.i(this.b)) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                linkedHashMap.put("type", "media");
-                linkedHashMap.put("sfrom", "searchpaws");
-                linkedHashMap.put("store", "uid_cuid");
-                linkedHashMap.put("source", "dusite_na_subbar");
-                linkedHashMap.put("third_id", this.c.bearId);
-                linkedHashMap.put("op_type", "add");
-                String b = b32.b();
-                if (TextUtils.isEmpty(b)) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return Environment.getExternalStorageState().equals("mounted");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        long blockSize;
+        long availableBlocks;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b()) {
+                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
+                if (nl3.d()) {
+                    blockSize = statFs.getBlockSizeLong();
+                    availableBlocks = statFs.getAvailableBlocksLong();
+                } else {
+                    blockSize = statFs.getBlockSize();
+                    availableBlocks = statFs.getAvailableBlocks();
                 }
-                bf4.g().getRequest().url(b).addUrlParams(linkedHashMap).cookieManager(er2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), false));
-                return;
+                return availableBlocks * blockSize;
             }
-            p73.f(this.b, R.string.obfuscated_res_0x7f0f01a0).G();
+            return -1L;
         }
+        return invokeV.longValue;
     }
 
-    public void c() {
+    /* JADX WARN: Removed duplicated region for block: B:108:0x01d3  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<a> d() {
+        InterceptResult invokeV;
+        String path;
+        boolean z;
+        HashSet hashSet;
+        BufferedReader bufferedReader;
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && SwanAppNetworkUtils.i(this.b)) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            linkedHashMap.put("type", "media");
-            linkedHashMap.put("sfrom", "searchpaws");
-            linkedHashMap.put("store", "uid_cuid");
-            linkedHashMap.put("source", "dusite_na_subbar");
-            linkedHashMap.put("third_id", this.c.bearId);
-            String B = er2.o().B();
-            if (TextUtils.isEmpty(B)) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            BufferedReader bufferedReader2 = null;
+            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
+            if (externalFilesDir == null) {
+                path = null;
+            } else {
+                path = externalFilesDir.getPath();
             }
-            bf4.g().getRequest().url(B).connectionTimeout(3000).addUrlParams(linkedHashMap).cookieManager(er2.q().a()).build().executeAsyncOnUIBack(new a(this, this.a.getCallback(), true));
+            int i2 = 1;
+            boolean z2 = false;
+            boolean z3 = nl3.b() ? !Environment.isExternalStorageRemovable() : false;
+            String externalStorageState = Environment.getExternalStorageState();
+            if (!externalStorageState.equals("mounted") && !externalStorageState.equals("mounted_ro")) {
+                z = false;
+            } else {
+                z = true;
+            }
+            boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
+            try {
+                try {
+                    hashSet = new HashSet();
+                    bufferedReader = new BufferedReader(new FileReader("/proc/mounts"));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+                bufferedReader2 = null;
+            } catch (IOException e2) {
+                e = e2;
+                bufferedReader2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = null;
+            }
+            try {
+                if (a) {
+                    Log.d(StorageUtils.TAG, "/proc/mounts");
+                }
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    if (a) {
+                        Log.d(StorageUtils.TAG, readLine);
+                    }
+                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
+                    String nextToken = stringTokenizer.nextToken();
+                    String nextToken2 = stringTokenizer.nextToken();
+                    if (!hashSet.contains(nextToken2)) {
+                        stringTokenizer.nextToken();
+                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
+                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
+                            if (e(nextToken, nextToken2)) {
+                                hashSet.add(nextToken2);
+                                if (f(nextToken2)) {
+                                    i = i2 + 1;
+                                    arrayList.add(new a(nextToken2, z2, contains, i2));
+                                    i2 = i;
+                                }
+                            }
+                            z2 = false;
+                        }
+                        if (nextToken2.equals(path)) {
+                            hashSet.add(path);
+                            hashMap.put(nextToken, new a(path, z3, contains, -1));
+                        } else if (readLine.contains("/dev/block/vold")) {
+                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
+                                hashSet.add(nextToken2);
+                                if (!hashMap.containsKey(nextToken)) {
+                                    i = i2 + 1;
+                                    hashMap.put(nextToken, new a(nextToken2, z2, contains, i2));
+                                    i2 = i;
+                                }
+                            }
+                        } else if (hashSet.contains(nextToken)) {
+                            Iterator it = hashMap.keySet().iterator();
+                            while (true) {
+                                if (it.hasNext()) {
+                                    str = (String) it.next();
+                                    if (TextUtils.equals(((a) hashMap.get(str)).a, nextToken)) {
+                                        break;
+                                    }
+                                } else {
+                                    str = null;
+                                    break;
+                                }
+                            }
+                            hashMap.remove(str);
+                            hashSet.add(nextToken2);
+                            if (!hashMap.containsKey(nextToken)) {
+                                hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
+                                i2++;
+                            }
+                        }
+                        z2 = false;
+                    }
+                }
+                for (a aVar : hashMap.values()) {
+                    if (f(aVar.a)) {
+                        arrayList.add(aVar);
+                    }
+                }
+                if (!hashSet.contains(path) && z) {
+                    arrayList.add(0, new a(path, z3, equals, -1));
+                }
+                kp4.d(bufferedReader);
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                bufferedReader2 = bufferedReader;
+                if (a) {
+                    e.printStackTrace();
+                }
+                kp4.d(bufferedReader2);
+                if (arrayList.isEmpty()) {
+                }
+                return arrayList;
+            } catch (IOException e4) {
+                e = e4;
+                bufferedReader2 = bufferedReader;
+                if (a) {
+                    e.printStackTrace();
+                }
+                kp4.d(bufferedReader2);
+                if (arrayList.isEmpty()) {
+                }
+                return arrayList;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedReader2 = bufferedReader;
+                kp4.d(bufferedReader2);
+                throw th;
+            }
+            if (arrayList.isEmpty()) {
+                arrayList.add(new a(path, z3, equals, -1));
+            }
+            return arrayList;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public static boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str == null || !str.contains("/dev/fuse") || str2 == null || str2.startsWith("/storage/emulated/legacy") || str2.contains("/Android/obb")) {
+                return false;
+            }
+            if (str2.startsWith("/storage/")) {
+                return true;
+            }
+            if (!nl3.e() || str2.startsWith("/mnt/") || str2.startsWith("/data/")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                return new File(str).canRead();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

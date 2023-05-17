@@ -1,127 +1,84 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.ct4;
-import com.baidu.tieba.myCollection.baseEditMark.MarkModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class pq8 extends ct4 {
+/* loaded from: classes7.dex */
+public class pq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MarkModel a;
+    public View a;
+    public ImageView b;
+    public Context c;
+    public TextView d;
 
-    public pq8(BaseActivity baseActivity) {
+    public pq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.a = new MarkModel(baseActivity);
     }
 
-    public pq8(BaseFragmentActivity baseFragmentActivity) {
+    public void a(TbPageContext<?> tbPageContext) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            hx4 layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-        this.a = null;
-        this.a = new MarkModel(baseFragmentActivity);
-    }
-
-    @Override // com.baidu.tieba.ct4
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.Y();
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.ct4
-    public void d() {
+    public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.Z();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
         }
     }
 
-    @Override // com.baidu.tieba.ct4
-    public boolean e() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.a0();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ct4
-    public MarkData f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.b0();
-        }
-        return (MarkData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct4
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.c0();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ct4
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a.d0(z);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f153f), Integer.valueOf(i)));
         }
     }
 
-    @Override // com.baidu.tieba.ct4
-    public void i(MarkData markData) {
+    public View b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
-            this.a.e0(markData);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.c = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090a, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09231a);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092319);
+            return this.a;
         }
-    }
-
-    @Override // com.baidu.tieba.ct4
-    public void j(ct4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.a.f0(aVar);
-        }
+        return (View) invokeL.objValue;
     }
 }

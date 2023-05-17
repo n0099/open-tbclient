@@ -1,76 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.badlogic.gdx.utils.reflect.ReflectionException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class i8 {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+/* loaded from: classes5.dex */
+public final class i8 {
     public static /* synthetic */ Interceptable $ic;
-    public static i8 a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Constructor a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448305822, "Lcom/baidu/tieba/i8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448305822, "Lcom/baidu/tieba/i8;");
-        }
-    }
-
-    public i8(Context context) {
+    public i8(Constructor constructor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {constructor};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = constructor;
     }
 
-    public static synchronized i8 a(Context context) {
-        InterceptResult invokeL;
-        i8 i8Var;
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (i8.class) {
-                if (a == null) {
-                    a = new i8(context);
-                }
-                i8Var = a;
-            }
-            return i8Var;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a.setAccessible(z);
         }
-        return (i8) invokeL.objValue;
     }
 
-    public boolean b() {
+    public Class a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (b == 1) {
-                return true;
-            }
-            return false;
+            return this.a.getDeclaringClass();
         }
-        return invokeV.booleanValue;
+        return (Class) invokeV.objValue;
+    }
+
+    public Object b(Object... objArr) throws ReflectionException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr)) == null) {
+            try {
+                return this.a.newInstance(objArr);
+            } catch (IllegalAccessException e) {
+                throw new ReflectionException("Could not instantiate instance of class: " + a().getName(), e);
+            } catch (IllegalArgumentException e2) {
+                throw new ReflectionException("Illegal argument(s) supplied to constructor for class: " + a().getName(), e2);
+            } catch (InstantiationException e3) {
+                throw new ReflectionException("Could not instantiate instance of class: " + a().getName(), e3);
+            } catch (InvocationTargetException e4) {
+                throw new ReflectionException("Exception occurred in constructor for class: " + a().getName(), e4);
+            }
+        }
+        return invokeL.objValue;
     }
 }

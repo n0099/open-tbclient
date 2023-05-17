@@ -10,9 +10,9 @@ import android.view.Surface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aq8;
-import com.baidu.tieba.qp8;
-import com.baidu.tieba.wp8;
+import com.baidu.tieba.lr8;
+import com.baidu.tieba.rr8;
+import com.baidu.tieba.vr8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class VideoEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "video/avc";
@@ -33,13 +33,13 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public wp8 mPostMonitorManager;
+    public rr8 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
 
     public VideoEncoderCore(int i, int i2, int i3, MediaMuxerWrapper mediaMuxerWrapper) throws IOException {
-        aq8 aq8Var;
+        vr8 vr8Var;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,14 +57,14 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, aq8.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, vr8.class);
         if (runTask != null) {
-            aq8Var = (aq8) runTask.getData();
+            vr8Var = (vr8) runTask.getData();
         } else {
-            aq8Var = null;
+            vr8Var = null;
         }
-        if (aq8Var != null) {
-            this.mPostMonitorManager = aq8Var.get();
+        if (vr8Var != null) {
+            this.mPostMonitorManager = vr8Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -197,9 +197,9 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    wp8 wp8Var = this.mPostMonitorManager;
-                    if (wp8Var != null) {
-                        wp8Var.b(17, qp8.a(e));
+                    rr8 rr8Var = this.mPostMonitorManager;
+                    if (rr8Var != null) {
+                        rr8Var.b(17, lr8.a(e));
                     }
                 }
                 this.mMuxer = null;

@@ -15,16 +15,16 @@ import com.xiaomi.push.io;
 import com.xiaomi.push.iq;
 import com.xiaomi.push.ir;
 import com.xiaomi.push.is;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ce {
     public static is a(Context context, id idVar) {
-        if (idVar.m553b()) {
+        if (idVar.m572b()) {
             return null;
         }
-        byte[] m551a = idVar.m551a();
+        byte[] m570a = idVar.m570a();
         is a = a(idVar.a(), idVar.f639b);
         if (a != null) {
-            ir.a(a, m551a);
+            ir.a(a, m570a);
         }
         return a;
     }

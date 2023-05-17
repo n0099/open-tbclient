@@ -8,18 +8,18 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public int mIndex = 0;
         public DataSource<T> mCurrentDataSource = null;
         public DataSource<T> mDataSourceWithResult = null;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             @Override // com.facebook.datasource.DataSubscriber
             public void onCancellation(DataSource<T> dataSource) {

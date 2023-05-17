@@ -5,6 +5,6 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface DynamiteApi {
 }

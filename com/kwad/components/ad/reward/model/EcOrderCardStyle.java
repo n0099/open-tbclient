@@ -3,7 +3,7 @@ package com.kwad.components.ad.reward.model;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum EcOrderCardStyle {
     SPIKE_AND_COUPON(1),
     SPIKE(2),

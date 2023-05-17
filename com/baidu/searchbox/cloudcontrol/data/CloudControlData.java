@@ -3,7 +3,7 @@ package com.baidu.searchbox.cloudcontrol.data;
 import com.baidu.searchbox.cloudcontrol.processor.IProcessorDataInterceptor;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlData {
     public HashMap<String, Object> mCheckDatas;
     public CloudControlErrorBean mCloudControlErrorBean;

@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActivityPendingTransitionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
-    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = 2130772012;
-    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = 2130772022;
+    public static int RES_BIG_IMAGE_IN_FROM_RIGHT = 2130772019;
+    public static int RES_BIG_IMAGE_OUT_TO_RIGHT = 2130772023;
     public static int RES_CUSTOM_FADE_IN = 0;
     public static int RES_CUSTOM_FADE_OUT = 0;
     public static int RES_CUSTOM_IN_FROM_RIGHT = 0;
     public static int RES_CUSTOM_OUT_TO_RIGHT = 0;
     public static int RES_FADE_OUT = 2130772068;
     public static int RES_NFADE_IN = 2130772067;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772121;
-    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772122;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772202;
-    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772204;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772138;
+    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772139;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772219;
+    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772221;
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;

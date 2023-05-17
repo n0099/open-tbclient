@@ -1,69 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.me;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class c57 {
+import kotlin.jvm.internal.Intrinsics;
+import org.aspectj.runtime.reflect.SignatureImpl;
+/* loaded from: classes5.dex */
+public final class c57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
 
-    public c57() {
+    public static final String a(String active, String task) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, active, task)) == null) {
+            Intrinsics.checkNotNullParameter(active, "active");
+            Intrinsics.checkNotNullParameter(task, "task");
+            return active + SignatureImpl.SEP + task;
         }
-        b();
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            t05.d();
-            this.a = t05.b("tb.tbtiel_level_info");
-        }
-    }
-
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        me.b<byte[]> bVar;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            me<byte[]> meVar = this.a;
-            if (meVar != null && str != null) {
-                bVar = meVar.h(str);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
-        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.UnknownHostException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int a = 0;

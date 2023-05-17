@@ -6,7 +6,7 @@ import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CodecSpecificDataUtil {
     public static final int AUDIO_OBJECT_TYPE_AAC_LC = 2;
     public static final int AUDIO_OBJECT_TYPE_ER_BSAC = 22;

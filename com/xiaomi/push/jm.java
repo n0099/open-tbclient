@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class jm extends jn {
     public int a;
 
@@ -36,13 +36,13 @@ public final class jm extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a */
-    public void mo639a(byte[] bArr, int i, int i2) {
+    public void mo658a(byte[] bArr, int i, int i2) {
         throw new UnsupportedOperationException("No writing allowed!");
     }
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] mo640a() {
+    public byte[] mo659a() {
         return this.f819a;
     }
 

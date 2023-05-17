@@ -1,27 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.view.NavigationBarCoverTip;
-/* loaded from: classes4.dex */
-public interface da5 {
-    boolean a();
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Hashtable;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class da5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Hashtable<String, String> a;
+    public Hashtable<String, String> b;
 
-    int b();
+    public da5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Hashtable<>();
+        this.b = new Hashtable<>();
+    }
 
-    void c();
+    public final void a(Hashtable hashtable, JSONArray jSONArray) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, hashtable, jSONArray) == null) && (length = jSONArray.length()) > 0) {
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    try {
+                        hashtable.put(next, optJSONObject.get(next));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
 
-    Dialog d(int i, TbPageContext tbPageContext, uw5 uw5Var, boolean z);
+    public boolean b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (str == null) {
+                return true;
+            }
+            String str2 = null;
+            if (i == 1) {
+                str2 = this.b.get(str);
+            } else if (i == 2) {
+                str2 = this.a.get(str);
+            }
+            if (StringUtils.isNull(str2)) {
+                return true;
+            }
+            return str2.equals("3");
+        }
+        return invokeIL.booleanValue;
+    }
 
-    NavigationBarCoverTip e(Activity activity, ViewGroup viewGroup);
-
-    void f(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z);
-
-    int g();
-
-    void h(boolean z, long j);
-
-    void i(boolean z, int i, int i2);
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
+            BdLog.e("consumepath is:" + jSONObject.toString());
+            a(this.a, optJSONArray);
+            a(this.b, optJSONArray2);
+            BdLog.e("pay mPayCashierType:" + this.a.toString());
+            BdLog.e("pay mPayCashierType:" + this.b.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

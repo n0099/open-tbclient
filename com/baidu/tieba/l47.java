@@ -1,138 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class l47 extends vm<m47, ComplaintBarlordViewHolder> {
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class l47 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public View.OnClickListener b;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892986, "Lcom/baidu/tieba/l47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947892986, "Lcom/baidu/tieba/l47;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l47 a;
 
-        public a(l47 l47Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l47Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = l47Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public final int a(b07 colorData) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
-                String str = (String) view2.getTag();
-                if (this.a.a == 4) {
-                    str = str + "?isNightModel=1";
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                int type = colorData.getType();
+                if (type != 1) {
+                    if (type == 2) {
+                        return SkinManager.getColor(cy6.a.getResources().getIdentifier(colorData.b(), "color", cy6.a.getPackageName()));
+                    }
+                } else {
+                    int currentSkinType = SkinManager.getCurrentSkinType();
+                    if (currentSkinType != 0) {
+                        if (currentSkinType == 4) {
+                            return wp9.f(colorData.a());
+                        }
+                    } else {
+                        return wp9.f(colorData.b());
+                    }
                 }
-                pt4.v(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f0456), str, true);
+                return 0;
             }
+            return invokeL.intValue;
         }
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l47(a9 a9Var) {
-        super(a9Var.getPageActivity(), m47.c, a9Var.getUniqueId());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public final int b(b07 colorData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
+                Intrinsics.checkNotNullParameter(colorData, "colorData");
+                if (colorData.getType() == 2) {
+                    return cy6.a.getResources().getIdentifier(colorData.b(), "color", cy6.a.getPackageName());
+                }
+                return 0;
             }
-        }
-        this.b = new a(this);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: z */
-    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0427, viewGroup, false));
-        }
-        return (ComplaintBarlordViewHolder) invokeL.objValue;
-    }
-
-    public View A(int i, View view2, ViewGroup viewGroup, m47 m47Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m47Var, complaintBarlordViewHolder})) == null) {
-            if (m47Var != null && complaintBarlordViewHolder != null) {
-                y(complaintBarlordViewHolder);
-                x(complaintBarlordViewHolder, m47Var);
-            }
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.vm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, m47 m47Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        A(i, view2, viewGroup, m47Var, complaintBarlordViewHolder);
-        return view2;
-    }
-
-    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder, m47 m47Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, complaintBarlordViewHolder, m47Var) == null) {
-            complaintBarlordViewHolder.d.setText(m47Var.a);
-            complaintBarlordViewHolder.b.setTag(m47Var.b);
-            complaintBarlordViewHolder.b.setOnClickListener(this.b);
-        }
-    }
-
-    public final void y(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, complaintBarlordViewHolder) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            this.a = skinType;
-            if (complaintBarlordViewHolder.a == skinType) {
-                return;
-            }
-            complaintBarlordViewHolder.a = skinType;
-            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
-            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
-            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
+            return invokeL.intValue;
         }
     }
 }

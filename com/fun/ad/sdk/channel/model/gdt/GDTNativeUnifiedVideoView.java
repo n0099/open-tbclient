@@ -25,7 +25,7 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.comm.util.AdError;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GDTNativeUnifiedVideoView extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -130,8 +130,8 @@ public class GDTNativeUnifiedVideoView extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f09010a);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ad);
+            this.d = (MediaView) findViewById(R.id.obfuscated_res_0x7f090117);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ba);
         }
     }
 
@@ -155,7 +155,7 @@ public class GDTNativeUnifiedVideoView extends u {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements NativeADMediaListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

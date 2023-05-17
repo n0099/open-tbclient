@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.xiaomi.push";
     public static final String BUILD_TYPE = "release";

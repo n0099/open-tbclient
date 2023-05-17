@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LiteralByteString extends ByteString {
     public final byte[] bytes;
     public int hash = 0;
@@ -31,7 +31,7 @@ public class LiteralByteString extends ByteString {
         return true;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class LiteralByteIterator implements ByteString.ByteIterator {
         public final int limit;
         public int position;

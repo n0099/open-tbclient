@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.im.live;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveMessageBean {
     public String at_character_name;
     public MessageBody at_message_body;
@@ -27,7 +27,7 @@ public class LiveMessageBean {
     public String at_vip = "0";
     public String at_character = "1005";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Character {
         public static final int ANCHOR = 1001;
         public static final int BLACKLISTUSER = 1009;
@@ -40,7 +40,7 @@ public class LiveMessageBean {
         public static final int WHITELISTUSER = 3;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Data {
         public String closeExt;
         public long[] delMsgIds;
@@ -60,13 +60,13 @@ public class LiveMessageBean {
         public String liveFLVUrl = "";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Link {
         public String title;
         public String url;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MessageBody {
         public Link link;
         public Pic pic;
@@ -74,7 +74,7 @@ public class LiveMessageBean {
         public Voice voice;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MessageType {
         public static final int PIC = 1;
         public static final int PIC_LINK = 4;
@@ -84,12 +84,12 @@ public class LiveMessageBean {
         public static final int VOICE = 5;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Pic {
         public ImageInfo origin;
         public ImageInfo thumbnail;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class ImageInfo {
             public String format;
             public int height;
@@ -98,7 +98,7 @@ public class LiveMessageBean {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ServiceType {
         public static final int QUIZ_CONTINUE_INFO = 6;
         public static final int QUIZ_CONTINUE_RESULT = 7;
@@ -109,18 +109,18 @@ public class LiveMessageBean {
         public static final int QUIZ_WINNER_RESULT = 4;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface StickOperation {
         public static final int CANCEL_STICK = 2;
         public static final int STICK = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Txt {
         public String word;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Type {
         public static final int AT = 3;
         public static final int ENTER_LIVE = 1001;
@@ -138,13 +138,13 @@ public class LiveMessageBean {
         public static final int SYSTEM_TXT = 100;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Vip {
         public static final int NOMALUSER = 0;
         public static final int VIP = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Voice {
         public String duration;
         public String format;

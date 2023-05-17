@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gz7;
+import com.baidu.tieba.u08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GamePersonalChatActivity extends PersonalChatActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,10 +32,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     public CustomMessageListener d0;
 
     @Override // com.baidu.tieba.immessagecenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean U1(gz7 gz7Var) {
+    public boolean U1(u08 u08Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gz7Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u08Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -61,7 +61,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +295,7 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
         tBAlertBuilder.w(R.string.game_back_tip);
         tBAlertBuilder.m(R.string.cancel_game_match);
         tBAlertBuilder.o(true);
-        tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0526, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f106b, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
+        tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f057a, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f112d, TBAlertConfig.OperateBtnStyle.MAIN, new c(this)));
         tBAlertBuilder.i();
         tBAlertBuilder.j(false);
         tBAlertBuilder.z();

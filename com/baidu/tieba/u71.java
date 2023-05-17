@@ -1,46 +1,77 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.c91;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class u71 extends j71 {
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class u71 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static final int b = 0;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n71 a;
 
-    public u71(@NonNull n71 n71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n71Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public interface a {
+        boolean a(HashMap<String, String> hashMap, int i);
+
+        void b(Context context, int i);
+
+        AbsNadBrowserView c(Context context, e91 e91Var, int i);
+
+        void d(Context context, boolean z, int i, c91.b bVar);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163802, "Lcom/baidu/tieba/u71;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163802, "Lcom/baidu/tieba/u71;");
                 return;
             }
         }
-        this.a = n71Var;
+        a aVar = t71.b;
+        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
+        a = aVar;
+        c = 1;
     }
 
-    @Override // com.baidu.tieba.j71
-    public void m() {
+    public static final a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.m();
-            if (this.a.l() != null && this.a.l().k() != null) {
-                String c = this.a.l().k().c();
-                if (!TextUtils.isEmpty(c)) {
-                    this.a.m().setUserAgentString(c);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return (a) invokeV.objValue;
+    }
+
+    public static final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return invokeV.intValue;
+    }
+
+    public static final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
     }
 }

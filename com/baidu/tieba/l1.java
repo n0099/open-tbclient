@@ -1,26 +1,47 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k6;
-import com.baidu.tieba.l3;
-import com.baidu.tieba.m1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class l1 extends k1<l3, a> {
+/* loaded from: classes6.dex */
+public class l1 extends c1<l5, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l3.c b;
+    public String b;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public static class a extends u0<l3> {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b1
+    /* renamed from: f */
+    public o6<w0> a(String str, x2 x2Var, a aVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, x2Var, aVar)) == null) {
+            return null;
+        }
+        return (o6) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.c1
+    /* renamed from: g */
+    public void c(a1 a1Var, String str, x2 x2Var, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, a1Var, str, x2Var, aVar) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends y0<l5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public boolean b;
+        public String b;
+        public String c;
+        public boolean d;
+        public String e;
+        public String f;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -35,75 +56,90 @@ public class l1 extends k1<l3, a> {
                     return;
                 }
             }
-            this.b = false;
+            this.d = true;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l1(b1 b1Var) {
-        super(b1Var);
+    public l1(f1 f1Var) {
+        super(f1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b1Var};
+            Object[] objArr = {f1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b1) newInitContext.callArgs[0]);
+                super((f1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = ".vert";
+        this.c = ".frag";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x0
-    /* renamed from: d */
-    public k6<s0> a(String str, t2 t2Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, t2Var, aVar)) == null) {
-            t2 i = t2Var.i();
-            if (aVar != null) {
-                this.b = new l3.c(t2Var, i, aVar.b);
-            } else {
-                this.b = new l3.c(t2Var, i, false);
-            }
-            k6<s0> k6Var = new k6<>();
-            k6.b<l3.c.p> it = this.b.a().iterator();
-            while (it.hasNext()) {
-                l3.c.p next = it.next();
-                m1.b bVar = new m1.b();
-                bVar.b = next.f;
-                bVar.c = next.e;
-                bVar.f = next.g;
-                bVar.g = next.h;
-                k6Var.a(new s0(next.a, Texture.class, bVar));
-            }
-            return k6Var;
-        }
-        return (k6) invokeLLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k1
-    /* renamed from: e */
-    public l3 c(w0 w0Var, String str, t2 t2Var, a aVar) {
+    @Override // com.baidu.tieba.c1
+    /* renamed from: h */
+    public l5 d(a1 a1Var, String str, x2 x2Var, a aVar) {
         InterceptResult invokeLLLL;
+        String str2;
+        x2 b;
+        String o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, w0Var, str, t2Var, aVar)) == null) {
-            k6.b<l3.c.p> it = this.b.a().iterator();
-            while (it.hasNext()) {
-                l3.c.p next = it.next();
-                next.b = (Texture) w0Var.j(next.a.j().replaceAll("\\\\", "/"), Texture.class);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, a1Var, str, x2Var, aVar)) == null) {
+            String str3 = null;
+            if (aVar != null) {
+                String str4 = aVar.b;
+                if (str4 == null) {
+                    str4 = null;
+                }
+                str2 = aVar.c;
+                if (str2 == null) {
+                    str2 = null;
+                }
+                str3 = str4;
+            } else {
+                str2 = null;
             }
-            l3 l3Var = new l3(this.b);
-            this.b = null;
-            return l3Var;
+            if (str3 == null && str.endsWith(this.c)) {
+                str3 = str.substring(0, str.length() - this.c.length()) + this.b;
+            }
+            if (str2 == null && str.endsWith(this.b)) {
+                str2 = str.substring(0, str.length() - this.b.length()) + this.c;
+            }
+            if (str3 == null) {
+                b = x2Var;
+            } else {
+                b = b(str3);
+            }
+            if (str2 != null) {
+                x2Var = b(str2);
+            }
+            String o2 = b.o();
+            if (b.equals(x2Var)) {
+                o = o2;
+            } else {
+                o = x2Var.o();
+            }
+            if (aVar != null) {
+                if (aVar.e != null) {
+                    o2 = aVar.e + o2;
+                }
+                if (aVar.f != null) {
+                    o = aVar.f + o;
+                }
+            }
+            l5 l5Var = new l5(o2, o);
+            if ((aVar == null || aVar.d) && !l5Var.o()) {
+                a1Var.p().b("ShaderProgram " + str + " failed to compile:\n" + l5Var.l());
+            }
+            return l5Var;
         }
-        return (l3) invokeLLLL.objValue;
+        return (l5) invokeLLLL.objValue;
     }
 }

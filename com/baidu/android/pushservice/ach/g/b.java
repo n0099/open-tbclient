@@ -19,12 +19,12 @@ public interface b extends IInterface {
 
         /* renamed from: com.baidu.android.pushservice.ach.g.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0021a implements b {
+        public static class C0024a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C0021a(IBinder iBinder) {
+            public C0024a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();

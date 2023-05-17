@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface PlatformDecoder {
     CloseableReference<Bitmap> decodeFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect);
 

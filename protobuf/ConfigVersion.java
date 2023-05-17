@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ConfigVersion extends Message {
     public static final String DEFAULT_PLUGIN = "";
     public static final String DEFAULT_SYNC = "";
@@ -11,7 +11,7 @@ public final class ConfigVersion extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<ConfigVersion> {
         public String plugin;
         public String sync;

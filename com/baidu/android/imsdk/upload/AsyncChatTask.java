@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.Base64;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,7 +111,7 @@ public class AsyncChatTask implements IUploadTransferListener, IGenBosObjectUrlL
             if (file.exists()) {
                 int i = this.mType;
                 if (i == 1) {
-                    this.mContentType = "image/jpeg";
+                    this.mContentType = WordCommandManager.IMAGE_JPEG;
                     try {
                         str = this.mFilePath.substring(this.mFilePath.lastIndexOf(".") + 1);
                     } catch (Exception e) {

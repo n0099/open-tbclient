@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HeadImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class HeadImageView extends TbClipImageView {
     private void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.z0 = ii.g(getContext(), R.dimen.tbds36);
+            this.z0 = ri.g(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
@@ -270,7 +270,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
-                this.y0 = ii.g(getContext(), i);
+                this.y0 = ri.g(getContext(), i);
             }
             invalidate();
         }
@@ -287,7 +287,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.z0 = ii.g(getContext(), i);
+                this.z0 = ri.g(getContext(), i);
             }
             invalidate();
         }

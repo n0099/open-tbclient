@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final int DEFAULT_CAN_USE_THRESHOLD = 300;
     public static final int DEFAULT_GOOD_IDC_THRESHOLD = 200;
@@ -34,7 +34,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     public int canUseThresholdMs = 300;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CouponActiveConfig extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = 6375241669684789095L;
         public ActivityInfo activityInfo;
@@ -49,7 +49,7 @@ public class SdkConfigData extends BaseResultData implements com.kwad.sdk.core.b
     }
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class TemplateConfigMap extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
         public static final long serialVersionUID = -6512236636350788192L;
         public TemplateConfig couponInfoConfig;

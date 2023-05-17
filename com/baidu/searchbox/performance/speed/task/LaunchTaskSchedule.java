@@ -4,13 +4,13 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.concurrent.AsyncTaskAssistant;
 import com.baidu.searchbox.performance.speed.SpeedRuntime;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.wb;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @MainThread
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchTaskSchedule {
     public static LaunchTaskSchedule sInstance;
     public final Set<Integer> historyLifecycle = new HashSet();
@@ -99,7 +99,7 @@ public class LaunchTaskSchedule {
         }
         for (final LaunchTask launchTask : taskList) {
             if ((launchTask.getProcess() & this.mProcessType) != 0) {
-                qb.b().a(launchTask.getName(), new Runnable() { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
+                wb.b().a(launchTask.getName(), new Runnable() { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
                     @Override // java.lang.Runnable
                     public void run() {
                         launchTask.run();

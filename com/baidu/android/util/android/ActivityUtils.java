@@ -172,11 +172,11 @@ public final class ActivityUtils {
                 if (!z2) {
                     return false;
                 }
-                Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008e, 0).show();
+                Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00b8, 0).show();
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
-                    Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008e, 0).show();
+                    Toast.makeText(activity, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00b8, 0).show();
                 }
                 if (!DEBUG) {
                     return false;
@@ -252,11 +252,11 @@ public final class ActivityUtils {
                 if (!z2) {
                     return false;
                 }
-                Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008e, 0).show();
+                Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00b8, 0).show();
                 return false;
             } catch (SecurityException e) {
                 if (z2) {
-                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f008e, 0).show();
+                    Toast.makeText(context, (int) com.baidu.tieba.R.string.obfuscated_res_0x7f0f00b8, 0).show();
                 }
                 if (!DEBUG) {
                     return false;

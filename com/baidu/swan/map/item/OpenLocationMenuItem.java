@@ -5,16 +5,16 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ol3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.xm3;
+/* loaded from: classes4.dex */
 public class OpenLocationMenuItem {
-    public static final int e = ol3.g(45.0f);
+    public static final int e = xm3.g(45.0f);
     public MenuItemType a;
     public b b;
     public TextView c;
-    public int d = ol3.g(1.0f);
+    public int d = xm3.g(1.0f);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum MenuItemType {
         OPENLOCATION_PATH,
         OPENLOCATION_STREET_VIEW,
@@ -26,7 +26,7 @@ public class OpenLocationMenuItem {
         OPENLOCATION_GOOGLE_MAP
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(OpenLocationMenuItem openLocationMenuItem);
     }
@@ -34,7 +34,7 @@ public class OpenLocationMenuItem {
     public void d(String str) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -59,7 +59,7 @@ public class OpenLocationMenuItem {
         this.c = new TextView(context);
         this.c.setText(str);
         this.c.setTextSize(16.0f);
-        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f2c));
+        this.c.setBackground(context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08107a));
         this.c.setTextColor(-16777216);
         this.c.setGravity(17);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, e);

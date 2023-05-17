@@ -8,7 +8,7 @@ import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
 import com.baidu.searchbox.process.ipc.delegate.DelegateDef;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public int a = 31003;
 

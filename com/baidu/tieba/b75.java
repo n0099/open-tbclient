@@ -1,58 +1,66 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Matcher;
-/* loaded from: classes3.dex */
-public class b75 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class b75 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static String a(@Nullable String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b75(Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            int i = 0;
-            while (i < str.length()) {
-                str = str.substring(i);
-                Matcher matcher = TbPatternsCompat.PLAIN_TEXT_AT_WITH_BLANK.matcher(str);
-                if (!matcher.find()) {
-                    break;
-                }
-                matcher.group(1).trim();
-                matcher.group(2).trim();
-                String trim = matcher.group(3).trim();
-                if (i != 0) {
-                    sb.append(",");
-                }
-                sb.append(trim);
-                i = matcher.end();
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void b(String str, String str2) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            String a = a(str);
-            if (!TextUtils.isEmpty(a)) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_SUCESSED).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", str2).param(TiebaStatic.Params.FRIEND_UID, a));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            if (((ImageSpan) this).mVerticalAlignment == -100) {
+                Drawable drawable = getDrawable();
+                canvas.save();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                int i6 = fontMetricsInt.top;
+                canvas.translate(f, i4 + i6 + (((fontMetricsInt.bottom - i6) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+                return;
             }
+            super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
         }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        }
+        return invokeCommon.intValue;
     }
 }

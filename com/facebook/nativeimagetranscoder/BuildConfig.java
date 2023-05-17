@@ -1,5 +1,5 @@
 package com.facebook.nativeimagetranscoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.facebook.nativeimagetranscoder";

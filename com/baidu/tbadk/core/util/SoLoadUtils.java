@@ -12,12 +12,12 @@ import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.bm;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.u45;
-import com.baidu.tieba.vl;
-import com.baidu.tieba.wl;
-import com.baidu.tieba.xh;
+import com.baidu.tieba.d65;
+import com.baidu.tieba.em;
+import com.baidu.tieba.fm;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.km;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SoLoadUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class SoLoadUtils {
     public static void loadPassFaceSo(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            jg.a().post(new Runnable(str) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.3
+            sg.a().post(new Runnable(str) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String val$soName;
@@ -78,12 +78,12 @@ public class SoLoadUtils {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_start", 0, "", new Object[0]);
+                            d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_start", 0, "", new Object[0]);
                             System.loadLibrary(this.val$soName);
-                            u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_end", 0, "", new Object[0]);
+                            d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_end", 0, "", new Object[0]);
                         } catch (Throwable th) {
                             th.printStackTrace();
-                            u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_error", 1, th.getMessage(), new Object[0]);
+                            d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_loadLibrary_error", 1, th.getMessage(), new Object[0]);
                         }
                     }
                 }
@@ -95,7 +95,7 @@ public class SoLoadUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str))) {
-                u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo", 0, "", new Object[0]);
+                d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo", 0, "", new Object[0]);
                 DefaultDownloadCallback defaultDownloadCallback = new DefaultDownloadCallback(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -124,12 +124,12 @@ public class SoLoadUtils {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
                             super.onDownloadSuccess(packageInfo, errorInfo);
-                            u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onDownloadSuccess", 0, "", new Object[0]);
+                            d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onDownloadSuccess", 0, "", new Object[0]);
                             SoLoadUtils.loadPassFaceSo(this.val$soName);
                         }
                     }
                 };
-                bm bmVar = new bm(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
+                km kmVar = new km(str3) { // from class: com.baidu.tbadk.core.util.SoLoadUtils.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$soName;
@@ -152,23 +152,23 @@ public class SoLoadUtils {
                         this.val$soName = str3;
                     }
 
-                    @Override // com.baidu.tieba.bm
+                    @Override // com.baidu.tieba.km
                     public void onSoFileLoaded(String str4) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, str4) == null) {
-                            u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onSoFileLoaded", 0, "", new Object[0]);
+                            d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_nonSo_onSoFileLoaded", 0, "", new Object[0]);
                             SoLoadUtils.loadPassFaceSo(this.val$soName);
                         }
                     }
                 };
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(wl.a);
+                requestParams.setRunType(fm.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new vl(str2, defaultDownloadCallback, bmVar));
+                requestParams.addChannel(new em(str2, defaultDownloadCallback, kmVar));
                 PmsManager.getInstance().execute(requestParams);
                 return;
             }
-            u45.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_hasSo", 0, "", new Object[0]);
+            d65.a(DI.ACCOUNT, 100L, 0, "SoLoadUtils_checkDownloadSo_hasSo", 0, "", new Object[0]);
             loadPassFaceSo(str3);
         }
     }
@@ -180,7 +180,7 @@ public class SoLoadUtils {
         String[] list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (xh.a()) {
+            if (gi.a()) {
                 str = "so_64_cache";
             } else {
                 str = "so_cache";

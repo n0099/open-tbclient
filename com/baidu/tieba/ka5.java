@@ -1,78 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
-import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
 public class ka5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n85 a;
-    public b b;
-    public int c;
-    public int d;
-    public ChannelIconConfigFinalData e;
-    public HttpMessageListener f;
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z, n85 n85Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ka5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ka5 ka5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ka5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ka5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ChannelConfigResponseMessage)) {
-                ChannelConfigResponseMessage channelConfigResponseMessage = (ChannelConfigResponseMessage) httpResponsedMessage;
-                this.a.a = channelConfigResponseMessage.getData();
-                if (this.a.b != null) {
-                    this.a.b.a(channelConfigResponseMessage.isSuccess(), channelConfigResponseMessage.getData());
-                }
-                if (channelConfigResponseMessage.isSuccess()) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921493, null));
-                }
-            }
-        }
-    }
+    public List<la5> a;
 
     public ka5() {
         Interceptable interceptable = $ic;
@@ -84,52 +24,44 @@ public class ka5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = new a(this, CmdConfigHttp.CMD_GET_CHANNEL_CONFIG);
-        MessageManager.getInstance().registerListener(this.f);
-        this.c = f55.m().n("key_common_category_version", 0);
-        this.d = f55.m().n("key_special_category_version", 0);
     }
 
-    public ChannelIconConfigFinalData c() {
-        InterceptResult invokeV;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ChannelIconConfigFinalData channelIconConfigFinalData = this.e;
-            if (channelIconConfigFinalData != null) {
-                return channelIconConfigFinalData;
-            }
-            if (this.a == null) {
-                return null;
-            }
-            ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
-            n85 n85Var = this.a;
-            if (n85Var != null && n85Var.b() != null && this.d < this.a.b().e()) {
-                channelIconConfigFinalData2.setIcon(this.a.b().a());
-                channelIconConfigFinalData2.setPopText(this.a.b().b());
-                channelIconConfigFinalData2.setTabCode(this.a.b().c());
-                channelIconConfigFinalData2.setTid(this.a.b().d());
-                channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
-            } else {
-                n85 n85Var2 = this.a;
-                if (n85Var2 != null && n85Var2.a() > 0 && this.c < this.a.a()) {
-                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
-                } else {
-                    channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    o65.m().B("key_index_tab_info_list", "[]");
+                    return;
                 }
+                JSONArray jSONArray2 = new JSONArray(o65.m().s("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    la5 la5Var = new la5();
+                    la5 la5Var2 = new la5();
+                    la5Var.i(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        la5Var2.i(jSONArray2.getJSONObject(i2));
+                        if (la5Var.c != null && la5Var.c.equals(la5Var2.c)) {
+                            if (!TextUtils.isEmpty(la5Var2.e) && la5Var2.e.equals(la5Var.e)) {
+                                z = false;
+                                la5Var.f = z;
+                            }
+                            z = true;
+                            la5Var.f = z;
+                        }
+                    }
+                    if (!la5Var.f()) {
+                        this.a.add(la5Var);
+                    }
+                }
+                o65.m().B("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            this.e = channelIconConfigFinalData2;
-            return channelIconConfigFinalData2;
-        }
-        return (ChannelIconConfigFinalData) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_CHANNEL_CONFIG));
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PoiIndoorInfo {
     public String address;
     public String bid;

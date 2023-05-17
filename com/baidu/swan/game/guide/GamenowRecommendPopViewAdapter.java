@@ -9,24 +9,24 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hy3;
-import com.baidu.tieba.ty3;
+import com.baidu.tieba.c04;
+import com.baidu.tieba.qz3;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
     public Context a;
     public List<GameGuideConfigInfo.RecommendGameInfo> b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends RecyclerView.ViewHolder {
         public SimpleDraweeView a;
         public TextView b;
 
         public a(GamenowRecommendPopViewAdapter gamenowRecommendPopViewAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090921);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090942);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -53,7 +53,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: l */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00af, viewGroup, false));
+        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00b1, viewGroup, false));
         aVar.itemView.setOnClickListener(this);
         return aVar;
     }
@@ -73,7 +73,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
-        ty3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
-        hy3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
+        c04.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
+        qz3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
     }
 }

@@ -2,14 +2,14 @@ package com.facebook.drawee.components;
 
 import java.util.Queue;
 import java.util.concurrent.ArrayBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DraweeEventTracker {
     public static final int MAX_EVENTS_TO_TRACK = 20;
     public final Queue<Event> mEventQueue = new ArrayBlockingQueue(20);
     public static final DraweeEventTracker sInstance = new DraweeEventTracker();
     public static boolean sEnabled = true;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum Event {
         ON_SET_HIERARCHY,
         ON_CLEAR_HIERARCHY,

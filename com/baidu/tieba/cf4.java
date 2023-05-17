@@ -1,124 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import android.graphics.Color;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpOptions;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes3.dex */
-public class cf4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class cf4 extends bf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static HttpRequestBuilder a(@NonNull af4 af4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, af4Var)) == null) {
-            return b(af4Var, null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947672824, "Lcom/baidu/tieba/cf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947672824, "Lcom/baidu/tieba/cf4;");
+                return;
+            }
         }
-        return (HttpRequestBuilder) invokeL.objValue;
+        g = Color.parseColor("#26c56c");
     }
 
-    @NonNull
-    public static HttpRequestBuilder b(@NonNull af4 af4Var, @Nullable bf4 bf4Var) {
-        InterceptResult invokeLL;
-        HttpCommonRequestBuilder o;
+    @Override // com.baidu.tieba.bf4
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, af4Var, bf4Var)) == null) {
-            if (bf4Var == null) {
-                bf4Var = bf4.g();
-            }
-            String str = af4Var.b;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -531492226:
-                    if (str.equals(HttpOptions.METHOD_NAME)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 70454:
-                    if (str.equals("GET")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 79599:
-                    if (str.equals(HttpPut.METHOD_NAME)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 2213344:
-                    if (str.equals("HEAD")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 2461856:
-                    if (str.equals("POST")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 80083237:
-                    if (str.equals(HttpTrace.METHOD_NAME)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1669334218:
-                    if (str.equals("CONNECT")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 2012838315:
-                    if (str.equals(HttpDelete.METHOD_NAME)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return bf4Var.getRequest();
-                case 1:
-                    return bf4Var.headerRequest();
-                case 2:
-                    o = bf4Var.o();
-                    break;
-                case 3:
-                    o = bf4Var.postRequest();
-                    break;
-                case 4:
-                    o = bf4Var.putRequest();
-                    break;
-                case 5:
-                    o = bf4Var.deleteRequest();
-                    break;
-                case 6:
-                    o = bf4Var.y();
-                    break;
-                case 7:
-                    o = bf4Var.a();
-                    break;
-                default:
-                    return bf4Var.getRequest();
-            }
-            RequestBody requestBody = af4Var.d;
-            if (requestBody != null) {
-                o.requestBody(requestBody);
-            }
-            return o;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return g;
         }
-        return (HttpRequestBuilder) invokeLL.objValue;
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cf4(BaiduMap baiduMap) {
+        super(baiduMap);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((BaiduMap) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

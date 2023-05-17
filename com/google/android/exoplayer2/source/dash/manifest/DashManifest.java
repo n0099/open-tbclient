@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DashManifest {
     public final long availabilityStartTime;
     public final long duration;

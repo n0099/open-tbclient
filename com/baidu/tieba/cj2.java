@@ -1,119 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.tq2;
+import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class cj2 extends u93 {
+/* loaded from: classes5.dex */
+public final class cj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public class a implements tq2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.tq2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-
-        public a(cj2 cj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tq2.c
-        public void onFailed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Toast.makeText(er2.c(), (int) R.string.obfuscated_res_0x7f0f0151, 1).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.tq2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File d = eh3.d();
-                File c = eh3.c();
-                if (d.exists() && bo4.U(d.getPath(), c.getPath())) {
-                    w33.M(true);
-                    Toast.makeText(er2.c(), (int) R.string.obfuscated_res_0x7f0f0152, 1).show();
-                    return;
-                }
-                Toast.makeText(er2.c(), (int) R.string.obfuscated_res_0x7f0f0151, 1).show();
-            }
+    public static void a(e82 e82Var, gj2 gj2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, e82Var, gj2Var) == null) && e82Var != null && gj2Var != null) {
+            gj2Var.g(e82Var);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cj2(u83 u83Var) {
-        super(u83Var, "/swanAPI/debugSwanCore");
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                String quote = JSONObject.quote(str3);
+                return str + "." + str2 + " = " + quote + ParamableElem.DIVIDE_PARAM;
             }
+            return "";
         }
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public static String c(e82 e82Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (!u93.b) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e82Var)) == null) {
+            if (e82Var.isWebView()) {
+                return ClearCacheUbcController.DOCUMENT;
             }
-            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0149, 1).show();
-                return false;
-            }
-            String optString = a2.optString("downloadurl");
-            if (TextUtils.isEmpty(optString)) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f011e, 1).show();
-                return false;
-            }
-            tq2.J(optString, new a(this));
-            return true;
+            return SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME;
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

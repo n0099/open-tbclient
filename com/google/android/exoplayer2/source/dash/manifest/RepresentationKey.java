@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class RepresentationKey implements Parcelable, Comparable<RepresentationKey> {
     public static final Parcelable.Creator<RepresentationKey> CREATOR = new Parcelable.Creator<RepresentationKey>() { // from class: com.google.android.exoplayer2.source.dash.manifest.RepresentationKey.1
         /* JADX DEBUG: Method merged with bridge method */

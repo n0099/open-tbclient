@@ -11,30 +11,30 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.om9;
-import com.baidu.tieba.sm9;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.qo9;
 import com.baidu.tieba.stamp.model.msg.GetStampResponseMessage;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.uo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FetchStampModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public sm9 b;
+    public uo9 b;
     public int c;
-    public bg<tm> d;
+    public kg<cn> d;
     public String e;
     public HttpMessageListener f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,27 +67,27 @@ public class FetchStampModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003522 && (httpResponsedMessage instanceof GetStampResponseMessage)) {
-                List<om9> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
+                List<qo9> stampList = ((GetStampResponseMessage) httpResponsedMessage).getStampList();
                 if (httpResponsedMessage.getError() == 0) {
-                    this.a.Y(stampList);
+                    this.a.X(stampList);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends bg<tm> {
+    /* loaded from: classes7.dex */
+    public class b extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ om9 a;
+        public final /* synthetic */ qo9 a;
         public final /* synthetic */ FetchStampModel b;
 
-        public b(FetchStampModel fetchStampModel, om9 om9Var) {
+        public b(FetchStampModel fetchStampModel, qo9 qo9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fetchStampModel, om9Var};
+                Object[] objArr = {fetchStampModel, qo9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,28 +98,28 @@ public class FetchStampModel extends BdBaseModel {
                 }
             }
             this.b = fetchStampModel;
-            this.a = om9Var;
+            this.a = qo9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
-                super.onLoaded((b) tmVar, str, i);
-                if (tmVar != null && tmVar.w()) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, str, i) == null) {
+                super.onLoaded((b) cnVar, str, i);
+                if (cnVar != null && cnVar.w()) {
                     this.b.b.a(this.a);
                 }
             }
         }
     }
 
-    public FetchStampModel(TbPageContext tbPageContext, sm9 sm9Var) {
+    public FetchStampModel(TbPageContext tbPageContext, uo9 uo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, sm9Var};
+            Object[] objArr = {tbPageContext, uo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,12 +132,12 @@ public class FetchStampModel extends BdBaseModel {
         this.c = 10;
         this.f = new a(this, CmdConfigHttp.CMD_FETCH_STAMP, true);
         this.a = tbPageContext;
-        this.b = sm9Var;
-        X();
+        this.b = uo9Var;
+        W();
         registerListener();
     }
 
-    public final void X() {
+    public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_FETCH_STAMP, TbConfig.SERVER_ADDRESS + "c/s/getIconToast");
@@ -152,7 +152,7 @@ public class FetchStampModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (!StringUtils.isNull(this.e) && this.d != null) {
-                cg.h().d(this.e, this.c, this.d);
+                lg.h().d(this.e, this.c, this.d);
             }
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_FETCH_STAMP);
             MessageManager.getInstance().unRegisterListener(this.f);
@@ -161,25 +161,25 @@ public class FetchStampModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void Y(List<om9> list) {
-        om9 om9Var;
+    public final void X(List<qo9> list) {
+        qo9 qo9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (om9Var = list.get(0)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null || list.size() <= 0 || (qo9Var = list.get(0)) == null) {
             return;
         }
-        String a2 = om9Var.a();
+        String a2 = qo9Var.a();
         this.e = a2;
         if (StringUtils.isNull(a2)) {
             return;
         }
         if (this.d == null) {
-            this.d = new b(this, om9Var);
+            this.d = new b(this, qo9Var);
         }
-        tm tmVar = (tm) cg.h().n(this.e, this.c, new Object[0]);
-        if (tmVar != null && tmVar.w()) {
-            this.b.a(om9Var);
+        cn cnVar = (cn) lg.h().n(this.e, this.c, new Object[0]);
+        if (cnVar != null && cnVar.w()) {
+            this.b.a(qo9Var);
         } else if (this.a != null) {
-            cg.h().m(this.e, this.c, this.d, this.a.getUniqueId());
+            lg.h().m(this.e, this.c, this.d, this.a.getUniqueId());
         }
     }
 

@@ -4,8 +4,7 @@ import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.eg9;
+import com.baidu.tieba.gi9;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,8 +12,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class CategoryListDispatcher implements eg9 {
+/* loaded from: classes7.dex */
+public class CategoryListDispatcher implements gi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +31,7 @@ public class CategoryListDispatcher implements eg9 {
         }
     }
 
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -44,7 +43,7 @@ public class CategoryListDispatcher implements eg9 {
             String optString6 = jSONObject.optString(BdUniDispatchSchemeController.PARAM_HOME_TAB_NAME_CAMEL);
             HashMap hashMap = new HashMap();
             hashMap.put("item_id", optString);
-            hashMap.put(TiebaStatic.Params.TAB_ID, optString2);
+            hashMap.put("tab_id", optString2);
             hashMap.put("sort_type", optString3);
             hashMap.put("rank_type", optString4);
             hashMap.put("rank_code", optString5);

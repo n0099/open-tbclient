@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 0;
@@ -22,7 +22,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
     public String tbs;
     public UserInfo user_info;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class OrderInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2732450616226807443L;
@@ -35,7 +35,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public long scene_id;
         public long timestamp;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class Cpath extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -7950965099930244673L;
@@ -47,7 +47,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
             public int tip_days;
             public int tip_exist;
 
-            /* loaded from: classes5.dex */
+            /* loaded from: classes6.dex */
             public static final class Member extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
                 public static final long serialVersionUID = 8094155826429200428L;
@@ -340,7 +340,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class UserInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4710995963160510207L;
@@ -354,7 +354,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         public String user_name_utf8;
         public String user_nickname;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public static final class UserScores extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -667999598567432177L;
@@ -654,7 +654,7 @@ public class PaymentConfirmInfoData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class GoodsInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NAME_LENGTH_MAX = 7;

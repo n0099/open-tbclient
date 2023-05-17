@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes7.dex */
 public interface rj5 {
-    void a(oj5 oj5Var);
-
-    void b(qj5 qj5Var);
-
-    void startService();
+    void a(long j, int i, @NonNull String str);
 }

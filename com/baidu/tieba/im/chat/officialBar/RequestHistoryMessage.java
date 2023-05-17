@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.QueryHistoryMsg.DataReq;
 import protobuf.QueryHistoryMsg.QueryHistoryMsgReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RequestHistoryMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

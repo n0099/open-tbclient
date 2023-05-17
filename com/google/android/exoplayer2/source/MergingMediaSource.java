@@ -9,7 +9,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MergingMediaSource implements MediaSource {
     public static final int PERIOD_COUNT_UNSET = -1;
     public MediaSource.Listener listener;
@@ -21,14 +21,14 @@ public final class MergingMediaSource implements MediaSource {
     public final Timeline.Window window = new Timeline.Window();
     public int periodCount = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class IllegalMergeException extends IOException {
         public static final int REASON_PERIOD_COUNT_MISMATCH = 1;
         public static final int REASON_WINDOWS_ARE_DYNAMIC = 0;
         public final int reason;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public @interface Reason {
         }
 

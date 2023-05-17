@@ -10,16 +10,17 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.OpenClientUtil;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduMapPoiSearch {
     public static boolean a = true;
 
     public static void a(PoiParaOption poiParaOption, Context context) {
         Uri parse = Uri.parse("http://api.map.baidu.com/place/detail?uid=" + poiParaOption.a + "&output=html&src=" + context.getPackageName());
         Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
+        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.setData(parse);
         context.startActivity(intent);
@@ -65,7 +66,7 @@ public class BaiduMapPoiSearch {
         sb.append(context.getPackageName());
         Uri parse = Uri.parse(sb.toString());
         Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
+        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.setData(parse);
         context.startActivity(intent);
@@ -156,7 +157,7 @@ public class BaiduMapPoiSearch {
                 sb.append("street");
                 sb.append("&src=");
                 sb.append("sdk_[" + context.getPackageName() + PreferencesUtil.RIGHT_MOUNT);
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 if (intent.resolveActivity(context.getPackageManager()) != null) {
                     context.startActivity(intent);

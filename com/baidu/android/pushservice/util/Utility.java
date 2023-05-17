@@ -63,7 +63,7 @@ import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -115,14 +115,14 @@ public final class Utility {
 
         /* renamed from: com.baidu.android.pushservice.util.Utility$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0034a extends com.baidu.android.pushservice.z.c {
+        public class C0037a extends com.baidu.android.pushservice.z.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int c;
             public final /* synthetic */ String d;
             public final /* synthetic */ a e;
 
-            public C0034a(a aVar, int i, String str) {
+            public C0037a(a aVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -198,7 +198,7 @@ public final class Utility {
         public void onRegister(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-                com.baidu.android.pushservice.z.e.a().a(new C0034a(this, i, str));
+                com.baidu.android.pushservice.z.e.a().a(new C0037a(this, i, str));
             }
         }
 
@@ -718,7 +718,7 @@ public final class Utility {
         }
         Context applicationContext = context.getApplicationContext();
         Intent intent = new Intent("com.huawei.android.push.intent.REGISTER");
-        intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, applicationContext.getPackageName());
+        intent.putExtra("pkg_name", applicationContext.getPackageName());
         intent.putExtra("is_hms", true);
         intent.setFlags(32);
         applicationContext.sendBroadcast(intent);
@@ -964,7 +964,7 @@ public final class Utility {
         if (interceptable == null || (invokeV = interceptable.invokeV(65576, null)) == null) {
             try {
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL);
+                return (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "ro.build.version.incremental");
             } catch (Exception unused) {
                 return "";
             }
@@ -1809,7 +1809,7 @@ public final class Utility {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, str)) == null) {
             try {
-                return (String) Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod("get", String.class).invoke(null, str);
+                return (String) Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(null, str);
             } catch (Exception unused) {
                 return "";
             }
@@ -1890,7 +1890,7 @@ public final class Utility {
                     return SystemProperties.get(str);
                 }
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+                return (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, str);
             } catch (Exception unused) {
                 return "";
             }
@@ -2140,7 +2140,7 @@ public final class Utility {
                         str2 = SystemProperties.get(str3);
                     } else {
                         Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                        str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str3);
+                        str2 = (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, str3);
                     }
                     if (str.contains("HUAWEI") && !TextUtils.isEmpty(str2)) {
                         return (a(str2, "\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? str2.substring(str2.indexOf("_") + 1, str2.length()) : com.baidu.down.utils.Constants.SDK_VER;
@@ -2664,13 +2664,13 @@ public final class Utility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65663, null, context)) == null) {
             String a2 = a(context, true);
             String str2 = "";
-            String str3 = a2.contains(RomUtils.ROM_XIAOMI) ? RomUtils.PROP_RO_BUILD_VERSION_INCREMENTAL : (a2.contains("HUAWEI") || a2.contains("HONOR")) ? "ro.build.version.emui" : a2.contains("MEIZU") ? "ro.build.flyme.version" : (a2.contains("OPPO") || a2.contains("REALME")) ? "ro.build.version.opporom" : a2.contains("VIVO") ? "ro.vivo.os.version" : a2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
+            String str3 = a2.contains(RomUtils.ROM_XIAOMI) ? "ro.build.version.incremental" : (a2.contains("HUAWEI") || a2.contains("HONOR")) ? "ro.build.version.emui" : a2.contains("MEIZU") ? "ro.build.flyme.version" : (a2.contains("OPPO") || a2.contains("REALME")) ? "ro.build.version.opporom" : a2.contains("VIVO") ? "ro.vivo.os.version" : a2.contains(RomTypeUtil.ROM_ONEPLUS) ? "ro.rom.version" : "";
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
                     str = SystemProperties.get(str3);
                 } else {
                     Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                    str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str3);
+                    str = (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, str3);
                 }
                 str2 = str;
             } catch (Throwable unused) {

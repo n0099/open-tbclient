@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class l implements k {
     public static final long a = Os.sysconf(OsConstants._SC_PAGESIZE);
     public final FileDescriptor b;

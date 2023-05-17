@@ -1,124 +1,46 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class c73 extends w63 {
+/* loaded from: classes5.dex */
+public class c73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
 
-    /* loaded from: classes3.dex */
-    public static class a {
+    /* loaded from: classes5.dex */
+    public interface c {
+        void onClickSwitch(View view2, boolean z);
+    }
+
+    public static boolean f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final b a;
-        public final c73 b;
-        public Context c;
-        public boolean d;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ c c;
 
-        public abstract c73 b(Context context);
-
-        /* renamed from: com.baidu.tieba.c73$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class View$OnClickListenerC0232a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public View$OnClickListenerC0232a(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    this.b.b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.a;
-                    if (onClickListener != null) {
-                        onClickListener.onClick(this.b.b, -1);
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    this.b.b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.a;
-                    if (onClickListener != null) {
-                        onClickListener.onClick(this.b.b, -2);
-                    }
-                }
-            }
-        }
-
-        public a(Context context) {
+        public a(View view2, View view3, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {view2, view3, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -128,155 +50,36 @@ public class c73 extends w63 {
                     return;
                 }
             }
-            this.d = false;
-            c73 b2 = b(context);
-            this.b = b2;
-            b2.d(this);
-            this.a = new b((ViewGroup) this.b.getWindow().getDecorView());
-            this.c = context;
+            this.a = view2;
+            this.b = view3;
+            this.c = cVar;
         }
 
-        public c73 a() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.b.setOnCancelListener(this.a.f);
-                this.b.setOnDismissListener(this.a.g);
-                this.b.setOnShowListener(this.a.h);
-                this.b.d(this);
-                return this.b;
-            }
-            return (c73) invokeV.objValue;
-        }
-
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.b.setCanceledOnTouchOutside(z);
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a f(DialogInterface.OnCancelListener onCancelListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, onCancelListener)) == null) {
-                this.a.f = onCancelListener;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.c.setText(str);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a j(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
-                this.a.e.removeAllViews();
-                this.a.e.addView(view2);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(int i, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, onClickListener)) == null) {
-                e(this.c.getText(i), onClickListener);
-                return this;
-            }
-            return (a) invokeIL.objValue;
-        }
-
-        public a e(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, onClickListener)) == null) {
-                this.a.b.setText(charSequence);
-                this.a.b.setOnClickListener(new b(this, onClickListener));
-                return this;
-            }
-            return (a) invokeLL.objValue;
-        }
-
-        public a h(int i, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, onClickListener)) == null) {
-                i(this.c.getText(i), onClickListener);
-                return this;
-            }
-            return (a) invokeIL.objValue;
-        }
-
-        public a i(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
-                this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0232a(this, onClickListener));
-                return this;
-            }
-            return (a) invokeLL.objValue;
-        }
-
-        public c73 k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                c73 a = a();
-                if (this.d) {
-                    a.getWindow().setType(2003);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && t63.c().e()) {
+                boolean c = c73.c(this.a, this.b);
+                c cVar = this.c;
+                if (cVar != null) {
+                    cVar.onClickSwitch(view2, c);
                 }
-                try {
-                    a.show();
-                } catch (WindowManager.BadTokenException unused) {
-                }
-                return a;
             }
-            return (c73) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
+    /* loaded from: classes5.dex */
+    public static class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public View d;
-        public FrameLayout e;
-        public DialogInterface.OnCancelListener f;
-        public DialogInterface.OnDismissListener g;
-        public DialogInterface.OnShowListener h;
-        public FrameLayout i;
-        public FrameLayout j;
-        public View k;
-        public ViewGroup l;
-        public RelativeLayout m;
-        public LinearLayout n;
-        public View o;
+        public final /* synthetic */ View a;
 
-        @SuppressLint({"CutPasteId"})
-        public b(ViewGroup viewGroup) {
+        public b(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {viewGroup};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -286,66 +89,99 @@ public class c73 extends w63 {
                     return;
                 }
             }
-            this.l = viewGroup;
-            this.j = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09242d);
-            this.a = (TextView) viewGroup.findViewById(R.id.positive_button);
-            this.b = (TextView) viewGroup.findViewById(R.id.negative_button);
-            this.d = viewGroup.findViewById(R.id.dialog_customPanel);
-            this.e = (FrameLayout) viewGroup.findViewById(R.id.dialog_custom_content);
-            this.m = (RelativeLayout) viewGroup.findViewById(R.id.searchbox_alert_dialog);
-            this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0904b2);
-            this.o = viewGroup.findViewById(R.id.dialog_customPanel);
-            this.i = (FrameLayout) viewGroup.findViewById(R.id.dialog_root);
-            this.k = viewGroup.findViewById(R.id.obfuscated_res_0x7f09185d);
+            this.a = view2;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (motionEvent.getAction() == 1) {
+                    this.a.setVisibility(4);
+                    return false;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c73(Context context, int i) {
-        super(context, i);
+    public static boolean c(View view2, View view3) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
+            if (view2.getVisibility() != 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                h(view2, view3);
+            } else {
+                g(view2, view3);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            if (view3 != null) {
+                f73.k(view3);
+                view3.clearFocus();
+            }
+            view2.setVisibility(8);
+        }
+    }
+
+    public static void g(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
+            view2.setVisibility(0);
+            if (view3 != null) {
+                f73.k(view3);
             }
         }
-        c();
     }
 
-    public a b() {
-        InterceptResult invokeV;
+    public static void h(View view2, View view3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08a6);
-            getWindow().setLayout(-1, -2);
-            getWindow().setGravity(80);
-            a(false);
+        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
+            f73.m(view3);
+            if (e(view2.getContext())) {
+                view2.setVisibility(4);
+            }
         }
     }
 
-    public void d(a aVar) {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public static void b(View view2, View view3, View view4, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
+            if (view3 != null) {
+                view3.setOnClickListener(new a(view2, view4, cVar));
+            }
+            if (e(view2.getContext())) {
+                view4.setOnTouchListener(new b(view2));
+            }
         }
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context instanceof Activity) {
+                boolean d = h73.d((Activity) context);
+                f(d);
+                return d;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.PageInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class dx implements com.kwad.sdk.core.d<PageInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(PageInfo pageInfo, JSONObject jSONObject) {

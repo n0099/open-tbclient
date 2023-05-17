@@ -1,98 +1,32 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.data.UserData;
+import com.baidu.swan.videoplayer.SwanVideoView;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
+import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yq4 {
+/* loaded from: classes8.dex */
+public final class yq4 implements MediaGestureLayout.b {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yq4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fq4 a;
-    public DialogInterface.OnDismissListener b;
+    public Context a;
+    public MediaGestureLayout b;
+    public MediaGestureLayout.c c;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UserData a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ yq4 c;
-
-        public a(yq4 yq4Var, UserData userData, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yq4Var, userData, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = yq4Var;
-            this.a = userData;
-            this.b = tbPageContext;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.c.a != null) {
-                    this.c.a.a();
-                }
-                if (!TextUtils.isEmpty(this.a.getName_show()) && !TextUtils.isEmpty(this.a.getUserId())) {
-                    String name_show = this.a.getName_show();
-                    String userId = this.a.getUserId();
-                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_CLICK);
-                    statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.addParam("obj_param1", userId);
-                    TiebaStatic.log(statisticItem);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.b.getPageActivity(), userId, name_show)));
-                }
-            }
-        }
-    }
-
-    public yq4() {
+    public yq4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,150 +36,83 @@ public class yq4 {
                 return;
             }
         }
-        this.a = null;
+        this.a = context;
+        g(context);
     }
 
-    public static yq4 c() {
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void a(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) && (cVar = this.c) != null) {
+            cVar.a(motionEvent);
+        }
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void c(int i) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (cVar = this.c) != null) {
+            cVar.c(i);
+        }
+    }
+
+    public void d(SwanVideoView swanVideoView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
+            this.b.h(swanVideoView);
+        }
+    }
+
+    public void e(vq4 vq4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vq4Var) == null) {
+            this.b.g(vq4Var);
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            this.a = context;
+            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
+            this.b = mediaGestureLayout;
+            mediaGestureLayout.setMediaGestureListener(this);
+        }
+    }
+
+    public void h(MediaGestureLayout.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void onDoubleTap(MotionEvent motionEvent) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) && (cVar = this.c) != null) {
+            cVar.onDoubleTap(motionEvent);
+        }
+    }
+
+    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
+    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
+        MediaGestureLayout.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) && (cVar = this.c) != null) {
+            cVar.b(motionEvent, mediaGestureMode);
+        }
+    }
+
+    public ViewGroup f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (yq4.class) {
-                    if (c == null) {
-                        c = new yq4();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
-        return (yq4) invokeV.objValue;
-    }
-
-    public void b() {
-        fq4 fq4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fq4Var = this.a) != null && fq4Var.isShowing()) {
-            this.a.a();
-        }
-    }
-
-    public void d(DialogInterface.OnDismissListener onDismissListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onDismissListener) == null) {
-            this.b = onDismissListener;
-        }
-    }
-
-    public void e(@NonNull TbPageContext tbPageContext, @NonNull Context context, @NonNull UserData userData, @NonNull BdTokenController.m mVar) {
-        boolean z;
-        boolean z2;
-        String format;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, context, userData, mVar) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_TIEBA_UID_SHARE_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.addParam("obj_param1", userData.getUserId());
-            TiebaStatic.log(statisticItem);
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.content_tieba_uid_info, (ViewGroup) null, false);
-            TextView textView = (TextView) viewGroup.findViewById(R.id.who_share_info);
-            boolean z3 = true;
-            textView.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_share_info), mVar.a()));
-            textView.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            View findViewById = viewGroup.findViewById(R.id.left_divider);
-            View findViewById2 = viewGroup.findViewById(R.id.right_divider);
-            findViewById.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            findViewById2.setBackgroundColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0108));
-            HeadImageView headImageView = (HeadImageView) viewGroup.findViewById(R.id.user_averter);
-            headImageView.setDefaultResource(R.drawable.transparent_bg);
-            headImageView.setGodIconWidth(R.dimen.tbds68);
-            headImageView.setAutoChangeStyle(false);
-            UtilHelper.showHeadImageViewBigV(headImageView, userData);
-            headImageView.setIsRound(true);
-            headImageView.N(userData.getAvater(), 25, false);
-            TextView textView2 = (TextView) viewGroup.findViewById(R.id.user_name);
-            textView2.setText(userData.getName_show());
-            textView2.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0105));
-            TextView textView3 = (TextView) viewGroup.findViewById(R.id.user_tieba_uid);
-            textView3.setText(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.tieba_uid_info), mVar.b()));
-            textView3.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0109));
-            LinearLayout linearLayout = (LinearLayout) viewGroup.findViewById(R.id.container_authentication);
-            if (ListUtils.isEmpty(userData.getManagerForum()) && !userData.isNewGod()) {
-                linearLayout.setVisibility(8);
-            } else {
-                linearLayout.setVisibility(0);
-                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_H_X001);
-                if (userData.isNewGod() && !ListUtils.isEmpty(userData.getManagerForum())) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (userData.isNewGod()) {
-                    TextView textView4 = new TextView(context);
-                    textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    textView4.setText(userData.getNewGodData().getFieldName() + js5.a(userData.getNewGodData()));
-                    textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
-                    linearLayout.addView(textView4);
-                    textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-                    SkinManager.setBackgroundShapeDrawable(textView4, R.dimen.tbds26, R.color.CAM_X0623, R.color.CAM_X0623, 0);
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!ListUtils.isEmpty(userData.getManagerForum())) {
-                    TextView textView5 = new TextView(context);
-                    textView5.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    String desc = userData.getManagerForum().get(0).getDesc();
-                    if (userData.getManagerForum().size() > 1) {
-                        if (z) {
-                            desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 6, StringHelper.STRING_MORE);
-                        }
-                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.multi_bazhu_sign), desc, Integer.valueOf(userData.getManagerForum().size()));
-                    } else {
-                        if (z) {
-                            desc = StringHelper.cutChineseAndEnglishWithSuffix(desc, 8, StringHelper.STRING_MORE);
-                        }
-                        format = String.format(TbadkCoreApplication.getInst().getString(R.string.single_bazhu_sign), desc);
-                    }
-                    textView5.setText(format);
-                    textView5.setTextSize(0, UtilHelper.getDimenPixelSize(R.dimen.T_X09));
-                    if (z2) {
-                        View view2 = new View(context);
-                        view2.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 1));
-                        linearLayout.addView(view2);
-                    }
-                    linearLayout.addView(textView5);
-                    textView5.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-                    SkinManager.setBackgroundShapeDrawable(textView5, R.dimen.tbds26, R.color.CAM_X0623, R.color.CAM_X0623, 0);
-                }
-                z3 = false;
-            }
-            TextView textView6 = (TextView) viewGroup.findViewById(R.id.user_simple_intro);
-            String intro = userData.getIntro();
-            if (TextUtils.isEmpty(userData.getIntro()) && z3) {
-                intro = StringHelper.getBaAgeAutoYearAndMonth(userData.getTb_age());
-            }
-            textView6.setText(intro);
-            if (linearLayout.getVisibility() == 0) {
-                textView6.setMaxLines(1);
-            } else {
-                textView6.setMaxLines(2);
-            }
-            textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.jump_user_detail_btn);
-            e65 e65Var = new e65();
-            e65Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            tBSpecificationBtn.setTextSize(R.dimen.T_X05);
-            tBSpecificationBtn.setConfig(e65Var);
-            tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.browse_user_detail));
-            tBSpecificationBtn.setOnClickListener(new a(this, userData, tbPageContext));
-            this.a = new fq4(tbPageContext);
-            this.a.b(WebPManager.getMaskDrawable((int) R.drawable.mask_popup_background, false));
-            this.a.c(viewGroup);
-            this.a.setOnDismissListener(this.b);
-            this.a.d();
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
+        return (ViewGroup) invokeV.objValue;
     }
 }

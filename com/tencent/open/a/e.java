@@ -1,5 +1,5 @@
 package com.tencent.open.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static int a() {
         int a = com.tencent.open.utils.g.a(com.tencent.open.utils.f.a(), (String) null).a("Common_HttpRetryCount");

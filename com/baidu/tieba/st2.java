@@ -1,133 +1,96 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class st2 implements ot2 {
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.Arrays;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class st2 extends rt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final qm3<v62> a;
-    public static final qm3<v62> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements qm3<v62> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(v62 v62Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v62Var) == null) {
-                v62Var.suspendTimer();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements qm3<v62> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(v62 v62Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v62Var) == null) {
-                v62Var.continueTimer();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948162872, "Lcom/baidu/tieba/st2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948162872, "Lcom/baidu/tieba/st2;");
-                return;
-            }
-        }
-        a = new a();
-        b = new b();
+    @Override // com.baidu.tieba.vt2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
     }
 
     public st2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ot2
-    public void onPause() {
+    @Override // com.baidu.tieba.vt2
+    public boolean enable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return qy1.h();
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ot2
-    public void onResume() {
+    @Override // com.baidu.tieba.vt2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2)) {
+                return true;
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void a(qm3<v62> qm3Var) {
-        t92 W;
-        v62 e;
+    @Override // com.baidu.tieba.vt2
+    @NonNull
+    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, qm3Var) == null) && (W = re2.U().W()) != null && (e = W.e()) != null && e.isWebView()) {
-            qm3Var.a(e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            try {
+                jSONObject.put("invoke", "swan.method.v8BindingObject");
+                jSONObject.put("method", "_naSwan.naRequest");
+                JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
+                if (optJSONArray != null) {
+                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
+                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
+                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
+                            optJSONArray.remove(length);
+                        }
+                    }
+                    optJSONArray.put(d("success", "function="));
+                    optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.a.g0, "function="));
+                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 }

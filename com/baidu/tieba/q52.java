@@ -1,85 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class q52 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class q52 extends n42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String L;
+    public boolean M;
+    public boolean N;
 
-    public static tq2.g a(us2 us2Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q52() {
+        super("input", "viewId");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, us2Var)) == null) {
-            File e = e();
-            tq2.M(b(), e, us2Var);
-            tq2.g gVar = new tq2.g();
-            File file = new File(e, "app.json");
-            SwanAppConfigData b = j83.b(e.getAbsolutePath());
-            gVar.a = e.getPath() + File.separator;
-            gVar.b = b;
-            x42.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (tq2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(c(), "wireless_debug.aiapps");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return file;
         }
-        return (File) invokeV.objValue;
     }
 
-    public static File e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n42, com.baidu.tieba.s42, com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (File) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug_zip";
+        super.a(jSONObject);
+        if (this.h == null) {
+            this.h = new mz2();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug";
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("type");
+        boolean z2 = false;
+        if (jSONObject.optInt("confirmHold") == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (String) invokeV.objValue;
+        this.M = z;
+        if (jSONObject.optInt("adjustPosition", 1) == 1) {
+            z2 = true;
+        }
+        this.N = z2;
     }
 }

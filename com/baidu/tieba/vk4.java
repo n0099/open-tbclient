@@ -1,162 +1,54 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.utils.AbiType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class vk4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, vk4> d;
-    public static Map<String, Map<String, vk4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final AbiType c;
+    public JSONArray a;
+    public JSONObject b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948243658, "Lcom/baidu/tieba/vk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948243658, "Lcom/baidu/tieba/vk4;");
-                return;
-            }
-        }
-        d = new HashMap();
-        e = new HashMap();
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public vk4(@NonNull String str, @NonNull AbiType abiType) {
-        String str2;
+    public vk4(JSONArray jSONArray, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, abiType};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {jSONArray, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (TextUtils.isEmpty(str)) {
-            str2 = "";
-        } else {
-            str2 = str;
-        }
-        this.a = str2;
-        this.c = abiType;
-        this.b = a(str, abiType);
+        this.a = jSONArray;
+        this.b = jSONObject;
     }
 
-    @Nullable
-    public static synchronized vk4 e(String str, String str2) {
-        InterceptResult invokeLL;
+    public JSONArray a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            synchronized (vk4.class) {
-                vk4 vk4Var = null;
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    c(str);
-                    vk4 vk4Var2 = d.get(str2);
-                    if (vk4Var2 != null) {
-                        if (TextUtils.equals(str, vk4Var2.a)) {
-                            vk4Var = vk4Var2;
-                        }
-                    }
-                    return vk4Var;
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (vk4) invokeLL.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public static String a(String str, AbiType abiType) {
-        InterceptResult invokeLL;
+    public JSONObject b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
-            return "so_" + str + "_" + abiType.id;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    @Nullable
-    public static synchronized vk4 d(String str, AbiType abiType) {
-        InterceptResult invokeLL;
-        vk4 e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
-            synchronized (vk4.class) {
-                e2 = e(str, a(str, abiType));
-            }
-            return e2;
-        }
-        return (vk4) invokeLL.objValue;
-    }
-
-    public static synchronized Map<String, vk4> b(@NonNull String str) {
-        InterceptResult invokeL;
-        HashMap hashMap;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (vk4.class) {
-                hashMap = new HashMap(c(str));
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static synchronized Map<String, vk4> c(@NonNull String str) {
-        InterceptResult invokeL;
-        Map<String, vk4> map;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (vk4.class) {
-                map = e.get(str);
-                if (map == null) {
-                    map = new HashMap<>();
-                    if (!TextUtils.isEmpty(str)) {
-                        for (AbiType abiType : AbiType.values()) {
-                            vk4 vk4Var = new vk4(str, abiType);
-                            map.put(vk4Var.b, vk4Var);
-                        }
-                        d.putAll(map);
-                        e.put(str, map);
-                    }
-                }
-            }
-            return map;
-        }
-        return (Map) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PayResultData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 955562840790302592L;
@@ -18,7 +18,7 @@ public class PayResultData extends OrmObject implements Serializable {
     public PayVcodeInfoData vcode;
     public int wrongtime;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class UnusualInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7762965384357134074L;

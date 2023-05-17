@@ -16,7 +16,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.w;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f extends c {
     public WebView Fv;
     public int Gk = -1;
@@ -27,7 +27,7 @@ public final class f extends c {
     public com.kwad.sdk.core.webview.b mJsBridgeContext;
     public com.kwad.components.core.webview.a mJsInterface;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void aj(int i);
     }
@@ -78,7 +78,7 @@ public final class f extends c {
         return new w.a() { // from class: com.kwad.components.core.page.kwai.f.2
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(f.this.Fv.getContext(), new AdWebViewActivityProxy.a.C0603a().ao(bVar.title).ap(bVar.url).N(f.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(f.this.Fv.getContext(), new AdWebViewActivityProxy.a.C0617a().ao(bVar.title).ap(bVar.url).N(f.this.mAdTemplate).nx());
             }
         };
     }
@@ -129,8 +129,8 @@ public final class f extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f091268);
-        this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913b5);
+        this.Fv = (WebView) findViewById(R.id.obfuscated_res_0x7f0912a3);
+        this.Gl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913f0);
         this.Fv.setBackgroundColor(0);
     }
 

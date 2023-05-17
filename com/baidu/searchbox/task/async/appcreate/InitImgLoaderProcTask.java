@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.dw4;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.mx4;
+/* loaded from: classes4.dex */
 public class InitImgLoaderProcTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -16,6 +16,6 @@ public class InitImgLoaderProcTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        dw4.a();
+        mx4.a();
     }
 }

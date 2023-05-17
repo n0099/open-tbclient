@@ -6,7 +6,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PlayerSpeedDurationFlow implements IUbcFlow {
     public Flow mFlow;
     public final UBCManager mUBCService = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);

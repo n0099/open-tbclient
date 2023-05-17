@@ -76,16 +76,16 @@ public class b {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0026b {
+    public static final class EnumC0029b {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0026b a;
-        public static final EnumC0026b b;
-        public static final EnumC0026b c;
-        public static final EnumC0026b d;
-        public static final EnumC0026b e;
-        public static final EnumC0026b f;
-        public static final EnumC0026b g;
-        public static final /* synthetic */ EnumC0026b[] h;
+        public static final EnumC0029b a;
+        public static final EnumC0029b b;
+        public static final EnumC0029b c;
+        public static final EnumC0029b d;
+        public static final EnumC0029b e;
+        public static final EnumC0029b f;
+        public static final EnumC0029b g;
+        public static final /* synthetic */ EnumC0029b[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -101,18 +101,18 @@ public class b {
                     return;
                 }
             }
-            a = new EnumC0026b("alarmMsgInfoId", 0);
-            b = new EnumC0026b("msgId", 1);
-            c = new EnumC0026b("sendtime", 2);
-            d = new EnumC0026b("showtime", 3);
-            e = new EnumC0026b("expiretime", 4);
-            f = new EnumC0026b("msgEnable", 5);
-            EnumC0026b enumC0026b = new EnumC0026b("isAlarm", 6);
-            g = enumC0026b;
-            h = new EnumC0026b[]{a, b, c, d, e, f, enumC0026b};
+            a = new EnumC0029b("alarmMsgInfoId", 0);
+            b = new EnumC0029b("msgId", 1);
+            c = new EnumC0029b("sendtime", 2);
+            d = new EnumC0029b("showtime", 3);
+            e = new EnumC0029b("expiretime", 4);
+            f = new EnumC0029b("msgEnable", 5);
+            EnumC0029b enumC0029b = new EnumC0029b("isAlarm", 6);
+            g = enumC0029b;
+            h = new EnumC0029b[]{a, b, c, d, e, f, enumC0029b};
         }
 
-        public EnumC0026b(String str, int i) {
+        public EnumC0029b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,16 +131,16 @@ public class b {
             }
         }
 
-        public static EnumC0026b valueOf(String str) {
+        public static EnumC0029b valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0026b) Enum.valueOf(EnumC0026b.class, str) : (EnumC0026b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0029b) Enum.valueOf(EnumC0029b.class, str) : (EnumC0029b) invokeL.objValue;
         }
 
-        public static EnumC0026b[] values() {
+        public static EnumC0029b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0026b[]) h.clone() : (EnumC0026b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0029b[]) h.clone() : (EnumC0029b[]) invokeV.objValue;
         }
     }
 
@@ -411,19 +411,19 @@ public class b {
             c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC0026b.a.name());
+            sb2.append(EnumC0029b.a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC0026b.b.name());
+            sb2.append(EnumC0029b.b.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC0026b.c.name());
+            sb2.append(EnumC0029b.c.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0026b.d.name());
+            sb2.append(EnumC0029b.d.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0026b.e.name());
+            sb2.append(EnumC0029b.e.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0026b.f.name());
+            sb2.append(EnumC0029b.f.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC0026b.g.name());
+            sb2.append(EnumC0029b.g.name());
             sb2.append(" INTEGER);");
             d = sb2.toString();
             e = "CREATE TABLE AppInfo (" + c.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.b.name() + " TEXT, " + c.c.name() + " INTEGER, " + c.d.name() + " TEXT UNIQUE, " + c.e.name() + " TEXT, " + c.f.name() + " TEXT, " + c.g.name() + " TEXT, " + c.h.name() + " TEXT, " + c.i.name() + " TEXT);";

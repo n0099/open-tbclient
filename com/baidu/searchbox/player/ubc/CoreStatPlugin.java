@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CoreStatPlugin extends AbsPlugin {
     public static final String KEY_TYPE = "type";
     public static final String TAG = "CoreStatPlugin";

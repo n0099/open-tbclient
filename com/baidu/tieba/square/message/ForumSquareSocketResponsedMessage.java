@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.xl9;
+import com.baidu.tieba.zn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl9 mForumSquareRespData;
+    public zn9 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareSocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public xl9 getData() {
+    public zn9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mForumSquareRespData;
         }
-        return (xl9) invokeV.objValue;
+        return (zn9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -68,9 +68,9 @@ public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
             if (getForumSquareResIdl.data == null) {
                 return getForumSquareResIdl;
             }
-            xl9 xl9Var = new xl9();
-            this.mForumSquareRespData = xl9Var;
-            xl9Var.a(getForumSquareResIdl.data);
+            zn9 zn9Var = new zn9();
+            this.mForumSquareRespData = zn9Var;
+            zn9Var.a(getForumSquareResIdl.data);
             return getForumSquareResIdl;
         }
         return invokeIL.objValue;

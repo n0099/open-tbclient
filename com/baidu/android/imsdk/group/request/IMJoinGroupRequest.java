@@ -95,7 +95,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMJoinGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:19:0x007c  */
+        /* JADX WARN: Removed duplicated region for block: B:19:0x007e  */
         /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*

@@ -1,60 +1,53 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class nl4 extends Activity {
+/* loaded from: classes6.dex */
+public class nl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
-
-    public nl4() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948006291, "Lcom/baidu/tieba/nl4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948006291, "Lcom/baidu/tieba/nl4;");
         }
     }
 
-    @Override // android.app.Activity
-    public void onCreate(Bundle bundle) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
-                getLayoutInflater().setFactory(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            pg4 b = rg4.b();
+            if (b == null) {
+                return "0";
             }
-            super.onCreate(bundle);
+            return b.i().getString("key_online_description_fix_version", "0");
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
-            View h = h(null, str, context, attributeSet);
-            if (h == null) {
-                return super.onCreateView(str, context, attributeSet);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == 1) {
+                return true;
             }
-            return h;
+            return false;
         }
-        return (View) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 }

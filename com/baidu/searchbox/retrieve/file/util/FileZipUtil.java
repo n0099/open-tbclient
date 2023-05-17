@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FileZipUtil {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FileZipUtil";

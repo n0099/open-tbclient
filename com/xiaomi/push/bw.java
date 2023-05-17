@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.xiaomi.push.aj;
 import com.xiaomi.push.ci;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bw {
     public static volatile bw a;
 
@@ -68,7 +68,7 @@ public class bw {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m229a() {
+    public String m248a() {
         return this.e;
     }
 

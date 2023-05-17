@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-/* loaded from: classes5.dex */
-public interface nf2 {
-    ff2 a(String str, cg2 cg2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class nf2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getUserAgent();
+    public abstract void a();
+
+    public abstract void b();
+
+    public abstract void c();
 }

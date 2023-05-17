@@ -20,11 +20,11 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ana;
-import com.baidu.tieba.bna;
-import com.baidu.tieba.cna;
-import com.baidu.tieba.ena;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.apa;
+import com.baidu.tieba.cpa;
+import com.baidu.tieba.xoa;
+import com.baidu.tieba.yoa;
+import com.baidu.tieba.zoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,8 +42,8 @@ import com.baidu.validation.view.ValidationWebView;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ValidationActivity extends Activity implements View.OnClickListener, zma {
+/* loaded from: classes8.dex */
+public class ValidationActivity extends Activity implements View.OnClickListener, xoa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValidationWebView a;
@@ -57,7 +57,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
     public HashMap<String, String> i;
     public ValueAnimator j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements ValidationTimeoutView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,12 +130,12 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
                 ValidationLog.e(ValidationLog.TAG, str2);
-                bna a = bna.a(str2);
+                zoa a = zoa.a(str2);
                 if (a == null) {
                     jsPromptResult.cancel();
                     return true;
                 }
-                BaseInterpreter a2 = ana.b().a(a.b());
+                BaseInterpreter a2 = yoa.b().a(a.b());
                 if (a2 == null) {
                     jsPromptResult.cancel();
                     return true;
@@ -184,7 +184,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -228,7 +228,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,7 +271,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -319,7 +319,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         }
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.xoa
     public void a(String str, Object obj) {
         char c2;
         Interceptable interceptable = $ic;
@@ -380,7 +380,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
         int height;
         int a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = cna.a(this, i))) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (height = this.e.getHeight()) == (a2 = apa.a(this, i))) {
             return;
         }
         ValueAnimator valueAnimator = this.j;
@@ -438,7 +438,7 @@ public class ValidationActivity extends Activity implements View.OnClickListener
             this.a.setWebChromeClient(new b(this));
             this.a.setWebViewClient(new c(this));
             this.a.setWebViewClient(new d(this));
-            this.a.loadUrl(ena.b(ena.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
+            this.a.loadUrl(cpa.b(cpa.a("https://wappass.baidu.com/static/activity/pass-machine.html"), this.i));
         }
     }
 

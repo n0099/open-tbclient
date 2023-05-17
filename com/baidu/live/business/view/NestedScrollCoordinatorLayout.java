@@ -10,7 +10,7 @@ import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements NestedScrollingChild {
     public a A;
     public NestedScrollingChildHelper z;
@@ -30,7 +30,7 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         return this.z.startNestedScroll(i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a<DummyView extends View> extends CoordinatorLayout.Behavior<DummyView> {
         public int a = 1;
         public final int[] b = new int[2];

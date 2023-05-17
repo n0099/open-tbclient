@@ -18,7 +18,7 @@ import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.aa;
 import com.vivo.push.util.u;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class BasePushMessageReceiver extends BroadcastReceiver implements PushMessageCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PushMessageReceiver";

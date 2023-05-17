@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.lf7;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.yg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CardItemDetailListItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static String e;
@@ -29,7 +29,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public View c;
     public String d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class LimitiedCoTextView extends EMTextView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,8 +144,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !hi.isEmpty(this.a.d) && (g9.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !qi.isEmpty(this.a.d) && (m9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(lf7 lf7Var) {
+    public void setData(yg7 yg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lf7Var) == null) {
-            this.a.setText(lf7Var.a);
-            this.b.setText(lf7Var.b);
-            this.d = lf7Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yg7Var) == null) {
+            this.a.setText(yg7Var.a);
+            this.b.setText(yg7Var.b);
+            this.d = yg7Var.c;
         }
     }
 
@@ -244,10 +244,10 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             if (e == null) {
                 e = getContext().getString(R.string.limited_company);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0428, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0917b5);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f09270d);
-            this.c = findViewById(R.id.obfuscated_res_0x7f0908b3);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0443, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0917fa);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f092779);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0908d0);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -255,13 +255,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g35.d(this.a).w(R.color.CAM_X0108);
-            if (hi.isEmpty(this.d)) {
-                g35 d = g35.d(this.b);
+            p45.d(this.a).w(R.color.CAM_X0108);
+            if (qi.isEmpty(this.d)) {
+                p45 d = p45.d(this.b);
                 d.y(R.dimen.M_T_X002);
                 d.w(R.color.CAM_X0105);
             } else {
-                g35 d2 = g35.d(this.b);
+                p45 d2 = p45.d(this.b);
                 d2.y(R.dimen.M_T_X002);
                 d2.w(R.color.CAM_X0304);
             }

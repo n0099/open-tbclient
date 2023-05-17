@@ -3,7 +3,7 @@ package com.baidu.nadcore.connect;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetWorkUtils {
     public static NetworkInfo a(Context context) {
         if (context == null) {
@@ -36,7 +36,7 @@ public class NetWorkUtils {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),

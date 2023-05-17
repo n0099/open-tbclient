@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Arc extends Overlay {
     public static final String f = "Arc";
     public int a;

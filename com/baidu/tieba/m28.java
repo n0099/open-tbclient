@@ -1,362 +1,470 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.android.imsdk.db.DBTableDefine;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.coreExtra.view.SettingTextSwitchView;
-import com.baidu.tieba.im.recommend.detail.RecommendDetailActivity;
-import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
+import com.baidu.android.imsdk.request.MessageExt;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import org.apache.commons.codec.net.RFC1522Codec;
+/* loaded from: classes6.dex */
 public class m28 {
     public static /* synthetic */ Interceptable $ic;
+    public static m28 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendDetailActivity a;
-    public View b;
-    public NavigationBar c;
-    public NoNetworkView d;
-    public HeadImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public LinearLayout j;
-    public LinearLayout k;
-    public SettingTextSwitchView l;
-    public SettingTextSwitchView m;
-    public NoDataView n;
-    public LinearLayout o;
-    public RelativeLayout p;
-    public RelativeLayout q;
-    public View r;
-    public boolean s;
-    public long t;
 
-    public m28(RecommendDetailActivity recommendDetailActivity) {
+    public m28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recommendDetailActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.t = 0L;
-        this.a = recommendDetailActivity;
-        h();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.s) {
-                e();
-            } else {
-                m();
             }
         }
     }
 
-    public BdSwitchView c() {
+    public static synchronized m28 f() {
         InterceptResult invokeV;
+        m28 m28Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            SettingTextSwitchView settingTextSwitchView = this.l;
-            if (settingTextSwitchView != null) {
-                return settingTextSwitchView.getSwitchView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (m28.class) {
+                if (a == null) {
+                    a = new m28();
+                }
+                m28Var = a;
             }
-            return null;
+            return m28Var;
         }
-        return (BdSwitchView) invokeV.objValue;
+        return (m28) invokeV.objValue;
     }
 
-    public BdSwitchView d() {
-        InterceptResult invokeV;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SettingTextSwitchView settingTextSwitchView = this.m;
-            if (settingTextSwitchView != null) {
-                return settingTextSwitchView.getSwitchView();
-            }
-            return null;
-        }
-        return (BdSwitchView) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LinearLayout linearLayout = this.j;
-            if (linearLayout != null) {
-                linearLayout.setVisibility(8);
-            }
-            f();
-        }
-    }
-
-    public void f() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (linearLayout = this.k) != null) {
-            linearLayout.setVisibility(8);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            NoDataView noDataView = this.n;
-            if (noDataView != null) {
-                noDataView.setVisibility(8);
-            }
-            this.o.setVisibility(0);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (TbadkCoreApplication.getInst().isPromotedMessageOn(String.valueOf(this.t)) && !this.s) {
-                n();
-            } else {
-                f();
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            LinearLayout linearLayout = this.j;
-            if (linearLayout != null) {
-                linearLayout.setVisibility(0);
-            }
-            n();
-        }
-    }
-
-    public void n() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (linearLayout = this.k) != null) {
-            linearLayout.setVisibility(0);
-        }
-    }
-
-    public void b() {
-        RecommendDetailActivity recommendDetailActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (recommendDetailActivity = this.a) != null && ea5.M(String.valueOf(recommendDetailActivity.c))) {
-            this.e.N(this.a.e, 12, false);
-            RecommendDetailActivity recommendDetailActivity2 = this.a;
-            this.t = recommendDetailActivity2.c;
-            this.f.setText(UtilHelper.getFixedText(recommendDetailActivity2.d, 7));
-            this.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0dce));
-            e();
-        }
-    }
-
-    public final void h() {
-        RecommendDetailActivity recommendDetailActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (recommendDetailActivity = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        recommendDetailActivity.setContentView(R.layout.obfuscated_res_0x7f0d07d8);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091e46);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.c = navigationBar;
-        navigationBar.showBottomLine();
-        this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        k(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1090));
-        this.d = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-        LinearLayout linearLayout = (LinearLayout) this.a.findViewById(R.id.content_view);
-        this.o = linearLayout;
-        linearLayout.setVisibility(8);
-        this.p = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09079e);
-        this.q = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090795);
-        this.r = this.a.findViewById(R.id.obfuscated_res_0x7f0908b9);
-        HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0926b9);
-        this.e = headImageView;
-        headImageView.setIsRound(true);
-        this.f = (TextView) this.a.findViewById(R.id.user_name);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926f0);
-        this.h = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926c1);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0910f6);
-        this.j = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0921e2);
-        SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f0921e3);
-        this.l = settingTextSwitchView;
-        settingTextSwitchView.setSwitchStateChangeListener(this.a);
-        this.k = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0921e5);
-        SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f0921e6);
-        this.m = settingTextSwitchView2;
-        settingTextSwitchView2.setSwitchStateChangeListener(this.a);
+        String str2 = "tb_group_chat_room_" + str;
+        if (i().contains(str2)) {
+            return;
+        }
+        r28.d().c("CREATE TABLE IF NOT EXISTS " + str2 + "(room_id LONG primary key, name TEXT, avatar TEXT, forum_Id TEXT, forum_name TEXT, " + MessageExt.KEY_LATEST_MSG_ID + " LONG, timestamp LONG, " + DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM + " LONG, top_time LONG, " + TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE + " INTEGER DEFAULT 0, no_disturb INTEGER DEFAULT 0);");
     }
 
-    public void j(int i) {
-        RecommendDetailActivity recommendDetailActivity;
-        boolean z;
+    public final boolean b(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (recommendDetailActivity = this.a) != null && recommendDetailActivity.getPageContext() != null && this.a.getPageContext().getLayoutMode() != null) {
-            yv4 layoutMode = this.a.getPageContext().getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            boolean z = false;
+            Cursor cursor = null;
+            try {
+                cursor = r28.d().e("select * from " + str + " WHERE room_id" + RFC1522Codec.PREFIX, new String[]{String.valueOf(j)});
+                if (cursor != null) {
+                    if (cursor.moveToNext()) {
+                        z = true;
+                    }
+                }
+                return z;
+            } catch (SQLiteException e) {
+                e.printStackTrace();
+                return false;
+            } finally {
+                si.a(cursor);
             }
-            layoutMode.l(z);
-            this.a.getPageContext().getLayoutMode().k(this.b);
-            NavigationBar navigationBar = this.c;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), i);
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public List<GroupChatRoomPojo> e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            NoNetworkView noNetworkView = this.d;
-            if (noNetworkView != null) {
-                noNetworkView.d(this.a.getPageContext(), i);
+            return d("select * from " + ("tb_group_chat_room_" + str) + " WHERE forum_Id" + RFC1522Codec.PREFIX, new String[]{str2});
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Nullable
+    public GroupChatRoomPojo c(String str, long j) {
+        InterceptResult invokeLJ;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
+            Cursor cursor2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            NoDataView noDataView = this.n;
-            if (noDataView != null) {
-                noDataView.f(this.a.getPageContext(), i);
+            String str2 = "tb_group_chat_room_" + str;
+            try {
+                try {
+                    cursor = r28.d().e("select * from " + str2 + " WHERE room_id" + RFC1522Codec.PREFIX, new String[]{String.valueOf(j)});
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToNext()) {
+                                GroupChatRoomPojo groupChatRoomPojo = new GroupChatRoomPojo();
+                                groupChatRoomPojo.setRoomId(j);
+                                groupChatRoomPojo.setName(cursor.getString(cursor.getColumnIndex("name")));
+                                groupChatRoomPojo.setAvatar(cursor.getString(cursor.getColumnIndex("avatar")));
+                                groupChatRoomPojo.setForumId(cursor.getString(cursor.getColumnIndex("forum_Id")));
+                                groupChatRoomPojo.setForumName(cursor.getString(cursor.getColumnIndex("forum_name")));
+                                groupChatRoomPojo.W(cursor.getLong(cursor.getColumnIndex(MessageExt.KEY_LATEST_MSG_ID)));
+                                groupChatRoomPojo.setTimestamp(cursor.getLong(cursor.getColumnIndex("timestamp")));
+                                groupChatRoomPojo.setDeleteTime(cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM)));
+                                groupChatRoomPojo.setTopTime(cursor.getLong(cursor.getColumnIndex("top_time")));
+                                groupChatRoomPojo.setIsSubscribe(cursor.getInt(cursor.getColumnIndex(TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE)));
+                                groupChatRoomPojo.setNoDisturb(cursor.getInt(cursor.getColumnIndex("no_disturb")));
+                                si.a(cursor);
+                                return groupChatRoomPojo;
+                            }
+                        } catch (SQLiteException e) {
+                            e = e;
+                            TiebaStatic.printDBExceptionLog(e, "GroupChatRoomPojo#getGroupChatRoomPojo", new Object[0]);
+                            si.a(cursor);
+                            return null;
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    cursor2 = str2;
+                    si.a(cursor2);
+                    throw th;
+                }
+            } catch (SQLiteException e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                si.a(cursor2);
+                throw th;
             }
-            SettingTextSwitchView settingTextSwitchView = this.l;
-            if (settingTextSwitchView != null) {
-                settingTextSwitchView.d(i);
+            si.a(cursor);
+            return null;
+        }
+        return (GroupChatRoomPojo) invokeLJ.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x00c4 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [android.database.Cursor] */
+    public final List<GroupChatRoomPojo> d(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, strArr)) == null) {
+            ?? r1 = 0;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                try {
+                    cursor = r28.d().e(str, strArr);
+                    if (cursor != null) {
+                        try {
+                            ArrayList arrayList = new ArrayList();
+                            while (cursor.moveToNext()) {
+                                GroupChatRoomPojo groupChatRoomPojo = new GroupChatRoomPojo();
+                                groupChatRoomPojo.setRoomId(cursor.getLong(cursor.getColumnIndex("room_id")));
+                                groupChatRoomPojo.setName(cursor.getString(cursor.getColumnIndex("name")));
+                                groupChatRoomPojo.setAvatar(cursor.getString(cursor.getColumnIndex("avatar")));
+                                groupChatRoomPojo.setForumId(cursor.getString(cursor.getColumnIndex("forum_Id")));
+                                groupChatRoomPojo.setForumName(cursor.getString(cursor.getColumnIndex("forum_name")));
+                                groupChatRoomPojo.W(cursor.getLong(cursor.getColumnIndex(MessageExt.KEY_LATEST_MSG_ID)));
+                                groupChatRoomPojo.setTimestamp(cursor.getLong(cursor.getColumnIndex("timestamp")));
+                                groupChatRoomPojo.setDeleteTime(cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM)));
+                                groupChatRoomPojo.setTopTime(cursor.getLong(cursor.getColumnIndex("top_time")));
+                                groupChatRoomPojo.setIsSubscribe(cursor.getInt(cursor.getColumnIndex(TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE)));
+                                groupChatRoomPojo.setNoDisturb(cursor.getInt(cursor.getColumnIndex("no_disturb")));
+                                arrayList.add(groupChatRoomPojo);
+                            }
+                            si.a(cursor);
+                            return arrayList;
+                        } catch (SQLiteException e) {
+                            e = e;
+                            TiebaStatic.printDBExceptionLog(e, "GroupChatRoomPojo#getGroupChatRoomPojo", new Object[0]);
+                            si.a(cursor);
+                            return null;
+                        }
+                    }
+                } catch (SQLiteException e2) {
+                    e = e2;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    si.a(r1);
+                    throw th;
+                }
+                si.a(cursor);
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                r1 = str;
             }
-            SkinManager.setBackgroundColor(this.p, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.q, R.color.CAM_X0201);
-            g35 d = g35.d(this.f);
-            d.C(R.string.F_X02);
-            d.B(R.dimen.T_X04);
-            d.w(R.color.CAM_X0105);
-            g35 d2 = g35.d(this.g);
-            d2.C(R.string.F_X01);
-            d2.B(R.dimen.T_X08);
-            d2.w(R.color.CAM_X0109);
-            g35 d3 = g35.d(this.h);
-            d3.C(R.string.F_X01);
-            d3.B(R.dimen.obfuscated_res_0x7f0702b7);
-            d3.w(R.color.CAM_X0105);
+        } else {
+            return (List) invokeLL.objValue;
         }
     }
 
-    public void k(String str) {
-        NavigationBar navigationBar;
+    public final boolean j(String str, GroupChatRoomPojo groupChatRoomPojo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (navigationBar = this.c) != null) {
-            navigationBar.setCenterTextTitle(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, groupChatRoomPojo)) == null) {
+            String str2 = "tb_group_chat_room_" + str;
+            a(str);
+            try {
+                if (!b(str2, groupChatRoomPojo.getRoomId())) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
+                    contentValues.put("name", groupChatRoomPojo.getName());
+                    contentValues.put("avatar", groupChatRoomPojo.getAvatar());
+                    contentValues.put("forum_Id", groupChatRoomPojo.getForumId());
+                    contentValues.put("forum_name", groupChatRoomPojo.getForumName());
+                    contentValues.put(MessageExt.KEY_LATEST_MSG_ID, Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                    contentValues.put("timestamp", Long.valueOf(groupChatRoomPojo.getTimestamp()));
+                    contentValues.put(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM, Long.valueOf(groupChatRoomPojo.getDeleteTime()));
+                    contentValues.put("top_time", Long.valueOf(groupChatRoomPojo.getTopTime()));
+                    contentValues.put(TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE, Integer.valueOf(groupChatRoomPojo.U()));
+                    contentValues.put("no_disturb", Integer.valueOf(groupChatRoomPojo.V()));
+                    if (r28.d().insert(str2, null, contentValues) == -1) {
+                        return false;
+                    }
+                    return true;
+                }
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupChatRoomDao#insertGroupChatRoomPojo", new Object[0]);
+            }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void l(View view2, boolean z) {
+    public List<GroupChatRoomPojo> g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
-            SettingTextSwitchView settingTextSwitchView = this.l;
-            if (view2 == settingTextSwitchView) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return d("select * from " + ("tb_group_chat_room_" + str), null);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public List<GroupChatRoomPojo> h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return d("select * from " + ("tb_group_chat_room_" + str) + " WHERE " + TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE + RFC1522Codec.PREFIX, new String[]{String.valueOf(1)});
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final LinkedList<String> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = r28.d().e("select * from sqlite_master where type='table'", null);
+                    if (cursor != null) {
+                        cursor.moveToFirst();
+                        while (cursor.moveToNext()) {
+                            String string = cursor.getString(cursor.getColumnIndex("name"));
+                            if (string.startsWith("tb_group_chat_room_")) {
+                                linkedList.add(string);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "GroupChatRoomDao.getTables", new Object[0]);
+                    e.printStackTrace();
+                }
+                return linkedList;
+            } finally {
+                si.a(cursor);
+            }
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x009c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0019 */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v2, resolved type: int */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: int */
+    /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v6 */
+    /* JADX WARN: Type inference failed for: r1v7 */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    public final boolean k(@NonNull String str, @NonNull GroupChatRoomPojo groupChatRoomPojo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, groupChatRoomPojo)) == null) {
+            String str2 = "tb_group_chat_room_" + str;
+            a(str);
+            int i = 0;
+            i = 0;
+            try {
+                if (b(str2, groupChatRoomPojo.getRoomId())) {
+                    ContentValues contentValues = new ContentValues();
+                    contentValues.put("name", groupChatRoomPojo.getName());
+                    contentValues.put("avatar", groupChatRoomPojo.getAvatar());
+                    contentValues.put("forum_Id", groupChatRoomPojo.getForumId());
+                    contentValues.put("forum_name", groupChatRoomPojo.getForumName());
+                    contentValues.put(MessageExt.KEY_LATEST_MSG_ID, Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
+                    contentValues.put("timestamp", Long.valueOf(groupChatRoomPojo.getTimestamp()));
+                    contentValues.put(TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE, Integer.valueOf(groupChatRoomPojo.U()));
+                    if (r28.d().update(str2, contentValues, "room_id=?", new String[]{String.valueOf(groupChatRoomPojo.getRoomId())}) == 1) {
+                        i = 1;
+                    }
+                } else {
+                    i = j(str, groupChatRoomPojo);
+                }
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupChatRoomDao#updateGroupChatRoomPojo", new Object[i]);
+            }
+            return i;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean l(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, long j, long j2, long j3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, str4, str5, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
+            GroupChatRoomPojo groupChatRoomPojo = new GroupChatRoomPojo();
+            groupChatRoomPojo.setName(str2);
+            groupChatRoomPojo.setRoomId(j);
+            groupChatRoomPojo.setForumName(str5);
+            groupChatRoomPojo.setForumId(str4);
+            groupChatRoomPojo.setAvatar(str3);
+            groupChatRoomPojo.W(j2);
+            groupChatRoomPojo.setTimestamp(j3);
+            groupChatRoomPojo.setIsSubscribe(z ? 1 : 0);
+            return k(str, groupChatRoomPojo);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean m(@NonNull String str, long j, @NonNull String str2, @NonNull String str3, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Long.valueOf(j), str2, str3, Long.valueOf(j2)})) == null) {
+            return o(str, j, str2, str3, DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM, j2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean p(@NonNull String str, long j, @NonNull String str2, @NonNull String str3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{str, Long.valueOf(j), str2, str3, Boolean.valueOf(z)})) == null) {
+            return n(str, j, str2, str3, "no_disturb", z);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean q(@NonNull String str, long j, @NonNull String str2, @NonNull String str3, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{str, Long.valueOf(j), str2, str3, Boolean.valueOf(z)})) == null) {
+            return n(str, j, str2, str3, TableDefine.ZhiDaColumns.COLUMN_IS_SUBSCRIBE, z);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean r(@NonNull String str, long j, @NonNull String str2, @NonNull String str3, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{str, Long.valueOf(j), str2, str3, Long.valueOf(j2)})) == null) {
+            return o(str, j, str2, str3, "top_time", j2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final boolean n(String str, long j, @NonNull String str2, @NonNull String str3, String str4, boolean z) {
+        InterceptResult invokeCommon;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, Long.valueOf(j), str2, str3, str4, Boolean.valueOf(z)})) == null) {
+            String str5 = "tb_group_chat_room_" + str;
+            a(str);
+            try {
+                if (!b(str5, j)) {
+                    return false;
+                }
+                ContentValues contentValues = new ContentValues();
                 if (z) {
-                    settingTextSwitchView.getSwitchView().m();
-                    return;
+                    i = 1;
                 } else {
-                    settingTextSwitchView.getSwitchView().j();
-                    return;
+                    i = 0;
                 }
-            }
-            SettingTextSwitchView settingTextSwitchView2 = this.m;
-            if (view2 == settingTextSwitchView2) {
-                if (z) {
-                    settingTextSwitchView2.getSwitchView().m();
-                } else {
-                    settingTextSwitchView2.getSwitchView().j();
+                contentValues.put(str4, Integer.valueOf(i));
+                contentValues.put("name", str2);
+                contentValues.put("avatar", str3);
+                if (r28.d().update(str5, contentValues, "room_id=?", new String[]{String.valueOf(j)}) != 1) {
+                    return false;
                 }
+                return true;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupChatRoomDao#updateIntField", new Object[0]);
+                return false;
             }
         }
+        return invokeCommon.booleanValue;
     }
 
-    public void o(int i) {
+    public final boolean o(@NonNull String str, long j, @NonNull String str2, @NonNull String str3, String str4, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            if (this.n == null) {
-                this.n = NoDataViewFactory.a(this.a.getPageContext().getPageActivity(), this.b, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07029f)), NoDataViewFactory.e.a(i), null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{str, Long.valueOf(j), str2, str3, str4, Long.valueOf(j2)})) == null) {
+            String str5 = "tb_group_chat_room_" + str;
+            a(str);
+            try {
+                if (!b(str5, j)) {
+                    return false;
+                }
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(str4, Long.valueOf(j2));
+                contentValues.put("name", str2);
+                contentValues.put("avatar", str3);
+                if (r28.d().update(str5, contentValues, "room_id=?", new String[]{String.valueOf(j)}) != 1) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "GroupChatRoomDao#updateLongField", new Object[0]);
+                return false;
             }
-            this.n.setTextOption(NoDataViewFactory.e.a(i));
-            this.n.f(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.o.setVisibility(8);
-            this.n.setVisibility(0);
         }
-    }
-
-    public void p(UserInfoBigVip userInfoBigVip, boolean z) {
-        RecommendDetailActivity recommendDetailActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048591, this, userInfoBigVip, z) == null) && userInfoBigVip != null && (recommendDetailActivity = this.a) != null) {
-            String str = userInfoBigVip.user_name;
-            if (!StringUtils.isNull(recommendDetailActivity.d) && !this.a.d.equals(userInfoBigVip.user_name)) {
-                RecommendDetailActivity recommendDetailActivity2 = this.a;
-                str = recommendDetailActivity2.d;
-                if (ea5.M(String.valueOf(recommendDetailActivity2.c))) {
-                    b();
-                    return;
-                }
-            }
-            this.e.N(userInfoBigVip.portraith, 12, false);
-            String fixedText = UtilHelper.getFixedText(str, 7);
-            this.t = userInfoBigVip.user_id.longValue();
-            this.f.setText(fixedText);
-            this.g.setText(userInfoBigVip.user_type);
-            this.s = ea5.M(String.valueOf(this.t));
-            if (!StringUtils.isNull(userInfoBigVip.user_detail) && !this.s) {
-                this.q.setVisibility(0);
-                this.r.setVisibility(0);
-                this.i.setText(userInfoBigVip.user_detail);
-            }
-            a();
-            if (z) {
-                if (userInfoBigVip.message_accept.intValue() == 1) {
-                    l(this.l, true);
-                    TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(userInfoBigVip.user_id), true);
-                } else {
-                    l(this.l, false);
-                    TbadkCoreApplication.getInst().setPromotedMessage(String.valueOf(userInfoBigVip.user_id), false);
-                }
-                if (userInfoBigVip.mute_notifications.intValue() == 1) {
-                    l(this.m, true);
-                    this.a.A1(true);
-                } else {
-                    l(this.m, false);
-                    this.a.A1(false);
-                }
-            } else {
-                l(this.l, TbadkCoreApplication.getInst().isPromotedMessageOn(String.valueOf(userInfoBigVip.user_id)));
-                OfficialSettingItemData a = v28.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(userInfoBigVip.user_id));
-                if (a != null) {
-                    l(this.m, !a.isAcceptNotify());
-                }
-            }
-            i();
-        }
+        return invokeCommon.booleanValue;
     }
 }

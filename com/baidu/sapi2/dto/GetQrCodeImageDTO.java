@@ -1,7 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetQrCodeImageDTO implements NoProguard {
     public static final String ENABLE_USE_CUID = "1";
     public static final String LP_TYPE_APP = "app";

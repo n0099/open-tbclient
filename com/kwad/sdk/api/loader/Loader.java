@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.kwad.components.offline.api.BuildConfig;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
@@ -15,7 +16,7 @@ import com.kwad.sdk.api.proxy.IComponentProxy;
 import java.io.File;
 import java.lang.Thread;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Loader {
     public static final /* synthetic */ boolean a = !Loader.class.desiredAssertionStatus();
     public IKsAdSDK RJ;
@@ -24,7 +25,7 @@ public class Loader {
     public AtomicBoolean RM;
     public volatile Context b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final Loader RN = new Loader((byte) 0);
     }
@@ -50,7 +51,7 @@ public class Loader {
                 if (!a && ksAdSdkDynamicApi == null) {
                     throw new AssertionError();
                 }
-                Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod("get", new Class[0]).invoke(null, new Object[0]);
+                Object invoke = Class.forName(ksAdSdkDynamicApi.value(), true, classLoader).getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Class[0]).invoke(null, new Object[0]);
                 if (invoke == null) {
                     throw new RuntimeException("Can not get sdk form ".concat(String.valueOf(classLoader)));
                 }

@@ -4,7 +4,7 @@ import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
 import com.kwad.sdk.core.config.item.j;
 import com.kwad.sdk.core.config.item.o;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static j yl = new j("splashTimeOutMilliSecond", 5000);
     public static j ym = new j("splashVplusEnterHomeSeconds", 0);

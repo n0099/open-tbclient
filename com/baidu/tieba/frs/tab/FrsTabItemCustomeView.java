@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ku5;
+import com.baidu.tieba.wv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.TabPic;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsTabItemCustomeView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -171,12 +171,12 @@ public class FrsTabItemCustomeView extends RelativeLayout {
             layoutParams.addRule(13);
             this.a.setLayoutParams(layoutParams);
             this.a.setVisibility(4);
-            this.a.setPlaceHolderDrawable(ku5.a.a());
+            this.a.setPlaceHolderDrawable(wv5.a.a());
             addView(this.a);
             this.b = new TbImage(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
-            this.b.setPlaceHolderDrawable(ku5.a.a());
+            this.b.setPlaceHolderDrawable(wv5.a.a());
             this.b.setLayoutParams(layoutParams2);
             addView(this.b);
         }

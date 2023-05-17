@@ -1,13 +1,21 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface j10 {
-    String a(String str, String... strArr);
+    String getBDVCInfo();
 
-    String b();
+    String getC3Aid();
 
-    boolean c();
+    String getCfrom();
 
-    boolean d();
+    String getDeviceId();
+
+    String getFrom();
 
     String getSchemeHeader();
+
+    String getSid();
+
+    String getZid();
+
+    String processUrlExternal(String str, boolean z);
 }

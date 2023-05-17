@@ -14,13 +14,14 @@ import android.text.style.URLSpan;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.pose.PoseAR;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.FeedbackInputActivity;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class w0 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +58,7 @@ public class w0 extends ClickableSpan {
             }
             if (url.startsWith("http")) {
                 Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
+                intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setPackage(c.a());
                 intent.setData(Uri.parse(url));
                 PackageManager packageManager = null;

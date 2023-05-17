@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.homeready;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitMaintabFragmentTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

@@ -1,28 +1,23 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class hd implements ed {
+import java.io.IOException;
+/* loaded from: classes5.dex */
+public class hd implements kd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public char a;
 
-    public hd(JSONObject jSONObject) {
+    public hd(char c) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,56 +27,58 @@ public class hd implements ed {
                 return;
             }
         }
-        this.a = jSONObject;
+        this.a = c;
     }
 
-    @Override // com.baidu.tieba.ed
-    public Object a(ud udVar) {
+    @Override // com.baidu.tieba.kd
+    public Object a(ae aeVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
-            Class<?> a = udVar.a();
-            Type[] b = udVar.b();
-            if (bc.e(a, Map.class)) {
-                Map<String, Object> b2 = sd.b(udVar, this.a.length());
-                if (b2 != null) {
-                    Iterator<String> keys = this.a.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (next instanceof String) {
-                            String str = next;
-                            Object a2 = yd.a(this.a.opt(str)).a(new ud(b[1]));
-                            if (a2 != null) {
-                                b2.put(str, a2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aeVar)) == null) {
+            Class<?> a = aeVar.a();
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        boolean z = false;
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return String.valueOf(this.a);
+                                            }
+                                            if (a == char[].class) {
+                                                return String.valueOf(this.a).toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return ji.e(String.valueOf(this.a), 0);
+                                                } catch (IOException e) {
+                                                    e.printStackTrace();
+                                                    return null;
+                                                }
+                                            }
+                                            return null;
+                                        }
+                                        if (((byte) this.a) == 0) {
+                                            z = true;
+                                        }
+                                        return Boolean.valueOf(z);
+                                    }
+                                    return Character.valueOf(this.a);
+                                }
+                                return Double.valueOf(this.a);
                             }
+                            return Float.valueOf(this.a);
                         }
+                        return Long.valueOf(this.a);
                     }
+                    return Integer.valueOf(this.a);
                 }
-                return b2;
-            } else if (a == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.a.length());
-                Iterator<String> keys2 = this.a.keys();
-                while (keys2.hasNext()) {
-                    String next2 = keys2.next();
-                    if (next2 instanceof String) {
-                        String str2 = next2;
-                        try {
-                            int parseInt = Integer.parseInt(str2);
-                            Object a3 = yd.a(this.a.opt(String.valueOf(str2))).a(new ud(b[0]));
-                            if (a3 != null) {
-                                sparseArray.put(parseInt, a3);
-                            }
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                return sparseArray;
-            } else if (bc.e(a, cc.class)) {
-                return OrmObject.objectWithJson(this.a, a);
-            } else {
-                return null;
+                return Short.valueOf((short) this.a);
             }
+            return Byte.valueOf((byte) this.a);
         }
         return invokeL.objValue;
     }

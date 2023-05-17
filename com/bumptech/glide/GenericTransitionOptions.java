@@ -3,7 +3,7 @@ package com.bumptech.glide;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.request.transition.TransitionFactory;
 import com.bumptech.glide.request.transition.ViewPropertyTransition;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GenericTransitionOptions<TranscodeType> extends TransitionOptions<GenericTransitionOptions<TranscodeType>, TranscodeType> {
     @NonNull
     public static <TranscodeType> GenericTransitionOptions<TranscodeType> withNoTransition() {

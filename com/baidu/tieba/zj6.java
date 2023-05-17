@@ -1,66 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.rw6;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zj6 implements rw6.f {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+/* loaded from: classes8.dex */
+public class zj6 extends jy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<AlaLiveInfo> b;
+    public BdUniqueId c;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qx6 a;
-        public final /* synthetic */ ItemData b;
-
-        public a(zj6 zj6Var, qx6 qx6Var, ItemData itemData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zj6Var, qx6Var, itemData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qx6Var;
-            this.b = itemData;
+    @Override // com.baidu.tieba.jy4
+    public h05 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
+        return (h05) invokeV.objValue;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int i = 2;
-                int i2 = 0;
-                if (ImageViewerConfig.FROM_CONCERN.equals(this.a.c().b)) {
-                    i2 = 2;
-                } else {
-                    i = 0;
-                }
-                ItemData itemData = this.b;
-                ItemClickJumpUtil.itemClickJump(itemData.forumName, String.valueOf(itemData.itemId), i, Integer.valueOf(i2));
-            }
+    @Override // com.baidu.tieba.jy4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (ThreadData) invokeV.objValue;
     }
 
     public zj6() {
@@ -73,64 +50,61 @@ public class zj6 implements rw6.f {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "recommend";
     }
 
-    @Override // com.baidu.tieba.rw6.l
-    public void a(@NonNull ViewGroup viewGroup) {
+    public List<AlaLiveInfo> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof ItemCardView)) {
-            ((ItemCardView) viewGroup).G();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rw6.f
-    @NonNull
-    public ViewGroup create(Context context) {
-        InterceptResult invokeL;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new ItemCardView(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (ViewGroup) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rw6.f
-    public void update(@NonNull ViewGroup viewGroup, @NonNull qx6 qx6Var) {
-        String str;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, qx6Var) == null) && viewGroup != null && qx6Var != null && qx6Var.a() != null) {
-            ez6 a2 = qx6Var.a();
-            ItemData itemData = new ItemData();
-            itemData.itemId = a2.a;
-            itemData.buttonName = a2.h;
-            itemData.buttonLink = a2.i;
-            itemData.buttonLinkType = 2;
-            itemData.mIconUrl = a2.b;
-            itemData.mTitle = a2.d;
-            itemData.mTags = a2.g;
-            itemData.mScore = a2.f;
-            itemData.mStar = a2.e;
-            itemData.mIconSize = a2.c;
-            itemData.forumName = a2.k;
-            int i = a2.j;
-            if (i != 0) {
-                ((ItemCardView) viewGroup).setBackGroundColor(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public zj6(BdUniqueId bdUniqueId, List<AlaLiveInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, list, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (qx6Var.c() != null) {
-                str = qx6Var.c().a;
-            } else {
-                str = "";
-            }
-            ItemCardView itemCardView = (ItemCardView) viewGroup;
-            itemCardView.setIsShowRightBtn(true);
-            itemCardView.setData(itemData, 13, str);
-            if (qx6Var.b()) {
-                viewGroup.setOnClickListener(new a(this, qx6Var, itemData));
-            } else {
-                viewGroup.setClickable(false);
-            }
+        }
+        this.a = "recommend";
+        this.c = bdUniqueId;
+        this.a = str;
+        this.b = new ArrayList();
+        if (!ListUtils.isEmpty(list)) {
+            this.b.addAll(list);
         }
     }
 }

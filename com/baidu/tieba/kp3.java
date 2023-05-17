@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes5.dex */
-public class kp3 implements is1 {
+/* loaded from: classes6.dex */
+public class kp3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,13 +26,15 @@ public class kp3 implements is1 {
         }
     }
 
-    @Override // com.baidu.tieba.is1
-    public zc3 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new hp3();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", hp3.k(getAgent().getContext()));
+            return bundle2;
         }
-        return (zc3) invokeV.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

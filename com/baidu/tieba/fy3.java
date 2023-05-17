@@ -1,352 +1,196 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
+import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class fy3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public long g;
-    public Download h;
-    public String i;
-    public String j;
+    public rx3 a;
+    public Context b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947780425, "Lcom/baidu/tieba/fy3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx3 a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ fy3 c;
+
+        /* renamed from: com.baidu.tieba.fy3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0305a extends ResponseCallback<px3> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.fy3$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class RunnableC0306a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ px3 a;
+                public final /* synthetic */ C0305a b;
+
+                public RunnableC0306a(C0305a c0305a, px3 px3Var) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0305a, px3Var};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0305a;
+                    this.a = px3Var;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.c.a != null) {
+                        this.b.a.c.a.i(this.a);
+                    }
+                }
+            }
+
+            public C0305a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: a */
+            public void onSuccess(px3 px3Var, int i) {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeLI(1048576, this, px3Var, i) != null) || px3Var == null) {
+                    return;
+                }
+                vy3.c(new RunnableC0306a(this, px3Var));
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: b */
+            public px3 parseResponse(Response response, int i) {
+                InterceptResult invokeLI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                    if (response == null || response.body() == null || !response.isSuccessful()) {
+                        return null;
+                    }
+                    try {
+                        String string = response.body().string();
+                        if (!TextUtils.isEmpty(string)) {
+                            return new px3(string);
+                        }
+                    } catch (Exception | OutOfMemoryError e) {
+                        e.printStackTrace();
+                    }
+                    return null;
+                }
+                return (px3) invokeLI.objValue;
+            }
+        }
+
+        public a(fy3 fy3Var, xx3 xx3Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fy3Var, xx3Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947780425, "Lcom/baidu/tieba/fy3;");
-                return;
-            }
+            this.c = fy3Var;
+            this.a = xx3Var;
+            this.b = jSONObject;
         }
-        k = ho1.a;
-    }
 
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Download download = this.h;
-            if (download == null) {
-                return null;
-            }
-            return download.getFromParam();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.g;
-        }
-        return invokeV.longValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public fy3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                C0305a c0305a = new C0305a(this);
+                if (NetworkUtils.f(this.c.b)) {
+                    this.a.b("https://afdconf.baidu.com/afd/download", this.b, c0305a);
+                }
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = System.currentTimeMillis();
-        this.i = "";
-        this.j = "";
     }
 
-    public fy3(@NonNull Download download) {
+    public fy3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = System.currentTimeMillis();
-        this.i = "";
-        this.j = "";
-        this.h = download;
-        this.a = download.getUrl();
-        this.b = download.getKeyByUser();
-        String fromParam = download.getFromParam();
-        if (!TextUtils.isEmpty(fromParam)) {
-            try {
-                JSONObject jSONObject = new JSONObject(fromParam);
-                this.c = jSONObject.optString("apk_id");
-                this.d = jSONObject.optString("from_view");
-                this.e = jSONObject.optString("from_value");
-                this.f = jSONObject.optString(GameGuideConfigInfo.KEY_CONFIG_NAME);
-                this.g = jSONObject.optLong("download_time", System.currentTimeMillis());
-            } catch (JSONException e) {
-                if (k) {
-                    e.printStackTrace();
-                }
-            }
+        this.b = context;
+    }
+
+    public void d(rx3 rx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rx3Var) == null) {
+            this.a = rx3Var;
         }
     }
 
-    public static String i() {
-        InterceptResult invokeV;
+    public void c(xx3 xx3Var, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!Environment.getExternalStorageState().equals("mounted")) {
-                return null;
-            }
-            String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!Environment.getExternalStorageState().equals("mounted")) {
-                return null;
-            }
-            String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/zip";
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Download c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            download.setMimetype("application/zip");
-            download.setWifiOnly(false);
-            String n = n();
-            if (!TextUtils.isEmpty(n)) {
-                download.setSavedPathForUser(n);
-            }
-            download.setFileName(this.i + ".zip");
-            download.setFromParam(this.j);
-            return download;
-        }
-        return (Download) invokeV.objValue;
-    }
-
-    public fy3 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.i = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.j = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public fy3 r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (fy3) invokeL.objValue;
-    }
-
-    public Download b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("apk_id", this.c);
-                jSONObject.put("download_time", this.g);
-                jSONObject.put("from_view", this.d);
-                jSONObject.put("from_value", this.e);
-                jSONObject.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.f);
-            } catch (JSONException e) {
-                if (k) {
-                    e.printStackTrace();
-                }
-            }
-            download.setFromParam(jSONObject.toString());
-            download.setMimetype("application/vnd.android.package-archive");
-            download.setWifiOnly(false);
-            String i = i();
-            if (!TextUtils.isEmpty(i)) {
-                download.setSavedPathForUser(i);
-            }
-            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return download;
-        }
-        return (Download) invokeV.objValue;
-    }
-
-    public <T> void p(String str, T t) {
-        Download download;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048589, this, str, t) != null) || (download = this.h) == null) {
-            return;
-        }
-        String fromParam = download.getFromParam();
-        if (!TextUtils.isEmpty(fromParam)) {
-            try {
-                JSONObject jSONObject = new JSONObject(fromParam);
-                jSONObject.put(str, t);
-                this.h.setFromParam(jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, xx3Var, jSONObject) == null) {
+            uy3.d(new a(this, xx3Var, jSONObject), "AdLandingDownloadRequest");
         }
     }
 }

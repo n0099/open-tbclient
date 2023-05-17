@@ -3,12 +3,13 @@ package com.baidu.platform.core.f;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.search.route.IndoorRoutePlanOption;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +51,7 @@ public class g extends com.baidu.platform.base.e {
             GeoPoint ll2mc = CoordUtil.ll2mc(indoorRoutePlanOption.mFrom.getLocation());
             if (ll2mc != null) {
                 String format = String.format("%f,%f", Double.valueOf(ll2mc.getLongitudeE6()), Double.valueOf(ll2mc.getLatitudeE6()));
-                this.a.a("sn", (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
+                this.a.a(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, (format + "|" + indoorRoutePlanOption.mFrom.getFloor()).replaceAll(" ", ""));
             }
             GeoPoint ll2mc2 = CoordUtil.ll2mc(indoorRoutePlanOption.mTo.getLocation());
             if (ll2mc2 != null) {

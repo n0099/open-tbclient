@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptorWithSou
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DeclarationDescriptorNonRootImpl extends DeclarationDescriptorImpl implements DeclarationDescriptorNonRoot {
     public final DeclarationDescriptor containingDeclaration;
     public final SourceElement source;

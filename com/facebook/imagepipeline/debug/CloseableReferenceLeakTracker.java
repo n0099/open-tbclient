@@ -2,10 +2,10 @@ package com.facebook.imagepipeline.debug;
 
 import com.facebook.common.references.SharedReference;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface CloseableReferenceLeakTracker {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onCloseableReferenceLeak(SharedReference<Object> sharedReference, @Nullable Throwable th);
     }

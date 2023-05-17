@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
-/* loaded from: classes5.dex */
-public class ly7 extends pi6 {
+import tbclient.NewTopicList.NewTopicList;
+import tbclient.NewTopicList.PkModule;
+import tbclient.TopicModule;
+/* loaded from: classes6.dex */
+public class ly7 extends ck6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c0;
+    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<in> a;
+    public int R;
+    public long S;
+    public String T;
+    public String U;
+    public long V;
+    public String W;
+    public my7 X;
+    public rr9 Y;
+    public int Z;
+    public String a0;
+    public ThreadData b0;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +44,8 @@ public class ly7 extends pi6 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c0 = BdUniqueId.gen();
+        d0 = BdUniqueId.gen();
     }
 
     public ly7() {
@@ -51,45 +61,107 @@ public class ly7 extends pi6 {
                 return;
             }
         }
-        this.a = null;
+        this.Z = 0;
     }
 
-    public int getCount() {
+    @Override // com.baidu.tieba.ck6, com.baidu.tieba.jy4
+    public h05 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<in> list = this.a;
-            if (list != null && list.size() != 0) {
-                return this.a.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            h05 negFeedBackData = super.getNegFeedBackData();
+            if (negFeedBackData != null) {
+                negFeedBackData.q(this.S);
             }
-            return 0;
+            return negFeedBackData;
         }
-        return invokeV.intValue;
+        return (h05) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    @Override // com.baidu.tieba.ck6, com.baidu.tieba.jy4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b0;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.Z == 0) {
+                return c0;
+            }
+            return d0;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void parserProtobuf(List<RelateForum> list) {
+    public static boolean J(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && list.size() != 0) {
-            this.showTopDivider = true;
-            this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.recommend_relative_forum);
-            this.a = new ArrayList();
-            for (RelateForum relateForum : list) {
-                if (!StringUtils.isNull(relateForum.forum_name)) {
-                    RelateForumItemData relateForumItemData = new RelateForumItemData();
-                    relateForumItemData.parserProtobuf(relateForum);
-                    this.a.add(relateForumItemData);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null || threadData.getType() != ThreadData.TYPE_TOPIC) {
+                return false;
             }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void M(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            this.b0 = threadData;
+        }
+    }
+
+    public void K(NewTopicList newTopicList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, newTopicList) != null) || newTopicList == null) {
+            return;
+        }
+        this.S = newTopicList.topic_id.longValue();
+        this.T = newTopicList.topic_name;
+        this.U = newTopicList.topic_desc;
+        this.V = newTopicList.discuss_num.longValue();
+        this.W = newTopicList.topic_image;
+        PkModule pkModule = newTopicList.pk_module;
+        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            my7 my7Var = new my7();
+            this.X = my7Var;
+            my7Var.a = this.S;
+            my7Var.f = 1;
+            my7Var.b(newTopicList.pk_module);
+        }
+        if (newTopicList.top_agree_post != null) {
+            rr9 rr9Var = new rr9();
+            this.Y = rr9Var;
+            rr9Var.C0(newTopicList.top_agree_post);
+        }
+    }
+
+    public void L(TopicModule topicModule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) != null) || topicModule == null) {
+            return;
+        }
+        this.S = topicModule.topic_id.longValue();
+        this.T = topicModule.topic_name;
+        this.U = topicModule.topic_desc;
+        this.W = topicModule.topic_image;
+        this.a0 = topicModule.topic_avatar;
+        tbclient.PkModule pkModule = topicModule.pk_module;
+        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            my7 my7Var = new my7();
+            this.X = my7Var;
+            my7Var.a = this.S;
+            my7Var.f = 3;
+            my7Var.c(topicModule.pk_module);
         }
     }
 }

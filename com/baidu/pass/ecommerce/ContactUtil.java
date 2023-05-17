@@ -13,7 +13,7 @@ import com.baidu.sapi2.ecommerce.activity.GetContactActivty;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ContactUtil {
     public static ContactUtil instance;
     public GetContactCallback getContactCallback;

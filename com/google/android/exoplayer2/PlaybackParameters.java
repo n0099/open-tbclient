@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PlaybackParameters {
     public static final PlaybackParameters DEFAULT = new PlaybackParameters(1.0f, 1.0f);
     public final float pitch;

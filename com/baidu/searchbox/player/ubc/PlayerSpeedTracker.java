@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.session.VideoSessionManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PlayerSpeedTracker {
     public static void beginCallPlayerStart(@NonNull String str) {
         FlowInstanceManager.endFlowPart(str, PlayerSpeedMonitorConstants.PART_START_PLAYER);

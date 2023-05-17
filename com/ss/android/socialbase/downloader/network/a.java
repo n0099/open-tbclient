@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.network;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements i {
     public void a(long j) {
     }

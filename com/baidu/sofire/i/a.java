@@ -28,12 +28,12 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerC0175a a;
+    public HandlerC0181a a;
     public com.baidu.sofire.j.a b;
     public Context c;
     public com.baidu.sofire.h.a d;
@@ -41,14 +41,14 @@ public class a {
     public long f;
 
     /* renamed from: com.baidu.sofire.i.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class HandlerC0175a extends Handler {
+    /* loaded from: classes4.dex */
+    public class HandlerC0181a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0175a(a aVar, Looper looper) {
+        public HandlerC0181a(a aVar, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -68,16 +68,16 @@ public class a {
             this.a = aVar;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:31:0x00ae, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
             if (r4 != null) goto L45;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:37:0x00b6, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:37:0x00b7, code lost:
             if (r4 == null) goto L34;
          */
-        /* JADX WARN: Code restructure failed: missing block: B:38:0x00b8, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:38:0x00b9, code lost:
             r4.close();
          */
-        /* JADX WARN: Code restructure failed: missing block: B:40:0x00bc, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x00bd, code lost:
             r3 = com.baidu.sofire.a.b.a;
          */
         @Override // android.os.Handler
@@ -231,7 +231,7 @@ public class a {
         }
         this.f = 0L;
         this.c = context.getApplicationContext();
-        this.a = new HandlerC0175a(this, h.a());
+        this.a = new HandlerC0181a(this, h.a());
         this.b = com.baidu.sofire.j.a.a(this.c);
         this.d = new com.baidu.sofire.h.a(this.c);
     }
@@ -254,13 +254,13 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00f0 */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00f0, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x00f1 */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00f1, code lost:
         if (r6 != null) goto L63;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:113:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x0138  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0139  */
     /* JADX WARN: Type inference failed for: r7v0, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r7v1, types: [java.util.List] */
     /* JADX WARN: Type inference failed for: r7v2, types: [java.util.List] */

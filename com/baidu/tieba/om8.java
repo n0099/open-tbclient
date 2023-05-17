@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ThirdPartAccountService;
-import com.baidu.tieba.medialive.thirdaccount.ThirdPartyAccountServiceImpl;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class om8 extends tj1<ThirdPartAccountService> {
+/* loaded from: classes6.dex */
+public class om8 implements BrowserProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,15 +27,17 @@ public class om8 extends tj1<ThirdPartAccountService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public ThirdPartAccountService createService() throws ServiceNotFoundException {
+    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
+    @NonNull
+    public IBrowserView buildLightBrowserViewInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ThirdPartyAccountServiceImpl();
+            if (fh6.e("https://live-tmp/")) {
+                return new pm8();
+            }
+            return new mm8();
         }
-        return (ThirdPartAccountService) invokeV.objValue;
+        return (IBrowserView) invokeV.objValue;
     }
 }

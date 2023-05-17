@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.entity.StringEntity;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UrlEncodedFormEntity extends StringEntity {
     public UrlEncodedFormEntity(List<? extends NameValuePair> list) throws UnsupportedEncodingException {
         super(null);

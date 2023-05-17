@@ -1,71 +1,50 @@
 package com.baidu.tieba;
 
-import android.os.CountDownTimer;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.vha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.baidu.ubs.analytics.SampleResult;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes8.dex */
 public class z06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public CountDownTimer b;
+    public int a;
+    public boolean b;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(long j, long j2);
-
-        void b();
+    public final String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 2) {
+                return PayUVEventType.PAY_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK;
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends CountDownTimer {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ z06 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z06 z06Var, long j, long j2, long j3) {
-            super(j, j2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z06Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public final String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i == 1) {
+                return "key_card_show_type";
             }
-            this.b = z06Var;
-            this.a = j3;
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b();
+            if (i == 2) {
+                return "key_card_abstract_switch";
             }
+            return null;
         }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && this.b.a != null) {
-                this.b.a.a(this.a, j);
-            }
-        }
+        return (String) invokeI.objValue;
     }
 
     public z06() {
@@ -78,62 +57,136 @@ public class z06 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        i();
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = o65.m().n("key_abtest_channel", 0);
+            j();
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
+            boolean h = h();
+            this.b = h;
+            if (!h) {
+                this.a = 0;
             }
         }
     }
 
-    public void b() {
-        CountDownTimer countDownTimer;
+    public final int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (countDownTimer = this.b) != null) {
-            countDownTimer.cancel();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return d(i);
+            }
+            int i2 = this.a;
+            if (i2 == 1) {
+                return c(i);
+            }
+            if (i2 == 0) {
+                return d(i);
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            String f = f(i);
+            if (qi.isEmpty(f) || o65.m().n(f, 0) != 1) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i != 1 && i != 0) {
+                return;
+            }
+            this.a = i;
+            o65.m().z("key_abtest_channel", this.a);
+            j();
         }
     }
 
-    public void d(b bVar) {
+    public void b(ArrayList<Integer> arrayList, y06 y06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.a = bVar;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, y06Var) == null) && arrayList != null && y06Var != null) {
+            Iterator<Integer> it = arrayList.iterator();
+            while (it.hasNext()) {
+                int intValue = it.next().intValue();
+                y06Var.b(intValue, a(intValue));
+            }
         }
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    public final int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            long j2 = j / 1000;
-            long j3 = j2 / 3600;
-            StringBuilder sb = new StringBuilder();
-            if (j3 > 0) {
-                if (j3 < 10) {
-                    sb.append("0");
-                }
-                sb.append(j3);
-                sb.append(":");
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            String e = e(i);
+            if (qi.isEmpty(e)) {
+                return 0;
             }
-            Long.signum(j3);
-            long j4 = j2 - (j3 * 3600);
-            long j5 = j4 / 60;
-            if (j5 < 10) {
-                sb.append("0");
+            SampleResult a = uha.a(e);
+            if (a != SampleResult.T1 && a != SampleResult.T2 && a != SampleResult.T3 && a != SampleResult.T4 && a != SampleResult.T5) {
+                return 0;
             }
-            sb.append(j5);
-            sb.append(":");
-            long j6 = j4 - (j5 * 60);
-            if (j6 < 10) {
-                sb.append("0");
-            }
-            sb.append(j6);
-            return sb.toString();
+            return 1;
         }
-        return (String) invokeJ.objValue;
+        return invokeI.intValue;
     }
 
-    public void e(long j, long j2) {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            b();
-            this.b = new a(this, j2, 1000L, j).start();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
+                return false;
+            }
+            try {
+                vha.a aVar = new vha.a();
+                aVar.e(TbadkCoreApplication.getInst());
+                aVar.j(false);
+                aVar.n(30L);
+                aVar.m(1);
+                aVar.l(false);
+                aVar.o(15L);
+                aVar.k(1000);
+                uha.b(aVar.c());
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
+        return invokeV.booleanValue;
     }
 }

@@ -1,14 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface tn0 extends sn0 {
+    void b(rn0 rn0Var);
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public interface tn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "rewardRequest");
-
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    void a(JSONObject jSONObject, a aVar);
+    void d(rn0 rn0Var);
 }

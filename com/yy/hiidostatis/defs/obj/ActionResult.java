@@ -6,7 +6,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ActionResult implements IJsonSerialize {
     public Map<String, String> moreinfo;
     public long reqTime;

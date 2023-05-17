@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.util;
 
 import android.text.TextUtils;
-import com.baidu.android.common.security.RSAUtil;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import java.nio.charset.Charset;
 import java.security.KeyFactory;
@@ -11,7 +10,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static final Charset a = Charset.forName("UTF-8");
 
@@ -34,7 +33,7 @@ public class c {
         StringBuilder sb;
         String message;
         try {
-            return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b(str)));
+            return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(b(str)));
         } catch (NoSuchAlgorithmException e) {
             sb = new StringBuilder();
             sb.append("loadPublicKey NoSuchAlgorithmException ");

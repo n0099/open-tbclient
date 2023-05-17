@@ -1,86 +1,110 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class psa extends BaseAdRipper {
+/* loaded from: classes7.dex */
+public class psa implements TTRewardVideoAd.RewardAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ xta c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ gua e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public psa(Ssp.Pid pid) {
-        super(pid);
+    public psa(gua guaVar, xta xtaVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {guaVar, xtaVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = guaVar;
+        this.c = xtaVar;
+        this.d = str;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object obj2;
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onAdClose() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                obj2 = declaredField.get(obj);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-            }
-            if (obj2 == null) {
-                return null;
-            }
-            Field declaredField2 = obj2.getClass().getDeclaredField("b");
-            declaredField2.setAccessible(true);
-            Object obj3 = declaredField2.get(obj2);
-            if (obj3 == null) {
-                return null;
-            }
-            Field declaredField3 = obj3.getClass().getDeclaredField("b");
-            declaredField3.setAccessible(true);
-            Object obj4 = declaredField3.get(obj3);
-            if (obj4 == null) {
-                return null;
-            }
-            Field declaredField4 = obj4.getClass().getDeclaredField("x");
-            declaredField4.setAccessible(true);
-            Object obj5 = declaredField4.get(obj4);
-            if (obj5 == null) {
-                return null;
-            }
-            Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("L");
-            declaredField5.setAccessible(true);
-            JSONObject jSONObject = (JSONObject) declaredField5.get(obj5);
-            if (jSONObject != null) {
-                return nsa.a(jSONObject);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClose(this.c);
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onAdShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.e.onAdShow(this.c, this.a, this.d);
+            this.a = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onAdVideoBarClick() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClicked(this.c, this.b, this.d);
+            this.b = true;
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onRewardArrived(boolean z, int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), bundle}) == null) {
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onRewardVerify(boolean z, int i, String str, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2}) == null) {
+            LogPrinter.d("onRewardVerify rewardVerify:%b rewardAmount:%d rewardName:%s errCode:%d errMsg:%s", Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2), str2);
+            this.e.onRewardedVideo(this.c, z, i2, this.d);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.e("CSJRewardVideoAd onSkippedVideo", new Object[0]);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onVideoComplete() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTRewardVideoAd.RewardAdInteractionListener
+    public void onVideoError() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            LogPrinter.d();
+            this.e.onAdError(this.c, 0, "F:onVideoError");
+        }
     }
 }

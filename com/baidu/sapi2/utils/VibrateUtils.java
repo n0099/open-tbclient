@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Vibrator;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VibrateUtils implements NoProguard {
     public static final String TAG = "VibrateUtils";
 

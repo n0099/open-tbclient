@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IntegerValueTypeConstructor implements TypeConstructor {
     public final ModuleDescriptor module;
     public final ArrayList<KotlinType> supertypes;
@@ -39,7 +39,7 @@ public final class IntegerValueTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2025getDeclarationDescriptor() {
+    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2044getDeclarationDescriptor() {
         return (ClassifierDescriptor) getDeclarationDescriptor();
     }
 
@@ -50,7 +50,7 @@ public final class IntegerValueTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public Collection<KotlinType> mo2026getSupertypes() {
+    public Collection<KotlinType> mo2045getSupertypes() {
         return this.supertypes;
     }
 

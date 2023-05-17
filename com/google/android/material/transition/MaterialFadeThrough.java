@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaterialFadeThrough extends MaterialVisibility<FadeThroughProvider> {
     public static final float DEFAULT_START_SCALE = 0.92f;
 

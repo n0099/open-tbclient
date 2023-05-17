@@ -9,7 +9,7 @@ import com.ss.android.download.api.config.i;
 import com.ss.android.download.api.config.k;
 import com.ss.android.download.api.config.p;
 import com.ss.android.socialbase.downloader.downloader.DownloaderBuilder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
     a a(@NonNull b bVar);
 

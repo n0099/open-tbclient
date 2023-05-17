@@ -1,47 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
-import tv.athena.revenue.RevenueManager;
-/* loaded from: classes5.dex */
-public class ldb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.app.Activity;
+import android.app.Dialog;
+import com.baidu.tieba.ugb;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import tv.athena.revenue.payui.view.WindowParams;
+import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
+/* loaded from: classes6.dex */
+public interface ldb {
+    void a(Activity activity, dfb dfbVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    public static IPayServiceStatistics a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("MonitorReporter", "getMonitorReporter error revenue null", new Object[0]);
-                return null;
-            }
-            return revenue.getPayServiceStatistics();
-        }
-        return (IPayServiceStatistics) invokeII.objValue;
-    }
+    void b(boolean z);
 
-    public static void b(int i, int i2, int i3, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            IPayServiceStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("MonitorReporter", "onShowPayFailResult error payReporter null", new Object[0]);
-                return;
-            }
-            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-            cReportResponse.mEventId = "6";
-            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
-            cReportResponse.mErrCode = i3 + "";
-            cReportResponse.mErrMsg = str;
-            a.onShowPayResult(cReportResponse);
-        }
-    }
+    boolean c(Activity activity, AbsViewEventHandler absViewEventHandler);
+
+    void d(Activity activity, ugb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void e(int i, String str, PayCallBackBean payCallBackBean);
+
+    void g(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+
+    odb h();
+
+    void j(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
+
+    void k(Activity activity, hfb hfbVar, dfb dfbVar, Dialog dialog, ngb ngbVar, AppCustomExpand appCustomExpand, ugb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void l(PayFinishInfo payFinishInfo);
+
+    void m(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
+
+    void n(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void p(Activity activity, dfb dfbVar, hfb hfbVar, Dialog dialog, ngb ngbVar, AppCustomExpand appCustomExpand, ugb.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void q(Activity activity, String str);
+
+    void r(ogb ogbVar, Dialog dialog);
+
+    void refreshWindow(WindowParams windowParams);
+
+    boolean s(Activity activity, ugb ugbVar, AbsViewEventHandler absViewEventHandler);
+
+    void t(Activity activity, dfb dfbVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void u(Activity activity);
+
+    PayDialogType v();
 }

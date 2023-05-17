@@ -8,24 +8,24 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.CardLinkageManager;
-import com.baidu.tieba.on;
+import com.baidu.tieba.xn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThreadCardView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public on a;
+    public xn a;
     public ViewGroup b;
     public int c;
     public boolean d;
     public Runnable e;
     public Runnable f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,16 +57,16 @@ public class ThreadCardView extends FrameLayout {
             }
             if (this.a.a != null) {
                 CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, true);
-            } else if (this.a.b instanceof on) {
-                CardLinkageManager.INSTANCE.pressLinkage((on) this.a.b, this.a.c, true);
+            } else if (this.a.b instanceof xn) {
+                CardLinkageManager.INSTANCE.pressLinkage((xn) this.a.b, this.a.c, true);
             }
             if (this.a.d) {
-                CardLinkageManager.INSTANCE.pressLinkage((on) this.a.b, this.a.c, false);
+                CardLinkageManager.INSTANCE.pressLinkage((xn) this.a.b, this.a.c, false);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,8 +96,8 @@ public class ThreadCardView extends FrameLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.a != null) {
                     CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, false);
-                } else if (this.a.b instanceof on) {
-                    CardLinkageManager.INSTANCE.pressLinkage((on) this.a.b, this.a.c, false);
+                } else if (this.a.b instanceof xn) {
+                    CardLinkageManager.INSTANCE.pressLinkage((xn) this.a.b, this.a.c, false);
                 }
             }
         }
@@ -171,10 +171,10 @@ public class ThreadCardView extends FrameLayout {
         this.f = new b(this);
     }
 
-    public void setITypeListView(on onVar) {
+    public void setITypeListView(xn xnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onVar) == null) {
-            this.a = onVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xnVar) == null) {
+            this.a = xnVar;
         }
     }
 
@@ -214,13 +214,13 @@ public class ThreadCardView extends FrameLayout {
                         this.d = true;
                         removeCallbacks(this.e);
                         removeCallbacks(this.f);
-                        on onVar = this.a;
-                        if (onVar != null) {
-                            CardLinkageManager.INSTANCE.pressLinkage(onVar, this.c, false);
+                        xn xnVar = this.a;
+                        if (xnVar != null) {
+                            CardLinkageManager.INSTANCE.pressLinkage(xnVar, this.c, false);
                         } else {
                             ViewGroup viewGroup = this.b;
-                            if (viewGroup instanceof on) {
-                                CardLinkageManager.INSTANCE.pressLinkage((on) viewGroup, this.c, false);
+                            if (viewGroup instanceof xn) {
+                                CardLinkageManager.INSTANCE.pressLinkage((xn) viewGroup, this.c, false);
                             }
                         }
                     }

@@ -2,26 +2,29 @@ package com.baidu.tieba;
 
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class s76 extends kh6<m76> {
+/* loaded from: classes7.dex */
+public class s76 extends wi6<i76> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t76 i;
-    public t76 j;
+    public r76 i;
+    public r76 j;
+    public r76 k;
+    public ViewGroup l;
 
-    @Override // com.baidu.tieba.kh6
+    @Override // com.baidu.tieba.wi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0106 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d08fc : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -32,57 +35,65 @@ public class s76 extends kh6<m76> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s76(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public s76(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new t76(g(), z);
-        this.j = new t76(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.g());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds4), -1));
-        viewGroup.addView(this.j.g());
+        this.i = new r76(tbPageContext);
+        this.j = new r76(tbPageContext);
+        this.k = new r76(tbPageContext);
+        this.l = (ViewGroup) h();
+        new View(getContext());
+        this.l.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+        this.l.addView(this.i.e());
+        this.l.addView(this.j.e());
+        this.l.addView(this.k.e());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kh6
+    @Override // com.baidu.tieba.wi6
     /* renamed from: r */
-    public void i(m76 m76Var) {
+    public void i(i76 i76Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, m76Var) == null) && m76Var != null) {
-            this.i.h(m76Var.a);
-            this.j.h(m76Var.b);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, i76Var) == null) && i76Var != null) {
+            this.i.f(i76Var.a);
+            this.j.f(i76Var.b);
+            this.k.f(i76Var.c);
         }
     }
 
-    public void s(u76 u76Var) {
+    public void s(t76 t76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, u76Var) == null) {
-            this.i.j(u76Var);
-            this.j.j(u76Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, t76Var) == null) {
+            this.i.h(t76Var);
+            this.j.h(t76Var);
+            this.k.h(t76Var);
         }
     }
 
-    @Override // com.baidu.tieba.kh6
+    @Override // com.baidu.tieba.wi6
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.i(tbPageContext, i);
-            this.j.i(tbPageContext, i);
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.g(tbPageContext, i);
+            this.j.g(tbPageContext, i);
+            this.k.g(tbPageContext, i);
         }
     }
 }

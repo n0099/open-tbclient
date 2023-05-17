@@ -10,7 +10,7 @@ import com.baidu.searchbox.http.NetworkQuality;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudStabilityUBCUtils {
     public static final int CSS_CODE_ERROR = 2;
     public static final int CSS_DATA_ERROR = 5;
@@ -49,7 +49,7 @@ public class CloudStabilityUBCUtils {
             jSONObject2.put("network", networkInfo);
             jSONObject2.put(KEY_WEAK_QUALITY, String.valueOf(networkQuality));
             if (j != -1) {
-                jSONObject2.put(KEY_LENGTH, String.valueOf(j));
+                jSONObject2.put("length", String.valueOf(j));
             }
             jSONObject.put("ext", jSONObject2);
             UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
@@ -82,7 +82,7 @@ public class CloudStabilityUBCUtils {
             jSONObject2.put(KEY_RESPONSE_CODE, i2);
             jSONObject2.put("duration", j);
             if (j2 != 0) {
-                jSONObject2.put(KEY_LENGTH, String.valueOf(j2));
+                jSONObject2.put("length", String.valueOf(j2));
             }
             if (j3 != 0) {
                 jSONObject2.put(KEY_POST_LENGTH, String.valueOf(j3));

@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.jq5;
+import com.baidu.tieba.b65;
+import com.baidu.tieba.c65;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.t45;
+import com.baidu.tieba.sr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImageViewerConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ABTEST = "abtest";
@@ -91,13 +91,13 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String USER_ID = "user_id";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -482,12 +482,12 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, jq5.c());
-        if (s45.a() != null && s45.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, s45.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, sr5.c());
+        if (b65.a() != null && b65.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, b65.a().a);
         }
-        if (t45.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, t45.b().a());
+        if (c65.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, c65.b().a());
         }
         intent.putExtra(KEY_IS_BROWSE_MODE, PermissionUtil.isBrowseMode());
     }

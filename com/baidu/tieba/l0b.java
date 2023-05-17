@@ -1,61 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.r0b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.p0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-/* loaded from: classes5.dex */
-public class l0b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class l0b implements p0b.a {
     public static /* synthetic */ Interceptable $ic;
-    public static r0b a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ m0b a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947890475, "Lcom/baidu/tieba/l0b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947890475, "Lcom/baidu/tieba/l0b;");
+    public l0b(m0b m0bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {m0bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new r0b();
-    }
-
-    public static <TResult> TResult a(i0b<TResult> i0bVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, i0bVar)) == null) {
-            r0b.c("await must not be called on the UI thread");
-            if (i0bVar.g()) {
-                return (TResult) r0b.b(i0bVar);
-            }
-            r0b.b bVar = new r0b.b();
-            i0bVar.c(bVar);
-            i0bVar.b(bVar);
-            bVar.a.await();
-            return (TResult) r0b.b(i0bVar);
-        }
-        return (TResult) invokeL.objValue;
-    }
-
-    public static <TResult> i0b<TResult> b(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(k0b.a(), callable) : (i0b) invokeL.objValue;
-    }
-
-    public static <TResult> i0b<TResult> call(Callable<TResult> callable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(k0b.b(), callable) : (i0b) invokeL.objValue;
+        this.a = m0bVar;
     }
 }

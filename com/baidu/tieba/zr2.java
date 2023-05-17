@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public interface zr2 {
-    void a(Activity activity, String str, String str2);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public abstract class zr2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context);
-
-    void c(Activity activity, String str, ue1 ue1Var);
-
-    void d(Context context, JSONObject jSONObject, ue1 ue1Var);
-
-    void e(Activity activity, String str, ue1 ue1Var);
-
-    void f(Activity activity, String str, gf1<JSONObject> gf1Var);
+    public zr2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

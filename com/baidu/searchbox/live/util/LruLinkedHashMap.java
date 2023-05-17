@@ -2,7 +2,7 @@ package com.baidu.searchbox.live.util;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LruLinkedHashMap<K, V> extends LinkedHashMap<K, V> {
     public final int capacity;
 

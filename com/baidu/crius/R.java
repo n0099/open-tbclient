@@ -4,15 +4,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int transparent = 0x7f0609d1;
+        public static final int transparent = 0x7f060b60;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -30,15 +30,15 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class dimen {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int dimens_1dp = 0x7f070227;
-        public static final int dimens_1px = 0x7f070228;
-        public static final int dimens_2dp = 0x7f070229;
-        public static final int dimens_3dp = 0x7f07022a;
-        public static final int dimens_4dp = 0x7f07022b;
-        public static final int dimens_5dp = 0x7f07022c;
+        public static final int dimens_1dp = 0x7f070332;
+        public static final int dimens_1px = 0x7f070333;
+        public static final int dimens_2dp = 0x7f070335;
+        public static final int dimens_3dp = 0x7f070336;
+        public static final int dimens_4dp = 0x7f070337;
+        public static final int dimens_5dp = 0x7f07033a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public dimen() {
@@ -56,7 +56,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;

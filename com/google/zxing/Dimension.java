@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Dimension {
     public final int height;
     public final int width;

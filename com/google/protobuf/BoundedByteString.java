@@ -5,12 +5,12 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.protobuf.ByteString;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BoundedByteString extends LiteralByteString {
     public final int bytesLength;
     public final int bytesOffset;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class BoundedByteIterator implements ByteString.ByteIterator {
         public final int limit;
         public int position;

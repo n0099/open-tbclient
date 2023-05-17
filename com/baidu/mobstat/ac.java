@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac extends bm {
     public static final String a = "baidu_mtj_sdk_record";
     public static ac b = new ac();

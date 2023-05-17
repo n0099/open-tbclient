@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static final a a = new a(new byte[0]);
 
@@ -28,7 +28,7 @@ public final class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m174a() {
+    public byte[] m193a() {
         byte[] bArr = this.f93a;
         int length = bArr.length;
         byte[] bArr2 = new byte[length];

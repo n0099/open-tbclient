@@ -1,83 +1,89 @@
 package com.baidu.tieba;
 
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class iwa {
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsFeedAd;
+/* loaded from: classes6.dex */
+public class iwa extends FunNativeAd2Bridger<KsFeedAd, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean b;
+    public hwa.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ hwa e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947869302, "Lcom/baidu/tieba/iwa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947869302, "Lcom/baidu/tieba/iwa;");
-                return;
-            }
-        }
-        iwa.class.getClassLoader();
-    }
-
-    public iwa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iwa(hwa hwaVar, ReporterPidLoader reporterPidLoader, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hwaVar, reporterPidLoader, context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
-            if (parcel.readInt() == 0) {
-                return null;
-            }
-            return creator.createFromParcel(parcel);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void b(Parcel parcel, IInterface iInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, parcel, iInterface) == null) {
-            if (iInterface == null) {
-                parcel.writeStrongBinder(null);
-            } else {
-                parcel.writeStrongBinder(iInterface.asBinder());
-            }
-        }
-    }
-
-    public static void c(Parcel parcel, Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
-            if (parcelable == null) {
-                parcel.writeInt(0);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            parcel.writeInt(1);
-            parcelable.writeToParcel(parcel, 0);
+        }
+        this.e = hwaVar;
+        this.d = context;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsFeedAd ksFeedAd, BaseNativeAd2<KsFeedAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksFeedAd, baseNativeAd2, funAdInteractionListener}) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(KsFeedAd ksFeedAd) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksFeedAd)) == null) {
+            return this.e.e(this.d, ksFeedAd);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsFeedAd ksFeedAd, BaseNativeAd2<KsFeedAd, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksFeedAd, baseNativeAd2, funAdInteractionListener}) == null) {
+            KsFeedAd ksFeedAd2 = ksFeedAd;
+            this.e.onShowStart(ksFeedAd2, this.b);
+            this.b = true;
+            View expressView = expressInflater.getExpressView();
+            if (this.c == null) {
+                hwa hwaVar = this.e;
+                hwa.b bVar = new hwa.b(hwaVar, ksFeedAd2, expressView, str);
+                this.c = bVar;
+                hwaVar.k(ksFeedAd2, bVar);
+            }
+            this.c.d = funAdInteractionListener;
+            expressInflater.inflate();
         }
     }
 }

@@ -63,13 +63,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Shapeable {
     public static final String BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.Button";
     public static final int CHIP_BODY_VIRTUAL_ID = 0;
     public static final int CLOSE_ICON_VIRTUAL_ID = 1;
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
-    public static final int DEF_STYLE_RES = 2131755876;
+    public static final int DEF_STYLE_RES = 2131755887;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;
     public static final String NAMESPACE_ANDROID = "http://schemas.android.com/apk/res/android";
@@ -101,7 +101,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final int[] SELECTED_STATE = {16842913};
     public static final int[] CHECKABLE_STATE_SET = {16842911};
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         public ChipTouchHelper(Chip chip) {
             super(chip);
@@ -184,7 +184,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         str = text;
                     }
                     objArr[0] = str;
-                    accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0bde, objArr).trim());
+                    accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0c64, objArr).trim());
                 }
                 accessibilityNodeInfoCompat.setBoundsInParent(Chip.this.getCloseIconTouchBoundsInt());
                 accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
@@ -1340,7 +1340,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     }
 
     public Chip(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040150);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040153);
     }
 
     @Override // android.widget.Button, android.widget.TextView, android.view.View

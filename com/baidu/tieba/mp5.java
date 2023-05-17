@@ -1,34 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.rp5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class mp5 implements lp5 {
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class mp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<ViewType, np5> a;
-    public final ViewGroup b;
-    public final up5 c;
-    public final rp5 d;
-    public ViewType e;
-    public np5 f;
+    public final List<en> a;
+    public TbPageContext<?> b;
+    public xn c;
+    public bq5 d;
+    public xp5 e;
+    public qp5 f;
+    public sp5 g;
+    public rp5 h;
+    public tp5 i;
+    public up5 j;
+    public wp5 k;
+    public vp5 l;
+    public zp5 m;
+    public yp5 n;
+    public aq5 o;
+    public op5 p;
+    public np5 q;
 
-    public mp5(up5 up5Var, @NonNull ViewGroup viewGroup, @NonNull rp5 rp5Var) {
+    public mp5(TbPageContext tbPageContext, xn xnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {up5Var, viewGroup, rp5Var};
+            Object[] objArr = {tbPageContext, xnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,101 +49,179 @@ public class mp5 implements lp5 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = viewGroup;
-        this.c = up5Var;
-        this.d = rp5Var;
+        this.a = new LinkedList();
+        this.b = tbPageContext;
+        this.c = xnVar;
+        b();
     }
 
-    @Override // com.baidu.tieba.lp5
-    public void a(ViewType viewType, String str) {
-        rp5.a aVar;
-        rp5.b bVar;
+    public void a(List<en> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
-            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
-                bVar.a = str;
-            } else if (viewType == ViewType.EMPTY && (aVar = this.d.b) != null) {
-                aVar.a = str;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lp5
-    public void c(ViewType viewType, @NonNull np5 np5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, np5Var) == null) {
-            this.a.put(viewType, np5Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.lp5
-    public void b(ViewType viewType) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) != null) || this.e == viewType) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.e = viewType;
-        if (this.b == null) {
-            return;
-        }
-        up5 up5Var = this.c;
-        if (up5Var != null && up5Var.getView() != null) {
-            View view2 = this.c.getView();
-            if (viewType == ViewType.CONTENT) {
-                i = 0;
-            } else {
-                i = 8;
+        for (en enVar : list) {
+            if (!c(enVar.getType())) {
+                this.a.add(enVar);
             }
-            view2.setVisibility(i);
         }
-        np5 np5Var = this.f;
-        if (np5Var != null) {
-            np5Var.b(this.b);
-        }
-        np5 np5Var2 = this.a.get(viewType);
-        rp5.e d = d(viewType);
-        if (np5Var2 != null && d != null) {
-            np5Var2.c(viewType, this.b, d);
-            this.f = np5Var2;
-            this.a.put(viewType, np5Var2);
-        }
+        this.c.addAdapters(this.a);
     }
 
-    public final rp5.e d(ViewType viewType) {
+    public boolean c(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
-            if (viewType == ViewType.ERROR) {
-                return this.d.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
+            if (bdUniqueId != null && !ListUtils.isEmpty(this.a)) {
+                for (en enVar : this.a) {
+                    if (enVar != null && enVar.getType() == bdUniqueId) {
+                        return true;
+                    }
+                }
             }
-            if (viewType == ViewType.EMPTY) {
-                return this.d.b;
-            }
-            if (viewType == ViewType.LOADING) {
-                return this.d.a;
-            }
-            return null;
+            return false;
         }
-        return (rp5.e) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lp5
-    public void onChangeSkinType(int i) {
-        np5 np5Var;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (np5Var = this.f) != null) {
-            np5Var.e(i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            bq5 bq5Var = new bq5(this.b);
+            this.d = bq5Var;
+            bq5Var.M(this.c);
+            this.a.add(this.d);
+            xp5 xp5Var = new xp5(this.b);
+            this.e = xp5Var;
+            xp5Var.M(this.c);
+            this.a.add(this.e);
+            aq5 aq5Var = new aq5(this.b);
+            this.o = aq5Var;
+            aq5Var.M(this.c);
+            this.a.add(this.o);
+            qp5 qp5Var = new qp5(this.b);
+            this.f = qp5Var;
+            qp5Var.M(this.c);
+            this.a.add(this.f);
+            sp5 sp5Var = new sp5(this.b);
+            this.g = sp5Var;
+            sp5Var.M(this.c);
+            this.a.add(this.g);
+            rp5 rp5Var = new rp5(this.b);
+            this.h = rp5Var;
+            rp5Var.M(this.c);
+            this.a.add(this.h);
+            tp5 tp5Var = new tp5(this.b);
+            this.i = tp5Var;
+            tp5Var.M(this.c);
+            this.a.add(this.i);
+            up5 up5Var = new up5(this.b);
+            this.j = up5Var;
+            up5Var.M(this.c);
+            this.a.add(this.j);
+            wp5 wp5Var = new wp5(this.b);
+            this.k = wp5Var;
+            wp5Var.M(this.c);
+            this.a.add(this.k);
+            vp5 vp5Var = new vp5(this.b);
+            this.l = vp5Var;
+            vp5Var.M(this.c);
+            this.a.add(this.l);
+            zp5 zp5Var = new zp5(this.b);
+            this.m = zp5Var;
+            zp5Var.M(this.c);
+            this.a.add(this.m);
+            yp5 yp5Var = new yp5(this.b);
+            this.n = yp5Var;
+            yp5Var.M(this.c);
+            this.a.add(this.n);
+            op5 op5Var = new op5(this.b);
+            this.p = op5Var;
+            op5Var.M(this.c);
+            this.a.add(this.p);
+            np5 np5Var = new np5(this.b, jk6.Q0);
+            this.q = np5Var;
+            this.a.add(np5Var);
+            this.c.addAdapters(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.lp5
-    public void onDestroy() {
-        np5 np5Var;
+    public void d() {
+        xn xnVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (np5Var = this.f) != null) {
-            np5Var.b(this.b);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (xnVar = this.c) != null && xnVar.getListAdapter() != null) {
+            this.c.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            for (en enVar : this.a) {
+                if (enVar instanceof pp5) {
+                    ((pp5) enVar).s(i);
+                }
+            }
+        }
+    }
+
+    public void f(cq5 cq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cq5Var) == null) {
+            for (en enVar : this.a) {
+                if (enVar instanceof pp5) {
+                    ((pp5) enVar).I(cq5Var);
+                }
+            }
+        }
+    }
+
+    public void g(List<en> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.a.clear();
+        this.c.addAdapters(this.a);
+    }
+
+    public void h(List<rn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void i(zw4 zw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zw4Var) == null) {
+            for (en enVar : this.a) {
+                if (enVar instanceof pp5) {
+                    ((pp5) enVar).J(zw4Var);
+                }
+            }
+        }
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            for (en enVar : this.a) {
+                if (enVar instanceof pp5) {
+                    ((pp5) enVar).K(bdUniqueId);
+                }
+            }
+        }
+    }
+
+    public void k(xn xnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, xnVar) == null) {
+            for (en enVar : this.a) {
+                if (enVar instanceof pp5) {
+                    ((pp5) enVar).M(xnVar);
+                }
+            }
         }
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.ec;
 import com.xiaomi.push.hm;
 import com.xiaomi.push.service.ba;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class q extends ba.a {
     public final /* synthetic */ Context a;
 

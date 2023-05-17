@@ -1,45 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.security.RSAUtil;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-/* loaded from: classes6.dex */
-public class pu8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class pu8 extends uu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public ImageView c;
 
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public pu8(View view2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            try {
-                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(ai.d(b(str2))));
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, generatePublic);
-                return ai.j(cipher.doFinal(str.getBytes("GBK")));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeLL.objValue;
+        this.a = view2;
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090985);
+        this.b = textView;
+        textView.setText(str);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090986);
+        c();
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            return str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TextView textView = this.b;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
+            }
+            ImageView imageView = this.c;
+            if (imageView != null) {
+                SkinManager.setImageResource(imageView, R.drawable.new_pic_emotion_02, i);
+            }
+            View view2 = this.a;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.CAM_X0201, i);
+            }
+        }
+    }
+
+    public final void c() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int j = ri.j(TbadkCoreApplication.getInst());
+            if (j <= 0) {
+                i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200);
+            } else {
+                i = (int) (j * 0.11d);
+            }
+            ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+                marginLayoutParams.topMargin = i;
+                this.c.setLayoutParams(marginLayoutParams);
+            }
+        }
     }
 }

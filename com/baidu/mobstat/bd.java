@@ -12,7 +12,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bd implements bj.b {
     private String a(Activity activity, View view2) {
         View a;

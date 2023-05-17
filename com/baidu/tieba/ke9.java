@@ -1,84 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
+/* loaded from: classes6.dex */
 public class ke9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
+    public TbRichText d;
 
-    public static int a(int i, je9 je9Var) {
-        InterceptResult invokeIL;
+    public ke9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, je9Var)) == null) {
-            if (i <= 0) {
-                return je9Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (je9Var.c()) {
-                return i + je9Var.b();
-            }
-            return i + je9Var.b() + 1;
         }
-        return invokeIL.intValue;
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull je9 je9Var, int i2, @Nullable T t, @Nullable le9 le9Var, @Nullable me9 me9Var) {
-        InterceptResult invokeCommon;
-        int i3;
+    public TbRichText a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), je9Var, Integer.valueOf(i2), t, le9Var, me9Var})) == null) {
-            if (je9Var.a() != -1 && je9Var.b() != -1) {
-                int a = a(i2, je9Var);
-                if (le9Var != null && t != null) {
-                    if (i <= i2) {
-                        if (me9Var != 0) {
-                            me9Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i + 1;
-                    if (i4 < a) {
-                        if (me9Var != 0) {
-                            me9Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    if (i > a) {
-                        i3 = i4;
-                    } else {
-                        i3 = a;
-                    }
-                    int i5 = ch8.i(list);
-                    if (i3 >= i5 && (le9Var.b() || i3 > i5)) {
-                        if (me9Var != 0) {
-                            me9Var.d(i, i3, i5, le9Var, t);
-                        }
-                        return false;
-                    }
-                    le9Var.a(i3);
-                    if (!le9Var.b()) {
-                        ch8.b(list, t, i3);
-                        if (me9Var != 0) {
-                            me9Var.c(i, i3, le9Var, t);
-                            return true;
-                        }
-                        return true;
-                    } else if (me9Var != 0) {
-                        me9Var.e(i, i3, ch8.d(list, i3), le9Var, t);
-                        return true;
-                    } else {
-                        return true;
-                    }
-                } else if (me9Var != 0) {
-                    me9Var.a(i, a);
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return invokeCommon.booleanValue;
+        return (TbRichText) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void e(LockWindowThreadInfo lockWindowThreadInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, lockWindowThreadInfo) != null) || lockWindowThreadInfo == null) {
+            return;
+        }
+        this.a = lockWindowThreadInfo.tid.longValue();
+        this.b = lockWindowThreadInfo.title;
+        this.c = lockWindowThreadInfo.post_num.intValue();
+        if (!ListUtils.isEmpty(lockWindowThreadInfo.content)) {
+            this.d = TbRichTextView.c0(lockWindowThreadInfo.content, true);
+        }
     }
 }

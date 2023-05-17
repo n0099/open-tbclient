@@ -9,7 +9,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public int a;
     public int b;
@@ -17,11 +17,11 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
 
     public ListRecommendDivider(@NonNull Context context) {
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070732);
-        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070733);
+        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070884);
+        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070885);
         Paint paint = new Paint();
         this.c = paint;
-        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060992));
+        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060b0c));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration

@@ -1,5 +1,5 @@
 package com.win.opensdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface s1 {
     void a();
 

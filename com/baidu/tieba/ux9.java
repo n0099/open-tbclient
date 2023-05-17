@@ -1,133 +1,217 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"ResourceAsColor"})
+/* loaded from: classes7.dex */
 public class ux9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BackgroundListActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public MemberRecommendView e;
+    public BdListView f;
+    public z65 g;
+    public TextView h;
+    public tx9 i;
+    public int j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948226515, "Lcom/baidu/tieba/ux9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948226515, "Lcom/baidu/tieba/ux9;");
-        }
-    }
-
-    public static boolean a(InputStream inputStream, String str, gka gkaVar) throws IOException {
-        double d;
-        InterceptResult invokeLLL;
+    public ux9(BackgroundListActivity backgroundListActivity, sx9 sx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, gkaVar)) == null) {
-            try {
-                if (inputStream instanceof FileInputStream) {
-                    d = ((FileInputStream) inputStream).getChannel().size();
-                } else {
-                    d = 0.0d;
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (gkaVar != null && d != 0.0d) {
-                        gkaVar.c((int) ((i / d) * 100.0d));
-                    } else if (gkaVar != null && d == 0.0d) {
-                        gkaVar.c(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {backgroundListActivity, sx9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLLL.booleanValue;
+        this.g = null;
+        this.j = 0;
+        this.a = backgroundListActivity;
+        this.j = ri.g(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070353);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0137, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090411);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f1021);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f092853);
+        this.e = memberRecommendView;
+        memberRecommendView.setFromType(5);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0914ee);
+        z65 z65Var = new z65(this.a.getPageContext());
+        this.g = z65Var;
+        this.f.setPullRefresh(z65Var);
+        TextView textView = new TextView(this.a.getActivity());
+        this.h = textView;
+        textView.setHeight(ri.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        tx9 tx9Var = new tx9(this.a.getPageContext(), sx9Var);
+        this.i = tx9Var;
+        this.f.setAdapter((ListAdapter) tx9Var);
     }
 
-    public static boolean b(String str, String str2, gka gkaVar) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, gkaVar)) == null) {
-            return a(new FileInputStream(str), str2, gkaVar);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = gg.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = gg.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = gg.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = gg.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 2 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 3; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
                 }
-                return videoFileInfo;
+                arrayList.add(arrayList2);
             }
-            return null;
+            return arrayList;
         }
-        return (VideoFileInfo) invokeL.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public final boolean f(ny9 ny9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ny9Var)) == null) {
+            if (ny9Var != null && !StringUtils.isNull(ny9Var.c())) {
+                this.e.setVisibility(0);
+                this.e.e(ny9Var);
+                return true;
+            }
+            this.e.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f.z(0L);
+        }
+    }
+
+    public void d() {
+        tx9 tx9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            cp5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.f;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (tx9Var = this.i) != null) {
+                tx9Var.notifyDataSetChanged();
+            }
+            z65 z65Var = this.g;
+            if (z65Var != null) {
+                z65Var.H(TbadkApplication.getInst().getSkinType());
+            }
+            this.e.d();
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+        }
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.f.setVisibility(0);
+                this.i.b(list);
+                this.i.notifyDataSetChanged();
+                return;
+            }
+            this.f.setVisibility(8);
+        }
+    }
+
+    public void g(BdListView.p pVar, y65.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.f.setOnSrollToBottomListener(pVar);
+            this.g.f(gVar);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.j);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void i(ny9 ny9Var, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, ny9Var, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                if (f(ny9Var)) {
+                    this.f.removeHeaderView(this.h);
+                    this.f.addHeaderView(this.h);
+                } else {
+                    this.f.removeHeaderView(this.h);
+                }
+                e(a(list));
+                return;
+            }
+            h();
+        }
     }
 }

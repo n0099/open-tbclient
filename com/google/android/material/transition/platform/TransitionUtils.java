@@ -21,16 +21,16 @@ import com.google.android.material.shape.CornerSize;
 import com.google.android.material.shape.RelativeCornerSize;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TransitionUtils {
     public static final RectF transformAlphaRectF = new RectF();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CanvasOperation {
         void run(Canvas canvas);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CornerSizeBinaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize, @NonNull CornerSize cornerSize2);

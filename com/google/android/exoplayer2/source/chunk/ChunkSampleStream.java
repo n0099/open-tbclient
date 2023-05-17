@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ChunkSampleStream<T extends ChunkSource> implements SampleStream, SequenceableLoader, Loader.Callback<Chunk>, Loader.ReleaseCallback {
     public static final String TAG = "ChunkSampleStream";
     public final SequenceableLoader.Callback<ChunkSampleStream<T>> callback;
@@ -39,7 +39,7 @@ public class ChunkSampleStream<T extends ChunkSource> implements SampleStream, S
     public final Loader loader = new Loader("Loader:ChunkSampleStream");
     public final ChunkHolder nextChunkHolder = new ChunkHolder();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class EmbeddedSampleStream implements SampleStream {
         public final int index;
         public final ChunkSampleStream<T> parent;

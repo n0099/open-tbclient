@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine;
 import android.content.Context;
 import android.content.res.AssetManager;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class V8NativeInit {
     public static native void initAppContext(Context context);
 

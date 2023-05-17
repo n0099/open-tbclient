@@ -1,33 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class no3 extends dd3 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class no3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public no3(Context context, String str) {
-        super(context, str);
+    public static JSONObject a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("slaveId", str);
+                jSONObject.put("type", str2);
+            } catch (JSONException e) {
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("id", str2);
+                jSONObject3.put("action", str4);
+                jSONObject3.put("e", jSONObject);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("type", str3);
+                jSONObject4.put("params", jSONObject3);
+                jSONObject2.put("slaveId", str);
+                jSONObject2.put("type", "abilityMessage");
+                jSONObject2.put("value", jSONObject4);
+            } catch (JSONException e) {
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeLLLLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
+    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
+            mj2 mj2Var = new mj2();
+            mj2Var.c = b(str, str2, str3, str4, jSONObject);
+            tu2.U().u(mj2Var);
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
+            mj2 mj2Var = new mj2();
+            mj2Var.c = b(str, str2, str3, str4, jSONObject);
+            tu2.U().m(str, mj2Var);
         }
     }
 }

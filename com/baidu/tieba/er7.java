@@ -1,103 +1,227 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.homepage.concern.message.ConcernNetModel;
+import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.RecomTopicList;
-/* loaded from: classes4.dex */
-public class er7 extends ax4 {
+import tbclient.Personalized.DataRes;
+/* loaded from: classes5.dex */
+public class er7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dr7> a;
+    public final TbPageContext<BaseFragmentActivity> a;
+    public final BdUniqueId b;
+    public RecPersonalizePageModel c;
+    public ConcernNetModel d;
+    public c e;
+    public RecPersonalizePageModel.b f;
+    public ConcernNetModel.b g;
 
-    @Override // com.baidu.tieba.ax4
-    public yy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (yy4) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(DataRes dataRes, boolean z, boolean z2);
+
+        void b(String str, String str2, int i, boolean z, int i2);
+
+        void c(tbclient.Userlike.DataRes dataRes, boolean z);
+
+        void d(boolean z, fw7 fw7Var, boolean z2, String str, String str2, boolean z3);
     }
 
-    @Override // com.baidu.tieba.ax4
-    public ThreadData getThreadData() {
+    public vj8 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (ThreadData) invokeV.objValue;
+        return (vj8) invokeV.objValue;
     }
 
-    public er7() {
+    public void i(vj8 vj8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, vj8Var) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements RecPersonalizePageModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ er7 a;
+
+        public a(er7 er7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {er7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = er7Var;
+        }
+
+        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.e != null) {
+                TbSingleton.getInstance().mIsForceLayoutMaintab = true;
+                this.a.e.b("", str, i, false, 1);
+            }
+        }
+
+        @Override // com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel.b
+        public void b(DataRes dataRes, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                if (this.a.e != null) {
+                    TbSingleton.getInstance().mIsForceLayoutMaintab = true;
+                    this.a.e.a(dataRes, z, z2);
+                }
+                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_GET_NET_CACHE_KEY);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ConcernNetModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ er7 a;
+
+        public b(er7 er7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {er7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = er7Var;
+        }
+
+        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.b
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.e != null) {
+                this.a.e.b("", str, i, false, 0);
+            }
+        }
+
+        @Override // com.baidu.tieba.homepage.concern.message.ConcernNetModel.b
+        public void b(tbclient.Userlike.DataRes dataRes, boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes, z) == null) && this.a.e != null) {
+                this.a.e.c(dataRes, z);
+            }
+        }
+    }
+
+    public er7(TbPageContext<BaseFragmentActivity> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = RecPersonalizePageModel.e();
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        ConcernNetModel concernNetModel = new ConcernNetModel(tbPageContext, bdUniqueId);
+        this.d = concernNetModel;
+        concernNetModel.Y(this.g);
+    }
+
+    public void j(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.e = cVar;
         }
     }
 
-    public List<dr7> c() {
+    public TbPageContext<BaseFragmentActivity> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return (TbPageContext) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public RecPersonalizePageModel.b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (RecPersonalizePageModel.b) invokeV.objValue;
+    }
+
+    public c e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (c) invokeV.objValue;
+    }
+
+    public BdUniqueId f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return cr7.a;
+            return this.b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public er7(@NonNull List<RecomTopicList> list) {
+    public void g(String str, qr5 qr5Var) {
+        ConcernNetModel concernNetModel;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        int size = list.size();
-        size = size > 4 ? 4 : size;
-        for (int i3 = 0; i3 < size; i3++) {
-            this.a.add(new dr7(list.get(i3), i3));
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, qr5Var) == null) && (concernNetModel = this.d) != null) {
+            concernNetModel.W(str, qr5Var);
         }
     }
 
-    public void d(List<dr7> list) {
+    public void h(int i, int i2, qr5 qr5Var, int i3, int i4) {
+        RecPersonalizePageModel recPersonalizePageModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), qr5Var, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && (recPersonalizePageModel = this.c) != null) {
+            recPersonalizePageModel.g(i, i2, qr5Var, i3, i4);
         }
     }
 }

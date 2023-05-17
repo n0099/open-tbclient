@@ -10,7 +10,7 @@ import android.view.TextureView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends TextureView implements i {
     public a a;
     public SurfaceTexture b;
@@ -24,7 +24,7 @@ public class h extends TextureView implements i {
     public boolean j;
     public boolean k;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements TextureView.SurfaceTextureListener {
         public a() {
         }

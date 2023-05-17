@@ -5,7 +5,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ClassData;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ClassDataFinder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaClassDataFinder implements ClassDataFinder {
     public final DeserializedDescriptorResolver deserializedDescriptorResolver;
     public final KotlinClassFinder kotlinClassFinder;

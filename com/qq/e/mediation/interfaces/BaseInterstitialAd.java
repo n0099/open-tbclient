@@ -12,7 +12,7 @@ import com.qq.e.ads.interstitial2.ADRewardListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseInterstitialAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;

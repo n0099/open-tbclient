@@ -3,7 +3,7 @@ package com.kwad.components.ad.interstitial.kwai;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.item.d;
 import com.kwad.sdk.core.config.item.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static j fJ = new j("interstitialAdSkipCloseType", 0);
     public static j fK = new j("interstitialAdSkipCloseArea", 0);

@@ -1,167 +1,89 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewTopicList.NewTopicList;
-import tbclient.NewTopicList.PkModule;
-import tbclient.TopicModule;
-/* loaded from: classes7.dex */
-public class xw7 extends qi6 {
+/* loaded from: classes8.dex */
+public class xw7 extends en<ix7, AdapterViewHolder<HotTopicRankLayout>> implements jw7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c0;
-    public static final BdUniqueId d0;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public long S;
-    public String T;
-    public String U;
-    public long V;
-    public String W;
-    public yw7 X;
-    public pp9 Y;
-    public int Z;
-    public String a0;
-    public ThreadData b0;
+    public TbPageContext a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314865, "Lcom/baidu/tieba/xw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948314865, "Lcom/baidu/tieba/xw7;");
-                return;
-            }
+    public void u(xn xnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xnVar) == null) {
         }
-        c0 = BdUniqueId.gen();
-        d0 = BdUniqueId.gen();
     }
 
-    public xw7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xw7(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), ps7.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.Z = 0;
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.qi6, com.baidu.tieba.ax4
-    public yy4 getNegFeedBackData() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jw7
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            yy4 negFeedBackData = super.getNegFeedBackData();
-            if (negFeedBackData != null) {
-                negFeedBackData.q(this.S);
-            }
-            return negFeedBackData;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = str;
         }
-        return (yy4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qi6, com.baidu.tieba.ax4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b0;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.Z == 0) {
-                return c0;
-            }
-            return d0;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public static boolean J(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: s */
+    public AdapterViewHolder<HotTopicRankLayout> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null || threadData.getType() != ThreadData.TYPE_TOPIC) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new AdapterViewHolder<>(new HotTopicRankLayout(viewGroup.getContext()));
+        }
+        return (AdapterViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ix7 ix7Var, AdapterViewHolder<HotTopicRankLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ix7Var, adapterViewHolder})) == null) {
+            if (ix7Var != null && adapterViewHolder != null) {
+                HotTopicRankLayout a = adapterViewHolder.a();
+                a.setTabCode(this.b);
+                a.a(ix7Var);
+                a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return adapterViewHolder.getView();
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void M(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.b0 = threadData;
-        }
-    }
-
-    public void K(NewTopicList newTopicList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, newTopicList) != null) || newTopicList == null) {
-            return;
-        }
-        this.S = newTopicList.topic_id.longValue();
-        this.T = newTopicList.topic_name;
-        this.U = newTopicList.topic_desc;
-        this.V = newTopicList.discuss_num.longValue();
-        this.W = newTopicList.topic_image;
-        PkModule pkModule = newTopicList.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            yw7 yw7Var = new yw7();
-            this.X = yw7Var;
-            yw7Var.a = this.S;
-            yw7Var.f = 1;
-            yw7Var.b(newTopicList.pk_module);
-        }
-        if (newTopicList.top_agree_post != null) {
-            pp9 pp9Var = new pp9();
-            this.Y = pp9Var;
-            pp9Var.C0(newTopicList.top_agree_post);
-        }
-    }
-
-    public void L(TopicModule topicModule) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicModule) != null) || topicModule == null) {
-            return;
-        }
-        this.S = topicModule.topic_id.longValue();
-        this.T = topicModule.topic_name;
-        this.U = topicModule.topic_desc;
-        this.W = topicModule.topic_image;
-        this.a0 = topicModule.topic_avatar;
-        tbclient.PkModule pkModule = topicModule.pk_module;
-        if (pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            yw7 yw7Var = new yw7();
-            this.X = yw7Var;
-            yw7Var.a = this.S;
-            yw7Var.f = 3;
-            yw7Var.c(topicModule.pk_module);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

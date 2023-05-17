@@ -3,7 +3,7 @@ package com.baidu.searchbox.bddownload.core;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class IdentifiedTask {
     public static final File EMPTY_FILE = new File("");
     public static final String EMPTY_URL = "";

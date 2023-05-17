@@ -4,12 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class my4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public long j;
 
     public my4() {
         Interceptable interceptable = $ic;

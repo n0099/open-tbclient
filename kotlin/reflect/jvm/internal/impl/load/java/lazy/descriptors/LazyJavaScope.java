@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -74,7 +73,7 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class LazyJavaScope extends MemberScopeImpl {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaScope.class), "functionNamesLazy", "getFunctionNamesLazy()Ljava/util/Set;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaScope.class), "propertyNamesLazy", "getPropertyNamesLazy()Ljava/util/Set;")), Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(LazyJavaScope.class), "classNamesLazy", "getClassNamesLazy()Ljava/util/Set;"))};
     public final NotNullLazyValue<Collection<DeclarationDescriptor>> allDescriptors;
@@ -119,7 +118,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
 
     public abstract MethodSignatureData resolveMethodSignature(JavaMethod javaMethod, List<? extends TypeParameterDescriptor> list, KotlinType kotlinType, List<? extends ValueParameterDescriptor> list2);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class MethodSignatureData {
         public final List<String> errors;
         public final boolean hasStableParameterNames;
@@ -201,7 +200,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ResolvedValueParameters {
         public final List<ValueParameterDescriptor> descriptors;
         public final boolean hasSynthesizedNames;
@@ -373,7 +372,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
         if (descriptorKindFilter.acceptsKinds(DescriptorKindFilter.Companion.getCLASSIFIERS_MASK())) {
             for (Name name : computeClassNames(descriptorKindFilter, function1)) {
                 if (function1.invoke(name).booleanValue()) {
-                    CollectionsKt.addIfNotNull(linkedHashSet, mo2027getContributedClassifier(name, noLookupLocation));
+                    CollectionsKt.addIfNotNull(linkedHashSet, mo2046getContributedClassifier(name, noLookupLocation));
                 }
             }
         }
@@ -574,8 +573,8 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
             JavaTypeAttributes attributes$default = JavaTypeResolverKt.toAttributes$default(TypeUsage.COMMON, z2, null, 3, null);
             FqName fqName = JvmAnnotationNames.PARAMETER_NAME_FQ_NAME;
             Intrinsics.checkExpressionValueIsNotNull(fqName, "JvmAnnotationNames.PARAMETER_NAME_FQ_NAME");
-            AnnotationDescriptor mo2020findAnnotation = resolveAnnotations.mo2020findAnnotation(fqName);
-            if (mo2020findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2020findAnnotation)) != null) {
+            AnnotationDescriptor mo2039findAnnotation = resolveAnnotations.mo2039findAnnotation(fqName);
+            if (mo2039findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2039findAnnotation)) != null) {
                 if (!(firstArgument instanceof StringValue)) {
                     firstArgument = null;
                 }
@@ -600,7 +599,7 @@ public abstract class LazyJavaScope extends MemberScopeImpl {
                     KotlinType kotlinType = (KotlinType) pair.component1();
                     KotlinType kotlinType2 = (KotlinType) pair.component2();
                     if (!Intrinsics.areEqual(functionDescriptor.getName().asString(), "equals") && list.size() == 1 && Intrinsics.areEqual(lazyJavaResolverContext.getModule().getBuiltIns().getNullableAnyType(), kotlinType)) {
-                        name = Name.identifier(ImageViewerConfig.FROM_OTHER);
+                        name = Name.identifier("other");
                     } else {
                         if (str != null) {
                             if (str.length() > 0) {

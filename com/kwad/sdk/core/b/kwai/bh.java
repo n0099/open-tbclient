@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import androidx.core.content.FileProvider;
 import com.kwad.sdk.core.response.model.CouponInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bh implements com.kwad.sdk.core.d<CouponInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(CouponInfo couponInfo, JSONObject jSONObject) {

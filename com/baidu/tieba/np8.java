@@ -1,161 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.personExtra.RecommendGodHttpResponseMessage;
-import com.baidu.tieba.personExtra.RecommendGodReqMsg;
-import com.baidu.tieba.personExtra.RecommendGodSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import tbclient.GetMemberTaskList.PointTaskInfo;
+import tbclient.GetVipInfo.VipTaskItem;
+/* loaded from: classes6.dex */
 public class np8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public x89 b;
-    public b c;
+    public long a;
+    public String b;
+    public String c;
     public int d;
-    public boolean e;
-    public za f;
+    public int e;
+    public int f;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(x89 x89Var, int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ np8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(np8 np8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {np8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = np8Var;
-        }
-
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) {
-                return;
-            }
-            this.a.b = null;
-            if (responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof RecommendGodSocketResponseMessage) {
-                this.a.b = ((RecommendGodSocketResponseMessage) responsedMessage).recommendGodData;
-            } else if (responsedMessage instanceof RecommendGodHttpResponseMessage) {
-                this.a.b = ((RecommendGodHttpResponseMessage) responsedMessage).recommendGodData;
-            }
-            if (this.a.b != null) {
-                np8 np8Var = this.a;
-                np8Var.d = np8Var.b.a;
-            }
-            int error = responsedMessage.getError();
-            if (error == 0 && this.a.b != null) {
-                if (ListUtils.isEmpty(this.a.b.b)) {
-                    if (this.a.e) {
-                        error = 3;
-                    } else {
-                        error = 2;
-                    }
-                }
-            } else {
-                error = 1;
-            }
-            if (this.a.c != null) {
-                this.a.c.a(this.a.b, error);
-            }
-        }
-    }
-
-    public np8(BdUniqueId bdUniqueId) {
+    public np8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public np8(PointTaskInfo pointTaskInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pointTaskInfo};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = 0;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, 309684);
-        this.f = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.f);
-    }
-
-    public void j(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.c = bVar;
+        if (pointTaskInfo == null) {
+            return;
         }
+        this.a = pointTaskInfo.task_id.longValue();
+        this.b = pointTaskInfo.task_name;
+        this.c = pointTaskInfo.task_intro;
+        this.d = pointTaskInfo.is_finish.intValue();
+        this.e = pointTaskInfo.points_add.intValue();
+        this.f = pointTaskInfo.type.intValue();
     }
 
-    public void i(String str, int i) {
+    public np8(VipTaskItem vipTaskItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            this.d = i;
-            h(str);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            RecommendGodReqMsg recommendGodReqMsg = new RecommendGodReqMsg();
-            recommendGodReqMsg.portrait = str;
-            if (this.d == 0) {
-                this.e = false;
-            } else {
-                this.e = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipTaskItem};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            recommendGodReqMsg.pageNum = this.d + 1;
-            recommendGodReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(recommendGodReqMsg);
+        }
+        this.a = vipTaskItem.task_id.intValue();
+        this.b = vipTaskItem.title;
+        this.c = vipTaskItem.desc;
+        String str = vipTaskItem.img_url;
+        String str2 = vipTaskItem.link;
+        this.d = vipTaskItem.is_finish.intValue();
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.a = j;
         }
     }
 }

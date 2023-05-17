@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -142,7 +141,7 @@ public class m {
             Intent intent = new Intent("com.baidu.android.pushservice.action.METHOD");
             intent.addFlags(32);
             try {
-                intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, context.getPackageName());
+                intent.putExtra("pkg_name", context.getPackageName());
                 intent.putExtra("method_version", "V2");
                 intent.putExtra(!Utility.D(context) ? "priority2" : "priority3", 0);
             } catch (Exception unused) {

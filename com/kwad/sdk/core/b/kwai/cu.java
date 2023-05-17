@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class cu implements com.kwad.sdk.core.d<com.kwad.sdk.kwai.kwai.kwai.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.kwai.kwai.kwai.a aVar, JSONObject jSONObject) {

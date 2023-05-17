@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID_SUFF = ".unknown";
     public static final String BUILD_TYPE = "release";

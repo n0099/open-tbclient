@@ -1,113 +1,221 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class tn4 {
+/* loaded from: classes7.dex */
+public class tn4<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public SparseIntArray b;
-    public ArrayList<String> c;
-    public long d;
-    public long e;
-    public String f;
-    public boolean g;
+    public boolean a;
+    public int[] b;
+    public Object[] c;
+    public int d;
 
-    public tn4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948186959, "Lcom/baidu/tieba/tn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948186959, "Lcom/baidu/tieba/tn4;");
                 return;
             }
         }
-        this.g = false;
-        this.a = new JSONArray();
-        this.b = new SparseIntArray();
-        this.c = new ArrayList<>();
-        this.d = 0L;
-        this.e = 0L;
-        this.f = "0";
+        e = new Object();
     }
 
-    public final void a(JSONObject jSONObject) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public tn4() {
+        this(10);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a.put(jSONObject);
-        }
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.a.toString().getBytes().length >= i) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeI.booleanValue;
     }
 
-    public final void e(String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !this.c.contains(str)) {
-            this.c.add(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.d;
+            Object[] objArr = this.c;
+            for (int i2 = 0; i2 < i; i2++) {
+                objArr[i2] = null;
+            }
+            this.d = 0;
+            this.a = false;
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.clear();
-            this.c.clear();
-            this.a = null;
-        }
-    }
-
-    public boolean d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: b */
+    public tn4<E> clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.length() == 0) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            tn4<E> tn4Var = null;
+            try {
+                tn4<E> tn4Var2 = (tn4) super.clone();
+                try {
+                    tn4Var2.b = (int[]) this.b.clone();
+                    tn4Var2.c = (Object[]) this.c.clone();
+                    return tn4Var2;
+                } catch (CloneNotSupportedException unused) {
+                    tn4Var = tn4Var2;
+                    return tn4Var;
+                }
+            } catch (CloneNotSupportedException unused2) {
             }
-            return false;
+        } else {
+            return (tn4) invokeV.objValue;
         }
-        return invokeV.booleanValue;
     }
 
-    public final void f(int i, int i2) {
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.b.put(i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.a) {
+                c();
+            }
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public tn4(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        if (i == 0) {
+            this.b = on4.a;
+            this.c = on4.b;
+        } else {
+            int d = on4.d(i);
+            this.b = new int[d];
+            this.c = new Object[d];
+        }
+        this.d = 0;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.d;
+            int[] iArr = this.b;
+            Object[] objArr = this.c;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                Object obj = objArr[i3];
+                if (obj != e) {
+                    if (i3 != i2) {
+                        iArr[i2] = iArr[i3];
+                        objArr[i2] = obj;
+                        objArr[i3] = null;
+                    }
+                    i2++;
+                }
+            }
+            this.a = false;
+            this.d = i2;
         }
     }
 
-    public final void g(long j, long j2) {
+    public int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            long j3 = this.d;
-            if ((j < j3 || j3 == 0) && j != 0) {
-                this.d = j;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (this.a) {
+                c();
             }
-            if (j2 > this.e) {
-                this.e = j2;
+            return this.b[i];
+        }
+        return invokeI.intValue;
+    }
+
+    public void delete(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (a = on4.a(this.b, this.d, i)) >= 0) {
+            Object[] objArr = this.c;
+            Object obj = objArr[a];
+            Object obj2 = e;
+            if (obj != obj2) {
+                objArr[a] = obj2;
+                this.a = true;
             }
         }
+    }
+
+    public E f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.a) {
+                c();
+            }
+            return (E) this.c[i];
+        }
+        return (E) invokeI.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (e() <= 0) {
+                return StringUtil.EMPTY_ARRAY;
+            }
+            StringBuilder sb = new StringBuilder(this.d * 28);
+            sb.append('{');
+            for (int i = 0; i < this.d; i++) {
+                if (i > 0) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                }
+                sb.append(d(i));
+                sb.append('=');
+                E f = f(i);
+                if (f != this) {
+                    sb.append(f);
+                } else {
+                    sb.append("(this Map)");
+                }
+            }
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

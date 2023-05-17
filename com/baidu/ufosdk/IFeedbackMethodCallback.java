@@ -1,5 +1,5 @@
 package com.baidu.ufosdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IFeedbackMethodCallback {
     void onDestory();
 

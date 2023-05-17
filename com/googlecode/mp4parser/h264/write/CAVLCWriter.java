@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.h264.write;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CAVLCWriter extends BitstreamWriter {
     public CAVLCWriter(OutputStream outputStream) {
         super(outputStream);

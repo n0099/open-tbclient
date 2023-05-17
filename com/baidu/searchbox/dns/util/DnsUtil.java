@@ -5,7 +5,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsUtil {
     public static boolean DEBUG = false;
     public static final String TAG = "SMART_HTTP_DNS";

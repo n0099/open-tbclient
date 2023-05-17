@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class EnhancedTypeAnnotationDescriptor implements AnnotationDescriptor {
     public static final EnhancedTypeAnnotationDescriptor INSTANCE = new EnhancedTypeAnnotationDescriptor();
 

@@ -11,14 +11,14 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class j {
     public static Handler c;
     public static HandlerThread d;
     public static Object b = new Object();
     public static final Executor a = c();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Executor {
         public final Queue<Runnable> a;
         public Runnable b;

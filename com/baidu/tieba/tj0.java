@@ -1,96 +1,237 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class tj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kj0 a;
 
-    public static m11 a(@NonNull ak0 ak0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ak0Var)) == null) {
-            m11 m11Var = new m11();
-            m11Var.o(ak0Var.e());
-            m11Var.u(ak0Var.b);
-            m11Var.t(ak0Var.c.status);
-            m11Var.q(ak0Var.d);
-            m11Var.v(ak0Var.g);
-            File file = ak0Var.h;
-            if (file != null) {
-                m11Var.m(file.getAbsolutePath());
-            } else {
-                m11Var.m("");
-            }
-            m11Var.r((int) (ak0Var.i * 1000.0f));
-            m11Var.w((int) (ak0Var.j * 1000.0f));
-            m11Var.s(ak0Var.l);
-            m11Var.n(ak0Var.m);
-            ek0 ek0Var = ak0Var.p;
-            if (ek0Var != null) {
-                m11Var.p(ek0.b(ek0Var));
-            } else {
-                m11Var.p("");
-            }
-            bk0 bk0Var = ak0Var.q;
-            if (bk0Var != null) {
-                m11Var.k(bk0.b(bk0Var));
-            } else {
-                m11Var.k("");
-            }
-            dk0 dk0Var = ak0Var.r;
-            if (dk0Var != null) {
-                m11Var.l(dk0.b(dk0Var));
-            } else {
-                m11Var.l("");
-            }
-            return m11Var;
-        }
-        return (m11) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static ak0 b(@NonNull m11 m11Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m11Var)) == null) {
-            ak0 ak0Var = new ak0();
-            ak0Var.h(m11Var.g());
-            ak0Var.b = m11Var.z();
-            ak0Var.c = AdDownloadStatus.NONE;
-            AdDownloadStatus[] values = AdDownloadStatus.values();
-            int length = values.length;
-            int i = 0;
-            while (true) {
-                if (i >= length) {
-                    break;
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final tj0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-401905711, "Lcom/baidu/tieba/tj0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                AdDownloadStatus adDownloadStatus = values[i];
-                if (adDownloadStatus.status == m11Var.y()) {
-                    ak0Var.c = adDownloadStatus;
-                    break;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-401905711, "Lcom/baidu/tieba/tj0$b;");
+                    return;
                 }
-                i++;
             }
-            ak0Var.d = m11Var.i();
-            ak0Var.g = m11Var.A();
-            if (!TextUtils.isEmpty(m11Var.e())) {
-                ak0Var.h = new File(m11Var.e());
-            }
-            ak0Var.i = m11Var.j() / 1000.0f;
-            ak0Var.j = m11Var.B() / 1000.0f;
-            ak0Var.l = m11Var.x();
-            ak0Var.m = m11Var.f();
-            ak0Var.p = ek0.a(m11Var.h());
-            ak0Var.q = bk0.a(m11Var.c());
-            ak0Var.r = dk0.a(m11Var.d());
-            return ak0Var;
+            a = new tj0(null);
         }
-        return (ak0) invokeL.objValue;
+    }
+
+    public tj0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        synchronized (tj0.class) {
+            kj0 kj0Var = (kj0) ServiceManager.getService(kj0.a);
+            this.a = kj0Var;
+            if (kj0Var == null) {
+                this.a = kj0.b;
+            }
+        }
+    }
+
+    public /* synthetic */ tj0(a aVar) {
+        this();
+    }
+
+    public static tj0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (tj0) invokeV.objValue;
+    }
+
+    public String a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            yq0 a2 = this.a.a();
+            if (z) {
+                if (a2 != null && !TextUtils.isEmpty(a2.a)) {
+                    return a2.a;
+                }
+                return bj0.d().a();
+            } else if (this.a.h()) {
+                if (a2 != null && a2.b != 3) {
+                    return a2.a;
+                }
+                return "";
+            } else {
+                return bj0.d().a();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            yq0 e = this.a.e();
+            if (z) {
+                if (e != null && !TextUtils.isEmpty(e.a)) {
+                    return e.a;
+                }
+                return bj0.d().e();
+            } else if (this.a.h()) {
+                if (e != null && e.b != 3) {
+                    return e.a;
+                }
+                return "";
+            } else {
+                return bj0.d().e();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            yq0 f = this.a.f();
+            if (z) {
+                if (f != null && !TextUtils.isEmpty(f.a)) {
+                    return f.a;
+                }
+                return bj0.d().f();
+            } else if (this.a.h()) {
+                if (f != null && f.b != 3) {
+                    return f.a;
+                }
+                return "";
+            } else {
+                return bj0.d().f();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String e(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            yq0 d = this.a.d();
+            if (z) {
+                if (d != null && !TextUtils.isEmpty(d.a)) {
+                    return d.a;
+                }
+                return bj0.d().d();
+            } else if (this.a.h()) {
+                if (d != null && d.b != 3) {
+                    return d.a;
+                }
+                return "";
+            } else {
+                return bj0.d().d();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            yq0 c = this.a.c();
+            if (z) {
+                if (c != null && !TextUtils.isEmpty(c.a)) {
+                    return c.a;
+                }
+                return bj0.d().c();
+            } else if (this.a.h()) {
+                if (c != null && c.b != 3) {
+                    return c.a;
+                }
+                return "";
+            } else {
+                return bj0.d().c();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String h(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            yq0 b2 = this.a.b();
+            if (z) {
+                if (b2 != null && !TextUtils.isEmpty(b2.a)) {
+                    return b2.a;
+                }
+                return bj0.d().b();
+            } else if (this.a.h()) {
+                if (b2 != null && b2.b != 3) {
+                    return b2.a;
+                }
+                return "";
+            } else {
+                return bj0.d().b();
+            }
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            yq0 g = this.a.g();
+            if (z) {
+                if (g != null && !TextUtils.isEmpty(g.a)) {
+                    return g.a;
+                }
+                return Build.MANUFACTURER;
+            } else if (this.a.h()) {
+                if (g != null && g.b != 3) {
+                    return g.a;
+                }
+                return "";
+            } else {
+                return Build.MANUFACTURER;
+            }
+        }
+        return (String) invokeZ.objValue;
     }
 }

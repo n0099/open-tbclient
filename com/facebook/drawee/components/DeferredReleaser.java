@@ -2,12 +2,12 @@ package com.facebook.drawee.components;
 
 import android.os.Looper;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class DeferredReleaser {
     @Nullable
     public static DeferredReleaser sInstance;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Releasable {
         void release();
     }

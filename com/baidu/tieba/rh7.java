@@ -1,115 +1,93 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.sportspage.notification.AlarmReceiver;
+import android.os.MessageQueue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class rh7 {
+import java.lang.ref.WeakReference;
+/* loaded from: classes7.dex */
+public class rh7 implements MessageQueue.IdleHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public CustomMessageListener b;
+    public WeakReference<FrsModelController> a;
+    public MvcHttpResponsedMessage<gq9> b;
+    public MvcHttpMessage<FrsRequestData, gq9> c;
+    public MvcNetMessage<FrsRequestData, gq9> d;
+    public nq9 e;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rh7 rh7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rh7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rh7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                try {
-                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
-                    String optString = jSONObject.optString("gameId");
-                    String optString2 = jSONObject.optString("gameName");
-                    String optString3 = jSONObject.optString("gameTime");
-                    String optString4 = jSONObject.optString("gameType");
-                    String s = f55.m().s("key_match_id_list_" + optString4, "");
-                    String str2 = "match_id_" + optString4 + "_" + optString;
-                    if (TextUtils.isEmpty(s)) {
-                        str = str2;
-                    } else {
-                        str = "," + str2;
-                    }
-                    if (TextUtils.isEmpty(s) || !s.contains(str2)) {
-                        f55.m().B("key_match_id_list_" + optString4, s + str);
-                    }
-                    Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
-                    intent.putExtra("KEY_MATCH_NAME", optString2);
-                    intent.putExtra("KEY_MATCH_TYPE", optString4);
-                    intent.putExtra("KEY_MATCH_ID", optString);
-                    PendingIntent broadcast = PendingIntent.getBroadcast(this.a.a.getPageActivity(), 0, intent, 0);
-                    Calendar calendar = Calendar.getInstance();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    calendar.setTimeInMillis(currentTimeMillis);
-                    long g = (gg.g(optString3, 0L) * 1000) - currentTimeMillis;
-                    if (g > 0) {
-                        calendar.add(14, (int) g);
-                    }
-                    ((AlarmManager) this.a.a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public rh7(TbPageContext tbPageContext) {
+    public rh7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this, 2921404);
-        this.b = aVar;
-        this.a = tbPageContext;
-        tbPageContext.registerListener(aVar);
+    }
+
+    @Override // android.os.MessageQueue.IdleHandler
+    public boolean queueIdle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            FrsModelController frsModelController = this.a.get();
+            if (frsModelController == null) {
+                return false;
+            }
+            frsModelController.Y0(this.b, this.c, this.d);
+            nq9 nq9Var = this.e;
+            if (nq9Var != null) {
+                nq9Var.b();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(FrsModelController frsModelController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
+            this.a = new WeakReference<>(frsModelController);
+        }
+    }
+
+    public void b(nq9 nq9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nq9Var) == null) {
+            this.e = nq9Var;
+        }
+    }
+
+    public void c(MvcHttpMessage<FrsRequestData, gq9> mvcHttpMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
+            this.c = mvcHttpMessage;
+        }
+    }
+
+    public void d(MvcNetMessage<FrsRequestData, gq9> mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
+            this.d = mvcNetMessage;
+        }
+    }
+
+    public void e(MvcHttpResponsedMessage<gq9> mvcHttpResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
+            this.b = mvcHttpResponsedMessage;
+        }
     }
 }

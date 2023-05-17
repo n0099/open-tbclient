@@ -1,44 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class n39 extends q55 {
+/* loaded from: classes6.dex */
+public class n39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n39(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public static final void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, str5) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.addParam("fid", str2);
+            statisticItem.addParam("tid", str3);
+            statisticItem.addParam("uid", str4);
+            statisticItem.addParam("obj_source", str5);
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    @Override // com.baidu.tieba.p55, com.baidu.tieba.xm
-    public View n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.n();
-        }
-        return (View) invokeV.objValue;
     }
 }

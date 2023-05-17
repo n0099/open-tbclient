@@ -11,7 +11,7 @@ public class a implements SensorEventListener {
     public Context mContext;
     public SensorManager rH;
     public Sensor vS;
-    public InterfaceC0056a vT;
+    public InterfaceC0059a vT;
     public boolean vU = true;
     public LinkedList<Double> vV = new LinkedList<>();
     public LinkedList<Float> vW = new LinkedList<>();
@@ -24,7 +24,7 @@ public class a implements SensorEventListener {
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0056a {
+    public interface InterfaceC0059a {
         void b(float f, float f2, float f3, float f4);
 
         void destroy();
@@ -38,8 +38,8 @@ public class a implements SensorEventListener {
         this.vU = z;
     }
 
-    public void a(InterfaceC0056a interfaceC0056a) {
-        this.vT = interfaceC0056a;
+    public void a(InterfaceC0059a interfaceC0059a) {
+        this.vT = interfaceC0059a;
     }
 
     public void a(LinkedList linkedList, double d) {
@@ -57,7 +57,7 @@ public class a implements SensorEventListener {
     }
 
     public void b(float f, float f2, float f3) {
-        InterfaceC0056a interfaceC0056a;
+        InterfaceC0059a interfaceC0059a;
         double sqrt = Math.sqrt((f * f) + (f2 * f2) + (f3 * f3));
         if (sqrt > this.wa) {
             this.wa = sqrt;
@@ -91,11 +91,11 @@ public class a implements SensorEventListener {
                     this.wb = false;
                 } else if (d2 < 10.0d) {
                     this.wb = true;
-                    interfaceC0056a = this.vT;
-                    if (interfaceC0056a == null) {
+                    interfaceC0059a = this.vT;
+                    if (interfaceC0059a == null) {
                         return;
                     }
-                    interfaceC0056a.b(f7, f8, f9, (float) this.wa);
+                    interfaceC0059a.b(f7, f8, f9, (float) this.wa);
                     this.wa = 0.0d;
                 }
             } else if (this.wb) {
@@ -105,11 +105,11 @@ public class a implements SensorEventListener {
                 this.wb = false;
             } else if (d2 < 5.0d) {
                 this.wb = true;
-                interfaceC0056a = this.vT;
-                if (interfaceC0056a == null) {
+                interfaceC0059a = this.vT;
+                if (interfaceC0059a == null) {
                     return;
                 }
-                interfaceC0056a.b(f7, f8, f9, (float) this.wa);
+                interfaceC0059a.b(f7, f8, f9, (float) this.wa);
                 this.wa = 0.0d;
             }
         }
@@ -151,9 +151,9 @@ public class a implements SensorEventListener {
     }
 
     public void stop() {
-        InterfaceC0056a interfaceC0056a = this.vT;
-        if (interfaceC0056a != null) {
-            interfaceC0056a.destroy();
+        InterfaceC0059a interfaceC0059a = this.vT;
+        if (interfaceC0059a != null) {
+            interfaceC0059a.destroy();
             this.vT = null;
         }
         SensorManager sensorManager = this.rH;

@@ -21,7 +21,7 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {
     public static final String EXTRA_BUSINESS_FROM = "business_from";
     public static final String EXTRA_BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";

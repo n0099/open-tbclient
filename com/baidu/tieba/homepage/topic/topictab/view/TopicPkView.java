@@ -31,15 +31,15 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
 import com.baidu.tieba.message.RequestBlessMessage;
-import com.baidu.tieba.yw7;
+import com.baidu.tieba.my7;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TopicPkView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public f U;
     public ValueAnimator.AnimatorUpdateListener V;
     public int a;
-    public yw7 b;
+    public my7 b;
     public TextView c;
     public TextView d;
     public FrameLayout e;
@@ -92,12 +92,12 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public int y;
     public int z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface f {
         void a(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -444,9 +444,9 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
                 this.c.setVisibility(0);
-                this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), TbadkCoreApplication.getCurrentAccountNameShow()));
+                this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f162c), TbadkCoreApplication.getCurrentAccountNameShow()));
                 this.b.d.c = TbadkCoreApplication.getCurrentAccountNameShow();
-                yw7.a aVar = this.b.d;
+                my7.a aVar = this.b.d;
                 aVar.e = true;
                 TextView textView = this.k;
                 long j = aVar.a + 1;
@@ -472,7 +472,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             if (StringHelper.equals(this.b.d.c, TbadkCoreApplication.getCurrentAccountNameShow())) {
                 this.c.setVisibility(4);
             }
-            yw7.a aVar2 = this.b.d;
+            my7.a aVar2 = this.b.d;
             if (aVar2.e) {
                 aVar2.e = false;
                 TextView textView2 = this.k;
@@ -489,11 +489,11 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), TbadkCoreApplication.getCurrentAccountNameShow()));
+                this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f162c), TbadkCoreApplication.getCurrentAccountNameShow()));
                 this.d.setVisibility(0);
                 this.b.e.c = TbadkCoreApplication.getCurrentAccountNameShow();
                 this.q.setVisibility(0);
-                yw7.a aVar = this.b.e;
+                my7.a aVar = this.b.e;
                 aVar.e = true;
                 TextView textView = this.l;
                 long j = aVar.a + 1;
@@ -519,7 +519,7 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             if (StringHelper.equals(this.b.e.c, TbadkCoreApplication.getCurrentAccountNameShow())) {
                 this.d.setVisibility(4);
             }
-            yw7.a aVar2 = this.b.e;
+            my7.a aVar2 = this.b.e;
             if (aVar2.e) {
                 aVar2.e = false;
                 TextView textView2 = this.l;
@@ -536,30 +536,30 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
     public final void p(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0917, (ViewGroup) this, true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ea);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f2);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924e5);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0924ed);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924e7);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924ef);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924e9);
-            this.j = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924f1);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e8);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0924f0);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924eb);
-            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f0924e6);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0924ee);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924e4);
-            this.q = (ImageView) findViewById(R.id.obfuscated_res_0x7f0924ec);
-            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08041f);
-            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080422);
-            this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08041e);
-            this.j.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080421);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d094b, (ViewGroup) this, true);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092555);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09255d);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092550);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092558);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092552);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09255a);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092554);
+            this.j = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09255c);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092553);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09255b);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f092556);
+            this.n = (TextView) findViewById(R.id.obfuscated_res_0x7f092551);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f092559);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f09254f);
+            this.q = (ImageView) findViewById(R.id.obfuscated_res_0x7f092557);
+            this.g.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08046f);
+            this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080472);
+            this.i.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08046e);
+            this.j.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080471);
             this.e.setOnClickListener(this);
             this.f.setOnClickListener(this);
-            this.s = ii.g(context, R.dimen.tbds340);
-            this.E = ii.g(context, R.dimen.tbds62);
+            this.s = ri.g(context, R.dimen.tbds340);
+            this.E = ri.g(context, R.dimen.tbds62);
             Paint paint = new Paint();
             this.H = paint;
             paint.setAntiAlias(true);
@@ -582,11 +582,11 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     public final boolean n() {
         InterceptResult invokeV;
-        yw7.a aVar;
+        my7.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            yw7 yw7Var = this.b;
-            if (yw7Var != null && (aVar = yw7Var.d) != null && aVar.e) {
+            my7 my7Var = this.b;
+            if (my7Var != null && (aVar = my7Var.d) != null && aVar.e) {
                 return true;
             }
             return false;
@@ -596,11 +596,11 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
 
     public final boolean o() {
         InterceptResult invokeV;
-        yw7.a aVar;
+        my7.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            yw7 yw7Var = this.b;
-            if (yw7Var != null && (aVar = yw7Var.e) != null && aVar.e) {
+            my7 my7Var = this.b;
+            if (my7Var != null && (aVar = my7Var.e) != null && aVar.e) {
                 return true;
             }
             return false;
@@ -749,13 +749,13 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
             this.C = this.m.getHeight();
             this.D = ((this.r - (this.t * 2)) - this.w) - this.x;
             this.G = this.p.getWidth();
-            yw7 yw7Var = this.b;
-            if (yw7Var.d.a == 0 && yw7Var.e.a == 0) {
+            my7 my7Var = this.b;
+            if (my7Var.d.a == 0 && my7Var.e.a == 0) {
                 this.F = (int) ((this.D * 0.5d) + this.w + this.t);
             } else {
-                yw7 yw7Var2 = this.b;
-                long j = yw7Var2.d.a;
-                this.F = (int) (((((float) j) / ((float) (j + yw7Var2.e.a))) * this.D) + this.w + this.t);
+                my7 my7Var2 = this.b;
+                long j = my7Var2.d.a;
+                this.F = (int) (((((float) j) / ((float) (j + my7Var2.e.a))) * this.D) + this.w + this.t);
             }
             float y = this.e.getY() - ((this.C - this.u) / 2);
             if (this.F + (this.B / 2) >= this.l.getLeft()) {
@@ -842,16 +842,16 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         }
     }
 
-    public void setData(yw7 yw7Var) {
+    public void setData(my7 my7Var) {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, yw7Var) == null) {
-            if (yw7Var != null && yw7Var.d != null && yw7Var.e != null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, my7Var) == null) {
+            if (my7Var != null && my7Var.d != null && my7Var.e != null) {
                 setVisibility(0);
-                this.b = yw7Var;
-                this.k.setText(String.valueOf(yw7Var.d.a));
-                this.l.setText(String.valueOf(yw7Var.e.a));
+                this.b = my7Var;
+                this.k.setText(String.valueOf(my7Var.d.a));
+                this.l.setText(String.valueOf(my7Var.e.a));
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 this.R = layoutParams;
                 layoutParams.addRule(12);
@@ -861,47 +861,47 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                 this.S.addRule(11);
                 this.n.setLayoutParams(this.R);
                 this.o.setLayoutParams(this.S);
-                if (yw7Var.f == 3) {
-                    if (StringUtils.isNull(yw7Var.d.b)) {
-                        str = getResources().getString(R.string.obfuscated_res_0x7f0f1553);
+                if (my7Var.f == 3) {
+                    if (StringUtils.isNull(my7Var.d.b)) {
+                        str = getResources().getString(R.string.obfuscated_res_0x7f0f162a);
                     } else {
-                        str = yw7Var.d.b;
+                        str = my7Var.d.b;
                     }
                     this.n.setText(str);
-                    if (StringUtils.isNull(yw7Var.e.b)) {
-                        str2 = getResources().getString(R.string.obfuscated_res_0x7f0f1554);
+                    if (StringUtils.isNull(my7Var.e.b)) {
+                        str2 = getResources().getString(R.string.obfuscated_res_0x7f0f162b);
                     } else {
-                        str2 = yw7Var.e.b;
+                        str2 = my7Var.e.b;
                     }
                     this.o.setText(str2);
-                    if (StringUtils.isNull(yw7Var.d.c)) {
+                    if (StringUtils.isNull(my7Var.d.c)) {
                         this.c.setVisibility(4);
                     } else {
-                        this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), yw7Var.d.c));
+                        this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f162c), my7Var.d.c));
                     }
-                    if (StringUtils.isNull(yw7Var.e.c)) {
+                    if (StringUtils.isNull(my7Var.e.c)) {
                         this.d.setVisibility(4);
                     } else {
-                        this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), yw7Var.e.c));
+                        this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f162c), my7Var.e.c));
                     }
                 } else {
-                    this.n.setText(yw7Var.d.b);
-                    this.o.setText(yw7Var.e.b);
-                    this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), yw7Var.d.c));
-                    this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f1555), yw7Var.e.c));
+                    this.n.setText(my7Var.d.b);
+                    this.o.setText(my7Var.e.b);
+                    this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f162c), my7Var.d.c));
+                    this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f162c), my7Var.e.c));
                 }
-                this.g.N(yw7Var.d.d, 10, false);
-                this.h.N(yw7Var.e.d, 10, false);
-                this.i.N(yw7Var.d.g, 10, false);
-                this.j.N(yw7Var.e.g, 10, false);
-                if (yw7Var.d.e) {
+                this.g.N(my7Var.d.d, 10, false);
+                this.h.N(my7Var.e.d, 10, false);
+                this.i.N(my7Var.d.g, 10, false);
+                this.j.N(my7Var.e.g, 10, false);
+                if (my7Var.d.e) {
                     this.g.setVisibility(4);
                     this.i.setVisibility(0);
                 } else {
                     this.g.setVisibility(0);
                     this.i.setVisibility(4);
                 }
-                if (yw7Var.e.e) {
+                if (my7Var.e.e) {
                     this.h.setVisibility(4);
                     this.j.setVisibility(0);
                 } else {

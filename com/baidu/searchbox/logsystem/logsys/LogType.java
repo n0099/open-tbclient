@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.logsys;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum LogType {
     JAVA_CRASH("$JAVA_CRASH$"),
     NATIVE_CRASH("$NATIVE_CRASH$"),

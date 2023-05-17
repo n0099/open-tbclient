@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.R;
 import com.baidu.ufosdk.p1;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FeedbackTitleBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,19 +96,19 @@ public class FeedbackTitleBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0200, (ViewGroup) this, true);
-            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092446);
-            this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c8);
-            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c7);
-            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917c9);
-            this.d = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917e2);
-            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917d0);
-            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917ce);
+            View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d020d, (ViewGroup) this, true);
+            this.b = (RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0924aa);
+            this.c = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09180d);
+            ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09180c);
+            TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09180e);
+            this.d = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091827);
+            LinearLayout linearLayout = (LinearLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091815);
+            TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091813);
             this.e = textView2;
             textView2.setTextColor(p1.a(-10066330, -5262406, -10066330, -10066330));
-            ImageView imageView2 = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917cf);
-            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0917cd);
-            this.f = (ProgressBar) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090746);
+            ImageView imageView2 = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091814);
+            inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091812);
+            this.f = (ProgressBar) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090762);
             setBackgroundColor(-65536);
             setGravity(16);
             setOrientation(0);

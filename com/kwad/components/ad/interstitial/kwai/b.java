@@ -1,7 +1,7 @@
 package com.kwad.components.ad.interstitial.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static int b(AdInfo adInfo) {
         int intValue = a.fN.getValue().intValue();

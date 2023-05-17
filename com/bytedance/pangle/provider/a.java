@@ -11,7 +11,7 @@ import android.util.Base64;
 import androidx.annotation.RequiresApi;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static int a(ContentResolver contentResolver, Uri uri, ContentValues contentValues, String str, String[] strArr, String str2) {
         if (contentResolver == null) {

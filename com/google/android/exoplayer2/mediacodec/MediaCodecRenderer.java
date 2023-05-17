@@ -29,7 +29,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class MediaCodecRenderer extends BaseRenderer {
     public static final byte[] ADAPTATION_WORKAROUND_BUFFER = Util.getBytesFromHexString("0000016742C00BDA259000000168CE0F13200000016588840DCE7118A0002FBF1C31C3275D78");
     public static final int ADAPTATION_WORKAROUND_MODE_ALWAYS = 2;
@@ -130,7 +130,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         return 8;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DecoderInitializationException extends Exception {
         public static final int CUSTOM_ERROR_CODE_BASE = -50000;
         public static final int DECODER_QUERY_ERROR = -49998;

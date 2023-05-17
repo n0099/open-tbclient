@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.IntentConstants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
@@ -15,7 +15,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MiniApp extends BaseApi {
     public static final int MINIAPP_CONTEXT_NULL = -6;
     public static final int MINIAPP_ID_EMPTY = -1;
@@ -68,9 +68,9 @@ public class MiniApp extends BaseApi {
                 SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_VERSION_WRONG : -7");
                 return -7;
             } else if (l.e(activity)) {
-                Intent intent = new Intent("android.intent.action.VIEW");
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.c.getOpenId()))));
-                intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+                intent.putExtra("pkg_name", activity.getPackageName());
                 activity.startActivity(intent);
                 SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_SUCCESS : 0");
                 return 0;

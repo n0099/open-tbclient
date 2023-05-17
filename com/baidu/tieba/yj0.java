@@ -1,87 +1,52 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.presenter.LPDownloadManager;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tieba.fk0;
-import com.baidu.tieba.w51;
+import com.baidu.searchbox.crius.CriusLoader;
+import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yj0 extends tj1<w51> {
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class yj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
+    public Map<String, a> b;
 
-    /* loaded from: classes7.dex */
-    public class a implements w51 {
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public CriusData a;
 
-        @Override // com.baidu.tieba.w51
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.yj0$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0496a extends ul0<fk0> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ w51.b b;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0496a(a aVar, Class cls, w51.b bVar) {
-                super(cls);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, cls, bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((Class) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ul0
-            public void onEvent(@NonNull fk0 fk0Var) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, fk0Var) == null) && this.b != null && !y01.g(fk0Var.a)) {
-                    for (fk0.a aVar : fk0Var.a) {
-                        if (aVar instanceof fk0.a) {
-                            fk0.a aVar2 = aVar;
-                            if (!TextUtils.isEmpty(aVar2.b) && !TextUtils.isEmpty(aVar2.a) && !TextUtils.isEmpty(aVar2.c)) {
-                                this.b.a("javascript:" + aVar2.a + "('" + z01.a(aVar2.c) + "');");
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        public a(yj0 yj0Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yj0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,22 +54,6 @@ public class yj0 extends tj1<w51> {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.w51
-        public void a(Object obj, w51.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                ql0.a().b(obj, new C0496a(this, fk0.class, bVar));
-            }
-        }
-
-        @Override // com.baidu.tieba.w51
-        public void b(Context context, RelativeLayout relativeLayout, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
-                LPDownloadManager.f(context, relativeLayout, str, true);
             }
         }
     }
@@ -123,15 +72,147 @@ public class yj0 extends tj1<w51> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public w51 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static yj0 b(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            yj0 yj0Var = new yj0();
+            yj0Var.i(jSONObject);
+            return yj0Var;
         }
-        return (w51) invokeV.objValue;
+        return (yj0) invokeL.objValue;
+    }
+
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            CriusLoader.init(context);
+            CriusLoader.registerComponentFactory(new wj0());
+            CriusLoader.registerNativeRenderFactory(new xj0());
+        }
+    }
+
+    public CriusData e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                return new CriusData(bj0.b(), jSONObject, true, null);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (CriusData) invokeL.objValue;
+    }
+
+    public final void g(Set<String> set) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, set) != null) || set == null) {
+            return;
+        }
+        for (String str : set) {
+            un0.a().d(str);
+        }
+    }
+
+    public yj0 i(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
+            j(jSONObject, "cmd_map", Arrays.asList("crius", "crius_pop", "crius_content"));
+            return this;
+        }
+        return (yj0) invokeL.objValue;
+    }
+
+    public final Map<String, String> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject(str);
+            if (optJSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys != null && keys.hasNext()) {
+                    String next = keys.next();
+                    String optString = optJSONObject.optString(next);
+                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                        hashMap.put(next, optString);
+                    }
+                }
+                return hashMap;
+            }
+            return null;
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public a d(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, map)) == null) {
+            a aVar = new a();
+            String optString = jSONObject.optString(str);
+            if (h()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue()) && optString != null) {
+                        optString = optString.replaceAll(entry.getKey(), Uri.encode(entry.getValue()));
+                    }
+                }
+            }
+            if (CriusLoader.isCriusNone()) {
+                a(bj0.b());
+            }
+            if (!CriusLoader.isCriusOk()) {
+                return aVar;
+            }
+            try {
+                aVar.a = e(new JSONObject(optString));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            CriusData criusData = aVar.a;
+            if (criusData != null && criusData.getImageUrls() != null) {
+                g(aVar.a.getImageUrls());
+            }
+            return aVar;
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    public final Map<String, a> f(@NonNull JSONObject jSONObject, @NonNull List<String> list, @NonNull Map<String, String> map) {
+        InterceptResult invokeLLL;
+        a d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, jSONObject, list, map)) == null) {
+            HashMap hashMap = null;
+            for (String str : list) {
+                if (!TextUtils.isEmpty(str) && (d = d(jSONObject, str, map)) != null) {
+                    if (hashMap == null) {
+                        hashMap = new HashMap();
+                    }
+                    hashMap.put(str, d);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeLLL.objValue;
+    }
+
+    public yj0 j(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, list)) == null) {
+            Map<String, String> c = c(jSONObject, str);
+            this.a = c;
+            if (c != null) {
+                this.b = f(jSONObject, list, c);
+            }
+            return this;
+        }
+        return (yj0) invokeLLL.objValue;
     }
 }

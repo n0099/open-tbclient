@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusSwiperView extends ViewPager {
     public Handler handler;
     public int mCurrentIndex;

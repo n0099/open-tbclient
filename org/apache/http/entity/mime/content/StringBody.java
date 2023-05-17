@@ -7,7 +7,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StringBody extends AbstractContentBody {
     public final Charset charset;
     public final byte[] content;

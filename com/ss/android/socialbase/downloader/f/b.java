@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.f;
 
 import androidx.annotation.NonNull;
 import com.huawei.hms.framework.common.ExceptionCode;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements c, d, e {
     public final int a;
     public final int b;

@@ -6,7 +6,7 @@ import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HardwareProxy {
     public static final String MAC_NULL = "";
     public static volatile boolean hasInvoked;

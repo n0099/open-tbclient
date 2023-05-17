@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -18,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SimpleFunctionDescriptorImpl extends FunctionDescriptorImpl implements SimpleFunctionDescriptor {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         String str = (i == 13 || i == 17 || i == 18 || i == 23 || i == 24) ? "@NotNull method %s.%s must not return null" : "Argument for @NotNull parameter '%s' of %s.%s must not be null";
@@ -75,7 +76,7 @@ public class SimpleFunctionDescriptorImpl extends FunctionDescriptorImpl impleme
         } else if (i == 18) {
             objArr[1] = "getOriginal";
         } else if (i == 23) {
-            objArr[1] = "copy";
+            objArr[1] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
         } else if (i != 24) {
             objArr[1] = "kotlin/reflect/jvm/internal/impl/descriptors/impl/SimpleFunctionDescriptorImpl";
         } else {

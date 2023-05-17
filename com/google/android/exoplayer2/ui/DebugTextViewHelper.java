@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DebugTextViewHelper extends Player.DefaultEventListener implements Runnable {
     public static final int REFRESH_INTERVAL_MS = 1000;
     public final SimpleExoPlayer player;

@@ -1,69 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.me;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.feed.component.CardPlayVoiceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class b47 {
+/* loaded from: classes4.dex */
+public class b47 extends p27<CardPlayVoiceView, VoiceData.VoiceModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
 
-    public b47() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b47(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            t05.d();
-            this.a = t05.b("tb.bawu_team_info");
-        }
-    }
-
-    public byte[] a(String str) {
+    @Override // com.baidu.tieba.p27, com.baidu.tieba.e37
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
-        me.b<byte[]> bVar;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            me<byte[]> meVar = this.a;
-            if (meVar != null && str != null) {
-                bVar = meVar.h(str);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            m47.n(a, null, null, null, -2);
+            return a;
         }
-        return (byte[]) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public void c(String str, byte[] bArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e37
+    /* renamed from: e */
+    public void b(@NonNull CardPlayVoiceView cardPlayVoiceView, @NonNull VoiceData.VoiceModel voiceModel) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPlayVoiceView, voiceModel) == null) {
+            cardPlayVoiceView.update(voiceModel);
         }
     }
 }

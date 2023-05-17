@@ -6,14 +6,14 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.TextureData;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a5;
-import com.baidu.tieba.k6;
-import com.baidu.tieba.m1;
-import com.baidu.tieba.o0;
-import com.baidu.tieba.t2;
-import com.baidu.tieba.u0;
-import com.baidu.tieba.w0;
-import com.baidu.tieba.y2;
+import com.baidu.tieba.a1;
+import com.baidu.tieba.c3;
+import com.baidu.tieba.e5;
+import com.baidu.tieba.o6;
+import com.baidu.tieba.q1;
+import com.baidu.tieba.s0;
+import com.baidu.tieba.x2;
+import com.baidu.tieba.y0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,10 +24,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class Texture extends y2 {
+public class Texture extends c3 {
     public static /* synthetic */ Interceptable $ic;
-    public static w0 j;
-    public static final Map<Application, k6<Texture>> k;
+    public static a1 j;
+    public static final Map<Application, o6<Texture>> k;
     public transient /* synthetic */ FieldHolder $fh;
     public TextureData i;
 
@@ -213,7 +213,7 @@ public class Texture extends y2 {
     }
 
     /* loaded from: classes.dex */
-    public static class a implements u0.a {
+    public static class a implements y0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -236,11 +236,11 @@ public class Texture extends y2 {
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.u0.a
-        public void a(w0 w0Var, String str, Class cls) {
+        @Override // com.baidu.tieba.y0.a
+        public void a(a1 a1Var, String str, Class cls) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, w0Var, str, cls) == null) {
-                w0Var.A(str, this.a);
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, a1Var, str, cls) == null) {
+                a1Var.A(str, this.a);
             }
         }
     }
@@ -265,7 +265,7 @@ public class Texture extends y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (z()) {
-                this.b = o0.e.a();
+                this.b = s0.e.a();
                 A(this.i);
                 return;
             }
@@ -278,7 +278,7 @@ public class Texture extends y2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             TextureData textureData = this.i;
-            if (textureData instanceof a5) {
+            if (textureData instanceof e5) {
                 return textureData.toString();
             }
             return super.toString();
@@ -343,13 +343,13 @@ public class Texture extends y2 {
         }
         A(textureData);
         if (textureData.a()) {
-            s(o0.a, this);
+            s(s0.a, this);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Texture(TextureData textureData) {
-        this(3553, o0.e.a(), textureData);
+        this(3553, s0.e.a(), textureData);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -379,22 +379,22 @@ public class Texture extends y2 {
                 textureData.prepare();
             }
             a();
-            y2.q(3553, textureData);
+            c3.q(3553, textureData);
             o(this.c, this.d, true);
             p(this.e, this.f, true);
             n(this.g, true);
-            o0.e.N(this.a, 0);
+            s0.e.N(this.a, 0);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Texture(t2 t2Var, Pixmap.Format format, boolean z) {
-        this(TextureData.a.a(t2Var, format, z));
+    public Texture(x2 x2Var, Pixmap.Format format, boolean z) {
+        this(TextureData.a.a(x2Var, format, z));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t2Var, format, Boolean.valueOf(z)};
+            Object[] objArr = {x2Var, format, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -408,19 +408,19 @@ public class Texture extends y2 {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Texture(t2 t2Var, boolean z) {
-        this(t2Var, (Pixmap.Format) null, z);
+    public Texture(x2 x2Var, boolean z) {
+        this(x2Var, (Pixmap.Format) null, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t2Var, Boolean.valueOf(z)};
+            Object[] objArr = {x2Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((t2) objArr2[0], (Pixmap.Format) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                this((x2) objArr2[0], (Pixmap.Format) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -431,12 +431,12 @@ public class Texture extends y2 {
     public static void s(Application application, Texture texture) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, application, texture) == null) {
-            k6<Texture> k6Var = k.get(application);
-            if (k6Var == null) {
-                k6Var = new k6<>();
+            o6<Texture> o6Var = k.get(application);
+            if (o6Var == null) {
+                o6Var = new o6<>();
             }
-            k6Var.a(texture);
-            k.put(application, k6Var);
+            o6Var.a(texture);
+            k.put(application, o6Var);
         }
     }
 
@@ -464,21 +464,21 @@ public class Texture extends y2 {
     }
 
     public static void y(Application application) {
-        k6<Texture> k6Var;
+        o6<Texture> o6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, application) != null) || (k6Var = k.get(application)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65544, null, application) != null) || (o6Var = k.get(application)) == null) {
             return;
         }
-        w0 w0Var = j;
-        if (w0Var == null) {
-            for (int i = 0; i < k6Var.b; i++) {
-                k6Var.get(i).B();
+        a1 a1Var = j;
+        if (a1Var == null) {
+            for (int i = 0; i < o6Var.b; i++) {
+                o6Var.get(i).B();
             }
             return;
         }
-        w0Var.h();
-        k6<? extends Texture> k6Var2 = new k6<>(k6Var);
-        k6.b<? extends Texture> it = k6Var2.iterator();
+        a1Var.h();
+        o6<? extends Texture> o6Var2 = new o6<>(o6Var);
+        o6.b<? extends Texture> it = o6Var2.iterator();
         while (it.hasNext()) {
             Texture next = it.next();
             String m = j.m(next);
@@ -488,7 +488,7 @@ public class Texture extends y2 {
                 int q = j.q(m);
                 j.A(m, 0);
                 next.b = 0;
-                m1.b bVar = new m1.b();
+                q1.b bVar = new q1.b();
                 bVar.e = next.w();
                 bVar.f = next.h();
                 bVar.g = next.f();
@@ -498,23 +498,23 @@ public class Texture extends y2 {
                 bVar.d = next;
                 bVar.a = new a(q);
                 j.C(m);
-                next.b = o0.e.a();
+                next.b = s0.e.a();
                 j.w(m, Texture.class, bVar);
             }
         }
-        k6Var.clear();
-        k6Var.b(k6Var2);
+        o6Var.clear();
+        o6Var.b(o6Var2);
     }
 
-    @Override // com.baidu.tieba.y2, com.baidu.tieba.r6
+    @Override // com.baidu.tieba.c3, com.baidu.tieba.v6
     public void dispose() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.b == 0) {
             return;
         }
         delete();
-        if (this.i.a() && k.get(o0.a) != null) {
-            k.get(o0.a).i(this, true);
+        if (this.i.a() && k.get(s0.a) != null) {
+            k.get(s0.a).i(this, true);
         }
     }
 }

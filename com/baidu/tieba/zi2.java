@@ -1,124 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.cd3;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.aj2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class zi2 extends u93 {
+/* loaded from: classes8.dex */
+public class zi2 implements aj2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public JSONObject b;
 
-    /* loaded from: classes7.dex */
-    public class a implements qm3<ad3<cd3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
-
-        public a(zi2 zi2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-            this.d = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(ad3<cd3.e> ad3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
-                if (!vc3.h(ad3Var)) {
-                    vc3.p(ad3Var, this.a, this.b);
-                    return;
-                }
-                if (li2.b(this.c.optInt("emitReplaceDynamicLib"))) {
-                    if (ni2.n().isEmpty()) {
-                        Context context = this.d;
-                        if (context == null) {
-                            context = er2.c();
-                        }
-                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0142);
-                        p73.g(context, string).G();
-                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
-                        return;
-                    }
-                    ni2.p();
-                } else {
-                    ni2.f();
-                }
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                w33.Z();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zi2(u83 u83Var) {
-        super(u83Var, "/swanAPI/debug/setReplaceDynamicLibConfig");
+    public zi2(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
+            Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                x42.c("setReplaceDynamicLibConfig", "'params' is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!a2.has("emitReplaceDynamicLib")) {
-                x42.c("setReplaceDynamicLibConfig", "'emitReplaceSwanCore's is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                x73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
-                return true;
+        JSONObject jSONObject = new JSONObject();
+        this.b = jSONObject;
+        this.a = str;
+        try {
+            jSONObject.put(IntentConfig.PKG_ID, str);
+            if (z) {
+                update();
+            }
+        } catch (JSONException e) {
+            if (aj2.n0) {
+                e.printStackTrace();
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static zi2 query(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return new zi2(str, true);
+        }
+        return (zi2) invokeL.objValue;
+    }
+
+    private void update() throws JSONException {
+        PMSAppInfo u;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = dh4.i().u(this.a)) != null) {
+            this.b.put("app_name", u.appName);
+            this.b.put("pkg_vername", u.versionName);
+            this.b.put("pkg_vercode", u.versionCode);
+            this.b.put("create_time", u.createTime);
+            this.b.put("last_launch_time", u.getLastLaunchTime());
+            this.b.put("launch_count", u.getLaunchCount());
+            this.b.put("install_src", u.getInstallSrc());
+        }
+    }
+
+    @Override // com.baidu.tieba.aj2.a
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aj2.a
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aj2.a
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !TextUtils.isEmpty(this.a);
+        }
+        return invokeV.booleanValue;
     }
 }

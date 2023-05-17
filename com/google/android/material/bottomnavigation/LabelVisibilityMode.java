@@ -3,7 +3,7 @@ package com.google.android.material.bottomnavigation;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface LabelVisibilityMode {
     public static final int LABEL_VISIBILITY_AUTO = -1;
     public static final int LABEL_VISIBILITY_LABELED = 1;

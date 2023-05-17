@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.launchtips.monitor.network;
 
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum NetworkStatus {
     NETWORK_GOOD(1, FrsActivityConfig.GOOD, "网络：正常；"),
     NETWORK_BAD(2, "bad", "网络：弱网；"),

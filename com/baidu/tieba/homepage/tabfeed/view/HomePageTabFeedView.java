@@ -25,21 +25,21 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.core.view.PublishProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci6;
-import com.baidu.tieba.f05;
+import com.baidu.tieba.gw7;
+import com.baidu.tieba.gx7;
+import com.baidu.tieba.hc9;
 import com.baidu.tieba.homepage.channel.model.ChannelTabNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.HomePageTabFeedFragment;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.in;
-import com.baidu.tieba.la9;
-import com.baidu.tieba.mp7;
-import com.baidu.tieba.q55;
-import com.baidu.tieba.su7;
-import com.baidu.tieba.sv7;
-import com.baidu.tieba.tu7;
-import com.baidu.tieba.uu7;
-import com.baidu.tieba.vv7;
-import com.baidu.tieba.wu7;
+import com.baidu.tieba.hw7;
+import com.baidu.tieba.iw7;
+import com.baidu.tieba.jx7;
+import com.baidu.tieba.kw7;
+import com.baidu.tieba.o15;
+import com.baidu.tieba.oj6;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.z65;
+import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,32 +47,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HomePageTabFeedView implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HomePageTabFeedFragment a;
-    public wu7 b;
+    public kw7 b;
     public ViewGroup c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
     public PbListView f;
-    public q55 g;
+    public z65 g;
     public PublishProgressView h;
     public HomePageTabFeedHeaderView i;
-    public la9 j;
+    public hc9 j;
     public PostAnimateFloatView k;
-    public tu7 l;
+    public hw7 l;
     public String m;
     public boolean n;
     public int o;
     public ViewGroup p;
-    public mp7 q;
+    public zq7 q;
     public BdListView.p r;
     public RecyclerView.OnScrollListener s;
     public View.OnClickListener t;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,12 +103,12 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 if (this.a.e != null) {
                     this.a.e.stopScroll();
                 }
-                this.a.K();
+                this.a.J();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,8 +140,8 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 if (this.b.j != null) {
                     this.b.j.n(this.b.e.getFirstVisiblePosition(), this.b.e.getLastVisiblePosition(), this.a, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(true ^ this.b.v())));
-                ci6.b().c();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(true ^ this.b.u())));
+                oj6.b().c();
             }
         }
 
@@ -155,7 +155,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
                 } else {
                     this.a = true;
                 }
-                this.b.q();
+                this.b.p();
                 if (this.b.q != null) {
                     this.b.q.j();
                 }
@@ -163,7 +163,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +206,7 @@ public class HomePageTabFeedView implements LifecycleObserver {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d implements RecyclerView.RecyclerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -240,12 +240,12 @@ public class HomePageTabFeedView implements LifecycleObserver {
         }
     }
 
-    public HomePageTabFeedView(HomePageTabFeedFragment homePageTabFeedFragment, wu7 wu7Var, ViewGroup viewGroup, String str) {
+    public HomePageTabFeedView(HomePageTabFeedFragment homePageTabFeedFragment, kw7 kw7Var, ViewGroup viewGroup, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {homePageTabFeedFragment, wu7Var, viewGroup, str};
+            Object[] objArr = {homePageTabFeedFragment, kw7Var, viewGroup, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -261,27 +261,27 @@ public class HomePageTabFeedView implements LifecycleObserver {
         this.s = new b(this);
         this.t = new c(this);
         this.a = homePageTabFeedFragment;
-        this.b = wu7Var;
+        this.b = kw7Var;
         this.m = str;
-        t(viewGroup);
-        tu7 tu7Var = new tu7(homePageTabFeedFragment, this.e);
-        this.l = tu7Var;
-        tu7Var.g(str);
-        I(false);
+        s(viewGroup);
+        hw7 hw7Var = new hw7(homePageTabFeedFragment, this.e);
+        this.l = hw7Var;
+        hw7Var.g(str);
+        H(false);
     }
 
-    public void I(boolean z) {
+    public void H(boolean z) {
         BdSwipeRefreshLayout bdSwipeRefreshLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (bdSwipeRefreshLayout = this.d) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (bdSwipeRefreshLayout = this.d) != null) {
             bdSwipeRefreshLayout.setRefreshing(z);
         }
     }
 
-    public void J(boolean z) {
+    public void I(boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             BdSwipeRefreshLayout bdSwipeRefreshLayout = this.d;
             if (bdSwipeRefreshLayout != null) {
                 if (z) {
@@ -295,123 +295,15 @@ public class HomePageTabFeedView implements LifecycleObserver {
         }
     }
 
-    public void A() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdTypeRecyclerView = this.e) != null && bdTypeRecyclerView.getCount() != 0) {
-            if (this.e.getItem(0) instanceof sv7) {
-                this.e.removeItem(0);
-            }
-            tu7 tu7Var = this.l;
-            if (tu7Var != null) {
-                tu7Var.f(false);
-            }
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            la9 la9Var = this.j;
-            if (la9Var != null) {
-                la9Var.z();
-                this.j.r(false);
-            }
-            HomePageTabFeedHeaderView homePageTabFeedHeaderView = this.i;
-            if (homePageTabFeedHeaderView != null) {
-                homePageTabFeedHeaderView.f();
-            }
-        }
-    }
-
-    public void F() {
-        q55 q55Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (q55Var = this.g) != null && q55Var.K() == null) {
-            this.g.f(this.b);
-        }
-    }
-
-    public void M() {
-        BdTypeRecyclerView bdTypeRecyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (bdTypeRecyclerView = this.e) != null) {
-            bdTypeRecyclerView.scrollToPosition(0);
-        }
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            la9 la9Var = this.j;
-            if (la9Var != null) {
-                la9Var.h();
-                this.j.v(null);
-            }
-            q55 q55Var = this.g;
-            if (q55Var != null) {
-                q55Var.f(null);
-            }
-            HomePageTabFeedHeaderView homePageTabFeedHeaderView = this.i;
-            if (homePageTabFeedHeaderView != null) {
-                homePageTabFeedHeaderView.e();
-            }
-            PostAnimateFloatView postAnimateFloatView = this.k;
-            if (postAnimateFloatView != null) {
-                postAnimateFloatView.h();
-            }
-        }
-    }
-
-    public PostAnimateFloatView r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.k;
-        }
-        return (PostAnimateFloatView) invokeV.objValue;
-    }
-
-    public BdTypeRecyclerView s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e;
-        }
-        return (BdTypeRecyclerView) invokeV.objValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.e;
-            if (bdTypeRecyclerView == null || bdTypeRecyclerView.getChildCount() == 0 || this.e.getChildAt(0).getTop() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void w() {
-        mp7 mp7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (mp7Var = this.q) != null) {
-            mp7Var.f();
-        }
-    }
-
-    public void D(vv7 vv7Var) {
+    public void C(jx7 jx7Var) {
         PostAnimateFloatView postAnimateFloatView;
         int top;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vv7Var) == null) {
-            I(false);
-            if (vv7Var != null && this.l != null && this.e != null && this.f != null) {
-                this.n = vv7Var.c;
-                if (vv7Var.e == null && vv7Var.f == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, jx7Var) == null) {
+            H(false);
+            if (jx7Var != null && this.l != null && this.e != null && this.f != null) {
+                this.n = jx7Var.c;
+                if (jx7Var.e == null && jx7Var.f == null) {
                     HomePageTabFeedHeaderView homePageTabFeedHeaderView = this.i;
                     if (homePageTabFeedHeaderView != null && homePageTabFeedHeaderView.getParent() != null) {
                         this.e.removeHeaderView(this.i);
@@ -424,9 +316,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
                         homePageTabFeedHeaderView2.setTabCode(this.m);
                         this.e.addHeaderView(this.i);
                     }
-                    this.i.setData(vv7Var);
+                    this.i.setData(jx7Var);
                 }
-                if (vv7Var.b > 0) {
+                if (jx7Var.b > 0) {
                     int firstVisiblePosition = this.e.getFirstVisiblePosition();
                     View childAt = this.e.getChildAt(0);
                     if (childAt == null) {
@@ -435,52 +327,52 @@ public class HomePageTabFeedView implements LifecycleObserver {
                         top = childAt.getTop();
                     }
                     RecyclerView.LayoutManager layoutManager = this.e.getLayoutManager();
-                    int i = firstVisiblePosition - vv7Var.b;
+                    int i = firstVisiblePosition - jx7Var.b;
                     if (layoutManager instanceof LinearLayoutManager) {
                         this.e.startInterceptLayout();
                         ((LinearLayoutManager) layoutManager).scrollToPositionWithOffset(i, top);
                         this.e.stopIntercerceptLayout();
                     }
                 }
-                this.l.e(vv7Var.a);
+                this.l.e(jx7Var.a);
                 this.l.d();
-                w();
-                la9 la9Var = this.j;
-                if (la9Var != null) {
-                    la9Var.n(this.e.getFirstVisiblePosition(), this.e.getLastVisiblePosition(), false, true);
+                v();
+                hc9 hc9Var = this.j;
+                if (hc9Var != null) {
+                    hc9Var.n(this.e.getFirstVisiblePosition(), this.e.getLastVisiblePosition(), false, true);
                 }
                 if ("local".equals(this.m) && (postAnimateFloatView = this.k) != null && postAnimateFloatView.getVisibility() != 0) {
                     this.k.setVisibility(0);
-                    uu7.n();
+                    iw7.n();
                 }
             }
         }
     }
 
-    public final void t(ViewGroup viewGroup) {
+    public final void s(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, viewGroup) == null) {
             this.c = viewGroup;
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921fa);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09225d);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getContext()));
             this.e.setFadingEdgeLength(0);
             this.e.setOverScrollMode(2);
             this.e.setOnSrollToBottomListener(this.r);
             this.e.addOnScrollListener(this.s);
-            mp7 mp7Var = new mp7(this.c, this.e);
-            this.q = mp7Var;
-            mp7Var.q(this.a.S1());
+            zq7 zq7Var = new zq7(this.c, this.e);
+            this.q = zq7Var;
+            zq7Var.q(this.a.T1());
             this.q.p(this.a.getPageContext());
-            q55 q55Var = new q55(this.a.getPageContext());
-            this.g = q55Var;
-            q55Var.f(this.b);
+            z65 z65Var = new z65(this.a.getPageContext());
+            this.g = z65Var;
+            z65Var.f(this.b);
             this.e.setRecyclerListener(new d(this));
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
             this.f = pbListView;
             pbListView.c();
             this.f.r(R.color.transparent);
-            this.f.v(ii.g(this.a.getPageContext().getPageActivity(), R.dimen.tbds182));
+            this.f.v(ri.g(this.a.getPageContext().getPageActivity(), R.dimen.tbds182));
             this.f.A();
             this.f.J(R.dimen.tbfontsize33);
             this.f.H(SkinManager.getColor(R.color.CAM_X0107));
@@ -488,27 +380,135 @@ public class HomePageTabFeedView implements LifecycleObserver {
             this.f.u();
             this.f.E(this.t);
             if (this.d == null) {
-                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921f9);
+                BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09225c);
                 this.d = bdSwipeRefreshLayout;
                 bdSwipeRefreshLayout.setProgressView(this.g);
             }
             if (this.j == null) {
-                la9 la9Var = new la9(this.a.getPageContext(), this.e);
-                this.j = la9Var;
-                la9Var.p(2);
+                hc9 hc9Var = new hc9(this.a.getPageContext(), this.e);
+                this.j = hc9Var;
+                hc9Var.p(2);
                 this.j.u(this.a.getUniqueId());
             }
-            this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922cb);
-            this.k = (PostAnimateFloatView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091bd6);
+            this.p = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.k = (PostAnimateFloatView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c28);
         }
     }
 
-    public void H() {
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            la9 la9Var = this.j;
-            if (la9Var != null) {
-                la9Var.r(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            hc9 hc9Var = this.j;
+            if (hc9Var != null) {
+                hc9Var.z();
+                this.j.r(false);
+            }
+            HomePageTabFeedHeaderView homePageTabFeedHeaderView = this.i;
+            if (homePageTabFeedHeaderView != null) {
+                homePageTabFeedHeaderView.f();
+            }
+        }
+    }
+
+    public void E() {
+        z65 z65Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (z65Var = this.g) != null && z65Var.K() == null) {
+            this.g.f(this.b);
+        }
+    }
+
+    public void L() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bdTypeRecyclerView = this.e) != null) {
+            bdTypeRecyclerView.scrollToPosition(0);
+        }
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            hc9 hc9Var = this.j;
+            if (hc9Var != null) {
+                hc9Var.h();
+                this.j.v(null);
+            }
+            z65 z65Var = this.g;
+            if (z65Var != null) {
+                z65Var.f(null);
+            }
+            HomePageTabFeedHeaderView homePageTabFeedHeaderView = this.i;
+            if (homePageTabFeedHeaderView != null) {
+                homePageTabFeedHeaderView.e();
+            }
+            PostAnimateFloatView postAnimateFloatView = this.k;
+            if (postAnimateFloatView != null) {
+                postAnimateFloatView.h();
+            }
+        }
+    }
+
+    public PostAnimateFloatView q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.k;
+        }
+        return (PostAnimateFloatView) invokeV.objValue;
+    }
+
+    public BdTypeRecyclerView r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.e;
+        }
+        return (BdTypeRecyclerView) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.e;
+            if (bdTypeRecyclerView == null || bdTypeRecyclerView.getChildCount() == 0 || this.e.getChildAt(0).getTop() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        zq7 zq7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (zq7Var = this.q) != null) {
+            zq7Var.f();
+        }
+    }
+
+    public void z() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (bdTypeRecyclerView = this.e) != null && bdTypeRecyclerView.getCount() != 0) {
+            if (this.e.getItem(0) instanceof gx7) {
+                this.e.removeItem(0);
+            }
+            hw7 hw7Var = this.l;
+            if (hw7Var != null) {
+                hw7Var.f(false);
+            }
+        }
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hc9 hc9Var = this.j;
+            if (hc9Var != null) {
+                hc9Var.r(true);
                 BdTypeRecyclerView bdTypeRecyclerView = this.e;
                 if (bdTypeRecyclerView != null) {
                     this.j.v(bdTypeRecyclerView);
@@ -522,9 +522,9 @@ public class HomePageTabFeedView implements LifecycleObserver {
         }
     }
 
-    public void K() {
+    public void J() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null && this.b != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f != null && this.b != null) {
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 this.e.setNextPage(this.f);
                 this.f.N(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -542,26 +542,26 @@ public class HomePageTabFeedView implements LifecycleObserver {
         }
     }
 
-    public final void q() {
+    public final void p() {
         PostAnimateFloatView postAnimateFloatView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !"local".equals(this.m) || !TbSingleton.getInstance().shouldShowLocalChannelPostAnim) {
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || !"local".equals(this.m) || !TbSingleton.getInstance().shouldShowLocalChannelPostAnim) {
             return;
         }
-        in item = this.e.getItem(this.e.getFirstVisiblePosition() - 1);
+        rn item = this.e.getItem(this.e.getFirstVisiblePosition() - 1);
         if (item != null && item.getType() == ThreadData.TYPE_USER_NORMAL && (postAnimateFloatView = this.k) != null && postAnimateFloatView.getVisibility() == 0) {
             this.k.g();
             TbSingleton.getInstance().shouldShowLocalChannelPostAnim = false;
         }
     }
 
-    public void N(PublishProgressData publishProgressData) {
+    public void M(PublishProgressData publishProgressData) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, publishProgressData) == null) && (viewGroup = this.c) != null && viewGroup.getContext() != null) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, publishProgressData) == null) && (viewGroup = this.c) != null && viewGroup.getContext() != null) {
             if (this.h == null) {
                 this.h = new PublishProgressView(this.c.getContext());
-                this.c.addView(this.h, new FrameLayout.LayoutParams(-1, ii.g(this.c.getContext(), R.dimen.tbds83)));
+                this.c.addView(this.h, new FrameLayout.LayoutParams(-1, ri.g(this.c.getContext(), R.dimen.tbds83)));
             }
             this.h.c(publishProgressData);
         }
@@ -569,12 +569,12 @@ public class HomePageTabFeedView implements LifecycleObserver {
 
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048586, this, i) != null) || this.o == i) {
+        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.o == i) {
             return;
         }
-        q55 q55Var = this.g;
-        if (q55Var != null) {
-            q55Var.H(i);
+        z65 z65Var = this.g;
+        if (z65Var != null) {
+            z65Var.H(i);
         }
         PbListView pbListView = this.f;
         if (pbListView != null) {
@@ -585,11 +585,11 @@ public class HomePageTabFeedView implements LifecycleObserver {
         if (homePageTabFeedHeaderView != null) {
             homePageTabFeedHeaderView.d(i);
         }
-        tu7 tu7Var = this.l;
-        if (tu7Var != null) {
-            tu7Var.d();
+        hw7 hw7Var = this.l;
+        if (hw7Var != null) {
+            hw7Var.d();
         }
-        w();
+        v();
         PublishProgressView publishProgressView = this.h;
         if (publishProgressView != null) {
             publishProgressView.b();
@@ -598,22 +598,22 @@ public class HomePageTabFeedView implements LifecycleObserver {
         if (postAnimateFloatView != null) {
             postAnimateFloatView.onChangeSkinType(this.a.getPageContext(), i);
         }
-        mp7 mp7Var = this.q;
-        if (mp7Var != null) {
-            mp7Var.o();
+        zq7 zq7Var = this.q;
+        if (zq7Var != null) {
+            zq7Var.o();
         }
         this.o = i;
     }
 
-    public void u(ThreadData threadData) {
+    public void t(ThreadData threadData) {
         HomePageTabFeedFragment homePageTabFeedFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048592, this, threadData) == null) && this.e != null && (homePageTabFeedFragment = this.a) != null && (homePageTabFeedFragment.Q1() instanceof ChannelTabNetFeedModel) && !ListUtils.isEmpty(this.e.getData())) {
-            ArrayList<in> arrayList = (ArrayList) this.e.getData();
+        if ((interceptable == null || interceptable.invokeL(1048591, this, threadData) == null) && this.e != null && (homePageTabFeedFragment = this.a) != null && (homePageTabFeedFragment.R1() instanceof ChannelTabNetFeedModel) && !ListUtils.isEmpty(this.e.getData())) {
+            ArrayList<rn> arrayList = (ArrayList) this.e.getData();
             int i = 0;
             while (true) {
                 if (i < arrayList.size()) {
-                    if (arrayList.get(i) instanceof f05) {
+                    if (arrayList.get(i) instanceof o15) {
                         break;
                     }
                     i++;
@@ -624,19 +624,19 @@ public class HomePageTabFeedView implements LifecycleObserver {
             }
             ArrayList arrayList2 = new ArrayList();
             arrayList2.add(threadData);
-            ArrayList<in> c2 = su7.c(arrayList2);
+            ArrayList<rn> c2 = gw7.c(arrayList2);
             if (i != -1) {
                 arrayList.addAll(i, c2);
             } else {
                 arrayList.addAll(c2);
             }
-            List<ThreadData> v = ((ChannelTabNetFeedModel) this.a.Q1()).v();
-            if (v != null) {
-                v.add(0, threadData);
+            List<ThreadData> u = ((ChannelTabNetFeedModel) this.a.R1()).u();
+            if (u != null) {
+                u.add(0, threadData);
             }
             this.l.e(arrayList);
             this.l.d();
-            w();
+            v();
         }
     }
 }

@@ -1,66 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public interface g31 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
-    public static final g31 b = new a();
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
+public class g31 extends BaseExecutorCell {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, @StringRes int i);
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ArteryElasticExecutorCell" : (String) invokeV.objValue;
+    }
 
-    void b(@NonNull Context context, @StringRes int i, int i2);
-
-    void showToast(@NonNull Context context, String str);
-
-    /* loaded from: classes4.dex */
-    public static class a implements g31 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g31(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ThreadPoolExecutor(i, i, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    }
 
-        @Override // com.baidu.tieba.g31
-        public void a(@NonNull Context context, @StringRes int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-                Toast.makeText(context, i, 0).show();
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (e() < this.b) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.tieba.g31
-        public void showToast(@NonNull Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-                Toast.makeText(context, str, 0).show();
-            }
-        }
-
-        @Override // com.baidu.tieba.g31
-        public void b(@NonNull Context context, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2) == null) {
-                Toast.makeText(context, i, i2).show();
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public synchronized void g(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
+            synchronized (this) {
+                super.g(elasticTask);
+                t31.f().k();
             }
         }
     }

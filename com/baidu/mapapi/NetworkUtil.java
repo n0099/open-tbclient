@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkUtil {
     public static boolean initConnectState() {
         return true;

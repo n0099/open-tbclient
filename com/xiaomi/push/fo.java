@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fo {
     public static final byte[] a = {80, 85, 83, 72};
 
@@ -19,7 +19,7 @@ public class fo {
     public short f394a;
     public byte[] b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final c a = new c();
 
@@ -31,7 +31,7 @@ public class fo {
         }
 
         public static byte[] a(byte[] bArr, b bVar) {
-            if (fo.m414a(bArr)) {
+            if (fo.m433a(bArr)) {
                 fo a2 = fo.a(bArr);
                 return (a2.f392a == 0 || a2.f392a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f393a);
             }
@@ -39,18 +39,18 @@ public class fo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         byte a();
 
         byte[] a(byte[] bArr, int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class c {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class d implements b {
         @Override // com.xiaomi.push.fo.b
         public byte a() {
@@ -118,7 +118,7 @@ public class fo {
     }
 
     public static fo a(byte[] bArr) {
-        if (m414a(bArr)) {
+        if (m433a(bArr)) {
             ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
             order.getInt();
             short s = order.getShort();
@@ -132,7 +132,7 @@ public class fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m414a(byte[] bArr) {
+    public static boolean m433a(byte[] bArr) {
         byte[] bArr2 = a;
         return a(bArr2, bArr, bArr2.length);
     }

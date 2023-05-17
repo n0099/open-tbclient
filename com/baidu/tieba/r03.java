@@ -1,36 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
+import android.content.IntentFilter;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.swan.apps.network.NetworkBroadcastReceiver;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-/* loaded from: classes6.dex */
-public class r03 extends l72 {
+import java.lang.ref.WeakReference;
+/* loaded from: classes7.dex */
+public class r03 extends h93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer N0;
+    public NetworkBroadcastReceiver a;
+    public TelephonyManager b;
+    public a c;
 
-    /* loaded from: classes6.dex */
-    public class a extends i92 {
+    /* loaded from: classes7.dex */
+    public class a extends PhoneStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r03 c;
+        public WeakReference<CallbackHandler> a;
+        public String b;
+        public String c;
+        public final /* synthetic */ r03 d;
 
-        public a(r03 r03Var) {
+        public a(r03 r03Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r03Var};
+                Object[] objArr = {r03Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,175 +51,104 @@ public class r03 extends l72 {
                     return;
                 }
             }
-            this.c = r03Var;
+            this.d = r03Var;
+            this.c = "";
+            this.a = new WeakReference<>(callbackHandler);
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public void b(int i) {
+        public void a(CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                x42.k("SwanAppWxPayFragment", "onReceivedSslError:  statusCode = " + i);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+                this.a = new WeakReference<>(callbackHandler);
+                this.b = str;
             }
         }
 
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public void d(String str) {
+        @Override // android.telephony.PhoneStateListener
+        public void onDataConnectionStateChanged(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                x42.k("SwanAppWxPayFragment", "title: " + str);
-            }
-        }
-
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                x42.k("SwanAppWxPayFragment", "url: " + str);
-            }
-        }
-
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.startsWith("weixin://wap/pay")) {
-                    x42.i("SwanAppWxPayFragment", " weixin  url:   " + str);
-                    qe3.K("wechatH5Action", "intoPayment", 0);
-                    this.c.N0.cancel();
-                    this.c.N0 = null;
-                    l72.b3();
-                    return false;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                if (r03.d) {
+                    Log.d("PhoneStateListener", "——> onDataConnectionStateChanged: state " + i + " networkType " + i2);
                 }
-                return super.a(str);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public void c(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
-                String str3 = "onReceivedError:  failingUrl = " + str2 + " errorCode = " + i + " description = " + str;
-                x42.k("SwanAppWxPayFragment", str3);
-                qe3.H(false, "wechatH5Action", qe3.m(str2, str3));
-            }
-        }
-
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public void goBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                x42.k("SwanAppWxPayFragment", "goBack: ");
+                if (2 == i) {
+                    String d = SwanAppNetworkUtils.d(i2, null);
+                    if (!TextUtils.isEmpty(d) && !d.equals(this.c)) {
+                        this.c = d;
+                        SwanAppNetworkUtils.k(this.d, this.a.get(), this.b);
+                    }
+                }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r03 a;
-
-        public b(r03 r03Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067764, "Lcom/baidu/tieba/r03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = r03Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x42.k("SwanAppWxPayFragment", " WeChat H5 pay redirect time out : ");
-                qe3.K("wechatH5Action", "outOfTime", 0);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948067764, "Lcom/baidu/tieba/r03;");
+                return;
             }
         }
+        d = qp1.a;
     }
 
-    public r03() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r03(g93 g93Var) {
+        super(g93Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g93Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((g93) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.l72
-    public l92 c3() {
-        InterceptResult invokeV;
+    public void a(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new a(this);
-        }
-        return (l92) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l72
-    public gu1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.N0 == null) {
-                this.N0 = l3();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, callbackHandler, str) == null) {
+            if (this.b == null) {
+                this.b = (TelephonyManager) getSystemService("phone");
+                a aVar = new a(this, callbackHandler, str);
+                this.c = aVar;
+                this.b.listen(aVar, 64);
+                return;
             }
-            return re2.U().f0().i(getContext());
-        }
-        return (gu1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l72, com.baidu.tieba.d72
-    public void X1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            super.X1(view2);
-            this.f0.setTitle(getResources().getString(R.string.obfuscated_res_0x7f0f01ec));
-            A2(false);
-        }
-    }
-
-    @Override // com.baidu.tieba.l72
-    public void Z2(FrameLayout frameLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
-            frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00e2, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    public Timer l3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            x42.k("SwanAppWxPayFragment", " start WeChat H5 redirect timer start : ");
-            Timer timer = new Timer();
-            try {
-                timer.schedule(new b(this), 10000L);
-            } catch (Exception e) {
-                if (l72.M0) {
-                    e.printStackTrace();
-                }
-                x42.k("SwanAppWxPayFragment", e.getMessage());
+            a aVar2 = this.c;
+            if (aVar2 != null) {
+                aVar2.a(callbackHandler, str);
             }
-            return timer;
         }
-        return (Timer) invokeV.objValue;
+    }
+
+    public void b(CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, callbackHandler, str) == null) {
+            NetworkBroadcastReceiver networkBroadcastReceiver = this.a;
+            if (networkBroadcastReceiver == null) {
+                this.a = new NetworkBroadcastReceiver(callbackHandler, str);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+                registerReceiver(this.a, intentFilter);
+            } else if (networkBroadcastReceiver != null) {
+                networkBroadcastReceiver.updateCallback(callbackHandler, str);
+            }
+            a(callbackHandler, str);
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.kwad.components.core.a;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static void ag(String str) {
         if (!lR() || KsAdSDKImpl.get() == null || KsAdSDKImpl.get().getContext() == null) {

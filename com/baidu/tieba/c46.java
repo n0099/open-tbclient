@@ -1,168 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.aiapps.apps.share.AiAppsShareDelegateActivity;
-import com.baidu.tieba.cs2;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.util.CommonParam;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
-@Singleton
-@Service
-/* loaded from: classes3.dex */
-public class c46 implements cs2 {
+/* loaded from: classes5.dex */
+public class c46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cs2.a a;
-    public CustomMessageListener b;
 
-    @Override // com.baidu.tieba.cs2
-    public void b(Context context, String str, Uri uri) {
+    public static String a(Context context, AdInfo adInfo) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, uri) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
+            if (adInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("placeId", adInfo.placeId);
+                    jSONObject.put(com.heytap.mcssdk.constant.b.C, "1.1.4");
+                    jSONObject.put("adType", adInfo.adShowType.getValue());
+                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
+                        jSONObject.put("landingPage", adInfo.downLoadUrl);
+                    } else {
+                        jSONObject.put("landingPage", adInfo.redirectUrl);
+                    }
+                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
+                    jSONObject.put("packageName", adInfo.packageName);
+                    jSONObject.put("finalPrice", adInfo.finalPrice);
+                    jSONObject.put("chargingMode", adInfo.chargingMode);
+                    jSONObject.put("token", adInfo.token);
+                    jSONObject.put("adpUserId", adInfo.adpUserId);
+                    jSONObject.put("bdId", CommonParam.getCUID(context));
+                    jSONObject.put("unitId", adInfo.unitId);
+                    jSONObject.put("planId", adInfo.planId);
+                    jSONObject.put("ideaId", adInfo.ideaId);
+                    jSONObject.put("ideaType", adInfo.sourceType);
+                    jSONObject.put("s", "0");
+                    return jSONObject.toString();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return "";
+                }
+            }
+            return "";
         }
+        return (String) invokeLL.objValue;
     }
 
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c46 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c46 c46Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c46Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c46Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && this.a.a != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                    this.a.a.b();
-                } else {
-                    this.a.a.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cs2.a a;
-
-        public b(c46 c46Var, cs2.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c46Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                if (delegateResult.mResult.getBoolean("share_result")) {
-                    this.a.b();
-                } else {
-                    this.a.a();
-                }
-            }
-        }
-    }
-
-    public c46() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new a(this, 2921366);
-        TbadkCoreApplication.getInst().setSkinType(0);
-        MessageManager.getInstance().registerListener(this.b);
-    }
-
-    @Override // com.baidu.tieba.cs2
-    public void a(Context context, JSONObject jSONObject, cs2.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048576, this, context, jSONObject, aVar) == null) && (context instanceof Activity)) {
-            this.a = aVar;
-            Bundle bundle = new Bundle();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                String optString = jSONObject.optString("shareUrl");
-                if (StringUtils.isNull(optString)) {
-                    optString = jSONObject.getString("linkUrl");
-                }
-                if (optString.indexOf("appid") > 0) {
-                    jSONObject.put("linkUrl", "https://tieba.baidu.com/mo/q/smallapp/sharePage?from=singlemessage&isappinstalled=0#/?" + optString.substring(optString.indexOf("appid")));
-                } else {
-                    jSONObject.put("linkUrl", optString);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                BdLog.e(e);
+                return null;
             }
-            bundle.putString("options", jSONObject.toString());
-            bundle.putBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_SNAPSHOT, jSONObject.optBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_SNAPSHOT));
-            bundle.putBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_FORCE_LIGHT_THEME, jSONObject.optBoolean(SwanAppUtilsJavaScriptInterface.KEY_SHARE_FORCE_LIGHT_THEME));
-            bundle.putString("source", "swan_");
-            Activity activity = (Activity) context;
-            bundle.putInt("screenOrientation", activity.getRequestedOrientation());
-            DelegateUtils.callOnMainWithActivity(activity, AiAppsShareDelegateActivity.class, a46.class, bundle, new b(this, aVar));
         }
+        return (String) invokeL.objValue;
     }
 }

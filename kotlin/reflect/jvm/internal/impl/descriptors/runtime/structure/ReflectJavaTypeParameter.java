@@ -12,7 +12,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectJav
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaTypeParameter;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaTypeParameter extends ReflectJavaElement implements ReflectJavaAnnotationOwner, JavaTypeParameter {
     public final TypeVariable<?> typeVariable;
 

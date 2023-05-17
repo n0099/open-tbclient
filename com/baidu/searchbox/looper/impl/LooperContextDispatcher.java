@@ -2,11 +2,11 @@ package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
 import android.util.Printer;
-import com.baidu.tieba.fwa;
-import com.baidu.tieba.xva;
-/* loaded from: classes2.dex */
-public class LooperContextDispatcher extends xva {
-    @Override // com.baidu.tieba.xva
+import com.baidu.tieba.dya;
+import com.baidu.tieba.vxa;
+/* loaded from: classes3.dex */
+public class LooperContextDispatcher extends vxa {
+    @Override // com.baidu.tieba.vxa
     public boolean displayNotification() {
         return LooperRuntime.getInstance().getLooperUIContext().displayNotification();
     }
@@ -19,9 +19,9 @@ public class LooperContextDispatcher extends xva {
         LooperRuntime.getInstance().getLooperNeedContext().removeLooperPrinter(printer);
     }
 
-    @Override // com.baidu.tieba.xva, com.baidu.tieba.zva
-    public void onBlock(Context context, fwa fwaVar) {
-        super.onBlock(context, fwaVar);
-        LooperRuntime.getInstance().dispatchBlock(context, fwaVar);
+    @Override // com.baidu.tieba.vxa, com.baidu.tieba.xxa
+    public void onBlock(Context context, dya dyaVar) {
+        super.onBlock(context, dyaVar);
+        LooperRuntime.getInstance().dispatchBlock(context, dyaVar);
     }
 }

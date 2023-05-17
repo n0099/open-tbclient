@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class i85 {
+/* loaded from: classes5.dex */
+public class i85 extends Editable.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<j85> a;
+    public j85 a;
 
-    public i85() {
+    public i85(j85 j85Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {j85Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,21 +28,18 @@ public class i85 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = j85Var;
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONArray optJSONArray;
+    @Override // android.text.Editable.Factory
+    public Editable newEditable(CharSequence charSequence) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                if (jSONObject2 != null) {
-                    j85 j85Var = new j85();
-                    j85Var.a(jSONObject2);
-                    this.a.add(j85Var);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, charSequence)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            spannableStringBuilder.setSpan(this.a, 0, charSequence.length(), 18);
+            return spannableStringBuilder;
         }
+        return (Editable) invokeL.objValue;
     }
 }

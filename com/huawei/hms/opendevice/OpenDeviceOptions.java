@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.api.Api;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OpenDeviceOptions implements Api.ApiOptions.Optional {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

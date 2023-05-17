@@ -7,7 +7,7 @@ import com.baidu.mapapi.search.core.BuildingInfo;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Prism extends Overlay {
     public float a;
     public List<LatLng> b;

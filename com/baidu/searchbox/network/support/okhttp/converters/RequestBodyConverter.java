@@ -4,7 +4,7 @@ import java.io.IOException;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.BufferedSink;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestBodyConverter {
     public static RequestBody toOks(final com.baidu.searchbox.network.outback.core.RequestBody requestBody) {
         ConverterUtils.requireNonNull(requestBody, "requestBody should not be null");

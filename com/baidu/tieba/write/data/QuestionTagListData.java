@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.in;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class QuestionTagListData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +24,8 @@ public class QuestionTagListData {
     @SerializedName(PushConstants.SUB_TAGS_STATUS_LIST)
     public List<QuestionTag> b;
 
-    /* loaded from: classes6.dex */
-    public static class QuestionTag implements Parcelable, in {
+    /* loaded from: classes8.dex */
+    public static class QuestionTag implements Parcelable, rn {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<QuestionTag> CREATOR;
         public static final BdUniqueId TYPE_TAG;
@@ -46,7 +46,7 @@ public class QuestionTagListData {
             return invokeV.intValue;
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public static class a implements Parcelable.Creator<QuestionTag> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public class QuestionTagListData {
             CREATOR = new a();
         }
 
-        @Override // com.baidu.tieba.in
+        @Override // com.baidu.tieba.rn
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

@@ -1,373 +1,821 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
-import android.util.SparseArray;
+import android.app.Dialog;
+import android.database.ContentObserver;
+import android.os.Build;
+import android.os.Handler;
+import android.provider.Settings;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.FrameLayout;
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.RequiresApi;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.view.InputDeviceCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.model.PayFlowModel;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes3.dex */
-public class adb implements ubb {
+import com.google.protobuf.CodedInputStream;
+import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import tv.athena.revenue.payui.activity.immersion.BarHide;
+@TargetApi(19)
+/* loaded from: classes4.dex */
+public class adb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public Context d;
-    public PayUIKitConfig e;
-    public ibb f;
-    public nbb g;
-    public SparseArray<Integer> h;
-    public SparseArray<mbb> i;
-    public SparseArray<PayFlowModel> j;
+    public Map<String, ycb> a;
+    public Map<String, ycb> b;
+    public Map<String, ArrayList<String>> c;
+    public Activity d;
+    public Window e;
+    public ViewGroup f;
+    public ViewGroup g;
+    public Dialog h;
+    public ycb i;
+    public xcb j;
+    public String k;
+    public String l;
+    public String m;
 
-    public adb(Context context, int i, int i2, ibb ibbVar, PayUIKitConfig payUIKitConfig) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947612746, "Lcom/baidu/tieba/adb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947612746, "Lcom/baidu/tieba/adb;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends ContentObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ adb a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(adb adbVar, Handler handler) {
+            super(handler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {adbVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = adbVar;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (Settings.System.getInt(this.a.d.getContentResolver(), "navigationbar_is_min", 0) == 1) {
+                    this.a.i.p.setVisibility(8);
+                    this.a.g.setPadding(0, this.a.g.getPaddingTop(), 0, 0);
+                    return;
+                }
+                this.a.i.p.setVisibility(0);
+                if (!this.a.i.x) {
+                    if (this.a.j.l()) {
+                        this.a.g.setPadding(0, this.a.g.getPaddingTop(), 0, this.a.j.d());
+                        return;
+                    } else {
+                        this.a.g.setPadding(0, this.a.g.getPaddingTop(), this.a.j.f(), 0);
+                        return;
+                    }
+                }
+                this.a.g.setPadding(0, this.a.g.getPaddingTop(), 0, 0);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-949911156, "Lcom/baidu/tieba/adb$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-949911156, "Lcom/baidu/tieba/adb$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[BarHide.values().length];
+            a = iArr;
+            try {
+                iArr[BarHide.FLAG_HIDE_BAR.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[BarHide.FLAG_HIDE_STATUS_BAR.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[BarHide.FLAG_HIDE_NAVIGATION_BAR.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[BarHide.FLAG_SHOW_BAR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    public adb(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), ibbVar, payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "YYPayController";
-        this.h = new SparseArray<>(2);
-        this.i = new SparseArray<>();
-        this.j = new SparseArray<>();
-        this.a += "@" + hashCode();
-        this.b = i;
-        this.d = context;
-        this.c = i2;
-        this.f = ibbVar;
-        this.e = payUIKitConfig;
-        this.g = new tcb(i, i2, payUIKitConfig);
-        this.h.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), 0);
-        this.h.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), 0);
-        RLog.info(this.a, "create YYPayController:" + this + " appId:" + i + " userChannel:" + i2);
+        this.a = new HashMap();
+        this.b = new HashMap();
+        this.c = new HashMap();
+        Activity activity2 = (Activity) new WeakReference(activity).get();
+        this.d = activity2;
+        this.e = activity2.getWindow();
+        String name = activity.getClass().getName();
+        this.k = name;
+        this.m = name;
+        m();
     }
 
-    @Override // com.baidu.tieba.ubb
-    public synchronized void a(PayFlowType payFlowType) {
+    @RequiresApi(api = 21)
+    public final int k(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, payFlowType) == null) {
-            synchronized (this) {
-                mbb mbbVar = this.i.get(payFlowType.getTypeId());
-                if (mbbVar != null) {
-                    mbbVar.release();
-                }
-                this.i.remove(payFlowType.getTypeId());
-                this.j.remove(payFlowType.getTypeId());
-                n("releasePayFlow payFlowType:" + payFlowType + " payFlowHandler:" + mbbVar);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            int i2 = i | 1024;
+            ycb ycbVar = this.i;
+            if (ycbVar.e && ycbVar.v) {
+                i2 |= 512;
             }
+            this.e.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            if (this.j.k()) {
+                this.e.clearFlags(134217728);
+            }
+            this.e.addFlags(Integer.MIN_VALUE);
+            ycb ycbVar2 = this.i;
+            if (ycbVar2.i) {
+                this.e.setStatusBarColor(ColorUtils.blendARGB(ycbVar2.a, ycbVar2.j, ycbVar2.c));
+            } else {
+                this.e.setStatusBarColor(ColorUtils.blendARGB(ycbVar2.a, 0, ycbVar2.c));
+            }
+            ycb ycbVar3 = this.i;
+            if (ycbVar3.v) {
+                this.e.setNavigationBarColor(ColorUtils.blendARGB(ycbVar3.b, ycbVar3.k, ycbVar3.d));
+            }
+            return i2;
         }
+        return invokeI.intValue;
     }
 
-    public final synchronized void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            synchronized (this) {
-                int size = this.i.size();
-                int size2 = this.j.size();
-                String str2 = this.a;
-                RLog.info(str2, ("reportPayFlowMapSize from: " + str) + " payFlowHanderMapSize:" + size + " payFlowModelMapSize:" + size2);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void b(Activity activity, IYYPayWayView.b bVar, ddb ddbVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar, ddbVar, iPayCallback) == null) {
-            synchronized (this) {
-                String str = this.a;
-                RLog.info(str, "startPayChannelDialog viewParams:" + bVar + " openPayParams:" + ddbVar);
-                if (bVar == null) {
-                    bVar = new IYYPayWayView.b();
-                }
-                PayFlowModel payFlowModel = this.j.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
-                if (payFlowModel != null) {
-                    bVar.d = payFlowModel.appCustomExpand;
-                    bVar.g = payFlowModel.viewEventListener;
-                    bVar.e = payFlowModel.clientInfoExpand;
-                }
-                String str2 = this.a;
-                RLog.info(str2, "startPayChannelDialog payFlowModel:" + payFlowModel);
-                mbb mbbVar = this.i.get(PayFlowType.WALLET_PAY_FLOW.getTypeId());
-                if (mbbVar == null) {
-                    RLog.error(this.a, "startPayChannelDialog error walletPayFlowHandler null", new Object[0]);
-                    return;
-                }
-                mbbVar.e().release();
-                edb edbVar = bVar.c;
-                if (edbVar != null && ddbVar != null && ddbVar.a == 1 && beb.c(ddbVar.b, (int) edbVar.c())) {
-                    o(mbbVar, activity, bVar, iPayCallback);
-                } else {
-                    mbbVar.b(activity, bVar, iPayCallback);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            synchronized (this) {
-                RLog.info(this.a, "startWalletActivity");
-                g(activity, null);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kbb
-    public synchronized PayFlowModel h(PayFlowType payFlowType) {
-        InterceptResult invokeL;
-        PayFlowModel payFlowModel;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, payFlowType)) == null) {
-            synchronized (this) {
-                payFlowModel = this.j.get(payFlowType.getTypeId());
-            }
-            return payFlowModel;
-        }
-        return (PayFlowModel) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void d(String str, PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, payFlowType) == null) {
-            synchronized (this) {
-                int intValue = this.h.get(payFlowType.getTypeId()).intValue();
-                int i = intValue + 1;
-                String str2 = this.a;
-                RLog.info(str2, "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCount:" + i);
-                this.h.put(payFlowType.getTypeId(), Integer.valueOf(i));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void j(String str, PayFlowType payFlowType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, payFlowType) == null) {
-            synchronized (this) {
-                int intValue = this.h.get(payFlowType.getTypeId()).intValue();
-                int i = intValue - 1;
-                RLog.info(this.a, "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " oldActivityCount:" + intValue + " newAcitivityCountt:" + i);
-                this.h.put(payFlowType.getTypeId(), Integer.valueOf(i));
-            }
-        }
-    }
-
-    public final void p(PayFlowType payFlowType, IYYPayAmountView.ViewParams viewParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, payFlowType, viewParams) == null) {
-            String str = this.a;
-            RLog.info(str, "updatePayFlowModel payFlowType :" + payFlowType + " viewParams:" + viewParams);
-            if (viewParams == null) {
-                RLog.info(this.a, "updatePayFlowModel with value null");
-                this.j.put(payFlowType.getTypeId(), null);
-                return;
-            }
-            PayFlowModel k = k(viewParams);
-            String str2 = this.a;
-            RLog.info(str2, "updatePayFlowModel payFlowModel :" + k);
-            if (k != null) {
-                this.j.put(payFlowType.getTypeId(), k);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (i(PayFlowType.WALLET_PAY_FLOW) && i(PayFlowType.DIOALOG_PAY_FLOW)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            RLog.info(this.a, "releaseAllPayFlow");
-            a(PayFlowType.WALLET_PAY_FLOW);
-            a(PayFlowType.DIOALOG_PAY_FLOW);
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            synchronized (this) {
-                RLog.info(this.a, "release()");
-                m();
-                this.i.clear();
-                this.j.clear();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, viewParams, iPayCallback) == null) {
-            synchronized (this) {
-                String str = this.a;
-                RLog.info(str, "startPayDialog viewParams:" + viewParams);
-                l(PayFlowType.DIOALOG_PAY_FLOW);
-                p(PayFlowType.DIOALOG_PAY_FLOW, viewParams);
-                ycb.d(this.b, this.c, PayFlowType.DIOALOG_PAY_FLOW);
-                scb scbVar = new scb(this.d, this.b, this.c, this.f, this.g, new qcb(PayFlowType.DIOALOG_PAY_FLOW, this.g), PayFlowType.DIOALOG_PAY_FLOW, this.e);
-                this.i.put(PayFlowType.DIOALOG_PAY_FLOW.getTypeId(), scbVar);
-                n("startPayDialog showPayAmountDialog");
-                scbVar.g(activity, iPayCallback, viewParams);
-                kdb.b(this.b, this.c, PayUIEventType.purchaseshow);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized void g(Activity activity, IYYPayAmountView.ViewParams viewParams) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, viewParams) == null) {
-            synchronized (this) {
-                String str = this.a;
-                RLog.info(str, "startWalletActivity viewParams:" + viewParams);
-                l(PayFlowType.WALLET_PAY_FLOW);
-                p(PayFlowType.WALLET_PAY_FLOW, viewParams);
-                ycb.d(this.b, this.c, PayFlowType.WALLET_PAY_FLOW);
-                this.i.put(PayFlowType.WALLET_PAY_FLOW.getTypeId(), new scb(this.d, this.b, this.c, this.f, this.g, new qcb(PayFlowType.WALLET_PAY_FLOW, this.g), PayFlowType.WALLET_PAY_FLOW, this.e));
-                String e = fdb.e(this.e);
-                n("startWalletActivity walletUrl:" + geb.a(e));
-                sdb.a(PayFlowType.WALLET_PAY_FLOW, this.b, this.c, this.e, activity, e, "我的钱包");
-                kdb.b(this.b, this.c, PayUIEventType.walletshow);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ubb
-    public synchronized boolean i(PayFlowType payFlowType) {
+    public static adb H(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, payFlowType)) == null) {
-            synchronized (this) {
-                mbb mbbVar = this.i.get(payFlowType.getTypeId());
-                boolean z = true;
-                if (mbbVar == null) {
-                    String str = this.a;
-                    RLog.info(str, "isReleasePayFlow payFlowHandler null return true payFlowType:" + payFlowType);
-                    return true;
-                } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
-                    if (mbbVar.v() != PayDialogType.PAY_NONE_DIALOG) {
-                        z = false;
-                    }
-                    int intValue = this.h.get(payFlowType.getTypeId()).intValue();
-                    String str2 = this.a;
-                    RLog.info(str2, "isReleasePayFlow  payFlowType:" + payFlowType + " activityCount:" + intValue + " payDialogType:" + mbbVar.v() + " release:" + z);
-                    return z;
-                } else {
-                    int intValue2 = this.h.get(payFlowType.getTypeId()).intValue();
-                    if (intValue2 != 0 || mbbVar.v() != PayDialogType.PAY_NONE_DIALOG) {
-                        z = false;
-                    }
-                    String str3 = this.a;
-                    RLog.info(str3, "isReleasePayFlow payFlowType:" + payFlowType + " activityCount:" + intValue2 + " PayDialogType:" + mbbVar.v() + " release:" + z);
-                    return z;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            return new adb(activity);
+        }
+        return (adb) invokeL.objValue;
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (str != null && str.trim().length() != 0) {
+                return false;
             }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final PayFlowModel k(IYYPayAmountView.ViewParams viewParams) {
-        InterceptResult invokeL;
+    public adb A(@ColorInt int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, viewParams)) == null) {
-            if (viewParams != null) {
-                PayFlowModel payFlowModel = new PayFlowModel();
-                payFlowModel.appCustomExpand = viewParams.appCustomExpand;
-                payFlowModel.viewEventListener = viewParams.viewEventListener;
-                payFlowModel.clientInfoExpand = viewParams.clientInfoExpand;
-                String str = this.a;
-                RLog.info(str, "createPayFlowModel PayFlowModel:" + payFlowModel);
-                return payFlowModel;
-            }
-            RLog.info(this.a, "createPayFlowModel but viewParams null");
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            this.i.a = i;
+            return this;
         }
-        return (PayFlowModel) invokeL.objValue;
+        return (adb) invokeI.objValue;
     }
 
-    public void l(PayFlowType payFlowType) {
+    public adb B(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, payFlowType) == null) {
-            String str = this.a;
-            RLog.info(str, "innerReleasePayFlow payFlowType:" + payFlowType);
-            a(payFlowType);
-            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                ydb.c(this.d);
-            } else if (payFlowType == PayFlowType.DIOALOG_PAY_FLOW) {
-                ydb.b(this.d);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            C(z, 0.0f);
+            return this;
+        }
+        return (adb) invokeZ.objValue;
+    }
+
+    public adb g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+            this.i.n = z;
+            return this;
+        }
+        return (adb) invokeZ.objValue;
+    }
+
+    public adb q(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048594, this, z)) == null) {
+            this.i.v = z;
+            return this;
+        }
+        return (adb) invokeZ.objValue;
+    }
+
+    public final int u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23 && this.i.h) {
+                return i | 8192;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public adb z(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            A(ContextCompat.getColor(this.d, i));
+            return this;
+        }
+        return (adb) invokeI.objValue;
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (!cdb.m() && !cdb.k() && Build.VERSION.SDK_INT < 23) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public adb F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            this.i.a = 0;
+            return this;
+        }
+        return (adb) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: e */
+    public ycb clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return (ycb) invokeV.objValue;
+    }
+
+    public adb i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            this.a.put(this.m, this.i);
+            j();
+            v();
+            E();
+            p();
+            r();
+            return this;
+        }
+        return (adb) invokeV.objValue;
+    }
+
+    public final void v() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && Build.VERSION.SDK_INT >= 19 && (view2 = this.i.q) != null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            layoutParams.height = this.j.i();
+            this.i.q.setLayoutParams(layoutParams);
+        }
+    }
+
+    public adb C(boolean z, @FloatRange(from = 0.0d, to = 1.0d) float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f)})) == null) {
+            ycb ycbVar = this.i;
+            ycbVar.h = z;
+            if (!z) {
+                ycbVar.r = 0;
+            }
+            if (o()) {
+                this.i.c = 0.0f;
+            } else {
+                this.i.c = f;
+            }
+            return this;
+        }
+        return (adb) invokeCommon.objValue;
+    }
+
+    public final void D() {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || Build.VERSION.SDK_INT < 21 || cdb.i() || (viewGroup = this.g) == null) {
+            return;
+        }
+        int childCount = viewGroup.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View childAt = this.g.getChildAt(i);
+            if (childAt instanceof ViewGroup) {
+                this.i.x = childAt.getFitsSystemWindows();
+                if (this.i.x) {
+                    this.g.setPadding(0, 0, 0, 0);
+                    return;
+                }
+            }
+        }
+        ycb ycbVar = this.i;
+        if (ycbVar.s) {
+            this.g.setPadding(0, this.j.i() + this.j.a(), 0, 0);
+        } else if (ycbVar.n) {
+            this.g.setPadding(0, this.j.i(), 0, 0);
+        } else {
+            this.g.setPadding(0, 0, 0, 0);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            G();
+            ycb ycbVar = this.i;
+            bdb bdbVar = ycbVar.y;
+            if (bdbVar != null) {
+                bdbVar.o(ycbVar.u);
+                this.i.y = null;
+            }
+            if (this.f != null) {
+                this.f = null;
+            }
+            if (this.g != null) {
+                this.g = null;
+            }
+            if (this.j != null) {
+                this.j = null;
+            }
+            if (this.e != null) {
+                this.e = null;
+            }
+            if (this.h != null) {
+                this.h = null;
+            }
+            if (this.d != null) {
+                this.d = null;
+            }
+            if (!n(this.m)) {
+                if (this.i != null) {
+                    this.i = null;
+                }
+                ArrayList<String> arrayList = this.c.get(this.k);
+                if (arrayList != null && arrayList.size() > 0) {
+                    Iterator<String> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        this.b.remove(it.next());
+                    }
+                    this.c.remove(this.k);
+                }
+                this.a.remove(this.m);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ubb
-    public void refreshWindow(WindowParams windowParams) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, windowParams) == null) {
-            mbb mbbVar = this.i.get(PayFlowType.DIOALOG_PAY_FLOW.getTypeId());
-            if (mbbVar != null && windowParams != null) {
-                mbbVar.refreshWindow(windowParams);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 19) {
+                int i2 = 256;
+                if (i >= 21 && !cdb.i()) {
+                    i2 = u(k(256));
+                    D();
+                } else {
+                    l();
+                    y();
+                }
+                this.e.getDecorView().setSystemUiVisibility(h(i2));
             }
-            String str = this.a;
-            RLog.info(str, "refreshWindow windowParams:" + windowParams + " handler:" + mbbVar);
+            if (cdb.m()) {
+                s(this.e, this.i.h);
+            } else if (cdb.k()) {
+                ycb ycbVar = this.i;
+                int i3 = ycbVar.r;
+                if (i3 != 0) {
+                    zcb.d(this.d, i3);
+                } else if (Build.VERSION.SDK_INT < 23) {
+                    zcb.e(this.d, ycbVar.h);
+                }
+            } else if (cdb.n()) {
+                t(this.i.h);
+            }
         }
     }
 
-    public final void o(mbb mbbVar, Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public final void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048590, this, mbbVar, activity, bVar, iPayCallback) == null) {
-            String str = this.a;
-            RLog.info(str, "showPaySplitOrderView viewParams:" + bVar);
-            IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-            viewParams.splitOrderPayScene = "1";
-            viewParams.showFaqPage = false;
-            viewParams.windowParams = bVar.i;
-            viewParams.appCustomExpand = bVar.d;
-            viewParams.viewEventListener = bVar.g;
-            viewParams.clientInfoExpand = bVar.e;
-            viewParams.targetAmount = (int) bVar.c.c();
-            mbbVar.a(activity, bVar.c, null, null, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, viewParams, iPayCallback);
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            ycb ycbVar = this.i;
+            if (ycbVar.o == null) {
+                ycbVar.o = new View(this.d);
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.j.i());
+            layoutParams.gravity = 48;
+            this.i.o.setLayoutParams(layoutParams);
+            ycb ycbVar2 = this.i;
+            if (ycbVar2.i) {
+                ycbVar2.o.setBackgroundColor(ColorUtils.blendARGB(ycbVar2.a, ycbVar2.j, ycbVar2.c));
+            } else {
+                ycbVar2.o.setBackgroundColor(ColorUtils.blendARGB(ycbVar2.a, 0, ycbVar2.c));
+            }
+            this.i.o.setVisibility(0);
+            ViewGroup viewGroup = (ViewGroup) this.i.o.getParent();
+            if (viewGroup != null) {
+                viewGroup.removeView(this.i.o);
+            }
+            this.f.addView(this.i.o);
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.i.l.size() != 0) {
+            for (Map.Entry<View, Map<Integer, Integer>> entry : this.i.l.entrySet()) {
+                View key = entry.getKey();
+                Integer valueOf = Integer.valueOf(this.i.a);
+                Integer valueOf2 = Integer.valueOf(this.i.j);
+                for (Map.Entry<Integer, Integer> entry2 : entry.getValue().entrySet()) {
+                    Integer key2 = entry2.getKey();
+                    valueOf2 = entry2.getValue();
+                    valueOf = key2;
+                }
+                if (key != null) {
+                    if (Math.abs(this.i.m - 0.0f) == 0.0f) {
+                        key.setBackgroundColor(ColorUtils.blendARGB(valueOf.intValue(), valueOf2.intValue(), this.i.c));
+                    } else {
+                        key.setBackgroundColor(ColorUtils.blendARGB(valueOf.intValue(), valueOf2.intValue(), this.i.m));
+                    }
+                }
+            }
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) this.e.getDecorView();
+            this.f = viewGroup;
+            this.g = (ViewGroup) viewGroup.findViewById(16908290);
+            this.j = new xcb(this.d);
+            if (this.a.get(this.m) == null) {
+                this.i = new ycb();
+                if (!n(this.l)) {
+                    if (this.a.get(this.k) != null) {
+                        if (Build.VERSION.SDK_INT == 19 || cdb.i()) {
+                            this.i.o = this.a.get(this.k).o;
+                            this.i.p = this.a.get(this.k).p;
+                        }
+                        this.i.y = this.a.get(this.k).y;
+                    } else {
+                        throw new IllegalArgumentException("在Fragment里使用时，请先在加载Fragment的Activity里初始化！！！");
+                    }
+                }
+                this.a.put(this.m, this.i);
+                return;
+            }
+            this.i = this.a.get(this.m);
+        }
+    }
+
+    public final void w() {
+        FrameLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            ycb ycbVar = this.i;
+            if (ycbVar.p == null) {
+                ycbVar.p = new View(this.d);
+            }
+            if (this.j.l()) {
+                layoutParams = new FrameLayout.LayoutParams(-1, this.j.d());
+                layoutParams.gravity = 80;
+            } else {
+                layoutParams = new FrameLayout.LayoutParams(this.j.f(), -1);
+                layoutParams.gravity = 8388613;
+            }
+            this.i.p.setLayoutParams(layoutParams);
+            ycb ycbVar2 = this.i;
+            if (ycbVar2.v && ycbVar2.w) {
+                if (!ycbVar2.e && ycbVar2.k == 0) {
+                    ycbVar2.p.setBackgroundColor(ColorUtils.blendARGB(ycbVar2.b, -16777216, ycbVar2.d));
+                } else {
+                    ycb ycbVar3 = this.i;
+                    ycbVar3.p.setBackgroundColor(ColorUtils.blendARGB(ycbVar3.b, ycbVar3.k, ycbVar3.d));
+                }
+            } else {
+                this.i.p.setBackgroundColor(0);
+            }
+            this.i.p.setVisibility(0);
+            ViewGroup viewGroup = (ViewGroup) this.i.p.getParent();
+            if (viewGroup != null) {
+                viewGroup.removeView(this.i.p);
+            }
+            this.f.addView(this.i.p);
+        }
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if ((cdb.i() || cdb.h()) && this.j.k()) {
+                ycb ycbVar = this.i;
+                if (ycbVar.v && ycbVar.w && ycbVar.A != null && ycbVar.p != null) {
+                    this.d.getContentResolver().unregisterContentObserver(this.i.A);
+                }
+            }
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.e.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            x();
+            if (this.j.k()) {
+                ycb ycbVar = this.i;
+                if (ycbVar.v && ycbVar.w) {
+                    this.e.addFlags(134217728);
+                } else {
+                    this.e.clearFlags(134217728);
+                }
+                w();
+            }
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && Build.VERSION.SDK_INT >= 19) {
+            ycb ycbVar = this.i;
+            if (ycbVar.y == null) {
+                ycbVar.y = bdb.q(this.d, this.e);
+            }
+            ycb ycbVar2 = this.i;
+            ycbVar2.y.r(ycbVar2);
+            ycb ycbVar3 = this.i;
+            if (ycbVar3.t) {
+                ycbVar3.y.p(ycbVar3.u);
+            } else {
+                ycbVar3.y.o(ycbVar3.u);
+            }
+        }
+    }
+
+    public final int h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 16) {
+                int i2 = b.a[this.i.g.ordinal()];
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 == 4) {
+                                i |= 0;
+                            }
+                        } else {
+                            i |= 514;
+                        }
+                    } else {
+                        i |= 1028;
+                    }
+                } else {
+                    i |= 518;
+                }
+            }
+            return i | 4096;
+        }
+        return invokeI.intValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            if ((cdb.i() || cdb.h()) && this.j.k()) {
+                ycb ycbVar = this.i;
+                if (ycbVar.v && ycbVar.w) {
+                    if (ycbVar.A == null && ycbVar.p != null) {
+                        ycbVar.A = new a(this, new Handler());
+                    }
+                    this.d.getContentResolver().registerContentObserver(Settings.System.getUriFor("navigationbar_is_min"), true, this.i.A);
+                }
+            }
+        }
+    }
+
+    public final void s(Window window, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048596, this, window, z) == null) && window != null) {
+            Class<?> cls = window.getClass();
+            try {
+                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                if (z) {
+                    method.invoke(window, Integer.valueOf(i), Integer.valueOf(i));
+                } else {
+                    method.invoke(window, 0, Integer.valueOf(i));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void t(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                this.e.addFlags(Integer.MIN_VALUE);
+            }
+            int systemUiVisibility = this.e.getDecorView().getSystemUiVisibility();
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
+                if (z) {
+                    systemUiVisibility |= 8192;
+                } else {
+                    systemUiVisibility &= -8193;
+                }
+            } else if (i >= 19) {
+                if (z) {
+                    systemUiVisibility |= 16;
+                } else {
+                    systemUiVisibility &= -17;
+                }
+            }
+            this.e.getDecorView().setSystemUiVisibility(systemUiVisibility);
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            int childCount = this.g.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.g.getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    if (childAt instanceof DrawerLayout) {
+                        View childAt2 = ((DrawerLayout) childAt).getChildAt(0);
+                        if (childAt2 != null) {
+                            this.i.x = childAt2.getFitsSystemWindows();
+                            if (this.i.x) {
+                                this.g.setPadding(0, 0, 0, 0);
+                                return;
+                            }
+                        } else {
+                            continue;
+                        }
+                    } else {
+                        this.i.x = childAt.getFitsSystemWindows();
+                        if (this.i.x) {
+                            this.g.setPadding(0, 0, 0, 0);
+                            return;
+                        }
+                    }
+                }
+            }
+            if (this.j.k()) {
+                ycb ycbVar = this.i;
+                if (!ycbVar.f && !ycbVar.e) {
+                    if (this.j.l()) {
+                        ycb ycbVar2 = this.i;
+                        if (!ycbVar2.s) {
+                            if (ycbVar2.v && ycbVar2.w) {
+                                if (ycbVar2.n) {
+                                    this.g.setPadding(0, this.j.i(), 0, this.j.d());
+                                    return;
+                                } else {
+                                    this.g.setPadding(0, 0, 0, this.j.d());
+                                    return;
+                                }
+                            } else if (this.i.n) {
+                                this.g.setPadding(0, this.j.i(), 0, 0);
+                                return;
+                            } else {
+                                this.g.setPadding(0, 0, 0, 0);
+                                return;
+                            }
+                        } else if (ycbVar2.v && ycbVar2.w) {
+                            this.g.setPadding(0, this.j.i() + this.j.a() + 10, 0, this.j.d());
+                            return;
+                        } else {
+                            this.g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
+                            return;
+                        }
+                    }
+                    ycb ycbVar3 = this.i;
+                    if (!ycbVar3.s) {
+                        if (ycbVar3.v && ycbVar3.w) {
+                            if (ycbVar3.n) {
+                                this.g.setPadding(0, this.j.i(), this.j.f(), 0);
+                                return;
+                            } else {
+                                this.g.setPadding(0, 0, this.j.f(), 0);
+                                return;
+                            }
+                        } else if (this.i.n) {
+                            this.g.setPadding(0, this.j.i(), 0, 0);
+                            return;
+                        } else {
+                            this.g.setPadding(0, 0, 0, 0);
+                            return;
+                        }
+                    } else if (ycbVar3.v && ycbVar3.w) {
+                        this.g.setPadding(0, this.j.i() + this.j.a() + 10, this.j.f(), 0);
+                        return;
+                    } else {
+                        this.g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
+                        return;
+                    }
+                }
+            }
+            ycb ycbVar4 = this.i;
+            if (!ycbVar4.s) {
+                if (ycbVar4.n) {
+                    this.g.setPadding(0, this.j.i(), 0, 0);
+                    return;
+                } else {
+                    this.g.setPadding(0, 0, 0, 0);
+                    return;
+                }
+            }
+            this.g.setPadding(0, this.j.i() + this.j.a() + 10, 0, 0);
         }
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setStyle(1, R.style.obfuscated_res_0x7f1003e1);
+            setStyle(1, R.style.obfuscated_res_0x7f1003f4);
         }
     }
 
@@ -66,7 +66,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(a(), viewGroup);
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003e0;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003f3;
             return inflate;
         }
         return (View) invokeLLL.objValue;

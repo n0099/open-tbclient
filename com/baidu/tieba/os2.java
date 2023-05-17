@@ -1,186 +1,164 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.tieba.ns2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class os2 extends x33 {
+@Autowired
+/* loaded from: classes6.dex */
+public final class os2 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, qm3<Bundle>> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-    public String g;
 
-    /* loaded from: classes5.dex */
-    public class a implements qm3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ os2 b;
-
-        public a(os2 os2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {os2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = os2Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                this.b.g = bundle.getString("key_launch_app_id");
-                this.b.f = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, this.b.g)) {
-                    os2 os2Var = this.b;
-                    os2Var.d.putInt(DnsModel.MSG_OK, os2Var.f);
-                    this.b.c();
-                }
-                os2.h.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements qm3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ns2.e b;
-
-        public b(String str, ns2.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-                String string = bundle.getString("key_launch_app_id");
-                int i = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, string)) {
-                    if (i == 0) {
-                        this.b.b();
-                    } else {
-                        this.b.a();
-                    }
-                }
-                os2.h.remove(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042747, "Lcom/baidu/tieba/os2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948042747, "Lcom/baidu/tieba/os2;");
-                return;
-            }
-        }
-        boolean z = ho1.a;
-        h = new em4();
-    }
-
-    public os2() {
+    @Inject(force = false)
+    public static ru2 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new f74();
         }
-        this.f = -1;
-        this.g = "";
+        return (ru2) invokeV.objValue;
     }
 
-    public static void k(String str) {
-        qm3<Bundle> qm3Var;
+    @Inject(force = false)
+    public static wg2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, str) == null) && (qm3Var = h.get(str)) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_launch_app_id", str);
-            bundle.putInt("key_launch_status", 1);
-            qm3Var.a(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new p44();
         }
+        return (wg2) invokeV.objValue;
     }
 
-    public static void l(String str) {
-        qm3<Bundle> qm3Var;
+    @Inject(force = false)
+    public static kq1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && (qm3Var = h.get(str)) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("key_launch_app_id", str);
-            bundle.putInt("key_launch_status", 0);
-            qm3Var.a(bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return rb4.a();
         }
+        return (kq1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x33
-    public void b(@NonNull Bundle bundle) {
+    @Inject(force = false)
+    public static lq1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("desAppId");
-            h.put(string, new a(this, string));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h64.a();
         }
+        return (lq1) invokeV.objValue;
     }
 
-    public static void j(String str, ns2.e eVar) {
+    @Inject(force = false)
+    public static mq1 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) && !TextUtils.isEmpty(str) && eVar != null) {
-            h.put(str, new b(str, eVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new i64();
         }
+        return (mq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static nq1 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return new j64();
+        }
+        return (nq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static oq1 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new k64();
+        }
+        return (oq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static pq1 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new a44();
+        }
+        return (pq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static qq1 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return f54.a();
+        }
+        return (qq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static rq1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return z94.a();
+        }
+        return (rq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static sq1 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new zb4();
+        }
+        return (sq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static tq1 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return m64.a();
+        }
+        return (tq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static vq1 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return la4.a();
+        }
+        return (vq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static wq1 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return ca4.a();
+        }
+        return (wq1) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static yq1 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return jb4.a();
+        }
+        return (yq1) invokeV.objValue;
     }
 }

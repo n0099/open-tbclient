@@ -21,6 +21,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
+import com.baidu.tieba.e08;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
@@ -31,16 +32,15 @@ import com.baidu.tieba.hottopic.message.ResponseHttpHotTopicMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketGetTopicRelateThreadMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotRanklistMessage;
 import com.baidu.tieba.hottopic.message.ResponseSocketHotTopicMessage;
-import com.baidu.tieba.l67;
-import com.baidu.tieba.lr5;
+import com.baidu.tieba.hs5;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.oh5;
-import com.baidu.tieba.ph5;
-import com.baidu.tieba.ps5;
-import com.baidu.tieba.px9;
-import com.baidu.tieba.qy7;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.yq5;
+import com.baidu.tieba.rz9;
+import com.baidu.tieba.us5;
+import com.baidu.tieba.xi5;
+import com.baidu.tieba.y77;
+import com.baidu.tieba.yi5;
+import com.baidu.tieba.yt5;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,23 +49,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HotTopicStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
-        public class a extends oh5 {
+        /* loaded from: classes5.dex */
+        public class a extends xi5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ l67 c;
+            public final /* synthetic */ y77 c;
 
-            @Override // com.baidu.tieba.oh5
+            @Override // com.baidu.tieba.xi5
             public TbFragmentTabIndicator c(Context context) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class HotTopicStatic {
                 return (TbFragmentTabIndicator) invokeL.objValue;
             }
 
-            @Override // com.baidu.tieba.oh5
+            @Override // com.baidu.tieba.xi5
             public boolean d() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -85,12 +85,12 @@ public class HotTopicStatic {
                 return invokeV.booleanValue;
             }
 
-            public a(e eVar, l67 l67Var) {
+            public a(e eVar, y77 y77Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar, l67Var};
+                    Object[] objArr = {eVar, y77Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -100,11 +100,11 @@ public class HotTopicStatic {
                         return;
                     }
                 }
-                this.c = l67Var;
+                this.c = y77Var;
             }
 
-            @Override // com.baidu.tieba.oh5
-            public ph5 a() {
+            @Override // com.baidu.tieba.xi5
+            public yi5 a() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -113,13 +113,13 @@ public class HotTopicStatic {
                     bundle.putString("fid", this.c.b());
                     bundle.putString("from", this.c.d());
                     frsHottopicFragment.setArguments(bundle);
-                    ph5 ph5Var = new ph5();
-                    ph5Var.a = frsHottopicFragment;
-                    ph5Var.e = 401;
-                    ph5Var.i = ph5.k;
-                    return ph5Var;
+                    yi5 yi5Var = new yi5();
+                    yi5Var.a = frsHottopicFragment;
+                    yi5Var.e = 401;
+                    yi5Var.i = yi5.k;
+                    return yi5Var;
                 }
-                return (ph5) invokeV.objValue;
+                return (yi5) invokeV.objValue;
             }
         }
 
@@ -147,14 +147,14 @@ public class HotTopicStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof l67)) {
-                l67 l67Var = (l67) customResponsedMessage.getData();
-                l67Var.a(new a(this, l67Var));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y77)) {
+                y77 y77Var = (y77) customResponsedMessage.getData();
+                y77Var.a(new a(this, y77Var));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -179,21 +179,21 @@ public class HotTopicStatic {
             String lowerCase;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null && (lowerCase = strArr[0].toLowerCase()) != null && !yq5.c(tbPageContext, false, true)) {
+                if (strArr != null && strArr.length != 0 && strArr[0] != null && tbPageContext != null && (lowerCase = strArr[0].toLowerCase()) != null && !hs5.c(tbPageContext, false, true)) {
                     String str = "";
                     if (!lowerCase.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC) && !lowerCase.contains(UrlSchemaHelper.JUMP_TO_HOT_TOPIC_NEW)) {
                         if (lowerCase.contains(BdUniDispatchSchemeController.PATH_TOPIC_DETAIL)) {
-                            String c = ps5.c(lowerCase, "topic_id=");
-                            String c2 = ps5.c(lowerCase, "topic_name=");
-                            String c3 = ps5.c(lowerCase, "is_video_topic=");
-                            HotTopicStat.Locate valueOfIgnoreCase = HotTopicStat.Locate.valueOfIgnoreCase(ps5.c(lowerCase, "locate="));
+                            String c = yt5.c(lowerCase, "topic_id=");
+                            String c2 = yt5.c(lowerCase, "topic_name=");
+                            String c3 = yt5.c(lowerCase, "is_video_topic=");
+                            HotTopicStat.Locate valueOfIgnoreCase = HotTopicStat.Locate.valueOfIgnoreCase(yt5.c(lowerCase, "locate="));
                             if (!StringUtils.isNull(c) && !StringUtils.isNull(c2, true)) {
                                 if (strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
                                     str = strArr[1];
                                 }
                                 String str2 = str;
                                 if (!StringHelper.equals(c3, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                                    lr5.e(tbPageContext, c, c2);
+                                    us5.e(tbPageContext, c, c2);
                                 } else {
                                     new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c, c2, c3, str2, valueOfIgnoreCase).start();
                                 }
@@ -202,17 +202,17 @@ public class HotTopicStatic {
                         }
                         return 3;
                     }
-                    String c4 = ps5.c(lowerCase, "topic_id=");
-                    String c5 = ps5.c(lowerCase, "topic_name=");
-                    String c6 = ps5.c(lowerCase, "is_video_topic=");
-                    HotTopicStat.Locate valueOfIgnoreCase2 = HotTopicStat.Locate.valueOfIgnoreCase(ps5.c(lowerCase, "locate="));
+                    String c4 = yt5.c(lowerCase, "topic_id=");
+                    String c5 = yt5.c(lowerCase, "topic_name=");
+                    String c6 = yt5.c(lowerCase, "is_video_topic=");
+                    HotTopicStat.Locate valueOfIgnoreCase2 = HotTopicStat.Locate.valueOfIgnoreCase(yt5.c(lowerCase, "locate="));
                     if (!StringUtils.isNull(c4) && !StringUtils.isNull(c5, true)) {
                         if (strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
                             str = strArr[1];
                         }
                         String str3 = str;
                         if (!StringHelper.equals(c6, "1") && NewWebHotTopicPageSwitch.isOn()) {
-                            lr5.e(tbPageContext, c4, c5);
+                            us5.e(tbPageContext, c4, c5);
                         } else {
                             new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(c4, c5, c6, str3, valueOfIgnoreCase2).start();
                         }
@@ -225,7 +225,7 @@ public class HotTopicStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,12 +255,12 @@ public class HotTopicStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
-                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new qy7(null, ThreadData.TYPE_FRS_HOTTOPIC));
+                ((AbsDelegateAdapterList) customResponsedMessage.getData()).add(new e08(null, ThreadData.TYPE_FRS_HOTTOPIC));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c implements UrlManager.UrlSchemaHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,12 +283,12 @@ public class HotTopicStatic {
         public void deal(TbPageContext<?> tbPageContext, Map<String, String> map) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, map) == null) && tbPageContext != null && map != null) {
-                px9.b();
+                rz9.b();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -315,7 +315,7 @@ public class HotTopicStatic {
                 if (strArr == null || strArr.length == 0 || strArr[0] == null || tbPageContext == null || !strArr[0].toLowerCase().contains(UrlSchemaHelper.SCHEMA_TYPE_HOT_TOPIC_RANK_LIST)) {
                     return 3;
                 }
-                px9.b();
+                rz9.b();
                 return 0;
             }
             return invokeLL.intValue;
@@ -377,8 +377,8 @@ public class HotTopicStatic {
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            xo9.h(309085, BlessSocketResponseMessage.class, false, false);
-            xo9.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
+            zq9.h(309085, BlessSocketResponseMessage.class, false, false);
+            zq9.c(309085, CmdConfigHttp.CMD_TOPIC_BLESS, TbConfig.URL_TOPIC_USER_PK, BlessHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -394,16 +394,16 @@ public class HotTopicStatic {
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            xo9.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
-            xo9.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
+            zq9.h(309289, ResponseSocketHotRanklistMessage.class, false, false);
+            zq9.c(309289, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, TbConfig.URL_GET_HOT_RANKLIST_DATA, ResponseHttpHotRanklistMessage.class, false, false, true, false);
         }
     }
 
     public static void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            xo9.h(303050, ResponseSocketHotTopicMessage.class, false, false);
-            xo9.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
+            zq9.h(303050, ResponseSocketHotTopicMessage.class, false, false);
+            zq9.c(303050, CmdConfigHttp.CMD_HOT_TOPIC, TbConfig.URL_GET_HOT_TOPIC_DATA, ResponseHttpHotTopicMessage.class, false, false, true, false);
         }
     }
 
@@ -418,8 +418,8 @@ public class HotTopicStatic {
     public static void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            xo9.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
-            xo9.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
+            zq9.h(309005, ResponseSocketGetTopicRelateThreadMessage.class, false, false);
+            zq9.c(309005, CmdConfigHttp.CMD_TOPIC_RELATE_THREAD, TbConfig.URL_GET_TOPIC_RELATE_THREAD, ResponseHttpGetTopicRelateThreadMessage.class, false, false, true, false);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MultiPoint extends Overlay {
     public List<MultiPointItem> a;
     public BitmapDescriptor b;

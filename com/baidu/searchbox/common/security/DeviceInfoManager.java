@@ -15,8 +15,8 @@ import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.si9;
+import com.baidu.tieba.uk9;
+import com.baidu.tieba.yj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.BufferedInputStream;
@@ -45,7 +45,7 @@ import kotlin.text.Charsets;
 import org.json.JSONObject;
 @Autowired
 @Metadata(d1 = {"\u0000\u0091\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0005\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0010\t\n\u0002\b\b\n\u0002\u0010\u0002\n\u0002\b\u0015\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\u0006\bÇ\u0002\u0018\u00002\u00020\u0001:\u0001xB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0012\u0010@\u001a\u00020\u00042\b\u0010A\u001a\u0004\u0018\u00010BH\u0002J\u0012\u0010C\u001a\u0004\u0018\u00010D2\u0006\u0010E\u001a\u00020DH\u0002J\u001e\u0010F\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\b\u0010J\u001a\u00020KH\u0003J\r\u0010L\u001a\u00020\u001bH\u0000¢\u0006\u0002\bMJ&\u0010N\u001a\u0002022\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\u0006\u0010O\u001a\u00020\nJ0\u0010N\u001a\u0002022\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\u0006\u0010O\u001a\u00020\n2\b\b\u0002\u0010P\u001a\u00020\u0004J\u0010\u0010Q\u001a\u00020\u001c2\u0006\u0010R\u001a\u00020\u001cH\u0002J\u001e\u0010S\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u001e\u0010T\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ(\u0010T\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\b\b\u0002\u0010P\u001a\u00020\u0004J\u0010\u0010U\u001a\u00020V2\u0006\u0010G\u001a\u00020\u001bH\u0002J\u001e\u0010W\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u0016\u0010X\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u0016\u0010Y\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u0016\u0010Z\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u001e\u0010[\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ(\u0010[\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001c2\b\b\u0002\u0010P\u001a\u00020\u0004J\u0016\u0010\\\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cJ\u000e\u0010]\u001a\u00020\u00042\u0006\u0010G\u001a\u00020\u001bJ\u0010\u0010^\u001a\u00020_2\b\b\u0002\u0010O\u001a\u00020\nJ\u0012\u0010`\u001a\u00020\u00042\b\u0010a\u001a\u0004\u0018\u00010:H\u0002J\u0010\u0010b\u001a\u00020_2\u0006\u0010O\u001a\u00020\nH\u0002J\u0016\u0010c\u001a\u00020_2\u0006\u0010d\u001a\u00020\u001b2\u0006\u0010e\u001a\u00020\u0004J \u0010f\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010g\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010h\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010i\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0018\u0010j\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u000e\u0010k\u001a\u00020_2\u0006\u0010G\u001a\u00020\u001bJ\u0018\u0010l\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0018\u0010m\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J \u0010n\u001a\u00020\u001d2\u0006\u0010G\u001a\u00020\u001b2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0018\u0010o\u001a\u00020\u001d2\u0006\u0010H\u001a\u00020\u001c2\u0006\u0010I\u001a\u00020\u001cH\u0002J\u0010\u0010p\u001a\u00020_2\u0006\u0010G\u001a\u00020\u001bH\u0002J\u0010\u0010q\u001a\u00020_2\u0006\u0010G\u001a\u00020\u001bH\u0002J\u0016\u0010r\u001a\u00020_2\u0006\u0010d\u001a\u00020\u001b2\u0006\u0010e\u001a\u00020\u0004J\u0010\u0010s\u001a\u00020\u00042\u0006\u0010t\u001a\u00020uH\u0002J\u0010\u0010v\u001a\u00020\u00042\u0006\u0010O\u001a\u00020\nH\u0002J\b\u0010w\u001a\u00020_H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0018\u0010\u0005\u001a\u00020\u00068\u0002X\u0083\u0004¢\u0006\n\n\u0002\u0010\b\u0012\u0004\b\u0007\u0010\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R4\u0010\u0018\u001a \u0012\u001c\u0012\u001a\u0012\u0004\u0012\u00020\u001b\u0012\u0004\u0012\u00020\u001c\u0012\u0004\u0012\u00020\u001c\u0012\u0004\u0012\u00020\u001d0\u001a0\u00198\u0002X\u0083\u0004¢\u0006\b\n\u0000\u0012\u0004\b\u001e\u0010\u0002R\u000e\u0010\u001f\u001a\u00020\nX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010 \u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020#X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010$\u001a\u00020#X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\nX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010'\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010*\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010+\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010,\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010.\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u00020\u001cX\u0082T¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u001bX\u0082.¢\u0006\u0002\n\u0000R\u000e\u00101\u001a\u000202X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00103\u001a\u0004\u0018\u000104X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00105\u001a\u000206X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00107\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u00109\u001a\u0004\u0018\u00010:X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010;\u001a\u00020<X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010=\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010>\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010?\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006y"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoManager;", "", "()V", "DEBUG", "", "DEFAULT_APP_HOST", "com/baidu/searchbox/common/security/DeviceInfoManager$DEFAULT_APP_HOST$1", "getDEFAULT_APP_HOST$annotations", "Lcom/baidu/searchbox/common/security/DeviceInfoManager$DEFAULT_APP_HOST$1;", "DEFAULT_PHONE_TYPE", "", "DEVICE_ALL", "DEVICE_ANDROID_ID", "DEVICE_FLAG_BIT_NUM", "DEVICE_HARMONY_VERSION", "DEVICE_IMEI", "DEVICE_MAC", "DEVICE_MANUFACTURER", "DEVICE_MODEL", "DEVICE_NONE", "DEVICE_NON_SENSITIVE", "DEVICE_OAID", "DEVICE_OPERATOR", "DEVICE_OS_VERSION", "DEVICE_READ_FUNC_MAP", "Landroid/util/SparseArray;", "Lkotlin/Function3;", "Landroid/content/Context;", "", "Lcom/baidu/searchbox/common/security/DeviceIdBag;", "getDEVICE_READ_FUNC_MAP$annotations", "DEVICE_VALUABLE", "ERRNO", "ERRNO_SUCCESS", "GZIP_HEAD_1", "", "GZIP_HEAD_2", "HTTP_STATUS_OK", "MAPPING_CACHE_FILE", "MAPPING_URL", "PURPOSE_LAUNCH_SYNC", "SCENE_LAUNCH", "SDK_DIR", "SP_FILE", "SP_KEY_FORCE_SYNC_CACHE_TIME", "SP_KEY_LAUNCH_SYNC_DONE", "SYNC_JSON_KEY_TIME", "TAG", "mContext", "mDeviceInfoMap", "Lcom/baidu/searchbox/common/security/DeviceIdBagMap;", "mHandler", "Landroid/os/Handler;", "mHandlerThread", "Landroid/os/HandlerThread;", "mInit", "mLaunchSyncStarted", "mMappingCache", "Lcom/baidu/searchbox/common/security/CacheDeviceInfo;", "mMappingCacheFile", "Ljava/io/File;", "mPhoneTypeWhenReadIMEI", "mPhoneTypeWhenReadOperator", "mSyncingDeviceFlag", "checkIPCService", "ipcService", "Lcom/baidu/searchbox/common/security/IDeviceInfoService;", "gZip", "", "data", "getAndroidId", "context", "scene", "purpose", "getAppHost", "Lcom/baidu/searchbox/common/security/IDeviceInfoAppHost;", "getContext", "getContext$lib_security_framework_release", CommonTbJsBridge.GET_DEVICE_INFO, "deviceFlag", "forceApi", "getEncodeValue", "value", "getHarmonyVersion", "getIMEI", "getLastForceSyncCacheTime", "", "getMacAddress", "getManufacturer", "getModel", "getOAID", "getOperator", "getOsVersion", "hasLaunchMappingDone", "init", "", "isCuidChanged", "cacheDeviceInfo", "postSyncTask", "preInit", "appContext", "needSupportMultiProcess", "readAndroidId", "readHarmonyVersion", "readIMEI", "readMac", "readManufacturer", "readMappingCache", "readModel", "readOAID", "readOperator", "readOsVersion", "saveForceSyncCacheTime", "saveLaunchMappingDone", "setContextAndIPC", "syncMapping", "infoJson", "Lorg/json/JSONObject;", "syncMappingOfFixedDeviceFlag", "writeMappingCache", "SyncTask", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DeviceInfoManager {
     public static final boolean DEBUG = false;
     public static final DeviceInfoManager$DEFAULT_APP_HOST$1 DEFAULT_APP_HOST;
@@ -102,7 +102,7 @@ public final class DeviceInfoManager {
     }
 
     @Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0007\u001a\u00020\bH\u0016R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t"}, d2 = {"Lcom/baidu/searchbox/common/security/DeviceInfoManager$SyncTask;", "Ljava/lang/Runnable;", "deviceFlag", "", "(I)V", "getDeviceFlag", "()I", "run", "", "lib-security-framework_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SyncTask implements Runnable {
         public final int deviceFlag;
 
@@ -119,18 +119,7 @@ public final class DeviceInfoManager {
             if (!DeviceInfoManager.mLaunchSyncStarted) {
                 return;
             }
-            DeviceInfoManager deviceInfoManager = DeviceInfoManager.INSTANCE;
-            DeviceInfoManager.mSyncingDeviceFlag = this.deviceFlag;
-            try {
-                DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(this.deviceFlag);
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                DeviceInfoManager deviceInfoManager2 = DeviceInfoManager.INSTANCE;
-                DeviceInfoManager.mSyncingDeviceFlag = 0;
-                throw th;
-            }
-            DeviceInfoManager deviceInfoManager3 = DeviceInfoManager.INSTANCE;
-            DeviceInfoManager.mSyncingDeviceFlag = 0;
+            DeviceInfoManager.INSTANCE.syncMappingOfFixedDeviceFlag(this.deviceFlag);
         }
     }
 
@@ -283,7 +272,7 @@ public final class DeviceInfoManager {
 
     @Inject(force = false)
     private final IDeviceInfoAppHost getAppHost() {
-        return si9.a();
+        return uk9.a();
     }
 
     public final Context getContext$lib_security_framework_release() {
@@ -321,6 +310,14 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
         return getOperator(context, scene, purpose, false);
+    }
+
+    public final void setContextAndIPC(Context appContext, boolean z) {
+        Intrinsics.checkNotNullParameter(appContext, "appContext");
+        mContext = appContext;
+        if (yj1.g() && z) {
+            DeviceInfoIPCServiceManager.Companion.addIPCService();
+        }
     }
 
     private final boolean checkIPCService(IDeviceInfoService iDeviceInfoService) {
@@ -396,7 +393,7 @@ public final class DeviceInfoManager {
             Handler handler = new Handler(mHandlerThread.getLooper());
             mHandler = handler;
             Intrinsics.checkNotNull(handler);
-            handler.post(new Runnable() { // from class: com.baidu.tieba.fl1
+            handler.post(new Runnable() { // from class: com.baidu.tieba.zl1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -404,18 +401,10 @@ public final class DeviceInfoManager {
                 public final void run() {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        DeviceInfoManager.m41init$lambda1(i);
+                        DeviceInfoManager.m45init$lambda1(i);
                     }
                 }
             });
-        }
-    }
-
-    public final void setContextAndIPC(Context appContext, boolean z) {
-        Intrinsics.checkNotNullParameter(appContext, "appContext");
-        mContext = appContext;
-        if (ij1.g() && z) {
-            DeviceInfoIPCServiceManager.Companion.addIPCService();
         }
     }
 
@@ -449,7 +438,7 @@ public final class DeviceInfoManager {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final void m41init$lambda1(int i) {
+    public static final void m45init$lambda1(int i) {
         boolean z;
         final Ref.IntRef intRef = new Ref.IntRef();
         intRef.element = i;
@@ -663,7 +652,7 @@ public final class DeviceInfoManager {
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00f5, code lost:
         r2.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0108, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0109, code lost:
         if (0 != 0) goto L33;
      */
     /*
@@ -843,7 +832,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -951,7 +940,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getManufacturer(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -982,7 +971,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getModel(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1013,7 +1002,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getOAID(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1044,7 +1033,7 @@ public final class DeviceInfoManager {
     public final DeviceIdBag getOsVersion(String scene, String purpose) {
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1076,6 +1065,7 @@ public final class DeviceInfoManager {
     public final boolean syncMappingOfFixedDeviceFlag(int i) {
         if (mSyncingDeviceFlag == 0 && mLaunchSyncStarted && i != 0) {
             try {
+                mSyncingDeviceFlag = i;
                 ArrayList<Number> arrayList = new ArrayList();
                 if (syncMapping(DeviceInfoUtilKt.toJson(mDeviceInfoMap, i, arrayList))) {
                     if (mMappingCache == null) {
@@ -1084,10 +1074,10 @@ public final class DeviceInfoManager {
                         Intrinsics.checkNotNull(cacheDeviceInfo);
                         cacheDeviceInfo.setEnUid(getAppHost().getEnUid());
                     }
-                    int i2 = 0;
+                    Ref.IntRef intRef = new Ref.IntRef();
                     for (Number number : arrayList) {
                         int intValue = number.intValue();
-                        i2 |= intValue;
+                        intRef.element |= intValue;
                         DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) Integer.valueOf(intValue));
                         if (deviceIdBag != null) {
                             deviceIdBag.errorCode = 3;
@@ -1096,12 +1086,17 @@ public final class DeviceInfoManager {
                     DeviceIdBagMap deviceIdBagMap = mDeviceInfoMap;
                     CacheDeviceInfo cacheDeviceInfo2 = mMappingCache;
                     Intrinsics.checkNotNull(cacheDeviceInfo2);
-                    DeviceInfoUtilKt.copyFixedInfo(deviceIdBagMap, cacheDeviceInfo2, i2);
+                    DeviceInfoUtilKt.copyFixedInfo(deviceIdBagMap, cacheDeviceInfo2, intRef.element);
                     writeMappingCache();
+                    mSyncingDeviceFlag = 0;
                     return true;
                 }
             } catch (Exception unused) {
+            } catch (Throwable th) {
+                mSyncingDeviceFlag = 0;
+                throw th;
             }
+            mSyncingDeviceFlag = 0;
         }
         return false;
     }
@@ -1109,7 +1104,7 @@ public final class DeviceInfoManager {
     public final void readMappingCache(Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
         mContext = context;
-        if (ij1.g() && getAppHost().useMapping()) {
+        if (yj1.g() && getAppHost().useMapping()) {
             Context context2 = mContext;
             if (context2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mContext");
@@ -1202,7 +1197,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1234,7 +1229,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1266,7 +1261,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1440,7 +1435,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1481,7 +1476,7 @@ public final class DeviceInfoManager {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(scene, "scene");
         Intrinsics.checkNotNullParameter(purpose, "purpose");
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
             if (checkIPCService(iPCService)) {
                 try {
@@ -1520,7 +1515,7 @@ public final class DeviceInfoManager {
     public final void preInit(Context appContext, boolean z) {
         Intrinsics.checkNotNullParameter(appContext, "appContext");
         mContext = appContext;
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             return;
         }
         if (z) {

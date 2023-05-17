@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class um4 implements Runnable {
+/* loaded from: classes7.dex */
+public class um4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public um4(int i) {
+    public static void startActivity(Context context, Intent intent, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
+            context.startActivity(intent, bundle);
         }
-        this.a = i;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        int i;
+    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (i = this.a) < 0) {
-            return;
-        }
-        try {
-            Thread.sleep(i);
-        } catch (Throwable unused) {
+        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
+            activity.startActivityForResult(intent, i, bundle);
         }
     }
 }

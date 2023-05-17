@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fj implements com.kwad.sdk.core.d<SplashSkipViewModel> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(SplashSkipViewModel splashSkipViewModel, JSONObject jSONObject) {

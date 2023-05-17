@@ -5,7 +5,7 @@ import com.kwad.components.offline.api.core.network.model.BaseOfflineCompoResult
 import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResultDataAdapter<T extends BaseOfflineCompoResultData> extends BaseResultData {
     public static final long serialVersionUID = -6920968714292152136L;
     public final T mOfflineCompoResultData;

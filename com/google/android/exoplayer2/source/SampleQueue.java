@@ -15,7 +15,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SampleQueue implements TrackOutput {
     public static final int ADVANCE_FAILED = -1;
     public static final int INITIAL_SCRATCH_SIZE = 32;
@@ -35,12 +35,12 @@ public final class SampleQueue implements TrackOutput {
     public final SampleMetadataQueue.SampleExtrasHolder extrasHolder = new SampleMetadataQueue.SampleExtrasHolder();
     public final ParsableByteArray scratch = new ParsableByteArray(32);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface UpstreamFormatChangedListener {
         void onUpstreamFormatChanged(Format format);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class AllocationNode {
         @Nullable
         public Allocation allocation;

@@ -9,16 +9,16 @@ import com.xiaomi.push.et;
 import com.xiaomi.push.service.ServiceClient;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bk;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PingReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         b.c(intent.getPackage() + " is the package name");
-        if (XMPushService.m661e()) {
+        if (XMPushService.m680e()) {
             return;
         }
         if (!bk.p.equals(intent.getAction())) {
-            b.m101a("cancel the old ping timer");
+            b.m120a("cancel the old ping timer");
             et.a();
         } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
             b.c("Ping XMChannelService on timer");

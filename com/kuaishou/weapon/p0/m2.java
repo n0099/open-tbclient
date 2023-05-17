@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +24,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class m2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -168,8 +169,8 @@ public class m2 {
                 if (e2) {
                     jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, o0Var.g() ? 1 : 0);
                 }
-                jSONObject.put("68", o0Var.c() ? 1 : 0);
-                jSONObject.put("69", o0Var.b());
+                jSONObject.put(PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, o0Var.c() ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK, o0Var.b());
                 jSONObject.put(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, o0Var.d() ? 1 : 0);
                 jSONObject.put(WorkPostNotifyFlutterData.FAIL_POST, o0Var.a() ? 1 : 0);
                 jSONObject.put("99", new g0().a());
@@ -230,7 +231,7 @@ public class m2 {
                     jSONObject.put("64", t0Var.a("64"));
                     jSONObject.put("85", t0Var.b("85"));
                     jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK));
-                    jSONObject.put("70", t0Var.a("70"));
+                    jSONObject.put(PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK, t0Var.a(PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK));
                     jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_BACK_BTN_CLICK));
                     jSONObject.put(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK, t0Var.c(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK));
                     jSONObject.put(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW, t0Var.c(PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW));
@@ -341,7 +342,7 @@ public class m2 {
                     }
                     if (a.a(f3.e0, 1) == 1) {
                         y0 y0Var = new y0(this.a, 600);
-                        jSONObject.put("179", y0Var.a("179"));
+                        jSONObject.put(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_KEY_LOGIN, y0Var.a(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_KEY_LOGIN));
                         jSONObject.put("186", y0Var.a("186"));
                         jSONObject.put("189", y0Var.a("189"));
                     }

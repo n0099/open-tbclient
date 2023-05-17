@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.presenter;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static boolean r(com.kwad.components.ad.reward.k kVar) {
         com.kwad.components.core.playable.a aVar;

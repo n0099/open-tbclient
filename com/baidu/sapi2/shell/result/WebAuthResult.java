@@ -5,7 +5,7 @@ import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WebAuthResult extends SapiResult {
     public static final int ERROR_CODE_CONTEXT_ERROR = 13;
     public static final int ERROR_CODE_NEED_BACK_PHONE_NO_REG = 12;
@@ -29,7 +29,7 @@ public class WebAuthResult extends SapiResult {
         return SapiUtils.getLoginType();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LoginType {
         PHONE_REG("phonereg"),
         LOGIN("login"),

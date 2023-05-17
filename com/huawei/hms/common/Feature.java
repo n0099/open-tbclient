@@ -14,7 +14,7 @@ import com.huawei.hms.common.internal.Objects;
 import com.huawei.hms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.huawei.hms.common.internal.safeparcel.SafeParcelWriter;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Feature extends AbstractSafeParcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ARGS_NAME = 1;

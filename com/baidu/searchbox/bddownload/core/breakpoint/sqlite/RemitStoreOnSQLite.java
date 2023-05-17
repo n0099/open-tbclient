@@ -12,7 +12,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.RemitSyncExecutor;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RemitStoreOnSQLite implements RemitSyncExecutor.RemitAgent, DownloadStore {
     @NonNull
     public final BreakpointStoreOnSQLite onSQLiteWrapper;

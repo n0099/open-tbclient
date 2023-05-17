@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddrListPagerPresenter extends BasePresenter<ListPagerView> {
     public String getErrorMsg(int i) {
         return "网络不给力，请稍后重试";

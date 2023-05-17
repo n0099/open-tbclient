@@ -1,15 +1,15 @@
 package com.baidu.pass.main.facesdk.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceSDKCommon {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum AlignType {
         BDFACE_ALIGN_TYPE_RGB_ACCURATE,
         BDFACE_ALIGN_TYPE_RGB_FAST,
         BDFACE_ALIGN_TYPE_NIR_ACCURATE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceActionLiveType {
         BDFace_ACTION_LIVE_BLINK,
         BDFACE_ACTION_LIVE_OPEN_MOUTH,
@@ -20,7 +20,7 @@ public class BDFaceSDKCommon {
         BDFACE_ACTION_LIVE_TURN_RIGHT
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceCoreRunMode {
         BDFACE_LITE_POWER_HIGH,
         BDFACE_LITE_POWER_LOW,
@@ -30,14 +30,14 @@ public class BDFaceSDKCommon {
         BDFACE_LITE_POWER_RAND_LOW
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceEmotion {
         BDFACE_EMOTION_FROWN,
         BDFACE_EMOTION_SMILE,
         BDFACE_EMOTION_CALM
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceEmotionEnum {
         BDFACE_EMOTIONS_ANGRY,
         BDFACE_EMOTIONS_DISGUST,
@@ -48,7 +48,7 @@ public class BDFaceSDKCommon {
         BDFACE_EMOTIONS_NEUTRAL
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceGazeDirection {
         BDFACE_GACE_DIRECTION_UP,
         BDFACE_GACE_DIRECTION_DOWN,
@@ -58,20 +58,20 @@ public class BDFaceSDKCommon {
         BDFACE_GACE_DIRECTION_EYE_CLOSE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceGender {
         BDFACE_GENDER_FEMALE,
         BDFACE_GENDER_MALE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceGlasses {
         BDFACE_NO_GLASSES,
         BDFACE_GLASSES,
         BDFACE_SUN_GLASSES
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceImageType {
         BDFACE_IMAGE_TYPE_RGB,
         BDFACE_IMAGE_TYPE_BGR,
@@ -84,7 +84,7 @@ public class BDFaceSDKCommon {
         BDFACE_IMAGE_TYPE_YUV_YV12
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceLogInfo {
         BDFACE_LOG_ERROR_MESSAGE,
         BDFACE_LOG_VALUE_MESSAGE,
@@ -93,7 +93,7 @@ public class BDFaceSDKCommon {
         BDFACE_LOG_TYPE_DEBUG
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BDFaceRace {
         BDFACE_RACE_YELLOW,
         BDFACE_RACE_WHITE,
@@ -101,20 +101,20 @@ public class BDFaceSDKCommon {
         BDFACE_RACE_INDIAN
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum DetectType {
         DETECT_VIS,
         DETECT_NIR
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum FaceQualityType {
         BLUR,
         OCCLUSION,
         ILLUMINATION
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum FeatureType {
         BDFACE_FEATURE_TYPE_LIVE_PHOTO,
         BDFACE_FEATURE_TYPE_ID_PHOTO,
@@ -122,7 +122,7 @@ public class BDFaceSDKCommon {
         BDFACE_FEATURE_TYPE_RGBD
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LiveType {
         BDFACE_SILENT_LIVE_TYPE_RGB,
         BDFACE_SILENT_LIVE_TYPE_NIR,

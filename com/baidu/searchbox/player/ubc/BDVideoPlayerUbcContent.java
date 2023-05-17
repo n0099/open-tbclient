@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDVideoPlayerUbcContent {
     public final String mClarityKey;
     public final JSONObject mExtStatisticsLog;
@@ -21,7 +21,7 @@ public class BDVideoPlayerUbcContent {
     public final String mType;
     public final String mVid;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public String clarityKey;
         public String extLog;

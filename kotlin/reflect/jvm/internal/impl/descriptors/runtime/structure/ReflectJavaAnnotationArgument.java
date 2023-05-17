@@ -4,12 +4,12 @@ import java.lang.annotation.Annotation;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotationArgument;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ReflectJavaAnnotationArgument implements JavaAnnotationArgument {
     public static final Factory Factory = new Factory(null);
     public final Name name;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Factory {
         public Factory() {
         }

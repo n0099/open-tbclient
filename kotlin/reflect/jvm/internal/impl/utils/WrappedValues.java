@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.utils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WrappedValues {
     public static final Object NULL_VALUE = new Object() { // from class: kotlin.reflect.jvm.internal.impl.utils.WrappedValues.1
         public String toString() {
@@ -39,7 +39,7 @@ public class WrappedValues {
         throw new IllegalStateException(format);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ThrowableWrapper {
         public final Throwable throwable;
 
@@ -85,7 +85,7 @@ public class WrappedValues {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class WrappedProcessCanceledException extends RuntimeException {
         public WrappedProcessCanceledException(Throwable th) {
             super("Rethrow stored exception", th);

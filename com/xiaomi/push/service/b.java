@@ -5,7 +5,7 @@ import com.xiaomi.push.hh;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.ir;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b extends aj.a {
     public ig a;
 
@@ -24,7 +24,7 @@ public class b extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return "22";
     }
 
@@ -37,7 +37,7 @@ public class b extends aj.a {
         }
         this.a.a(bd.a());
         this.a.a(false);
-        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m560a());
+        com.xiaomi.channel.commonutils.logger.b.c("MoleInfo aw_ping : send aw_Ping msg " + this.a.m579a());
         try {
             String c = this.a.c();
             xMPushService.a(c, ir.a(ah.a(c, this.a.b(), this.a, hh.Notification)), this.f921a);

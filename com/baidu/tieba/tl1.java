@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes7.dex */
 public class tl1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tl1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public ThreadPoolExecutor a;
+    public ScheduledThreadPoolExecutor b;
 
-    public tl1(Context context) {
+    public tl1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,21 +30,52 @@ public class tl1 {
                 return;
             }
         }
-        try {
-            SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
-            this.a = sharedPreferences;
-            sharedPreferences.edit();
-        } catch (Throwable th) {
-            gn1.d(th);
+        b();
+    }
+
+    public static tl1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (tl1.class) {
+                    if (c == null) {
+                        c = new tl1();
+                    }
+                }
+            }
+            return c;
+        }
+        return (tl1) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = ul1.g(5, 15);
+            this.b = ul1.f(3);
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("xyus", "");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) && runnable != null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void d(sl1 sl1Var, long j, long j2, TimeUnit timeUnit) {
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sl1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) && sl1Var != null && (scheduledThreadPoolExecutor = this.b) != null && !scheduledThreadPoolExecutor.isShutdown()) {
+            try {
+                sl1Var.i(System.currentTimeMillis());
+                sl1Var.h(this.b.scheduleAtFixedRate(sl1Var, j, j2, timeUnit));
+            } catch (Throwable unused) {
+            }
+        }
     }
 }

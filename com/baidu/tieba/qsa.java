@@ -9,7 +9,8 @@ import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.PidLoader;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes6.dex */
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes7.dex */
 public class qsa implements PidLoaderCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,58 +39,86 @@ public class qsa implements PidLoaderCreator {
             String str = pid.type;
             str.hashCode();
             switch (str.hashCode()) {
-                case -1303381232:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS2)) {
+                case -2105157443:
+                    if (str.equals(FunAdType.CSJ_DRAW_VIDEO)) {
                         c = 0;
                         break;
                     }
                     c = 65535;
                     break;
-                case -942661506:
-                    if (str.equals(FunAdType.GDT_SPLASH)) {
+                case -1412451668:
+                    if (str.equals(FunAdType.CSJ_INTERSITIAL_2)) {
                         c = 1;
                         break;
                     }
                     c = 65535;
                     break;
-                case -596233886:
-                    if (str.equals(FunAdType.GDT_NATIVE_EXPRESS)) {
+                case -1263692214:
+                    if (str.equals(FunAdType.CSJ_INTERACTION_EXPRESS)) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
-                case 114133351:
-                    if (str.equals(FunAdType.GDT_UNIFIED_BANNER)) {
+                case -1071311851:
+                    if (str.equals(FunAdType.CSJ_DRAW_NATIVE)) {
                         c = 3;
                         break;
                     }
                     c = 65535;
                     break;
-                case 125016359:
-                    if (str.equals(FunAdType.GDT_UNIFIED_INTERSTITIAL)) {
+                case -950004865:
+                    if (str.equals(FunAdType.CSJ_NATIVE_EXPRESS)) {
                         c = 4;
                         break;
                     }
                     c = 65535;
                     break;
-                case 425812868:
-                    if (str.equals(FunAdType.GDT_NATIVE_UNIFIED)) {
+                case 347930415:
+                    if (str.equals(FunAdType.CSJ_SPLASH_EXPRESS)) {
                         c = 5;
                         break;
                     }
                     c = 65535;
                     break;
-                case 543046357:
-                    if (str.equals(FunAdType.GDT_REWARD_VIDEO)) {
+                case 556489085:
+                    if (str.equals(FunAdType.CSJ_BANNER_NATIVE)) {
                         c = 6;
                         break;
                     }
                     c = 65535;
                     break;
-                case 1990506825:
-                    if (str.equals(FunAdType.GDT_FULLSCREEN_VIDEO)) {
+                case 1168375858:
+                    if (str.equals(FunAdType.CSJ_REWARD_VIDEO)) {
                         c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1319012390:
+                    if (str.equals(FunAdType.CSJ_FULLSCREEN_VIDEO)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1328722634:
+                    if (str.equals(FunAdType.CSJ_BANNER_EXPRESS)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1922685617:
+                    if (str.equals(FunAdType.CSJ_NATIVE)) {
+                        c = '\n';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2079438081:
+                    if (str.equals(FunAdType.CSJ_SPLASH)) {
+                        c = 11;
                         break;
                     }
                     c = 65535;
@@ -100,22 +129,31 @@ public class qsa implements PidLoaderCreator {
             }
             switch (c) {
                 case 0:
-                    return new vsa(pid);
+                    return new kta(pid);
                 case 1:
-                    return new eta(pid);
+                    return new vta(pid);
                 case 2:
-                    return new ysa(pid);
+                    return new wta(pid);
                 case 3:
-                    return new fta(pid);
-                case 4:
                     return new gta(pid);
+                case 4:
+                    return new aua(pid);
                 case 5:
-                    return new ata(pid);
+                    return new ssa(pid);
                 case 6:
-                    return new dta(pid);
+                    return new zsa(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
                 case 7:
+                    return new gua(pid);
+                case '\b':
+                    return new qta(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid);
+                case '\t':
+                    return new tsa(pid);
+                case '\n':
+                    return new fua(pid);
+                case 11:
                     return new usa(pid);
                 default:
+                    LogPrinter.e("Not supported pid.type:%s", pid.type);
                     return null;
             }
         }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -11,7 +12,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
 import com.meizu.cloud.pushsdk.notification.MPushMessage;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
     public Context a;
 
@@ -50,7 +51,7 @@ public class b extends com.meizu.cloud.pushsdk.handler.a.a<MessageV3> {
             intent.setClassName(uriPackageName, messageV3.getActivity());
             DebugLogger.i("AbstractMessageHandler", intent.toUri(1));
         } else if (2 == messageV3.getClickType()) {
-            Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(messageV3.getWebUrl()));
+            Intent intent2 = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(messageV3.getWebUrl()));
             String uriPackageName2 = messageV3.getUriPackageName();
             if (!TextUtils.isEmpty(uriPackageName2)) {
                 intent2.setPackage(uriPackageName2);

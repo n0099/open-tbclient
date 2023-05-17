@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.oy4;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.xz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForumManageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL_GOOD = 3;
@@ -58,13 +58,13 @@ public class ForumManageModel extends BdBaseModel {
     public String j;
     public int k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,13 +76,13 @@ public class ForumManageModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class ForumManageModel extends BdBaseModel {
             this.f = i;
             this.g = i2;
             this.h = z;
-            this.i = forumManageModel.n0();
+            this.i = forumManageModel.m0();
             this.j = baijiahaoData;
             this.k = z2;
         }
@@ -250,7 +250,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -304,7 +304,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class f extends BdAsyncTask<String, String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -313,7 +313,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<oy4> f;
+        public ArrayList<xz4> f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -377,9 +377,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                oy4 oy4Var = new oy4();
-                                oy4Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(oy4Var);
+                                xz4 xz4Var = new xz4();
+                                xz4Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(xz4Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -432,13 +432,13 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<oy4> c;
+        public ArrayList<xz4> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -478,13 +478,13 @@ public class ForumManageModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            l0();
+            k0();
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void l0() {
+    public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a aVar = this.a;
@@ -505,7 +505,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    public String n0() {
+    public String m0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -514,7 +514,7 @@ public class ForumManageModel extends BdBaseModel {
         return (String) invokeV.objValue;
     }
 
-    public boolean o0() {
+    public boolean n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -538,7 +538,7 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -562,7 +562,7 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -574,7 +574,7 @@ public class ForumManageModel extends BdBaseModel {
         this.e = false;
     }
 
-    public void q0(String str) {
+    public void p0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             this.d = str;
@@ -582,11 +582,11 @@ public class ForumManageModel extends BdBaseModel {
     }
 
     @NonNull
-    public BarManageResultListener.a m0(int i, g gVar) {
+    public BarManageResultListener.a l0(int i, g gVar) {
         InterceptResult invokeIL;
         BarManageResultListener.OptType optType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, gVar)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, gVar)) == null) {
             if (i != 2) {
                 if (i != 3) {
                     if (i != 4) {
@@ -609,7 +609,7 @@ public class ForumManageModel extends BdBaseModel {
         return (BarManageResultListener.a) invokeIL.objValue;
     }
 
-    public void p0(ThreadData threadData) {
+    public void o0(ThreadData threadData) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) && threadData != null && threadData.getBaijiahaoData() != null) {
@@ -628,7 +628,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    public void r0(String str, String str2, String str3, String str4, int i, int i2, boolean z, BaijiahaoData baijiahaoData, boolean z2) {
+    public void q0(String str, String str2, String str3, String str4, int i, int i2, boolean z, BaijiahaoData baijiahaoData, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), baijiahaoData, Boolean.valueOf(z2)}) == null) {
             a aVar = this.a;
@@ -645,7 +645,7 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    public void s0(String str, String str2, String str3, int i, String str4) {
+    public void r0(String str, String str2, String str3, int i, String str4) {
         String str5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {

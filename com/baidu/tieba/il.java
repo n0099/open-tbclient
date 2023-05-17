@@ -1,66 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPackageDownloadCallback;
+import com.baidu.nps.interfa.IPackageGetCallback;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.pm.IBundleInfo;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class il {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+@Service
+/* loaded from: classes6.dex */
+public class il implements IPackageGetter {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, ll> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307434, "Lcom/baidu/tieba/il;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public il() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307434, "Lcom/baidu/tieba/il;");
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new hl());
-    }
-
-    public static void a(String str, int i) {
-        ll llVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (llVar = a.get(str)) != null) {
-            llVar.b(i);
         }
     }
 
-    public static void b(String str, int i, long j) {
-        ll llVar;
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (llVar = a.get(str)) != null) {
-            llVar.c(i, j);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
+            hl.f().g().i(iBundleInfo, str, i, iPackageDownloadCallback);
         }
     }
 
-    public static void c(String str, int i, int i2) {
-        ll llVar;
+    @Override // com.baidu.nps.interfa.IPackageGetter
+    public void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (llVar = a.get(str)) != null) {
-            llVar.d(i, i2);
-        }
-    }
-
-    public static void d(String str, int i, int i2) {
-        ll llVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (llVar = a.get(str)) != null) {
-            llVar.e(i, i2);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, iPackageGetCallback) == null) {
+            hl.f().g().k(list, iPackageGetCallback);
         }
     }
 }

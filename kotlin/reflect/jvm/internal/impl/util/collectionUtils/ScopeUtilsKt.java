@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.util.collectionUtils;
 
 import java.util.Collection;
 import java.util.LinkedHashSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ScopeUtilsKt {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.util.Collection<? extends T> */
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.util.Collection<? extends T> */

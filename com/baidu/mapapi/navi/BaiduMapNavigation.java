@@ -12,11 +12,12 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.utils.OpenClientUtil;
 import com.baidu.mapapi.utils.b;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduMapNavigation {
     public static boolean a = true;
 
@@ -93,7 +94,7 @@ public class BaiduMapNavigation {
                 sb.append("/vt=map&state=entry");
                 Uri parse = Uri.parse(sb.toString());
                 Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
+                intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setData(parse);
                 context.startActivity(intent);
@@ -198,7 +199,7 @@ public class BaiduMapNavigation {
                 GeoPoint ll2mc2 = CoordUtil.ll2mc(naviParaOption.c);
                 Uri parse = Uri.parse("http://daohang.map.baidu.com/mobile/#navi/naving/start=" + ll2mc.getLongitudeE6() + "," + ll2mc.getLatitudeE6() + "&endp=" + ll2mc2.getLongitudeE6() + "," + ll2mc2.getLatitudeE6() + "&fromprod=" + a(context) + "/vt=map&state=entry");
                 Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
+                intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setData(parse);
                 context.startActivity(intent);
@@ -208,7 +209,7 @@ public class BaiduMapNavigation {
             if (str2 != null && !str2.equals("") && (str = naviParaOption.d) != null && !str.equals("")) {
                 Uri parse2 = Uri.parse("http://daohang.map.baidu.com/mobile/#search/search/qt=nav&sn=2$$$$$$" + naviParaOption.b + "$$$$$$&en=2$$$$$$" + naviParaOption.d + "$$$$$$&fromprod=" + a(context));
                 Intent intent2 = new Intent();
-                intent2.setAction("android.intent.action.VIEW");
+                intent2.setAction(IntentConstants.ACTION_BOX_BROWSER);
                 intent2.setData(parse2);
                 context.startActivity(intent2);
                 return;

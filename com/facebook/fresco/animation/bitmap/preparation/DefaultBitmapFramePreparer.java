@@ -9,7 +9,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public static final Class<?> TAG = DefaultBitmapFramePreparer.class;
     public final Bitmap.Config mBitmapConfig;
@@ -18,7 +18,7 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public final SparseArray<Runnable> mPendingFrameDecodeJobs = new SparseArray<>();
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FrameDecodeRunnable implements Runnable {
         public final AnimationBackend mAnimationBackend;
         public final BitmapFrameCache mBitmapFrameCache;

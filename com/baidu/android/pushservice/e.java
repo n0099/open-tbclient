@@ -25,7 +25,7 @@ import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.jza;
+import com.baidu.tieba.h1b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +90,7 @@ public class e {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 e.h(this.c);
                 try {
-                    str = HmsInstanceId.getInstance(this.c).getToken(jza.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+                    str = HmsInstanceId.getInstance(this.c).getToken(h1b.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
                 } catch (Throwable unused) {
                     PushSettings.h = 1;
                     com.baidu.android.pushservice.a0.i.b(this.c, "com.baidu.android.pushservice.PushSettings.hw_hms_down_mode", 1);
@@ -106,7 +106,7 @@ public class e {
     }
 
     /* loaded from: classes.dex */
-    public static class b implements d.InterfaceC0025d {
+    public static class b implements d.InterfaceC0028d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -135,7 +135,7 @@ public class e {
             this.d = z;
         }
 
-        @Override // com.baidu.android.pushservice.l.d.InterfaceC0025d
+        @Override // com.baidu.android.pushservice.l.d.InterfaceC0028d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -228,12 +228,12 @@ public class e {
 
     /* renamed from: com.baidu.android.pushservice.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0024e extends com.baidu.android.pushservice.z.c {
+    public static class C0027e extends com.baidu.android.pushservice.z.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
 
-        public C0024e(Context context) {
+        public C0027e(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -303,7 +303,7 @@ public class e {
     }
 
     /* loaded from: classes.dex */
-    public static class g implements d.InterfaceC0025d {
+    public static class g implements d.InterfaceC0028d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -332,7 +332,7 @@ public class e {
             this.d = clientEventInfo;
         }
 
-        @Override // com.baidu.android.pushservice.l.d.InterfaceC0025d
+        @Override // com.baidu.android.pushservice.l.d.InterfaceC0028d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -464,7 +464,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || context == null) {
             return;
         }
-        com.baidu.android.pushservice.z.e.a().a(new C0024e(context));
+        com.baidu.android.pushservice.z.e.a().a(new C0027e(context));
     }
 
     @TargetApi(24)
@@ -1274,7 +1274,7 @@ public class e {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0047 A[Catch: all -> 0x007a, TryCatch #0 {all -> 0x007a, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x0021, B:24:0x0047, B:25:0x0053, B:12:0x0028, B:15:0x002f, B:18:0x0038, B:21:0x0041, B:27:0x005f, B:30:0x0066, B:33:0x006d), top: B:39:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0047 A[Catch: all -> 0x007b, TryCatch #0 {all -> 0x007b, blocks: (B:4:0x0004, B:6:0x000a, B:9:0x0021, B:24:0x0047, B:25:0x0054, B:12:0x0028, B:15:0x002f, B:18:0x0038, B:21:0x0041, B:27:0x0060, B:30:0x0067, B:33:0x006e), top: B:39:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

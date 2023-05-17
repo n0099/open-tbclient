@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.kernel;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DumediaKernelFactory implements IKernelFactory {
     @Override // com.baidu.searchbox.player.kernel.IKernelFactory
     @NonNull

@@ -5,7 +5,7 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.impl.ANRMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ANRProvider {
     public static final IANRMonitor EMPTY = new IANRMonitor() { // from class: com.baidu.searchbox.ruka.ANRProvider.1
         @Override // com.baidu.searchbox.ruka.ioc.IANRMonitor

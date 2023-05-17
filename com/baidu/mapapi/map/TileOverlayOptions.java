@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TileOverlayOptions {
     public static Bundle c = null;
     public static final String j = "TileOverlayOptions";

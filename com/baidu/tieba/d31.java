@@ -1,315 +1,1054 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
+import android.content.ContentResolver;
+import android.database.CharArrayBuffer;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.database.DataSetObserver;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class d31 {
+/* loaded from: classes5.dex */
+public class d31 implements Cursor {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d31 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public b31 c;
-    public c31 d;
-    public a31 e;
-    public e31 f;
+    public Cursor a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947653511, "Lcom/baidu/tieba/d31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947653511, "Lcom/baidu/tieba/d31;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d31 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d31 d31Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d31Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d31Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                switch (message.what) {
-                    case 1:
-                        Object obj = message.obj;
-                        if (obj instanceof b) {
-                            b bVar = (b) obj;
-                            this.a.e.d(bVar.a, bVar.b, bVar.c);
-                        }
-                        this.a.r();
-                        return;
-                    case 2:
-                        this.a.r();
-                        return;
-                    case 3:
-                        if (this.a.d.a() > 0) {
-                            this.a.r();
-                            return;
-                        }
-                        return;
-                    case 4:
-                        Object obj2 = message.obj;
-                        if (obj2 instanceof b) {
-                            b bVar2 = (b) obj2;
-                            this.a.f.b(bVar2.a, bVar2.b, bVar2.c);
-                            this.a.t();
-                            return;
-                        }
-                        return;
-                    case 5:
-                        this.a.t();
-                        return;
-                    case 6:
-                        this.a.f.a();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Runnable a;
-        public String b;
-        public int c;
-
-        public b(Runnable runnable, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-            this.b = str;
-            this.c = i;
-        }
-    }
-
-    public d31() {
+    public d31(Cursor cursor) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cursor};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        synchronized (o21.b()) {
-            h();
-        }
+        this.a = cursor;
     }
 
-    public static d31 f() {
-        InterceptResult invokeV;
+    @Override // android.database.Cursor
+    public void registerContentObserver(ContentObserver contentObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (g == null) {
-                synchronized (d31.class) {
-                    if (g == null) {
-                        g = new d31();
-                    }
+        if (interceptable == null || interceptable.invokeL(1048609, this, contentObserver) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.registerContentObserver(contentObserver);
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
             }
-            return g;
         }
-        return (d31) invokeV.objValue;
     }
 
-    public a31 g() {
-        InterceptResult invokeV;
+    @Override // android.database.Cursor
+    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(1048610, this, dataSetObserver) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.registerDataSetObserver(dataSetObserver);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
         }
-        return (a31) invokeV.objValue;
     }
 
-    public void i() {
+    @Override // android.database.Cursor
+    public void unregisterContentObserver(ContentObserver contentObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048615, this, contentObserver) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.unregisterContentObserver(contentObserver);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // android.database.Cursor
+    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, dataSetObserver) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.unregisterDataSetObserver(dataSetObserver);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // android.database.Cursor, java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.close();
+                }
+            } catch (Exception unused) {
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // android.database.Cursor
+    public void deactivate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(0L);
+            try {
+                if (this.a != null) {
+                    this.a.deactivate();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
         }
     }
 
-    public void k() {
+    @Override // android.database.Cursor
+    public void copyStringToBuffer(int i, CharArrayBuffer charArrayBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            l(0L);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, charArrayBuffer) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.copyStringToBuffer(i, charArrayBuffer);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
         }
     }
 
-    public void o() {
+    @Override // android.database.Cursor
+    public void setNotificationUri(ContentResolver contentResolver, Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            p(0L);
+        if (interceptable == null || interceptable.invokeLL(1048614, this, contentResolver, uri) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.setNotificationUri(contentResolver, uri);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
         }
     }
 
-    public final void r() {
+    @Override // android.database.Cursor
+    public byte[] getBlob(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            do {
-            } while (s());
-            i();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getBlob(i);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
         }
+        return (byte[]) invokeI.objValue;
     }
 
-    public final void t() {
+    @Override // android.database.Cursor
+    public int getColumnIndex(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getColumnIndex(str);
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return -1;
+            }
         }
+        return invokeL.intValue;
     }
 
-    public void j(long j) {
+    @Override // android.database.Cursor
+    public int getColumnIndexOrThrow(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 3;
-            this.b.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getColumnIndexOrThrow(str);
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return -1;
+            }
         }
+        return invokeL.intValue;
     }
 
-    public void l(long j) {
+    @Override // android.database.Cursor
+    public String getColumnName(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 2;
-            this.b.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getColumnName(i);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
         }
+        return (String) invokeI.objValue;
     }
 
-    public void n(long j) {
+    @Override // android.database.Cursor
+    public double getDouble(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 6;
-            this.b.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getDouble(i);
+                }
+                return 0.0d;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return 0.0d;
+            }
         }
+        return invokeI.doubleValue;
     }
 
-    public void p(long j) {
+    @Override // android.database.Cursor
+    public float getFloat(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 5;
-            this.b.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getFloat(i);
+                }
+                return 0.0f;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return 0.0f;
+            }
         }
+        return invokeI.floatValue;
     }
 
-    public final void h() {
+    @Override // android.database.Cursor
+    public int getInt(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new b31();
-            this.d = new c31();
-            this.e = new a31();
-            this.f = new e31();
-            HandlerThread handlerThread = new HandlerThread("ElasticSchedulerThread");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.a.setPriority(10);
-            this.b = new a(this, this.a.getLooper());
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getInt(i);
+                }
+                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return 0;
+            }
         }
+        return invokeI.intValue;
     }
 
-    public void m(Runnable runnable, String str, int i, long j) {
+    @Override // android.database.Cursor
+    public long getLong(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            obtain.obj = new b(runnable, str, i);
-            this.b.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getLong(i);
+                }
+                return 0L;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return 0L;
+            }
         }
+        return invokeI.longValue;
     }
 
-    public void q(Runnable runnable, String str, long j) {
+    @Override // android.database.Cursor
+    public short getShort(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 4;
-            obtain.obj = new b(runnable, str, 4);
-            this.b.sendMessageDelayed(obtain, j);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getShort(i);
+                }
+                return (short) 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return (short) 0;
+            }
         }
+        return invokeI.shortValue;
     }
 
-    public final boolean s() {
-        InterceptResult invokeV;
+    @Override // android.database.Cursor
+    public String getString(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ElasticTask b2 = this.e.b();
-            if (b2 == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getString(i);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // android.database.Cursor
+    public int getType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getType(i);
+                }
+                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return 0;
+            }
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean isNull(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.isNull(i);
+                }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return true;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean move(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.move(i);
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
                 return false;
             }
-            if (this.c.a(b2)) {
-                this.e.e(b2);
-                return true;
-            } else if (!this.d.c(b2)) {
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean moveToPosition(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.moveToPosition(i);
+                }
                 return false;
-            } else {
-                this.e.e(b2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public Bundle respond(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, bundle)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.respond(bundle);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // android.database.Cursor
+    public void setExtras(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048613, this, bundle) == null) {
+            try {
+                if (this.a != null && Build.VERSION.SDK_INT >= 23) {
+                    this.a.setExtras(bundle);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+        }
+    }
+
+    @Override // android.database.Cursor
+    public int getColumnCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getColumnCount();
+                }
+                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return 0;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.database.Cursor
+    public String[] getColumnNames() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getColumnNames();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // android.database.Cursor
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getCount();
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return -1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.database.Cursor
+    public Bundle getExtras() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getExtras();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // android.database.Cursor
+    public Uri getNotificationUri() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getNotificationUri();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+            }
+            return null;
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    @Override // android.database.Cursor
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getPosition();
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return -1;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean getWantsAllOnMoveCalls() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.getWantsAllOnMoveCalls();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean isAfterLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.isAfterLast();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean isBeforeFirst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.isBeforeFirst();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean isClosed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.isClosed();
+                }
                 return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean isFirst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.isFirst();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean isLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.isLast();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean moveToFirst() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.moveToFirst();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean moveToLast() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.moveToLast();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean moveToNext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.moveToNext();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean moveToPrevious() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.moveToPrevious();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.database.Cursor
+    public boolean requery() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            try {
+                if (this.a != null) {
+                    return this.a.requery();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                this.a = null;
+                return false;
             }
         }
         return invokeV.booleanValue;

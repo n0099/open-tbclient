@@ -1,98 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wk4;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public final class kh2 implements wk4 {
+/* loaded from: classes6.dex */
+public abstract class kh2 implements lh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public wk4 c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.lh2
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public kh2 a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.lh2
+    public void c(og2 og2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, og2Var) == null) {
         }
+    }
 
-        public kh2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                kh2 kh2Var = this.a;
-                this.a = null;
-                return kh2Var;
-            }
-            return (kh2) invokeV.objValue;
-        }
-
-        public final kh2 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a == null) {
-                    this.a = new kh2(null);
-                }
-                return this.a;
-            }
-            return (kh2) invokeV.objValue;
-        }
-
-        public b b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) != null) {
-                return (b) invokeZ.objValue;
-            }
-            c().b = z;
-            return this;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
-                return (b) invokeL.objValue;
-            }
-            c().a = str;
-            return this;
-        }
-
-        public b e(wk4 wk4Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, wk4Var)) != null) {
-                return (b) invokeL.objValue;
-            }
-            c().c = wk4Var;
-            return this;
+    @Override // com.baidu.tieba.lh2
+    public void d(og2 og2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, og2Var) == null) {
         }
     }
 
@@ -106,51 +48,6 @@ public final class kh2 implements wk4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ kh2(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.wk4
-    public void a(String str, wk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            wk4 wk4Var = this.c;
-            if (wk4Var != null) {
-                wk4Var.a(str, aVar);
-            } else if (aVar != null) {
-                aVar.a(true);
             }
         }
     }

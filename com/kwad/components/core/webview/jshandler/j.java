@@ -3,13 +3,13 @@ package com.kwad.components.core.webview.jshandler;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
     public a Ly;
     public Handler mHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void bx();
     }

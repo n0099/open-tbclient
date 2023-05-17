@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import java.math.BigInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface c00 {
-    BigInteger a();
+    int a(int i);
 
-    BigInteger b();
+    void a(byte[] bArr, int i, int i2);
+
+    int b(byte[] bArr, int i, int i2);
 }

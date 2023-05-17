@@ -9,7 +9,7 @@ import com.baidu.searchbox.pms.constants.ErrorConstant;
 import com.baidu.searchbox.pms.statistic.PackageFileStatisticManager;
 import java.io.File;
 import org.apache.commons.codec.digest4util.MD5Utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DownloadUtils {
     public static final String PMS_DIR = "pms";
 

@@ -1,70 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.dj7;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.sportspage.notification.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class ej7 implements zi7 {
+import java.util.Calendar;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class ej7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public dj7.e b;
-    public Context c;
-    public List<n87> d;
-    public dj7 e;
-    public final BaseAdapter f;
-    public AdapterView.OnItemClickListener g;
+    public TbPageContext a;
+    public CustomMessageListener b;
 
-    @Override // com.baidu.tieba.zi7
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends BaseAdapter {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ej7 a;
 
-        @Override // android.widget.Adapter
-        public long getItemId(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-        }
-
-        public a(ej7 ej7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ej7 ej7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ej7Var};
+                Object[] objArr = {ej7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -74,129 +51,53 @@ public class ej7 implements zi7 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.widget.Adapter
-        /* renamed from: a */
-        public n87 getItem(int i) {
-            InterceptResult invokeI;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                if (this.a.d == null) {
-                    return null;
-                }
-                return (n87) this.a.d.get(i);
-            }
-            return (n87) invokeI.objValue;
-        }
-
-        @Override // android.widget.Adapter
-        public int getCount() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d == null) {
-                    return 0;
-                }
-                return this.a.d.size();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.widget.Adapter
-        public View getView(int i, View view2, ViewGroup viewGroup) {
-            InterceptResult invokeILL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-                if (view2 == null) {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08bc, (ViewGroup) null);
-                    view2.setLayoutParams(new AbsListView.LayoutParams(-1, viewGroup.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070275)));
-                    dj7.f fVar = new dj7.f();
-                    fVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092205);
-                    fVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092202);
-                    fVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092204);
-                    fVar.d = view2.findViewById(R.id.obfuscated_res_0x7f092203);
-                    view2.setTag(fVar);
-                }
-                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
-                dj7.f fVar2 = (dj7.f) view2.getTag();
-                n87 item = getItem(i);
-                if (item == null) {
-                    return view2;
-                }
-                fVar2.a.setText(item.a);
-                if (item.c) {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0302, 1);
-                    SkinManager.setImageResource(fVar2.b, R.drawable.chx_tips_list_ok);
-                    fVar2.b.setVisibility(0);
-                } else {
-                    SkinManager.setViewTextColor(fVar2.a, R.color.CAM_X0108, 1);
-                    fVar2.b.setVisibility(8);
-                }
-                if (i >= 0 && i == getCount() - 1) {
-                    fVar2.d.setVisibility(0);
-                    fVar2.c.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.d, R.color.CAM_X0204);
-                } else {
-                    fVar2.c.setVisibility(0);
-                    fVar2.d.setVisibility(8);
-                    SkinManager.setBackgroundColor(fVar2.c, R.color.CAM_X0204);
-                }
-                return view2;
-            }
-            return (View) invokeILL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements AdapterView.OnItemClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ej7 a;
-
-        public b(ej7 ej7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ej7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ej7Var;
-        }
-
-        @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (this.a.e != null) {
-                    this.a.e.c();
-                }
-                if (this.a.f != null && this.a.b != null) {
-                    for (n87 n87Var : this.a.d) {
-                        if (n87Var != null) {
-                            n87Var.c = false;
-                        }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) customResponsedMessage.getData());
+                    String optString = jSONObject.optString("gameId");
+                    String optString2 = jSONObject.optString("gameName");
+                    String optString3 = jSONObject.optString("gameTime");
+                    String optString4 = jSONObject.optString("gameType");
+                    String s = o65.m().s("key_match_id_list_" + optString4, "");
+                    String str2 = "match_id_" + optString4 + "_" + optString;
+                    if (TextUtils.isEmpty(s)) {
+                        str = str2;
+                    } else {
+                        str = "," + str2;
                     }
-                    n87 n87Var2 = (n87) this.a.f.getItem(i);
-                    if (n87Var2 != null) {
-                        n87Var2.c = true;
-                        this.a.b.a(n87Var2.b);
+                    if (TextUtils.isEmpty(s) || !s.contains(str2)) {
+                        o65.m().B("key_match_id_list_" + optString4, s + str);
                     }
+                    Intent intent = new Intent(this.a.a.getPageActivity(), AlarmReceiver.class);
+                    intent.putExtra("KEY_MATCH_NAME", optString2);
+                    intent.putExtra("KEY_MATCH_TYPE", optString4);
+                    intent.putExtra("KEY_MATCH_ID", optString);
+                    PendingIntent broadcast = PendingIntent.getBroadcast(this.a.a.getPageActivity(), 0, intent, 0);
+                    Calendar calendar = Calendar.getInstance();
+                    long currentTimeMillis = System.currentTimeMillis();
+                    calendar.setTimeInMillis(currentTimeMillis);
+                    long g = (pg.g(optString3, 0L) * 1000) - currentTimeMillis;
+                    if (g > 0) {
+                        calendar.add(14, (int) g);
+                    }
+                    ((AlarmManager) this.a.a.getPageActivity().getSystemService(NotificationCompat.CATEGORY_ALARM)).set(0, calendar.getTimeInMillis(), broadcast);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    public ej7() {
+    public ej7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,52 +107,9 @@ public class ej7 implements zi7 {
                 return;
             }
         }
-        this.f = new a(this);
-        this.g = new b(this);
-    }
-
-    @Override // com.baidu.tieba.zi7
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zi7
-    public void setData(List<n87> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.d = list;
-            this.f.notifyDataSetChanged();
-        }
-    }
-
-    @Override // com.baidu.tieba.zi7
-    public void a(Context context, dj7 dj7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, dj7Var) == null) && context != null && dj7Var != null) {
-            this.c = context;
-            this.e = dj7Var;
-            this.b = dj7Var.d();
-            g();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdListView bdListView = new BdListView(this.c);
-            this.a = bdListView;
-            bdListView.setAlwaysDrawnWithCacheEnabled(false);
-            this.a.setDivider(null);
-            this.a.setDividerHeight(0);
-            this.a.setSelector(17170445);
-            this.a.setCacheColorHint(this.c.getResources().getColor(17170445));
-            this.a.setOnItemClickListener(this.g);
-            this.a.setAdapter((ListAdapter) this.f);
-        }
+        a aVar = new a(this, 2921404);
+        this.b = aVar;
+        this.a = tbPageContext;
+        tbPageContext.registerListener(aVar);
     }
 }

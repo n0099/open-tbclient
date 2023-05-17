@@ -19,7 +19,7 @@ import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FragmentedMp4SampleList extends AbstractList<Sample> {
     public List<TrackFragmentBox> allTrafs;
     public IsoFile[] fragments;

@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class MappingTrackSelector extends TrackSelector {
     public MappedTrackInfo currentMappedTrackInfo;
     public final SparseArray<Map<TrackGroupArray, SelectionOverride>> selectionOverrides = new SparseArray<>();
@@ -21,7 +21,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
 
     public abstract TrackSelection[] selectTracks(RendererCapabilities[] rendererCapabilitiesArr, TrackGroupArray[] trackGroupArrayArr, int[][][] iArr) throws ExoPlaybackException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MappedTrackInfo {
         public static final int RENDERER_SUPPORT_EXCEEDS_CAPABILITIES_TRACKS = 2;
         public static final int RENDERER_SUPPORT_NO_TRACKS = 0;
@@ -125,7 +125,7 @@ public abstract class MappingTrackSelector extends TrackSelector {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SelectionOverride {
         public final TrackSelection.Factory factory;
         public final int groupIndex;

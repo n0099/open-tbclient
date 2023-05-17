@@ -1,52 +1,122 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.recommend.FrsLikeRecommendHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ei7 extends b25 {
+import tbclient.ThemeColorInfo;
+/* loaded from: classes5.dex */
+public class ei7 extends en<fq9, FrsLikeRecommendHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThemeColorInfo a;
 
-    public ei7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq9 a;
+        public final /* synthetic */ ViewGroup b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ ei7 d;
+
+        public a(ei7 ei7Var, fq9 fq9Var, ViewGroup viewGroup, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei7Var, fq9Var, viewGroup, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ei7Var;
+            this.a = fq9Var;
+            this.b = viewGroup;
+            this.c = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.d.getOnAdapterItemClickListener() != null) {
+                this.d.getOnAdapterItemClickListener().b(view2, this.a, fq9.e, this.b, this.c, view2.getId());
             }
         }
     }
 
-    @Override // com.baidu.tieba.b25
-    public void a(@NonNull Context context, @NonNull t15 t15Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ei7(@NonNull Context context) {
+        super(context, fq9.e);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, t15Var) == null) {
-            if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧主弹窗失败：当前Activity非FrsActivity");
-                r15.s("frsGuide");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            FrsFragment v1 = ((FrsActivity) context).v1();
-            if (v1 == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧主弹窗失败：当前FrsFragment为空");
-                r15.s("frsGuide");
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921476));
-            v1.O4(true);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: s */
+    public FrsLikeRecommendHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new FrsLikeRecommendHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d036b, viewGroup, false), this.a);
+        }
+        return (FrsLikeRecommendHolder) invokeL.objValue;
+    }
+
+    public void u(ThemeColorInfo themeColorInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, themeColorInfo) == null) {
+            this.a = themeColorInfo;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fq9 fq9Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        t(i, view2, viewGroup, fq9Var, frsLikeRecommendHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, fq9 fq9Var, FrsLikeRecommendHolder frsLikeRecommendHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fq9Var, frsLikeRecommendHolder})) == null) {
+            if (fq9Var != null && frsLikeRecommendHolder != null) {
+                frsLikeRecommendHolder.a(fq9Var);
+                frsLikeRecommendHolder.c(new a(this, fq9Var, viewGroup, i));
+                frsLikeRecommendHolder.b();
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

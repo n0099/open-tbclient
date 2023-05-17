@@ -1,10 +1,10 @@
 package com.baidu.pyramid.runtime.multiprocess.components;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mj1;
-import com.baidu.tieba.qj1;
-import com.baidu.tieba.rj1;
-import com.baidu.tieba.sj1;
+import com.baidu.tieba.ck1;
+import com.baidu.tieba.gk1;
+import com.baidu.tieba.hk1;
+import com.baidu.tieba.ik1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ServerProvider extends DispatchableContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ServerProvider extends DispatchableContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return mj1.a().getPackageName() + ".provider.ipc.server";
+            return ck1.a().getPackageName() + ".provider.ipc.server";
         }
         return (String) invokeV.objValue;
     }
@@ -51,15 +51,15 @@ public class ServerProvider extends DispatchableContentProvider {
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    public List<qj1> c() {
+    public List<gk1> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<qj1> a = sj1.a(b());
+            List<gk1> a = ik1.a(b());
             if (a == null) {
                 a = new ArrayList<>();
             }
-            a.add(0, new rj1());
+            a.add(0, new hk1());
             return a;
         }
         return (List) invokeV.objValue;

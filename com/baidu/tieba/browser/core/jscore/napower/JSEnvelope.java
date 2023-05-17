@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.kg6;
+import com.baidu.tieba.wh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class JSEnvelope {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class JSEnvelope {
     public final Map<String, Object> responseData;
     public final String type;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class JSEnvelope {
                 try {
                     jSONObject.put(entry.getKey(), entry.getValue());
                 } catch (JSONException e) {
-                    kg6.b("lt-log", "Map 转 json 非法json字符串:" + e);
+                    wh6.b("newHybrid", "Map 转 json 非法json字符串:" + e);
                 }
             }
             return jSONObject;

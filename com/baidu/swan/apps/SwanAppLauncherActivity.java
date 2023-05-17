@@ -7,25 +7,25 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
 import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.ol3;
-import com.baidu.tieba.rl3;
-import com.baidu.tieba.w73;
-import com.baidu.tieba.wk3;
-import com.baidu.tieba.y23;
+import com.baidu.tieba.an3;
+import com.baidu.tieba.f93;
+import com.baidu.tieba.fm3;
+import com.baidu.tieba.h43;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.xm3;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppLauncherActivity extends Activity {
-    public static final boolean b = ho1.a;
+    public static final boolean b = qp1.a;
     public Object a;
 
-    /* loaded from: classes3.dex */
-    public class a implements y23.b {
+    /* loaded from: classes4.dex */
+    public class a implements h43.b {
         public a() {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -37,13 +37,13 @@ public class SwanAppLauncherActivity extends Activity {
     }
 
     @Inject(force = false)
-    public y23 a() {
-        return y23.a;
+    public h43 a() {
+        return h43.a;
     }
 
     public final void b() {
         SwanLauncher.j().m(getIntent().getExtras());
-        w73.M().post(new b());
+        f93.M().post(new b());
     }
 
     @Override // android.app.Activity
@@ -62,14 +62,14 @@ public class SwanAppLauncherActivity extends Activity {
     @DebugTrace
     public void onCreate(Bundle bundle) {
         String str;
-        int c0 = rl3.c0(this);
+        int c0 = an3.c0(this);
         super.onCreate(bundle);
-        rl3.g(this, c0);
-        ol3.b(this);
+        an3.g(this, c0);
+        xm3.b(this);
         if (b) {
             Log.d("SwanAppLauncherActivity", "onCreate");
         }
-        if (wk3.a(this)) {
+        if (fm3.a(this)) {
             return;
         }
         if (getIntent() != null) {

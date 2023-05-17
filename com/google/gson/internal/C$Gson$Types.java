@@ -16,12 +16,12 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class C$Gson$Types {
     public static final Type[] EMPTY_TYPE_ARRAY = new Type[0];
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         public static final long serialVersionUID = 0;
         public final Type componentType;
@@ -52,7 +52,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         public static final long serialVersionUID = 0;
         public final Type ownerType;
@@ -138,7 +138,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class WildcardTypeImpl implements WildcardType, Serializable {
         public static final long serialVersionUID = 0;
         public final Type lowerBound;

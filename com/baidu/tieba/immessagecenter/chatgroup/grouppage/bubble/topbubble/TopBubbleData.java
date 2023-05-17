@@ -3,7 +3,7 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TopBubbleData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXCELLENT = "excellent";
@@ -85,7 +85,7 @@ public class TopBubbleData extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return gg.g(this.msgId, 0L);
+            return pg.g(this.msgId, 0L);
         }
         return invokeV.longValue;
     }

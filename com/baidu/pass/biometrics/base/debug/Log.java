@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base.debug;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Log {
     public static final String a = "SAPI_BIOMETRIC";
     public static boolean b;

@@ -1,5 +1,5 @@
 package com.baidu.swan.game.ad.downloader.model;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum DownloadState {
     NOT_START(0),
     DOWNLOADING(1),

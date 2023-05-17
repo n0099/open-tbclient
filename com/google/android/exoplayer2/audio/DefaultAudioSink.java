@@ -26,7 +26,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultAudioSink implements AudioSink {
     public static final int BUFFER_MULTIPLICATION_FACTOR = 4;
     public static final int ERROR_BAD_VALUE = -2;
@@ -114,7 +114,7 @@ public final class DefaultAudioSink implements AudioSink {
     public long writtenEncodedFrames;
     public long writtenPcmBytes;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AudioTrackUtil {
         public static final long FORCE_RESET_WORKAROUND_TIMEOUT_MS = 200;
         public AudioTrack audioTrack;
@@ -214,7 +214,7 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @TargetApi(19)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AudioTrackUtilV19 extends AudioTrackUtil {
         public final AudioTimestamp audioTimestamp;
         public long lastRawTimestampFramePosition;
@@ -259,14 +259,14 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InvalidAudioTrackTimestampException extends RuntimeException {
         public InvalidAudioTrackTimestampException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class PlaybackParametersCheckpoint {
         public final long mediaTimeUs;
         public final PlaybackParameters playbackParameters;

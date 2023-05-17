@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.aw4;
+import com.baidu.tieba.jx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NightResourceStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class NightResourceStatic {
                     i = -927;
                 }
                 String packageName = BdBaseApplication.getInst().getPackageName();
-                if (aw4.c().contains("-Night")) {
+                if (jx4.c().contains("-Night")) {
                     packageName = NightPluginManager.getInstance().getNightPluginPackageName(i);
                     if (!NightPluginManager.getInstance().isInvokePlugin()) {
                         TbadkCoreApplication.getInst().setSkinType(0);

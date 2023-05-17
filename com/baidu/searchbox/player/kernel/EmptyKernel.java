@@ -11,7 +11,7 @@ import com.baidu.searchbox.player.model.VideoUrlModel;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EmptyKernel extends AbsVideoKernel {
     public static final String TAG = "EmptyKernel";
 

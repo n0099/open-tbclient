@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends Dialog {
     public TextView a;
     public TextView b;
@@ -23,18 +23,18 @@ public class d extends Dialog {
     public String i;
 
     public int a() {
-        return R.layout.obfuscated_res_0x7f0d0923;
+        return R.layout.obfuscated_res_0x7f0d0957;
     }
 
     public int b() {
-        return R.id.obfuscated_res_0x7f09076e;
+        return R.id.obfuscated_res_0x7f09078b;
     }
 
     public int c() {
-        return R.id.obfuscated_res_0x7f09051a;
+        return R.id.obfuscated_res_0x7f090531;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public Activity a;
         public String b;
@@ -78,7 +78,7 @@ public class d extends Dialog {
     }
 
     public d(@NonNull Activity activity, String str, String str2, String str3, boolean z, @NonNull c cVar) {
-        super(activity, R.style.obfuscated_res_0x7f10042c);
+        super(activity, R.style.obfuscated_res_0x7f10043f);
         this.f = activity;
         this.d = cVar;
         this.g = str;
@@ -100,7 +100,7 @@ public class d extends Dialog {
         setContentView(LayoutInflater.from(this.f.getApplicationContext()).inflate(a(), (ViewGroup) null));
         this.a = (TextView) findViewById(b());
         this.b = (TextView) findViewById(c());
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916b4);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916f8);
         if (!TextUtils.isEmpty(this.h)) {
             this.a.setText(this.h);
         }

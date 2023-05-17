@@ -16,11 +16,11 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.slidingtag.NadRewardSlidingTagView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kq0;
-import com.baidu.tieba.nq0;
-import com.baidu.tieba.rc1;
-import com.baidu.tieba.vp0;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.ar0;
+import com.baidu.tieba.dr0;
+import com.baidu.tieba.hd1;
+import com.baidu.tieba.lq0;
+/* loaded from: classes3.dex */
 public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     public LinearLayout A;
     public LottieAnimationView B;
@@ -33,7 +33,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         return R.layout.nad_reward_video_ad_over_layout;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public final /* synthetic */ AdBaseModel a;
 
@@ -51,7 +51,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements LottieListener<Throwable> {
         public final /* synthetic */ LottieAnimationView a;
 
@@ -67,7 +67,7 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements LottieListener<LottieComposition> {
         public final /* synthetic */ LottieAnimationView a;
 
@@ -92,18 +92,18 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void H(@NonNull AdBaseModel adBaseModel) {
-        kq0 kq0Var;
-        if (adBaseModel instanceof vp0) {
-            kq0Var = ((vp0) adBaseModel).i();
+        ar0 ar0Var;
+        if (adBaseModel instanceof lq0) {
+            ar0Var = ((lq0) adBaseModel).i();
         } else {
-            kq0Var = null;
+            ar0Var = null;
         }
-        if (kq0Var == null) {
+        if (ar0Var == null) {
             this.y.setVisibility(8);
             return;
         }
         this.y.setVisibility(0);
-        this.y.F(kq0Var);
+        this.y.F(ar0Var);
         this.y.setOnClickListener(s(adBaseModel, ClogBuilder.Area.REWARD_SLIDING_TAG.type));
     }
 
@@ -146,25 +146,25 @@ public class NadRewardVideoAdOverContainer extends NadVideoAdOverContainer {
     }
 
     public final void G(@NonNull AdBaseModel adBaseModel) {
-        nq0 nq0Var;
-        if (adBaseModel instanceof vp0) {
-            nq0Var = ((vp0) adBaseModel).g().m();
+        dr0 dr0Var;
+        if (adBaseModel instanceof lq0) {
+            dr0Var = ((lq0) adBaseModel).g().m();
         } else {
-            nq0Var = null;
+            dr0Var = null;
         }
-        if (nq0Var == null) {
+        if (dr0Var == null) {
             this.A.setVisibility(8);
             return;
         }
-        I(getContext(), this.C, nq0Var.b);
-        I(getContext(), this.B, nq0Var.a);
+        I(getContext(), this.C, dr0Var.b);
+        I(getContext(), this.B, dr0Var.a);
         this.A.setVisibility(0);
         z(ClogBuilder.LogType.FREE_SHOW, "packet", adBaseModel);
         this.A.setOnClickListener(new a(adBaseModel));
     }
 
     @NonNull
-    public rc1<View> getTransitionButtonView() {
+    public hd1<View> getTransitionButtonView() {
         return this.j;
     }
 

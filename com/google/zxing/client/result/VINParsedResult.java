@@ -1,7 +1,7 @@
 package com.google.zxing.client.result;
 
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class VINParsedResult extends ParsedResult {
     public final String countryCode;
     public final int modelYear;

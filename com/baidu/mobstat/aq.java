@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.KeyEvent;
 import android.view.View;
 import com.baidu.mobstat.MtjConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aq {
     public static void a(Activity activity, boolean z) {
         if (!z || ar.a().b() || as.a().b()) {

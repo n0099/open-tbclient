@@ -17,6 +17,7 @@ import com.baidu.android.pushservice.j;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.z.c;
 import com.baidu.android.pushservice.z.e;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -398,7 +399,7 @@ public class PublicMsg implements Parcelable {
                 sendResult(context, str2, i);
             }
             if (i == 0) {
-                Intent intent = new Intent("android.intent.action.VIEW");
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setData(Uri.parse(this.mUrl));
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 try {
@@ -438,7 +439,7 @@ public class PublicMsg implements Parcelable {
                     Utility.c(context, intent, "com.baidu.android.pushservice.action.notification.CLICK", this.mPkgName);
                     if (this.mOpenType == 1 && this.mUrl != null) {
                         Intent intent2 = new Intent();
-                        intent2.setAction("android.intent.action.VIEW");
+                        intent2.setAction(IntentConstants.ACTION_BOX_BROWSER);
                         intent2.setData(Uri.parse(this.mUrl));
                         intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         context.startActivity(intent2);

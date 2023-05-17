@@ -14,7 +14,7 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class VideoFrameReleaseTimeHelper {
     public static final long CHOREOGRAPHER_SAMPLE_DELAY_MILLIS = 500;
     public static final long MAX_ALLOWED_DRIFT_NS = 20000000;
@@ -34,7 +34,7 @@ public final class VideoFrameReleaseTimeHelper {
     public final WindowManager windowManager;
 
     @TargetApi(17)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public final class DefaultDisplayListener implements DisplayManager.DisplayListener {
         public final DisplayManager displayManager;
 
@@ -67,7 +67,7 @@ public final class VideoFrameReleaseTimeHelper {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class VSyncSampler implements Choreographer.FrameCallback, Handler.Callback {
         public static final int CREATE_CHOREOGRAPHER = 0;
         public static final VSyncSampler INSTANCE = new VSyncSampler();

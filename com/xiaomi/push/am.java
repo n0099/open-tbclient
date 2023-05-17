@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class am {
     public int a;
 
@@ -21,7 +21,7 @@ public class am {
     public volatile boolean f106a;
     public final boolean b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Thread {
 
         /* renamed from: a  reason: collision with other field name */
@@ -69,7 +69,7 @@ public class am {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b {
         public void a() {
         }
@@ -77,7 +77,7 @@ public class am {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo280c() {
+        public void mo299c() {
         }
     }
 

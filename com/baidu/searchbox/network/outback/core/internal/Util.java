@@ -6,6 +6,7 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.network.outback.core.HttpUrl;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.RequestBody;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.google.android.material.slider.BasicLabelFormatter;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.Closeable;
@@ -28,7 +29,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Util {
     public static final byte[] EMPTY_BYTE_ARRAY;
     public static final RequestBody EMPTY_REQUEST;
@@ -499,7 +500,7 @@ public final class Util {
             }
             z = true;
         }
-        if (j < 100000000) {
+        if (j < CoolPraiseView.BILLION) {
             if (j < 10000) {
                 if (j < 100) {
                     if (j >= 10) {

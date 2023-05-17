@@ -1,127 +1,179 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
-/* loaded from: classes4.dex */
-public class i6b<T> implements j5b.a<T> {
+import java.nio.ByteBuffer;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
+import org.java_websocket.framing.Framedata;
+/* loaded from: classes5.dex */
+public class i6b extends k6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k5b<? super T> a;
-    public final j5b<T> b;
+    public int h;
+    public String i;
 
-    /* loaded from: classes4.dex */
-    public static final class a<T> extends p5b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final p5b<? super T> e;
-        public final k5b<? super T> f;
-        public boolean g;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(p5b<? super T> p5bVar, k5b<? super T> k5bVar) {
-            super(p5bVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p5bVar, k5bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((p5b) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = p5bVar;
-            this.f = k5bVar;
-        }
-
-        @Override // com.baidu.tieba.k5b
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.g) {
-                return;
-            }
-            try {
-                this.f.onCompleted();
-                this.g = true;
-                this.e.onCompleted();
-            } catch (Throwable th) {
-                v5b.f(th, this);
-            }
-        }
-
-        @Override // com.baidu.tieba.k5b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.g) {
-                    s9b.j(th);
-                    return;
-                }
-                this.g = true;
-                try {
-                    this.f.onError(th);
-                    this.e.onError(th);
-                } catch (Throwable th2) {
-                    v5b.e(th2);
-                    this.e.onError(new CompositeException(Arrays.asList(th, th2)));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.k5b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.g) {
-                return;
-            }
-            try {
-                this.f.onNext(t);
-                this.e.onNext(t);
-            } catch (Throwable th) {
-                v5b.g(th, this, t);
-            }
-        }
-    }
-
-    public i6b(j5b<T> j5bVar, k5b<? super T> k5bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i6b() {
+        super(Framedata.Opcode.CLOSING);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j5bVar, k5bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = j5bVar;
-        this.a = k5bVar;
+        r("");
+        q(1000);
     }
 
-    public void call(p5b<? super T> p5bVar) {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, p5bVar) == null) {
-            this.b.D(new a(p5bVar, this.a));
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            byte[] f = d7b.f(this.i);
+            ByteBuffer allocate = ByteBuffer.allocate(4);
+            allocate.putInt(this.h);
+            allocate.position(2);
+            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
+            allocate2.put(allocate);
+            allocate2.put(f);
+            allocate2.rewind();
+            super.j(allocate2);
         }
     }
 
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((p5b) ((p5b) obj));
+    @Override // com.baidu.tieba.m6b, org.java_websocket.framing.Framedata
+    public ByteBuffer a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == 1005) {
+                return c7b.a();
+            }
+            return super.a();
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m6b
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return super.toString() + "code: " + this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k6b, com.baidu.tieba.m6b
+    public void h() throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.h();
+            if (this.h == 1007 && this.i == null) {
+                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+            }
+            if (this.h == 1005 && this.i.length() > 0) {
+                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
+            }
+            int i = this.h;
+            if (i > 1015 && i < 3000) {
+                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
+            }
+            int i2 = this.h;
+            if (i2 != 1006 && i2 != 1015 && i2 != 1005 && i2 <= 4999 && i2 >= 1000 && i2 != 1004) {
+                return;
+            }
+            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.m6b
+    public void j(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+            this.h = 1005;
+            this.i = "";
+            byteBuffer.mark();
+            if (byteBuffer.remaining() == 0) {
+                this.h = 1000;
+            } else if (byteBuffer.remaining() == 1) {
+                this.h = 1002;
+            } else {
+                if (byteBuffer.remaining() >= 2) {
+                    ByteBuffer allocate = ByteBuffer.allocate(4);
+                    allocate.position(2);
+                    allocate.putShort(byteBuffer.getShort());
+                    allocate.position(0);
+                    this.h = allocate.getInt();
+                }
+                byteBuffer.reset();
+                try {
+                    int position = byteBuffer.position();
+                    try {
+                        byteBuffer.position(byteBuffer.position() + 2);
+                        this.i = d7b.e(byteBuffer);
+                        byteBuffer.position(position);
+                    } catch (IllegalArgumentException unused) {
+                        throw new InvalidDataException(1007);
+                    }
+                } catch (InvalidDataException unused2) {
+                    this.h = 1007;
+                    this.i = null;
+                }
+            }
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.h = i;
+            if (i == 1015) {
+                this.h = 1005;
+                this.i = "";
+            }
+            s();
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (str == null) {
+                str = "";
+            }
+            this.i = str;
+            s();
+        }
     }
 }

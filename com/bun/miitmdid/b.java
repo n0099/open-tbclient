@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.interfaces.IIdConfig;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b implements IIdConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class b implements IIdConfig {
     public a a;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

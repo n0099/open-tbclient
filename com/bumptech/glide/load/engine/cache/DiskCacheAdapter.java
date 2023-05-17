@@ -3,7 +3,7 @@ package com.bumptech.glide.load.engine.cache;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.cache.DiskCache;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DiskCacheAdapter implements DiskCache {
     @Override // com.bumptech.glide.load.engine.cache.DiskCache
     public void clear() {
@@ -22,7 +22,7 @@ public class DiskCacheAdapter implements DiskCache {
     public void put(Key key, DiskCache.Writer writer) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Factory implements DiskCache.Factory {
         @Override // com.bumptech.glide.load.engine.cache.DiskCache.Factory
         public DiskCache build() {

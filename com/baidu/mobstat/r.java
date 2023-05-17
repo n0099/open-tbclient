@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class r {
     public static String a;
     public static r b;

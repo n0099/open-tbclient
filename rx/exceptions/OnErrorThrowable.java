@@ -1,23 +1,23 @@
 package rx.exceptions;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.v5b;
-import com.baidu.tieba.v9b;
+import com.baidu.tieba.t7b;
+import com.baidu.tieba.ubb;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class OnErrorThrowable extends RuntimeException {
     public static final long serialVersionUID = -569558213262703934L;
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class OnNextValue extends RuntimeException {
         public static final long serialVersionUID = -3454462756050397899L;
         public final Object value;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class a {
             public static final Set<Class<?>> a = a();
 
@@ -60,7 +60,7 @@ public final class OnErrorThrowable extends RuntimeException {
             if (obj instanceof Enum) {
                 return ((Enum) obj).name();
             }
-            String b = v9b.c().b().b(obj);
+            String b = ubb.c().b().b(obj);
             if (b != null) {
                 return b;
             }
@@ -82,7 +82,7 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable b = v5b.b(th);
+        Throwable b = t7b.b(th);
         if (b instanceof OnNextValue) {
             return new OnErrorThrowable(th, ((OnNextValue) b).getValue());
         }
@@ -106,11 +106,11 @@ public final class OnErrorThrowable extends RuntimeException {
         if (th == null) {
             th = new NullPointerException();
         }
-        Throwable b = v5b.b(th);
+        Throwable b = t7b.b(th);
         if ((b instanceof OnNextValue) && ((OnNextValue) b).getValue() == obj) {
             return th;
         }
-        v5b.a(th, new OnNextValue(obj));
+        t7b.a(th, new OnNextValue(obj));
         return th;
     }
 

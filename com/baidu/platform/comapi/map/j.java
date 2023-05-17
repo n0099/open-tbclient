@@ -5,12 +5,13 @@ import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comapi.util.JsonBuilder;
+import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public abstract class j {
             } else if (i == 1) {
                 this.h.key("sgeo");
                 this.h.object();
-                this.h.key("bound").arrayValue();
+                this.h.key(IResourceProvider.PraiseLevelConfig.JSON_KEY_BOUND).arrayValue();
                 GeoPoint geoPoint = this.e;
                 if (geoPoint != null && this.f != null) {
                     this.h.value(geoPoint.getLongitude());

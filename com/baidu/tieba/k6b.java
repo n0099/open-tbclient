@@ -1,52 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.j5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public final class k6b<T, R> implements j5b.a<R> {
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
+import org.java_websocket.framing.Framedata;
+/* loaded from: classes6.dex */
+public abstract class k6b extends m6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j5b.a<T> a;
-    public final j5b.b<? extends R, ? super T> b;
 
-    public k6b(j5b.a<T> aVar, j5b.b<? extends R, ? super T> bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k6b(Framedata.Opcode opcode) {
+        super(opcode);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
     }
 
-    public void call(p5b<? super R> p5bVar) {
+    @Override // com.baidu.tieba.m6b
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, p5bVar) == null) {
-            try {
-                p5b p5bVar2 = (p5b) s9b.n(this.b).call(p5bVar);
-                p5bVar2.d();
-                this.a.call(p5bVar2);
-            } catch (Throwable th) {
-                v5b.e(th);
-                p5bVar.onError(th);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (f()) {
+                if (!b()) {
+                    if (!c()) {
+                        if (!e()) {
+                            return;
+                        }
+                        throw new InvalidFrameException("Control frame cant have rsv3==true set");
+                    }
+                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
+                }
+                throw new InvalidFrameException("Control frame cant have rsv1==true set");
             }
+            throw new InvalidFrameException("Control frame cant have fin==false set");
         }
-    }
-
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((p5b) ((p5b) obj));
     }
 }

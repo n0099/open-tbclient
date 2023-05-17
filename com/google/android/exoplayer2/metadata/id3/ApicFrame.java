@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ApicFrame extends Id3Frame {
     public static final Parcelable.Creator<ApicFrame> CREATOR = new Parcelable.Creator<ApicFrame>() { // from class: com.google.android.exoplayer2.metadata.id3.ApicFrame.1
         /* JADX DEBUG: Method merged with bridge method */

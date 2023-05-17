@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoFullscreenButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,11 +87,11 @@ public class VideoFullscreenButton extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0952, (ViewGroup) this, true);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d3e);
-            WebPManager.setPureDrawable((ImageView) findViewById(R.id.obfuscated_res_0x7f090d3d), R.drawable.obfuscated_res_0x7f080ac1, R.color.CAM_X0101, null);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0986, (ViewGroup) this, true);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090d69);
+            WebPManager.setPureDrawable((ImageView) findViewById(R.id.obfuscated_res_0x7f090d68), R.drawable.obfuscated_res_0x7f080be8, R.color.CAM_X0101, null);
             eMTextView.setTextColor(SkinManager.getColor(R.color.CAM_X0102));
-            eMTextView.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1662));
+            eMTextView.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1750));
             eMTextView.setGravity(17);
         }
     }

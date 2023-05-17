@@ -1,177 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aw1;
-import com.baidu.tieba.b73;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class sw1 extends qw1 {
+/* loaded from: classes7.dex */
+public class sw1 extends u82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
+    @Override // com.baidu.tieba.u82, com.baidu.tieba.m82
+    public boolean f2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ModalApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements aw1.a {
+    /* loaded from: classes7.dex */
+    public class a extends ra2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sw1 a;
-
-        /* renamed from: com.baidu.tieba.sw1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0431a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ x73 a;
-            public final /* synthetic */ JSONObject b;
-            public final /* synthetic */ String c;
-            public final /* synthetic */ String d;
-            public final /* synthetic */ a e;
-
-            /* renamed from: com.baidu.tieba.sw1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class DialogInterface$OnClickListenerC0432a implements DialogInterface.OnClickListener {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RunnableC0431a a;
-
-                public DialogInterface$OnClickListenerC0432a(RunnableC0431a runnableC0431a) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0431a};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = runnableC0431a;
-                }
-
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("type", "cancel");
-                            RunnableC0431a runnableC0431a = this.a;
-                            runnableC0431a.e.a.d(runnableC0431a.c, new xz1(0, jSONObject));
-                        } catch (JSONException unused) {
-                            RunnableC0431a runnableC0431a2 = this.a;
-                            runnableC0431a2.e.a.d(runnableC0431a2.c, new xz1(201));
-                        }
-                    }
-                }
-            }
-
-            /* renamed from: com.baidu.tieba.sw1$a$a$b */
-            /* loaded from: classes6.dex */
-            public class b implements DialogInterface.OnClickListener {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ RunnableC0431a a;
-
-                public b(RunnableC0431a runnableC0431a) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0431a};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = runnableC0431a;
-                }
-
-                @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("type", "confirm");
-                            RunnableC0431a runnableC0431a = this.a;
-                            runnableC0431a.e.a.d(runnableC0431a.c, new xz1(0, jSONObject));
-                        } catch (JSONException unused) {
-                            RunnableC0431a runnableC0431a2 = this.a;
-                            runnableC0431a2.e.a.d(runnableC0431a2.c, new xz1(201));
-                        }
-                    }
-                }
-            }
-
-            public RunnableC0431a(a aVar, x73 x73Var, JSONObject jSONObject, String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, x73Var, jSONObject, str, str2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.e = aVar;
-                this.a = x73Var;
-                this.b = jSONObject;
-                this.c = str;
-                this.d = str2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.w() != null && !this.a.w().isFinishing() && !this.a.w().isDestroyed()) {
-                    b73.a aVar = new b73.a(this.e.a.getContext());
-                    aVar.V(this.b.optString("title"));
-                    aVar.x(this.b.optString("content"));
-                    aVar.n(new fn3());
-                    aVar.m(false);
-                    if (this.b.optBoolean("showCancel", true)) {
-                        aVar.E(this.b.optString("cancelColor"), R.color.obfuscated_res_0x7f06032e);
-                        String optString = this.b.optString("cancelText");
-                        if (TextUtils.isEmpty(optString)) {
-                            optString = this.e.a.getContext().getString(R.string.obfuscated_res_0x7f0f0112);
-                        }
-                        aVar.C(optString, new DialogInterface$OnClickListenerC0432a(this));
-                    }
-                    aVar.R(this.b.optString("confirmColor"), R.color.obfuscated_res_0x7f06032f);
-                    aVar.P(this.d, new b(this));
-                    aVar.X();
-                }
-            }
-        }
+        public final /* synthetic */ sw1 c;
 
         public a(sw1 sw1Var) {
             Interceptable interceptable = $ic;
@@ -188,52 +50,140 @@ public class sw1 extends qw1 {
                     return;
                 }
             }
-            this.a = sw1Var;
+            this.c = sw1Var;
         }
 
-        @Override // com.baidu.tieba.aw1.a
-        public xz1 a(x73 x73Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.ra2, com.baidu.tieba.ua2
+        public boolean a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x73Var, jSONObject, str)) == null) {
-                String optString = jSONObject.optString("confirmText");
-                if (TextUtils.isEmpty(optString)) {
-                    optString = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f011a);
-                }
-                rl3.e0(new RunnableC0431a(this, x73Var, jSONObject, str, optString));
-                return xz1.f();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return super.a(str);
             }
-            return (xz1) invokeLLL.objValue;
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sw1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public sw1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public xz1 A(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u82, com.baidu.swan.support.v4.app.Fragment
+    public void A0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#showModal", false);
-            return l(str, true, new a(this));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            j3();
+            super.A0();
         }
-        return (xz1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.u82
+    public ua2 c3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new a(this);
+        }
+        return (ua2) invokeV.objValue;
+    }
+
+    public final void j3() {
+        sp1 d;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !SwanAppAllianceLoginHelper.d.c() && (d = SwanAppAllianceLoginHelper.d.d()) != null) {
+            d.onResult(-2);
+        }
+    }
+
+    @Override // com.baidu.tieba.u82
+    public pv1 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return ag2.U().f0().f(getContext());
+        }
+        return (pv1) invokeV.objValue;
+    }
+
+    public final int k3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (g2()) {
+                return 18;
+            }
+            return 12;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.u82, com.baidu.tieba.m82
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            nv1 nv1Var = this.H0;
+            if (nv1Var != null && nv1Var.canGoBack()) {
+                this.H0.goBack();
+                return true;
+            }
+            j3();
+            SwanAppAllianceLoginHelper.d.a(tw1.d(), tw1.a());
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u82
+    public void d3() {
+        FragmentActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
+            this.g0 = new nf4(activity, this.f0, k3(), ns2.K(), new po3());
+            new wy2(this.g0, this).z();
+        }
+    }
+
+    @Override // com.baidu.tieba.u82, com.baidu.tieba.m82
+    public void X1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            super.X1(view2);
+            this.f0.setRightZoneVisibility(true);
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.nv1] */
+    @Override // com.baidu.tieba.u82, com.baidu.swan.support.v4.app.Fragment
+    public View z0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e3, viewGroup, false);
+            X1(inflate);
+            pv1 k = k();
+            this.G0 = k;
+            k.Y(c3());
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.I0);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bb);
+            this.G0.j(frameLayout, this.H0.covertToView());
+            Z2(frameLayout);
+            if (W1()) {
+                return Z1(inflate);
+            }
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

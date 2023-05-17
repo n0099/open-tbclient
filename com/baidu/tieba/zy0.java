@@ -6,24 +6,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class zy0 {
+/* loaded from: classes8.dex */
+public class zy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public az0 a;
-    public xy0 b;
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
+    public lv0 a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
 
     public zy0() {
         Interceptable interceptable = $ic;
@@ -39,35 +33,83 @@ public final class zy0 {
         }
     }
 
-    public final xy0 a() {
-        InterceptResult invokeV;
+    public zy0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.f = str;
+            return this;
         }
-        return (xy0) invokeV.objValue;
+        return (zy0) invokeL.objValue;
     }
 
-    public final az0 b() {
-        InterceptResult invokeV;
+    public zy0 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.b = str;
+            return this;
         }
-        return (az0) invokeV.objValue;
+        return (zy0) invokeL.objValue;
     }
 
-    public final void c(xy0 xy0Var) {
+    public zy0 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xy0Var) == null) {
-            this.b = xy0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.c = str;
+            return this;
         }
+        return (zy0) invokeL.objValue;
     }
 
-    public final void f(az0 az0Var) {
+    public zy0 d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, az0Var) == null) {
-            this.a = az0Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.d = str;
+            return this;
         }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.h = str;
+            return this;
+        }
+        return (zy0) invokeL.objValue;
+    }
+
+    public zy0 h(lv0 lv0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, lv0Var)) == null) {
+            this.a = lv0Var;
+            return this;
+        }
+        return (zy0) invokeL.objValue;
     }
 }

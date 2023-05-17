@@ -1,54 +1,72 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.card.AutoVideoCardViewHolder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class ex {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 3;
-    public static int c = 6;
-    public static int d = 7;
-    public static int e = 1;
-    public static int f = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303962, "Lcom/baidu/tieba/ex;")) == null) {
-            return;
+    public static Rect a(xn xnVar, View view2, int i) {
+        InterceptResult invokeLLI;
+        BdTypeRecyclerView bdTypeRecyclerView;
+        RecyclerView.LayoutManager layoutManager;
+        int i2;
+        View findViewByPosition;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, xnVar, view2, i)) == null) {
+            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).t().getVideoContainer());
+            }
+            if (!(xnVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) xnVar).getLayoutManager()) == null) {
+                return null;
+            }
+            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
+            List<rn> data = xnVar.getData();
+            Object item = ListUtils.getItem(data, i);
+            if (!(item instanceof BaseCardInfo)) {
+                return null;
+            }
+            BaseCardInfo baseCardInfo = (BaseCardInfo) item;
+            int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+            if (firstVisiblePosition > headerViewsCount) {
+                i2 = firstVisiblePosition - headerViewsCount;
+            } else {
+                i2 = headerViewsCount;
+            }
+            while (i2 <= lastVisiblePosition) {
+                Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
+                if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
+                    return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).t().getVideoContainer());
+                }
+                i2++;
+            }
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448303962, "Lcom/baidu/tieba/ex;");
-        }
+        return (Rect) invokeLLI.objValue;
     }
 
-    public static void a(int i, String str, int i2, int i3, String str2, String str3) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
-            statisticItem.param("obj_type", i);
-            statisticItem.param("tid", str);
-            statisticItem.param("obj_locate", i2);
-            statisticItem.param("obj_source", i3);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str3);
-            if (i3 == e) {
-                statisticItem.param("obj_name", str2);
-            }
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_mask_level_usergrouth_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
         }
+        return invokeI.intValue;
     }
 }

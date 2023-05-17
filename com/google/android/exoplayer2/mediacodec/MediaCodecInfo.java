@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MediaCodecInfo {
     public static final String TAG = "MediaCodecInfo";
     public final boolean adaptive;

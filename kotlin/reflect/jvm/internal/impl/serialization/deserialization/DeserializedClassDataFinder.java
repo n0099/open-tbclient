@@ -5,7 +5,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.PackageFragmentDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.PackageFragmentProvider;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DeserializedClassDataFinder implements ClassDataFinder {
     public final PackageFragmentProvider packageFragmentProvider;
 

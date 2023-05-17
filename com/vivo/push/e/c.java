@@ -6,7 +6,6 @@ import android.security.KeyPairGeneratorSpec;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +24,7 @@ import java.security.Signature;
 import java.security.UnrecoverableEntryException;
 import java.util.Calendar;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +121,7 @@ public final class c implements a {
                 calendar2.add(1, 999);
                 if (Build.VERSION.SDK_INT >= 18) {
                     KeyPairGeneratorSpec build = new KeyPairGeneratorSpec.Builder(context.getApplicationContext()).setAlias("PushRsaKeyAlias").setSubject(this.d).setSerialNumber(BigInteger.valueOf(1337L)).setStartDate(calendar.getTime()).setEndDate(calendar2.getTime()).build();
-                    KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
+                    KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
                     keyPairGenerator.initialize(build);
                     keyPairGenerator.generateKeyPair();
                 }

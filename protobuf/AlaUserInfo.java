@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AlaUserInfo extends Message {
     public static final Integer DEFAULT_ANCHORFANS;
     public static final Long DEFAULT_CHARMCOUNT;
@@ -79,7 +79,7 @@ public final class AlaUserInfo extends Message {
     public static final Integer DEFAULT_LIVESTATUS = 0;
     public static final Long DEFAULT_LIVEID = 0L;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<AlaUserInfo> {
         public Long alaId;
         public Integer anchorFans;

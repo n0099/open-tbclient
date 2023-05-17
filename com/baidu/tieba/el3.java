@@ -1,64 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-/* loaded from: classes4.dex */
-public class el3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class el3 implements zn3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public el3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            x73 M = x73.M();
-            if (M != null) {
-                return String.format(str, M.O(), M.V());
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
-            if (ho1.a) {
-                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            String b = b();
-            if (!TextUtils.isEmpty(b)) {
-                if (ho1.a) {
-                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
-                }
-                WebSettingsGlobalBlink.setRefererPattern(b, tq2.i());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zn3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            ns2.x0().a(hybridUbcFlow);
         }
-        return invokeL.booleanValue;
     }
 }

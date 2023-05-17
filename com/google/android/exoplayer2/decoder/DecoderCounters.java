@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.decoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DecoderCounters {
     public int decoderInitCount;
     public int decoderReleaseCount;

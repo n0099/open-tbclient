@@ -1,59 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class sg {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class sg extends Handler {
     public static /* synthetic */ Interceptable $ic;
+    public static final sg a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316889, "Lcom/baidu/tieba/sg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (BdNetTypeUtil.isWifiNet()) {
-                return "WIFI";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316889, "Lcom/baidu/tieba/sg;");
+                return;
             }
-            if (BdNetTypeUtil.isMobileNet()) {
-                int curOperatorType = BdNetTypeUtil.curOperatorType();
-                StringBuilder sb = new StringBuilder();
-                if (curOperatorType != 1) {
-                    if (curOperatorType != 2) {
-                        if (curOperatorType != 3) {
-                            sb.append('N');
-                        } else {
-                            sb.append('T');
-                        }
-                    } else {
-                        sb.append('U');
-                    }
-                } else {
-                    sb.append('M');
-                }
-                if (BdNetTypeUtil.isWap()) {
-                    sb.append("_WAP_");
-                } else {
-                    sb.append("_NET_");
-                }
-                if (BdNetTypeUtil.is3GNet()) {
-                    sb.append("3G");
-                } else if (BdNetTypeUtil.is4GNet()) {
-                    sb.append("4G");
-                } else if (BdNetTypeUtil.is2GNet()) {
-                    sb.append("2G");
-                } else {
-                    sb.append('N');
-                }
-                return sb.toString();
-            }
-            return "unknown";
         }
-        return (String) invokeL.objValue;
+        a = new sg();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sg() {
+        super(Looper.getMainLooper());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static final sg a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (sg) invokeV.objValue;
     }
 }

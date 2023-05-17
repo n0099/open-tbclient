@@ -2,7 +2,7 @@ package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 
 import android.database.Cursor;
 import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BlockInfoRow {
     public final int breakpointId;
     public final long contentLength;

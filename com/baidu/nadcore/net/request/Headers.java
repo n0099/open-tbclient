@@ -1,24 +1,24 @@
 package com.baidu.nadcore.net.request;
 
 import androidx.annotation.Nullable;
-import com.baidu.tieba.wf0;
-import com.baidu.tieba.y01;
+import com.baidu.tieba.mg0;
+import com.baidu.tieba.o11;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Headers {
     public final String[] a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class IllegalUnicodeException extends Exception {
         public IllegalUnicodeException(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public final List<String> a = new ArrayList(20);
 
@@ -33,7 +33,7 @@ public final class Headers {
                 b(str, str2);
                 return this;
             } catch (Exception e) {
-                if (!wf0.a) {
+                if (!mg0.a) {
                     return this;
                 }
                 throw new IllegalStateException(e);
@@ -41,8 +41,8 @@ public final class Headers {
         }
 
         public a b(String str, String str2) {
-            y01.b(this.a, str);
-            y01.b(this.a, str2.trim());
+            o11.b(this.a, str);
+            o11.b(this.a, str2.trim());
             return this;
         }
 
@@ -59,10 +59,10 @@ public final class Headers {
 
         public a d(String str) {
             int i = 0;
-            while (i < y01.l(this.a)) {
-                if (str.equalsIgnoreCase((String) y01.d(this.a, i))) {
-                    y01.i(this.a, i);
-                    y01.i(this.a, i);
+            while (i < o11.l(this.a)) {
+                if (str.equalsIgnoreCase((String) o11.d(this.a, i))) {
+                    o11.i(this.a, i);
+                    o11.i(this.a, i);
                     i -= 2;
                 }
                 i += 2;
@@ -73,7 +73,7 @@ public final class Headers {
 
     public Headers(a aVar) {
         List<String> list = aVar.a;
-        this.a = (String[]) list.toArray(new String[y01.l(list)]);
+        this.a = (String[]) list.toArray(new String[o11.l(list)]);
     }
 
     @Nullable

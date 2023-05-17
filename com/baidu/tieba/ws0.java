@@ -1,79 +1,29 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface ws0 {
+    void a(int i);
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class ws0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
-    public final int d;
+    void onBufferEnd();
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof ws0) {
-                    ws0 ws0Var = (ws0) obj;
-                    return this.a == ws0Var.a && this.b == ws0Var.b && this.c == ws0Var.c && this.d == ws0Var.d;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void onBufferStart();
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.b) * 31) + this.c) * 31) + this.d : invokeV.intValue;
-    }
+    void onEnd(int i);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.b + ", tokenCode=" + this.c + ", modeCode=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
+    void onError(int i, int i2, String str);
 
-    public ws0(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = i4;
-    }
+    void onInfo(int i, int i2);
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
+    void onPause();
+
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

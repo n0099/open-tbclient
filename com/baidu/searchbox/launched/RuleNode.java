@@ -1,7 +1,7 @@
 package com.baidu.searchbox.launched;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RuleNode {
     public List<RuleNode> mChildParts;
     public String mName;

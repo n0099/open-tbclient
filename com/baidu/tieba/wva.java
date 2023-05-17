@@ -1,93 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
-public abstract class wva {
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class wva extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public long b;
-    public Runnable c;
 
-    public abstract void b();
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wva a;
-
-        public a(wva wvaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wvaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wvaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                if (this.a.a.get()) {
-                    awa.a().postDelayed(this.a.c, this.a.b);
-                }
-            }
-        }
-    }
-
-    public wva(long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wva(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
-        this.c = new a(this);
-        this.b = 0 == j ? 300L : j;
     }
 
-    public void c() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.get()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("b");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                    return null;
+                }
+                return bwa.a(adInfo);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-        this.a.set(true);
-        awa.a().removeCallbacks(this.c);
-        awa.a().postDelayed(this.c, yva.e().i());
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.a.get()) {
-            return;
-        }
-        this.a.set(false);
-        awa.a().removeCallbacks(this.c);
+        return (RippedAd) invokeL.objValue;
     }
 }

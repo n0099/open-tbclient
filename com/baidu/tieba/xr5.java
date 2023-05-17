@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatusbarColorUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.RemoveViewNPE;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,77 +15,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xr5 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class xr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
+    public static final xr5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Activity a;
-    @Nullable
-    public Boolean b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948309998, "Lcom/baidu/tieba/xr5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948309998, "Lcom/baidu/tieba/xr5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948309998, "Lcom/baidu/tieba/xr5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948309998, "Lcom/baidu/tieba/xr5;");
-        }
+        a = new xr5();
     }
 
-    public xr5(@NonNull Activity activity) {
+    public xr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = activity;
     }
 
-    public void a(boolean z) {
+    @JvmStatic
+    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
+        cs5 cs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.b = Boolean.valueOf(z);
-            StatusbarColorUtils.setStatusBarDarkIcon(this.a, z);
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || c) {
-            return;
-        }
-        if (z) {
-            Boolean bool = this.b;
-            if (bool != null) {
-                a(bool.booleanValue());
-                return;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
+            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
+            Intrinsics.checkNotNullParameter(e, "e");
+            View childAt = viewGroup.getChildAt(i);
+            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
+            if (childAt instanceof ViewGroup) {
+                cs5Var = a.b((ViewGroup) childAt);
+            } else {
+                cs5Var = null;
             }
-            return;
+            if (cs5Var != null) {
+                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + cs5Var.b().getClass().getSimpleName() + ", id: " + cs5Var.b().getId() + "], child index is: " + cs5Var.a();
+                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
+                BdLog.detailException(initCause);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
+                initCause.printStackTrace();
+            }
         }
-        StatusbarColorUtils.setStatusBarDarkIcon(this.a, !UtilHelper.isNightOrDarkMode());
     }
 
-    public void c(boolean z) {
+    public final cs5 b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            c = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    b((ViewGroup) childAt);
+                } else if (childAt == null) {
+                    return new cs5(viewGroup, i);
+                }
+            }
+            return null;
         }
+        return (cs5) invokeL.objValue;
     }
 }

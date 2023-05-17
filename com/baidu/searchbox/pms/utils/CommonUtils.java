@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CommonUtils {
     public static final int CLEAR_INTERVAL_MIN_LIMIT = 604800000;
     public static final int DEFAULT_DELAY_TIME = 10000;

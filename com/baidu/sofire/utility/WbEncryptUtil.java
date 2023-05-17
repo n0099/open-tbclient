@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WbEncryptUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUF_LEN = 1024;

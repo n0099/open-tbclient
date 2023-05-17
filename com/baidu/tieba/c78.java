@@ -1,81 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatBannerViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatNameViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsJVMKt;
-import kotlin.collections.SetsKt__SetsKt;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public abstract class c78 {
+/* loaded from: classes5.dex */
+public class c78 implements g78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a78 a;
+    public i78 a;
 
-    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public c78() {
+    public c78(i78 i78Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i78Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i78Var;
     }
 
-    public Set<String> e() {
-        InterceptResult invokeV;
-        boolean z;
+    @Override // com.baidu.tieba.g78
+    @Nullable
+    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (d.length() == 0) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == 2) {
+                return new ChatItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c2, viewGroup, false), this.a);
             }
-            if (z) {
-                return SetsKt__SetsKt.emptySet();
+            if (i == 1) {
+                return new ChatNameViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c3, viewGroup, false));
             }
-            return SetsKt__SetsJVMKt.setOf(d);
+            if (i == 3) {
+                return new ChatBannerViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c0, viewGroup, false));
+            }
+            return null;
         }
-        return (Set) invokeV.objValue;
-    }
-
-    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            a78 a78Var = this.a;
-            if (a78Var != null) {
-                a78Var.b(abilityItem, baseMsg);
-            }
-        }
+        return (BaseItemViewHolder) invokeLI.objValue;
     }
 }

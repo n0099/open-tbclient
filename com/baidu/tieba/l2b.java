@@ -3,34 +3,62 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.SpriteEntity;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class l2b {
+import java.util.concurrent.Executor;
+/* loaded from: classes6.dex */
+public final class l2b<TResult> implements c2b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<m2b> b;
+    public d2b<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public l2b(SpriteEntity spriteEntity) {
-        List<m2b> emptyList;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g2b a;
+        public final /* synthetic */ l2b b;
+
+        public a(l2b l2bVar, g2b g2bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l2bVar, g2bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = l2bVar;
+            this.a = g2bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.b.c) {
+                    if (this.b.a != null) {
+                        this.b.a.onComplete(this.a);
+                    }
+                }
+            }
+        }
+    }
+
+    public l2b(Executor executor, d2b<TResult> d2bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spriteEntity};
+            Object[] objArr = {executor, d2bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,75 +68,26 @@ public final class l2b {
                 return;
             }
         }
-        this.a = spriteEntity.imageKey;
-        List<FrameEntity> list = spriteEntity.frames;
-        if (list != null) {
-            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            m2b m2bVar = null;
-            for (FrameEntity it : list) {
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                m2b m2bVar2 = new m2b(it);
-                if ((!m2bVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) m2bVar2.d())).e() && m2bVar != null) {
-                    m2bVar2.f(m2bVar.d());
-                }
-                emptyList.add(m2bVar2);
-                m2bVar = m2bVar2;
-            }
-        } else {
-            emptyList = CollectionsKt__CollectionsKt.emptyList();
-        }
-        this.b = emptyList;
+        this.c = new Object();
+        this.a = d2bVar;
+        this.b = executor;
     }
 
-    public l2b(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.c2b
+    public final void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                this.a = null;
             }
         }
-        this.a = jSONObject.optString("imageKey");
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                if (optJSONObject != null) {
-                    m2b m2bVar = new m2b(optJSONObject);
-                    if ((!m2bVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) m2bVar.d())).e() && arrayList.size() > 0) {
-                        m2bVar.f(((m2b) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
-                    }
-                    arrayList.add(m2bVar);
-                }
-            }
-        }
-        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
-    public final List<m2b> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.c2b
+    public final void onComplete(g2b<TResult> g2bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g2bVar) == null) {
+            this.b.execute(new a(this, g2bVar));
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tieba.us2;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class we3 extends ze3 {
+/* loaded from: classes8.dex */
+public final class we3 implements xe3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
 
     public we3() {
         Interceptable interceptable = $ic;
@@ -25,42 +22,34 @@ public class we3 extends ze3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = "";
     }
 
-    @Override // com.baidu.tieba.ze3
-    public JSONObject f() {
+    public static we3 a() {
         InterceptResult invokeV;
-        x73 D;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            if (TextUtils.isEmpty(this.k) && (D = kt2.U().D()) != null) {
-                us2.a Y = D.Y();
-                if (Y != null) {
-                    str = Y.T();
-                } else {
-                    str = "";
-                }
-                this.k = str;
-            }
-            try {
-                this.h.put("source", this.k);
-                String b = x13.b();
-                if (b != null) {
-                    this.h.put("launchid", b);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return super.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new we3();
         }
-        return (JSONObject) invokeV.objValue;
+        return (we3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xe3
+    @SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
+    public void load(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            System.load(str);
+        }
+    }
+
+    @Override // com.baidu.tieba.xe3
+    @SuppressLint({"BDSoLoader"})
+    public void loadLibrary(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            System.loadLibrary(str);
+        }
     }
 }

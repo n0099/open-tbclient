@@ -1,20 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public interface nw3 {
-    void a(String str, JSONObject jSONObject);
+import android.content.Context;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class nw3 implements us1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    public nw3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean c(View view2);
-
-    boolean d(View view2, hv3 hv3Var);
-
-    void e();
-
-    boolean f(View view2, hv3 hv3Var);
-
-    boolean removeView(View view2);
+    @Override // com.baidu.tieba.us1
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return context.getPackageName() + ".swan.fileprovider";
+        }
+        return (String) invokeL.objValue;
+    }
 }

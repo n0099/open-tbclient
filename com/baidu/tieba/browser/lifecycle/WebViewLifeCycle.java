@@ -1,7 +1,7 @@
 package com.baidu.tieba.browser.lifecycle;
 
 import androidx.lifecycle.LifecycleObserver;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public interface WebViewLifeCycle extends LifecycleObserver {
     void onDestroy();
 

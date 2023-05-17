@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aideviceperformance.inference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ModelLoadException extends Exception {
     public static final int ERR_MODEL_ONLOAD = -2;
     public static final int ERR_NO_MODEL = -1;

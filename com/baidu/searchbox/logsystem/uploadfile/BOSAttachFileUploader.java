@@ -12,7 +12,7 @@ import com.baidu.searchbox.logsystem.basic.upload.identity.LokiIdentityManager;
 import java.io.File;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BOSAttachFileUploader extends BaseAttachFileUploader {
     public static final String BIZ_CRASH = "crash";
 

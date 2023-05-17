@@ -35,6 +35,7 @@ import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleRes;
 import androidx.core.util.Preconditions;
 import androidx.core.view.ViewCompat;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tieba.R;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.google.android.material.animation.AnimationUtils;
@@ -46,7 +47,7 @@ import com.google.android.material.transition.platform.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaterialContainerTransform extends Transition {
     public static final float ELEVATION_NOT_SET = -1.0f;
     public static final int FADE_MODE_CROSS = 2;
@@ -108,23 +109,23 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface FitMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ProgressThresholds {
         @FloatRange(from = 0.0d, to = 1.0d)
         public final float end;
@@ -147,7 +148,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ProgressThresholdsGroup {
         @NonNull
         public final ProgressThresholds fade;
@@ -166,7 +167,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class TransitionDrawable extends Drawable {
         public static final int COMPAT_SHADOW_COLOR = -7829368;
         public static final int SHADOW_COLOR = 754974720;
@@ -464,7 +465,7 @@ public final class MaterialContainerTransform extends Transition {
                 drawDebugRect(canvas, this.currentStartBoundsMasked, -256);
                 drawDebugRect(canvas, this.currentStartBounds, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK);
                 drawDebugRect(canvas, this.currentEndBoundsMasked, -16711681);
-                drawDebugRect(canvas, this.currentEndBounds, -16776961);
+                drawDebugRect(canvas, this.currentEndBounds, BaseAnimatedElement.DEBUG_PAINT_COLOR);
             }
         }
     }
@@ -486,7 +487,7 @@ public final class MaterialContainerTransform extends Transition {
 
     @StyleRes
     public static int getTransitionShapeAppearanceResId(Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f040769});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0407b1});
         int resourceId = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
         return resourceId;
@@ -619,9 +620,9 @@ public final class MaterialContainerTransform extends Transition {
             transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
         } else if (view2 != null) {
             transitionValues.view = view2;
-        } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091724) instanceof View) {
-            transitionValues.view.setTag(R.id.obfuscated_res_0x7f091724, null);
-            transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091724);
+        } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091769) instanceof View) {
+            transitionValues.view.setTag(R.id.obfuscated_res_0x7f091769, null);
+            transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091769);
         }
         View view3 = transitionValues.view;
         if (ViewCompat.isLaidOut(view3) || view3.getWidth() != 0 || view3.getHeight() != 0) {
@@ -646,8 +647,8 @@ public final class MaterialContainerTransform extends Transition {
         if (shapeAppearanceModel != null) {
             return shapeAppearanceModel;
         }
-        if (view2.getTag(R.id.obfuscated_res_0x7f091724) instanceof ShapeAppearanceModel) {
-            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091724);
+        if (view2.getTag(R.id.obfuscated_res_0x7f091769) instanceof ShapeAppearanceModel) {
+            return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091769);
         }
         Context context = view2.getContext();
         int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);

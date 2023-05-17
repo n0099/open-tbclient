@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.am;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class gy {
     public static am a = new am(true, 20);
 

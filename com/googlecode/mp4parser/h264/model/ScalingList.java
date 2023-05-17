@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.h264.model;
 import com.googlecode.mp4parser.h264.read.CAVLCReader;
 import com.googlecode.mp4parser.h264.write.CAVLCWriter;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScalingList {
     public int[] scalingList;
     public boolean useDefaultScalingMatrixFlag;

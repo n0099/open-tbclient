@@ -5,7 +5,7 @@ import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements j {
     public static volatile c a;
     public List<j> b;

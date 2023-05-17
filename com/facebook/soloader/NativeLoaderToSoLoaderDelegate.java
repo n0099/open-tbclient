@@ -2,7 +2,7 @@ package com.facebook.soloader;
 
 import com.facebook.soloader.nativeloader.NativeLoaderDelegate;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeLoaderToSoLoaderDelegate implements NativeLoaderDelegate {
     @Override // com.facebook.soloader.nativeloader.NativeLoaderDelegate
     public int getSoSourcesVersion() {

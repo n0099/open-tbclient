@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.l96;
-import com.baidu.tieba.p77;
+import com.baidu.tieba.c97;
+import com.baidu.tieba.xa6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaPersonCenterActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,16 +60,16 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof p77)) {
+            if (!(data instanceof c97)) {
                 return;
             }
-            p77 p77Var = (p77) data;
-            l96 l96Var = new l96();
-            l96Var.i(p77Var.c());
-            l96Var.j(p77Var.d());
-            l96Var.h(p77Var.b());
-            l96Var.k(p77Var.e());
-            l96Var.g(p77Var);
+            c97 c97Var = (c97) data;
+            xa6 xa6Var = new xa6();
+            xa6Var.i(c97Var.c());
+            xa6Var.j(c97Var.d());
+            xa6Var.h(c97Var.b());
+            xa6Var.k(c97Var.e());
+            xa6Var.g(c97Var);
         }
     }
 

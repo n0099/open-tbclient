@@ -2,19 +2,19 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.tn8;
+import com.baidu.tieba.op8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetTCodeResMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVATION_CODE = "activation_code";
     public transient /* synthetic */ FieldHolder $fh;
-    public tn8 mData;
+    public op8 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTCodeResMessage(int i) {
@@ -46,18 +46,18 @@ public class GetTCodeResMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error != 0 || jSONObject == null) {
                 return;
             }
-            tn8 tn8Var = new tn8();
-            this.mData = tn8Var;
-            tn8Var.a(jSONObject);
+            op8 op8Var = new op8();
+            this.mData = op8Var;
+            op8Var.a(jSONObject);
         }
     }
 
-    public tn8 getTCodeInfo() {
+    public op8 getTCodeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (tn8) invokeV.objValue;
+        return (op8) invokeV.objValue;
     }
 }

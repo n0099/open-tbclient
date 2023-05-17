@@ -11,7 +11,7 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class p implements com.ss.android.socialbase.downloader.downloader.m {
     public final a a;
     public final com.ss.android.socialbase.downloader.downloader.j b;

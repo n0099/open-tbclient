@@ -6,7 +6,7 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeFieldDeclaration;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeFieldDeclaration {
     public Type genericType;
     public String name;

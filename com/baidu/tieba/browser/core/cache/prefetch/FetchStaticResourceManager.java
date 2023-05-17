@@ -2,11 +2,11 @@ package com.baidu.tieba.browser.core.cache.prefetch;
 
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.if6;
-import com.baidu.tieba.jf6;
-import com.baidu.tieba.kg6;
-import com.baidu.tieba.mg6;
-import com.baidu.tieba.qe6;
+import com.baidu.tieba.cg6;
+import com.baidu.tieba.ug6;
+import com.baidu.tieba.vg6;
+import com.baidu.tieba.wh6;
+import com.baidu.tieba.yh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FetchStaticResourceManager extends BdAsyncTask<String, Integer, List<String>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public final class FetchStaticResourceManager extends BdAsyncTask<String, Intege
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            Map<String, if6> e = jf6.c().e();
-            if (!mg6.b(e)) {
+            Map<String, ug6> e = vg6.c().e();
+            if (!yh6.b(e)) {
                 String[] strArr = new String[e.size()];
                 e.keySet().toArray(strArr);
                 d(strArr);
@@ -101,8 +101,8 @@ public final class FetchStaticResourceManager extends BdAsyncTask<String, Intege
                     }
                 };
                 for (String str : strArr) {
-                    kg6.b("lt-log", "预加载静态资源：" + str);
-                    qe6.g().b(str, str, hashMap);
+                    wh6.b("newHybrid", "预加载静态资源：" + str);
+                    cg6.g().b(str, str, hashMap);
                 }
                 return Arrays.asList(strArr);
             }

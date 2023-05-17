@@ -14,13 +14,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ec6;
+import com.baidu.tieba.qd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrameOverlayView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class FrameOverlayView extends View {
     public RectF k;
     public int l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
     }
 
@@ -47,7 +47,7 @@ public class FrameOverlayView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,8 +267,8 @@ public class FrameOverlayView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.i = new GestureDetector(getContext(), this.a);
-            this.d = ec6.a(18);
-            this.e = ec6.a(3);
+            this.d = qd6.a(18);
+            this.e = qd6.a(3);
         }
     }
 
@@ -428,7 +428,7 @@ public class FrameOverlayView extends View {
         if (interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) {
             super.onDraw(canvas);
             canvas.drawColor(this.f);
-            this.g.setStrokeWidth(ec6.a(1));
+            this.g.setStrokeWidth(qd6.a(1));
             canvas.drawRect(this.k, this.g);
             canvas.drawRect(this.k, this.h);
             b(canvas);

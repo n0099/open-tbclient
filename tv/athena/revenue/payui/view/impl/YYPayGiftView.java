@@ -13,11 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.feb;
-import com.baidu.tieba.kdb;
-import com.baidu.tieba.leb;
-import com.baidu.tieba.oeb;
-import com.baidu.tieba.xdb;
+import com.baidu.tieba.jgb;
+import com.baidu.tieba.nfb;
+import com.baidu.tieba.rgb;
+import com.baidu.tieba.wgb;
+import com.baidu.tieba.zfb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -25,34 +25,34 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.WindowParams;
-/* loaded from: classes9.dex */
-public class YYPayGiftView extends LinearLayout implements leb {
+/* loaded from: classes2.dex */
+public class YYPayGiftView extends LinearLayout implements rgb {
     public int a;
     public int b;
     public Button c;
     public GridView d;
     public View e;
     public TextView f;
-    public leb.a g;
+    public rgb.a g;
     public GiftBagsInfo h;
     public PayUIKitConfig i;
     public List<GiftBagItemInfo> j;
-    public oeb k;
+    public wgb k;
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public void refreshWindow(WindowParams windowParams) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -72,31 +72,31 @@ public class YYPayGiftView extends LinearLayout implements leb {
         this.b = i2;
         this.i = payUIKitConfig;
         c(context);
-        kdb.d(this.a, this.b, "17", "", "", "");
+        nfb.b(this.a, this.b, "17", "", "", "");
     }
 
-    @Override // com.baidu.tieba.leb
-    public void setCallback(leb.a aVar) {
+    @Override // com.baidu.tieba.rgb
+    public void setCallback(rgb.a aVar) {
         this.g = aVar;
     }
 
-    @Override // com.baidu.tieba.leb
+    @Override // com.baidu.tieba.rgb
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         RLog.info("YYPayGiftView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
         this.h = giftBagsInfo;
     }
 
     public final void c(Context context) {
-        LayoutInflater.from(new ContextThemeWrapper(context, feb.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(context, jgb.a.a(this.i))).inflate(R.layout.pay_ui_layout_pay_success_gift_view, (ViewGroup) this, true);
         Button button = (Button) findViewById(R.id.btn_know);
         this.c = button;
         button.setOnClickListener(new a());
         this.f = (TextView) findViewById(R.id.tv_title);
         this.e = findViewById(R.id.rl_container);
         this.d = (GridView) findViewById(R.id.grid_pay_gift);
-        oeb oebVar = new oeb(context, this.j, this.i);
-        this.k = oebVar;
-        this.d.setAdapter((ListAdapter) oebVar);
+        wgb wgbVar = new wgb(context, this.j, this.i);
+        this.k = wgbVar;
+        this.d.setAdapter((ListAdapter) wgbVar);
     }
 
     public final void e() {
@@ -111,7 +111,7 @@ public class YYPayGiftView extends LinearLayout implements leb {
         }
     }
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public void refreshView() {
         RLog.info("YYPayGiftView", "refreshView mGiftBagsInfo:" + this.h);
         GiftBagsInfo giftBagsInfo = this.h;
@@ -124,7 +124,7 @@ public class YYPayGiftView extends LinearLayout implements leb {
             this.j.clear();
             this.j.addAll(this.h.giftbag);
             this.k.notifyDataSetChanged();
-            xdb.a(this.j.size(), this.e, this.d);
+            zfb.a(this.j.size(), this.e, this.d);
             f();
             e();
             return;

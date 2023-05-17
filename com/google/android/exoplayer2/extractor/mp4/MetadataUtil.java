@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.extractor.mp4;
 
 import android.util.Log;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.coremedia.iso.boxes.GenreBox;
 import com.coremedia.iso.boxes.RatingBox;
 import com.google.android.exoplayer2.extractor.GaplessInfoHolder;
@@ -11,7 +12,7 @@ import com.google.android.exoplayer2.metadata.id3.Id3Frame;
 import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MetadataUtil {
     public static final String LANGUAGE_UNDEFINED = "und";
     public static final String TAG = "MetadataUtil";
@@ -63,9 +64,9 @@ public final class MetadataUtil {
         if (parsableByteArray.readInt() == Atom.TYPE_data) {
             int parseFullAtomFlags = Atom.parseFullAtomFlags(parsableByteArray.readInt());
             if (parseFullAtomFlags == 13) {
-                str = "image/jpeg";
+                str = WordCommandManager.IMAGE_JPEG;
             } else if (parseFullAtomFlags == 14) {
-                str = "image/png";
+                str = WordCommandManager.IMAGE_PNG;
             } else {
                 str = null;
             }

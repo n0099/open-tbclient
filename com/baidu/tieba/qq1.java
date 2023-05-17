@@ -1,37 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qq1 implements xs1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Intent;
+import android.view.View;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+/* loaded from: classes7.dex */
+public interface qq1 {
+    SwanCoreVersion m();
 
-    @Override // com.baidu.tieba.xs1
-    public boolean a(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    fm2 n(SwanAppActivity swanAppActivity, String str);
 
-    public qq1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    oc2 o(zn3<Exception> zn3Var);
+
+    void p(Intent intent);
+
+    View q(m82 m82Var);
+
+    void r(V8ExceptionInfo v8ExceptionInfo);
+
+    void release();
+
+    ExtensionCore s();
+
+    sj2 t();
+
+    int u(String str, long j);
+
+    void v(String str, boolean z);
 }

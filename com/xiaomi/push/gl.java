@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class gl extends gm {
     public boolean a;
     public String b;
@@ -108,8 +108,8 @@ public class gl extends gm {
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a */
-    public String mo450a() {
-        gq m451a;
+    public String mo469a() {
+        gq m470a;
         StringBuilder sb = new StringBuilder();
         sb.append("<message");
         if (p() != null) {
@@ -200,8 +200,8 @@ public class gl extends gm {
             sb.append(this.c);
             sb.append("</thread>");
         }
-        if ("error".equalsIgnoreCase(this.b) && (m451a = m451a()) != null) {
-            sb.append(m451a.m454a());
+        if ("error".equalsIgnoreCase(this.b) && (m470a = m470a()) != null) {
+            sb.append(m470a.m473a());
         }
         sb.append(o());
         sb.append("</message>");

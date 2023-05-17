@@ -1,7 +1,7 @@
 package com.baidu.sapi2.ecommerce.result;
 
 import com.baidu.pass.ecommerce.common.MapObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddrSelectorRequestParam extends MapObject {
     public static String KEY_CLIENT = "client";
     public static String KEY_CLIENTFROM = "clientfrom";

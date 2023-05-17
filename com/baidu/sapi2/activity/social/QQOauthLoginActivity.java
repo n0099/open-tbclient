@@ -14,14 +14,14 @@ import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.baidu.sapi2.a.a.a {
     public static final String p = "QQOauthLoginActivity";
     public static final String q = "QQ未安装";
     public IUiListener n;
     public ThirdLoginCallback o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements IUiListener {
         public final /* synthetic */ Tencent a;
         public final /* synthetic */ com.baidu.sapi2.a.a.a b;
@@ -61,7 +61,7 @@ public class QQOauthLoginActivity extends BaseSSOLoginActivity implements com.ba
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements IUiListener {
         public final /* synthetic */ com.baidu.sapi2.a.a.a a;
         public final /* synthetic */ Tencent b;

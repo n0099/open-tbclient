@@ -26,12 +26,12 @@ import com.baidu.searchbox.crius.util.ColorUtils;
 import com.baidu.searchbox.crius.util.CriusUtil;
 import com.baidu.searchbox.ui.UnifyTextView;
 import view.CriusTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RenderUtils {
     public static final int GRADIENT_COLORS_MIN_LENGTH = 2;
     public static final String PREFIX_HOLDER = "PREFIX";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PrefixLabelSpan extends ReplacementSpan {
         public float mLabelWidth;
 

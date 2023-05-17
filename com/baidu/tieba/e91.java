@@ -1,15 +1,32 @@
 package com.baidu.tieba;
 
-import android.webkit.HttpAuthHandler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class e91 extends z81 {
+/* loaded from: classes5.dex */
+public final class e91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final void a(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
 
     public e91() {
         Interceptable interceptable = $ic;
@@ -23,15 +40,5 @@ public final class e91 extends z81 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public final z81 b(HttpAuthHandler httpAuthHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpAuthHandler)) == null) {
-            a(httpAuthHandler);
-            return this;
-        }
-        return (z81) invokeL.objValue;
     }
 }

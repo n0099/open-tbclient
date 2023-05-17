@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cs5;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.uw8;
+import com.baidu.tieba.lt5;
+import com.baidu.tieba.py8;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int d;
@@ -34,8 +34,8 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageUrlData a;
-    public uw8.a b;
-    public uw8 c;
+    public py8.a b;
+    public py8 c;
 
     public abstract void e(boolean z);
 
@@ -47,13 +47,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class a implements uw8.a {
+    /* loaded from: classes4.dex */
+    public class a implements py8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView a;
 
-        @Override // com.baidu.tieba.uw8.a
+        @Override // com.baidu.tieba.py8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.uw8.a
+        @Override // com.baidu.tieba.py8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.a = absFloorImageTextView;
         }
 
-        @Override // com.baidu.tieba.uw8.a
+        @Override // com.baidu.tieba.py8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -103,13 +103,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends uw8 {
+    /* loaded from: classes4.dex */
+    public class b extends py8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView d;
 
-        @Override // com.baidu.tieba.uw8, android.view.GestureDetector.OnGestureListener
+        @Override // com.baidu.tieba.py8, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -119,7 +119,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // com.baidu.tieba.uw8, android.view.GestureDetector.OnGestureListener
+        @Override // com.baidu.tieba.py8, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(AbsFloorImageTextView absFloorImageTextView, uw8.a aVar) {
+        public b(AbsFloorImageTextView absFloorImageTextView, py8.a aVar) {
             super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -141,7 +141,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((uw8.a) newInitContext.callArgs[0]);
+                    super((py8.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -164,12 +164,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return;
             }
         }
-        d = ii.g(TbadkApplication.getInst(), R.dimen.tbds34);
-        e = ii.g(TbadkApplication.getInst(), R.dimen.tbds28);
-        f = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        g = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        h = (ii.l(TbadkApplication.getInst()) - f) - g;
-        i = ii.g(TbadkApplication.getInst(), R.dimen.tbds42);
+        d = ri.g(TbadkApplication.getInst(), R.dimen.tbds34);
+        e = ri.g(TbadkApplication.getInst(), R.dimen.tbds28);
+        f = ri.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        g = ri.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        h = (ri.l(TbadkApplication.getInst()) - f) - g;
+        i = ri.g(TbadkApplication.getInst(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -206,7 +206,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return cs5.i(str, i, h);
+            return lt5.i(str, i, h);
         }
         return (Pair) invokeL.objValue;
     }

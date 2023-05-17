@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SimpleFunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface AdditionalClassPartsProvider {
     Collection<ClassConstructorDescriptor> getConstructors(ClassDescriptor classDescriptor);
 
@@ -17,7 +17,7 @@ public interface AdditionalClassPartsProvider {
 
     Collection<KotlinType> getSupertypes(ClassDescriptor classDescriptor);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class None implements AdditionalClassPartsProvider {
         public static final None INSTANCE = new None();
 

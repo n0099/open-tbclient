@@ -7,7 +7,6 @@ import android.util.Log;
 import android.util.TypedValue;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -126,7 +125,7 @@ public class AssetHelper {
             return null;
         }
         try {
-            int fieldId = getFieldId(split[0], split[1].split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)[0]);
+            int fieldId = getFieldId(split[0], split[1].split("\\.")[0]);
             int valueType = getValueType(fieldId);
             if (valueType == 3) {
                 return handleSvgzStream(removeLeadingSlash, this.mContext.getResources().openRawResource(fieldId));

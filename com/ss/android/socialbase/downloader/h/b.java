@@ -9,7 +9,7 @@ import com.ss.android.socialbase.downloader.model.DownloadTask;
 import com.ss.android.socialbase.downloader.network.i;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements Runnable {
     public static final String a = b.class.getSimpleName();
     public com.ss.android.socialbase.downloader.model.b b;

@@ -1,48 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public interface da0 {
-    void a(Context context, String str);
+/* loaded from: classes5.dex */
+public class da0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static long a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context);
-
-    void c();
-
-    void d();
-
-    void e(Context context);
-
-    void f(Context context, int i);
-
-    void g(String str, String str2, RequestSearchData requestSearchData);
-
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(da0 da0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
-                }
-                da0Var.g(str, str2, requestSearchData);
-                return;
-            }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947697686, "Lcom/baidu/tieba/da0;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947697686, "Lcom/baidu/tieba/da0;");
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - a > 500) {
+                a = currentTimeMillis;
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

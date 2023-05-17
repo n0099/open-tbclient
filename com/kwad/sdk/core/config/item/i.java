@@ -4,11 +4,11 @@ import android.content.SharedPreferences;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i extends b<a> {
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int VD = 180000;
         public int VE = 90000;

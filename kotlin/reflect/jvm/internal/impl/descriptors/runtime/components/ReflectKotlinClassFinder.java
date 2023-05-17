@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.KotlinClassFinder;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.builtins.BuiltInSerializerProtocol;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectKotlinClassFinder implements KotlinClassFinder {
     public final ClassLoader classLoader;
 

@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
-import java.util.List;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-/* loaded from: classes5.dex */
-public interface kab {
-    void addLogDelegate(IRLogDelegate iRLogDelegate);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public final class kab {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
+    }
 
-    List<IRevenue> getAllRevenue();
-
-    IMiddleRevenue getMiddleRevenue(int i, int i2);
-
-    IRevenue getRevenue(int i, int i2);
-
-    lab getYYPayMiddleService(int i, int i2);
-
-    void removeRevenueConfig(int i, int i2);
-
-    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return 1 << (32 - Integer.numberOfLeadingZeros(i - 1));
+        }
+        return invokeI.intValue;
+    }
 }

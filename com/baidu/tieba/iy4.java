@@ -1,31 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONObject;
-import tbclient.FrsPage.Banner;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class iy4 {
     public static /* synthetic */ Interceptable $ic;
+    public static iy4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public float h;
-    public boolean i;
+    public Runnable a;
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ iy4 a;
+
+        public a(iy4 iy4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iy4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iy4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d(0);
+            }
+        }
+    }
 
     public iy4() {
         Interceptable interceptable = $ic;
@@ -40,131 +66,59 @@ public class iy4 {
                 return;
             }
         }
-        this.i = true;
+        this.a = new a(this);
     }
 
-    public int a() {
+    public static iy4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (iy4.class) {
+                    if (b == null) {
+                        b = new iy4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (iy4) invokeV.objValue;
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                return false;
-            }
-            int i = this.d;
-            if (i == 1) {
-                int i2 = this.a;
-                if (i2 != 1 && i2 != 4 && i2 != 2 && i2 != 3) {
-                    return false;
-                }
-                return true;
-            } else if (i != 2 || StringUtils.isNull(this.e)) {
-                return false;
-            } else {
+            if (RomTypeUtil.check("EMUI")) {
                 return true;
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void f(String str) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            String[] split = str.split(",");
-            if (split != null && split.length >= 2) {
-                int e = gg.e(split[0], 1);
-                int e2 = gg.e(split[1], 1);
-                if (e2 != 0) {
-                    this.h = e / e2;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (a() || DeviceInfoUtil.isHonor()) {
+                d(1);
+                sg.a().postDelayed(this.a, 500L);
             }
-        } catch (Exception e3) {
-            BdLog.e(e3.getMessage());
         }
     }
 
-    public void h(Banner banner) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, banner) != null) || banner == null) {
-            return;
-        }
-        this.a = banner.banner_type.intValue();
-        this.b = banner.banner_url;
-        this.c = banner.value;
-        this.d = banner.type.intValue();
-        this.e = banner.desc;
-        banner.template_id.intValue();
-        this.f = banner.obj_id;
-        String str = banner.tag_name;
-        this.g = banner.tag_name_url;
-        f(banner.tag_name_wh);
-    }
-
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optInt("bannerType");
-            this.b = jSONObject.optString("bannerUrl");
-            this.c = jSONObject.optString("value");
-            this.d = jSONObject.optInt("type");
-            this.e = jSONObject.optString("desc");
-            jSONObject.optInt("template_id");
-            this.f = jSONObject.optString("obj_id");
-            jSONObject.optString(PushConstants.SUB_TAGS_STATUS_NAME);
-            this.g = jSONObject.optString("tag_name_url");
-            f(jSONObject.optString("tag_name_wh"));
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            try {
+                Bundle bundle = new Bundle();
+                bundle.putString("package", "com.baidu.tieba");
+                bundle.putString("class", SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
+                bundle.putInt("badgenumber", i);
+                TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
+            } catch (Throwable th) {
+                Log.i("huawei_corner", th.getMessage());
+            }
         }
     }
 }

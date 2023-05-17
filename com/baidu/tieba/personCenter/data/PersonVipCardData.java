@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.Profile.VipBanner;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonVipCardData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static BdUniqueId PERSON_VIP_CARD_DATA;
@@ -100,7 +100,7 @@ public class PersonVipCardData extends BaseCardInfo implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

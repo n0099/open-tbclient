@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SoftInputUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -33,12 +33,12 @@ public class SoftInputUtil {
     public static int sMinSoftInputHeight;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnSoftInputShowingListener {
         void onSoftInputShowing(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,9 @@ public class SoftInputUtil {
                     }
                     return;
                 }
-                Log.d(SoftInputUtil.TAG, String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.mPreviousDisplayHeight), Integer.valueOf(i), Integer.valueOf(abs)));
+                if (SoftInputUtil.DEBUG) {
+                    Log.d(SoftInputUtil.TAG, String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.mPreviousDisplayHeight), Integer.valueOf(i), Integer.valueOf(abs)));
+                }
                 if (SoftInputUtil.saveSoftInputHeight(getContext(), abs)) {
                     int validPanelHeight2 = SoftInputUtil.getValidPanelHeight(getContext());
                     if (this.mPanelHeightTarget.getHeight() != validPanelHeight2) {

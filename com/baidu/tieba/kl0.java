@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class kl0 {
     public static /* synthetic */ Interceptable $ic;
-    public static IDownloadViewCreator a;
+    public static ll0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,22 +30,46 @@ public class kl0 {
         }
     }
 
-    public static tk0<?> a(@NonNull ViewGroup viewGroup, IDownloadViewCreator.ViewType viewType) {
-        InterceptResult invokeLL;
+    public kl0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static ll0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (a == null) {
-                synchronized (ai0.class) {
+                synchronized (kl0.class) {
                     if (a == null) {
-                        a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
-                    }
-                    if (a == null) {
-                        a = IDownloadViewCreator.b;
+                        a = (ll0) ServiceManager.getService(ll0.a);
                     }
                 }
             }
-            return a.a(viewGroup, viewType);
+            return a;
         }
-        return (tk0) invokeLL.objValue;
+        return (ll0) invokeV.objValue;
+    }
+
+    public static IAdDownloader b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ll0 a2 = a();
+            if (a2 == null) {
+                return h41.a;
+            }
+            return a2.a();
+        }
+        return (IAdDownloader) invokeV.objValue;
     }
 }

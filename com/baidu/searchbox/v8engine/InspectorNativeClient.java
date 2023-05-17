@@ -1,6 +1,6 @@
 package com.baidu.searchbox.v8engine;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InspectorNativeClient {
     public InspectorNativeChannel mChannel;
     public long mNativePtr;

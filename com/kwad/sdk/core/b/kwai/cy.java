@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.kwad.components.ad.interstitial.monitor.InterstitialMonitorInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class cy implements com.kwad.sdk.core.d<InterstitialMonitorInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(InterstitialMonitorInfo interstitialMonitorInfo, JSONObject jSONObject) {

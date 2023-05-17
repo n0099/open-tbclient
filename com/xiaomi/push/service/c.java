@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.fk;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c extends XMPushService.j {
     public XMPushService a;
 
@@ -19,13 +19,13 @@ public class c extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "batch send message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         try {
             if (this.f965a != null) {
                 this.a.a(this.f965a);

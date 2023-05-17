@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.db;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResultTB implements Serializable, Cloneable {
     public static final String CMD = "cmd";
     public static final String ENDTIME = "end_time";

@@ -4,7 +4,7 @@ import org.apache.http.Header;
 import org.apache.http.HeaderElement;
 import org.apache.http.ParseException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BasicHeader implements Header {
     public BasicHeader(String str, String str2) {
         throw new RuntimeException("Stub!");

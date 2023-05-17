@@ -42,7 +42,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.zip.GZIPInputStream;
 import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static AdDownloadProxy WK;
     @SuppressLint({"StaticFieldLeak"})
@@ -52,11 +52,11 @@ public final class a {
     public static final ExecutorService WG = com.kwad.sdk.core.threads.b.vq();
 
     /* renamed from: com.kwad.sdk.core.download.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0630a implements c {
+    /* loaded from: classes9.dex */
+    public static class C0644a implements c {
         public final OutputStream WM;
 
-        public C0630a(File file, boolean z) {
+        public C0644a(File file, boolean z) {
             this.WM = new FileOutputStream(file, z);
         }
 
@@ -71,11 +71,11 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c extends Closeable {
         void write(byte[] bArr, int i, int i2);
     }
@@ -153,37 +153,37 @@ public final class a {
     }
 
     public static boolean a(String str, File file, b bVar, int i) {
-        C0630a c0630a;
-        C0630a c0630a2 = null;
+        C0644a c0644a;
+        C0644a c0644a2 = null;
         try {
-            c0630a = new C0630a(file, false);
+            c0644a = new C0644a(file, false);
         } catch (Throwable th) {
             th = th;
         }
         try {
-            boolean a = a(str, (String) null, c0630a, (b) null, 0);
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0630a);
+            boolean a = a(str, (String) null, c0644a, (b) null, 0);
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0644a);
             return a;
         } catch (Throwable th2) {
             th = th2;
-            c0630a2 = c0630a;
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0630a2);
+            c0644a2 = c0644a;
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0644a2);
             throw th;
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i, boolean z) {
-        C0630a c0630a = null;
+        C0644a c0644a = null;
         try {
-            C0630a c0630a2 = new C0630a(file, true);
+            C0644a c0644a2 = new C0644a(file, true);
             try {
-                boolean a = a(str, (String) null, (c) c0630a2, (b) null, -1, file.length(), -1L, true);
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0630a2);
+                boolean a = a(str, (String) null, (c) c0644a2, (b) null, -1, file.length(), -1L, true);
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0644a2);
                 return a;
             } catch (Throwable th) {
                 th = th;
-                c0630a = c0630a2;
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0630a);
+                c0644a = c0644a2;
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0644a);
                 throw th;
             }
         } catch (Throwable th2) {

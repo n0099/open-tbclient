@@ -2,7 +2,7 @@ package com.bytedance.pangle;
 
 import android.os.Build;
 import com.bytedance.pangle.flipped.FlippedV2Impl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static void a() {
         boolean z;

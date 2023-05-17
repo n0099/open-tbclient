@@ -13,9 +13,9 @@ import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SwitchMaterial extends SwitchCompat {
-    public static final int DEF_STYLE_RES = 2131755883;
+    public static final int DEF_STYLE_RES = 2131755894;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @NonNull
     public final ElevationOverlayProvider elevationOverlayProvider;
@@ -41,7 +41,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040693);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406d3);
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -55,9 +55,9 @@ public class SwitchMaterial extends SwitchCompat {
 
     private ColorStateList getMaterialThemeColorsThumbTintList() {
         if (this.materialThemeColorsThumbTintList == null) {
-            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040180);
-            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040170);
-            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f0704d8);
+            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190);
+            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017b);
+            float dimension = getResources().getDimension(R.dimen.obfuscated_res_0x7f07061a);
             if (this.elevationOverlayProvider.isThemeElevationOverlayEnabled()) {
                 dimension += ViewUtils.getParentAbsoluteElevation(this);
             }
@@ -75,9 +75,9 @@ public class SwitchMaterial extends SwitchCompat {
     private ColorStateList getMaterialThemeColorsTrackTintList() {
         if (this.materialThemeColorsTrackTintList == null) {
             int[] iArr = new int[ENABLED_CHECKED_STATES.length];
-            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040180);
-            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040170);
-            int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040179);
+            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190);
+            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017b);
+            int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040189);
             iArr[0] = MaterialColors.layer(color, color2, 0.54f);
             iArr[1] = MaterialColors.layer(color, color3, 0.32f);
             iArr[2] = MaterialColors.layer(color, color2, 0.12f);

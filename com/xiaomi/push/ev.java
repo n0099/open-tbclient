@@ -9,7 +9,7 @@ import android.os.SystemClock;
 import com.xiaomi.push.et;
 import com.xiaomi.push.service.XMJobService;
 @TargetApi(21)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ev implements et.a {
     public JobScheduler a;
 
@@ -56,7 +56,7 @@ public class ev implements et.a {
 
     @Override // com.xiaomi.push.et.a
     /* renamed from: a */
-    public boolean mo388a() {
+    public boolean mo407a() {
         return this.f334a;
     }
 }

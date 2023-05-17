@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Util {
     public static final String ACCEPT_RANGES = "Accept-Ranges";
     public static final int CHUNKED_CONTENT_LENGTH = -1;
@@ -51,7 +51,7 @@ public class Util {
     public static final String VALUE_CHUNKED = "chunked";
     public static Logger logger = new EmptyLogger();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class EmptyLogger implements Logger {
         @Override // com.baidu.searchbox.bddownload.core.Util.Logger
         public void d(String str, String str2) {
@@ -70,7 +70,7 @@ public class Util {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Logger {
         void d(String str, String str2);
 

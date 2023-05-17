@@ -60,7 +60,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
 import okhttp3.internal.http2.StreamResetException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static final String a = "f";
     public static final Pattern b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");

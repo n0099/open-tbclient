@@ -10,14 +10,14 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.zl7;
+import com.baidu.tieba.mn7;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FunImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,11 +93,11 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup l = zl7.m().l(context);
+            ViewGroup l = mn7.m().l(context);
             this.a = l;
             if (l != null) {
                 SkinManager.setBackgroundColor(l, R.color.CAM_X0101, 0);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.l(context), -2);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ri.l(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
                 addView(this.a, layoutParams);

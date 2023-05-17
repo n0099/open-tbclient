@@ -12,8 +12,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n51;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.d61;
+/* loaded from: classes3.dex */
 public class BdVideoSeekbarImageView extends View {
     public static final int A;
     public static final int B;
@@ -23,11 +23,11 @@ public class BdVideoSeekbarImageView extends View {
     public static final int F;
     public static final int G;
     public static final int H;
-    public static final int p = n51.a(12.0f);
-    public static final int q = n51.d(30.0f);
-    public static final int r = n51.a(17.0f);
-    public static final int s = n51.a(13.0f);
-    public static final int t = n51.a(2.0f);
+    public static final int p = d61.a(12.0f);
+    public static final int q = d61.d(30.0f);
+    public static final int r = d61.a(17.0f);
+    public static final int s = d61.a(13.0f);
+    public static final int t = d61.a(2.0f);
     public static final int u;
     public static final int v;
     public static final int w;
@@ -51,21 +51,21 @@ public class BdVideoSeekbarImageView extends View {
     public boolean o;
 
     static {
-        n51.a(9.0f);
-        u = n51.b(90.0f);
-        v = n51.b(90.0f);
-        w = n51.a(77.0f);
-        x = n51.a(7.0f);
-        y = n51.a(1.0f);
-        z = n51.a(23.0f);
-        A = n51.a(21.0f);
-        B = n51.a(64.0f);
-        C = n51.a(34.0f);
-        D = n51.a(27.0f);
-        E = n51.a(25.0f);
-        F = n51.a(11.0f);
-        G = n51.a(9.0f);
-        H = n51.a(60.0f);
+        d61.a(9.0f);
+        u = d61.b(90.0f);
+        v = d61.b(90.0f);
+        w = d61.a(77.0f);
+        x = d61.a(7.0f);
+        y = d61.a(1.0f);
+        z = d61.a(23.0f);
+        A = d61.a(21.0f);
+        B = d61.a(64.0f);
+        C = d61.a(34.0f);
+        D = d61.a(27.0f);
+        E = d61.a(25.0f);
+        F = d61.a(11.0f);
+        G = d61.a(9.0f);
+        H = d61.a(60.0f);
     }
 
     public BdVideoSeekbarImageView(Context context) {

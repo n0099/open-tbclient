@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Map;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DownloadManagerImpl implements IDownloadManager {
     public DownloadTaskProgressListener mDownloadListener = new DownloadTaskProgressListener() { // from class: com.baidu.searchbox.pms.download.DownloadManagerImpl.2
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist.TaskProgressListenerCallback
@@ -124,7 +124,7 @@ public class DownloadManagerImpl implements IDownloadManager {
     public Map<String, DownloadTaskExt> mTasks = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: com.baidu.searchbox.pms.download.DownloadManagerImpl$3  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
 
@@ -154,7 +154,7 @@ public class DownloadManagerImpl implements IDownloadManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class DownloadTaskExt {
         @NonNull
         public PackageInfo info;

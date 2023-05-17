@@ -3,10 +3,10 @@ package com.huawei.hms.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i0b;
-import com.baidu.tieba.j0b;
-import com.baidu.tieba.jza;
-import com.baidu.tieba.u0b;
+import com.baidu.tieba.g2b;
+import com.baidu.tieba.h1b;
+import com.baidu.tieba.h2b;
+import com.baidu.tieba.s2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.huawei.hms.support.api.entity.push.ProfileReq;
 import com.huawei.hms.support.api.entity.push.PushNaming;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.JsonUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HmsProfile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOM_PROFILE = 2;
@@ -62,7 +62,7 @@ public class HmsProfile {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return jza.c(context).a("client/project_id");
+            return h1b.c(context).a("client/project_id");
         }
         return (String) invokeL.objValue;
     }
@@ -88,32 +88,32 @@ public class HmsProfile {
         return invokeL.booleanValue;
     }
 
-    public i0b<Void> deleteProfile(String str) {
+    public g2b<Void> deleteProfile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             return deleteProfile("", str);
         }
-        return (i0b) invokeL.objValue;
+        return (g2b) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r5v9. Raw type applied. Possible types: com.baidu.tieba.i0b<TResult>, com.baidu.tieba.i0b<java.lang.Void> */
-    public final i0b<Void> a(int i, String str, int i2, String str2) {
+    /* JADX DEBUG: Type inference failed for r5v9. Raw type applied. Possible types: com.baidu.tieba.g2b<TResult>, com.baidu.tieba.g2b<java.lang.Void> */
+    public final g2b<Void> a(int i, String str, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2})) == null) {
             if (!isSupportProfile()) {
-                j0b j0bVar = new j0b();
-                j0bVar.c(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException());
-                return j0bVar.b();
+                h2b h2bVar = new h2b();
+                h2bVar.c(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException());
+                return h2bVar.b();
             }
             if (!TextUtils.isEmpty(str)) {
                 String a2 = a(this.b);
                 if (TextUtils.isEmpty(a2)) {
                     HMSLog.i(a, "agc connect services config missing project id.");
-                    j0b j0bVar2 = new j0b();
-                    j0bVar2.c(ErrorEnum.ERROR_MISSING_PROJECT_ID.toApiException());
-                    return j0bVar2.b();
+                    h2b h2bVar2 = new h2b();
+                    h2bVar2.c(ErrorEnum.ERROR_MISSING_PROJECT_ID.toApiException());
+                    return h2bVar2.b();
                 } else if (str.equals(a2)) {
                     str = "";
                 }
@@ -128,69 +128,69 @@ public class HmsProfile {
             String reportEntry = PushBiUtil.reportEntry(this.b, PushNaming.PUSH_PROFILE);
             try {
                 profileReq.setSubjectId(str);
-                profileReq.setProfileId(u0b.b(str2));
+                profileReq.setProfileId(s2b.b(str2));
                 profileReq.setPkgName(this.b.getPackageName());
                 return this.c.doWrite(new ProfileTask(PushNaming.PUSH_PROFILE, JsonUtil.createJsonString(profileReq), reportEntry));
             } catch (Exception e) {
                 if (e.getCause() instanceof ApiException) {
-                    j0b j0bVar3 = new j0b();
+                    h2b h2bVar3 = new h2b();
                     ApiException apiException = (ApiException) e.getCause();
-                    j0bVar3.c(apiException);
+                    h2bVar3.c(apiException);
                     PushBiUtil.reportExit(this.b, PushNaming.PUSH_PROFILE, reportEntry, apiException.getStatusCode());
-                    return j0bVar3.b();
+                    return h2bVar3.b();
                 }
-                j0b j0bVar4 = new j0b();
+                h2b h2bVar4 = new h2b();
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_PROFILE, reportEntry, ErrorEnum.ERROR_INTERNAL_ERROR);
-                j0bVar4.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
-                return j0bVar4.b();
+                h2bVar4.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                return h2bVar4.b();
             }
         }
-        return (i0b) invokeCommon.objValue;
+        return (g2b) invokeCommon.objValue;
     }
 
-    public i0b<Void> addProfile(int i, String str) {
+    public g2b<Void> addProfile(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             return addProfile("", i, str);
         }
-        return (i0b) invokeIL.objValue;
+        return (g2b) invokeIL.objValue;
     }
 
-    public i0b<Void> addProfile(String str, int i, String str2) {
+    public g2b<Void> addProfile(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2)) == null) {
             if (i != 1 && i != 2) {
                 HMSLog.i(a, "add profile type undefined.");
-                j0b j0bVar = new j0b();
-                j0bVar.c(ErrorEnum.ERROR_PUSH_ARGUMENTS_INVALID.toApiException());
-                return j0bVar.b();
+                h2b h2bVar = new h2b();
+                h2bVar.c(ErrorEnum.ERROR_PUSH_ARGUMENTS_INVALID.toApiException());
+                return h2bVar.b();
             } else if (TextUtils.isEmpty(str2)) {
                 HMSLog.i(a, "add profile params is empty.");
-                j0b j0bVar2 = new j0b();
-                j0bVar2.c(ErrorEnum.ERROR_PUSH_ARGUMENTS_INVALID.toApiException());
-                return j0bVar2.b();
+                h2b h2bVar2 = new h2b();
+                h2bVar2.c(ErrorEnum.ERROR_PUSH_ARGUMENTS_INVALID.toApiException());
+                return h2bVar2.b();
             } else {
                 return a(0, str, i, str2);
             }
         }
-        return (i0b) invokeLIL.objValue;
+        return (g2b) invokeLIL.objValue;
     }
 
-    public i0b<Void> deleteProfile(String str, String str2) {
+    public g2b<Void> deleteProfile(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
             if (TextUtils.isEmpty(str2)) {
                 HMSLog.e(a, "del profile params is empty.");
-                j0b j0bVar = new j0b();
-                j0bVar.c(ErrorEnum.ERROR_PUSH_ARGUMENTS_INVALID.toApiException());
-                return j0bVar.b();
+                h2b h2bVar = new h2b();
+                h2bVar.c(ErrorEnum.ERROR_PUSH_ARGUMENTS_INVALID.toApiException());
+                return h2bVar.b();
             }
             return a(1, str, -1, str2);
         }
-        return (i0b) invokeLL.objValue;
+        return (g2b) invokeLL.objValue;
     }
 
     public boolean isSupportProfile() {

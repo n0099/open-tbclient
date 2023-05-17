@@ -12,10 +12,10 @@ import com.google.gson.stream.MalformedJsonException;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Streams {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AppendableWriter extends Writer {
         public final Appendable appendable;
         public final CurrentWrite currentWrite = new CurrentWrite();
@@ -28,7 +28,7 @@ public final class Streams {
         public void flush() {
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class CurrentWrite implements CharSequence {
             public char[] chars;
 

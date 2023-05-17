@@ -1,21 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ok2 {
+/* loaded from: classes6.dex */
+public class ok2 extends qk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    @V8JavascriptField
-    public String errMsg;
-    @V8JavascriptField
-    public String savedFilePath;
+
+    @Override // com.baidu.tieba.pk2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_remote_apps_extension_core_ver" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pk2
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_remote_apps_extension_core_ver_name" : (String) invokeV.objValue;
+    }
 
     public ok2() {
         Interceptable interceptable = $ic;
@@ -27,20 +38,7 @@ public class ok2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SaveFileCallBack" + this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

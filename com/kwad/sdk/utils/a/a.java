@@ -2,7 +2,7 @@ package com.kwad.sdk.utils.a;
 
 import com.ksad.json.annotation.KsJson;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends com.kwad.sdk.core.response.kwai.a {
     public int aqu = -1;
     public int aqv = -1;

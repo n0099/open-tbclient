@@ -16,7 +16,7 @@ import com.sdk.base.module.manager.SDKManager;
 import com.sdk.o.a;
 import com.sdk.y.d;
 import com.sdk.y.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OauthManager extends SDKManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile OauthManager manager;

@@ -1,67 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xg9 extends te {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class xg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.te
-    public void changeSettingByType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.te
-    /* renamed from: getCrashKeys */
-    public String[] mo55getCrashKeys() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.te
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.te
-    public int getMaxCrashTimes() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 10;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.te
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "reply_private_setting_switch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.te
-    public int getOffType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    public boolean a;
+    public double b;
+    public List<String> c;
+    public int d;
+    public int e;
 
     public xg9() {
         Interceptable interceptable = $ic;
@@ -75,5 +31,40 @@ public class xg9 extends te {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static xg9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            xg9 xg9Var = new xg9();
+            if (jSONObject.optInt("label_measure") == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            xg9Var.a = z;
+            xg9Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        xi8.a(arrayList, optJSONObject.optString("pic"));
+                    }
+                }
+            }
+            xg9Var.c = arrayList;
+            xg9Var.d = jSONObject.optInt("width");
+            xg9Var.e = jSONObject.optInt("height");
+            return xg9Var;
+        }
+        return (xg9) invokeL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.Keep;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DpNetworkUtils {
     public static int a(Context context) {
         try {

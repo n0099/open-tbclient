@@ -33,7 +33,7 @@ import com.kwad.sdk.utils.bd;
 import java.io.PrintStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public Context mContext;
     public ViewGroup uL;
@@ -53,7 +53,7 @@ public final class c {
     public ImageView xz;
 
     /* renamed from: com.kwad.components.ad.splashscreen.c$3  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass3 extends AnimatorListenerAdapter {
         public final /* synthetic */ Rect xN;
 
@@ -177,7 +177,7 @@ public final class c {
     }
 
     @RequiresApi(api = 21)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends ViewOutlineProvider {
         public float wm;
 
@@ -216,16 +216,16 @@ public final class c {
         imageView.setImageDrawable(new BitmapDrawable(this.mContext.getResources(), this.xv.mBitmap));
         final AdTemplate adTemplate = this.xv.getAdTemplate();
         final com.kwad.components.core.c.a.c cVar = new com.kwad.components.core.c.a.c(adTemplate);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04b1, (ViewGroup) null);
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04ce, (ViewGroup) null);
         this.uL = viewGroup;
-        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091371);
-        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f09137b);
-        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f09136f);
+        this.xz = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913ac);
+        this.xx = (FrameLayout) this.uL.findViewById(R.id.obfuscated_res_0x7f0913b6);
+        this.xy = this.uL.findViewById(R.id.obfuscated_res_0x7f0913aa);
         this.xx.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.splashscreen.c.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 if (c.this.xE) {
-                    com.kwad.components.core.c.a.a.a(new a.C0596a(view2.getContext()).L(adTemplate).b(cVar).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.c.1.1
+                    com.kwad.components.core.c.a.a.a(new a.C0610a(view2.getContext()).L(adTemplate).b(cVar).aj(false).ae(2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.c.1.1
                         @Override // com.kwad.components.core.c.a.a.b
                         public final void onAdClicked() {
                             if (c.this.xw != null) {

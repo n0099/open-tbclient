@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class o07 implements i07 {
+/* loaded from: classes6.dex */
+public class o07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public y07 e;
+    public String f;
 
     public o07() {
         Interceptable interceptable = $ic;
@@ -26,20 +27,5 @@ public final class o07 implements i07 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.i07
-    public SpannableString b(Context context, jz6 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString j = bw5.j(richTextData.b());
-            Intrinsics.checkNotNullExpressionValue(j, "getFaceSpannableString(richTextData.emoji)");
-            return j;
-        }
-        return (SpannableString) invokeLLL.objValue;
     }
 }

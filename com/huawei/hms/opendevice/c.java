@@ -5,11 +5,11 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a1b;
-import com.baidu.tieba.s1b;
-import com.baidu.tieba.w0b;
-import com.baidu.tieba.x0b;
-import com.baidu.tieba.z0b;
+import com.baidu.tieba.q3b;
+import com.baidu.tieba.u2b;
+import com.baidu.tieba.v2b;
+import com.baidu.tieba.x2b;
+import com.baidu.tieba.y2b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "c";
@@ -110,13 +110,13 @@ public abstract class c {
         return (String) invokeV.objValue;
     }
 
-    public static z0b h() {
+    public static x2b h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return z0b.d(d(), e(), c(), g());
+            return x2b.d(d(), e(), c(), g());
         }
-        return (z0b) invokeV.objValue;
+        return (x2b) invokeV.objValue;
     }
 
     public static boolean i() {
@@ -230,7 +230,7 @@ public abstract class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return a(a(a(a.a(context.getString(R.string.obfuscated_res_0x7f0f103b)), a.a(context.getString(R.string.obfuscated_res_0x7f0f103a))), a.a(a())));
+            return a(a(a(a.a(context.getString(R.string.obfuscated_res_0x7f0f10fc)), a.a(context.getString(R.string.obfuscated_res_0x7f0f10fb))), a.a(a())));
         }
         return (byte[]) invokeL.objValue;
     }
@@ -243,7 +243,7 @@ public abstract class c {
                 HMSLog.i(a, "work key is empty, execute init.");
                 c(context);
             }
-            String b2 = a1b.b(f(), b());
+            String b2 = y2b.b(f(), b());
             if (t.a(b2)) {
                 return b2;
             }
@@ -257,9 +257,9 @@ public abstract class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, str, str2, str3, str4)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return w0b.e(str, str2, str3, str4, 32, true);
+                return u2b.e(str, str2, str3, str4, 32, true);
             }
-            return w0b.e(str, str2, str3, str4, 32, false);
+            return u2b.e(str, str2, str3, str4, 32, false);
         }
         return (byte[]) invokeLLLL.objValue;
     }
@@ -313,18 +313,18 @@ public abstract class c {
                 sb.append("/shared_prefs/LocalAvengers.xml");
                 File file = new File(sb.toString());
                 if (file.exists()) {
-                    s1b.d(file);
+                    q3b.d(file);
                     HMSLog.i(a, "destroy C, delete file LocalAvengers.xml.");
                 }
-                byte[] c2 = x0b.c(32);
-                byte[] c3 = x0b.c(32);
-                byte[] c4 = x0b.c(32);
-                byte[] c5 = x0b.c(32);
+                byte[] c2 = v2b.c(32);
+                byte[] c3 = v2b.c(32);
+                byte[] c4 = v2b.c(32);
+                byte[] c5 = v2b.c(32);
                 String a2 = a.a(c2);
                 String a3 = a.a(c3);
                 String a4 = a.a(c4);
                 String a5 = a.a(c5);
-                a(a2, a3, a4, a5, a1b.c(a.a(x0b.c(32)), a(a2, a3, a4, a5)), context);
+                a(a2, a3, a4, a5, y2b.c(a.a(v2b.c(32)), a(a2, a3, a4, a5)), context);
                 HMSLog.i(a, "generate D.");
             }
         }
@@ -335,21 +335,21 @@ public abstract class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, context)) == null) {
             synchronized (c.class) {
-                String b2 = a1b.b(f(), b());
+                String b2 = y2b.b(f(), b());
                 if (t.a(b2)) {
                     HMSLog.i(a, "keyS has been upgraded, no require operate again.");
                     return b2;
                 }
-                String a2 = a1b.a(f(), h());
+                String a2 = y2b.a(f(), h());
                 if (t.a(a2)) {
                     HMSLog.i(a, "keyS is encrypt by RootKeyUtil, upgrade encrypt mode.");
-                    a(a1b.c(a2, b()), context);
+                    a(y2b.c(a2, b()), context);
                     return a2;
                 }
-                String b3 = a1b.b(f(), w0b.e(d(), e(), c(), g(), 32, false));
+                String b3 = y2b.b(f(), u2b.e(d(), e(), c(), g(), 32, false));
                 if (t.a(b3)) {
                     HMSLog.i(a, "keyS is encrypt by ExportRootKey with sha1, upgrade encrypt mode to sha256.");
-                    a(a1b.c(b3, b()), context);
+                    a(y2b.c(b3, b()), context);
                     return b3;
                 }
                 HMSLog.e(a, "all mode unable to decrypt root key.");

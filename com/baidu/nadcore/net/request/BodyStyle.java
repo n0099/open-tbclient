@@ -1,5 +1,5 @@
 package com.baidu.nadcore.net.request;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum BodyStyle {
     BYTE("BYTE"),
     STRING("STRING"),

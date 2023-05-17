@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.language.bm.ResourceConstants;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class Uri implements Comparable<Uri> {
     public static final String DEFAULT_ENCODING = "UTF-8";
     public static final int NOT_CALCULATED = -2;
@@ -25,7 +25,7 @@ public abstract class Uri implements Comparable<Uri> {
 
     public abstract String toString();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Part extends AbstractPart {
         public static final Part NULL = new EmptyPart(null);
         public static final Part EMPTY = new EmptyPart("");
@@ -34,7 +34,7 @@ public abstract class Uri implements Comparable<Uri> {
             return false;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class EmptyPart extends Part {
             @Override // com.baidu.searchbox.v8engine.net.Uri.Part
             public boolean isEmpty() {
@@ -97,7 +97,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AbstractHierarchicalUri extends Uri {
         public AbstractHierarchicalUri() {
             super();
@@ -136,7 +136,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AbstractPart {
         public volatile String decoded;
         public volatile String encoded;
@@ -147,7 +147,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AuthorityPart extends AbstractPart {
         public static final AuthorityPart NULL = new AuthorityPart(null, null);
         public static final AuthorityPart EMPTY = new AuthorityPart("", "");
@@ -186,7 +186,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Builder {
         public Part fragment;
         public Part opaquePart;
@@ -275,7 +275,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class HierarchicalUri extends AbstractHierarchicalUri {
         public final AuthorityPart authority;
         public final Part fragment;
@@ -365,7 +365,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class OpaqueUri extends Uri {
         public volatile String cachedString;
         public final Part fragment;
@@ -450,7 +450,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class PathPart extends AbstractPart {
         public static final PathPart NULL = new PathPart(null, null);
         public static final PathPart EMPTY = new PathPart("", "");
@@ -524,7 +524,7 @@ public abstract class Uri implements Comparable<Uri> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class StringUri extends AbstractHierarchicalUri {
         public AuthorityPart authority;
         public volatile int cachedSsi;

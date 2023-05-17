@@ -9,7 +9,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PlayDrawable extends Drawable {
     public static final float[] k = new float[8];
     public float b;
@@ -23,7 +23,7 @@ public class PlayDrawable extends Drawable {
     public final Path g = new Path();
     public final Path h = new Path();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum IconState {
         PLAY_STATE,
         PAUSE_STATE
@@ -38,7 +38,7 @@ public class PlayDrawable extends Drawable {
         return -2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }

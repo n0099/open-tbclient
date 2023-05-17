@@ -1,38 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public abstract class gj4 implements jj4 {
+/* loaded from: classes5.dex */
+public class gj4 {
     public static /* synthetic */ Interceptable $ic;
+    public static gj4 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Nullable
-    public JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    @Nullable
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
+    public wi4 a;
 
     public gj4() {
         Interceptable interceptable = $ic;
@@ -44,45 +23,93 @@ public abstract class gj4 implements jj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new wi4();
+    }
+
+    public static gj4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            gj4 gj4Var = b;
+            if (gj4Var != null) {
+                return gj4Var;
+            }
+            synchronized (gj4.class) {
+                if (b == null) {
+                    b = new gj4();
+                }
+            }
+            return b;
+        }
+        return (gj4) invokeV.objValue;
+    }
+
+    public si4 a(ij4 ij4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ij4Var)) == null) {
+            if (ij4Var == null) {
+                return null;
+            }
+            return new nj4(ij4Var, false);
+        }
+        return (si4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(ej4 ej4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ej4Var) == null) {
+            synchronized (this) {
+                this.a.c(ej4Var);
             }
         }
     }
 
-    public static <T> T e(@Nullable T t, @Nullable hj4<T> hj4Var) {
-        InterceptResult invokeLL;
+    public synchronized <T> void f(ij4<T> ij4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, hj4Var)) == null) {
-            if (t != null && hj4Var != null) {
-                hj4Var.a(t);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ij4Var) == null) {
+            synchronized (this) {
+                ij4Var.s(false);
+                this.a.h(ij4Var);
             }
-            return t;
         }
-        return (T) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.jj4
-    @Nullable
-    public JSONObject a(@Nullable hj4<JSONObject> hj4Var) {
-        InterceptResult invokeL;
+    public synchronized void g(ej4 ej4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hj4Var)) == null) {
-            JSONObject d = d();
-            e(d, hj4Var);
-            return d;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ej4Var) == null) {
+            synchronized (this) {
+                this.a.i(ej4Var);
+            }
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.jj4
-    @Nullable
-    public JSONArray b(@Nullable hj4<JSONArray> hj4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hj4Var)) == null) {
-            JSONArray c = c();
-            e(c, hj4Var);
-            return c;
-        }
-        return (JSONArray) invokeL.objValue;
     }
 }

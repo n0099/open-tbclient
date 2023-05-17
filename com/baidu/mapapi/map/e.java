@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.map.MapViewLayoutParams;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements Runnable {
     public final /* synthetic */ InfoWindow a;
     public final /* synthetic */ d b;

@@ -7,7 +7,7 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static final float a = 0.4f;
     public static final float b = 15.0f;

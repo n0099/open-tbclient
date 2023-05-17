@@ -2,7 +2,7 @@ package com.baidu.searchbox.afx.decode;
 
 import android.util.Log;
 import com.baidu.searchbox.afx.decode.VideoPlayer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpeedControl implements VideoPlayer.FrameCallback {
     public static final long ONE_MILLION = 1000000;
     public static final String TAG = "SpeedControl";

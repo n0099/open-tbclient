@@ -28,7 +28,7 @@ import com.kwad.sdk.core.response.model.CouponInfo;
 import com.kwad.sdk.utils.bd;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends d implements View.OnClickListener {
     public TextView eQ;
     public final ViewGroup es;
@@ -42,7 +42,7 @@ public final class a extends d implements View.OnClickListener {
     public b on;
 
     /* renamed from: com.kwad.components.ad.reward.a.a$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass1 implements Runnable {
         public final /* synthetic */ u oo;
         public final /* synthetic */ long op;
@@ -77,14 +77,14 @@ public final class a extends d implements View.OnClickListener {
     }
 
     /* renamed from: com.kwad.components.ad.reward.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0568a {
+    /* loaded from: classes9.dex */
+    public static class C0582a {
         public CharSequence ov;
         public CharSequence ow;
         public CharSequence ox;
         public CharSequence title;
 
-        public C0568a(@NonNull CouponInfo couponInfo) {
+        public C0582a(@NonNull CouponInfo couponInfo) {
             this.title = couponInfo.displayTitle;
             this.ov = couponInfo.displayValue;
             this.ow = !TextUtils.isEmpty(couponInfo.displayBase) ? String.format("满%s可用", couponInfo.displayBase) : "";
@@ -92,15 +92,15 @@ public final class a extends d implements View.OnClickListener {
         }
 
         @Nullable
-        public static C0568a a(CouponInfo couponInfo) {
+        public static C0582a a(CouponInfo couponInfo) {
             if (couponInfo == null) {
                 return null;
             }
-            return new C0568a(couponInfo);
+            return new C0582a(couponInfo);
         }
 
         @Nullable
-        public static C0568a u(AdTemplate adTemplate) {
+        public static C0582a u(AdTemplate adTemplate) {
             List<CouponInfo> list;
             AdProductInfo bN = com.kwad.sdk.core.response.a.a.bN(com.kwad.sdk.core.response.a.d.bQ(adTemplate));
             if (bN == null || (list = bN.couponList) == null || list.size() <= 0) {
@@ -110,7 +110,7 @@ public final class a extends d implements View.OnClickListener {
         }
 
         public final CharSequence N(Context context) {
-            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07035d));
+            AbsoluteSizeSpan absoluteSizeSpan = new AbsoluteSizeSpan(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070486));
             SpannableString spannableString = new SpannableString("¥" + ((Object) this.ov));
             spannableString.setSpan(absoluteSizeSpan, 0, 1, 17);
             return spannableString;
@@ -129,7 +129,7 @@ public final class a extends d implements View.OnClickListener {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void gn();
 
@@ -138,7 +138,7 @@ public final class a extends d implements View.OnClickListener {
 
     public a(Context context, @Nullable ViewGroup viewGroup, @Nullable int[] iArr) {
         this.oi = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0494, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b1, viewGroup, false);
         this.es = viewGroup2;
         d(viewGroup2);
     }
@@ -157,35 +157,35 @@ public final class a extends d implements View.OnClickListener {
         return a(imageView, j);
     }
 
-    private void a(C0568a c0568a) {
-        if (c0568a == null) {
+    private void a(C0582a c0582a) {
+        if (c0582a == null) {
             return;
         }
         TextView textView = this.eQ;
         if (textView != null) {
-            textView.setText(c0568a.getTitle());
+            textView.setText(c0582a.getTitle());
         }
         TextView textView2 = this.ol;
         if (textView2 != null) {
-            textView2.setText(c0568a.N(this.es.getContext()));
+            textView2.setText(c0582a.N(this.es.getContext()));
         }
         TextView textView3 = this.iu;
         if (textView3 != null) {
-            textView3.setText(c0568a.gl());
+            textView3.setText(c0582a.gl());
         }
         Button button = this.om;
         if (button != null) {
-            button.setText(c0568a.gm());
+            button.setText(c0582a.gm());
         }
     }
 
     private void d(ViewGroup viewGroup) {
-        this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f091208);
-        this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091206);
-        this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09120b);
-        this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091209);
-        this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09120a);
-        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091207);
+        this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f091243);
+        this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091241);
+        this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091246);
+        this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091244);
+        this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091245);
+        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091242);
         this.om = button;
         button.setOnClickListener(this);
     }
@@ -257,7 +257,7 @@ public final class a extends d implements View.OnClickListener {
     @Override // com.kwad.components.ad.reward.k.d
     public final void a(u uVar) {
         super.a(uVar);
-        a(C0568a.u(uVar.getAdTemplate()));
+        a(C0582a.u(uVar.getAdTemplate()));
         this.es.post(new AnonymousClass1(uVar, com.kwad.components.ad.reward.kwai.b.ge()));
     }
 

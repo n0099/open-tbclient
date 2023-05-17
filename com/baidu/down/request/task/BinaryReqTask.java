@@ -25,7 +25,6 @@ import com.baidu.down.statistic.TaskSpeedStat;
 import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,14 +32,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BinaryReqTask extends AbstractTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
     public static final String TAG = "BinaryReqTask";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class BinaryTaskHandler extends BinaryHttpResponseHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -397,7 +396,7 @@ public class BinaryReqTask extends AbstractTask {
             }
             String lowerCase = str.toLowerCase();
             if (lowerCase.contains("m")) {
-                String[] split = lowerCase.replace("m", "").split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = lowerCase.replace("m", "").split("\\.");
                 if (split != null && split.length > 0) {
                     j = Long.parseLong(split[0]) * 1024 * 1024;
                 }

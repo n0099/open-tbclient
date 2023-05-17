@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
-import com.baidu.tieba.hla;
-import com.baidu.tieba.mla;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.kna;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
@@ -10,7 +10,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     public IMultiMediaDataSource iMultiMediaDataSource;
     public MultiMediaPreProcessor mPreProcessor = new MultiMediaPreProcessor();
@@ -34,7 +34,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         MultiMediaData multiMediaData;
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         List<MultiMediaDataTrack> multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
-        if ((!mla.e(multiMediaDataTrack) && mla.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) mla.c(multiMediaDataTrack.get(0).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
+        if ((!kna.e(multiMediaDataTrack) && kna.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) kna.c(multiMediaDataTrack.get(0).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
             return -1;
         }
         MultiMediaPreProcessor multiMediaPreProcessor = this.mPreProcessor;
@@ -64,7 +64,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     @Override // com.baidu.ugc.editvideo.record.processor.glrender.BaseGlRenderer, com.baidu.ugc.editvideo.record.processor.glrender.IGlRenderer
     public void onSizeChange(int i, int i2) {
         super.onSizeChange(i, i2);
-        hla.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
+        fna.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
         OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
         if (onDrawUpdateTextureListener != null) {
             onDrawUpdateTextureListener.onSizeChange(i, i2);

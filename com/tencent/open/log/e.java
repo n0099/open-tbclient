@@ -1,7 +1,7 @@
 package com.tencent.open.log;
 
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class e extends Tracer {
     public static final e a = new e();
 

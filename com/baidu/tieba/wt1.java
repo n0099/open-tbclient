@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-/* loaded from: classes7.dex */
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
+import java.util.List;
+/* loaded from: classes8.dex */
 public interface wt1 {
-    void a(HybridUbcFlow hybridUbcFlow);
+    @Nullable
+    List<ContentValues> a();
 }

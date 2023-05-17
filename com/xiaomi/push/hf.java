@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class hf {
     public static volatile hf a;
 
@@ -58,7 +58,7 @@ public class hf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, hg> m469a() {
+    public Map<String, hg> m488a() {
         return this.f469a;
     }
 
@@ -68,13 +68,13 @@ public class hf {
         } else if (TextUtils.isEmpty(str)) {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
         } else {
-            m469a().put(str, hgVar);
+            m488a().put(str, hgVar);
         }
     }
 
     public boolean a(hl hlVar, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m120a("pkgName is null or empty, upload ClientUploadDataItem failed.");
             return false;
         } else if (com.xiaomi.push.service.bz.a(hlVar, false)) {
             return false;

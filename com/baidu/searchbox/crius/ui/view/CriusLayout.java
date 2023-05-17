@@ -33,14 +33,14 @@ import com.baidu.searchbox.crius.ui.IOpacitySupport;
 import com.baidu.searchbox.crius.ui.recycler.CriusRecyclerView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusLayout extends ViewGroup implements IOpacitySupport {
     public static final String TAG = "CriusLayout";
     public CriusData mCriusData;
     public Map<View, CriusData> mCriusDatas;
     public OpacityController mOpacityController;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public SparseArray<Float> numericAttributes;
         public SparseArray<String> stringAttributes;
@@ -152,7 +152,7 @@ public class CriusLayout extends ViewGroup implements IOpacitySupport {
         this.mOpacityController = opacityController;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ViewMeasureFunction implements CriusMeasureFunction {
         private int viewMeasureSpecFromCriusMeasureMode(CriusMeasureMode criusMeasureMode) {
             if (criusMeasureMode == CriusMeasureMode.AT_MOST) {

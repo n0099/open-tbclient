@@ -8,15 +8,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.a9;
 import com.baidu.tieba.faceshop.FaceBuyQueryData;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FaceBuyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class FaceBuyModel extends BdBaseModel {
     public b b;
     public int c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class FaceBuyModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<Object, FaceBuyQueryData, FaceBuyQueryData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class FaceBuyModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 String obj = objArr[0].toString();
                 FaceBuyQueryData faceBuyQueryData = null;
-                if (!hi.isEmpty(obj)) {
+                if (!qi.isEmpty(obj)) {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.QUERY_BUY_RESULT_URL);
                     this.a = netWork;
                     netWork.addPostData("order_id", obj);
@@ -138,7 +138,7 @@ public class FaceBuyModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends BdAsyncTask<Object, FaceBuyData, FaceBuyData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,7 +227,7 @@ public class FaceBuyModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -238,7 +238,7 @@ public class FaceBuyModel extends BdBaseModel {
         this.b = null;
     }
 
-    public void c0(String str) {
+    public void b0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             c cVar = new c(this, null);
@@ -248,9 +248,9 @@ public class FaceBuyModel extends BdBaseModel {
         }
     }
 
-    public void d0(String str) {
+    public void c0(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.b == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b == null) {
             b bVar = new b(this, null);
             this.b = bVar;
             bVar.setPriority(3);
@@ -262,7 +262,7 @@ public class FaceBuyModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = this.a;
             if (cVar != null) {
                 cVar.cancel();

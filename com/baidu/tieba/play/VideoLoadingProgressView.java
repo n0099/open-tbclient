@@ -12,12 +12,12 @@ import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VideoLoadingProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,12 +42,12 @@ public class VideoLoadingProgressView extends View {
     public ValueAnimator.AnimatorUpdateListener s;
     public AnimatorListenerAdapter t;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void onAnimationEnd();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class VideoLoadingProgressView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public class VideoLoadingProgressView extends View {
             this.g = new RectF();
             this.h = new Paint(1);
             this.i = getContext().getResources().getColor(R.color.CAM_X0101);
-            this.j = ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
+            this.j = ri.g(getContext(), R.dimen.obfuscated_res_0x7f0701d4);
             this.h.setColor(this.i);
             this.h.setStrokeWidth(this.j);
             this.h.setStyle(Paint.Style.STROKE);

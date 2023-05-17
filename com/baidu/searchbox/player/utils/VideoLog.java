@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class VideoLog {
     public final int TAG_MAX_LEN = 23;
     public final int MAX_LOG_LEN = 4096;

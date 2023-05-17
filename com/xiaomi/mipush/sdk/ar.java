@@ -5,7 +5,7 @@ import android.database.ContentObserver;
 import android.os.Handler;
 import com.xiaomi.push.bi;
 import com.xiaomi.push.service.bn;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ar extends ContentObserver {
     public final /* synthetic */ ao a;
 
@@ -30,7 +30,7 @@ public class ar extends ContentObserver {
             context2.getContentResolver().unregisterContentObserver(this);
             context3 = this.a.f58a;
             if (bi.b(context3)) {
-                this.a.m142c();
+                this.a.m161c();
             }
         }
     }

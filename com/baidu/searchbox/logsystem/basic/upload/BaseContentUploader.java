@@ -9,7 +9,7 @@ import com.baidu.searchbox.logsystem.basic.upload.identity.LokiIdentityManager;
 import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseContentUploader {
     public static final String CONTENT_TYPE = "Content-type";
     public static final String CONTENT_TYPE_VALUE = "application/octet-stream";

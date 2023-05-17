@@ -46,7 +46,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class l extends com.kwad.components.core.widget.b<AdTemplate> implements View.OnClickListener {
     public static final HashMap<Long, Double> dQ = new HashMap<>(8);
     public int bH;
@@ -65,7 +65,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public com.kwad.components.core.widget.b dV;
     public a dW;
     public ViewGroup.MarginLayoutParams dX;
-    public b.InterfaceC0620b dY;
+    public b.InterfaceC0634b dY;
 
     /* renamed from: do  reason: not valid java name */
     public ImageView f5do;
@@ -74,7 +74,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public d dr;
     public boolean ds;
     public boolean dt;
-    public final a.InterfaceC0607a du;
+    public final a.InterfaceC0621a du;
     public h.a dv;
     public KsAdWebView mAdWebView;
     @Nullable
@@ -84,7 +84,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public com.kwad.components.core.webview.a mJsInterface;
     public int mWidth;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void aZ();
     }
@@ -109,15 +109,15 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
             public final void bl() {
             }
         };
-        this.dY = new b.InterfaceC0620b() { // from class: com.kwad.components.ad.feed.a.l.10
-            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
+        this.dY = new b.InterfaceC0634b() { // from class: com.kwad.components.ad.feed.a.l.10
+            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
             public final void onAdClicked() {
                 if (l.this.lp != null) {
                     l.this.lp.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
             public final void onAdShow() {
                 if (l.this.lp != null) {
                     l.this.lp.onAdShow();
@@ -135,21 +135,21 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
             public final void onDislikeClicked() {
                 if (l.this.lp != null) {
                     l.this.lp.onDislikeClicked();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
             public final void onDownloadTipsDialogDismiss() {
                 if (l.this.lp != null) {
                     l.this.lp.onDownloadTipsDialogDismiss();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0634b
             public final void onDownloadTipsDialogShow() {
                 if (l.this.lp != null) {
                     l.this.lp.onDownloadTipsDialogShow();
@@ -178,8 +178,8 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 }
             }
         };
-        this.du = new a.InterfaceC0607a() { // from class: com.kwad.components.ad.feed.a.l.7
-            @Override // com.kwad.components.core.video.a.InterfaceC0607a
+        this.du = new a.InterfaceC0621a() { // from class: com.kwad.components.ad.feed.a.l.7
+            @Override // com.kwad.components.core.video.a.InterfaceC0621a
             public final void a(int i, aa.a aVar) {
                 int i2;
                 int i3 = 2;
@@ -198,7 +198,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 u.b bVar = new u.b();
                 bVar.gL = aVar;
                 bVar.gJ = i2;
-                com.kwad.components.core.c.a.a.a(new a.C0596a(com.kwad.sdk.b.kwai.a.x(l.this.dp)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).an(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.7.1
+                com.kwad.components.core.c.a.a.a(new a.C0610a(com.kwad.sdk.b.kwai.a.x(l.this.dp)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).an(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.7.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         l.this.dx();
@@ -292,7 +292,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
             this.dq.setAutoRelease(false);
             AdVideoPlayerViewCache.getInstance().a(A, this.dp);
             FeedType fromInt = FeedType.fromInt(this.mAdTemplate.type);
-            a.C0596a ae = new a.C0596a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2);
+            a.C0610a ae = new a.C0610a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2);
             if ((fromInt == FeedType.FEED_TYPE_TEXT_BELOW || fromInt == FeedType.FEED_TYPE_TEXT_ABOVE) && com.kwad.sdk.core.response.a.a.aB(this.mAdInfo)) {
                 z = true;
             }
@@ -419,7 +419,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 if (cVar != null && !TextUtils.isEmpty(cVar.Mn)) {
                     bVar.Mn = aVar.My.Mn;
                 }
-                com.kwad.components.core.c.a.a.a(new a.C0596a(com.kwad.sdk.b.kwai.a.x(l.this)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).aj(l.a(l.this, aVar)).ae(i).ao(aVar.DS).an(z).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.2.1
+                com.kwad.components.core.c.a.a.a(new a.C0610a(com.kwad.sdk.b.kwai.a.x(l.this)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).aj(l.a(l.this, aVar)).ae(i).ao(aVar.DS).an(z).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.2.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         if (l.this.lp != null) {
@@ -435,7 +435,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
         return new w.a() { // from class: com.kwad.components.ad.feed.a.l.15
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(l.this.mContext, new AdWebViewActivityProxy.a.C0603a().ao(bVar.title).ap(bVar.url).N(l.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(l.this.mContext, new AdWebViewActivityProxy.a.C0617a().ao(bVar.title).ap(bVar.url).N(l.this.mAdTemplate).nx());
             }
         };
     }
@@ -676,20 +676,20 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913b7);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913f2);
         this.mAdWebView = ksAdWebView;
         ksAdWebView.setVisibility(4);
-        this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
-        this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09138e);
-        this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f09139e);
+        this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09123f);
+        this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913c9);
+        this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d9);
     }
 
     @Override // com.kwad.components.core.widget.b
     public final void br() {
         com.kwad.components.core.webview.jshandler.aa aaVar;
-        b.InterfaceC0620b interfaceC0620b;
-        if (!this.mAdTemplate.mPvReported && (interfaceC0620b = this.lp) != null) {
-            interfaceC0620b.onAdShow();
+        b.InterfaceC0634b interfaceC0634b;
+        if (!this.mAdTemplate.mPvReported && (interfaceC0634b = this.lp) != null) {
+            interfaceC0634b.onAdShow();
         }
         if (this.dU || (aaVar = this.dP) == null) {
             return;
@@ -730,7 +730,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0469;
+        return R.layout.obfuscated_res_0x7f0d0486;
     }
 
     @Override // android.view.View.OnClickListener

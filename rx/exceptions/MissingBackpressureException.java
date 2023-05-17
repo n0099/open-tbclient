@@ -1,5 +1,5 @@
 package rx.exceptions;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MissingBackpressureException extends Exception {
     public static final long serialVersionUID = 7250870679677032194L;
 

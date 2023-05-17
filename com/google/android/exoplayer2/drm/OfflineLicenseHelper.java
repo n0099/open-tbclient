@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.HashMap;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
     public final ConditionVariable conditionVariable;
     public final DefaultDrmSessionManager<T> drmSessionManager;

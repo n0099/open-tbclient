@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.api;
 
 import android.util.Log;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static boolean a = false;
     public static int b = 4;

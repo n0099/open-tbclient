@@ -9,11 +9,11 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.uz3;
-import com.baidu.tieba.wy3;
-import com.baidu.tieba.yz3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.d14;
+import com.baidu.tieba.f04;
+import com.baidu.tieba.h14;
+import com.baidu.tieba.ns2;
+/* loaded from: classes4.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static final String KEY_PACKAGE_NAME = "key_pkg_name";
     public static final String NOTIFICATION_INSTALL_ACTION_ALARM = "gamecenter.intent.action.INSTALL_ALARM";
@@ -43,14 +43,14 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(stringExtra)) {
             return;
         }
-        wy3.n().q(stringExtra, this.mOpportunity);
+        f04.n().q(stringExtra, this.mOpportunity);
     }
 
     private void startInstallPage(Intent intent) {
         if (!TextUtils.isEmpty(this.mOpportunity)) {
-            yz3.b("notifyList", this.mOpportunity);
+            h14.b("notifyList", this.mOpportunity);
         }
-        SchemeRouter.invoke(er2.c(), getInstallPageUrlScheme());
+        SchemeRouter.invoke(ns2.c(), getInstallPageUrlScheme());
     }
 
     public static Intent createIntent(String str, String str2, String str3) {
@@ -62,7 +62,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
     }
 
     public static String getInstallPageUrlScheme() {
-        String a = er2.n().a();
+        String a = ns2.n().a();
         if (!TextUtils.isEmpty(a)) {
             if (a.equals(BaiduIdentityManager.VALUE_OSNAME)) {
                 return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -105,20 +105,20 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (c != 0) {
                 if (c != 1) {
                     if (c == 2) {
-                        uz3.f().l();
-                        uz3.f().n("todayfirst");
+                        d14.f().l();
+                        d14.f().n("todayfirst");
                         return;
                     }
                     return;
                 }
                 if (!TextUtils.isEmpty(this.mOpportunity)) {
-                    yz3.b("notifyClick", this.mOpportunity);
+                    h14.b("notifyClick", this.mOpportunity);
                 }
                 startInstallPage(intent);
                 return;
             }
             if (!TextUtils.isEmpty(this.mOpportunity) && !TextUtils.isEmpty(stringExtra)) {
-                yz3.c("notifyClick", this.mOpportunity, stringExtra);
+                h14.c("notifyClick", this.mOpportunity, stringExtra);
             }
             startInstall(intent);
         }

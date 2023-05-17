@@ -1,38 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes4.dex */
-public class gw0 implements mm0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes5.dex */
+public interface gw0 {
+    void a(zy0 zy0Var);
 
-    public gw0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    void b(zy0 zy0Var);
+
+    @Autowired
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @NonNull
+        @Inject(force = false)
+        public static gw0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return yw0.a();
             }
+            return (gw0) invokeV.objValue;
         }
-    }
-
-    @Override // com.baidu.tieba.mm0
-    public cz0 create() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new jw0();
-        }
-        return (cz0) invokeV.objValue;
     }
 }

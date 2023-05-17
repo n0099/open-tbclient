@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class eb {
     public int a;
 
@@ -14,7 +14,7 @@ public class eb {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m368a() {
+    public String m387a() {
         return this.f304a;
     }
 

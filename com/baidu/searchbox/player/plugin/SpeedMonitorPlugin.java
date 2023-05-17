@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.helper.PlayPerRecord;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpeedMonitorPlugin extends AbsPlugin {
     @Override // com.baidu.searchbox.player.interfaces.INeuron
     @Nullable

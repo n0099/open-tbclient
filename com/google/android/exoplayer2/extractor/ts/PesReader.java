@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PesReader implements TsPayloadReader {
     public static final int HEADER_SIZE = 9;
     public static final int MAX_HEADER_EXTENSION_SIZE = 10;

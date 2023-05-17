@@ -17,7 +17,7 @@ import com.ss.android.socialbase.appdownloader.d;
 import com.ss.android.socialbase.appdownloader.h;
 import com.ss.android.socialbase.appdownloader.i;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class JumpUnknownSourceActivity extends Activity {
     public k a;
     public Intent b;

@@ -7,16 +7,41 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class q16 {
     public static /* synthetic */ Interceptable $ic;
+    public static q16 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<ra5> b;
+    public volatile HashMap<String, List<a>> a;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public HashMap<String, Object> b;
+
+        public a(String str, HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hashMap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = hashMap;
+        }
+    }
 
     public q16() {
         Interceptable interceptable = $ic;
@@ -28,60 +53,56 @@ public class q16 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public List<ra5> a() {
+    public static q16 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
-            }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
-            this.a = listdata.key;
-            if (listdata.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : listdata.friend_list) {
-                    ra5 ra5Var = new ra5();
-                    ra5Var.i(friendlist);
-                    ra5Var.j(this.a);
-                    this.b.add(ra5Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (q16.class) {
+                    if (b == null) {
+                        b = new q16();
+                    }
                 }
             }
+            return b;
+        }
+        return (q16) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, HashMap<String, Object> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, hashMap) == null) {
+            List<a> list = this.a.get(str);
+            if (list == null) {
+                list = new ArrayList<>();
+                this.a.put(str, list);
+            }
+            list.add(new a(str2, hashMap));
         }
     }
 
-    public void d(robotsList robotslist) {
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
-            this.a = robotslist.key;
-            if (robotslist.friend_list != null) {
-                this.b = new ArrayList();
-                for (friendList friendlist : robotslist.friend_list) {
-                    ra5 ra5Var = new ra5();
-                    ra5Var.i(friendlist);
-                    ra5Var.j(this.a);
-                    this.b.add(ra5Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.remove(str);
         }
+    }
+
+    public List<a> d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return new ArrayList();
+        }
+        return (List) invokeL.objValue;
     }
 }

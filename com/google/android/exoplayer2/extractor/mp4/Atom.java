@@ -29,7 +29,6 @@ import com.coremedia.iso.boxes.TrackHeaderBox;
 import com.coremedia.iso.boxes.UserDataBox;
 import com.coremedia.iso.boxes.VideoMediaHeaderBox;
 import com.coremedia.iso.boxes.apple.AppleItemListBox;
-import com.coremedia.iso.boxes.apple.AppleWaveBox;
 import com.coremedia.iso.boxes.fragment.MovieExtendsBox;
 import com.coremedia.iso.boxes.fragment.MovieExtendsHeaderBox;
 import com.coremedia.iso.boxes.fragment.MovieFragmentBox;
@@ -60,7 +59,7 @@ import com.googlecode.mp4parser.boxes.ultraviolet.SampleEncryptionBox;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class Atom {
     public static final int DEFINES_LARGE_SIZE = 1;
     public static final int EXTENDS_TO_END_SIZE = 0;
@@ -78,7 +77,7 @@ public abstract class Atom {
     public static final int TYPE_mdat = Util.getIntegerCodeForString(MediaDataBox.TYPE);
     public static final int TYPE_mp4a = Util.getIntegerCodeForString(AudioSampleEntry.TYPE3);
     public static final int TYPE__mp3 = Util.getIntegerCodeForString(".mp3");
-    public static final int TYPE_wave = Util.getIntegerCodeForString(AppleWaveBox.TYPE);
+    public static final int TYPE_wave = Util.getIntegerCodeForString("wave");
     public static final int TYPE_lpcm = Util.getIntegerCodeForString("lpcm");
     public static final int TYPE_sowt = Util.getIntegerCodeForString("sowt");
     public static final int TYPE_ac_3 = Util.getIntegerCodeForString(AudioSampleEntry.TYPE8);
@@ -170,7 +169,7 @@ public abstract class Atom {
         return (i >> 24) & 255;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ContainerAtom extends Atom {
         public final List<ContainerAtom> containerChildren;
         public final long endPosition;
@@ -236,7 +235,7 @@ public abstract class Atom {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LeafAtom extends Atom {
         public final ParsableByteArray data;
 

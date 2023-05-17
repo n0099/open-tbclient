@@ -6,13 +6,13 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.FeatureCardGod;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.af7;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
-import com.baidu.tieba.md7;
-import com.baidu.tieba.nd7;
+import com.baidu.tieba.ze7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public md7 mData;
+    public ze7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameRecommendReponseMessage() {
@@ -44,13 +44,13 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public md7 getData() {
+    public ze7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (md7) invokeV.objValue;
+        return (ze7) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -59,13 +59,13 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.length() > 0) {
-                md7 md7Var = new md7();
-                this.mData = md7Var;
+                ze7 ze7Var = new ze7();
+                this.mData = ze7Var;
                 boolean z = true;
                 if (jSONObject.optInt("recom_has_more") != 1) {
                     z = false;
                 }
-                md7Var.a = z;
+                ze7Var.a = z;
                 this.mData.b = jSONObject.optInt("card_max_floor");
                 JSONArray optJSONArray = jSONObject.optJSONArray("recom_list");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -105,10 +105,10 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                     for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
                         JSONObject optJSONObject5 = optJSONArray4.optJSONObject(i5);
                         if (optJSONObject5 != null) {
-                            nd7 nd7Var = new nd7();
-                            nd7Var.b = optJSONObject5.optString("title");
+                            af7 af7Var = new af7();
+                            af7Var.b = optJSONObject5.optString("title");
                             optJSONObject5.optInt("type");
-                            nd7Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
+                            af7Var.c = Integer.valueOf(optJSONObject5.optInt("floor"));
                             JSONArray optJSONArray5 = optJSONObject5.optJSONArray("sub_nodes");
                             if (optJSONArray5 != null && optJSONArray5.length() > 0) {
                                 for (int i6 = 0; i6 < optJSONArray5.length(); i6++) {
@@ -116,11 +116,11 @@ public class AlaGameRecommendReponseMessage extends JsonHttpResponsedMessage {
                                     if (optJSONObject6 != null) {
                                         ThreadData threadData2 = new ThreadData();
                                         threadData2.parserJson(optJSONObject6);
-                                        nd7Var.a.add(threadData2);
+                                        af7Var.a.add(threadData2);
                                     }
                                 }
                             }
-                            this.mData.g.add(nd7Var);
+                            this.mData.g.add(af7Var);
                         }
                     }
                 }

@@ -1,131 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.m60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes3.dex */
-public class c70 implements a70, b70 {
+import java.io.IOException;
+import java.util.List;
+/* loaded from: classes5.dex */
+public final class c70 implements m60.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public final List<m60> a;
+    public t60 b;
+    public final int c;
+    public final Request d;
+    public final Call e;
+    public int f;
 
-    @Override // com.baidu.tieba.a70
-    public String getContentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "application/octet-stream" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a70
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a70
-    public byte[] getRequestParameter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public c70(Context context) {
+    public c70(List<m60> list, t60 t60Var, int i, Request request, Call call) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {list, t60Var, Integer.valueOf(i), request, call};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
+        this.a = list;
+        this.b = t60Var;
+        this.c = i;
+        this.d = request;
+        this.e = call;
     }
 
-    @Override // com.baidu.tieba.b70
-    public void a(int i, byte[] bArr) {
+    @Override // com.baidu.tieba.m60.a
+    public Response a(Request request) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
-            String str = new String(bArr);
-            i70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            return b(request, this.b);
         }
+        return (Response) invokeL.objValue;
     }
 
-    public final String b() {
+    public Response b(Request request, t60 t60Var) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, t60Var)) == null) {
+            if (this.c < this.a.size()) {
+                this.f++;
+                c70 c70Var = new c70(this.a, t60Var, this.c + 1, request, this.e);
+                m60 m60Var = this.a.get(this.c);
+                Response a = m60Var.a(c70Var);
+                if (a != null) {
+                    if (a.body() != null) {
+                        a.getStatRecord().responseLength = a.body().contentLength();
+                        a.getStatRecord().finishTs = System.currentTimeMillis();
+                        MediaType contentType = a.body().contentType();
+                        if (contentType != null) {
+                            a.getStatRecord().contentType = contentType.toString();
+                        }
+                        return a;
+                    }
+                    throw new IllegalStateException("interceptor " + m60Var + " returned a response with no body");
+                }
+                throw new NullPointerException("interceptor " + m60Var + " returned null");
+            }
+            throw new AssertionError();
+        }
+        return (Response) invokeLL.objValue;
+    }
+
+    public Call call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("action=");
-            sb.append("zubc");
-            sb.append("&appname=");
-            sb.append(RetrieveReportRequest.APP_NAME);
-            sb.append("&uid=");
-            sb.append(y60.d().a());
-            sb.append("&ua=");
-            sb.append(j70.e(this.a));
-            sb.append("&appversion=");
-            sb.append(j70.f(this.a));
-            if (y60.d().c() != g70.a) {
-                sb.append("&debug=");
-                sb.append("1");
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return (Call) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a70
-    public Map<String, String> getHeaders() {
+    @Override // com.baidu.tieba.m60.a
+    public t60 connection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaseContentUploader.NB, "1");
-            return hashMap;
+            return this.b;
         }
-        return (Map) invokeV.objValue;
+        return (t60) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a70
-    public String getHost() {
+    @Override // com.baidu.tieba.m60.a
+    public Request request() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (y60.d().c() != g70.a) {
-                str = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox";
-            } else {
-                str = "https://tcbox.baidu.com/ztbox";
-            }
-            return str + "?" + b();
+            return this.d;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b70
-    public void onSuccess(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, bArr) == null) {
-            String str = new String(bArr);
-            i70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
+        return (Request) invokeV.objValue;
     }
 }

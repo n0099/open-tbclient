@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JumpButton extends AppCompatTextView {
     public JumpButton(Context context) {
         super(context);

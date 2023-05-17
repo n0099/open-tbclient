@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeatMap {
     public static int A = 0;
     public static final Gradient DEFAULT_GRADIENT;
@@ -84,7 +84,7 @@ public class HeatMap {
         A = 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public Collection<WeightedLatLng> a;
         public ArrayList<Collection<WeightedLatLng>> b;

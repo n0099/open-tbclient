@@ -5,13 +5,13 @@ import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
 import com.baidu.searchbox.network.outback.core.RequestBody;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PostByteRequest extends Request {
     public PostByteRequest(PostByteRequestBuilder postByteRequestBuilder) {
         super(postByteRequestBuilder);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PostByteRequestBuilder extends Request.Builder<PostByteRequestBuilder> {
         public static final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream");
         public byte[] contentBuffer;

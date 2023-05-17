@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class o75 {
+/* loaded from: classes6.dex */
+public class o75 extends TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
+    public boolean u;
+    public int v;
+    public int w;
 
     public o75() {
         Interceptable interceptable = $ic;
@@ -28,99 +34,96 @@ public class o75 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
+        this.v = R.dimen.tbds1;
+        this.w = R.string.A_X07;
+        this.b = R.color.CAM_X0302;
+        this.u = false;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
+    public Drawable a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            return u(f);
         }
-        return invokeV.intValue;
+        return (Drawable) invokeF.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void q(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return aj.a(R.string.voice_cache_error_internal);
-                case 2:
-                    return aj.a(R.string.voice_cache_error_no_space);
-                case 3:
-                    return aj.a(R.string.obfuscated_res_0x7f0f0d30);
-                case 4:
-                    return aj.a(R.string.voice_cache_error_no_file);
-                case 5:
-                    return aj.a(R.string.voice_cache_error_md5);
-                case 6:
-                    return aj.a(R.string.voice_cache_error_no_input);
-                case 7:
-                    return aj.a(R.string.voice_cache_error_no_dir);
-                default:
-                    return "";
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.b = i;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
             }
         }
-        return (String) invokeI.objValue;
     }
 
-    public void f(int i) {
+    public void r(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+            this.u = false;
+            this.q = false;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public void g(String str) {
+    public void s(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            this.c = R.color.CAM_X0902;
+            this.u = true;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public void h(String str) {
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = R.color.CAM_X0101;
+            this.u = false;
+            this.q = true;
+            TBSpecificationButtonConfig.a aVar = this.t;
+            if (aVar != null) {
+                aVar.c();
+            }
         }
     }
 
-    public void i(String str) {
+    public final Drawable u(float f) {
+        InterceptResult invokeF;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            if (this.u) {
+                gradientDrawable.setStroke(ri.g(TbadkCoreApplication.getInst().getContext(), this.v), SkinManager.getColor(this.r, this.c));
+            } else {
+                int g = ri.g(TbadkCoreApplication.getInst().getContext(), this.v);
+                if (this.q) {
+                    i = SkinManager.getColor(this.r, this.b);
+                } else {
+                    i = this.b;
+                }
+                gradientDrawable.setStroke(g, wp9.a(i, n45.b(this.w)));
+            }
+            gradientDrawable.setShape(0);
+            gradientDrawable.setCornerRadius(f);
+            return gradientDrawable;
         }
+        return (Drawable) invokeF.objValue;
     }
 }

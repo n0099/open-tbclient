@@ -17,11 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.tk0;
-/* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
+import com.baidu.tieba.jl0;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.t41;
+/* loaded from: classes3.dex */
+public class AdDownloadViewLP extends View implements jl0<AdDownloadViewLP> {
     public final Paint a;
     public int b;
     public int c;
@@ -38,7 +38,7 @@ public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
     public State n;
     public float o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum State {
         PREPARE,
         DOWNLOADING,
@@ -46,13 +46,13 @@ public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     @NonNull
     public AdDownloadViewLP getRealView() {
         return this;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -64,7 +64,7 @@ public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class b {
         public static final /* synthetic */ int[] a;
 
@@ -193,13 +193,13 @@ public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
         canvas.drawRoundRect(rectF, f, f, this.a);
     }
 
-    @Override // com.baidu.tieba.tk0
-    public void update(String str, @NonNull ak0 ak0Var) {
+    @Override // com.baidu.tieba.jl0
+    public void update(String str, @NonNull qk0 qk0Var) {
         this.l = str;
-        if (ak0Var.c == AdDownloadStatus.DOWNLOADING) {
+        if (qk0Var.c == AdDownloadStatus.DOWNLOADING) {
             this.l = "已下载 : " + this.l;
         }
-        setProgress((int) ak0Var.i);
+        setProgress((int) qk0Var.i);
         postInvalidate();
     }
 
@@ -217,14 +217,14 @@ public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
         i();
     }
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     public void b(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.width = (int) (d41.c.e(getContext()) * d41.c.h(R.dimen.nad_default_round_width_size));
-        layoutParams.height = (int) (d41.c.c(getContext()) * d41.c.h(R.dimen.nad_default_round_height_size));
+        layoutParams.width = (int) (t41.c.e(getContext()) * t41.c.h(R.dimen.nad_default_round_width_size));
+        layoutParams.height = (int) (t41.c.c(getContext()) * t41.c.h(R.dimen.nad_default_round_height_size));
         layoutParams.addRule(13, -1);
         viewGroup.addView(this, layoutParams);
         viewGroup.setVisibility(0);

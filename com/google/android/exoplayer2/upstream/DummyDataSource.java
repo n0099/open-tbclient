@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.upstream;
 import android.net.Uri;
 import com.google.android.exoplayer2.upstream.DataSource;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DummyDataSource implements DataSource {
     public static final DummyDataSource INSTANCE = new DummyDataSource();
     public static final DataSource.Factory FACTORY = new DataSource.Factory() { // from class: com.google.android.exoplayer2.upstream.DummyDataSource.1

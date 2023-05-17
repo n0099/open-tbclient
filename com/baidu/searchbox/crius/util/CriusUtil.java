@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUtil {
     public static float convertFloatValue(double d, float f) {
         return (float) (d * (d < 1.0d ? 10.0d : f));

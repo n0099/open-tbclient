@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.math.MathUtils;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     public static final int INVALID_POINTER = -1;
     public int activePointerId;
@@ -32,7 +32,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
     public void onFlingFinished(CoordinatorLayout coordinatorLayout, V v) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class FlingRunnable implements Runnable {
         public final V layout;
         public final CoordinatorLayout parent;

@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class qg3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AshmemFileDescriptor a;
-    public volatile SwanKV b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,32 +29,30 @@ public class qg3 {
                 return;
             }
         }
-        og3.e();
+        a = qp1.a;
     }
 
-    public AshmemFileDescriptor a() {
+    public static boolean a() {
         InterceptResult invokeV;
+        String W;
+        String queryParameter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            g93 b0 = g93.b0();
+            if (b0 == null || (W = b0.W().W()) == null || (queryParameter = Uri.parse(W).getQueryParameter("params")) == null) {
+                return false;
+            }
+            try {
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            if (!TextUtils.equals(new JSONObject(queryParameter).optString("forcePath"), DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE)) {
+                return false;
+            }
+            return true;
         }
-        return (AshmemFileDescriptor) invokeV.objValue;
-    }
-
-    @NonNull
-    public SwanKV b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (SwanKV) invokeV.objValue;
-    }
-
-    public void c(@NonNull SwanKV swanKV) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.b = swanKV;
-        }
+        return invokeV.booleanValue;
     }
 }

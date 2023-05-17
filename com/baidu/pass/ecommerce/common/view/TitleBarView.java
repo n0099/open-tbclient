@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TitleBarView extends RelativeLayout {
     public boolean isDarkMode;
     public TextView leftBtn;
@@ -29,9 +29,9 @@ public class TitleBarView extends RelativeLayout {
         if (this.isDarkMode) {
             TextView textView = this.rightBtn;
             if (z) {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f060861);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f0609d8);
             } else {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f060860);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f0609d7);
             }
             textView.setTextColor(color);
         }
@@ -74,18 +74,18 @@ public class TitleBarView extends RelativeLayout {
     }
 
     private void init() {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0515, (ViewGroup) this, true);
-        this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f4e);
-        this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f4d);
-        this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f50);
-        this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f4f);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0532, (ViewGroup) this, true);
+        this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091faa);
+        this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fa9);
+        this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fac);
+        this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091fab);
     }
 
     public void setDarkMode() {
         this.isDarkMode = true;
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f08115c);
-        this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06085d));
-        this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060863));
-        this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060860));
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0812b7);
+        this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609d4));
+        this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609da));
+        this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609d7));
     }
 }

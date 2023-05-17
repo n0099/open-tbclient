@@ -1,6 +1,5 @@
 package com.badlogic.gdx.graphics.g2d;
 
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +31,7 @@ public final class PixmapPackerIO$ImageFormat {
             }
         }
         CIM = new PixmapPackerIO$ImageFormat("CIM", 0, ".cim");
-        PixmapPackerIO$ImageFormat pixmapPackerIO$ImageFormat = new PixmapPackerIO$ImageFormat("PNG", 1, EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX);
+        PixmapPackerIO$ImageFormat pixmapPackerIO$ImageFormat = new PixmapPackerIO$ImageFormat("PNG", 1, ".png");
         PNG = pixmapPackerIO$ImageFormat;
         $VALUES = new PixmapPackerIO$ImageFormat[]{CIM, pixmapPackerIO$ImageFormat};
     }

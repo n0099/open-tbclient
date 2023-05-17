@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,13 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public class j67 implements u77 {
+/* loaded from: classes6.dex */
+public class j67 implements rn {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<u77> a;
-    public static final u77 b;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,8 +40,7 @@ public class j67 implements u77 {
                 return;
             }
         }
-        a = new AtomicReference<>(null);
-        b = new j67();
+        e = BdUniqueId.gen();
     }
 
     public j67() {
@@ -49,64 +53,78 @@ public class j67 implements u77 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = -1;
     }
 
-    public static u77 e() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            u77 u77Var = a.get();
-            if (u77Var == null) {
-                return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.d) && this.a >= 0 && this.b >= 0) {
+                return false;
             }
-            return u77Var;
+            return true;
         }
-        return (u77) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u77
-    public vm<? extends f05, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return e;
         }
-        return (vm) invokeLLZ.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u77
-    public p67<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.d = str;
         }
-        return (p67) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.u77
-    public vm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
-        return (vm) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.u77
-    public vm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            BdLog.e("Frs extra project not loaded.");
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
         }
-        return (vm) invokeCommon.objValue;
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapapi.map.SwipeDismissTouchListener;
 import com.baidu.mapapi.map.WearMapView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class z implements SwipeDismissTouchListener.DismissCallbacks {
     public final /* synthetic */ SwipeDismissView a;
 

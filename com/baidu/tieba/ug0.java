@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,233 +14,106 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ug0 implements wm0 {
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.util.HashMap;
+import java.util.Map;
+@Service
+/* loaded from: classes7.dex */
+public class ug0 extends li0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends mr0<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ug0 a;
-
-        @Override // com.baidu.tieba.kr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
-            }
-        }
-
-        public a(ug0 ug0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ug0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ug0Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lr0
-        /* renamed from: e */
-        public void b(Headers headers, JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLLI(1048579, this, headers, jSONObject, i) != null) {
-                return;
-            }
-            this.a.i(jSONObject);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lr0
-        /* renamed from: f */
-        public JSONObject d(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
-                if (i != 200 || TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return new JSONObject(str);
-            }
-            return (JSONObject) invokeLLI.objValue;
-        }
+    @Override // com.baidu.tieba.li0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mnprogram" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ug0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-376047123, "Lcom/baidu/tieba/ug0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-376047123, "Lcom/baidu/tieba/ug0$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948209899, "Lcom/baidu/tieba/ug0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new ug0(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948209899, "Lcom/baidu/tieba/ug0;");
+                return;
+            }
         }
+        a = uj0.a().a();
     }
 
     public ug0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ug0 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.li0
+    public boolean b(@NonNull Context context, @NonNull pi0 pi0Var, @Nullable Map<String, Object> map, @Nullable ti0 ti0Var) {
+        InterceptResult invokeLLLL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (ug0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.wm0
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l11.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return l11.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return l11.a().b("nad_app_quick_config").getString("ip_dx_data", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (System.currentTimeMillis() / 1000 <= d()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pi0Var, map, ti0Var)) == null) {
+            super.b(context, pi0Var, map, ti0Var);
+            if (TextUtils.isEmpty(a)) {
+                c(ti0Var, pi0Var, 303, false);
                 return true;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (System.currentTimeMillis() - e() > 21600000) {
+            HashMap<String, String> d = pi0Var.d();
+            if (TextUtils.isEmpty((CharSequence) q11.b(d, "mn_program_type"))) {
+                c(ti0Var, pi0Var, 202, false);
                 return true;
             }
-            return false;
+            WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+            req.userName = (String) q11.b(d, "user_name");
+            req.path = (String) q11.b(d, "path");
+            req.miniprogramType = Integer.parseInt((String) q11.b(d, "mn_program_type"));
+            String str2 = (String) q11.b(d, "ext_info");
+            IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, a);
+            boolean sendReq = createWXAPI.sendReq(req);
+            if (!sendReq) {
+                if (!createWXAPI.isWXAppInstalled()) {
+                    str = "1001";
+                } else {
+                    str = "1002";
+                }
+                e("URL", str2, str);
+                return ki0.e((String) q11.b(d, "web_url"), context, map, ti0Var);
+            }
+            e(ClogBuilder.Area.APP.type, str2, null);
+            c(ti0Var, pi0Var, 0, sendReq);
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wm0
-    public void request() {
+    public final void e(@NonNull String str, @Nullable String str2, @Nullable String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            m();
-        }
-    }
-
-    public /* synthetic */ ug0(a aVar) {
-        this();
-    }
-
-    public final void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        k(jSONObject);
-        j(jSONObject.optLong("exptime"));
-    }
-
-    public final void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            l11.a().b("nad_app_quick_config").h("ip_dx_expire_time", j);
-        }
-    }
-
-    public final void k(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            l11.a().b("nad_app_quick_config").i("ip_dx_data", jSONObject.toString());
-        }
-    }
-
-    public final void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            l11.a().b("nad_app_quick_config").h("request_ip_dx_time", j);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && h() && !g()) {
-            l(System.currentTimeMillis());
-            si0 a2 = li0.c().a();
-            String g = a2.g();
-            String packageName = a2.packageName();
-            String str = "https://bz-ipdx.baidu.com/miaozhen?" + String.format("uid=%s&appname=%s", g, packageName);
-            er0 a3 = ar0.b().a();
-            tr0 tr0Var = new tr0();
-            tr0Var.l(str);
-            tr0Var.c();
-            a3.a(tr0Var, new a(this));
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.u(ClogBuilder.Page.MINI_PROGRAM);
+            clogBuilder.y(ClogBuilder.LogType.MINI_PROGRAM);
+            clogBuilder.j(str);
+            clogBuilder.p(str2);
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.k(str3);
+            }
+            e21.b(clogBuilder);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.searchbox;
 
 import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NativeBds implements NoProGuard {
     public static native byte[] ae0(String str, String str2);
 

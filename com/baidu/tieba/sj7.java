@@ -1,92 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
-public class sj7 {
+@Service
+/* loaded from: classes7.dex */
+public class sj7 implements m35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v67 a;
+    @Override // com.baidu.tieba.m35
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGuide" : (String) invokeV.objValue;
+    }
 
-        public a(v67 v67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v67Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.Q0();
+    public sj7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, v67 v67Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
+    @Override // com.baidu.tieba.m35
+    public Class<? extends k35> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65536, null, responsedMessage, v67Var, frsViewData) != null) || frsViewData == null || v67Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return rj7.class;
         }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
-            }
-        }
-        if (z) {
-            jg.a().postDelayed(new a(v67Var), TimeUnit.SECONDS.toMillis(2L));
-        }
-    }
-
-    public static void b(v67 v67Var) {
-        HashMap<Integer, ThreadData> h;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, v67Var) == null) && v67Var != null && v67Var.a0() != null && (h = v67Var.a0().h()) != null) {
-            ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-            for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-                ThreadData value = entry.getValue();
-                if (value != null && (value instanceof AdvertAppInfo)) {
-                    arrayList.add((AdvertAppInfo) value);
-                }
-            }
-            pe9.n().w(arrayList);
-        }
+        return (Class) invokeV.objValue;
     }
 }

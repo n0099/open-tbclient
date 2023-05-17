@@ -1,32 +1,64 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kt5;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ot5 implements kt5.j {
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ot5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public ImageView b;
-    public int c;
-    public ListView d;
+    public boolean a;
+    public List<dk6> b;
 
-    public ot5(ListView listView) {
+    /* loaded from: classes6.dex */
+    public class a implements Comparator<dk6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ot5 ot5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ot5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(dk6 dk6Var, dk6 dk6Var2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dk6Var, dk6Var2)) == null) {
+                return dk6Var.sort() - dk6Var2.sort();
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public ot5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {listView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,50 +68,55 @@ public class ot5 implements kt5.j {
                 return;
             }
         }
-        this.c = -16777216;
-        this.d = listView;
+        this.b = new LinkedList();
     }
 
-    @Override // com.baidu.tieba.kt5.j
-    public void a(View view2) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            ((ImageView) view2).setImageDrawable(null);
-            this.a.recycle();
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(int i) {
+    public List<dk6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            return b(list, list2, null);
         }
+        return (List) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.kt5.j
-    public View b(int i) {
-        InterceptResult invokeI;
+    public List<dk6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ListView listView = this.d;
-            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
-            if (childAt == null) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
+                    }
+                    this.b.add(pbLinkData);
+                }
             }
-            childAt.setPressed(false);
-            childAt.setDrawingCacheEnabled(true);
-            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
-            childAt.setDrawingCacheEnabled(false);
-            if (this.b == null) {
-                this.b = new ImageView(this.d.getContext());
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
             }
-            this.b.setBackgroundColor(this.c);
-            this.b.setPadding(0, 0, 0, 0);
-            this.b.setImageBitmap(this.a);
-            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
             return this.b;
         }
-        return (View) invokeI.objValue;
+        return (List) invokeLLL.objValue;
     }
 }

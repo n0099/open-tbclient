@@ -2,7 +2,7 @@ package okhttp3;
 
 import java.net.Socket;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface Connection {
     @Nullable
     Handshake handshake();

@@ -12,8 +12,8 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.hg;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.qg;
 import com.baidu.tieba.service.SignAlertReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,14 +24,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
 import java.util.Calendar;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public hg resourcesWrapper;
+    public qg resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -180,7 +180,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            f55.m().H("account_share");
+            o65.m().H("account_share");
         }
     }
 
@@ -248,7 +248,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new hg(super.getResources());
+                    this.resourcesWrapper = new qg(super.getResources());
                 }
                 return this.resourcesWrapper;
             }

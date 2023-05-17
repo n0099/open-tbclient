@@ -13,6 +13,8 @@ import com.baidu.searchbox.http.cookie.CookieJarImpl;
 import com.baidu.searchbox.http.interceptor.CronetInterceptor;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.interceptor.ParamInterceptor;
+import com.baidu.searchbox.http.multipath.IMultiPath;
+import com.baidu.searchbox.http.multipath.MultiPathRuntime;
 import com.baidu.searchbox.http.response.ResponseException;
 import com.baidu.searchbox.http.response.StatusCodeException;
 import com.baidu.searchbox.http.statistics.NetworkStat;
@@ -29,7 +31,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestCall implements Cancelable, IRequestCall {
     public static final String TAG = "RequestCall";
     public OkHttpClient client;
@@ -45,6 +47,13 @@ public class RequestCall implements Cancelable, IRequestCall {
         this.deliver = httpRequest.deliver;
         this.requestHandler = httpRequest.requestHandler;
         buildCall();
+    }
+
+    private void showBindMobileToastIfNeeded(Response response) {
+        IMultiPath iMultiPath;
+        if (TextUtils.equals(response.header("bd-frame-bind4gstatus"), "1") && (iMultiPath = MultiPathRuntime.sMultiPath) != null) {
+            iMultiPath.showBindMobileToast(String.valueOf(this.httpRequest.requestFrom), String.valueOf(this.httpRequest.requestSubFrom));
+        }
     }
 
     public <T> Cancelable executeAsync(ResponseCallback<T> responseCallback) {
@@ -309,6 +318,7 @@ public class RequestCall implements Cancelable, IRequestCall {
     /* JADX INFO: Access modifiers changed from: private */
     public <T> void sendSuccessResult(Handler handler, final ResponseCallback<T> responseCallback, final Response response) {
         try {
+            showBindMobileToastIfNeeded(response);
             if (this.httpRequest.networkStat != null) {
                 this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, System.currentTimeMillis());
             }
@@ -423,6 +433,7 @@ public class RequestCall implements Cancelable, IRequestCall {
     /* JADX INFO: Access modifiers changed from: private */
     public <T> void sendSuccessResult(Handler handler, final StatResponseCallback<T> statResponseCallback, final Response response) {
         try {
+            showBindMobileToastIfNeeded(response);
             long currentTimeMillis = System.currentTimeMillis();
             if (this.httpRequest.networkStat != null) {
                 this.httpRequest.networkStat.onFinish(this.httpRequest.okRequest, currentTimeMillis);

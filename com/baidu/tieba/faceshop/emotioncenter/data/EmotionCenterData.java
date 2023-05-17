@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EmotionCenterData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class EmotionCenterData extends OrmObject {
     public String is_bazhu;
     public List<EmotionPackageData> package_list;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class BannerData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class EmotionCenterData extends OrmObject {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class EmotionForumData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,453 +1,260 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.lf2;
+import com.baidu.tieba.vc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xc3 {
+import java.util.UUID;
+@Deprecated
+/* loaded from: classes8.dex */
+public class xc3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
-    public final String b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public String g;
-    public List<String> h;
-    public final List<String> i;
-    public int j;
-    public String k;
-    public String l;
-    public String m;
-    public a n;
-    public JSONObject o;
-    public String p;
-    public String q;
-    public String r;
-    public List<xc3> s;
 
-    /* loaded from: classes7.dex */
-    public static class a {
+    /* loaded from: classes8.dex */
+    public class a implements vc3.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public JSONArray f;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ tu2 b;
+        public final /* synthetic */ gz2 c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ g93 f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ p82 h;
+        public final /* synthetic */ Context i;
+        public final /* synthetic */ xc3 j;
 
-        public a() {
+        public a(xc3 xc3Var, String str, tu2 tu2Var, gz2 gz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var, String str2, p82 p82Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xc3Var, str, tu2Var, gz2Var, unitedSchemeEntity, callbackHandler, g93Var, str2, p82Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = xc3Var;
+            this.a = str;
+            this.b = tu2Var;
+            this.c = gz2Var;
+            this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
+            this.f = g93Var;
+            this.g = str2;
+            this.h = p82Var;
+            this.i = context;
+        }
+
+        @Override // com.baidu.tieba.vc3.e
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                m23.d(this.a);
+                g62.i("redirect", "check pages success");
+                this.b.o();
+                lf2.e f = lf2.f(this.b.getActivity(), qf2.c(this.c.a));
+                pc3.l(this.d, this.e, this.f, f.a.a(), this.c.a, null, this.g);
+                this.j.n(f, this.c, this.h, this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.vc3.e
+        public void b(int i, zk3 zk3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, zk3Var) == null) {
+                g62.c("redirect", "check pages failed");
+                this.b.o();
+                if (db3.b) {
+                    Context context = this.i;
+                    y83.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01d2) + i).G();
+                }
+                pc3.j(this.d, this.e, this.g);
+                uf3.j(this.c, zk3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements lf2.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lf2.e a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ gz2 c;
+        public final /* synthetic */ p82 d;
+
+        public b(xc3 xc3Var, lf2.e eVar, String str, gz2 gz2Var, p82 p82Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xc3Var, eVar, str, gz2Var, p82Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = str;
+            this.c = gz2Var;
+            this.d = p82Var;
+        }
+
+        @Override // com.baidu.tieba.lf2.f
+        public void onReady() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (db3.b) {
+                    Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
+                }
+                m23.e(this.a, this.b);
+                pc3.e(this.a.a, this.c, this.b);
+                az1.A(this.d, this.c, this.b, false);
+                if (db3.b) {
+                    Log.d("redirectTo", "tryToExecutePageRoute onReady end.");
                 }
             }
         }
     }
 
-    public xc3(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xc3(da3 da3Var) {
+        super(da3Var, "/swanAPI/redirectTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = -1;
-        this.k = "";
-        this.l = "";
-        this.m = "";
-        this.b = str;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (db3.b) {
+                Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (ml3.f("3.320.0")) {
-                return str;
+            String uuid = UUID.randomUUID().toString();
+            m23.b(uuid);
+            String o = pc3.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                g62.c("redirect", "url is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1456866260:
-                    if (str.equals("scope.phoneContact")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -653473286:
-                    if (str.equals("scope.userLocation")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -21617665:
-                    if (str.equals("scope.camera")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 277279100:
-                    if (str.equals("scope.mobile")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 411225387:
-                    if (str.equals("scope.record")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 583039347:
-                    if (str.equals("scope.userInfo")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 671518104:
-                    if (str.equals("scope.calendar")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case 986629481:
-                    if (str.equals("scope.writePhotosAlbum")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1303164176:
-                    if (str.equals("scope.faceVerify")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 1326852849:
-                    if (str.equals("scope.realNameInfo")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 1555675269:
-                    if (str.equals("scope.invoiceTitle")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 1927763546:
-                    if (str.equals("scope.address")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+            tu2 U = tu2.U();
+            p82 V = U.V();
+            if (V == null) {
+                g62.c("redirect", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            switch (c) {
-                case 0:
-                    return "snsapi_userinfo";
-                case 1:
-                    return "mobile";
-                case 2:
-                    return "mapp_location";
-                case 3:
-                    return "mapp_images";
-                case 4:
-                    return "mapp_choose_address";
-                case 5:
-                    return "mapp_choose_invoice";
-                case 6:
-                    return PermissionProxy.SCOPE_ID_CAMERA;
-                case 7:
-                    return PermissionProxy.SCOPE_ID_RECORD;
-                case '\b':
-                    return "mapp_i_face_verify";
-                case '\t':
-                    return "ppcert";
-                case '\n':
-                    return "scope_calendar";
-                case 11:
-                    return "mapp_i_read_contacts";
-                default:
-                    return str;
+            gz2 d = gz2.d(o, U.z());
+            d.e = "2";
+            d.f = uuid;
+            uf3.g(d);
+            if (!an3.b(U.s(), d, false)) {
+                g62.c("redirect", "page params error : path=" + d.a + " ; routePath=" + d.d);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                uf3.i(d);
+                return false;
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
+            String str = unitedSchemeEntity.getParams().get("initData");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(d.d) && g93.M() != null) {
+                g93.M().L0(str, d.d);
             }
-            if (ml3.f("3.320.0")) {
-                return str;
+            String n = pc3.n(unitedSchemeEntity, "params", "startTime");
+            if (!TextUtils.isEmpty(n)) {
+                HybridUbcFlow q = l23.q("route", uuid);
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
+                ubcFlowEvent.h(Long.valueOf(n).longValue());
+                q.F(ubcFlowEvent);
             }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1994404663:
-                    if (str.equals("scope_calendar")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -1785599184:
-                    if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case -1603097981:
-                    if (str.equals("mapp_images")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1352756132:
-                    if (str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case -1074510320:
-                    if (str.equals("mapp_choose_invoice")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1068855134:
-                    if (str.equals("mobile")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -982018012:
-                    if (str.equals("ppcert")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case -977063690:
-                    if (str.equals("snsapi_userinfo")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -218238720:
-                    if (str.equals("mapp_location")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 112565975:
-                    if (str.equals("mapp_choose_address")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 862108635:
-                    if (str.equals("mapp_i_read_contacts")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 1746078554:
-                    if (str.equals("mapp_i_face_verify")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
+            if (db3.b) {
+                Log.d("redirectTo", "PreloadSlaveManager start.");
             }
-            switch (c) {
-                case 0:
-                    return "scope.userInfo";
-                case 1:
-                    return "scope.mobile";
-                case 2:
-                    return "scope.userLocation";
-                case 3:
-                    return "scope.writePhotosAlbum";
-                case 4:
-                    return "scope.address";
-                case 5:
-                    return "scope.invoiceTitle";
-                case 6:
-                    return "scope.camera";
-                case 7:
-                    return "scope.record";
-                case '\b':
-                    return "scope.faceVerify";
-                case '\t':
-                    return "scope.realNameInfo";
-                case '\n':
-                    return "scope.calendar";
-                case 11:
-                    return "scope.phoneContact";
-                default:
-                    return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static xc3 f(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, jSONObject)) == null) {
-            xc3 xc3Var = new xc3(str);
-            xc3Var.a = jSONObject;
-            xc3Var.c = jSONObject.optBoolean("permit", false);
-            xc3Var.d = jSONObject.optBoolean("forbidden", true);
-            xc3Var.e = jSONObject.optString("grade");
-            xc3Var.k = jSONObject.optString("type", "");
-            xc3Var.f = jSONObject.optString("name", "");
-            xc3Var.g = jSONObject.optString("short_name", "");
-            jSONObject.optString("description", "");
-            xc3Var.j = jSONObject.optInt("tip_status", -1);
-            xc3Var.l = jSONObject.optString("explain", "");
-            xc3Var.m = jSONObject.optString("sub_explain", "");
-            JSONArray optJSONArray = jSONObject.optJSONArray("ext");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    xc3Var.i.add(optJSONArray.optString(i));
-                }
-            }
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("rule");
-            if (optJSONArray2 != null) {
-                int length2 = optJSONArray2.length();
-                for (int i2 = 0; i2 < length2; i2++) {
-                    xc3Var.h.add(optJSONArray2.optString(i2));
-                }
-            }
-            xc3Var.o = jSONObject.optJSONObject(ImageViewerConfig.FROM_OTHER);
-            xc3Var.p = jSONObject.optString("plugin_app_name");
-            xc3Var.q = jSONObject.optString("plugin_icon_url");
-            if (!jSONObject.has("forbidden")) {
-                x42.k("SwanAppUpdateManager", "scope:" + str + WebGLImageLoader.DATA_URL + jSONObject);
-            }
-            return xc3Var;
-        }
-        return (xc3) invokeLL.objValue;
-    }
-
-    public static xc3 g(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("id", "");
+            String optString = gm3.d(unitedSchemeEntity.getParam("params")).optString("cb");
             if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            return f(optString, jSONObject);
-        }
-        return (xc3) invokeL.objValue;
-    }
-
-    public void i(List<xc3> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.s = list;
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.j > 0) {
+                g62.c("redirect", "cb is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                uf3.i(d);
+                return false;
+            } else if (tb3.b().a(d)) {
+                tb3.b().i("redirectTo", d);
+                g62.c("redirectTo", "access to this page is prohibited");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                U.a();
+                vc3.g(g93Var, d, "", new a(this, uuid, U, d, unitedSchemeEntity, callbackHandler, g93Var, optString, V, context), uuid);
                 return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public final void n(lf2.e eVar, gz2 gz2Var, p82 p82Var, String str) {
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.j != 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, gz2Var, p82Var, str) == null) {
+            if (eVar != null && eVar.b) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "1".equals(this.k);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.format(Locale.getDefault(), "Scope(%s) tipStatus=%d", this.b, Integer.valueOf(this.j));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (jSONObject = this.o) != null && jSONObject.keys() != null && this.o.keys().hasNext()) {
-            a aVar = new a();
-            this.n = aVar;
-            aVar.a = this.o.optString("detail_text");
-            this.n.c = this.o.optString("detail_url");
-            this.n.b = this.o.optString(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR);
-            this.n.d = this.o.optString("keyword");
-            this.n.e = this.o.optString("key_color");
-            JSONObject optJSONObject = this.o.optJSONObject("developer_agreements");
-            if (optJSONObject != null) {
-                this.n.f = optJSONObject.optJSONArray("details");
+            HybridUbcFlow q = l23.q("route", str);
+            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
+            if (z) {
+                str2 = "1";
+            } else {
+                str2 = "0";
+            }
+            q.D("preload", str2);
+            if (db3.b) {
+                Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + z);
+            }
+            lf2.q(eVar, new b(this, eVar, str, gz2Var, p82Var));
+            if (db3.b) {
+                Log.d("redirectTo", "tryToExecutePageRoute end.");
             }
         }
     }

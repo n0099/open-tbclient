@@ -17,11 +17,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cb1;
-import com.baidu.tieba.n51;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.d61;
+import com.baidu.tieba.sb1;
+/* loaded from: classes3.dex */
 public class BdThumbSeekBar extends View {
-    public static final int y = n51.d(0.0f);
+    public static final int y = d61.d(0.0f);
     public static final BdSeekBarStyle z = BdSeekBarStyle.LINE;
     public BdSeeBarStatus a;
     public final int b;
@@ -48,25 +48,25 @@ public class BdThumbSeekBar extends View {
     public SeekBarDirect w;
     public boolean x;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BdSeeBarStatus {
         None,
         Seek
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BdSeekBarStyle {
         LINE,
         ROUND_RECT
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SeekBarDirect {
         Vertical,
         Horizontal
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
 
@@ -75,7 +75,7 @@ public class BdThumbSeekBar extends View {
         void c(BdThumbSeekBar bdThumbSeekBar);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static final /* synthetic */ int[] a;
 
@@ -159,7 +159,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, cb1.NadBdThumbSeekBar);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, sb1.NadBdThumbSeekBar);
         int i3 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i3 != 1) {
@@ -190,7 +190,7 @@ public class BdThumbSeekBar extends View {
             if (this.k == null) {
                 this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.nad_videoplayer_new_player_seekbar_thumb);
             }
-            this.l = n51.a(0.0f);
+            this.l = d61.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

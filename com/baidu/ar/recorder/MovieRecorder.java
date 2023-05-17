@@ -13,7 +13,6 @@ import com.baidu.ar.record.b;
 import com.baidu.ar.recorder.b.c;
 import com.baidu.ar.recorder.b.d;
 import com.baidu.ar.recorder.b.e;
-import com.baidu.platform.comapi.map.NodeType;
 import com.baidu.tbadk.core.util.TbEnum;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
@@ -52,7 +51,7 @@ public class MovieRecorder implements b {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
-                case NodeType.E_PARTICLE /* 7000 */:
+                case 7000:
                     if (MovieRecorder.this.tX != null) {
                         MovieRecorder.this.tX.onRecorderInit((Surface) message.obj);
                         break;
@@ -276,7 +275,7 @@ public class MovieRecorder implements b {
             public void a(boolean z, Object obj) {
                 if (z) {
                     if (MovieRecorder.this.ul != null) {
-                        MovieRecorder.this.ul.sendMessage(MovieRecorder.this.ul.obtainMessage(NodeType.E_PARTICLE, obj));
+                        MovieRecorder.this.ul.sendMessage(MovieRecorder.this.ul.obtainMessage(7000, obj));
                     }
                     if (MovieRecorder.this.ut != null) {
                         MovieRecorder.this.ut.startRecording();

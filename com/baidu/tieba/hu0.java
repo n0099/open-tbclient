@@ -1,20 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class hu0 extends vu0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class hu0 extends lu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static vu0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public hu0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return vu0.m(str, 2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (vu0) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lu0, com.baidu.tieba.ju0, com.baidu.tieba.ku0, com.baidu.tieba.gu0
+    public void k(@NonNull lv0 lv0Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, lv0Var) == null) {
+            super.k(lv0Var);
+            if (PlayerEvent.ACTION_PLAYER_ATTACH.equals(lv0Var.c())) {
+                if (q().n1().g()) {
+                    i = 0;
+                } else {
+                    i = 8;
+                }
+                M(i);
+            }
+        }
     }
 }

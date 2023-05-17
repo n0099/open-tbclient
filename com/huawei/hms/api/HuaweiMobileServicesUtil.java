@@ -22,7 +22,7 @@ import com.huawei.hms.utils.Checker;
 import com.huawei.hms.utils.HMSPackageManager;
 import com.huawei.hms.utils.PackageManagerHelper;
 import com.huawei.hms.utils.ReadApkFileUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class HuaweiMobileServicesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HMS_ERROR_DIALOG = "HuaweiMobileServicesErrorDialog";

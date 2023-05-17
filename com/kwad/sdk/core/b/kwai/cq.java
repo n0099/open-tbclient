@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.kwad.sdk.commercial.model.HybridLoadMsg;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class cq implements com.kwad.sdk.core.d<HybridLoadMsg> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(HybridLoadMsg hybridLoadMsg, JSONObject jSONObject) {

@@ -16,7 +16,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static String a;
 

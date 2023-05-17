@@ -5,7 +5,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.SourceFile;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization.JvmMetadataVersion;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.IncompatibleVersionErrorData;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedContainerSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class KotlinJvmBinarySourceElement implements DeserializedContainerSource {
     public final KotlinJvmBinaryClass binaryClass;
     public final IncompatibleVersionErrorData<JvmMetadataVersion> incompatibility;

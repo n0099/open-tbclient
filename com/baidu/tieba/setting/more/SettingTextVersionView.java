@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
             TextView textView = this.e;
             Context context = this.a;
             if (z) {
-                i = R.style.obfuscated_res_0x7f100404;
+                i = R.style.obfuscated_res_0x7f100416;
             } else {
-                i = R.style.obfuscated_res_0x7f100403;
+                i = R.style.obfuscated_res_0x7f100415;
             }
             textView.setTextAppearance(context, i);
         }

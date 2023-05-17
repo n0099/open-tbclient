@@ -1,53 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class kp0 {
+/* loaded from: classes6.dex */
+public final /* synthetic */ class kp0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
 
-    public kp0(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("url");
-        jSONObject.optInt("width");
-        this.b = jSONObject.optInt("height");
-    }
-
-    public static kp0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new kp0(jSONObject);
-        }
-        return (kp0) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.a)) {
-            return;
-        }
-        en0.a().d(this.a);
+    static {
+        int[] iArr = new int[NestedEvent.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
+        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
     }
 }

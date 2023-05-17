@@ -1,115 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import java.util.Iterator;
+/* loaded from: classes7.dex */
 public class si8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
+    public static ri8 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
-        }
-    }
-
-    public static void b(@NonNull StringBuilder sb, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof ri8)) {
+                return null;
             }
-            sb.append(str);
-            sb.append(",");
+            return (ri8) iLegoAdvert;
+        }
+        return (ri8) invokeL.objValue;
+    }
+
+    public static void b(ri8 ri8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, ri8Var) == null) && ri8Var != null && ri8Var.getParallelCharge() != null) {
+            f21.b(ri8Var.getParallelCharge().b);
+            Iterator<String> it = ri8Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                f21.b(it.next());
+            }
         }
     }
 
-    public static void d(@NonNull String str, long j) {
+    public static void c(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
-            jw4.d(str + j);
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+            }
+            e21.b(clogBuilder);
         }
     }
 
-    public static void k(@NonNull String str, long j) {
+    public static boolean d(ri8 ri8Var) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, str, j) == null) {
-            jw4.e(str + j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ri8Var)) == null) {
+            if (ri8Var == null || ri8Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = ri8Var.getParallelCharge().a;
+            f21.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator<String> it = ri8Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!z && TextUtils.isEmpty(next)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                f21.b(next);
+            }
+            return z;
         }
-    }
-
-    public static void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            jw4.d(str);
-        }
-    }
-
-    public static void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, z);
-            jw4.b("login_lcp", sb.toString());
-        }
-    }
-
-    public static void j(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            jw4.e(str);
-        }
-    }
-
-    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            jw4.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
-        }
-    }
-
-    public static void f(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            jw4.b("im_enter_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void g(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            jw4.b("im_exit_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void h(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            jw4.b("login_im", sb.toString());
-        }
+        return invokeL.booleanValue;
     }
 }

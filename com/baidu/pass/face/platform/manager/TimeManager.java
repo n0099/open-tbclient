@@ -1,5 +1,5 @@
 package com.baidu.pass.face.platform.manager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TimeManager {
     public static TimeManager instance;
     public int mActiveAnimTime;

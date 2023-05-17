@@ -1,70 +1,83 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.oh6;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailItemVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jd7 extends vm<kp6, CardViewHolder<oh6>> {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class jd7 extends en<pd7, ForumRuleDetailItemVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public oh6 b;
-    public ji6 c;
-    public String d;
+    public Context a;
+    public TbRichText b;
+    public List<rn> c;
 
-    /* loaded from: classes5.dex */
-    public class a implements oh6.a {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jd7 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ jd7 b;
 
-        public a(jd7 jd7Var) {
+        public a(jd7 jd7Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jd7Var};
+                Object[] objArr = {jd7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = jd7Var;
+            this.b = jd7Var;
+            this.a = i;
         }
 
-        @Override // com.baidu.tieba.oh6.a
-        public void a(View view2, BaseCardInfo baseCardInfo) {
+        @Override // android.view.View.OnLongClickListener
+        public boolean onLongClick(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) && this.a.c != null) {
-                this.a.c.a(view2, baseCardInfo);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (this.b.c != null) {
+                    rn rnVar = (rn) this.b.c.get(this.a);
+                    if (rnVar instanceof pd7) {
+                        hi.a(TbRichTextView.c0(((pd7) rnVar).b(), false).toString());
+                        ri.P(this.b.a, R.string.obfuscated_res_0x7f0f0788);
+                    }
+                }
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jd7(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), kp6.b);
+    public jd7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,44 +89,68 @@ public class jd7 extends vm<kp6, CardViewHolder<oh6>> {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.d = str;
+        this.a = context;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public CardViewHolder<oh6> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.en
+    /* renamed from: u */
+    public ForumRuleDetailItemVH onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new oh6(this.a, this.d);
-            return new CardViewHolder<>(this.b);
+            ForumRuleDetailItemVH forumRuleDetailItemVH = new ForumRuleDetailItemVH(this.a, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02f6, viewGroup, false));
+            this.viewholder = forumRuleDetailItemVH;
+            return forumRuleDetailItemVH;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (ForumRuleDetailItemVH) invokeL.objValue;
     }
 
-    public void x(ji6 ji6Var) {
+    public void y(List<rn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ji6Var) == null) {
-            this.c = ji6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.c = list;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kp6 kp6Var, CardViewHolder<oh6> cardViewHolder) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pd7 pd7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
+        x(i, view2, viewGroup, pd7Var, forumRuleDetailItemVH);
+        return view2;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, pd7 pd7Var, ForumRuleDetailItemVH forumRuleDetailItemVH) {
         InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kp6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pd7Var, forumRuleDetailItemVH})) == null) {
+            if (pd7Var != null && this.a != null) {
+                forumRuleDetailItemVH.c(pd7Var.a());
+                if (!StringUtils.isNull(pd7Var.c())) {
+                    z = true;
+                    forumRuleDetailItemVH.c.setVisibility(0);
+                    forumRuleDetailItemVH.c.setText(pd7Var.c());
+                } else {
+                    forumRuleDetailItemVH.c.setVisibility(8);
+                    z = false;
+                }
+                if (pd7Var.b() != null && !StringUtils.isNull(pd7Var.b().toString())) {
+                    forumRuleDetailItemVH.d.setVisibility(0);
+                    if (!z) {
+                        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) forumRuleDetailItemVH.d.getLayoutParams();
+                        layoutParams.topMargin = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+                        forumRuleDetailItemVH.d.setLayoutParams(layoutParams);
+                    }
+                    TbRichText c0 = TbRichTextView.c0(pd7Var.b(), false);
+                    this.b = c0;
+                    forumRuleDetailItemVH.d.setText(c0);
+                } else {
+                    forumRuleDetailItemVH.d.setVisibility(8);
+                }
+                forumRuleDetailItemVH.d.setOnLongClickListener(new a(this, i));
             }
-            cardViewHolder.a().i(kp6Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().u(new a(this));
-            return cardViewHolder.a().h();
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

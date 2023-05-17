@@ -1,24 +1,35 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
+import com.baidu.tieba.feed.component.uistate.RichTextUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class oz6 {
+import kotlin.reflect.KFunction;
+/* loaded from: classes6.dex */
+public class oz6 extends d37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public long c;
+    public final Function2<Context, String, Unit> c;
+    public final Function1<y07, Unit> d;
 
-    public oz6() {
+    @JvmOverloads
+    public oz6(Function2<? super Context, ? super String, Unit> onRichTextClick, Function1<? super y07, Unit> onStat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {onRichTextClick, onStat};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,72 +39,40 @@ public final class oz6 {
                 return;
             }
         }
-        this.a = "";
-        this.c = -1L;
+        Intrinsics.checkNotNullParameter(onRichTextClick, "onRichTextClick");
+        Intrinsics.checkNotNullParameter(onStat, "onStat");
+        this.c = onRichTextClick;
+        this.d = onStat;
     }
 
-    public final long a() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ oz6(Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
+        KFunction kFunction;
+        if ((i & 1) != 0) {
+            kFunction = RichTextUiStateKt.a;
+            function2 = (Function2) kFunction;
+        }
+    }
+
+    public final Function2<Context, String, Unit> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return invokeV.longValue;
+        return (Function2) invokeV.objValue;
     }
 
-    public final String b() {
+    public final Function1<y07, Unit> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            return !z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
+        return (Function1) invokeV.objValue;
     }
 }

@@ -14,14 +14,14 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.fea;
-import com.baidu.tieba.jea;
+import com.baidu.tieba.dga;
+import com.baidu.tieba.hga;
 import com.baidu.ubc.UBCManager;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
     public static final String KEY_UBC_APP_VERSION = "ubc_app_version";
@@ -117,7 +117,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         if (jSONObject != null && jSONObject.length() == 0) {
             return null;
         }
-        return new CloudControlRequestInfo(UBC_KEY, sharedPrefsWrapper().getString(UBC_CLOUDCONFIG_VERSION, "0"), null, "");
+        return new CloudControlRequestInfo("ubc", sharedPrefsWrapper().getString(UBC_CLOUDCONFIG_VERSION, "0"), null, "");
     }
 
     @Override // com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor
@@ -125,7 +125,7 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
         String str;
         JSONObject option = cloudControlResponseInfo.getOption();
         JSONObject serviceData = cloudControlResponseInfo.getServiceData();
-        if (!TextUtils.equals(cloudControlResponseInfo.getServiceName(), UBC_KEY) || serviceData == null) {
+        if (!TextUtils.equals(cloudControlResponseInfo.getServiceName(), "ubc") || serviceData == null) {
             return;
         }
         if (option == null) {
@@ -134,11 +134,11 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             str = option.optString("version_asc");
         }
         boolean z = !"0".equals(str);
-        jea jeaVar = new jea("", serviceData);
-        if (jeaVar.l()) {
-            final String g = jeaVar.g();
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(jeaVar, z, new fea() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                @Override // com.baidu.tieba.fea
+        hga hgaVar = new hga("", serviceData);
+        if (hgaVar.l()) {
+            final String g = hgaVar.g();
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(hgaVar, z, new dga() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                @Override // com.baidu.tieba.dga
                 public void setUBCConfigStatisticData(JSONObject jSONObject) {
                     ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                     if (jSONObject != null && (iCloudControlUBCCallBack2 = iCloudControlUBCCallBack) != null) {

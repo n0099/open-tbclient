@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum Coordinates2d {
     TEXTURE_TEXELS(0),
     TEXTURE_NORMALIZED(1),

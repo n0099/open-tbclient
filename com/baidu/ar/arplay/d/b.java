@@ -51,13 +51,13 @@ public class b {
             String str;
             super.handleMessage(message);
             Object obj = message.obj;
-            a.C0049a c0049a = obj instanceof a.C0049a ? (a.C0049a) obj : null;
+            a.C0052a c0052a = obj instanceof a.C0052a ? (a.C0052a) obj : null;
             switch (message.what) {
                 case 103:
-                    b.this.a(c0049a);
+                    b.this.a(c0052a);
                     return;
                 case 104:
-                    if (c0049a == null || (n = b.this.n(c0049a.dM)) == null || (str = c0049a.ge) == null) {
+                    if (c0052a == null || (n = b.this.n(c0052a.dM)) == null || (str = c0052a.ge) == null) {
                         return;
                     }
                     n.evaluateJavascript(str, new ValueCallback<String>() { // from class: com.baidu.ar.arplay.d.b.1.1
@@ -80,7 +80,7 @@ public class b {
                     }
                     return;
                 case 106:
-                    b.this.b(c0049a);
+                    b.this.b(c0052a);
                     return;
                 default:
                     return;
@@ -168,27 +168,27 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0049a c0049a) {
-        if (c0049a == null || !isValid()) {
+    public void a(a.C0052a c0052a) {
+        if (c0052a == null || !isValid()) {
             return;
         }
-        com.baidu.ar.arplay.d.a e = e(c0049a.width, c0049a.height);
-        e.setWebViewData(c0049a);
-        d.bp().b(c0049a.dM, c0049a.width, c0049a.height);
-        e.setTag(Integer.valueOf(c0049a.dM));
-        String str = c0049a.url;
-        if (!c0049a.gd) {
+        com.baidu.ar.arplay.d.a e = e(c0052a.width, c0052a.height);
+        e.setWebViewData(c0052a);
+        d.bp().b(c0052a.dM, c0052a.width, c0052a.height);
+        e.setTag(Integer.valueOf(c0052a.dM));
+        String str = c0052a.url;
+        if (!c0052a.gd) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         e.loadUrl(str);
         e.invalidate();
         e.setIsNeedRender(true);
-        e(c0049a);
+        e(c0052a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0049a c0049a) {
-        if (c0049a == null || !bn()) {
+    public void b(a.C0052a c0052a) {
+        if (c0052a == null || !bn()) {
             return;
         }
         if (this.gm == null) {
@@ -212,8 +212,8 @@ public class b {
             });
             this.gl.addView(this.gm, layoutParams);
         }
-        String str = c0049a.url;
-        if (!c0049a.gd) {
+        String str = c0052a.url;
+        if (!c0052a.gd) {
             str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
         }
         this.gm.loadUrl(str);
@@ -348,27 +348,27 @@ public class b {
         this.gi = onTouchListener;
     }
 
-    public void c(a.C0049a c0049a) {
+    public void c(a.C0052a c0052a) {
         Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 103;
-        obtainMessage.obj = c0049a;
+        obtainMessage.obj = c0052a;
         this.gn.sendMessage(obtainMessage);
     }
 
-    public void d(a.C0049a c0049a) {
+    public void d(a.C0052a c0052a) {
         Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 106;
-        obtainMessage.obj = c0049a;
+        obtainMessage.obj = c0052a;
         this.gn.sendMessage(obtainMessage);
     }
 
-    public void e(a.C0049a c0049a) {
+    public void e(a.C0052a c0052a) {
         Message obtainMessage = this.gn.obtainMessage();
         obtainMessage.what = 104;
-        obtainMessage.obj = c0049a;
-        com.baidu.ar.arplay.d.a n = n(c0049a.dM);
+        obtainMessage.obj = c0052a;
+        com.baidu.ar.arplay.d.a n = n(c0052a.dM);
         if (n != null) {
-            n.setWebViewData(c0049a);
+            n.setWebViewData(c0052a);
             this.gn.sendMessage(obtainMessage);
         }
     }

@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.Sets;
 import com.facebook.common.memory.MemoryTrimType;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DummyTrackingInUseBitmapPool implements BitmapPool {
     public final Set<Bitmap> mInUseValues = Sets.newIdentityHashSet();
 

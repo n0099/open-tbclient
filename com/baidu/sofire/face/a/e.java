@@ -8,13 +8,12 @@ import com.baidu.pass.face.platform.FaceSDKManager;
 import com.baidu.sofire.face.api.FaceProcessCallback;
 import com.baidu.sofire.face.api.IVideoRecordProcess;
 import com.baidu.sofire.face.api.RecordCallback;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static e c = null;
@@ -26,7 +25,7 @@ public class e {
     public j a;
     public IVideoRecordProcess b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +60,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,8 +187,8 @@ public class e {
                         String secDecouplingVersion = FaceSDKManager.getSecDecouplingVersion();
                         if (!TextUtils.isEmpty(secDecouplingVersion) && !TextUtils.isEmpty("4.1.1")) {
                             try {
-                                split = secDecouplingVersion.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                                split2 = "4.1.1".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                                split = secDecouplingVersion.split("\\.");
+                                split2 = "4.1.1".split("\\.");
                             } catch (Throwable unused) {
                             }
                             for (i2 = 0; i2 < split.length && i2 < split2.length; i2++) {

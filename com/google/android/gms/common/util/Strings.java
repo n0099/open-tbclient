@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import org.checkerframework.checker.nullness.qual.EnsuresNonNullIf;
 @VisibleForTesting
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Strings {
     public static final Pattern zza = Pattern.compile("\\$\\{(.*?)\\}");
 

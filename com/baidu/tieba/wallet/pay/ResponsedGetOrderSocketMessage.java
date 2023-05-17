@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetOrder.DataRes;
 import tbclient.GetOrder.GetOrderResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class ResponsedGetOrderSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

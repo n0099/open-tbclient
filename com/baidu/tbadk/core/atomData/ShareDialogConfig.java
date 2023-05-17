@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.o25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,17 +21,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareDialogConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener closeAdListener;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
-    public f15.e dialogAddToExpressionListener;
-    public f15.e dialogDownloadOriginListener;
-    public f15.e dialogRecognizePicListener;
-    public f15.e dialogSaveToDiskListener;
+    public o25.e dialogAddToExpressionListener;
+    public o25.e dialogDownloadOriginListener;
+    public o25.e dialogRecognizePicListener;
+    public o25.e dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
     public String experimentId;
     public boolean hasSpecialItem;
@@ -74,7 +74,7 @@ public class ShareDialogConfig extends IntentConfig {
     public DialogInterface.OnDismissListener onDismissListener;
     public View.OnClickListener onWeChatEmotionShareListener;
     public String originImgText;
-    public f15.e qrCodeClickListener;
+    public o25.e qrCodeClickListener;
     public ShareItem shareItem;
     public boolean showAddEmotion;
     public boolean showDisLike;
@@ -87,7 +87,7 @@ public class ShareDialogConfig extends IntentConfig {
     public String topicId;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class From {
         public static final /* synthetic */ From[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

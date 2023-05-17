@@ -9,7 +9,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static void a(Context context) {
         if (context.getPackageName().equalsIgnoreCase(MzSystemUtils.isWatch() ? PushConstants.WEARABLE_PUSH_PACKAGE_NAME : PushConstants.PUSH_PACKAGE_NAME)) {

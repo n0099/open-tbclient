@@ -10,7 +10,7 @@ import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 import com.google.android.material.badge.BadgeDrawable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class NotificationClickedActivity extends Activity {
     public BroadcastReceiver a;
 

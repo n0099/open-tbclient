@@ -1,66 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class az2 extends zy2 {
+/* loaded from: classes4.dex */
+public class az2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az2(u83 u83Var) {
-        super(u83Var, "/swanAPI/cancelRequest");
+    public az2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public static az2 a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            JSONObject a = u93.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            String optString = jSONObject.optString("error");
+            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
+                return null;
             }
-            String optString = a.optString("cancelTag");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal cancelTag");
-                return false;
+            az2 az2Var = new az2();
+            az2Var.a = optJSONObject2.optString("ak");
+            az2Var.b = optJSONObject2.optString("sk");
+            az2Var.c = optJSONObject2.optString("token");
+            az2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
+                az2Var.f = optJSONObject.optString("bosobject");
+                az2Var.e = optJSONObject.optString("bosurl");
             }
-            SwanAppNetworkUtils.a(bf4.g().getOkHttpClient(), optString);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+            return az2Var;
         }
-        return invokeLLLL.booleanValue;
+        return (az2) invokeLL.objValue;
     }
 }

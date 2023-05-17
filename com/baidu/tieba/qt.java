@@ -1,79 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.meter.TaskMeterData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.bdtask.framework.utils.DebugTrace;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class qt extends jt<TaskMeterData> {
+/* loaded from: classes7.dex */
+public final class qt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lt a;
+    public final ut a;
+    public final String b;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qt(lt ltVar) {
-        super(ltVar);
+    public qt(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ltVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((lt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ltVar;
+        this.b = str;
+        this.a = new ut();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jt
-    /* renamed from: c */
-    public TaskMeterData a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        int optInt;
+    public final TaskInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                jSONObject = new JSONObject(str);
-                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                jt a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData == null) {
-                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
-                }
-                return new TaskMeterData(optInt, taskUIData);
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return new TaskMeterData(0, null, 3, null);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String a = uv.c.a(this.b);
+            DebugTrace debugTrace = DebugTrace.a;
+            debugTrace.a("parse taskInfo str:" + a);
+            return (TaskInfo) this.a.a("info").a(a);
         }
-        return (TaskMeterData) invokeL.objValue;
+        return (TaskInfo) invokeV.objValue;
     }
 }

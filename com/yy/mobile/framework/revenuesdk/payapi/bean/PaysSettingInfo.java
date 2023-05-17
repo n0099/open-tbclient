@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PaysSettingInfo {
     public String customerServiceHotline;
     public String customerServiceMsg;

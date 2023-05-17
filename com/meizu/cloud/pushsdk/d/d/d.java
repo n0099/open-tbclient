@@ -1,5 +1,5 @@
 package com.meizu.cloud.pushsdk.d.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d {
     void a(com.meizu.cloud.pushsdk.d.a.a aVar);
 

@@ -1,22 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public final /* synthetic */ class fh0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public final class fh0<X, Y> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final X a;
+    public final Y b;
 
-    static {
-        int[] iArr = new int[AdDownloadStatus.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-        $EnumSwitchMapping$0[AdDownloadStatus.PAUSE.ordinal()] = 3;
-        $EnumSwitchMapping$0[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-        $EnumSwitchMapping$0[AdDownloadStatus.INSTALLED.ordinal()] = 5;
-        $EnumSwitchMapping$0[AdDownloadStatus.FAILED.ordinal()] = 6;
+    public fh0(X x, Y y) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x, y};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = x;
+        this.b = y;
     }
 }

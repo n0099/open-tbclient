@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IMUserListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REQUEST_MAX_SIZE = 200;
@@ -61,7 +61,7 @@ public class IMUserListModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,7 +75,7 @@ public class IMUserListModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            f55 m = f55.m();
+            o65 m = o65.m();
             long o = m.o("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), 0L);
             if (o == 0 || System.currentTimeMillis() - o > 7200000) {
                 return true;
@@ -103,7 +103,7 @@ public class IMUserListModel extends BdBaseModel {
         }
         ArrayList arrayList = new ArrayList();
         for (String str : list) {
-            if (gg.g(str, 0L) <= 0) {
+            if (pg.g(str, 0L) <= 0) {
                 arrayList.add(str);
             }
         }
@@ -115,7 +115,7 @@ public class IMUserListModel extends BdBaseModel {
             sendMessage(new IMUserListHttpReqMessage(list));
         } else if (canRequestIfControl()) {
             sendMessage(new IMUserListHttpReqMessage(list));
-            f55 m = f55.m();
+            o65 m = o65.m();
             m.A("im_user_list_request_lasttime_" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
         }
     }

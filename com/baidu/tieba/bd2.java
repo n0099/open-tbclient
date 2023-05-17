@@ -1,121 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import android.text.TextUtils;
+import com.baidu.tieba.cs2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.io.File;
+/* loaded from: classes4.dex */
 public class bd2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecordType a;
-    public final String b;
-    public final boolean c;
-    public final Object d;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public RecordType a;
-        public String b;
-        public boolean c;
-        public Object d;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641049, "Lcom/baidu/tieba/bd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        public bd2 e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new bd2(this, null);
-            }
-            return (bd2) invokeV.objValue;
-        }
-
-        public b f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b g(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public b h(RecordType recordType) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, recordType)) == null) {
-                this.a = recordType;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public bd2(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947641049, "Lcom/baidu/tieba/bd2;");
                 return;
             }
         }
-        this.a = bVar.a;
-        this.b = bVar.b;
-        this.c = bVar.c;
-        this.d = bVar.d;
+        boolean z = qp1.a;
     }
 
-    public /* synthetic */ bd2(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public static b a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b(f93.K().q().W().e0());
         }
-        return (b) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ns2.g0().getSwitch("swan_app_precreate_video_switch_v2", false);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = tu2.U().g();
+            }
+            String f = ym3.f(str);
+            boolean z = tu2.U().e(f, tu2.U().s(), cs2.e.i(f93.K().getAppId(), f93.K().q().W().v1()).getPath() + File.separator).o;
+            g62.i("PreCreateVideoHelper", "hasVideoInPage path : " + f + " has video :" + z);
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

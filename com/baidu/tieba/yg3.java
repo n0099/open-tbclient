@@ -1,154 +1,98 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class yg3 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class yg3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public wg3 a;
-    public tg3 b;
-    public volatile boolean c;
-    public HandlerThread d;
-    public Handler e;
 
-    public abstract void f();
-
-    /* loaded from: classes7.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yg3 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yg3 yg3Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yg3Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yg3Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
-                this.a.f();
-                if (this.a.c) {
-                    this.a.a.c();
-                } else {
-                    this.a.e.removeMessages(101);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948329156, "Lcom/baidu/tieba/yg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948329156, "Lcom/baidu/tieba/yg3;");
-                return;
-            }
-        }
-        f = ho1.a;
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessage(this.e.obtainMessage(101));
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e == null) {
-            HandlerThread handlerThread = new HandlerThread("cookieSync");
-            this.d = handlerThread;
-            handlerThread.start();
-            this.e = new a(this, this.d.getLooper());
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.c = true;
-                if (this.d != null) {
-                    this.d.quitSafely();
-                }
-                this.e = null;
-                this.d = null;
-            }
-        }
-    }
-
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                d();
-                this.e.sendMessageDelayed(this.e.obtainMessage(101), 5000L);
-            }
-        }
-    }
-
-    public yg3(tg3 tg3Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yg3(da3 da3Var) {
+        super(da3Var, "/swanAPI/file/removeSavedFile");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tg3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new wg3();
-        this.b = tg3Var;
+    }
+
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (context != null && callbackHandler != null && g93Var != null && g93Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    g62.c("removeSavedFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String M = og3.M(optParamsAsJo.optString("filePath"), g93.g0());
+                if (db3.b) {
+                    Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
+                    Log.d("SaveFileAction", "——> handle: filePath " + M);
+                }
+                if (db3.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
+                }
+                if (TextUtils.isEmpty(M)) {
+                    g62.c("removeSavedFile", "file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                int a = g93Var.f0().a(M);
+                if (db3.b) {
+                    Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a);
+                }
+                if (a > 2000) {
+                    g62.c("removeSavedFile", "file path status code : " + a);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, aa3.a(a)));
+                    return false;
+                } else if (kp4.k(M)) {
+                    g62.i("removeSavedFile", "file delete success");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (db3.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
+                        return true;
+                    }
+                    return true;
+                } else {
+                    g62.c("removeSavedFile", "file delete fail");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, aa3.a(2004)));
+                    if (db3.b) {
+                        Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
+                    }
+                    return false;
+                }
+            }
+            g62.c("removeSavedFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

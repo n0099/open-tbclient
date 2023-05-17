@@ -4,29 +4,42 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Hottopic.JoinUser;
+import tbclient.Hottopic.UserInfo;
+/* loaded from: classes8.dex */
 public class vz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
+    public List<yz7> a;
 
-    public vz7(float f, float f2) {
+    public vz7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = f;
-        this.b = f2;
+    }
+
+    public void a(JoinUser joinUser) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
+            joinUser.join_user_num.longValue();
+            this.a = new ArrayList();
+            for (UserInfo userInfo : joinUser.join_user) {
+                if (userInfo != null) {
+                    yz7 yz7Var = new yz7();
+                    yz7Var.a(userInfo);
+                    this.a.add(yz7Var);
+                }
+            }
+        }
     }
 }

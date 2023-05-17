@@ -1,41 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lbb;
+import com.baidu.tieba.h7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes3.dex */
-public class ccb implements lbb.a {
+/* loaded from: classes5.dex */
+public abstract class ccb<T, R> extends h7b<R> implements i7b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ccb(IYYPayWayView iYYPayWayView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ccb(h7b.a<R> aVar) {
+        super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iYYPayWayView};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((h7b.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
     }
 
-    @Override // com.baidu.tieba.lbb.a
-    public void a(CancelType cancelType) {
+    public final bcb<T, R> G() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getClass() == bcb.class) {
+                return (bcb) this;
+            }
+            return new bcb<>(this);
         }
+        return (bcb) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.bytedance.pangle.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static String b = "request_finish";
     public static String c = "download_start";
@@ -16,7 +16,7 @@ public class b {
     public static volatile b j;
     public final List<com.bytedance.pangle.b.a> a = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static int a = 11000;
         public static int b = 12000;

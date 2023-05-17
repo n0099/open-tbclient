@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.biometrics.base.utils.PassBioEnv;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassBiometricConfiguration {
     public static final String TARGET_TPL = "pp";
     public boolean a;
@@ -22,7 +22,7 @@ public class PassBiometricConfiguration {
     public final String sofireSecKey;
     public final String tpl;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public String a;
         public String b;

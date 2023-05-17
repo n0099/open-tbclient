@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface Expose {
     boolean deserialize() default true;
 

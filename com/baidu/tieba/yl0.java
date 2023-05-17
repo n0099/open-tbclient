@@ -1,151 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
+import android.view.View;
+import android.view.Window;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.download.view.AdDownloadDlgView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class yl0 {
+/* loaded from: classes8.dex */
+public class yl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i11 a;
-    public final Map<String, String> b;
-    @NonNull
-    public final Map<String, Map<String, String>> c;
-    public volatile boolean d;
 
-    public yl0() {
-        String[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ConcurrentHashMap(128);
-        this.c = new ConcurrentHashMap(8);
-        this.a = l11.a().b("nad.cold.launch.config");
-        for (String str : fm0.a().a()) {
-            String string = this.a.getString(str, null);
-            if (string != null) {
-                a11.e(this.b, str, string);
-            }
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
 
-    @NonNull
-    public Map<String, String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @NonNull
-    public Map<String, Map<String, String>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final void c(@NonNull JSONObject jSONObject) {
-        String[] a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.b.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                a11.e(this.b, next, jSONObject.optString(next));
-            }
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            for (String str : fm0.a().a()) {
-                String str2 = (String) a11.b(this.b, str);
-                if (str2 != null) {
-                    edit.putString(str, str2);
+        public a(AlertDialog alertDialog, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {alertDialog, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            edit.apply();
-            SharedPreferences.Editor edit2 = l11.a().b("nad.launch.config.global").edit();
-            edit2.clear();
-            for (String str3 : this.b.keySet()) {
-                String str4 = (String) a11.b(this.b, str3);
-                if (str4 != null) {
-                    edit2.putString(str3, str4);
-                }
+            this.a = alertDialog;
+            this.b = activity;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yl0.a(this.a, this.b);
             }
-            edit2.apply();
         }
     }
 
-    public final void d(@NonNull JSONObject jSONObject) {
+    public static boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            this.c.clear();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                HashMap hashMap = null;
-                if (!TextUtils.isEmpty(optString)) {
-                    hashMap = new HashMap(8);
-                    JSONObject c = z01.c(optString);
-                    Iterator<String> keys2 = c.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        a11.e(hashMap, next2, c.optString(next2));
-                    }
-                }
-                if (hashMap != null) {
-                    a11.e(this.c, next, hashMap);
-                    l11 a = l11.a();
-                    SharedPreferences.Editor edit = a.b("nad.launch.config." + next).edit();
-                    edit.clear();
-                    for (String str : hashMap.keySet()) {
-                        String str2 = (String) hashMap.get(str);
-                        if (str2 != null) {
-                            edit.putString(str, str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
                         }
+                        return false;
                     }
-                    edit.apply();
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void update(@NonNull JSONObject jSONObject) {
+    public static Dialog c(@NonNull xk0 xk0Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            String optString = jSONObject.optString("global");
-            if (!TextUtils.isEmpty(optString)) {
-                c(z01.c(optString));
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, xk0Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f10013f).create();
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
+            adDownloadDlgView.b(xk0Var);
+            adDownloadDlgView.setDownloadView(view2);
+            adDownloadDlgView.setOnCloseClickListener(new a(create, activity));
+            d(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(adDownloadDlgView);
             }
-            String optString2 = jSONObject.optString("place_conf");
-            if (!TextUtils.isEmpty(optString2)) {
-                d(z01.c(optString2));
-            }
+            return create;
         }
+        return (Dialog) invokeLLLLL.objValue;
+    }
+
+    public static boolean d(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

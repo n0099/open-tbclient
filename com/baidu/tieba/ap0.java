@@ -1,157 +1,78 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.max.event.VideoEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public final class ap0 {
+/* loaded from: classes4.dex */
+public final class ap0 implements zi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ap0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final VideoEventTypeEnum a;
+    public final int b;
+    public final int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622728, "Lcom/baidu/tieba/ap0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947622728, "Lcom/baidu/tieba/ap0;");
-                return;
-            }
-        }
-        a = new ap0();
-    }
-
-    public ap0() {
+    public ap0(VideoEventTypeEnum type, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = i;
+        this.c = i2;
     }
 
-    public final void a(@NonNull FrameLayout.LayoutParams layoutParams, int i, int i2, double d, double d2, boolean z, double d3) {
-        int i3;
+    @Override // com.baidu.tieba.zi0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{layoutParams, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Double.valueOf(d3)}) == null) {
-            Intrinsics.checkNotNullParameter(layoutParams, "layoutParams");
-            if (d2 > 0 && i > 0 && i2 > 0) {
-                layoutParams.width = c(i, i2, d, d2, z);
-                layoutParams.height = b(i, i2, d, d2, z);
-                int g = g(d2, i2, d3);
-                if (g >= 0) {
-                    layoutParams.topMargin = g;
-                }
-                if (g < 0 && !z) {
-                    i3 = 17;
-                } else {
-                    i3 = 48;
-                }
-                layoutParams.gravity = i3;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String simpleName = ap0.class.getSimpleName();
+            Intrinsics.checkNotNullExpressionValue(simpleName, "VideoProgressEvent::class.java.simpleName");
+            return simpleName;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final int b(int i, int i2, double d, double d2, boolean z) {
-        InterceptResult invokeCommon;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z)})) == null) {
-            int max = Math.max(i2 - f(d, z), 0);
-            if (d2 >= 1.77d && z) {
-                if (d <= 2.0d && d >= 1.3d && d2 > d) {
-                    return d(i, i2, d2);
-                }
-                return max;
-            }
-            return d(i, i2, d2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return invokeCommon.intValue;
+        return invokeV.intValue;
     }
 
-    public final int c(int i, int i2, double d, double d2, boolean z) {
-        InterceptResult invokeCommon;
+    public final int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z)})) == null) {
-            if (d2 >= 1.77d && z) {
-                if (d > 2.0d) {
-                    return e(i, i2, d2);
-                }
-                if (d < 1.3d) {
-                    return e(i, i2, d2);
-                }
-                if (d2 <= d) {
-                    return e(i, i2, d2);
-                }
-                return i;
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return invokeCommon.intValue;
+        return invokeV.intValue;
     }
 
-    public final int d(int i, int i2, double d) {
-        InterceptResult invokeCommon;
+    public final VideoEventTypeEnum getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
-            if (i > 0 && i2 > 0 && d > 0) {
-                return Math.min((int) (i * d), i2);
-            }
-            return i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return invokeCommon.intValue;
-    }
-
-    public final int e(int i, int i2, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
-            if (i > 0 && i2 > 0 && d > 0) {
-                return Math.min((int) (i2 / d), i);
-            }
-            return i;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final int f(double d, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d), Boolean.valueOf(z)})) == null) {
-            if (z && d > 2.0d) {
-                return d41.c.a(li0.b(), 52.0f);
-            }
-            return 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final int g(double d, int i, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d), Integer.valueOf(i), Double.valueOf(d2)})) == null) {
-            if (i > 0 && d2 >= 0 && d2 <= 1) {
-                return Math.min((int) (i * d2), Math.max((int) ((i - d41.c.a(li0.b(), 200)) - (d41.c.e(li0.b()) * d)), 0));
-            }
-            return -1;
-        }
-        return invokeCommon.intValue;
+        return (VideoEventTypeEnum) invokeV.objValue;
     }
 }

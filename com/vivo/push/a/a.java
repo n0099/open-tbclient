@@ -15,7 +15,7 @@ import com.vivo.push.util.aa;
 import com.vivo.push.util.ab;
 import com.vivo.push.util.u;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

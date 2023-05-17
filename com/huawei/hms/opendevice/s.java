@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.s1b;
+import com.baidu.tieba.q3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public abstract class s {
             }
             String byteArrayOutputStream2 = byteArrayOutputStream.toString("UTF-8");
             a((Closeable) inputStream);
-            s1b.c(byteArrayOutputStream);
+            q3b.c(byteArrayOutputStream);
             return byteArrayOutputStream2;
         }
         return (String) invokeL.objValue;

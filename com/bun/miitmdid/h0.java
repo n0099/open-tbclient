@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -33,7 +33,7 @@ public class h0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

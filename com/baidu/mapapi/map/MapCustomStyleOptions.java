@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapCustomStyleOptions {
     public String a;
     public String b;

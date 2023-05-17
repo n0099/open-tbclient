@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.rv4;
+import com.baidu.tieba.ax4;
+import com.baidu.tieba.o75;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,10 +32,10 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public View i;
     public String j;
     public View.OnClickListener k;
-    public final rv4 l;
+    public final ax4 l;
     public NavigationBarCoverTip.e m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,8 +73,8 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends rv4 {
+    /* loaded from: classes7.dex */
+    public class b extends ax4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultNavigationBarCoverTip a;
@@ -97,7 +97,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             this.a = defaultNavigationBarCoverTip;
         }
 
-        @Override // com.baidu.tieba.rv4, android.app.Application.ActivityLifecycleCallbacks
+        @Override // com.baidu.tieba.ax4, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.a.h) {
@@ -107,7 +107,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements NavigationBarCoverTip.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,9 +201,9 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
             TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.i.findViewById(R.id.share_icon);
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            f65 f65Var = new f65();
-            f65Var.t();
-            tBSpecificationBtn.setConfig(f65Var);
+            o75 o75Var = new o75();
+            o75Var.t();
+            tBSpecificationBtn.setConfig(o75Var);
             textView.setSingleLine();
             textView.setEllipsize(TextUtils.TruncateAt.END);
             textView.setText(str);

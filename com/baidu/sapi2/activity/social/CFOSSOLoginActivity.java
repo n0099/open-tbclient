@@ -11,11 +11,11 @@ import com.example.oauthsdk.CFOauth;
 import com.example.oauthsdk.other.CFWebError;
 import com.example.oauthsdk.widget.CFAuthCallback;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String n = "CFOSSOLoginActivity";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements CFAuthCallback {
         public a() {
         }

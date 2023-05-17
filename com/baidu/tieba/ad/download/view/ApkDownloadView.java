@@ -17,24 +17,24 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.m06;
-import com.baidu.tieba.p06;
+import com.baidu.tieba.b26;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ApkDownloadView extends FrameLayout implements m06 {
+/* loaded from: classes4.dex */
+public class ApkDownloadView extends FrameLayout implements y16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p06 a;
-    public m06.a b;
+    public b26 a;
+    public y16.a b;
     public CustomMessageListener c;
     public CustomMessageListener d;
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
@@ -47,7 +47,7 @@ public class ApkDownloadView extends FrameLayout implements m06 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -129,12 +129,12 @@ public class ApkDownloadView extends FrameLayout implements m06 {
         d(context);
     }
 
-    @Override // com.baidu.tieba.m06
+    @Override // com.baidu.tieba.y16
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            m06.a aVar = this.b;
+            y16.a aVar = this.b;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -146,12 +146,12 @@ public class ApkDownloadView extends FrameLayout implements m06 {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = (p06) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0124, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090a9e);
+            this.a = (b26) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0126, (ViewGroup) this, true).findViewById(R.id.obfuscated_res_0x7f090ac8);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.m06
+    @Override // com.baidu.tieba.y16
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -162,9 +162,9 @@ public class ApkDownloadView extends FrameLayout implements m06 {
     public void setBackgroundSkin(@DrawableRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            p06 p06Var = this.a;
-            if (p06Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) p06Var).setBackgroundSkin(i);
+            b26 b26Var = this.a;
+            if (b26Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) b26Var).setBackgroundSkin(i);
             }
         }
     }
@@ -172,23 +172,23 @@ public class ApkDownloadView extends FrameLayout implements m06 {
     public void setForegroundSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            p06 p06Var = this.a;
-            if (p06Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) p06Var).setForeground(i);
+            b26 b26Var = this.a;
+            if (b26Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) b26Var).setForeground(i);
             }
         }
     }
 
     public void setInitText(String str) {
-        p06 p06Var;
+        b26 b26Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str) && (p06Var = this.a) != null) {
-            p06Var.setInitText(str);
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str) && (b26Var = this.a) != null) {
+            b26Var.setInitText(str);
         }
     }
 
-    @Override // com.baidu.tieba.m06
-    public void setOnClickInterceptListener(m06.a aVar) {
+    @Override // com.baidu.tieba.y16
+    public void setOnClickInterceptListener(y16.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
             this.b = aVar;
@@ -205,9 +205,9 @@ public class ApkDownloadView extends FrameLayout implements m06 {
     public void setTextColorInitSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            p06 p06Var = this.a;
-            if (p06Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) p06Var).setTextColorInitSkin(i);
+            b26 b26Var = this.a;
+            if (b26Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) b26Var).setTextColorInitSkin(i);
             }
         }
     }
@@ -215,9 +215,9 @@ public class ApkDownloadView extends FrameLayout implements m06 {
     public void setTextColorSkin(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            p06 p06Var = this.a;
-            if (p06Var instanceof FeedAdProgressButton) {
-                ((FeedAdProgressButton) p06Var).setTextColorSkin(i);
+            b26 b26Var = this.a;
+            if (b26Var instanceof FeedAdProgressButton) {
+                ((FeedAdProgressButton) b26Var).setTextColorSkin(i);
             }
         }
     }
@@ -299,11 +299,11 @@ public class ApkDownloadView extends FrameLayout implements m06 {
         }
     }
 
-    @Override // com.baidu.tieba.tk0
-    public void update(String str, @NonNull ak0 ak0Var) {
+    @Override // com.baidu.tieba.jl0
+    public void update(String str, @NonNull qk0 qk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, str, ak0Var) == null) {
-            this.a.setButtonText(str, (int) Math.max(ak0Var.i * 100.0f, ak0Var.j * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, qk0Var) == null) {
+            this.a.setButtonText(str, (int) Math.max(qk0Var.i * 100.0f, qk0Var.j * 100.0f));
         }
     }
 }

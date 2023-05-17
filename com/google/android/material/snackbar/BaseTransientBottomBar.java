@@ -58,7 +58,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>> {
     public static final int ANIMATION_DURATION = 250;
     public static final int ANIMATION_FADE_DURATION = 180;
@@ -136,11 +136,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface AnimationMode {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BaseCallback<B> {
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -150,7 +150,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public @interface DismissEvent {
         }
 
@@ -162,19 +162,19 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ContentViewCallback extends com.google.android.material.snackbar.ContentViewCallback {
     }
 
     @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface Duration {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnAttachStateChangeListener {
         void onViewAttachedToWindow(View view2);
 
@@ -182,13 +182,13 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnLayoutChangeListener {
         void onLayoutChange(View view2, int i, int i2, int i3, int i4);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class BehaviorDelegate {
         public SnackbarManager.Callback managerCallback;
 
@@ -219,7 +219,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SnackbarBaseLayout extends FrameLayout {
         public static final View.OnTouchListener consumeAllTouchListener = new View.OnTouchListener() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.SnackbarBaseLayout.1
             @Override // android.view.View.OnTouchListener
@@ -357,11 +357,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @NonNull
         private Drawable createThemedBackground() {
-            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704d5);
+            float dimension = getResources().getDimension(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070617);
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
             gradientDrawable.setCornerRadius(dimension);
-            gradientDrawable.setColor(MaterialColors.layer(this, com.baidu.tieba.R.attr.obfuscated_res_0x7f040180, com.baidu.tieba.R.attr.obfuscated_res_0x7f040179, getBackgroundOverlayColorAlpha()));
+            gradientDrawable.setColor(MaterialColors.layer(this, com.baidu.tieba.R.attr.obfuscated_res_0x7f040190, com.baidu.tieba.R.attr.obfuscated_res_0x7f040189, getBackgroundOverlayColorAlpha()));
             if (this.backgroundTint != null) {
                 Drawable wrap = DrawableCompat.wrap(gradientDrawable);
                 DrawableCompat.setTintList(wrap, this.backgroundTint);
@@ -389,7 +389,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             z = false;
         }
         USE_OFFSET_API = z;
-        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040652};
+        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040691};
         TAG = BaseTransientBottomBar.class.getSimpleName();
         handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.1
             @Override // android.os.Handler.Callback
@@ -468,7 +468,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         valueAnimator.start();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Behavior extends SwipeDismissBehavior<View> {
         @NonNull
         public final BehaviorDelegate delegate = new BehaviorDelegate(this);
@@ -815,9 +815,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @LayoutRes
     public int getSnackbarBaseLayoutResId() {
         if (hasSnackbarStyleAttr()) {
-            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0604;
+            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0626;
         }
-        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d022e;
+        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0241;
     }
 
     @NonNull

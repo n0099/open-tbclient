@@ -2,178 +2,69 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class n70 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String g = "Flow";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public final long c;
-    public long d;
-    public Context e;
-    public Map<String, String> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947955234, "Lcom/baidu/tieba/n70;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947955234, "Lcom/baidu/tieba/n70;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ n70 c;
-
-        public a(n70 n70Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n70Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = n70Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.f.put(this.a, this.b);
-            }
-        }
-    }
-
-    public n70(Context context, int i, int i2) {
+    public static byte[] a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            byte[] a = q70.a(str.getBytes());
+            if (a != null && a.length > 2) {
+                a[0] = 117;
+                a[1] = 123;
+            }
+            return a;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean b(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                r70.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
+                if (z2) {
+                    r70.a("UBCUploader", "save ubcdata");
+                    return true;
+                }
+                c(context, jSONArray, z, z2, z3);
+                return true;
+            }
+            r70.a("UBCUploader", "upload json is null");
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void c(Context context, JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            JSONObject b = new o70(z, jSONArray).b();
+            if (b == null) {
+                r70.a("UBCUploader", "uploadJsonData is null");
                 return;
             }
-        }
-        this.d = 0L;
-        this.e = context;
-        this.a = i;
-        this.b = i2;
-        this.c = System.currentTimeMillis();
-        this.f = new ConcurrentHashMap();
-    }
-
-    public n70 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                m70.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
+            byte[] a = a(b.toString());
+            if (a != null && a.length >= 3) {
+                r70.a("UBCUploader", "gzip success, length:" + a.length);
+                r70.a("UBCUploader", "start execute http upload data");
+                l70 l70Var = new l70(context);
+                i70.e(context).b(context, l70Var, l70Var, a, z3);
+                return;
             }
-            String str2 = g;
-            u80.a(str2, "flow addEvent id:" + str + ",value:" + i);
-            return this;
+            r70.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
         }
-        return (n70) invokeLI.objValue;
-    }
-
-    public n70 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                m70.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
-            }
-            String str2 = g;
-            u80.a(str2, "flow addEvent id:" + str + ",value:" + j);
-            return this;
-        }
-        return (n70) invokeLJ.objValue;
-    }
-
-    public n70 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && str2 != null) {
-                m70.h(this.e).f().execute(new a(this, str, str2));
-            }
-            String str3 = g;
-            u80.a(str3, "flow addEvent id:" + str + ",value:" + str2);
-            return this;
-        }
-        return (n70) invokeLL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = System.currentTimeMillis();
-            m70.h(this.e).e(this);
-        }
-    }
-
-    public Map<String, String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : this.f.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

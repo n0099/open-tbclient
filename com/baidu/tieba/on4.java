@@ -1,196 +1,90 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.RemoteException;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class on4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] a;
+    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final on4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-541238218, "Lcom/baidu/tieba/on4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-541238218, "Lcom/baidu/tieba/on4$b;");
-                    return;
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            for (int i2 = 4; i2 < 32; i2++) {
+                int i3 = (1 << i2) - 12;
+                if (i <= i3) {
+                    return i3;
                 }
             }
-            a = new on4(null);
+            return i;
         }
+        return invokeI.intValue;
     }
 
-    public on4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038004, "Lcom/baidu/tieba/on4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    public static on4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (on4) invokeV.objValue;
-    }
-
-    public final IRemoteUBCService c() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return dn4.f();
-        }
-        return (IRemoteUBCService) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            mn4.f().q();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            mn4.f().l();
-        }
-    }
-
-    public /* synthetic */ on4(a aVar) {
-        this();
-    }
-
-    public final void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            e(str, "", 0);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public Flow a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            if (ij1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return mn4.f().a(str, str2, i);
-            }
-            return d(str, qn4.b(str2), i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public final Flow d(String str, String str2, int i) {
-        Flow flow;
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
-            try {
-                flow = c().ubcBeginFlow(str, str2, i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                flow = null;
-            }
-            if (flow == null) {
-                return new Flow();
-            }
-            return flow;
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void e(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
-            if (ij1.g()) {
-                if (dn4.g() == null && TextUtils.isEmpty(str)) {
-                    return;
-                }
-                mn4.f().j(str, str2, i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038004, "Lcom/baidu/tieba/on4;");
                 return;
             }
-            try {
-                c().ubcOnEvent(str, qn4.b(str2), i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
         }
+        a = new int[0];
+        b = new Object[0];
     }
 
-    public final void f(String str, Map<String, String> map, int i) {
+    public static int a(int[] iArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, map, i) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
+            int i3 = i - 1;
+            int i4 = 0;
+            while (i4 <= i3) {
+                int i5 = (i4 + i3) >>> 1;
+                int i6 = iArr[i5];
+                if (i6 < i2) {
+                    i4 = i5 + 1;
+                } else if (i6 > i2) {
+                    i3 = i5 - 1;
+                } else {
+                    return i5;
                 }
-            } catch (JSONException unused) {
             }
-            e(str, jSONObject.toString(), i);
+            return ~i4;
         }
+        return invokeLII.intValue;
     }
 
-    public void g(String str, JSONObject jSONObject, int i) {
+    public static boolean b(Object obj, Object obj2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, str, jSONObject, i) == null) {
-            if (ij1.g()) {
-                if (dn4.g() == null && TextUtils.isEmpty(str)) {
-                    return;
-                }
-                mn4.f().k(str, jSONObject, i);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
             }
-            try {
-                c().ubcOnEvent(str, qn4.c(jSONObject), i);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            return true;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return c(i * 4) / 4;
+        }
+        return invokeI.intValue;
     }
 }

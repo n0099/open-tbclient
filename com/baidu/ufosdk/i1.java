@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i1 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageButton a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class i1 extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i1(Context context) {
-        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f10042e);
+        super(context, com.baidu.tieba.R.style.obfuscated_res_0x7f100441);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -84,8 +84,8 @@ public class i1 extends Dialog {
                 attributes.width = -1;
                 window.setAttributes(attributes);
             }
-            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0927);
-            ImageButton imageButton = (ImageButton) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090497);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d095b);
+            ImageButton imageButton = (ImageButton) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904ac);
             this.a = imageButton;
             imageButton.setOnClickListener(new a(this));
         }

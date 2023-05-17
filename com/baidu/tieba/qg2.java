@@ -1,39 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes6.dex */
-public class qg2 extends lg2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+/* loaded from: classes7.dex */
+public interface qg2 extends JSRuntime, e82, TypedCallbackHandler {
+    JsSerializeValue B(byte[] bArr, boolean z);
 
-    public qg2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    byte[] L(JsSerializeValue jsSerializeValue, boolean z);
 
-    @Override // com.baidu.tieba.wt2
-    public LifecycleProcessType b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LifecycleProcessType.SWAN;
-        }
-        return (LifecycleProcessType) invokeV.objValue;
-    }
+    void a0(String str, String str2);
+
+    dh2 d0();
+
+    boolean dispatchEvent(JSEvent jSEvent);
+
+    String getInitBasePath();
+
+    int getInvokeSourceType();
+
+    EventTarget n();
+
+    boolean post(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget v();
+
+    zg2 w();
 }

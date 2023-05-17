@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.util.Preconditions;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes.dex */
 public final class DisplayCompat {
@@ -204,7 +205,7 @@ public final class DisplayCompat {
     public static String getSystemProperty(String str) {
         try {
             Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-            return (String) cls.getMethod("get", String.class).invoke(cls, str);
+            return (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, str);
         } catch (Exception unused) {
             return null;
         }

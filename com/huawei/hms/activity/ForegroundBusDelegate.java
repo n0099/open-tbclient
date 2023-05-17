@@ -29,7 +29,7 @@ import com.huawei.hms.utils.UIUtil;
 import com.huawei.hms.utils.Util;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ForegroundBusDelegate implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_DELEGATE_NAME = "intent.extra.hms.core.DELEGATE_NAME";
@@ -51,7 +51,7 @@ public class ForegroundBusDelegate implements IBridgeActivityDelegate {
     public ResponseHeader responseHeader;
 
     /* renamed from: com.huawei.hms.activity.ForegroundBusDelegate$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class ForegroundBusDelegate implements IBridgeActivityDelegate {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class MyAvailableCallBack implements AvailableAdapter.AvailableCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

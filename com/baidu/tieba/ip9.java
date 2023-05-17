@@ -1,33 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.an6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActBtn;
-import tbclient.TPointPost;
-import tbclient.Timgs;
-import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
-public class ip9 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class ip9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<hp9> b;
-    public ArrayList<kp9> c;
+    public final HotEventData a;
+    public final an6.e b;
 
-    public ip9(TPointPost tPointPost) {
-        boolean z;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof ip9) {
+                ip9 ip9Var = (ip9) obj;
+                return Intrinsics.areEqual(this.a, ip9Var.a) && Intrinsics.areEqual(this.b, ip9Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "HotEventShowData(hotEventData=" + this.a + ", dismissListener=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ip9(HotEventData hotEventData, an6.e dismissListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tPointPost};
+            Object[] objArr = {hotEventData, dismissListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,50 +62,27 @@ public class ip9 {
                 return;
             }
         }
-        if (tPointPost != null) {
-            try {
-                String str = tPointPost.position;
-                tPointPost.template_id.longValue();
-                if (tPointPost.is_tuiguang.intValue() == 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                this.a = z;
-                tPointPost.template_type.intValue();
-                List<ActBtn> list = tPointPost.act_btn;
-                if (list != null && list.size() > 0) {
-                    this.b = new ArrayList<>();
-                    for (int i3 = 0; i3 != list.size(); i3++) {
-                        this.b.add(new hp9(list.get(i3)));
-                    }
-                }
-                List<Timgs> list2 = tPointPost.t_imgs;
-                if (list2 != null && list2.size() > 0) {
-                    this.c = new ArrayList<>();
-                    for (int i4 = 0; i4 != list2.size(); i4++) {
-                        this.c.add(new kp9(list2.get(i4)));
-                    }
-                }
-                if (tPointPost.detail_info != null) {
-                    new jp9(tPointPost.detail_info);
-                }
-                String str2 = tPointPost.monitor_id;
-                tPointPost.hidden_day.intValue();
-                VideoInfo videoInfo = tPointPost.t_video;
-                String str3 = tPointPost.tag_name;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+        Intrinsics.checkNotNullParameter(hotEventData, "hotEventData");
+        Intrinsics.checkNotNullParameter(dismissListener, "dismissListener");
+        this.a = hotEventData;
+        this.b = dismissListener;
     }
 
-    public kp9 a() {
+    public final an6.e a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (kp9) ListUtils.getItem(this.c, 0);
+            return this.b;
         }
-        return (kp9) invokeV.objValue;
+        return (an6.e) invokeV.objValue;
+    }
+
+    public final HotEventData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (HotEventData) invokeV.objValue;
     }
 }

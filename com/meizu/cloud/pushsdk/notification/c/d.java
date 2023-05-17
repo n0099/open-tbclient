@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.notification.c;
 import android.content.Context;
 import android.content.res.AssetManager;
 import com.meizu.cloud.pushinternal.DebugLogger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static d a;
     public AssetManager b;

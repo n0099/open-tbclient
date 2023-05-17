@@ -1,43 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ak5 implements pj5<BackBaiduBoxViewEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+/* loaded from: classes4.dex */
+public interface ak5 {
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final ak5 b;
 
-    public ak5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean a(@NonNull String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pj5
-    /* renamed from: a */
-    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
-            if (backBaiduBoxViewEvent == null) {
-                return false;
-            }
-            lq5.m().u(backBaiduBoxViewEvent.isShow);
-            return true;
-        }
-        return invokeL.booleanValue;
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (ak5) ServiceManager.getService(serviceReference);
     }
 }

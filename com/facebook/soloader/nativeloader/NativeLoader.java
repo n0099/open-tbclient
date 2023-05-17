@@ -1,7 +1,7 @@
 package com.facebook.soloader.nativeloader;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeLoader {
     public static NativeLoaderDelegate sDelegate;
 

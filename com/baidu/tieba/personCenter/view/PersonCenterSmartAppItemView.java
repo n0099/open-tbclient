@@ -26,24 +26,24 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.i59;
-import com.baidu.tieba.t59;
-import com.baidu.tieba.u59;
-import com.baidu.tieba.v26;
+import com.baidu.tieba.e79;
+import com.baidu.tieba.h46;
+import com.baidu.tieba.p79;
+import com.baidu.tieba.q79;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterSmartAppItemView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public TextView b;
     public ImageView c;
-    public i59 d;
+    public e79 d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PersonCenterSmartAppItemView(Context context) {
@@ -106,43 +106,43 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0761, (ViewGroup) this, true);
-        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09119a);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d078b, (ViewGroup) this, true);
+        HeadImageView headImageView = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0911d4);
         this.a = headImageView;
         headImageView.setIsRound(true);
         this.a.setDefaultResource(R.color.CAM_X0204);
         this.a.setPlaceHolder(1);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0925f0);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915ed);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09265c);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09162f);
         c();
     }
 
-    public void a(i59 i59Var) {
+    public void a(e79 e79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, i59Var) != null) || i59Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, e79Var) != null) || e79Var == null) {
             return;
         }
-        this.d = i59Var;
+        this.d = e79Var;
         this.c.setVisibility(8);
-        if (i59Var instanceof u59) {
-            u59 u59Var = (u59) i59Var;
-            this.a.O(u59Var.c(), 10, false, false);
-            String g = u59Var.g();
-            if (!hi.isEmpty(g)) {
+        if (e79Var instanceof q79) {
+            q79 q79Var = (q79) e79Var;
+            this.a.O(q79Var.c(), 10, false, false);
+            String g = q79Var.g();
+            if (!qi.isEmpty(g)) {
                 this.b.setText(UtilHelper.getFixedText(g, 5));
             } else {
                 this.b.setText(R.string.intelligent_smart_app);
             }
-            if (i59Var.getType() == 1) {
+            if (e79Var.getType() == 1) {
                 SkinManager.setImageResource(this.c, R.drawable.icon_personal_recommend);
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
             setOnClickListener(this);
-        } else if (i59Var instanceof t59) {
+        } else if (e79Var instanceof p79) {
             SkinManager.setImageResource(this.a, R.drawable.icon_personal_more);
-            this.b.setText(R.string.obfuscated_res_0x7f0f0bc1);
+            this.b.setText(R.string.obfuscated_res_0x7f0f0c43);
             setOnClickListener(this);
         }
     }
@@ -173,23 +173,23 @@ public class PersonCenterSmartAppItemView extends LinearLayout implements View.O
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            i59 i59Var = this.d;
-            if (i59Var instanceof u59) {
-                u59 u59Var = (u59) i59Var;
-                if (!v26.b(u59Var.b(), u59Var.f(), "1191000600000000", u59Var.e())) {
-                    if (hi.isEmpty(u59Var.d())) {
+            e79 e79Var = this.d;
+            if (e79Var instanceof q79) {
+                q79 q79Var = (q79) e79Var;
+                if (!h46.b(q79Var.b(), q79Var.f(), "1191000600000000", q79Var.e())) {
+                    if (qi.isEmpty(q79Var.d())) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{u59Var.d()});
+                    UrlManager.getInstance().dealOneLink(b(getContext()), new String[]{q79Var.d()});
                 }
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK);
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
                 statisticItem.param("obj_source", "personal_center");
-                statisticItem.param("obj_id", u59Var.a().longValue());
-                statisticItem.param("obj_name", u59Var.g());
-                statisticItem.param("obj_param1", u59Var.e().intValue());
+                statisticItem.param("obj_id", q79Var.a().longValue());
+                statisticItem.param("obj_name", q79Var.g());
+                statisticItem.param("obj_param1", q79Var.e().intValue());
                 TiebaStatic.log(statisticItem);
-            } else if (i59Var instanceof t59) {
+            } else if (e79Var instanceof p79) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SmartAppBrowseHistoryActivityConfig(getContext())));
                 StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_MORE_HISTORY_RECORD_CLICK);
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());

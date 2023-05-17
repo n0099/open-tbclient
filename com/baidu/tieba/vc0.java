@@ -1,25 +1,31 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class vc0 implements Cloneable {
+/* loaded from: classes7.dex */
+public class vc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public float[] b;
-    public boolean c;
-    public boolean d;
+    public int a;
 
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948235846, "Lcom/baidu/tieba/vc0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948235846, "Lcom/baidu/tieba/vc0;");
         }
     }
 
@@ -27,94 +33,42 @@ public class vc0 implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        float[] fArr = new float[16];
-        this.a = fArr;
-        Matrix.setIdentityM(fArr, 0);
-        float[] fArr2 = new float[16];
-        this.b = fArr2;
-        Matrix.setIdentityM(fArr2, 0);
-        this.c = false;
-        this.d = false;
+        this.a = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public vc0 clone() {
-        vc0 vc0Var;
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                vc0Var = (vc0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                vc0Var = null;
-            }
-            if (vc0Var != null) {
-                vc0Var.f((float[]) this.a.clone());
-                vc0Var.g((float[]) this.b.clone());
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized vc0 a() {
+        InterceptResult invokeV;
+        vc0 vc0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (vc0.class) {
+                if (b < 1000000) {
+                    b = 1000000;
+                }
+                vc0Var = new vc0();
+                vc0Var.a = b;
+                b++;
             }
             return vc0Var;
         }
         return (vc0) invokeV.objValue;
-    }
-
-    public float[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public float[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (float[]) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) {
-            this.a = fArr;
-        }
-    }
-
-    public void g(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
-            this.b = fArr;
-        }
     }
 }

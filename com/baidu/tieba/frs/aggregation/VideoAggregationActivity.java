@@ -9,15 +9,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.im5;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public im5 getPageStayDurationItem() {
+    public rn5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            im5 pageStayDurationItem = super.getPageStayDurationItem();
+            rn5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
-                pageStayDurationItem.C(gg.g(this.b, 0L));
+                pageStayDurationItem.C(pg.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (im5) invokeV.objValue;
+        return (rn5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -71,7 +71,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a != null) {
-            yv4 layoutMode = getLayoutMode();
+            hx4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -101,7 +101,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d005c);
+            setContentView(R.layout.obfuscated_res_0x7f0d005e);
             this.c = getIntent().getStringExtra("PARAM_FROM");
             this.b = getIntent().getStringExtra("PARAM_FID");
             String stringExtra = getIntent().getStringExtra("st_type");
@@ -109,8 +109,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.b)) {
                 finish();
             }
-            this.a = VideoAggregationFragment.J1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090775, this.a).commit();
+            this.a = VideoAggregationFragment.K1(this.b, this.c, stringExtra, stringExtra2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090792, this.a).commit();
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.a) != null) {
-                if (videoAggregationFragment.N1(i)) {
+                if (videoAggregationFragment.O1(i)) {
                     return true;
                 }
                 return super.onKeyDown(i, keyEvent);

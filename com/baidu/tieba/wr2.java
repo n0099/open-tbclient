@@ -1,8 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-/* loaded from: classes6.dex */
-public interface wr2 {
-    @Nullable
-    String a();
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class wr2 extends db3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wr2(da3 da3Var) {
+        super(da3Var, "/swanAPI/updateInput");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                g62.c("updateInput", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                g62.c("updateInput", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("slaveId");
+            String optString2 = optParamsAsJo.optString("componentId");
+            p52 p52Var = (p52) t52.b(optString, optString2);
+            if (p52Var == null) {
+                g62.c("updateInput", "input组件不存在");
+                g62.c("SwanAppAction", "can't find input component:#" + optString2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
+                return false;
+            }
+            q52 q52Var = (q52) p52Var.l();
+            q52Var.g(optParamsAsJo);
+            boolean a = p52Var.update((p52) q52Var).a();
+            if (a) {
+                g62.i("updateInput", "update success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 1001);
+            }
+            return a;
+        }
+        return invokeLLLL.booleanValue;
+    }
 }

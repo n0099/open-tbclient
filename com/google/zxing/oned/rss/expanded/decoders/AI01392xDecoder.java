@@ -3,7 +3,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AI01392xDecoder extends AI01decoder {
     public static final int HEADER_SIZE = 8;
     public static final int LAST_DIGIT_SIZE = 2;

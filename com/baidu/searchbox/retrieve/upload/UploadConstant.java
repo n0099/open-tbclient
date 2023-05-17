@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.upload;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class UploadConstant {
     public static final String AC_UPLOAD_TOKEN = "acupload";
     public static final String CONTENT = "content";

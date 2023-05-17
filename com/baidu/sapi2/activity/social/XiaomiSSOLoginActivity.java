@@ -14,23 +14,23 @@ import com.xiaomi.account.openauth.XiaomiOAuthFuture;
 import com.xiaomi.account.openauth.XiaomiOAuthResults;
 import com.xiaomi.account.openauth.XiaomiOAuthorize;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
     public Thread n;
     public c o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
 
         void a(String str, String str2, String str3);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public final /* synthetic */ XiaomiOAuthFuture a;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -42,13 +42,13 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         }
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0134b implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0138b implements Runnable {
             public final /* synthetic */ String a;
             public final /* synthetic */ String b;
             public final /* synthetic */ String c;
 
-            public RunnableC0134b(String str, String str2, String str3) {
+            public RunnableC0138b(String str, String str2, String str3) {
                 this.a = str;
                 this.b = str2;
                 this.c = str3;
@@ -60,7 +60,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class c implements Runnable {
             public c() {
             }
@@ -82,7 +82,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                 if (xiaomiOAuthResults.hasError()) {
                     new Handler(Looper.getMainLooper()).post(new a());
                 } else {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0134b(xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0138b(xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 }
             } catch (OperationCanceledException e) {
                 new Handler(Looper.getMainLooper()).post(new c());
@@ -93,7 +93,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements c {
         public a() {
         }

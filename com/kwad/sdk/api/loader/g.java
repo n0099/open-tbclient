@@ -2,8 +2,7 @@ package com.kwad.sdk.api.loader;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static String a = "autoRevert";
 
@@ -23,8 +22,8 @@ public final class g {
             return false;
         }
         if (TextUtils.isEmpty(str) || !TextUtils.isEmpty(str2)) {
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
+            String[] split2 = str2.split("\\.");
             for (int i = 0; i < split.length && i < split2.length; i++) {
                 try {
                     int parseInt = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);

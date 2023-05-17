@@ -1,187 +1,159 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.IProcessBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class t53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onClickSwitch(View view2, boolean z);
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Class a;
+        public final /* synthetic */ Bundle b;
+        public final /* synthetic */ p53 c;
+
+        public a(Class cls, Bundle bundle, p53 p53Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cls, bundle, p53Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cls;
+            this.b = bundle;
+            this.c = p53Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bundle b = t53.b(this.a, this.b);
+                p53 p53Var = this.c;
+                if (p53Var != null) {
+                    p53Var.onResult(b);
+                }
+            }
+        }
     }
 
-    public static boolean f(boolean z) {
-        InterceptResult invokeZ;
+    public static void a(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @Nullable p53<Bundle> p53Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ c c;
-
-        public a(View view2, View view3, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, view3, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = view3;
-            this.c = cVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && k53.c().e()) {
-                boolean c = t53.c(this.a, this.b);
-                c cVar = this.c;
-                if (cVar != null) {
-                    cVar.onClickSwitch(view2, c);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, cls, bundle, p53Var) == null) {
+            am3.k(new a(cls, bundle, p53Var), "asyncCallMainProcess");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.setVisibility(4);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static boolean c(View view2, View view3) {
+    @NonNull
+    public static Bundle b(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
         InterceptResult invokeLL;
-        boolean z;
+        IProcessBridge S;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
-            if (view2.getVisibility() != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                h(view2, view3);
-            } else {
-                g(view2, view3);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            if (view3 != null) {
-                w53.k(view3);
-                view3.clearFocus();
-            }
-            view2.setVisibility(8);
-        }
-    }
-
-    public static void g(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
-            view2.setVisibility(0);
-            if (view3 != null) {
-                w53.k(view3);
-            }
-        }
-    }
-
-    public static void h(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
-            w53.m(view3);
-            if (e(view2.getContext())) {
-                view2.setVisibility(4);
-            }
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public static void b(View view2, View view3, View view4, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
-            if (view3 != null) {
-                view3.setOnClickListener(new a(view2, view4, cVar));
-            }
-            if (e(view2.getContext())) {
-                view4.setOnTouchListener(new b(view2));
-            }
-        }
-    }
-
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context instanceof Activity) {
-                boolean d = y53.d((Activity) context);
-                f(d);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, bundle)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                Bundle d = d(cls, bundle);
+                if (d == null) {
+                    return new Bundle();
+                }
                 return d;
             }
-            return false;
+            b63 y = f93.K().y();
+            if (y != null && (S = y.S()) != null) {
+                try {
+                    Bundle callMainProcessSync = S.callMainProcessSync(cls.getName(), bundle);
+                    if (callMainProcessSync == null) {
+                        return new Bundle();
+                    }
+                    return callMainProcessSync;
+                } catch (Throwable th) {
+                    g62.d("SwanProcessCallManager", "callMainProcessSync", th);
+                }
+            }
+            return DelegateUtils.callOnMainWithContentProvider(ns2.c(), cls, bundle).mResult;
         }
-        return invokeL.booleanValue;
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static v53 c(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, bundle)) == null) {
+            return new v53(b(cls, bundle));
+        }
+        return (v53) invokeLL.objValue;
+    }
+
+    @Nullable
+    @SuppressLint({"BDThrowableCheck"})
+    public static Bundle d(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, bundle)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return null;
+            }
+            ProviderDelegation a2 = u53.a(cls);
+            if (a2 == null) {
+                try {
+                    a2 = cls.newInstance();
+                } catch (Exception e) {
+                    g62.d("SwanProcessCallManager", "callOnMainProcess", e);
+                }
+            }
+            if (a2 == null) {
+                return null;
+            }
+            return a2.execCall(bundle);
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    @Nullable
+    @SuppressLint({"BDThrowableCheck"})
+    public static Bundle e(@NonNull String str, @Nullable Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bundle)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return null;
+            }
+            ProviderDelegation b = u53.b(str);
+            if (b == null) {
+                try {
+                    b = (ProviderDelegation) Class.forName(str).newInstance();
+                } catch (Exception e) {
+                    g62.d("SwanProcessCallManager", "callOnMainProcess", e);
+                }
+            }
+            if (b == null) {
+                return null;
+            }
+            return b.execCall(bundle);
+        }
+        return (Bundle) invokeLL.objValue;
     }
 }

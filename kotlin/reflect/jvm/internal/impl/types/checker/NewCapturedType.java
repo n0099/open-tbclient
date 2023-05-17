@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
 import kotlin.reflect.jvm.internal.impl.types.model.CaptureStatus;
 import kotlin.reflect.jvm.internal.impl.types.model.CapturedTypeMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NewCapturedType extends SimpleType implements CapturedTypeMarker {
     public final Annotations annotations;
     public final CaptureStatus captureStatus;

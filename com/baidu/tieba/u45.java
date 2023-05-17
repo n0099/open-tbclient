@@ -1,35 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class u45 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class u45 implements s45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, long j, int i, String str2, int i2, String str3, Object... objArr) {
+    @Override // com.baidu.tieba.s45
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), str3, objArr}) == null) {
-            og ogVar = new og();
-            ogVar.c("cmd", Integer.valueOf(i));
-            if (!TextUtils.isEmpty(str2)) {
-                ogVar.b("action", str2);
-            }
-            ogVar.b("errNo", String.valueOf(i2));
-            if (!TextUtils.isEmpty(str3) && i2 != 0) {
-                ogVar.b(StatConstants.KEY_EXT_ERR_MSG, str3);
-            }
-            if (objArr != null && objArr.length > 0) {
-                ogVar.c(objArr);
-            }
-            if (i2 == 0) {
-                BdStatisticsManager.getInstance().debug(str, j, null, ogVar);
-            } else {
-                BdStatisticsManager.getInstance().error(str, j, (String) null, ogVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public u45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.s45
+    public v45 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            v45 v45Var = new v45();
+            v45Var.c(R.drawable.icon_banner_n);
+            v45Var.g(R.drawable.icon_banner_s);
+            v45Var.h(R.dimen.obfuscated_res_0x7f070388);
+            v45Var.d(81);
+            v45Var.e(R.dimen.obfuscated_res_0x7f070388);
+            return v45Var;
+        }
+        return (v45) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public y45 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            y45 y45Var = new y45();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                y45Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703af));
+            }
+            return y45Var;
+        }
+        return (y45) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
+        }
+        return (TbImageView) invokeL.objValue;
     }
 }

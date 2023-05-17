@@ -1,170 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.gy;
-import com.baidu.tieba.ry;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fa7 extends vm<f05, ThreadCardViewHolder<ThreadData>> {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class fa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public BdTypeRecyclerView c;
 
-    /* loaded from: classes4.dex */
-    public class a implements sn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx a;
-        public final /* synthetic */ fa7 b;
-
-        public a(fa7 fa7Var, nx nxVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fa7Var, nxVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = fa7Var;
-            this.a = nxVar;
-        }
-
-        @Override // com.baidu.tieba.sn
-        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                boolean z = inVar instanceof f05;
-                int i2 = 0;
-                if (z) {
-                    f05 f05Var = (f05) inVar;
-                    if (f05Var.t.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                        BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.video_is_checking));
-                        b.g(BdToast.ToastIcon.FAILURE);
-                        b.o();
-                        return;
-                    }
-                    ThreadData threadData = f05Var.t;
-                    if (threadData != null && f05Var.n && threadData.getItem() != null) {
-                        int intValue = f05Var.t.getItem().button_link_type.intValue();
-                        if (f05Var.t.getItem().apk_detail != null) {
-                            i2 = f05Var.t.getItem().apk_detail.pkg_source.intValue();
-                        }
-                        int a = n65.a(intValue, i2);
-                        ItemData itemData = new ItemData();
-                        itemData.parseProto(f05Var.t.getItem());
-                        ItemCardHelper.q(this.a.A(), f05Var.t.getItem().item_id.longValue(), this.a.z(itemData), f05Var.t.getTid(), a, "", 2);
-                        ItemClickJumpUtil.itemClickJump(f05Var.t.getItem().forum_name, String.valueOf(f05Var.t.getItem().item_id), 10, 10);
-                        return;
-                    }
-                }
-                if (z && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                    ThreadData threadData2 = ((f05) inVar).t;
-                    threadData2.objType = 1;
-                    ThreadCardUtils.jumpToPB((ax4) threadData2, view2.getContext(), 2, false);
-                    ((ThreadCardViewHolder) view2.getTag()).a().p(new ry.a(1));
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fa7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = tbPageContext;
-        this.a = bdUniqueId2;
-    }
-
-    public void x(BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdTypeRecyclerView) == null) {
-            this.c = bdTypeRecyclerView;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            gy.b bVar = new gy.b(this.b.getPageActivity(), false);
-            nx nxVar = new nx(this.b.getPageActivity());
-            nxVar.C(true);
-            nxVar.F(6);
-            nxVar.y();
-            bVar.h(nxVar);
-            gy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
-            k.s(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new a(this, nxVar));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f05 f05Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f05Var, threadCardViewHolder})) == null) {
-            if (f05Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = f05Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(f05Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                HashMap hashMap = new HashMap();
+                int i = 0;
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
+                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
+                        i++;
+                    }
+                }
+                return hashMap;
             }
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static String[] b(List<TornadoNodeInfo> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i > 0) {
+                String[] strArr = new String[i];
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
+                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
+                        i2++;
+                    }
+                }
+                return strArr;
+            }
+            return null;
+        }
+        return (String[]) invokeLI.objValue;
     }
 }

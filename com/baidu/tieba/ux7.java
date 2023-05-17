@@ -1,146 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class ux7 extends BaseAdapter {
+/* loaded from: classes7.dex */
+public class ux7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LayoutInflater a;
-    public int b;
-    public ItemViewHolder c;
-    public List<vx7> d;
-    public final ArrayList<ItemViewHolder> e;
-    public View.OnClickListener f;
+    public TbPageContext a;
+    public List<en> b;
+    public xn c;
+    public vx7 d;
+    public tx7 e;
+    public ky7 f;
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ux7(Context context, int i, ItemViewHolder itemViewHolder) {
+    public ux7(TbPageContext tbPageContext, xn xnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), itemViewHolder};
+            Object[] objArr = {tbPageContext, xnVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList<>();
-        this.a = LayoutInflater.from(context);
-        this.b = i;
-        this.c = itemViewHolder;
+        this.a = tbPageContext;
+        this.c = xnVar;
+        a();
+        this.c.addAdapters(this.b);
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = this.a.inflate(this.b, viewGroup, false);
-                ItemViewHolder b = this.c.b(view2);
-                b.d(this.f);
-                view2.setTag(b);
-                this.e.add(b);
-            }
-            ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
-            if (ListUtils.getItem(this.d, i) != null) {
-                a(itemViewHolder, this.d.get(i));
-            }
-            return itemViewHolder.getView();
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final void a(ItemViewHolder itemViewHolder, vx7 vx7Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, itemViewHolder, vx7Var) == null) && vx7Var != null && itemViewHolder != null) {
-            itemViewHolder.a(vx7Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            this.d = new vx7(this.a);
+            this.e = new tx7(this.a);
+            this.f = new ky7(this.a);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
         }
     }
 
-    public void b(int i) {
+    public void b() {
+        xn xnVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ListUtils.getCount(this.e) > 0) {
-            Iterator<ItemViewHolder> it = this.e.iterator();
-            while (it.hasNext()) {
-                it.next().c(i);
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (xnVar = this.c) != null) {
+            xnVar.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public void c(List<vx7> list) {
+    public void c(List<rn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.d = list;
+            this.c.setData(list);
         }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return ListUtils.getItem(this.d, i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (ListUtils.getItem(this.d, i) == null) {
-                return -1L;
-            }
-            return ((vx7) ListUtils.getItem(this.d, i)).hashCode();
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ListUtils.getCount(this.d);
-        }
-        return invokeV.intValue;
     }
 }

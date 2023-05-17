@@ -6,6 +6,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +19,7 @@ import com.huawei.hms.framework.common.Logger;
 import com.huawei.hms.framework.common.SystemPropUtils;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CountryCodeBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDRIOD_SYSTEMPROP = "android.os.SystemProperties";
@@ -90,7 +91,7 @@ public class CountryCodeBean {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            if (SystemPropUtils.getProperty("get", "ro.build.version.emui", ANDRIOD_SYSTEMPROP, "").isEmpty()) {
+            if (SystemPropUtils.getProperty(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "ro.build.version.emui", ANDRIOD_SYSTEMPROP, "").isEmpty()) {
                 if (Build.VERSION.SDK_INT >= 28 || Build.VERSION.RELEASE.charAt(0) >= '9') {
                     getRegionSettingCountryCode();
                     str = TAG;
@@ -118,11 +119,11 @@ public class CountryCodeBean {
         int lastIndexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.countryCode = SystemPropUtils.getProperty("get", LOCALE_REGION_COUNTRYSYSTEMPROP, ANDRIOD_SYSTEMPROP, "UNKNOWN");
+            this.countryCode = SystemPropUtils.getProperty(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, LOCALE_REGION_COUNTRYSYSTEMPROP, ANDRIOD_SYSTEMPROP, "UNKNOWN");
             String str = TAG;
             Logger.i(str, "countryCode by ro.product.locale.region is:" + this.countryCode);
             if (TextUtils.isEmpty(this.countryCode) || "UNKNOWN".equals(this.countryCode)) {
-                String property = SystemPropUtils.getProperty("get", LOCALE_COUNTRYSYSTEMPROP, ANDRIOD_SYSTEMPROP, "UNKNOWN");
+                String property = SystemPropUtils.getProperty(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, LOCALE_COUNTRYSYSTEMPROP, ANDRIOD_SYSTEMPROP, "UNKNOWN");
                 if (!TextUtils.isEmpty(property) && (lastIndexOf = property.lastIndexOf("-")) != -1) {
                     this.countryCode = property.substring(lastIndexOf + 1);
                     String str2 = TAG;
@@ -188,7 +189,7 @@ public class CountryCodeBean {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             this.countrySource = GrsBaseInfo.CountryCodeSource.VENDOR_COUNTRY;
-            this.countryCode = SystemPropUtils.getProperty("get", VENDORCOUNTRY_SYSTEMPROP, ANDRIOD_SYSTEMPROP, "UNKNOWN");
+            this.countryCode = SystemPropUtils.getProperty(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, VENDORCOUNTRY_SYSTEMPROP, ANDRIOD_SYSTEMPROP, "UNKNOWN");
             String str = TAG;
             Logger.i(str, "countryCode by ro.hw.country is: " + this.countryCode);
             if (SPECIAL_COUNTRYCODE_EU.equalsIgnoreCase(this.countryCode) || "la".equalsIgnoreCase(this.countryCode)) {

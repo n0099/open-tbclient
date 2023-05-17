@@ -34,6 +34,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.qq.e.comm.constants.Constants;
@@ -53,7 +54,7 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends Dialog {
     public String a;
     public b b;
@@ -77,9 +78,9 @@ public class a extends Dialog {
     public HashMap<String, Runnable> t;
 
     /* renamed from: com.tencent.connect.auth.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class C0729a extends WebViewClient {
-        public C0729a() {
+    /* loaded from: classes10.dex */
+    public class C0743a extends WebViewClient {
+        public C0743a() {
         }
 
         @Override // android.webkit.WebViewClient
@@ -254,7 +255,7 @@ public class a extends Dialog {
                     } else {
                         parse = Uri.parse(Uri.decode(str));
                     }
-                    Intent intent = new Intent("android.intent.action.VIEW", parse);
+                    Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, parse);
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                     a.this.l.startActivity(intent);
                 } catch (Exception e) {
@@ -265,7 +266,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b extends DefaultUiListener {
         public String a;
         public String b;
@@ -328,7 +329,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c extends Handler {
         public b b;
 
@@ -353,7 +354,7 @@ public class a extends Dialog {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class d implements Runnable {
         public String a;
 
@@ -556,7 +557,7 @@ public class a extends Dialog {
     private void e() {
         this.k.setVerticalScrollBarEnabled(false);
         this.k.setHorizontalScrollBarEnabled(false);
-        this.k.setWebViewClient(new C0729a());
+        this.k.setWebViewClient(new C0743a());
         this.k.setWebChromeClient(new WebChromeClient());
         this.k.clearFormData();
         this.k.clearSslPreferences();

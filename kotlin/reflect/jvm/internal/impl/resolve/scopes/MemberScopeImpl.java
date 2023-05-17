@@ -15,11 +15,11 @@ import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.utils.FunctionsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class MemberScopeImpl implements MemberScope {
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return null;
     }
 

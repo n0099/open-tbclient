@@ -10,12 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OneKeyLoginStat implements NoProguard {
     public static final String TAG = "OneKeyLoginStat";
     public static final String UBC_ID_ONEKEY_LOGIN = "4920";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CheckAbility implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -76,7 +76,7 @@ public class OneKeyLoginStat implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LoadLogin implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -132,7 +132,7 @@ public class OneKeyLoginStat implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OauthToken implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -188,7 +188,7 @@ public class OneKeyLoginStat implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PreGetPhoneStat implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";

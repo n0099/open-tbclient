@@ -1,97 +1,54 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class o52 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public final class o52 extends s42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int D;
+    public String E;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983165, "Lcom/baidu/tieba/o52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947983165, "Lcom/baidu/tieba/o52;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o52() {
+        super("coverView", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
+        this.E = "";
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s42, com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b + "/swan-core/master/master.html";
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + "/swan-core/slaves/slaves.html";
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return TextUtils.equals(c, "update_tag_by_remote_debug");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return !TextUtils.isEmpty(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            c = "update_tag_by_remote_debug";
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            if (a) {
-                Log.d("RemoteDebugger", "Current launch mode is " + str);
-            }
-            c = str;
-            if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
-                n52.g().o();
-            }
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            b = str;
+        mz2 mz2Var = this.h;
+        if (mz2Var != null && (jSONObject2 = this.j) != null) {
+            mz2Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

@@ -1,14 +1,14 @@
 package com.huawei.hms.hatool;
 
 import android.text.TextUtils;
-import com.baidu.tieba.v0b;
+import com.baidu.tieba.t2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,13 +83,13 @@ public class r0 {
             if ("maint".equals(str2)) {
                 o = b.n();
                 if (TextUtils.isEmpty(o)) {
-                    o = v0b.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_maint", ""));
+                    o = t2b.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_maint", ""));
                     b.d(o);
                 }
             } else {
                 o = b.o();
                 if (TextUtils.isEmpty(o)) {
-                    o = v0b.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_oper", ""));
+                    o = t2b.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_oper", ""));
                     b.e(o);
                 }
             }
@@ -112,8 +112,8 @@ public class r0 {
                 String optString3 = jSONObject.optString("pubkey_version");
                 String str3 = System.currentTimeMillis() + "";
                 String optString4 = jSONObject.optString("timeInterval");
-                g0.b(b.i(), "Privacy_MY", "public_key_oper", v0b.g("HiAnalytics_Sdk_Public_Sp_Key", optString));
-                g0.b(b.i(), "Privacy_MY", "public_key_maint", v0b.g("HiAnalytics_Sdk_Public_Sp_Key", optString2));
+                g0.b(b.i(), "Privacy_MY", "public_key_oper", t2b.g("HiAnalytics_Sdk_Public_Sp_Key", optString));
+                g0.b(b.i(), "Privacy_MY", "public_key_maint", t2b.g("HiAnalytics_Sdk_Public_Sp_Key", optString2));
                 g0.b(b.i(), "Privacy_MY", "public_key_time_interval", optString4);
                 g0.b(b.i(), "Privacy_MY", "public_key_version", optString3);
                 g0.b(b.i(), "Privacy_MY", "public_key_time_last", str3);

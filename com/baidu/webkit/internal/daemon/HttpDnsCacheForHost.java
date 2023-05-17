@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
@@ -10,7 +11,7 @@ import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpDnsCacheForHost implements INetListener {
     public static final String JSON_KEY_DATA = "data";
     public static final String JSON_KEY_EXTINFO = "ext-info";
@@ -30,7 +31,7 @@ public class HttpDnsCacheForHost implements INetListener {
     public static String transHttpsUrl(String str) {
         boolean z = true;
         try {
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals("false")) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
                 z = false;
             }
             return z ? (str == null || !str.startsWith("https://")) ? str.replace("http://", "https://") : str : (str == null || !str.startsWith("http://")) ? str.replace("https://", "http://") : str;

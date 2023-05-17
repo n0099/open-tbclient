@@ -16,7 +16,7 @@ import com.baidu.searchbox.player.interfaces.IVideoEventInterceptor;
 import com.baidu.searchbox.player.message.IMessenger;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsLayer implements ILayer {
     public Context mContext;
     public Handler mHandler;
@@ -77,7 +77,7 @@ public abstract class AbsLayer implements ILayer {
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PrivateHandler extends Handler {
         public final WeakReference<AbsLayer> mWeakControl;
 

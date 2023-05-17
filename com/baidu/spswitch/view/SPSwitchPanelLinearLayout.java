@@ -1,6 +1,7 @@
 package com.baidu.spswitch.view;
 
 import android.content.Context;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelConflictLayout, IPanelHeightTarget {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -56,6 +57,9 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements IPanelCon
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.mPanelLayoutHandler.handleHide();
+            if (Build.VERSION.SDK_INT >= 30) {
+                setVisibility(8);
+            }
         }
     }
 

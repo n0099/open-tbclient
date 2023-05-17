@@ -1,134 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.framework.ui.toast.ToastViewData;
+import com.baidu.tieba.dt;
+import com.baidu.tieba.et;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes4.dex */
-public final class eq extends iq {
+/* loaded from: classes5.dex */
+public final class eq<VD extends ToastViewData, VM extends dt<VD>, View extends et<VM>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public final View a;
+    public final VM b;
+    public final VD c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303745, "Lcom/baidu/tieba/eq;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448303745, "Lcom/baidu/tieba/eq;");
-                return;
-            }
-        }
-        e = new a(null);
-    }
-
-    @Override // com.baidu.tieba.wq
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CleanTaskNoClickTimesAction" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final eq a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) {
-                return new eq(taskInfo, null, i, null, null, 26, null);
-            }
-            return (eq) invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
-        super(str, num, str2);
+    public eq(View view2, VM vm, VD vd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
+            Object[] objArr = {view2, vm, vd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.a = view2;
+        this.b = vm;
+        this.c = vd;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ eq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, r2, r3, r4, r5);
-        int i3;
-        Integer num2;
-        String str3;
-        String singleKey = (i2 & 2) != 0 ? taskInfo.getSingleKey() : str;
-        if ((i2 & 4) != 0) {
-            i3 = 8;
-        } else {
-            i3 = i;
-        }
-        if ((i2 & 8) != 0) {
-            num2 = null;
-        } else {
-            num2 = num;
-        }
-        if ((i2 & 16) != 0) {
-            str3 = null;
-        } else {
-            str3 = str2;
-        }
-    }
-
-    @Override // com.baidu.tieba.iq
-    public String f() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a(this.b);
+            this.b.b(this.c);
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadWorldCupFlagLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
@@ -49,12 +49,12 @@ public class HeadWorldCupFlagLayout extends FrameLayout {
                 return;
             }
         }
-        e = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
-        f = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
-        h = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
-        i = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
-        j = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        e = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+        f = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
+        h = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
+        i = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        j = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
     }
 
     public final void a() {

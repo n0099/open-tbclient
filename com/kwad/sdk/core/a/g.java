@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.a;
 
-import com.baidu.android.common.security.RSAUtil;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -11,7 +10,7 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static int a(KeyFactory keyFactory, Key key) {
         try {
@@ -24,7 +23,7 @@ public final class g {
     public static byte[] a(byte[] bArr, String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(c.th().decode(str));
-        KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         PublicKey generatePublic = keyFactory.generatePublic(x509EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
         cipher.init(1, generatePublic);
@@ -79,7 +78,7 @@ public final class g {
     public static byte[] b(byte[] bArr, String str, String str2) {
         ByteArrayOutputStream byteArrayOutputStream;
         PKCS8EncodedKeySpec pKCS8EncodedKeySpec = new PKCS8EncodedKeySpec(c.th().decode(str));
-        KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         PrivateKey generatePrivate = keyFactory.generatePrivate(pKCS8EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
         cipher.init(2, generatePrivate);

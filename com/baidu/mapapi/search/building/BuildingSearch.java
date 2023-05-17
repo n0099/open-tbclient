@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.building;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.n;
 import com.baidu.platform.core.a.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuildingSearch extends n {
     public boolean b = false;
     public final b a = new b();

@@ -8,7 +8,7 @@ import com.kwad.components.core.c.a.a;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class p implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.b Lk;
     public final Handler Ll = new Handler(Looper.getMainLooper());
@@ -16,7 +16,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String LY;
         public int LZ;
@@ -104,7 +104,7 @@ public final class p implements com.kwad.sdk.core.webview.kwai.a {
         this.Ll.post(new Runnable() { // from class: com.kwad.components.core.webview.jshandler.p.1
             @Override // java.lang.Runnable
             public final void run() {
-                com.kwad.components.core.c.a.a.a(new a.C0596a(p.this.Lk.Gl.getContext()).L(p.this.mAdTemplate).b(p.this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.p.1.1
+                com.kwad.components.core.c.a.a.a(new a.C0610a(p.this.Lk.Gl.getContext()).L(p.this.mAdTemplate).b(p.this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.core.webview.jshandler.p.1.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                     }

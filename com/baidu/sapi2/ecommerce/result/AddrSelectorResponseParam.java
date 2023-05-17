@@ -1,5 +1,5 @@
 package com.baidu.sapi2.ecommerce.result;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddrSelectorResponseParam {
     public static int ERROR_CODE_PARSE_JSON = -101;
     public static String KEY_HAS_LEAF = "has_leaf";

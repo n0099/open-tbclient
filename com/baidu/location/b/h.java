@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.Jni;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +42,7 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic = null;
     public static String f = "0";
@@ -88,7 +87,7 @@ public class h {
     public int y;
     public long z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +119,7 @@ public class h {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends com.baidu.location.e.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -536,7 +535,7 @@ public class h {
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            String[] split = "9.3.6.3".split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = "9.3.6.3".split("\\.");
             int length = split.length;
             byte[] bArr = this.J;
             bArr[0] = 0;

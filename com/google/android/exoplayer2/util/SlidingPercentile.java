@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.util;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SlidingPercentile {
     public static final int MAX_RECYCLED_SAMPLES = 5;
     public static final int SORT_ORDER_BY_INDEX = 1;
@@ -39,7 +39,7 @@ public class SlidingPercentile {
     public final ArrayList<Sample> samples = new ArrayList<>();
     public int currentSortOrder = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Sample {
         public int index;
         public float value;

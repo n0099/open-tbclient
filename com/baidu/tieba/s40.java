@@ -1,61 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-/* loaded from: classes6.dex */
-public final class s40 {
+/* loaded from: classes7.dex */
+public class s40 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
+    public static final char[] b;
+    public static final byte[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String[] b;
-    public int c;
-    public String d;
-    public long e;
-    public long f;
 
-    public s40(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101306, "Lcom/baidu/tieba/s40;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948101306, "Lcom/baidu/tieba/s40;");
                 return;
             }
         }
-        this.a = str;
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.d = packageInfo.versionName;
-            this.c = packageInfo.versionCode;
-            this.e = packageInfo.firstInstallTime;
-            this.f = packageInfo.lastUpdateTime;
-            this.b = new String[packageInfo.signatures.length];
-            for (int i3 = 0; i3 < this.b.length; i3++) {
-                this.b[i3] = o40.c(packageInfo.signatures[i3].toByteArray());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        a = "0123456789ABCDEF".toCharArray();
+        b = "0123456789abcdef".toCharArray();
+        c = new byte[128];
+        for (int i = 0; i < 10; i++) {
+            byte[] bArr = c;
+            bArr[i + 48] = (byte) i;
+            byte b2 = (byte) (i + 10);
+            bArr[i + 65] = b2;
+            bArr[i + 97] = b2;
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static char[] a(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        char[] cArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            if (z) {
+                cArr = a;
+            } else {
+                cArr = b;
+            }
+            char[] cArr2 = new char[bArr.length * 2];
+            int i = 0;
+            for (byte b2 : bArr) {
+                int i2 = i + 1;
+                cArr2[i] = cArr[(b2 & 240) >>> 4];
+                i = i2 + 1;
+                cArr2[i2] = cArr[b2 & 15];
+            }
+            return cArr2;
         }
-        return (String) invokeV.objValue;
+        return (char[]) invokeLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
+            return new String(a(bArr, z));
+        }
+        return (String) invokeLZ.objValue;
     }
 }

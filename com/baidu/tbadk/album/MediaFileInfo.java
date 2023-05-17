@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class MediaFileInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_ADD = 2;

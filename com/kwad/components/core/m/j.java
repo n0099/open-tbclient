@@ -6,7 +6,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j {
     public static void a(com.kwad.components.core.widget.f fVar, Drawable drawable) {
         if (drawable instanceof ShapeDrawable) {

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TiebaPlusInfo extends Message {
     public static final String DEFAULT_APPCOMPANY = "";
     public static final String DEFAULT_APPICON = "";
@@ -73,7 +73,7 @@ public final class TiebaPlusInfo extends Message {
     public static final Integer DEFAULT_ISAPPOINT = 0;
     public static final Integer DEFAULT_JUMPSETTING = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<TiebaPlusInfo> {
         public String appCompany;
         public String appIcon;

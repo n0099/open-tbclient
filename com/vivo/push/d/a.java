@@ -13,7 +13,7 @@ import com.vivo.push.d.a.a.d;
 import com.vivo.push.d.b.b;
 import com.vivo.push.d.b.e;
 import com.vivo.push.util.z;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +25,8 @@ public final class a {
     public com.vivo.push.c.a f;
 
     /* renamed from: com.vivo.push.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0736a {
+    /* loaded from: classes10.dex */
+    public static class C0750a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return C0736a.a;
+            return C0750a.a;
         }
         return (a) invokeV.objValue;
     }

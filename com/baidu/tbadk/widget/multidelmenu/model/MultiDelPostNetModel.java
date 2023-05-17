@@ -7,8 +7,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.iv5;
-import com.baidu.tieba.jv5;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.vw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,23 +16,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId UNIQUE_ID_MULTI_DEL_POST_TASK;
     public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiDelPostNetModel<T>.b a;
-    public iv5 b;
+    public uw5 b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<String, Integer, jv5> {
+    /* loaded from: classes4.dex */
+    public class b extends BdAsyncTask<String, Integer, vw5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -60,13 +60,13 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(jv5 jv5Var) {
+        public void onPostExecute(vw5 vw5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jv5Var) == null) {
-                super.onPostExecute(jv5Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vw5Var) == null) {
+                super.onPostExecute(vw5Var);
                 this.b.a = null;
                 if (this.b.mLoadDataCallBack != null) {
-                    this.b.mLoadDataCallBack.c(jv5Var);
+                    this.b.mLoadDataCallBack.c(vw5Var);
                 }
             }
         }
@@ -78,7 +78,7 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public jv5 doInBackground(String... strArr) {
+        public vw5 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -94,18 +94,18 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
                 this.a.addPostData("type", this.b.b.e);
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
-                jv5 jv5Var = new jv5();
+                vw5 vw5Var = new vw5();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    jv5Var.a = true;
-                    jv5Var.a(postNetData);
+                    vw5Var.a = true;
+                    vw5Var.a(postNetData);
                 } else {
-                    jv5Var.a = false;
-                    jv5Var.b = this.a.getErrorString();
+                    vw5Var.a = false;
+                    vw5Var.b = this.a.getErrorString();
                     this.a.getServerErrorCode();
                 }
-                return jv5Var;
+                return vw5Var;
             }
-            return (jv5) invokeL.objValue;
+            return (vw5) invokeL.objValue;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -195,10 +195,10 @@ public class MultiDelPostNetModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public void c0(iv5 iv5Var) {
+    public void b0(uw5 uw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, iv5Var) == null) {
-            this.b = iv5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, uw5Var) == null) {
+            this.b = uw5Var;
         }
     }
 }

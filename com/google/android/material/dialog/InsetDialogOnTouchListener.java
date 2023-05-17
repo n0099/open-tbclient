@@ -10,7 +10,7 @@ import android.view.ViewConfiguration;
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class InsetDialogOnTouchListener implements View.OnTouchListener {
     @NonNull
     public final Dialog dialog;

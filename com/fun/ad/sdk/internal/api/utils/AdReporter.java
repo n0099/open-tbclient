@@ -9,9 +9,10 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.cva;
-import com.baidu.tieba.iqa;
+import com.baidu.tieba.axa;
+import com.baidu.tieba.gsa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AdReporter<A> {
     public static /* synthetic */ Interceptable $ic;
     public static final Reporter a;
@@ -40,7 +41,7 @@ public class AdReporter<A> {
     public final String d;
 
     /* renamed from: com.fun.ad.sdk.internal.api.utils.AdReporter$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass1 extends HashMap<String, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +122,7 @@ public class AdReporter<A> {
                 return;
             }
         }
-        a = cva.a();
+        a = axa.a();
     }
 
     public AdReporter(String str, String str2, String str3) {
@@ -321,7 +322,7 @@ public class AdReporter<A> {
             int i2 = i + 1;
             objArr[i] = DI.AB_NAME;
             int i3 = i2 + 1;
-            Boolean bool = iqa.a;
+            Boolean bool = gsa.a;
             if (Settings.Secure.getInt(FunAdSdk.getAppContext().getContentResolver(), "adb_enabled", 0) != 0) {
                 z = true;
             } else {
@@ -331,10 +332,10 @@ public class AdReporter<A> {
             int i4 = i3 + 1;
             objArr[i3] = "rt";
             int i5 = i4 + 1;
-            if (iqa.a == null) {
+            if (gsa.a == null) {
                 String str2 = null;
                 try {
-                    Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, "ro.secure");
+                    Object invoke = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(null, "ro.secure");
                     if (invoke != null) {
                         str2 = (String) invoke;
                     }
@@ -349,7 +350,7 @@ public class AdReporter<A> {
                     String str3 = System.getenv("PATH");
                     if (TextUtils.isEmpty(str3)) {
                         split = new String[]{"/sbin", "/system/bin", "/system/xbin", "/data/local/xbin", "/data/local/bin", "/system/sd/xbin", "/system/bin/failsafe", "/data/local"};
-                    } else if (!iqa.b && str3 == null) {
+                    } else if (!gsa.b && str3 == null) {
                         throw new AssertionError();
                     } else {
                         split = str3.split(":");
@@ -370,13 +371,13 @@ public class AdReporter<A> {
                     }
                     if (!z4) {
                         z3 = false;
-                        iqa.a = Boolean.valueOf(z3);
+                        gsa.a = Boolean.valueOf(z3);
                     }
                 }
                 z3 = true;
-                iqa.a = Boolean.valueOf(z3);
+                gsa.a = Boolean.valueOf(z3);
             }
-            objArr[i4] = Boolean.valueOf(iqa.a.booleanValue());
+            objArr[i4] = Boolean.valueOf(gsa.a.booleanValue());
             int i7 = i5 + 1;
             objArr[i5] = "vn";
             int i8 = i7 + 1;

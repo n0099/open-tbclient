@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.Loader;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class Chunk implements Loader.Loadable {
     public final DataSource dataSource;
     public final DataSpec dataSpec;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.bddownload.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class NamedRunnable implements Runnable {
     public final String name;
 

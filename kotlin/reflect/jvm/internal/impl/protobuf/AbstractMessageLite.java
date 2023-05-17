@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractMessageLite implements MessageLite {
     public int memoizedHashCode = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // 
@@ -19,7 +19,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         @Override // kotlin.reflect.jvm.internal.impl.protobuf.MessageLite.Builder
         public abstract BuilderType mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class LimitedInputStream extends FilterInputStream {
             public int limit;
 

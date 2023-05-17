@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.h;
 
 import com.kwad.components.core.webview.jshandler.s;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class k extends s {
     public WeakReference<com.kwad.components.ad.reward.k> ns;
     public long tQ;

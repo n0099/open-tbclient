@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LocationClientOption {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FUZZY_MODE = 4;
@@ -55,7 +55,7 @@ public final class LocationClientOption {
     public int wifiCacheTimeOut;
 
     /* renamed from: com.baidu.location.LocationClientOption$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -96,7 +96,7 @@ public final class LocationClientOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class BDLocationPurpose {
         public static final /* synthetic */ BDLocationPurpose[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -158,7 +158,7 @@ public final class LocationClientOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FirstLocType {
         public static final /* synthetic */ FirstLocType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -218,7 +218,7 @@ public final class LocationClientOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class LocationMode {
         public static final /* synthetic */ LocationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

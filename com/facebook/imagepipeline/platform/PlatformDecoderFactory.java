@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.core.NativeCodeSetup;
 import com.facebook.imagepipeline.memory.FlexByteArrayPool;
 import com.facebook.imagepipeline.memory.PoolFactory;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PlatformDecoderFactory {
     public static PlatformDecoder buildPlatformDecoder(PoolFactory poolFactory, boolean z) {
         int i = Build.VERSION.SDK_INT;

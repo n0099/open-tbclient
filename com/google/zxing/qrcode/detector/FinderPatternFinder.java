@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FinderPatternFinder {
     public static final int CENTER_QUORUM = 2;
     public static final int MAX_MODULES = 57;
@@ -22,7 +22,7 @@ public class FinderPatternFinder {
     public final List<FinderPattern> possibleCenters;
     public final ResultPointCallback resultPointCallback;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
         public final float average;
 
@@ -48,7 +48,7 @@ public class FinderPatternFinder {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
         public final float average;
 

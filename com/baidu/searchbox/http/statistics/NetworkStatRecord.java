@@ -15,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkStatRecord {
     public static final int DEFAULT_FROM_ID = 0;
     public static final int DEFAULT_SUBFROM_ID = 0;
@@ -23,6 +23,8 @@ public class NetworkStatRecord {
     public List<InetAddress> addressList;
     public long appLaunchTimestamp;
     public String bdTraceId;
+    public String bindMobilePolicy;
+    public String bindMobileStatus;
     public String clientIP;
     public String clientIPv6;
     public String contentEncoding;
@@ -535,6 +537,12 @@ public class NetworkStatRecord {
                 str = "0";
             }
             jSONObject.put("hasCookieManager", str);
+            if (this.bindMobilePolicy != null) {
+                jSONObject.put("bindMobilePolicy", this.bindMobilePolicy);
+            }
+            if (this.bindMobileStatus != null) {
+                jSONObject.put("bindMobileStatus", this.bindMobileStatus);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.AugmentedFace;
-import com.google.ar.core.Session;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public final class qwa {
+import com.kwad.sdk.api.KsNativeAd;
+/* loaded from: classes7.dex */
+public abstract class qwa implements KsNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Long, AugmentedFace> a;
 
     public qwa() {
         Interceptable interceptable = $ic;
@@ -24,26 +21,21 @@ public final class qwa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    public final synchronized AugmentedFace a(long j, Session session) {
-        InterceptResult invokeJL;
-        AugmentedFace augmentedFace;
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
-            synchronized (this) {
-                augmentedFace = this.a.get(Long.valueOf(j));
-                if (augmentedFace == null) {
-                    augmentedFace = new AugmentedFace(j, session);
-                    this.a.put(Long.valueOf(j), augmentedFace);
-                }
-            }
-            return augmentedFace;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (AugmentedFace) invokeJL.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 }

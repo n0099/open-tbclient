@@ -1,49 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.ContextWrapper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.switchs.WebViewOptSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public final class mf6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class mf6 extends jk1<se6> {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Activity a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof Activity) {
-                return (Activity) context;
-            }
-            while (context instanceof ContextWrapper) {
-                if (context instanceof Activity) {
-                    return (Activity) context;
+    /* loaded from: classes6.dex */
+    public static class a implements se6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                context = ((ContextWrapper) context).getBaseContext();
             }
-            return null;
         }
-        return (Activity) invokeL.objValue;
+
+        @Override // com.baidu.tieba.se6
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return WebViewOptSwitch.isOn();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.se6
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return TbConfig.getVersion();
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public static void b(Application application) {
+    public mf6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            a = application;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static Context getContext() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: a */
+    public se6 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        return (Context) invokeV.objValue;
+        return (se6) invokeV.objValue;
     }
 }

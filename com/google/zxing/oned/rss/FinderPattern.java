@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss;
 
 import com.google.zxing.ResultPoint;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class FinderPattern {
     public final ResultPoint[] resultPoints;
     public final int[] startEnd;

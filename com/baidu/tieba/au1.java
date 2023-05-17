@@ -1,58 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public interface au1 {
+    void a(Context context, JSONObject jSONObject);
 
-    /* loaded from: classes3.dex */
-    public interface a {
-    }
+    void b(Context context, JSONObject jSONObject);
 
-    void C(@NonNull Context context, @NonNull bu1 bu1Var, @NonNull a aVar);
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-    boolean i();
+    void d(Context context, String[] strArr, int i);
 
-    /* loaded from: classes3.dex */
-    public static class b extends f83 implements au1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
 
-        @Override // com.baidu.tieba.au1
-        public void C(Context context, bu1 bu1Var, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, bu1Var, aVar) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.au1
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void f(Context context, JSONObject jSONObject);
 }

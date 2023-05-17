@@ -1,44 +1,175 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class xh1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://afd.baidu.com/afd/entry";
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public interface xh1 {
+    void a(a aVar);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948300264, "Lcom/baidu/tieba/xh1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948300264, "Lcom/baidu/tieba/xh1;");
-        }
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public long c;
+        public long d;
+        public long e;
+        public String f;
+        public int g;
+        public List<C0499a> h;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (wf0.a && !TextUtils.isEmpty(li0.d().j())) {
-                return li0.d().j();
+        /* renamed from: com.baidu.tieba.xh1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public static class C0499a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public String b;
+
+            public C0499a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
             }
-            if (TextUtils.isEmpty(a)) {
-                return "https://afd.baidu.com/afd/entry";
+
+            public static C0499a a(JSONObject jSONObject) {
+                InterceptResult invokeL;
+                String optString;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                    if (jSONObject == null) {
+                        return null;
+                    }
+                    C0499a c0499a = new C0499a();
+                    String str = "";
+                    if (jSONObject.isNull("promotionInsId")) {
+                        optString = "";
+                    } else {
+                        optString = jSONObject.optString("promotionInsId");
+                    }
+                    c0499a.a = optString;
+                    if (!jSONObject.isNull("valid")) {
+                        str = jSONObject.optString("valid");
+                    }
+                    c0499a.b = str;
+                    return c0499a;
+                }
+                return (C0499a) invokeL.objValue;
             }
-            return a;
+
+            public static JSONObject b(C0499a c0499a) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0499a)) == null) {
+                    if (c0499a == null) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("promotionInsId", c0499a.a);
+                        jSONObject.put("valid", c0499a.b);
+                    } catch (JSONException e) {
+                        oh1.d(e.getMessage());
+                    }
+                    return jSONObject;
+                }
+                return (JSONObject) invokeL.objValue;
+            }
+
+            public static List<C0499a> c(JSONArray jSONArray) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
+                    if (jSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    try {
+                        jSONArray.get(0);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return arrayList;
+                }
+                return (List) invokeL.objValue;
+            }
         }
-        return (String) invokeV.objValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 2;
+        }
+
+        public static JSONObject a(a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
+                if (aVar == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, aVar.a);
+                    jSONObject.put("msg", aVar.b);
+                    jSONObject.put("totalAmount", aVar.c);
+                    jSONObject.put("userPayAmount", aVar.d);
+                    jSONObject.put("reduceAmount", aVar.e);
+                    jSONObject.put("overdueStatus", aVar.g);
+                    jSONObject.put("usedHostMarketingDetail", aVar.f);
+                    if (aVar.h != null && !aVar.h.isEmpty()) {
+                        JSONArray jSONArray = new JSONArray();
+                        for (C0499a c0499a : aVar.h) {
+                            jSONArray.put(C0499a.b(c0499a));
+                        }
+                        jSONObject.put("promotionStatus", jSONArray);
+                    }
+                } catch (JSONException e) {
+                    oh1.d(e.getMessage());
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
+            }
+            return (String) invokeV.objValue;
+        }
     }
 }

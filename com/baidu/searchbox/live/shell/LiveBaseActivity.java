@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.live.arch.utils.LiveShellUIUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveBaseActivity extends FragmentActivity {
     public LayoutInflater mInflater;
 

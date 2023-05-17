@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class pz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public cy0 a;
-    public PlayerStatus b;
-    public StringBuilder c;
+    public qz0 a;
+    public nz0 b;
 
-    public final void d() {
+    public final void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 
@@ -36,152 +35,39 @@ public final class pz0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = PlayerStatus.IDLE;
-        d();
     }
 
-    @NonNull
-    public PlayerStatus c() {
+    public final nz0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (PlayerStatus) invokeV.objValue;
+        return (nz0) invokeV.objValue;
     }
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-            this.b = PlayerStatus.IDLE;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void a(vu0 vu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, vu0Var) == null) {
-            if (vu0Var.getType() != 4 && vu0Var.getType() != 2) {
-                return;
-            }
-            String c = vu0Var.c();
-            char c2 = 65535;
-            switch (c.hashCode()) {
-                case -525235558:
-                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case -461848373:
-                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case 154871702:
-                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-                case 1370689931:
-                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            g(PlayerStatus.ERROR);
-                            return;
-                        }
-                        return;
-                    }
-                    g(PlayerStatus.PREPARED);
-                    return;
-                }
-                g(PlayerStatus.COMPLETE);
-                return;
-            }
-            int g = vu0Var.g(1);
-            if (904 == g || 956 == g) {
-                g(PlayerStatus.PLAYING);
-            }
-        }
-    }
-
-    public void b(@NonNull cy0 cy0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cy0Var) == null) {
-            this.a = cy0Var;
-        }
-    }
-
-    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
-            for (PlayerStatus playerStatus : playerStatusArr) {
-                if (playerStatus == c()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(PlayerStatus playerStatus) {
-        PlayerStatus playerStatus2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
-            return;
-        }
-        this.b = playerStatus;
-        cy0 cy0Var = this.a;
-        if (cy0Var != null) {
-            cy0Var.d(qu0.w(playerStatus2, playerStatus));
-        }
-    }
-
-    public String toString() {
+    public final qz0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (as0.f()) {
-                StringBuilder sb = this.c;
-                if (sb == null) {
-                    this.c = new StringBuilder();
-                } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.c;
-                    sb2.delete(0, sb2.length());
-                }
-                StringBuilder sb3 = this.c;
-                sb3.append("，Courier :");
-                sb3.append(this.a);
-                sb3.append("，status :");
-                sb3.append(this.b);
-                sb3.append("，hash :");
-                sb3.append(hashCode());
-                sb3.append("】");
-                return this.c.toString();
-            }
-            return super.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (qz0) invokeV.objValue;
+    }
+
+    public final void c(nz0 nz0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nz0Var) == null) {
+            this.b = nz0Var;
+        }
+    }
+
+    public final void f(qz0 qz0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qz0Var) == null) {
+            this.a = qz0Var;
+        }
     }
 }

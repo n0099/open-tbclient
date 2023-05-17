@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.iz;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class jj extends iz {
     public static int b = 10000;
     public static int c = 10000;
@@ -11,7 +11,7 @@ public class jj extends iz {
     public static int e = 10485760;
     public static int f = 104857600;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends iz.a {
         public a() {
             super(false, true);
@@ -38,72 +38,72 @@ public class jj extends iz {
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public jb mo618a() {
+    public jb mo637a() {
         byte a2 = a();
-        int mo615a = mo615a();
-        if (mo615a <= c) {
-            return new jb(a2, mo615a);
+        int mo634a = mo634a();
+        if (mo634a <= c) {
+            return new jb(a2, mo634a);
         }
-        throw new je(3, "Thrift list size " + mo615a + " out of range!");
+        throw new je(3, "Thrift list size " + mo634a + " out of range!");
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public jc mo619a() {
+    public jc mo638a() {
         byte a2 = a();
         byte a3 = a();
-        int mo615a = mo615a();
-        if (mo615a <= b) {
-            return new jc(a2, a3, mo615a);
+        int mo634a = mo634a();
+        if (mo634a <= b) {
+            return new jc(a2, a3, mo634a);
         }
-        throw new je(3, "Thrift map size " + mo615a + " out of range!");
+        throw new je(3, "Thrift map size " + mo634a + " out of range!");
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public jh mo620a() {
+    public jh mo639a() {
         byte a2 = a();
-        int mo615a = mo615a();
-        if (mo615a <= d) {
-            return new jh(a2, mo615a);
+        int mo634a = mo634a();
+        if (mo634a <= d) {
+            return new jh(a2, mo634a);
         }
-        throw new je(3, "Thrift set size " + mo615a + " out of range!");
+        throw new je(3, "Thrift set size " + mo634a + " out of range!");
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public String mo622a() {
-        int mo615a = mo615a();
-        if (mo615a > e) {
-            throw new je(3, "Thrift string size " + mo615a + " out of range!");
-        } else if (((jd) this).a.b() >= mo615a) {
+    public String mo641a() {
+        int mo634a = mo634a();
+        if (mo634a > e) {
+            throw new je(3, "Thrift string size " + mo634a + " out of range!");
+        } else if (((jd) this).a.b() >= mo634a) {
             try {
-                String str = new String(((jd) this).a.mo640a(), ((jd) this).a.a(), mo615a, "UTF-8");
-                ((jd) this).a.a(mo615a);
+                String str = new String(((jd) this).a.mo659a(), ((jd) this).a.a(), mo634a, "UTF-8");
+                ((jd) this).a.a(mo634a);
                 return str;
             } catch (UnsupportedEncodingException unused) {
                 throw new ix("JVM DOES NOT SUPPORT UTF-8");
             }
         } else {
-            return a(mo615a);
+            return a(mo634a);
         }
     }
 
     @Override // com.xiaomi.push.iz, com.xiaomi.push.jd
     /* renamed from: a */
-    public ByteBuffer mo623a() {
-        int mo615a = mo615a();
-        if (mo615a > f) {
-            throw new je(3, "Thrift binary size " + mo615a + " out of range!");
+    public ByteBuffer mo642a() {
+        int mo634a = mo634a();
+        if (mo634a > f) {
+            throw new je(3, "Thrift binary size " + mo634a + " out of range!");
         }
-        c(mo615a);
-        if (((jd) this).a.b() >= mo615a) {
-            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo640a(), ((jd) this).a.a(), mo615a);
-            ((jd) this).a.a(mo615a);
+        c(mo634a);
+        if (((jd) this).a.b() >= mo634a) {
+            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo659a(), ((jd) this).a.a(), mo634a);
+            ((jd) this).a.a(mo634a);
             return wrap;
         }
-        byte[] bArr = new byte[mo615a];
-        ((jd) this).a.b(bArr, 0, mo615a);
+        byte[] bArr = new byte[mo634a];
+        ((jd) this).a.b(bArr, 0, mo634a);
         return ByteBuffer.wrap(bArr);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.searchbox.datacollector.growth.model.ChannelData;
 import com.baidu.searchbox.datacollector.growth.model.ClipBoardData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.hg5;
+import com.baidu.tieba.qh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GrowthStatsUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SPLASH_SOURCE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PUSH = "push";
@@ -44,7 +44,7 @@ public class GrowthStatsUtil {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SPLASH_TYPE {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String COLD = "cold_start";
@@ -98,7 +98,7 @@ public class GrowthStatsUtil {
             return;
         }
         GrowthCollectManager.statisticActiveData(new ActiveData.Builder(TbadkCoreApplication.getFrom()).build(), TbadkCoreApplication.getInst());
-        hg5.b();
+        qh5.b();
     }
 
     public static void statisticDeviceInfo() {

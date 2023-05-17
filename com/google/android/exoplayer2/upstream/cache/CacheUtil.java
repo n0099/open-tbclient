@@ -10,11 +10,11 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.NavigableSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CacheUtil {
     public static final int DEFAULT_BUFFER_SIZE_BYTES = 131072;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class CachingCounters {
         public volatile long alreadyCachedBytes;
         public volatile long contentLength = -1;

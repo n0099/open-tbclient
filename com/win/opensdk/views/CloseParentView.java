@@ -22,7 +22,7 @@ import com.win.opensdk.u2;
 import com.win.opensdk.v2;
 import com.win.opensdk.w2;
 import com.win.opensdk.x2;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CloseParentView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,12 +78,12 @@ public class CloseParentView extends LinearLayout {
         }
         this.i = new t2(this, Looper.getMainLooper());
         this.d = context;
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d09aa, this);
-        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0928b7);
-        this.e = findViewById(R.id.obfuscated_res_0x7f0928b4);
-        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0928b8);
-        this.f = findViewById(R.id.obfuscated_res_0x7f0928be);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0928c2);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d09e0, this);
+        this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09292a);
+        this.e = findViewById(R.id.obfuscated_res_0x7f092927);
+        this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09292b);
+        this.f = findViewById(R.id.obfuscated_res_0x7f092931);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092935);
         this.b.setOnClickListener(new u2(this));
         this.f.setOnClickListener(new v2(this));
         setAreaLevel(1);

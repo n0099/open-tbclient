@@ -1,62 +1,101 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
+import android.app.Activity;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class uv1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class uv1 implements tv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public rv1 a;
 
-    public static ObjectAnimator a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new be4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+    /* loaded from: classes7.dex */
+    public class a implements rv1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(uv1 uv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uv1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
+
+        @Override // com.baidu.tieba.rv1
+        public void onActivityResult(Activity activity, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+                BdSailor.getInstance().onActivityResult(activity, i, i2, intent);
+            }
+        }
     }
 
-    public static ObjectAnimator b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948224345, "Lcom/baidu/tieba/uv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948224345, "Lcom/baidu/tieba/uv1;");
+                return;
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
+        boolean z = qp1.a;
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
+    public uv1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
-            ofFloat.setDuration(320L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (ObjectAnimator) invokeL.objValue;
+        this.a = new a(this);
     }
 
-    public static ObjectAnimator d(View view2, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.tv1
+    public sv1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, i);
-            ofFloat.setDuration(240L);
-            ofFloat.setInterpolator(new be4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return h82.k();
         }
-        return (ObjectAnimator) invokeLI.objValue;
+        return (sv1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tv1
+    public rv1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (rv1) invokeV.objValue;
     }
 }

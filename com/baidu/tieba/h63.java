@@ -1,23 +1,20 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.BitmapShader;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.TransitionDrawable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Messenger;
+import android.text.TextUtils;
 import android.util.Log;
-import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.apps.process.ipc.SwanProcessCallStub;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,399 +22,657 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class h63 extends Drawable {
+import java.text.SimpleDateFormat;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
+public final class h63 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
+    public static final long j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RectF a;
-    public final RectF b;
-    public final RectF c;
-    public final BitmapShader d;
-    public final Paint e;
-    public final int f;
-    public final int g;
-    public final RectF h;
-    public final Paint i;
-    public final Matrix j;
-    public float k;
-    public int l;
-    public int m;
-    public ImageView.ScaleType n;
+    public final LinkedHashMap<SwanAppProcessInfo, f63> a;
+    public final Deque<Long> b;
+    public final Handler c;
+    public final Messenger d;
+    public final SwanProcessCallStub e;
+    public long f;
+    public final Set<d63> g;
+    public final d63 h;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public interface c<FILTER> {
+        boolean a(FILTER filter, f63 f63Var);
     }
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes5.dex */
+    public class a implements d63 {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h63 a;
+
+        @Override // com.baidu.tieba.d63
+        public void timeout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.h63$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0316a implements zn3<d63> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ f63 b;
+
+            public C0316a(a aVar, String str, f63 f63Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, str, f63Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = str;
+                this.b = f63Var;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.zn3
+            /* renamed from: b */
+            public void a(d63 d63Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var) == null) {
+                    d63Var.a(this.a, this.b);
+                }
+            }
+        }
+
+        public a(h63 h63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h63Var;
+        }
+
+        @Override // com.baidu.tieba.d63
+        public void a(String str, f63 f63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, f63Var) == null) {
+                if (h63.i) {
+                    Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + f63Var.b);
+                }
+                synchronized (this.a.g) {
+                    yn3.a(f93.M(), new C0316a(this, str, f63Var), this.a.g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d63 a;
+        public final /* synthetic */ h63 b;
+
+        public b(h63 h63Var, d63 d63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h63Var, d63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = h63Var;
+            this.a = d63Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            synchronized (this.b.g) {
+                if (this.b.g.contains(this.a)) {
+                    if (h63.i) {
+                        Log.i("SwanPuppetManager", "timeout: callback = " + this.a);
+                    }
+                    this.b.h(this.a);
+                    this.a.timeout();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static h63 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-793389273, "Lcom/baidu/tieba/h63$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-793389180, "Lcom/baidu/tieba/h63$d;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-793389273, "Lcom/baidu/tieba/h63$a;");
+                    classClinitInterceptable.invokePostClinit(-793389180, "Lcom/baidu/tieba/h63$d;");
                     return;
                 }
             }
-            int[] iArr = new int[ImageView.ScaleType.values().length];
-            a = iArr;
-            try {
-                iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_END.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_START.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
+            a = new h63(null);
         }
     }
 
-    public h63(Bitmap bitmap, float f, int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947775620, "Lcom/baidu/tieba/h63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947775620, "Lcom/baidu/tieba/h63;");
+                return;
+            }
+        }
+        i = qp1.a;
+        j = TimeUnit.MINUTES.toMillis(5L);
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static h63 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (!i || ProcessUtils.isMainProcess()) {
+                return d.a;
+            }
+            throw new IllegalStateException("SwanAppClientObjManager should run in main process only");
+        }
+        return (h63) invokeV.objValue;
+    }
+
+    public d63 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.h;
+        }
+        return (d63) invokeV.objValue;
+    }
+
+    public synchronized LinkedHashSet<f63> q() {
+        InterceptResult invokeV;
+        LinkedHashSet<f63> linkedHashSet;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            synchronized (this) {
+                linkedHashSet = new LinkedHashSet<>(this.a.values());
+            }
+            return linkedHashSet;
+        }
+        return (LinkedHashSet) invokeV.objValue;
+    }
+
+    public h63() {
+        SwanAppProcessInfo[] indices;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new RectF();
-        this.b = new RectF();
-        this.c = new RectF();
-        this.h = new RectF();
-        this.j = new Matrix();
-        this.n = ImageView.ScaleType.FIT_XY;
-        this.l = i;
-        this.m = i2;
-        this.f = bitmap.getWidth();
-        int height = bitmap.getHeight();
-        this.g = height;
-        this.c.set(0.0f, 0.0f, this.f, height);
-        this.k = f;
-        Shader.TileMode tileMode = Shader.TileMode.CLAMP;
-        BitmapShader bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
-        this.d = bitmapShader;
-        bitmapShader.setLocalMatrix(this.j);
-        Paint paint = new Paint();
-        this.e = paint;
-        paint.setAntiAlias(true);
-        this.e.setShader(this.d);
-        Paint paint2 = new Paint();
-        this.i = paint2;
-        paint2.setAntiAlias(true);
-        this.i.setColor(this.m);
-        this.i.setStrokeWidth(i);
-    }
-
-    public static Bitmap a(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
-            if (drawable instanceof BitmapDrawable) {
-                return ((BitmapDrawable) drawable).getBitmap();
+        this.a = new LinkedHashMap<>();
+        this.b = new ArrayDeque();
+        this.c = new SwanAppMessengerService.a();
+        this.d = new Messenger(this.c);
+        this.e = new SwanProcessCallStub(this.c);
+        this.f = 0L;
+        this.g = new HashSet();
+        this.h = new a(this);
+        for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+            if (swanAppProcessInfo != null && swanAppProcessInfo.isSwanAppProcess()) {
+                this.a.put(swanAppProcessInfo, new f63(swanAppProcessInfo));
             }
-            int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (intrinsicWidth > 0 && intrinsicHeight > 0) {
-                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, Bitmap.Config.ARGB_8888);
-                Canvas canvas = new Canvas(createBitmap);
-                drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-                drawable.draw(canvas);
-                return createBitmap;
-            }
-            return null;
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    @SuppressLint({"SwanDebugLog"})
-    public static Drawable b(Drawable drawable, ImageView.ScaleType scaleType, float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Nullable
+    public synchronized f63 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{drawable, scaleType, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (drawable != null) {
-                if (drawable instanceof TransitionDrawable) {
-                    TransitionDrawable transitionDrawable = (TransitionDrawable) drawable;
-                    int numberOfLayers = transitionDrawable.getNumberOfLayers();
-                    Drawable[] drawableArr = new Drawable[numberOfLayers];
-                    for (int i3 = 0; i3 < numberOfLayers; i3++) {
-                        Drawable drawable2 = transitionDrawable.getDrawable(i3);
-                        if (drawable2 instanceof ColorDrawable) {
-                            drawableArr[i3] = drawable2;
-                        } else if (drawable2 instanceof h63) {
-                            drawableArr[i3] = drawable2;
-                        } else {
-                            drawableArr[i3] = new h63(a(drawable2), f, i, i2);
-                            if (scaleType != null) {
-                                ((h63) drawableArr[i3]).h(scaleType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                u("b4 computNextPreloadProcess");
+                f63 f63Var = null;
+                for (int i2 = 0; i2 <= 5; i2++) {
+                    f63 f63Var2 = this.a.get(SwanAppProcessInfo.indexOf(i2));
+                    if (f63Var2 != null && f63Var2.b.isSwanAppProcess() && !f63Var2.E()) {
+                        if (f63Var2.S()) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextPreloadProcess: return null by found empty process=" + f63Var2);
                             }
+                            return null;
+                        } else if (f63Var == null) {
+                            f63Var = f63Var2;
                         }
                     }
-                    return new TransitionDrawable(drawableArr);
                 }
-                Bitmap a2 = a(drawable);
-                if (a2 != null) {
-                    h63 h63Var = new h63(a2, f, i, i2);
-                    if (scaleType != null) {
-                        h63Var.h(scaleType);
-                    }
-                    return h63Var;
+                if (i) {
+                    Log.i("SwanPuppetManager", "computNextPreloadProcess: firstPreloadableClient=" + f63Var);
                 }
-                Log.w("RoundedDrawable", "Failed to create bitmap from drawable!");
+                return f63Var;
             }
-            return drawable;
         }
-        return (Drawable) invokeCommon.objValue;
+        return (f63) invokeV.objValue;
     }
 
-    public ImageView.ScaleType c() {
+    public /* synthetic */ h63(a aVar) {
+        this();
+    }
+
+    public void b(d63 d63Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, d63Var) == null) {
+            c(d63Var, -1L);
+        }
+    }
+
+    @Nullable
+    public synchronized f63 i(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            synchronized (this) {
+                List<f63> j2 = j(str);
+                if (j2.isEmpty()) {
+                    return null;
+                }
+                return j2.get(j2.size() - 1);
+            }
+        }
+        return (f63) invokeL.objValue;
+    }
+
+    public synchronized f63 l(@Nullable String str) {
+        InterceptResult invokeL;
+        f63 i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            synchronized (this) {
+                i2 = i(str);
+                if (i2 == null) {
+                    i2 = e();
+                }
+            }
+            return i2;
+        }
+        return (f63) invokeL.objValue;
+    }
+
+    public synchronized f63 n(int i2) {
+        InterceptResult invokeI;
+        f63 o;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+            synchronized (this) {
+                o = o(SwanAppProcessInfo.indexOf(i2));
+            }
+            return o;
+        }
+        return (f63) invokeI.objValue;
+    }
+
+    public synchronized f63 o(SwanAppProcessInfo swanAppProcessInfo) {
+        InterceptResult invokeL;
+        f63 f63Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, swanAppProcessInfo)) == null) {
+            synchronized (this) {
+                f63Var = this.a.get(swanAppProcessInfo);
+            }
+            return f63Var;
+        }
+        return (f63) invokeL.objValue;
+    }
+
+    @NonNull
+    public synchronized f63 r(@Nullable String str) {
+        InterceptResult invokeL;
+        f63 l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            synchronized (this) {
+                l = l(str);
+                v(l.b);
+            }
+            return l;
+        }
+        return (f63) invokeL.objValue;
+    }
+
+    public void c(d63 d63Var, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d63Var, j2) == null) {
+            synchronized (this.g) {
+                this.g.add(d63Var);
+                if (i) {
+                    Log.i("SwanPuppetManager", "addCallback: after = " + this.g.size());
+                }
+            }
+            if (j2 > 0) {
+                f93.M().postDelayed(new b(this, d63Var), j2);
+            }
+        }
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
-        }
-        return (ImageView.ScaleType) invokeV.objValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicHeight() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getIntrinsicWidth() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.m = i;
-            this.i.setColor(i);
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.l = i;
-            this.i.setStrokeWidth(i);
-        }
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.k = f;
-        }
-    }
-
-    public void h(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, scaleType) == null) {
-            if (scaleType == null) {
-                scaleType = ImageView.ScaleType.FIT_XY;
-            }
-            if (this.n != scaleType) {
-                this.n = scaleType;
-                g();
-            }
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rect) == null) {
-            super.onBoundsChange(rect);
-            this.a.set(rect);
-            g();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e.setAlpha(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, colorFilter) == null) {
-            this.e.setColorFilter(colorFilter);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            if (this.l > 0) {
-                RectF rectF = this.h;
-                float f = this.k;
-                canvas.drawRoundRect(rectF, f, f, this.i);
-                canvas.drawRoundRect(this.b, Math.max(this.k - this.l, 0.0f), Math.max(this.k - this.l, 0.0f), this.e);
-                return;
-            }
-            RectF rectF2 = this.b;
-            float f2 = this.k;
-            canvas.drawRoundRect(rectF2, f2, f2, this.e);
-        }
-    }
-
-    public final void g() {
-        float width;
-        float height;
-        float min;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h.set(this.a);
-            RectF rectF = this.b;
-            int i = this.l;
-            rectF.set(i + 0, i + 0, this.h.width() - this.l, this.h.height() - this.l);
-            switch (a.a[this.n.ordinal()]) {
-                case 1:
-                    this.h.set(this.a);
-                    RectF rectF2 = this.b;
-                    int i2 = this.l;
-                    rectF2.set(i2 + 0, i2 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    this.j.setTranslate((int) (((this.b.width() - this.f) * 0.5f) + 0.5f), (int) (((this.b.height() - this.g) * 0.5f) + 0.5f));
-                    break;
-                case 2:
-                    this.h.set(this.a);
-                    RectF rectF3 = this.b;
-                    int i3 = this.l;
-                    rectF3.set(i3 + 0, i3 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    float f = 0.0f;
-                    if (this.f * this.b.height() > this.b.width() * this.g) {
-                        width = this.b.height() / this.g;
-                        f = (this.b.width() - (this.f * width)) * 0.5f;
-                        height = 0.0f;
-                    } else {
-                        width = this.b.width() / this.f;
-                        height = (this.b.height() - (this.g * width)) * 0.5f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this.b) {
+                t("checkRescuable ===>");
+                boolean z = false;
+                if (this.f > System.currentTimeMillis()) {
+                    t(String.format(Locale.getDefault(), "disallowRescue by mRescueRefractoryUntil(%d)", Long.valueOf(this.f)));
+                    return false;
+                } else if (this.b.size() < 3) {
+                    t(String.format(Locale.getDefault(), "allowRescue by size(%d) < max(%d)", Integer.valueOf(this.b.size()), 3));
+                    return true;
+                } else {
+                    int size = this.b.size() - 3;
+                    t("after offer purgeCount=" + size);
+                    if (size > 0) {
+                        for (int i2 = 0; i2 < size; i2++) {
+                            t("purge: " + this.b.poll());
+                        }
                     }
-                    this.j.setScale(width, width);
-                    Matrix matrix = this.j;
-                    int i4 = this.l;
-                    matrix.postTranslate(((int) (f + 0.5f)) + i4, ((int) (height + 0.5f)) + i4);
-                    break;
-                case 3:
-                    this.j.set(null);
-                    if (this.f <= this.a.width() && this.g <= this.a.height()) {
-                        min = 1.0f;
-                    } else {
-                        min = Math.min(this.a.width() / this.f, this.a.height() / this.g);
+                    t("after purge");
+                    Long peek = this.b.peek();
+                    if (peek == null) {
+                        t("allowRescue by null oldestRecord is should not happen");
+                        return true;
                     }
-                    this.j.setScale(min, min);
-                    this.j.postTranslate((int) (((this.a.width() - (this.f * min)) * 0.5f) + 0.5f), (int) (((this.a.height() - (this.g * min)) * 0.5f) + 0.5f));
-                    this.h.set(this.c);
-                    this.j.mapRect(this.h);
-                    RectF rectF4 = this.b;
-                    RectF rectF5 = this.h;
-                    float f2 = rectF5.left;
-                    int i5 = this.l;
-                    rectF4.set(f2 + i5, rectF5.top + i5, rectF5.right - i5, rectF5.bottom - i5);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 4:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.CENTER);
-                    this.j.mapRect(this.h);
-                    RectF rectF6 = this.b;
-                    RectF rectF7 = this.h;
-                    float f3 = rectF7.left;
-                    int i6 = this.l;
-                    rectF6.set(f3 + i6, rectF7.top + i6, rectF7.right - i6, rectF7.bottom - i6);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 5:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.END);
-                    this.j.mapRect(this.h);
-                    RectF rectF8 = this.b;
-                    RectF rectF9 = this.h;
-                    float f4 = rectF9.left;
-                    int i7 = this.l;
-                    rectF8.set(f4 + i7, rectF9.top + i7, rectF9.right - i7, rectF9.bottom - i7);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                case 6:
-                    this.h.set(this.c);
-                    this.j.setRectToRect(this.c, this.a, Matrix.ScaleToFit.START);
-                    this.j.mapRect(this.h);
-                    RectF rectF10 = this.b;
-                    RectF rectF11 = this.h;
-                    float f5 = rectF11.left;
-                    int i8 = this.l;
-                    rectF10.set(f5 + i8, rectF11.top + i8, rectF11.right - i8, rectF11.bottom - i8);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
-                default:
-                    this.h.set(this.a);
-                    RectF rectF12 = this.b;
-                    int i9 = this.l;
-                    rectF12.set(i9 + 0, i9 + 0, this.h.width() - this.l, this.h.height() - this.l);
-                    this.j.set(null);
-                    this.j.setRectToRect(this.c, this.b, Matrix.ScaleToFit.FILL);
-                    break;
+                    long currentTimeMillis = System.currentTimeMillis() - peek.longValue();
+                    if (currentTimeMillis > j) {
+                        z = true;
+                    }
+                    t("allowRescue:" + z + " oldestRecordDuration:" + currentTimeMillis);
+                    return z;
+                }
             }
-            this.d.setLocalMatrix(this.j);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized f63 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                u("b4 computNextAvailableProcess");
+                f63 f63Var = null;
+                f63 f63Var2 = null;
+                for (int i2 = 0; i2 <= 5; i2++) {
+                    f63 f63Var3 = this.a.get(SwanAppProcessInfo.indexOf(i2));
+                    if (f63Var3 != null && f63Var3.b.isSwanAppProcess() && !f63Var3.E()) {
+                        if (f63Var3.S()) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextAvailableProcess: firstPreloadedClient=" + f63Var3);
+                            }
+                            return f63Var3;
+                        }
+                        if (f63Var == null && f63Var3.T()) {
+                            f63Var = f63Var3;
+                        }
+                        if (f63Var2 == null) {
+                            f63Var2 = f63Var3;
+                        }
+                    }
+                }
+                if (f63Var != null) {
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: firstConnectedEmptyClient=" + f63Var);
+                    }
+                    return f63Var;
+                } else if (f63Var2 != null) {
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: firstEmptyClient=" + f63Var2);
+                    }
+                    return f63Var2;
+                } else {
+                    for (f63 f63Var4 : this.a.values()) {
+                        if (f63Var4 != null) {
+                            if (i) {
+                                Log.i("SwanPuppetManager", "computNextAvailableProcess: lruClient=" + f63Var4);
+                            }
+                            return f63Var4;
+                        }
+                    }
+                    if (i) {
+                        Log.i("SwanPuppetManager", "computNextAvailableProcess: P0");
+                    }
+                    return o(SwanAppProcessInfo.P0);
+                }
+            }
+        }
+        return (f63) invokeV.objValue;
+    }
+
+    public synchronized void g(String str, f63 f63Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, f63Var) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                List<f63> j2 = k().j(str);
+                if (j2.isEmpty()) {
+                    return;
+                }
+                for (f63 f63Var2 : j2) {
+                    if (f63Var2 != f63Var && f63Var2 != null && f63Var2.E()) {
+                        if (i) {
+                            Log.i("SwanPuppetManager", "deduplicateClients: protectedClient=" + f63Var);
+                            Log.i("SwanPuppetManager", "deduplicateClients: exClient=" + f63Var2);
+                        }
+                        f63Var2.e0();
+                        f63Var2.d0();
+                        if (f63Var2.T()) {
+                            w53 e = w53.e();
+                            y53 y53Var = new y53(110, new Bundle());
+                            y53Var.b(f63Var2.b);
+                            e.h(y53Var);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void h(d63 d63Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, d63Var) == null) {
+            synchronized (this.g) {
+                this.g.remove(d63Var);
+                if (i) {
+                    Log.i("SwanPuppetManager", "delCallback: after = " + this.g.size());
+                }
+            }
+        }
+    }
+
+    public void s(Message message) {
+        f63 o;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, message) != null) || message == null) {
+            return;
+        }
+        SwanAppProcessInfo indexOf = SwanAppProcessInfo.indexOf(message.arg1);
+        if (!indexOf.isSwanAppProcess() || (o = o(indexOf)) == null) {
+            return;
+        }
+        Object obj = message.obj;
+        if (!(obj instanceof Bundle)) {
+            return;
+        }
+        Bundle bundle = (Bundle) obj;
+        bundle.setClassLoader(h63.class.getClassLoader());
+        o.o0(bundle.getLong("property_launch_cost", -1L));
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && i) {
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            Log.i("SwanPuppetManager", "\nlogStatus by " + str + ":\n" + toString());
+        }
+    }
+
+    public synchronized void v(SwanAppProcessInfo swanAppProcessInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, swanAppProcessInfo) == null) {
+            synchronized (this) {
+                f63 remove = this.a.remove(swanAppProcessInfo);
+                if (remove != null) {
+                    this.a.put(swanAppProcessInfo, remove);
+                }
+                if (i) {
+                    u("lru -> " + swanAppProcessInfo);
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public synchronized List<f63> j(@Nullable String str) {
+        InterceptResult invokeL;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                if (!TextUtils.isEmpty(str)) {
+                    for (f63 f63Var : this.a.values()) {
+                        if (TextUtils.equals(f63Var.getAppId(), str)) {
+                            arrayList.add(f63Var);
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public synchronized <FILTER> f63 p(FILTER filter, c<FILTER> cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, filter, cVar)) == null) {
+            synchronized (this) {
+                for (f63 f63Var : this.a.values()) {
+                    if (cVar.a(filter, f63Var)) {
+                        return f63Var;
+                    }
+                }
+                return null;
+            }
+        }
+        return (f63) invokeLL.objValue;
+    }
+
+    public final void t(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && i) {
+            Log.i("SwanPuppetManager", "SwanRescue:: status => " + str);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.SSS", Locale.getDefault());
+            Iterator<Long> it = this.b.iterator();
+            while (it.hasNext()) {
+                Log.i("SwanPuppetManager", "SwanRescue::   >>>  record @ " + simpleDateFormat.format(new Date(it.next().longValue())));
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            LinkedHashSet<f63> q = q();
+            StringBuilder sb = new StringBuilder();
+            sb.append(super.toString());
+            sb.append(":");
+            sb.append("\n-> clients: ");
+            for (f63 f63Var : q) {
+                sb.append("\n--> ");
+                sb.append(f63Var.toString());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            synchronized (this.b) {
+                if (d()) {
+                    this.b.offer(Long.valueOf(System.currentTimeMillis()));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("bundle_key_preload_preload_scene", "1");
+                    e63.n(ns2.c(), bundle);
+                }
+            }
         }
     }
 }

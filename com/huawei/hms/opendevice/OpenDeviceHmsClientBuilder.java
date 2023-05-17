@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.AbstractClientBuilder;
 import com.huawei.hms.common.internal.BaseHmsClient;
 import com.huawei.hms.common.internal.ClientSettings;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OpenDeviceHmsClientBuilder extends AbstractClientBuilder<OpenDeviceHmsClient, OpenDeviceOptions> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

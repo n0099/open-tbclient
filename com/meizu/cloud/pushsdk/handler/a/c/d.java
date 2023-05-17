@@ -2,14 +2,14 @@ package com.meizu.cloud.pushsdk.handler.a.c;
 
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public String a;
     public String b;
     public String c;
     public String d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public String a;
         public String b;

@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tz0 implements IVideoUpdateStrategy {
-    public static /* synthetic */ Interceptable $ic;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class tz0 extends sz0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean f = false;
+    public static boolean g = false;
+    public static boolean h = false;
+    public static boolean i = false;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
     public boolean d;
-    public int e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
+    public boolean e;
 
     static {
         InterceptResult invokeClinit;
@@ -38,171 +41,209 @@ public class tz0 implements IVideoUpdateStrategy {
         }
     }
 
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-        }
-    }
-
-    public tz0() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz0(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = true;
-        this.b = true;
-        this.c = true;
-        this.d = true;
-        this.e = 1;
-        this.f = false;
-        this.g = false;
-        this.h = true;
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean b() {
+    @Override // com.baidu.tieba.sz0, com.baidu.tieba.mw0
+    public void d(lv0 event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                boolean z = false;
+                this.e = false;
+                Context context = getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "context");
+                boolean a = q01.a(context);
+                if (!a) {
+                    j = y01.c(getContext());
+                }
+                if (a != f) {
+                    f = a;
+                    if (!a && rs0.T() && y01.c(getContext()) > 0) {
+                        v01.b("HeadsetPlugin", "恢复操作,静音->非静音");
+                        i = false;
+                        rs0 i2 = i();
+                        if (i2 != null) {
+                            i2.s0(false);
+                        }
+                    }
+                }
+                rs0 i3 = i();
+                if (i3 != null) {
+                    z = i3.V();
+                }
+                this.d = z;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.mw0
+    public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return new int[]{1, 4};
         }
-        return invokeV.booleanValue;
+        return (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sz0, com.baidu.tieba.mw0
+    public void n(lv0 event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.player.strategy.IVideoUpdateStrategy
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_HEADSET_PLUG)) {
+                boolean d = event.d(3);
+                h = d;
+                if (!g) {
+                    p(d);
+                }
+            } else if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_BLUETOOTH_HEADSET)) {
+                boolean d2 = event.d(6);
+                g = d2;
+                if (!h) {
+                    p(d2);
+                }
+            }
         }
     }
 
-    public void k(boolean z) {
+    public final void p(boolean z) {
+        Boolean bool;
+        Boolean bool2;
+        rs0 i2;
+        boolean z2;
+        rs0 i3;
+        int i4;
+        int i5;
+        rs0 i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("播放器是否静音isMute= ");
+            rs0 i7 = i();
+            Boolean bool3 = null;
+            if (i7 != null) {
+                bool = Boolean.valueOf(i7.V());
+            } else {
+                bool = null;
+            }
+            sb.append(bool);
+            sb.append(',');
+            sb.append(" 播放器是否全局静音sGlobalMute= ");
+            sb.append(rs0.T());
+            sb.append(',');
+            sb.append(" 播放器静音状态(业务复写的方法)isPlayerMute= ");
+            rs0 i8 = i();
+            if (i8 != null) {
+                bool2 = Boolean.valueOf(i8.X());
+            } else {
+                bool2 = null;
+            }
+            sb.append(bool2);
+            sb.append(',');
+            sb.append(" 播放器耳机连接前的音量大小-> ");
+            sb.append(j);
+            sb.append(',');
+            sb.append(" 播放器音量音量焦点-> ");
+            rs0 i9 = i();
+            if (i9 != null) {
+                bool3 = Boolean.valueOf(i9.U());
+            }
+            sb.append(bool3);
+            v01.b("HeadsetPlugin", sb.toString());
+            if (z) {
+                f = true;
+                i = rs0.T();
+                rs0 i10 = i();
+                if (i10 != null) {
+                    z2 = i10.V();
+                } else {
+                    z2 = false;
+                }
+                this.d = z2;
+                v01.b("HeadsetPlugin", "耳机连接>>> 静音状态,全局=" + i + ", 播放器=" + this.d);
+                boolean z3 = this.d;
+                if (!z3) {
+                    rs0 i11 = i();
+                    if (i11 != null && i11.V()) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
+                    }
+                }
+                if (z3 && (i6 = i()) != null) {
+                    i6.s0(false);
+                }
+                int c = y01.c(getContext());
+                if (c == 0) {
+                    c = (int) (y01.b(getContext()) * 0.35d);
+                }
+                y01.d(getContext(), c);
+                if (g11.k() && (i3 = i()) != null && i3.W() && this.e) {
+                    rs0 i12 = i();
+                    if (i12 != null) {
+                        i4 = i12.r();
+                    } else {
+                        i4 = 0;
+                    }
+                    rs0 i13 = i();
+                    if (i13 != null) {
+                        i5 = i13.C();
+                    } else {
+                        i5 = 0;
+                    }
+                    if (i4 > i5) {
+                        this.e = false;
+                        rs0 i14 = i();
+                        if (i14 != null) {
+                            i14.l0();
+                        }
+                    }
+                }
+            } else if (f) {
+                f = false;
+                if (g11.k() && (i2 = i()) != null && i2.Y()) {
+                    this.e = true;
+                    rs0 i15 = i();
+                    if (i15 != null) {
+                        i15.f0(4);
+                    }
+                }
+                v01.b("HeadsetPlugin", "耳机断开>>> 恢复之前静音状态,全局=" + i + ", 播放器=" + this.d + StringUtil.ARRAY_ELEMENT_SEPARATOR + "声音=" + j);
+                if (j == 0) {
+                    y01.d(getContext(), j);
+                }
+                rs0 i16 = i();
+                if (i16 != null) {
+                    i16.s0(i);
+                }
+                rs0 i17 = i();
+                if (i17 != null) {
+                    i17.w0(this.d);
+                }
+            } else {
+                g01.c().d(bv0.w(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));
+            }
         }
     }
 }

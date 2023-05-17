@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.spswitch.utils.EmotionUbcHelper;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BigEmotionMsg extends BaseImageMsg<com.baidu.android.imsdk.chatmessage.messages.ImageMsg> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
@@ -42,12 +43,12 @@ public class BigEmotionMsg extends BaseImageMsg<com.baidu.android.imsdk.chatmess
         return invokeV.intValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class EmotionContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2675493860347749553L;
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("meme_id")
+        @SerializedName(EmotionUbcHelper.MEME_ID)
         public String memeId;
         @SerializedName("meme_type")
         public String memeType;
@@ -118,7 +119,7 @@ public class BigEmotionMsg extends BaseImageMsg<com.baidu.android.imsdk.chatmess
         return (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

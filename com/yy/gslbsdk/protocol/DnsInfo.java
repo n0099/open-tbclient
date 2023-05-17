@@ -4,7 +4,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DnsInfo {
     public static final String TAG = "DnsInfo";
     public CmdInfo cmd;

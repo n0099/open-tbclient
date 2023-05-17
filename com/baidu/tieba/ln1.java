@@ -1,122 +1,175 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-/* loaded from: classes5.dex */
-public final class ln1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ln1 extends kn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948538, "Lcom/baidu/tieba/ln1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends ko1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ ln1 c;
+
+        public a(ln1 ln1Var, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ln1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948538, "Lcom/baidu/tieba/ln1;");
+            this.c = ln1Var;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.ko1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.b(this.b);
+                } catch (Throwable th) {
+                    po1.d(th);
+                    ln1 ln1Var = this.c;
+                    ln1Var.d(this.b, 3, 2009, ln1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends ko1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ ln1 c;
+
+        public b(ln1 ln1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ln1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ln1Var;
+            this.b = i;
+        }
+
+        @Override // com.baidu.tieba.ko1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.c.g(this.b, this.c.c, this.c.h);
+                } catch (Throwable th) {
+                    po1.d(th);
+                    ln1 ln1Var = this.c;
+                    ln1Var.n(this.b, 3, 2009, ln1Var.c, "cu on getToken unknown error.");
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ln1(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b) {
-        InterceptResult invokeB;
+    @Override // com.baidu.tieba.kn1
+    public void j(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
-            if (b < 0) {
-                b += 256;
-            }
-            return a[b / 16] + a[b % 16];
-        }
-        return (String) invokeB.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String str2 = "";
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                String str3 = new String(str);
-                try {
-                    return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-                } catch (Throwable th) {
-                    th = th;
-                    str2 = str3;
-                    gn1.d(th);
-                    return str2;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.j(context, i, j);
+            c(i, 2);
+            mo1.c().b(new a(this, i));
         }
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kn1
+    public void p(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : bArr) {
-                stringBuffer.append(a(b));
-            }
-            return stringBuffer.toString();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+            c(i, 4);
+            mo1.c().b(new b(this, i));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kn1
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(bArr));
-            } catch (Throwable th) {
-                gn1.d(th);
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.e)) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else if (this.f - System.currentTimeMillis() < oo1.a) {
+                this.g = null;
+                this.f = 0L;
+                return true;
+            } else {
+                return false;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static byte[] e(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kn1
+    public boolean q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
-            }
-            try {
-                return MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (Throwable th) {
-                gn1.d(th);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.h)) {
+                this.i = 0L;
+                return true;
+            } else if (this.i - System.currentTimeMillis() < oo1.a) {
+                this.i = 0L;
+                return true;
+            } else {
+                return false;
             }
         }
-        return (byte[]) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

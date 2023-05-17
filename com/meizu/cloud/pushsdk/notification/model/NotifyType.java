@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NotifyType implements Parcelable {
     public static final Parcelable.Creator<NotifyType> CREATOR = new Parcelable.Creator<NotifyType>() { // from class: com.meizu.cloud.pushsdk.notification.model.NotifyType.1
         /* JADX DEBUG: Method merged with bridge method */

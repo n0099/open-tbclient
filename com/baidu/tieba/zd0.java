@@ -1,162 +1,262 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.os.Process;
-import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class zd0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public long c;
+    public boolean d;
+    public int e;
+    public int f;
+    public String g;
+    public int h;
+    public int i;
+    public int j;
+    public boolean k;
+    public String l;
+    public int m;
+    public int n;
+    public int o;
+    public int p;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
+    public zd0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            vd0.c("DpNetworkUtils", "getNetWorkInfo()");
-            if (context == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null) {
-                    return connectivityManager.getActiveNetworkInfo();
-                }
-            } catch (Exception unused) {
-            }
-            return null;
         }
-        return (NetworkInfo) invokeL.objValue;
+        this.a = "/sdcard/AR/video/arvideo.mp4";
+        this.b = 0;
+        this.c = 0L;
+        this.d = true;
+        this.e = 720;
+        this.f = 1280;
+        this.g = "video/avc";
+        this.h = 8294400;
+        this.i = 30;
+        this.j = 1;
+        this.k = false;
+        this.l = "audio/mp4a-latm";
+        this.m = 1;
+        this.n = EncoderParams.AUDIO_BIT_RATE;
+        this.o = 16000;
+        this.p = 1024;
     }
 
-    public static boolean b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            vd0.c("DpNetworkUtils", "shouldCheckPermission()");
-            return Build.VERSION.SDK_INT >= 23;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.m;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.p;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.o;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.k;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            vd0.c("DpNetworkUtils", "checkPermissionGranted()");
-            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        boolean z;
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
-            return invokeL.booleanValue;
-        }
-        vd0.c("DpNetworkUtils", "checkPhonePermission()");
-        boolean z2 = true;
-        if (!b()) {
-            return true;
-        }
-        if (context == null) {
-            return false;
-        }
-        try {
-            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, com.kuaishou.weapon.p0.h.c) && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
-                z = false;
-                if (Build.VERSION.SDK_INT < 16) {
-                    if (!z) {
-                        if (!c(context, "android.permission.READ_CALL_LOG")) {
-                            z2 = false;
-                        }
-                    }
-                    return z2;
-                }
-                return z;
-            }
-            z = true;
-            if (Build.VERSION.SDK_INT < 16) {
-            }
-        } catch (Throwable unused) {
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.m = i;
         }
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        int i;
-        TelephonyManager telephonyManager;
-        String subscriberId;
+    public void r(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            vd0.c("DpNetworkUtils", "getNetworkStatisticsData()");
-            NetworkInfo a = a(context);
-            int i2 = 3;
-            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
-                i = 0;
-            } else if (a.getType() == 0) {
-                switch (a.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        i = 2;
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        i = 3;
-                        break;
-                    case 13:
-                        i = 4;
-                        break;
-                    default:
-                        i = 1;
-                        break;
-                }
-            } else {
-                i = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
-            }
-            int i3 = 99;
-            try {
-                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager)) == null) {
-                    i2 = 0;
-                } else {
-                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
-                        if (!subscriberId.startsWith("46001")) {
-                            i2 = subscriberId.startsWith("46003") ? 2 : 99;
-                        }
-                    }
-                    i2 = 1;
-                }
-                i3 = i2;
-            } catch (Throwable th) {
-                vd0.e("DpNetworkUtils", "network changed: " + th);
-            }
-            return i + "_" + i3;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.p = i;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.o = i;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && str != null && !str.isEmpty()) {
+            this.a = str;
+        }
+    }
+
+    public void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void w(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.e = i;
+        }
     }
 }

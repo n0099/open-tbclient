@@ -14,13 +14,13 @@ import android.widget.ListAdapter;
 import com.baidu.swan.menu.viewpager.SlideableGridView;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GridPageView extends FrameLayout {
     public AutoGridView a;
     public SlideableGridView.a b;
     public int c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AutoGridView extends GridView {
         public int a;
         public int b;
@@ -87,7 +87,7 @@ public class GridPageView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public a() {
         }
@@ -102,7 +102,7 @@ public class GridPageView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BaseAdapter {
         public Context a;
 
@@ -183,7 +183,7 @@ public class GridPageView extends FrameLayout {
         autoGridView.setNumColumns(5);
         this.a.setFocusableInTouchMode(false);
         this.a.setStretchMode(2);
-        this.a.setVerticalSpacing((int) getResources().getDimension(R.dimen.common_grid_row_margin));
+        this.a.setVerticalSpacing((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07023e));
         this.a.setSelector(new ColorDrawable(0));
         this.a.setAdapter((ListAdapter) new b(context));
         this.a.setOnItemClickListener(new a());

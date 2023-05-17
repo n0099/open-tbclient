@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class eh implements ef {
     private void a(Context context, String str) {
         try {
@@ -53,7 +53,7 @@ public class eh implements ef {
             try {
                 if (TextUtils.isEmpty(a2)) {
                     dy.a(context, d, 1008, "info is empty");
-                } else if (a == 1 && !ec.m369a(context)) {
+                } else if (a == 1 && !ec.m388a(context)) {
                     dy.a(context, d, 1008, "A not in foreground");
                 } else {
                     String type = context.getContentResolver().getType(dx.a(b, a2));

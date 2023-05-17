@@ -1,47 +1,130 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class bj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static yi0 a;
+    public static Application a;
+    public static gj0 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947646753, "Lcom/baidu/tieba/bj0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947646753, "Lcom/baidu/tieba/bj0;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jj0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-917230460, "Lcom/baidu/tieba/bj0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-917230460, "Lcom/baidu/tieba/bj0$a;");
+                    return;
+                }
+            }
+            a = new fj0();
+        }
+    }
 
     public bj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static yi0 a() {
+    @Deprecated
+    public static jj0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
+        }
+        return (jj0) invokeV.objValue;
+    }
+
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static jj0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return a.a;
+        }
+        return (jj0) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return dj0.c().b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static gj0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
                 synchronized (bj0.class) {
-                    if (a == null) {
-                        a = (yi0) ServiceManager.getService(yi0.a);
+                    if (b == null) {
+                        b = (gj0) ServiceManager.getService(gj0.a);
                     }
-                    if (a == null) {
-                        a = yi0.b;
+                    if (b == null) {
+                        b = gj0.b;
                     }
                 }
             }
-            return a;
+            return b;
         }
-        return (yi0) invokeV.objValue;
+        return (gj0) invokeV.objValue;
     }
 }

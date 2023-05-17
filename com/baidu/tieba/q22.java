@@ -7,11 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
-public class q22 extends d12 {
+/* loaded from: classes7.dex */
+public class q22 extends m22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l12 a;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
     public q22() {
         Interceptable interceptable = $ic;
@@ -23,30 +29,31 @@ public class q22 extends d12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.d12
-    public void a(e12 e12Var, Canvas canvas) {
-        l12 l12Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (l12Var = this.a) != null && l12Var.d()) {
-            if (this.a.c()) {
-                e12Var.c.setShader(this.a.b());
                 return;
             }
-            e12Var.m = this.a.a();
-            e12Var.c.setColor(this.a.a());
-            e12Var.b.setShader(null);
+        }
+        this.g = false;
+    }
+
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && this.g) {
+            n22Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
         }
     }
 
-    @Override // com.baidu.tieba.d12
+    @Override // com.baidu.tieba.m22
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new l12(jSONArray);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 5) {
+            this.a = xm3.g((float) jSONArray.optDouble(0));
+            this.b = xm3.g((float) jSONArray.optDouble(1));
+            this.c = xm3.g((float) jSONArray.optDouble(2));
+            this.d = xm3.g((float) jSONArray.optDouble(3));
+            this.e = xm3.g((float) jSONArray.optDouble(4));
+            this.f = xm3.g((float) jSONArray.optDouble(5));
+            this.g = true;
         }
     }
 }

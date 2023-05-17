@@ -1,5 +1,5 @@
 package com.sina.deviceidjnisdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IDeviceId {
     String getDeviceId();
 }

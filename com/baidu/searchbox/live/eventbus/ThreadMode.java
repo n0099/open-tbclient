@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.eventbus;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThreadMode {
     public static final int ASYNC = 4;
     public static final int BACKGROUND = 3;

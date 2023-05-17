@@ -16,7 +16,7 @@ import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.sdk.im.live.parser.LiveMessageParser;
 import java.util.ArrayList;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDIMConversation implements IMConversation {
     public static final boolean DEBUG = false;
     public static final String TAG = "BDIMConversation";

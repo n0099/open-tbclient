@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.View;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.g41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class y31 {
+import kotlin.jvm.JvmStatic;
+@Autowired
+/* loaded from: classes8.dex */
+public final class y31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,24 +32,16 @@ public class y31 {
         }
     }
 
-    @Nullable
-    public static Bitmap a(@Nullable View view2) {
-        InterceptResult invokeL;
+    @NonNull
+    @JvmStatic
+    @Singleton
+    @Inject(force = false)
+    public static final g41 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            Bitmap bitmap = null;
-            if (view2 == null || view2.getWidth() <= 0 || view2.getHeight() <= 0) {
-                return null;
-            }
-            try {
-                bitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_8888);
-                view2.draw(new Canvas(bitmap));
-                return bitmap;
-            } catch (OutOfMemoryError e) {
-                e.printStackTrace();
-                return bitmap;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new g41.a();
         }
-        return (Bitmap) invokeL.objValue;
+        return (g41) invokeV.objValue;
     }
 }

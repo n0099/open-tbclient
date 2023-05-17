@@ -14,14 +14,14 @@ import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSliderTouchListener> {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnChangeListener extends BaseOnChangeListener<RangeSlider> {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<RangeSlider> {
     }
 
@@ -168,7 +168,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
     }
 
     public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04064e);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04068d);
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
@@ -183,7 +183,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
 
     public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040787});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0407d2});
         if (obtainStyledAttributes.hasValue(0)) {
             setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
         }

@@ -1,347 +1,297 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.UUID;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.baidu.ugc.editvideo.data.MediaInfo;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+/* loaded from: classes7.dex */
 public class qna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public ArrayList<String> c;
-    public boolean d;
-    public long e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public long j;
-    public JSONObject k;
-    public JSONObject l;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static long a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
     }
 
-    public void p(String str) {
+    public static long b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0L;
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            try {
+                if (!new File(str).exists()) {
+                    return 0L;
+                }
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    long c = jna.c(mediaMetadataRetriever2.extractMetadata(9), 0L);
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return c;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0L;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeL.longValue;
         }
     }
 
-    public void q(long j) {
+    public static int e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    int b = jna.b(mediaMetadataRetriever.extractMetadata(20), 0);
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return b;
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            try {
+                if (!new File(str).exists()) {
+                    return 0;
+                }
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return parseInt;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (Exception unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeL.intValue;
         }
     }
 
-    public void r(boolean z) {
+    public static long c(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            long j = 0;
+            if (!FileUtils.isExists(str)) {
+                return 0L;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            try {
+                try {
+                    mediaExtractor.setDataSource(str);
+                    MediaFormat mediaFormat = null;
+                    int i2 = 0;
+                    while (true) {
+                        if (i2 >= mediaExtractor.getTrackCount()) {
+                            break;
+                        }
+                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                        String string = trackFormat.getString("mime");
+                        if (i == 0) {
+                            str2 = "audio/";
+                        } else {
+                            str2 = com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START;
+                        }
+                        if (string.startsWith(str2)) {
+                            mediaExtractor.selectTrack(i2);
+                            mediaFormat = trackFormat;
+                            break;
+                        }
+                        i2++;
+                    }
+                    if (mediaFormat != null) {
+                        j = mediaFormat.getLong("durationUs");
+                    }
+                } catch (Exception e) {
+                    fna.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
+                }
+                return j / 1000;
+            } finally {
+                mediaExtractor.release();
+            }
+        }
+        return invokeLI.longValue;
+    }
+
+    public static MediaInfo d(String str) {
+        InterceptResult invokeL;
+        MediaInfo mediaInfo;
+        File file;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever2 = null;
+            try {
+                try {
+                    file = new File(str);
+                } catch (Exception e) {
+                    e = e;
+                    mediaInfo = null;
+                }
+                if (file.exists() && file.isFile()) {
+                    mediaInfo = new MediaInfo();
+                    try {
+                        mediaInfo.setVideoPath(str);
+                        mediaInfo.setLastModified(file.lastModified());
+                        mediaMetadataRetriever = new MediaMetadataRetriever();
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                    try {
+                        mediaMetadataRetriever.setDataSource(str);
+                        mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
+                        mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
+                        mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
+                        mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
+                        mediaInfo.setRotation(jna.b(mediaMetadataRetriever.extractMetadata(24), 0));
+                        ena.a(mediaMetadataRetriever);
+                    } catch (Exception e3) {
+                        e = e3;
+                        mediaMetadataRetriever2 = mediaMetadataRetriever;
+                        fna.g(e);
+                        if (mediaMetadataRetriever2 != null) {
+                            ena.a(mediaMetadataRetriever2);
+                        }
+                        return mediaInfo;
+                    } catch (Throwable th) {
+                        th = th;
+                        mediaMetadataRetriever2 = mediaMetadataRetriever;
+                        if (mediaMetadataRetriever2 != null) {
+                            ena.a(mediaMetadataRetriever2);
+                        }
+                        throw th;
+                    }
+                    return mediaInfo;
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (MediaInfo) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public ArrayList<String> c;
-        public boolean d;
-        public long e;
-        public int f;
-        public int g;
-        public int h;
-        public long i;
-        public JSONObject j;
-
-        public b(String str, String str2, ArrayList<String> arrayList, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, arrayList, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    @TargetApi(16)
+    public static boolean g(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str);
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (pna.j(mediaExtractor.getTrackFormat(i))) {
+                    return true;
                 }
             }
-            this.a = str;
-            this.e = j;
-            this.b = str2;
-            this.c = arrayList;
-            this.f = 0;
-            this.d = true;
-            this.i = hna.f().j();
-            this.g = hna.f().k();
-            this.h = hna.f().i();
+            return false;
         }
-
-        public b(String str, ArrayList<String> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, arrayList};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = UUID.randomUUID().toString().replace("-", "");
-            this.e = System.currentTimeMillis();
-            this.f = 0;
-            this.d = true;
-            this.i = hna.f().j();
-            this.g = hna.f().k();
-            this.h = hna.f().i();
-            this.b = str;
-            this.c = arrayList;
-        }
-
-        public b l(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-                this.j = jSONObject;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public b m(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                this.i = j;
-                return this;
-            }
-            return (b) invokeJ.objValue;
-        }
-
-        public b n(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.h = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b o(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.f = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b p(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.d = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public qna k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new qna(this, null);
-            }
-            return (qna) invokeV.objValue;
-        }
-    }
-
-    public qna(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bVar.a;
-        this.e = bVar.e;
-        this.b = bVar.b;
-        this.c = bVar.c;
-        this.d = bVar.d;
-        this.g = bVar.f;
-        this.l = bVar.j;
-        this.i = bVar.g;
-        this.j = bVar.i;
-        this.h = bVar.h;
-    }
-
-    public /* synthetic */ qna(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public JSONObject b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.k;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.j;
-        }
-        return invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public ArrayList<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            this.l = jSONObject;
-        }
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jSONObject) == null) {
-            this.k = jSONObject;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.j = j;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.f = i;
-        }
+        return invokeL.booleanValue;
     }
 }

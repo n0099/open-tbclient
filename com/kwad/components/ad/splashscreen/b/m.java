@@ -20,7 +20,7 @@ import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class m extends e implements com.kwad.components.ad.splashscreen.f {
     public static String TAG = "SplashWebViewPresenter";
     public KsAdWebView bF;
@@ -64,7 +64,7 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
         int i2 = 0;
         boolean z2 = bVar != null;
         boolean z3 = i == 1;
-        com.kwad.components.core.c.a.a.a(new a.C0596a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.b.m.6
+        com.kwad.components.core.c.a.a.a(new a.C0610a(this.yF.mRootContainer.getContext()).L(this.yF.mAdTemplate).b(this.yF.mApkDownloadHelper).aj(z3).ae(i).a(bVar).al(z2).a(new a.b() { // from class: com.kwad.components.ad.splashscreen.b.m.6
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 String jC;
@@ -209,8 +209,8 @@ public final class m extends e implements com.kwad.components.ad.splashscreen.f 
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
     public final void aq() {
         super.aq();
-        this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09137e);
-        this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09136b);
+        this.bF = (KsAdWebView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913b9);
+        this.zq = (ViewStub) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913a6);
         this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
         com.kwad.components.ad.splashscreen.d.b bVar = new com.kwad.components.ad.splashscreen.d.b((ViewGroup) getRootView(), this.zq, this.bF, com.kwad.sdk.core.response.a.c.bF(this.yF.mAdTemplate), this.yF.mApkDownloadHelper);
         this.zp = bVar;

@@ -1,6 +1,6 @@
 package org.apache.http.auth;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AuthScope {
     public static final AuthScope ANY = null;
     public static final String ANY_HOST = null;

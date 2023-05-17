@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BDEmotionBagLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKGROUND_COLOR = -1;
@@ -51,7 +51,7 @@ public class BDEmotionBagLayout extends LinearLayout {
     public PagerAdapter mPagerAdapter;
     public ViewPager mViewPager;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class EmotionGridViewAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +139,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,17 +307,18 @@ public class BDEmotionBagLayout extends LinearLayout {
     }
 
     public void setEmotionList(List<String> list) {
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             this.mEmotionList = list;
             if (list != null && list.size() > 0) {
                 int size = this.mEmotionList.size();
-                int i = size % 20;
-                int i2 = size / 20;
-                if (i != 0) {
-                    i2++;
+                if (size % 20 == 0) {
+                    i = size / 20;
+                } else {
+                    i = (size / 20) + 1;
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i2 = 0; i2 < i; i2++) {
                     NoScrollGridView noScrollGridView = new NoScrollGridView(getContext());
                     noScrollGridView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
                     noScrollGridView.setNumColumns(7);
@@ -325,7 +326,7 @@ public class BDEmotionBagLayout extends LinearLayout {
                     noScrollGridView.setVerticalScrollBarEnabled(false);
                     noScrollGridView.setOverScrollMode(2);
                     GlobalOnItemClickListenerManager globalOnItemClickListenerManager = GlobalOnItemClickListenerManager.getInstance();
-                    noScrollGridView.setOnItemClickListener(globalOnItemClickListenerManager.getOnItemClickListener(EmotionType.EMOTION_CLASSIC_TYPE, i3));
+                    noScrollGridView.setOnItemClickListener(globalOnItemClickListenerManager.getOnItemClickListener(EmotionType.EMOTION_CLASSIC_TYPE, i2));
                     noScrollGridView.setOnItemLongClickListener(globalOnItemClickListenerManager.getOnItemLongClickListener(EmotionType.EMOTION_CLASSIC_TYPE));
                     noScrollGridView.setOnTouchListener(globalOnItemClickListenerManager.getOnTouchListener(EmotionType.EMOTION_CLASSIC_TYPE));
                     noScrollGridView.setSelector(new ColorDrawable(0));

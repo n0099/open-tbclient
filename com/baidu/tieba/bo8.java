@@ -1,60 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class bo8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class bo8 extends jk1<RouterService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
+    public bo8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14870");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", str);
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("fid", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(int i, String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: a */
+    public RouterService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14871");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new co8();
         }
-    }
-
-    public static void d(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14872");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(int i, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14873");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", j);
-            TiebaStatic.log(statisticItem);
-        }
+        return (RouterService) invokeV.objValue;
     }
 }

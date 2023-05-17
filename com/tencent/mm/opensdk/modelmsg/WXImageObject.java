@@ -6,7 +6,7 @@ import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WXImageObject implements WXMediaMessage.IMediaObject {
     public static final int CONTENT_LENGTH_LIMIT = 26214400;
     public static final int PATH_LENGTH_LIMIT = 10240;

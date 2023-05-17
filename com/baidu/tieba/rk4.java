@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface rk4 {
-    void l(JSONObject jSONObject);
+    void a(JSONArray jSONArray, bh4 bh4Var, @Nullable bh4 bh4Var2, @Nullable bh4 bh4Var3);
 
-    void o();
+    void b(JSONObject jSONObject, bh4 bh4Var, @Nullable bh4 bh4Var2, @Nullable bh4 bh4Var3);
 }

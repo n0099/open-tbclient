@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VerticalVolumeBar extends SeekBar {
     @Override // android.widget.AbsSeekBar, android.view.View
     @SuppressLint({"ClickableViewAccessibility"})

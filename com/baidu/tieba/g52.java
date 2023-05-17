@@ -1,43 +1,38 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public abstract class g52 {
+/* loaded from: classes5.dex */
+public final class g52 extends v42<CanvasView, d42> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile g52 b;
-    public static de3 c;
-    public static Timer d;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public CanvasView i;
 
-    public abstract void f(String str);
-
-    /* loaded from: classes4.dex */
-    public class a extends TimerTask {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g52 a;
+        public final /* synthetic */ CanvasView.c a;
 
-        public a(g52 g52Var) {
+        public a(g52 g52Var, CanvasView.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g52Var};
+                Object[] objArr = {g52Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,308 +42,141 @@ public abstract class g52 {
                     return;
                 }
             }
-            this.a = g52Var;
+            this.a = cVar;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
+        @Override // java.lang.Runnable
         public void run() {
+            CanvasView.c cVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (g52.a) {
-                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
-                }
-                this.a.c();
-                this.a.h();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
+                cVar.a();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b extends g52 {
+    /* loaded from: classes5.dex */
+    public class b extends mo3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
+        public b(g52 g52Var, String str, String str2, String str3, boolean z) {
+            super(str, str2, str3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g52Var, str, str2, str3, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.j = z;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.g52
-        public void f(String str) {
+        @Override // com.baidu.tieba.mo3, android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (g52.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (this.j && super.onTouch(view2, motionEvent)) {
+                    return true;
                 }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
+                return false;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (g52.c != null) {
-                            ee3.d(g52.c, str, d());
-                            return;
-                        }
-                        return;
-                    }
-                    if (g52.c != null) {
-                        ee3.d(g52.c, "downloadfail", d());
-                    }
-                    c();
-                    h();
-                    return;
-                }
-                if (g52.c != null) {
-                    ee3.d(g52.c, "downloadsuccess", d());
-                }
-                c();
-                h();
-                return;
-            }
-            i();
-            ee3.d(g52.c, str, d());
+            return invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class c extends g52 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.g52
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !i52.k().m()) {
-                if (g52.a) {
-                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 900970612) {
-                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
-                        c = 0;
-                    }
-                } else if (str.equals("pageready")) {
-                    c = 1;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (g52.c != null) {
-                            ee3.d(g52.c, str, d());
-                            return;
-                        }
-                        return;
-                    } else if (g52.c != null) {
-                        ee3.d(g52.c, str, d());
-                        c();
-                        h();
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                i();
-                ee3.d(g52.c, str, d());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744837, "Lcom/baidu/tieba/g52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947744837, "Lcom/baidu/tieba/g52;");
-                return;
-            }
-        }
-        a = ho1.a;
-    }
-
-    public g52() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g52(@NonNull Context context, @NonNull d42 d42Var) {
+        super(context, d42Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, d42Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (w42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        CanvasView canvasView = new CanvasView(context);
+        this.i = canvasView;
+        canvasView.setInterceptTouchEvent(d42Var.j);
+        this.i.setHide(d42Var.f);
+        this.i.setGesture(d42Var.g);
+        if (d42Var.g) {
+            this.i.setInterceptTouchEvent(false);
         }
     }
 
-    public void h() {
+    public boolean F(d42 d42Var, CanvasView.c cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
-            }
-            b = null;
-            c = null;
-        }
-    }
-
-    public /* synthetic */ g52(a aVar) {
-        this();
-    }
-
-    public static g52 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b == null) {
-                synchronized (kt2.class) {
-                    if (b == null) {
-                        if (ij1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
-                    }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, d42Var, cVar)) == null) {
+            if (d42Var != null && (d42Var instanceof e42)) {
+                d42 n = n();
+                if (!TextUtils.equals(n.b, d42Var.b) || !TextUtils.equals(n.c, d42Var.c)) {
+                    z52.a("Component-Canvas", "drawCanvas with illegal ids!");
                 }
+                e42 e42Var = (e42) d42Var;
+                this.i.c(e42Var.h(), e42Var.i());
+                this.i.postInvalidate();
+                this.i.post(new a(this, cVar));
+                return true;
             }
-            return b;
+            g62.c("Component-Canvas", "some params is invalid");
+            return false;
         }
-        return (g52) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v42
+    @SuppressLint({"ClickableViewAccessibility"})
+    /* renamed from: G */
+    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull d42 d42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("LocalDebugStatistic", "add event content fail", e);
-                }
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
-            return;
-        }
-        c = qe3.c("1153");
-        a aVar = new a(this);
-        Timer timer = new Timer();
-        d = timer;
-        try {
-            timer.schedule(aVar, 40000L);
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, d42Var) == null) {
+            swanAppComponentContainerView.setOnTouchListener(new b(this, d42Var.c, d42Var.b, d42Var.a, d42Var.g));
         }
     }
 
-    public static void g(JSONArray jSONArray) {
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v42
+    @NonNull
+    /* renamed from: H */
+    public CanvasView v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("actionId");
-            } else {
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str) && b != null) {
-                b.f(str);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return this.i;
         }
+        return (CanvasView) invokeL.objValue;
     }
 
-    public void c() {
-        String appId;
+    @Override // com.baidu.tieba.v42
+    public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.z();
+            this.i.f();
         }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                appId = "";
-            } else {
-                appId = b0.getAppId();
-            }
-            jSONObject2.putOpt("appid", appId);
-            jSONObject2.putOpt("from", "local-debug");
-            pe3.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
-            }
-        }
-        ee3.f(c, jSONObject.toString());
-        ee3.c(c);
     }
 }

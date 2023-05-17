@@ -1,7 +1,7 @@
 package com.kwad.components.ad.widget.tailframe.appbar;
 
 import android.animation.Animator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b implements Animator.AnimatorListener {
     @Override // android.animation.Animator.AnimatorListener
     public void onAnimationCancel(Animator animator) {

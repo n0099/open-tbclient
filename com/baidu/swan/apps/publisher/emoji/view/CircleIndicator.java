@@ -9,8 +9,8 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j53;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.s63;
+/* loaded from: classes4.dex */
 public class CircleIndicator extends View {
     public int a;
     public int b;
@@ -26,14 +26,14 @@ public class CircleIndicator extends View {
     public int l;
     public final ViewPager.OnPageChangeListener m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public a() {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
-            j53.g(CircleIndicator.this.getContext().getApplicationContext()).k();
+            s63.g(CircleIndicator.this.getContext().getApplicationContext()).k();
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -119,9 +119,9 @@ public class CircleIndicator extends View {
         Paint paint = new Paint();
         this.h = paint;
         paint.setAntiAlias(true);
-        this.k = getResources().getColor(R.color.obfuscated_res_0x7f060966);
-        this.l = getResources().getColor(R.color.obfuscated_res_0x7f060967);
-        this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070106);
+        this.k = getResources().getColor(R.color.obfuscated_res_0x7f060ae0);
+        this.l = getResources().getColor(R.color.obfuscated_res_0x7f060ae1);
+        this.c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07010d);
     }
 
     @Override // android.view.View

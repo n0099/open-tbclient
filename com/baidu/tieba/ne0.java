@@ -1,226 +1,92 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes5.dex */
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.util.zip.GZIPOutputStream;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.net.QCodec;
+/* loaded from: classes6.dex */
 public class ne0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public File g;
-    public File h;
 
-    public ne0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = "5.1_v2";
-        this.g = null;
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends GZIPOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return k();
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + "-" + this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.g == null && !TextUtils.isEmpty(this.a)) {
-                this.g = new File(b(), e());
-            }
-            return this.g;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static ne0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ne0 ne0Var = new ne0();
-            ne0Var.d = "source";
-            ne0Var.a = "5.1_v2";
-            ne0Var.f = "resource_capture";
-            String a = ne0Var.a("resource_capture");
-            ne0Var.b = a;
-            ne0Var.c = qe0.b(a);
-            ne0Var.g = ne0Var.k();
-            ne0Var.h = ne0Var.d();
-            return ne0Var;
-        }
-        return (ne0) invokeV.objValue;
-    }
-
-    public static ne0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ne0 ne0Var = new ne0();
-            ne0Var.d = "source";
-            ne0Var.a = "5.1_v2";
-            ne0Var.f = "resource_live";
-            String a = ne0Var.a("resource_live");
-            ne0Var.b = a;
-            ne0Var.c = qe0.b(a);
-            ne0Var.g = ne0Var.k();
-            ne0Var.h = ne0Var.d();
-            return ne0Var;
-        }
-        return (ne0) invokeV.objValue;
-    }
-
-    public static ne0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ne0 ne0Var = new ne0();
-            ne0Var.d = "so";
-            ne0Var.e = "so1";
-            ne0Var.a = "5.1_v2";
-            String j = ne0Var.j("so1");
-            ne0Var.b = j;
-            ne0Var.c = qe0.b(j);
-            ne0Var.g = ne0Var.k();
-            if (de0.m()) {
-                gf0.a("DuAr_", "so1 local file path = " + ne0Var.g.getAbsolutePath());
-            }
-            ne0Var.h = ne0Var.d();
-            return ne0Var;
-        }
-        return (ne0) invokeV.objValue;
-    }
-
-    public static ne0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ne0 ne0Var = new ne0();
-            ne0Var.d = "so";
-            ne0Var.e = "so2";
-            ne0Var.a = "5.1_v2";
-            String j = ne0Var.j("so2");
-            ne0Var.b = j;
-            ne0Var.c = qe0.b(j);
-            ne0Var.g = ne0Var.k();
-            if (de0.m()) {
-                gf0.a("DuAr_", "So2 local file path = " + ne0Var.g.getAbsolutePath());
-            }
-            ne0Var.h = ne0Var.d();
-            return ne0Var;
-        }
-        return (ne0) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean a = hf0.a(de0.getContext());
-            if (TextUtils.equals(this.d, "so")) {
-                if (TextUtils.equals(this.e, "so2")) {
-                    return oe0.f().getAbsolutePath();
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(OutputStream outputStream) {
+            super(outputStream);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {outputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((OutputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return oe0.b(a).getAbsolutePath();
             }
-            return oe0.d().g().getAbsolutePath();
         }
-        return (String) invokeV.objValue;
+
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                ((GZIPOutputStream) this).def.setLevel(i);
+            }
+        }
     }
 
-    public File d() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.h == null) {
-                File c = c();
-                if (c != null) {
-                    str = c.getAbsolutePath();
-                } else {
-                    str = null;
-                }
-                if (str == null) {
-                    return null;
-                }
-                if (!str.endsWith(".zip")) {
-                    str = str + ".zip";
-                }
-                if (!str.endsWith(".loading")) {
-                    str = str + ".loading";
-                }
-                this.h = new File(str);
-            }
-            return this.h;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public final String a(String str) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.equals("resource_live", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[bArr.length];
+            byte[] bArr3 = {26, 31, -22, -104, 118, 81, -16, 6, 90, -75, Byte.MIN_VALUE, ExifInterface.MARKER_SOI, 85, 92, 106, 114, -20, 34, 116, 13, -70, -77, 122, -71, -84, -25, -42, 99, ExifInterface.START_CODE, 100, 19, -37, -99, 32, -17, 70, -124, -24, -114, -120, 24, 73, -103, 3, -44, 1, 52, 91, 17, 40, -21, 66, -91, 21, 16, ExifInterface.MARKER_SOF5, 80, 49, 12, -123, 123, -92, 68, 102, Constants.SHORT_PING_CMD_TYPE, -6, -72, -89, -107, 10, 126, -102, -98, -52, ExifInterface.MARKER_SOF0, 120, -32, ExifInterface.MARKER_SOF9, -80, 98, 55, -85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 47, -101, 84, -90, 121, 125, -28, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, ExifInterface.MARKER_SOF1, 83, -113, 61, -67, ExifInterface.MARKER_SOF7, -15, 22, -19, 94, 28, -46, 97, 43, ByteCompanionObject.MAX_VALUE, -9, 20, 112, ExifInterface.MARKER_SOF10, Constants.GZIP_CAST_TYPE, -68, -2, -112, -79, -47, -13, 109, 27, -116, -96, -115, -18, -100, 5, Base64.INTERNAL_PADDING, 67, 48, 82, -23, 88, -66, ExifInterface.MARKER_SOS, 50, 23, -4, -48, ExifInterface.MARKER_SOF6, ExifInterface.MARKER_SOF13, -29, -78, 115, -122, 69, -34, -86, 74, ExifInterface.MARKER_SOF14, -87, -1, -121, 124, 71, -126, 7, 62, 56, -94, 77, -110, -27, 30, -83, ExifInterface.MARKER_SOF2, 0, 18, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 104, 29, 78, 25, -41, 2, -65, -8, -3, 89, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -56, 58, -45, 79, 14, 96, 72, -26, -14, -82, 15, 108, -30, -97, -108, -109, 54, -73, -11, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, ExifInterface.MARKER_SOF3, -33, 59, ExifInterface.MARKER_SOF15, 117, -95, 9, 87, 110, -125, -105, 86, 45, 60, -81, ExifInterface.MARKER_EOI, -43, ExifInterface.MARKER_APP1, ExifInterface.MARKER_SOF11, 63, -88, 76, -10, 8, 53, 93, 75, -60, 111, 105, -127, 103, -111, -93, QCodec.UNDERSCORE, 64, -69, -106, -7, 113, 4, -5, -74, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -117, -12, -35, 51, 119, 65, 33, -36, 107, -119, 57, -118, -76, 37};
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = (bArr3[i] + i2) & 255;
+                byte b = bArr3[i];
+                bArr3[i] = bArr3[i2];
+                bArr3[i2] = b;
+                bArr2[i3] = (byte) (bArr[i3] ^ bArr3[(bArr3[i] + bArr3[i2]) & 255]);
             }
-            return str2 + "5.1_v2.zip";
+            return bArr2;
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public final String j(String str) {
+    public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.equals("so2", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
-                if (hf0.a(de0.getContext())) {
-                    str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-64bit-";
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                return null;
             }
-            return str2 + "5.1_v2.zip";
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            a aVar = new a(byteArrayOutputStream);
+            aVar.a(9);
+            aVar.write(bArr);
+            aVar.close();
+            return byteArrayOutputStream.toByteArray();
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
     }
 }

@@ -29,7 +29,7 @@ import com.qq.e.comm.constants.Constants;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HmsMessageService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROXY_TYPE = "proxy_type";
@@ -91,7 +91,7 @@ public class HmsMessageService extends Service {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements t.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

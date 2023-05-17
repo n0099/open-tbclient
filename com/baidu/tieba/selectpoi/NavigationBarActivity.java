@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.hx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i);
             }
-            yv4 layoutMode = getLayoutMode();
+            hx4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

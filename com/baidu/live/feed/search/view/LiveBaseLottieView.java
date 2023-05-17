@@ -9,7 +9,7 @@ import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.LottieCompositionFactory;
 import com.airbnb.lottie.LottieListener;
 import com.airbnb.lottie.LottieTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveBaseLottieView extends LottieAnimationView {
     public LottieTask<LottieComposition> a;
     public String b;
@@ -17,7 +17,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
     public LottieListener d;
     public LottieListener e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements LottieListener<LottieComposition> {
         public a() {
         }
@@ -30,7 +30,7 @@ public class LiveBaseLottieView extends LottieAnimationView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements LottieListener<Throwable> {
         public b() {
         }

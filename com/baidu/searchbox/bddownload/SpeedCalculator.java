@@ -2,7 +2,7 @@ package com.baidu.searchbox.bddownload;
 
 import android.os.SystemClock;
 import com.baidu.searchbox.bddownload.core.Util;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpeedCalculator {
     public long allIncreaseBytes;
     public long beginTimestamp;

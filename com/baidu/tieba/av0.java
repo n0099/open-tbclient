@@ -1,33 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.InternalSyncControlEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class av0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class av0 extends fv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static oy0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLLLL;
+    public av0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
-            oy0 oy0Var = new oy0();
-            oy0Var.k(str2);
-            oy0Var.l(ny0.c(bdVideo.getCurrentLength()) + "/" + ny0.c(bdVideo.getTotalLength()));
-            oy0Var.p(bdVideoSeries.getVid());
-            oy0Var.m(bdVideo.getType());
-            oy0Var.j(System.currentTimeMillis());
-            oy0Var.n(bdVideo.getTitle());
-            oy0Var.o(str);
-            oy0Var.r(bdVideoSeries.getPositionMs());
-            oy0Var.q(bdVideo.getCurrentLength());
-            oy0Var.s(bdVideo.getTotalLength());
-            return oy0Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (oy0) invokeLLLL.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            lv0 w = xu0.w(InternalSyncControlEvent.INTERNAL_ACTION_PAUSE);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            lv0 w = xu0.w(InternalSyncControlEvent.INTERNAL_ACTION_RESUME);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            lv0 w = xu0.w(InternalSyncControlEvent.INTERNAL_ACTION_START);
+            w.s(1);
+            c(w);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            lv0 w = xu0.w(InternalSyncControlEvent.INTERNAL_ACTION_STOP);
+            w.s(1);
+            c(w);
+        }
     }
 }

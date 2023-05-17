@@ -5,7 +5,7 @@ import com.baidu.searchbox.dns.transmit.transmitter.exception.RetryException;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import java.net.HttpURLConnection;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpGetDataTransmitter<T> extends HttpDataTransmitter<T> {
     public static final String TAG = "HttpGetDataTransmitter";
 

@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bk {
     public static String a;
     public WeakReference<WebView> b;

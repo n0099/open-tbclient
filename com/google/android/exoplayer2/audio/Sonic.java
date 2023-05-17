@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.audio;
 import com.google.android.exoplayer2.util.Assertions;
 import java.nio.ShortBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Sonic {
     public static final int AMDF_FREQUENCY = 4000;
     public static final int MAXIMUM_PITCH = 400;

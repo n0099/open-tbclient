@@ -1,52 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public final class cf2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class cf2 extends fi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String q;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+    public cf2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
-            } catch (Exception e) {
-                x42.d("SwanAppSubscribeMsg", "createTable", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @WorkerThread
-    public static void b(@Nullable String... strArr) {
+    @Override // com.baidu.tieba.ei4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
-            Application c = er2.c();
-            if (c != null && strArr != null) {
-                StringBuilder sb = new StringBuilder();
-                int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    String str = strArr[i];
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append(str);
-                        if (i < length - 1) {
-                            sb.append(",");
-                        }
-                    }
-                }
-                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
-                x42.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (super.a() && !TextUtils.isEmpty(this.q)) {
+                return true;
             }
-            x42.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

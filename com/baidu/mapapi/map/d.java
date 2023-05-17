@@ -18,7 +18,7 @@ import java.util.concurrent.locks.Lock;
 import javax.microedition.khronos.opengles.GL10;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements al {
     public final /* synthetic */ BaiduMap a;
 

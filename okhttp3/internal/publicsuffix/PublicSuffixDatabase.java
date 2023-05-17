@@ -2,7 +2,6 @@ package okhttp3.internal.publicsuffix;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
@@ -14,7 +13,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PublicSuffixDatabase {
     public static final String BAIDU_TLD_PLUS_ONE = "baidu.com";
     public static final byte EXCEPTION_MARKER = 33;
@@ -175,17 +174,17 @@ public final class PublicSuffixDatabase {
             }
         }
         if (str != null) {
-            return ("!" + str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            return ("!" + str).split("\\.");
         } else if (str2 == null && str3 == null) {
             return PREVAILING_RULE;
         } else {
             if (str2 != null) {
-                strArr2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                strArr2 = str2.split("\\.");
             } else {
                 strArr2 = EMPTY_RULE;
             }
             if (str3 != null) {
-                strArr3 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                strArr3 = str3.split("\\.");
             } else {
                 strArr3 = EMPTY_RULE;
             }
@@ -261,7 +260,7 @@ public final class PublicSuffixDatabase {
             if (isBaiduDomain(str)) {
                 return BAIDU_TLD_PLUS_ONE;
             }
-            String[] split = IDN.toUnicode(str).split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = IDN.toUnicode(str).split("\\.");
             String[] findMatchingRule = findMatchingRule(split);
             if (split.length == findMatchingRule.length && findMatchingRule[0].charAt(0) != '!') {
                 return null;
@@ -274,7 +273,7 @@ public final class PublicSuffixDatabase {
                 length2 = findMatchingRule.length + 1;
             }
             StringBuilder sb = new StringBuilder();
-            String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split2 = str.split("\\.");
             for (int i = length - length2; i < split2.length; i++) {
                 sb.append(split2[i]);
                 sb.append(IStringUtil.EXTENSION_SEPARATOR);

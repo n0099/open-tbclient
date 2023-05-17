@@ -14,12 +14,12 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ExtractFromZipSoSource extends UnpackingSoSource {
     public final File mZipFileName;
     public final String mZipSearchPattern;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class ZipUnpacker extends UnpackingSoSource.Unpacker {
         @Nullable
         public ZipDso[] mDsos;
@@ -30,7 +30,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
             return true;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public final class ZipBackedInputDsoIterator extends UnpackingSoSource.InputDsoIterator {
             public int mCurrentDso;
 
@@ -134,7 +134,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
         public final int abiScore;
         public final ZipEntry backingEntry;

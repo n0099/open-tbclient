@@ -1,7 +1,6 @@
 package com.huawei.hms.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.huawei.hms.framework.common.ExceptionCode;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +66,7 @@ public class StringUtil {
             if (!checkVersion(str)) {
                 return 0;
             }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             if (split.length < 3) {
                 return 0;
             }

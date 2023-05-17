@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class H5PayVerifyTask {
     public H5PayParams h5PayParams;
     public String mCurrentOrderId = null;

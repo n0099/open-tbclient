@@ -20,6 +20,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+import com.baidu.android.ext.widget.toast.ToastUtils;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bl;
 import com.baidu.mobstat.bs;
@@ -40,7 +41,7 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bw {
     public static String a;
     public static String b;
@@ -531,7 +532,7 @@ public class bw {
         }
         if (TextUtils.isEmpty(str)) {
             String b2 = b(RomUtils.PROP_RO_BUILD_DISPLAY_ID);
-            if (!TextUtils.isEmpty(b2) && b2.contains("Flyme")) {
+            if (!TextUtils.isEmpty(b2) && b2.contains(ToastUtils.MEIZU_ROM)) {
                 str = "flyme";
             }
         }

@@ -29,11 +29,11 @@ import java.util.UUID;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
     public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class ElementParser {
         public final String baseUri;
         public final List<Pair<String, Object>> normalizedAttributes = new LinkedList();
@@ -209,14 +209,14 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class MissingFieldException extends ParserException {
         public MissingFieldException(String str) {
             super("Missing required field: " + str);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ProtectionParser extends ElementParser {
         public static final String KEY_SYSTEM_ID = "SystemID";
         public static final String TAG = "Protection";
@@ -270,7 +270,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class QualityLevelParser extends ElementParser {
         public static final String KEY_BITRATE = "Bitrate";
         public static final String KEY_CHANNELS = "Channels";
@@ -366,7 +366,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SmoothStreamingMediaParser extends ElementParser {
         public static final String KEY_DURATION = "Duration";
         public static final String KEY_DVR_WINDOW_LENGTH = "DVRWindowLength";
@@ -445,7 +445,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class StreamIndexParser extends ElementParser {
         public static final String KEY_DISPLAY_HEIGHT = "DisplayHeight";
         public static final String KEY_DISPLAY_WIDTH = "DisplayWidth";

@@ -2,7 +2,7 @@ package com.yy.hiidostatis.provider;
 
 import android.content.Context;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MessageConfigFactory {
     public static ConcurrentHashMap<String, MessageConfig> caches = new ConcurrentHashMap<>();
     public static MessageConfig mainConfig = null;

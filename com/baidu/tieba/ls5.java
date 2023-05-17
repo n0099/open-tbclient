@@ -1,112 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.text.style.ClickableSpan;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
-public class ls5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ls5 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947953467, "Lcom/baidu/tieba/ls5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ls5() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947953467, "Lcom/baidu/tieba/ls5;");
-        }
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != 3 && i != 4) {
-                if (i != 5) {
-                    int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-                    if ((autoPlaySwitch == 3 || !BdNetTypeUtil.isWifiNet()) && (autoPlaySwitch != 2 || !BdNetTypeUtil.isMobileNet())) {
-                        return false;
-                    }
-                } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !BdNetTypeUtil.isWifiNet() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
-                    return false;
-                }
-                return true;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return BdNetTypeUtil.isWifiNet();
         }
-        return invokeI.booleanValue;
     }
 
-    public static boolean b(int i, String str) {
-        InterceptResult invokeIL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            return a(i);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(TbadkCoreApplication.getInst()).createNormalCfg(str, null, null)));
         }
-        return invokeIL.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if ((BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e(WeakReference<Context> weakReference, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, weakReference, z)) == null) {
-            if (weakReference == null || weakReference.get() == null) {
-                return false;
-            }
-            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-            if (z) {
-                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
-                    return false;
-                }
-            } else if (audioManager.abandonAudioFocus(null) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static void f(WeakReference<Context> weakReference) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, weakReference) == null) && weakReference != null && weakReference.get() != null) {
-            a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            yu4.s(TbadkCoreApplication.getInst(), str);
         }
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.searchbox.launch;
 
 import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchStatsUtils {
     public static final String AD = "ad";
     public static final int COLD_LAUNCH_TYPE = 0;

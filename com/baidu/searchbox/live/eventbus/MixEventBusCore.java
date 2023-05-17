@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MixEventBusCore implements IActionHandler {
     public Handler mainHandler = new Handler(Looper.getMainLooper());
 

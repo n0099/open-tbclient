@@ -1,38 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContextWrapper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import androidx.annotation.AnyThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.b73;
+import com.baidu.swan.pms.model.PMSException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fn3 implements b73.c {
+/* loaded from: classes5.dex */
+public class fn3 implements zn3<Exception> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
+    public long a;
+    public final Handler b;
+    public Runnable c;
+    public volatile boolean d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ViewGroup a;
-        public final /* synthetic */ fn3 b;
+        public final /* synthetic */ fn3 a;
 
-        public a(fn3 fn3Var, ViewGroup viewGroup) {
+        /* renamed from: com.baidu.tieba.fn3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0292a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0292a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (fn3.e) {
+                        Log.d("SwanH2HeartBeatManager", "do updateCore, isStop=" + this.a.a.d);
+                    }
+                    if (!this.a.a.d) {
+                        this.a.a.j();
+                    }
+                }
+            }
+        }
+
+        public a(fn3 fn3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fn3Var, viewGroup};
+                Object[] objArr = {fn3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,85 +86,222 @@ public class fn3 implements b73.c {
                     return;
                 }
             }
-            this.b = fn3Var;
-            this.a = viewGroup;
+            this.a = fn3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.a = new FrameLayout(this.a.getContext());
-                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f060330);
+                if (!ProcessUtils.isMainProcess()) {
+                    t53.c(c.class, null);
+                    return;
                 }
-                this.a.removeView(this.b.a);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                layoutParams.gravity = 17;
-                this.a.addView(this.b.a, layoutParams);
+                this.a.d = false;
+                synchronized (fn3.class) {
+                    this.a.a = System.currentTimeMillis();
+                    if (this.a.c != null) {
+                        this.a.b.removeCallbacks(this.a.c);
+                    }
+                    this.a.c = new RunnableC0292a(this);
+                    long a = ml4.a(300) * 1000;
+                    this.a.b.postDelayed(this.a.c, a);
+                    if (fn3.e) {
+                        Log.d("SwanH2HeartBeatManager", "wait next heart beat: " + a);
+                    }
+                }
             }
         }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fn3 a;
+
+        public b(fn3 fn3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fn3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fn3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                qg4.l(new nk4(0), new jc2(this.a, true));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                fn3.k().m();
+                return null;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fn3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-798930306, "Lcom/baidu/tieba/fn3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-798930306, "Lcom/baidu/tieba/fn3$d;");
+                    return;
+                }
+            }
+            a = new fn3(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947769854, "Lcom/baidu/tieba/fn3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947769854, "Lcom/baidu/tieba/fn3;");
+                return;
+            }
+        }
+        e = qp1.a;
     }
 
     public fn3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.d = false;
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public final void e(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    public static fn3 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return d.a;
+        }
+        return (fn3) invokeV.objValue;
+    }
+
+    @AnyThread
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            am3.l(new b(this), "SwanH2HeartBeatManager");
         }
     }
 
-    public final void f(b73 b73Var) {
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, b73Var) == null) {
-            Context context = b73Var.getContext();
-            if (b73Var.getContext() instanceof ContextWrapper) {
-                context = ((ContextWrapper) b73Var.getContext()).getBaseContext();
-            }
-            if (context instanceof Activity) {
-                gk3.b((Activity) context, b73Var);
-            }
-        }
-    }
-
-    public final void d(ViewGroup viewGroup, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) != null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !ml4.a) {
             return;
         }
-        view2.post(new a(this, viewGroup));
+        if (e) {
+            Log.d("SwanH2HeartBeatManager", "startHeartBeat");
+        }
+        am3.l(new a(this), "SwanH2HeartBeatManager");
     }
 
-    @Override // com.baidu.tieba.b73.c
-    public void a(b73 b73Var, b73.b bVar) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, b73Var, bVar) != null) || b73Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !ml4.a) {
             return;
         }
-        f(b73Var);
-        ViewGroup viewGroup = (ViewGroup) b73Var.findViewById(16908290);
-        if (viewGroup != null) {
-            if (er2.M().a()) {
-                d(viewGroup, bVar.r);
-            } else {
-                e(viewGroup);
+        if (e) {
+            Log.d("SwanH2HeartBeatManager", "stopHeartBeat");
+        }
+        this.d = true;
+        Runnable runnable = this.c;
+        if (runnable != null) {
+            this.b.removeCallbacks(runnable);
+        }
+        this.c = null;
+    }
+
+    public /* synthetic */ fn3(a aVar) {
+        this();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zn3
+    /* renamed from: l */
+    public void a(Exception exc) {
+        ai4 pmsError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            this.c = null;
+            if (e) {
+                Log.w("SwanH2HeartBeatManager", "onCallback", exc);
+            }
+            if (exc != null) {
+                Throwable cause = exc.getCause();
+                if ((cause instanceof PMSException) && (pmsError = ((PMSException) cause).getPmsError()) != null && pmsError.f >= 500) {
+                    n();
+                    ml4.a = false;
+                    g62.k("SwanH2HeartBeatManager", "update core heartBeat exception: code=" + pmsError.f);
+                    return;
+                }
+                m();
             }
         }
     }

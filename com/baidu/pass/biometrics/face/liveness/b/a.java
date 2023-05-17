@@ -10,7 +10,7 @@ import com.baidu.pass.biometrics.base.utils.NetworkUtils;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String S = "a";
     public static final String T = "living_recog";

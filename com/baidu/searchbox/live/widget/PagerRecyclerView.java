@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PagerRecyclerView extends RecyclerView {
     public CanScrollListener listener;
     public int mInitMotionX;
@@ -14,7 +14,7 @@ public class PagerRecyclerView extends RecyclerView {
     public boolean mIsCanSwitchPage;
     public View.OnTouchListener mTouchListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CanScrollListener {
         boolean isCanScrollable(MotionEvent motionEvent);
     }

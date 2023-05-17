@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwad.components.ad.splashscreen.e;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends com.kwad.sdk.core.download.kwai.a {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;

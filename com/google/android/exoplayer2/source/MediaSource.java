@@ -5,10 +5,10 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.upstream.Allocator;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface MediaSource {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onSourceInfoRefreshed(MediaSource mediaSource, Timeline timeline, @Nullable Object obj);
     }
@@ -23,7 +23,7 @@ public interface MediaSource {
 
     void releaseSource();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaPeriodId {
         public static final MediaPeriodId UNSET = new MediaPeriodId(-1, -1, -1);
         public final int adGroupIndex;

@@ -2,7 +2,7 @@ package org.aspectj.internal.lang.reflect;
 
 import org.aspectj.lang.reflect.PerClause;
 import org.aspectj.lang.reflect.PerClauseKind;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PerClauseImpl implements PerClause {
     public final PerClauseKind kind;
 

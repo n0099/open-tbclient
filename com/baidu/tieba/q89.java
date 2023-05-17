@@ -1,58 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.rk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class q89 extends BaseCardInfo {
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes7.dex */
+public class q89 implements rk5, PersonPostModel.d, PersonPostModel.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    @NonNull
+    public PersonPostModel a;
+    @Nullable
+    public rk5.a b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045847, "Lcom/baidu/tieba/q89;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948045847, "Lcom/baidu/tieba/q89;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public q89() {
+    public q89(@NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
+    }
+
+    @Override // com.baidu.tieba.rk5
+    public void a(@Nullable rk5.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rk5
+    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
+            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
         }
-        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
+    public void r0(PersonPostModel personPostModel, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) && this.b != null) {
+            ArrayList arrayList = new ArrayList();
+            Iterator<rn> it = personPostModel.threadList.iterator();
+            while (it.hasNext()) {
+                rn next = it.next();
+                if (next instanceof CardPersonDynamicThreadData) {
+                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
+                    if (!TextUtils.equals(threadData.getTid(), "0")) {
+                        arrayList.add(threadData);
+                    }
+                }
+            }
+            this.b.b(arrayList, personPostModel.getDataResMap());
+            this.b.a();
+        }
+    }
+
+    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
+    public void z0(PersonPostModel personPostModel, boolean z) {
+        rk5.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && (aVar = this.b) != null) {
+            aVar.a();
+        }
     }
 }

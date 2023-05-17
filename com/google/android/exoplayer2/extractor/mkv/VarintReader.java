@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.extractor.mkv;
 
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class VarintReader {
     public static final int STATE_BEGIN_READING = 0;
     public static final int STATE_READ_CONTENTS = 1;

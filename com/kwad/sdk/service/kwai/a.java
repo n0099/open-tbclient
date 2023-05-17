@@ -1,7 +1,7 @@
 package com.kwad.sdk.service.kwai;
 
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
     void a(boolean z, String str, String str2, String str3);
 

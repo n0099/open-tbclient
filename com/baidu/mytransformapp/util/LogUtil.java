@@ -18,7 +18,7 @@ import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INTERVAL = 50;

@@ -6,7 +6,7 @@ import com.facebook.cache.common.SimpleCacheKey;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.Postprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultCacheKeyFactory implements CacheKeyFactory {
     public static DefaultCacheKeyFactory sInstance;
 

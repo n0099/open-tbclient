@@ -2,7 +2,7 @@ package protobuf.JoinLiveGroup;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class LikeUserInfo extends Message {
     public static final String DEFAULT_PORTRAIT = "";
     public static final Long DEFAULT_USERID = 0L;
@@ -14,7 +14,7 @@ public final class LikeUserInfo extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String userName;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<LikeUserInfo> {
         public String portrait;
         public Long userId;

@@ -1,10 +1,10 @@
 package com.google.android.exoplayer2.upstream;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface DataSink {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Factory {
         DataSink createDataSink();
     }

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FrsTabInfo extends Message {
     public static final String DEFAULT_TABCODE = "";
     public static final String DEFAULT_TABGID = "";
@@ -38,7 +38,7 @@ public final class FrsTabInfo extends Message {
     public static final Integer DEFAULT_ISDEFAULT = 0;
     public static final Integer DEFAULT_NEEDPAGE = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<FrsTabInfo> {
         public Integer isDefault;
         public Integer isGeneralTab;

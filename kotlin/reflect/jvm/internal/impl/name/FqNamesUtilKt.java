@@ -3,10 +3,10 @@ package kotlin.reflect.jvm.internal.impl.name;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FqNamesUtilKt {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

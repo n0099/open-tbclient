@@ -1147,8 +1147,8 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x027c A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x027e  */
+    /* JADX WARN: Removed duplicated region for block: B:78:0x0284 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0286  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -3139,7 +3139,7 @@ public class ChatMessageDBManager extends DBBase {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:24:0x0085
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:24:0x0086
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -3148,7 +3148,7 @@ public class ChatMessageDBManager extends DBBase {
         /*
             r17 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.$ic
-            if (r0 != 0) goto L9d
+            if (r0 != 0) goto L9e
         L4:
             r0 = r18
             android.database.sqlite.SQLiteDatabase r2 = r17.openDatabase()
@@ -3159,82 +3159,82 @@ public class ChatMessageDBManager extends DBBase {
             r11 = 0
             java.lang.String r12 = "time > ? AND from_user= ?"
             r13 = r17
-            android.content.Context r3 = r13.mContext     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            com.baidu.android.imsdk.account.AccountManagerImpl r3 = com.baidu.android.imsdk.account.AccountManagerImpl.getInstance(r3)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            long r14 = r3.getUK()     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            android.content.Context r3 = r13.mContext     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            com.baidu.android.imsdk.account.AccountManagerImpl r3 = com.baidu.android.imsdk.account.AccountManagerImpl.getInstance(r3)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            long r14 = r3.getUK()     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             r3 = 2
-            java.lang.String[] r6 = new java.lang.String[r3]     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            java.lang.String[] r6 = new java.lang.String[r3]     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             r3 = 1000(0x3e8, double:4.94E-321)
             long r3 = r0 / r3
-            java.lang.String r3 = java.lang.String.valueOf(r3)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r6[r10] = r3     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            java.lang.String r3 = java.lang.String.valueOf(r3)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r6[r10] = r3     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             r3 = 1
-            java.lang.String r4 = java.lang.String.valueOf(r14)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r6[r3] = r4     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            java.lang.Object r16 = com.baidu.android.imsdk.db.DBBase.mSyncLock     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            monitor-enter(r16)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            java.lang.String r4 = java.lang.String.valueOf(r14)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r6[r3] = r4     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            java.lang.Object r16 = com.baidu.android.imsdk.db.DBBase.mSyncLock     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            monitor-enter(r16)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             java.lang.String r3 = "message"
             java.lang.String r4 = "_id"
-            java.lang.String[] r4 = new java.lang.String[]{r4}     // Catch: java.lang.Throwable -> L7e
+            java.lang.String[] r4 = new java.lang.String[]{r4}     // Catch: java.lang.Throwable -> L7f
             r7 = 0
             r8 = 0
             r9 = 0
             r5 = r12
-            android.database.Cursor r11 = r2.query(r3, r4, r5, r6, r7, r8, r9)     // Catch: java.lang.Throwable -> L7e
-            monitor-exit(r16)     // Catch: java.lang.Throwable -> L7e
-            int r10 = r11.getCount()     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            java.lang.String r2 = com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r3.<init>()     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            android.database.Cursor r11 = r2.query(r3, r4, r5, r6, r7, r8, r9)     // Catch: java.lang.Throwable -> L7f
+            monitor-exit(r16)     // Catch: java.lang.Throwable -> L7f
+            int r10 = r11.getCount()     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            java.lang.String r2 = com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            java.lang.StringBuilder r3 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r3.<init>()     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             java.lang.String r4 = "showSendMsgPV whereClause :"
-            r3.append(r4)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r3.append(r12)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            r3.append(r4)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r3.append(r12)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             java.lang.String r4 = "， timeStamp ："
-            r3.append(r4)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r3.append(r0)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            r3.append(r4)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r3.append(r0)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             java.lang.String r0 = ", uk "
-            r3.append(r0)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r3.append(r14)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
+            r3.append(r0)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r3.append(r14)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
             java.lang.String r0 = ", msgPV :"
-            r3.append(r0)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            r3.append(r10)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            java.lang.String r0 = r3.toString()     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            com.baidu.android.imsdk.utils.LogUtils.d(r2, r0)     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-            if (r11 == 0) goto L96
-        L7a:
+            r3.append(r0)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            r3.append(r10)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            java.lang.String r0 = r3.toString()     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            com.baidu.android.imsdk.utils.LogUtils.d(r2, r0)     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+            if (r11 == 0) goto L97
+        L7b:
             r11.close()
-            goto L96
-        L7e:
-            r0 = move-exception
-            monitor-exit(r16)     // Catch: java.lang.Throwable -> L7e
-            throw r0     // Catch: java.lang.Throwable -> L81 java.lang.Exception -> L83
-        L81:
-            r0 = move-exception
             goto L97
-        L83:
+        L7f:
             r0 = move-exception
-            goto L8c
-        L85:
+            monitor-exit(r16)     // Catch: java.lang.Throwable -> L7f
+            throw r0     // Catch: java.lang.Throwable -> L82 java.lang.Exception -> L84
+        L82:
+            r0 = move-exception
+            goto L98
+        L84:
+            r0 = move-exception
+            goto L8d
+        L86:
             r0 = move-exception
             r13 = r17
-            goto L97
-        L89:
+            goto L98
+        L8a:
             r0 = move-exception
             r13 = r17
-        L8c:
-            java.lang.String r1 = com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG     // Catch: java.lang.Throwable -> L81
+        L8d:
+            java.lang.String r1 = com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager.TAG     // Catch: java.lang.Throwable -> L82
             java.lang.String r2 = "showSendMsgPV Exception :"
-            com.baidu.android.imsdk.utils.LogUtils.e(r1, r2, r0)     // Catch: java.lang.Throwable -> L81
-            if (r11 == 0) goto L96
-            goto L7a
-        L96:
-            return r10
+            com.baidu.android.imsdk.utils.LogUtils.e(r1, r2, r0)     // Catch: java.lang.Throwable -> L82
+            if (r11 == 0) goto L97
+            goto L7b
         L97:
-            if (r11 == 0) goto L9c
+            return r10
+        L98:
+            if (r11 == 0) goto L9d
             r11.close()
-        L9c:
-            throw r0
         L9d:
+            throw r0
+        L9e:
             r3 = 2
             java.lang.Object[] r3 = new java.lang.Object[r3]
             r1 = 0
@@ -3937,7 +3937,7 @@ public class ChatMessageDBManager extends DBBase {
                 ArrayList<ChatMsg> arrayList3 = arrayList2;
                 ChatMsg chatMsg2 = draftMsg;
                 String str11 = "";
-                if (chatObject.getCategory() == 0 && (chatObject.getContacter() & Constants.PAFLAG) != 0) {
+                if (chatObject.getCategory() == 0 && (chatObject.getContacter() & 17592186044416L) != 0) {
                     if (!chatMsg2.isSelf(this.mContext)) {
                         arrayList = arrayList3;
                         chatMsg = chatMsg2;
@@ -4378,8 +4378,8 @@ public class ChatMessageDBManager extends DBBase {
         return (ArrayList) invokeCommon.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0034  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0035  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0038  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -4448,8 +4448,8 @@ public class ChatMessageDBManager extends DBBase {
         return invokeCommon.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x005d  */
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0060  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x005e  */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0061  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -4917,7 +4917,7 @@ public class ChatMessageDBManager extends DBBase {
             if (chatObject.getBusinessType() > 0) {
                 chatRecord.setBusinessType(chatObject.getBusinessType());
             }
-            if (chatObject.getCategory() == 0 && (chatObject.getContacter() & Constants.PAFLAG) != 0) {
+            if (chatObject.getCategory() == 0 && (chatObject.getContacter() & 17592186044416L) != 0) {
                 chatRecord.addExt("ext_log", str2);
                 if (j4 > 0) {
                     chatRecord.setLastMsgidFromMe(j4);
@@ -4981,7 +4981,7 @@ public class ChatMessageDBManager extends DBBase {
                         i3 = intValue2;
                     }
                     int clickState = Utility.getClickState(chatMsg);
-                    if (key.getCategory() == 0 && (key.getContacter() & Constants.PAFLAG) != 0) {
+                    if (key.getCategory() == 0 && (key.getContacter() & 17592186044416L) != 0) {
                         if (!chatMsg.isSelf(chatMessageDBManager.mContext)) {
                             extLog = chatMsg.getExtLog();
                         } else {

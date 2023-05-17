@@ -5,7 +5,7 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ForgetPwdActivity extends BaseActivity {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {

@@ -2,8 +2,8 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.el6;
-import com.baidu.tieba.fl6;
+import com.baidu.tieba.qm6;
+import com.baidu.tieba.rm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public ArrayList<el6> orderList;
-    public fl6 recommendData;
+    public ArrayList<qm6> orderList;
+    public rm6 recommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserOrderHttpResponseMessage(int i) {
@@ -49,9 +49,9 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            el6 el6Var = new el6();
-            el6Var.n(optJSONObject);
-            this.orderList.add(el6Var);
+            qm6 qm6Var = new qm6();
+            qm6Var.n(optJSONObject);
+            this.orderList.add(qm6Var);
         }
     }
 
@@ -87,7 +87,7 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public ArrayList<el6> getOrderList() {
+    public ArrayList<qm6> getOrderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,12 +96,12 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public fl6 getRecommendInfo() {
+    public rm6 getRecommendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.recommendData;
         }
-        return (fl6) invokeV.objValue;
+        return (rm6) invokeV.objValue;
     }
 }

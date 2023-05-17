@@ -9,7 +9,7 @@ import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ResourceCacheKey implements Key {
     public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES = new LruCache<>(50);
     public final ArrayPool arrayPool;

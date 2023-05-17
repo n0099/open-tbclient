@@ -4,7 +4,7 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static void G(Context context) {
         b H = H(context);

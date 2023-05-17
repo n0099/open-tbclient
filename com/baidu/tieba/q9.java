@@ -1,104 +1,156 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.base.BdBaseApplication;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class q9 {
+import java.io.File;
+/* loaded from: classes7.dex */
+public abstract class q9 implements n9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile q9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> a;
+    public n9.a callback;
+    public SQLiteDatabase database;
+    public final String dbFileFullPath;
+    public int mVersion;
 
-    public q9() {
+    public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
+
+    public abstract void createAllTables(SQLiteDatabase sQLiteDatabase);
+
+    public q9(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = new SparseArray<>();
+        this.mVersion = 1;
+        this.database = null;
+        this.mVersion = i;
+        this.dbFileFullPath = str;
     }
 
-    public static q9 a() {
+    private void exeCallback(SQLiteDatabase sQLiteDatabase) {
+        n9.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) && (aVar = this.callback) != null) {
+            aVar.onDatabaseCreated(sQLiteDatabase);
+        }
+    }
+
+    private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
+            onCreate(sQLiteDatabase);
+            exeCallback(sQLiteDatabase);
+        }
+    }
+
+    @Override // com.baidu.tieba.n9
+    public boolean dropDatabase(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            File file = new File(this.dbFileFullPath);
+            if (file.exists()) {
+                return file.delete();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            createAllTables(sQLiteDatabase);
+        }
+    }
+
+    @Override // com.baidu.tieba.n9
+    public void setOnCreateCallback(n9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.callback = aVar;
+        }
+    }
+
+    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
+            if (i2 > i) {
+                onUpgrade(sQLiteDatabase, i, i2);
+            } else {
+                onDowngrade(sQLiteDatabase, i, i2);
+            }
+            exeCallback(sQLiteDatabase);
+        }
+    }
+
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
+            clearAllTables(sQLiteDatabase);
+            createAllTables(sQLiteDatabase);
+        }
+    }
+
+    public boolean executeDDLSqlIgnoreAnyErrors(SQLiteDatabase sQLiteDatabase, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sQLiteDatabase, str)) == null) {
+            try {
+                sQLiteDatabase.execSQL(str);
+                return true;
+            } catch (Throwable th) {
+                BdLog.e(str + ":" + th);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.n9
+    public SQLiteDatabase getWritableDatabase() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (q9.class) {
-                    if (b == null) {
-                        b = new q9();
-                    }
-                }
-            }
-            return b;
-        }
-        return (q9) invokeV.objValue;
-    }
-
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = this.a.get(i);
-            if (str != null) {
-                return str;
-            }
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public void c(List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
-            for (String str : list) {
-                d(str);
-            }
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            try {
-                Class<?> loadClass = q9.class.getClassLoader().loadClass(str);
-                Object newInstance = loadClass.newInstance();
-                Field[] fields = loadClass.getFields();
-                if (fields != null && fields.length > 0) {
-                    for (Field field : fields) {
-                        int i = field.getInt(newInstance);
-                        String name = field.getName();
-                        if (this.a.get(i) == null) {
-                            this.a.put(i, name);
-                        } else {
-                            throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i) + " 重复");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            File file = new File(this.dbFileFullPath);
+            if (file.getParentFile() != null && (file.getParentFile().exists() || file.getParentFile().mkdirs())) {
+                boolean exists = file.exists();
+                SQLiteDatabase openOrCreateDatabase = SQLiteDatabase.openOrCreateDatabase(this.dbFileFullPath, (SQLiteDatabase.CursorFactory) null);
+                this.database = openOrCreateDatabase;
+                if (openOrCreateDatabase != null) {
+                    if (!exists) {
+                        onCreateDatabase(openOrCreateDatabase);
+                        this.database.setVersion(this.mVersion);
+                    } else {
+                        int version = openOrCreateDatabase.getVersion();
+                        int i = this.mVersion;
+                        if (version != i) {
+                            onUpdateDatabase(this.database, version, i);
+                            this.database.setVersion(this.mVersion);
                         }
                     }
                 }
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
-            } catch (InstantiationException e4) {
-                e4.printStackTrace();
             }
+            return this.database;
         }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

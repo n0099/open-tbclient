@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class we9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
+    public boolean b;
+    public boolean c;
 
     public we9() {
         Interceptable interceptable = $ic;
@@ -28,28 +24,58 @@ public class we9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = false;
+        this.c = false;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
         }
     }
 
-    public static we9 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            we9 we9Var = new we9();
-            jSONObject.optString("brand_name");
-            we9Var.a = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-            we9Var.b = jSONObject.optString("button_scheme");
-            we9Var.c = jSONObject.optString("cmd_scheme");
-            jSONObject.optString("icon");
-            we9Var.d = jSONObject.optString("operate_recommend_reason");
-            we9Var.e = jSONObject.optLong("trans_animation_delay", 0L);
-            we9Var.f = jSONObject.optInt("layout_upgrade", 0);
-            return we9Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
-        return (we9) invokeL.objValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.b = z;
+        }
     }
 }

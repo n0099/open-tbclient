@@ -11,7 +11,7 @@ import com.kwad.sdk.api.KsAppDownloadListener;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public ImageView cw;
     public TextView cx;
@@ -48,7 +48,7 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
 
     private void G(int i) {
-        com.kwad.components.core.c.a.a.a(new a.C0596a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.f.3
+        com.kwad.components.core.c.a.a.a(new a.C0610a(this.jY.getContext()).L(this.mAdTemplate).ae(i).b(this.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.f.3
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(f.this.mAdTemplate, 2, f.this.jL.jK.getTouchCoords());
@@ -110,10 +110,10 @@ public final class f extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09138b);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911de);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e0);
-        this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f0911db);
+        this.jY = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913c6);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091219);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f09121b);
+        this.jZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091216);
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter

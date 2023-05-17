@@ -1,85 +1,115 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
-import android.os.Build;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class v8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Object b;
+    public int c;
+    public String d;
+    public String e;
 
-    public static boolean a(int i) {
-        InterceptResult invokeI;
+    public v8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0 && i != 1 && i != 11 && i != 12) {
-                switch (i) {
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
-                        break;
-                    default:
-                        return false;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void b(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || !d(activity)) {
-            return;
-        }
-        try {
-            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-            declaredField.setAccessible(true);
-            ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
-            if (a(activityInfo.screenOrientation)) {
-                activityInfo.screenOrientation = -1;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            try {
-                Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
-                declaredField.setAccessible(true);
-                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
-                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
-                declaredMethod.setAccessible(true);
-                return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            if (Build.VERSION.SDK_INT == 26 && c(activity)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && this.b != null && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.e)) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Object d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.objValue;
+    }
+
+    public v8(String str, Object obj, int i, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj, Integer.valueOf(i), str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = obj;
+        this.c = i;
+        this.d = str2;
+        this.e = str3;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", this.b);
+                jSONObject.put(TitanConstant.KEY_INSTANT_INIT_CLASS, this.c);
+                jSONObject.put("sid", this.d);
+                jSONObject.put("version", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

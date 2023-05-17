@@ -1,173 +1,160 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.apps.commonsync.CommonSyncServerData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.util.Map;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class j42 extends e32 {
+/* loaded from: classes6.dex */
+public class j42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public int M;
-    public String N;
-    public String O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public boolean S;
-    public boolean T;
-    public int U;
-    public int V;
-    public boolean W;
-    public boolean X;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j42() {
-        super("textArea", "componentId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a extends ResponseCallback<CommonSyncServerData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l42 a;
+
+        public a(l42 l42Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l42Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l42Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            l42 l42Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (l42Var = this.a) != null) {
+                l42Var.onFail();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
+            l42 l42Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) && (l42Var = this.a) != null) {
+                l42Var.a(commonSyncServerData);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    String string = response.body().string();
+                    if (TextUtils.isEmpty(string)) {
+                        return null;
+                    }
+                    JSONObject jSONObject = new JSONObject(string);
+                    int optInt = jSONObject.optInt("errno");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == j42.b && optJSONObject != null) {
+                        return CommonSyncServerData.parseFromJson(optJSONObject);
+                    }
+                }
+                return null;
+            }
+            return (CommonSyncServerData) invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833249, "Lcom/baidu/tieba/j42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947833249, "Lcom/baidu/tieba/j42;");
                 return;
             }
         }
-        this.L = "";
-        this.N = "";
-        this.O = "";
+        a = qp1.a;
+        b = 0;
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    public static void b(l42 l42Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            int g = ol3.g(c(jSONObject, "minHeight", 0.0f));
-            if (g < 0) {
-                g = 0;
+        if (interceptable == null || interceptable.invokeL(65538, null, l42Var) == null) {
+            if (SwanAppNetworkUtils.h()) {
+                kg4.g().getRequest().cookieManager(ns2.q().a()).url(ns2.m().processUrl(k42.a())).build().executeAsync(new a(l42Var));
+            } else if (l42Var != null) {
+                l42Var.onFail();
             }
-            this.U = g;
-            int g2 = ol3.g(c(this.j, "maxHeight", 2.1474836E9f));
-            if (g2 < 0) {
-                g2 = Integer.MAX_VALUE;
-            }
-            this.V = g2;
         }
     }
 
-    @Override // com.baidu.tieba.e32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
-    public void a(JSONObject jSONObject) throws JSONException {
-        dy2 dy2Var;
+    public static RequestBody c(Map<String, Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("placeholder");
-        o(jSONObject);
-        boolean z = false;
-        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
-        this.Q = optBoolean;
-        if (optBoolean && (dy2Var = this.h) != null) {
-            dy2Var.j(-2);
-            this.h.k(true);
-        }
-        boolean optBoolean2 = jSONObject.optBoolean("fixed");
-        this.R = optBoolean2;
-        dy2 dy2Var2 = this.h;
-        if (dy2Var2 != null) {
-            dy2Var2.i(optBoolean2);
-        }
-        this.S = jSONObject.optBoolean("showConfirmBar", true);
-        this.T = jSONObject.optBoolean("adjustPosition", true);
-        this.W = jSONObject.optBoolean("disabled", false);
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        }
-        this.X = z;
-        i();
-    }
-
-    @Override // com.baidu.tieba.e32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.n32
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.W = jSONObject.optBoolean("disabled", this.W);
-            this.L = jSONObject.optString("placeholder", this.L);
-            this.t = jSONObject.optString("value", this.t);
-            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
-            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
-            this.T = jSONObject.optBoolean("adjustPosition", this.T);
-            n(jSONObject);
-            p(jSONObject);
-            o(jSONObject);
-            i();
-        }
-    }
-
-    public final void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
-            this.Q = optBoolean;
-            dy2 dy2Var = this.h;
-            if (dy2Var != null) {
-                if (optBoolean) {
-                    dy2Var.j(-2);
-                    this.h.k(true);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (map != null && map.size() > 0) {
+                for (String str : map.keySet()) {
+                    try {
+                        jSONObject.put(str, map.get(str));
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
-                int c = dy2Var.c();
-                int i = this.K;
-                if (i > 0) {
-                    c = i;
-                }
-                this.h.j(c);
-                this.h.k(false);
             }
+            return RequestBody.create(n03.a, jSONObject.toString());
+        }
+        return (RequestBody) invokeL.objValue;
+    }
+
+    public static void d(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) kg4.g().postRequest().cookieManager(ns2.q().a())).url(ns2.m().processUrl(k42.b()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 
-    public final void o(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public static void e(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) != null) {
-            this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
-            this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.O = optJSONObject.optString("color");
-        }
-    }
-
-    public final void p(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
-            this.R = optBoolean;
-            dy2 dy2Var = this.h;
-            if (dy2Var != null) {
-                dy2Var.i(optBoolean);
-            }
-        }
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.P = z;
+        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) kg4.g().postRequest().cookieManager(ns2.q().a())).url(ns2.m().processUrl(k42.c()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 }

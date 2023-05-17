@@ -1,5 +1,5 @@
 package com.baidu.searchbox.config;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ABTestConfig {
     public static boolean mDebug;
 

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class LikeForumInfo extends Message {
     public static final Long DEFAULT_FORUMID = 0L;
     public static final String DEFAULT_FORUMNAME = "";
@@ -11,7 +11,7 @@ public final class LikeForumInfo extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String forumName;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<LikeForumInfo> {
         public Long forumId;
         public String forumName;

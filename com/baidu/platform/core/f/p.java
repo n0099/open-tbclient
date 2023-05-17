@@ -4,13 +4,14 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class p extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +48,7 @@ public class p extends com.baidu.platform.base.e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, walkingRoutePlanOption) == null) {
             this.a.a("qt", "walk2");
-            this.a.a("sn", a(walkingRoutePlanOption.mFrom));
+            this.a.a(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, a(walkingRoutePlanOption.mFrom));
             this.a.a("en", a(walkingRoutePlanOption.mTo));
             PlanNode planNode = walkingRoutePlanOption.mFrom;
             if (planNode != null) {

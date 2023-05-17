@@ -1,63 +1,35 @@
 package com.baidu.tieba;
 
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.AdMixFloor;
-import tbclient.App;
-import tbclient.GeneralTabList.DataRes;
-import tbclient.ItemInfo;
-import tbclient.SportPageHeadInfo;
-import tbclient.SportScheduleInfo;
-import tbclient.ThreadInfo;
-import tbclient.User;
-/* loaded from: classes6.dex */
-public class u97 implements el5 {
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class u97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, MetaData> b;
-    public ArrayList<in> c;
-    public int d;
-    public String e;
-    public String f;
-    public boolean g;
-    public SportScheduleInfo h;
-    public int i;
-    public ItemInfo j;
-    public List<App> k;
-    public int l;
-    public List<AdMixFloor> m;
+    public pc5 a;
+    public FrsActivity b;
+    public Map<String, Date> c;
+    public boolean d;
 
-    @Override // com.baidu.tieba.el5
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.el5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-        }
-    }
-
-    public u97() {
+    public u97(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,67 +39,86 @@ public class u97 implements el5 {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new ArrayList<>();
-        this.i = 1;
+        this.c = new HashMap();
+        this.d = false;
+        this.b = frsActivity;
     }
 
-    public void a(DataRes dataRes) {
-        boolean z;
+    public void a() {
+        pc5 pc5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pc5Var = this.a) != null) {
+            pc5Var.q();
         }
-        boolean z2 = false;
-        if (dataRes.has_more.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            pc5 pc5Var = this.a;
+            if (pc5Var != null && pc5Var.t()) {
+                return true;
+            }
+            return false;
         }
-        this.a = z;
-        if (!ListUtils.isEmpty(dataRes.user_list)) {
-            for (User user : dataRes.user_list) {
-                if (user != null) {
-                    MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(user);
-                    String userId = metaData.getUserId();
-                    if (userId != null && !"0".equals(userId)) {
-                        this.b.put(userId, metaData);
-                    }
+        return invokeV.booleanValue;
+    }
+
+    public Date c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c == null) {
+                this.c = new HashMap();
+            } else {
+                this.c = TbSingleton.getInstance().getHasShowTip();
+            }
+            Date date = new Date(System.currentTimeMillis());
+            Map<String, Date> map = this.c;
+            if (map != null && map.containsKey(str)) {
+                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
+                    this.d = true;
                 }
+            } else {
+                this.d = true;
             }
+            return date;
         }
-        if (!ListUtils.isEmpty(dataRes.general_list)) {
-            for (ThreadInfo threadInfo : dataRes.general_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.setUserMap(this.b);
-                    threadData.forceReadUserMap = true;
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.insertItemToTitleOrAbstractText();
-                    threadData.setFromFrsTab(true);
-                    this.c.add(threadData);
+        return (Date) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        FrsActivity frsActivity;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
+            Date c = c(str);
+            boolean z = false;
+            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
+                i = 0;
+            } else {
+                i = 11;
+            }
+            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !pb5.d().n()) && this.d && qc5.g(TbadkCoreApplication.getInst(), i)) {
+                FrsActivity frsActivity2 = this.b;
+                if (frsActivity2 != null && frsActivity2.x1() != null) {
+                    z = this.b.x1().B;
                 }
+                HashMap hashMap = new HashMap();
+                if (z) {
+                    hashMap.put("view_params_key_style", "short");
+                }
+                pc5 pc5Var = this.a;
+                if (pc5Var != null) {
+                    pc5Var.q();
+                }
+                this.a = qc5.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
+                this.c.put(str, c);
+                TbSingleton.getInstance().setHasShowTip(this.c);
+                return;
             }
+            ri.S(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
         }
-        this.l = dataRes.ad_show_select.intValue();
-        this.m = dataRes.ad_mix_list;
-        String str = dataRes.ad_sample_map_key;
-        this.k = dataRes.app_list;
-        AbsGroupUbsABTest.setCardInfoUbsABTest(this.c);
-        this.d = dataRes.new_thread_num.intValue();
-        SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
-        if (sportPageHeadInfo != null) {
-            this.e = sportPageHeadInfo.head_url;
-            this.f = sportPageHeadInfo.jump_url;
-            if (sportPageHeadInfo.is_ad.intValue() == 1) {
-                z2 = true;
-            }
-            this.g = z2;
-        }
-        this.h = dataRes.sport_schedule_info;
-        this.i = dataRes.sort_type.intValue();
-        this.j = dataRes.item_info;
     }
 }

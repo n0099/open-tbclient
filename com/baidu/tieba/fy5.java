@@ -1,9 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import java.util.Date;
+/* loaded from: classes5.dex */
 public interface fy5 {
-    void B0(int i, ey5 ey5Var);
-
-    void T(dy5 dy5Var);
-
-    ey5 b1(int i);
+    void a(Date date);
 }

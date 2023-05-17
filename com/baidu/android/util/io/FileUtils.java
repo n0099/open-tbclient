@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.r81;
+import com.baidu.tieba.h91;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -310,7 +310,7 @@ public final class FileUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, inputStream, outputStream)) == null) {
             if (inputStream != null && outputStream != null) {
                 try {
-                    byte[] bArr = new byte[r81.a];
+                    byte[] bArr = new byte[h91.a];
                     long j = 0;
                     while (true) {
                         int read = inputStream.read(bArr);

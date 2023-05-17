@@ -1,61 +1,55 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ii4 extends ah4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ii4 extends ei4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long o;
+    public String p;
+    public AbiType q;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, eh4<String> eh4Var) {
+    public ii4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, eh4Var) != null) || d(str, eh4Var)) {
-            return;
-        }
-        c(bf4.g().getRequest(), str, map, map2, eh4Var);
-    }
-
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, eh4<String> eh4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, eh4Var) != null) || d(str, eh4Var)) {
-            return;
-        }
-        xe4 postStringRequest = bf4.g().postStringRequest();
-        jf4.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, eh4Var);
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, eh4<String> eh4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, eh4Var) == null) {
-            httpRequestBuilder.url(fh4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(ah4.b).cookieManager(ah4.a).enableStat(true).build().executeStat(eh4Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, eh4<String> eh4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, eh4Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (eh4Var != null) {
-                eh4Var.onStart();
-                return false;
+        }
+    }
+
+    @Override // com.baidu.tieba.ei4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && this.k > 0 && !TextUtils.isEmpty(this.p) && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.n) && this.q != null) {
+                return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ei4
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "libName=" + this.p + ", abi=" + this.q + ", maxAge=" + this.o + " " + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

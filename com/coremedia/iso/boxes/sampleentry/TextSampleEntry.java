@@ -1,6 +1,5 @@
 package com.coremedia.iso.boxes.sampleentry;
 
-import android.support.v4.media.session.PlaybackStateCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TextSampleEntry extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE1 = "tx3g";
@@ -36,7 +35,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? "TextSampleEntry" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class BoxRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +137,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class StyleRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -437,7 +436,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if ((this.displayFlags & PlaybackStateCompat.ACTION_PREPARE_FROM_URI) == PlaybackStateCompat.ACTION_PREPARE_FROM_URI) {
+            if ((this.displayFlags & 131072) == 131072) {
                 return true;
             }
             return false;
@@ -595,7 +594,7 @@ public class TextSampleEntry extends AbstractSampleEntry {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             if (z) {
-                this.displayFlags |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                this.displayFlags |= 131072;
             } else {
                 this.displayFlags &= -131073;
             }

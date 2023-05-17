@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.baidu.live.framework.coordinatorlayout.CoordinatorLayout;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     public final Rect d;
     public final Rect e;

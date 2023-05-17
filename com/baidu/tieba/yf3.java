@@ -1,197 +1,163 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.du2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yf3 implements ag3 {
+import java.util.HashSet;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public final class yf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ag3
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public boolean j(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ag3
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends xf3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.xf3
-        @NonNull
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.bg3
-        public long getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        public a(yf3 yf3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948328195, "Lcom/baidu/tieba/yf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948328195, "Lcom/baidu/tieba/yf3;");
+                return;
             }
         }
+        boolean z = qp1.a;
+        a = 0;
     }
 
-    public yf3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ag3
-    @NonNull
-    public bg3 d() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
         }
-        return (bg3) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        du2.a W = f93.K().q().W();
+        String i = li3.i(W.j0(), W.G());
+        if (!jSONObject.has("appid")) {
+            gm3.f(jSONObject, "appid", W.H());
+        }
+        if (!jSONObject.has("swan")) {
+            gm3.f(jSONObject, "swan", i);
+        }
+        if (!jSONObject.has("appversion")) {
+            gm3.f(jSONObject, "appversion", W.v1());
+        }
+        if (!jSONObject.has("swanNativeVersion")) {
+            gm3.f(jSONObject, "swanNativeVersion", rp1.a());
+        }
+        if (!jSONObject.has("thirdversion")) {
+            gm3.f(jSONObject, "thirdversion", W.w1());
+        }
+        if (f93.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
+            gm3.f(jSONObject, "isWebDowngrade", "1");
+        }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String o = ym3.o(str);
+            if (TextUtils.isEmpty(o)) {
+                return str;
+            }
+            HashSet hashSet = new HashSet();
+            hashSet.add("bduss");
+            hashSet.add("bduss".toUpperCase());
+            String i = ym3.i(o, hashSet);
+            String f = ym3.f(str);
+            return f + "?" + i;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            a = i;
+        }
+    }
+
+    public static <EvenT extends ig3> EvenT f(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
+            e(event, "isDownloading", String.valueOf(f93.K().q().F0() ? 1 : 0));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ig3> EvenT g(EvenT event) {
+        InterceptResult invokeL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
+            if (c() == 2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                str = "2";
+            } else {
+                str = "1";
+            }
+            e(event, "launchType", str);
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ig3> EvenT h(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
+            e(event, "packageState", String.valueOf(f93.K().q().E0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ig3> EvenT i(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
+            e(event, "coreState", String.valueOf(ag2.B0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ig3> EvenT e(EvenT event, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
+            if (event != null && !TextUtils.isEmpty(str)) {
+                event.a(str, obj);
+            }
+            return event;
+        }
+        return (EvenT) invokeLLL.objValue;
     }
 }

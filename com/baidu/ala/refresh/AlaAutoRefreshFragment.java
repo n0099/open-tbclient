@@ -9,7 +9,7 @@ import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusRequestMessage;
 import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tieba.za;
+import com.baidu.tieba.fb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import java.util.List;
 public abstract class AlaAutoRefreshFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public za mLiveStatusMsgListener;
+    public fb mLiveStatusMsgListener;
 
     public abstract List<Long> getCurrentLiveIds();
 
@@ -38,7 +38,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 return;
             }
         }
-        this.mLiveStatusMsgListener = new za(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
+        this.mLiveStatusMsgListener = new fb(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2) { // from class: com.baidu.ala.refresh.AlaAutoRefreshFragment.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AlaAutoRefreshFragment this$0;
@@ -65,7 +65,7 @@ public abstract class AlaAutoRefreshFragment extends BaseFragment {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.za
+            @Override // com.baidu.tieba.fb
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 != null && interceptable2.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage().getTag() != this.this$0.getUniqueId()) {

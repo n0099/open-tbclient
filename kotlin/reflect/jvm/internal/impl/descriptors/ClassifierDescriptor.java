@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ClassifierDescriptor extends DeclarationDescriptorNonRoot {
     SimpleType getDefaultType();
 

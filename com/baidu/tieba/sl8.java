@@ -1,392 +1,237 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.searchbox.live.interfaces.net.DownLoadCallback;
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
-import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.ConnectException;
-import java.net.SocketException;
-import java.net.SocketTimeoutException;
-import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Map;
-import javax.net.ssl.SSLException;
-import okhttp3.Response;
-/* loaded from: classes6.dex */
-public class sl8 implements INetWork {
+/* loaded from: classes7.dex */
+public class sl8 extends en<xl8, SearchSuggestLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public HashMap<String, String> d;
-    public Map<String, Object> e;
+    public final Context a;
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setRetryCount(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+    /* loaded from: classes7.dex */
+    public class a implements bo {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ sl8 b;
+
+        public a(sl8 sl8Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sl8Var;
+            this.a = context;
+        }
+
+        @Override // com.baidu.tieba.bo
+        public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(rnVar instanceof xl8)) {
+                return;
+            }
+            xl8 xl8Var = (xl8) rnVar;
+            this.b.u(xl8Var);
+            TbPageContext tbPageContext = (TbPageContext) m9.a(this.a);
+            String c = xl8Var.c();
+            String d = xl8Var.d();
+            String f = xl8Var.f();
+            YYLiveUtil.jumpToYYLiveRoom(tbPageContext, c, d, f, "" + xl8Var.b(), "search_sug_live");
+            ri.z(this.a, view2);
         }
     }
 
-    public sl8() {
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBLottieAnimationView a;
+
+        public b(sl8 sl8Var, TBLottieAnimationView tBLottieAnimationView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl8Var, tBLottieAnimationView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBLottieAnimationView;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.playAnimation();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sl8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void cancel() {
+    public final void t(StatisticItem statisticItem, xl8 xl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpManager.getDefault(TbadkCoreApplication.getInst()).cancelTag(this);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, statisticItem, xl8Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, xl8Var.h());
+            statisticItem.param(TiebaStatic.Params.ZHIBO_TYPE, xl8Var.k());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, xl8Var.c());
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, xl8Var.d());
+            statisticItem.param(TiebaStatic.YYParams.YYUID, xl8Var.i());
+            statisticItem.param("template_id", xl8Var.f());
         }
     }
 
-    public final Map<String, String> a(Map<String, Object> map) {
+    public final void A(SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, searchSuggestLiveViewHolder) == null) {
+            p45 d = p45.d(searchSuggestLiveViewHolder.b);
+            d.w(R.color.CAM_X0105);
+            d.B(R.dimen.T_X06);
+            p45 d2 = p45.d(searchSuggestLiveViewHolder.f);
+            d2.w(R.color.CAM_X0101);
+            d2.B(R.dimen.T_X10);
+            SkinManager.setBackgroundResource(searchSuggestLiveViewHolder.a, R.drawable.addresslist_item_bg);
+            p45.d(searchSuggestLiveViewHolder.g).f(R.color.CAM_X0203);
+        }
+    }
+
+    public final void B(xl8 xl8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_SHOW);
+            t(statisticItem, xl8Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void C(TBLottieAnimationView tBLottieAnimationView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tBLottieAnimationView) == null) {
+            tBLottieAnimationView.cancelAnimation();
+            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110052);
+            tBLottieAnimationView.setRepeatCount(-1);
+            tBLottieAnimationView.post(new b(this, tBLottieAnimationView));
+        }
+    }
+
+    public final void u(xl8 xl8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, xl8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_LIVE_CLICK);
+            t(statisticItem, xl8Var);
+            statisticItem.param("source", "search_sug_live");
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void x(TextView textView) {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, textView) == null) && (context = this.a) != null && textView != null) {
+            textView.setMaxWidth(ri.l(context) - ri.g(this.a, R.dimen.tbds297));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: y */
+    public SearchSuggestLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                if (!TextUtils.isEmpty(entry.getKey()) && (entry.getValue() instanceof String)) {
-                    hashMap.put(entry.getKey(), (String) entry.getValue());
-                }
-            }
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            return new SearchSuggestLiveViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083e, viewGroup, false));
         }
-        return (Map) invokeL.objValue;
+        return (SearchSuggestLiveViewHolder) invokeL.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:54:0x0114 -> B:88:0x012f). Please submit an issue!!! */
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void download(Object obj, String str, DownLoadCallback downLoadCallback) {
-        InputStream inputStream;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, str, downLoadCallback) == null) {
-            boolean startsWith = this.a.startsWith("https://");
-            GetRequest.GetRequestBuilder request = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest();
-            request.url(this.a).tag(this).addHeaders(this.d).connectionTimeout(this.b).readTimeout(this.c);
-            if (startsWith) {
-                request.cookieManager(CookieManager.WEBKIT_COOKIES);
-            }
-            NetResponse netResponse = new NetResponse();
-            try {
-                Response executeSync = request.build().executeSync();
-                if (executeSync.isSuccessful()) {
-                    FileOutputStream fileOutputStream = null;
-                    if (executeSync.body() != null) {
-                        inputStream = executeSync.body().byteStream();
-                    } else {
-                        inputStream = null;
-                    }
-                    if (inputStream != null) {
-                        File file = new File(str);
-                        File parentFile = file.getParentFile();
-                        if (parentFile != null && !parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                        try {
-                            try {
-                                try {
-                                    if (file.createNewFile()) {
-                                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                                        try {
-                                            byte[] bArr = new byte[2048];
-                                            long contentLength = executeSync.body().contentLength();
-                                            long j = 0;
-                                            if (contentLength > 0) {
-                                                while (true) {
-                                                    int read = inputStream.read(bArr);
-                                                    if (read == -1) {
-                                                        break;
-                                                    }
-                                                    fileOutputStream2.write(bArr, 0, read);
-                                                    long j2 = j + read;
-                                                    downLoadCallback.onFileUpdateProgress(obj, j2, contentLength);
-                                                    j = j2;
-                                                }
-                                                fileOutputStream2.flush();
-                                                downLoadCallback.onFileDownloaded(obj, executeSync.code(), 0, "");
-                                            } else {
-                                                downLoadCallback.onFileDownloaded(obj, executeSync.code(), -10, "no content length");
-                                            }
-                                            fileOutputStream = fileOutputStream2;
-                                        } catch (IOException e) {
-                                            e = e;
-                                            fileOutputStream = fileOutputStream2;
-                                            downLoadCallback.onFileDownloaded(obj, executeSync.code(), -19, e.getMessage());
-                                            inputStream.close();
-                                            if (fileOutputStream != null) {
-                                                fileOutputStream.close();
-                                            }
-                                            return;
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            fileOutputStream = fileOutputStream2;
-                                            try {
-                                                inputStream.close();
-                                                if (fileOutputStream != null) {
-                                                    fileOutputStream.close();
-                                                }
-                                            } catch (IOException e2) {
-                                                e2.printStackTrace();
-                                            }
-                                            throw th;
-                                        }
-                                    } else {
-                                        downLoadCallback.onFileDownloaded(obj, executeSync.code(), -19, "mkdir fail");
-                                    }
-                                    inputStream.close();
-                                    if (fileOutputStream != null) {
-                                        fileOutputStream.close();
-                                    }
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            } catch (Throwable th3) {
-                                th = th3;
-                            }
-                        } catch (IOException e4) {
-                            e = e4;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                downLoadCallback.onFileDownloaded(obj, executeSync.code(), -10, "http error");
-            } catch (ConnectException e5) {
-                netResponse.netErrorCode = -22;
-                netResponse.exception = e5.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -22, e5.getMessage());
-            } catch (SocketException e6) {
-                netResponse.netErrorCode = -12;
-                netResponse.exception = e6.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -12, e6.getMessage());
-            } catch (SocketTimeoutException e7) {
-                netResponse.netErrorCode = -13;
-                netResponse.exception = e7.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -13, e7.getMessage());
-            } catch (UnknownHostException e8) {
-                netResponse.netErrorCode = -21;
-                netResponse.exception = e8.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -21, e8.getMessage());
-            } catch (SSLException e9) {
-                netResponse.netErrorCode = -20;
-                netResponse.exception = e9.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -20, e9.getMessage());
-            } catch (IOException e10) {
-                netResponse.netErrorCode = -19;
-                netResponse.exception = e10.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -19, e10.getMessage());
-            } catch (Throwable th4) {
-                netResponse.netErrorCode = -10;
-                netResponse.exception = th4.getMessage();
-                downLoadCallback.onFileDownloaded(obj, 0, -10, th4.getMessage());
-            }
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xl8 xl8Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+        z(i, view2, viewGroup, xl8Var, searchSuggestLiveViewHolder);
+        return view2;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public NetResponse getSync(Map<String, Object> map) {
-        InterceptResult invokeL;
-        String str;
+    public View z(int i, View view2, ViewGroup viewGroup, xl8 xl8Var, SearchSuggestLiveViewHolder searchSuggestLiveViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, map)) == null) {
-            NetResponse netResponse = new NetResponse();
-            try {
-                Response executeSync = HttpManager.getDefault(TbadkCoreApplication.getInst()).getRequest().url(this.a).tag(this).addUrlParams(a(map)).addHeaders(this.d).connectionTimeout(this.b).readTimeout(this.c).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
-                try {
-                    netResponse.responseCode = executeSync.code();
-                    if (executeSync.body() != null) {
-                        str = executeSync.body().string();
-                    } else {
-                        str = null;
-                    }
-                    netResponse.decodedResponseStr = str;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return netResponse;
-            } catch (ConnectException e2) {
-                netResponse.netErrorCode = -22;
-                netResponse.exception = e2.getMessage();
-                return netResponse;
-            } catch (SocketException e3) {
-                netResponse.netErrorCode = -12;
-                netResponse.exception = e3.getMessage();
-                return netResponse;
-            } catch (SocketTimeoutException e4) {
-                netResponse.netErrorCode = -13;
-                netResponse.exception = e4.getMessage();
-                return netResponse;
-            } catch (UnknownHostException e5) {
-                netResponse.netErrorCode = -21;
-                netResponse.exception = e5.getMessage();
-                return netResponse;
-            } catch (SSLException e6) {
-                netResponse.netErrorCode = -20;
-                netResponse.exception = e6.getMessage();
-                return netResponse;
-            } catch (IOException e7) {
-                netResponse.netErrorCode = -19;
-                netResponse.exception = e7.getMessage();
-                return netResponse;
-            } catch (Throwable th) {
-                netResponse.netErrorCode = -10;
-                netResponse.exception = th.getMessage();
-                return netResponse;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xl8Var, searchSuggestLiveViewHolder})) == null) {
+            if (xl8Var == null) {
+                return view2;
             }
+            A(searchSuggestLiveViewHolder);
+            WebPManager.setPureDrawable(searchSuggestLiveViewHolder.c, R.drawable.icon_search_scan, R.color.CAM_X0109, null);
+            p45 d = p45.d(searchSuggestLiveViewHolder.e);
+            d.o(R.string.J_X01);
+            d.f(R.color.CAM_X0308);
+            ol8.a(searchSuggestLiveViewHolder.b, xl8Var.e(), xl8Var.a());
+            x(searchSuggestLiveViewHolder.b);
+            C(searchSuggestLiveViewHolder.d);
+            B(xl8Var);
+            return view2;
         }
-        return (NetResponse) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public NetResponse postSync(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Boolean bool;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            Map<String, Object> map2 = this.e;
-            String str = null;
-            if (map2 != null && (map2.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT) instanceof Boolean)) {
-                bool = (Boolean) this.e.get(LiveNetConstants.EXTRA_KEY_ENABLE_STAT);
-            } else {
-                bool = null;
-            }
-            Map<String, Object> map3 = this.e;
-            if (map3 != null && (map3.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM) instanceof Integer)) {
-                num = (Integer) this.e.get(LiveNetConstants.EXTRA_KEY_REQUEST_FROM);
-            } else {
-                num = null;
-            }
-            Map<String, Object> map4 = this.e;
-            if (map4 != null && (map4.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM) instanceof Integer)) {
-                Integer num2 = (Integer) this.e.get(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM);
-            }
-            NetResponse netResponse = new NetResponse();
-            try {
-                PostFormRequest.PostFormRequestBuilder postFormRequest = HttpManager.getDefault(TbadkCoreApplication.getInst()).postFormRequest();
-                if (bool != null) {
-                    postFormRequest.enableStat(bool.booleanValue());
-                }
-                if (num != null) {
-                    postFormRequest.requestFrom(num.intValue());
-                }
-                Response executeSync = ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) postFormRequest.url(this.a)).params(a(map)).addHeaders(this.d)).connectionTimeout(this.b)).readTimeout(this.c)).cookieManager(CookieManager.WEBKIT_COOKIES)).build().executeSync();
-                try {
-                    netResponse.responseCode = executeSync.code();
-                    if (executeSync.body() != null) {
-                        str = executeSync.body().string();
-                    }
-                    netResponse.decodedResponseStr = str;
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return netResponse;
-            } catch (ConnectException e2) {
-                netResponse.netErrorCode = -22;
-                netResponse.exception = e2.getMessage();
-                return netResponse;
-            } catch (SocketException e3) {
-                netResponse.netErrorCode = -12;
-                netResponse.exception = e3.getMessage();
-                return netResponse;
-            } catch (SocketTimeoutException e4) {
-                netResponse.netErrorCode = -13;
-                netResponse.exception = e4.getMessage();
-                return netResponse;
-            } catch (UnknownHostException e5) {
-                netResponse.netErrorCode = -21;
-                netResponse.exception = e5.getMessage();
-                return netResponse;
-            } catch (SSLException e6) {
-                netResponse.netErrorCode = -20;
-                netResponse.exception = e6.getMessage();
-                return netResponse;
-            } catch (IOException e7) {
-                netResponse.netErrorCode = -19;
-                netResponse.exception = e7.getMessage();
-                return netResponse;
-            } catch (Throwable th) {
-                netResponse.netErrorCode = -10;
-                netResponse.exception = th.getMessage();
-                return netResponse;
-            }
-        }
-        return (NetResponse) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setConnectTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setExtra(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            this.e = map;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setHeaderData(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.d = hashMap;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setReadTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.net.INetWork
-    public void setUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.a = str;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TailFrameBarAppPortraitHorizontal extends a {
     public TailFrameBarAppPortraitHorizontal(Context context) {
         this(context, null);
@@ -26,7 +26,7 @@ public class TailFrameBarAppPortraitHorizontal extends a {
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public final void c(@NonNull AdTemplate adTemplate) {
         if (d.p(adTemplate)) {
-            this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f06062b));
+            this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060793));
             this.hG.setTextColor(Color.parseColor("#FFFFFF"));
             this.CI.setTextColor(Color.parseColor("#FFFFFF"));
         } else {
@@ -37,6 +37,6 @@ public class TailFrameBarAppPortraitHorizontal extends a {
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04ba;
+        return R.layout.obfuscated_res_0x7f0d04d7;
     }
 }

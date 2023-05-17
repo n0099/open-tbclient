@@ -6,77 +6,81 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.Comparable;
-import kotlin.Unit;
+import java.util.Collection;
+import java.util.Set;
 import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.properties.ReadWriteProperty;
-import kotlin.reflect.KProperty;
-/* loaded from: classes3.dex */
-public final class ap6<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
+import kotlin.text.StringsKt__StringsKt;
+/* loaded from: classes4.dex */
+public final class ap6 extends gp6<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<T, Unit> a;
-    public T b;
+    public final Function1<Long, Boolean> e;
 
-    public ap6(T initial, Function1<? super T, Unit> onChange) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap6(Function1<? super Long, Boolean> selfPredicate) {
+        super(2048, false, 2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {initial, onChange};
+            Object[] objArr = {selfPredicate};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(initial, "initial");
-        Intrinsics.checkNotNullParameter(onChange, "onChange");
-        this.a = onChange;
-        this.b = initial;
+        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
+        this.e = selfPredicate;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
-    /* renamed from: a */
-    public T getValue(Object thisRef, KProperty<?> property) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.gp6, com.baidu.tieba.bp6
+    public boolean b(ko6 item, nq6 timer, eo6 config) {
+        InterceptResult invokeLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            return this.b;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // kotlin.properties.ReadWriteProperty
-    /* renamed from: b */
-    public void setValue(Object thisRef, KProperty<?> property, T value) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
-            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
-            Intrinsics.checkNotNullParameter(property, "property");
-            Intrinsics.checkNotNullParameter(value, "value");
-            T t = this.b;
-            this.b = value;
-            if (!Intrinsics.areEqual(t, value)) {
-                this.a.invoke(value);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            lo6 e = item.e();
+            if (!this.e.invoke(e.p()).booleanValue()) {
+                Set<String> d = d();
+                if (!(d instanceof Collection) || !d.isEmpty()) {
+                    for (String str : d) {
+                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (z) {
+                    return true;
+                }
             }
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gp6
+    /* renamed from: e */
+    public String c(lo6 data) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return data.c();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

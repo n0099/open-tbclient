@@ -29,7 +29,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     public static final RequestManagerFactory DEFAULT_FACTORY = new RequestManagerFactory() { // from class: com.bumptech.glide.manager.RequestManagerRetriever.1
         @Override // com.bumptech.glide.manager.RequestManagerRetriever.RequestManagerFactory
@@ -56,7 +56,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     public final ArrayMap<View, android.app.Fragment> tempViewToFragment = new ArrayMap<>();
     public final Bundle tempBundle = new Bundle();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface RequestManagerFactory {
         @NonNull
         RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);

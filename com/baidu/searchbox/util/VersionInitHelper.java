@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gg;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.pg;
+/* loaded from: classes4.dex */
 public class VersionInitHelper {
     public static boolean hasInitFinish() {
         if (!TextUtils.isEmpty(TbConfig.getVersion()) && TbConfig.getVersionType() != -1) {
@@ -22,7 +22,7 @@ public class VersionInitHelper {
         ApplicationInfo applicationInfo = null;
         try {
             applicationInfo = TbadkCoreApplication.getInst().getContext().getPackageManager().getApplicationInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 128);
-            TbConfig.setVersionType(gg.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
+            TbConfig.setVersionType(pg.e(String.valueOf(applicationInfo.metaData.get("versionType")), 3));
         } catch (Exception e) {
             TbConfig.setVersionType(3);
             BdLog.e(e.getMessage());

@@ -4,7 +4,7 @@ import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IUploadTask {
     public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(StatConstants.VALUE_FROM_RETRIEVE, StatConstants.VALUE_TYPE_UPLOAD);
 

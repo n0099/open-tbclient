@@ -17,23 +17,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.DLauncher;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.jd5;
-import com.baidu.tieba.pd5;
-import com.baidu.tieba.qd5;
-import com.baidu.tieba.yo8;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.tq8;
+import com.baidu.tieba.uo8;
+import com.baidu.tieba.vq8;
+import com.baidu.tieba.ye5;
+import com.baidu.tieba.ze5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PrivilegeDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<qd5> m;
+    public LinkedList<ze5> m;
     public int n;
     public DLauncher o;
     public DLauncher p;
@@ -43,7 +43,7 @@ public class PrivilegeDeskView extends CommonTabHost {
     public View.OnClickListener t;
     public View.OnClickListener u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,12 +156,12 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.hide();
-                this.a.H(new jd5(1, 16, null));
+                this.a.H(new se5(1, 16, null));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +190,7 @@ public class PrivilegeDeskView extends CommonTabHost {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.hide();
-                this.a.H(new jd5(1, 12, null));
+                this.a.H(new se5(1, 12, null));
             }
         }
     }
@@ -219,22 +219,22 @@ public class PrivilegeDeskView extends CommonTabHost {
         this.t = new c(this);
         this.u = new d(this);
         r(context);
-        ap8 ap8Var = new ap8(context, 1);
-        p(new zm8(context));
-        q(ap8Var);
+        vq8 vq8Var = new vq8(context, 1);
+        p(new uo8(context));
+        q(vq8Var);
         this.q = context;
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.kd5
-    public void C(jd5 jd5Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.te5
+    public void C(se5 se5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jd5Var) == null) {
-            super.C(jd5Var);
-            if (jd5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, se5Var) == null) {
+            super.C(se5Var);
+            if (se5Var == null) {
                 return;
             }
-            if (jd5Var.a == 2) {
-                Object obj = jd5Var.c;
+            if (se5Var.a == 2) {
+                Object obj = se5Var.c;
                 if (obj == null) {
                     this.n--;
                 } else if (obj instanceof String) {
@@ -244,22 +244,22 @@ public class PrivilegeDeskView extends CommonTabHost {
                     } else if (TextUtils.isEmpty(str.trim())) {
                         this.n++;
                     } else {
-                        this.n += gg.e(str, 1);
+                        this.n += pg.e(str, 1);
                     }
                 }
                 if (this.n > 0) {
-                    H(new jd5(2, 18, " "));
+                    H(new se5(2, 18, " "));
                 } else {
-                    H(new jd5(2, 18, null));
+                    H(new se5(2, 18, null));
                 }
             }
-            if (jd5Var.a == 1) {
+            if (se5Var.a == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 2));
             }
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.vd5
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.ef5
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -269,20 +269,20 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    public final void p(zm8 zm8Var) {
+    public final void p(uo8 uo8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zm8Var) == null) {
-            DLauncher dLauncher = (DLauncher) pd5.a(getContext(), zm8Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048581, this, uo8Var) == null) {
+            DLauncher dLauncher = (DLauncher) ye5.a(getContext(), uo8Var, 6);
             this.p = dLauncher;
             dLauncher.setOnClickListener(this.u);
             this.m.add(this.p);
         }
     }
 
-    public final void q(ap8 ap8Var) {
+    public final void q(vq8 vq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ap8Var) == null) {
-            DLauncher dLauncher = (DLauncher) pd5.a(getContext(), ap8Var, 6);
+        if (interceptable == null || interceptable.invokeL(1048582, this, vq8Var) == null) {
+            DLauncher dLauncher = (DLauncher) ye5.a(getContext(), vq8Var, 6);
             this.o = dLauncher;
             dLauncher.setOnClickListener(this.t);
             this.m.add(this.o);
@@ -306,14 +306,14 @@ public class PrivilegeDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.vd5
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.ef5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setShowDelete(false);
-            yo8 yo8Var = new yo8();
-            yo8Var.z(this.m);
-            h(yo8Var);
+            tq8 tq8Var = new tq8();
+            tq8Var.z(this.m);
+            h(tq8Var);
             t();
             s();
         }
@@ -374,13 +374,13 @@ public class PrivilegeDeskView extends CommonTabHost {
             String text2 = this.p.getText();
             if (text != null && !text.equals("")) {
                 z = true;
-                H(new jd5(2, 18, " "));
-                H(new jd5(2, 16, " "));
+                H(new se5(2, 18, " "));
+                H(new se5(2, 16, " "));
             } else {
                 if (text2 != null && !text2.equals("")) {
-                    H(new jd5(2, 18, " "));
+                    H(new se5(2, 18, " "));
                 } else {
-                    H(new jd5(2, 18, null));
+                    H(new se5(2, 18, null));
                 }
                 z = false;
             }

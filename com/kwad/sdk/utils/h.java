@@ -6,7 +6,7 @@ import android.media.AudioAttributes;
 import android.media.AudioFocusRequest;
 import android.media.AudioManager;
 import android.os.Build;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public AudioManager adW;
     public AudioManager.OnAudioFocusChangeListener ana = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.h.1
@@ -24,7 +24,7 @@ public final class h {
     };
     public a dv;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void bk();
 

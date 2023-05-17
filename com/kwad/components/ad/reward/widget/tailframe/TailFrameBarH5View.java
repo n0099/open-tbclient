@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TailFrameBarH5View extends LinearLayout {
     public TextView cD;
     public TextView cE;
@@ -32,8 +32,8 @@ public class TailFrameBarH5View extends LinearLayout {
 
     private void c(Context context, int i) {
         LinearLayout.inflate(context, i, this);
-        this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f091380);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f091381);
+        this.cD = (TextView) findViewById(R.id.obfuscated_res_0x7f0913bb);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0913bc);
     }
 
     private void jk() {
@@ -65,7 +65,7 @@ public class TailFrameBarH5View extends LinearLayout {
     }
 
     public final void e(boolean z, boolean z2) {
-        c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d04be : R.layout.obfuscated_res_0x7f0d04bd : R.layout.obfuscated_res_0x7f0d04bc);
+        c(getContext(), z ? z2 ? R.layout.obfuscated_res_0x7f0d04db : R.layout.obfuscated_res_0x7f0d04da : R.layout.obfuscated_res_0x7f0d04d9);
     }
 
     public TextView getH5OpenBtn() {

@@ -1,278 +1,225 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
-import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
-import com.baidu.tieba.setting.more.MsgSettingItemView;
-import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
-import com.baidu.tieba.setting.more.TbSettingTextNewDotView;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
-public class gh9 extends y8<SystemHelpSettingActivity> {
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppPosInfo;
+/* loaded from: classes5.dex */
+public class gh9 {
     public static /* synthetic */ Interceptable $ic;
+    public static gh9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SystemHelpSettingActivity a;
-    public View b;
-    public TbSettingTextTipView c;
-    public TbSettingTextTipView d;
-    public BdSwitchView e;
-    public BdSwitchView f;
-    public TbSettingTextNewDotView g;
-    public MsgSettingItemView h;
-    public TbSettingTextTipView i;
-    public RelativeLayout j;
-    public RelativeLayout k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
-    public TextView o;
-    public TbSettingTextTipView p;
-    public NavigationBar q;
-    public BdSwitchView.b r;
+    public String a;
+    public String b;
+    public long c;
+    public String d;
+    public String e;
 
-    /* loaded from: classes4.dex */
-    public class a implements BdSwitchView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gh9 a;
-
-        public a(gh9 gh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gh9Var;
-        }
-
-        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-        public void c0(View view2, BdSwitchView.SwitchState switchState) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 == this.a.h.getSwitchView()) {
-                if (BdSwitchView.SwitchState.ON == switchState) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                f55 m = f55.m();
-                m.w("recnbar" + TbadkCoreApplication.getCurrentAccount(), !z);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921347, Boolean.valueOf(z)));
-                this.a.a.A1("recnbar", z ^ true);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gh9(SystemHelpSettingActivity systemHelpSettingActivity) {
-        super(systemHelpSettingActivity.getPageContext());
+    public gh9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {systemHelpSettingActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        this.i = null;
-        this.p = null;
-        this.r = new a(this);
-        this.a = systemHelpSettingActivity;
-        systemHelpSettingActivity.setContentView(R.layout.obfuscated_res_0x7f0d08ba);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.q = navigationBar;
-        navigationBar.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f144b));
-        this.q.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0906e7);
-        this.c = tbSettingTextTipView;
-        tbSettingTextTipView.c();
-        this.c.setOnClickListener(this.a);
-        TbSettingTextTipView tbSettingTextTipView2 = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f0906e8);
-        this.d = tbSettingTextTipView2;
-        tbSettingTextTipView2.c();
-        this.d.setOnClickListener(this.a);
-        this.e = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f09114e);
-        ii.b(this.a.getPageContext().getPageActivity(), this.e, 10, 10, 10, 10);
-        this.e.setOnSwitchStateChangeListener(this.a);
-        this.f = (BdSwitchView) this.a.findViewById(R.id.obfuscated_res_0x7f092036);
-        ii.b(this.a.getPageContext().getPageActivity(), this.f, 10, 10, 10, 10);
-        this.f.setOnSwitchStateChangeListener(this.a);
-        this.i = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f090823);
-        this.j = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0921e9);
-        this.k = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0921eb);
-        this.l = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921ea);
-        this.o = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091132);
-        this.m = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091133);
-        this.n = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921e8);
-        if (aw4.h()) {
-            this.i.setVisibility(0);
-        } else {
-            this.i.setVisibility(8);
-        }
-        this.i.c();
-        this.i.setOnClickListener(this.a);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f09192f);
-        if (TbadkCoreApplication.isLogin()) {
-            this.d.setVisibility(0);
-        } else {
-            this.d.setVisibility(8);
-        }
-        TbSettingTextNewDotView tbSettingTextNewDotView = (TbSettingTextNewDotView) systemHelpSettingActivity.findViewById(R.id.obfuscated_res_0x7f0921a5);
-        this.g = tbSettingTextNewDotView;
-        tbSettingTextNewDotView.setOnClickListener(this.a);
-        this.g.setVisibility(0);
-        MsgSettingItemView msgSettingItemView = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091d1c);
-        this.h = msgSettingItemView;
-        msgSettingItemView.setText(R.string.obfuscated_res_0x7f0f0ff2);
-        this.h.setOnSwitchStateChangeListener(this.r);
-        f55 m = f55.m();
-        F(m.i("recnbar" + TbadkCoreApplication.getCurrentAccount(), false));
-        this.p = (TbSettingTextTipView) this.a.findViewById(R.id.obfuscated_res_0x7f092691);
-        if (UploadLogButtonSwitch.isOn()) {
-            this.p.setVisibility(0);
-            this.p.c();
-            this.p.setOnClickListener(this.a);
-            return;
-        }
-        this.p.setVisibility(8);
+        this.e = o65.m().s("asp_shown_info", "");
     }
 
-    public void F(boolean z) {
+    public static gh9 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (!z) {
-                this.h.getSwitchView().m();
-            } else {
-                this.h.getSwitchView().j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                synchronized (ps9.class) {
+                    if (f == null) {
+                        f = new gh9();
+                    }
+                }
             }
+            return f;
         }
+        return (gh9) invokeV.objValue;
     }
 
-    public TbSettingTextTipView A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return (TbSettingTextTipView) invokeV.objValue;
-    }
-
-    public BdSwitchView B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (BdSwitchView) invokeV.objValue;
-    }
-
-    public TbSettingTextNewDotView C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
-        }
-        return (TbSettingTextNewDotView) invokeV.objValue;
-    }
-
-    public TbSettingTextTipView D() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.p;
-        }
-        return (TbSettingTextTipView) invokeV.objValue;
-    }
-
-    public BdSwitchView E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (BdSwitchView) invokeV.objValue;
-    }
-
-    public TbSettingTextTipView y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (TbSettingTextTipView) invokeV.objValue;
-    }
-
-    public TbSettingTextTipView z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (TextUtils.isEmpty(this.d)) {
+                f();
+            }
             return this.d;
         }
-        return (TbSettingTextTipView) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void onChangeSkinType(int i) {
-        boolean z;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            yv4 layoutMode = this.a.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            o65.m().B("asp_shown_info", this.e);
+        }
+    }
+
+    public AppPosInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
+            builder.latitude = this.b;
+            builder.longitude = this.a;
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "bd09ll";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.X();
+                builder.mercator_lon = e.Y();
+                builder.mercator_city = Integer.valueOf(e.U());
+                builder.mercator_radius = e.a0();
+                builder.mercator_time = Long.valueOf(e.b0());
             }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            this.q.onChangeSkinType(getPageContext(), i);
-            this.e.b();
-            this.f.b();
-            this.h.c(this.a.getPageContext(), i);
-            SkinManager.setBackgroundResource(this.c, R.drawable.more_all);
-            g35.d(this.j).w(R.color.CAM_X0205);
-            g35.d(this.k).w(R.color.CAM_X0205);
-            g35.d(this.l).w(R.color.CAM_X0105);
-            g35.d(this.m).w(R.color.CAM_X0109);
-            g35.d(this.n).w(R.color.CAM_X0108);
-            g35.d(this.o).w(R.color.CAM_X0105);
+            return builder.build(false);
+        }
+        return (AppPosInfo) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AppPosInfo c = c();
+            JSONObject jSONObject = new JSONObject();
+            if (c != null) {
+                try {
+                    jSONObject.put("ap_mac", c.ap_mac);
+                    jSONObject.put("ap_connected", c.ap_connected);
+                    jSONObject.put("latitude", c.latitude);
+                    jSONObject.put("longitude", c.longitude);
+                    jSONObject.put("addr_timestamp", c.addr_timestamp);
+                    jSONObject.put("coordinate_type", c.coordinate_type);
+                    jSONObject.put("asp_shown_info", c.asp_shown_info);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LAT, c.mercator_lat);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_LON, c.mercator_lon);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_CITY, c.mercator_city);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_RADIUS, c.mercator_radius);
+                    jSONObject.put(SearchJsBridge.COOKIE_MERCATOR_TIME, c.mercator_time);
+                    jSONObject.put("mercator_province_name", c.mercator_province_name);
+                    jSONObject.put("mercator_city_name", c.mercator_city_name);
+                    jSONObject.put("mercator_district_name", c.mercator_district_name);
+                } catch (JSONException unused) {
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AppPosInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AppPosInfo.Builder builder = new AppPosInfo.Builder();
+            builder.ap_mac = d();
+            builder.ap_connected = Boolean.valueOf(BdNetTypeUtil.isWifiNet());
+            String str = this.b;
+            builder.latitude = str;
+            builder.longitude = this.a;
+            if (qi.isEmpty(str) || qi.isEmpty(this.a)) {
+                String s = o65.m().s("key_last_receive_location_latitude_and_longitude", "");
+                if (!qi.isEmpty(s)) {
+                    String[] split = s.split(",");
+                    if (split.length >= 2) {
+                        builder.latitude = split[0];
+                        builder.longitude = split[1];
+                    }
+                }
+            }
+            builder.addr_timestamp = Long.valueOf(this.c);
+            builder.coordinate_type = "BD09LL";
+            builder.asp_shown_info = this.e;
+            MercatorModel.MercatorData e = MercatorModel.d().e();
+            if (e != null) {
+                builder.mercator_lat = e.X();
+                builder.mercator_lon = e.Y();
+                builder.mercator_city = Integer.valueOf(e.U());
+                builder.mercator_radius = e.a0();
+                builder.mercator_time = Long.valueOf(e.b0());
+                builder.mercator_province_name = e.Z();
+                builder.mercator_city_name = e.V();
+                builder.mercator_district_name = e.W();
+            }
+            return builder.build(false);
+        }
+        return (AppPosInfo) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
+            if (PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadWifiState(applicationContext)) {
+                try {
+                    WifiInfo connectionInfo = ((WifiManager) applicationContext.getSystemService("wifi")).getConnectionInfo();
+                    if (connectionInfo != null) {
+                        this.d = connectionInfo.getBSSID();
+                    } else {
+                        this.d = "";
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.c = j;
         }
     }
 }

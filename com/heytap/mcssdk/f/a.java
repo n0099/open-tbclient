@@ -11,7 +11,7 @@ import com.heytap.msp.push.mode.DataMessage;
 import com.heytap.msp.push.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

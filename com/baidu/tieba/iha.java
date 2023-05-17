@@ -1,76 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public final class iha {
+/* loaded from: classes6.dex */
+public class iha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public wj1<cha> a;
 
-    /* loaded from: classes4.dex */
-    public static class a extends bha {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.bha
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (eha.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : iha.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (lga.c(lga.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            eha.b(file.getPath());
-                        }
-                    }
-                }
-                if (eha.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : iha.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(zga.e()) && lga.c(lga.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            eha.b(file2.getPath());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith("log")) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            aha.a(new a());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            uj1 b = uj1.b();
+            this.a = b;
+            b.a(new dha());
         }
+    }
+
+    public iha() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b();
+    }
+
+    public cha a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
+        }
+        return (cha) invokeV.objValue;
     }
 }

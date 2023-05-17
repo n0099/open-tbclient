@@ -28,7 +28,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput, Loader.Callback<ExtractingLoadable>, Loader.ReleaseCallback, SampleQueue.UpstreamFormatChangedListener {
     public static final long DEFAULT_LAST_SAMPLE_DURATION_US = 10000;
     public int actualMinLoadableRetryCount;
@@ -80,12 +80,12 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     public long pendingResetPositionUs = C.TIME_UNSET;
     public long length = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onSourceInfoRefreshed(long j, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class ExtractingLoadable implements Loader.Loadable {
         public final DataSource dataSource;
         public final ExtractorHolder extractorHolder;
@@ -172,7 +172,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ExtractorHolder {
         public Extractor extractor;
         public final ExtractorOutput extractorOutput;
@@ -228,7 +228,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class SampleStreamImpl implements SampleStream {
         public final int track;
 

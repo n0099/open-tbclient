@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum AlgorithmType {
     GBDT_REGRESSOR(1),
     GBDT_CLASSIFIER(2),

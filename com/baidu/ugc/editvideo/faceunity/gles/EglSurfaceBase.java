@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.opengl.GLES20;
-import com.baidu.tieba.hla;
+import com.baidu.tieba.fna;
 import com.faceunity.gles.GeneratedTexture;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EglSurfaceBase {
     public static final String TAG = "Grafika";
     public EglCore mEglCore;
@@ -80,7 +80,7 @@ public class EglSurfaceBase {
     public boolean swapBuffers() {
         boolean swapBuffers = this.mEglCore.swapBuffers(this.mEGLSurface);
         if (!swapBuffers) {
-            hla.c("Grafika", "WARNING: swapBuffers() failed");
+            fna.c("Grafika", "WARNING: swapBuffers() failed");
         }
         return swapBuffers;
     }
@@ -104,7 +104,7 @@ public class EglSurfaceBase {
                     createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
                     createBitmap.recycle();
                     bufferedOutputStream2.close();
-                    hla.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
+                    fna.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
                 } catch (Throwable th) {
                     th = th;
                     bufferedOutputStream = bufferedOutputStream2;

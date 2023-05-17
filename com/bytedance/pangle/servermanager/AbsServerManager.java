@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbsServerManager extends ContentProvider {
     public static final String ACTIVITY_QUERY_BINDER = "activity";
     public static final String BUNDLE_BINDER = "binder";

@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsMasterPlaylist extends HlsPlaylist {
     public final List<HlsUrl> audios;
     public final Format muxedAudioFormat;
@@ -13,7 +13,7 @@ public final class HlsMasterPlaylist extends HlsPlaylist {
     public final List<HlsUrl> subtitles;
     public final List<HlsUrl> variants;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class HlsUrl {
         public final Format format;
         public final String url;

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.core.launchtips.monitor.request;
 
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum RequestStatus {
     STATUS_SEND("send"),
     STATUS_SUCCESS(DnsModel.MSG_OK),

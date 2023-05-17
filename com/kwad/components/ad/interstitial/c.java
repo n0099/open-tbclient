@@ -14,13 +14,13 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public volatile boolean fq;
     public m<com.kwad.components.core.k.a, AdResultData> fr;
 
     /* renamed from: com.kwad.components.ad.interstitial.c$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class AnonymousClass1 extends f {
         public final /* synthetic */ SceneImpl fs;
         public final /* synthetic */ b ft;
@@ -71,12 +71,12 @@ public final class c {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static c fA = new c((byte) 0);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void onInterstitialAdLoad(@Nullable List<AdTemplate> list);
     }
@@ -143,11 +143,11 @@ public final class c {
         if (this.fq) {
             return;
         }
-        SceneImpl m96clone = sceneImpl.m96clone();
+        SceneImpl m115clone = sceneImpl.m115clone();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        m96clone.setAdStyle(16);
-        m96clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m96clone), new AnonymousClass1(sceneImpl, bVar, elapsedRealtime));
+        m115clone.setAdStyle(16);
+        m115clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m115clone), new AnonymousClass1(sceneImpl, bVar, elapsedRealtime));
     }
 
     public final void release() {

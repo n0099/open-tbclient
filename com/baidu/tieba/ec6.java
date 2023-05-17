@@ -1,20 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes5.dex */
+public interface ec6 {
+    void b(int i, String str, Object obj);
 
-import android.content.res.Resources;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class ec6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            return (int) (i * Resources.getSystem().getDisplayMetrics().density);
-        }
-        return invokeI.intValue;
-    }
+    void c(Object obj, int i);
 }

@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.os.Bundle;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class go extends gm {
     public int a;
 
@@ -12,7 +12,7 @@ public class go extends gm {
     public b f447a;
     public String b;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum a {
         chat,
         available,
@@ -21,7 +21,7 @@ public class go extends gm {
         dnd
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum b {
         available,
         unavailable,
@@ -85,7 +85,7 @@ public class go extends gm {
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a */
-    public String mo450a() {
+    public String mo469a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<presence");
         if (p() != null) {
@@ -136,9 +136,9 @@ public class go extends gm {
             sb.append("</show>");
         }
         sb.append(o());
-        gq m451a = m451a();
-        if (m451a != null) {
-            sb.append(m451a.m454a());
+        gq m470a = m470a();
+        if (m470a != null) {
+            sb.append(m470a.m473a());
         }
         sb.append("</presence>");
         return sb.toString();

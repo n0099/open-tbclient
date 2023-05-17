@@ -3,7 +3,7 @@ package com.baidu.swan.apps.console.v8inspector.websocket;
 import android.annotation.SuppressLint;
 import android.util.Log;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.ho1;
+import com.baidu.tieba.qp1;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,9 +13,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebSocketFrame {
-    public static final boolean g = ho1.a;
+    public static final boolean g = qp1.a;
     public static final Charset h = Charset.forName("UTF-8");
     public OpCode a;
     public boolean b;
@@ -24,7 +24,7 @@ public class WebSocketFrame {
     public int e;
     public String f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends WebSocketFrame {
         public CloseCode i;
         public String j;
@@ -93,7 +93,7 @@ public class WebSocketFrame {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum CloseCode {
         NormalClosure(1000),
         ProtocolError(1002),
@@ -120,7 +120,7 @@ public class WebSocketFrame {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum OpCode {
         Continuation(0),
         Text(1),

@@ -2,7 +2,7 @@ package protobuf.PullPcMsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GroupTypes extends Message {
     public static final Long DEFAULT_GROUPID = 0L;
     public static final Integer DEFAULT_GROUPTYPE = 0;
@@ -11,7 +11,7 @@ public final class GroupTypes extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer groupType;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<GroupTypes> {
         public Long groupId;
         public Integer groupType;

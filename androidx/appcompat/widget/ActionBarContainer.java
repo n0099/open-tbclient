@@ -133,7 +133,7 @@ public class ActionBarContainer extends FrameLayout {
         this.mBackground = obtainStyledAttributes.getDrawable(0);
         this.mStackedBackground = obtainStyledAttributes.getDrawable(2);
         this.mHeight = obtainStyledAttributes.getDimensionPixelSize(13, -1);
-        if (getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f09210d) {
+        if (getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f09216f) {
             this.mIsSplit = true;
             this.mSplitBackground = obtainStyledAttributes.getDrawable(1);
         }
@@ -185,8 +185,8 @@ public class ActionBarContainer extends FrameLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.mActionBarView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09005f);
-        this.mContextView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090068);
+        this.mActionBarView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09006c);
+        this.mContextView = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090075);
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View

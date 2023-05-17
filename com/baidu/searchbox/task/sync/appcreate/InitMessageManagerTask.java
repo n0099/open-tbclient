@@ -27,34 +27,34 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.az4;
-import com.baidu.tieba.fn7;
-import com.baidu.tieba.gn7;
+import com.baidu.tieba.ap5;
+import com.baidu.tieba.bp5;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.eb;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
-import com.baidu.tieba.iq9;
-import com.baidu.tieba.jx9;
-import com.baidu.tieba.kr5;
-import com.baidu.tieba.nn5;
-import com.baidu.tieba.on5;
-import com.baidu.tieba.pn5;
-import com.baidu.tieba.qn5;
-import com.baidu.tieba.ra;
-import com.baidu.tieba.rn5;
-import com.baidu.tieba.sn5;
-import com.baidu.tieba.w8;
-import com.baidu.tieba.ya;
-import com.baidu.tieba.yn5;
-import com.baidu.tieba.ys4;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.hp5;
+import com.baidu.tieba.hu4;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.ks9;
+import com.baidu.tieba.lz9;
+import com.baidu.tieba.so7;
+import com.baidu.tieba.to7;
+import com.baidu.tieba.ts5;
+import com.baidu.tieba.wo5;
+import com.baidu.tieba.xa;
+import com.baidu.tieba.xo5;
+import com.baidu.tieba.yo5;
+import com.baidu.tieba.zo5;
+/* loaded from: classes4.dex */
 public class InitMessageManagerTask extends LaunchTask {
     public CustomMessageListener mDescriptionTableFixListener = new CustomMessageListener(2921510) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.6
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof iq9)) {
-                iq9 iq9Var = (iq9) customResponsedMessage.getData();
-                DescriptionTableInfo.setModuleSet(iq9Var.a);
-                DescriptionTableInfo.setDescriptionTable(iq9Var.b);
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof ks9)) {
+                ks9 ks9Var = (ks9) customResponsedMessage.getData();
+                DescriptionTableInfo.setModuleSet(ks9Var.a);
+                DescriptionTableInfo.setDescriptionTable(ks9Var.b);
             }
         }
     };
@@ -88,9 +88,9 @@ public class InitMessageManagerTask extends LaunchTask {
     }
 
     private void initInterruptRule() {
-        MessageManager.getInstance().addMessageRule(new ra(0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.2
+        MessageManager.getInstance().addMessageRule(new xa(0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ta
+            @Override // com.baidu.tieba.za
             public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
                 if (TbadkCoreApplication.getInst().checkInterrupt() && TbConfig.DownFlowCmd.sInterruptCMDs.contains(Integer.valueOf(httpMessage.getCmd()))) {
                     return null;
@@ -98,9 +98,9 @@ public class InitMessageManagerTask extends LaunchTask {
                 return httpMessage;
             }
         });
-        MessageManager.getInstance().addMessageRule(new ya(0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.3
+        MessageManager.getInstance().addMessageRule(new eb(0) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ta
+            @Override // com.baidu.tieba.za
             public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
                 if (TbadkCoreApplication.getInst().checkInterrupt() && TbConfig.DownFlowCmd.sInterruptCMDs.contains(Integer.valueOf(socketMessage.getCmd()))) {
                     return null;
@@ -111,33 +111,33 @@ public class InitMessageManagerTask extends LaunchTask {
     }
 
     private void registeDealIntentTask() {
-        yn5 yn5Var = new yn5(2012000, new CustomMessageTask.CustomRunnable<Intent>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
+        hp5 hp5Var = new hp5(2012000, new CustomMessageTask.CustomRunnable<Intent>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
             public CustomResponsedMessage<?> run(CustomMessage<Intent> customMessage) {
                 Context b;
-                if (w8.f().b() == null) {
+                if (c9.f().b() == null) {
                     b = TbadkCoreApplication.getInst().getApp();
                 } else {
-                    b = w8.f().b();
+                    b = c9.f().b();
                 }
                 UtilHelper.commenDealIntent(b, customMessage.getData());
                 return null;
             }
         });
-        yn5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(yn5Var);
+        hp5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(hp5Var);
     }
 
     private void registeYYNotificationTask() {
-        yn5 yn5Var = new yn5(2012100, new CustomMessageTask.CustomRunnable<az4>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
+        hp5 hp5Var = new hp5(2012100, new CustomMessageTask.CustomRunnable<j05>() { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<?> run(CustomMessage<az4> customMessage) {
+            public CustomResponsedMessage<?> run(CustomMessage<j05> customMessage) {
                 UtilHelper.showYYNotification(AppRuntime.getAppContext(), customMessage.getData(), 13);
                 return null;
             }
         });
-        yn5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
-        MessageManager.getInstance().registerTask(yn5Var);
+        hp5Var.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(hp5Var);
     }
 
     private void registerGoActionTask() {
@@ -184,23 +184,23 @@ public class InitMessageManagerTask extends LaunchTask {
     private void addLoginRules() {
         ReloginManager.g().k();
         MessageManager messageManager = MessageManager.getInstance();
-        messageManager.addMessageRule(new sn5(0));
-        messageManager.addMessageRule(new pn5(0));
-        messageManager.addResponsedMessageRule(new rn5(0));
-        messageManager.addRemovedMessageRule(new qn5(0));
-        messageManager.addResponsedMessageRule(new gn7());
-        messageManager.addResponsedMessageRule(new fn7());
-        messageManager.addResponsedMessageRule(new nn5());
-        messageManager.addResponsedMessageRule(new on5());
-        messageManager.addResponsedMessageRule(new jx9());
+        messageManager.addMessageRule(new bp5(0));
+        messageManager.addMessageRule(new yo5(0));
+        messageManager.addResponsedMessageRule(new ap5(0));
+        messageManager.addRemovedMessageRule(new zo5(0));
+        messageManager.addResponsedMessageRule(new to7());
+        messageManager.addResponsedMessageRule(new so7());
+        messageManager.addResponsedMessageRule(new wo5());
+        messageManager.addResponsedMessageRule(new xo5());
+        messageManager.addResponsedMessageRule(new lz9());
     }
 
     private void registerListener() {
         MessageManager.getInstance().registerListener(this.mDescriptionTableFixListener);
         try {
-            kr5.b().e();
+            ts5.b().e();
             if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                ys4.d().f();
+                hu4.d().f();
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

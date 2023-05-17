@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ol6;
+import com.baidu.tieba.an6;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,21 +15,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public ol6 b;
+    public an6 b;
     public b c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(View view2, String str);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ANCHOR_VIEW_FROM {
         public static final /* synthetic */ ANCHOR_VIEW_FROM[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -96,7 +96,7 @@ public class WriteTipBubbleController {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,20 +154,20 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        ol6 ol6Var;
+        an6 an6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ol6Var = this.b) != null) {
-            ol6Var.h();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (an6Var = this.b) != null) {
+            an6Var.h();
         }
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !hi.isEmpty(str) && !hi.isEmpty(str2)) {
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) && this.a != null && view2 != null && !qi.isEmpty(str) && !qi.isEmpty(str2)) {
             if (this.b == null) {
-                ol6 ol6Var = new ol6(this.a, view2);
-                this.b = ol6Var;
-                ol6Var.L(R.drawable.pic_post_findlink);
+                an6 an6Var = new an6(this.a, view2);
+                this.b = an6Var;
+                an6Var.L(R.drawable.pic_post_findlink);
                 this.b.v(2);
                 this.b.r(true);
                 this.b.K(19);

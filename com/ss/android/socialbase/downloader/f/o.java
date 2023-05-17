@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.f;
 
 import androidx.annotation.NonNull;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class o {
     public static long a(@NonNull List<i> list) {
         int size = list.size();

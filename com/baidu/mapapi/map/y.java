@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.animation.ValueAnimator;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class y implements ValueAnimator.AnimatorUpdateListener {
     public final /* synthetic */ ViewGroup.LayoutParams a;
     public final /* synthetic */ SwipeDismissTouchListener b;

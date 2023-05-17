@@ -1,7 +1,7 @@
 package com.baidu.nps.interfa;
 
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISharePrefsWrapper {
     public static final String NPS_FRAME_PATCH_FAIL_COUNT = "nps_frame_patch_fail_count";
 

@@ -5,7 +5,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectKotlinClassFinderKt {
     public static final String toRuntimeFqName(ClassId classId) {
         String asString = classId.getRelativeClassName().asString();

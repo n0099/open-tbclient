@@ -20,7 +20,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
@@ -31,13 +31,13 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0677a extends Exception {
+    /* loaded from: classes9.dex */
+    public static class C0691a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0677a(String str, Throwable th) {
+        public C0691a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -58,7 +58,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class a {
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] a(byte[] bArr) throws C0677a {
+    public static byte[] a(byte[] bArr) throws C0691a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
@@ -158,20 +158,20 @@ public class a {
                         cipher.init(2, new SecretKeySpec(e, "AES"));
                         c = cipher;
                     } catch (Exception e2) {
-                        throw new C0677a("Fail To Init Cipher", e2);
+                        throw new C0691a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C0677a("Exception While dencrypt byte array", e3);
+                throw new C0691a("Exception While dencrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws C0677a {
+    public static byte[] b(byte[] bArr) throws C0691a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
@@ -184,14 +184,14 @@ public class a {
                         cipher.init(1, new SecretKeySpec(e, "AES"));
                         b = cipher;
                     } catch (Exception e2) {
-                        throw new C0677a("Fail To Init Cipher", e2);
+                        throw new C0691a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C0677a("Exception While encrypt byte array", e3);
+                throw new C0691a("Exception While encrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;

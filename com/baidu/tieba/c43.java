@@ -1,13 +1,23 @@
 package com.baidu.tieba;
 
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-/* loaded from: classes3.dex */
-public interface c43<T> {
-    long a();
+import androidx.annotation.UiThread;
+/* loaded from: classes5.dex */
+public interface c43 {
+    @UiThread
+    void a(String str);
 
-    String b();
+    @UiThread
+    void b();
 
-    boolean c();
+    void c(@NonNull Runnable runnable, @NonNull String str);
 
-    void onEvent(@NonNull T t);
+    @UiThread
+    void d(boolean z);
+
+    @AnyThread
+    void e(String str);
+
+    String getName();
 }

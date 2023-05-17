@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class m85 {
+/* loaded from: classes6.dex */
+public class m85 extends h85<m85> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public String i;
 
     public m85() {
         Interceptable interceptable = $ic;
@@ -33,91 +32,107 @@ public class m85 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            q(true);
+            x();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
+    public String u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
+            return "#[视频]" + this.i + "#";
         }
         return (String) invokeV.objValue;
     }
 
-    public String f() {
+    public String v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+            return this.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public m85(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.i = str;
     }
 
-    public void h(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.h85
+    public void r(Editable editable) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
         }
-        try {
-            jSONObject.optString("splash_bear_sid_ios", "");
-            jSONObject.optString("homepage_bear_sid_ios", "");
-            jSONObject.optString("frs_bear_sid_ios", "");
-            jSONObject.optString("pb_banner_bear_sid_ios", "");
-            jSONObject.optString("pb_comment_bear_sid_ios", "");
-            jSONObject.optString("picpage_bear_sid_ios", "");
-            jSONObject.optString("videoflow_bear_sid_ios", "");
-            this.a = jSONObject.optString("splash_bear_sid_android", "");
-            this.b = jSONObject.optString("homepage_bear_sid_android", "");
-            this.c = jSONObject.optString("frs_bear_sid_android", "");
-            this.d = jSONObject.optString("pb_banner_bear_sid_android", "");
-            this.e = jSONObject.optString("pb_comment_bear_sid_android", "");
-            this.f = jSONObject.optString("picpage_bear_sid_android", "");
-            this.g = jSONObject.optString("videoflow_bear_sid_android", "");
-        } catch (Exception e) {
-            e.printStackTrace();
+    }
+
+    public static m85 w(@NonNull m85 m85Var, @NonNull Editable editable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, m85Var, editable)) == null) {
+            m85 m85Var2 = new m85();
+            m85Var2.b(m85Var);
+            m85Var2.p(editable);
+            return m85Var2;
+        }
+        return (m85) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.h85
+    public void s(Editable editable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#");
+            sb.append("[视频]");
+            sb.append(this.i);
+            sb.append("#");
+            k(sb);
+        }
+    }
+
+    @Override // com.baidu.tieba.h85
+    public void a(Editable editable, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            k(u());
+            if (!hs5.g(this.c, f())) {
+                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
+                eMRichTextAnyIconSpan.g(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+                eMRichTextAnyIconSpan.j(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
+                n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
+                n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
+            }
         }
     }
 }

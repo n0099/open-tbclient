@@ -10,6 +10,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,10 +23,10 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.j65;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public abstract class BasePersonInfoActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] q;
@@ -60,7 +61,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
 
     public abstract BasePersonInfoAdapter D1(BasePersonInfoActivity basePersonInfoActivity, boolean z);
 
-    public abstract String F1();
+    public abstract String E1();
 
     public abstract String H1();
 
@@ -88,7 +89,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,14 +120,14 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
                 if (basePersonInfoActivity.i && basePersonInfoActivity.m != 23011) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                    a55.g(this.a.getPageContext().getPageActivity(), 200, false);
+                    j65.g(this.a.getPageContext().getPageActivity(), 200, false);
                 }
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +157,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
-                basePersonInfoActivity.c = qw4.a(basePersonInfoActivity.P1()) % 3;
+                basePersonInfoActivity.c = zx4.a(basePersonInfoActivity.P1()) % 3;
                 int P1 = this.a.P1();
                 if (P1 != 2) {
                     if (P1 != 3) {
@@ -167,7 +168,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                                 str = "friend";
                             }
                         } else {
-                            str = "post";
+                            str = CommandUBCHelper.COMMAND_UBC_SOURCE_SEND;
                         }
                     } else {
                         str = "group";
@@ -183,7 +184,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +218,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        qw4.c(this.a.P1(), BasePersonInfoActivity.t[this.a.c]);
+                        zx4.c(this.a.P1(), BasePersonInfoActivity.t[this.a.c]);
                         SkinManager.setNavbarIconSrc(this.a.l, BasePersonInfoActivity.r[this.a.c], BasePersonInfoActivity.q[this.a.c]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
                         basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.s[this.a.c]), R.drawable.icon_toast_info);
@@ -227,7 +228,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d30));
+                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0db6));
             }
         }
     }
@@ -384,7 +385,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.h = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
-        fragmentTabIndicator.setMinimumHeight(ii.g(getActivity(), R.dimen.obfuscated_res_0x7f070307));
+        fragmentTabIndicator.setMinimumHeight(ri.g(getActivity(), R.dimen.obfuscated_res_0x7f07040f));
         cVar.b = fragmentTabIndicator;
         this.n.b(cVar);
     }
@@ -392,13 +393,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public final void T1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090353);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090361);
             this.k = navigationBar;
             if (this.i) {
                 if (this.m == 23011) {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ac8));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b46));
                 } else {
-                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1227));
+                    navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f12f3));
                 }
             } else {
                 navigationBar.setCenterTextTitle(String.format(L1(), this.e));
@@ -408,12 +409,12 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (this.g && this.m != 23003 && !this.i) {
                 ImageView imageView = (ImageView) this.k.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_privacy, (View.OnClickListener) null);
                 this.l = imageView;
-                SkinManager.setNavbarIconSrc(imageView, r[qw4.a(P1()) - 1], q[qw4.a(P1()) - 1]);
+                SkinManager.setNavbarIconSrc(imageView, r[zx4.a(P1()) - 1], q[zx4.a(P1()) - 1]);
                 this.l.setOnClickListener(new b(this));
             }
             this.b = new int[]{0, 1};
             this.o = D1(this, this.g);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090354);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090362);
             this.n = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.n.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
@@ -432,7 +433,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d002c);
+            setContentView(R.layout.obfuscated_res_0x7f0d002d);
             if (bundle != null) {
                 this.d = bundle.getString("key_uid");
                 this.f = bundle.getInt("key_sex", 0);
@@ -458,22 +459,22 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
             this.d = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0b86);
+                this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0c07);
                 this.g = true;
             } else {
                 this.g = false;
                 int i = this.f;
                 if (i != 1) {
                     if (i != 2) {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f144e);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f1520);
                     } else {
-                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f126d);
+                        this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f133c);
                     }
                 } else {
-                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f08f4);
+                    this.e = getPageContext().getString(R.string.obfuscated_res_0x7f0f0962);
                 }
             }
-            if (hi.isEmpty(this.d)) {
+            if (qi.isEmpty(this.d)) {
                 finish();
                 return;
             }
@@ -495,7 +496,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (i2 <= 0) {
                 fragmentTabIndicator2.setText(M1());
             } else {
-                fragmentTabIndicator2.setText(String.format(F1(), Integer.valueOf(i2)));
+                fragmentTabIndicator2.setText(String.format(E1(), Integer.valueOf(i2)));
             }
         }
     }
@@ -549,7 +550,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, keyEvent)) == null) {
             if (i == 4 && keyEvent.getRepeatCount() == 0) {
                 if (this.i && this.m != 23011) {
-                    a55.g(getPageContext().getPageActivity(), 200, false);
+                    j65.g(getPageContext().getPageActivity(), 200, false);
                 }
                 finish();
                 return true;

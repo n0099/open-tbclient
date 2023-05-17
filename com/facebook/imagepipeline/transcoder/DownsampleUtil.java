@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DownsampleUtil {
     public static final int DEFAULT_SAMPLE_SIZE = 1;
     public static final float INTERVAL_ROUNDING = 0.33333334f;

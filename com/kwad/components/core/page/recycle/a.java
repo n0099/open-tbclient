@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends com.kwad.components.core.i.c {
     public d Go;
     public RecyclerView kG;
@@ -35,7 +35,7 @@ public abstract class a extends com.kwad.components.core.i.c {
     }
 
     public static int nS() {
-        return R.id.obfuscated_res_0x7f0912b9;
+        return R.id.obfuscated_res_0x7f0912f4;
     }
 
     public abstract d a(RecyclerView recyclerView);

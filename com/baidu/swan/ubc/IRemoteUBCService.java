@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IRemoteUBCService extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Default implements IRemoteUBCService {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -77,7 +77,7 @@ public interface IRemoteUBCService extends IInterface {
 
     void ubcOnEvent(String str, String str2, int i) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IRemoteUBCService {
         public static final String DESCRIPTOR = "com.baidu.swan.ubc.IRemoteUBCService";
         public static final int TRANSACTION_flowAddEvent = 3;
@@ -96,7 +96,7 @@ public interface IRemoteUBCService extends IInterface {
             return this;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IRemoteUBCService {
             public static IRemoteUBCService sDefaultImpl;
             public IBinder mRemote;

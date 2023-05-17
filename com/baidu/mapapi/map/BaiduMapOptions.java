@@ -4,7 +4,7 @@ import android.graphics.Point;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BaiduMapOptions implements Parcelable {
     public static final Parcelable.Creator<BaiduMapOptions> CREATOR = new l();
     public MapStatus a;

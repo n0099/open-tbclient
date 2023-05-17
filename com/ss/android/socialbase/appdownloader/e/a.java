@@ -17,7 +17,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends com.ss.android.socialbase.downloader.notification.a {
     public final Context b;
     public final Resources c;

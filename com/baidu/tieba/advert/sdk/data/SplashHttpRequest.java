@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.b26;
-import com.baidu.tieba.q26;
+import com.baidu.tieba.c46;
+import com.baidu.tieba.n36;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.constant.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TbHttpMessageTask mTask;
@@ -67,17 +67,17 @@ public class SplashHttpRequest extends HttpMessage {
         }
         if (adInfo != null && context != null) {
             addParam("pid", adInfo.placeId);
-            addParam("ver", q26.b(context));
+            addParam("ver", c46.b(context));
             addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            addParam(SearchJsBridge.COOKIE_MOD, b26.c());
+            addParam(SearchJsBridge.COOKIE_MOD, n36.c());
             addParam("ot", 2);
-            addParam("ov", b26.d());
+            addParam("ov", n36.d());
             addParam(b.C, "1.1.4");
-            addParam("nt", b26.b(context).intValue());
+            addParam("nt", n36.b(context).intValue());
             addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-            addParam(TbConfig.SW_APID, b26.f(context).intValue());
-            addParam("sh", b26.e(context).intValue());
-            addParam("imei", b26.a(context));
+            addParam(TbConfig.SW_APID, n36.f(context).intValue());
+            addParam("sh", n36.e(context).intValue());
+            addParam("imei", n36.a(context));
             addParam("fmt", "json");
             addParam("adw", adInfo.adWidth);
             addParam("adh", adInfo.adHeight);

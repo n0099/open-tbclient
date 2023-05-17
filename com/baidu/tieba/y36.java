@@ -1,94 +1,403 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.BearTimeoutTryShowSwitch;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.baidu.ubc.UBCManager;
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class y36 extends u93 {
+/* loaded from: classes8.dex */
+public class y36 {
     public static /* synthetic */ Interceptable $ic;
+    public static y36 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public boolean c;
+    public long d;
+    public SplashNativePolicy e;
+    public pu4 f;
+    public final ArrayList<z36> g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y36(u83 u83Var) {
-        super(u83Var, "/swan/publishThread");
+    public y36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = false;
+        this.d = -1L;
+        this.f = null;
+        this.g = new ArrayList<>();
+        this.a = o65.m().n("splash_ad_strategy_key", 0);
+        m();
     }
 
-    public static boolean j(Context context, String str) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<z36> it = this.g.iterator();
+            while (it.hasNext()) {
+                z36 next = it.next();
+                if (next != null) {
+                    next.destroy();
+                }
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("path");
-                if (StringUtils.isNull(optString)) {
-                    String optString2 = jSONObject.optString("appid");
-                    if (StringUtils.isNull(optString2)) {
-                        return false;
+            this.g.clear();
+            SplashNativePolicy splashNativePolicy = this.e;
+            if (splashNativePolicy != null) {
+                splashNativePolicy.releaseSplash();
+                this.e = null;
+            }
+        }
+    }
+
+    public static y36 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (h == null) {
+                synchronized (y36.class) {
+                    if (h == null) {
+                        h = new y36();
                     }
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, v26.a(optString2, "", "", 0)));
+                }
+            }
+            return h;
+        }
+        return (y36) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Iterator<z36> it = this.g.iterator();
+            while (it.hasNext()) {
+                z36 next = it.next();
+                if (next != null && next.b()) {
                     return true;
                 }
-                String substring = optString.substring(39);
-                if (StringUtils.isNull(substring)) {
-                    return false;
-                }
-                JSONObject jSONObject2 = new JSONObject(hi.getUrlDecode(substring));
-                String optString3 = jSONObject2.optString("third_app_id");
-                String optString4 = jSONObject2.optString("third_app_name");
-                String optString5 = jSONObject2.optString("third_app_pic");
-                String optString6 = jSONObject2.optString("third_app_link");
-                SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(context, 10086);
-                selectForumActivityConfig.setAiAppsParams(optString3, optString4, optString5, null, null, optString6);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, selectForumActivityConfig));
-                return true;
-            } catch (JSONException unused) {
-                return false;
             }
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public final void h() {
+        UBCManager uBCManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            j(context, unitedSchemeEntity.getParam("params"));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) != null) {
+            uBCManager.onEvent("5088");
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Iterator<z36> it = this.g.iterator();
+            while (it.hasNext()) {
+                z36 next = it.next();
+                if (next instanceof i36) {
+                    i36 i36Var = (i36) next;
+                    boolean z = i36Var.z();
+                    cu9.a("AdSdkStretagyManager failSplashAd isBearAdReady:" + z);
+                    if (z && BearTimeoutTryShowSwitch.isOn()) {
+                        int i = 1;
+                        StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1);
+                        if (this.c) {
+                            i = 2;
+                        }
+                        StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
+                        if (!StringUtils.isNull(next.c())) {
+                            param2.param(TiebaStatic.Params.OBJ_TO, next.c());
+                        }
+                        param2.eventStat();
+                        i36Var.x();
+                        return;
+                    }
+                    StatisticItem make = StatisticItem.make("fail_splash");
+                    if (z) {
+                        str = "1";
+                    } else {
+                        str = "0";
+                    }
+                    make.param("obj_param1", str).eventStat();
+                }
+            }
+            pu4 pu4Var = this.f;
+            if (pu4Var != null) {
+                pu4Var.b("");
+            }
+        }
+    }
+
+    public final byte e(z36 z36Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, z36Var)) == null) {
+            if (z36Var == null) {
+                return (byte) 0;
+            }
+            String f = z36Var.f();
+            char c = 65535;
+            int hashCode = f.hashCode();
+            if (hashCode != -1348168235) {
+                if (hashCode == 3019700 && f.equals("bear")) {
+                    c = 0;
+                }
+            } else if (f.equals("prologue_gd")) {
+                c = 1;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return (byte) 0;
+                }
+                return (byte) 5;
+            }
+            return (byte) 6;
+        }
+        return invokeL.byteValue;
+    }
+
+    public final synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                if (!this.g.isEmpty()) {
+                    return;
+                }
+                j36 j36Var = new j36(this.e);
+                i36 i36Var = new i36(this.e);
+                this.g.clear();
+                if (nr5.w()) {
+                    this.g.add(j36Var);
+                } else {
+                    BaseVM.m(27);
+                }
+                if (nr5.q()) {
+                    this.g.add(i36Var);
+                }
+                if (o65.m().i("key_is_jump_splash_ad", false)) {
+                    h();
+                    this.g.clear();
+                }
+            }
+        }
+    }
+
+    public void i(int i) {
+        pu4 pu4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (pu4Var = this.f) != null) {
+            pu4Var.a(i);
+        }
+    }
+
+    public void j(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b = false;
+            f();
+            Iterator<z36> it = this.g.iterator();
+            while (it.hasNext()) {
+                z36 next = it.next();
+                if (i == 5 && (next instanceof j36)) {
+                    if (e46.g()) {
+                        BaseVM.m(29);
+                    } else {
+                        next.a();
+                        return;
+                    }
+                } else if (i == 6 && (next instanceof i36)) {
+                    Iterator<z36> it2 = this.g.iterator();
+                    while (it2.hasNext()) {
+                        z36 next2 = it2.next();
+                        if (next2 instanceof j36) {
+                            StatisticItem statisticItem = new StatisticItem("preload_bear");
+                            j36 j36Var = (j36) next2;
+                            String str2 = "1";
+                            if (j36Var.v()) {
+                                str = "1";
+                            } else {
+                                str = "0";
+                            }
+                            statisticItem.param("obj_param1", str);
+                            if (!j36Var.w()) {
+                                str2 = "0";
+                            }
+                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                            TiebaStatic.log(statisticItem);
+                        }
+                    }
+                    next.a();
+                    return;
+                }
+            }
+        }
+    }
+
+    public synchronized void k(su4 su4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, su4Var) == null) {
+            synchronized (this) {
+                this.b = false;
+                this.d = su4Var.c();
+                this.f = su4Var.a();
+                this.c = su4Var.d();
+                if (this.e != null) {
+                    this.e.onSplashEvent(96);
+                }
+                f();
+                d46.c();
+                Iterator<z36> it = this.g.iterator();
+                while (it.hasNext()) {
+                    z36 next = it.next();
+                    if ((next instanceof j36) && e46.g()) {
+                        BaseVM.m(29);
+                    } else {
+                        next.e(su4Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void l(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    return;
+                }
+                Iterator<z36> it = this.g.iterator();
+                while (it.hasNext()) {
+                    z36 next = it.next();
+                    if (next != null) {
+                        if (z) {
+                            z2 = next instanceof i36;
+                        } else {
+                            z2 = next instanceof j36;
+                        }
+                        if (z2 && next.d() == AdLoadState.SUCCEED) {
+                            int i = 1;
+                            this.b = true;
+                            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis());
+                            if (this.c) {
+                                i = 2;
+                            }
+                            StatisticItem param2 = param.param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.SPLASH_UNI, this.d);
+                            if (!StringUtils.isNull(next.c())) {
+                                param2.param(TiebaStatic.Params.OBJ_TO, next.c());
+                            }
+                            param2.eventStat();
+                            if (String.valueOf((int) e(next)).equals(e46.c)) {
+                                BaseVM.m(28);
+                            }
+                            du9.a(MainTabScheduleStrategy.UNSCHEDULE);
+                            if (this.f != null) {
+                                String str = null;
+                                if (next instanceof j36) {
+                                    str = ((j36) next).k;
+                                }
+                                this.f.c(str);
+                            }
+                            next.show();
+                            if (this.f != null) {
+                                this.f.d(String.valueOf((int) e(next)));
+                            }
+                            d46.d(String.valueOf((int) e(next)));
+                            return;
+                        }
+                    }
+                }
+                if (this.f != null) {
+                    this.f.b("");
+                }
+            }
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            SplashNativePolicy splashNativePolicy = this.e;
+            if (splashNativePolicy == null) {
+                SplashNativePolicy splashNativePolicy2 = new SplashNativePolicy();
+                this.e = splashNativePolicy2;
+                boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(nr5.u(), nr5.w(), nr5.v(), nr5.k(), nr5.l());
+                PrintStream printStream = System.out;
+                printStream.println("SplashPolicy init result = " + initSplashPolicy);
+                if (!initSplashPolicy) {
+                    this.e = null;
+                    return;
+                }
+                return;
+            }
+            boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(nr5.u(), nr5.w(), nr5.v(), nr5.k(), nr5.l());
+            PrintStream printStream2 = System.out;
+            printStream2.println("SplashPolicy update result = " + updateSplashConfig);
+            if (!updateSplashConfig) {
+                this.e = null;
+            }
+        }
+    }
+
+    public void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            this.a = pg.e(jSONObject.optString("ad_sdk_priority"), 0);
+            o65.m().z("splash_ad_strategy_key", this.a);
+            o65.m().z("splash_origin_ad_strategy_key", pg.e(jSONObject.optString("ad_origin_config_switch"), 1));
+            JSONObject optJSONObject = jSONObject.optJSONObject("screen_fill_data_result");
+            if (optJSONObject != null) {
+                int e = pg.e(optJSONObject.optString("screen_fill_advertisement_first_switch", com.tencent.connect.common.Constants.DEFAULT_UIN), 1000);
+                int e2 = pg.e(optJSONObject.optString("screen_fill_advertisement_second_switch", "1400"), 1400);
+                int e3 = pg.e(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
+                int e4 = pg.e(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
+                int e5 = pg.e(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
+                o65.m().z("key_splash_new_policy_bear_enable", e3);
+                o65.m().z("key_splash_new_policy_plg_enable", e4);
+                o65.m().z("key_splash_new_policy_plg_cpc_enable", e5);
+                o65.m().z("key_splash_new_policy_first_timeout", e);
+                o65.m().z("key_splash_new_policy_second_timeout", e2);
+            }
+            i36.B(pg.e(jSONObject.optString("bear_sid_type"), 0));
+        }
     }
 }

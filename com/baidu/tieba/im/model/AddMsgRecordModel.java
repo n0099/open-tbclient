@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
-import com.baidu.tieba.v18;
+import com.baidu.tieba.j38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddMsgRecordModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class AddMsgRecordModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            List<ImMessageCenterPojo> k = v18.n().k();
+            List<ImMessageCenterPojo> k = j38.n().k();
             ArrayList arrayList = null;
             if (k != null && k.size() != 0) {
                 for (ImMessageCenterPojo imMessageCenterPojo : k) {

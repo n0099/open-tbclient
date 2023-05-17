@@ -2,8 +2,9 @@ package com.baidu.searchbox.account.result;
 
 import android.text.TextUtils;
 import android.util.SparseArray;
-/* loaded from: classes2.dex */
-public class BoxSapiResult {
+import com.baidu.searchbox.NoProGuard;
+/* loaded from: classes3.dex */
+public class BoxSapiResult implements NoProGuard {
     public static final int ERROR_CODE_METHOD_DEPRECATED = -206;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_PARAMS_ERROR = -204;

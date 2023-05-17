@@ -3,7 +3,7 @@ package com.fun.ad.sdk.internal.api;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.mva;
+import com.baidu.tieba.kxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,11 +14,11 @@ import com.fun.ad.sdk.FunNativeInfo;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.s0;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mva.a a;
+    public final kxa.a a;
     public final String mSid;
 
     public BaseFunNativeAd(String str, Ssp.Pid pid) {
@@ -37,7 +37,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
             }
         }
         this.mSid = str;
-        this.a = new mva.a(str, pid);
+        this.a = new kxa.a(str, pid);
     }
 
     public abstract void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener);
@@ -47,7 +47,7 @@ public abstract class BaseFunNativeAd implements FunNativeAd, FunNativeInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048576, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
             if (context != null && viewGroup != null && list != null && funAdInteractionListener != null) {
-                mva.a aVar = this.a;
+                kxa.a aVar = this.a;
                 aVar.getClass();
                 aVar.a.logEvent("ad_ldr", new s0(aVar, new Object[0], "ldr_sh_start"));
                 showInternal(context, viewGroup, list, list2, funAdInteractionListener);

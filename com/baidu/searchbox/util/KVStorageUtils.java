@@ -1,5 +1,5 @@
 package com.baidu.searchbox.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KVStorageUtils {
     public static final long DEFAULT_DELAY_TIME = 2000;
     public static final long FLAG_IMPORTING = 2;

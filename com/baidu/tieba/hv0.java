@@ -1,49 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qm0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hv0 {
+/* loaded from: classes5.dex */
+public class hv0 extends lv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final float b;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hv0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-734373271, "Lcom/baidu/tieba/hv0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-734373271, "Lcom/baidu/tieba/hv0$b;");
-                    return;
-                }
-            }
-            a = new hv0(null);
-        }
-    }
 
     public hv0() {
         Interceptable interceptable = $ic;
@@ -55,41 +21,32 @@ public class hv0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = qm0.a.a().getLaunchSpeedScore();
-        this.b = qm0.a.a().getStaticDeviceScore();
     }
 
-    public /* synthetic */ hv0(a aVar) {
-        this();
-    }
-
-    public static hv0 a() {
-        InterceptResult invokeV;
+    public static lv0 w(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            lv0 m = lv0.m(str, 6);
+            m.u(1);
+            m.s(1);
+            return m;
         }
-        return (hv0) invokeV.objValue;
+        return (lv0) invokeL.objValue;
     }
 
-    public float b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lv0
+    public boolean b(@NonNull mw0 mw0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mw0Var)) == null) {
+            if (1 != mw0Var.getType()) {
+                return true;
+            }
+            return false;
         }
-        return invokeV.floatValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
+        return invokeL.booleanValue;
     }
 }

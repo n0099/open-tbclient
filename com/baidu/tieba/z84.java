@@ -1,36 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.n44;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class z84 extends eg2 {
+/* loaded from: classes8.dex */
+public class z84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public boolean cancel;
+    @V8JavascriptField
+    public boolean confirm;
 
-    public z84() {
+    public z84(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.confirm = z;
+        this.cancel = !z;
     }
 
-    @Override // com.baidu.tieba.gg2
-    public void a(String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            n44.d.d(str);
-            hk2.k(str);
-            b94.k(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameReloadResult{confirm=" + this.confirm + ", cancel=" + this.cancel + '}';
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,64 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.player.event.SystemEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-/* loaded from: classes7.dex */
-public final class yz0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -2;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class yz0 extends sz0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948347322, "Lcom/baidu/tieba/yz0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.mw0
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new int[]{1} : (int[]) invokeV.objValue;
+    }
+
+    public yz0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948347322, "Lcom/baidu/tieba/yz0;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void a(ClarityUrlList clarityUrlList) {
-        ClarityUrlList.c cVar;
+    @Override // com.baidu.tieba.sz0, com.baidu.tieba.mw0
+    public void n(lv0 event) {
+        rs0 it;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
-            Iterator it = clarityUrlList.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    cVar = (ClarityUrlList.c) it.next();
-                    if ("auto".equals(cVar.c())) {
-                        break;
-                    }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(SystemEvent.ACTION_VOLUME_CHANGED, event.c()) && (it = i()) != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "player");
+                if (!it.a0() && !it.Q()) {
+                    z = false;
                 } else {
-                    cVar = null;
-                    break;
+                    z = true;
+                }
+                if (z) {
+                    it = null;
+                }
+                if (it != null) {
+                    int g = event.g(5);
+                    Intrinsics.checkNotNullExpressionValue(it, "it");
+                    du0 y = it.y();
+                    Intrinsics.checkNotNullExpressionValue(y, "it.playerCallbackManager");
+                    xt0 c = y.c();
+                    if (c != null) {
+                        c.a(g);
+                    }
                 }
             }
-            if (cVar != null) {
-                clarityUrlList.remove(cVar);
-            }
         }
-    }
-
-    public static ly0 b(ClarityUrlList clarityUrlList, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
-            a(clarityUrlList);
-            int f = m01.f(a);
-            a = f;
-            return m01.g(clarityUrlList, f, d, false);
-        }
-        return (ly0) invokeCommon.objValue;
     }
 }

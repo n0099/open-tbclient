@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.lx;
-import com.baidu.tieba.uu7;
+import com.baidu.tieba.iw7;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class PostAnimateFloatView extends FrameLayout implements lx {
+/* loaded from: classes5.dex */
+public class PostAnimateFloatView extends FrameLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -43,7 +43,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
     public ValueAnimator h;
     public final Runnable i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,13 +104,13 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                uu7.g();
+                iw7.g();
                 new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class d extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class e implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class f extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
                 return;
             }
             this.a.e = false;
-            jg.a().postDelayed(this.a.i, 5000L);
+            sg.a().postDelayed(this.a.i, 5000L);
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -404,17 +404,17 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
                 valueAnimator2.removeAllUpdateListeners();
                 this.g.removeAllListeners();
             }
-            jg.a().removeCallbacks(this.i);
+            sg.a().removeCallbacks(this.i);
         }
     }
 
     public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0509, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e30);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bdf);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bf7);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0526, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e8c);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c31);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c49);
             this.c = textView;
             this.f = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
             j();
@@ -460,13 +460,13 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
         }
     }
 
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
             ImageView imageView = this.b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809f5, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080b1c, R.color.CAM_X0101, null);
             }
             TextView textView = this.c;
             if (textView != null) {
@@ -474,7 +474,7 @@ public class PostAnimateFloatView extends FrameLayout implements lx {
             }
             LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                g35 d2 = g35.d(linearLayout);
+                p45 d2 = p45.d(linearLayout);
                 d2.o(R.string.J_X01);
                 d2.i(R.color.CAM_X0302);
             }

@@ -1,111 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class fr3 {
+/* loaded from: classes5.dex */
+public class fr3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bdtls$ClientHello a;
-    public Bdtls$ServerHello b;
-    public byte[] c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public fr3() {
-        this(null, null, null, 7, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Bdtls$ClientHello) objArr[0], (Bdtls$ServerHello) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773698, "Lcom/baidu/tieba/fr3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947773698, "Lcom/baidu/tieba/fr3;");
                 return;
             }
         }
+        a = qp1.a;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof fr3) {
-                    fr3 fr3Var = (fr3) obj;
-                    return Intrinsics.areEqual(this.a, fr3Var.a) && Intrinsics.areEqual(this.b, fr3Var.b) && Intrinsics.areEqual(this.c, fr3Var.c);
-                }
-                return false;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
+            jg3 jg3Var = new jg3();
+            jg3Var.a = "swan";
+            jg3Var.b = str;
+            jg3Var.g = str2;
+            if (TextUtils.equals(str, "click")) {
+                jg3Var.e = str3;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Bdtls$ClientHello bdtls$ClientHello = this.a;
-            int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
-            Bdtls$ServerHello bdtls$ServerHello = this.b;
-            int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
-            byte[] bArr = this.c;
-            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public fr3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdtls$ClientHello, bdtls$ServerHello, bArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            jg3Var.f = str5;
+            jg3Var.a("source", str4);
+            if (a) {
+                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + jg3Var.f());
             }
-        }
-        this.a = bdtls$ClientHello;
-        this.b = bdtls$ServerHello;
-        this.c = bArr;
-    }
-
-    public /* synthetic */ fr3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : bdtls$ClientHello, (i & 2) != 0 ? null : bdtls$ServerHello, (i & 4) != 0 ? null : bArr);
-    }
-
-    public final void a(Bdtls$ServerHello bdtls$ServerHello) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdtls$ServerHello) == null) {
-            this.b = bdtls$ServerHello;
+            zf3.x("1372", jg3Var);
         }
     }
 }

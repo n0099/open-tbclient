@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.basic.upload;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum UploadType {
     IMMEDIATE,
     RETRY

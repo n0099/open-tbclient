@@ -1,114 +1,94 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.emotion.editortool.EmotionTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class js6 {
+/* loaded from: classes6.dex */
+public class js6 extends df5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public final List<vm> b;
-    public b c;
-    public is6 d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(ms6 ms6Var);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements sn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ js6 a;
-
-        public a(js6 js6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {js6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = js6Var;
-        }
-
-        @Override // com.baidu.tieba.sn
-        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof ms6)) {
-                ms6 ms6Var = (ms6) inVar;
-                if (this.a.c != null) {
-                    this.a.c.a(ms6Var);
-                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", ms6Var.a()).param("obj_locate", 2));
-                }
-            }
-        }
-    }
-
-    public js6(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public js6(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-        c();
+        this.d = R.drawable.icon_pure_post_expression24;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.h = R.drawable.icon_pure_post_expression64_big;
+        this.i = false;
+        this.j = true;
+        this.m = new EmotionTabHost(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
     }
 
-    public void d(b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public js6(Context context, int i, boolean z) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.c = bVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = R.drawable.icon_pure_post_expression24;
+        this.e = R.drawable.icon_pure_post_expression24_selection;
+        this.h = R.drawable.icon_pure_post_expression64_big;
+        this.i = false;
+        this.j = true;
+        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
+        emotionTabHost.setShowBigEmotion(z);
+        this.m = emotionTabHost;
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
+    }
+
+    @Override // com.baidu.tieba.df5
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowUserCollect(z);
         }
     }
 
-    public List<vm> b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.df5
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            is6 is6Var = new is6(this.a, ms6.e);
-            this.d = is6Var;
-            is6Var.setOnAdapterItemClickListener(new a(this));
-            this.b.add(this.d);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowDiyEmotion(z);
+            super.f(z);
         }
     }
 }

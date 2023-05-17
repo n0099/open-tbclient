@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class gq {
     public int a;
 
@@ -19,7 +19,7 @@ public class gq {
     public String c;
     public String d;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final a a = new a("internal-server-error");
         public static final a b = new a("forbidden");
@@ -135,7 +135,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m454a() {
+    public String m473a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"");
         sb.append(this.a);
@@ -161,7 +161,7 @@ public class gq {
             sb.append(this.d);
             sb.append("</text>");
         }
-        for (gj gjVar : m455a()) {
+        for (gj gjVar : m474a()) {
             sb.append(gjVar.d());
         }
         sb.append("</error>");
@@ -169,7 +169,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gj> m455a() {
+    public synchronized List<gj> m474a() {
         if (this.f451a == null) {
             return Collections.emptyList();
         }

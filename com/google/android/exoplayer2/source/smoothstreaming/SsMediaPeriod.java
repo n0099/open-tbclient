@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<SsChunkSource>> {
     public static final int INITIALIZATION_VECTOR_SIZE = 8;
     public final Allocator allocator;

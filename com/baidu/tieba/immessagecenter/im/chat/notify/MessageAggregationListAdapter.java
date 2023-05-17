@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.zz7;
+import com.baidu.tieba.n18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public class MessageAggregationListAdapter extends ImMessageCenterListAdapter {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.zz7
-    public void j(zz7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterListAdapter, com.baidu.tieba.n18
+    public void j(n18.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, imMessageCenterShowItemData) == null) {
             super.j(aVar, imMessageCenterShowItemData);

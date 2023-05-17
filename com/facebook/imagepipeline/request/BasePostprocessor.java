@@ -10,7 +10,7 @@ import com.facebook.imagepipeline.core.NativeCodeSetup;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BasePostprocessor implements Postprocessor {
     public static final Bitmap.Config FALLBACK_BITMAP_CONFIGURATION = Bitmap.Config.ARGB_8888;
     public static Method sCopyBitmap;

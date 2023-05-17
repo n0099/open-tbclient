@@ -18,7 +18,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.wb;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import java.io.BufferedWriter;
@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpeedStats {
     public static final int APP_TO_ACTIVITY_DELAY = 300;
     public static final int DATA_TYPE_CACHE = 0;
@@ -522,7 +522,7 @@ public class SpeedStats {
         }
         boolean z = true;
         this.isMainPageStatsEnd = true;
-        qb.b().d();
+        wb.b().d();
         this.mSpeedStatsManager.addStatsTimeStamp(6000);
         if (!SmartLaunchStats.hasTriedToFindFirstAvailableTime() && !hasForegroundToBackground()) {
             SmartLaunchStats.tryToFindFirstIdleTimeStamp();
@@ -615,7 +615,7 @@ public class SpeedStats {
             return;
         }
         this.isSchemePushStatsEnd = true;
-        qb.b().d();
+        wb.b().d();
         if (this.mSpeedStatsManager.getStatsFlag() == 2 || this.mSpeedStatsManager.getStatsFlag() == 1) {
             this.mStartMainActivityType = i;
             this.mUbcPage = str;

@@ -12,9 +12,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b01;
-import com.baidu.tieba.f01;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.r01;
+import com.baidu.tieba.v01;
+/* loaded from: classes3.dex */
 public class BdThumbSeekBarView extends View {
     public BdSeeBarStatus a;
     public final Paint b;
@@ -38,25 +38,25 @@ public class BdThumbSeekBarView extends View {
     public SeekBarDirect t;
     public boolean u;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BdSeeBarStatus {
         None,
         Seek
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BdSeekBarStyle {
         LINE,
         ROUND_RECT
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SeekBarDirect {
         Vertical,
         Horizontal
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(BdThumbSeekBarView bdThumbSeekBarView);
 
@@ -65,7 +65,7 @@ public class BdThumbSeekBarView extends View {
         void c(BdThumbSeekBarView bdThumbSeekBarView);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static final /* synthetic */ int[] a;
 
@@ -124,7 +124,7 @@ public class BdThumbSeekBarView extends View {
         if (this.h == null) {
             this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.nad_bdvideoplayer_seekbar_thumb);
         }
-        this.i = b01.a(this, 0.0f);
+        this.i = r01.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -135,7 +135,7 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        f01.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        v01.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 
     public BdThumbSeekBarView(Context context, AttributeSet attributeSet, BdSeekBarStyle bdSeekBarStyle, int i) {

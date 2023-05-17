@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aop.annotation;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.aop.annotation";
     public static final String BUILD_TYPE = "release";

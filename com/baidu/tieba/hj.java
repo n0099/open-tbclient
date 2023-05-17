@@ -1,25 +1,19 @@
 package com.baidu.tieba;
-
-import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface hj {
-    void a(String str);
+    boolean isOnCancle();
 
-    void b(int i, String str);
+    void onDeletedVoice(String str);
 
-    void c(dj djVar);
+    void onSendVoice(String str, int i);
 
-    void d(byte[] bArr);
+    void onShowErr(int i, String str);
 
-    void e();
+    void onShowRecordTime(int i);
 
-    void f(lj ljVar);
+    void onShowRecording(int i);
 
-    void g(int i, dj djVar);
+    void onStartedRecorder(boolean z, int i);
 
-    void h(dj djVar);
-
-    void i(dj djVar);
-
-    void onOpen(Map<String, String> map);
+    void onStopingRecorder();
 }

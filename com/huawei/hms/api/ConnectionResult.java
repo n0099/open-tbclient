@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.Objects;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ConnectionResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int API_UNAVAILABLE = 1000;
@@ -60,7 +60,7 @@ public final class ConnectionResult implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<ConnectionResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

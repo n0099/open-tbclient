@@ -1,107 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class oi7 implements p25 {
+/* compiled from: HeaderViewLogic.java */
+/* loaded from: classes6.dex */
+public final /* synthetic */ class oi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public oi7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p25
     @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public static pi7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsShield");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new qi7();
         }
-        return (Map) invokeLLL.objValue;
+        return (pi7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.p25
-    public boolean b(@NonNull Map<String, Object> map) {
+    public static View b(View view2) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            boolean z4 = false;
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "吧内屏蔽弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
-            if (v1 != null && !v1.h4() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                dj8 yunDialogLog = YunDialogLog.getInstance();
-                StringBuilder sb = new StringBuilder();
-                sb.append("吧内屏蔽弹窗策略校验失败：FrsFragment为空->");
-                if (v1 == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                sb.append("|");
-                sb.append("Frs是否展示过弹窗->");
-                if (v1 != null && v1.h4()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                sb.append(z3);
-                sb.append("|");
-                sb.append("是否存在FRS数据->");
-                if (TbSingleton.getInstance().getFrsResponseData() != null) {
-                    z4 = true;
-                }
-                sb.append(z4);
-                yunDialogLog.b("YunDialogManager", sb.toString());
-            }
-            return z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return view2.findViewById(R.id.obfuscated_res_0x7f090c9f);
         }
-        return invokeL.booleanValue;
+        return (View) invokeL.objValue;
+    }
+
+    @NonNull
+    public static TextView c(@NonNull View view2, boolean z) {
+        InterceptResult invokeLZ;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
+            if (z) {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eb0);
+            } else {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eb1);
+            }
+            textView.bringToFront();
+            p45.d(textView).w(R.color.CAM_X0619);
+            return textView;
+        }
+        return (TextView) invokeLZ.objValue;
+    }
+
+    public static void d(@NonNull View view2, @NonNull View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            p45 d = p45.d(view2);
+            d.o(R.string.J_X11);
+            d.t(R.array.Mask_X005);
+        }
     }
 }

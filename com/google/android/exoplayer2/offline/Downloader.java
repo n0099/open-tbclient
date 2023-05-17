@@ -2,10 +2,10 @@ package com.google.android.exoplayer2.offline;
 
 import androidx.annotation.Nullable;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface Downloader {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ProgressListener {
         void onDownloadProgress(Downloader downloader, float f, long j);
     }

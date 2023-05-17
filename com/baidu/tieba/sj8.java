@@ -1,34 +1,123 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.SearchSug.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class sj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<vm> b;
-    public uj8 c;
-    public xj8 d;
-    public vj8 e;
-    public wj8 f;
-    public yj8 g;
+    public Animation a;
+    public Animation b;
+    public View c;
+    public ViewGroup d;
+    public c e;
+    public rj8 f;
+    public boolean g;
 
-    public sj8(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ sj8 b;
+
+        public a(sj8 sj8Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sj8Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sj8Var;
+            this.a = context;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                pj8 item = this.b.f.getItem(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
+                this.b.f(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends rg {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sj8 a;
+
+        public b(sj8 sj8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sj8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sj8Var;
+        }
+
+        @Override // com.baidu.tieba.rg, android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.g = false;
+                if (this.a.e != null) {
+                    this.a.e.a();
+                }
+                this.a.d.removeView(this.a.c);
+            }
+        }
+    }
+
+    public sj8(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,67 +127,97 @@ public class sj8 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = null;
-        this.g = null;
-        a(context, bdTypeRecyclerView);
+        this.g = false;
+        this.d = viewGroup;
     }
 
-    public final void a(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    public void f(Context context) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, bdTypeRecyclerView) == null) {
-            this.c = new uj8(context, zj8.c);
-            this.d = new xj8(context, ck8.l);
-            this.e = new vj8(context, ak8.i);
-            this.f = new wj8(context, bk8.g);
-            this.g = new yj8(context, dk8.e);
-            this.b.add(this.c);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.b.add(this.g);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.addAdapters(this.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && (view2 = this.c) != null) {
+            view2.startAnimation(i(context));
         }
     }
 
-    public void b() {
+    public final Animation h(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            uj8 uj8Var = this.c;
-            if (uj8Var != null) {
-                uj8Var.notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.a == null) {
+                this.a = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_enter);
             }
-            xj8 xj8Var = this.d;
-            if (xj8Var != null) {
-                xj8Var.notifyDataSetChanged();
+            return this.a;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public final Animation i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                this.b = AnimationUtils.loadAnimation(context, R.anim.dialog_ani_t2b_exit);
             }
-            vj8 vj8Var = this.e;
-            if (vj8Var != null) {
-                vj8Var.notifyDataSetChanged();
-            }
-            wj8 wj8Var = this.f;
-            if (wj8Var != null) {
-                wj8Var.notifyDataSetChanged();
-            }
-            yj8 yj8Var = this.g;
-            if (yj8Var != null) {
-                yj8Var.notifyDataSetChanged();
+            this.b.setAnimationListener(new b(this));
+            return this.b;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+            rj8 rj8Var = this.f;
+            if (rj8Var != null) {
+                rj8Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void c(DataRes dataRes, String str) {
+    public void l(c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dataRes, str) != null) || this.a == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public final View g(Context context, List<pj8> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0586, (ViewGroup) null);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091fef);
+            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
+            rj8 rj8Var = new rj8(context, i);
+            this.f = rj8Var;
+            rj8Var.b(list);
+            gridView.setAdapter((ListAdapter) this.f);
+            gridView.setOnItemClickListener(new a(this, context));
+            return inflate;
+        }
+        return (View) invokeLLI.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void m(Context context, List<pj8> list, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLI(1048583, this, context, list, i) != null) || this.g) {
             return;
         }
-        List<in> a = ek8.a(dataRes, str);
-        if (!ListUtils.isEmpty(a)) {
-            this.a.setData(a);
-        }
+        this.g = true;
+        View g = g(context, list, i);
+        this.c = g;
+        this.d.addView(g);
+        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+        this.c.startAnimation(h(context));
     }
 }

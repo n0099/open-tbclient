@@ -3,7 +3,7 @@ package com.baidu.searchbox.logsystem.basic.upload.identity;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoParam {
     public String mDeviceInfo;
     public String mEnDeviceInfo;

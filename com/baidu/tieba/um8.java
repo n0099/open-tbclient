@@ -1,27 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.live.imp.LiveUserSecurityBehaviorServiceImpl;
+import com.baidu.searchbox.live.interfaces.service.LiveUserSecurityBehaviorService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class um8 implements ToastService {
+/* loaded from: classes7.dex */
+public final class um8 extends jk1<LiveUserSecurityBehaviorService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
-        }
-    }
 
     public um8() {
         Interceptable interceptable = $ic;
@@ -37,27 +26,15 @@ public class um8 implements ToastService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: a */
+    public LiveUserSecurityBehaviorService createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
-            ii.Q(TbadkCoreApplication.getInst(), str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new LiveUserSecurityBehaviorServiceImpl();
         }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showNormal(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
-            ii.Q(TbadkCoreApplication.getInst(), str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
-    public void showToastBottom(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
-            ii.Q(TbadkCoreApplication.getInst(), str);
-        }
+        return (LiveUserSecurityBehaviorService) invokeV.objValue;
     }
 }

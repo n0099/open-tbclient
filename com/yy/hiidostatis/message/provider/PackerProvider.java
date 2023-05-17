@@ -7,7 +7,7 @@ import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PackerProvider implements Provider<Packer> {
     public ConcurrentHashMap<String, Packer> caches = new ConcurrentHashMap<>();
 

@@ -12,7 +12,7 @@ import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f extends c<PushSwitchStatus> {
     public String h;
     public int i;

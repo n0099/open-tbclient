@@ -32,7 +32,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
@@ -43,7 +43,7 @@ public class f<T> {
     public g<T> e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;

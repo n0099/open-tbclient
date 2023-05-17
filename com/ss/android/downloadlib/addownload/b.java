@@ -6,7 +6,7 @@ import android.os.Looper;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static volatile b a;
     public Handler b = null;

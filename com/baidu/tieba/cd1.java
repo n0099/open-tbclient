@@ -1,10 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.download.view.IDownloadViewCreator;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,70 +17,274 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class cd1 {
+/* loaded from: classes5.dex */
+public class cd1 extends yc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static cd1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public gj1<IHostAppRuntime> a;
+    public final TextView f;
+    public final RelativeLayout g;
+    public final jl0<?> h;
+    public dl0 i;
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ej1 b2 = ej1.b();
-            this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cd1 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947670809, "Lcom/baidu/tieba/cd1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(cd1 cd1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cd1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947670809, "Lcom/baidu/tieba/cd1;");
-                return;
+            this.a = cd1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null) {
+                this.a.i.m();
             }
         }
-        b = new cd1();
     }
 
-    public cd1() {
+    /* loaded from: classes5.dex */
+    public class b implements hl0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ qk0 b;
+        public final /* synthetic */ cd1 c;
+
+        public b(cd1 cd1Var, AdBaseModel adBaseModel, qk0 qk0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cd1Var, adBaseModel, qk0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = cd1Var;
+            this.a = adBaseModel;
+            this.b = qk0Var;
+        }
+
+        @Override // com.baidu.tieba.hl0
+        public void a(AdDownloadStatus adDownloadStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, adDownloadStatus) == null) {
+                int i = c.a[adDownloadStatus.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i == 4) {
+                                cd1 cd1Var = this.c;
+                                if (cd1Var.e != null && cd1Var.n(this.a)) {
+                                    this.c.e.a(this.a);
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        cd1 cd1Var2 = this.c;
+                        if (cd1Var2.e != null && cd1Var2.n(this.a)) {
+                            this.c.e.e(this.a);
+                            return;
+                        }
+                        return;
+                    }
+                    cd1 cd1Var3 = this.c;
+                    if (cd1Var3.e != null && cd1Var3.n(this.a)) {
+                        this.c.e.d(this.a);
+                        return;
+                    }
+                    return;
+                }
+                cd1 cd1Var4 = this.c;
+                if (cd1Var4.e != null && cd1Var4.n(this.a)) {
+                    this.c.e.f(this.a, this.b.i);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hl0
+        public void b(AdDownloadCode adDownloadCode) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadCode) == null) {
+                boolean z2 = true;
+                if (adDownloadCode != AdDownloadCode.ERROR_FAST_CLICK) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (this.c.e == null) {
+                    z2 = false;
+                }
+                if ((z & z2) && this.c.n(this.a)) {
+                    this.c.e.b(this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-894112582, "Lcom/baidu/tieba/cd1$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-894112582, "Lcom/baidu/tieba/cd1$c;");
+                    return;
+                }
+            }
+            int[] iArr = new int[AdDownloadStatus.values().length];
+            a = iArr;
+            try {
+                iArr[AdDownloadStatus.DOWNLOADING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[AdDownloadStatus.PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[AdDownloadStatus.COMPLETED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[AdDownloadStatus.INSTALLED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cd1(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        this.f = (TextView) a(R.id.feed_ad_operate_download_app_name);
+        this.g = (RelativeLayout) a(R.id.nad_feed_ad_operate_progress_button);
+        view2.setBackgroundColor(0);
+        this.h = am0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
+        this.g.setOnClickListener(new a(this));
+        m();
     }
 
-    public static cd1 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yc1
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            if (yc1.c(adBaseModel) && adBaseModel.h != null) {
+                m();
+                String str = adBaseModel.h.b.a;
+                if (!TextUtils.isEmpty(str) && (textView = this.f) != null) {
+                    textView.setText(str);
+                    o(adBaseModel);
+                }
+                if (TextUtils.isEmpty(adBaseModel.f.d)) {
+                    return;
+                }
+                qk0 c2 = qk0.c(adBaseModel);
+                this.i = new dl0(c2, this.h);
+                pc1 pc1Var = this.e;
+                if (pc1Var != null) {
+                    pc1Var.c(adBaseModel);
+                }
+                this.i.o(new b(this, adBaseModel, c2));
+                return;
+            }
+            i(8);
         }
-        return (cd1) invokeV.objValue;
     }
 
-    public Application a() {
-        InterceptResult invokeV;
+    public final boolean n(AdBaseModel adBaseModel) {
+        InterceptResult invokeL;
+        zp0 zp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get().getApplication();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel)) == null) {
+            if (adBaseModel == null || (zp0Var = adBaseModel.l) == null) {
+                return false;
+            }
+            return zp0Var.e;
         }
-        return (Application) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public final void o(AdBaseModel adBaseModel) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, adBaseModel) != null) || this.f == null) {
+            return;
+        }
+        if (adBaseModel.b) {
+            i = R.color.NAD_FC4;
+        } else {
+            i = R.color.NAD_FC1;
+        }
+        this.f.setTextColor(getResources().getColor(i));
+    }
+
+    @Override // com.baidu.tieba.yc1
+    public void e() {
+        dl0 dl0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dl0Var = this.i) != null) {
+            dl0Var.k();
+            this.i = null;
+        }
+    }
+
+    public final void m() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (textView = this.f) != null) {
+            textView.setTextColor(getResources().getColor(R.color.NAD_FC1));
+        }
     }
 }

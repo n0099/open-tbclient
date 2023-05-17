@@ -11,7 +11,7 @@ import android.text.TextUtils;
 import android.widget.RemoteViews;
 import java.util.Map;
 @SuppressLint({"NewApi"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ep extends Notification.Builder {
     public Context a;
 
@@ -58,7 +58,7 @@ public class ep extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ep mo378a(String str) {
+    public ep mo397a(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 bj.a((Object) this, "setColor", Integer.valueOf(Color.parseColor(str)));
@@ -74,12 +74,12 @@ public class ep extends Notification.Builder {
     }
 
     /* renamed from: a */
-    public void mo376a() {
+    public void mo395a() {
     }
 
     @Override // android.app.Notification.Builder
     public Notification build() {
-        mo376a();
+        mo395a();
         return super.build();
     }
 }

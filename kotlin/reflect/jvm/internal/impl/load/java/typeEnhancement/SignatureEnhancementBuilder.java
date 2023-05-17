@@ -17,15 +17,15 @@ import kotlin.jvm.functions.Function1;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.reflect.jvm.internal.impl.load.kotlin.SignatureBuildingComponents;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SignatureEnhancementBuilder {
     public final Map<String, PredefinedFunctionEnhancementInfo> signatures = new LinkedHashMap();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class ClassEnhancementBuilder {
         public final String className;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public final class FunctionEnhancementBuilder {
             public final String functionName;
             public final List<Pair<String, TypeEnhancementInfo>> parameters = new ArrayList();

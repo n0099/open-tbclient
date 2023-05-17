@@ -4,17 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int emui_color_gray_1 = 0x7f0605d6;
-        public static final int emui_color_gray_10 = 0x7f0605d7;
-        public static final int emui_color_gray_7 = 0x7f0605d8;
+        public static final int emui_color_gray_1 = 0x7f060734;
+        public static final int emui_color_gray_10 = 0x7f060735;
+        public static final int emui_color_gray_7 = 0x7f060736;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -32,10 +32,10 @@ public final class R {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f0909b4;
+        public static final int enable_service_text = 0x7f0909dc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -53,10 +53,10 @@ public final class R {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int activity_endisable_service = 0x7f0d0036;
+        public static final int activity_endisable_service = 0x7f0d0037;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -74,17 +74,17 @@ public final class R {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int hms_apk_not_installed_hints = 0x7f0f090f;
-        public static final int hms_bindfaildlg_message = 0x7f0f0910;
-        public static final int hms_bindfaildlg_title = 0x7f0f0911;
-        public static final int hms_confirm = 0x7f0f0912;
-        public static final int hms_is_spoof = 0x7f0f0913;
-        public static final int hms_spoof_hints = 0x7f0f0917;
-        public static final int push_cat_body = 0x7f0f103a;
-        public static final int push_cat_head = 0x7f0f103b;
+        public static final int hms_apk_not_installed_hints = 0x7f0f0980;
+        public static final int hms_bindfaildlg_message = 0x7f0f0981;
+        public static final int hms_bindfaildlg_title = 0x7f0f0982;
+        public static final int hms_confirm = 0x7f0f0983;
+        public static final int hms_is_spoof = 0x7f0f0984;
+        public static final int hms_spoof_hints = 0x7f0f0988;
+        public static final int push_cat_body = 0x7f0f10fb;
+        public static final int push_cat_head = 0x7f0f10fc;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -102,7 +102,7 @@ public final class R {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class style {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Base_Translucent = 0x7f1000f0;

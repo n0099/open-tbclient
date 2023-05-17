@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.platform;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class SimplePlatform {
     public final String platformName;
 

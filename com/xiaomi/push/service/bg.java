@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bg {
     public static bg a;
 
@@ -23,12 +23,12 @@ public class bg {
     /* renamed from: a  reason: collision with other field name */
     public List<a> f925a = new ArrayList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with other field name */
@@ -77,16 +77,16 @@ public class bg {
         public IBinder.DeathRecipient f928a = null;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0740b f932a = new C0740b();
+        public final C0754b f932a = new C0754b();
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public interface a {
             void a(c cVar, c cVar2, int i);
         }
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class C0740b extends XMPushService.j {
+        /* loaded from: classes10.dex */
+        public class C0754b extends XMPushService.j {
 
             /* renamed from: a  reason: collision with other field name */
             public String f940a;
@@ -96,7 +96,7 @@ public class bg {
             public String f941b;
             public int c;
 
-            public C0740b() {
+            public C0754b() {
                 super(0);
             }
 
@@ -110,13 +110,13 @@ public class bg {
 
             @Override // com.xiaomi.push.service.XMPushService.j
             /* renamed from: a */
-            public String mo676a() {
+            public String mo695a() {
                 return "notify job";
             }
 
             @Override // com.xiaomi.push.service.XMPushService.j
             /* renamed from: a */
-            public void mo393a() {
+            public void mo412a() {
                 if (b.this.a(this.b, this.c, this.f941b)) {
                     b.this.a(this.b, this.c, this.f940a, this.f941b);
                     return;
@@ -125,7 +125,7 @@ public class bg {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public class c implements IBinder.DeathRecipient {
             public final Messenger a;
 
@@ -212,14 +212,14 @@ public class bg {
 
         private boolean b(int i, int i2, String str) {
             if (i == 1) {
-                return (this.f933a == c.binded || !this.f931a.m674c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
+                return (this.f933a == c.binded || !this.f931a.m693c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
             } else if (i != 2) {
                 if (i != 3) {
                     return false;
                 }
                 return !"wait".equals(str);
             } else {
-                return this.f931a.m674c();
+                return this.f931a.m693c();
             }
         }
 
@@ -232,7 +232,7 @@ public class bg {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m720a() {
+        public void m739a() {
             try {
                 Messenger messenger = this.f929a;
                 if (messenger != null && this.f928a != null) {
@@ -244,7 +244,7 @@ public class bg {
         }
 
         public void a(Messenger messenger) {
-            m720a();
+            m739a();
             try {
                 if (messenger != null) {
                     this.f929a = messenger;
@@ -277,7 +277,7 @@ public class bg {
             c cVar2 = this.f933a;
             int i3 = 0;
             if (cVar2 != cVar) {
-                com.xiaomi.channel.commonutils.logger.b.m101a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), bk.a(i2), str, str2, this.g));
+                com.xiaomi.channel.commonutils.logger.b.m120a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), bk.a(i2), str, str2, this.g));
                 this.f933a = cVar;
             }
             if (this.f934a == null) {
@@ -302,7 +302,7 @@ public class bg {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum c {
         unbind,
         binding,
@@ -329,7 +329,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m712a() {
+    public synchronized int m731a() {
         return this.f926a.size();
     }
 
@@ -342,7 +342,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<b> m713a() {
+    public synchronized ArrayList<b> m732a() {
         ArrayList<b> arrayList;
         arrayList = new ArrayList<>();
         for (HashMap<String, b> hashMap : this.f926a.values()) {
@@ -352,7 +352,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<b> m714a(String str) {
+    public synchronized Collection<b> m733a(String str) {
         if (this.f926a.containsKey(str)) {
             return ((HashMap) this.f926a.get(str).clone()).values();
         }
@@ -360,7 +360,7 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<String> m715a(String str) {
+    public synchronized List<String> m734a(String str) {
         ArrayList arrayList;
         arrayList = new ArrayList();
         for (HashMap<String, b> hashMap : this.f926a.values()) {
@@ -374,10 +374,10 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m716a() {
-        Iterator<b> it = m713a().iterator();
+    public synchronized void m735a() {
+        Iterator<b> it = m732a().iterator();
         while (it.hasNext()) {
-            it.next().m720a();
+            it.next().m739a();
         }
         this.f926a.clear();
     }
@@ -409,18 +409,18 @@ public class bg {
             this.f926a.put(bVar.g, hashMap);
         }
         hashMap.put(a(bVar.f938b), bVar);
-        com.xiaomi.channel.commonutils.logger.b.m101a("add active client. " + bVar.f935a);
+        com.xiaomi.channel.commonutils.logger.b.m120a("add active client. " + bVar.f935a);
         for (a aVar : this.f925a) {
             aVar.a();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m717a(String str) {
+    public synchronized void m736a(String str) {
         HashMap<String, b> hashMap = this.f926a.get(str);
         if (hashMap != null) {
             for (b bVar : hashMap.values()) {
-                bVar.m720a();
+                bVar.m739a();
             }
             hashMap.clear();
             this.f926a.remove(str);
@@ -431,12 +431,12 @@ public class bg {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m718a(String str, String str2) {
+    public synchronized void m737a(String str, String str2) {
         HashMap<String, b> hashMap = this.f926a.get(str);
         if (hashMap != null) {
             b bVar = hashMap.get(a(str2));
             if (bVar != null) {
-                bVar.m720a();
+                bVar.m739a();
             }
             hashMap.remove(a(str2));
             if (hashMap.isEmpty()) {

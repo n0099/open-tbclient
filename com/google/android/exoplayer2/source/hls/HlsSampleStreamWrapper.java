@@ -26,7 +26,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loader.ReleaseCallback, SequenceableLoader, ExtractorOutput, SampleQueue.UpstreamFormatChangedListener {
     public static final int PRIMARY_TYPE_AUDIO = 2;
     public static final int PRIMARY_TYPE_NONE = 0;
@@ -68,7 +68,7 @@ public final class HlsSampleStreamWrapper implements Loader.Callback<Chunk>, Loa
     };
     public final Handler handler = new Handler();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Callback extends SequenceableLoader.Callback<HlsSampleStreamWrapper> {
         void onPlaylistRefreshRequired(HlsMasterPlaylist.HlsUrl hlsUrl);
 

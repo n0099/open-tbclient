@@ -1,29 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class b36 extends ActivityDelegation {
+/* loaded from: classes4.dex */
+public class b36 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     public b36() {
         Interceptable interceptable = $ic;
@@ -39,11 +28,30 @@ public class b36 extends ActivityDelegation {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onAttachedToWindow() {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        boolean d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new QRCodeScanActivityConfig(getAgent(), true)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null) {
+                return null;
+            }
+            int cmd = customMessage.getCmd();
+            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
+                ac5 ac5Var = (ac5) customMessage.getData();
+                if (cmd == 2001179) {
+                    d = d36.f().a(ac5Var);
+                } else {
+                    d = d36.f().d(ac5Var.d());
+                }
+                if (!d) {
+                    o65 m = o65.m();
+                    m.w("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
+                }
+            }
+            return null;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

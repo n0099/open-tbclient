@@ -1,13 +1,11 @@
 package com.baidu.tieba;
-
-import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface uaa {
-    void a();
+    void i(String str);
 
-    void b();
+    void k(String str);
 
-    boolean c(Bitmap bitmap);
+    void u(String str);
 
-    void d();
+    void v(String str);
 }

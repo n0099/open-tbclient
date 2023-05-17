@@ -5,12 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.kwad.sdk.core.videocache.m;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends SQLiteOpenHelper implements b {
-    public static final String[] afb = {"_id", "url", CloudStabilityUBCUtils.KEY_LENGTH, "mime"};
+    public static final String[] afb = {"_id", "url", "length", "mime"};
 
     public a(Context context) {
         super(context, "AndroidVideoCache.db", (SQLiteDatabase.CursorFactory) null, 1);
@@ -20,13 +19,13 @@ public final class a extends SQLiteOpenHelper implements b {
     public static ContentValues a(m mVar) {
         ContentValues contentValues = new ContentValues();
         contentValues.put("url", mVar.url);
-        contentValues.put(CloudStabilityUBCUtils.KEY_LENGTH, Long.valueOf(mVar.aeV));
+        contentValues.put("length", Long.valueOf(mVar.aeV));
         contentValues.put("mime", mVar.aeW);
         return contentValues;
     }
 
     public static m f(Cursor cursor) {
-        return new m(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow(CloudStabilityUBCUtils.KEY_LENGTH)), cursor.getString(cursor.getColumnIndexOrThrow("mime")));
+        return new m(cursor.getString(cursor.getColumnIndexOrThrow("url")), cursor.getLong(cursor.getColumnIndexOrThrow("length")), cursor.getString(cursor.getColumnIndexOrThrow("mime")));
     }
 
     @Override // com.kwad.sdk.core.videocache.c.b

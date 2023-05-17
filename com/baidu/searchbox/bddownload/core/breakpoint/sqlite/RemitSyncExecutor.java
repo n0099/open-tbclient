@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RemitSyncExecutor implements Handler.Callback {
     public static final String TAG = "RemitSyncExecutor";
     public static final int WHAT_REMOVE_FREE_BUNCH_ID = -1;
@@ -24,7 +24,7 @@ public class RemitSyncExecutor implements Handler.Callback {
     @NonNull
     public final Handler handler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface RemitAgent {
         void removeInfo(int i);
 

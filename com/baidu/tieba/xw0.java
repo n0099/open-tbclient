@@ -1,74 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.cyberplayer.sdk.CyberVideoView;
-import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class xw0 extends ww0 {
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public class xw0 implements gw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CyberVideoView g;
-    public tv0 h;
-
-    /* loaded from: classes7.dex */
-    public class a extends CyberVideoView {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xw0 J;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xw0 xw0Var, Context context, int i) {
-            super(context, i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xw0Var, context, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.J = xw0Var;
-        }
-
-        @Override // android.view.View
-        @SuppressLint({"ClickableViewAccessibility"})
-        public boolean onTouchEvent(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-                if (this.J.h != null) {
-                    return this.J.h.onTouchEvent(motionEvent);
-                }
-                return super.onTouchEvent(motionEvent);
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public int a;
+    public int b;
 
     public xw0() {
         Interceptable interceptable = $ic;
@@ -83,339 +34,151 @@ public class xw0 extends ww0 {
                 return;
             }
         }
-        this.g = new a(this, as0.b(), 1);
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.baidu.tieba.vw0
-    public void C() {
+    @Override // com.baidu.tieba.gw0
+    public void a(zy0 zy0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g.setVideoURI(Uri.parse(this.b), this.d);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.Q();
-            this.g.start();
-            if (n(PlayerStatus.COMPLETE)) {
-                p(PlayerStatus.PLAYING);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, zy0Var) == null) && zy0Var != null && !TextUtils.isEmpty(zy0Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (!TextUtils.isEmpty(zy0Var.f)) {
+                clogBuilder.v(zy0Var.f);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            super.R();
-            this.g.stopPlayback();
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.S();
-            this.g.stopPlayback();
-        }
-    }
-
-    @Nullable
-    public tv0 X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.h;
-        }
-        return (tv0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    @NonNull
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.g;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.g.getDuration() / 1000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return this.g.getDuration();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return this.g.getVideoHeight();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.g.getVideoWidth();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0, com.baidu.tieba.lz0
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            super.onRelease();
-            this.g.stopPlayback();
-            F(null);
-            Y(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void B(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.g.setClarityInfo(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void G(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.g.setLooping(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void I(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.g.setPlayJson(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void K(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            super.K(z);
-            this.g.setRemote(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void L(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            this.g.setSpeed(f);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void O(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g.setVideoScalingMode(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void U(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.g.changeProxyDynamic(str);
-        }
-    }
-
-    public void Y(@Nullable tv0 tv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, tv0Var) == null) {
-            this.h = tv0Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.g.muteOrUnmuteAudio(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0, com.baidu.tieba.lz0
-    public boolean verify(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
-            return "CyberNetPlayer".equals(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void A(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.g.seekTo(i, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void D(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, obj) == null) {
-            this.g.setExternalInfo(str, obj);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void H(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            this.g.setOption(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void J(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                this.g.setOption(CyberPlayerManager.OPT_HTTP_PROXY, str);
-                this.g.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "true");
+            clogBuilder.p(zy0Var.g);
+            String c = zy0Var.a.c();
+            char c2 = 65535;
+            switch (c.hashCode()) {
+                case -1530009462:
+                    if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
+                        c2 = 5;
+                        break;
+                    }
+                    break;
+                case 154871702:
+                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case 720027695:
+                    if (c.equals(ControlEvent.ACTION_PAUSE)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 723345051:
+                    if (c.equals(ControlEvent.ACTION_START)) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 906917140:
+                    if (c.equals(ControlEvent.ACTION_RESUME)) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 2145795460:
+                    if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 != 3 && c2 != 4) {
+                            if (c2 == 5) {
+                                int g = zy0Var.a.g(1);
+                                int g2 = zy0Var.a.g(2);
+                                if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
+                                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).l(String.valueOf(g2)).m(String.valueOf(g2)).n(zy0Var.e);
+                                    e21.b(clogBuilder);
+                                    ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.VIDEO_START).k(zy0Var.b).m(zy0Var.d).p(zy0Var.g);
+                                    if (!TextUtils.isEmpty(zy0Var.f)) {
+                                        p.v(zy0Var.f);
+                                    }
+                                    e21.b(p);
+                                }
+                                this.b = g;
+                                return;
+                            }
+                            return;
+                        } else if (this.a < 1) {
+                            return;
+                        } else {
+                            try {
+                                if (this.b > Integer.parseInt(zy0Var.c)) {
+                                    clogBuilder.l(zy0Var.d);
+                                } else {
+                                    clogBuilder.l(zy0Var.c);
+                                }
+                            } catch (NumberFormatException unused) {
+                                clogBuilder.l(zy0Var.c);
+                            }
+                            clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).m(zy0Var.d).n(zy0Var.e).o("0");
+                            this.a--;
+                            e21.b(clogBuilder);
+                            return;
+                        }
+                    }
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_RESUME).k(zy0Var.b).m(zy0Var.d);
+                    e21.b(clogBuilder);
+                    return;
+                }
+                boolean d = zy0Var.a.d(7);
+                clogBuilder.l(zy0Var.c).m(zy0Var.d).n(zy0Var.e);
+                if (d) {
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_PAUSE);
+                } else {
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).o("1");
+                }
+                e21.b(clogBuilder);
                 return;
             }
-            this.g.setOption(CyberPlayerManager.OPT_HTTP_PROXY, "");
-            this.g.setOption(CyberPlayerManager.OPT_NEED_T5_AUTH, "false");
+            clogBuilder.y(ClogBuilder.LogType.VIDEO_START).k(zy0Var.b).m(zy0Var.d);
+            this.b = 0;
+            this.a++;
+            e21.b(clogBuilder);
         }
     }
 
-    @Override // com.baidu.tieba.ww0
-    public void V(yw0 yw0Var) {
+    @Override // com.baidu.tieba.gw0
+    public void b(zy0 zy0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, yw0Var) == null) {
-            this.g.setOnCompletionListener(yw0Var);
-            this.g.setOnErrorListener(yw0Var);
-            this.g.setOnInfoListener(yw0Var);
-            this.g.setOnSeekCompleteListener(yw0Var);
-            this.g.setOnPreparedListener(yw0Var);
-            this.g.setOnBufferingUpdateListener(yw0Var);
-            this.g.setOnVideoSizeChangedListener(yw0Var);
-            this.g.setOnMediaSourceChangedListener(yw0Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void N(String str, @NonNull HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                this.g.setOption(entry.getKey(), entry.getValue());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (n(PlayerStatus.IDLE)) {
-                int e = e() / 1000;
-                if (e - (this.g.getCurrentPosition() / 1000) <= 2) {
-                    return e;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zy0Var) == null) && zy0Var != null && zy0Var.a != null && !TextUtils.isEmpty(zy0Var.g)) {
+            String c = zy0Var.a.c();
+            char c2 = 65535;
+            int hashCode = c.hashCode();
+            if (hashCode != 154871702) {
+                if (hashCode != 1370689931) {
+                    if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                        c2 = 1;
+                    }
+                } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                    c2 = 0;
                 }
+            } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                c2 = 2;
             }
-            return this.g.getCurrentPosition() / 1000;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            if (i() == PlayerStatus.IDLE && e() - this.g.getCurrentPosition() <= 2) {
-                return f();
+            if (c2 != 0) {
+                if (c2 == 1 || c2 == 2) {
+                    az0.b.b();
+                    return;
+                }
+                return;
             }
-            return this.g.getCurrentPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vw0, com.baidu.tieba.lz0
-    public void onInit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            super.onInit();
-            this.g.reset();
-            this.g.setVideoScalingMode(2);
-            this.g.setSpeed(1.0f);
-            this.g.setVideoRotation(0);
-            this.g.setVisibility(0);
-            this.g.setAlpha(1.0f);
-            K(true);
-            this.g.setBackgroundColor(-16777216);
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            super.u();
-            if (n(PlayerStatus.PLAYING, PlayerStatus.PREPARED, PlayerStatus.PREPARING)) {
-                p(PlayerStatus.PAUSE);
-                this.g.pause();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vw0
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            super.y();
-            if (n(PlayerStatus.PREPARED, PlayerStatus.PREPARING, PlayerStatus.PAUSE, PlayerStatus.COMPLETE)) {
-                p(PlayerStatus.PLAYING);
-                this.g.start();
+            fz0 a = az0.b.a();
+            if (a != null) {
+                a.c(zy0Var.g);
+                a.e(zy0Var.b);
+                a.d(zy0Var.h);
+                a.b(zy0Var.d);
+                az0.b.c(a);
             }
         }
     }

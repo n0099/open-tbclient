@@ -10,25 +10,25 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.swan.apps.res.ui.SmoothProgressBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.g73;
-import com.baidu.tieba.h23;
-import com.baidu.tieba.ld3;
-import com.baidu.tieba.y13;
-/* loaded from: classes3.dex */
-public class LoadingView extends FrameLayout implements g73<LoadingView> {
+import com.baidu.tieba.h33;
+import com.baidu.tieba.ns2;
+import com.baidu.tieba.p83;
+import com.baidu.tieba.q33;
+import com.baidu.tieba.ue3;
+/* loaded from: classes4.dex */
+public class LoadingView extends FrameLayout implements p83<LoadingView> {
     public View a;
     public SmoothProgressBar b;
     public TextView c;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.g73
+    @Override // com.baidu.tieba.p83
     public LoadingView getLoadingView() {
         return this;
     }
 
-    /* loaded from: classes3.dex */
-    public class a implements ld3 {
+    /* loaded from: classes4.dex */
+    public class a implements ue3 {
         public a() {
         }
     }
@@ -54,32 +54,32 @@ public class LoadingView extends FrameLayout implements g73<LoadingView> {
 
     public void a() {
         View view2;
-        if (y13.e()) {
-            view2 = h23.a().d(R.layout.obfuscated_res_0x7f0d00bc);
+        if (h33.e()) {
+            view2 = q33.a().d(R.layout.obfuscated_res_0x7f0d00be);
         } else {
             view2 = null;
         }
         if (view2 != null) {
-            addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07069c)));
+            addView(view2, 0, new LinearLayout.LayoutParams(-2, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707ee)));
         } else {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00bc, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00be, (ViewGroup) this, true);
         }
-        this.a = findViewById(R.id.root_container);
-        this.b = (SmoothProgressBar) findViewById(R.id.loading_bar);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09169d);
+        this.a = findViewById(R.id.obfuscated_res_0x7f091e94);
+        this.b = (SmoothProgressBar) findViewById(R.id.obfuscated_res_0x7f0915d2);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0916e1);
         setPageResources();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        er2.M().f(this, new a());
+        ns2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        er2.M().g(this);
+        ns2.M().g(this);
     }
 
     public void setMsg(String str) {
@@ -89,15 +89,15 @@ public class LoadingView extends FrameLayout implements g73<LoadingView> {
     public void setPageResources() {
         View view2 = this.a;
         if (view2 != null) {
-            view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080189));
+            view2.setBackground(view2.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801a1));
         }
         SmoothProgressBar smoothProgressBar = this.b;
         if (smoothProgressBar != null) {
-            smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08018d));
+            smoothProgressBar.setIndeterminateDrawable(smoothProgressBar.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801a5));
         }
         TextView textView = this.c;
         if (textView != null) {
-            textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f060324));
+            textView.setTextColor(textView.getResources().getColor(R.color.obfuscated_res_0x7f060439));
         }
     }
 }

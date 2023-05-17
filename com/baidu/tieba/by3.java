@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class by3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "com.baidu.gamenow";
-    public static String b = "file_name";
-    public static String c = "file_unzip_path";
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+/* loaded from: classes5.dex */
+public interface by3 {
+    void a(FrameLayout frameLayout);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947661261, "Lcom/baidu/tieba/by3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947661261, "Lcom/baidu/tieba/by3;");
-        }
-    }
+    void d(boolean z);
+
+    by3 e(Context context, @NonNull xw3 xw3Var);
+
+    void g(vx3 vx3Var);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    void h(xw3 xw3Var);
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    void mute(boolean z);
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

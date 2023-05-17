@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.transition.TransitionValues;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaterialElevationScale extends MaterialVisibility<ScaleProvider> {
     public static final float DEFAULT_SCALE = 0.85f;
     public final boolean growing;

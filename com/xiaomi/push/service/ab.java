@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.id;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ab extends XMPushService.j {
     public final /* synthetic */ id a;
 
@@ -20,16 +20,16 @@ public final class ab extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "send ack message for obsleted message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         try {
             id a = y.a((Context) this.f879a, this.a);
-            a.m545a().a("message_obsleted", "1");
+            a.m564a().a("message_obsleted", "1");
             ah.a(this.f879a, a);
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

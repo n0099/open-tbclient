@@ -29,7 +29,7 @@ import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import androidx.core.widget.TextViewCompat;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     public static final int[] CHECKED_STATE_SET = {16842912};
     public final AccessibilityDelegateCompat accessibilityDelegate;
@@ -84,7 +84,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     private void setActionView(@Nullable View view2) {
         if (view2 != null) {
             if (this.actionArea == null) {
-                this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090854)).inflate();
+                this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090871)).inflate();
             }
             this.actionArea.removeAllViews();
             this.actionArea.addView(view2);
@@ -178,9 +178,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             }
         };
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0238, (ViewGroup) this, true);
-        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020c));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090855);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d024b, (ViewGroup) this, true);
+        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ac));
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090872);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
         ViewCompat.setAccessibilityDelegate(this.textView, this.accessibilityDelegate);
@@ -210,7 +210,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     @Nullable
     private StateListDrawable createDefaultBackground() {
         TypedValue typedValue = new TypedValue();
-        if (getContext().getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040171, typedValue, true)) {
+        if (getContext().getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04017c, typedValue, true)) {
             StateListDrawable stateListDrawable = new StateListDrawable();
             stateListDrawable.addState(CHECKED_STATE_SET, new ColorDrawable(typedValue.data));
             stateListDrawable.addState(ViewGroup.EMPTY_STATE_SET, new ColorDrawable(0));
@@ -261,7 +261,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             drawable.setBounds(0, 0, i, i);
         } else if (this.needsEmptyIcon) {
             if (this.emptyDrawable == null) {
-                Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080ef0, getContext().getTheme());
+                Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f081038, getContext().getTheme());
                 this.emptyDrawable = drawable2;
                 if (drawable2 != null) {
                     int i2 = this.iconSize;

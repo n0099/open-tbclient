@@ -1,7 +1,7 @@
 package com.baidu.searchbox.launch;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDyeConfig {
     public static final IDyeConfig EMPTY = new IDyeConfig() { // from class: com.baidu.searchbox.launch.IDyeConfig.1
         @Override // com.baidu.searchbox.launch.IDyeConfig
@@ -13,7 +13,7 @@ public interface IDyeConfig {
 
     String getDyeConfig();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Impl {
         public static IDyeConfig sHomeSearch = SmartLaunchRuntime.getDyeConfig();
 

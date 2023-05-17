@@ -12,7 +12,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FloatingStatPlugin extends AbsPlugin {
     public static final String KEY_TYPE = "type";
     public static final String KEY_VALUE = "value";

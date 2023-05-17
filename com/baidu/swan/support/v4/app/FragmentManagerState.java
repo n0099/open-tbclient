@@ -2,7 +2,7 @@ package com.baidu.swan.support.v4.app;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class FragmentManagerState implements Parcelable {
     public static final Parcelable.Creator<FragmentManagerState> CREATOR = new a();
     public FragmentState[] mActive;
@@ -17,7 +17,7 @@ public final class FragmentManagerState implements Parcelable {
     public FragmentManagerState() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<FragmentManagerState> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

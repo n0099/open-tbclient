@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.Resource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @RequiresApi(api = 28)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ByteBufferBitmapImageDecoderResourceDecoder implements ResourceDecoder<ByteBuffer, Bitmap> {
     public final BitmapImageDecoderResourceDecoder wrapped = new BitmapImageDecoderResourceDecoder();
 

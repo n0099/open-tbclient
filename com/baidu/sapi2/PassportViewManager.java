@@ -3,14 +3,14 @@ package com.baidu.sapi2;
 import android.graphics.drawable.Drawable;
 import com.baidu.sapi2.callback.TitleBtnCallback;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassportViewManager implements NoProguard {
     public static SapiConfiguration c;
     public static PassportViewManager d;
     public TitleBtnCallback a;
     public TitleViewModule b = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TitleViewModule implements NoProguard {
         public static final int DEFAULT_TEXT_COLOR = PassportViewManager.c.context.getResources().getColor(R.color.sapi_sdk_edit_text_color);
         public int bgColor = Integer.MAX_VALUE;

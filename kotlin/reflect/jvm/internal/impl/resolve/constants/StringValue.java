@@ -4,7 +4,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.text.Typography;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StringValue extends ConstantValue<String> {
     public StringValue(String str) {
         super(str);

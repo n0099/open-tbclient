@@ -4,19 +4,13 @@ import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public final class ai2 {
+/* loaded from: classes4.dex */
+public class ai2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,43 +25,40 @@ public final class ai2 {
                 return;
             }
         }
-        c = ho1.a;
+        a = qp1.a;
     }
 
-    public ai2(String str, String str2) {
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            return "frame_type_" + i + "_" + str;
         }
-        this.a = str;
-        this.b = str2;
+        return (String) invokeIL.objValue;
     }
 
-    public static ai2 a(String str) {
-        InterceptResult invokeL;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new ai2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
-            } catch (JSONException e) {
-                if (c) {
-                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            long j = uh3.a().getLong(a(i, "launch_time"), 0L);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
+            }
+            return j;
+        }
+        return invokeI.longValue;
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            String a2 = a(i, "launch_time");
+            long currentTimeMillis = System.currentTimeMillis();
+            uh3.a().putLong(a2, currentTimeMillis);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
             }
         }
-        return (ai2) invokeL.objValue;
     }
 }

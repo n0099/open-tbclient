@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Slot implements Parcelable {
     public static final Parcelable.Creator<Slot> CREATOR = new a();
     public static final int DEFAULT_VALUE = 0;
@@ -39,7 +39,7 @@ public class Slot implements Parcelable {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<Slot> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

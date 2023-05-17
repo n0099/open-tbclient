@@ -2,7 +2,7 @@ package com.baidu.searchbox.aideviceperformanceboxproxy.device;
 
 import com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler;
 import com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceWrapper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DefaultDevicePortraitResultHandler implements IDevicePortraitResultHandler {
     public static final String SP_KEY_STATIC_SCORE = "static_predict_score";
     public static final String SP_KEY_STATIC_SCORE_PERCENTAGE = "static_score_percent";

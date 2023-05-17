@@ -13,12 +13,13 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Loop.ChatroomFrsRes;
 import tbclient.Loop.ChatroomList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChatRoomEntranceData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2669260759526247252L;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ChatRoomInfoData> chatRoomInfoList;
+    public Integer hotListOriginNum;
     public List<Long> hotRoomList;
 
     public ChatRoomEntranceData() {
@@ -44,10 +45,19 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public List<Long> getHotRoomList() {
+    public int getHotListOriginNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.hotListOriginNum.intValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public List<Long> getHotRoomList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.hotRoomList;
         }
         return (List) invokeV.objValue;
@@ -55,7 +65,7 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
 
     public void parserProtobuf(ChatroomFrsRes chatroomFrsRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatroomFrsRes) != null) || chatroomFrsRes == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, chatroomFrsRes) != null) || chatroomFrsRes == null) {
             return;
         }
         List<Long> list = chatroomFrsRes.hot_list;
@@ -74,5 +84,6 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
                 this.chatRoomInfoList.add(chatRoomInfoData);
             }
         }
+        this.hotListOriginNum = chatroomFrsRes.hot_list_origin_num;
     }
 }

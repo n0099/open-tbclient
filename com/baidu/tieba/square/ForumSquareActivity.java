@@ -3,19 +3,19 @@ package com.baidu.tieba.square;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.pl9;
+import com.baidu.tieba.rn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumSquareDelegate a;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fm5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.on5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -58,9 +58,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            pl9 pl9Var = this.a.mForumSquareView;
-            if (pl9Var != null) {
-                pl9Var.a(i);
+            rn9 rn9Var = this.a.mForumSquareView;
+            if (rn9Var != null) {
+                rn9Var.a(i);
             }
         }
     }

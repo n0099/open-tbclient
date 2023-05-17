@@ -16,6 +16,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.PushSocket;
 import com.baidu.android.pushservice.util.Utility;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -539,7 +540,7 @@ public class f {
                 intentFilter.addAction("com.android.launcher.action.UNINSTALL_SHORTCUT");
                 intentFilter.addAction("android.appwidget.action.APPWIDGET_UPDATE");
                 intentFilter.addAction("android.bluetooth.adapter.action.STATE_CHANGED");
-                intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
                 intentFilter.addAction("com.insdio.aqicn.airwidget.intent.action.CLICK");
                 intentFilter.addAction("android.intent.action.ANALOG_AUDIO_DOCK_PLUG");
                 intentFilter.addAction("android.appwidget.action.APPWIDGET_PICK");

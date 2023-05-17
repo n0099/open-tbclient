@@ -1,47 +1,55 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
+/* loaded from: classes8.dex */
 public final class yf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity) {
-        InterceptResult invokeL;
+    public static void a(File file, File file2) throws ZipException, IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
-            if (activity != null && b(activity.getIntent())) {
-                try {
-                    activity.finish();
-                } catch (Exception unused) {
-                }
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65536, null, file, file2) == null) {
+            if (!file2.exists()) {
+                file2.mkdirs();
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(Intent intent) {
-        InterceptResult invokeL;
-        Bundle extras;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            if (intent != null && (extras = intent.getExtras()) != null) {
-                try {
-                    extras.isEmpty();
-                    return false;
-                } catch (Exception unused) {
-                    return true;
+            String absolutePath = file2.getAbsolutePath();
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(absolutePath + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

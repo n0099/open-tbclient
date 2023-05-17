@@ -8,13 +8,13 @@ import com.baidu.searchbox.ai.DataType;
 import com.baidu.searchbox.ai.Inference;
 import com.baidu.searchbox.ai.Tensor;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InferenceWrapper implements AutoCloseable {
     public static final String TAG = "InferenceWrapper";
     public Inference mInference;
     public DevicePerformanceModelInfo mModel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface InitCallback {
         void onInitResult(boolean z, String str);
     }

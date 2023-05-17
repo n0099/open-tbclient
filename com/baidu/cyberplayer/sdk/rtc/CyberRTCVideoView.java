@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.SurfaceView;
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberRTCVideoView {
     public RTCVideoViewProvider a;
 

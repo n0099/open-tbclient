@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static volatile c e;
     public final Map<String, Long> a = new ConcurrentHashMap();

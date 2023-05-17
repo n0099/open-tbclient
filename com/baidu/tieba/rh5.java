@@ -1,158 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class rh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static rh5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<Integer, Object> a;
-    public final kz4 b;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        Object build();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948121642, "Lcom/baidu/tieba/rh5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948121642, "Lcom/baidu/tieba/rh5;");
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "before_request");
+                jSONObject.put("value", "1");
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh5 a;
-
-        public a(rh5 rh5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rh5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "0");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
                 }
-            }
-            this.a = rh5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public rh5() {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-        this.b = new kz4();
-        qb.b().a("clearMainTabViewCache", new a(this));
-    }
-
-    public static rh5 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (rh5.class) {
-                    if (c == null) {
-                        c = new rh5();
-                    }
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "1");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
                 }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return c;
-        }
-        return (rh5) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.a();
-            this.a.clear();
         }
     }
 
-    public kz4 f() {
-        InterceptResult invokeV;
+    public static void d(boolean z, JSONObject jSONObject) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (kz4) invokeV.objValue;
-    }
-
-    public void a(int i, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
-            this.a.put(Integer.valueOf(i), obj);
-        }
-    }
-
-    public Object c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return this.a.get(Integer.valueOf(i));
-        }
-        return invokeI.objValue;
-    }
-
-    public Object d(int i, b bVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, bVar)) == null) {
-            Object obj = this.a.get(Integer.valueOf(i));
-            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && bVar != null) {
-                obj = bVar.build();
+        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "request");
+                if (z) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject2.put("value", str);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
+                jSONObject2.put("ext", jSONObject3);
+                uBCManager.onEvent("4509", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            this.a.remove(Integer.valueOf(i));
-            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("ViewCache must have return value.");
-            }
-            return obj;
         }
-        return invokeIL.objValue;
     }
 }

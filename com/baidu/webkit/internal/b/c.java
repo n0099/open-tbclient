@@ -3,8 +3,9 @@ package com.baidu.webkit.internal.b;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c extends g {
     /* JADX WARN: Removed duplicated region for block: B:40:0x008b  */
     @Override // com.baidu.webkit.internal.b.g
@@ -44,7 +45,7 @@ public final class c extends g {
             if (indexOf == -1) {
                 str3 = str.substring(4);
                 if (context != null) {
-                    Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_SMS.concat(String.valueOf(str3))));
+                    Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_SMS.concat(String.valueOf(str3))));
                     intent.putExtra("sms_body", str4);
                     g.a(context, intent);
                 }

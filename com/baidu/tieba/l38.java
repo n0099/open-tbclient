@@ -1,83 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryMessage;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-/* loaded from: classes5.dex */
-public abstract class l38 implements CustomMessageTask.CustomRunnable<LoadHistoryMessage.a> {
+/* loaded from: classes6.dex */
+public class l38 extends ua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w08 a;
-    public int b;
 
-    public l38(w08 w08Var, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l38() {
+        super(2016004);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w08Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = w08Var;
-        this.b = i;
     }
 
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
-        }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<LoadHistoryMessage.a> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ab
+    /* renamed from: c */
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof LoadHistoryMessage) && this.a != null) {
-                LoadHistoryMessage.a data = customMessage.getData();
-                LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(this.b);
-                LinkedList<ChatMessage> h = this.a.h(gg.g(data.d, 0L), data.a, data.b, data.c);
-                if (h == null) {
-                    return a(this.b);
-                }
-                LoadHistoryResponsedMessage.a aVar = new LoadHistoryResponsedMessage.a();
-                if (data.a == null) {
-                    aVar.c = true;
-                } else {
-                    aVar.c = false;
-                }
-                aVar.a = data.d;
-                aVar.b = h;
-                try {
-                    loadHistoryResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return loadHistoryResponsedMessage;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            if (customResponsedMessage == null) {
+                return null;
             }
-            return a(this.b);
+            if (customResponsedMessage instanceof MemoryChangedMessage) {
+                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+                ImMessageCenterPojo data = memoryChangedMessage.getData();
+                if (data != null && data.getCustomGroupType() == -8) {
+                    return new MemoryChangedMessage(p08.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+                if (data != null && data.getCustomGroupType() == -7) {
+                    return new MemoryChangedMessage(q08.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+            }
+            return customResponsedMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

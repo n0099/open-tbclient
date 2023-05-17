@@ -2,19 +2,19 @@ package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gz7;
+import com.baidu.tieba.u08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LoadHistoryMessage extends CustomMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gz7 callback;
+    public u08 callback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,19 +59,19 @@ public class LoadHistoryMessage extends CustomMessage<a> {
         }
     }
 
-    public gz7 getCallback() {
+    public u08 getCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.callback;
         }
-        return (gz7) invokeV.objValue;
+        return (u08) invokeV.objValue;
     }
 
-    public void setCallback(gz7 gz7Var) {
+    public void setCallback(u08 u08Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz7Var) == null) {
-            this.callback = gz7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u08Var) == null) {
+            this.callback = u08Var;
         }
     }
 }

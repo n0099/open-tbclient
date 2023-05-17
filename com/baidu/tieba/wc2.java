@@ -2,9 +2,11 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.hk4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,49 +14,93 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.facebook.common.internal.Sets;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
-/* loaded from: classes6.dex */
-public class wc2 {
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes8.dex */
+public final class wc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean a;
+    public static final Set<Integer> b;
+    public static final Map<String, Long> c;
+    public static int d;
+    public static final bo3<String, String> e;
+    public static final bo3<hk4.a, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
 
-    /* loaded from: classes6.dex */
-    public static class a extends PrefetchEvent.c {
+    /* loaded from: classes8.dex */
+    public static class a implements bo3<String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map, String str) {
-            super(map, str);
+        public String b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? str : (String) invokeL.objValue;
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bo3
+        public /* bridge */ /* synthetic */ String a(String str) {
+            String str2 = str;
+            b(str2);
+            return str2;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b implements bo3<hk4.a, String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bo3
+        /* renamed from: b */
+        public String a(hk4.a aVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+                if (aVar == null) {
+                    return "";
+                }
+                return aVar.b();
+            }
+            return (String) invokeL.objValue;
         }
     }
 
@@ -71,88 +117,198 @@ public class wc2 {
                 return;
             }
         }
-        l = ho1.a;
+        a = qp1.a;
+        b = Sets.newHashSet(0, 1010, 1011, 1012, 1020, 1015);
+        c = new ConcurrentHashMap();
+        d = 1800;
+        e = new a();
+        f = new b();
     }
 
-    public wc2() {
+    public static <T> T a(String str, T t) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, t)) == null) {
+            if (a) {
+                Log.i("PreDownloadUtils", "Recorded=" + c.size() + " # " + str + " => " + t);
             }
+            return t;
         }
+        return (T) invokeLL.objValue;
     }
 
-    public static wc2 a(du1<?> du1Var, PrefetchEvent prefetchEvent, x73 x73Var) {
-        InterceptResult invokeLLL;
-        long j;
+    public static boolean b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, du1Var, prefetchEvent, x73Var)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Long l = c.get(str);
+            if (l == null || System.currentTimeMillis() - l.longValue() > d * 1000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return g(str, true);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return g(str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static List<String> h(Collection<String> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, collection)) == null) {
+            return j(e, collection);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static List<hk4.a> i(Collection<hk4.a> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, collection)) == null) {
+            return j(f, collection);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static boolean l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            return b.contains(Integer.valueOf(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static boolean m(ai4 ai4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, ai4Var)) == null) {
+            if (ai4Var != null && l(ai4Var.a)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            if (str2 != null) {
+                str = str + str2;
+            }
+            return c(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            if (str2 != null && str != null) {
+                str = str + str2;
+            }
+            return e(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <SwanItemT> List<SwanItemT> j(@NonNull bo3<SwanItemT, String> bo3Var, Collection<SwanItemT> collection) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, bo3Var, collection)) == null) {
+            return k(bo3Var, collection, false);
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static boolean g(@Nullable String str, boolean z) {
+        InterceptResult invokeLZ;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65543, null, str, z)) == null) {
+            String str2 = "shouldDownloadItem app=" + str + " record=" + z + ZeusCrashHandler.NAME_SEPERATOR;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (z) {
+                c.put(str, Long.valueOf(System.currentTimeMillis()));
+                z2 = true;
             } else {
-                j = 0;
+                z2 = !c.containsKey(str);
             }
-            wc2 wc2Var = new wc2();
-            wc2Var.h = du1Var.a();
-            wc2Var.a = prefetchEvent.appPath;
-            wc2Var.b = prefetchEvent.pageUrl;
-            wc2Var.f = prefetchEvent.rootPath;
-            SwanAppConfigData Q = x73Var.Q();
-            wc2Var.c = prefetchEvent.pageType;
-            String c = h83.c(prefetchEvent.appPath, pl3.f(pb3.b(prefetchEvent.pageUrl)));
-            wc2Var.g = c;
-            m83 b = m83.b(c, Q.e);
-            wc2Var.k = b.r;
-            wc2Var.d = b.g;
-            wc2Var.e = prefetchEvent.isT7Available;
-            wc2Var.i = prefetchEvent.sConsole;
-            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                wc2Var.j = prefetchEvent.userActionApis;
+            Boolean valueOf = Boolean.valueOf(z2);
+            a(str2 + " should", valueOf);
+            if (!valueOf.booleanValue()) {
+                Boolean valueOf2 = Boolean.valueOf(b(str));
+                a(str2 + " AB", valueOf2);
+                if (!valueOf2.booleanValue()) {
+                    return false;
+                }
             }
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return wc2Var;
+            return true;
         }
-        return (wc2) invokeLLL.objValue;
+        return invokeLZ.booleanValue;
     }
 
-    public a b() {
-        InterceptResult invokeV;
-        long j;
+    public static <SwanItemT> List<SwanItemT> k(@NonNull bo3<SwanItemT, String> bo3Var, Collection<SwanItemT> collection, boolean z) {
+        InterceptResult invokeLLZ;
+        String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65547, null, bo3Var, collection, z)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (collection != null) {
+                for (SwanItemT swanitemt : collection) {
+                    if (swanitemt == null) {
+                        a2 = "";
+                    } else {
+                        a2 = bo3Var.a(swanitemt);
+                    }
+                    if (g(a2, z)) {
+                        arrayList.add(swanitemt);
+                    }
+                }
+                a("shouldDownloadSet", "record=" + z + " targets=" + collection.size() + " should=" + arrayList.size());
             }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.b);
-            treeMap.put("pageType", this.c);
-            treeMap.put("onReachBottomDistance", this.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
-            treeMap.put("root", this.f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
-            v33.a(treeMap, "slave preload ready event");
-            pb3.a(this.b, treeMap);
-            treeMap.put("pageConfig", this.g);
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return new a(treeMap, "preload");
+            return arrayList;
         }
-        return (a) invokeV.objValue;
+        return (List) invokeLLZ.objValue;
+    }
+
+    public static boolean n(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            Iterator<Map.Entry<String, Long>> it = c.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, Long> next = it.next();
+                if (next != null && next.getKey() != null && next.getKey().startsWith(str)) {
+                    it.remove();
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

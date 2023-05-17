@@ -31,7 +31,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class NotifyAdapterUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_VPUSH_TYPE = "extra_vpush_type";

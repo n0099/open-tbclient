@@ -16,7 +16,7 @@ import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultPluginRC implements PluginRC {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

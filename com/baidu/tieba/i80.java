@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j80 a;
-    public k80 b;
+    public String a;
+    public String b;
 
-    public i80() {
+    public i80(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,35 +28,25 @@ public class i80 {
                 return;
             }
         }
-        this.a = new j80();
-        this.b = new k80();
+        this.a = str2;
+        this.b = str3;
     }
 
-    public b80 a(b80 b80Var, boolean z) {
-        InterceptResult invokeLZ;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, b80Var, z)) == null) {
-            this.a.b(b80Var, z);
-            return b80Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (b80) invokeLZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public b80 b(Context context, long j) {
-        InterceptResult invokeLJ;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
-            return this.a.c(context, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (b80) invokeLJ.objValue;
-    }
-
-    public b80 c(InputStream inputStream) throws Exception {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
-            return this.b.b(inputStream);
-        }
-        return (b80) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

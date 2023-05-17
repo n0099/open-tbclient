@@ -1,34 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
-import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tieba.fh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tq8 {
+import java.util.LinkedList;
+/* loaded from: classes7.dex */
+public class tq8 extends fh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static tq8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    @SuppressLint({"HandlerLeak"})
-    public final Handler b;
-    public final bb c;
+    public LinkedList<ze5> m;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
+    @Override // com.baidu.tieba.te5
+    public void C(se5 se5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se5Var) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements fh5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tq8 a;
@@ -51,100 +51,18 @@ public class tq8 {
             this.a = tq8Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // com.baidu.tieba.fh5.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.a.a = System.currentTimeMillis();
-                MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
-                this.a.b.sendMessageDelayed(this.a.b.obtainMessage(1), 1800000L);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends bb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(tq8 tq8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tq8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                DLauncher A = this.a.A(i);
+                if (A.getLayoutParams() == null) {
+                    A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                 }
+                return A;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-                ea5.h0().a0(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948189966, "Lcom/baidu/tieba/tq8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948189966, "Lcom/baidu/tieba/tq8;");
-                return;
-            }
-        }
-        xo9.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        d = null;
-    }
-
-    public static synchronized tq8 d() {
-        InterceptResult invokeV;
-        tq8 tq8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (tq8.class) {
-                if (d == null) {
-                    d = new tq8();
-                }
-                tq8Var = d;
-            }
-            return tq8Var;
-        }
-        return (tq8) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.removeMessages(1);
-            this.b.removeMessages(2);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = 0L;
-            c();
-            f();
+            return (View) invokeILL.objValue;
         }
     }
 
@@ -152,37 +70,70 @@ public class tq8 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = 0L;
-        this.b = new a(this);
-        this.c = new b(this, 303005);
-        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public void f() {
+    @Override // com.baidu.tieba.fh5
+    public void a() {
+        LinkedList<ze5> linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            if (currentTimeMillis <= 0) {
-                currentTimeMillis = 0;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.m) != null) {
+            linkedList.clear();
+            this.m = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.fh5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LinkedList<ze5> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
             }
-            if (currentTimeMillis >= 1800000) {
-                Handler handler = this.b;
-                handler.sendMessageDelayed(handler.obtainMessage(1), 10000L);
-            } else {
-                long j = 1800000 - currentTimeMillis;
-                Handler handler2 = this.b;
-                handler2.sendMessageDelayed(handler2.obtainMessage(1), j);
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public final DLauncher A(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
             }
-            this.a = System.currentTimeMillis();
+            return null;
+        }
+        return (DLauncher) invokeI.objValue;
+    }
+
+    public void z(LinkedList<ze5> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
+            this.m = linkedList;
+        }
+    }
+
+    @Override // com.baidu.tieba.fh5
+    public void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            o(4);
+            v(2);
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            x(new a(this));
+            h().b(this);
         }
     }
 }

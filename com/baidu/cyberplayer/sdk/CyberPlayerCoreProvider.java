@@ -16,11 +16,11 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CyberPlayerCoreProvider {
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LibsVersionType {
         ALL_VERSION,
         SUCCESS_LOADED_VERSION

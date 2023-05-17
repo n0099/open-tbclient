@@ -12,14 +12,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tf1;
+import com.baidu.tieba.jg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuVipGuideView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +28,7 @@ public class DuVipGuideView extends RelativeLayout {
     public TextView b;
     public TextView c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +58,7 @@ public class DuVipGuideView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(this.a)));
+                this.b.getContext().startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(this.a)));
             }
         }
     }
@@ -88,7 +89,7 @@ public class DuVipGuideView extends RelativeLayout {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        tf1.b().a(this.a, jSONObject.optString("icon_url"));
+        jg1.b().a(this.a, jSONObject.optString("icon_url"));
         this.b.setText(jSONObject.optString("display_msg"));
         String optString = jSONObject.optString("redirect_display_msg");
         if (TextUtils.isEmpty(optString)) {
@@ -149,10 +150,10 @@ public class DuVipGuideView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0966, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091184);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0925ae);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925ad);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d099a, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911be);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092619);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092618);
         }
     }
 }

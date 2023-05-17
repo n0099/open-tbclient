@@ -1,46 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes6.dex */
-public class vi7 implements d25 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+/* loaded from: classes7.dex */
+public interface vi7 {
+    void d(int i, @NonNull String str);
 
-    @Override // com.baidu.tieba.d25
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsUpgrade" : (String) invokeV.objValue;
-    }
+    void g(boolean z);
 
-    public vi7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void h(View.OnClickListener onClickListener);
 
-    @Override // com.baidu.tieba.d25
-    public Class<? extends b25> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ui7.class;
-        }
-        return (Class) invokeV.objValue;
-    }
+    void i(long j, long j2);
+
+    void j(@Nullable String str, @NonNull String str2);
+
+    void k(@NonNull LogicField logicField, int i);
+
+    void onChangeSkinType(int i);
+
+    void onDestory();
 }

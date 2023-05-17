@@ -20,7 +20,7 @@ import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.model.CaptureStatus;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NewCapturedTypeKt {
     public static final SimpleType captureFromArguments(SimpleType simpleType, CaptureStatus captureStatus) {
         boolean z;

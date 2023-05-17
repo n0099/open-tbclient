@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SearchPostForum.DataRes;
-import tbclient.SearchPostForum.SearchForum;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SearchForum a;
-    public List<SearchForum> b;
-    public ArrayList<in> c;
-    public String d;
+    public se<byte[]> a;
 
-    public a67(String str) {
+    public a67() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,42 +29,51 @@ public class a67 {
                 return;
             }
         }
-        this.d = str;
+        b();
     }
 
-    public ArrayList<in> a() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            c25.d();
+            this.a = c25.b("tb.forum_member_info");
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        se.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = dataRes.exact_match;
-        this.b = dataRes.fuzzy_match;
-        this.c = new ArrayList<>();
-        z57 z57Var = new z57(this.d);
-        SearchForum searchForum = this.a;
-        if (searchForum != null) {
-            z57Var.k(searchForum);
-            this.c.add(z57Var);
-        }
-        List<SearchForum> list = this.b;
-        if (list == null) {
-            return;
-        }
-        for (SearchForum searchForum2 : list) {
-            if (searchForum2 != null) {
-                z57 z57Var2 = new z57(this.d);
-                z57Var2.k(searchForum2);
-                this.c.add(z57Var2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            se<byte[]> seVar = this.a;
+            if (seVar != null) {
+                bVar = seVar.h(str2);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            se<byte[]> seVar = this.a;
+            seVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
     }
 }

@@ -1,10 +1,10 @@
 package com.google.android.exoplayer2.ui;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface TimeBar {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface OnScrubListener {
         void onScrubMove(TimeBar timeBar, long j);
 

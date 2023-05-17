@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FlacReader extends StreamReader {
     public static final byte AUDIO_PACKET_TYPE = -1;
     public static final int FRAME_HEADER_SAMPLE_NUMBER_OFFSET = 4;
@@ -21,7 +21,7 @@ public final class FlacReader extends StreamReader {
     public FlacOggSeeker flacOggSeeker;
     public FlacStreamInfo streamInfo;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class FlacOggSeeker implements OggSeeker, SeekMap {
         public static final int METADATA_LENGTH_OFFSET = 1;
         public static final int SEEK_POINT_SIZE = 18;

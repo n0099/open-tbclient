@@ -1049,7 +1049,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         if (iMediaController == null) {
             return;
         }
-        dispatchSessionTask(iMediaController, i, SessionCommand.COMMAND_CODE_SESSION_REWIND, new SessionCallbackTask<Integer>() { // from class: androidx.media2.session.MediaSessionStub.9
+        dispatchSessionTask(iMediaController, i, 40001, new SessionCallbackTask<Integer>() { // from class: androidx.media2.session.MediaSessionStub.9
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
@@ -1064,7 +1064,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         if (iMediaController == null) {
             return;
         }
-        dispatchSessionTask(iMediaController, i, SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, new SessionCallbackTask<Integer>() { // from class: androidx.media2.session.MediaSessionStub.11
+        dispatchSessionTask(iMediaController, i, 40003, new SessionCallbackTask<Integer>() { // from class: androidx.media2.session.MediaSessionStub.11
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask
@@ -1079,7 +1079,7 @@ public class MediaSessionStub extends IMediaSession.Stub {
         if (iMediaController == null) {
             return;
         }
-        dispatchSessionTask(iMediaController, i, SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, new SessionCallbackTask<Integer>() { // from class: androidx.media2.session.MediaSessionStub.10
+        dispatchSessionTask(iMediaController, i, 40002, new SessionCallbackTask<Integer>() { // from class: androidx.media2.session.MediaSessionStub.10
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.media2.session.MediaSessionStub.SessionCallbackTask

@@ -3,7 +3,7 @@ package org.apache.http.message;
 import org.apache.http.HeaderElement;
 import org.apache.http.NameValuePair;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BasicHeaderElement implements HeaderElement {
     public BasicHeaderElement(String str, String str2) {
         throw new RuntimeException("Stub!");

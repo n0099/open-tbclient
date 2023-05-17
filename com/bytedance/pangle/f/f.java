@@ -4,7 +4,6 @@ import android.util.ArrayMap;
 import android.util.Pair;
 import android.util.SparseArray;
 import androidx.annotation.RequiresApi;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -22,11 +21,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static final HashMap<String, SparseArray<m>> a = new HashMap<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements j {
         public final MessageDigest[] a;
 
@@ -81,7 +80,7 @@ public final class f {
                                 case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PSS_WITH_SHA512 /* 258 */:
                                 case ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256 /* 259 */:
                                 case 260:
-                                    return RSAUtil.ALGORITHM_RSA;
+                                    return "RSA";
                                 default:
                                     throw new IllegalArgumentException("Unknown signature algorithm: 0x" + Long.toHexString(i & (-1)));
                             }
@@ -90,7 +89,7 @@ public final class f {
                     }
                     return "EC";
                 }
-                return RSAUtil.ALGORITHM_RSA;
+                return "RSA";
             }
             return "DSA";
         }

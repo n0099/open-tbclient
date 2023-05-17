@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Plugin {
     public static final int LIFE_INSTALLED = 2;
     public static final int LIFE_LOADED = 3;

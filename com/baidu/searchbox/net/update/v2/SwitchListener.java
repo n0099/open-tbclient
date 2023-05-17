@@ -6,7 +6,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
 import com.baidu.searchbox.net.update.CommandPostData;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class SwitchListener extends AbstractCommandListener<SwitchData> {
     public static final String VERSION_POSTFIX = "_version";
 

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l11;
+import com.baidu.tieba.b21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.boxes.FreeSpaceBox;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SplashStyleRecorder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SplashElements {
         public static final /* synthetic */ SplashElements[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,7 +116,7 @@ public class SplashStyleRecorder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String string = l11.a().b("splash_sp_name").getString("splash_style", "");
+            String string = b21.a().b("splash_sp_name").getString("splash_style", "");
             if (TextUtils.isEmpty(string)) {
                 return null;
             }
@@ -132,10 +132,10 @@ public class SplashStyleRecorder {
     public static void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) && jSONObject != null) {
-            String string = l11.a().b("splash_sp_name").getString("splash_style", "");
+            String string = b21.a().b("splash_sp_name").getString("splash_style", "");
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.equals(string, jSONObject2)) {
-                l11.a().b("splash_sp_name").j("splash_style", jSONObject2, false);
+                b21.a().b("splash_sp_name").j("splash_style", jSONObject2, false);
             }
         }
     }

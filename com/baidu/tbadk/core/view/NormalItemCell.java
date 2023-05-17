@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NormalItemCell extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
@@ -41,7 +41,7 @@ public class NormalItemCell extends ConstraintLayout {
     public a f;
     public String g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = -1;
             this.b = 0;
             this.c = -1;
-            this.d = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+            this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         }
     }
 
@@ -87,8 +87,8 @@ public class NormalItemCell extends ConstraintLayout {
                 return;
             }
         }
-        h = ii.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
-        i = ii.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        h = ri.g(TbadkCoreApplication.getInst(), R.dimen.T_X08);
+        i = ri.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -221,8 +221,8 @@ public class NormalItemCell extends ConstraintLayout {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
-            this.d = (TextView) findViewById(R.id.sub_title);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bb);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e6);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c8);
         }
     }
 
@@ -244,7 +244,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                g35 d = g35.d(this.d);
+                p45 d = p45.d(this.d);
                 d.o(R.string.J_X06);
                 d.f(this.f.a);
             }
@@ -263,7 +263,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar = this.f;
             if (aVar != null && (i2 = aVar.c) != -1 && (pureDrawable = WebPManager.getPureDrawable(i2, SkinManager.getColor(R.color.CAM_X0107), null)) != null) {
-                int g = ii.g(getContext(), R.dimen.tbds32);
+                int g = ri.g(getContext(), R.dimen.tbds32);
                 pureDrawable.setBounds(0, 0, g, g);
                 this.d.setCompoundDrawables(pureDrawable, null, null, null);
             }
@@ -280,12 +280,12 @@ public class NormalItemCell extends ConstraintLayout {
                 int i4 = aVar.d;
                 setPadding(i4, 0, i4, 0);
                 if (aVar.a != -1) {
-                    i2 = ii.g(getContext(), R.dimen.M_W_X004);
+                    i2 = ri.g(getContext(), R.dimen.M_W_X004);
                 } else {
                     i2 = 0;
                 }
                 if (aVar.a != -1) {
-                    i3 = ii.g(getContext(), R.dimen.tbds8);
+                    i3 = ri.g(getContext(), R.dimen.tbds8);
                 } else {
                     i3 = 0;
                 }

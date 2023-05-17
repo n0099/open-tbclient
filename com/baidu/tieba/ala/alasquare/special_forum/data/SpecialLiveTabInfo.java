@@ -3,7 +3,6 @@ package com.baidu.tieba.ala.alasquare.special_forum.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpecialLiveTabInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpecialLiveTabInfo> CREATOR;
@@ -37,7 +36,7 @@ public class SpecialLiveTabInfo implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SpecialLiveTabInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +140,7 @@ public class SpecialLiveTabInfo implements Parcelable {
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.tabId = jSONObject.optInt(TiebaStatic.Params.TAB_ID);
+        this.tabId = jSONObject.optInt("tab_id");
         this.tabName = jSONObject.optString("tab_name");
         this.tabType = jSONObject.optInt("icon_type");
         this.objType = jSONObject.optInt("obj_type");

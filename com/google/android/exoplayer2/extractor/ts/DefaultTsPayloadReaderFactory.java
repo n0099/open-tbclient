@@ -11,7 +11,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Factory {
     public static final int DESCRIPTOR_TAG_CAPTION_SERVICE = 134;
     public static final int FLAG_ALLOW_NON_IDR_KEYFRAMES = 1;
@@ -24,7 +24,7 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     public final int flags;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Flags {
     }
 

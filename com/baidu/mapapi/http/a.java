@@ -2,7 +2,7 @@ package com.baidu.mapapi.http;
 
 import com.baidu.mapapi.http.AsyncHttpClient;
 import com.baidu.mapapi.http.HttpClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends AsyncHttpClient.a {
     public final /* synthetic */ HttpClient.ProtoResultCallback a;
     public final /* synthetic */ String b;

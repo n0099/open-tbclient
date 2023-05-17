@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory;
 import kotlin.reflect.jvm.internal.impl.types.TypeAliasExpansionReportStrategy;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class KotlinTypeFactory {
     public static final KotlinTypeFactory INSTANCE = new KotlinTypeFactory();
     public static final Function1<KotlinTypeRefiner, SimpleType> EMPTY_REFINED_TYPE_FACTORY = new Function1() { // from class: kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory$EMPTY_REFINED_TYPE_FACTORY$1
@@ -29,7 +29,7 @@ public final class KotlinTypeFactory {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ExpandedTypeOrRefinedConstructor {
         public final SimpleType expandedType;
         public final TypeConstructor refinedConstructor;
@@ -62,24 +62,24 @@ public final class KotlinTypeFactory {
     }
 
     private final MemberScope computeMemberScope(TypeConstructor typeConstructor, List<? extends TypeProjection> list, KotlinTypeRefiner kotlinTypeRefiner) {
-        ClassifierDescriptor mo2025getDeclarationDescriptor = typeConstructor.mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor instanceof TypeParameterDescriptor) {
-            return mo2025getDeclarationDescriptor.getDefaultType().getMemberScope();
+        ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor.mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor instanceof TypeParameterDescriptor) {
+            return mo2044getDeclarationDescriptor.getDefaultType().getMemberScope();
         }
-        if (mo2025getDeclarationDescriptor instanceof ClassDescriptor) {
+        if (mo2044getDeclarationDescriptor instanceof ClassDescriptor) {
             if (kotlinTypeRefiner == null) {
-                kotlinTypeRefiner = DescriptorUtilsKt.getKotlinTypeRefiner(DescriptorUtilsKt.getModule(mo2025getDeclarationDescriptor));
+                kotlinTypeRefiner = DescriptorUtilsKt.getKotlinTypeRefiner(DescriptorUtilsKt.getModule(mo2044getDeclarationDescriptor));
             }
             if (list.isEmpty()) {
-                return ModuleAwareClassDescriptorKt.getRefinedUnsubstitutedMemberScopeIfPossible((ClassDescriptor) mo2025getDeclarationDescriptor, kotlinTypeRefiner);
+                return ModuleAwareClassDescriptorKt.getRefinedUnsubstitutedMemberScopeIfPossible((ClassDescriptor) mo2044getDeclarationDescriptor, kotlinTypeRefiner);
             }
-            return ModuleAwareClassDescriptorKt.getRefinedMemberScopeIfPossible((ClassDescriptor) mo2025getDeclarationDescriptor, TypeConstructorSubstitution.Companion.create(typeConstructor, list), kotlinTypeRefiner);
-        } else if (mo2025getDeclarationDescriptor instanceof TypeAliasDescriptor) {
-            MemberScope createErrorScope = ErrorUtils.createErrorScope("Scope for abbreviation: " + ((TypeAliasDescriptor) mo2025getDeclarationDescriptor).getName(), true);
+            return ModuleAwareClassDescriptorKt.getRefinedMemberScopeIfPossible((ClassDescriptor) mo2044getDeclarationDescriptor, TypeConstructorSubstitution.Companion.create(typeConstructor, list), kotlinTypeRefiner);
+        } else if (mo2044getDeclarationDescriptor instanceof TypeAliasDescriptor) {
+            MemberScope createErrorScope = ErrorUtils.createErrorScope("Scope for abbreviation: " + ((TypeAliasDescriptor) mo2044getDeclarationDescriptor).getName(), true);
             Intrinsics.checkExpressionValueIsNotNull(createErrorScope, "ErrorUtils.createErrorSc…{descriptor.name}\", true)");
             return createErrorScope;
         } else {
-            throw new IllegalStateException("Unsupported classifier: " + mo2025getDeclarationDescriptor + " for constructor: " + typeConstructor);
+            throw new IllegalStateException("Unsupported classifier: " + mo2044getDeclarationDescriptor + " for constructor: " + typeConstructor);
         }
     }
 
@@ -93,8 +93,8 @@ public final class KotlinTypeFactory {
 
     public final ExpandedTypeOrRefinedConstructor refineConstructor(TypeConstructor typeConstructor, KotlinTypeRefiner kotlinTypeRefiner, List<? extends TypeProjection> list) {
         ClassifierDescriptor refineDescriptor;
-        ClassifierDescriptor mo2025getDeclarationDescriptor = typeConstructor.mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor == null || (refineDescriptor = kotlinTypeRefiner.refineDescriptor(mo2025getDeclarationDescriptor)) == null) {
+        ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor.mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor == null || (refineDescriptor = kotlinTypeRefiner.refineDescriptor(mo2044getDeclarationDescriptor)) == null) {
             return null;
         }
         if (refineDescriptor instanceof TypeAliasDescriptor) {
@@ -115,13 +115,13 @@ public final class KotlinTypeFactory {
     @JvmStatic
     @JvmOverloads
     public static final SimpleType simpleType(final Annotations annotations, final TypeConstructor typeConstructor, final List<? extends TypeProjection> list, final boolean z, KotlinTypeRefiner kotlinTypeRefiner) {
-        if (annotations.isEmpty() && list.isEmpty() && !z && typeConstructor.mo2025getDeclarationDescriptor() != null) {
-            ClassifierDescriptor mo2025getDeclarationDescriptor = typeConstructor.mo2025getDeclarationDescriptor();
-            if (mo2025getDeclarationDescriptor == null) {
+        if (annotations.isEmpty() && list.isEmpty() && !z && typeConstructor.mo2044getDeclarationDescriptor() != null) {
+            ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor.mo2044getDeclarationDescriptor();
+            if (mo2044getDeclarationDescriptor == null) {
                 Intrinsics.throwNpe();
             }
-            Intrinsics.checkExpressionValueIsNotNull(mo2025getDeclarationDescriptor, "constructor.declarationDescriptor!!");
-            SimpleType defaultType = mo2025getDeclarationDescriptor.getDefaultType();
+            Intrinsics.checkExpressionValueIsNotNull(mo2044getDeclarationDescriptor, "constructor.declarationDescriptor!!");
+            SimpleType defaultType = mo2044getDeclarationDescriptor.getDefaultType();
             Intrinsics.checkExpressionValueIsNotNull(defaultType, "constructor.declarationDescriptor!!.defaultType");
             return defaultType;
         }

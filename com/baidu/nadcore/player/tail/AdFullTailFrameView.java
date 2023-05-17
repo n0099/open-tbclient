@@ -5,14 +5,14 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdFullTailFrameView extends AdBaseTailFrameView {
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
     public int f() {
         return R.layout.nad_video_tail_frame_full_view;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {

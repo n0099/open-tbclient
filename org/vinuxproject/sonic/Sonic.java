@@ -1,5 +1,5 @@
 package org.vinuxproject.sonic;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Sonic {
     public long a;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NoHorizontalScrollerViewPager extends ViewPager {
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {

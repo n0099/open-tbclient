@@ -1,7 +1,7 @@
 package com.baidu.pass.main.facesdk.model;
 
 import android.util.Base64;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Feature {
     public long ctime;
     public byte[] feature;

@@ -4,13 +4,13 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ExtensionRegistryLite {
     public static final ExtensionRegistryLite EMPTY = new ExtensionRegistryLite(true);
     public static volatile boolean eagerlyParseMessageSets;
     public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ObjectIntPair {
         public final int number;
         public final Object object;

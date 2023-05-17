@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NativeLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "NativeLoader";
@@ -37,7 +37,7 @@ public class NativeLoader {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;

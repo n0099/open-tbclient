@@ -25,7 +25,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FileUtils {
     public static final int S_IRGRP = 32;
     public static final int S_IROTH = 4;

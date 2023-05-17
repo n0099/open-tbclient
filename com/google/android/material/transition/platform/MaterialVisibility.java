@@ -14,7 +14,7 @@ import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.transition.platform.VisibilityAnimatorProvider;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> extends Visibility {
     public final P primaryAnimatorProvider;
     @Nullable

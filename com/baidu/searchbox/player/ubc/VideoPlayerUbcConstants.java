@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.ubc;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class VideoPlayerUbcConstants {
     public static final String UBC_PLAY_PERFORMANCE_ID = "515";
     public static final String UBC_VIDEO_BUSINESS_ERROR = "4642";

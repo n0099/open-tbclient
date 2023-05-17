@@ -1,144 +1,191 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
-import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class je2 {
+/* loaded from: classes6.dex */
+public class je2 implements ie2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static volatile je2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<yh2> a;
+    public final Map<String, he2> a;
 
-    /* loaded from: classes5.dex */
-    public static class a extends yh2 {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String d;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ je2 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map) {
-            super("TopPages", map);
+        public a(je2 je2Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {map};
+                Object[] objArr = {je2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Map) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = je2Var;
+            this.a = str;
         }
 
-        @Override // com.baidu.tieba.xh2
-        public String c(v62 v62Var) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v62Var)) == null) {
-                if (this.d == null) {
-                    this.d = super.c(v62Var);
-                }
-                return this.d;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880338, "Lcom/baidu/tieba/je2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947880338, "Lcom/baidu/tieba/je2;");
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
         }
-        b = ho1.a;
     }
 
     public je2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = new HashMap();
     }
 
-    public je2 a(yh2 yh2Var) {
+    public static je2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (je2.class) {
+                    if (b == null) {
+                        b = new je2();
+                    }
+                }
+            }
+            return b;
+        }
+        return (je2) invokeV.objValue;
+    }
+
+    public synchronized je2 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        he2 he2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (he2Var = this.a.get(str)) != null) {
+                    he2Var.a(str, ubcFlowEvent);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (je2) invokeLL.objValue;
+    }
+
+    public synchronized je2 f(String str, ke2 ke2Var) {
+        InterceptResult invokeLL;
+        he2 he2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, ke2Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (he2Var = this.a.get(str)) != null) {
+                    he2Var.e(str, ke2Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (je2) invokeLL.objValue;
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        }
+    }
+
+    public final boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yh2Var)) == null) {
-            if (yh2Var != null) {
-                this.a.add(yh2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized void h(String str) {
+        he2 he2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (he2Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    he2Var.h(str);
+                }
             }
-            return this;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public synchronized je2 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        he2 he2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (he2Var = this.a.get(str)) != null) {
+                    he2Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (je2) invokeCommon.objValue;
+    }
+
+    public synchronized je2 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    he2 he2Var = new he2();
+                    this.a.put(str, he2Var);
+                    he2Var.f(str);
+                    return this;
+                }
+                return this;
+            }
         }
         return (je2) invokeL.objValue;
-    }
-
-    public a b() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (b) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
-            if (b) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("TopPageEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return new a(treeMap);
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (yh2 yh2Var : this.a) {
-                jSONArray.put(yh2Var.s());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
     }
 }

@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class at {
     public static final at a = new at();
     public HashMap<String, String> b = new HashMap<>();
@@ -17,7 +17,7 @@ public class at {
     public HashMap<String, String> f = new HashMap<>();
     public HashMap<Character, Integer> g = new HashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static int a = 0;
         public static int b = 1;

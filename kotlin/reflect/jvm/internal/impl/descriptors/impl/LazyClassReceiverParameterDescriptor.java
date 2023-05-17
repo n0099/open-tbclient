@@ -1,11 +1,12 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ImplicitClassReceiver;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ReceiverValue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LazyClassReceiverParameterDescriptor extends AbstractReceiverParameterDescriptor {
     public final ClassDescriptor descriptor;
     public final ImplicitClassReceiver receiverValue;
@@ -31,7 +32,7 @@ public class LazyClassReceiverParameterDescriptor extends AbstractReceiverParame
             if (i != 3) {
                 objArr[2] = "<init>";
             } else {
-                objArr[2] = "copy";
+                objArr[2] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
             }
         }
         String format = String.format(str, objArr);

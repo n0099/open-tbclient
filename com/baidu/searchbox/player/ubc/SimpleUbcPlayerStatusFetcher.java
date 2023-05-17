@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.ubc;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SimpleUbcPlayerStatusFetcher implements IUbcPlayerStatusFetcher {
     @Override // com.baidu.searchbox.player.ubc.IUbcPlayerStatusFetcher
     public int getCurrentPosition() {

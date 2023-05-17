@@ -4,10 +4,10 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import com.baidu.tieba.aj9;
-import com.baidu.tieba.oi9;
+import com.baidu.tieba.cl9;
+import com.baidu.tieba.qk9;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LokiRuntime {
     public static final ILokiIdentityContext EMPTY = new ILokiIdentityContext() { // from class: com.baidu.searchbox.logsystem.basic.upload.LokiRuntime.1
         @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
@@ -63,11 +63,11 @@ public class LokiRuntime {
 
     @Inject(force = false)
     public static ILokiIdentityContext getIdentityContext() {
-        return oi9.a();
+        return qk9.a();
     }
 
     @Inject
     public static ILokiIdentityNeedContext getIdentityNeedContext() {
-        return aj9.a();
+        return cl9.a();
     }
 }

@@ -3,7 +3,7 @@ package com.bytedance.pangle;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ZeusPluginEventCallback {
     public static final int EVENT_FINISH_INITIALIZATION = 3100;
     public static final int EVENT_FINISH_INSTALLATION = 1100;

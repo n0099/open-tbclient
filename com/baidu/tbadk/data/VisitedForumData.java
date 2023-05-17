@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.dh8;
 import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.FrsTabInfo;
 import tbclient.HistoryForumInfo;
 import tbclient.RecomTagInfo;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VisitedForumData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -240,12 +240,12 @@ public class VisitedForumData extends OrmObject implements Serializable {
             ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
             if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
-                arrayList.add(Integer.valueOf(dh8.b(this.mThemeColorInfo.day.light_color)));
-                arrayList.add(Integer.valueOf(dh8.b(this.mThemeColorInfo.day.dark_color)));
-                arrayList.add(Integer.valueOf(dh8.b(this.mThemeColorInfo.night.light_color)));
-                arrayList.add(Integer.valueOf(dh8.b(this.mThemeColorInfo.night.dark_color)));
-                arrayList.add(Integer.valueOf(dh8.b(this.mThemeColorInfo.dark.light_color)));
-                arrayList.add(Integer.valueOf(dh8.b(this.mThemeColorInfo.dark.dark_color)));
+                arrayList.add(Integer.valueOf(yi8.b(this.mThemeColorInfo.day.light_color)));
+                arrayList.add(Integer.valueOf(yi8.b(this.mThemeColorInfo.day.dark_color)));
+                arrayList.add(Integer.valueOf(yi8.b(this.mThemeColorInfo.night.light_color)));
+                arrayList.add(Integer.valueOf(yi8.b(this.mThemeColorInfo.night.dark_color)));
+                arrayList.add(Integer.valueOf(yi8.b(this.mThemeColorInfo.dark.light_color)));
+                arrayList.add(Integer.valueOf(yi8.b(this.mThemeColorInfo.dark.dark_color)));
                 return arrayList;
             }
             return null;

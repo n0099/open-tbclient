@@ -84,7 +84,7 @@ public class AppCompatCheckBox extends CheckBox implements TintableCompoundButto
     }
 
     public AppCompatCheckBox(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040135);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040138);
     }
 
     public AppCompatCheckBox(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

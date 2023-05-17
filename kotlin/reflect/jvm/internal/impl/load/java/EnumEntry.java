@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class EnumEntry extends JavaDefaultValue {
     public final ClassDescriptor descriptor;
 

@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.extractor.wav.WavExtractor;
 import java.lang.reflect.Constructor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultExtractorsFactory implements ExtractorsFactory {
     public static final Constructor<? extends Extractor> FLAC_EXTRACTOR_CONSTRUCTOR;
     public int fragmentedMp4Flags;

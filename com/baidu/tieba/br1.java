@@ -1,60 +1,109 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.h82;
+import com.baidu.tieba.hf2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
-/* loaded from: classes3.dex */
-public class br1 implements ot1 {
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+/* loaded from: classes5.dex */
+public class br1 implements jt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ot1
-    public ExecutorService d() {
+    @Override // com.baidu.tieba.jt1
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 10150;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public VideoPlayerFactory b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (ExecutorService) invokeV.objValue;
+        return (VideoPlayerFactory) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ot1
-    public void e(String str, int i, JSONArray jSONArray) {
+    @Override // com.baidu.tieba.jt1
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, jSONArray) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 5000;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ot1
-    public void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements hf2.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h82.c a;
 
-    @Override // com.baidu.tieba.ot1
-    public void g(String str, String str2, int i, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
+        public a(br1 br1Var, h82.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {br1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
         }
-    }
 
-    @Override // com.baidu.tieba.ot1
-    public void i(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ot1
-    public void n(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        @Override // com.baidu.tieba.hf2.e
+        public void a() {
+            h82.c cVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
+                cVar.a();
+            }
         }
     }
 
@@ -69,6 +118,26 @@ public class br1 implements ot1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (z) {
+                hf2.h(AppRuntime.getAppContext()).k(ProcessUtils.isMainProcess());
+            } else {
+                hf2.h(AppRuntime.getAppContext()).i();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jt1
+    public void h(h82.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            hf2.h(AppRuntime.getAppContext()).f(new a(this, cVar));
         }
     }
 }

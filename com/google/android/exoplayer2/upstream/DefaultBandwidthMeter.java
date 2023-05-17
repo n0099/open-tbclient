@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Clock;
 import com.google.android.exoplayer2.util.SlidingPercentile;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultBandwidthMeter implements BandwidthMeter, TransferListener<Object> {
     public static final int BYTES_TRANSFERRED_FOR_ESTIMATE = 524288;
     public static final int DEFAULT_MAX_WEIGHT = 2000;

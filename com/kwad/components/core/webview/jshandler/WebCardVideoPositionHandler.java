@@ -8,14 +8,14 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.kwai.a {
     public a MU;
     public VideoPosition MT = new VideoPosition();
     public Handler mHandler = new Handler(Looper.getMainLooper());
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -3445790097441569428L;
         public int borderRadius;
@@ -30,7 +30,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         public double widthRation;
 
         @KsJson
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class KSAdJSCornerModel extends com.kwad.sdk.core.response.kwai.a implements Serializable {
             public static final long serialVersionUID = -1503191931449786332L;
             public double bottomLeft;
@@ -50,7 +50,7 @@ public final class WebCardVideoPositionHandler implements com.kwad.sdk.core.webv
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(VideoPosition videoPosition);
     }

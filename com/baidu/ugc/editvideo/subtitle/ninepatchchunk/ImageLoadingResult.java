@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.graphics.drawable.NinePatchDrawable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageLoadingResult {
     public final Bitmap bitmap;
     public final NinePatchChunk chunk;

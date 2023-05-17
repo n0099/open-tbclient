@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.memory;
 import android.graphics.Bitmap;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.memory.MemoryTrimType;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DummyBitmapPool implements BitmapPool {
     @Override // com.facebook.common.memory.MemoryTrimmable
     public void trim(MemoryTrimType memoryTrimType) {

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ke7;
+import com.baidu.tieba.xf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public ke7 c;
+    public xf7 c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f090752);
+            this.a = (HeaderComponentMultiItemView) view2.findViewById(R.id.obfuscated_res_0x7f09076f);
         }
     }
 
@@ -106,15 +106,15 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0339, (ViewGroup) null));
+            return new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0350, (ViewGroup) null));
         }
         return (a) invokeLI.objValue;
     }
 
-    public void m(ke7 ke7Var) {
+    public void m(xf7 xf7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ke7Var) == null) {
-            this.c = ke7Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, xf7Var) == null) {
+            this.c = xf7Var;
         }
     }
 }

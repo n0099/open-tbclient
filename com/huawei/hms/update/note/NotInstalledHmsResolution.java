@@ -15,14 +15,14 @@ import com.huawei.hms.activity.IBridgeActivityDelegate;
 import com.huawei.hms.availableupdate.c;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.update.ui.NotInstalledHmsDialogHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NotInstalledHmsResolution implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Dialog a;
     public Activity b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

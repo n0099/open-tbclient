@@ -27,29 +27,29 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.h35;
-import com.baidu.tieba.rm;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.wu5;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.an;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.iw5;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.n45;
+import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ConstrainImageLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
-    public xf<TbImageView> b;
+    public gg<TbImageView> b;
     public int c;
     public int d;
     public boolean e;
-    public wu5 f;
+    public iw5 f;
     public String g;
     public Paint h;
     public Paint i;
@@ -57,7 +57,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public double k;
     public int l;
     public boolean m;
-    public rm n;
+    public an n;
     public Bitmap o;
     public boolean p;
     public int q;
@@ -67,7 +67,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public ViewGroup.OnHierarchyChangeListener u;
     public TbImageView.h v;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(TbImageView tbImageView, int i, int i2);
     }
@@ -78,7 +78,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements TbImageView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,11 +171,11 @@ public class ConstrainImageLayout extends ViewGroup {
                 } else {
                     i = 14;
                 }
-                tm A = TbImageMemoryCache.v().A(cg.h().g(tbImageView.getUrl(), i));
+                cn z = TbImageMemoryCache.u().z(lg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (A != null) {
-                    i3 = A.r();
-                    i2 = A.m();
+                if (z != null) {
+                    i3 = z.r();
+                    i2 = z.m();
                 } else {
                     i2 = 0;
                 }
@@ -262,7 +262,7 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,14 +306,14 @@ public class ConstrainImageLayout extends ViewGroup {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.f == null) {
                 return;
             }
-            wu5 wu5Var = this.d.f;
+            iw5 iw5Var = this.d.f;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            wu5Var.a(view2, i, z);
+            iw5Var.a(view2, i, z);
         }
     }
 
@@ -370,7 +370,7 @@ public class ConstrainImageLayout extends ViewGroup {
                 if (e == null) {
                     return;
                 }
-                d(canvas, e, e35.B(R.string.J_X11));
+                d(canvas, e, n45.B(R.string.J_X11));
             }
         }
     }
@@ -495,13 +495,13 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(wu5 wu5Var) {
+    public void setImageClickListener(iw5 iw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, wu5Var) == null) {
-            if (wu5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, iw5Var) == null) {
+            if (iw5Var == null) {
                 setClickable(false);
             } else {
-                this.f = wu5Var;
+                this.f = iw5Var;
             }
         }
     }
@@ -524,10 +524,10 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageViewObjectPool(xf<TbImageView> xfVar) {
+    public void setImageViewObjectPool(gg<TbImageView> ggVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, xfVar) == null) {
-            this.b = xfVar;
+        if (interceptable == null || interceptable.invokeL(1048596, this, ggVar) == null) {
+            this.b = ggVar;
         }
     }
 
@@ -538,10 +538,10 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setPreloadSizeReadyCallback(rm rmVar) {
+    public void setPreloadSizeReadyCallback(an anVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, rmVar) == null) {
-            this.n = rmVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, anVar) == null) {
+            this.n = anVar;
         }
     }
 
@@ -609,14 +609,14 @@ public class ConstrainImageLayout extends ViewGroup {
             float f = i2;
             RectF rectF2 = new RectF(-fArr[0], 0.0f, i, f);
             this.i.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, SkinManager.getColor(R.color.CAM_X0601), SkinManager.getColor(R.color.CAM_X0606), Shader.TileMode.CLAMP));
-            canvas2.drawPath(h35.a(rectF2, fArr), this.i);
+            canvas2.drawPath(q45.a(rectF2, fArr), this.i);
         }
         canvas.drawBitmap(this.o, rectF.left, rectF.top, this.h);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i3 = ((int) rectF.bottom) - dimenPixelSize;
         int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.j.measureText(this.g));
-        float[] E = e35.E(R.array.S_O_X001);
+        float[] E = n45.E(R.array.S_O_X001);
         this.j.setShadowLayer(E[1], E[2], E[3], (int) E[0]);
         canvas.drawText(this.g, measureText, i3, this.j);
     }

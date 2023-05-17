@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import androidx.annotation.Nullable;
-import com.baidu.tieba.b48;
+import com.baidu.tieba.r58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
             if (getError() != 0) {
                 return commitGroupMsgResIdl;
             }
-            setMsgId(b48.a(commitGroupMsgResIdl.data.msgId.longValue()));
+            setMsgId(r58.a(commitGroupMsgResIdl.data.msgId.longValue()));
             setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
             return commitGroupMsgResIdl;

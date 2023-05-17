@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dw9;
-import com.baidu.tieba.gv9;
-import com.baidu.tieba.lw9;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.za;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.fy9;
+import com.baidu.tieba.ix9;
+import com.baidu.tieba.ny9;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,34 +18,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lw9 a;
-    public List<dw9> b;
+    public ny9 a;
+    public List<fy9> b;
     public int c;
     public boolean d;
     public b e;
-    public za f;
+    public fb f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a(int i, String str, lw9 lw9Var, List<dw9> list, boolean z);
+        void a(int i, String str, ny9 ny9Var, List<fy9> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends za {
+    /* loaded from: classes7.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardCategoryModel a;
@@ -72,7 +72,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
             this.a = personalCardCategoryModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -83,7 +83,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                PersonalCardCategoryModel.V(this.a);
+                PersonalCardCategoryModel.U(this.a);
                 if (this.a.e != null) {
                     this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
                     return;
@@ -135,27 +135,27 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        xo9.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        xo9.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        zq9.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        zq9.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int V(PersonalCardCategoryModel personalCardCategoryModel) {
+    public static /* synthetic */ int U(PersonalCardCategoryModel personalCardCategoryModel) {
         int i = personalCardCategoryModel.c;
         personalCardCategoryModel.c = i - 1;
         return i;
     }
 
-    public void g0(b bVar) {
+    public void f0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void d0() {
+    public void c0() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.d) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.d) {
             return;
         }
         this.c++;
@@ -185,10 +185,10 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void e0(long j, int i) {
+    public void d0(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            f0(j, i);
+            e0(j, i);
             b bVar = this.e;
             if (bVar != null) {
                 bVar.a(0, null, this.a, this.b, this.d);
@@ -196,24 +196,24 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void f0(long j, int i) {
-        List<dw9> list;
+    public void e0(long j, int i) {
+        List<fy9> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
-            for (dw9 dw9Var : list) {
-                if (dw9Var != null && dw9Var.a() != null && dw9Var.a().size() > 0) {
-                    for (gv9 gv9Var : dw9Var.a()) {
-                        if (gv9Var != null) {
-                            if (gv9Var.a() == j) {
+            for (fy9 fy9Var : list) {
+                if (fy9Var != null && fy9Var.a() != null && fy9Var.a().size() > 0) {
+                    for (ix9 ix9Var : fy9Var.a()) {
+                        if (ix9Var != null) {
+                            if (ix9Var.a() == j) {
                                 if (i == 1) {
-                                    gv9Var.s(1);
+                                    ix9Var.s(1);
                                 } else {
-                                    gv9Var.s(0);
+                                    ix9Var.s(0);
                                 }
                             } else if (i == 1) {
-                                gv9Var.s(0);
-                            } else if (gv9Var.a() == gv9.k) {
-                                gv9Var.s(1);
+                                ix9Var.s(0);
+                            } else if (ix9Var.a() == ix9.k) {
+                                ix9Var.s(1);
                             }
                         }
                     }

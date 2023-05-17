@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HiAnalyticsConstant {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BI_KEY_API_NAME = "api_name";
@@ -39,13 +39,13 @@ public class HiAnalyticsConstant {
     public static final String SP_KEY_INSTALL_REPORTED = "install_reported";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Direction {
         public static final String REQUEST = "req";
         public static final String RESPONSE = "rsp";
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface HaKey {
         public static final String BI_KEY_APINAME = "apiName";
         public static final String BI_KEY_APPID = "appid";
@@ -66,7 +66,7 @@ public class HiAnalyticsConstant {
         public static final String BI_KEY_WAITTIME = "waitTime";
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface KeyAndValue {
         public static final String GAME_INIT_KEY = "15060106";
         public static final String NUMBER_01 = "01";

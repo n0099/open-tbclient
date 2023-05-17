@@ -3,7 +3,7 @@ package com.baidu.searchbox.retrieve.core;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchReport {
     public static void reportDataNull() {
         IFetchTask iFetchTask = (IFetchTask) ServiceManager.getService(IFetchTask.SERVICE_REFERENCE);

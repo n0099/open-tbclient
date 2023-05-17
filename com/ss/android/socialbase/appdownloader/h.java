@@ -12,7 +12,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.lang.ref.SoftReference;
 import java.util.ArrayDeque;
 import java.util.Queue;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h {
     public final Queue<Integer> a;
     public boolean b;
@@ -22,7 +22,7 @@ public class h {
     public Handler f;
     public Runnable g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final h a = new h();
     }
@@ -37,12 +37,12 @@ public class h {
                 h.this.c();
             }
         };
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0699a() { // from class: com.ss.android.socialbase.appdownloader.h.2
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0713a() { // from class: com.ss.android.socialbase.appdownloader.h.2
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
             public void b() {
                 if (h.this.a.isEmpty()) {
                     return;

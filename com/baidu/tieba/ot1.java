@@ -1,18 +1,12 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.ExecutorService;
+import android.content.Context;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ot1 {
-    ExecutorService d();
+    long a(Context context);
 
-    void e(String str, int i, JSONArray jSONArray);
+    void b(Context context, String str, zn3<String> zn3Var);
 
-    void f(String str, int i);
-
-    void g(String str, String str2, int i, String str3, int i2);
-
-    void i(String str, int i, String str2);
-
-    void n(String str, String str2, int i, String str3, long j, int i2);
+    void c(Context context, JSONArray jSONArray, zn3<String> zn3Var);
 }

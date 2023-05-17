@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.TypePattern;
 import org.aspectj.lang.reflect.TypePatternBasedPerClause;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypePatternBasedPerClauseImpl extends PerClauseImpl implements TypePatternBasedPerClause {
     public TypePattern typePattern;
 

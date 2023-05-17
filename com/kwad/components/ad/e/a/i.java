@@ -4,12 +4,12 @@ import android.view.View;
 import com.baidu.tieba.R;
 import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.video.DetailVideoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public DetailVideoView mDetailVideoView;
 
     private void et() {
-        com.kwad.components.core.c.a.a.a(new a.C0596a(this.mDetailVideoView.getContext()).L(this.jL.mAdTemplate).b(this.jL.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.i.2
+        com.kwad.components.core.c.a.a.a(new a.C0610a(this.mDetailVideoView.getContext()).L(this.jL.mAdTemplate).b(this.jL.mApkDownloadHelper).a(new a.b() { // from class: com.kwad.components.ad.e.a.i.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(i.this.jL.mAdTemplate, 2, i.this.jL.jK.getTouchCoords());
@@ -46,7 +46,7 @@ public final class i extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913a5);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913e0);
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter

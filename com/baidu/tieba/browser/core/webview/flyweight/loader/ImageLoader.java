@@ -5,10 +5,10 @@ import android.webkit.WebResourceResponse;
 import androidx.core.util.Pair;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.tieba.af6;
-import com.baidu.tieba.ie6;
-import com.baidu.tieba.if6;
-import com.baidu.tieba.rg6;
+import com.baidu.tieba.di6;
+import com.baidu.tieba.mg6;
+import com.baidu.tieba.uf6;
+import com.baidu.tieba.ug6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,10 +20,10 @@ import com.baidubce.http.Headers;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final ie6 a;
+    public static final uf6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +39,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new ie6();
+        a = new uf6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -47,7 +47,7 @@ public class ImageLoader {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, map, pair)) == null) {
-            String b = rg6.b(str);
+            String b = di6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +89,14 @@ public class ImageLoader {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if6 e = af6.d().e(str);
+            ug6 e = mg6.d().e(str);
             if (e == null) {
-                e = af6.d().e(rg6.c(str2));
+                e = mg6.d().e(di6.c(str2));
             }
             if (e == null) {
                 return null;
             }
-            String c = rg6.c(str2);
+            String c = di6.c(str2);
             String str3 = "";
             for (String str4 : e.f) {
                 if (c.endsWith(str4)) {

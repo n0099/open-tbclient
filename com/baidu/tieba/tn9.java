@@ -1,35 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.Group;
-/* loaded from: classes6.dex */
-public class tn9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.tbadk.core.data.ErrorData;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface tn9 {
+    void onError(String str, ErrorData errorData);
 
-    public tn9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void onNoData(ErrorData errorData);
 
-    public void a(Group group) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, group) != null) || group == null) {
-            return;
-        }
-        group.group_count.intValue();
-        group.hide_recommend_group.intValue();
-    }
+    void onSucc(String str, List<String> list, List<rn> list2);
 }

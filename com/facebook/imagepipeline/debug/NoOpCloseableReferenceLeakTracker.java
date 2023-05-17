@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.debug;
 import com.facebook.common.references.SharedReference;
 import com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NoOpCloseableReferenceLeakTracker implements CloseableReferenceLeakTracker {
     @Override // com.facebook.imagepipeline.debug.CloseableReferenceLeakTracker
     public boolean isSet() {

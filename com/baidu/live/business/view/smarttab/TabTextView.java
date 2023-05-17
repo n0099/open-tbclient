@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.AppCompatTextView;
-import com.baidu.tieba.y90;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.oa0;
+/* loaded from: classes3.dex */
 public class TabTextView extends AppCompatTextView {
     public final int a;
     public final int b;
@@ -104,7 +104,7 @@ public class TabTextView extends AppCompatTextView {
         super(context, attributeSet, i);
         this.i = true;
         this.j = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, y90.LiveFeedPageTabTextView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, oa0.LiveFeedPageTabTextView);
         this.a = obtainStyledAttributes.getColor(7, 0);
         this.b = obtainStyledAttributes.getColor(1, 0);
         this.d = obtainStyledAttributes.getColor(4, 0);

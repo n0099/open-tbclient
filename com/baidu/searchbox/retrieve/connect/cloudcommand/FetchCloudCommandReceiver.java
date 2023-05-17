@@ -5,7 +5,7 @@ import com.baidu.searchbox.cloudcommand.processor.ICloudCommandObserver;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchCloudCommandReceiver implements ICloudCommandObserver {
     public static final String COMMAND_TYPE = "fetch_log_notice";
 

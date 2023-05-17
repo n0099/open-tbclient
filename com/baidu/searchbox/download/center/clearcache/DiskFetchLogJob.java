@@ -9,7 +9,7 @@ import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.retrieve.log.bean.FetchLogBean;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DiskFetchLogJob extends IFetchJob {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static String DISK_CMD = "baiduboxapp_write_disk_tree_file_cmd";

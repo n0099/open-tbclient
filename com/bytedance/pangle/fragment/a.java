@@ -3,7 +3,7 @@ package com.bytedance.pangle.fragment;
 import androidx.collection.SimpleArrayMap;
 import androidx.fragment.app.Fragment;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static Class a(String str) {
         try {

@@ -1,63 +1,85 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.RecomVideo.DislikeReason;
-import tbclient.RecomVideo.ThreadPersonalized;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class kx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ThreadData> a;
 
-    public static void a(List<ThreadPersonalized> list, List<in> list2) {
-        qi6 qi6Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public kx7() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) && list != null && list2 != null) {
-            HashMap hashMap = new HashMap();
-            for (ThreadPersonalized threadPersonalized2 : list) {
-                if (threadPersonalized2 != null) {
-                    hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
-                }
-            }
-            int count = ListUtils.getCount(list2);
-            for (int i = 0; i < count; i++) {
-                in inVar = (in) ListUtils.getItem(list2, i);
-                if ((inVar instanceof qi6) && (threadData = (qi6Var = (qi6) inVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
-                    qi6Var.C(threadPersonalized.source);
-                    qi6Var.G(threadPersonalized.weight);
-                    qi6Var.y(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        qi6Var.A(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list3 = threadPersonalized.dislike_resource;
-                    if (list3 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list3) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        qi6Var.feedBackReasonMap = sparseArray;
-                        qi6Var.z(threadPersonalized.extra);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public static void b(List<ThreadPersonalized> list, List<in> list2) {
+    public List<ThreadData> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            a(list, list2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ThreadData> list = this.a;
+            if (list == null) {
+                return false;
+            }
+            return !ListUtils.isEmpty(list);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public jx7 a(boolean z, hx7 hx7Var) {
+        InterceptResult invokeZL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, hx7Var)) == null) {
+            jx7 jx7Var = new jx7();
+            jx7Var.c = hx7Var.i();
+            jx7Var.e = hx7Var.a();
+            jx7Var.f = hx7Var.c();
+            ArrayList<ThreadData> h = hx7Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
+                }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            gw7.e(true, arrayList, hx7Var.e());
+            gw7.e(true, arrayList, hx7Var.f());
+            gw7.e(true, arrayList, hx7Var.d());
+            gw7.e(true, arrayList, hx7Var.g());
+            jx7Var.a = gw7.c(arrayList);
+            return jx7Var;
+        }
+        return (jx7) invokeZL.objValue;
     }
 }

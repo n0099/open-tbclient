@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.image;
 
 import android.net.Uri;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class OriginalEncodedImageInfo {
     public static final OriginalEncodedImageInfo EMPTY = new OriginalEncodedImageInfo();
     @Nullable

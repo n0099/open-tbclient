@@ -1,28 +1,28 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.edb;
-import com.baidu.tieba.hdb;
-import com.baidu.tieba.ieb;
+import com.baidu.tieba.dfb;
+import com.baidu.tieba.hfb;
+import com.baidu.tieba.ogb;
+import com.baidu.tieba.ugb;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.PayFlowType;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes9.dex */
-public interface IYYPayResultView extends ieb {
+/* loaded from: classes2.dex */
+public interface IYYPayResultView extends ogb {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public enum Result {
         PAY_LOADING,
         PAY_SUUCESS,
         PAY_FAIL
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface a {
-        void a(edb edbVar);
+        void a(dfb dfbVar);
 
         void b();
 
@@ -33,7 +33,7 @@ public interface IYYPayResultView extends ieb {
 
     void setCallback(a aVar);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public Result a;
         public CurrencyChargeMessage b;
@@ -54,18 +54,18 @@ public interface IYYPayResultView extends ieb {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class c {
         public b a;
         public AbsViewEventHandler b;
         public WindowParams c;
         public List<SplitRecordItem> d;
-        public edb e;
+        public dfb e;
         public PayFlowType f;
-        public hdb g;
+        public hfb g;
         public IPayCallback<CurrencyChargeMessage> h;
         public boolean i;
-        public IYYPayWayView.b j;
+        public ugb.b j;
         public String k;
         public PayCallBackBean l;
 

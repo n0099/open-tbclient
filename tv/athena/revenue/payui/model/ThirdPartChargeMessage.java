@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.Map;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class ThirdPartChargeMessage {
     public Map<String, String> appClientExpand;
     public int code;

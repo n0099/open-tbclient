@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payapi;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.AccountDelayMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ConsumeConfirmMessage;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppPayServiceListener implements IAppPayServiceListener {
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener
     public void onAccountDelayMessage(AccountDelayMessage accountDelayMessage) {

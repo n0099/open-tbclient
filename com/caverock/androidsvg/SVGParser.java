@@ -12,16 +12,17 @@ import com.baidu.mobstat.Config;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.uoa;
-import com.baidu.tieba.voa;
+import com.baidu.tieba.sqa;
+import com.baidu.tieba.tqa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,7 +60,7 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DefaultHandler2;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SVGParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +113,7 @@ public class SVGParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SVGAttr {
         public static final /* synthetic */ SVGAttr[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -236,7 +237,7 @@ public class SVGParser {
             cx = new SVGAttr("cx", 6);
             cy = new SVGAttr("cy", 7);
             direction = new SVGAttr(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, 8);
-            dx = new SVGAttr("dx", 9);
+            dx = new SVGAttr(LoginConstants.DX_ONE_KEY_LOGIN, 9);
             dy = new SVGAttr("dy", 10);
             fx = new SVGAttr("fx", 11);
             fy = new SVGAttr("fy", 12);
@@ -324,7 +325,7 @@ public class SVGParser {
             cache = new HashMap();
             for (SVGAttr sVGAttr2 : values()) {
                 if (sVGAttr2 == CLASS) {
-                    cache.put(DealIntentService.KEY_CLASS, sVGAttr2);
+                    cache.put("class", sVGAttr2);
                 } else if (sVGAttr2 != UNSUPPORTED) {
                     cache.put(sVGAttr2.name().replace('_', SignatureImpl.SEP), sVGAttr2);
                 }
@@ -383,7 +384,7 @@ public class SVGParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SVGElem {
         public static final /* synthetic */ SVGElem[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -468,7 +469,7 @@ public class SVGParser {
             tref = new SVGElem(TrackReferenceBox.TYPE, 27);
             tspan = new SVGElem("tspan", 28);
             use = new SVGElem("use", 29);
-            f1067view = new SVGElem(NativeConstants.TYPE_VIEW, 30);
+            f1067view = new SVGElem("view", 30);
             SVGElem sVGElem = new SVGElem("UNSUPPORTED", 31);
             UNSUPPORTED = sVGElem;
             $VALUES = new SVGElem[]{svg, a, circle, clipPath, defs, desc, ellipse, g, image, line, linearGradient, marker, mask, path, pattern, polygon, polyline, radialGradient, rect, solidColor, stop, style, SWITCH, symbol, text, textPath, title, tref, tspan, use, f1067view, sVGElem};
@@ -533,7 +534,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -1040,7 +1041,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, PreserveAspectRatio.Alignment> a;
@@ -1083,7 +1084,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Integer> a;
@@ -1113,7 +1114,7 @@ public class SVGParser {
             a.put("bisque", -6972);
             a.put("black", -16777216);
             a.put("blanchedalmond", -5171);
-            a.put("blue", -16776961);
+            a.put("blue", Integer.valueOf((int) BaseAnimatedElement.DEBUG_PAINT_COLOR));
             a.put("blueviolet", -7722014);
             a.put("brown", -5952982);
             a.put("burlywood", -2180985);
@@ -1265,7 +1266,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, SVG.o> a;
@@ -1307,7 +1308,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<String, Integer> a;
@@ -1353,7 +1354,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f extends DefaultHandler2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1433,14 +1434,14 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public int b;
         public int c;
-        public voa d;
+        public tqa d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1471,7 +1472,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new voa();
+            this.d = new tqa();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -1900,7 +1901,7 @@ public class SVGParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class h implements Attributes {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3895,7 +3896,7 @@ public class SVGParser {
                     SVG.Style.TextDecoration H0 = H0(str2);
                     style.s = H0;
                     if (H0 != null) {
-                        style.a |= PlaybackStateCompat.ACTION_PREPARE_FROM_URI;
+                        style.a |= 131072;
                         return;
                     }
                     return;
@@ -3903,7 +3904,7 @@ public class SVGParser {
                     SVG.Style.TextDirection I0 = I0(str2);
                     style.t = I0;
                     if (I0 != null) {
-                        style.a |= 68719476736L;
+                        style.a |= AccountConstants.TYPE_MODIFY_SHOW_COMMENT;
                         return;
                     }
                     return;
@@ -4061,7 +4062,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                uoa b2 = uoa.b(str, 1, str.length());
+                sqa b2 = sqa.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4584,7 +4585,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new voa().b(str, i, i2);
+            float b2 = new tqa().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }

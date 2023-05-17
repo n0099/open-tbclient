@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.res.widget.toast;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum ToastTemplate {
     T1,
     T2,

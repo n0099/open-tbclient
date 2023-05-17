@@ -1,53 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zj5 implements pj5<AgreeEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+/* loaded from: classes8.dex */
+public interface zj5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
 
-    public zj5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a(boolean z, boolean z2);
+
+        void b(boolean z);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pj5
-    /* renamed from: a */
-    public boolean onEvent(AgreeEvent agreeEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
-            if (agreeEvent != null && agreeEvent.agreeData != null) {
-                fp9 fp9Var = new fp9();
-                fp9Var.b = agreeEvent.agreeData;
-                String str = agreeEvent.agreeExtra;
-                if (AgreeEvent.IS_THREAD.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, fp9Var));
-                    return true;
-                } else if (AgreeEvent.IS_POST.equals(str)) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, fp9Var));
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void c();
+
+    void d(@Nullable a aVar);
+
+    void e();
+
+    @NonNull
+    Fragment f(@NonNull String str);
+
+    void hide();
+
+    void show();
 }

@@ -1,290 +1,349 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-/* loaded from: classes3.dex */
-public final class aw2 {
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+@SuppressLint({"SwanCommentWar"})
+/* loaded from: classes4.dex */
+public class aw2 implements fz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Uri a;
-    public final Bitmap b;
-    public final Integer c;
-    public boolean d;
-    public int e;
-    public int f;
-    public Rect g;
-    public boolean h;
+    public String a;
+    public zv2 b;
+    public String c;
+    public String d;
+    public double e;
+    public double f;
+    public int g;
+    public int h;
+    public b i;
+    public c j;
+    public a k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629517, "Lcom/baidu/tieba/aw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes4.dex */
+    public static class a implements fz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+
+        @Override // com.baidu.tieba.fz2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947629517, "Lcom/baidu/tieba/aw2;");
+            return invokeV.booleanValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0.5d;
+            this.b = 1.0d;
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public void a(JSONObject jSONObject) throws JSONException {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
+            double d = 1.0d;
+            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d2 = this.a;
+            if (d2 < 0.0d) {
+                d2 = 0.0d;
+            } else if (d2 > 1.0d) {
+                d2 = 1.0d;
+            }
+            this.a = d2;
+            double d3 = this.b;
+            if (d3 < 0.0d) {
+                d = 0.0d;
+            } else if (d3 <= 1.0d) {
+                d = d3;
+            }
+            this.b = d;
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes4.dex */
+    public static class b extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float f;
+        public String g;
+        public int h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(aw2 aw2Var) {
+            super(aw2Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((aw2) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = 0.0f;
+            this.g = "BYCLICK";
+            this.h = -1;
+        }
+
+        @Override // com.baidu.tieba.aw2.d, com.baidu.tieba.fz2
+        public void a(JSONObject jSONObject) throws JSONException {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
+            jSONObject.optDouble("borderWidth", 0.0d);
+            if (jSONObject.has(CriusAttrConstants.DISPLAY)) {
+                str = jSONObject.optString(CriusAttrConstants.DISPLAY);
+            } else {
+                str = "BYCLICK";
+            }
+            this.g = str;
+            this.h = tv2.a(jSONObject.optString("bgColor"), -1);
+            tv2.a(jSONObject.optString("borderColor"), this.h);
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes4.dex */
+    public static class c extends d implements fz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float f;
+        public float g;
+        public float h;
+        public int i;
+        public float j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(aw2 aw2Var) {
+            super(aw2Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((aw2) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = 0.0f;
+            this.g = 0.0f;
+            this.h = 0.0f;
+            this.i = 0;
+            this.j = 0.0f;
+        }
+
+        @Override // com.baidu.tieba.aw2.d, com.baidu.tieba.fz2
+        public void a(JSONObject jSONObject) throws JSONException {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            this.f = tv2.b(jSONObject.optDouble("x", 0.0d));
+            float b = tv2.b(jSONObject.optDouble("y", 0.0d));
+            this.g = b;
+            if (this.f == 0.0f && b == 0.0f) {
+                this.f = tv2.b(jSONObject.optDouble("anchorX", 0.0d));
+                this.g = tv2.b(jSONObject.optDouble("anchorY", 0.0d));
+            }
+            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
+            this.i = tv2.a(jSONObject.optString("borderColor"), 0);
+            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes4.dex */
+    public static class d implements fz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public float c;
+        public int d;
+        public float e;
+
+        public d(aw2 aw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "";
+            this.b = -16777216;
+            this.c = tv2.b(10.0d);
+            this.d = 0;
+            this.e = 0.0f;
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public void a(JSONObject jSONObject) throws JSONException {
+            float b;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("content")) {
+                return;
+            }
+            this.a = jSONObject.optString("content");
+            this.b = tv2.a(jSONObject.optString("color"), -16777216);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
+                b = Math.abs(tv2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
+            } else {
+                b = tv2.b(10.0d);
+            }
+            this.c = b;
+            this.d = tv2.a(jSONObject.optString("bgColor"), 0);
+            this.e = tv2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
+            if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
+                jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+            }
+        }
+
+        @Override // com.baidu.tieba.fz2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return !TextUtils.isEmpty(this.a);
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    public aw2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i = ho1.a;
+        this.a = "";
+        this.c = "";
+        this.d = "";
+        this.e = 0.0d;
+        this.f = 1.0d;
+        this.g = -1;
+        this.h = -1;
     }
 
-    public final Bitmap c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (Bitmap) invokeV.objValue;
+        zv2 zv2Var = new zv2();
+        this.b = zv2Var;
+        zv2Var.a(jSONObject);
+        if (!this.b.isValid()) {
+            return;
+        }
+        String optString = jSONObject.optString("markerId");
+        this.a = optString;
+        if (TextUtils.isEmpty(optString)) {
+            this.a = jSONObject.optString("id");
+        }
+        this.c = jSONObject.optString("title");
+        this.d = jSONObject.optString("iconPath");
+        this.e = jSONObject.optDouble("rotate", 0.0d);
+        this.f = Math.abs(jSONObject.optDouble(Key.ALPHA, 1.0d));
+        int i2 = -1;
+        if (jSONObject.has("width")) {
+            i = Math.abs(xm3.g(jSONObject.optInt("width")));
+        } else {
+            i = -1;
+        }
+        this.g = i;
+        if (jSONObject.has("height")) {
+            i2 = Math.abs(xm3.g(jSONObject.optInt("height")));
+        }
+        this.h = i2;
+        jSONObject.optInt("zIndex", 0);
+        b bVar = new b(this);
+        this.i = bVar;
+        bVar.a(jSONObject.optJSONObject("callout"));
+        c cVar = new c(this);
+        this.j = cVar;
+        cVar.a(jSONObject.optJSONObject("label"));
+        a aVar = new a();
+        this.k = aVar;
+        aVar.a(jSONObject.optJSONObject("anchor"));
     }
 
-    public final Integer d() {
+    @Override // com.baidu.tieba.fz2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+            zv2 zv2Var = this.b;
+            if (zv2Var != null && zv2Var.isValid()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
-    }
-
-    public final Uri i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public aw2 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            l(false);
-            return this;
-        }
-        return (aw2) invokeV.objValue;
-    }
-
-    public aw2 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            l(true);
-            return this;
-        }
-        return (aw2) invokeV.objValue;
-    }
-
-    public aw2(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.a = null;
-        this.c = Integer.valueOf(i2);
-        this.d = true;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static aw2 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    x42.k("ImageSource", "asset name is null");
-                    return null;
-                }
-                throw new NullPointerException("Asset name must not be null");
-            }
-            return o("file:///android_asset/" + str);
-        }
-        return (aw2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static aw2 b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bitmap)) == null) {
-            if (bitmap == null) {
-                if (!i) {
-                    x42.k("ImageSource", "bitmap is null");
-                    return null;
-                }
-                throw new NullPointerException("Bitmap must not be null");
-            }
-            return new aw2(bitmap, true);
-        }
-        return (aw2) invokeL.objValue;
-    }
-
-    public aw2(Bitmap bitmap, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = bitmap;
-        this.a = null;
-        this.c = null;
-        this.d = false;
-        this.e = bitmap.getWidth();
-        this.f = bitmap.getHeight();
-        this.h = z;
-    }
-
-    public aw2(Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uri};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        String uri2 = uri.toString();
-        if (uri2.startsWith(ImageSource.FILE_SCHEME) && !new File(uri2.substring(7)).exists()) {
-            try {
-                uri = Uri.parse(URLDecoder.decode(uri2, "UTF-8"));
-            } catch (UnsupportedEncodingException unused) {
-            }
-        }
-        this.b = null;
-        this.a = uri;
-        this.c = null;
-        this.d = true;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static aw2 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (str == null) {
-                if (!i) {
-                    x42.k("ImageSource", "uri is null");
-                    return null;
-                }
-                throw new NullPointerException("Uri must not be null");
-            }
-            if (!str.contains("://")) {
-                if (str.startsWith("/")) {
-                    str = str.substring(1);
-                }
-                str = ImageSource.FILE_SCHEME + str;
-            }
-            return new aw2(Uri.parse(str));
-        }
-        return (aw2) invokeL.objValue;
-    }
-
-    public static aw2 k(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
-            return new aw2(i2);
-        }
-        return (aw2) invokeI.objValue;
-    }
-
-    public aw2 l(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.d = z;
-            return this;
-        }
-        return (aw2) invokeZ.objValue;
     }
 }

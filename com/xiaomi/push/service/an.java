@@ -1,5 +1,5 @@
 package com.xiaomi.push.service;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class an {
     public int a;
 

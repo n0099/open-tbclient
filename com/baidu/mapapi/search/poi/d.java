@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.search.poi.PoiFilter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public /* synthetic */ class d {
     public static final /* synthetic */ int[] a;
 

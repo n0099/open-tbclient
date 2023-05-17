@@ -4,7 +4,7 @@ import android.util.Pair;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class WebpUtil {
     public static final String VP8L_HEADER = "VP8L";
     public static final String VP8X_HEADER = "VP8X";

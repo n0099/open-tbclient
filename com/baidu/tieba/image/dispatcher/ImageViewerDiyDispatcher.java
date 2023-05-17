@@ -2,14 +2,14 @@ package com.baidu.tieba.image.dispatcher;
 
 import android.util.TypedValue;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.eg9;
+import com.baidu.tieba.gi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ImageViewerDiyDispatcher implements eg9 {
+/* loaded from: classes6.dex */
+public class ImageViewerDiyDispatcher implements gi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class ImageViewerDiyDispatcher implements eg9 {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(org.json.JSONObject r23, android.content.Context r24) {
         /*
             r22 = this;
@@ -59,13 +59,13 @@ public class ImageViewerDiyDispatcher implements eg9 {
             java.lang.String r3 = "index"
             java.lang.String r3 = r0.optString(r3)
             r4 = -1
-            int r3 = com.baidu.tieba.gg.e(r3, r4)
+            int r3 = com.baidu.tieba.pg.e(r3, r4)
             java.lang.String r4 = "enterType"
             r0.optString(r4)
             java.lang.String r4 = "forbidAd"
             java.lang.String r4 = r0.optString(r4)
             r5 = 1
-            int r4 = com.baidu.tieba.gg.e(r4, r5)
+            int r4 = com.baidu.tieba.pg.e(r4, r5)
             if (r4 != r5) goto L2f
             r4 = 1
             goto L30
@@ -84,7 +84,7 @@ public class ImageViewerDiyDispatcher implements eg9 {
             r0.optString(r11)
             java.lang.String r11 = "isShowHost"
             java.lang.String r11 = r0.optString(r11)
-            int r11 = com.baidu.tieba.gg.e(r11, r5)
+            int r11 = com.baidu.tieba.pg.e(r11, r5)
             if (r11 != r5) goto L5b
             r11 = 1
             goto L5c
@@ -275,10 +275,10 @@ public class ImageViewerDiyDispatcher implements eg9 {
             r3.urlThumbType = r8
             r3.imageThumbUrl = r4
             r8 = -1
-            long r10 = com.baidu.tieba.gg.g(r7, r8)
+            long r10 = com.baidu.tieba.pg.g(r7, r8)
             r3.threadId = r10
             r4 = r20
-            long r8 = com.baidu.tieba.gg.g(r4, r8)
+            long r8 = com.baidu.tieba.pg.g(r4, r8)
             r3.postId = r8
             java.lang.Object r8 = com.baidu.tbadk.core.util.ListUtils.getItem(r15, r6)
             java.lang.String r8 = (java.lang.String) r8

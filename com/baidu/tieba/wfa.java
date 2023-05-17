@@ -1,81 +1,104 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yfa;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class wfa {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final boolean f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final int c;
+    public long d;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948270039, "Lcom/baidu/tieba/wfa;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948270039, "Lcom/baidu/tieba/wfa;");
-        }
-    }
-
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a) {
-                return yfa.a.a.f(str);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270039, "Lcom/baidu/tieba/wfa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return SampleResult.OTHERE;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948270039, "Lcom/baidu/tieba/wfa;");
+                return;
+            }
         }
-        return (SampleResult) invokeL.objValue;
+        f = vfa.a & true;
+        g = "ControlData";
     }
 
-    public static void b(xfa xfaVar) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, xfaVar) != null) || xfaVar == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i == this.c) {
+                return true;
+            }
+            return false;
         }
-        sga.b(xfaVar);
+        return invokeV.booleanValue;
     }
 
-    public static void d(String str) {
+    public wfa(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            qga.a().b(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = str;
+        this.b = i;
+        this.c = i2;
     }
 
-    public static void e(String str) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
-            qga.a().c(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b != 0 && this.c != 0) {
+                Long valueOf = Long.valueOf(System.currentTimeMillis());
+                if (f) {
+                    Log.d(g, "id " + this.a + " mLimitUnit " + this.b + " mLimitCnt " + this.c + "mCount =  " + this.e + " duration " + ((valueOf.longValue() - this.d) / 1000));
+                }
+                if (this.d != 0 && (valueOf.longValue() - this.d) / 1000 <= this.b && this.e >= this.c) {
+                    if (f) {
+                        Log.d(g, "control");
+                    }
+                    return true;
+                }
+                if (this.d == 0) {
+                    this.d = valueOf.longValue();
+                } else if ((valueOf.longValue() - this.d) / 1000 > this.b) {
+                    this.d = valueOf.longValue();
+                    this.e = 0;
+                    if (f) {
+                        Log.d(g, "reset");
+                    }
+                }
+                this.e++;
+            }
+            return false;
         }
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
-            return;
-        }
-        vga.a(str, str2, str3, map);
+        return invokeV.booleanValue;
     }
 }

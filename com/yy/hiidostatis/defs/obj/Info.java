@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Info<T extends Elem> implements Serializable {
     public static final String DIVIDE_ELEM = "|";
     public static final long serialVersionUID = 1;

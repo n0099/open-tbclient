@@ -1,82 +1,158 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.mw8;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class uy8 extends jy8<vy8, PbImageAlaRecommendVH> {
+/* loaded from: classes7.dex */
+public class uy8 extends ry8<CustomDialogData> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId g;
-    public qv8 h;
+    public CustomDialogData c;
+    public vy8 d;
+    public TbImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public View j;
+    public View k;
+    public LinearLayout l;
+
+    @Override // com.baidu.tieba.wy8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.custom_dailog_view : invokeV.intValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uy8(z29 z29Var, BdUniqueId bdUniqueId) {
-        super(z29Var, vy8.q);
+    public uy8(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z29Var, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((z29) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = bdUniqueId;
+    }
+
+    @Override // com.baidu.tieba.wy8
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
+            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0908a4);
+            this.g = (TextView) getViewGroup().findViewById(R.id.dialog_body);
+            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092970);
+            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0918aa);
+            this.j = getViewGroup().findViewById(R.id.bdDialog_divider_line);
+            this.k = getViewGroup().findViewById(R.id.divider_yes_no_button);
+            this.l = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
+            this.h.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
+        }
+    }
+
+    public void f(vy8 vy8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vy8Var) == null) {
+            this.d = vy8Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.wy8
+    /* renamed from: e */
+    public void c(CustomDialogData customDialogData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d072e, viewGroup, false), this.a.getPageContext(), this.g);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, customDialogData) != null) || customDialogData == null) {
+            return;
         }
-        return (PbImageAlaRecommendVH) invokeL.objValue;
-    }
-
-    public void y(qv8 qv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qv8Var) == null) {
-            this.h = qv8Var;
+        this.c = customDialogData;
+        CustomDialogData.Head head = customDialogData.head;
+        if (!TextUtils.isEmpty(head.imageUrl)) {
+            this.e.N(head.imageUrl, 10, false);
+        }
+        if (!TextUtils.isEmpty(head.text)) {
+            this.f.setText(head.text);
+        }
+        if (!TextUtils.isEmpty(customDialogData.body)) {
+            this.g.setText(customDialogData.body);
+        }
+        CustomDialogData.Button button = customDialogData.leftButton;
+        if (button != null && !StringUtils.isNull(button.text)) {
+            this.i.setText(customDialogData.leftButton.text);
+        }
+        CustomDialogData.Button button2 = customDialogData.rightButton;
+        if (button2 != null && !StringUtils.isNull(button2.text)) {
+            this.h.setText(customDialogData.rightButton.text);
         }
     }
 
-    @Override // com.baidu.tieba.jy8, com.baidu.tieba.vm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        x(i, view2, viewGroup, (vy8) obj, (PbImageAlaRecommendVH) viewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, vy8 vy8Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
-        InterceptResult invokeCommon;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        CustomDialogData.Button button;
+        CustomDialogData.Button button2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy8Var, pbImageAlaRecommendVH})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) vy8Var, (vy8) pbImageAlaRecommendVH);
-            if (pbImageAlaRecommendVH != null) {
-                pbImageAlaRecommendVH.c(vy8Var);
-                pbImageAlaRecommendVH.h(this.h);
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            if (view2 == this.h) {
+                CustomDialogData customDialogData = this.c;
+                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
+                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
+                }
+                vy8 vy8Var = this.d;
+                if (vy8Var != null) {
+                    vy8Var.dismiss();
+                }
+                StatisticItem statisticItem = new StatisticItem(mw8.a.b);
+                statisticItem.param("obj_locate", 2);
+                TiebaStatic.log(statisticItem);
+            } else if (view2 == this.i) {
+                CustomDialogData customDialogData2 = this.c;
+                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
+                    yu4.v(this.a.getPageActivity(), null, this.c.leftButton.action, true);
+                }
+                vy8 vy8Var2 = this.d;
+                if (vy8Var2 != null) {
+                    vy8Var2.dismiss();
+                }
+                StatisticItem statisticItem2 = new StatisticItem(mw8.a.b);
+                statisticItem2.param("obj_locate", 1);
+                TiebaStatic.log(statisticItem2);
             }
-            return view2;
         }
-        return (View) invokeCommon.objValue;
     }
 }

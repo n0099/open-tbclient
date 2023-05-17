@@ -1,20 +1,31 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-/* loaded from: classes6.dex */
-public interface t6a {
-    void a(boolean z);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class t6a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public float b;
+    public int c;
+    public int d;
+    public List<n6a> e;
 
-    boolean b(WebView webView, String str);
-
-    void c(NewWriteModel.d dVar);
-
-    void d();
-
-    void e(boolean z, String str);
-
-    void onDestroy();
-
-    void onPageFinished(WebView webView, String str);
+    public t6a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

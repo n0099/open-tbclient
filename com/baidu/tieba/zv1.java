@@ -1,51 +1,42 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import okhttp3.HttpUrl;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public abstract class zv1 {
+/* loaded from: classes8.dex */
+public class zv1 extends q03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public aw1 b;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(xz1 xz1Var);
-    }
-
-    @NonNull
-    public abstract xz1 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
-
-    @NonNull
-    public abstract xz1 e(@NonNull JSONObject jSONObject);
-
-    public abstract boolean i();
-
-    /* loaded from: classes7.dex */
-    public class a implements b {
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ zv1 b;
+        public final /* synthetic */ g93 a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ zv1 e;
 
-        public a(zv1 zv1Var, String str) {
+        public a(zv1 zv1Var, g93 g93Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zv1Var, str};
+                Object[] objArr = {zv1Var, g93Var, unitedSchemeEntity, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,113 +46,114 @@ public abstract class zv1 {
                     return;
                 }
             }
-            this.b = zv1Var;
-            this.a = str;
+            this.e = zv1Var;
+            this.a = g93Var;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
+            this.d = str;
         }
 
-        @Override // com.baidu.tieba.zv1.b
-        public void a(xz1 xz1Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, xz1Var) == null) {
-                if (zv1.c) {
-                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + xz1Var.toString());
-                }
-                this.b.b.d(this.a, xz1Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.C(this.a, this.b, this.c, this.d);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373300, "Lcom/baidu/tieba/zv1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948373300, "Lcom/baidu/tieba/zv1;");
-                return;
-            }
-        }
-        c = ho1.a;
-    }
-
-    public zv1(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zv1(da3 da3Var) {
+        super(da3Var, "/swanAPI/adRequest");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((da3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
     }
 
-    public xz1 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull aw1 aw1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.q03
+    public boolean A(@NonNull g93 g93Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, aw1Var)) == null) {
-            this.b = aw1Var;
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
-            }
-            if (i()) {
-                return h(jSONObject);
-            }
-            return g(jSONObject, str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, g93Var, unitedSchemeEntity, callbackHandler, str)) == null) {
+            am3.j(new a(this, g93Var, unitedSchemeEntity, callbackHandler, str), "execRequest");
+            return true;
         }
-        return (xz1) invokeLLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final xz1 g(@NonNull JSONObject jSONObject, @Nullable String str) {
-        InterceptResult invokeLL;
+    public final void C(@NonNull g93 g93Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
-            }
-            xz1 d = d(jSONObject, new a(this, str));
-            if (!d.h("isSync", Boolean.FALSE)) {
-                if (c) {
-                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g93Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
+            String optString = a2.optString("cb");
+            try {
+                String optString2 = a2.optString("url");
+                D(a2, optString2, ym3.q(optString2));
+                unitedSchemeEntity.putParams("params", a2.toString());
+                if (!super.A(g93Var, unitedSchemeEntity, callbackHandler, str)) {
+                    g62.c("AdRequest", "request fail");
+                    callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
                 }
-                return new xz1(1001, "make result json error");
+            } catch (JSONException unused) {
+                callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
-            }
-            return d;
         }
-        return (xz1) invokeLL.objValue;
     }
 
-    public final xz1 h(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void D(JSONObject jSONObject, String str, boolean z) throws JSONException {
+        HttpUrl parse;
+        JSONObject optJSONObject;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
-            }
-            xz1 e = e(jSONObject);
-            if (!e.h("isSync", Boolean.TRUE)) {
-                if (c) {
-                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
-                }
-                return new xz1(1001, "make result json error");
-            }
-            if (c) {
-                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
-            }
-            return e;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, z) != null) || jSONObject == null || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null || (optJSONObject = jSONObject.optJSONObject("extParams")) == null) {
+            return;
         }
-        return (xz1) invokeL.objValue;
+        if (!z) {
+            str2 = "";
+        } else {
+            str2 = o();
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("header");
+            if (optJSONObject2 == null) {
+                optJSONObject2 = new JSONObject();
+            }
+            j(optJSONObject2, str2);
+            jSONObject.put("header", optJSONObject2);
+        }
+        if (db3.b) {
+            Log.d("AdRequestAction", "appendUrlQueryAndHeader: isBaiduDomain=" + z + ", cookie=" + str2);
+        }
+        HttpUrl.Builder newBuilder = parse.newBuilder();
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            String optString = optJSONObject.optString(next);
+            if (TextUtils.equals(optString, "cuid")) {
+                str3 = ns2.h0().i(ns2.c());
+            } else if (!TextUtils.equals(optString, "baiduid") || !z) {
+                str3 = "";
+            } else {
+                str3 = ym3.l(str2, "BAIDUID");
+            }
+            if (TextUtils.isEmpty(str3)) {
+                str3 = "";
+            }
+            g62.i("AdRequest", "key=" + next + ", value=" + str3);
+            newBuilder.addQueryParameter(next, str3);
+        }
+        jSONObject.put("url", newBuilder.build().toString());
     }
 }

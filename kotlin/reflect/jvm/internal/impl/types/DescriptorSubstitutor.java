@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.impl.TypeParameterDescriptorImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DescriptorSubstitutor {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         String str = i != 4 ? "Argument for @NotNull parameter '%s' of %s.%s must not be null" : "@NotNull method %s.%s must not return null";

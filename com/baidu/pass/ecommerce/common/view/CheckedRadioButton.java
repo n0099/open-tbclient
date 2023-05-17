@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.ViewParent;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CheckedRadioButton extends RadioButton {
     public CheckedRadioButton(Context context) {
         super(context);

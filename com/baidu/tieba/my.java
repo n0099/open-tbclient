@@ -1,143 +1,69 @@
 package com.baidu.tieba;
 
-import android.widget.RelativeLayout;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.Align;
-import com.baidu.card.view.UnfollowedDecorView;
+import com.baidu.card.view.SmartAppBottomLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class my extends tw implements kx<ThreadData>, lx {
+/* loaded from: classes6.dex */
+public class my extends hx {
     public static /* synthetic */ Interceptable $ic;
-    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public UnfollowedDecorView e;
-    public Align f;
+    public SmartAppBottomLayout h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311681, "Lcom/baidu/tieba/my;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448311681, "Lcom/baidu/tieba/my;");
-                return;
-            }
-        }
-        g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
-    }
-
-    public my(TbPageContext tbPageContext, Align align) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public my(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, align};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        h(-1);
-        UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
-        this.e = unfollowedDecorView;
-        unfollowedDecorView.setId(R.id.decor_item_right_id);
-        g(this.e);
-        k(align);
-    }
-
-    public void l(ax4 ax4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) {
-            if (ax4Var.isSupportTop()) {
-                k(Align.ALIGN_RIGHT_TOP);
-            } else if (ax4Var.isSupportBottom()) {
-                gy gyVar = this.d;
-                if (gyVar != null) {
-                    gyVar.o(this);
-                }
-            } else {
-                k(Align.ALIGN_RIGHT_TOP);
-            }
-        }
+        this.h = new SmartAppBottomLayout(context);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kx
-    /* renamed from: m */
-    public void a(ThreadData threadData) {
+    @Override // com.baidu.tieba.tx
+    /* renamed from: y */
+    public void a(jy4 jy4Var) {
+        SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
-            this.e.n(threadData);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) && (smartAppBottomLayout = this.h) != null) {
+            smartAppBottomLayout.a(jy4Var);
         }
     }
 
-    public void k(Align align) {
+    @Override // com.baidu.tieba.ax
+    public View k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, align) != null) || align == this.f) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
         }
-        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
-        if (align == Align.ALIGN_RIGHT_TOP) {
-            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
-            layoutParams.addRule(11);
-            layoutParams.addRule(10);
-            layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            layoutParams.topMargin = dimenPixelSize2;
-            i(layoutParams);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.e.setLayoutParams(layoutParams);
-        } else if (align == Align.ALIGN_RIGHT_CENTER) {
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
-            layoutParams2.addRule(11);
-            layoutParams2.addRule(15);
-            layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
-            layoutParams2.bottomMargin = 0;
-            i(layoutParams2);
-            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.e.setLayoutParams(layoutParams2);
-        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
-            int i = g;
-            int g2 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
-            int g3 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
-            int g4 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
-            layoutParams3.addRule(11);
-            layoutParams3.addRule(12);
-            layoutParams3.rightMargin = g3;
-            layoutParams3.bottomMargin = g4;
-            i(layoutParams3);
-            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.e.setPadding(g2, g2, g2, g2);
-            this.e.setLayoutParams(layoutParams3);
-        }
-        this.f = align;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.e.p();
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (smartAppBottomLayout = this.h) != null) {
+            smartAppBottomLayout.d();
         }
     }
 }

@@ -1,15 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tieba.fn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gx0 extends zw0 {
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class gx0 implements fn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.fn0
+    public void a(@Nullable String str, @Nullable String str2, fn0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
+        }
+    }
 
     public gx0() {
         Interceptable interceptable = $ic;
@@ -23,25 +34,5 @@ public class gx0 extends zw0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.zw0, com.baidu.tieba.cx0
-    @NonNull
-    public vw0 create(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.hashCode() == -1843224545 && str.equals("InlineVideoKernel")) {
-                c = 0;
-            } else {
-                c = 65535;
-            }
-            if (c != 0) {
-                return super.create(str);
-            }
-            return new ex0();
-        }
-        return (vw0) invokeL.objValue;
     }
 }

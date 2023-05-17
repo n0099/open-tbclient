@@ -7,7 +7,7 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.g9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class LocalPicModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -339604626740227228L;
@@ -29,7 +29,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     public String mSPath;
 
     /* renamed from: com.baidu.tieba.im.model.LocalPicModel$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ResponseData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9099542245580007084L;
@@ -200,7 +200,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

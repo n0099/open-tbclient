@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.qq.e.comm.constants.Constants;
@@ -37,7 +38,7 @@ import com.tencent.tauth.UiError;
 import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class TDialog extends b {
     public static final FrameLayout.LayoutParams c = new FrameLayout.LayoutParams(-1, -1);
     public static Toast d = null;
@@ -52,7 +53,7 @@ public class TDialog extends b {
     public boolean m;
     public QQToken n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class FbWebViewClient extends WebViewClient {
         public FbWebViewClient() {
         }
@@ -112,7 +113,7 @@ public class TDialog extends b {
                     } else {
                         parse = Uri.parse(Uri.decode(str));
                     }
-                    Intent intent = new Intent("android.intent.action.VIEW", parse);
+                    Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, parse);
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                     if (TDialog.this.e != null && TDialog.this.e.get() != null) {
                         ((Context) TDialog.this.e.get()).startActivity(intent);
@@ -125,7 +126,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class JsListener extends a.b {
         public JsListener() {
         }
@@ -174,7 +175,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class OnTimeListener extends DefaultUiListener {
         public String a;
         public String b;
@@ -239,7 +240,7 @@ public class TDialog extends b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class THandler extends Handler {
         public OnTimeListener b;
 

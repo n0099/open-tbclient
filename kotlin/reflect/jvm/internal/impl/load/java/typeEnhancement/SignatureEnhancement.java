@@ -67,12 +67,12 @@ import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
 import kotlin.reflect.jvm.internal.impl.utils.Jsr305State;
 import kotlin.reflect.jvm.internal.impl.utils.ReportLevel;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SignatureEnhancement {
     public final AnnotationTypeQualifierResolver annotationTypeQualifierResolver;
     public final Jsr305State jsr305State;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PartEnhancementResult {
         public final boolean containsFunctionN;
         public final KotlinType type;
@@ -97,7 +97,7 @@ public final class SignatureEnhancement {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class SignatureParts {
         public final AnnotationTypeQualifierResolver.QualifierApplicabilityType containerApplicabilityType;
         public final LazyJavaResolverContext containerContext;
@@ -446,12 +446,12 @@ public final class SignatureEnhancement {
 
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final boolean invoke2(UnwrappedType unwrappedType) {
-                    ClassifierDescriptor mo2025getDeclarationDescriptor = unwrappedType.getConstructor().mo2025getDeclarationDescriptor();
-                    if (mo2025getDeclarationDescriptor == null) {
+                    ClassifierDescriptor mo2044getDeclarationDescriptor = unwrappedType.getConstructor().mo2044getDeclarationDescriptor();
+                    if (mo2044getDeclarationDescriptor == null) {
                         return false;
                     }
-                    Intrinsics.checkExpressionValueIsNotNull(mo2025getDeclarationDescriptor, "it.constructor.declarati… ?: return@contains false");
-                    if (!Intrinsics.areEqual(mo2025getDeclarationDescriptor.getName(), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME().shortName()) || !Intrinsics.areEqual(DescriptorUtilsKt.fqNameOrNull(mo2025getDeclarationDescriptor), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME())) {
+                    Intrinsics.checkExpressionValueIsNotNull(mo2044getDeclarationDescriptor, "it.constructor.declarati… ?: return@contains false");
+                    if (!Intrinsics.areEqual(mo2044getDeclarationDescriptor.getName(), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME().shortName()) || !Intrinsics.areEqual(DescriptorUtilsKt.fqNameOrNull(mo2044getDeclarationDescriptor), JavaToKotlinClassMap.INSTANCE.getFUNCTION_N_FQ_NAME())) {
                         return false;
                     }
                     return true;
@@ -537,7 +537,7 @@ public final class SignatureEnhancement {
                     boolean z4 = true;
                     if (!(list instanceof Collection) || !list.isEmpty()) {
                         for (FqName fqName : list) {
-                            if (Annotations.this.mo2020findAnnotation(fqName) != null) {
+                            if (Annotations.this.mo2039findAnnotation(fqName) != null) {
                                 z3 = true;
                                 continue;
                             } else {
@@ -612,7 +612,7 @@ public final class SignatureEnhancement {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ValueParameterEnhancementResult extends PartEnhancementResult {
         public final boolean hasDefaultValue;
 

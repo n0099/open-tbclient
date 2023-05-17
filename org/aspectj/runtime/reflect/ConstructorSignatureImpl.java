@@ -2,7 +2,7 @@ package org.aspectj.runtime.reflect;
 
 import java.lang.reflect.Constructor;
 import org.aspectj.lang.reflect.ConstructorSignature;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ConstructorSignatureImpl extends CodeSignatureImpl implements ConstructorSignature {
     public Constructor constructor;
 

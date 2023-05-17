@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.PropertyDescriptor;
 import kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.JavaDescriptorUtilKt;
 import kotlin.reflect.jvm.internal.impl.resolve.ExternalOverridabilityCondition;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FieldOverridabilityCondition implements ExternalOverridabilityCondition {
     @Override // kotlin.reflect.jvm.internal.impl.resolve.ExternalOverridabilityCondition
     public ExternalOverridabilityCondition.Contract getContract() {

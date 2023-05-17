@@ -3,7 +3,7 @@ package com.ss.android.downloadlib.g;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static String a(String str, String str2, boolean z, String str3) {
         JSONObject jSONObject = new JSONObject();

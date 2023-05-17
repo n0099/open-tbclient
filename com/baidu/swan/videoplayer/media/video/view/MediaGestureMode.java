@@ -1,5 +1,5 @@
 package com.baidu.swan.videoplayer.media.video.view;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum MediaGestureMode {
     INTI,
     VOLUME,

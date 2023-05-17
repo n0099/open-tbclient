@@ -2,14 +2,14 @@ package com.google.android.exoplayer2.util;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class RepeatModeUtil {
     public static final int REPEAT_TOGGLE_MODE_ALL = 2;
     public static final int REPEAT_TOGGLE_MODE_NONE = 0;
     public static final int REPEAT_TOGGLE_MODE_ONE = 1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface RepeatToggleModes {
     }
 

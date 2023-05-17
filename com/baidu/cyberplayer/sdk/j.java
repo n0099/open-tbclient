@@ -14,7 +14,7 @@ import java.io.FileDescriptor;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
     public k a;
     public CyberPlayerManager.OnPreparedListener b;
@@ -32,7 +32,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
     public DuplayerHandlerThread n;
     public boolean o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         public final WeakReference<j> a;
 
@@ -108,7 +108,7 @@ public class j extends PlayerProvider implements CyberPlayerManager.OnBufferingU
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends Handler {
         public final WeakReference<j> a;
 

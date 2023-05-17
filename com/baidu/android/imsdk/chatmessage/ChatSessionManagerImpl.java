@@ -57,7 +57,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.k70;
+import com.baidu.tieba.t70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -289,7 +289,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                k70.e(mContext).d(mContext, creatMethodIntent);
+                t70.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);
@@ -744,42 +744,6 @@ public class ChatSessionManagerImpl {
         return (List) invokeCommon.objValue;
     }
 
-    private void updatePADesc(ChatSession chatSession, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65561, this, chatSession, str) == null) {
-            int chatType = chatSession.getChatType();
-            if (chatType == 7 || chatType == 16 || chatType == 17 || chatType == 27 || chatType == 23 || chatType == 25 || chatType == 26 || chatType == 5 || chatType == 32) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    if (jSONObject.has("msg")) {
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("msg"));
-                        if (jSONObject2.has("template_version") && jSONObject2.optInt("template_version") > 0) {
-                            str = jSONObject2.optString("card_title");
-                            if (TextUtils.isEmpty(str)) {
-                                str = jSONObject2.optString("title");
-                            }
-                        } else if (!TextUtils.isEmpty(jSONObject2.optString("ext"))) {
-                            str = jSONObject2.optString("title");
-                        }
-                        if (!TextUtils.isEmpty(str)) {
-                            chatSession.setLastMsg(str);
-                            if (chatSession.getBusinessType() == 27) {
-                                chatSession.setLastMsgId(jSONObject.optLong("id", -1L));
-                                return;
-                            }
-                            return;
-                        }
-                        chatSession.setLastMsg("你收到了一条消息");
-                    } else if (chatSession.getBusinessType() == 27) {
-                        chatSession.setLastMsg(jSONObject.optString("title", str));
-                    }
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "it doesn't matter>" + e.getMessage());
-                }
-            }
-        }
-    }
-
     /* JADX INFO: Access modifiers changed from: private */
     public void onMediaGetSessionResult(@NonNull IMediaGetChatSessionListener iMediaGetChatSessionListener, int i, int i2, int i3, boolean z, List<ChatSession> list, long j) {
         String str;
@@ -819,7 +783,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j3);
                 try {
-                    k70.e(mContext).d(mContext, creatMethodIntent);
+                    t70.e(mContext).d(mContext, creatMethodIntent);
                     return true;
                 } catch (Exception e) {
                     LogUtils.e(TAG, "sendCustomNotifyMsg Exception ", e);
@@ -1200,6 +1164,42 @@ public class ChatSessionManagerImpl {
         return (String) invokeL.objValue;
     }
 
+    private void updatePADesc(ChatSession chatSession, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65561, this, chatSession, str) == null) {
+            int chatType = chatSession.getChatType();
+            if (chatType == 7 || chatType == 16 || chatType == 17 || chatType == 27 || chatType == 23 || chatType == 25 || chatType == 26 || chatType == 5 || chatType == 32) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("msg")) {
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("msg"));
+                        if (jSONObject2.has("template_version") && jSONObject2.optInt("template_version") > 0) {
+                            str = jSONObject2.optString("card_title");
+                            if (TextUtils.isEmpty(str)) {
+                                str = jSONObject2.optString("title");
+                            }
+                        } else if (!TextUtils.isEmpty(jSONObject2.optString("ext"))) {
+                            str = jSONObject2.optString("title");
+                        }
+                        if (!TextUtils.isEmpty(str)) {
+                            chatSession.setLastMsg(str);
+                            if (chatSession.getBusinessType() == 27) {
+                                chatSession.setLastMsgId(jSONObject.optLong("id", -1L));
+                                return;
+                            }
+                            return;
+                        }
+                        chatSession.setLastMsg("你收到了一条消息");
+                    } else if (chatSession.getBusinessType() == 27) {
+                        chatSession.setLastMsg(jSONObject.optString("title", str));
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "it doesn't matter>" + e.getMessage());
+                }
+            }
+        }
+    }
+
     public List<ChatSession> completeSessionInfo(List<ChatSession> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -1367,7 +1367,7 @@ public class ChatSessionManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra("session_type", i2);
                 try {
-                    k70.e(mContext).d(mContext, creatMethodIntent);
+                    t70.e(mContext).d(mContext, creatMethodIntent);
                 } catch (Exception e) {
                     LogUtils.e(TAG, "getBusiSessionFromServer Exception ", e);
                     ListenerManager.getInstance().removeListener(addListener);
@@ -1832,7 +1832,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_FILTER_INFO, jSONObject.toString());
             try {
-                k70.e(mContext).d(mContext, creatMethodIntent);
+                t70.e(mContext).d(mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "getFilterSessionsByBusiness Exception ", e);
                 ListenerManager.getInstance().removeListener(addListener);

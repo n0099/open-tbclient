@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.jni.Engine;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class k2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class k2 {
                         jSONObject.put("78", v0Var.d("78"));
                         jSONObject.put("79", v0Var.d("79"));
                         z0 z0Var = new z0(this.a, 200);
-                        jSONObject.put("70", z0Var.a("70"));
+                        jSONObject.put(PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK, z0Var.a(PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK));
                         jSONObject.put("71", z0Var.a("71"));
                         jSONObject.put("72", z0Var.a("72"));
                         jSONObject.put("73", z0Var.a("73"));
@@ -168,7 +168,7 @@ public class k2 {
                             jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_SHOW, k0Var.b(this.a));
                             jSONObject.put(PayUVEventType.PAY_SIGN_DIALOG_CONFIRM_BTN_CLICK, k0Var.k(this.a));
                             jSONObject.put(PayUVEventType.PAY_WALLET_RIGHT_SET_BTN_CLICK, k0Var.l(this.a));
-                            jSONObject.put("69", k0Var.g(this.a));
+                            jSONObject.put(PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK, k0Var.g(this.a));
                             jSONObject.put("75", k0Var.a(this.a));
                             jSONObject.put("80", k0.a());
                             jSONObject.put("85", k0Var.d(this.a));

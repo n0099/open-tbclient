@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,39 +8,64 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class dp6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final dp6 a;
-    public static final b0 b;
-    public static final Class<? extends fn6>[] c;
-    public static final b0 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<? extends bp6> a;
+    public List<? extends Object> b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712287, "Lcom/baidu/tieba/dp6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712287, "Lcom/baidu/tieba/dp6;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947712287, "Lcom/baidu/tieba/dp6;")) == null) {
+            return;
         }
-        a = new dp6();
-        b0 b2 = b0.d(kn6.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{kn6.class, jn6.class};
-        b0.b d2 = b0.d(kn6.class, jn6.class);
-        d2.c(ln6.class, nn6.class);
-        b0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947712287, "Lcom/baidu/tieba/dp6;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final boolean a;
+
+        public a(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        public final boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     public dp6() {
@@ -54,34 +78,73 @@ public final class dp6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = CollectionsKt__CollectionsKt.emptyList();
+        this.b = CollectionsKt__CollectionsKt.emptyList();
     }
 
-    public final b0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (b0) invokeV.objValue;
-    }
-
-    public final Class<? extends fn6>[] b() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.bp6>, java.util.List<com.baidu.tieba.bp6> */
+    public final List<bp6> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c;
+            return this.a;
         }
-        return (Class[]) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final b0 c() {
+    public final List<Object> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return d;
+            return this.b;
         }
-        return (b0) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final a a(ko6 item, nq6 timer, eo6 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            Iterator<? extends bp6> it = this.a.iterator();
+            int i = 0;
+            boolean z = false;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                bp6 next = it.next();
+                boolean b = next.b(item, timer, config);
+                if (b) {
+                    i = next.a();
+                    z = b;
+                    break;
+                }
+                z = b;
+            }
+            return new a(z, i);
+        }
+        return (a) invokeLLL.objValue;
+    }
+
+    public final void d(List<? extends bp6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.a = list;
+        }
+    }
+
+    public final void e(List<? extends Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Intrinsics.checkNotNullParameter(list, "<set-?>");
+            this.b = list;
+        }
     }
 }

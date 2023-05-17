@@ -27,7 +27,7 @@ import java.util.Map;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseApi {
     public static String businessId;
     public static String installChannel;
@@ -39,7 +39,7 @@ public abstract class BaseApi {
     public void releaseResource() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class TempRequestListener implements IRequestListener {
         public final IUiListener b;
         public final Handler c;

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassPermissions implements com.baidu.pass.a {
     public static final String TAG = "PassPermissions";
     public static PassPermissions a;

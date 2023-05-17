@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ActivitySponsor extends Message {
     public static final Integer DEFAULT_ISSPONSOR = 0;
     public static final String DEFAULT_SPONSORURL = "";
@@ -11,7 +11,7 @@ public final class ActivitySponsor extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String sponsorUrl;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<ActivitySponsor> {
         public Integer isSponsor;
         public String sponsorUrl;

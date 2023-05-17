@@ -1,244 +1,47 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.RejectedExecutionException;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-import rx.internal.schedulers.ScheduledAction;
-/* loaded from: classes4.dex */
-public final class h7b extends m5b {
+import rx.exceptions.OnErrorFailedException;
+import rx.functions.Actions;
+import rx.internal.operators.EmptyObservableHolder;
+import rx.internal.operators.OnSubscribeFromIterable;
+import rx.internal.operators.OperatorMerge;
+import rx.internal.operators.OperatorReplay;
+import rx.internal.util.InternalObservableUtils;
+import rx.internal.util.ScalarSynchronousObservable;
+import rx.internal.util.UtilityFunctions;
+import rx.schedulers.Schedulers;
+/* loaded from: classes5.dex */
+public class h7b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public final a<T> a;
 
-    /* loaded from: classes4.dex */
-    public static final class a extends m5b.a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Executor a;
-        public final fab b;
-        public final ConcurrentLinkedQueue<ScheduledAction> c;
-        public final AtomicInteger d;
-        public final ScheduledExecutorService e;
-
-        /* renamed from: com.baidu.tieba.h7b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0292a implements w5b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ gab a;
-            public final /* synthetic */ a b;
-
-            public C0292a(a aVar, gab gabVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, gabVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = gabVar;
-            }
-
-            @Override // com.baidu.tieba.w5b
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.b.b(this.a);
-                }
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements w5b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ gab a;
-            public final /* synthetic */ w5b b;
-            public final /* synthetic */ q5b c;
-            public final /* synthetic */ a d;
-
-            public b(a aVar, gab gabVar, w5b w5bVar, q5b q5bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, gabVar, w5bVar, q5bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.a = gabVar;
-                this.b = w5bVar;
-                this.c = q5bVar;
-            }
-
-            @Override // com.baidu.tieba.w5b
-            public void call() {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isUnsubscribed()) {
-                    return;
-                }
-                q5b b = this.d.b(this.b);
-                this.a.a(b);
-                if (b.getClass() == ScheduledAction.class) {
-                    ((ScheduledAction) b).add(this.c);
-                }
-            }
-        }
-
-        public a(Executor executor) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {executor};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = executor;
-            this.c = new ConcurrentLinkedQueue<>();
-            this.d = new AtomicInteger();
-            this.b = new fab();
-            this.e = i7b.a();
-        }
-
-        @Override // com.baidu.tieba.m5b.a
-        public q5b b(w5b w5bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w5bVar)) == null) {
-                if (isUnsubscribed()) {
-                    return iab.c();
-                }
-                ScheduledAction scheduledAction = new ScheduledAction(s9b.q(w5bVar), this.b);
-                this.b.a(scheduledAction);
-                this.c.offer(scheduledAction);
-                if (this.d.getAndIncrement() == 0) {
-                    try {
-                        this.a.execute(this);
-                    } catch (RejectedExecutionException e) {
-                        this.b.b(scheduledAction);
-                        this.d.decrementAndGet();
-                        s9b.j(e);
-                        throw e;
-                    }
-                }
-                return scheduledAction;
-            }
-            return (q5b) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.m5b.a
-        public q5b c(w5b w5bVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{w5bVar, Long.valueOf(j), timeUnit})) == null) {
-                if (j <= 0) {
-                    return b(w5bVar);
-                }
-                if (isUnsubscribed()) {
-                    return iab.c();
-                }
-                w5b q = s9b.q(w5bVar);
-                gab gabVar = new gab();
-                gab gabVar2 = new gab();
-                gabVar2.a(gabVar);
-                this.b.a(gabVar2);
-                q5b a = iab.a(new C0292a(this, gabVar2));
-                ScheduledAction scheduledAction = new ScheduledAction(new b(this, gabVar2, q, a));
-                gabVar.a(scheduledAction);
-                try {
-                    scheduledAction.add(this.e.schedule(scheduledAction, j, timeUnit));
-                    return a;
-                } catch (RejectedExecutionException e) {
-                    s9b.j(e);
-                    throw e;
-                }
-            }
-            return (q5b) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.q5b
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.q5b
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.b.unsubscribe();
-                this.c.clear();
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                while (!this.b.isUnsubscribed()) {
-                    ScheduledAction poll = this.c.poll();
-                    if (poll == null) {
-                        return;
-                    }
-                    if (!poll.isUnsubscribed()) {
-                        if (!this.b.isUnsubscribed()) {
-                            poll.run();
-                        } else {
-                            this.c.clear();
-                            return;
-                        }
-                    }
-                    if (this.d.decrementAndGet() == 0) {
-                        return;
-                    }
-                }
-                this.c.clear();
-            }
-        }
+    /* loaded from: classes5.dex */
+    public interface a<T> extends v7b<n7b<? super T>> {
+        @Override // com.baidu.tieba.v7b
+        /* synthetic */ void call(T t);
     }
 
-    public h7b(Executor executor) {
+    /* loaded from: classes5.dex */
+    public interface b<R, T> extends z7b<n7b<? super R>, n7b<? super T>> {
+        @Override // com.baidu.tieba.z7b
+        /* synthetic */ R call(T t);
+    }
+
+    public h7b(a<T> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -248,16 +51,363 @@ public final class h7b extends m5b {
                 return;
             }
         }
-        this.a = executor;
+        this.a = aVar;
     }
 
-    @Override // com.baidu.tieba.m5b
-    public m5b.a createWorker() {
+    public static <T> h7b<T> a(a<T> aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
+            return new h7b<>(rbb.h(aVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public static <T> h7b<T> g(Iterable<? extends T> iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iterable)) == null) {
+            return a(new OnSubscribeFromIterable(iterable));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public static <T> h7b<T> h(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, t)) == null) {
+            return ScalarSynchronousObservable.G(t);
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public static <T> h7b<T> k(Iterable<? extends h7b<? extends T>> iterable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, iterable)) == null) {
+            return l(g(iterable));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public static <T> h7b<T> l(h7b<? extends h7b<? extends T>> h7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, h7bVar)) == null) {
+            if (h7bVar.getClass() == ScalarSynchronousObservable.class) {
+                return ((ScalarSynchronousObservable) h7bVar).J(UtilityFunctions.b());
+            }
+            return (h7b<T>) h7bVar.i(OperatorMerge.a(false));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final h7b<T> A(k7b k7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k7bVar)) == null) {
+            if (this instanceof ScalarSynchronousObservable) {
+                return ((ScalarSynchronousObservable) this).K(k7bVar);
+            }
+            return a(new u8b(this, k7bVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final h7b<T> b(a8b<? super T, ? super T, Boolean> a8bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, a8bVar)) == null) {
+            return (h7b<T>) i(new n8b(a8bVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final h7b<T> c(v7b<? super T> v7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, v7bVar)) == null) {
+            return a(new g8b(this, new o9b(v7bVar, Actions.a(), Actions.a())));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final h7b<T> e(z7b<? super T, Boolean> z7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, z7bVar)) == null) {
+            return a(new h8b(this, z7bVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.z7b<? super T, ? extends com.baidu.tieba.h7b<? extends R>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final <R> h7b<R> f(z7b<? super T, ? extends h7b<? extends R>> z7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, z7bVar)) == null) {
+            if (getClass() == ScalarSynchronousObservable.class) {
+                return ((ScalarSynchronousObservable) this).J(z7bVar);
+            }
+            return l(j(z7bVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final <R> h7b<R> i(b<? extends R, ? super T> bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar)) == null) {
+            return a(new i8b(this.a, bVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final <R> h7b<R> j(z7b<? super T, ? extends R> z7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, z7bVar)) == null) {
+            return a(new j8b(this, z7bVar));
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final h7b<T> m(k7b k7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k7bVar)) == null) {
+            return n(k7bVar, t9b.c);
+        }
+        return (h7b) invokeL.objValue;
+    }
+
+    public final ibb<T> r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            return OperatorReplay.I(this, i);
+        }
+        return (ibb) invokeI.objValue;
+    }
+
+    public final o7b w(n7b<? super T> n7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, n7bVar)) == null) {
+            return x(n7bVar, this);
+        }
+        return (o7b) invokeL.objValue;
+    }
+
+    public final o7b y(v7b<? super T> v7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, v7bVar)) == null) {
+            if (v7bVar != null) {
+                return w(new p9b(v7bVar, InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+            }
+            throw new IllegalArgumentException("onNext can not be null");
+        }
+        return (o7b) invokeL.objValue;
+    }
+
+    public static h7b<Long> D(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, timeUnit)) == null) {
+            return E(j, timeUnit, Schedulers.computation());
+        }
+        return (h7b) invokeJL.objValue;
+    }
+
+    public final h7b<T> B(long j, TimeUnit timeUnit) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit)) == null) {
+            return C(j, timeUnit, null, Schedulers.computation());
+        }
+        return (h7b) invokeJL.objValue;
+    }
+
+    public final h7b<T> n(k7b k7bVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, k7bVar, i)) == null) {
+            return o(k7bVar, false, i);
+        }
+        return (h7b) invokeLI.objValue;
+    }
+
+    public static h7b<Long> E(long j, TimeUnit timeUnit, k7b k7bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), timeUnit, k7bVar})) == null) {
+            return a(new l8b(j, timeUnit, k7bVar));
+        }
+        return (h7b) invokeCommon.objValue;
+    }
+
+    public final ibb<T> t(long j, TimeUnit timeUnit, k7b k7bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Long.valueOf(j), timeUnit, k7bVar})) == null) {
+            return OperatorReplay.J(this, j, timeUnit, k7bVar);
+        }
+        return (ibb) invokeCommon.objValue;
+    }
+
+    public static <T> h7b<T> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return EmptyObservableHolder.instance();
         }
-        return (m5b.a) invokeV.objValue;
+        return (h7b) invokeV.objValue;
+    }
+
+    public final h7b<T> p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return (h7b<T>) i(r8b.a());
+        }
+        return (h7b) invokeV.objValue;
+    }
+
+    public final ibb<T> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return OperatorReplay.H(this);
+        }
+        return (ibb) invokeV.objValue;
+    }
+
+    public final h7b<T> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return k8b.a(this);
+        }
+        return (h7b) invokeV.objValue;
+    }
+
+    public final o7b v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return w(new p9b(Actions.a(), InternalObservableUtils.ERROR_NOT_IMPLEMENTED, Actions.a()));
+        }
+        return (o7b) invokeV.objValue;
+    }
+
+    public static <T> o7b x(n7b<? super T> n7bVar, h7b<T> h7bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, n7bVar, h7bVar)) == null) {
+            if (n7bVar != null) {
+                if (h7bVar.a != null) {
+                    n7bVar.d();
+                    if (!(n7bVar instanceof lbb)) {
+                        n7bVar = new lbb(n7bVar);
+                    }
+                    try {
+                        rbb.p(h7bVar, h7bVar.a).call(n7bVar);
+                        return rbb.o(n7bVar);
+                    } catch (Throwable th) {
+                        t7b.e(th);
+                        if (n7bVar.isUnsubscribed()) {
+                            rbb.j(rbb.m(th));
+                        } else {
+                            try {
+                                n7bVar.onError(rbb.m(th));
+                            } catch (Throwable th2) {
+                                t7b.e(th2);
+                                OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
+                                rbb.m(onErrorFailedException);
+                                throw onErrorFailedException;
+                            }
+                        }
+                        return hcb.c();
+                    }
+                }
+                throw new IllegalStateException("onSubscribe function can not be null.");
+            }
+            throw new IllegalArgumentException("subscriber can not be null");
+        }
+        return (o7b) invokeLL.objValue;
+    }
+
+    public final h7b<T> C(long j, TimeUnit timeUnit, h7b<? extends T> h7bVar, k7b k7bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), timeUnit, h7bVar, k7bVar})) == null) {
+            return (h7b<T>) i(new v8b(j, timeUnit, h7bVar, k7bVar));
+        }
+        return (h7b) invokeCommon.objValue;
+    }
+
+    public final ibb<T> s(int i, long j, TimeUnit timeUnit, k7b k7bVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit, k7bVar})) == null) {
+            if (i >= 0) {
+                return OperatorReplay.K(this, j, timeUnit, k7bVar, i);
+            }
+            throw new IllegalArgumentException("bufferSize < 0");
+        }
+        return (ibb) invokeCommon.objValue;
+    }
+
+    public final o7b F(n7b<? super T> n7bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, n7bVar)) == null) {
+            try {
+                n7bVar.d();
+                rbb.p(this, this.a).call(n7bVar);
+                return rbb.o(n7bVar);
+            } catch (Throwable th) {
+                t7b.e(th);
+                try {
+                    n7bVar.onError(rbb.m(th));
+                    return hcb.c();
+                } catch (Throwable th2) {
+                    t7b.e(th2);
+                    OnErrorFailedException onErrorFailedException = new OnErrorFailedException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
+                    rbb.m(onErrorFailedException);
+                    throw onErrorFailedException;
+                }
+            }
+        }
+        return (o7b) invokeL.objValue;
+    }
+
+    public final h7b<T> o(k7b k7bVar, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{k7bVar, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (this instanceof ScalarSynchronousObservable) {
+                return ((ScalarSynchronousObservable) this).K(k7bVar);
+            }
+            return (h7b<T>) i(new q8b(k7bVar, z, i));
+        }
+        return (h7b) invokeCommon.objValue;
+    }
+
+    public final o7b z(v7b<? super T> v7bVar, v7b<Throwable> v7bVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, v7bVar, v7bVar2)) == null) {
+            if (v7bVar != null) {
+                if (v7bVar2 != null) {
+                    return w(new p9b(v7bVar, v7bVar2, Actions.a()));
+                }
+                throw new IllegalArgumentException("onError can not be null");
+            }
+            throw new IllegalArgumentException("onNext can not be null");
+        }
+        return (o7b) invokeLL.objValue;
     }
 }

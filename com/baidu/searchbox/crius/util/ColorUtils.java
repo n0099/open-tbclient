@@ -3,7 +3,7 @@ package com.baidu.searchbox.crius.util;
 import android.graphics.Color;
 import android.text.TextUtils;
 import com.baidu.searchbox.crius.CriusRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ColorUtils {
     public static int getColorRes(boolean z, int i, int i2) {
         return (!z || i == 0 || i == Integer.MAX_VALUE) ? i2 : i;

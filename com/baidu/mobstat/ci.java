@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ci extends cf implements ce, Runnable {
     public static final /* synthetic */ boolean c = !ci.class.desiredAssertionStatus();
     public cg a;
@@ -51,7 +51,7 @@ public abstract class ci extends cf implements ce, Runnable {
     public void b(cw cwVar) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }

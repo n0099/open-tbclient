@@ -1,243 +1,221 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.browser.exception.UnzipErrorException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.zip.CRC32;
-import java.util.zip.CheckedInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipInputStream;
-/* loaded from: classes6.dex */
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class sg6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948150503, "Lcom/baidu/tieba/sg6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static pg6 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            File k = lg6.l().k();
+            File file = new File(k, str + "/" + str2);
+            if (!file.exists() || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948150503, "Lcom/baidu/tieba/sg6;");
-                return;
+            Map<String, ug6> b = b(file);
+            if (!f(file, b)) {
+                return null;
             }
+            return new pg6(file, str2, b);
         }
-        a = new String[]{"../", "~/", "__MACOSX/"};
+        return (pg6) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0048, code lost:
-        throw new com.baidu.tieba.browser.exception.UnzipErrorException("创建文件夹节点时出现错误，文件夹创建失败：" + r2.getPath());
-     */
+    public static Map<String, ug6> b(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            File file2 = new File(file, "router.json");
+            if (!file2.exists()) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(ai6.d(file2));
+                Map<String, ug6> d = d(jSONObject.optJSONObject("config"));
+                Map<String, ug6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
+                if (!yh6.b(d2)) {
+                    d.putAll(d2);
+                }
+                return d;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static Set<String> c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            HashSet hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
+            if (!yh6.c(optJSONArray)) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hashSet.add(optJSONArray.optString(i, ""));
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
+    /* JADX WARN: Type inference failed for: r10v1 */
+    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
+    public static Map<String, ug6> d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            HashMap hashMap = new HashMap();
+            if (jSONObject == null) {
+                return hashMap;
+            }
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
+                    try {
+                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
+                        String optString = jSONObject2.optString("module", "");
+                        String optString2 = jSONObject2.optString("path", "");
+                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
+                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
+                            optInt = fi6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
+                        }
+                        ug6 ug6Var = new ug6();
+                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        ug6Var.i = z;
+                        if (optInt == 1) {
+                            ug6Var.h = true;
+                            ug6Var.a = dh6.a(jSONObject2);
+                        } else {
+                            ug6Var.h = false;
+                            ug6Var.b = c(jSONObject2);
+                        }
+                        ug6Var.c = optString;
+                        ug6Var.d = optString2;
+                        ug6Var.f = e(next, jSONObject2);
+                        hashMap.put(next, ug6Var);
+                        ue9.a().j(next, next);
+                        ue9.a().k(next, optString2);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static Set<String> e(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
+            HashSet<String> hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
+            }
+            JSONArray optJSONArray = jSONObject.optJSONArray("source");
+            if (!yh6.c(optJSONArray)) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hashSet.add(optJSONArray.optString(i, ""));
+                }
+            }
+            String optString = jSONObject.optString("staticPrePath", "");
+            for (String str2 : hashSet) {
+                if (!TextUtils.isEmpty(str2)) {
+                    ue9 a = ue9.a();
+                    a.j(optString + "/" + str2, str);
+                    ue9 a2 = ue9.a();
+                    a2.k(optString + "/" + str2, str2);
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void a(@NonNull File file, @NonNull ZipInputStream zipInputStream) throws UnzipErrorException {
+    public static boolean f(File file, Map<String, ug6> map) {
+        InterceptResult invokeLL;
+        String d;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, file, zipInputStream) == null) {
-            String str = null;
-            while (true) {
-                try {
-                    try {
-                        try {
-                            ZipEntry nextEntry = zipInputStream.getNextEntry();
-                            if (nextEntry != null) {
-                                str = nextEntry.getName();
-                                if (d(str)) {
-                                    File file2 = new File(file, str);
-                                    if (nextEntry.isDirectory()) {
-                                        if (!file2.exists() && !file2.mkdirs()) {
-                                            break;
-                                        }
-                                    } else {
-                                        b(file2, zipInputStream, true);
-                                    }
-                                }
-                            } else {
-                                try {
-                                    zipInputStream.closeEntry();
-                                    return;
-                                } catch (IOException unused) {
-                                    return;
-                                }
-                            }
-                        } catch (IOException e) {
-                            throw new UnzipErrorException("I/O error has occurred:" + str, e);
-                        }
-                    } catch (ZipException e2) {
-                        throw new UnzipErrorException("a ZIP file error has occurred:" + str, e2);
-                    }
-                } catch (Throwable th) {
-                    try {
-                        zipInputStream.closeEntry();
-                    } catch (IOException unused2) {
-                    }
-                    throw th;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
+            File file2 = new File(file, "staticSources.json");
+            if (yh6.b(map) || !file2.exists() || !file2.isFile()) {
+                return false;
             }
-        }
-    }
-
-    public static void b(File file, ZipInputStream zipInputStream, boolean z) throws UnzipErrorException {
-        BufferedOutputStream bufferedOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65538, null, file, zipInputStream, z) == null) {
-            byte[] bArr = new byte[1024];
-            FileOutputStream fileOutputStream = null;
             try {
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    bufferedOutputStream = new BufferedOutputStream(fileOutputStream2);
-                    while (true) {
-                        try {
-                            int read = zipInputStream.read(bArr, 0, 1024);
-                            if (read != -1) {
-                                bufferedOutputStream.write(bArr, 0, read);
-                            } else {
-                                bufferedOutputStream.flush();
-                                qg6.a(fileOutputStream2, bufferedOutputStream);
-                                return;
-                            }
-                        } catch (Exception e) {
-                            e = e;
-                            fileOutputStream = fileOutputStream2;
-                            try {
-                                if (z) {
-                                    b(file, zipInputStream, false);
-                                    qg6.a(fileOutputStream, bufferedOutputStream);
-                                    return;
-                                }
-                                throw new UnzipErrorException("解压后写入文件时错误：" + file, e);
-                            } catch (Throwable th) {
-                                th = th;
-                                qg6.a(fileOutputStream, bufferedOutputStream);
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileOutputStream = fileOutputStream2;
-                            qg6.a(fileOutputStream, bufferedOutputStream);
-                            throw th;
-                        }
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                    bufferedOutputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedOutputStream = null;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                bufferedOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedOutputStream = null;
+                d = ai6.d(file2);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-    }
-
-    public static void c(File file, File file2) throws UnzipErrorException {
-        Closeable closeable;
-        Closeable closeable2;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, file, file2) == null) {
-            if (file2 != null && file != null) {
-                if (file.exists() && file.isFile() && file.canRead()) {
-                    if (og6.a(file2)) {
-                        Closeable closeable3 = null;
-                        try {
-                            inputStream = new FileInputStream(file);
-                            try {
-                                closeable = new CheckedInputStream(inputStream, new CRC32());
-                                try {
-                                    closeable2 = new ZipInputStream(closeable);
-                                } catch (FileNotFoundException e) {
-                                    e = e;
-                                    closeable2 = null;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    closeable2 = null;
-                                }
-                            } catch (FileNotFoundException e2) {
-                                e = e2;
-                                closeable2 = null;
-                            } catch (Throwable th2) {
-                                th = th2;
-                                closeable = null;
-                                closeable2 = null;
-                            }
-                        } catch (FileNotFoundException e3) {
-                            e = e3;
-                            inputStream = null;
-                            closeable2 = null;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            closeable = null;
-                            closeable2 = null;
-                            qg6.a(closeable3, closeable, closeable2);
-                            throw th;
-                        }
-                        try {
-                            a(file2, closeable2);
-                            qg6.a(inputStream, closeable, closeable2);
-                            return;
-                        } catch (FileNotFoundException e4) {
-                            e = e4;
-                            closeable3 = closeable;
-                            try {
-                                throw new UnzipErrorException("读取源文件时出现错误:" + file.getPath(), e);
-                            } catch (Throwable th4) {
-                                th = th4;
-                                closeable = closeable3;
-                                closeable3 = inputStream;
-                                qg6.a(closeable3, closeable, closeable2);
-                                throw th;
-                            }
-                        } catch (Throwable th5) {
-                            th = th5;
-                            closeable3 = inputStream;
-                            qg6.a(closeable3, closeable, closeable2);
-                            throw th;
-                        }
-                    }
-                    throw new UnzipErrorException("目标文件夹创建失败：" + file2.getPath());
-                }
-                throw new UnzipErrorException("源文件不存在或不可读：" + file.getPath());
+            if (TextUtils.isEmpty(d)) {
+                return false;
             }
-            throw new UnzipErrorException("参数传入错误：destFile == null || srcFile == null");
-        }
-    }
-
-    public static boolean d(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            for (String str2 : a) {
-                if (str.contains(str2)) {
-                    return false;
+            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
+            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
+                return true;
+            }
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, ug6> entry : map.entrySet()) {
+                ug6 value = entry.getValue();
+                HashSet<String> hashSet = new HashSet(value.f);
+                hashSet.add(value.d);
+                Log.e("newHybrid", "-------------------------：" + entry.getKey());
+                for (String str : hashSet) {
+                    String str2 = (String) hashMap.get(str);
+                    if (str2 == null) {
+                        str2 = zh6.b(new File(file, str));
+                        hashMap.put(str, str2);
+                    }
+                    String optString = optJSONObject.optString(str, "");
+                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
+                        Log.e("newHybrid", str + "," + optString + "_" + str2);
+                        return false;
+                    }
+                    while (r5.hasNext()) {
+                    }
                 }
             }
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

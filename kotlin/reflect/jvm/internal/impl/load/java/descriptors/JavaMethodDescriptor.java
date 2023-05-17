@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java.descriptors;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.List;
 import java.util.Map;
@@ -21,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorFactory;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.util.OperatorChecks;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JavaMethodDescriptor extends SimpleFunctionDescriptorImpl implements JavaCallableMemberDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final CallableDescriptor.UserDataKey<ValueParameterDescriptor> ORIGINAL_VALUE_PARAMETER_FOR_EXTENSION_RECEIVER = new CallableDescriptor.UserDataKey<ValueParameterDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.descriptors.JavaMethodDescriptor.1
@@ -134,7 +135,7 @@ public class JavaMethodDescriptor extends SimpleFunctionDescriptorImpl implement
         return this.parameterNamesStatus.isSynthesized;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ParameterNamesStatus {
         NON_STABLE_DECLARED(false, false),
         STABLE_DECLARED(true, false),
@@ -145,7 +146,7 @@ public class JavaMethodDescriptor extends SimpleFunctionDescriptorImpl implement
         public final boolean isSynthesized;
 
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
-            throw new IllegalStateException(String.format("@NotNull method %s.%s must not return null", "kotlin/reflect/jvm/internal/impl/load/java/descriptors/JavaMethodDescriptor$ParameterNamesStatus", "get"));
+            throw new IllegalStateException(String.format("@NotNull method %s.%s must not return null", "kotlin/reflect/jvm/internal/impl/load/java/descriptors/JavaMethodDescriptor$ParameterNamesStatus", CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE));
         }
 
         ParameterNamesStatus(boolean z, boolean z2) {

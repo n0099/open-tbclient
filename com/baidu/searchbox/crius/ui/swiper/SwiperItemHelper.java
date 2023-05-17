@@ -5,7 +5,7 @@ import com.baidu.searchbox.crius.CriusRuntime;
 import com.baidu.searchbox.crius.parser.CriusData;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwiperItemHelper {
     public static final String TAG = "SwiperItemHelper";
     public List<CriusData> mBannerItems = new LinkedList();

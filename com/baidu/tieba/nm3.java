@@ -1,102 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
-/* loaded from: classes5.dex */
-public class nm3 implements mm3 {
+import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+/* loaded from: classes6.dex */
+public class nm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<lm3> a;
-    public lm3 b;
 
-    public nm3() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            g93 M = g93.M();
+            if (M != null) {
+                return String.format(str, M.O(), M.V());
             }
+            return "";
         }
-        this.a = new ArrayDeque();
+        return (String) invokeL.objValue;
     }
 
-    public final void b() {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                if (this.b != null) {
-                    return;
-                }
-                e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
+            if (qp1.a) {
+                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
             }
+            return a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public synchronized void c() {
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.b != null) {
-                    this.b.a();
-                    this.b = null;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            String b = b();
+            if (!TextUtils.isEmpty(b)) {
+                if (qp1.a) {
+                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
                 }
-                this.a.clear();
+                WebSettingsGlobalBlink.setRefererPattern(b, cs2.i());
             }
         }
     }
 
-    @Override // com.baidu.tieba.mm3
-    public void a(lm3 lm3Var) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lm3Var) == null) {
-            synchronized (this.a) {
-                if (lm3Var == this.b) {
-                    e();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
+                return true;
             }
+            return false;
         }
-    }
-
-    public void d(lm3 lm3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lm3Var) == null) {
-            if (lm3Var != null) {
-                synchronized (this.a) {
-                    Queue<lm3> queue = this.a;
-                    lm3Var.b(this);
-                    queue.offer(lm3Var);
-                }
-            }
-            b();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                this.b = null;
-                if (this.a.isEmpty()) {
-                    return;
-                }
-                lm3 poll = this.a.poll();
-                this.b = poll;
-                if (poll == null) {
-                    e();
-                } else {
-                    rl3.a0(poll);
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

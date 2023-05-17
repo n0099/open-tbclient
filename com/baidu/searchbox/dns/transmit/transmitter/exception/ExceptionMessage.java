@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.transmit.transmitter.exception;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExceptionMessage {
     public static final String CANCEL = "request canceled";
     public static final int CANCEL_ERROR = 10002;

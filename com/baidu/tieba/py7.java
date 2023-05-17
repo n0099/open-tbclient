@@ -1,59 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class py7 {
+/* loaded from: classes7.dex */
+public class py7 extends wi6<ny7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vm> a;
+    public View i;
+    public ny7 j;
 
-    public py7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        p67 p67Var;
+    @Override // com.baidu.tieba.wi6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01d6 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.wi6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public py7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, p67.class, tbPageContext);
-        if (runTask != null && (p67Var = (p67) runTask.getData()) != null) {
-            this.a.add(p67Var);
-        }
-        this.a.add(new qy7(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
-        this.a.add(new oy7(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
-        bdTypeRecyclerView.addAdapters(this.a);
+        this.i = h().findViewById(R.id.obfuscated_res_0x7f09061c);
     }
 
-    public void a(TbPageTag tbPageTag) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wi6
+    /* renamed from: r */
+    public void i(ny7 ny7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ny7Var) != null) || ny7Var == null) {
             return;
         }
-        for (vm vmVar : this.a) {
-            if (vmVar instanceof p67) {
-                ((p67) vmVar).E(tbPageTag);
-            }
-        }
+        this.j = ny7Var;
+        SkinManager.setBackgroundColor(this.i, ny7Var.b);
+        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
+        layoutParams.height = ri.g(this.c, ny7Var.a);
+        this.i.setLayoutParams(layoutParams);
     }
 }

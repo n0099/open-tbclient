@@ -1,29 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
-import tbclient.NovelInfo;
-/* loaded from: classes5.dex */
-public class nc5 {
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class nc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
+    public final HashSet<String> a;
+    public a b;
+    public int c;
+    public final kg<cn> d;
+    public final Runnable e;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b extends kg<cn> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nc5 a;
+
+        public b(nc5 nc5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nc5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nc5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String key, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, key, i) == null) {
+                Intrinsics.checkNotNullParameter(key, "key");
+                if (cnVar != null && !TextUtils.isEmpty(key)) {
+                    this.a.a.remove(key);
+                }
+                this.a.f();
+            }
+        }
+    }
 
     public nc5() {
         Interceptable interceptable = $ic;
@@ -35,131 +75,75 @@ public class nc5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
+        this.a = new HashSet<>();
+        this.c = 10;
+        this.d = new b(this);
+        this.e = new Runnable() { // from class: com.baidu.tieba.kc5
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = 0;
-            while (Pattern.compile("\\n").matcher(this.j).find()) {
-                i++;
+            @Override // java.lang.Runnable
+            public final void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    nc5.e(nc5.this);
+                }
             }
-            return i;
-        }
-        return invokeV.intValue;
+        };
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public static final void e(nc5 this$0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "1".equals(this.e);
+        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            HashSet<String> hashSet = new HashSet<>();
+            hashSet.addAll(this$0.a);
+            this$0.d(hashSet);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    @JvmOverloads
+    public final void c(List<String> list, a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!StringUtils.isNull(this.b) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.e) && !StringUtils.isNull(this.d)) {
-                return false;
+        if ((interceptable != null && interceptable.invokeLLI(1048576, this, list, aVar, i) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        HashSet<String> hashSet = new HashSet<>();
+        Intrinsics.checkNotNull(list);
+        hashSet.addAll(list);
+        this.b = aVar;
+        this.c = i;
+        d(hashSet);
+    }
+
+    public final void d(HashSet<String> hashSet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) != null) || hashSet.isEmpty()) {
+            return;
+        }
+        this.a.clear();
+        Iterator<String> it = hashSet.iterator();
+        while (it.hasNext()) {
+            String next = it.next();
+            if (!qi.isEmpty(next) && ((cn) lg.h().n(next, this.c, new Object[0])) == null) {
+                this.a.add(next);
+                lg.h().k(next, this.c, this.d, 0, 0, null, new Object[0]);
             }
-            return true;
         }
-        return invokeV.booleanValue;
+        f();
     }
 
-    public void j(NovelInfo novelInfo) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, novelInfo) == null) {
-            this.a = novelInfo.novel_id.longValue();
-            String str = novelInfo.img;
-            this.b = novelInfo.name;
-            String str2 = novelInfo.author;
-            String str3 = novelInfo.desc;
-            this.c = novelInfo.discount_price;
-            novelInfo.percent.longValue();
-            this.d = novelInfo.h5_url;
-            this.e = novelInfo.is_pay;
-            this.f = novelInfo.chapters.longValue();
-            this.g = novelInfo.member_text;
-            this.h = novelInfo.member_img;
-            this.i = novelInfo.buy_url;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z) {
-                this.e = "1";
-            } else {
-                this.e = "0";
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.isEmpty()) {
+            sg.a().removeCallbacks(this.e);
+            a aVar = this.b;
+            if (aVar != null) {
+                Intrinsics.checkNotNull(aVar);
+                aVar.a();
             }
         }
     }

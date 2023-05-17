@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageRespon
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum RevenueDataParser implements IRevenueDataParser {
     INSTANCE;
     

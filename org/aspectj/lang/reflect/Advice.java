@@ -1,7 +1,7 @@
 package org.aspectj.lang.reflect;
 
 import java.lang.reflect.Type;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface Advice {
     AjType getDeclaringType();
 

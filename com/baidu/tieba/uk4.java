@@ -1,11 +1,28 @@
 package com.baidu.tieba;
 
-import org.json.JSONArray;
-/* loaded from: classes6.dex */
-public interface uk4 {
-    hj4<JSONArray> g();
+import com.baidu.swan.pms.node.Node;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class uk4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    sf4 getCallback();
-
-    dj4 getRequest();
+    public static rk4 a(Node node) {
+        InterceptResult invokeL;
+        Class<? extends rk4> processor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, node)) == null) {
+            if (node == null || (processor = node.getProcessor()) == null) {
+                return null;
+            }
+            try {
+                return processor.newInstance();
+            } catch (IllegalAccessException | InstantiationException unused) {
+                return null;
+            }
+        }
+        return (rk4) invokeL.objValue;
+    }
 }

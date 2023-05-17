@@ -1,47 +1,218 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class v3b {
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
+/* loaded from: classes7.dex */
+public class v3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
+    public Handler a;
+    public Context b;
+    public c c;
+    public ServiceConnection d;
 
-    public v3b() {
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(int i, Exception exc);
+
+        void b(String str, boolean z);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v3b a;
+
+        @Override // android.content.ServiceConnection
+        public void onBindingDied(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onNullBinding(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            }
+        }
+
+        public a(v3b v3bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v3bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v3bVar;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
+                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.a.a.removeMessages(2);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v3b a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(v3b v3bVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v3bVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v3bVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            this.a.c.a(-2, null);
+                            return;
+                        }
+                        return;
+                    }
+                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+                    try {
+                        try {
+                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                                return;
+                            } catch (Exception e) {
+                                this.a.c.a(-4, e);
+                                return;
+                            }
+                        } catch (RemoteException e2) {
+                            this.a.c.a(-3, e2);
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                                return;
+                            } catch (Exception unused) {
+                                return;
+                            }
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            this.a.b.unbindService(this.a.d);
+                        } catch (Exception e3) {
+                            this.a.c.a(-4, e3);
+                        }
+                        throw th;
+                    }
+                }
+                this.a.c.a(-1, null);
+            }
+        }
+    }
+
+    public v3b(Context context, c cVar, Handler handler) {
+        Looper looper;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, cVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = new a(this);
+        this.b = context;
+        this.c = cVar;
+        if (handler == null) {
+            looper = Looper.getMainLooper();
+        } else {
+            looper = handler.getLooper();
+        }
+        this.a = new b(this, looper);
+    }
+
+    public static void d(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
+            e(context, cVar, null);
         }
     }
 
-    public static void a(v3b v3bVar, int i) {
+    public static void e(Context context, c cVar, Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, v3bVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = v3bVar.b;
-                byte[] bArr = v3bVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
+            new v3b(context.getApplicationContext(), cVar, handler).f();
         }
     }
 
-    public static void b(v3b v3bVar, byte[] bArr, int[] iArr) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, v3bVar, bArr, iArr) == null) {
-            v3bVar.a = bArr;
-            v3bVar.b = iArr;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            if (this.b.bindService(intent, this.d, 1)) {
+                Handler handler = this.a;
+                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
+                return;
+            }
+            this.a.sendEmptyMessage(0);
         }
     }
 }

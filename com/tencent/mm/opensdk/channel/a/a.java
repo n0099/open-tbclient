@@ -7,12 +7,12 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
 
     /* renamed from: com.tencent.mm.opensdk.channel.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0731a {
+    /* loaded from: classes10.dex */
+    public static class C0745a {
         public String a;
         public String action;
         public long b;
@@ -20,26 +20,26 @@ public final class a {
         public String content;
     }
 
-    public static boolean a(Context context, C0731a c0731a) {
+    public static boolean a(Context context, C0745a c0745a) {
         String str;
         if (context == null) {
             str = "send fail, invalid argument";
-        } else if (!d.b(c0731a.action)) {
+        } else if (!d.b(c0745a.action)) {
             String str2 = null;
-            if (!d.b(c0731a.a)) {
-                str2 = c0731a.a + ".permission.MM_MESSAGE";
+            if (!d.b(c0745a.a)) {
+                str2 = c0745a.a + ".permission.MM_MESSAGE";
             }
-            Intent intent = new Intent(c0731a.action);
-            Bundle bundle = c0731a.bundle;
+            Intent intent = new Intent(c0745a.action);
+            Bundle bundle = c0745a.bundle;
             if (bundle != null) {
                 intent.putExtras(bundle);
             }
             String packageName = context.getPackageName();
             intent.putExtra(ConstantsAPI.SDK_VERSION, Build.SDK_INT);
             intent.putExtra(ConstantsAPI.APP_PACKAGE, packageName);
-            intent.putExtra(ConstantsAPI.CONTENT, c0731a.content);
-            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0731a.b);
-            intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(c0731a.content, Build.SDK_INT, packageName));
+            intent.putExtra(ConstantsAPI.CONTENT, c0745a.content);
+            intent.putExtra(ConstantsAPI.APP_SUPORT_CONTENT_TYPE, c0745a.b);
+            intent.putExtra(ConstantsAPI.CHECK_SUM, b.a(c0745a.content, Build.SDK_INT, packageName));
             context.sendBroadcast(intent, str2);
             Log.d("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
             return true;

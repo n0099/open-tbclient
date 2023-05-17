@@ -3,18 +3,18 @@ package com.baidu.tieba.livesdk.share.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ri8;
+import com.baidu.tieba.mk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ri8 data;
+    public mk8 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaShareInBarResponsedMessage() {
@@ -34,13 +34,13 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public ri8 getShareInBarData() {
+    public mk8 getShareInBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.data;
         }
-        return (ri8) invokeV.objValue;
+        return (mk8) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -49,9 +49,9 @@ public class AlaShareInBarResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (getStatusCode() == 200 && jSONObject != null) {
-                ri8 ri8Var = new ri8();
-                this.data = ri8Var;
-                ri8Var.a(jSONObject);
+                mk8 mk8Var = new mk8();
+                this.data = mk8Var;
+                mk8Var.a(jSONObject);
             }
         }
     }

@@ -7,10 +7,10 @@ import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore;
 import com.baidu.searchbox.bddownload.core.dispatcher.DownloadDispatcher;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatusUtil {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Status {
         PENDING,
         RUNNING,

@@ -6,21 +6,21 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u87;
-import com.baidu.tieba.w87;
+import com.baidu.tieba.ha7;
+import com.baidu.tieba.ja7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public w87 a;
-    public u87 b;
+    public ja7 a;
+    public ha7 b;
     public View.OnClickListener c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,14 +102,14 @@ public class AchievementActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            w87 w87Var = new w87(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091425));
-            this.a = w87Var;
-            w87Var.h(true);
+            setContentView(R.layout.obfuscated_res_0x7f0d0028);
+            ja7 ja7Var = new ja7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f091460));
+            this.a = ja7Var;
+            ja7Var.h(true);
             this.a.j(this.c);
-            u87 u87Var = new u87(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09140f));
-            this.b = u87Var;
-            u87Var.h(false);
+            ha7 ha7Var = new ha7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09144a));
+            this.b = ha7Var;
+            ha7Var.h(false);
         }
     }
 }

@@ -1,24 +1,9 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface sv0 {
-    void b();
+    void cancel();
 
-    void c(int i, int i2);
+    void doTask();
 
-    void f(float f);
-
-    int getCurrentPosition();
-
-    void i(float f);
-
-    void l(int i, float f);
-
-    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
-
-    Activity o();
-
-    boolean p();
+    void start();
 }

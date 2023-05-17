@@ -1,102 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.graphics.Typeface;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class y02 extends u02 {
+/* loaded from: classes8.dex */
+public class y02 extends t02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y02(u83 u83Var) {
-        super(u83Var, "/swanAPI/canvas/measureTextSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948276270, "Lcom/baidu/tieba/y02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948276270, "Lcom/baidu/tieba/y02;");
                 return;
             }
         }
+        b = qp1.a;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        int i;
-        int i2;
+    public y02() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            unitedSchemeEntity.result = l(201);
-            x22 m = m(unitedSchemeEntity);
-            if (m == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            String str = m.k;
-            if (str != null && str.length() > 0) {
-                if (m.n && m.o) {
-                    i2 = 3;
-                } else if (m.n) {
-                    i2 = 1;
-                } else if (m.o) {
-                    i2 = 2;
-                } else {
-                    i2 = 0;
+        }
+    }
+
+    @Override // com.baidu.tieba.u02
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (BasePendingOperation basePendingOperation : this.a) {
+                if (b) {
+                    Log.d("WorkThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
                 }
-                TextPaint textPaint = new TextPaint();
-                textPaint.setTypeface(Typeface.create(m.l, i2));
-                textPaint.setTextSize(m.m);
-                Rect rect = new Rect();
-                String str2 = m.k;
-                textPaint.getTextBounds(str2, 0, str2.length(), rect);
-                i = ol3.O(rect.width());
-            } else {
-                i = 0;
+                am3.j(basePendingOperation, "operation_work");
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("width", Integer.valueOf(i));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            return true;
+            this.a.clear();
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    public x22 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new x22(str);
-            }
-            return null;
-        }
-        return (x22) invokeL.objValue;
     }
 }

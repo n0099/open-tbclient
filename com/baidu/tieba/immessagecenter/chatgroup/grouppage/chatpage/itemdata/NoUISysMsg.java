@@ -5,7 +5,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.z88;
+import com.baidu.tieba.ua8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NoUISysMsg extends BaseSysMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId ADAPTER_TYPE;
@@ -27,7 +27,7 @@ public class NoUISysMsg extends BaseSysMsg {
     public BaseSysMsg.ChatRoomInfo chatroomInfo;
     @Nullable
     @SerializedName("mask_info")
-    public z88 maskInfo;
+    public ua8 maskInfo;
     @Nullable
     @SerializedName("user_to")
     public BaseSysMsg.User userTo;
@@ -84,13 +84,13 @@ public class NoUISysMsg extends BaseSysMsg {
     }
 
     @Nullable
-    public z88 getMaskInfo() {
+    public ua8 getMaskInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.maskInfo;
         }
-        return (z88) invokeV.objValue;
+        return (ua8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -103,7 +103,7 @@ public class NoUISysMsg extends BaseSysMsg {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

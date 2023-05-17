@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -36,8 +36,8 @@ public class b {
     public static com.baidu.sofire.d.a e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a extends a.AbstractBinderC0166a {
+    /* loaded from: classes4.dex */
+    public static class a extends a.AbstractBinderC0172a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -308,7 +308,7 @@ public class b {
                     int i = bundle.getInt("bundle_key_pid");
                     BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("bundle_key_binder_holder");
                     if (i > 0 && binderHolder != null && (iBinder = binderHolder.a) != null) {
-                        b.put(Integer.valueOf(i), a.AbstractBinderC0166a.a(iBinder));
+                        b.put(Integer.valueOf(i), a.AbstractBinderC0172a.a(iBinder));
                         if (d.size() <= 0) {
                             return a(0);
                         }

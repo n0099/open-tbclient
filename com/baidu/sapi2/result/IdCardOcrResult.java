@@ -1,5 +1,5 @@
 package com.baidu.sapi2.result;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IdCardOcrResult extends SapiResult {
     public static final int CODE_ALBUM_ERROR = -404;
     public static final int CODE_CAMERA_ERROR = -403;

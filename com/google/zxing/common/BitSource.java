@@ -1,5 +1,5 @@
 package com.google.zxing.common;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BitSource {
     public int bitOffset;
     public int byteOffset;

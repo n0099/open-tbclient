@@ -5,7 +5,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public final int a;
     public c c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);

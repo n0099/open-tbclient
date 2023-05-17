@@ -34,14 +34,14 @@ import com.baidu.searchbox.live.interfaces.yy.plugin.YYPluginProgressInvokeServi
 import com.baidu.searchbox.live.nps.util.SchemeParamsParseUtils;
 import com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ld1;
-import com.baidu.tieba.nd1;
-import com.baidu.tieba.od1;
+import com.baidu.tieba.be1;
+import com.baidu.tieba.de1;
+import com.baidu.tieba.ee1;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveYYPluginManager {
     public static final int ENTRANCE_PAY_RELEASE_SUPPORT_MIN_VER = 607500000;
     public static final String KET_HOST_EVENT_USER_CANCEL_LOAD_PROGRESS = "user_cancel_load_progress";
@@ -79,7 +79,7 @@ public class LiveYYPluginManager {
     public static final String[] NPS_PLUGIN_SUB_PKG_GROUP = {YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_1, YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_2, "com.baidu.searchbox.yylive.extlib", "com.baidu.searchbox.yylive.createlive", "com.baidu.searchbox.yylive.game", YY_NPS_YYLIB_PKG_NAME, "com.baidu.searchbox.yylive.audiolive", "com.baidu.searchbox.yylive.friends"};
     public static final String[] YY_PLUGIN_LIST = {YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_1, YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME2_2, "com.baidu.searchbox.yylive.extlib", "com.baidu.searchbox.yylive.createlive", "com.baidu.searchbox.yylive.game", YY_NPS_YYLIB_PKG_NAME, "com.baidu.searchbox.yylive.audiolive", "com.baidu.searchbox.yylive.friends"};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PluginLoadCallback {
         void onResult(int i, String str, Object obj, String str2);
     }
@@ -91,26 +91,26 @@ public class LiveYYPluginManager {
     public void onPluginLoadedState(String str, boolean z, String str2) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SingletonHolder {
         public static final LiveYYPluginManager INSTANCE = new LiveYYPluginManager();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void downloadUpdatePackage() {
-        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new ld1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
-            @Override // com.baidu.tieba.ld1
+        NPSPackageManager.getInstance().downloadUpdatePackage("com.baidu.searchbox.yylive.entrance", new be1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.13
+            @Override // com.baidu.tieba.be1
             public void onProgress(long j, long j2) {
             }
 
-            @Override // com.baidu.tieba.ld1
+            @Override // com.baidu.tieba.be1
             public void onResult(int i, String str) {
             }
-        }, new nd1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
-            @Override // com.baidu.tieba.nd1
-            public void checkAuthorization(IBundleInfo iBundleInfo, int i, od1 od1Var) {
-                if (od1Var != null) {
-                    od1Var.onResult(1);
+        }, new de1() { // from class: com.baidu.searchbox.live.nps.LiveYYPluginManager.14
+            @Override // com.baidu.tieba.de1
+            public void checkAuthorization(IBundleInfo iBundleInfo, int i, ee1 ee1Var) {
+                if (ee1Var != null) {
+                    ee1Var.onResult(1);
                 }
             }
         }, 1);

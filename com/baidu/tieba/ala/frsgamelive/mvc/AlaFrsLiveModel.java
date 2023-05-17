@@ -9,11 +9,11 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.a9;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
-import com.baidu.tieba.in;
-import com.baidu.tieba.j86;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.v96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaFrsLiveModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FIRST_PN = 1;
@@ -38,12 +38,12 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public int f;
     public boolean g;
     public int h;
-    public List<in> i;
+    public List<rn> i;
     public boolean j;
     public b k;
     public HttpMessageListener l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i, String str);
 
@@ -64,13 +64,13 @@ public class AlaFrsLiveModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,12 +117,12 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 }
                 return;
             }
-            List<in> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
+            List<rn> liveList = alaGameFrsLiveThreadsRespMessage.getLiveList();
             if (this.a.i == null) {
                 this.a.i = new ArrayList();
             }
             if (this.a.b == 1 && ListUtils.getCount(liveList) == 0 && this.a.f == 2) {
-                List<in> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
+                List<rn> recommandList = alaGameFrsLiveThreadsRespMessage.getRecommandList();
                 this.a.g = false;
                 this.a.b = alaGameFrsLiveThreadsRequestMessage.getPn();
                 this.a.h = 0;
@@ -139,7 +139,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
                 if (this.a.b != 1 && ListUtils.getCount(this.a.i) != 0) {
                     if (ListUtils.getCount(liveList) > 0) {
                         AlaFrsLiveModel alaFrsLiveModel = this.a;
-                        alaFrsLiveModel.i = alaFrsLiveModel.j0(alaFrsLiveModel.i, liveList);
+                        alaFrsLiveModel.i = alaFrsLiveModel.i0(alaFrsLiveModel.i, liveList);
                     }
                 } else if (liveList != null) {
                     this.a.i.clear();
@@ -153,18 +153,18 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaFrsLiveModel(a9 a9Var) {
-        super(a9Var);
+    public AlaFrsLiveModel(g9 g9Var) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -180,14 +180,14 @@ public class AlaFrsLiveModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void m0(int i) {
+    public void l0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             this.f = i;
         }
     }
 
-    public void n0(b bVar) {
+    public void m0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
             this.k = bVar;
@@ -216,14 +216,14 @@ public class AlaFrsLiveModel extends BdBaseModel {
     }
 
     public void clearData() {
-        List<in> list;
+        List<rn> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.i) != null) {
             list.clear();
         }
     }
 
-    public int g0() {
+    public int f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -232,43 +232,43 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.intValue;
     }
 
-    public List<in> getData() {
+    public int g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
         return invokeV.intValue;
     }
 
-    public boolean hasMore() {
+    public List<rn> getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.j;
         }
         return invokeV.booleanValue;
     }
 
-    public final List<in> j0(List<in> list, List<in> list2) {
+    public boolean hasMore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final List<rn> i0(List<rn> list, List<rn> list2) {
         InterceptResult invokeLL;
         ThreadData threadData;
         ThreadData threadData2;
@@ -276,24 +276,24 @@ public class AlaFrsLiveModel extends BdBaseModel {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, list2)) == null) {
             LinkedList linkedList = new LinkedList();
             linkedList.addAll(list);
-            for (in inVar : list2) {
-                if (inVar != null && (inVar instanceof j86) && (threadData = ((j86) inVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
+            for (rn rnVar : list2) {
+                if (rnVar != null && (rnVar instanceof v96) && (threadData = ((v96) rnVar).a) != null && (threadData.getThreadType() == 49 || threadData.getThreadType() == 69)) {
                     String tid = threadData.getTid();
                     if (!TextUtils.isEmpty(tid)) {
                         boolean z = false;
-                        Iterator<in> it = list.iterator();
+                        Iterator<rn> it = list.iterator();
                         while (true) {
                             if (!it.hasNext()) {
                                 break;
                             }
-                            in next = it.next();
-                            if (next != null && (next instanceof j86) && (threadData2 = ((j86) next).a) != null && tid.equals(threadData2.getTid())) {
+                            rn next = it.next();
+                            if (next != null && (next instanceof v96) && (threadData2 = ((v96) next).a) != null && tid.equals(threadData2.getTid())) {
                                 z = true;
                                 break;
                             }
                         }
                         if (!z) {
-                            linkedList.add(inVar);
+                            linkedList.add(rnVar);
                         }
                     }
                 }
@@ -303,7 +303,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return (List) invokeLL.objValue;
     }
 
-    public boolean k0() {
+    public boolean j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
@@ -323,7 +323,7 @@ public class AlaFrsLiveModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void l0() {
+    public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             AlaGameFrsLiveThreadsRequestMessage alaGameFrsLiveThreadsRequestMessage = new AlaGameFrsLiveThreadsRequestMessage();

@@ -2,12 +2,11 @@ package com.cmic.sso.sdk.a;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.cmic.sso.sdk.e.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,11 +48,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, null, z)) == null) {
             if (z) {
-                str = OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC;
+                str = "CU";
             } else {
                 str = "";
             }
-            return k.a("sso_config_xf", "CLOSE_FRIEND_WAPKS", str).contains(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC);
+            return k.a("sso_config_xf", "CLOSE_FRIEND_WAPKS", str).contains("CU");
         }
         return invokeZ.booleanValue;
     }
@@ -64,11 +63,11 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
             if (z) {
-                str = OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC;
+                str = "CT";
             } else {
                 str = "";
             }
-            return k.a("sso_config_xf", "CLOSE_FRIEND_WAPKS", str).contains(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC);
+            return k.a("sso_config_xf", "CLOSE_FRIEND_WAPKS", str).contains("CT");
         }
         return invokeZ.booleanValue;
     }

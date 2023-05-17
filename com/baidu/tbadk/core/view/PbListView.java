@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.wm;
+import com.baidu.tieba.fn;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class PbListView extends wm {
+/* loaded from: classes4.dex */
+public class PbListView extends fn {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int B = 2131234559;
+    public static final int B = 2131234890;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public final int b;
@@ -74,7 +74,7 @@ public class PbListView extends wm {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -154,9 +154,9 @@ public class PbListView extends wm {
                 return;
             }
         }
-        ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
-        ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
-        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+        ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds256);
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
         this.c = null;
         this.d = null;
         this.e = null;
@@ -230,12 +230,12 @@ public class PbListView extends wm {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.e.setVisibility(0);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b17));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b95));
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.wm
+    @Override // com.baidu.tieba.fn
     public void d() {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -319,7 +319,7 @@ public class PbListView extends wm {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.t.getLayoutParams();
-            layoutParams.height = ii.g(this.c, R.dimen.obfuscated_res_0x7f070198);
+            layoutParams.height = ri.g(this.c, R.dimen.obfuscated_res_0x7f070198);
             this.t.setLayoutParams(layoutParams);
         }
     }
@@ -355,7 +355,7 @@ public class PbListView extends wm {
     public void J(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.d.setTextSize(0, ii.g(this.c, i));
+            this.d.setTextSize(0, ri.g(this.c, i));
         }
     }
 
@@ -528,7 +528,7 @@ public class PbListView extends wm {
                 return;
             }
             this.d.setVisibility(0);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b17));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b95));
         }
     }
 
@@ -546,7 +546,7 @@ public class PbListView extends wm {
         }
     }
 
-    @Override // com.baidu.tieba.wm
+    @Override // com.baidu.tieba.fn
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -564,11 +564,11 @@ public class PbListView extends wm {
             } else {
                 this.n.setVisibility(8);
             }
-            this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091c47);
+            this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091c9b);
             this.t = (ImageView) this.g.findViewById(R.id.pb_more_view_top_line);
             this.h = this.g.findViewById(R.id.empty_view);
             this.v = (LinearLayout) this.g.findViewById(R.id.pb_more_top_extra_view);
-            g35 d = g35.d(this.p);
+            p45 d = p45.d(this.p);
             d.B(R.dimen.T_X12);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0107);
@@ -592,7 +592,7 @@ public class PbListView extends wm {
             boolean z = false;
             if (charSequence.equals(this.c.getText(R.string.pb_load_more))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0b17))) {
+            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0b95))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
             } else if (!charSequence.equals(this.c.getText(R.string.list_no_more)) && !charSequence.equals(this.c.getText(R.string.list_has_no_more)) && !charSequence.equals(this.c.getText(R.string.sub_pb_list_no_more)) && !this.u) {
                 if (charSequence.equals(this.c.getText(R.string.list_no_more_new))) {

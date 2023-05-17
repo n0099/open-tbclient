@@ -4,27 +4,25 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.open.deviceidentifiertest.VirtualDevice;
-/* loaded from: classes5.dex */
-public final class k3b {
+/* loaded from: classes6.dex */
+public class k3b {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static Context a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (a == null) {
-                    a = new VirtualDevice().getDeviceID(context);
-                }
-                return a;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
-        return (String) invokeL.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && context != null && a == null) {
+            a = context.getApplicationContext();
+        }
     }
 }

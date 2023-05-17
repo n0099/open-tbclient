@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import com.baidu.tieba.R;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static final int DEFAULT_DISTANCE = -1;
     @Px
@@ -23,7 +23,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface GravityFlag {
     }
 
@@ -36,7 +36,7 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         if (i != -1) {
             return i;
         }
-        return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704eb);
+        return context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07062a);
     }
 
     public static boolean isRtl(View view2) {

@@ -58,7 +58,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager.widget.ViewPager;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ax {
     public static final ax b = new ax();
     public HashMap<String, String> a = new HashMap<>();

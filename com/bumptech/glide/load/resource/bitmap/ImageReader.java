@@ -14,7 +14,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ImageReader {
     @Nullable
     Bitmap decodeBitmap(BitmapFactory.Options options) throws IOException;
@@ -25,7 +25,7 @@ public interface ImageReader {
 
     void stopGrowingBuffers();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class InputStreamImageReader implements ImageReader {
         public final ArrayPool byteArrayPool;
         public final InputStreamRewinder dataRewinder;
@@ -60,7 +60,7 @@ public interface ImageReader {
     }
 
     @RequiresApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ParcelFileDescriptorImageReader implements ImageReader {
         public final ArrayPool byteArrayPool;
         public final ParcelFileDescriptorRewinder dataRewinder;

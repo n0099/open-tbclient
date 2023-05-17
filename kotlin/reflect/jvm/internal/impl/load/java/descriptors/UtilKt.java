@@ -24,7 +24,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.StringValue;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UtilKt {
     public static final List<ValueParameterDescriptor> copyValueParameters(Collection<ValueParameterData> collection, Collection<? extends ValueParameterDescriptor> collection2, CallableDescriptor callableDescriptor) {
         boolean z;
@@ -68,8 +68,8 @@ public final class UtilKt {
         Annotations annotations = valueParameterDescriptor.getAnnotations();
         FqName fqName = JvmAnnotationNames.DEFAULT_VALUE_FQ_NAME;
         Intrinsics.checkExpressionValueIsNotNull(fqName, "JvmAnnotationNames.DEFAULT_VALUE_FQ_NAME");
-        AnnotationDescriptor mo2020findAnnotation = annotations.mo2020findAnnotation(fqName);
-        if (mo2020findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2020findAnnotation)) != null) {
+        AnnotationDescriptor mo2039findAnnotation = annotations.mo2039findAnnotation(fqName);
+        if (mo2039findAnnotation != null && (firstArgument = DescriptorUtilsKt.firstArgument(mo2039findAnnotation)) != null) {
             if (!(firstArgument instanceof StringValue)) {
                 firstArgument = null;
             }

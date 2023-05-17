@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DirectorySoSource extends SoSource {
     public static final int ON_LD_LIBRARY_PATH = 2;
     public static final int RESOLVE_DEPENDENCIES = 1;

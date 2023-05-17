@@ -6,7 +6,7 @@ import dalvik.system.DexClassLoader;
 import java.util.HashSet;
 import java.util.List;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PluginClassLoader extends DexClassLoader {
     public static final String TAG = "PluginClassLoader";
     public HashSet<String> allPluginClasses;

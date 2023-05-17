@@ -2,9 +2,9 @@ package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.t0b;
-import com.baidu.tieba.x0b;
-import com.baidu.tieba.y0b;
+import com.baidu.tieba.r2b;
+import com.baidu.tieba.v2b;
+import com.baidu.tieba.w2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,13 +76,13 @@ public class c0 {
             String c = c();
             if (b()) {
                 y.c("hmsSdk", "refresh components");
-                b = x0b.d(128);
+                b = v2b.d(128);
                 a("aprpap", b);
-                b2 = x0b.d(128);
+                b2 = v2b.d(128);
                 a("febdoc", b2);
-                b3 = x0b.d(128);
+                b3 = v2b.d(128);
                 a("marfil", b3);
-                b4 = x0b.d(128);
+                b4 = v2b.d(128);
                 a("maywnj", b4);
                 g0.b(b.i(), "Privacy_MY", "assemblyFlash", System.currentTimeMillis());
             } else {
@@ -91,7 +91,7 @@ public class c0 {
                 b3 = b("marfil");
                 b4 = b("maywnj");
             }
-            return y0b.a(t0b.b(a(b, b2, b3, c), y0b.b(b4), 10000, 16));
+            return w2b.a(r2b.b(a(b, b2, b3, c), w2b.b(b4), 10000, 16));
         }
         return (String) invokeV.objValue;
     }
@@ -143,10 +143,10 @@ public class c0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
-            byte[] b = y0b.b(str);
-            byte[] b2 = y0b.b(str2);
-            byte[] b3 = y0b.b(str3);
-            byte[] b4 = y0b.b(str4);
+            byte[] b = w2b.b(str);
+            byte[] b2 = w2b.b(str2);
+            byte[] b3 = w2b.b(str3);
+            byte[] b4 = w2b.b(str4);
             int length = b.length;
             if (length > b2.length) {
                 length = b2.length;
@@ -175,7 +175,7 @@ public class c0 {
             if (a(file)) {
                 return t0.a(file);
             }
-            String d = x0b.d(128);
+            String d = v2b.d(128);
             t0.a(file, d);
             return d;
         }

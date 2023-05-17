@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPCServiceManagerAidl extends IInterface {
     void addService(String str, IBinder iBinder, boolean z) throws RemoteException;
 
@@ -19,7 +19,7 @@ public interface IPCServiceManagerAidl extends IInterface {
 
     boolean removeService(String str) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IPCServiceManagerAidl {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl";
@@ -35,7 +35,7 @@ public interface IPCServiceManagerAidl extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class Proxy implements IPCServiceManagerAidl {
             public static /* synthetic */ Interceptable $ic;
             public static IPCServiceManagerAidl sDefaultImpl;
@@ -253,7 +253,7 @@ public interface IPCServiceManagerAidl extends IInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Default implements IPCServiceManagerAidl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

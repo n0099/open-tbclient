@@ -13,7 +13,7 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RegisterActivity extends BaseActivity {
     public static final String KEY_PARAMS_LOGIN_USERNAME = "loginUserName";
     public WebAuthResult t = new WebAuthResult() { // from class: com.baidu.sapi2.activity.RegisterActivity.1

@@ -1,55 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes3.dex */
-public class bq1 implements fs1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public interface bq1 {
+    void a(JSONObject jSONObject, aq1 aq1Var);
 
-    public bq1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fs1
-    public long a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return s42.b().a;
-        }
-        return invokeL.longValue;
-    }
-
-    @Override // com.baidu.tieba.fs1
-    public void b(Context context, String str, qm3<String> qm3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, qm3Var) == null) {
-            xu1.d(str, qm3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.fs1
-    public void c(Context context, JSONArray jSONArray, qm3<String> qm3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, qm3Var) == null) {
-            xu1.e(jSONArray, qm3Var);
-        }
-    }
+    void b(JSONObject jSONObject, aq1 aq1Var, cq1 cq1Var);
 }

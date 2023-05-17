@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonTabView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class PersonTabView extends LinearLayout {
     public b k;
     public View.OnClickListener l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void onTabSelect(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +63,9 @@ public class PersonTabView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f09160b) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09164d) {
                     this.a.setCurrentTab(0);
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f091d8d) {
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f091de7) {
                     this.a.setCurrentTab(1);
                 }
                 if (this.a.k != null) {
@@ -104,17 +104,17 @@ public class PersonTabView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0753, this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09160b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d077d, this);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09164d);
             this.b = textView;
             textView.setOnClickListener(this.l);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091d8d);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091de7);
             this.c = textView2;
             textView2.setOnClickListener(this.l);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09160c);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091d8f);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09160a);
-            this.g = findViewById(R.id.obfuscated_res_0x7f091d8e);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09164e);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091de9);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09164c);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091de8);
             setCurrentTab(0);
         }
     }

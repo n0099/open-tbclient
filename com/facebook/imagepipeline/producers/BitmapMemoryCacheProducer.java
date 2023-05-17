@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.references.CloseableReference;
@@ -11,7 +12,7 @@ import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
     public static final String ORIGIN_SUBCATEGORY = "pipe_bg";
@@ -150,7 +151,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE.getValue()) {
                 String producerName2 = getProducerName();
                 if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                    map = ImmutableMap.of("cached_value_found", "false");
+                    map = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
                 } else {
                     map = null;
                 }
@@ -167,7 +168,7 @@ public class BitmapMemoryCacheProducer implements Producer<CloseableReference<Cl
             Consumer<CloseableReference<CloseableImage>> wrapConsumer = wrapConsumer(consumer, bitmapCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled());
             String producerName3 = getProducerName();
             if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                map3 = ImmutableMap.of("cached_value_found", "false");
+                map3 = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
             }
             producerListener.onProducerFinishWithSuccess(producerContext, producerName3, map3);
             if (FrescoSystrace.isTracing()) {

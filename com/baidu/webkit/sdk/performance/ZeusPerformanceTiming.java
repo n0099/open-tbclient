@@ -19,7 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ZeusPerformanceTiming {
     public static final String CONFIG_FILE = "startup_timing_log";
     public static final String KEY_AMOUNT_FREE_DISK_SPACE = "AmountFreeDiskSpace";
@@ -121,7 +121,7 @@ public class ZeusPerformanceTiming {
     public static ConcurrentHashMap<String, Long> sStartThreadTimeStamps = new ConcurrentHashMap<>();
     public static ConcurrentHashMap<String, Long> sEndThreadTimeStamps = new ConcurrentHashMap<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum Stage {
         Start,
         End

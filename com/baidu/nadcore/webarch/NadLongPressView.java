@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NadLongPressView extends ImageView {
     public int a;
     public int b;
@@ -13,12 +13,12 @@ public class NadLongPressView extends ImageView {
     public final Runnable d;
     public b e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }

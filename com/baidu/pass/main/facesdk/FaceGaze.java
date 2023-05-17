@@ -6,7 +6,7 @@ import com.baidu.pass.main.facesdk.model.BDFaceGazeInfo;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceInstance;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceGaze {
     public static final String TAG = "FaceGaze";
     public BDFaceInstance bdFaceInstance;

@@ -16,7 +16,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static String a(int i) {
         return (i >>> 24) == 1 ? "android:" : "";

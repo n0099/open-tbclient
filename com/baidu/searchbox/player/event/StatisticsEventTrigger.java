@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import android.graphics.Point;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatisticsEventTrigger extends SingleTargetTrigger {
     public static final int KEY_LOOP_COUNT = 1;
 

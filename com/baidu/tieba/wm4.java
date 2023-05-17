@@ -1,142 +1,60 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class wm4 {
+/* loaded from: classes8.dex */
+public abstract class wm4 extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<String> a;
-    public xm4<List<vm4>> b;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-        }
-    }
-
-    @RequiresApi(api = 21)
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final wm4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-313128531, "Lcom/baidu/tieba/wm4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-313128531, "Lcom/baidu/tieba/wm4$b;");
-                    return;
-                }
-            }
-            a = new wm4(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948275371, "Lcom/baidu/tieba/wm4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948275371, "Lcom/baidu/tieba/wm4;");
-                return;
-            }
-        }
-        String str = ProcessUtils.getCurProcessName() + ".trace";
-        AppRuntime.getAppContext().getExternalFilesDir(null);
-    }
+    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
 
     public wm4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static wm4 b() {
-        InterceptResult invokeV;
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (wm4) invokeV.objValue;
-    }
-
-    public xm4<List<vm4>> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (xm4) invokeV.objValue;
-    }
-
-    public Set<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Set<String> set = this.a;
-            if (set != null) {
-                return set;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
+                getLayoutInflater().setFactory(this);
             }
-            HashSet hashSet = new HashSet();
-            this.a = hashSet;
-            hashSet.add("V8JavaScriptContext");
-            this.a.add("main");
-            return this.a;
+            super.onCreate(bundle);
         }
-        return (Set) invokeV.objValue;
     }
 
-    public /* synthetic */ wm4(a aVar) {
-        this();
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
+            View h = h(null, str, context, attributeSet);
+            if (h == null) {
+                return super.onCreateView(str, context, attributeSet);
+            }
+            return h;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

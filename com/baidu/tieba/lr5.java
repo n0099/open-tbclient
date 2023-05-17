@@ -1,103 +1,103 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.trackConfig.TrackConfigResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class lr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public HttpMessageListener b;
 
-    public static Boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return Boolean.FALSE;
-            }
-            if (!hi.isEquals(ps5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
-                try {
-                    str = URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, boolean z2);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lr5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lr5 lr5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lr5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            String c = ps5.c(str, "topic_id=");
-            String c2 = ps5.c(str, "topic_name=");
-            String c3 = ps5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            String c4 = ps5.c(str, "nonavigationbar=");
-            if ((!hi.isEmpty(c) || !hi.isEmpty(c2)) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+            this.a = lr5Var;
         }
-        return (Boolean) invokeL.objValue;
-    }
 
-    public static Boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            if (uri != null && uri.toString() != null) {
-                if (ps5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
-                    return Boolean.TRUE;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof TrackConfigResponseMessage)) {
+                TrackConfigResponseMessage trackConfigResponseMessage = (TrackConfigResponseMessage) httpResponsedMessage;
+                if (this.a.a != null) {
+                    this.a.a.a(trackConfigResponseMessage.isSuccess(), trackConfigResponseMessage.getData());
                 }
-                return Boolean.FALSE;
             }
-            return Boolean.FALSE;
         }
-        return (Boolean) invokeL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public lr5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return ps5.c(str, "topic_id=");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeL.objValue;
+        this.b = new a(this, CmdConfigHttp.CMD_TRACK_CONFIG);
+        MessageManager.getInstance().registerListener(this.b);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_TRACK_CONFIG, TbConfig.SERVER_ADDRESS + TbConfig.GET_TRACK_CONFIG);
+        tbHttpMessageTask.setResponsedClass(TrackConfigResponseMessage.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        dh.h(TbSingleton.getInstance().isIsOpenTrack());
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public void b(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return ps5.c(str, "hottopic_detail_hybrid-");
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = bVar;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void e(TbPageContext tbPageContext, String str, String str2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_TRACK_CONFIG));
         }
-        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
-        sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-        sb.append("1");
-        sb.append("&nonavigationbar=");
-        sb.append("1");
-        sb.append("&from=");
-        sb.append("1");
-        if (str != null) {
-            sb.append("&topic_id=");
-            sb.append(str);
-        }
-        if (str2 != null) {
-            sb.append("&topic_name=");
-            sb.append(str2);
-        }
-        sb.append("&skin=");
-        sb.append(SkinManager.getCurrentSkinTypeString());
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
     }
 }

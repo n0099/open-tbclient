@@ -1,44 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.ClipboardManager;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class yh {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class yh extends gh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    @Override // com.baidu.tieba.gh
+    public String p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (str == null) {
-                str = "";
-            }
-            try {
-                ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(str);
-            } catch (Throwable th) {
-                BdLog.e(th);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "stat" : (String) invokeV.objValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int identifier;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yh(ci ciVar) {
+        super(ciVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context == null || (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android")) <= 0) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ciVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ci) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return context.getResources().getDimensionPixelSize(identifier);
         }
-        return invokeL.intValue;
+        this.o = "stat";
+        this.s = true;
+        this.p = false;
     }
 }

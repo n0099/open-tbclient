@@ -9,7 +9,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class StreamReader {
     public static final int STATE_END_OF_INPUT = 3;
     public static final int STATE_READ_HEADERS = 0;
@@ -29,7 +29,7 @@ public abstract class StreamReader {
     public long targetGranule;
     public TrackOutput trackOutput;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SetupData {
         public Format format;
         public OggSeeker oggSeeker;
@@ -39,7 +39,7 @@ public abstract class StreamReader {
 
     public abstract boolean readHeaders(ParsableByteArray parsableByteArray, long j, SetupData setupData) throws IOException, InterruptedException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UnseekableOggSeeker implements OggSeeker {
         @Override // com.google.android.exoplayer2.extractor.ogg.OggSeeker
         public long read(ExtractorInput extractorInput) throws IOException, InterruptedException {

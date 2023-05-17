@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.upstream.cache;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class NoOpCacheEvictor implements CacheEvictor {
     @Override // com.google.android.exoplayer2.upstream.cache.CacheEvictor
     public void onCacheInitialized() {

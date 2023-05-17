@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,19 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class bo0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bo0 a;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public String d;
+    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,232 +39,174 @@ public final class bo0 {
                 return;
             }
         }
-        a = new bo0();
+        f = new a(null);
     }
 
-    public bo0() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof bo0) {
+                    bo0 bo0Var = (bo0) obj;
+                    return Intrinsics.areEqual(this.a, bo0Var.a) && Intrinsics.areEqual(this.b, bo0Var.b) && Intrinsics.areEqual(this.c, bo0Var.c) && Intrinsics.areEqual(this.d, bo0Var.d) && Intrinsics.areEqual(this.e, bo0Var.e);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            String str4 = this.d;
+            int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
+            String str5 = this.e;
+            return hashCode4 + (str5 != null ? str5.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "NadDialogButtonData(btnText=" + this.a + ", textColor=" + this.b + ", btnBackground=" + this.c + ", btnCmd=" + this.d + ", btnIcon=" + this.e + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final bo0 a(JSONObject jsonObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonObject)) == null) {
+                Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+                String optString = jsonObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+                Intrinsics.checkNotNullExpressionValue(optString, "optString(\"button_text\")");
+                String optString2 = jsonObject.optString("button_text_color");
+                Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"button_text_color\")");
+                String optString3 = jsonObject.optString("button_image");
+                Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"button_image\")");
+                String optString4 = jsonObject.optString("button_cmd");
+                Intrinsics.checkNotNullExpressionValue(optString4, "optString(\"button_cmd\")");
+                String optString5 = jsonObject.optString("button_icon");
+                Intrinsics.checkNotNullExpressionValue(optString5, "optString(\"button_icon\")");
+                return new bo0(optString, optString2, optString3, optString4, optString5);
+            }
+            return (bo0) invokeL.objValue;
+        }
+    }
+
+    public bo0(String btnText, String textColor, String btnBackground, String btnCmd, String btnIcon) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {btnText, textColor, btnBackground, btnCmd, btnIcon};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(btnText, "btnText");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(btnBackground, "btnBackground");
+        Intrinsics.checkNotNullParameter(btnCmd, "btnCmd");
+        Intrinsics.checkNotNullParameter(btnIcon, "btnIcon");
+        this.a = btnText;
+        this.b = textColor;
+        this.c = btnBackground;
+        this.d = btnCmd;
+        this.e = btnIcon;
     }
 
-    public final HashMap<String, String> a(HashMap<String, String> hashMap) throws IllegalStateException {
-        InterceptResult invokeL;
-        boolean z;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
-            for (String str : CollectionsKt__CollectionsKt.arrayListOf("reward", "panel", "common_info", "ext_info")) {
-                if (hashMap.containsKey(str)) {
-                    String str2 = hashMap.get(str);
-                    if (str2 != null && str2.length() != 0) {
-                        z = false;
-                        continue;
-                    } else {
-                        z = true;
-                        continue;
-                    }
-                    if (z) {
-                    }
-                }
-                throw new IllegalStateException("key: " + str + " 数据不可为 null");
-            }
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (HashMap) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final JSONObject b(HashMap<String, String> hashMap) throws JSONException {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        JSONArray jSONArray;
-        String str3;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
-        JSONObject jSONObject3;
-        String str4;
-        String str5;
-        String str6;
-        String str7;
-        String str8;
-        String str9;
-        String replace$default;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            JSONObject jSONObject4 = new JSONObject();
-            JSONObject c = a.c(hashMap.get("reward"));
-            JSONObject c2 = a.c(hashMap.get(WriteActivityConfig.VIDEO_INFO));
-            JSONObject c3 = a.c(hashMap.get("image_info"));
-            JSONObject c4 = a.c(hashMap.get("convert"));
-            JSONObject c5 = a.c(hashMap.get("panel"));
-            JSONObject c6 = a.c(hashMap.get("common_info"));
-            JSONObject c7 = a.c(hashMap.get("app_info"));
-            JSONObject c8 = a.c(hashMap.get("download"));
-            JSONObject c9 = a.c(hashMap.get("cmd_policy"));
-            JSONObject c10 = a.c(hashMap.get("big_card"));
-            String str10 = hashMap.get("ext_info");
-            String str11 = hashMap.get("lp_real_url");
-            String str12 = hashMap.get("type");
-            if (c4 != null) {
-                c4.put("type", str12);
-            }
-            if (c4 != null) {
-                c4.put("download", c8);
-            }
-            if (c4 != null) {
-                c4.put("app_info", c7);
-            }
-            if (c4 != null) {
-                c4.put("button_scheme", c4.optString("button_scheme"));
-            }
-            if (c4 != null) {
-                c4.put("ext", str10);
-            }
-            if (c4 != null) {
-                str = "button_scheme";
-                c4.put(BdVideoAd.AD_VIDEO_DAPAGE, ClogBuilder.Page.WELFAREMAXLP.type);
-            } else {
-                str = "button_scheme";
-            }
-            jSONObject4.put("reward", c);
-            jSONObject4.put("app_info", c7);
-            jSONObject4.put("cmd_policy", c9);
-            jSONObject4.put("big_card", c10);
-            jSONObject4.put("ext_info", str10);
-            jSONObject4.put("lp_real_url", str11);
-            jSONObject4.put(WriteActivityConfig.VIDEO_INFO, c2);
-            jSONObject4.put("image_info", c3);
-            jSONObject4.put("convert", c4);
-            bo0 bo0Var = a;
-            String str13 = hashMap.get("download");
-            String str14 = null;
-            if (str13 != null && (replace$default = StringsKt__StringsJVMKt.replace$default(str13, EmotionResourceInfo.JSON_KEY_PKG_NAME, "apk_name", false, 4, (Object) null)) != null) {
-                str2 = StringsKt__StringsJVMKt.replace$default(replace$default, "key", "download_key", false, 4, (Object) null);
-            } else {
-                str2 = null;
-            }
-            jSONObject4.put(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO, bo0Var.c(str2));
-            if (c6 != null) {
-                jSONArray = c6.optJSONArray("ad_monitor_url");
-            } else {
-                jSONArray = null;
-            }
-            jSONObject4.put("ad_monitor_url", jSONArray);
-            jSONObject4.put("type", str12);
-            if (c5 != null) {
-                str3 = c5.optString("panel_cmd");
-            } else {
-                str3 = null;
-            }
-            jSONObject4.put("panel_cmd", str3);
-            if (c5 != null) {
-                jSONObject = c5.optJSONObject("sliding_tag");
-            } else {
-                jSONObject = null;
-            }
-            jSONObject4.put("sliding_tag", jSONObject);
-            if (c6 != null) {
-                jSONObject2 = c6.optJSONObject("sv_title");
-            } else {
-                jSONObject2 = null;
-            }
-            jSONObject4.put("sv_title", jSONObject2);
-            if (c6 != null) {
-                jSONObject3 = c6.optJSONObject("sv_button");
-            } else {
-                jSONObject3 = null;
-            }
-            jSONObject4.put("sv_button", jSONObject3);
-            JSONObject jSONObject5 = new JSONObject();
-            jSONObject5.put(MapBundleKey.MapObjKey.OBJ_AD_STYLE, AdBaseModel.STYLE.REWARD_VIDEO_LP_IMPL.value);
-            if (c5 != null) {
-                str4 = c5.optString("brand_name");
-            } else {
-                str4 = null;
-            }
-            jSONObject5.put("user_name", str4);
-            if (c5 != null) {
-                str5 = c5.optString("title");
-            } else {
-                str5 = null;
-            }
-            jSONObject5.put("title", str5);
-            if (c5 != null) {
-                str6 = c5.optString("avatar");
-            } else {
-                str6 = null;
-            }
-            jSONObject5.put(RecommendDetailActivityConfig.USER_PORTRAIT, str6);
-            if (c4 != null) {
-                str7 = c4.optString(str);
-            } else {
-                str7 = null;
-            }
-            jSONObject5.put("scheme", str7);
-            if (c6 != null) {
-                str8 = c6.optString("refer_url");
-            } else {
-                str8 = null;
-            }
-            jSONObject5.put("refer_url", str8);
-            if (c6 != null) {
-                str9 = c6.optString("prerender_scheme");
-            } else {
-                str9 = null;
-            }
-            if (c6 != null) {
-                str14 = c6.optString("refer_url");
-            }
-            jSONObject5.put("prerender_scheme", t31.l(str9, str14));
-            jSONObject4.put("ad_common", jSONObject5);
-            JSONObject jSONObject6 = new JSONObject();
-            jSONObject6.put("convert", c4);
-            Unit unit = Unit.INSTANCE;
-            jSONObject4.put("enhance", jSONObject6);
-            return jSONObject4;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final JSONObject c(String str) throws JSONException {
-        InterceptResult invokeL;
-        boolean z;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return new JSONObject(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final vp0 d(HashMap<String, String> toLpModel) throws Exception {
-        InterceptResult invokeL;
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, toLpModel)) == null) {
-            Intrinsics.checkNotNullParameter(toLpModel, "$this$toLpModel");
-            a(toLpModel);
-            JSONObject b = b(toLpModel);
-            AdBaseModel d = up0.d("", 0, b, b.optString("ext_info"));
-            if (d != null) {
-                return (vp0) d;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.model.AdRewardVideoLpModel");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (vp0) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.d = str;
+        }
     }
 }

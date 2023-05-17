@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.http.result;
 
 import com.baidu.pass.biometrics.base.result.PassBiometricResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ContrastPortraitResult extends PassBiometricResult {
     public static final int ERROR_CODE_CONTRAST_FAIL = -302;
     public static final int ERROR_CODE_GET_USERINFO_FAILURE = 1;

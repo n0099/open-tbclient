@@ -1,78 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class lza {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947961558, "Lcom/baidu/tieba/lza;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947961558, "Lcom/baidu/tieba/lza;");
+    public lza() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = "0123456789ABCDEF".toCharArray();
+        this.a = 0;
     }
 
-    public static byte[] a(char[] cArr) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if ((cArr.length & 1) == 0) {
-                byte[] bArr = new byte[cArr.length >> 1];
-                int i = 0;
-                int i2 = 0;
-                while (i < cArr.length) {
-                    int digit = Character.digit(cArr[i], 16);
-                    if (digit == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
-                    }
-                    int i3 = i + 1;
-                    int digit2 = Character.digit(cArr[i3], 16);
-                    if (digit2 == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
-                    }
-                    i = i3 + 1;
-                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
-                    i2++;
-                }
-                return bArr;
-            }
-            throw new IllegalArgumentException("Odd number of characters.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b >> 4) & 15]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (String) invokeL.objValue;
+        return invokeV.longValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.b = j;
+        }
     }
 }

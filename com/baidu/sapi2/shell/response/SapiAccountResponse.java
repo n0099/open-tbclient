@@ -5,7 +5,7 @@ import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiAccountResponse extends SapiResponse {
     public String actionType;
     public String app;

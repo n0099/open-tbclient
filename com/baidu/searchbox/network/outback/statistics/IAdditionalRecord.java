@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.outback.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IAdditionalRecord {
     public static final IAdditionalRecord EMPTY = new IAdditionalRecord() { // from class: com.baidu.searchbox.network.outback.statistics.IAdditionalRecord.1
         @Override // com.baidu.searchbox.network.outback.statistics.IAdditionalRecord

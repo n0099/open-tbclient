@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.lf8;
+import com.baidu.tieba.gh8;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LabelItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class LabelItemView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c5, (ViewGroup) this, false);
+            return (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e2, (ViewGroup) this, false);
         }
         return (TextView) invokeV.objValue;
     }
@@ -117,7 +117,7 @@ public class LabelItemView extends LinearLayout {
             paint.setStyle(Paint.Style.STROKE);
             this.d.setColor(SkinManager.getColor(R.color.CAM_X0204));
             this.d.setStrokeWidth(1.0f);
-            this.c = ii.g(getContext(), R.dimen.obfuscated_res_0x7f070233);
+            this.c = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070233);
             for (int i = 0; i < 3; i++) {
                 addView(a());
             }
@@ -142,7 +142,7 @@ public class LabelItemView extends LinearLayout {
         }
     }
 
-    public void setData(List<lf8> list, boolean z) {
+    public void setData(List<gh8> list, boolean z) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048579, this, list, z) != null) || ListUtils.isEmpty(list)) {
@@ -156,19 +156,19 @@ public class LabelItemView extends LinearLayout {
             if (i2 >= i) {
                 break;
             }
-            lf8 lf8Var = list.get(i2);
-            if (lf8Var != null && (getChildAt(i2) instanceof TextView)) {
+            gh8 gh8Var = list.get(i2);
+            if (gh8Var != null && (getChildAt(i2) instanceof TextView)) {
                 TextView textView = (TextView) getChildAt(i2);
                 textView.setVisibility(0);
-                String str = lf8Var.b;
-                if (!StringUtils.isNull(str) && lf8Var.b.length() > 4) {
-                    str = lf8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
+                String str = gh8Var.b;
+                if (!StringUtils.isNull(str) && gh8Var.b.length() > 4) {
+                    str = gh8Var.b.substring(0, 3) + StringHelper.STRING_MORE;
                 }
                 textView.setText(str);
                 SkinManager.setViewTextColor(textView, (int) R.drawable.color_lable_selector);
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_lable_selector), (Drawable) null);
-                textView.setSelected(lf8Var.c);
-                textView.setTag(lf8Var);
+                textView.setSelected(gh8Var.c);
+                textView.setTag(gh8Var);
             }
             i2++;
         }

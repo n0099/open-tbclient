@@ -7,7 +7,7 @@ import com.baidu.tieba.R;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public ImageView bd;
     public com.kwad.sdk.core.response.model.b be;
@@ -58,7 +58,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f09139d);
+        this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

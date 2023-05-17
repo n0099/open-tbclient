@@ -1,7 +1,22 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.view.headViewPendant.LightInteractiveLayout;
+import com.baidu.tbadk.data.MetaData;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,29 +24,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
-public class r75 implements u75 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int l = 8000;
-    public static int m = 2;
-    public static int n = 2;
-    public static int o = 1;
+import java.lang.ref.WeakReference;
+/* loaded from: classes7.dex */
+public class r75 {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public AudioRecord c;
-    public RandomAccessFile d;
-    public File e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public short j;
-    public short k;
 
     static {
         InterceptResult invokeClinit;
@@ -48,24 +46,69 @@ public class r75 implements u75 {
         }
     }
 
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r75 a;
+        public final /* synthetic */ WeakReference a;
+        public final /* synthetic */ WeakReference b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
 
-        public a(r75 r75Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, WeakReference weakReference, WeakReference weakReference2, int i2, int i3) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r75Var};
+                Object[] objArr = {Integer.valueOf(i), weakReference, weakReference2, Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = weakReference;
+            this.b = weakReference2;
+            this.c = i2;
+            this.d = i3;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && this.a.get() != null) {
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    ((Window) this.a.get()).getDecorView().setSystemUiVisibility(1280);
+                } else {
+                    ((Window) this.a.get()).getDecorView().setSystemUiVisibility(9472);
+                }
+                if (this.b.get() != null) {
+                    ((LightInteractiveLayout) this.b.get()).setListBackground(this.c, this.d);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CustomMessageListener a;
+        public final /* synthetic */ WeakReference b;
+
+        public b(CustomMessageListener customMessageListener, WeakReference weakReference) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {customMessageListener, weakReference};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,194 +118,134 @@ public class r75 implements u75 {
                     return;
                 }
             }
-            this.a = r75Var;
+            this.a = customMessageListener;
+            this.b = weakReference;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION);
+                MessageManager.getInstance().unRegisterListener(this.a);
+                if (this.b.get() != null) {
+                    ((LightInteractiveLayout) this.b.get()).E();
+                }
+                boolean unused = r75.a = false;
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements t75 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Dialog a;
+
+        public c(Dialog dialog) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dialog};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dialog;
+        }
+
+        @Override // com.baidu.tieba.t75
+        public void onClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h();
+                this.a.dismiss();
             }
         }
     }
 
-    public r75() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = false;
-        this.c = null;
-        this.e = null;
-    }
+    /* loaded from: classes7.dex */
+    public static class d implements DialogInterface.OnShowListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.u75
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.u75
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u75
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Thread thread = new Thread(new a(this));
-            thread.setPriority(10);
-            thread.setDaemon(true);
-            thread.start();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u75
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return g(o, l, m, n, str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean g(int i, int i2, int i3, int i4, String str) {
-        InterceptResult invokeCommon;
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
-            this.a = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-            this.g = i2;
-            this.h = i3;
-            this.i = i4;
-            AudioRecord audioRecord = this.c;
-            if (audioRecord != null) {
-                audioRecord.release();
-            }
-            this.c = new AudioRecord(i, this.g, this.h, this.i, this.a);
-            if (this.h == 12) {
-                i5 = 2;
-            } else {
-                i5 = 1;
-            }
-            this.j = (short) i5;
-            if (this.i == 2) {
-                i6 = 16;
-            } else {
-                i6 = 8;
-            }
-            this.k = (short) i6;
-            File file = new File(str);
-            this.e = file;
-            if (file.exists()) {
-                this.e.delete();
-            }
-            try {
-                this.e.createNewFile();
-                RandomAccessFile randomAccessFile = this.d;
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return false;
-                    }
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                try {
-                    this.d = new RandomAccessFile(this.e, "rw");
-                    i();
-                    f(this.e.getParent());
-                    return true;
-                } catch (FileNotFoundException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            } catch (IOException unused) {
-                this.e = null;
-                return false;
             }
         }
-        return invokeCommon.booleanValue;
+
+        @Override // android.content.DialogInterface.OnShowListener
+        public void onShow(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                boolean unused = r75.a = true;
+            }
+        }
     }
 
-    public final void h() {
-        AudioRecord audioRecord;
+    public static void b(Context context, int i, int i2, MetaData metaData, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (audioRecord = this.c) == null || this.e == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), metaData, Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) != null) || a) {
             return;
         }
-        try {
-            this.b = true;
-            int i = this.a;
-            byte[] bArr = new byte[i];
-            audioRecord.startRecording();
-            while (this.b) {
-                this.c.read(bArr, 0, i);
-                this.d.write(bArr);
-                this.f += i;
-            }
-            this.d.seek(4L);
-            this.d.writeInt(Integer.reverseBytes(this.f + 36));
-            this.d.seek(40L);
-            this.d.writeInt(Integer.reverseBytes(this.f));
-            this.d.close();
-            this.c.stop();
-            this.c.release();
-            this.b = false;
-        } catch (Throwable unused) {
-            if (this.e.exists()) {
-                this.e.delete();
-            }
+        if ((context instanceof Application) && (context = TbadkCoreApplication.getInst().getCurrentActivity()) == null) {
+            return;
         }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.d.setLength(0L);
-                this.d.writeBytes("RIFF");
-                this.d.writeInt(0);
-                this.d.writeBytes("WAVE");
-                this.d.writeBytes("fmt ");
-                this.d.writeInt(Integer.reverseBytes(16));
-                this.d.writeShort(Short.reverseBytes((short) 1));
-                this.d.writeShort(Short.reverseBytes(this.j));
-                this.d.writeInt(Integer.reverseBytes(this.g));
-                this.d.writeInt(Integer.reverseBytes(((this.g * this.j) * this.k) / 8));
-                this.d.writeShort(Short.reverseBytes((short) ((this.j * this.k) / 8)));
-                this.d.writeShort(Short.reverseBytes(this.k));
-                this.d.writeBytes("data");
-                this.d.writeInt(0);
-            } catch (IOException e) {
-                if (this.e.exists()) {
-                    this.e.delete();
-                }
-                e.printStackTrace();
+        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_QINGHUDONG_EMOTION, TbConfig.SERVER_ADDRESS + "c/c/agree/agreeVirtualImage"));
+        Dialog dialog = new Dialog(context, R.style.obfuscated_res_0x7f1003c9);
+        dialog.setCancelable(true);
+        WeakReference weakReference = new WeakReference(dialog.getWindow());
+        if (weakReference.get() != null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                ((Window) weakReference.get()).getDecorView().setSystemUiVisibility(1280);
+            } else {
+                ((Window) weakReference.get()).getDecorView().setSystemUiVisibility(9472);
             }
+            ((Window) weakReference.get()).addFlags(Integer.MIN_VALUE);
+            ((Window) weakReference.get()).addFlags(512);
+            ((Window) weakReference.get()).setType(1000);
+            ((Window) weakReference.get()).setStatusBarColor(0);
+            ((Window) weakReference.get()).setDimAmount(0.0f);
+            WindowManager.LayoutParams attributes = ((Window) weakReference.get()).getAttributes();
+            attributes.width = -1;
+            attributes.height = -1;
+            ((Window) weakReference.get()).setNavigationBarColor(0);
+            ((Window) weakReference.get()).setAttributes(attributes);
         }
+        WeakReference weakReference2 = new WeakReference(new LightInteractiveLayout(context));
+        if (weakReference2.get() != null) {
+            ((LightInteractiveLayout) weakReference2.get()).setUserInfo(metaData);
+            ((LightInteractiveLayout) weakReference2.get()).setType(i3);
+            ((LightInteractiveLayout) weakReference2.get()).setFrom(i4);
+            ((LightInteractiveLayout) weakReference2.get()).setNeedHomeIcon(z);
+            ((LightInteractiveLayout) weakReference2.get()).setLocation(i, i2);
+            dialog.setContentView((View) weakReference2.get());
+        }
+        GreyUtil.grey(dialog);
+        a aVar = new a(2001304, weakReference, weakReference2, i, i2);
+        dialog.setOnDismissListener(new b(aVar, weakReference2));
+        if (weakReference2.get() != null) {
+            ((LightInteractiveLayout) weakReference2.get()).setOnDismissListener(new c(dialog));
+        }
+        dialog.setOnShowListener(new d());
+        dialog.show();
+        if (metaData != null) {
+            s75.b(i4, metaData.getUserId());
+        }
+        MessageManager.getInstance().registerListener(aVar);
     }
 }

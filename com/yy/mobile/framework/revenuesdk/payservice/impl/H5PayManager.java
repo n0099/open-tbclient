@@ -21,7 +21,7 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import tv.athena.revenue.RevenueManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class H5PayManager {
     public static final int QUERY_RESULT_FAIL = 2;
     public static final int QUERY_RESULT_SUCCESS = 1;
@@ -172,8 +172,8 @@ public class H5PayManager {
         IRevenue revenue = RevenueManager.instance().getRevenue(h5PayParams.appId, h5PayParams.usedChannel);
         if (revenue == null) {
             RLog.error(TAG, "getSDKReporter error revenue null appId:" + h5PayParams.appId + " usedChannel:" + h5PayParams.usedChannel, new Object[0]);
-        } else if (revenue.getPayEventStatistic() != null) {
-            revenue.getPayEventStatistic().reportPayFlowEvent(PayFlowEventType.paychargeorderStatus, getChargeOrderStatusResult.getStatus() + "", "h5 order result", currencyChargeMessage.orderId, "", currencyChargeMessage.cid + "", currencyChargeMessage.payChannel, currencyChargeMessage.traceid);
+        } else if (revenue.getPayEventStatisticApi() != null) {
+            revenue.getPayEventStatisticApi().reportPayFlowEvent(PayFlowEventType.paychargeorderStatus, getChargeOrderStatusResult.getStatus() + "", "h5 order result", currencyChargeMessage.orderId, "", currencyChargeMessage.cid + "", currencyChargeMessage.payChannel, currencyChargeMessage.traceid);
             RLog.info(TAG, "notifyPayResult reportPayFlowEvent status:" + getChargeOrderStatusResult.getStatus());
         }
     }

@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.weather;
 
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.base.LanguageType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WeatherSearchOption {
     public String b;
     public LatLng c;

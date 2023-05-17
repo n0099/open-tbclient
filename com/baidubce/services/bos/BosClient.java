@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.command.CommandUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -106,7 +108,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";
@@ -457,7 +459,7 @@ public class BosClient extends AbstractBceClient {
                 createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, StickerDataChangeType.REPLACE);
                 populateRequestMetadata(createRequest, newObjectMetadata);
             } else {
-                createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, "copy");
+                createRequest.addHeader(Headers.BCE_COPY_METADATA_DIRECTIVE, CommandUBCHelper.COMMAND_UBC_TYPE_COPY);
             }
             setZeroContentLength(createRequest);
             CopyObjectResponseWithExceptionInfo copyObjectResponseWithExceptionInfo = (CopyObjectResponseWithExceptionInfo) invokeHttpClient(createRequest, CopyObjectResponseWithExceptionInfo.class);
@@ -1030,7 +1032,7 @@ public class BosClient extends AbstractBceClient {
             CheckUtils.isNotNull(appendObjectRequest, "request should not be null.");
             assertStringNotNullOrEmpty(appendObjectRequest.getKey(), "object key should not be null or empty");
             InternalRequest createRequest = createRequest(appendObjectRequest, HttpMethodName.POST);
-            createRequest.addParameter("append", null);
+            createRequest.addParameter(CommandUtils.PARAM_APPEND, null);
             if (appendObjectRequest.getOffset() != null) {
                 createRequest.addParameter("offset", appendObjectRequest.getOffset().toString());
             }

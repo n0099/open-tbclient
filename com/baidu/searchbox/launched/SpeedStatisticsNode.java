@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launched;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SpeedStatisticsNode {
     public long begin = System.currentTimeMillis();
     public long end;

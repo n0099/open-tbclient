@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.outback.core;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HttpHeaders {
     public static final String TAG = "HttpHeaders";
 

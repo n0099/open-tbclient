@@ -2,7 +2,7 @@ package com.baidu.pass.face.platform.a;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String a = "a";
     public static HashMap<String, Object> b = new HashMap<>();

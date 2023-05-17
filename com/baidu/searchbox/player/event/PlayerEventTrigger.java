@@ -5,7 +5,7 @@ import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.model.VideoUrlModel;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PlayerEventTrigger extends SingleTargetTrigger {
     public final ArrayList<Integer> mAttentionEventArray = new ArrayList<>(17);
     public boolean ignoreInfoEventFilter = false;

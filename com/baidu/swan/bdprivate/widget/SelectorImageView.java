@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SelectorImageView extends BdBaseImageView {
     public static int c = 255;
 
@@ -43,7 +43,7 @@ public class SelectorImageView extends BdBaseImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements View.OnTouchListener {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view2, MotionEvent motionEvent) {

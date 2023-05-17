@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public enum e {
     ASSEMBLE_PUSH_HUAWEI(1),
     ASSEMBLE_PUSH_FCM(2),

@@ -2,7 +2,7 @@ package com.yy.hiidostatis.defs.obj;
 
 import com.yy.hiidostatis.inner.util.Util;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PropertyPair implements Serializable {
     public static final String DIVIDE_FIELD = "=";
     public static final int TYPE_COUNT = 0;

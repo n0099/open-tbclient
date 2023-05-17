@@ -1,44 +1,119 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yn1 extends ContentObserver {
+/* loaded from: classes8.dex */
+public class yn1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ao1 a;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn1(ao1 ao1Var) {
-        super(null);
+    public yn1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ao1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ao1Var;
+        this.a = an1.a;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        ao1 ao1Var;
+    public static synchronized yn1 a(Context context) {
+        InterceptResult invokeL;
+        yn1 yn1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (ao1Var = this.a) != null) {
-            ao1Var.b = ao1Var.a.a(0, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (yn1.class) {
+                yn1Var = new yn1(context);
+            }
+            return yn1Var;
         }
+        return (yn1) invokeL.objValue;
+    }
+
+    public String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = ym1.b;
+            String str4 = ym1.c;
+            String str5 = "";
+            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+                return "";
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            StringBuilder sb = new StringBuilder();
+            try {
+                str5 = c(str3, str4, currentTimeMillis);
+            } catch (Throwable th) {
+                po1.d(th);
+            }
+            sb.append(e());
+            sb.append(str);
+            sb.append("/");
+            sb.append("100");
+            sb.append("/");
+            sb.append(str3);
+            sb.append("/");
+            sb.append(currentTimeMillis);
+            sb.append("/");
+            sb.append(str5);
+            sb.append("?skey=");
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            try {
+                return uo1.b(str + j + str2);
+            } catch (Throwable th) {
+                po1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                b = new String(no1.b(this.a));
+            } catch (Throwable th) {
+                po1.d(th);
+            }
+        }
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                d();
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
     }
 }

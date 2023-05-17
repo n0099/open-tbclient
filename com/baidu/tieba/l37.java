@@ -1,16 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.View;
-/* loaded from: classes5.dex */
-public interface l37 extends n37 {
-    void f(int i, int i2);
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.t27;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class l37 implements t27.c {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final i37 a;
 
-    void g(Canvas canvas);
+    public l37(i37 statStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {statStrategy};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
+    }
 
-    void k(Canvas canvas);
+    @Override // com.baidu.tieba.t27.c
+    public void a(f37<?> data, e37<?, ?> template, int i) {
+        Map<String, String> a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(template, "template");
+            q27 q27Var = (q27) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            uz6 uz6Var = new uz6();
+            uz6 uz6Var2 = q27Var.b;
+            if (uz6Var2 != null) {
+                uz6Var = uz6Var2;
+            }
+            for (Map.Entry<String, String> entry : this.a.a(uz6Var).entrySet()) {
+                statisticItem.param(entry.getKey(), entry.getValue());
+            }
+            q07 q07Var = q27Var.a;
+            if (q07Var != null && (a = q07Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            oj6.b().a(statisticItem);
+        }
+    }
 
-    void m(Context context, AttributeSet attributeSet, View view2);
+    @Override // com.baidu.tieba.t27.c
+    public void b(RecyclerView rv) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
+            Intrinsics.checkNotNullParameter(rv, "rv");
+            oj6.b().c();
+        }
+    }
 }

@@ -1,19 +1,81 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface uha {
-    int availableBytes();
 
-    void close();
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.wha;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class uha {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void flush();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948212379, "Lcom/baidu/tieba/uha;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948212379, "Lcom/baidu/tieba/uha;");
+        }
+    }
 
-    byte[] getOutPutBytes();
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a) {
+                return wha.a.a.f(str);
+            }
+            return SampleResult.OTHERE;
+        }
+        return (SampleResult) invokeL.objValue;
+    }
 
-    void init(int i, int i2);
+    public static void b(vha vhaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, vhaVar) != null) || vhaVar == null) {
+            return;
+        }
+        qia.b(vhaVar);
+    }
 
-    boolean putBytes(byte[] bArr, int i);
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            oia.a().b(str);
+        }
+    }
 
-    int receiveBytes(byte[] bArr, int i);
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
+            oia.a().c(str);
+        }
+    }
 
-    void setSpeed(float f);
+    public static void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void c(String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
+            return;
+        }
+        tia.a(str, str2, str3, map);
+    }
 }

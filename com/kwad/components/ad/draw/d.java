@@ -12,13 +12,13 @@ import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static void loadDrawAd(KsScene ksScene, @NonNull final KsLoadManager.DrawAdListener drawAdListener) {
         boolean a = m.oF().a(ksScene, "loadDrawAd");
         ksScene.setAdStyle(6);
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0601a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.draw.d.1
+        KsAdLoadManager.a(new a.C0615a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.draw.d.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
             public final void a(@NonNull AdResultData adResultData) {
                 final ArrayList arrayList = new ArrayList();

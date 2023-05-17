@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
@@ -36,7 +36,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PartialDiskCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static final int READ_SIZE = 16384;
         public final ByteArrayPool mByteArrayPool;

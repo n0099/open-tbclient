@@ -12,7 +12,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DataFetchProducer extends LocalFetchProducer {
     public static final String PRODUCER_NAME = "DataFetchProducer";
 

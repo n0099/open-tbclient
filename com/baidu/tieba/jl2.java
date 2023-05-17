@@ -1,26 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
 public class jl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
+    public HashMap<String, kl2> a;
 
     public jl2() {
         Interceptable interceptable = $ic;
@@ -32,53 +25,62 @@ public class jl2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public void a(kl2 kl2Var, String... strArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, kl2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str)) {
+                    this.a.put(str, kl2Var);
+                }
             }
         }
     }
 
-    @NonNull
-    public static jl2 a(@NonNull us2 us2Var) {
+    public ArrayList<kl2> c(String... strArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, us2Var)) == null) {
-            jl2 jl2Var = new jl2();
-            jl2Var.a = us2Var.H();
-            jl2Var.c = us2Var.K();
-            jl2Var.d = us2Var.Q();
-            jl2Var.f = us2Var.G();
-            jl2Var.i = us2Var.T();
-            jl2Var.h = us2Var.p1();
-            jl2Var.e = System.currentTimeMillis();
-            jl2Var.g = String.valueOf(us2Var.getType());
-            jl2Var.b = us2Var.I();
-            jl2Var.j = us2Var.v1();
-            return jl2Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            ArrayList<kl2> arrayList = null;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (!TextUtils.isEmpty(str)) {
+                        for (String str2 : this.a.keySet()) {
+                            if (str2.startsWith(str) || str.startsWith(str2)) {
+                                if (arrayList == null) {
+                                    arrayList = new ArrayList<>();
+                                }
+                                arrayList.add(this.a.get(str2));
+                            }
+                        }
+                    }
+                }
+            }
+            return arrayList;
         }
-        return (jl2) invokeL.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static jl2 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void d(kl2 kl2Var, String... strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, kl2Var, strArr) == null) && strArr != null && strArr.length != 0) {
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.a.get(str) == kl2Var) {
+                    this.a.remove(str);
+                }
             }
-            jl2 jl2Var = new jl2();
-            jl2Var.a = jSONObject.optString("bundle_id");
-            jl2Var.e = jSONObject.optLong("time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                jl2Var.b = optJSONObject.optString("appkey");
-                jl2Var.g = optJSONObject.optString("pkg_type");
-                jl2Var.c = optJSONObject.optString("app_name");
-                jl2Var.d = optJSONObject.optString("app_icon");
-                jl2Var.j = optJSONObject.optString("version_code");
-                jl2Var.f = optJSONObject.optInt("frame_type");
-                jl2Var.h = optJSONObject.optInt("pay_protected");
-            }
-            return jl2Var;
         }
-        return (jl2) invokeL.objValue;
     }
 }

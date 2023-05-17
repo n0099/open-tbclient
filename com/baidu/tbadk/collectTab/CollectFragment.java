@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class CollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public final CustomMessageListener b;
 
-    public abstract boolean F1();
+    public abstract boolean G1();
 
     public abstract int getType();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,10 +59,10 @@ public abstract class CollectFragment extends BaseFragment {
                 return;
             }
             CollectFragment collectFragment = this.a;
-            collectFragment.H1(collectFragment.getType());
+            collectFragment.I1(collectFragment.getType());
             CollectFragment collectFragment2 = this.a;
             if (!collectFragment2.a) {
-                collectFragment2.I1(false, collectFragment2.getType());
+                collectFragment2.J1(false, collectFragment2.getType());
             }
         }
     }
@@ -84,7 +84,7 @@ public abstract class CollectFragment extends BaseFragment {
         this.b = new a(this, 2000994);
     }
 
-    public boolean G1() {
+    public boolean H1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -111,12 +111,12 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void H1(int i) {
+    public void I1(int i) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             Bundle bundle = new Bundle();
-            if (!F1() && BdNetTypeUtil.isNetWorkAvailable()) {
+            if (!G1() && BdNetTypeUtil.isNetWorkAvailable()) {
                 z = true;
             } else {
                 z = false;
@@ -128,7 +128,7 @@ public abstract class CollectFragment extends BaseFragment {
         }
     }
 
-    public void I1(boolean z, int i) {
+    public void J1(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             Bundle bundle = new Bundle();

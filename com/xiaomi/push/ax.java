@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ax implements at {
     public Context a;
 
@@ -53,13 +53,13 @@ public class ax implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo186a() {
+    public String mo205a() {
         return a(this.a, this.b);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo187a() {
+    public boolean mo206a() {
         return (this.f126a == null || this.f127a == null) ? false : true;
     }
 }

@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class T0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

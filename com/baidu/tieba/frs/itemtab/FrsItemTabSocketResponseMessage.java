@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.itemtab;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.pe7;
+import com.baidu.tieba.cg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
-/* loaded from: classes4.dex */
-public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<pe7, ItemPageResIdl> {
+/* loaded from: classes5.dex */
+public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<cg7, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -53,9 +53,9 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<p
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            pe7 pe7Var = new pe7();
+            cg7 cg7Var = new cg7();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            pe7Var.a(itemPageResIdl.data);
+            cg7Var.a(itemPageResIdl.data);
             if (itemPageResIdl != null && (error = itemPageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -63,7 +63,7 @@ public class FrsItemTabSocketResponseMessage extends MvcSocketResponsedMessage<p
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(pe7Var);
+            setData(cg7Var);
             return itemPageResIdl;
         }
         return invokeIL.objValue;

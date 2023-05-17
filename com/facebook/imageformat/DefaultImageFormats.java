@@ -1,10 +1,11 @@
 package com.facebook.imageformat;
 
+import com.baidu.android.util.media.WebpUtils;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.facebook.common.internal.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DefaultImageFormats {
     public static ImmutableList<ImageFormat> sAllDefaultFormats;
     public static final ImageFormat JPEG = new ImageFormat("JPEG", "jpeg");
@@ -12,11 +13,11 @@ public final class DefaultImageFormats {
     public static final ImageFormat GIF = new ImageFormat("GIF", NativeConstants.TYPE_GIF);
     public static final ImageFormat BMP = new ImageFormat("BMP", "bmp");
     public static final ImageFormat ICO = new ImageFormat("ICO", "ico");
-    public static final ImageFormat WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", "webp");
-    public static final ImageFormat WEBP_LOSSLESS = new ImageFormat("WEBP_LOSSLESS", "webp");
-    public static final ImageFormat WEBP_EXTENDED = new ImageFormat("WEBP_EXTENDED", "webp");
-    public static final ImageFormat WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", "webp");
-    public static final ImageFormat WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", "webp");
+    public static final ImageFormat WEBP_SIMPLE = new ImageFormat("WEBP_SIMPLE", WebpUtils.TYPE_IMG_WEBP);
+    public static final ImageFormat WEBP_LOSSLESS = new ImageFormat("WEBP_LOSSLESS", WebpUtils.TYPE_IMG_WEBP);
+    public static final ImageFormat WEBP_EXTENDED = new ImageFormat("WEBP_EXTENDED", WebpUtils.TYPE_IMG_WEBP);
+    public static final ImageFormat WEBP_EXTENDED_WITH_ALPHA = new ImageFormat("WEBP_EXTENDED_WITH_ALPHA", WebpUtils.TYPE_IMG_WEBP);
+    public static final ImageFormat WEBP_ANIMATED = new ImageFormat("WEBP_ANIMATED", WebpUtils.TYPE_IMG_WEBP);
     public static final ImageFormat HEIF = new ImageFormat("HEIF", "heif");
     public static final ImageFormat DNG = new ImageFormat("DNG", "dng");
 

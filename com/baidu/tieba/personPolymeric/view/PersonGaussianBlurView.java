@@ -5,19 +5,19 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qq5;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonGaussianBlurView extends PersonExpandImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends BdAsyncTask<Bitmap, String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class PersonGaussianBlurView extends PersonExpandImageView {
                         }
                         return null;
                     }
-                    return qq5.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
+                    return zr5.a(Bitmap.createBitmap(bitmap, 0, (int) (bitmap.getHeight() * 0.2f), bitmap.getWidth(), (int) (bitmap.getHeight() * 0.6f)), 15, false);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return null;

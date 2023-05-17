@@ -1,50 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class s30 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class s30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public s30() {
+    public static JSONObject a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (b(str)) {
+                return null;
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Throwable unused) {
+                return null;
             }
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public abstract com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2);
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && (length = str.length()) != 0) {
+                for (int i = 0; i < length; i++) {
+                    if (!Character.isWhitespace(str.charAt(i))) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

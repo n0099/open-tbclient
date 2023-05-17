@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.interfaces.pay;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class YYPayActMainProxy extends ProcessDelegateBaseActivity {
     public static final String EXTRA_RESULT = "yy_pay_result";
     public static final int REQUEST_CODE = 100;

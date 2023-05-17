@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ErrorCode {
     public static final int ARGS_ERROR = -400;
     public static final int AUTH_FAIL = -401;

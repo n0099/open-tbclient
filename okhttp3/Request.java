@@ -16,7 +16,7 @@ import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpMethod;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Request {
     public int addressIndex;
     public List<InetAddress> addressList;
@@ -33,7 +33,7 @@ public final class Request {
     public final Map<Class<?>, Object> tags;
     public final HttpUrl url;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public int addressIndex;
         public List<InetAddress> addressList;

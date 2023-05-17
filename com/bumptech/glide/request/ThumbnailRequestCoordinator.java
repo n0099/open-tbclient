@@ -3,7 +3,7 @@ package com.bumptech.glide.request;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.RequestCoordinator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ThumbnailRequestCoordinator implements RequestCoordinator, Request {
     public volatile Request full;
     @GuardedBy("requestLock")

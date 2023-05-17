@@ -1,26 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.fl2;
-/* loaded from: classes5.dex */
-public interface ms1 {
-    boolean a(@Nullable Activity activity);
+import android.content.Intent;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ms1 implements cv1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull Context context);
+    @Override // com.baidu.tieba.cv1
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void c(@NonNull String str);
+    @Override // com.baidu.tieba.cv1
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void d(CallbackHandler callbackHandler);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983134, "Lcom/baidu/tieba/ms1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947983134, "Lcom/baidu/tieba/ms1;");
+                return;
+            }
+        }
+        a = qp1.a;
+    }
 
-    void e(x73 x73Var);
+    public ms1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    String f(@NonNull Context context);
-
-    void g(x73 x73Var);
-
-    void h(@NonNull Activity activity, String str, String str2, el2 el2Var, fl2.b bVar);
+    @Override // com.baidu.tieba.cv1
+    public boolean b(Context context, Intent intent, String str, String str2, String str3) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, intent, str, str2, str3)) == null) {
+            if (a) {
+                Log.d("DefaultAdOpenAppConfig", "打开app, appkey=" + str + ", scheme=" + str2 + ", packageName=" + str3);
+            }
+            return pl3.g(context, intent);
+        }
+        return invokeLLLLL.booleanValue;
+    }
 }

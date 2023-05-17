@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cl extends ck {
     @Override // com.baidu.mobstat.ck, com.baidu.mobstat.cj
     public cj c() {

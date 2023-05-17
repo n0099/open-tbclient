@@ -1,84 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class jn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public long e;
-    public long f;
-    public int g;
-    public String h;
-    public String i;
-    public String j;
-    public JSONArray k;
-    public boolean l;
 
-    public jn4() {
+    public static int a(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
             }
+            throw new IllegalArgumentException("permission is null");
         }
-        this.l = false;
+        return invokeLL.intValue;
     }
 
-    public void a() {
+    public static final int b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && cn4.g().a(this.a)) {
-            this.i = dn4.g().h();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ln4.a(context, i);
+            }
+            return context.getResources().getColor(i);
         }
+        return invokeLI.intValue;
     }
 
-    public jn4(String str, int i, String str2, int i2, boolean z) {
+    public static final ColorStateList c(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ln4.b(context, i);
             }
+            return context.getResources().getColorStateList(i);
         }
-        this.l = false;
-        this.a = str;
-        this.b = i;
-        this.c = str2;
-        this.g = i2;
+        return (ColorStateList) invokeLI.objValue;
     }
 
-    public void b(String str) {
+    public static final Drawable d(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
-            try {
-                this.k = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return kn4.a(context, i);
             }
+            return context.getResources().getDrawable(i);
         }
+        return (Drawable) invokeLI.objValue;
     }
 }

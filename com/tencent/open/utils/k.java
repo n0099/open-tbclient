@@ -15,7 +15,7 @@ import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
 @TargetApi(17)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class k implements LayeredSocketFactory {
     public static final HostnameVerifier a = new StrictHostnameVerifier();
     public static final SSLCertificateSocketFactory b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);

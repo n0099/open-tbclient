@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocationConst {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SceneType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SCENE_TYPE_RECOGNITION_SUBWAY = 1;
@@ -31,7 +31,7 @@ public class LocationConst {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SubWayErrorCode {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SUBWAY_ERROR_LOC_ENGINE_INTERNAL = -5;
@@ -62,7 +62,7 @@ public class LocationConst {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TrafficStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRAFFIC_ERROR_LOC_ENGINE_INTERNAL = -6;

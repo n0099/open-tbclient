@@ -1,79 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.CardLinkInfoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.UrlParser.DataRes;
-import tbclient.UrlParser.UrlParserResIdl;
-/* loaded from: classes4.dex */
-public class e75 {
+import java.lang.ref.WeakReference;
+/* loaded from: classes5.dex */
+public class e75 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public CardLinkInfoData j;
+    public WeakReference<Drawable> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947687270, "Lcom/baidu/tieba/e75;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947687270, "Lcom/baidu/tieba/e75;");
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    public e75() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e75(Drawable drawable) {
+        super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(UrlParserResIdl urlParserResIdl) {
-        DataRes dataRes;
+    public final Drawable a() {
+        InterceptResult invokeV;
+        Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
-            this.a = dataRes.status.intValue();
-            this.b = urlParserResIdl.data.url_type.intValue();
-            DataRes dataRes2 = urlParserResIdl.data;
-            this.d = dataRes2.image;
-            this.e = dataRes2.title;
-            this.f = dataRes2.link_from;
-            this.g = dataRes2.price_txt;
-            boolean z = true;
-            if (dataRes2.is_recognize.intValue() != 1) {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            if (weakReference != null) {
+                drawable = weakReference.get();
+            } else {
+                drawable = null;
             }
-            this.h = z;
-            this.i = urlParserResIdl.data.description;
-            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
-            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
-            this.j = cardLinkInfoData;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f, (((i5 - i3) - a.getBounds().bottom) / 2) + i3);
+            a.draw(canvas);
+            canvas.restore();
+        }
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Rect bounds = getDrawable().getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
+            }
+            return bounds.right;
+        }
+        return invokeCommon.intValue;
     }
 }

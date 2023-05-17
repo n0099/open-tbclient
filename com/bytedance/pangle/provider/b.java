@@ -3,7 +3,7 @@ package com.bytedance.pangle.provider;
 import android.net.Uri;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static String a(String str, String str2, Uri uri) {
         String str3;

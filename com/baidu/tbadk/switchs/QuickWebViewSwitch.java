@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.TriState;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public static QuickWebViewSwitch mInstance;
     public static TriState state;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

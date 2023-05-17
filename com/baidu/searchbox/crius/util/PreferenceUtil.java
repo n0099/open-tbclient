@@ -4,14 +4,14 @@ import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.CriusRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PreferenceUtil {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CriusPreference {
         public static final String PREFERENCE_NAME = "com.baidu.searchbox.feed.crius";
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static final class Holder {
             public static final SharedPreferences INSTANCE = CriusRuntime.context().getSharedPreferences(CriusPreference.PREFERENCE_NAME, 0);
         }

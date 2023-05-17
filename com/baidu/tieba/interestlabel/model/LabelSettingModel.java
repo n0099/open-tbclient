@@ -8,31 +8,31 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.hh8;
+import com.baidu.tieba.ih8;
 import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
-import com.baidu.tieba.mf8;
-import com.baidu.tieba.nf8;
-import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public nf8 b;
-    public mf8 c;
-    public za d;
-    public za e;
+    public ih8 b;
+    public hh8 c;
+    public fb d;
+    public fb e;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -44,8 +44,8 @@ public class LabelSettingModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    /* loaded from: classes6.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelSettingModel a;
@@ -72,27 +72,27 @@ public class LabelSettingModel extends BdBaseModel {
             this.a = labelSettingModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            mf8 mf8Var;
+            hh8 hh8Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    nf8 nf8Var = this.a.b;
+                    ih8 ih8Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        mf8Var = this.a.c;
+                        hh8Var = this.a.c;
                     } else {
-                        mf8Var = null;
+                        hh8Var = null;
                     }
-                    nf8Var.a(labelRequestEnum, mf8Var, responsedMessage.getError());
+                    ih8Var.a(labelRequestEnum, hh8Var, responsedMessage.getError());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends za {
+    /* loaded from: classes6.dex */
+    public class b extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelSettingModel a;
@@ -119,7 +119,7 @@ public class LabelSettingModel extends BdBaseModel {
             this.a = labelSettingModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
@@ -149,7 +149,7 @@ public class LabelSettingModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -158,16 +158,16 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new mf8();
+        this.c = new hh8();
         registerListener(this.d);
         registerListener(this.e);
     }
 
-    public void b0(List<Integer> list) {
+    public void a0(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0d30);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0db6);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -177,20 +177,20 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void c0(nf8 nf8Var) {
+    public void b0(ih8 ih8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nf8Var) == null) {
-            this.b = nf8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ih8Var) == null) {
+            this.b = ih8Var;
         }
     }
 
-    public void a0() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                nf8 nf8Var = this.b;
-                if (nf8Var != null) {
-                    nf8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                ih8 ih8Var = this.b;
+                if (ih8Var != null) {
+                    ih8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

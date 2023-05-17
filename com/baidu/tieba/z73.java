@@ -1,183 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class z73 extends y73 {
+import java.util.TimerTask;
+/* loaded from: classes8.dex */
+public final class z73 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, Object> a;
+    public float a;
+    public final float b;
+    public final WheelView3d c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312819, "Lcom/baidu/tieba/z73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948312819, "Lcom/baidu/tieba/z73;");
-                return;
-            }
-        }
-        b = ho1.a;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z73(x73 x73Var) {
-        super(x73Var);
+    public z73(WheelView3d wheelView3d, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x73Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {wheelView3d, Float.valueOf(f)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x73) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.c = wheelView3d;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public Boolean c(String str, Boolean bool) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool)) == null) {
-            try {
-                return (Boolean) f(str, bool);
-            } catch (ClassCastException e) {
-                if (b) {
-                    e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                float f = 2000.0f;
+                if (Math.abs(this.b) > 2000.0f) {
+                    if (this.b <= 0.0f) {
+                        f = -2000.0f;
+                    }
+                    this.a = f;
+                } else {
+                    this.a = this.b;
                 }
-                return bool;
             }
-        }
-        return (Boolean) invokeLL.objValue;
-    }
-
-    public Integer d(String str, Integer num) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, num)) == null) {
-            try {
-                return (Integer) f(str, num);
-            } catch (ClassCastException e) {
-                if (b) {
-                    e.printStackTrace();
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
+                return;
+            }
+            WheelView3d wheelView3d = this.c;
+            float f2 = (int) (this.a / 100.0f);
+            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f3 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f3) {
+                    f3 = this.c.getTotalScrollY() + f2;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f2;
                 }
-                return num;
-            }
-        }
-        return (Integer) invokeLL.objValue;
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            try {
-                return (String) f(str, str2);
-            } catch (ClassCastException e) {
-                if (b) {
-                    e.printStackTrace();
+                if (this.c.getTotalScrollY() <= f3) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f3);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
                 }
-                return str2;
             }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final <V> V f(String str, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, v)) == null) {
-            if (!b(str)) {
-                return v;
+            float f4 = this.a;
+            if (f4 < 0.0f) {
+                this.a = f4 + 20.0f;
+            } else {
+                this.a = f4 - 20.0f;
             }
-            if (this.a.get(str) == null) {
-                return null;
-            }
-            try {
-                return (V) this.a.get(str);
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
-                    return v;
-                }
-                return v;
-            }
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public void h(String str, Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, bool) == null) {
-            k(str, bool);
-        }
-    }
-
-    public void i(String str, Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, num) == null) {
-            k(str, num);
-        }
-    }
-
-    public void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
-            k(str, str2);
-        }
-    }
-
-    public final <V> void k(String str, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, v) == null) {
-            this.a.put(str, v);
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

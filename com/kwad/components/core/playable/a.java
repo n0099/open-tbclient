@@ -25,7 +25,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements b {
     public int FR;
     public final KsAdWebView Hq;
@@ -43,11 +43,11 @@ public final class a implements b {
     public AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.playable.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0606a implements ag.b {
+    /* loaded from: classes9.dex */
+    public static class C0620a implements ag.b {
         public final WeakReference<a> Hw;
 
-        public C0606a(a aVar) {
+        public C0620a(a aVar) {
             this.Hw = new WeakReference<>(aVar);
         }
 
@@ -78,7 +78,7 @@ public final class a implements b {
     }
 
     private void a(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.webview.a aVar, c cVar) {
-        aVar.a(new ag(bVar, cVar, new C0606a(this)));
+        aVar.a(new ag(bVar, cVar, new C0620a(this)));
         aVar.a(new x(new x.b() { // from class: com.kwad.components.core.playable.a.3
             @Override // com.kwad.components.core.webview.jshandler.x.b
             public final void a(x.a aVar2) {
@@ -110,7 +110,7 @@ public final class a implements b {
             u.b bVar = new u.b();
             bVar.gJ = i;
             bVar.gL = this.mRootContainer.getTouchCoords();
-            com.kwad.components.core.c.a.a.a(new a.C0596a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
+            com.kwad.components.core.c.a.a.a(new a.C0610a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
         }
     }
 

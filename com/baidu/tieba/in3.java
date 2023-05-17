@@ -1,241 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.URI;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class in3 extends w83 {
+/* loaded from: classes6.dex */
+public class in3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    @Override // com.baidu.tieba.w83
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/animView" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public in3(u83 u83Var) {
-        super(u83Var, "/swanAPI/animView");
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final in3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-713042915, "Lcom/baidu/tieba/in3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-713042915, "Lcom/baidu/tieba/in3$b;");
+                    return;
+                }
+            }
+            a = new in3(null);
+        }
+    }
+
+    public in3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
     }
 
-    @Nullable
-    public final s32 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public static in3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("SwanAppAction", "params is null");
-                return null;
-            }
-            s32 s32Var = new s32();
-            try {
-                s32Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                x42.d("SwanAppAction", "model parse exception:", e);
-            }
-            return s32Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (s32) invokeL.objValue;
+        return (in3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w83
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
-        InterceptResult invokeLLLLL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
-            s32 q = q(unitedSchemeEntity);
-            if (q == null) {
-                df3.b("animView", 1001, "model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.j()) {
-                df3.b("animView", 1001, "parse insert params, but invalid", 201, "parse insert params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("AbsSwanAppWidget", "parse insert params, but invalid");
-                return false;
-            } else {
-                String r = r(q.t, x73Var);
-                if (TextUtils.isEmpty(r)) {
-                    df3.b("animView", 1001, "AnimConfData is invalid", 201, "parse insert params, anim data is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is null");
-                    return false;
-                }
-                if (kt2.U().N()) {
-                    try {
-                        new JSONObject(r);
-                    } catch (Throwable th) {
-                        df3.b("animView", 1001, "parse insert params, anim data is not json", 201, "parse insert params, anim data is not json");
-                        if (u93.b) {
-                            th.printStackTrace();
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parse insert params, anim data is not json");
-                        return false;
-                    }
-                }
-                o32 insert = new r32(context, q, r).insert();
-                boolean a = insert.a();
-                x42.i("AbsSwanAppWidget", "insert anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    df3.b("animView", 2009, "insert anim view, but failure: " + insert.b, 1001, "insert anim view, but failure: " + insert.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-                    x42.c("AbsSwanAppWidget", "insert anim view, but failure: " + insert.b);
-                }
-                return a;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c() ? 1 : 0;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.w83
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
-        InterceptResult invokeLLLLL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
-            s32 q = q(unitedSchemeEntity);
-            if (q == null) {
-                df3.b("animView", 1001, "update, model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.isValid()) {
-                df3.b("animView", 1001, "parse update params, but invalid", 201, "parse update params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("AbsSwanAppWidget", "parse update params, but invalid");
-                return false;
-            } else {
-                r32 r32Var = (r32) k42.a(q);
-                if (r32Var == null) {
-                    df3.b("animView", 2001, "get component is null", 1001, "get component is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    x42.c("AbsSwanAppWidget", "get component is null");
-                    return false;
-                }
-                o32 update = r32Var.update((r32) q);
-                boolean a = update.a();
-                x42.b("AbsSwanAppWidget", "update anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    df3.b("animView", 2001, "update anim view, but failure: " + update.b, 1001, "update anim view, but failure: " + update.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-                    x42.c("AbsSwanAppWidget", "update anim view, but failure: " + update.b);
-                }
-                return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != 0) {
+                return true;
             }
+            return false;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w83
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
-        InterceptResult invokeLLLLL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
-            s32 q = q(unitedSchemeEntity);
-            if (q == null) {
-                df3.b("animView", 1001, "model is null", 201, "model is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("AbsSwanAppWidget", "model is null");
-                return false;
-            } else if (!q.isValid()) {
-                df3.b("animView", 1001, "parse remove params, but invalid", 201, "parse remove params, but invalid");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                x42.c("AbsSwanAppWidget", "parse remove params, but invalid");
-                return false;
-            } else {
-                r32 r32Var = (r32) k42.a(q);
-                if (r32Var == null) {
-                    df3.b("animView", 2001, "get component is null", 1001, "get component is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    x42.c("AbsSwanAppWidget", "get component is null");
-                    return false;
-                }
-                o32 B = r32Var.B();
-                boolean a = B.a();
-                x42.i("AbsSwanAppWidget", "remove anim view success = " + a);
-                if (a) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                } else {
-                    df3.b("animView", 2001, "remove anim view, but failure: " + B.b, 1001, "remove anim view, but failure: " + B.b);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-                    x42.c("AbsSwanAppWidget", "remove anim view, but failure: " + B.b);
-                }
-                return a;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = 0;
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final String r(String str, x73 x73Var) {
-        InterceptResult invokeLL;
-        String L;
+    public /* synthetic */ in3(a aVar) {
+        this();
+    }
+
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, x73Var)) == null) {
-            if (!TextUtils.isEmpty(str) && x73Var != null) {
-                try {
-                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
-                        L = ff3.M(str, x73Var.b);
-                    } else {
-                        L = ff3.L(str, x73Var, x73Var.k0());
-                    }
-                    if (TextUtils.isEmpty(L)) {
-                        return null;
-                    }
-                    File file = new File(L);
-                    if (!bo4.y(file)) {
-                        return null;
-                    }
-                    return bo4.E(file);
-                } catch (Exception e) {
-                    if (u93.b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
-        return (String) invokeLL.objValue;
     }
 }

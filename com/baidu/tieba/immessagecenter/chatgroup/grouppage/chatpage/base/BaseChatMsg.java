@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public abstract class BaseChatMsg<SdkMsg extends ChatMsg> extends BaseMsg {
 
     public abstract void fromSdkMsg(@NonNull SdkMsg sdkmsg);
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean needBubbleInfo() {

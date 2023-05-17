@@ -1,95 +1,180 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.jg5;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.face.data.EmotionImageData;
+import com.baidu.tieba.face.view.EmotionView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
-/* loaded from: classes5.dex */
-public class o29 implements q29 {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class o29 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExcContent a;
-    public SpannableString b;
+    public List<EmotionImageData> a;
+    public b b;
+    public EmotionView.c c;
 
-    @Override // com.baidu.tieba.q29
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void f(EmotionImageData emotionImageData);
     }
 
-    @Override // com.baidu.tieba.r29
-    public int getType() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return invokeI.objValue;
     }
 
-    public o29(ExcContent excContent) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o29 a;
+
+        public a(o29 o29Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o29Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o29Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b != null && (view2 instanceof EmotionView)) {
+                this.a.b.f(((EmotionView) view2).getData());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public EmotionView a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public o29() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = excContent;
     }
 
-    @Override // com.baidu.tieba.q29
-    public CharSequence b() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!ListUtils.isEmpty(this.a)) {
+                return this.a.size();
+            }
+            return 0;
         }
-        return (CharSequence) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final SpannableString c(ExcContent excContent) {
-        InterceptResult invokeL;
-        jg5.a f;
+    public void b(List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.b == null) {
-                String str = excContent.text;
-                if (TbFaceManager.i().o(str)) {
-                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
-                    this.b = new SpannableString(str2 + " ");
-                    aw5 c = TbFaceManager.i().c(str);
-                    if (TbFaceManager.i().f(str) != null) {
-                        int a = (int) (f.a() * 0.6d);
-                        c.setBounds(new Rect(0, 0, a, a));
-                    } else {
-                        c.setBounds(new Rect(0, 0, 0, 0));
-                    }
-                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
-                }
-            }
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
         }
-        return (SpannableString) invokeL.objValue;
+    }
+
+    public void c(EmotionView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                cVar = new c();
+                view3 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0597, (ViewGroup) null);
+                EmotionView emotionView = (EmotionView) view3.findViewById(R.id.emotion_view);
+                cVar.a = emotionView;
+                emotionView.n0();
+                cVar.a.setController(this.c);
+                cVar.a.setOnClickListener(new a(this));
+                view3.setTag(cVar);
+            } else {
+                view3 = view2;
+                cVar = (c) view2.getTag();
+            }
+            List<EmotionImageData> list = this.a;
+            if (list != null && i >= 0 && i < list.size()) {
+                cVar.a.p0(this.a.get(i));
+            }
+            return view3;
+        }
+        return (View) invokeILL.objValue;
     }
 }

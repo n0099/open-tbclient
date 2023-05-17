@@ -1,116 +1,96 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class c03 {
+import java.util.Iterator;
+import java.util.Set;
+/* loaded from: classes5.dex */
+public class c03 extends a03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public long b;
-    public long c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620899, "Lcom/baidu/tieba/c03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947620899, "Lcom/baidu/tieba/c03;");
-                return;
-            }
-        }
-        d = ho1.a;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return d().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public c03(String str) {
+    public c03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = str;
-        if (d) {
-            Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
-        }
     }
 
-    public void a(long j) {
+    @Override // com.baidu.tieba.a03
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        boolean z;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (a03.c) {
+                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
             try {
-                jSONObject.put("scope_id", this.a);
-                jSONObject.put("begin_ts", this.b);
-                jSONObject.put("end_ts", this.c);
-            } catch (JSONException e) {
-                if (d) {
+                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
+                if (pixel != -1 && pixel != -657931) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z && (set = this.b) != null) {
+                    Iterator<Integer> it = set.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().intValue() == pixel) {
+                                z = true;
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                }
+                if (!z) {
+                    return false;
+                }
+                for (int i = rect.left + 1; i < rect.right - 1; i++) {
+                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
+                        if (pixel != bitmap.getPixel(i, i2)) {
+                            if (qp1.a) {
+                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                            }
+                            return false;
+                        }
+                    }
+                }
+                if (a03.c) {
+                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
+                }
+                return true;
+            } catch (IllegalArgumentException e) {
+                if (a03.c) {
+                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
                     e.printStackTrace();
                 }
+                return false;
             }
-            if (d) {
-                Log.d(ExifInterface.TAG_MODEL, jSONObject.toString());
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DecimalFormat;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PbVideoWifiTipLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
     public TextView e;
     public View.OnClickListener f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                pt4.F(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                yu4.F(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
                 if (this.a.f != null) {
                     this.a.f.onClick(view2);
                 }

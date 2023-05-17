@@ -1,17 +1,11 @@
 package com.baidu.tieba;
+/* loaded from: classes6.dex */
+public interface m18 {
+    void onCanceled();
 
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
-import com.baidu.tieba.p55;
-/* loaded from: classes5.dex */
-public interface m18 extends p55.g {
-    void G0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData);
+    void onPostExecute();
 
-    void b();
+    void onPreExecute();
 
-    void g(ErrorData errorData);
-
-    void j0(n18 n18Var);
-
-    void refresh();
+    void onProgressUpdate(int i, String str, int i2);
 }

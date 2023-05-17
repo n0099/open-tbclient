@@ -5,7 +5,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjTypeSystem;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StringToType {
     public static Type[] commaSeparatedListToTypeArray(String str, Class cls) throws ClassNotFoundException {
         StringTokenizer stringTokenizer = new StringTokenizer(str, ",");

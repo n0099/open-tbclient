@@ -1,7 +1,7 @@
 package com.baidu.searchbox.dns.cache;
 
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MemCache implements ICache {
     public HashMap<String, String> cache = new HashMap<>();
     public final Object cacheLock = new Object();

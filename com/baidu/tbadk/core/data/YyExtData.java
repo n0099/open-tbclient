@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.YyExt;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class YyExtData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<YyExtData> CREATOR;
@@ -40,7 +40,7 @@ public class YyExtData implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<YyExtData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

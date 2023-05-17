@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.permission;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface RequestSystemPermissionCallBack {
     void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
 }

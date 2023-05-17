@@ -20,7 +20,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NewCapturedTypeConstructor implements CapturedTypeConstructor {
     public final Lazy _supertypes$delegate;
     public final NewCapturedTypeConstructor original;
@@ -34,7 +34,7 @@ public final class NewCapturedTypeConstructor implements CapturedTypeConstructor
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassifierDescriptor mo2025getDeclarationDescriptor() {
+    public ClassifierDescriptor mo2044getDeclarationDescriptor() {
         return null;
     }
 
@@ -179,7 +179,7 @@ public final class NewCapturedTypeConstructor implements CapturedTypeConstructor
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes */
-    public List<UnwrappedType> mo2026getSupertypes() {
+    public List<UnwrappedType> mo2045getSupertypes() {
         List<UnwrappedType> list = get_supertypes();
         if (list == null) {
             return CollectionsKt__CollectionsKt.emptyList();
@@ -204,9 +204,9 @@ public final class NewCapturedTypeConstructor implements CapturedTypeConstructor
                 /* JADX DEBUG: Return type fixed from 'java.util.List<kotlin.reflect.jvm.internal.impl.types.UnwrappedType>' to match base method */
                 @Override // kotlin.jvm.functions.Function0
                 public final List<? extends UnwrappedType> invoke() {
-                    List<UnwrappedType> mo2026getSupertypes = NewCapturedTypeConstructor.this.mo2026getSupertypes();
-                    ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2026getSupertypes, 10));
-                    for (UnwrappedType unwrappedType : mo2026getSupertypes) {
+                    List<UnwrappedType> mo2045getSupertypes = NewCapturedTypeConstructor.this.mo2045getSupertypes();
+                    ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2045getSupertypes, 10));
+                    for (UnwrappedType unwrappedType : mo2045getSupertypes) {
                         arrayList.add(unwrappedType.refine(kotlinTypeRefiner));
                     }
                     return arrayList;

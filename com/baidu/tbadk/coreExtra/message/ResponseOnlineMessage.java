@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bh5;
+import com.baidu.tieba.ki5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.DataRes;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
             if (getError() != 0) {
-                bh5.b(1001, 0, 2, 0, 0);
+                ki5.b(1001, 0, 2, 0, 0);
                 return updateClientInfoResIdl;
             }
-            bh5.b(1001, 0, 1, 0, 0);
+            ki5.b(1001, 0, 1, 0, 0);
             this.groupInfos = new ArrayList();
             DataRes dataRes = updateClientInfoResIdl.data;
             if (dataRes != null) {

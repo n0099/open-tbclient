@@ -1,112 +1,178 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.Point;
 import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.location.BDLocation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
+import com.tencent.connect.common.Constants;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class q02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements Camera.AutoFocusCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948037942, "Lcom/baidu/tieba/q02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = str;
-        }
-
-        @Override // android.hardware.Camera.AutoFocusCallback
-        public void onAutoFocus(boolean z, Camera camera) {
-            Camera.Parameters parameters;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, camera) != null) || camera == null || (parameters = camera.getParameters()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948037942, "Lcom/baidu/tieba/q02;");
                 return;
             }
-            parameters.setFocusMode(this.a);
-            camera.setParameters(parameters);
         }
+        a = qp1.a;
     }
 
-    public static Rect a(float f, float f2, float f3, int i, int i2) {
-        InterceptResult invokeCommon;
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int i3 = (int) (((f / i) * 2000.0f) - 1000.0f);
-            int i4 = (int) (((f2 / i2) * 2000.0f) - 1000.0f);
-            int intValue = Float.valueOf(f3 * 300.0f).intValue() / 2;
-            RectF rectF = new RectF(b(i3 - intValue, -1000, 1000), b(i4 - intValue, -1000, 1000), b(i3 + intValue, -1000, 1000), b(i4 + intValue, -1000, 1000));
-            return new Rect(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
-        }
-        return (Rect) invokeCommon.objValue;
-    }
-
-    public static String c(Camera.Parameters parameters) {
-        InterceptResult invokeL;
-        List<String> supportedFocusModes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, parameters)) == null) {
-            if (parameters != null && (supportedFocusModes = parameters.getSupportedFocusModes()) != null) {
-                if (supportedFocusModes.contains("macro")) {
-                    return "macro";
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (q02.class) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "release cache system info");
                 }
-                if (supportedFocusModes.contains("continuous-picture")) {
-                    return "continuous-picture";
-                }
+                b = null;
             }
-            return "auto";
+        }
+    }
+
+    public static JSONObject a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a) {
+                Log.d("SystemInfoCacheHelper", "start create System Info");
+            }
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            windowManager.getDefaultDisplay().getSize(new Point());
+            windowManager.getDefaultDisplay().getRectSize(new Rect());
+            Configuration configuration = context.getResources().getConfiguration();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("brand", Build.BRAND);
+                jSONObject.put("model", Build.MODEL);
+                jSONObject.put("pixelRatio", displayMetrics.density);
+                jSONObject.put("devicePixelRatio", displayMetrics.density);
+                jSONObject.put("language", c(configuration));
+                jSONObject.put("version", an3.D());
+                jSONObject.put(BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, "Android " + Build.VERSION.RELEASE);
+                jSONObject.put(Constants.PARAM_PLATFORM, "android");
+                jSONObject.put("fontSizeSetting", ns2.o().r());
+                jSONObject.put("swanNativeVersion", rp1.a());
+                jSONObject.put("host", ns2.n().a());
+                jSONObject.put("statusBarHeight", xm3.O(xm3.t()));
+                jSONObject.put("navigationBarHeight", xm3.O(xm3.j()));
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "end create System Info");
+                }
+                return jSONObject;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "crate system info error : ");
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Nullable
+    public static synchronized JSONObject b(Context context) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (q02.class) {
+                if (b == null && context != null) {
+                    if (a) {
+                        Log.d("SystemInfoCacheHelper", "need create system info");
+                    }
+                    b = a(context);
+                }
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "return cache system info");
+                }
+                jSONObject = b;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static String c(Configuration configuration) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, configuration)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 21) {
+                return configuration.locale.toString();
+            }
+            if (i < 24) {
+                return configuration.locale.toLanguageTag();
+            }
+            return configuration.getLocales().toLanguageTags();
         }
         return (String) invokeL.objValue;
     }
 
-    public static void d(MotionEvent motionEvent, Camera camera, int i, int i2) {
+    public static void d(int i) {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(65539, null, motionEvent, camera, i, i2) == null) && motionEvent != null && camera != null) {
-            Rect a2 = a(motionEvent.getX(), motionEvent.getY(), 1.0f, i, i2);
-            camera.cancelAutoFocus();
-            Camera.Parameters parameters = camera.getParameters();
-            if (parameters == null) {
-                return;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (jSONObject = b) != null) {
+            try {
+                jSONObject.put("fontSizeSetting", i);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if (parameters.getMaxNumFocusAreas() > 0) {
-                ArrayList arrayList = new ArrayList();
-                arrayList.add(new Camera.Area(a2, 800));
-                parameters.setFocusAreas(arrayList);
+        }
+    }
+
+    @Nullable
+    public static synchronized void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            synchronized (q02.class) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "start pre cache system info");
+                }
+                if (!ns2.g0().s()) {
+                    return;
+                }
+                if (b == null && context != null) {
+                    if (a) {
+                        Log.d("SystemInfoCacheHelper", "need create system info");
+                    }
+                    b = a(context);
+                }
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "end pre cache system info");
+                }
             }
-            String focusMode = parameters.getFocusMode();
-            parameters.setFocusMode(c(parameters));
-            camera.setParameters(parameters);
-            camera.autoFocus(new a(focusMode));
         }
     }
 }

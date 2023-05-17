@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import com.xiaomi.push.aj;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class al extends aj.a {
     public final /* synthetic */ int a;
 
@@ -19,7 +19,7 @@ public final class al extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return this.f898a;
     }
 

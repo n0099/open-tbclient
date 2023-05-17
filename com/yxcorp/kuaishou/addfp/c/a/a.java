@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.ListIterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -614,7 +615,7 @@ public final class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                str3 = (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+                str3 = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, str, str2);
             } catch (Exception unused) {
                 str3 = null;
             }

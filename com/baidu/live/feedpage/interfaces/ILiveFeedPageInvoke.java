@@ -1,7 +1,7 @@
 package com.baidu.live.feedpage.interfaces;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ILiveFeedPageInvoke {
     String getCuid();
 

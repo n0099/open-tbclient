@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.sofire.a.b;
 import com.baidu.sofire.a.f;
 import com.baidu.sofire.ac.Callback;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +22,7 @@ public class MyReceiver extends BroadcastReceiver {
     public long b;
     public long c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,7 @@ public class MyReceiver extends BroadcastReceiver {
             if (this.a && System.currentTimeMillis() - this.b < 2000) {
                 return;
             }
-            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+            if (NetworkMonitor.NET_CHANGE_ACTION.equals(intent.getAction())) {
                 if (System.currentTimeMillis() - this.c >= 100 && com.baidu.sofire.k.b.k(context)) {
                     this.c = System.currentTimeMillis();
                 } else {

@@ -32,15 +32,15 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cs5;
+import com.baidu.tieba.cu8;
+import com.baidu.tieba.d25;
+import com.baidu.tieba.du8;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.hs8;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.is8;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.lt5;
 import com.baidu.tieba.newfaceshop.BarInformationModel;
 import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,8 +50,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInformationModel.b {
+/* loaded from: classes6.dex */
+public class FaceGroupMakeActivity extends BaseActivity implements cu8.c, BarInformationModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -66,7 +66,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
     public TextView j;
     public TextView k;
     public ImageView l;
-    public hs8 m;
+    public cu8 m;
     public ArrayList<FaceData> n;
     public FaceData o;
     public Activity p;
@@ -76,7 +76,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
     public ArrayList<BazhuInfoData.BaInfo> t;
     public BazhuInfoData.BaInfo u;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,20 +143,20 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
             }
             String trim = this.a.f.getText().toString().trim();
             if (TextUtils.isEmpty(trim)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0649);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f06b0);
             } else if (this.a.n.size() - 1 < 8) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0653);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f06ba);
             } else if (this.a.n.size() - 1 > 24) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0647);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f06ae);
             } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d30);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0db6);
             } else if (this.a.M1() && this.a.u == null) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f09c9);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0a45);
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.addAll(this.a.n);
                 arrayList.remove(this.a.o);
-                is8 l = is8.l();
+                du8 l = du8.l();
                 if (this.a.u != null) {
                     i = this.a.u.forum_id;
                 } else {
@@ -171,7 +171,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements FaceImageLayout.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,12 +199,12 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         public void onIntercept() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ii.z(this.a.p, this.a.f);
+                ri.z(this.a.p, this.a.f);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,13 +232,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k.setMaxWidth(((this.a.i.getWidth() - this.a.j.getWidth()) - this.a.l.getWidth()) - ii.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070299));
+                this.a.k.setMaxWidth(((this.a.i.getWidth() - this.a.j.getWidth()) - this.a.l.getWidth()) - ri.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703a5));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements u05.e {
+    /* loaded from: classes6.dex */
+    public class e implements d25.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -261,19 +261,19 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.u05.e
-        public void onClick(u05 u05Var) {
+        @Override // com.baidu.tieba.d25.e
+        public void onClick(d25 d25Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
-                u05Var.dismiss();
-                is8.l().i();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
+                d25Var.dismiss();
+                du8.l().i();
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class f implements u05.e {
+    /* loaded from: classes6.dex */
+    public class f implements d25.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceGroupMakeActivity a;
@@ -296,16 +296,16 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
             this.a = faceGroupMakeActivity;
         }
 
-        @Override // com.baidu.tieba.u05.e
-        public void onClick(u05 u05Var) {
+        @Override // com.baidu.tieba.d25.e
+        public void onClick(d25 d25Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
-                u05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
+                d25Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,8 +336,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null && (cs5.c(spanned.toString()) - (i4 - i3)) + cs5.c(charSequence.toString()) > this.a) {
-                    this.b.showToast(R.string.obfuscated_res_0x7f0f0e15);
+                if (spanned != null && charSequence != null && (lt5.c(spanned.toString()) - (i4 - i3)) + lt5.c(charSequence.toString()) > this.a) {
+                    this.b.showToast(R.string.obfuscated_res_0x7f0f0ea3);
                     return "";
                 }
                 return charSequence;
@@ -385,7 +385,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
             if (this.s == null) {
                 this.s = new BarInformationModel(getPageContext());
             }
-            this.s.V(this);
+            this.s.U(this);
         }
     }
 
@@ -413,8 +413,8 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.hs8.c
-    public void Y0(FaceData faceData) {
+    @Override // com.baidu.tieba.cu8.c
+    public void X0(FaceData faceData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048585, this, faceData) != null) || faceData == null) {
             return;
@@ -444,9 +444,9 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
                 return;
             }
             this.k.setClickable(true);
-            this.k.setText(R.string.obfuscated_res_0x7f0f0657);
+            this.k.setText(R.string.obfuscated_res_0x7f0f06be);
             SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0304);
-            FaceGroupDraft k = is8.l().k();
+            FaceGroupDraft k = du8.l().k();
             if (k != null && k.getForumId() != 0) {
                 Iterator<BazhuInfoData.BaInfo> it = this.t.iterator();
                 while (it.hasNext()) {
@@ -460,13 +460,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         }
     }
 
-    @Override // com.baidu.tieba.hs8.c
-    public void I0() {
+    @Override // com.baidu.tieba.cu8.c
+    public void J0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ArrayList<FaceData> arrayList = this.n;
             if (arrayList != null && arrayList.size() - 1 >= 24) {
-                showToast(R.string.obfuscated_res_0x7f0f0647);
+                showToast(R.string.obfuscated_res_0x7f0f06ae);
                 return;
             }
             ArrayList arrayList2 = new ArrayList();
@@ -482,7 +482,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
     public final void O1() {
         FaceGroupDraft k;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (k = is8.l().k()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (k = du8.l().k()) != null) {
             if (!TextUtils.isEmpty(k.getName())) {
                 this.f.setText(k.getName());
             }
@@ -499,11 +499,11 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             ArrayList<FaceData> arrayList = this.n;
             if ((arrayList != null && arrayList.size() > 1) || !TextUtils.isEmpty(this.f.getText())) {
-                u05 u05Var = new u05(this.p);
-                u05Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f064d));
-                u05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0465, new e(this));
-                u05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new f(this));
-                u05Var.create(getPageContext()).show();
+                d25 d25Var = new d25(this.p);
+                d25Var.setMessage(getResources().getString(R.string.obfuscated_res_0x7f0f06b4));
+                d25Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04b2, new e(this));
+                d25Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03c3, new f(this));
+                d25Var.create(getPageContext()).show();
                 return;
             }
             finish();
@@ -545,13 +545,13 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
             setSwipeBackEnabled(false);
             K1();
             this.p = getPageContext().getPageActivity();
-            setContentView(R.layout.obfuscated_res_0x7f0d029f);
+            setContentView(R.layout.obfuscated_res_0x7f0d02b6);
             this.n = new ArrayList<>();
             FaceData faceData = new FaceData();
             this.o = faceData;
             faceData.type = 4;
             this.n.add(faceData);
-            if (this.q && ((k = is8.l().k()) == null || k.getForumId() != 0)) {
+            if (this.q && ((k = du8.l().k()) == null || k.getForumId() != 0)) {
                 this.r = true;
             }
             initView();
@@ -565,7 +565,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
     public final void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.d.setText(String.format(getText(R.string.obfuscated_res_0x7f0f0648).toString(), Integer.valueOf(this.n.size() - 1)));
+            this.d.setText(String.format(getText(R.string.obfuscated_res_0x7f0f06af).toString(), Integer.valueOf(this.n.size() - 1)));
         }
     }
 
@@ -573,39 +573,39 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.g = (LinearLayout) findViewById(R.id.layout_root);
-            this.h = (FaceImageLayout) findViewById(R.id.obfuscated_res_0x7f09140c);
+            this.h = (FaceImageLayout) findViewById(R.id.obfuscated_res_0x7f091447);
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.b = new FaceGroupMakeTitleBar(this.p);
-            this.b.setLayoutParams(new RelativeLayout.LayoutParams(ii.l(getPageContext().getPageActivity()), -1));
+            this.b.setLayoutParams(new RelativeLayout.LayoutParams(ri.l(getPageContext().getPageActivity()), -1));
             this.b.setCloseListener(new a(this));
             this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.b, (View.OnClickListener) null);
             SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
             this.c = (NoNetworkView) findViewById(R.id.view_no_network);
             if (M1()) {
-                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f064e).toString());
+                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f06b5).toString());
             } else {
-                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f064f).toString());
+                this.b.setTitle(this.p.getText(R.string.obfuscated_res_0x7f0f06b6).toString());
             }
-            this.b.setRightText(this.p.getText(R.string.obfuscated_res_0x7f0f053d).toString());
+            this.b.setRightText(this.p.getText(R.string.obfuscated_res_0x7f0f0595).toString());
             this.b.setRightListener(new b(this));
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090933);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090956);
             this.f = editText;
             editText.setFilters(new InputFilter[]{new g(this, 20)});
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092560);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0925ca);
             Q1();
-            this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090e17);
-            hs8 hs8Var = new hs8(this.n);
-            this.m = hs8Var;
-            hs8Var.f(this);
+            this.e = (GridView) findViewById(R.id.obfuscated_res_0x7f090e44);
+            cu8 cu8Var = new cu8(this.n);
+            this.m = cu8Var;
+            cu8Var.f(this);
             this.e.setAdapter((ListAdapter) this.m);
             this.h.setListener(new c(this));
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090348);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0925fc);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0925fb);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090356);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f092668);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092667);
             this.k = textView;
             textView.setOnClickListener(this);
             this.i.setVisibility(8);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911a4);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911de);
             this.i.getViewTreeObserver().addOnGlobalLayoutListener(new d(this));
         }
     }
@@ -641,7 +641,7 @@ public class FaceGroupMakeActivity extends BaseActivity implements hs8.c, BarInf
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             super.onChangeSkinType(i);
             this.a.onChangeSkinType(getPageContext(), i);
-            yv4 layoutMode = getLayoutMode();
+            hx4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

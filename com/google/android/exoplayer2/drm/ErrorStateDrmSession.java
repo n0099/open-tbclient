@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.drm.DrmSession;
 import com.google.android.exoplayer2.drm.ExoMediaCrypto;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ErrorStateDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
     public final DrmSession.DrmSessionException error;
 

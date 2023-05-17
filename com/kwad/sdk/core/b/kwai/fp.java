@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.kwad.components.core.webview.jshandler.ae;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fp implements com.kwad.sdk.core.d<ae.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(ae.a aVar, JSONObject jSONObject) {

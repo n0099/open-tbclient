@@ -1,7 +1,7 @@
 package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap;
+import com.baidu.tieba.jp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,17 +17,17 @@ import kotlin.jvm.internal.Lambda;
 public final class BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public final /* synthetic */ String[] $actionIds;
-    public final /* synthetic */ ap $callback;
+    public final /* synthetic */ jp $callback;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1(ap apVar, String[] strArr) {
+    public BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1(jp jpVar, String[] strArr) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {apVar, strArr};
+            Object[] objArr = {jpVar, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1 extends L
                 return;
             }
         }
-        this.$callback = apVar;
+        this.$callback = jpVar;
         this.$actionIds = strArr;
     }
 
@@ -50,9 +50,9 @@ public final class BDPTask$INSTANCE$findAllTaskStateByActionIdsAsync$1 extends L
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             BDPTask u = BDPTask.m.u();
             if (u != null) {
-                ap apVar = this.$callback;
+                jp jpVar = this.$callback;
                 String[] strArr = this.$actionIds;
-                u.J(apVar, (String[]) Arrays.copyOf(strArr, strArr.length));
+                u.J(jpVar, (String[]) Arrays.copyOf(strArr, strArr.length));
                 return Unit.INSTANCE;
             }
             return null;

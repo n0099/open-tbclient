@@ -5,7 +5,7 @@ import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.fun.ad.sdk.FunAdSdk;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpHashMapWrap extends HttpHashMap implements NoProguard {
     public HttpHashMapWrap() {
         putAll(Utils.buildCommonParams());

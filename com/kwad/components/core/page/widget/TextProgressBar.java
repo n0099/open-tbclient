@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TextProgressBar extends ProgressBar {
     @Nullable
     public String Hb;

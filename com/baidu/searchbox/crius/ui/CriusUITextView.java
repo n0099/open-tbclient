@@ -9,7 +9,7 @@ import com.baidu.crius.CriusNode;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.crius.parser.CriusData;
 import view.CriusTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUITextView extends CriusUI<CriusTextView> {
     public static final String TAG = "CriusUITextView";
 

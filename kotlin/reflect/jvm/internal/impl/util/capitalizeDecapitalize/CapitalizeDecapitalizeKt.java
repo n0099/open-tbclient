@@ -5,7 +5,7 @@ import kotlin.TypeCastException;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CapitalizeDecapitalizeKt {
     public static final String capitalizeAsciiOnly(String str) {
         boolean z;

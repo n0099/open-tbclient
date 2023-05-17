@@ -7,7 +7,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
 @TargetApi(27)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AshmemMemoryChunkPool extends MemoryChunkPool {
     @DoNotStrip
     public AshmemMemoryChunkPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {

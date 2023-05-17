@@ -1,144 +1,209 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes8.dex */
 public class yi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static yi3 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentHashMap<String, b> a;
+    public AudioManager b;
+    public boolean c;
+    public BroadcastReceiver d;
 
-    public static WifiConfiguration a(vi3 vi3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vi3Var)) == null) {
-            int b = zi3.b(vi3Var);
-            if (!f(vi3Var.a)) {
-                return null;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(int i);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yi3 this$0;
+
+        public a(yi3 yi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            WifiConfiguration wifiConfiguration = new WifiConfiguration();
-            wifiConfiguration.SSID = "\"" + vi3Var.a + "\"";
-            if (!TextUtils.isEmpty(vi3Var.b)) {
-                wifiConfiguration.BSSID = vi3Var.b;
-            }
-            if (b != 0) {
-                if (b != 1) {
-                    if (b != 2) {
-                        if (b == 3) {
-                            zi3.d(wifiConfiguration, 3);
-                            WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                            wifiEnterpriseConfig.setEapMethod(0);
-                            wifiEnterpriseConfig.setIdentity(vi3Var.c);
-                            wifiEnterpriseConfig.setPassword(vi3Var.d);
-                            wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                        }
+            this.this$0 = yi3Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                if (this.this$0.b == null) {
+                    this.this$0.b = (AudioManager) ns2.c().getSystemService("audio");
+                }
+                for (Map.Entry entry : this.this$0.a.entrySet()) {
+                    if (this.this$0.b != null) {
+                        i = this.this$0.b.getStreamVolume(3);
                     } else {
-                        zi3.d(wifiConfiguration, 2);
-                        wifiConfiguration.preSharedKey = "\"" + vi3Var.d + "\"";
+                        i = 0;
                     }
-                } else {
-                    zi3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + vi3Var.d + "\"";
-                }
-            } else {
-                zi3.d(wifiConfiguration, 0);
-            }
-            return wifiConfiguration;
-        }
-        return (WifiConfiguration) invokeL.objValue;
-    }
-
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
+                    ((b) entry.getValue()).a(i);
                 }
             }
-            return null;
         }
-        return (WifiConfiguration) invokeLLL.objValue;
     }
 
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, vi3 vi3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
+    public yi3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, vi3Var)) == null) {
-            if (vi3Var != null && f(vi3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), vi3Var.a)) {
-                        return wifiConfiguration;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap<>();
+        this.d = new a(this);
+    }
+
+    public static yi3 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (yi3.class) {
+                    if (e == null) {
+                        e = new yi3();
                     }
                 }
             }
-            return null;
+            return e;
         }
-        return (WifiConfiguration) invokeLLL.objValue;
+        return (yi3) invokeV.objValue;
     }
 
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
-        InterceptResult invokeLL;
+    public static void h() {
+        yi3 yi3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
-                return null;
-            }
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (yi3Var = e) != null) {
+            yi3Var.g();
+        }
+    }
+
+    private void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+            ns2.c().registerReceiver(this.d, intentFilter);
+            this.c = true;
+        }
+    }
+
+    private void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
-                    return null;
-                }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                x42.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
+                ns2.c().unregisterReceiver(this.d);
+                this.c = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (length = str.length()) > 1 && str.charAt(0) == '\"') {
-                int i = length - 1;
-                if (str.charAt(i) == '\"') {
-                    return str.substring(1, i);
-                }
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) ns2.c().getSystemService("audio");
             }
-            return str;
+            AudioManager audioManager = this.b;
+            if (audioManager != null) {
+                return audioManager.getStreamMaxVolume(3);
+            }
+            return 100;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean f(String str) {
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+                this.b = null;
+                this.c = false;
+            }
+            e = null;
+        }
+    }
+
+    public void d(@NonNull String str, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this) {
+            this.a.put(str, bVar);
+            if (!this.c) {
+                registerReceiver();
+            }
+            if (qp1.a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+            }
+        }
+    }
+
+    public boolean i(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.equals("<unknown ssid>")) {
-                return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return false;
+            synchronized (this) {
+                b remove = this.a.remove(str);
+                if (this.a.size() == 0 && this.c) {
+                    unregisterReceiver();
+                }
+                if (qp1.a && remove != null) {
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
+                }
+                if (remove != null) {
+                    z = true;
+                }
+            }
+            return z;
         }
         return invokeL.booleanValue;
     }

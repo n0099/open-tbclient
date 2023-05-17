@@ -14,14 +14,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.qv9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sx9;
 import com.baidu.tieba.themeCenter.SkinProgressView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BackgroundItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public class BackgroundItemView extends LinearLayout {
     public DressItemData i;
     public int j;
     public int k;
-    public qv9 l;
+    public sx9 l;
     public View.OnClickListener m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,10 +149,10 @@ public class BackgroundItemView extends LinearLayout {
         g();
     }
 
-    public void setController(qv9 qv9Var) {
+    public void setController(sx9 sx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qv9Var) == null) {
-            this.l = qv9Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sx9Var) == null) {
+            this.l = sx9Var;
         }
     }
 
@@ -196,23 +196,23 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int l = (ii.l(this.a) - ii.g(this.a, R.dimen.obfuscated_res_0x7f070307)) / 3;
+            int l = (ri.l(this.a) - ri.g(this.a, R.dimen.obfuscated_res_0x7f07040f)) / 3;
             this.j = l;
             this.k = (int) (l / 0.66d);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0134, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0136, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903c5);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a5c);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903d6);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aac);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09215f);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0921c1);
             this.e = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.e.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906c2);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092315);
-            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f0927c4);
+            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906da);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092379);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f092833);
             this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
             this.c.setOnClickListener(this.m);

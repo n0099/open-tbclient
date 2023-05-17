@@ -2,7 +2,7 @@ package com.baidu.live.arch.utils;
 
 import android.text.TextUtils;
 import com.baidu.common.param.CommonUrlParamManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MiniCommonUrlParamUtils {
     public static boolean hasCheck;
     public static boolean isMappingAvailable;

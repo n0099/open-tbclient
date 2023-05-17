@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GDTFileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] b;
@@ -40,14 +40,14 @@ public class GDTFileProvider extends ContentProvider {
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         Uri a(File file);
 
         File a(Uri uri);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

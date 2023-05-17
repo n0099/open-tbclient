@@ -3,7 +3,7 @@ package com.baidu.searchbox.devicescore;
 import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceScoreStrategy {
     public static final float DEFAULT_LOW_THRESHOLD = 0.37f;
     public static final float DEFAULT_MID_THRESHOLD = 0.6f;

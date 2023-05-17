@@ -2,11 +2,11 @@ package com.baidu.cyberplayer.sdk;
 
 import android.os.Bundle;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class MediaInstanceManagerProvider {
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnClientInstanceHandler {
         boolean onDestroyInstance();
 

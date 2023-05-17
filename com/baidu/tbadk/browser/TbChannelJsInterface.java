@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.WebViewTrackerEnableSwitch;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.kuaishou.weapon.p0.u;
 import java.util.UUID;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class TbChannelJsInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_MILLIS = 10000;
@@ -82,7 +82,7 @@ public final class TbChannelJsInterface {
     private void addDelayReportRunnable(final String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, this, str) == null) && !this.isAlreadyReport && this.delayReportRunnable == null) {
-            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.ot4
+            this.delayReportRunnable = new Runnable() { // from class: com.baidu.tieba.xu4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -94,7 +94,7 @@ public final class TbChannelJsInterface {
                     }
                 }
             };
-            jg.a().postDelayed(this.delayReportRunnable, 10000L);
+            sg.a().postDelayed(this.delayReportRunnable, 10000L);
         }
     }
 
@@ -135,7 +135,7 @@ public final class TbChannelJsInterface {
     private void removeDelayReportRunnable() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.delayReportRunnable != null) {
-            jg.a().removeCallbacks(this.delayReportRunnable);
+            sg.a().removeCallbacks(this.delayReportRunnable);
             this.delayReportRunnable = null;
         }
     }

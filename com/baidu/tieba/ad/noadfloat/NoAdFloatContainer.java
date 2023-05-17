@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a16;
+import com.baidu.tieba.m26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NoAdFloatContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class NoAdFloatContainer extends RelativeLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(a16.b + (a16.c * 2), a16.a + (a16.c * 2));
+            a(m26.b + (m26.c * 2), m26.a + (m26.c * 2));
         }
     }
 
@@ -137,7 +137,7 @@ public class NoAdFloatContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            layoutParams.width = a16.a + (a16.c * 2);
+            layoutParams.width = m26.a + (m26.c * 2);
             setLayoutParams(layoutParams);
         }
     }
@@ -145,7 +145,7 @@ public class NoAdFloatContainer extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(a16.a + (a16.c * 2), a16.b + (a16.c * 2));
+            a(m26.a + (m26.c * 2), m26.b + (m26.c * 2));
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.VivoPushException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PushClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_REQUEST_ID = "1";

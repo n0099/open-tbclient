@@ -1,13 +1,13 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.a8b;
-import com.baidu.tieba.d6b;
-import com.baidu.tieba.e6b;
-import com.baidu.tieba.h6b;
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.l5b;
-import com.baidu.tieba.p5b;
-import com.baidu.tieba.q5b;
+import com.baidu.tieba.b8b;
+import com.baidu.tieba.c8b;
+import com.baidu.tieba.f8b;
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.j7b;
+import com.baidu.tieba.n7b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.z9b;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Queue;
@@ -15,30 +15,30 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
-/* loaded from: classes9.dex */
-public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements l5b, q5b {
+/* loaded from: classes10.dex */
+public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements j7b, o7b {
     public static final Object MISSING = new Object();
     public static final long serialVersionUID = 8567835998786448817L;
     public int active;
-    public final p5b<? super R> actual;
+    public final n7b<? super R> actual;
     public final int bufferSize;
     public volatile boolean cancelled;
-    public final d6b<? extends R> combiner;
+    public final b8b<? extends R> combiner;
     public int complete;
     public final boolean delayError;
     public volatile boolean done;
     public final AtomicReference<Throwable> error;
     public final Object[] latest;
-    public final a8b<Object> queue;
+    public final z9b<Object> queue;
     public final AtomicLong requested;
-    public final h6b<T, R>[] subscribers;
+    public final f8b<T, R>[] subscribers;
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public boolean isUnsubscribed() {
         return this.cancelled;
     }
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public void unsubscribe() {
         if (!this.cancelled) {
             this.cancelled = true;
@@ -48,33 +48,33 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    public OnSubscribeCombineLatest$LatestCoordinator(p5b<? super R> p5bVar, d6b<? extends R> d6bVar, int i, int i2, boolean z) {
-        this.actual = p5bVar;
-        this.combiner = d6bVar;
+    public OnSubscribeCombineLatest$LatestCoordinator(n7b<? super R> n7bVar, b8b<? extends R> b8bVar, int i, int i2, boolean z) {
+        this.actual = n7bVar;
+        this.combiner = b8bVar;
         this.bufferSize = i2;
         this.delayError = z;
         Object[] objArr = new Object[i];
         this.latest = objArr;
         Arrays.fill(objArr, MISSING);
-        this.subscribers = new h6b[i];
-        this.queue = new a8b<>(i2);
+        this.subscribers = new f8b[i];
+        this.queue = new z9b<>(i2);
         this.requested = new AtomicLong();
         this.error = new AtomicReference<>();
     }
 
     public void cancel(Queue<?> queue) {
         queue.clear();
-        for (h6b<T, R> h6bVar : this.subscribers) {
-            h6bVar.unsubscribe();
+        for (f8b<T, R> f8bVar : this.subscribers) {
+            f8bVar.unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.l5b
+    @Override // com.baidu.tieba.j7b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i != 0) {
-                e6b.b(this.requested, j);
+                c8b.b(this.requested, j);
                 drain();
                 return;
             }
@@ -83,21 +83,21 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         throw new IllegalArgumentException("n >= required but it was " + j);
     }
 
-    public void subscribe(j5b<? extends T>[] j5bVarArr) {
-        h6b<T, R>[] h6bVarArr = this.subscribers;
-        int length = h6bVarArr.length;
+    public void subscribe(h7b<? extends T>[] h7bVarArr) {
+        f8b<T, R>[] f8bVarArr = this.subscribers;
+        int length = f8bVarArr.length;
         for (int i = 0; i < length; i++) {
-            h6bVarArr[i] = new h6b<>(this, i);
+            f8bVarArr[i] = new f8b<>(this, i);
         }
         lazySet(0);
         this.actual.b(this);
         this.actual.f(this);
         for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-            j5bVarArr[i2].w(h6bVarArr[i2]);
+            h7bVarArr[i2].w(f8bVarArr[i2]);
         }
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, p5b<?> p5bVar, Queue<?> queue, boolean z3) {
+    public boolean checkTerminated(boolean z, boolean z2, n7b<?> n7bVar, Queue<?> queue, boolean z3) {
         if (this.cancelled) {
             cancel(queue);
             return true;
@@ -106,9 +106,9 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                 if (z2) {
                     Throwable th = this.error.get();
                     if (th != null) {
-                        p5bVar.onError(th);
+                        n7bVar.onError(th);
                     } else {
-                        p5bVar.onCompleted();
+                        n7bVar.onCompleted();
                     }
                     return true;
                 }
@@ -117,10 +117,10 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
             Throwable th2 = this.error.get();
             if (th2 != null) {
                 cancel(queue);
-                p5bVar.onError(th2);
+                n7bVar.onError(th2);
                 return true;
             } else if (z2) {
-                p5bVar.onCompleted();
+                n7bVar.onCompleted();
                 return true;
             } else {
                 return false;
@@ -132,7 +132,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
 
     public void combine(Object obj, int i) {
         boolean z;
-        h6b<T, R> h6bVar = this.subscribers[i];
+        f8b<T, R> f8bVar = this.subscribers[i];
         synchronized (this) {
             int length = this.latest.length;
             Object obj2 = this.latest[i];
@@ -159,7 +159,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
             }
             if (!z2) {
                 if (obj != null && z) {
-                    this.queue.l(h6bVar, this.latest.clone());
+                    this.queue.l(f8bVar, this.latest.clone());
                 } else if (obj == null && this.error.get() != null && (obj2 == MISSING || !this.delayError)) {
                     this.done = true;
                 }
@@ -168,7 +168,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
             }
         }
         if (!z && obj != null) {
-            h6bVar.g(1L);
+            f8bVar.g(1L);
         } else {
             drain();
         }
@@ -182,7 +182,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         if (r13 == Long.MAX_VALUE) goto L36;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x009e, code lost:
-        com.baidu.tieba.e6b.g(r10, r3);
+        com.baidu.tieba.c8b.g(r10, r3);
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00a1, code lost:
         r12 = addAndGet(-r12);
@@ -202,47 +202,47 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         if (getAndIncrement() != 0) {
             return;
         }
-        a8b<Object> a8bVar = this.queue;
-        p5b<? super R> p5bVar = this.actual;
+        z9b<Object> z9bVar = this.queue;
+        n7b<? super R> n7bVar = this.actual;
         boolean z2 = this.delayError;
         AtomicLong atomicLong = this.requested;
         int i = 1;
-        while (!checkTerminated(this.done, a8bVar.isEmpty(), p5bVar, a8bVar, z2)) {
+        while (!checkTerminated(this.done, z9bVar.isEmpty(), n7bVar, z9bVar, z2)) {
             long j2 = atomicLong.get();
             long j3 = 0;
             while (true) {
                 if (j3 != j2) {
                     boolean z3 = this.done;
-                    h6b h6bVar = (h6b) a8bVar.peek();
-                    if (h6bVar == null) {
+                    f8b f8bVar = (f8b) z9bVar.peek();
+                    if (f8bVar == null) {
                         z = true;
                     } else {
                         z = false;
                     }
                     long j4 = j3;
-                    if (checkTerminated(z3, z, p5bVar, a8bVar, z2)) {
+                    if (checkTerminated(z3, z, n7bVar, z9bVar, z2)) {
                         return;
                     }
                     if (z) {
                         j = j4;
                         break;
                     }
-                    a8bVar.poll();
-                    Object[] objArr = (Object[]) a8bVar.poll();
+                    z9bVar.poll();
+                    Object[] objArr = (Object[]) z9bVar.poll();
                     if (objArr == null) {
                         this.cancelled = true;
-                        cancel(a8bVar);
-                        p5bVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
+                        cancel(z9bVar);
+                        n7bVar.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
                         return;
                     }
                     try {
-                        p5bVar.onNext((R) this.combiner.call(objArr));
-                        h6bVar.g(1L);
+                        n7bVar.onNext((R) this.combiner.call(objArr));
+                        f8bVar.g(1L);
                         j3 = j4 + 1;
                     } catch (Throwable th) {
                         this.cancelled = true;
-                        cancel(a8bVar);
-                        p5bVar.onError(th);
+                        cancel(z9bVar);
+                        n7bVar.onError(th);
                         return;
                     }
                 } else {

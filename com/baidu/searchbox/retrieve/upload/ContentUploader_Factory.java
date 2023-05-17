@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.upload;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ContentUploader_Factory {
     public static volatile ContentUploader instance;
 

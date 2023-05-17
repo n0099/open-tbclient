@@ -1,53 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.QmFilterItem;
-import com.baidu.tieba.core.edit.TbMediaTrackConfig;
-/* loaded from: classes6.dex */
-public interface sl6 {
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.view.SingleLinkCardView;
+import com.baidu.tieba.ey6;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class sl6 implements ey6.i {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-
-        void b();
-
-        void c();
+    public sl6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    boolean a(QmFilterItem qmFilterItem);
+    @Override // com.baidu.tieba.ey6.l
+    public void a(@NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
+            ((SingleLinkCardView) viewGroup).d();
+        }
+    }
 
-    void b(a aVar);
+    @Override // com.baidu.tieba.ey6.i
+    @NonNull
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new SingleLinkCardView(context);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
 
-    void c(TbMultiMediaData tbMultiMediaData);
-
-    long d();
-
-    void e();
-
-    void f(float f);
-
-    boolean g();
-
-    long getCurrentPlayTime();
-
-    long getFrom();
-
-    TbMediaTrackConfig getMediaTrackConfig();
-
-    float getRatio();
-
-    void h(boolean z);
-
-    boolean isPlaying();
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void start();
+    @Override // com.baidu.tieba.ey6.i
+    public void update(@NonNull ViewGroup viewGroup, @NonNull hz6 hz6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, hz6Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
+            n07 d = hz6Var.d();
+            if (d.i() == 6) {
+                PbGoodsData pbGoodsData = new PbGoodsData();
+                pbGoodsData.title = d.h();
+                pbGoodsData.picUrl = d.f();
+                pbGoodsData.price = d.c();
+                pbGoodsData.linkUrl = d.e();
+                pbGoodsData.sort = d.g();
+                pbGoodsData.linkFrom = d.d();
+                pbGoodsData.goodsUrlH5 = d.a();
+                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
+                return;
+            }
+            PbLinkData pbLinkData = new PbLinkData();
+            pbLinkData.title = d.h();
+            pbLinkData.linkUrl = d.e();
+            pbLinkData.picUrl = d.f();
+            pbLinkData.linkFrom = d.d();
+            pbLinkData.extTxt = d.c();
+            pbLinkData.sort = d.g();
+            pbLinkData.urlType = d.i();
+            pbLinkData.content1 = d.a();
+            pbLinkData.content2 = d.b();
+            ((SingleLinkCardView) viewGroup).a(pbLinkData);
+        }
+    }
 }

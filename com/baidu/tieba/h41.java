@@ -1,51 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.util.Locale;
-/* loaded from: classes4.dex */
-public class h41 {
+/* loaded from: classes5.dex */
+public final class h41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final IAdDownloader a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase(Locale.getDefault());
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773636, "Lcom/baidu/tieba/h41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return sb.toString();
-        }
-        return (String) invokeLLZ.objValue;
-    }
-
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest(), "", z);
-            } catch (Exception unused) {
-                return String.valueOf(str.hashCode());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947773636, "Lcom/baidu/tieba/h41;");
+                return;
             }
         }
-        return (String) invokeLZ.objValue;
+        a = new nl0();
     }
 }

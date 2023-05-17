@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.in;
-import com.baidu.tieba.kf9;
-import com.baidu.tieba.nf9;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.gh9;
+import com.baidu.tieba.jh9;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,12 +26,12 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<in> threadList;
+    public ArrayList<rn> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         return (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<in> getThreadList() {
+    public ArrayList<rn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -96,7 +96,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            kf9.e().h(threadListResIdl.data.asp_shown_info);
+            gh9.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 != null && (orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -121,18 +121,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        ry4 ry4Var = new ry4();
-                        ry4Var.e(threadData.getLegoCard());
-                        this.threadList.add(ry4Var);
+                        a05 a05Var = new a05();
+                        a05Var.e(threadData.getLegoCard());
+                        this.threadList.add(a05Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = nf9.b(threadInfo);
+                        JSONObject b = jh9.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                nf9.f().h("FRS", arrayList);
+                jh9.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

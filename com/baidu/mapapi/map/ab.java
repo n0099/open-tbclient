@@ -9,7 +9,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapTextureView;
 import com.baidu.platform.comapi.map.al;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ab implements al {
     public final /* synthetic */ TextureMapView a;
 

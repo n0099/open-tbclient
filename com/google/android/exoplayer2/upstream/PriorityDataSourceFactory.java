@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.upstream;
 
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PriorityDataSourceFactory implements DataSource.Factory {
     public final int priority;
     public final PriorityTaskManager priorityTaskManager;

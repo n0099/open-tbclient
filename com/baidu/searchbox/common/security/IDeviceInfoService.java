@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDeviceInfoService extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Default implements IDeviceInfoService {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -86,7 +86,7 @@ public interface IDeviceInfoService extends IInterface {
 
     DeviceIdBag getOsVersion(String str, String str2) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class Stub extends Binder implements IDeviceInfoService {
         public static final String DESCRIPTOR = "com.baidu.searchbox.common.security.IDeviceInfoService";
         public static final int TRANSACTION_getAndroidId = 4;
@@ -105,7 +105,7 @@ public interface IDeviceInfoService extends IInterface {
             return this;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class Proxy implements IDeviceInfoService {
             public static IDeviceInfoService sDefaultImpl;
             public IBinder mRemote;

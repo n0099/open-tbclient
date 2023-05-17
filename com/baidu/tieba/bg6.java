@@ -1,20 +1,58 @@
 package com.baidu.tieba;
 
-import android.net.http.SslError;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-/* loaded from: classes3.dex */
-public interface bg6 {
-    void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError);
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.xml.sax.Attributes;
+/* loaded from: classes5.dex */
+public class bg6 extends yf6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence);
+    @Override // com.baidu.tieba.yf6
+    public void a(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+        }
+    }
 
-    void c(WebView webView, String str);
+    public bg6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void d(WebView webView, String str);
-
-    void onPageFinished(WebView webView, String str);
-
-    boolean shouldOverrideUrlLoading(WebView webView, String str);
+    @Override // com.baidu.tieba.yf6
+    public void b(boolean z, String str, Attributes attributes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", "src");
+            if (!TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
+                    }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
+                }
+                cg6.g().b(value, value, new HashMap());
+            }
+        }
+    }
 }

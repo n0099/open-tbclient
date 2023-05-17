@@ -1,63 +1,91 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class h03 extends u93 {
+/* loaded from: classes5.dex */
+public final class h03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final List<f03> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h03(u83 u83Var) {
-        super(u83Var, "/swanAPI/postPageInfo");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947769854, "Lcom/baidu/tieba/h03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947769854, "Lcom/baidu/tieba/h03;");
                 return;
             }
         }
+        a = g93.v;
+        b = Arrays.asList(new f03());
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    @NonNull
+    public static JSONObject b() {
+        JSONObject jSONObject;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            try {
+                jSONObject = a();
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                    g62.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
+                }
+                jSONObject = null;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
-                return false;
+            if (jSONObject == null) {
+                return new JSONObject();
             }
-            if (u93.b) {
-                Log.d("PostPageInfoAction", "joParams" + optParamsAsJo.toString());
-            }
-            er2.R().b(x73Var, optParamsAsJo);
-            return true;
+            return jSONObject;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static JSONObject a() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
+            if (a) {
+                g62.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
+            }
+            c(jSONObject);
+            if (a) {
+                g62.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public static void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && jSONObject != null && jSONObject.length() != 0) {
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                for (f03 f03Var : b) {
+                    if (f03Var.a(keys.next())) {
+                        keys.remove();
+                    }
+                }
+            }
+        }
     }
 }

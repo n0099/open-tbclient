@@ -21,12 +21,12 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class QRCodeMultiReader extends QRCodeReader implements MultipleBarcodeReader {
     public static final Result[] EMPTY_RESULT_ARRAY = new Result[0];
     public static final ResultPoint[] NO_POINTS = new ResultPoint[0];
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SAComparator implements Serializable, Comparator<Result> {
         public SAComparator() {
         }

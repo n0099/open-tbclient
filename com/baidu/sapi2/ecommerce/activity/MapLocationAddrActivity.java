@@ -37,7 +37,6 @@ import com.baidu.pass.ecommerce.presenter.MapLocationPoiPresenter;
 import com.baidu.pass.ecommerce.presenter.OnceLocationManager;
 import com.baidu.pass.ecommerce.view.ScrollLayout;
 import com.baidu.pass.ecommerce.view.ScrollRecyclerView;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.BaseOptionActivity;
 import com.baidu.sapi2.ecommerce.result.AddressSelectedBean;
 import com.baidu.sapi2.utils.Log;
@@ -49,7 +48,7 @@ import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.tieba.R;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiPresenter> implements ScrollLayout.OnScrollChangedListener, BaiduMap.OnMapStatusChangeListener {
     public static final String KEY_BDSTOKEN_FROM_ADDR_EDIT = "key_bdstoken_from_addr_edit";
     public static final String KEY_FROM_TYPE = "key_from_type";
@@ -168,7 +167,7 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        overridePendingTransition(0, R.anim.obfuscated_res_0x7f01011f);
+        overridePendingTransition(0, R.anim.obfuscated_res_0x7f010138);
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -425,33 +424,33 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
     }
 
     private void initView() {
-        TitleBarView titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091f2f);
+        TitleBarView titleBarView = (TitleBarView) findViewById(R.id.obfuscated_res_0x7f091f8b);
         this.titleBarView = titleBarView;
         titleBarView.setTitle("定位地址");
-        this.titleBarView.setLeft(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, this);
+        this.titleBarView.setLeft("取消", this);
         this.titleBarView.setRight("确认", this);
-        this.mapView = (MapView) findViewById(R.id.obfuscated_res_0x7f091f21);
-        this.mapControllerView = findViewById(R.id.obfuscated_res_0x7f091e8e);
-        this.mapMarkLayout = findViewById(R.id.obfuscated_res_0x7f091e8f);
-        this.mapMaskView = findViewById(R.id.obfuscated_res_0x7f091e90);
-        this.mapLocBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f2e);
-        this.mapZoomInBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f30);
-        this.mapZoomOutBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f31);
-        this.mScrollLayout = (ScrollLayout) findViewById(R.id.obfuscated_res_0x7f091f3a);
-        this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f37);
-        this.mSearchBox = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f3b);
-        this.addrMapSearchEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091f2d);
-        this.cleanSearchTextBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ee0);
-        this.searchBoxLine = findViewById(R.id.obfuscated_res_0x7f091f3e);
-        this.cancelSearchBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091ed6);
-        this.mapAddrEmpty = (TextView) findViewById(R.id.obfuscated_res_0x7f091f2a);
+        this.mapView = (MapView) findViewById(R.id.obfuscated_res_0x7f091f7d);
+        this.mapControllerView = findViewById(R.id.obfuscated_res_0x7f091eea);
+        this.mapMarkLayout = findViewById(R.id.obfuscated_res_0x7f091eeb);
+        this.mapMaskView = findViewById(R.id.obfuscated_res_0x7f091eec);
+        this.mapLocBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f8a);
+        this.mapZoomInBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f8c);
+        this.mapZoomOutBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f8d);
+        this.mScrollLayout = (ScrollLayout) findViewById(R.id.obfuscated_res_0x7f091f96);
+        this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f93);
+        this.mSearchBox = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f97);
+        this.addrMapSearchEt = (EditText) findViewById(R.id.obfuscated_res_0x7f091f89);
+        this.cleanSearchTextBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f3c);
+        this.searchBoxLine = findViewById(R.id.obfuscated_res_0x7f091f9a);
+        this.cancelSearchBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091f32);
+        this.mapAddrEmpty = (TextView) findViewById(R.id.obfuscated_res_0x7f091f86);
         this.mapLocBtn.setOnClickListener(this);
         this.mapZoomInBtn.setOnClickListener(this);
         this.mapZoomOutBtn.setOnClickListener(this);
         this.cancelSearchBtn.setOnClickListener(this);
         this.cleanSearchTextBtn.setOnClickListener(this);
-        this.loadingView = (SweepLightLoadingView) findViewById(R.id.obfuscated_res_0x7f091eb1);
-        this.mapAddrListLoading = findViewById(R.id.obfuscated_res_0x7f091f2b);
+        this.loadingView = (SweepLightLoadingView) findViewById(R.id.obfuscated_res_0x7f091f0d);
+        this.mapAddrListLoading = findViewById(R.id.obfuscated_res_0x7f091f87);
         initLayoutParams();
         initRecyclerView();
         this.mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() { // from class: com.baidu.sapi2.ecommerce.activity.MapLocationAddrActivity.1
@@ -467,18 +466,18 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         if (this.isDarkMode) {
             this.titleBarView.setDarkMode();
             this.mapMaskView.setVisibility(0);
-            findViewById(R.id.obfuscated_res_0x7f091ebf).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810db);
-            this.mSearchBox.setBackgroundResource(R.drawable.obfuscated_res_0x7f0810db);
-            findViewById(R.id.obfuscated_res_0x7f091f36).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810dd);
-            findViewById(R.id.obfuscated_res_0x7f091f3d).setBackgroundResource(R.drawable.obfuscated_res_0x7f0810df);
-            ((ImageView) findViewById(R.id.obfuscated_res_0x7f091f3c)).setImageResource(R.drawable.obfuscated_res_0x7f08113f);
-            this.addrMapSearchEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060876));
-            this.addrMapSearchEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060879));
-            findViewById(R.id.obfuscated_res_0x7f091f3e).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06081a));
-            this.cancelSearchBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060820));
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f091f2c)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060810));
-            this.mapAddrEmpty.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060874));
-            this.cleanSearchTextBtn.setImageResource(R.drawable.obfuscated_res_0x7f0810f6);
+            findViewById(R.id.obfuscated_res_0x7f091f1b).setBackgroundResource(R.drawable.obfuscated_res_0x7f081236);
+            this.mSearchBox.setBackgroundResource(R.drawable.obfuscated_res_0x7f081236);
+            findViewById(R.id.obfuscated_res_0x7f091f92).setBackgroundResource(R.drawable.obfuscated_res_0x7f081238);
+            findViewById(R.id.obfuscated_res_0x7f091f99).setBackgroundResource(R.drawable.obfuscated_res_0x7f08123a);
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f091f98)).setImageResource(R.drawable.obfuscated_res_0x7f08129a);
+            this.addrMapSearchEt.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ed));
+            this.addrMapSearchEt.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ef));
+            findViewById(R.id.obfuscated_res_0x7f091f9a).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060991));
+            this.cancelSearchBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060997));
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091f88)).setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060987));
+            this.mapAddrEmpty.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609eb));
+            this.cleanSearchTextBtn.setImageResource(R.drawable.obfuscated_res_0x7f081251);
         }
     }
 
@@ -533,11 +532,11 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         }
         BaseOptionActivity.lastClickTime = currentTimeMillis;
         int id = view2.getId();
-        if (R.id.obfuscated_res_0x7f091f4e == id) {
+        if (R.id.obfuscated_res_0x7f091faa == id) {
             finish();
-        } else if (R.id.obfuscated_res_0x7f091f4f == id) {
+        } else if (R.id.obfuscated_res_0x7f091fab == id) {
             ((MapLocationPoiPresenter) this.presenter).mapLocItem2RegoinDetail(this.selectedAddrJsonObj);
-        } else if (R.id.obfuscated_res_0x7f091ed6 == id) {
+        } else if (R.id.obfuscated_res_0x7f091f32 == id) {
             this.isUserGestureDragMap = false;
             hideSearchOptionViews();
             closeMapAddrListLayout();
@@ -547,14 +546,14 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
             ((MapLocationPoiPresenter) this.presenter).cleanUserSearchAndEmptyQueryContent();
             this.mapLocAddrAdapter.setDatas(((MapLocationPoiPresenter) this.presenter).getAddrListByUserMapChoice(), ((MapLocationPoiPresenter) this.presenter).isHasNextPageByUserMapChoiceLoc());
             this.mRecyclerView.setVisibility(0);
-        } else if (R.id.obfuscated_res_0x7f091ee0 == id) {
+        } else if (R.id.obfuscated_res_0x7f091f3c == id) {
             this.addrMapSearchEt.setText("");
-        } else if (R.id.obfuscated_res_0x7f091f2e == id) {
+        } else if (R.id.obfuscated_res_0x7f091f8a == id) {
             ((MapLocationPoiPresenter) this.presenter).setQueryAddrListType(0);
             ((MapLocationPoiPresenter) this.presenter).queryAddrListByLocAddr();
-        } else if (R.id.obfuscated_res_0x7f091f30 == id) {
+        } else if (R.id.obfuscated_res_0x7f091f8c == id) {
             this.baiduMap.setMapStatus(MapStatusUpdateFactory.zoomIn());
-        } else if (R.id.obfuscated_res_0x7f091f31 == id) {
+        } else if (R.id.obfuscated_res_0x7f091f8d == id) {
             this.baiduMap.setMapStatus(MapStatusUpdateFactory.zoomOut());
         }
     }
@@ -585,8 +584,8 @@ public class MapLocationAddrActivity extends BaseAddressActivity<MapLocationPoiP
         try {
             super.onCreate(bundle);
             if (this.addressManageDTO != null && this.addressManageDTO.mapStatusAndLocateCallback != null) {
-                setContentView(R.layout.obfuscated_res_0x7f0d0546);
-                ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f0608ef));
+                setContentView(R.layout.obfuscated_res_0x7f0d0563);
+                ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060a65));
                 initView();
                 initMapView();
                 setListener();

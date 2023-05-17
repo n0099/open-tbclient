@@ -1,5 +1,5 @@
 package com.baidu.searchbox.crius.constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NativeConstants {
     public static final String ACTIVE = "active";
     public static final String AGREE_NUM = "data-agree-num";

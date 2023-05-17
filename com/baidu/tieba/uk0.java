@@ -1,75 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class uk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static vk0 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948213743, "Lcom/baidu/tieba/uk0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948213743, "Lcom/baidu/tieba/uk0;");
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public sk0 k;
 
     public uk0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static vk0 a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static uk0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (uk0.class) {
-                    if (a == null) {
-                        a = (vk0) ServiceManager.getService(vk0.a);
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject c = p11.c(str);
+            uk0 uk0Var = new uk0();
+            uk0Var.a = c.optString("als_ext");
+            uk0Var.b = c.optString("cmd");
+            uk0Var.c = c.optString("defer_cmd");
+            uk0Var.d = c.optString("init_text");
+            uk0Var.e = c.optString("opt_icon");
+            uk0Var.f = c.optString("opt_text");
+            uk0Var.g = c.optString("app_icon_url");
+            uk0Var.h = c.optString("app_name");
+            uk0Var.i = c.optString("version_code");
+            uk0Var.j = c.optString(LegoListActivityConfig.AD_ID);
+            return uk0Var;
         }
-        return (vk0) invokeV.objValue;
+        return (uk0) invokeL.objValue;
     }
 
-    public static IAdDownloader b() {
-        InterceptResult invokeV;
+    public static String b(@NonNull uk0 uk0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            vk0 a2 = a();
-            if (a2 == null) {
-                return r31.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uk0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("als_ext", uk0Var.a);
+                jSONObject.put("cmd", uk0Var.b);
+                jSONObject.put("defer_cmd", uk0Var.c);
+                jSONObject.put("init_text", uk0Var.d);
+                jSONObject.put("opt_icon", uk0Var.e);
+                jSONObject.put("opt_text", uk0Var.f);
+                jSONObject.put("app_icon_url", uk0Var.g);
+                jSONObject.put("app_name", uk0Var.h);
+                jSONObject.put("version_code", uk0Var.i);
+                jSONObject.put(LegoListActivityConfig.AD_ID, uk0Var.j);
+            } catch (JSONException unused) {
             }
-            return a2.a();
+            return jSONObject.toString();
         }
-        return (IAdDownloader) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

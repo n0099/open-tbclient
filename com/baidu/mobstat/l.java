@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l extends SQLiteOpenHelper {
     public String a;
     public SQLiteDatabase b;

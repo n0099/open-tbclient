@@ -1,68 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.app.Activity;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class aeb {
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
+import java.util.List;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
+/* loaded from: classes4.dex */
+public class aeb implements IYYPayAmountView.Callback {
     public static /* synthetic */ Interceptable $ic;
-    public static aeb a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Dialog c;
+    public IYYPayAmountView.ViewParams d;
+    public Activity e;
+    public IPayCallback<CurrencyChargeMessage> f;
+    public ldb g;
+    public ngb h;
 
-    public aeb(Context context, String str) {
+    public aeb(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, ldb ldbVar, ngb ngbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, ldbVar, ngbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
+        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = dialog;
+        this.d = viewParams;
+        this.e = activity;
+        this.f = iPayCallback;
+        this.g = ldbVar;
+        this.h = ngbVar;
     }
 
-    public static aeb b(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onRefreshViewFail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
-            }
-            if (a == null || !str.equals(c)) {
-                a = new aeb(context, str);
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            PayFinishInfo a = xfb.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
+            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
+            this.g.l(a);
+            wfb.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
         }
-        return (aeb) invokeLL.objValue;
     }
 
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onStartPay(hfb hfbVar, dfb dfbVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hfbVar, dfbVar, appCustomExpand, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "onStartPay payType=" + hfbVar.a + ", payAmount=" + dfbVar);
+            this.g.k(this.e, hfbVar, dfbVar, this.c, this.h, appCustomExpand, fgb.a(dfbVar, list, str, this.d), this.f);
         }
-        return invokeLZ.booleanValue;
     }
 
-    public void c(String str, boolean z) {
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void onStartSignPay(hfb hfbVar, dfb dfbVar, AppCustomExpand appCustomExpand, List<PayWayInfo> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, hfbVar, dfbVar, appCustomExpand, list, str) == null) {
+            hfb hfbVar2 = new hfb(PayType.ALI_PAY_SIGN, hfbVar.b, hfbVar.c, hfbVar.d, hfbVar.e, hfbVar.f, hfbVar.g);
+            RLog.info("PayAmountViewCallback", "onStartSignPay payType=" + hfbVar2.a + ", payAmount=" + dfbVar);
+            this.g.p(this.e, dfbVar, hfbVar2, this.c, this.h, appCustomExpand, fgb.a(dfbVar, list, str, this.d), this.f);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
+            wfb.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.n(activity, list, str, this.d, this.f);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toPayWayDialog(dfb dfbVar, List<PayWayInfo> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, dfbVar, list, str) == null) {
+            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
+            wfb.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+            this.g.t(this.e, dfbVar, list, str, this.d, this.f);
+            mfb.b(this.a, this.b, PayUIEventType.purchasegotopay);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toBannerConfigWebPage(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.g.q(this.e, str);
+        }
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
+    public void toHelpCenterPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.g.u(this.e);
         }
     }
 }

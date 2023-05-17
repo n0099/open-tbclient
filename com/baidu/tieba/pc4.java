@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,27 +11,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class pc4 extends jc4<ju2> {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
+public class pc4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b = null;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948057224, "Lcom/baidu/tieba/pc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948057224, "Lcom/baidu/tieba/pc4;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948057224, "Lcom/baidu/tieba/pc4;")) == null) {
+            return;
         }
-        boolean z = ho1.a;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948057224, "Lcom/baidu/tieba/pc4;");
+        }
+    }
+
+    public final String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return "popview";
+                }
+                return "list";
+            }
+            return "carousel";
+        }
+        return (String) invokeI.objValue;
     }
 
     public pc4() {
@@ -42,52 +64,117 @@ public class pc4 extends jc4<ju2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList();
+    }
+
+    public final String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            return String.format("%s_%s:%s", str, str2, str3);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public void b(int i, String str, String str2, String str3) {
+        String O;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String g = g(i);
+            if (g93.M() == null) {
+                O = null;
+            } else {
+                O = g93.M().O();
+            }
+            ig3 ig3Var = new ig3();
+            ig3Var.b = "click";
+            ig3Var.g = g;
+            ig3Var.e = str;
+            if (str2 != null) {
+                ig3Var.a("target_appkey", str2);
+            }
+            ig3Var.a("current_appkey", O);
+            if (!TextUtils.isEmpty(str3)) {
+                ig3Var.a("location", str3);
+            }
+            zf3.g(ig3Var);
         }
     }
 
-    public static pc4 d() {
-        InterceptResult invokeV;
+    public void c(int i, vc4 vc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new pc4();
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, vc4Var) == null) {
+            String g = g(i);
+            JSONArray f = f(vc4Var);
+            ig3 ig3Var = new ig3();
+            ig3Var.b = "show";
+            ig3Var.g = g;
+            if (f != null) {
+                ig3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            zf3.g(ig3Var);
         }
-        return (pc4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jc4
-    public boolean b(Context context, ju2 ju2Var, gu2 gu2Var, x73 x73Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public void e(int i, vc4 vc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, ju2Var, gu2Var, x73Var, jSONObject)) == null) {
-            return e(context, ju2Var, gu2Var, x73Var, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, vc4Var) == null) {
+            String g = g(i);
+            JSONArray f = f(vc4Var);
+            ig3 ig3Var = new ig3();
+            ig3Var.b = "show";
+            ig3Var.g = g;
+            if (f != null) {
+                ig3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            zf3.g(ig3Var);
+            this.a.clear();
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, ju2 ju2Var, gu2 gu2Var, x73 x73Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public void d(int i, String str, String str2) {
+        String O;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ju2Var, gu2Var, x73Var, jSONObject)) == null) {
-            x42.i("map", "GetScaleAction start");
-            fu1 A = kt2.U().A(ju2Var.c);
-            if (!(A instanceof du1)) {
-                x42.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            String g = g(i);
+            String a = a(g, str, str2);
+            if (this.a.contains(a)) {
+                return;
             }
-            hd4 d = gc4.b().c((du1) A).d(ju2Var.b);
-            if (d == null) {
-                x42.c("map", "can not find map by id " + ju2Var.b);
-                return false;
+            if (g93.M() == null) {
+                O = null;
+            } else {
+                O = g93.M().O();
             }
-            try {
-                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            ig3 ig3Var = new ig3();
+            ig3Var.b = "click";
+            ig3Var.g = g;
+            ig3Var.e = str;
+            if (str2 != null) {
+                ig3Var.a("target_appkey", str2);
             }
-            x42.i("map", "GetScaleAction end");
-            return true;
+            ig3Var.a("current_appkey", O);
+            zf3.g(ig3Var);
+            this.a.add(a);
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public final JSONArray f(vc4 vc4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, vc4Var)) == null) {
+            if (vc4Var != null && vc4Var.b != null) {
+                JSONArray jSONArray = new JSONArray();
+                for (RecommendItemModel recommendItemModel : vc4Var.b) {
+                    jSONArray.put(recommendItemModel.appKey);
+                }
+                return jSONArray;
+            }
+            return null;
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

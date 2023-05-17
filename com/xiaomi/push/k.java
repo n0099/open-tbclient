@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class k {
     public static void a(Context context) {
     }
@@ -21,7 +21,7 @@ public abstract class k {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m641a(Context context, String str, boolean z) {
+    public static boolean m660a(Context context, String str, boolean z) {
         a(context);
         return PreferenceManager.getDefaultSharedPreferences(context).getBoolean(str, z);
     }

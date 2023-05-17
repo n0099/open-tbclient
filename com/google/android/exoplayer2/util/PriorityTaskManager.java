@@ -4,13 +4,13 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.PriorityQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PriorityTaskManager {
     public final Object lock = new Object();
     public final PriorityQueue<Integer> queue = new PriorityQueue<>(10, Collections.reverseOrder());
     public int highestPriority = Integer.MIN_VALUE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PriorityTooLowException extends IOException {
         public PriorityTooLowException(int i, int i2) {
             super("Priority too low [priority=" + i + ", highest=" + i2 + PreferencesUtil.RIGHT_MOUNT);

@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.producers;
 
 import com.facebook.common.internal.Preconditions;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ExperimentalThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueue {
     public final Executor mExecutor;
 

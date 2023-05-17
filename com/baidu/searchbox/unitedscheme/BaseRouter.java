@@ -6,13 +6,13 @@ import android.net.Uri;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BaseRouter {
-    public static boolean invoke(Context context, String str) {
-        if (UnitedSchemeUtility.isUnitedScheme(str)) {
-            return invokeSchemeForInner(context, Uri.parse(str));
+    public static boolean invoke(Context context, UnitedSchemeEntity unitedSchemeEntity) {
+        if (context == null) {
+            context = AppRuntime.getAppContext();
         }
-        return false;
+        return SchemeRouter.invokeScheme(context, unitedSchemeEntity, (CallbackHandler) null);
     }
 
     @Deprecated
@@ -34,6 +34,13 @@ public class BaseRouter {
     public static boolean isAvailable(Context context, String str) {
         if (UnitedSchemeUtility.isUnitedScheme(str)) {
             return isSchemeAvailable(context, Uri.parse(str), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+        }
+        return false;
+    }
+
+    public static boolean invoke(Context context, String str) {
+        if (UnitedSchemeUtility.isUnitedScheme(str)) {
+            return invokeSchemeForInner(context, Uri.parse(str));
         }
         return false;
     }

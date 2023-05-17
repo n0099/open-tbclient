@@ -2,7 +2,7 @@ package com.xiaomi.clientreport.manager;
 
 import com.xiaomi.push.aj;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f extends aj.a {
     public final /* synthetic */ a a;
 
@@ -12,7 +12,7 @@ public class f extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return "100889";
     }
 

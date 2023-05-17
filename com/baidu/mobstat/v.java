@@ -9,11 +9,11 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventT
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class v {
     public static volatile boolean a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Thread {
         public Context a;
         public com.baidu.mobstat.a b;

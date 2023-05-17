@@ -16,7 +16,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventT
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class p2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +85,8 @@ public class p2 {
                 if (e) {
                     jSONObject.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, o0Var.g() ? 1 : 0);
                 }
-                jSONObject.put("68", o0Var.c() ? 1 : 0);
-                jSONObject.put("69", o0Var.b());
+                jSONObject.put(PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, o0Var.c() ? 1 : 0);
+                jSONObject.put(PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK, o0Var.b());
                 jSONObject.put(ADConfigError.REQUEST_HAS_SUCCESS_BEFORE, o0Var.d() ? 1 : 0);
                 jSONObject.put(WorkPostNotifyFlutterData.FAIL_POST, o0Var.a() ? 1 : 0);
                 jSONObject.put("99", new g0().a());

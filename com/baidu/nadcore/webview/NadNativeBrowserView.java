@@ -19,15 +19,15 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.f91;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.g91;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.n81;
-import com.baidu.tieba.r81;
-import com.baidu.tieba.z71;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.d91;
+import com.baidu.tieba.h91;
+import com.baidu.tieba.p81;
+import com.baidu.tieba.qj0;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.v91;
+import com.baidu.tieba.w61;
+import com.baidu.tieba.w91;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
@@ -37,7 +37,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010%\n\u0002\b\u0007\n\u0002\u0010\u0012\n\u0002\b\u0019\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010\u0012\u001a\u00020\u0011¢\u0006\u0004\bR\u0010\u0014B\u001b\b\u0016\u0012\u0006\u0010\u0012\u001a\u00020\u0011\u0012\b\u0010J\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\bR\u0010LJ\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0017¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\t\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\u000e\u0010\rJ\u000f\u0010\u000f\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u000f\u0010\nJ\u000f\u0010\u0010\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0010\u0010\nJ\u0019\u0010\u0013\u001a\u00020\u00062\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011H\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0015\u001a\u00020\u0006H\u0016¢\u0006\u0004\b\u0015\u0010\nJ\u0017\u0010\u0017\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u0019\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u000f\u0010\u001b\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u001b\u0010\u001cJ\u000f\u0010\u001e\u001a\u00020\u001dH\u0016¢\u0006\u0004\b\u001e\u0010\u001fJ\u0011\u0010 \u001a\u0004\u0018\u00010\u0004H\u0016¢\u0006\u0004\b \u0010\u001cJ\u000f\u0010\"\u001a\u00020!H\u0016¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u001dH\u0016¢\u0006\u0004\b$\u0010\u001fJ\r\u0010%\u001a\u00020\u0006¢\u0006\u0004\b%\u0010\nJ\u000f\u0010&\u001a\u00020\u000bH\u0016¢\u0006\u0004\b&\u0010\rJ\u000f\u0010'\u001a\u00020\u0006H\u0016¢\u0006\u0004\b'\u0010\nJ\u000f\u0010(\u001a\u00020\u0006H\u0016¢\u0006\u0004\b(\u0010\nJ\u000f\u0010)\u001a\u00020\u000bH\u0016¢\u0006\u0004\b)\u0010\rJ\u000f\u0010*\u001a\u00020\u000bH\u0016¢\u0006\u0004\b*\u0010\rJ\u000f\u0010+\u001a\u00020\u000bH\u0016¢\u0006\u0004\b+\u0010\rJ)\u0010/\u001a\u00020\u00062\b\u0010,\u001a\u0004\u0018\u00010\u00042\u000e\u0010.\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010-H\u0016¢\u0006\u0004\b/\u00100J;\u00105\u001a\u00020\u00062\b\u00101\u001a\u0004\u0018\u00010\u00042\u0018\u00103\u001a\u0014\u0012\u0006\u0012\u0004\u0018\u00010\u0004\u0012\u0006\u0012\u0004\u0018\u00010\u0004\u0018\u0001022\u0006\u00104\u001a\u00020\u000bH\u0016¢\u0006\u0004\b5\u00106J\u000f\u00107\u001a\u00020\u0006H\u0016¢\u0006\u0004\b7\u0010\nJ\u000f\u00108\u001a\u00020\u0006H\u0016¢\u0006\u0004\b8\u0010\nJ\u000f\u00109\u001a\u00020\u0006H\u0016¢\u0006\u0004\b9\u0010\nJ#\u0010<\u001a\u00020\u00062\b\u00101\u001a\u0004\u0018\u00010\u00042\b\u0010;\u001a\u0004\u0018\u00010:H\u0016¢\u0006\u0004\b<\u0010=J\u000f\u0010>\u001a\u00020\u0006H\u0016¢\u0006\u0004\b>\u0010\nJ\u000f\u0010?\u001a\u00020\u0006H\u0016¢\u0006\u0004\b?\u0010\nJ\u0017\u0010A\u001a\u00020\u00062\u0006\u0010@\u001a\u00020\u000bH\u0002¢\u0006\u0004\bA\u0010BJ\u0017\u0010D\u001a\u00020\u00062\u0006\u0010C\u001a\u00020\u0004H\u0016¢\u0006\u0004\bD\u0010EJ\u000f\u0010F\u001a\u00020\u0006H\u0002¢\u0006\u0004\bF\u0010\nJ\u000f\u0010G\u001a\u00020\u0006H\u0002¢\u0006\u0004\bG\u0010\nJ\u000f\u0010H\u001a\u00020\u0006H\u0016¢\u0006\u0004\bH\u0010\nJ\u000f\u0010I\u001a\u00020\u0006H\u0016¢\u0006\u0004\bI\u0010\nJ\u001f\u0010K\u001a\u00020\u00062\u0006\u0010\u0012\u001a\u00020\u00112\u0006\u0010J\u001a\u00020\u0002H\u0016¢\u0006\u0004\bK\u0010LR\u0016\u0010M\u001a\u00020\u00048\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\bM\u0010NR\u0016\u0010)\u001a\u00020\u000b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010OR\u0016\u0010P\u001a\u00020!8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\bP\u0010Q¨\u0006S"}, d2 = {"Lcom/baidu/nadcore/webview/NadNativeBrowserView;", "Lcom/baidu/nadcore/webview/view/AbsNadBrowserView;", "", "obj", "", "name", "", "addJavaScriptInterface", "(Ljava/lang/Object;Ljava/lang/String;)V", "addWebViewToParent", "()V", "", "canGoBack", "()Z", "canGoForward", "clearHistory", "clearView", "Landroid/content/Context;", "context", "disableAccessibility", "(Landroid/content/Context;)V", "freeMemory", "isForward", "getPrePageUrl", "(Z)Ljava/lang/String;", "getSettings", "()Ljava/lang/Object;", "getTitle", "()Ljava/lang/String;", "", "getTouchMode", "()I", "getUrl", "Landroid/webkit/WebView;", "getWebView", "()Landroid/webkit/WebView;", "getWebViewScrollY", "goBack", "handleBack", "initSettings", "initWebView", "isDestroyed", "isScrolledTop", "isZeusLoaded", "js", "Landroid/webkit/ValueCallback;", WebChromeClient.KEY_ARG_CALLBACK, "loadJavaScript", "(Ljava/lang/String;Landroid/webkit/ValueCallback;)V", "url", "", "param", StickerDataChangeType.REPLACE, "loadUrl", "(Ljava/lang/String;Ljava/util/Map;Z)V", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onResume", "", "postData", "postUrl", "(Ljava/lang/String;[B)V", "reload", "removeWebViewFromParent", "isAllow", "setAcceptThirdPartyCookies", "(Z)V", TTDownloadField.TT_USERAGENT, "setUserAgentString", "(Ljava/lang/String;)V", "setWebChromeClient", "setWebViewClient", "setWebViewClients", "setWebViewDownloadListener", "asWebView", "wrapHostWebView", "(Landroid/content/Context;Ljava/lang/Object;)V", "TAG", "Ljava/lang/String;", "Z", "webView", "Landroid/webkit/WebView;", "<init>", "lib-webview_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NadNativeBrowserView extends AbsNadBrowserView {
     public final String s;
     public WebView t;
@@ -53,7 +53,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements Runnable {
         public final /* synthetic */ String b;
         public final /* synthetic */ ValueCallback c;
@@ -70,8 +70,8 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
             if (!StringsKt__StringsJVMKt.startsWith$default(str, "javascript:", false, 2, null)) {
                 str = "javascript:" + str;
             }
-            r81 r81Var = r81.b;
-            if (d41.b.c()) {
+            h91 h91Var = h91.b;
+            if (t41.b.c()) {
                 NadNativeBrowserView.W(NadNativeBrowserView.this).evaluateJavascript(str, this.c);
             } else {
                 NadNativeBrowserView.W(NadNativeBrowserView.this).loadUrl(str);
@@ -79,14 +79,14 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b implements DownloadListener {
         public b() {
         }
 
         @Override // android.webkit.DownloadListener
         public final void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            z71 downloadListener = NadNativeBrowserView.this.getDownloadListener();
+            p81 downloadListener = NadNativeBrowserView.this.getDownloadListener();
             if (downloadListener != null) {
                 Context context = NadNativeBrowserView.this.getContext();
                 Intrinsics.checkNotNullExpressionValue(context, "context");
@@ -94,7 +94,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
                     return;
                 }
             }
-            r81.c(NadNativeBrowserView.this.getContext(), "downloadPlugin 没有接管下载！");
+            h91.c(NadNativeBrowserView.this.getContext(), "downloadPlugin 没有接管下载！");
         }
     }
 
@@ -146,7 +146,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void A(String str, ValueCallback<String> valueCallback) {
         super.A(str, valueCallback);
-        aj0.b(new a(str, valueCallback));
+        qj0.b(new a(str, valueCallback));
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -164,9 +164,9 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void C(String str, Map<String, String> map, boolean z) {
         super.C(str, map, z);
-        r81.c(getContext(), "LOADING URL ...");
+        h91.c(getContext(), "LOADING URL ...");
         String str2 = this.s;
-        r81.a(str2, "loading url, url is " + str + " and header is " + String.valueOf(map));
+        h91.a(str2, "loading url, url is " + str + " and header is " + String.valueOf(map));
         setFirstPage(true);
         if (map == null) {
             WebView webView = this.t;
@@ -199,8 +199,8 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
         }
         webView2.clearFocus();
-        h();
         g();
+        f();
         R();
     }
 
@@ -283,7 +283,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         if (webView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
         }
-        webView.setWebChromeClient(new f91(this, getWebChromeClientProxy()));
+        webView.setWebChromeClient(new v91(this, getWebChromeClientProxy()));
     }
 
     public final void b0() {
@@ -291,7 +291,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         if (webView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
         }
-        webView.setWebViewClient(new g91(this, getWebViewClientProxy()));
+        webView.setWebViewClient(new w91(this, getWebViewClientProxy()));
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -320,13 +320,23 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
+    public void f() {
+        super.f();
+        WebView webView = this.t;
+        if (webView == null) {
+            Intrinsics.throwUninitializedPropertyAccessException("webView");
+        }
+        webView.clearHistory();
+    }
+
+    @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void g() {
         super.g();
         WebView webView = this.t;
         if (webView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");
         }
-        webView.clearHistory();
+        webView.clearView();
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -372,17 +382,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public void h() {
-        super.h();
-        WebView webView = this.t;
-        if (webView == null) {
-            Intrinsics.throwUninitializedPropertyAccessException("webView");
-        }
-        webView.clearView();
-    }
-
-    @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
-    public boolean i() {
+    public boolean h() {
         if (d()) {
             Z();
             return true;
@@ -392,12 +392,12 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
     public void r() {
-        WebView a2 = n81.a().a(getContext());
+        WebView a2 = d91.a().a(getContext());
         Intrinsics.checkNotNullExpressionValue(a2, "NativeWebViewRuntime.get…().createWebView(context)");
         this.t = a2;
-        r81.a(this.s, "A native webView created");
+        h91.a(this.s, "A native webView created");
         super.r();
-        g61.c().d(getContext());
+        w61.c().d(getContext());
     }
 
     @Override // com.baidu.nadcore.webview.view.AbsNadBrowserView
@@ -527,7 +527,7 @@ public final class NadNativeBrowserView extends AbsNadBrowserView {
         }
         WebSettings settings2 = webView5.getSettings();
         Intrinsics.checkNotNullExpressionValue(settings2, "webView.settings");
-        settings2.setUserAgentString(li0.e());
+        settings2.setUserAgentString(bj0.e());
         WebView webView6 = this.t;
         if (webView6 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("webView");

@@ -1,14 +1,17 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PayUVEventType {
+    public static final String PAY_AMOUNT_DIALOG_CHANNEL_CLICK = "68";
     public static final String PAY_AMOUNT_DIALOG_COMFIRM_BTN_CLICK = "2";
     public static final String PAY_AMOUNT_DIALOG_ITEM_CLICK = "3";
     public static final String PAY_AMOUNT_DIALOG_SHOW = "1";
     public static final String PAY_AMOUNT_FAQ_ENTRANCE_CLICK = "25";
     public static final String PAY_AMOUNT_FAQ_ENTRANCE_SHOW = "24";
+    public static final String PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK = "69";
     public static final String PAY_AMOUNT_FULL_PAGE_COMFIRM_BTN_CLICK = "9";
     public static final String PAY_AMOUNT_FULL_PAGE_ITEM_CLICK = "10";
     public static final String PAY_AMOUNT_FULL_PAGE_SHOW = "8";
+    public static final String PAY_AMOUNT_MORE_PAY_WAY_CLICK = "70";
     public static final String PAY_CONFIRM_CONTINUE_BTN_CLICK = "16";
     public static final String PAY_CONFIRM_DIALOG_SHOW = "15";
     public static final String PAY_DIALOG_BANNER_CLICK = "19";
@@ -69,7 +72,7 @@ public class PayUVEventType {
     public static final String THIRD_PAY_WAY_DIALOG_CHANNEL_CLICK = "30";
     public static final String THIRD_PAY_WAY_DIALOG_COMFIRM_BTN_CLICK = "29";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class SplitOrderScene {
         public static final String NORMAL_PAY = "0";
         public static final String SPLIT_AFTER_PAY = "2";
@@ -79,7 +82,7 @@ public class PayUVEventType {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class UserType {
         public static final String BAIDU = "2";
         public static final String YYUID = "1";

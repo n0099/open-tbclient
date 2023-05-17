@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -124,13 +125,13 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.q.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0032c extends SSLSocketFactory {
+    public static class C0035c extends SSLSocketFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HostnameVerifier a;
         public HttpsURLConnection b;
 
-        public C0032c(HttpsURLConnection httpsURLConnection) {
+        public C0035c(HttpsURLConnection httpsURLConnection) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -260,7 +261,7 @@ public class c {
             }
         }
         if (Build.VERSION.SDK_INT <= 8) {
-            System.setProperty("http.keepAlive", "false");
+            System.setProperty("http.keepAlive", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
         }
     }
 
@@ -445,7 +446,7 @@ public class c {
                     }
                     if (httpURLConnection instanceof HttpsURLConnection) {
                         httpURLConnection.setInstanceFollowRedirects(false);
-                        ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new C0032c((HttpsURLConnection) httpURLConnection));
+                        ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new C0035c((HttpsURLConnection) httpURLConnection));
                         ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new a(httpURLConnection));
                     }
                     httpURLConnection.connect();
@@ -499,7 +500,7 @@ public class c {
                     }
                     if (httpURLConnection instanceof HttpsURLConnection) {
                         httpURLConnection.setInstanceFollowRedirects(false);
-                        ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new C0032c((HttpsURLConnection) httpURLConnection));
+                        ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new C0035c((HttpsURLConnection) httpURLConnection));
                         ((HttpsURLConnection) httpURLConnection).setHostnameVerifier(new b(httpURLConnection));
                     }
                     httpURLConnection.connect();

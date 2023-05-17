@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.a.f;
 import com.kwai.sodler.lib.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b<P extends g> extends f<P> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

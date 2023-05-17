@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class jn {
     public int a() {
         return 0;
@@ -11,10 +11,10 @@ public abstract class jn {
     }
 
     /* renamed from: a */
-    public abstract void mo639a(byte[] bArr, int i, int i2);
+    public abstract void mo658a(byte[] bArr, int i, int i2);
 
     /* renamed from: a */
-    public byte[] mo640a() {
+    public byte[] mo659a() {
         return null;
     }
 

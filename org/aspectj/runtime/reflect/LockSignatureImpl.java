@@ -2,7 +2,7 @@ package org.aspectj.runtime.reflect;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import org.aspectj.lang.reflect.LockSignature;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LockSignatureImpl extends SignatureImpl implements LockSignature {
     public Class parameterType;
 

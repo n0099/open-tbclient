@@ -10,8 +10,8 @@ import com.baidu.android.pushservice.e;
 import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.z.c;
-import com.baidu.tieba.jza;
-import com.baidu.tieba.mxa;
+import com.baidu.tieba.h1b;
+import com.baidu.tieba.kza;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,12 +44,12 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0029a extends c {
+    public class C0032a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a c;
 
-        public C0029a(a aVar) {
+        public C0032a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -262,7 +262,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             f.add(Long.valueOf(System.currentTimeMillis()));
             try {
-                mxa.a().b(this.c, true);
+                kza.a().b(this.c, true);
             } catch (Throwable unused) {
             }
             return this.a;
@@ -295,7 +295,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             e.add(Long.valueOf(System.currentTimeMillis()));
             try {
-                String token = HmsInstanceId.getInstance(this.c).getToken(jza.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+                String token = HmsInstanceId.getInstance(this.c).getToken(h1b.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
                 this.b = token;
                 if (!TextUtils.isEmpty(token)) {
                     a(true);
@@ -350,7 +350,7 @@ public class a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            com.baidu.android.pushservice.z.e.a().a(new C0029a(this));
+            com.baidu.android.pushservice.z.e.a().a(new C0032a(this));
         }
     }
 

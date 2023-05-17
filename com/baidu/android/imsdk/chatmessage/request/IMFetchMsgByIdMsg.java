@@ -30,7 +30,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.y60;
+import com.baidu.tieba.h70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,15 +114,15 @@ public class IMFetchMsgByIdMsg extends Message {
             }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:100:0x0441  */
+        /* JADX WARN: Removed duplicated region for block: B:100:0x0442  */
         /* JADX WARN: Removed duplicated region for block: B:134:? A[RETURN, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:25:0x007c  */
-        /* JADX WARN: Removed duplicated region for block: B:30:0x00b7 A[Catch: JSONException -> 0x00fb, TRY_ENTER, TryCatch #3 {JSONException -> 0x00fb, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:119:0x00aa }] */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x00c2 A[Catch: JSONException -> 0x00fb, TryCatch #3 {JSONException -> 0x00fb, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:119:0x00aa }] */
-        /* JADX WARN: Removed duplicated region for block: B:39:0x0124  */
-        /* JADX WARN: Removed duplicated region for block: B:86:0x02fd  */
-        /* JADX WARN: Removed duplicated region for block: B:93:0x032f  */
-        /* JADX WARN: Removed duplicated region for block: B:97:0x03f2  */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x00b7 A[Catch: JSONException -> 0x00fc, TRY_ENTER, TryCatch #4 {JSONException -> 0x00fc, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:121:0x00aa }] */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x00c2 A[Catch: JSONException -> 0x00fc, TryCatch #4 {JSONException -> 0x00fc, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:121:0x00aa }] */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x0125  */
+        /* JADX WARN: Removed duplicated region for block: B:86:0x02fe  */
+        /* JADX WARN: Removed duplicated region for block: B:93:0x0330  */
+        /* JADX WARN: Removed duplicated region for block: B:97:0x03f3  */
         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
@@ -517,7 +517,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    y60.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    h70.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }

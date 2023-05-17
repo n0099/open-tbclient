@@ -6,7 +6,7 @@ import com.baidu.searchbox.elasticthread.executor.BaseDredgeExecutorCell;
 import com.baidu.searchbox.elasticthread.executor.BaseExecutorCell;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DredgeManager implements Recordable {
     public static final boolean DEBUG = false;
     public static final int DREDGE_STRATEGY_DISASTER = 3;

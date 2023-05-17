@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.DnsHelper;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.devicescore.IDeviceScore;
+import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,226 +16,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
 public class a80 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 3;
-    public static Context b;
-    public static List<String> c;
-    public static int d;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static volatile long b;
+    public static volatile long c;
+    public static volatile long d;
+    public static volatile long e;
+    public static volatile String f;
+    public static volatile JSONObject g;
+    public static volatile boolean h;
+    public static volatile String i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(String str, boolean z);
-
-        void b(String str, d dVar);
-    }
-
-    /* loaded from: classes3.dex */
-    public interface d {
-        void a(int i, String str, String str2);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class a implements b {
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.a80.b
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.a80$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0212a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ Timer b;
-            public final /* synthetic */ d c;
-
-            /* renamed from: com.baidu.tieba.a80$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0213a extends TimerTask {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AtomicBoolean a;
-                public final /* synthetic */ RunnableC0212a b;
-
-                public C0213a(RunnableC0212a runnableC0212a, AtomicBoolean atomicBoolean) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0212a, atomicBoolean};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = runnableC0212a;
-                    this.a = atomicBoolean;
-                }
-
-                @Override // java.util.TimerTask, java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        u80.a("DNSUrlProvider", "bddns > bdDnsIps is null");
-                        d dVar = this.b.c;
-                        if (dVar != null) {
-                            dVar.a(8007, "bddns timeout :", "bddns timeout, bdDnsIps is null");
-                            a80.f(true);
-                            b c = a80.c(a80.b);
-                            RunnableC0212a runnableC0212a = this.b;
-                            c.b(runnableC0212a.a, runnableC0212a.c);
-                        }
-                        this.a.set(true);
-                    }
-                }
-            }
-
-            public RunnableC0212a(a aVar, String str, Timer timer, d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, str, timer, dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = str;
-                this.b = timer;
-                this.c = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    u80.a("DNSUrlProvider", "bddns > getUrlAsync in... host is " + this.a);
-                    AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                    this.b.schedule(new C0213a(this, atomicBoolean), 10000L);
-                    DnsHelper dnsHelper = new DnsHelper(a80.b);
-                    dnsHelper.setHttpDnsState(false, null, false, true);
-                    a80.j(dnsHelper.getIpList(this.a));
-                    List<String> list = a80.c;
-                    if (list != null && list.size() > 0) {
-                        u80.a("DNSUrlProvider", "bddns > bdDnsIps = " + a80.c);
-                        String str = a80.c.get(0);
-                        if (this.c != null && !atomicBoolean.get()) {
-                            this.c.a(0, DnsModel.MSG_OK, str);
-                            if (a80.c.size() > 1) {
-                                a80.d++;
-                                a80.f(false);
-                            }
-                        }
-                        u80.a("DNSUrlProvider", "bddns > return ip = " + str);
-                        this.b.cancel();
-                    }
-                }
-            }
-        }
-
-        public a(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Context unused = a80.b = context.getApplicationContext();
-            a80.i();
-        }
-
-        public static synchronized a c(Context context) {
-            InterceptResult invokeL;
-            a aVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                synchronized (a.class) {
-                    if (a == null) {
-                        a = new a(context);
-                    }
-                    aVar = a;
-                }
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.a80.b
-        public void b(String str, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                try {
-                    u80.d("DNSUrlProvider", "BDHttpDNSUrlProvider try to getUrlAsync");
-                    if (a80.c != null && a80.c.size() > 0) {
-                        if (a80.d < a80.c.size()) {
-                            if (dVar != null) {
-                                dVar.a(0, DnsModel.MSG_OK, a80.c.get(a80.d));
-                                u80.a("DNSUrlProvider", "retry bddns > return ip = " + a80.c.get(a80.d));
-                            }
-                            a80.d++;
-                            return;
-                        }
-                        a80.f(true);
-                        a80.c(a80.b).b(str, dVar);
-                        return;
-                    }
-                    r80.a(a80.b).b(new RunnableC0212a(this, str, new Timer(), dVar));
-                } catch (Throwable unused) {
-                    u80.a("DNSUrlProvider", "bddns > bdDnsIps get exception ");
-                    a80.f(true);
-                    a80.c(a80.b).b(str, dVar);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public static c a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.a80.b
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-            }
-        }
-
-        public c() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -245,96 +52,13 @@ public class a80 {
             }
         }
 
-        public static synchronized b c() {
-            InterceptResult invokeV;
-            c cVar;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (c.class) {
-                    if (a == null) {
-                        a = new c();
-                    }
-                    cVar = a;
-                }
-                return cVar;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-            return (b) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.a80.b
-        public void b(String str, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                u80.d("DNSUrlProvider", "DefaultUrlProvider try to getUrlAsync");
-                if (dVar != null) {
-                    a80.i();
-                    dVar.a(0, DnsModel.MSG_OK, str);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e implements b {
-        public static /* synthetic */ Interceptable $ic;
-        public static e a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.a80.b
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-            }
-        }
-
-        public e(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Context unused = a80.b = context.getApplicationContext();
-        }
-
-        public static synchronized e c(Context context) {
-            InterceptResult invokeL;
-            e eVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                synchronized (e.class) {
-                    if (a == null) {
-                        a = new e(context);
-                    }
-                    eVar = a;
-                }
-                return eVar;
-            }
-            return (e) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.a80.b
-        public void b(String str, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, dVar) == null) {
-                u80.a("DNSUrlProvider", "will getLCPHttpDnsAddress......");
-                try {
-                    q80 q80Var = new q80(a80.b);
-                    q80Var.a(dVar);
-                    p80.d().e(q80Var, q80Var);
-                } catch (Exception unused) {
-                    a80.f(true);
-                    a80.c(a80.b).b(str, dVar);
-                }
-            }
+            a80.h(2);
         }
     }
 
@@ -351,147 +75,215 @@ public class a80 {
                 return;
             }
         }
-        c = Collections.synchronizedList(new ArrayList());
-        d = 0;
+        a = AppConfig.isDebug();
+        b = 0L;
+        c = 0L;
+        d = 0L;
+        e = 0L;
+        f = "";
+        h = false;
+        i = "";
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            List<String> list = c;
-            if (list != null && d <= list.size()) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            if (a) {
+                Log.d("ExternalTransferStats", "resetStats");
             }
-            return false;
+            b = 0L;
+            c = 0L;
+            d = 0L;
+            e = 0L;
+            g = null;
+            f = "";
+            h = false;
+            i = "";
         }
-        return invokeV.booleanValue;
     }
 
-    public static void i() {
+    public static synchronized void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            try {
-                d = 0;
-                c.clear();
-                a = 2;
-            } catch (Exception e2) {
-                u80.c("DNSUrlProvider", "resetBdDns exception", e2);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            synchronized (a80.class) {
+                c(str, String.valueOf(System.currentTimeMillis()));
             }
         }
     }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
+    public static synchronized void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (str != null && !str.isEmpty()) {
-                return str.matches("^(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|[1-9])\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)\\.(1\\d{2}|2[0-4]\\d|25[0-5]|[1-9]\\d|\\d)$");
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static b c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            b = context.getApplicationContext();
-            int a2 = t80.a(context);
-            if (a2 != 1 && a2 != 2) {
-                u80.b("DNSUrlProvider", "bdDNS :" + v80.c(context) + ", cur :" + a);
-                if (v80.c(context) && a == 2) {
-                    return a.c(context);
-                }
-                if (a == 3) {
-                    return e.c(context);
-                }
-                return c.c();
-            }
-            a = 0;
-            return c.c();
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public static int f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65542, null, z)) == null) {
-            if (z) {
-                int a2 = t80.a(b);
-                if (a2 != 1 && a2 != 2) {
-                    int i = a;
-                    if (i != 0) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                a = 0;
-                            }
-                        } else {
-                            a = 3;
-                        }
-                    } else {
-                        a = 2;
-                    }
-                } else {
-                    a = 0;
-                }
-            }
-            u80.a("DNSUrlProvider", "try to connect ip, now policy =" + a);
-            return a;
-        }
-        return invokeZ.intValue;
-    }
-
-    public static void g(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
-            h(context, str, true);
-        }
-    }
-
-    public static void h(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65544, null, context, str, z) == null) {
-            i();
-            c.c().a(str, true);
-        }
-    }
-
-    public static void j(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, list) == null) {
-            c.clear();
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            if (list != null && !list.isEmpty()) {
-                for (int i = 0; i < list.size(); i++) {
-                    if (e(list.get(i))) {
-                        arrayList.add(list.get(i));
-                    } else {
-                        arrayList2.add(list.get(i));
-                    }
-                }
-            }
-            if (arrayList.size() + arrayList2.size() > 0) {
-                int f = v80.f(b);
-                u80.b("DNSUrlProvider", "getIpPriority :" + f + ", ipv4 :" + arrayList.toString() + ", ipv6 :" + arrayList2.toString());
-                if (f != 1) {
-                    if (f != 2) {
-                        if (f != 4) {
-                            c.addAll(arrayList);
-                            c.addAll(arrayList2);
-                            return;
-                        }
-                        c.addAll(arrayList);
-                        return;
-                    }
-                    c.addAll(arrayList2);
-                    c.addAll(arrayList);
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            synchronized (a80.class) {
+                if ((!h && b80.a() == -1) || TextUtils.isEmpty(b80.c())) {
                     return;
                 }
-                c.addAll(arrayList2);
+                if (a) {
+                    Log.d("ExternalTransferStats", "addEvent id " + str + " value " + str2);
+                }
+                if (TextUtils.equals(str, "external_dispatch_start") && b == 0) {
+                    b = Long.valueOf(str2).longValue();
+                    if (a) {
+                        Log.d("ExternalTransferStats", "set sSchemeDispatcherStartTimeStamp: " + b);
+                    }
+                } else if (TextUtils.equals(str, "external_dispatch_end") && c == 0) {
+                    c = Long.valueOf(str2).longValue();
+                    if (a) {
+                        Log.d("ExternalTransferStats", "set sSchemeDispatcherEndTimeStamp: " + c);
+                    }
+                } else if (TextUtils.equals(str, "external_business_create") && d == 0) {
+                    d = Long.valueOf(str2).longValue();
+                    if (a) {
+                        Log.d("ExternalTransferStats", "set sBusinessPageCreateTimeStamp: " + d);
+                    }
+                } else if (TextUtils.equals(str, "external_business_ui_ready") && e == 0) {
+                    e = Long.valueOf(str2).longValue();
+                    if (a) {
+                        Log.d("ExternalTransferStats", "set sBusinessPageUiReadyTimeStamp: " + e);
+                    }
+                } else if (TextUtils.equals(str, "c_dom_first_screen_paint") && f == "feed") {
+                    e = Long.valueOf(str2).longValue();
+                }
+                if (!TextUtils.equals(str, "external_dispatch_start") && !TextUtils.equals(str, "external_dispatch_end") && !TextUtils.equals(str, "external_business_create") && !TextUtils.equals(str, "external_business_ui_ready")) {
+                    d(str, str2);
+                }
+            }
+        }
+    }
+
+    public static synchronized void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            synchronized (a80.class) {
+                try {
+                    if (g == null) {
+                        g = new JSONObject();
+                    }
+                    if (!g.has(str)) {
+                        g.put(str, str2);
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            b = 0L;
+            c = 0L;
+            d = 0L;
+            e = 0L;
+            g = null;
+            f = "";
+            h = true;
+            i = str;
+            ExecutorUtilsExt.delayPostOnElastic(new a(), "asyncUploadExternalTransferInfo", 3, 15000L);
+        }
+    }
+
+    public static synchronized void h(int i2) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65544, null, i2) == null) {
+            synchronized (a80.class) {
+                if (!h) {
+                    return;
+                }
+                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                if (uBCManager == null) {
+                    f();
+                    return;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("from", "research");
+                    IDeviceScore iDeviceScore = (IDeviceScore) ServiceManager.getService(IDeviceScore.SERVICE_REFERENCE);
+                    if (iDeviceScore != null) {
+                        jSONObject.put("device_score", iDeviceScore.getFinalScore(AppRuntime.getAppContext()));
+                    }
+                    jSONObject.put("upload_type", i2);
+                    if (d == 0) {
+                        jSONObject.put("type", "");
+                    } else {
+                        long b2 = b80.b();
+                        if (b2 != 0 && d - b2 < 0) {
+                            jSONObject.put("type", "normal");
+                        }
+                        jSONObject.put("type", "quick");
+                    }
+                    jSONObject.put("page", f);
+                    jSONObject.put("source", b80.c());
+                    if (w70.a()) {
+                        jSONObject.put("boot_type", "cold_boot");
+                        j = b80.a();
+                    } else {
+                        jSONObject.put("boot_type", "warm_boot");
+                        j = b;
+                    }
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put(DiskUpdateListener.BEGIN_TIME, b80.a());
+                    if (b != 0) {
+                        long j2 = b - j;
+                        if (j2 >= 0 && j2 < 60000) {
+                            jSONObject2.put("dispatcher_start_duration", j2);
+                        } else {
+                            jSONObject2.put("dispatcher_start_duration", -1);
+                        }
+                    } else {
+                        jSONObject2.put("dispatcher_start_duration", -1);
+                    }
+                    if (c != 0) {
+                        long j3 = c - j;
+                        if (j3 >= 0 && j3 < 60000) {
+                            jSONObject2.put("dispatcher_duration", j3);
+                        } else {
+                            jSONObject2.put("dispatcher_duration", -1);
+                        }
+                    } else {
+                        jSONObject2.put("dispatcher_duration", -1);
+                    }
+                    if (d != 0) {
+                        long j4 = d - j;
+                        if (j4 >= 0 && j4 < 60000) {
+                            jSONObject2.put("will_show_duration", j4);
+                        } else {
+                            jSONObject2.put("will_show_duration", -1);
+                        }
+                    } else {
+                        jSONObject2.put("will_show_duration", -1);
+                    }
+                    if (e != 0) {
+                        long j5 = e - j;
+                        if (j5 >= 0 && j5 < 60000) {
+                            jSONObject2.put("duration", e - j);
+                        } else {
+                            jSONObject2.put("duration", -1);
+                        }
+                    } else {
+                        jSONObject2.put("duration", -1);
+                    }
+                    jSONObject2.put("addition_info", g);
+                    jSONObject.put("ext", jSONObject2);
+                    uBCManager.onEvent("1090", jSONObject.toString());
+                    if (a) {
+                        Log.d("ExternalTransferStats", jSONObject.toString());
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                f();
             }
         }
     }

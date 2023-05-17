@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import com.baidu.pass.common.SecurityUtil;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassBioDataEncryptor {
     public static final String a = "PassBioDataEncryptor";
 

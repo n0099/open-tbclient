@@ -5,9 +5,9 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.tieba.nab;
-import com.baidu.tieba.oab;
-import com.baidu.tieba.pab;
+import com.baidu.tieba.mcb;
+import com.baidu.tieba.ncb;
+import com.baidu.tieba.ocb;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
@@ -18,7 +18,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageRequest;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.MD5Utils;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import java.util.ArrayList;
@@ -26,12 +26,12 @@ import java.util.HashMap;
 import okhttp3.Request;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public int authType;
     public DataSenderConfig config;
     public String hostId;
-    public IPayNetStateStatistics mPayNetReporter;
+    public IPayNetStateStatisticsApi payNetStateStaticsApi;
     public final String TAG = "HttpDataSenderAdapter";
     public String httpUrl = "";
     public ProtocolType protoType = ProtocolType.HTTP;
@@ -42,7 +42,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public volatile Runnable delayDnsInitReportRunnable = null;
     public Object runnableLock = new Object();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public final /* synthetic */ int a;
         public final /* synthetic */ String b;
@@ -60,8 +60,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class b extends oab {
+    /* loaded from: classes2.dex */
+    public class b extends ncb {
         public final /* synthetic */ int a;
         public final /* synthetic */ int b;
         public final /* synthetic */ String c;
@@ -80,7 +80,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             this.g = arrayList;
         }
 
-        @Override // com.baidu.tieba.oab
+        @Override // com.baidu.tieba.ncb
         public void a(Request request, boolean z, Exception exc) {
             RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.c + " exception: " + exc.getMessage() + " isCanceled:" + z + " cmd:" + this.e.getCmd(), new Object[0]);
             String retryDomain = HttpDataSenderAdapter.this.getRetryDomain(this.f);
@@ -99,7 +99,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             RevenueDataParser.INSTANCE.onRequestError(this.a, this.b, this.c, this.e.getCmd(), ErrorCode.SERVER_ERROR, str);
         }
 
-        @Override // com.baidu.tieba.oab
+        @Override // com.baidu.tieba.ncb
         public void b(Object obj) {
             HttpDataSenderAdapter.this.onSuccess(this.a, this.b, this.c, this.d, obj, this.e);
         }
@@ -108,8 +108,8 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender
     public void cancelAllRequest(int i, int i2) {
         RLog.info("HttpDataSenderAdapter", "cancelAllRequest appId:" + i + " useChannel:" + i2);
-        nab.f().d(i, i2);
-        pab.g(this.mPayNetReporter);
+        mcb.f().d(i, i2);
+        ocb.g(this.payNetStateStaticsApi);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -140,10 +140,10 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleReportPayNetEvent(String str, String str2, String str3) {
-        if (this.mPayNetReporter == null) {
-            RLog.error("HttpDataSenderAdapter", "reportPayNetEvent error mPayNetReporter null", new Object[0]);
+        if (this.payNetStateStaticsApi == null) {
+            RLog.error("HttpDataSenderAdapter", "reportPayNetEvent error payNetStateStaticsApi null", new Object[0]);
         }
-        this.mPayNetReporter.reportPayNetEvent(str, str2, str3);
+        this.payNetStateStaticsApi.reportPayNetEvent(str, str2, str3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -216,7 +216,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         hashMap2.put("data", jSONObject2.toString());
         hashMap2.put("ticket", pSCIMessageRequest.getTicket());
         RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-        nab.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+        mcb.f().e(str3, hashMap2, i, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new b(i, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.data.IDataSenderAdapter
@@ -229,10 +229,10 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
         this.authType = dataSenderConfig.authType;
         this.config = dataSenderConfig;
         this.isInit = true;
-        this.mPayNetReporter = dataSenderConfig.payNetReporter;
+        this.payNetStateStaticsApi = dataSenderConfig.payNetStateStaticsApi;
         this.sEnableBackupDomain = true ^ Env.instance().isTestEnv();
         if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
-            int h = pab.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
+            int h = ocb.c().h(dataSenderConfig.appContext, dataSenderConfig.gslbAppId, dataSenderConfig.hdid);
             String str = "initHttpDns result " + h;
             RLog.info("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + dataSenderConfig.gslbAppId + " " + str);
             this.delayDnsInitReportRunnable = new a(h, str);
@@ -246,7 +246,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             RLog.error("HttpDataSenderAdapter", "init first before sendData", new Object[0]);
             return;
         }
-        pab.a(this.mPayNetReporter);
+        ocb.a(this.payNetStateStaticsApi);
         synchronized (this.runnableLock) {
             if (this.delayDnsInitReportRunnable != null) {
                 this.delayDnsInitReportRunnable.run();

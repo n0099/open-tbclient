@@ -2,18 +2,18 @@ package com.baidu.tieba.ad.incentivevideo.net;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.y06;
+import com.baidu.tieba.k26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetAdFreeTimeResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y06 mAdIncentiveVideoTaskData;
+    public k26 mAdIncentiveVideoTaskData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetAdFreeTimeResMsg(int i) {
@@ -43,20 +43,20 @@ public class GetAdFreeTimeResMsg extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                y06 y06Var = new y06();
-                this.mAdIncentiveVideoTaskData = y06Var;
-                y06Var.d(optJSONObject.optString("key_time"));
+                k26 k26Var = new k26();
+                this.mAdIncentiveVideoTaskData = k26Var;
+                k26Var.d(optJSONObject.optString("key_time"));
                 this.mAdIncentiveVideoTaskData.e(optJSONObject.optString("remain_time"));
             }
         }
     }
 
-    public y06 getAdIncentiveVideoTaskData() {
+    public k26 getAdIncentiveVideoTaskData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAdIncentiveVideoTaskData;
         }
-        return (y06) invokeV.objValue;
+        return (k26) invokeV.objValue;
     }
 }

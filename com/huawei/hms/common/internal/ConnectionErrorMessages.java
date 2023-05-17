@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.update.ui.NotInstalledHmsDialogHelper;
 import com.huawei.hms.utils.ResourceLoaderUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ConnectionErrorMessages {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

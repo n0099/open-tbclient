@@ -1,167 +1,302 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.sapi2.dto.IsShowRealNameGuideDTO;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.r93;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class a94 extends d94 {
+import com.baidu.webkit.internal.CfgFileUtils;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public final class a94 extends p93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public b c;
+    public c d;
+    public String e;
+    public u54 f;
+    public t74 g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a94(hf2 hf2Var) {
-        super(hf2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hf2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((hf2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static a c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public static a b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                a aVar = new a();
+                aVar.b = jSONObject.optString("root");
+                aVar.a = jSONObject.optString("name");
+                if (!TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
+                    if (aVar.b.endsWith(".js")) {
+                        String[] split = aVar.b.split(File.separator);
+                        if (split.length < 1) {
+                            return c();
+                        }
+                        aVar.d = split[split.length - 1];
+                        aVar.c = "";
+                        for (int i = 0; i < split.length - 1; i++) {
+                            aVar.c += split[i] + File.separator;
+                        }
+                    } else {
+                        String str = aVar.b;
+                        aVar.c = str;
+                        if (!str.endsWith(File.separator)) {
+                            aVar.c += File.separator;
+                        }
+                        aVar.d = "index.js";
+                    }
+                    return aVar;
+                }
+                return c();
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<a> a;
+        public HashMap<String, Boolean> b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                b bVar = new b();
+                bVar.a = new ArrayList();
+                bVar.b = new HashMap<>();
+                return bVar;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public static b b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    b bVar = new b();
+                    bVar.a = new ArrayList();
+                    bVar.b = new HashMap<>();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            bVar.a.add(a.b(optJSONObject));
+                        }
+                    }
+                    return bVar;
+                }
+                return c();
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HashMap<String, String> a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                c cVar = new c();
+                cVar.a = new HashMap<>();
+                return cVar;
+            }
+            return (c) invokeV.objValue;
+        }
+
+        public static c b(JSONObject jSONObject, b bVar) {
+            InterceptResult invokeLL;
+            List<a> list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
+                if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
+                    if (optJSONObject == null) {
+                        return c();
+                    }
+                    c cVar = new c();
+                    cVar.a = new HashMap<>();
+                    for (a aVar : bVar.a) {
+                        if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
+                            HashMap<String, String> hashMap = cVar.a;
+                            String str = aVar.b;
+                            hashMap.put(str, optJSONObject.optString(str));
+                        }
+                    }
+                    return cVar;
+                }
+                return c();
+            }
+            return (c) invokeLL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569997, "Lcom/baidu/tieba/a94;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947569997, "Lcom/baidu/tieba/a94;");
                 return;
             }
         }
+        h = qp1.a;
     }
 
-    public final void g(JsObject jsObject, String str, String str2, h94 h94Var) {
+    public a94() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jsObject, str, str2, h94Var) == null) {
-            e02 n = n(jsObject);
-            g24 g24Var = new g24();
-            boolean g = h94Var.g();
-            g24Var.errMsg = h94Var.c(str, str2);
-            ja4.call(n, g, g24Var);
-            if (!g) {
-                r84.i(str2, g24Var.errMsg);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void h(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            g(jsObject, "clearStorage", "", a());
-        }
-    }
-
-    public final JsSerializeValue i(JsObject jsObject) {
+    public static a94 a(String str) {
         InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
-            for (int i = 0; i < jsObject.length(); i++) {
-                if ("data".equals(jsObject.getPropertyName(i))) {
-                    return jsObject.toSerializeValue(i);
-                }
-            }
-            return null;
-        }
-        return (JsSerializeValue) invokeL.objValue;
-    }
-
-    public void l(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jsObject) == null) {
-            e02 n = n(jsObject);
-            g94 b = b();
-            b.errMsg = e94.b("getStorageInfo");
-            ja4.call(n, true, b);
-        }
-    }
-
-    @NonNull
-    public final e02 n(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
-            e02 F = e02.F(jsObject);
-            if (F == null) {
-                return new e02();
-            }
-            return F;
-        }
-        return (e02) invokeL.objValue;
-    }
-
-    public void o(JsObject jsObject) {
-        String m;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) != null) || (m = m(jsObject, "removeStorage")) == null) {
-            return;
-        }
-        g(jsObject, "removeStorage", m, e(m));
-    }
-
-    public void p(JsObject jsObject) {
-        String m;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, jsObject) != null) || (m = m(jsObject, "setStorage")) == null) {
-            return;
-        }
-        g(jsObject, "setStorage", m, f(m, i(jsObject)));
-    }
-
-    public final h94 j(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsObject)) == null) {
-            for (int i = 0; i < jsObject.length(); i++) {
-                if ("key".equals(jsObject.getPropertyName(i))) {
-                    int propertyType = jsObject.getPropertyType(i);
-                    if (propertyType == 7) {
-                        return h94.i(jsObject.toString(i));
-                    }
-                    return h94.b(String.format("parameter error: the key must be string instead of %s.", h94.f(propertyType)));
-                }
-            }
-            return h94.b("parameter error: the parameter key is necessary.");
-        }
-        return (h94) invokeL.objValue;
-    }
-
-    public void k(JsObject jsObject) {
-        String m;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jsObject) != null) || (m = m(jsObject, "getStorage")) == null) {
-            return;
-        }
-        h94 c = c(m);
-        if (c.g()) {
-            f94 f94Var = new f94();
-            f94Var.errMsg = e94.b("getStorage");
-            Object d = c.d();
-            f94Var.data = d;
-            if (d instanceof JsSerializeValue) {
-                ((JsSerializeValue) d).setAutoRelease(false);
-            }
-            ja4.call(n(jsObject), true, f94Var);
-            return;
-        }
-        g(jsObject, "getStorage", m, c);
-    }
-
-    public final String m(JsObject jsObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jsObject, str)) == null) {
-            h94 j = j(jsObject);
-            if (!j.g()) {
-                g(jsObject, str, "", j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return (String) j.d();
+            a94 a94Var = new a94();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                a94Var.a = r93.a.a(jSONObject);
+                String optString = jSONObject.optString("deviceOrientation", "portrait");
+                boolean z = false;
+                a94Var.b = 0;
+                if (TextUtils.equals(optString, "landscape")) {
+                    a94Var.b = 1;
+                }
+                jSONObject.optBoolean("showStatusBar", false);
+                jSONObject.optString("workers");
+                b b2 = b.b(jSONObject);
+                a94Var.c = b2;
+                a94Var.d = c.b(jSONObject, b2);
+                a94Var.e = jSONObject.optString("openDataContext");
+                a94Var.f = new u54(jSONObject);
+                JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    z = true;
+                }
+                HybridUbcFlow p = l23.p("startup");
+                if (z) {
+                    str2 = "1";
+                } else {
+                    str2 = "0";
+                }
+                p.D("preload_resources", str2);
+                a94Var.g = new t74(optJSONArray);
+                JSONObject optJSONObject = jSONObject.optJSONObject(IsShowRealNameGuideDTO.TYPE_SETTING);
+                if (optJSONObject != null) {
+                    optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+                }
+                return a94Var;
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("SwanGameConfigData", "buildConfigData json error: " + Log.getStackTraceString(e));
+                }
+                return null;
+            }
         }
-        return (String) invokeLL.objValue;
+        return (a94) invokeL.objValue;
     }
 }

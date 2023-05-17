@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.kwad.sdk.core.imageloader.core.assist.ImageScaleType;
 import com.kwad.sdk.core.imageloader.core.assist.ImageSize;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
@@ -12,7 +13,7 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.crash.utils.b;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseImageDecoder implements ImageDecoder {
     public static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
     public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
@@ -22,7 +23,7 @@ public class BaseImageDecoder implements ImageDecoder {
     public static final String LOG_SUBSAMPLE_IMAGE = "Subsample original image (%1$s) to %2$s (scale = %3$d) [%4$s]";
     public final boolean loggingEnabled;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ExifInfo {
         public final boolean flipHorizontal;
         public final int rotation;
@@ -38,7 +39,7 @@ public class BaseImageDecoder implements ImageDecoder {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ImageFileInfo {
         public final ExifInfo exif;
         public final ImageSize imageSize;
@@ -54,7 +55,7 @@ public class BaseImageDecoder implements ImageDecoder {
     }
 
     private boolean canDefineExifParams(String str, String str2) {
-        return "image/jpeg".equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
+        return WordCommandManager.IMAGE_JPEG.equalsIgnoreCase(str2) && ImageDownloader.Scheme.ofUri(str) == ImageDownloader.Scheme.FILE;
     }
 
     public Bitmap considerExactScaleAndOrientatiton(Bitmap bitmap, ImageDecodingInfo imageDecodingInfo, int i, boolean z) {

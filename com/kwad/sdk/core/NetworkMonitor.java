@@ -13,14 +13,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class NetworkMonitor {
     public static volatile boolean Ti;
     public final List<WeakReference<a>> Tj;
     public boolean Tk;
     public final BroadcastReceiver Tl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Holder {
         INSTANCE;
         
@@ -34,14 +34,14 @@ public final class NetworkMonitor {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum NetworkState {
         NETWORK_NONE,
         NETWORK_MOBILE,
         NETWORK_WIFI
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(NetworkState networkState);
     }
@@ -92,7 +92,7 @@ public final class NetworkMonitor {
         if (context == null) {
             return;
         }
-        context.getApplicationContext().registerReceiver(this.Tl, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+        context.getApplicationContext().registerReceiver(this.Tl, new IntentFilter(com.baidu.searchbox.ui.animview.praise.NetworkMonitor.NET_CHANGE_ACTION));
         Ti = true;
     }
 

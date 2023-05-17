@@ -19,14 +19,14 @@ import com.sina.weibo.sdk.auth.Oauth2AccessToken;
 import com.sina.weibo.sdk.auth.WbAuthListener;
 import com.sina.weibo.sdk.auth.WbConnectErrorMessage;
 import com.sina.weibo.sdk.auth.sso.SsoHandler;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String p = SinaSSOLoginActivity.class.getSimpleName();
     public static final int q = -1;
     public SsoHandler n;
     public WbAuthListener o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements WbAuthListener {
         public a() {
         }

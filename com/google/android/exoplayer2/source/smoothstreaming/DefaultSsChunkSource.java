@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultSsChunkSource implements SsChunkSource {
     public int currentManifestChunkOffset;
     public final DataSource dataSource;
@@ -36,7 +36,7 @@ public class DefaultSsChunkSource implements SsChunkSource {
     public void onChunkLoadCompleted(Chunk chunk) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements SsChunkSource.Factory {
         public final DataSource.Factory dataSourceFactory;
 

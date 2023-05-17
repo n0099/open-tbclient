@@ -1,101 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pga;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-/* loaded from: classes7.dex */
-public final class xga {
+@Autowired
+/* loaded from: classes8.dex */
+public class xga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
 
-    /* loaded from: classes7.dex */
-    public class a extends bha {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
-
-        public a(xga xgaVar, com.baidu.ubs.analytics.a.l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xgaVar, lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lVar;
+    @Inject
+    public static cga a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return nl9.a();
         }
-
-        @Override // com.baidu.tieba.bha
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new hga().c(this.a);
-            }
-        }
+        return (cga) invokeV.objValue;
     }
 
-    public xga() {
+    @Inject
+    public static bga b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return ll9.a();
         }
-        this.a = new LinkedHashMap<>();
+        return (bga) invokeV.objValue;
     }
 
-    public final void a(String str) {
-        pga pgaVar;
+    @Inject
+    public static fga c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
-            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-            synchronized (this.a) {
-                Long remove = this.a.remove(str);
-                if (remove == null) {
-                    return;
-                }
-                try {
-                    lVar.setStartTime(String.valueOf(remove));
-                    lVar.t(str);
-                    lVar.z(String.valueOf(System.currentTimeMillis()));
-                    pgaVar = pga.a.a;
-                    lVar.setPath(pgaVar.b());
-                    lVar.x(yga.e().I());
-                } catch (Exception e) {
-                    hha.a(e.toString());
-                    zga.b(e.toString());
-                }
-                aha.c(new a(this, lVar));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return tfa.a();
         }
-    }
-
-    public final void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
-            synchronized (this.a) {
-                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-                String.valueOf(System.currentTimeMillis());
-            }
-        }
+        return (fga) invokeV.objValue;
     }
 }

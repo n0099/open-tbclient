@@ -1,52 +1,42 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import java.util.List;
 import java.util.Map;
-@Service
-/* loaded from: classes4.dex */
-public class dg0 extends vh0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes5.dex */
+public interface dg0 {
+    void a(Context context);
 
-    @Override // com.baidu.tieba.vh0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "download" : (String) invokeV.objValue;
-    }
+    long b();
 
-    public dg0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(int i, int i2);
 
-    @Override // com.baidu.tieba.vh0
-    public boolean b(@NonNull Context context, @NonNull zh0 zh0Var, @Nullable Map<String, Object> map, @Nullable di0 di0Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zh0Var, map, di0Var)) == null) {
-            super.b(context, zh0Var, map, di0Var);
-            qj0.k().b(zh0Var, di0Var);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
+    @Deprecated
+    int d(int i, int i2, Map<String, float[]> map);
+
+    int e(MediaTrack mediaTrack, int i, Map<String, float[]> map);
+
+    void f(List<MediaTrack> list, Map<String, ShaderConfig> map);
+
+    int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map);
+
+    void h(int i, long j);
+
+    int i(MediaSegment mediaSegment, int i, Map<String, float[]> map);
+
+    int j(MediaTrack mediaTrack, int i, Map<String, float[]> map);
+
+    int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f);
+
+    List<MediaTrack> l();
+
+    @Deprecated
+    int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map);
+
+    void n(List<MediaTrack> list);
+
+    void release();
 }

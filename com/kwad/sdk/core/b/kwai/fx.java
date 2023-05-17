@@ -5,7 +5,7 @@ import com.baidu.searchbox.pms.db.PackageTable;
 import com.heytap.mcssdk.PushService;
 import com.kwad.components.core.webview.jshandler.p;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fx implements com.kwad.sdk.core.d<p.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(p.a aVar, JSONObject jSONObject) {

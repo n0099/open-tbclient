@@ -5,7 +5,7 @@ import com.baidu.searchbox.elasticthread.executor.SerialExecutorCell;
 import com.baidu.searchbox.elasticthread.queue.ElasticQueue;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SerialManager implements Recordable {
     public ElasticQueue mElasticQueue = new ElasticQueue();
     public BaseExecutorCell mCurrentWorkingExecutor = BaseExecutorCell.build(1, BaseExecutorCell.ExecutorType.SERIAL);

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class LocalFetchProducer implements Producer<EncodedImage> {
     public final Executor mExecutor;
     public final PooledByteBufferFactory mPooledByteBufferFactory;

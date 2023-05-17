@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.net.ProtocolException;
 import okhttp3.Protocol;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StatusLine {
     public static final int HTTP_CONTINUE = 100;
     public static final int HTTP_PERM_REDIRECT = 308;

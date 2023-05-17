@@ -6,7 +6,7 @@ import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class RecommendFrsControlBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

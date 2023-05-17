@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.api;
 
 import com.yy.hiidostatis.inner.util.log.BaseDefaultStatisLogWriter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DefaultStatisLogWriter extends BaseDefaultStatisLogWriter implements StatisLogWriter {
     public DefaultStatisLogWriter(String str, int i, boolean z) {
         super(str, i, z);

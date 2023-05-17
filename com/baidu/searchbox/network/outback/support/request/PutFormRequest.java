@@ -4,10 +4,10 @@ import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.FormBody;
 import com.baidu.searchbox.network.outback.core.Request;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PutFormRequest extends Request {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PutFormRequestBuilder extends Request.Builder<PutFormRequestBuilder> {
         public FormBody.Builder bodyBuilder;
 

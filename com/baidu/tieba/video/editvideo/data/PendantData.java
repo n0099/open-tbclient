@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PendantData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_BLACK_TEXT = 2;
@@ -62,7 +62,7 @@ public class PendantData extends OrmObject {
         this.pendantType = i;
     }
 
-    public void V() {
+    public void U() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.isEmpty(this.size)) {
             return;

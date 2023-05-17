@@ -1,52 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes4.dex */
-public class hm2 implements ZeusPluginFactory {
+/* loaded from: classes5.dex */
+public class hm2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
+    public static fm2 a(SwanAppActivity swanAppActivity, g93 g93Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "media_extractor" : (String) invokeV.objValue;
-    }
-
-    public hm2(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, g93Var)) == null) {
+            if (g93Var == null || !g93Var.I()) {
+                return null;
             }
+            int k = g93Var.k();
+            if (k != 0) {
+                if (k != 1) {
+                    return null;
+                }
+                return os2.i().n(swanAppActivity, g93Var.b);
+            }
+            return new im2(swanAppActivity, g93Var.b);
         }
-        this.a = str;
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            return new gm2(er2.D().e(invoker, this.a));
-        }
-        return (ZeusPlugin) invokeL.objValue;
+        return (fm2) invokeLL.objValue;
     }
 }

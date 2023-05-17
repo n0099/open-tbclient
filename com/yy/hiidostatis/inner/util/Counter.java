@@ -2,7 +2,7 @@ package com.yy.hiidostatis.inner.util;
 
 import android.os.Handler;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Counter implements Runnable {
     public static final Callback NONE = new Callback() { // from class: com.yy.hiidostatis.inner.util.Counter.1
         @Override // com.yy.hiidostatis.inner.util.Counter.Callback
@@ -16,7 +16,7 @@ public class Counter implements Runnable {
     public Callback mCallback = NONE;
     public boolean mRunning = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Callback {
         void onCount(int i);
     }

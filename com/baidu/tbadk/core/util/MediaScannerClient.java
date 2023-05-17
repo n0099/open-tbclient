@@ -5,6 +5,7 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MediaScannerClient implements MediaScannerConnection.MediaScannerConnectionClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +27,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
     public String mPath;
     public String[] mPaths;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface onScanCompletedListener {
         void onScanCompeted();
     }
@@ -120,7 +121,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.mPath = str;
             String substring = str.substring(str.lastIndexOf("."));
-            this.mMimeType = "image/jpeg";
+            this.mMimeType = WordCommandManager.IMAGE_JPEG;
             if (substring.equals(".gif")) {
                 this.mMimeType = "image/gif";
             }

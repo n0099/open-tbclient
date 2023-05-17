@@ -1,90 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.app.Activity;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class w46 {
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class w46 extends ActivityDelegation implements sp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public Context b;
-    public BdTypeRecyclerView c;
-    public List<vm> d;
-    public d56 e;
-    public d56 f;
-    public c56 g;
-    public b56 h;
-    public r66 i;
-    public a56 j;
-    public int k;
-    public int l;
-    public String m;
+    public BdUniqueId a;
+    public z46 b;
+    public Activity c;
+    public Map<String, String> d;
+    public CustomMessageListener e;
 
-    public w46(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, int i, int i2, String str) {
+    /* loaded from: classes8.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w46 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(w46 w46Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w46Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w46Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+                Object data = customResponsedMessage.getData();
+                if (!(data instanceof ao5)) {
+                    return;
+                }
+                ao5 ao5Var = (ao5) data;
+                if (getTag() != ao5Var.a && !ao5Var.g) {
+                    return;
+                }
+                this.a.mResult.putInt("result_code", ao5Var.b);
+                this.a.mResult.putString("result_msg", ao5Var.c);
+                if (this.a.b != null) {
+                    this.a.b.a(this.a.mResult);
+                }
+                this.a.finish();
+            }
+        }
+    }
+
+    public w46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView, Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = "0";
-        this.a = tbPageContext;
-        this.b = tbPageContext.getPageActivity();
-        this.c = bdTypeRecyclerView;
-        this.k = i;
-        this.l = i2;
-        this.m = str;
-        a();
+        this.a = BdUniqueId.gen();
+        this.e = new a(this, 2921393);
     }
 
-    public final void a() {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d = new ArrayList();
-            this.e = new d56(this.a, this.k, false);
-            this.f = new d56(this.a, this.k, true);
-            this.g = new c56(this.a);
-            this.h = new b56(this.a);
-            this.i = new r66(this.a, this.l, this.m);
-            this.j = new a56(this.a);
-            this.d.add(this.e);
-            this.d.add(this.f);
-            this.d.add(this.g);
-            this.d.add(this.h);
-            this.d.add(this.i);
-            this.d.add(this.j);
-            this.c.addAdapters(this.d);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.e);
+            super.finish();
         }
     }
 
-    public void b() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeRecyclerView = this.c) != null) {
-            bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c = activity;
         }
     }
 
-    public void c(List<in> list) {
+    public void e(z46 z46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z46Var) == null) {
+            this.b = z46Var;
         }
+    }
+
+    @Override // com.baidu.tieba.sp1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            this.mResult.putString("result_msg", "");
+            finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
+            int i = this.mParams.getInt("type");
+            String string = this.mParams.getString("orderInfo");
+            ao5 ao5Var = new ao5();
+            ao5Var.a = this.a;
+            ao5Var.b = i;
+            ao5Var.c = string;
+            ao5Var.e = (Map) this.mParams.getSerializable("params");
+            ao5Var.f = this.d;
+            if (getAgent() != null) {
+                ao5Var.d = getAgent();
+            } else {
+                Activity activity = this.c;
+                if (activity != null) {
+                    ao5Var.d = activity;
+                } else {
+                    ao5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+                }
+            }
+            CustomMessage customMessage = new CustomMessage(2921393, ao5Var);
+            customMessage.setTag(this.a);
+            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+            Bundle bundle = this.mResult;
+            int i2 = 1;
+            if (sendMessage) {
+                i2 = 0;
+            }
+            bundle.putInt("result_code", i2);
+            Bundle bundle2 = this.mResult;
+            bundle2.putString("result_msg", "" + sendMessage);
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

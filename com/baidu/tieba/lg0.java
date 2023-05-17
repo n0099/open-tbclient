@@ -1,404 +1,334 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Handler;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.GrsBaseInfo;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class lg0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a = false;
-    public static final i11 b;
-    public static final lg0 c;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class lg0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "MediaTrackUtils";
+    public static String b = "FILTER_MATRIX";
+    public static String c = "FILTER_LUT";
+    public static String d = "FILTER_SUB_LUT";
+    public static String e = "FILTER_SUBTITLE";
+    public static String f = "FILTER_STICKER";
+    public static String g = "FILTER_GAUSSIAN_BLUR_H";
+    public static String h = "FILTER_GAUSSIAN_BLUR_V";
+    public static boolean i = false;
+    public static int j = 1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-
-        public a(long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (lg0.s()) {
-                    if (lg0.a(lg0.c)) {
-                        Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: canceled for return before N!");
-                        return;
-                    }
-                    return;
-                }
-                long j = this.a;
-                if (j < 0) {
-                    return;
-                }
-                if (j > System.currentTimeMillis()) {
-                    if (lg0.a(lg0.c)) {
-                        Log.d("AdDeepLinkStayTime", "tryToPostDeepLinkStayTrans: 留意，时间戳读写出现了异常，抛弃脏数据。");
-                        return;
-                    }
-                    return;
-                }
-                o11.b(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(this.b).k(String.valueOf(this.a)).l(String.valueOf(System.currentTimeMillis())).m("1"));
-                lg0.y();
-                if (lg0.a(lg0.c)) {
-                    Log.d("AdDeepLinkStayTime", "tryToPostStayTrans: successfully made a deepLink stay trans!");
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941780, "Lcom/baidu/tieba/lg0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947941780, "Lcom/baidu/tieba/lg0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947941780, "Lcom/baidu/tieba/lg0;")) == null) {
+            return;
         }
-        c = new lg0();
-        i11 b2 = l11.a().b("nad_deeplink_stay_time");
-        Intrinsics.checkNotNullExpressionValue(b2, "SpUtils.getInstance().ge…\"nad_deeplink_stay_time\")");
-        b = b2;
-    }
-
-    public lg0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947941780, "Lcom/baidu/tieba/lg0;");
+        }
+    }
+
+    public static void a(MediaTrack mediaTrack, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, mediaTrack, j2) == null) {
+            jg0.b(mediaTrack, j2);
+            n(mediaTrack);
+        }
+    }
+
+    public static void c(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, mediaTrack, mediaTrackConfig) == null) {
+            jg0.g(mediaTrack, mediaTrackConfig);
+        }
+    }
+
+    public static boolean k(List<MediaTrack> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, list, str)) == null) {
+            return jg0.x(list, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean m(MediaTrack mediaTrack, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, mediaTrack, str)) == null) {
+            return jg0.E(mediaTrack, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void b(MediaTrack mediaTrack, Map<String, ShaderConfig> map, MediaTrack mediaTrack2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, mediaTrack, map, mediaTrack2) == null) {
+            jg0.f(mediaTrack, map, mediaTrack2);
+        }
+    }
+
+    public static void d(MediaTrack mediaTrack, List<MediaSegment> list, MediaTrackConfig mediaTrackConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrack, list, mediaTrackConfig) == null) {
+            jg0.h(mediaTrack, list, mediaTrackConfig);
+        }
+    }
+
+    public static List<MediaTrack> e(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, Map<String, ShaderConfig> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, mediaTrack, mediaTrackConfig, map)) == null) {
+            List<MediaTrack> j2 = jg0.j(mediaTrack, mediaTrackConfig, map);
+            for (MediaTrack mediaTrack2 : j2) {
+                n(mediaTrack2);
+            }
+            return j2;
+        }
+        return (List) invokeLLL.objValue;
+    }
+
+    public static String j(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, context, str, str2)) == null) {
+            return jg0.v(context, str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String f(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, context, str, str2, str3)) == null) {
+            return jg0.o(context, str, str2, str3);
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    public static Bitmap g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (!str.contains(File.separator)) {
+                return BitmapFactory.decodeResource(context.getResources(), h(str, context));
+            }
+            return BitmapFactory.decodeFile(str);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static int h(String str, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, context)) == null) {
+            try {
+                ApplicationInfo applicationInfo = context.getApplicationInfo();
+                int identifier = context.getResources().getIdentifier(str, ResourceManager.DRAWABLE, applicationInfo.packageName);
+                if (identifier == 0) {
+                    return context.getResources().getIdentifier(str, "mipmap", applicationInfo.packageName);
+                }
+                return identifier;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return 0;
             }
         }
+        return invokeLL.intValue;
     }
 
-    @JvmStatic
-    public static final long c() {
-        InterceptResult invokeV;
+    public static MediaAEffect i(MediaTrack mediaTrack, MediaTrackConfig mediaTrackConfig, String str, int i2, int i3, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.getInt("sp_key_stay_time", 15) * 1000;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{mediaTrack, mediaTrackConfig, str, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+            return jg0.t(mediaTrack, mediaTrackConfig, str, i2, i3, j2);
         }
-        return invokeV.longValue;
+        return (MediaAEffect) invokeCommon.objValue;
     }
 
-    @JvmStatic
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return b.getBoolean("key_deep_link_open", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return b.getBoolean("key_no_need_post_deep_link_trans_on_cold_boot", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @JvmStatic
-    public static final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String f = g41.f("ad_deeplink_stay_time_ext");
-            if (f == null) {
-                return "";
-            }
-            return f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final long j() {
+    public static boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return b.getLong("key_deep_link_open_time", -1L);
-        }
-        return invokeV.longValue;
-    }
-
-    @JvmStatic
-    public static final String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            String string = b.getString("key_deep_link_source_activity", "");
-            if (string == null) {
-                return "";
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            c.n();
-            c.o();
-            c.r();
-            c.m();
-            c.q();
-            c.p();
-        }
-    }
-
-    @JvmStatic
-    public static final boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return b.getBoolean("key_deep_link_return_before_time_threshold", false);
+            return i;
         }
         return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final void u() {
+    public static void n(MediaTrack mediaTrack) {
+        String str;
+        String str2;
+        ShaderParams next;
+        Iterator<ShaderParams> it;
+        String str3;
+        MediaSegment mediaSegment;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            b.e("key_deep_link_open", true);
-        }
-    }
-
-    @JvmStatic
-    public static final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
-            b.h("key_deep_link_open_time", System.currentTimeMillis());
-        }
-    }
-
-    @JvmStatic
-    public static final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
-            b.e("key_no_need_post_deep_link_trans_on_cold_boot", true);
-        }
-    }
-
-    @JvmStatic
-    public static final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, null) == null) {
-            b.e("key_deep_link_return_before_time_threshold", true);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g41.j("", "ad_deeplink_stay_time_ext");
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b.e("key_deep_link_open", false);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b.h("key_deep_link_open_time", -1L);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.i("key_deep_link_source_activity", "");
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b.e("key_no_need_post_deep_link_trans_on_cold_boot", false);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            b.e("key_deep_link_return_before_time_threshold", false);
-        }
-    }
-
-    @JvmStatic
-    public static final void A(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || TextUtils.isEmpty(str) || b(str)) {
+        if ((interceptable != null && interceptable.invokeL(65550, null, mediaTrack) != null) || !i) {
             return;
         }
-        new Handler().postDelayed(new a(j(), str), c());
-    }
-
-    public static final /* synthetic */ boolean a(lg0 lg0Var) {
-        return a;
-    }
-
-    @JvmStatic
-    public static final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                return true;
-            }
-            return b.getBoolean(str, true);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @JvmStatic
-    public static final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            l();
-            u();
-            v();
-            t(str);
-            x(str, false);
-            A(str);
-        }
-    }
-
-    @JvmStatic
-    public static final void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            g41.j(str, "ad_deeplink_stay_time_ext");
-        }
-    }
-
-    @JvmStatic
-    public static final void w(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65555, null, activity) == null) && activity != null) {
-            b.i("key_deep_link_source_activity", activity.getLocalClassName());
-        }
-    }
-
-    @JvmStatic
-    public static final void g(long j, String boot, long j2, String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), boot, Long.valueOf(j2), str}) == null) {
-            Intrinsics.checkNotNullParameter(boot, "boot");
-            if (!d()) {
-                l();
-            } else if (TextUtils.isEmpty(str) || b(str) || j < 0) {
-            } else {
-                if (j > j2) {
-                    if (a) {
-                        Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: 留意，出现了两次打点混淆的情况，为避免污染数据，放弃上传本次打点。");
-                        return;
+        Log.d(a, "---------------------start----------------------------");
+        List<MediaSegment> list = mediaTrack.mediaSegments;
+        String str5 = PreferencesUtil.LEFT_MOUNT;
+        String str6 = ": ";
+        if (list != null) {
+            int i2 = 0;
+            while (i2 < mediaTrack.mediaSegments.size()) {
+                MediaSegment mediaSegment2 = mediaTrack.mediaSegments.get(i2);
+                Log.d(a, " --> segment : " + i2 + str6 + mediaSegment2.type + "--->" + mediaSegment2.start + "----" + mediaSegment2.end + "---> scaleType --->" + mediaSegment2.scaleType + " shaderConfigKey --->" + mediaSegment2.shaderConfigKey + " effectConfigKey --->" + mediaSegment2.effectConfigKey);
+                MediaAEffect mediaAEffect = mediaSegment2.mediaAEffect;
+                if (mediaAEffect != null && mediaAEffect.mediaOneAEffects != null) {
+                    int i3 = 0;
+                    while (i3 < mediaSegment2.mediaAEffect.mediaOneAEffects.size()) {
+                        MediaOneAEffect mediaOneAEffect = mediaSegment2.mediaAEffect.mediaOneAEffects.get(i3);
+                        String str7 = a;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("effect : ");
+                        sb.append(i2);
+                        sb.append("->");
+                        sb.append(i3);
+                        sb.append(str6);
+                        String str8 = str5;
+                        String str9 = str6;
+                        sb.append(mediaOneAEffect.start);
+                        sb.append("----");
+                        sb.append(mediaOneAEffect.end);
+                        sb.append(" shaderConfigKey --->");
+                        sb.append(mediaSegment2.mediaAEffect.shaderConfigKey);
+                        Log.d(str7, sb.toString());
+                        List<ShaderParams> list2 = mediaOneAEffect.aParams;
+                        if (list2 != null) {
+                            Iterator<ShaderParams> it2 = list2.iterator();
+                            while (it2.hasNext()) {
+                                float[] fArr = it2.next().values;
+                                if (fArr != null) {
+                                    int length = fArr.length;
+                                    it = it2;
+                                    str4 = str8;
+                                    int i4 = 0;
+                                    while (true) {
+                                        str3 = str8;
+                                        if (i4 >= length) {
+                                            break;
+                                        }
+                                        str4 = str4 + fArr[i4] + "---";
+                                        i4++;
+                                        str8 = str3;
+                                        mediaSegment2 = mediaSegment2;
+                                    }
+                                    mediaSegment = mediaSegment2;
+                                } else {
+                                    it = it2;
+                                    str3 = str8;
+                                    mediaSegment = mediaSegment2;
+                                    str4 = str3;
+                                }
+                                Log.d(a, "ShaderParams ------> type: " + next.type + " name: " + next.name + " values: " + (str4 + PreferencesUtil.RIGHT_MOUNT));
+                                it2 = it;
+                                str8 = str3;
+                                mediaSegment2 = mediaSegment;
+                            }
+                        }
+                        i3++;
+                        str6 = str9;
+                        str5 = str8;
+                        mediaSegment2 = mediaSegment2;
                     }
-                    return;
                 }
-                if (TextUtils.equals(boot, "boot_from_background")) {
-                    str2 = "1";
-                } else if (TextUtils.equals(boot, "boot_from_cold")) {
-                    str2 = "2";
-                } else {
-                    return;
-                }
-                o11.b(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TIME).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m(str2));
-                x(str, true);
-                if (a) {
-                    Log.d("AdDeepLinkStayTime", "postDeepLinkStayTime: post a deepLink stay time on " + boot);
-                }
+                i2++;
+                str6 = str6;
+                str5 = str5;
             }
         }
-    }
-
-    @JvmStatic
-    public static final void h(long j, long j2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            if (!d()) {
-                l();
-            } else if (TextUtils.isEmpty(str) || b(str) || j < 0) {
-            } else {
-                if (j > j2) {
-                    if (a) {
-                        Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: 留意，出现了两次打点混淆的情况，为避免污染数据，放弃上传本次打点。");
-                        return;
+        String str10 = str5;
+        String str11 = str6;
+        if (mediaTrack.mediaTransitions != null) {
+            for (int i5 = 0; i5 < mediaTrack.mediaTransitions.size(); i5++) {
+                MediaTransition mediaTransition = mediaTrack.mediaTransitions.get(i5);
+                Log.d(a, " --> transition : " + i5 + " ---> " + i5 + str11 + mediaTransition.start + "----" + mediaTransition.end + "---- duration : " + mediaTransition.duration);
+            }
+        }
+        if (mediaTrack.superpositionHeader != null) {
+            Log.d(a, " --> superposition header : " + mediaTrack.superpositionHeader.start + "----" + mediaTrack.superpositionHeader.end + "----" + mediaTrack.superpositionHeader.superpositionType);
+            MediaAEffect mediaAEffect2 = mediaTrack.superpositionHeader.mediaAEffect;
+            if (mediaAEffect2 != null && mediaAEffect2.mediaOneAEffects != null) {
+                for (int i6 = 0; i6 < mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.size(); i6++) {
+                    MediaOneAEffect mediaOneAEffect2 = mediaTrack.superpositionHeader.mediaAEffect.mediaOneAEffects.get(i6);
+                    Log.d(a, "superposition header effect : + ->" + i6 + str11 + mediaOneAEffect2.start + "----" + mediaOneAEffect2.end);
+                    List<ShaderParams> list3 = mediaOneAEffect2.aParams;
+                    if (list3 != null) {
+                        for (ShaderParams shaderParams : list3) {
+                            float[] fArr2 = shaderParams.values;
+                            if (fArr2 != null) {
+                                str2 = str10;
+                                for (float f2 : fArr2) {
+                                    str2 = str2 + f2 + "---";
+                                }
+                            } else {
+                                str2 = str10;
+                            }
+                            Log.d(a, "superposition header ShaderParams ------> type: " + shaderParams.type + " name: " + shaderParams.name + " values: " + (str2 + PreferencesUtil.RIGHT_MOUNT));
+                        }
                     }
-                    return;
-                }
-                o11.b(new ClogBuilder().y(ClogBuilder.LogType.DEEPLINK_STAY_TRANS).j(GrsBaseInfo.CountryCodeSource.APP).p(str).k(String.valueOf(j)).l(String.valueOf(j2)).m("2"));
-                if (a) {
-                    Log.d("AdDeepLinkStayTime", "postDeepLinkStayTrans: post last deepLink stay trans when cold boot.");
                 }
             }
         }
-    }
-
-    @JvmStatic
-    public static final void x(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65556, null, str, z) == null) && str != null) {
-            b.e(str, z);
+        if (mediaTrack.superpositionFooter != null) {
+            Log.d(a, " --> superposition footer : " + mediaTrack.superpositionFooter.start + "----" + mediaTrack.superpositionFooter.end + "----" + mediaTrack.superpositionFooter.superpositionType);
+            MediaAEffect mediaAEffect3 = mediaTrack.superpositionFooter.mediaAEffect;
+            if (mediaAEffect3 != null && mediaAEffect3.mediaOneAEffects != null) {
+                for (int i7 = 0; i7 < mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.size(); i7++) {
+                    MediaOneAEffect mediaOneAEffect3 = mediaTrack.superpositionFooter.mediaAEffect.mediaOneAEffects.get(i7);
+                    Log.d(a, "superposition footer effect : + ->" + i7 + str11 + mediaOneAEffect3.start + "----" + mediaOneAEffect3.end);
+                    List<ShaderParams> list4 = mediaOneAEffect3.aParams;
+                    if (list4 != null) {
+                        for (ShaderParams shaderParams2 : list4) {
+                            float[] fArr3 = shaderParams2.values;
+                            if (fArr3 != null) {
+                                str = str10;
+                                for (float f3 : fArr3) {
+                                    str = str + f3 + "---";
+                                }
+                            } else {
+                                str = str10;
+                            }
+                            Log.d(a, "superposition footer ShaderParams ------> type: " + shaderParams2.type + " name: " + shaderParams2.name + " values: " + (str + PreferencesUtil.RIGHT_MOUNT));
+                        }
+                    }
+                }
+            }
         }
+        Log.d(a, "--------------------end-----------------------------");
     }
 }

@@ -1,29 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class mg8 implements fs4 {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public abstract class mg8<SdkMsg extends ChatMsg, T> implements pg8<SdkMsg, ue8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.fs4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.LIKE_ADDRESS : (String) invokeV.objValue;
-    }
+    public abstract int c();
+
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
 
     public mg8() {
         Interceptable interceptable = $ic;
@@ -39,20 +41,84 @@ public class mg8 implements fs4 {
         }
     }
 
-    @Override // com.baidu.tieba.fs4
-    public void b(HashMap<String, String> hashMap, gs4 gs4Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pg8
+    /* renamed from: d */
+    public SdkMsg b(ue8<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, gs4Var) == null) && gs4Var != null && hashMap != null && !hashMap.isEmpty()) {
-            String str = hashMap.get("fid");
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            String str2 = hashMap.get(TiebaStatic.Params.H5_FORUM_NAME);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001335, Long.valueOf(gg.g(str, 0L))));
-            TbadkCoreApplication.getInst().addLikeForum(str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
+        return (SdkMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pg8
+    /* renamed from: f */
+    public ue8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            ue8<T> ue8Var = new ue8<>();
+            ue8Var.i(g(msg));
+            ue8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            ue8Var.d(msgKey);
+            ue8Var.e().l(msg.getContacterUk());
+            ue8Var.e().k(jna.c(msg.getSenderUid(), 0L));
+            ue8Var.e().i(msg.getStatus());
+            ue8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            ue8Var.e().h(isSelf);
+            if (!isSelf) {
+                ue8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                ue8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
+            } else {
+                ue8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                ue8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
+            }
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    ue8Var.e().j(jSONObject.optInt("type"));
+                    ue8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!qi.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    te8 g = ue8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return ue8Var;
+        }
+        return (ue8) invokeL.objValue;
     }
 }

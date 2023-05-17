@@ -13,20 +13,20 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import androidx.appcompat.widget.AppCompatEditText;
-import com.baidu.tieba.k53;
-import com.baidu.tieba.sl3;
+import com.baidu.tieba.bn3;
+import com.baidu.tieba.t63;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmojiEditText extends AppCompatEditText {
     public e a;
     public f b;
     public String c;
-    public sl3 d;
+    public bn3 d;
     public Runnable e;
     public int f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a(int i);
 
@@ -35,12 +35,12 @@ public class EmojiEditText extends AppCompatEditText {
         void onBack();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         void a(int i, int i2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
         public a() {
         }
@@ -57,7 +57,7 @@ public class EmojiEditText extends AppCompatEditText {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public final /* synthetic */ Editable a;
 
@@ -75,7 +75,7 @@ public class EmojiEditText extends AppCompatEditText {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends InputConnectionWrapper {
         public c(InputConnection inputConnection, boolean z) {
             super(inputConnection, z);
@@ -103,7 +103,7 @@ public class EmojiEditText extends AppCompatEditText {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements TextWatcher {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
@@ -203,7 +203,7 @@ public class EmojiEditText extends AppCompatEditText {
     }
 
     public final void init() {
-        this.d = sl3.b(getContext());
+        this.d = bn3.b(getContext());
         setText(getText());
         setOnTouchListener(new a());
         addTextChangedListener(new d(this, null));
@@ -214,7 +214,7 @@ public class EmojiEditText extends AppCompatEditText {
         if (TextUtils.isEmpty(editableText) || !Pattern.compile("\\[([一-龥\\w])+\\]").matcher(editableText).find()) {
             return;
         }
-        getEditableText().replace(0, editableText.length(), k53.c().g(getContext(), editableText, this));
+        getEditableText().replace(0, editableText.length(), t63.c().g(getContext(), editableText, this));
     }
 
     @Override // android.widget.TextView
@@ -250,7 +250,7 @@ public class EmojiEditText extends AppCompatEditText {
             }
             this.c = a2.toString();
             this.d.c(" ");
-            SpannableString g = k53.c().g(getContext(), this.c, this);
+            SpannableString g = t63.c().g(getContext(), this.c, this);
             int selectionStart = getSelectionStart();
             Editable editableText = getEditableText();
             editableText.insert(selectionStart, g);

@@ -33,7 +33,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LocationClient implements e.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONNECT_HOT_SPOT_FALSE = 0;
@@ -85,7 +85,7 @@ public final class LocationClient implements e.b {
     public boolean y;
     public Boolean z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +221,7 @@ public final class LocationClient implements e.b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,7 +272,7 @@ public final class LocationClient implements e.b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

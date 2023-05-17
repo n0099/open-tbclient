@@ -1,85 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.config.AppConfig;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class yna {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
-            try {
-                jSONObject.put("bosMessage", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948337309, "Lcom/baidu/tieba/yna;")) == null) {
+            return;
         }
-        return (JSONObject) invokeLL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948337309, "Lcom/baidu/tieba/yna;");
+        }
     }
 
-    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", str2);
-                jSONObject.put("errmsg", str3);
-                if (z) {
-                    str4 = "1";
-                } else {
-                    str4 = "0";
-                }
-                jSONObject.put(FileMetaUtil.IS_FILE, str4);
-                if (file != null && file.exists() && file.isFile()) {
-                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
-                    jSONObject.put("size", String.valueOf(file.length()));
-                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
-                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
-                }
-            } catch (Exception e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (!a) {
+                f();
             }
-            return jSONObject;
+            return (int) ((f * b) + 0.5f);
         }
-        return (JSONObject) invokeCommon.objValue;
+        return invokeF.intValue;
     }
 
-    public static JSONObject c(List<String> list) {
-        InterceptResult invokeL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (list != null) {
-                try {
-                    if (list.size() > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : list) {
-                            sb.append(str);
-                            sb.append("&");
-                        }
-                        jSONObject.put("space", sb.toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!a) {
+                f();
             }
-            return jSONObject;
+            return d;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) ija.c().getContext().getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
+            } else {
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
+            }
+            b = displayMetrics.density;
+            a = true;
+        }
     }
 }

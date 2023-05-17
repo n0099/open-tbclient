@@ -9,21 +9,21 @@ import com.kwad.sdk.utils.r;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends com.kwad.components.ad.reward.i.a {
     public c uc = new c();
-    public C0572a ud = new C0572a();
+    public C0586a ud = new C0586a();
     public final b ue = new b(com.kwad.components.ad.reward.kwai.b.fX());
 
     /* renamed from: com.kwad.components.ad.reward.i.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0572a extends com.kwad.components.ad.reward.i.b {
-        public C0572a() {
+    /* loaded from: classes9.dex */
+    public static class C0586a extends com.kwad.components.ad.reward.i.b {
+        public C0586a() {
             this.tY = "安装应用";
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends com.kwad.components.ad.reward.i.b {
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r5v0 int)] */
         public b(int i) {
@@ -36,7 +36,7 @@ public final class a extends com.kwad.components.ad.reward.i.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c extends com.kwad.components.ad.reward.i.b {
         public c() {
             this.tY = "基础奖励：观看视频";

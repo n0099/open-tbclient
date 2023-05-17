@@ -15,13 +15,13 @@ import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.tieba.t70;
-import com.baidu.tieba.y70;
-import com.baidu.tieba.z70;
+import com.baidu.tieba.j80;
+import com.baidu.tieba.o80;
+import com.baidu.tieba.p80;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlBlCPManager {
     public static final String KEY_FILTER = "filter";
     public static final String KEY_MSGDATA = "msgdata";
@@ -33,8 +33,8 @@ public class CloudControlBlCPManager {
     public static final String UBC_CLOUD_CTROL_LCP_ID = "1312";
     public static CloudControlBlCPManager mCloudControlManager;
     public String TAG = "CloudControlBlCPManager";
-    public z70 blcpResponse = new z70() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
-        @Override // com.baidu.tieba.z70
+    public p80 blcpResponse = new p80() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
+        @Override // com.baidu.tieba.p80
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             String str2;
             if (AppConfig.isDebug()) {
@@ -107,11 +107,11 @@ public class CloudControlBlCPManager {
     }
 
     public void registerConnectStateListener(Context context) {
-        this.isSmallFlow = t70.d(context);
+        this.isSmallFlow = j80.d(context);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(context).registerReceiver(this.iConnectListener, intentFilter);
-        if (t70.b() == 0) {
+        if (j80.b() == 0) {
             invoke();
         }
     }
@@ -153,10 +153,10 @@ public class CloudControlBlCPManager {
         if (bLCPRequest.c.length <= 0) {
             return;
         }
-        t70.c(bLCPRequest, this.blcpResponse);
-        y70 y70Var = new y70();
-        y70Var.a = 4L;
-        y70Var.b = 2L;
-        t70.c(y70Var, this.blcpResponse);
+        j80.c(bLCPRequest, this.blcpResponse);
+        o80 o80Var = new o80();
+        o80Var.a = 4L;
+        o80Var.b = 2L;
+        j80.c(o80Var, this.blcpResponse);
     }
 }

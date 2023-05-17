@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DotOptions extends OverlayOptions {
     public int a;
     public Bundle c;

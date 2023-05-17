@@ -1,5 +1,5 @@
 package com.yy.gslbsdk.util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class StringTools {
     public static String optString(String str) {
         return optString(str, "");

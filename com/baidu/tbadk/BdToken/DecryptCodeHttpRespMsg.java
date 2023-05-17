@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.qr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.DecryptCode.DecryptCodeResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hq4 decryptData;
+    public qr4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeHttpRespMsg(int i) {
@@ -45,9 +45,9 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    hq4 hq4Var = new hq4();
-                    this.decryptData = hq4Var;
-                    hq4Var.h(decryptCodeResIdl.data);
+                    qr4 qr4Var = new qr4();
+                    this.decryptData = qr4Var;
+                    qr4Var.h(decryptCodeResIdl.data);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);
@@ -55,12 +55,12 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
         }
     }
 
-    public hq4 getDecryptData() {
+    public qr4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.decryptData;
         }
-        return (hq4) invokeV.objValue;
+        return (qr4) invokeV.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum ImageLoaderProxy implements IImageLoader {
     INSTANCE;
     

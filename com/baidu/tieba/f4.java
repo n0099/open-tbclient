@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final short[] a;
-    public final k6<g4> b;
-    public final k6<ModelMaterial> c;
-    public final k6<i4> d;
-    public final k6<e4> e;
+    public o6<g4<Vector3>> a;
+    public o6<g4<Quaternion>> b;
+    public o6<g4<Vector3>> c;
 
     public f4() {
         Interceptable interceptable = $ic;
@@ -28,10 +27,8 @@ public class f4 {
                 return;
             }
         }
-        this.a = new short[2];
-        this.b = new k6<>();
-        this.c = new k6<>();
-        this.d = new k6<>();
-        this.e = new k6<>();
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 }

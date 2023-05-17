@@ -1,66 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class bp5<T> implements dp5<T> {
+/* loaded from: classes5.dex */
+public class bp5 extends xa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
-    public bp5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bp5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = "";
     }
 
-    @Override // com.baidu.tieba.dp5
-    public int getErrorCode() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.za
+    public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, httpMessage, httpMessageTask)) == null) {
+            if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
+                TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
+                if (httpMessage.removeParam("reloin_key") == null && ReloginManager.g().h() && tbHttpMessageTask.isNeedLogin()) {
+                    httpMessage.addParam("reloin_key", "reloin_value");
+                    ReloginManager.g().l(httpMessage);
+                    return null;
+                }
+                return httpMessage;
+            }
+            return httpMessage;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.dp5
-    public String getErrorMsg() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
-        }
+        return (HttpMessage) invokeLL.objValue;
     }
 }

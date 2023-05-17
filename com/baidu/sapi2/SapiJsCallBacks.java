@@ -12,15 +12,15 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.response.SocialResponse;
 import java.util.LinkedHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiJsCallBacks {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BdOauthCallback {
         void onCallback(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BdOauthLoginParams {
         public BdOauthCallback callback;
         public String callingAppId;
@@ -28,34 +28,34 @@ public class SapiJsCallBacks {
         public String redirectUrl;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BiometricsIdentificationLiveCallBack {
         void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CertGuardianRusultCallback {
         void onFinish(CertGuardianResult certGuardianResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CurrentAccountBdussExpiredCallback {
         void onBdussExpired();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DirectedLoginParams {
         public String displayname;
         public String encryptedId;
         public String uid;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class FingerprintCallback {
         public abstract void onCallback(FingerprintResult fingerprintResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class FingerprintResult {
         public int authType;
         public String portrait;
@@ -63,17 +63,17 @@ public class SapiJsCallBacks {
         public abstract void setResult(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class FocusEdittextCoordinateYCallBack {
         public abstract void onCallback(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface GetCurrentPageNameCallback {
         void getCurrentPageName(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface GrantWebCallback {
         public static final int backWap = 0;
         public static final int remainNa = 1;
@@ -81,45 +81,45 @@ public class SapiJsCallBacks {
         void onGrant(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IdcardOcrImageCallBack {
         void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface InvoiceBuildCallback {
         void onCallback(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IsForbidRecordCallBack {
         void onForbidRecord(Boolean bool);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class JoinLoginParams {
         public LinkedHashMap<String, String> agreement;
         public boolean hasThirdAccount;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface JumpToUriCallBack {
         void onJumpTo(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface LoginStatusChangeCallback {
         void onChange();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MakeVibrateCallBack {
         void presetVibrate(String str);
 
         void vibrate(long[] jArr, int i, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface NormalizeGuestAccountCallback {
         public static final int MERGE_ACCOUNT = 1;
 
@@ -128,12 +128,12 @@ public class SapiJsCallBacks {
         void onSuccess(boolean z, String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OpenDuVipPayCallback {
         void onOpenDuVipPay(LoadDuVipPayCallBack loadDuVipPayCallBack);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PageStateCallback {
         public static final int STATE_FIRST = 1;
         public static final int STATE_OTHER = 2;
@@ -141,7 +141,7 @@ public class SapiJsCallBacks {
         void pageState(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface RealNameStatusCallback {
         public static final int STATE_JUNIOR_REALNAME = 1;
         public static final int STATE_SENIOR_REALNAME = 2;
@@ -149,12 +149,12 @@ public class SapiJsCallBacks {
         void onFinish(AccountRealNameResult accountRealNameResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface RealNameSubErrorCallback {
         void onFinish(AccountRealNameResult accountRealNameResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ShareV2LoginParams {
         public JSONObject pageParams;
 
@@ -163,23 +163,23 @@ public class SapiJsCallBacks {
         public abstract void onSuccess();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SpeechRecognitionCallback {
         void onSpeechRecognition(SpeechRecognitionResult speechRecognitionResult);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class SpeechRecognitionResult {
         public void setSpeechData(int i, String str) {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface StopSlideWebviewCallback {
         void onStopSlide(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SwitchStyleForCloseBtnAndStatusBarCallBack {
         public static final String mBlack = "0";
         public static final String mWhite = "1";
@@ -187,17 +187,17 @@ public class SapiJsCallBacks {
         void switchStyle(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SyncAccountCallBack {
         void onSyncAccount(SapiAccount sapiAccount);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface WebviewPageFinishCallback {
         void onFinish(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CallBacks {
         public SapiWebView.AccountDestoryCallback accountDestoryCallback;
         public SapiWebView.AccountFreezeCallback accountFreezeCallback;

@@ -1,6 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.annotations;
 
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.heytap.msp.push.mode.MessageStat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,9 +10,9 @@ import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum KotlinTarget {
-    CLASS(DealIntentService.KEY_CLASS, false, 2, null),
+    CLASS("class", false, 2, null),
     ANNOTATION_CLASS("annotation class", false, 2, null),
     TYPE_PARAMETER("type parameter", false),
     PROPERTY(MessageStat.PROPERTY, false, 2, null),
@@ -31,7 +30,7 @@ public enum KotlinTarget {
     TYPE_PROJECTION("type projection", false),
     STAR_PROJECTION("star projection", false),
     PROPERTY_PARAMETER("property constructor parameter", false),
-    CLASS_ONLY(DealIntentService.KEY_CLASS, false),
+    CLASS_ONLY("class", false),
     OBJECT("object", false),
     COMPANION_OBJECT("companion object", false),
     INTERFACE("interface", false),
@@ -63,7 +62,7 @@ public enum KotlinTarget {
     public static final Companion Companion = new Companion(null);
     public static final HashMap<String, KotlinTarget> map = new HashMap<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

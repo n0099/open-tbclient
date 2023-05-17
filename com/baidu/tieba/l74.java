@@ -1,28 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class l74 extends g24 {
+/* loaded from: classes6.dex */
+public final class l74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errNo;
 
-    public l74() {
+    public static final Integer a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -1727084929) {
+                    if (hashCode != -1538208320) {
+                        if (hashCode == 155362205 && str.equals("menuAddToLauncher")) {
+                            return 35;
+                        }
+                    } else if (str.equals("menuShare")) {
+                        return 4;
+                    }
+                } else if (str.equals("menuAttention")) {
+                    return 38;
+                }
             }
+            return null;
         }
+        return (Integer) invokeL.objValue;
     }
 }

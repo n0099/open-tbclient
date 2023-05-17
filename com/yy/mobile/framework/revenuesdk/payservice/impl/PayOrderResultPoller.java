@@ -2,12 +2,13 @@ package com.yy.mobile.framework.revenuesdk.payservice.impl;
 
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayFailMsg;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
@@ -18,25 +19,26 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
 import java.util.List;
-/* loaded from: classes9.dex */
+import tv.athena.revenue.api.pay.params.PayFlowType;
+/* loaded from: classes10.dex */
 public class PayOrderResultPoller {
     public final String TAG = "PayResultPoller";
     public Handler mMainHandler = new Handler(Looper.getMainLooper());
-    public IPayEventStatistics mPayEventRepoter;
+    public IPayEventStatisticsApi mPayEventRepoter;
     public IAppPayService payService;
     public IPayServiceCallback payServiceCallback;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PollerListener {
         void onFail(ChargeCurrencyReqParams chargeCurrencyReqParams, int i, String str);
 
         void onSuccess(ChargeCurrencyReqParams chargeCurrencyReqParams, GetChargeOrderStatusResult getChargeOrderStatusResult);
     }
 
-    public PayOrderResultPoller(IAppPayService iAppPayService, IPayServiceCallback iPayServiceCallback, IPayEventStatistics iPayEventStatistics) {
+    public PayOrderResultPoller(IAppPayService iAppPayService, IPayServiceCallback iPayServiceCallback, IPayEventStatisticsApi iPayEventStatisticsApi) {
         this.payServiceCallback = iPayServiceCallback;
         this.payService = iAppPayService;
-        this.mPayEventRepoter = iPayEventStatistics;
+        this.mPayEventRepoter = iPayEventStatisticsApi;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -126,9 +128,17 @@ public class PayOrderResultPoller {
     }
 
     private void reportPayOrderStatusEvent(GetChargeOrderStatusResult getChargeOrderStatusResult, ChargeCurrencyReqParams chargeCurrencyReqParams, CurrencyChargeMessage currencyChargeMessage) {
-        IPayEventStatistics iPayEventStatistics = this.mPayEventRepoter;
-        if (iPayEventStatistics != null) {
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.paychargeorderStatus, getChargeOrderStatusResult.getStatus() + "", "order result", currencyChargeMessage.orderId, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+        String str;
+        if (this.mPayEventRepoter != null) {
+            if (chargeCurrencyReqParams.getPayFlowTypeId() == PayFlowType.WALLET_PAY_FLOW.getTypeId()) {
+                str = AccountConstants.LOGIN_TYPE_NATIVE_SRC_WALLET;
+            } else {
+                str = "dialog";
+            }
+            IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventRepoter;
+            String str2 = getChargeOrderStatusResult.getStatus() + "";
+            String str3 = currencyChargeMessage.orderId;
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.paychargeorderStatus, str2, "order result", str3, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid(), str);
             RLog.info("PayResultPoller", "notifyPollerResult reportPayFlowEvent status:" + getChargeOrderStatusResult.getStatus());
         }
     }

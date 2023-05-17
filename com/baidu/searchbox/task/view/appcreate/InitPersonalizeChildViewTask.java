@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentLayout;
 import com.baidu.tbadk.core.view.ThreadGodReplyLayout;
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitPersonalizeChildViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

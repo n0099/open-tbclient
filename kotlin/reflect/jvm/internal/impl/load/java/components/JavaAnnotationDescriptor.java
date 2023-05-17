@@ -22,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JavaAnnotationDescriptor implements AnnotationDescriptor, PossiblyExternalAnnotationDescriptor {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(JavaAnnotationDescriptor.class), "type", "getType()Lorg/jetbrains/kotlin/types/SimpleType;"))};
     public final JavaAnnotationArgument firstArgument;

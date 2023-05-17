@@ -919,7 +919,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f04019f);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401aa);
     }
 
     private void setInsetOffsetX(View view2, int i) {
@@ -983,13 +983,13 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         this.mNestedScrollingV2ConsumedCompat = new int[2];
         this.mNestedScrollingParentHelper = new NestedScrollingParentHelper(this);
         if (i == 0) {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CoordinatorLayout, 0, com.baidu.tieba.R.style.obfuscated_res_0x7f1003a2);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CoordinatorLayout, 0, com.baidu.tieba.R.style.obfuscated_res_0x7f1003ad);
         } else {
             obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.CoordinatorLayout, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
             if (i == 0) {
-                saveAttributeDataForStyleable(context, R.styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, 0, com.baidu.tieba.R.style.obfuscated_res_0x7f1003a2);
+                saveAttributeDataForStyleable(context, R.styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, 0, com.baidu.tieba.R.style.obfuscated_res_0x7f1003ad);
             } else {
                 saveAttributeDataForStyleable(context, R.styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
             }

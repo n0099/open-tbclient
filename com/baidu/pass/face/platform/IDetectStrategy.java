@@ -2,7 +2,7 @@ package com.baidu.pass.face.platform;
 
 import android.graphics.Rect;
 import com.baidu.pass.face.platform.listener.ISecurityCallback;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDetectStrategy {
     void detectStrategy(byte[] bArr);
 

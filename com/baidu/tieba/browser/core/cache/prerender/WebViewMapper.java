@@ -4,8 +4,8 @@ import android.webkit.WebView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ld6;
-import com.baidu.tieba.ug6;
+import com.baidu.tieba.gi6;
+import com.baidu.tieba.xe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class WebViewMapper extends LinkedHashMap<String, WebView> implements Map<String, WebView> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIZE = 8;
@@ -77,7 +77,7 @@ public class WebViewMapper extends LinkedHashMap<String, WebView> implements Map
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, entry)) == null) {
             if (size() > 8) {
                 if (entry != null && entry.getValue() != null) {
-                    ld6.c().f(entry.getValue());
+                    xe6.c().f(entry.getValue());
                     return true;
                 }
                 return true;
@@ -102,7 +102,7 @@ public class WebViewMapper extends LinkedHashMap<String, WebView> implements Map
                     webView = remove(str);
                 }
                 if (webView != null) {
-                    ug6.d(webView);
+                    gi6.d(webView);
                 }
             }
             return webView;

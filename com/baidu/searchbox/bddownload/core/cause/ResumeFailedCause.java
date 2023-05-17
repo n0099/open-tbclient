@@ -1,5 +1,5 @@
 package com.baidu.searchbox.bddownload.core.cause;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum ResumeFailedCause {
     INFO_DIRTY,
     FILE_NOT_EXIST,

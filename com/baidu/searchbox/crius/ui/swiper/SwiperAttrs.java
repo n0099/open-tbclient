@@ -1,7 +1,7 @@
 package com.baidu.searchbox.crius.ui.swiper;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwiperAttrs {
     public int autoPlay = 3000;
     public String id;

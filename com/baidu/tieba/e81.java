@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes5.dex */
 public interface e81 {
-    void onHideLoading();
+    boolean a(@NonNull d81 d81Var, @NonNull String str);
 
-    void onLoadFailure();
-
-    void onLoadSuccess();
+    void b(@NonNull d81 d81Var, @NonNull String str);
 }

@@ -13,7 +13,7 @@ import com.huawei.hms.support.log.HMSLog;
 import java.sql.Timestamp;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FailedBinderCallBack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AGING_TIME = 10000;
@@ -24,7 +24,7 @@ public class FailedBinderCallBack {
     public static FailedBinderCallBack instance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BinderCallBack {
         void binderCallBack(int i);
     }

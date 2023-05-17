@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
-/* loaded from: classes5.dex */
-public class m57 {
+import tbclient.BawuRoleInfoPub;
+/* loaded from: classes6.dex */
+public class m57 implements t57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<in> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public ArrayList<BawuRoleInfoPub> a;
+    public boolean b;
+    public boolean c;
+    public String d;
+
+    @Override // com.baidu.tieba.t57
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
 
     public m57() {
         Interceptable interceptable = $ic;
@@ -36,45 +41,72 @@ public class m57 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
+        this.a = new ArrayList<>();
+        this.b = false;
+        this.c = false;
     }
 
-    public List<in> a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(qr6 qr6Var) {
+    public ArrayList<BawuRoleInfoPub> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qr6Var) == null) {
-            String str = qr6Var.d;
-            this.c = qr6Var.c;
-            List<RecommendForumInfo> list = qr6Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    l57 l57Var = new l57();
-                    l57Var.j(recommendForumInfo);
-                    this.a.add(l57Var);
-                }
-            }
-            Page page = this.c;
-            if (page != null) {
-                boolean z = true;
-                if (page.has_more.intValue() != 1) {
-                    z = false;
-                }
-                this.d = z;
-                this.e = this.c.current_page.intValue();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public void h(ArrayList<BawuRoleInfoPub> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
         }
     }
 }

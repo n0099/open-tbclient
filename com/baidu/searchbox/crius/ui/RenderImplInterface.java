@@ -1,7 +1,7 @@
 package com.baidu.searchbox.crius.ui;
 
 import com.baidu.searchbox.crius.parser.CriusData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface RenderImplInterface {
     void insertChild(CriusData criusData, int i);
 

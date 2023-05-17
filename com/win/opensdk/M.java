@@ -21,6 +21,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +44,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class M {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -489,7 +490,7 @@ public class M {
         Uri fromFile;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, info, context, str)) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             try {
                 try {
                     if (Build.VERSION.SDK_INT == 23) {
@@ -504,7 +505,7 @@ public class M {
                     intent.setFlags(268435457);
                     fromFile = FileProvider.getUriForFile(context, context.getApplicationInfo().packageName + ".fileProvider", new File(str));
                 } else {
-                    intent.setAction("android.intent.action.VIEW");
+                    intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
                     intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     fromFile = Uri.fromFile(new File(str));
                 }

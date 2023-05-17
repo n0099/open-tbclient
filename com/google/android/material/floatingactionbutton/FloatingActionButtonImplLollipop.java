@@ -26,7 +26,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     @Override // com.google.android.material.floatingactionbutton.FloatingActionButtonImpl
     public void jumpDrawableToCurrentState() {
@@ -41,7 +41,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public void updateFromViewRotation() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class AlwaysStatefulMaterialShapeDrawable extends MaterialShapeDrawable {
         @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
         public boolean isStateful() {
@@ -69,7 +69,7 @@ public class FloatingActionButtonImplLollipop extends FloatingActionButtonImpl {
     public BorderDrawable createBorderDrawable(int i, ColorStateList colorStateList) {
         Context context = this.f1073view.getContext();
         BorderDrawable borderDrawable = new BorderDrawable((ShapeAppearanceModel) Preconditions.checkNotNull(this.shapeAppearance));
-        borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605c4), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605c3), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605c1), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605c2));
+        borderDrawable.setGradientColors(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070c), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070b), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060709), ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06070a));
         borderDrawable.setBorderWidth(i);
         borderDrawable.setBorderTint(colorStateList);
         return borderDrawable;

@@ -26,7 +26,7 @@ import java.util.Formatter;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultTimeBar extends View implements TimeBar {
     public static final int DEFAULT_AD_MARKER_COLOR = -1291845888;
     public static final int DEFAULT_AD_MARKER_WIDTH_DP = 4;

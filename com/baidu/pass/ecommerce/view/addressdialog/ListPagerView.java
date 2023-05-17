@@ -16,7 +16,7 @@ import com.baidu.sapi2.ecommerce.result.AddrSelectorRequestParam;
 import com.baidu.sapi2.ecommerce.result.AddressBean;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerListAdapter.OnAddressSelectedListener {
     public static final int REQUEST_ACTION = 101;
     public static final String REQUEST_PARAM_CHINA = "CHN";
@@ -35,13 +35,13 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
     public RecyclerView mRecyclerView;
     public String mSelectedAddressId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnEntitySelectedListener {
         void onEntitySelected(int i, AddressBean addressBean);
     }
 
     /* renamed from: com.baidu.pass.ecommerce.view.addressdialog.ListPagerView$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$addressdialog$ViewStatus;
 
@@ -93,10 +93,10 @@ public class ListPagerView extends BaseMvpView implements IBaseView, AddrPagerLi
         this.mPresenter = addrListPagerPresenter;
         addrListPagerPresenter.attachView(this);
         this.mDataEntity = new ElementNode.AddressEntity();
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0536, this);
-        this.mEmptyView = (TextView) findViewById(R.id.obfuscated_res_0x7f091f59);
-        this.mLoadingView = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091f20);
-        this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f39);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0553, this);
+        this.mEmptyView = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb6);
+        this.mLoadingView = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091f7c);
+        this.mRecyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f95);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.mContext);
         this.mLinearLayoutManager = linearLayoutManager;
         this.mRecyclerView.setLayoutManager(linearLayoutManager);

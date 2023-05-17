@@ -1,90 +1,248 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class d56 extends vm<h56, SdkDoubleLiveViewHolder> {
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class d56 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public l66 b;
-    public int c;
-    public boolean d;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public d56(TbPageContext tbPageContext, int i, boolean z) {
-        super(r0, r1);
-        BdUniqueId bdUniqueId;
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ g93 c;
+        public final /* synthetic */ d56 d;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public a(d56 d56Var, String str, CallbackHandler callbackHandler, g93 g93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d56Var, str, callbackHandler, g93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = d56Var;
+            this.a = str;
+            this.b = callbackHandler;
+            this.c = g93Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.d.n(response, this.a, this.b, this.c);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d56(da3 da3Var) {
+        super(da3Var, "/swanAPI/navigateToProgram");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Activity pageActivity = tbPageContext.getPageActivity();
-        if (z) {
-            bdUniqueId = h56.d;
-        } else {
-            bdUniqueId = h56.c;
-        }
-        this.a = tbPageContext;
-        this.c = i;
-        this.d = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else {
+                String g0 = g93.g0();
+                if (!TextUtils.isEmpty(g0) && !TextUtils.isEmpty(g0.trim())) {
+                    String optString = optParamsAsJo.optString("cb");
+                    if (TextUtils.isEmpty(optString)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                        return false;
+                    }
+                    String optString2 = optParamsAsJo.optString("path");
+                    if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
+                        k56.j(context, unitedSchemeEntity.getParam("params"));
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    Request l = l(g0, optParamsAsJo);
+                    if (l == null) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                        return false;
+                    }
+                    m(l.body(), unitedSchemeEntity, optString, callbackHandler, g93Var);
+                    return true;
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final Uri k(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new l66(this.a, viewGroup, this.c, this.d);
-            return new SdkDoubleLiveViewHolder(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
+            String schemeHead = SchemeConfig.getSchemeHead();
+            if (TextUtils.isEmpty(schemeHead)) {
+                schemeHead = BaiduIdentityManager.VALUE_OSNAME;
+            }
+            buildUpon.scheme(schemeHead);
+            if (db3.b) {
+                Log.i("NavigateToSmartProgram", buildUpon.build().toString());
+            }
+            return buildUpon.build();
         }
-        return (SdkDoubleLiveViewHolder) invokeL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h56 h56Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
-        InterceptResult invokeCommon;
-        l66 l66Var;
+    public final Request l(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h56Var, sdkDoubleLiveViewHolder})) == null) {
-            if (sdkDoubleLiveViewHolder != null && (l66Var = sdkDoubleLiveViewHolder.a) != null) {
-                l66Var.i(h56Var);
-                sdkDoubleLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return sdkDoubleLiveViewHolder.getView();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                String b = gz2.b(an3.n());
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+                    jSONObject2.put("srcAppPage", b);
+                    jSONObject2.put("params", jSONObject);
+                    Request build = new Request.Builder().url(ns2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                    if (db3.b) {
+                        Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
+                    }
+                    return build;
+                } catch (Exception e) {
+                    if (db3.b) {
+                        e.printStackTrace();
+                    }
+                }
             }
             return null;
         }
-        return (View) invokeCommon.objValue;
+        return (Request) invokeLL.objValue;
+    }
+
+    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, g93 g93Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, g93Var) == null) {
+            jg4 jg4Var = new jg4(ns2.o().I(), requestBody, new a(this, str, callbackHandler, g93Var));
+            jg4Var.f = true;
+            jg4Var.g = false;
+            jg4Var.h = true;
+            kg4.g().e(jg4Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
+    }
+
+    public final void n(Response response, String str, CallbackHandler callbackHandler, g93 g93Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, g93Var) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(response.body().string());
+                if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                    return;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                    return;
+                }
+                Uri k = k(optJSONObject.optString("scheme"));
+                if (k == null) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                    return;
+                }
+                if (SchemeRouter.invokeScheme(g93Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    i = 0;
+                } else {
+                    i = 1001;
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+            } catch (Exception e) {
+                if (db3.b) {
+                    Log.d("NavigateToSmartProgram", e.getMessage());
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
+            }
+        }
     }
 }

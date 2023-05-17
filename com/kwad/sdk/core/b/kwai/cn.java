@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import android.net.http.Headers;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class cn implements com.kwad.sdk.core.d<com.kwad.components.a.kwai.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.components.a.kwai.a aVar, JSONObject jSONObject) {

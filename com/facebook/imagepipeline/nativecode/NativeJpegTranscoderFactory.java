@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.transcoder.ImageTranscoder;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeJpegTranscoderFactory implements ImageTranscoderFactory {
     public final boolean mEnsureTranscoderLibraryLoaded;
     public final int mMaxBitmapSize;

@@ -4,13 +4,13 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsHandlerTask implements ITimerTask {
     public static final int REFRESH_ACTION = 1;
     public final PrivateHandler mHandler = new PrivateHandler(Looper.getMainLooper());
     public int mInterval = 500;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class PrivateHandler extends Handler {
         public PrivateHandler(Looper looper) {
             super(looper);

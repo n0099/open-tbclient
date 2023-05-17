@@ -1,25 +1,25 @@
 package com.kwad.components.core.webview.b;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements com.kwad.sdk.core.webview.kwai.a {
-    public InterfaceC0609a Nb;
+    public InterfaceC0623a Nb;
 
     /* renamed from: com.kwad.components.core.webview.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0609a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0623a {
         void ii();
     }
 
-    public a(InterfaceC0609a interfaceC0609a) {
-        this.Nb = interfaceC0609a;
+    public a(InterfaceC0623a interfaceC0623a) {
+        this.Nb = interfaceC0623a;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        InterfaceC0609a interfaceC0609a = this.Nb;
-        if (interfaceC0609a != null) {
-            interfaceC0609a.ii();
+        InterfaceC0623a interfaceC0623a = this.Nb;
+        if (interfaceC0623a != null) {
+            interfaceC0623a.ii();
         }
     }
 

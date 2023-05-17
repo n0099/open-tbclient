@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.tieba.of3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,16 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class ye3 extends af3 {
+import java.io.File;
+import java.util.Arrays;
+import java.util.Locale;
+/* loaded from: classes8.dex */
+public class ye3 implements SoUtils.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
-    public static int y;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean v;
-    public JSONObject w;
 
     static {
         InterceptResult invokeClinit;
@@ -36,8 +36,7 @@ public class ye3 extends af3 {
                 return;
             }
         }
-        x = ho1.a;
-        y = 35;
+        a = qp1.a;
     }
 
     public ye3() {
@@ -50,163 +49,47 @@ public class ye3 extends af3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.v = false;
-        this.c = "NA";
     }
 
-    @Override // com.baidu.tieba.af3, com.baidu.tieba.ze3
-    public JSONObject f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            try {
-                if (this.w != null) {
-                    if (this.v) {
-                        String z = rl3.z(y);
-                        if (!TextUtils.isEmpty(z)) {
-                            this.w.put("stacktrace", z);
-                        }
-                    }
-                    if (this.w.length() != 0) {
-                        this.h.put("info", this.w);
-                    }
-                }
-                ExtensionCore T = re2.U().T();
-                if (T != null) {
-                    this.h.put("extension_ver", T.extensionCoreVersionName);
-                }
-            } catch (JSONException e) {
-                if (x) {
-                    e.printStackTrace();
-                }
-            }
-            return super.f();
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public ye3 l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (str != null && str2 != null) {
-                if (this.w == null) {
-                    this.w = new JSONObject();
-                }
-                try {
-                    this.w.put(str, str2);
-                } catch (JSONException e) {
-                    if (x) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return this;
-        }
-        return (ye3) invokeLL.objValue;
-    }
-
-    public ye3 m(String str) {
+    public final String a(String str) {
         InterceptResult invokeL;
+        String absolutePath;
+        long length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (ye3) invokeL.objValue;
-    }
-
-    public ye3 n(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.v = z;
-            return this;
-        }
-        return (ye3) invokeZ.objValue;
-    }
-
-    public ye3 o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.b = String.valueOf(i);
-            return this;
-        }
-        return (ye3) invokeI.objValue;
-    }
-
-    public ye3 p(@NonNull qj3 qj3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qj3Var)) == null) {
-            this.b = String.valueOf(qj3Var.a());
-            String sb = qj3Var.g().toString();
-            if (!TextUtils.isEmpty(sb)) {
-                l("detail", sb);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(ns2.c(), str);
+            if (findSoFilesInLibrary == null) {
+                absolutePath = null;
+            } else {
+                absolutePath = findSoFilesInLibrary.getAbsolutePath();
             }
-            return this;
+            if (findSoFilesInLibrary == null) {
+                length = 0;
+            } else {
+                length = findSoFilesInLibrary.length();
+            }
+            return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, absolutePath, Long.valueOf(length));
         }
-        return (ye3) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public ye3 q(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.swan.apps.so.SoUtils.a
+    public void onEvent(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.a = str;
-            return this;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || TextUtils.isEmpty(str2)) {
+            return;
         }
-        return (ye3) invokeL.objValue;
-    }
-
-    public ye3 s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.g = str;
-            return this;
+        String[] strArr = {Build.CPU_ABI, Build.CPU_ABI2};
+        String str3 = Arrays.toString(strArr) + "\n" + rp1.a() + "\n" + a("v8.engine") + "\n" + a("zeusv8") + "\n" + str2;
+        if (a) {
+            Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
         }
-        return (ye3) invokeL.objValue;
-    }
-
-    public ye3 t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (ye3) invokeL.objValue;
-    }
-
-    public ye3 r(xs2 xs2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, xs2Var)) == null) {
-            if (xs2Var == null) {
-                return this;
-            }
-            if (!TextUtils.isEmpty(xs2Var.T())) {
-                this.c = xs2Var.T();
-            }
-            if (!TextUtils.isEmpty(xs2Var.H())) {
-                this.f = xs2Var.H();
-            }
-            if (!TextUtils.isEmpty(xs2Var.W())) {
-                this.p = xs2Var.W();
-            }
-            if (!TextUtils.isEmpty(xs2Var.e0())) {
-                this.s = xs2Var.e0();
-            }
-            return this;
-        }
-        return (ye3) invokeL.objValue;
+        of3.b bVar = new of3.b(10007);
+        bVar.j(str);
+        bVar.i(str3);
+        bVar.h(g93.g0());
+        bVar.m();
     }
 }

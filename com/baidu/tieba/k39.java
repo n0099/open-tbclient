@@ -1,124 +1,135 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.util.SparseIntArray;
-import android.widget.LinearLayout;
+import android.app.Activity;
+import android.view.View;
 import android.widget.TextView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes5.dex */
-public class k39 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class k39 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity a;
+    public View b;
+    public TBLottieAnimationView c;
+    public TextView d;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862296, "Lcom/baidu/tieba/k39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947862296, "Lcom/baidu/tieba/k39;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947862296, "Lcom/baidu/tieba/k39;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947862296, "Lcom/baidu/tieba/k39;");
+        }
+    }
+
+    public k39(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new SparseIntArray();
+        this.a = activity;
     }
 
-    public static void a(SmallTailInfo smallTailInfo, TextView textView, SimpleDraweeView simpleDraweeView, LinearLayout linearLayout, boolean z, boolean z2, boolean z3, SmallTailThemeData smallTailThemeData) {
-        Uri b;
-        String str;
+    public final void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, simpleDraweeView, linearLayout, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), smallTailThemeData}) == null) && smallTailInfo != null && textView != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) simpleDraweeView.getLayoutParams();
-            int b2 = b(R.dimen.obfuscated_res_0x7f070207);
-            if (z2 && z3) {
-                layoutParams.setMargins(b2, 0, b2, b(R.dimen.obfuscated_res_0x7f070260));
-                layoutParams2.setMargins(b2, 0, 0, 0);
-            } else if (z) {
-                layoutParams.setMargins(0, 0, 0, 0);
-                layoutParams2.setMargins(0, 0, 0, 0);
-            } else if (!z2) {
-                layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070232), 0, b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
-                layoutParams2.setMargins(b(R.dimen.obfuscated_res_0x7f070232), 0, 0, 0);
-            } else {
-                layoutParams.setMargins(b2, 0, b2, b(R.dimen.obfuscated_res_0x7f0701b2));
-                layoutParams2.setMargins(b2, 0, 0, 0);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
-            textView.setLayoutParams(layoutParams);
-            textView.setText(spannableStringBuilder);
-            textView.setTextColor(smallTailInfo.showColorId);
-            if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTailDynamic())) {
-                b = Uri.parse(smallTailThemeData.getTailDynamic());
-            } else if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTailUrl())) {
-                b = Uri.parse(smallTailThemeData.getTailUrl());
-            } else {
-                b = fm6.b("pb_icon_tail.webp", "pb_icon_tail");
+            TextView textView = this.d;
+            if (textView != null) {
+                p45.d(textView).w(R.color.CAM_X0108);
             }
-            if (b == null) {
-                return;
-            }
-            if (!b.toString().equals(simpleDraweeView.getTag())) {
-                simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setUri(b).setAutoPlayAnimations(true).build());
-                simpleDraweeView.setTag(b.toString());
-                simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
-                simpleDraweeView.setLayoutParams(layoutParams2);
-                simpleDraweeView.setPadding(0, 0, b(R.dimen.obfuscated_res_0x7f070201), 0);
-                textView.setVisibility(0);
-                simpleDraweeView.setVisibility(0);
-                linearLayout.setVisibility(0);
-            }
-            StatisticItem param = new StatisticItem("c15026").param("uid", TbadkCoreApplication.getCurrentAccountId());
-            if (smallTailThemeData != null) {
-                str = smallTailThemeData.getPropsId();
-            } else {
-                str = "";
-            }
-            TiebaStatic.log(param.param("obj_id", str));
         }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = a.get(i, -1);
-            if (i2 == -1) {
-                int g = ii.g(TbadkCoreApplication.getInst().getContext(), i);
-                a.put(i, g);
-                return g;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
+                tBLottieAnimationView.cancelAnimation();
             }
-            return i2;
+            View view2 = this.b;
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            DefaultLog.getInstance().c("PbFragmentLoadingManager", "隐藏最上层loading");
         }
-        return invokeI.intValue;
     }
 
-    public static void c(SmallTailInfo smallTailInfo, TextView textView, SimpleDraweeView simpleDraweeView, LinearLayout linearLayout, boolean z, boolean z2, boolean z3, SmallTailThemeData smallTailThemeData) {
-        SpannableString spannableString;
+    public final Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, simpleDraweeView, linearLayout, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), smallTailThemeData}) == null) && smallTailInfo != null && (spannableString = smallTailInfo.tailSpannable) != null && spannableString.length() != 0 && textView != null) {
-            smallTailInfo.updateShowInfo();
-            a(smallTailInfo, textView, simpleDraweeView, linearLayout, z, z2, z3, smallTailThemeData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                Intrinsics.checkNotNull(tBLottieAnimationView);
+                if (tBLottieAnimationView.isAnimating()) {
+                    return;
+                }
+            }
+            if (view2 != null) {
+                this.b = view2;
+                if (view2 != null) {
+                    view2.setVisibility(0);
+                }
+                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092700);
+                this.c = tBLottieAnimationView2;
+                if (tBLottieAnimationView2 != null) {
+                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
+                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
+                    if (tBLottieAnimationView3 != null) {
+                        tBLottieAnimationView3.setRepeatCount(-1);
+                    }
+                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
+                    if (tBLottieAnimationView4 != null) {
+                        tBLottieAnimationView4.setSpeed(1.2f);
+                    }
+                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
+                    if (tBLottieAnimationView5 != null) {
+                        tBLottieAnimationView5.playAnimation();
+                    }
+                }
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092701);
+            }
+            DefaultLog.getInstance().c("PbFragmentLoadingManager", "显示最上层loading");
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.backUser;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.er4;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BackUserHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public er4 mData;
+    public ns4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserHTTPResMsg() {
@@ -36,13 +36,13 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public er4 getData() {
+    public ns4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (er4) invokeV.objValue;
+        return (ns4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,9 +57,9 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
                 setErrorString(backUserResIdl.error.usermsg);
             }
             if (backUserResIdl.data != null) {
-                er4 er4Var = new er4();
-                this.mData = er4Var;
-                er4Var.a(backUserResIdl.data);
+                ns4 ns4Var = new ns4();
+                this.mData = ns4Var;
+                ns4Var.a(backUserResIdl.data);
             }
         }
     }

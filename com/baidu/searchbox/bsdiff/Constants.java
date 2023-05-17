@@ -1,5 +1,5 @@
 package com.baidu.searchbox.bsdiff;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Constants {
     public static final int PATCH_FAIL = 1;
     public static final int PATCH_FAIL_MD5 = 2;

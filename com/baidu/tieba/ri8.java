@@ -1,49 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ri8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+/* loaded from: classes7.dex */
+public interface ri8 {
+    a getParallelCharge();
 
-    public ri8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public ArrayList<String> c;
+        public ArrayList<String> d;
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONObject optJSONObject = jSONObject.optJSONObject("error");
-        if (optJSONObject != null) {
-            optJSONObject.optInt("errno");
-            String optString = optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            this.a = optString;
-            if (!StringUtils.isNull(optString)) {
-                this.a = optJSONObject.optString("errmsg");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.c = new ArrayList<>();
+            this.d = new ArrayList<>();
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-        if (optJSONObject2 != null) {
-            optJSONObject2.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
+
+        public void a(JSONObject jSONObject) {
+            JSONArray optJSONArray;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("ad_monitor_url")) != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("show_url");
+                        if (!TextUtils.isEmpty(optString)) {
+                            this.c.add(optString);
+                        }
+                        String optString2 = optJSONObject.optString("click_url");
+                        if (!TextUtils.isEmpty(optString2)) {
+                            this.d.add(optString2);
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FrescoImageLoader implements ImageLoader {
     public static final boolean DEBUG = false;
     public static final String TAG = "FrescoImageLoader";

@@ -29,6 +29,7 @@ import com.baidu.sapi2.utils.SapiDeviceInfo;
 import com.baidu.sapi2.utils.SapiEnv;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
+import com.baidu.searchbox.permission.DangerousPermissionStatistic;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
@@ -36,7 +37,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BiometricsManager implements NoProguard {
     public static final String LIVENESS_RECOGNIZE_TYPE_AUTHTOKEN = "authtoken";
     public static final String LIVENESS_RECOGNIZE_TYPE_BDUSS = "bduss";
@@ -50,7 +51,7 @@ public class BiometricsManager implements NoProguard {
     public static final String c = "scene:uncertlogin";
     public static BiometricsManager d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends PassFaceRecogCallback {
         public final /* synthetic */ PassFaceRecogCallback a;
 
@@ -73,7 +74,7 @@ public class BiometricsManager implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends ClickableSpan {
         public final /* synthetic */ boolean a;
         public final /* synthetic */ Activity b;
@@ -105,7 +106,7 @@ public class BiometricsManager implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public final /* synthetic */ PassBiometric a;
         public final /* synthetic */ PassFaceOperation b;
@@ -127,11 +128,11 @@ public class BiometricsManager implements NoProguard {
         public void onClick(View view2) {
             BiometricsManager.this.a(this.a, this.b, this.c, this.d, this.e);
             SapiContext.getInstance().setIsAlreadyShowExplainCamera(true);
-            SapiStatUtil.statExplainCamera("agree", this.f);
+            SapiStatUtil.statExplainCamera(DangerousPermissionStatistic.UBC_TYPE_VALUE_AGREE, this.f);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public final /* synthetic */ PassFaceRecogCallback a;
         public final /* synthetic */ String b;
@@ -144,13 +145,13 @@ public class BiometricsManager implements NoProguard {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-            passFaceRecogResult.setResultCode(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+            passFaceRecogResult.setResultCode(-307);
             this.a.onFailure(passFaceRecogResult);
             SapiStatUtil.statExplainCamera("refuse", this.b);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e {
         public static final String p = "bduss";
         public static final String q = "certinfo";
@@ -207,7 +208,7 @@ public class BiometricsManager implements NoProguard {
         }
         if (activity == null) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
-            passFaceRecogResult.setResultCode(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+            passFaceRecogResult.setResultCode(-307);
             passFaceRecogCallback.onFailure(passFaceRecogResult);
             return true;
         } else if (!activity.isFinishing() && (Build.VERSION.SDK_INT < 17 || !activity.isDestroyed())) {
@@ -218,7 +219,7 @@ public class BiometricsManager implements NoProguard {
             return true;
         } else {
             PassFaceRecogResult passFaceRecogResult2 = new PassFaceRecogResult();
-            passFaceRecogResult2.setResultCode(PassFaceRecogResult.ERROR_CODE_MAY_BE_NO_CAMERA_PERMISSION);
+            passFaceRecogResult2.setResultCode(-307);
             passFaceRecogCallback.onFailure(passFaceRecogResult2);
             return true;
         }

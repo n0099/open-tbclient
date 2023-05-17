@@ -18,10 +18,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ImageUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac6;
-import com.baidu.tieba.ec6;
-import com.baidu.tieba.yb6;
-import com.baidu.tieba.zb6;
+import com.baidu.tieba.kd6;
+import com.baidu.tieba.ld6;
+import com.baidu.tieba.md6;
+import com.baidu.tieba.qd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,25 +30,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CameraView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public ac6 b;
+    public md6 b;
     public View c;
     public MaskView d;
     public ImageView e;
     public TextView f;
     public LinearLayout g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(Bitmap bitmap);
     }
@@ -100,15 +100,15 @@ public class CameraView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements ac6.b {
+    /* loaded from: classes4.dex */
+    public class b implements md6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public File a;
         public c b;
         public final /* synthetic */ CameraView c;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -163,11 +163,11 @@ public class CameraView extends FrameLayout {
             this.c = cameraView;
         }
 
-        @Override // com.baidu.tieba.ac6.b
+        @Override // com.baidu.tieba.md6.b
         public void a(byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-                zb6.c(new a(this, bArr));
+                ld6.c(new a(this, bArr));
             }
         }
 
@@ -346,9 +346,9 @@ public class CameraView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            yb6 yb6Var = new yb6(getContext());
-            this.b = yb6Var;
-            View a2 = yb6Var.a();
+            kd6 kd6Var = new kd6(getContext());
+            this.b = kd6Var;
+            View a2 = kd6Var.a();
             this.c = a2;
             addView(a2);
             MaskView maskView = new MaskView(getContext());
@@ -360,13 +360,13 @@ public class CameraView extends FrameLayout {
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.g = linearLayout;
             linearLayout.setOrientation(1);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ec6.a(25));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, qd6.a(25));
             layoutParams.gravity = 17;
             TextView textView = new TextView(getContext());
             this.f = textView;
-            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08020b);
+            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f080249);
             this.f.setAlpha(0.5f);
-            this.f.setPadding(ec6.a(10), 0, ec6.a(10), 0);
+            this.f.setPadding(qd6.a(10), 0, qd6.a(10), 0);
             this.g.addView(this.f, layoutParams);
             this.f.setGravity(17);
             this.f.setTextColor(-1);
@@ -392,13 +392,13 @@ public class CameraView extends FrameLayout {
         }
     }
 
-    public ac6 getCameraControl() {
+    public md6 getCameraControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.b;
         }
-        return (ac6) invokeV.objValue;
+        return (md6) invokeV.objValue;
     }
 
     public void g(File file, c cVar) {
@@ -417,10 +417,10 @@ public class CameraView extends FrameLayout {
             int i5 = i4 - i2;
             this.c.layout(i, 0, i3, i5);
             this.d.layout(i, 0, i3, i5);
-            int a2 = ec6.a(250);
-            int a3 = ec6.a(25);
+            int a2 = qd6.a(250);
+            int a3 = qd6.a(25);
             int width = (getWidth() - a2) / 2;
-            int a4 = this.d.getFrameRect().bottom + ec6.a(16);
+            int a4 = this.d.getFrameRect().bottom + qd6.a(16);
             int i6 = a2 + width;
             int i7 = a3 + a4;
             this.g.layout(width, a4, i6, i7);
@@ -435,11 +435,11 @@ public class CameraView extends FrameLayout {
             boolean z = false;
             this.d.setVisibility(0);
             this.e.setVisibility(0);
-            int i2 = R.drawable.obfuscated_res_0x7f08020b;
+            int i2 = R.drawable.obfuscated_res_0x7f080249;
             if (i != 1 && i != 2) {
                 this.d.setVisibility(4);
                 this.e.setVisibility(4);
-                i2 = R.drawable.obfuscated_res_0x7f080205;
+                i2 = R.drawable.obfuscated_res_0x7f080243;
                 z = true;
             }
             if (z) {

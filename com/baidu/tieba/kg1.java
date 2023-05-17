@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class kg1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static String b;
-    public static int c;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.widget.ImageView;
+/* loaded from: classes6.dex */
+public interface kg1 {
+    void a(ImageView imageView, String str);
 }

@@ -16,7 +16,7 @@ import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ElementLayer<T extends ViewGroup, S extends AbsElement> extends AbsLayer implements View.OnClickListener {
     public T mContainer;
     public final ArrayList<S> mElements;

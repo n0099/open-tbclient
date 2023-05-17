@@ -2,17 +2,17 @@ package com.baidu.searchbox.aideviceperformance.data;
 
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBItemModel {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UserStickinessItemModel {
         public static final int DEFAULT_COUNT = 0;
         public static final long DEFAULT_FIRST_TIME = 0;
         public HashMap<String, ItemDetailModel> mIdToItemDetailMap;
         public long timeStamp;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class ItemDetailModel {
             public int count;
             public long firstTime;
@@ -57,7 +57,7 @@ public class DBItemModel {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LaunchTimeItemModel {
         public long launchTime;
         public long timeStamp;

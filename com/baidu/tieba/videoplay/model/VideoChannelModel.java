@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoChannelModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_CALL_FROM_FRS = "client_frs";
@@ -42,7 +42,7 @@ public class VideoChannelModel extends BdBaseModel {
     public HttpMessageListener f;
     public final CustomMessageListener g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(List<VideoItemData> list, boolean z);
 
@@ -53,7 +53,7 @@ public class VideoChannelModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -75,7 +75,7 @@ public class VideoChannelModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,13 +131,13 @@ public class VideoChannelModel extends BdBaseModel {
                             this.a.b.b(arrayList);
                         }
                     }
-                    VideoChannelModel.W(this.a);
+                    VideoChannelModel.V(this.a);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,7 +173,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ii.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d30));
+                ri.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0db6));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -181,7 +181,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             this.a.d = true;
-            this.a.d0();
+            this.a.c0();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.e)));
         }
     }
@@ -198,7 +198,7 @@ public class VideoChannelModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -217,20 +217,20 @@ public class VideoChannelModel extends BdBaseModel {
         registerListener(this.g);
     }
 
-    public static /* synthetic */ int W(VideoChannelModel videoChannelModel) {
+    public static /* synthetic */ int V(VideoChannelModel videoChannelModel) {
         int i = videoChannelModel.c;
         videoChannelModel.c = i + 1;
         return i;
     }
 
-    public void e0(int i) {
+    public void d0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.e = i;
         }
     }
 
-    public void f0(c cVar) {
+    public void e0(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.b = cVar;
@@ -243,26 +243,26 @@ public class VideoChannelModel extends BdBaseModel {
             if (this.c < 2) {
                 this.c = 2;
             }
-            sendMessage(c0(2));
+            sendMessage(b0(2));
         }
     }
 
-    public void d0() {
+    public void c0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.c = 1;
-            sendMessage(c0(1));
+            sendMessage(b0(1));
         }
     }
 
-    public final HttpMessage c0(int i) {
+    public final HttpMessage b0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
-            httpMessage.addParam("scr_w", ii.l(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_h", ii.j(TbadkCoreApplication.getInst()));
-            httpMessage.addParam("scr_dip", Float.valueOf(ii.i(TbadkCoreApplication.getInst())));
+            httpMessage.addParam("scr_w", ri.l(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_h", ri.j(TbadkCoreApplication.getInst()));
+            httpMessage.addParam("scr_dip", Float.valueOf(ri.i(TbadkCoreApplication.getInst())));
             httpMessage.addParam("new_net_type", BdNetTypeUtil.netType());
             httpMessage.addParam("load_type", i);
             return httpMessage;

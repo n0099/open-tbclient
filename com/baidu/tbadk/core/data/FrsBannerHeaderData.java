@@ -12,7 +12,7 @@ import java.io.Serializable;
 import tbclient.FrsPage.FrsBannerHeader;
 import tbclient.IconUrlInfo;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsBannerHeaderData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4453004151548171098L;

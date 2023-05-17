@@ -3,7 +3,7 @@ package com.huawei.hms.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.KeyEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IBridgeActivityDelegate {
     int getRequestCode();
 

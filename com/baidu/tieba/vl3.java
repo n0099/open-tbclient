@@ -1,96 +1,41 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.um3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes6.dex */
-public class vl3 implements al4 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class vl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vl3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-342710994, "Lcom/baidu/tieba/vl3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-342710994, "Lcom/baidu/tieba/vl3$b;");
-                    return;
-                }
-            }
-            a = new vl3(null);
-        }
-    }
-
-    public vl3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static vl3 b() {
+    @Nullable
+    public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<um3.a> d = yt2.d();
+            if (d != null && d.size() > 0) {
+                File file = new File(d.get(0).a, "/debug/");
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                return file;
+            }
+            return null;
         }
-        return (vl3) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public /* synthetic */ vl3(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.al4
-    public boolean a(@NonNull String str, @NonNull int i) {
-        InterceptResult invokeLI;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return false;
-                }
-                File file = new File(fr2.g().b(), str);
-                if (!file.exists() || !file.isDirectory()) {
-                    return false;
-                }
-                return true;
-            }
-            File file2 = new File(tq2.g(), str);
-            if (!file2.exists() || !file2.isDirectory()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(yt2.d().get(0).a, "/debug/").getAbsolutePath();
         }
-        return invokeLI.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

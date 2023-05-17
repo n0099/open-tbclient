@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+import com.baidu.searchbox.IntentConstants;
+/* loaded from: classes9.dex */
 public final class zzt {
     public static final Uri zza;
     public static final Uri zzb;
@@ -22,7 +23,7 @@ public final class zzt {
     }
 
     public static Intent zzb(String str, @Nullable String str2) {
-        Intent intent = new Intent("android.intent.action.VIEW");
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         Uri.Builder appendQueryParameter = Uri.parse("market://details").buildUpon().appendQueryParameter("id", "com.google.android.gms");
         if (!TextUtils.isEmpty(str2)) {
             appendQueryParameter.appendQueryParameter("pcampaignid", str2);

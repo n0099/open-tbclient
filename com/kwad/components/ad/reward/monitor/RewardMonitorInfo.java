@@ -5,7 +5,7 @@ import com.kwad.sdk.utils.r;
 import java.io.Serializable;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RewardMonitorInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final int DOWNLOAD_TYPE_ALL = 2;
     public static final int DOWNLOAD_TYPE_ONLINE = 1;

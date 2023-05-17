@@ -1,45 +1,96 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class nh0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class nh0 implements rn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
-        InterceptResult invokeLLLL;
-        String str3;
-        String str4;
+    @Override // com.baidu.tieba.rn0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
-            if (map != null) {
-                str3 = map.get(str);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = map.get("default");
-                }
-            } else {
-                str3 = null;
-            }
-            if (!TextUtils.isEmpty(str3)) {
-                str = str3;
-            }
-            if (map2 != null) {
-                str4 = map2.get(str);
-            } else {
-                str4 = null;
-            }
-            if (TextUtils.equals(str4, "__CMD_NONE__")) {
-                return null;
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                return str4;
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
         }
-        return (String) invokeLLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    public nh0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            gm0.a().a(new nm0(true));
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            gm0.a().a(new nm0(false));
+        }
     }
 }

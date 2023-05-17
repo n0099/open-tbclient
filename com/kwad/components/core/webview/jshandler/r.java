@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class r implements com.kwad.sdk.core.webview.kwai.a {
     public final WebView Fv;
     public Handler Ll;
@@ -19,7 +19,7 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
     @Nullable
     public b bK;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public int bottomMargin;
         public int height;
@@ -48,7 +48,7 @@ public final class r implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         @MainThread
         void a(@NonNull a aVar);

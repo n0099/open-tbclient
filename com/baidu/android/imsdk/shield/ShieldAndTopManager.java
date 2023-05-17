@@ -823,7 +823,7 @@ public class ShieldAndTopManager {
                 chatSession.setMarkTopTime(getShieldAndTopResult.getMarkTopTime());
                 chatSession.setDisturb(getShieldAndTopResult.getDisturbStatus());
                 chatSession.setShieldTypes(getShieldAndTopResult.getShieldTypes());
-                if ((chatSession.getContacter() & Constants.PAFLAG) == 0) {
+                if ((chatSession.getContacter() & 17592186044416L) == 0) {
                     ChatUserDBManager.getInstance(this.mContext).updateShield(chatSession, true, getShieldAndTopResult.ismValidShieldStatus());
                 } else {
                     PaInfoDBManager.getInstance(this.mContext).updateShield(chatSession, true, getShieldAndTopResult.ismValidShieldStatus());

@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GradientLineOptions extends OverlayOptions {
     public List<LatLng> a;
     public List<Integer> b;
@@ -11,7 +11,7 @@ public class GradientLineOptions extends OverlayOptions {
     public boolean e = true;
     public LineDirectionCross180 f = LineDirectionCross180.NONE;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LineDirectionCross180 {
         NONE,
         FROM_EAST_TO_WEST,

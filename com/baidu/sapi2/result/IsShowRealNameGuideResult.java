@@ -2,7 +2,7 @@ package com.baidu.sapi2.result;
 
 import com.baidu.sapi2.NoProguard;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IsShowRealNameGuideResult extends SapiResult implements NoProguard {
     public static final int CODE_BUSINESS_RESULT_OK = 110000;
     public static final int CODE_BUSINESS_RESULT_USER_OFFLINE = 400021;

@@ -1,32 +1,17 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class iu4 implements xf6 {
+/* loaded from: classes6.dex */
+public class iu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        wf6.a(this, webView, str, jSONObject);
-    }
-
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void onDestroy() {
-        wf6.b(this);
-    }
+    public String a;
+    public int b;
 
     public iu4() {
         Interceptable interceptable = $ic;
@@ -42,66 +27,47 @@ public class iu4 implements xf6 {
         }
     }
 
-    @Override // com.baidu.tieba.xf6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.GET_CLIPPER_INFORMATION.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.SET_CLIPPER_INFORMATION.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(d(webView, new JSONObject(str3).optString("txt")).a());
-                    return true;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return invokeLLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public hq9 c(WebView webView) {
-        InterceptResult invokeL;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            hq9 hq9Var = new hq9();
-            String clipBoardContent = UtilHelper.getClipBoardContent();
-            int i = !hi.isEmpty(clipBoardContent) ? 1 : 0;
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                jSONObject.put("data", clipBoardContent);
-                hq9Var.o(jSONObject.toString());
-                return hq9Var;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return hq9Var;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (hq9) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public hq9 d(WebView webView, String str) {
-        InterceptResult invokeLL;
+    public iu4(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            hq9 hq9Var = new hq9();
-            yh.a(str);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                hq9Var.o(jSONObject.toString());
-                return hq9Var;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return hq9Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (hq9) invokeLL.objValue;
+        this.a = str;
+        this.b = i;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
     }
 }

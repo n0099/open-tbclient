@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class MediaChunk extends Chunk {
     public final int chunkIndex;
 

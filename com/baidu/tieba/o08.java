@@ -1,84 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<p08> a;
-    public List<p08> b;
 
-    public o08() {
+    public static hp5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
+            try {
+                hp5 hp5Var = new hp5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(hp5Var);
+                return hp5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
+        return (hp5) invokeIL.objValue;
     }
 
-    @NonNull
-    public List<p08> a() {
-        InterceptResult invokeV;
+    public static ip5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.a)) {
-                arrayList.addAll(this.a);
-            }
-            if (!ListUtils.isEmpty(this.b)) {
-                arrayList.addAll(this.b);
-            }
-            return arrayList;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            ip5 ip5Var = new ip5(i);
+            ip5Var.setResponsedClass(cls);
+            ip5Var.h(z);
+            ip5Var.setParallel(TiebaIMConfig.getParallel());
+            MessageManager.getInstance().registerTask(ip5Var);
+            return ip5Var;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public void b(@Nullable JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = c(jSONObject, "tieba_memes");
-        this.b = c(jSONObject, "outer_memes");
-    }
-
-    @Nullable
-    public final List<p08> c(@NonNull JSONObject jSONObject, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray(str);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    p08 p08Var = new p08();
-                    p08Var.a(optJSONArray.optJSONObject(i));
-                    if (p08Var.isValid()) {
-                        arrayList.add(p08Var);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeLL.objValue;
+        return (ip5) invokeCommon.objValue;
     }
 }

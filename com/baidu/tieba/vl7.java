@@ -1,110 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.bt4;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
-import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class vl7 {
+/* loaded from: classes7.dex */
+public class vl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final VoiceRoomListNetModel a;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements NetModel.k<tl7, ul7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at4<List<VoiceRoomWrapper>> a;
-
-        public a(at4<List<VoiceRoomWrapper>> at4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {at4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = at4Var;
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.NetModel.m
-        public void A(MvcSocketResponsedMessage<ul7, ?> mvcSocketResponsedMessage, MvcSocketMessage<tl7, ul7> mvcSocketMessage, MvcNetMessage<tl7, ul7> mvcNetMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
-                if (mvcSocketResponsedMessage.getError() == 0) {
-                    this.a.a(new bt4.c(mvcSocketResponsedMessage.getData().a()));
-                    return;
-                }
-                at4<List<VoiceRoomWrapper>> at4Var = this.a;
-                String errorString = mvcSocketResponsedMessage.getErrorString();
-                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                at4Var.a(new bt4.a(errorString, null, 2, null));
-            }
-        }
-
-        @Override // com.baidu.tbadk.mvc.model.NetModel.l
-        public void M(MvcHttpResponsedMessage<ul7> mvcHttpResponsedMessage, MvcHttpMessage<tl7, ul7> mvcHttpMessage, MvcNetMessage<tl7, ul7> mvcNetMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
-                if (mvcHttpResponsedMessage.getError() == 0) {
-                    this.a.a(new bt4.c(mvcHttpResponsedMessage.getData().a()));
-                    return;
-                }
-                at4<List<VoiceRoomWrapper>> at4Var = this.a;
-                String errorString = mvcHttpResponsedMessage.getErrorString();
-                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
-                at4Var.a(new bt4.a(errorString, null, 2, null));
-            }
-        }
-    }
-
-    public vl7() {
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
+            if (!z || frsFragment == null || TextUtils.isEmpty(str) || !frsFragment.isAdded() || !zl7.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+                return true;
             }
+            Intent intent = new Intent();
+            intent.putExtra("class", 2);
+            intent.putExtra("fname", str);
+            intent.putExtra(str2, "short_cut");
+            frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+            return false;
         }
-        this.a = new VoiceRoomListNetModel();
-    }
-
-    public final void a(TbPageContext<?> tbPageContext, long j, long j2, at4<List<VoiceRoomWrapper>> callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
-            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-            Intrinsics.checkNotNullParameter(callback, "callback");
-            tl7 tl7Var = new tl7(j, j2);
-            this.a.setUniqueId(tbPageContext.getUniqueId());
-            this.a.y0(tl7Var);
-            this.a.x0(new a(callback));
-            this.a.loadData();
-            callback.a(new bt4.b(null, 1, null));
-        }
+        return invokeCommon.booleanValue;
     }
 }

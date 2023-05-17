@@ -1,227 +1,194 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k7b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.collections.builders.MapBuilder;
-/* loaded from: classes6.dex */
-public final class s7b<T> {
+import java.util.concurrent.TimeUnit;
+import rx.exceptions.OnErrorNotImplementedException;
+/* loaded from: classes7.dex */
+public class s7b extends k7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public int b;
-    public int c;
-    public int d;
-    public T[] e;
+    public final Handler a;
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i * MapBuilder.MAGIC;
-            return i2 ^ (i2 >>> 16);
+    /* loaded from: classes7.dex */
+    public static class a extends k7b.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Handler a;
+        public final q7b b;
+        public volatile boolean c;
+
+        public a(Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler;
+            this.b = p7b.a().b();
         }
-        return invokeI.intValue;
+
+        @Override // com.baidu.tieba.k7b.a
+        public o7b b(u7b u7bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u7bVar)) == null) {
+                return c(u7bVar, 0L, TimeUnit.MILLISECONDS);
+            }
+            return (o7b) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.k7b.a
+        public o7b c(u7b u7bVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{u7bVar, Long.valueOf(j), timeUnit})) == null) {
+                if (this.c) {
+                    return hcb.c();
+                }
+                this.b.c(u7bVar);
+                b bVar = new b(u7bVar, this.a);
+                Message obtain = Message.obtain(this.a, bVar);
+                obtain.obj = this;
+                this.a.sendMessageDelayed(obtain, timeUnit.toMillis(j));
+                if (this.c) {
+                    this.a.removeCallbacks(bVar);
+                    return hcb.c();
+                }
+                return bVar;
+            }
+            return (o7b) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.o7b
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.o7b
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c = true;
+                this.a.removeCallbacksAndMessages(this);
+            }
+        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s7b() {
-        this(16, 0.75f);
+    /* loaded from: classes7.dex */
+    public static final class b implements Runnable, o7b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final u7b a;
+        public final Handler b;
+        public volatile boolean c;
+
+        public b(u7b u7bVar, Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u7bVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u7bVar;
+            this.b = handler;
+        }
+
+        @Override // com.baidu.tieba.o7b
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.o7b
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.c = true;
+                this.b.removeCallbacks(this);
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            IllegalStateException illegalStateException;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a.call();
+                } catch (Throwable th) {
+                    if (th instanceof OnErrorNotImplementedException) {
+                        illegalStateException = new IllegalStateException("Exception thrown on Scheduler.Worker thread. Add `onError` handling.", th);
+                    } else {
+                        illegalStateException = new IllegalStateException("Fatal Exception thrown on Scheduler.Worker thread.", th);
+                    }
+                    ubb.c().b().a(illegalStateException);
+                    Thread currentThread = Thread.currentThread();
+                    currentThread.getUncaughtExceptionHandler().uncaughtException(currentThread, illegalStateException);
+                }
+            }
+        }
+    }
+
+    public s7b(Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Float) objArr[1]).floatValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new Handler(looper);
     }
 
-    public s7b(int i, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = f;
-        int b = l8b.b(i);
-        this.b = b - 1;
-        this.d = (int) (f * b);
-        this.e = (T[]) new Object[b];
-    }
-
-    public boolean a(T t) {
-        InterceptResult invokeL;
-        T t2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            T[] tArr = this.e;
-            int i = this.b;
-            int c = c(t.hashCode()) & i;
-            T t3 = tArr[c];
-            if (t3 != null) {
-                if (t3.equals(t)) {
-                    return false;
-                }
-                do {
-                    c = (c + 1) & i;
-                    t2 = tArr[c];
-                    if (t2 == null) {
-                    }
-                } while (!t2.equals(t));
-                return false;
-            }
-            tArr[c] = t;
-            int i2 = this.c + 1;
-            this.c = i2;
-            if (i2 >= this.d) {
-                d();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
+    @Override // com.baidu.tieba.k7b
+    public k7b.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this.a);
         }
-        return invokeV.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = 0;
-            this.e = (T[]) new Object[0];
-        }
-    }
-
-    public T[] h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (T[]) ((Object[]) invokeV.objValue);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            T[] tArr = this.e;
-            int length = tArr.length;
-            int i = length << 1;
-            int i2 = i - 1;
-            T[] tArr2 = (T[]) new Object[i];
-            int i3 = this.c;
-            while (true) {
-                int i4 = i3 - 1;
-                if (i3 != 0) {
-                    do {
-                        length--;
-                    } while (tArr[length] == null);
-                    int c = c(tArr[length].hashCode()) & i2;
-                    if (tArr2[c] != null) {
-                        do {
-                            c = (c + 1) & i2;
-                        } while (tArr2[c] != null);
-                    }
-                    tArr2[c] = tArr[length];
-                    i3 = i4;
-                } else {
-                    this.b = i2;
-                    this.d = (int) (i * this.a);
-                    this.e = tArr2;
-                    return;
-                }
-            }
-        }
-    }
-
-    public boolean e(T t) {
-        InterceptResult invokeL;
-        T t2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
-            T[] tArr = this.e;
-            int i = this.b;
-            int c = c(t.hashCode()) & i;
-            T t3 = tArr[c];
-            if (t3 == null) {
-                return false;
-            }
-            if (t3.equals(t)) {
-                return f(c, tArr, i);
-            }
-            do {
-                c = (c + 1) & i;
-                t2 = tArr[c];
-                if (t2 == null) {
-                    return false;
-                }
-            } while (!t2.equals(t));
-            return f(c, tArr, i);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(int i, T[] tArr, int i2) {
-        InterceptResult invokeCommon;
-        int i3;
-        T t;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), tArr, Integer.valueOf(i2)})) == null) {
-            this.c--;
-            while (true) {
-                int i4 = i + 1;
-                while (true) {
-                    i3 = i4 & i2;
-                    t = tArr[i3];
-                    if (t == null) {
-                        tArr[i] = null;
-                        return true;
-                    }
-                    int c = c(t.hashCode()) & i2;
-                    if (i <= i3) {
-                        if (i < c && c <= i3) {
-                            i4 = i3 + 1;
-                        }
-                    } else {
-                        if (i >= c && c > i3) {
-                            break;
-                        }
-                        i4 = i3 + 1;
-                    }
-                }
-                tArr[i] = t;
-                i = i3;
-            }
-        } else {
-            return invokeCommon.booleanValue;
-        }
+        return (k7b.a) invokeV.objValue;
     }
 }

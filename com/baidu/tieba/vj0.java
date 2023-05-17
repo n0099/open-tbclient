@@ -1,14 +1,51 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes6.dex */
-public interface vj0 {
-    List<ak0> a();
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public final class vj0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final vj0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(HashMap<String, ak0> hashMap);
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
 
-    void c(m11 m11Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948242573, "Lcom/baidu/tieba/vj0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948242573, "Lcom/baidu/tieba/vj0;");
+                return;
+            }
+        }
+        a = new vj0();
+    }
 
-    void update(m11 m11Var);
+    public vj0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 }

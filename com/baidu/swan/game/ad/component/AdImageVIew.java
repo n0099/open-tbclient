@@ -13,10 +13,10 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdImageVIew extends AppCompatImageView {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BaseBitmapDataSubscriber {
         @Override // com.facebook.datasource.BaseDataSubscriber
         public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {

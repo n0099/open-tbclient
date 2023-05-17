@@ -1,4 +1,4 @@
 package com.baidu.searchbox.requestpriority;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class R {
 }

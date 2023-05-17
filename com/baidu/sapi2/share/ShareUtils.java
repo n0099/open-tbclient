@@ -42,7 +42,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ShareUtils {
     public static final String ACTION_SHARE_ACTIVITY = "baidu.intent.action.account.SHARE_ACTIVITY";
     public static final String EXTRA_APP_PKG = "PKG";

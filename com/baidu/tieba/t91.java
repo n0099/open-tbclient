@@ -1,41 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public interface t91 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
-    public static final t91 b = new a();
+/* loaded from: classes7.dex */
+public abstract class t91 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(Context context, String str);
+    public abstract void a(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
 
-    /* loaded from: classes6.dex */
-    public static class a implements t91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract r91 b(AbsNadBrowserView absNadBrowserView, String str);
 
-        @Override // com.baidu.tieba.t91
-        public void a(Context context, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            }
-        }
+    public abstract void c(AbsNadBrowserView absNadBrowserView, String str);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public abstract boolean d(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    public abstract boolean e(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void f(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void g(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    public abstract void h(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    public abstract void i(AbsNadBrowserView absNadBrowserView, p91 p91Var, String str, String str2);
+
+    public abstract void j(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+
+    public abstract void k(AbsNadBrowserView absNadBrowserView, float f, float f2);
+
+    public abstract void l(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    public abstract void m(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+
+    public t91() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

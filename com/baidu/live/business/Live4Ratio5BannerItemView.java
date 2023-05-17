@@ -10,17 +10,17 @@ import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m90;
-import com.baidu.tieba.ob0;
+import com.baidu.tieba.ca0;
+import com.baidu.tieba.ec0;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Live4Ratio5BannerItemView extends LiveBaseItemView {
     public FrameLayout h;
     public BannerView i;
     public boolean j;
     public Context k;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(LiveBannerEntity liveBannerEntity);
 
@@ -31,7 +31,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
     public void setIsCurViewing(boolean z) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements BannerView.g {
         public a() {
         }
@@ -44,7 +44,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements BannerView.i {
         public b() {
         }
@@ -67,7 +67,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         setNeedRatio(true);
         setAspectRatio(1.25f);
         this.k = context;
-        this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d057b, this).findViewById(R.id.obfuscated_res_0x7f091530);
+        this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d059a, this).findViewById(R.id.obfuscated_res_0x7f09156c);
         j();
     }
 
@@ -119,10 +119,10 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         this.i = bannerView;
         bannerView.setShowRoundPicture(true, 10);
         this.i.setIndicatorGravity(81);
-        this.i.setIndicatorMargin(0, 0, 0, (int) m90.c(this.k.getResources(), 7.0f));
-        this.i.setLargeIndicatorItemSize((int) m90.c(this.k.getResources(), 4.0f));
-        this.i.setSmallIndicatorItemSize((int) m90.c(this.k.getResources(), 4.0f));
-        this.i.setIndicatorInterval((int) m90.c(this.k.getResources(), 6.0f));
+        this.i.setIndicatorMargin(0, 0, 0, (int) ca0.c(this.k.getResources(), 7.0f));
+        this.i.setLargeIndicatorItemSize((int) ca0.c(this.k.getResources(), 4.0f));
+        this.i.setSmallIndicatorItemSize((int) ca0.c(this.k.getResources(), 4.0f));
+        this.i.setIndicatorInterval((int) ca0.c(this.k.getResources(), 6.0f));
         this.i.setAspectRatio(1.25f);
         this.i.setScene(this.c);
         this.i.setOnBannerClickListener(new a());
@@ -133,7 +133,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
     public final void l(List<LiveBannerEntity> list) {
         if (this.i != null && this.h != null) {
             int i = 8;
-            if (!ob0.c(list)) {
+            if (!ec0.c(list)) {
                 if (this.i.r(list)) {
                     BannerEntity bannerEntity = new BannerEntity();
                     bannerEntity.mBannerList = list;

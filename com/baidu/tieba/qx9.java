@@ -1,43 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.Window;
-import android.view.WindowManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetBgByCategory.ThemeBgInMain;
+import tbclient.ThemeBgProp;
+/* loaded from: classes7.dex */
 public class qx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<DressItemData> b;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public qx9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return 2038;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return i;
         }
-        return invokeI.intValue;
     }
 
-    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+    public List<DressItemData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
-                if (declaredField != null) {
-                    declaredField.set(layoutParams, Integer.valueOf(i));
-                    window.setAttributes(layoutParams);
-                }
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(ThemeBgInMain themeBgInMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) != null) || themeBgInMain == null) {
+            return;
+        }
+        this.a = themeBgInMain.bg_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
         }
     }
 }

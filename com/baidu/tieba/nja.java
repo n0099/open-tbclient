@@ -1,102 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.AbstractMap;
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
 public class nja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
-    public long d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public nja(int i, String str, String str2, long j) {
-        this(i, str, str2, 0L, 0L, j);
+    public static void a(String str, rja rjaVar, qja qjaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, rjaVar, qjaVar) == null) {
+            if (fna.a) {
+                fna.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + qjaVar.toString());
+            }
+            lja g = ija.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (qjaVar != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", qjaVar.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", qjaVar.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", qjaVar.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", qjaVar.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", qjaVar.d + ""));
+                }
+                g.a("perf_record_arperf", str, rjaVar.a, rjaVar.b, rjaVar.c, rjaVar.d, rjaVar.e, null, arrayList);
             }
         }
     }
 
-    public nja(int i, String str, String str2, long j, long j2, long j3) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (fna.a) {
+                fna.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-        }
-        this.a = str2;
-        this.b = j;
-        this.c = j2;
-        this.d = j3;
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void e(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.d = j;
+            lja g = ija.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", dna.a(ija.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(dna.b(ija.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+            }
         }
     }
 }

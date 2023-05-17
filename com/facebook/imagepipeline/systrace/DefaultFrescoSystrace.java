@@ -5,7 +5,7 @@ import android.os.Trace;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.Systrace
     public void beginSection(String str) {
@@ -20,7 +20,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return false;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public final StringBuilder mStringBuilder;
 

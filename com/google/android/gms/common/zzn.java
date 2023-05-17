@@ -4,20 +4,21 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
 @SafeParcelable.Class(creator = "GoogleCertificatesLookupQueryCreator")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class zzn extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzn> CREATOR = new zzo();
     @SafeParcelable.Field(getter = "getCallingPackage", id = 1)
     public final String zza;
     @SafeParcelable.Field(getter = "getAllowTestKeys", id = 2)
     public final boolean zzb;
-    @SafeParcelable.Field(defaultValue = "false", getter = "getIgnoreTestKeysOverride", id = 3)
+    @SafeParcelable.Field(defaultValue = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE, getter = "getIgnoreTestKeysOverride", id = 3)
     public final boolean zzc;
     @SafeParcelable.Field(getter = "getCallingContextBinder", id = 4, type = "android.os.IBinder")
     public final Context zzd;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.aideviceperformanceboxproxy.device;
 
 import com.baidu.searchbox.aideviceperformance.device.IDevicePortraitThresholdsConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DefaultIDevicePortraitThresholdsConfigProxy implements IDevicePortraitThresholdsConfig {
     public static float sThresholdLowMid = -1.0f;
     public static float sThresholdMidHigh = -1.0f;

@@ -7,7 +7,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MessageV4 extends MessageV3 {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV4.1
         /* JADX DEBUG: Method merged with bridge method */

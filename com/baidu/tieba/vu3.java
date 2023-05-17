@@ -1,41 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class vu3 implements ISchemeHeadIoc {
+@Autowired
+/* loaded from: classes8.dex */
+public class vu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public vu3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
-    public String getSchemeHead() {
+    @Inject(force = false)
+    public static wu3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return er2.n().getSchemeHeader();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return j56.a();
         }
-        return (String) invokeV.objValue;
+        return (wu3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static xu3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new ep3();
+        }
+        return (xu3) invokeV.objValue;
     }
 }

@@ -1,8 +1,21 @@
 package com.baidu.tieba;
-
-import androidx.annotation.NonNull;
-import com.baidu.tieba.write.data.QuestionTagListData;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface vaa {
-    void a(@NonNull QuestionTagListData.QuestionTag questionTag);
+    void C();
+
+    void N();
+
+    void R();
+
+    void T0(boolean z);
+
+    void U0(int i, boolean z);
+
+    void c(String str);
+
+    void e();
+
+    void finish();
+
+    void setResult(int i);
 }

@@ -3,7 +3,7 @@ package com.baidu.swan.apps.view;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppNARootViewScrollView extends ScrollView {
     @Override // android.widget.ScrollView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {

@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.ParsableNalUnitBitArray;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class H264Reader implements ElementaryStreamReader {
     public static final int NAL_UNIT_TYPE_PPS = 8;
     public static final int NAL_UNIT_TYPE_SEI = 6;
@@ -34,7 +34,7 @@ public final class H264Reader implements ElementaryStreamReader {
     public void packetFinished() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SampleReader {
         public static final int DEFAULT_BUFFER_SIZE = 128;
         public static final int NAL_UNIT_TYPE_AUD = 9;
@@ -60,7 +60,7 @@ public final class H264Reader implements ElementaryStreamReader {
         public SliceHeaderData previousSliceHeader = new SliceHeaderData();
         public SliceHeaderData sliceHeader = new SliceHeaderData();
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static final class SliceHeaderData {
             public static final int SLICE_TYPE_ALL_I = 7;
             public static final int SLICE_TYPE_I = 2;

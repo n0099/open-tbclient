@@ -6,12 +6,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.fb;
 import com.baidu.tieba.im.message.RequestAddMsgRecordMessage;
 import com.baidu.tieba.im.message.ResponseClearTaskIdMessage;
 import com.baidu.tieba.im.model.AddMsgRecordHttpProtoResponse;
 import com.baidu.tieba.im.model.AddMsgRecordSocketResponse;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.za;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AddMsgRecordStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends za {
+    /* loaded from: classes6.dex */
+    public static class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,7 +51,7 @@ public class AddMsgRecordStatic {
         }
 
         /* JADX WARN: Removed duplicated region for block: B:19:0x002d  */
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -112,8 +112,8 @@ public class AddMsgRecordStatic {
                 return;
             }
         }
-        xo9.f(309265, AddMsgRecordSocketResponse.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, xo9.a(TbConfig.ADD_MSG_RECORD, 309265));
+        zq9.f(309265, AddMsgRecordSocketResponse.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ADD_MSG_RECORD, zq9.a(TbConfig.ADD_MSG_RECORD, 309265));
         tbHttpMessageTask.setResponsedClass(AddMsgRecordHttpProtoResponse.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         MessageManager.getInstance().registerListener(new a(CmdConfigHttp.CMD_ADD_MSG_RECORD, 309265));

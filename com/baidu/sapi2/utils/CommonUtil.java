@@ -4,7 +4,7 @@ import android.os.Looper;
 import android.widget.Toast;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommonUtil {
     public static void showErrorNotice(String str) {
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();

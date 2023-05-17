@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-/* loaded from: classes4.dex */
-public interface h78<ChildItemData extends BaseMsg> {
-    void onEvent(ChildItemData childitemdata);
+import androidx.annotation.NonNull;
+import java.util.List;
+/* loaded from: classes5.dex */
+public interface h78 {
+    void a(int i, int i2);
+
+    void b(int i, @NonNull List<d78> list);
+
+    void f(int i, @NonNull List<d78> list);
 }

@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypeProjectionImpl extends TypeProjectionBase {
     public final Variance projection;
     public final KotlinType type;

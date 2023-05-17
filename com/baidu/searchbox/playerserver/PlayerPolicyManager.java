@@ -2,7 +2,7 @@ package com.baidu.searchbox.playerserver;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PlayerPolicyManager {
     public static final PlayerPolicyManager ourInstance = new PlayerPolicyManager();
     public IPlayerPolicy mPlayerPolicy;

@@ -1,8 +1,10 @@
 package com.baidu.searchbox.afx;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.Surface;
+import com.baidu.searchbox.afx.business.AFXBusinessRuntime;
 import com.baidu.searchbox.afx.callback.OnReportListener;
 import com.baidu.searchbox.afx.callback.OnVideoEndedListener;
 import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
@@ -10,11 +12,15 @@ import com.baidu.searchbox.afx.callback.OnVideoStartedListener;
 import com.baidu.searchbox.afx.gl.AlphaVideoRenderer;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.IPlayer;
+import com.baidu.searchbox.afx.proxy.MediaPlayerController;
 import com.baidu.searchbox.afx.proxy.MediaPlayerProxy;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlphaVideo extends GLTextureView {
+    public static final boolean CONTROL_SWITCH_WORK_THREAD_DEFAULT = true;
     public static final int GL_CONTEXT_VERSION = 2;
+    public static final String KEY_WORK_THREAD = "afx_work_thread_enable";
+    public static final String TAG = "AlphaVideo";
     public AlphaVideoRenderer mAlphaVideoRenderer;
     public boolean mIsKeepLastFrame;
     public volatile boolean mIsPlayRequested;
@@ -23,9 +29,9 @@ public class AlphaVideo extends GLTextureView {
 
     public AlphaVideo(Context context) {
         super(context);
-        MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
-        this.mPlayer = mediaPlayerProxy;
-        mediaPlayerProxy.setGLTextureView(this);
+        IPlayer createDefaultPlayer = createDefaultPlayer();
+        this.mPlayer = createDefaultPlayer;
+        createDefaultPlayer.setGLTextureView(this);
         this.mIsKeepLastFrame = false;
         init();
     }
@@ -134,9 +140,9 @@ public class AlphaVideo extends GLTextureView {
 
     public AlphaVideo(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        MediaPlayerProxy mediaPlayerProxy = new MediaPlayerProxy();
-        this.mPlayer = mediaPlayerProxy;
-        mediaPlayerProxy.setGLTextureView(this);
+        IPlayer createDefaultPlayer = createDefaultPlayer();
+        this.mPlayer = createDefaultPlayer;
+        createDefaultPlayer.setGLTextureView(this);
         this.mIsKeepLastFrame = false;
         init();
     }
@@ -146,6 +152,15 @@ public class AlphaVideo extends GLTextureView {
         if (iPlayer != null) {
             iPlayer.setLoopSection(i, i2);
         }
+    }
+
+    private IPlayer createDefaultPlayer() {
+        boolean mPControllerSwitch = AFXBusinessRuntime.getAFXCommand().getMPControllerSwitch();
+        LogUtilKt.logI(TAG, "createDefaultPlayer, mpControllerSwitch is " + mPControllerSwitch);
+        if (!mPControllerSwitch) {
+            return new MediaPlayerProxy();
+        }
+        return MediaPlayerController.Companion.get();
     }
 
     private void init() {
@@ -287,6 +302,15 @@ public class AlphaVideo extends GLTextureView {
         if (iPlayer != null) {
             iPlayer.stop();
         }
+    }
+
+    public void initEnableWorkThread() {
+        boolean z = PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean(KEY_WORK_THREAD, true);
+        LogUtilKt.logI(TAG, "initEnableWorkThread, cloudControl afx_work_thread_enable is " + z);
+        if (!z || (this.mPlayer instanceof MediaPlayerController)) {
+            return;
+        }
+        setPlayer(MediaPlayerController.Companion.get());
     }
 
     public void setLoopSection(long j) {

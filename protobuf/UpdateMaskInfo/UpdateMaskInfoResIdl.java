@@ -3,12 +3,12 @@ package protobuf.UpdateMaskInfo;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import protobuf.Error;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UpdateMaskInfoResIdl extends Message {
     @ProtoField(tag = 1)
     public final Error error;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<UpdateMaskInfoResIdl> {
         public Error error;
 

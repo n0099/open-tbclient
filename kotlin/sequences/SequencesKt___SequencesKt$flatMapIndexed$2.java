@@ -7,7 +7,7 @@ import kotlin.jvm.internal.FunctionReferenceImpl;
 import kotlin.jvm.internal.Intrinsics;
 /* JADX INFO: Add missing generic type declarations: [R] */
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class SequencesKt___SequencesKt$flatMapIndexed$2<R> extends FunctionReferenceImpl implements Function1<Sequence<? extends R>, Iterator<? extends R>> {
     public static final SequencesKt___SequencesKt$flatMapIndexed$2 INSTANCE = new SequencesKt___SequencesKt$flatMapIndexed$2();
 

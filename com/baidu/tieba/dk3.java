@@ -1,578 +1,443 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.app.Application;
-import android.app.PendingIntent;
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.Message;
+import android.net.wifi.SupplicantState;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiInfo;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.SwanRelayActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
-import com.baidu.tieba.us2;
-import com.baidu.tieba.vs2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class dk3 {
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+/* loaded from: classes5.dex */
+public class dk3 extends ak3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final boolean g;
-    public static volatile dk3 h;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile dk3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ActivityManager a;
-    public List<ActivityManager.AppTask> b;
-    @Nullable
-    public ArrayList<Integer> c;
-    public final SparseIntArray d;
-    public final SparseArray<SwanTaskDeadEvent> e;
+    public final bk3 h;
 
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ us2.a a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ dk3 c;
+    }
 
-        public a(dk3 dk3Var, us2.a aVar, int i) {
+    /* loaded from: classes5.dex */
+    public class b implements bk3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public zn3<gk3<fk3>> a;
+        public WifiConfiguration b;
+        public boolean c;
+        public final Handler d;
+        public final Lock e;
+        public final Runnable f;
+        public final xj3 g;
+        public final /* synthetic */ dk3 h;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.e.lock();
+                    try {
+                        if (this.a.a != null) {
+                            this.a.h.g(12003, "connection timeout", null, this.a.a);
+                        }
+                        this.a.l();
+                    } finally {
+                        this.a.e.unlock();
+                    }
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.dk3$b$b  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0260b implements xj3 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public C0260b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.baidu.tieba.yj3
+            public void a(WifiInfo wifiInfo) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, wifiInfo) == null) {
+                    if (wifiInfo == null) {
+                        wifiInfo = this.a.h.b.getConnectionInfo();
+                    }
+                    this.a.e.lock();
+                    try {
+                        if (this.a.b != null && this.a.a != null && TextUtils.equals(wifiInfo.getSSID(), this.a.b.SSID)) {
+                            this.a.h.g(0, "success", new fk3(wifiInfo, ik3.a(hk3.b(this.a.h.a, this.a.h.b, wifiInfo))), this.a.a);
+                            this.a.l();
+                        }
+                    } finally {
+                        this.a.e.unlock();
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.xj3
+            public void onError(int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                    this.a.e.lock();
+                    if (i == 1) {
+                        try {
+                            if (this.a.a != null) {
+                                if (this.a.c) {
+                                    this.a.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, this.a.a);
+                                } else {
+                                    this.a.h.g(12013, "wifi config unavailable", null, this.a.a);
+                                }
+                                this.a.l();
+                            }
+                        } finally {
+                            this.a.e.unlock();
+                        }
+                    }
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class c implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ zn3 a;
+            public final /* synthetic */ ek3 b;
+            public final /* synthetic */ b c;
+
+            public c(b bVar, zn3 zn3Var, ek3 ek3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, zn3Var, ek3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = zn3Var;
+                this.b = ek3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                int addNetwork;
+                boolean z;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (Build.VERSION.SDK_INT >= 29) {
+                        this.c.h.g(12001, "not support", null, this.a);
+                    } else if (!this.c.h.l()) {
+                        this.c.h.g(12000, "not init", null, this.a);
+                    } else if (!this.c.h.b.isWifiEnabled()) {
+                        this.c.h.g(12005, "wifi is not on", null, this.a);
+                    } else if (!an3.K(this.c.h.a)) {
+                        this.c.h.g(12006, "LBS is not on", null, this.a);
+                    } else if (ContextCompat.checkSelfPermission(this.c.h.a, com.kuaishou.weapon.p0.h.g) != 0) {
+                        this.c.h.g(12012, "no location permission", null, this.a);
+                    } else {
+                        this.c.e.lock();
+                        try {
+                            if (this.c.a != null) {
+                                this.c.h.g(12004, "is connecting", null, this.a);
+                                return;
+                            }
+                            this.c.a = this.a;
+                            this.c.e.unlock();
+                            this.c.b = hk3.a(this.b);
+                            if (this.c.b == null) {
+                                this.c.h.g(12008, "invalid ssid", null, this.a);
+                                this.c.l();
+                            } else if (!TextUtils.isEmpty(this.c.b.preSharedKey) && hk3.e(this.c.b.preSharedKey).length() < 8) {
+                                b bVar = this.c;
+                                bVar.h.g(TaskResponseData.ERROR_NO_TASK_OFFLINE_03, "password error", null, bVar.a);
+                                this.c.l();
+                            } else {
+                                WifiInfo connectionInfo = this.c.h.b.getConnectionInfo();
+                                if (connectionInfo != null && connectionInfo.getSupplicantState() != SupplicantState.COMPLETED) {
+                                    connectionInfo = null;
+                                }
+                                boolean z2 = false;
+                                if (connectionInfo != null && !TextUtils.equals(connectionInfo.getSSID(), "<unknown ssid>") && TextUtils.equals(this.c.b.SSID, connectionInfo.getSSID()) && (TextUtils.isEmpty(this.c.b.BSSID) || (!TextUtils.isEmpty(this.c.b.BSSID) && TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())))) {
+                                    dk3 dk3Var = this.c.h;
+                                    dk3Var.g(0, "success", new fk3(connectionInfo, ik3.a(hk3.b(dk3Var.a, dk3Var.b, connectionInfo))), this.a);
+                                    this.c.l();
+                                    return;
+                                }
+                                dk3 dk3Var2 = this.c.h;
+                                WifiConfiguration c = hk3.c(dk3Var2.a, dk3Var2.b, this.b);
+                                if (c != null) {
+                                    this.c.b.networkId = c.networkId;
+                                }
+                                if (this.c.b.networkId > -1) {
+                                    b bVar2 = this.c;
+                                    addNetwork = bVar2.h.b.updateNetwork(bVar2.b);
+                                    if (addNetwork < 0 && c != null && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, c.BSSID)) {
+                                        this.c.h.g(12013, "wifi config unavailable", null, this.a);
+                                        this.c.l();
+                                        return;
+                                    } else if (connectionInfo != null && addNetwork == connectionInfo.getNetworkId() && !TextUtils.isEmpty(this.c.b.BSSID) && !TextUtils.equals(this.c.b.BSSID, connectionInfo.getBSSID())) {
+                                        this.c.h.g(12013, "wifi config unavailable", null, this.a);
+                                        this.c.l();
+                                        return;
+                                    }
+                                } else {
+                                    b bVar3 = this.c;
+                                    addNetwork = bVar3.h.b.addNetwork(bVar3.b);
+                                }
+                                b bVar4 = this.c;
+                                if (addNetwork >= 0) {
+                                    z = true;
+                                } else {
+                                    z = false;
+                                }
+                                bVar4.c = z;
+                                if (addNetwork < 0 && this.c.b.networkId > -1) {
+                                    addNetwork = this.c.b.networkId;
+                                }
+                                if (addNetwork >= 0) {
+                                    this.c.d.postDelayed(this.c.f, 16000L);
+                                    z2 = this.c.h.b.enableNetwork(addNetwork, true);
+                                    this.c.h.b.saveConfiguration();
+                                }
+                                if (!z2) {
+                                    this.c.h.g(12013, "wifi config unavailable", null, this.a);
+                                    this.c.l();
+                                }
+                            }
+                        } finally {
+                            this.c.e.unlock();
+                        }
+                    }
+                }
+            }
+        }
+
+        public b(dk3 dk3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dk3Var, aVar, Integer.valueOf(i)};
+                Object[] objArr = {dk3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = dk3Var;
-            this.a = aVar;
-            this.b = i;
+            this.h = dk3Var;
+            this.d = new Handler(Looper.getMainLooper());
+            this.e = new ReentrantLock();
+            this.f = new a(this);
+            C0260b c0260b = new C0260b(this);
+            this.g = c0260b;
+            dk3Var.c.setConnectListener(c0260b);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.bk3
+        public void a(ek3 ek3Var, zn3<gk3<fk3>> zn3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.i();
-                us2.a aVar = this.a;
-                if (aVar != null && "1202000800000000".equals(aVar.T())) {
-                    SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) this.a.m("key_stack_info");
-                    if (swanTaskDeadEvent != null) {
-                        this.c.c = swanTaskDeadEvent.getStackList();
-                        SparseArray<SwanTaskDeadEvent> historyCache = swanTaskDeadEvent.getHistoryCache();
-                        if (historyCache != null) {
-                            for (int i = 0; i < historyCache.size(); i++) {
-                                int keyAt = historyCache.keyAt(i);
-                                SwanTaskDeadEvent valueAt = historyCache.valueAt(i);
-                                if (valueAt != null && valueAt.getAppId() != null) {
-                                    this.c.e.put(keyAt, valueAt);
-                                    this.c.d.put(valueAt.getAppId().hashCode(), keyAt);
-                                }
-                            }
-                        }
-                        this.c.h(null, swanTaskDeadEvent.getTaskId(), this.b);
-                    }
-                    if (dk3.f) {
-                        Log.d("SwanActivityTaskManager", "stack back: " + this.c.c);
-                        return;
-                    }
-                    return;
-                }
-                us2.a aVar2 = this.a;
-                if (aVar2 != null) {
-                    this.c.h(aVar2.H(), -1, this.b);
-                }
-                dk3 dk3Var = this.c;
-                dk3Var.c = dk3Var.o();
-                if (dk3.f) {
-                    Log.d("SwanActivityTaskManager", "getLaunchTask=" + this.c.c);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947707389, "Lcom/baidu/tieba/dk3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947707389, "Lcom/baidu/tieba/dk3;");
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, ek3Var, zn3Var) != null) || zn3Var == null) {
                 return;
             }
+            am3.k(new c(this, zn3Var, ek3Var), "connectWifi");
         }
-        f = ho1.a;
-        g = ek3.f();
-    }
 
-    public static dk3 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (h == null) {
-                synchronized (dk3.class) {
-                    if (h == null) {
-                        h = new dk3();
-                    }
+        public final void l() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.e.lock();
+                try {
+                    this.d.removeCallbacks(this.f);
+                    this.b = null;
+                    this.a = null;
+                } finally {
+                    this.e.unlock();
                 }
             }
-            return h;
-        }
-        return (dk3) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.clear();
-            this.d.clear();
         }
     }
 
-    public dk3() {
+    /* loaded from: classes5.dex */
+    public class c implements bk3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dk3 a;
+
+        public c(dk3 dk3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dk3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dk3Var;
+        }
+
+        public /* synthetic */ c(dk3 dk3Var, a aVar) {
+            this(dk3Var);
+        }
+
+        @Override // com.baidu.tieba.bk3
+        public void a(ek3 ek3Var, zn3<gk3<fk3>> zn3Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, ek3Var, zn3Var) != null) || zn3Var == null) {
+                return;
+            }
+            this.a.g(12001, "not support", null, zn3Var);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dk3(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new SparseIntArray();
-        this.e = new SparseArray<>();
-        Application c = er2.c();
-        if (c != null) {
-            this.a = (ActivityManager) c.getSystemService("activity");
+        if (Build.VERSION.SDK_INT < 29) {
+            this.h = new b(this);
+        } else {
+            this.h = new c(this, null);
         }
     }
 
-    public int p() {
-        InterceptResult invokeV;
-        ActivityManager activityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g && (activityManager = this.a) != null) {
-                try {
-                    return n(activityManager.getAppTasks().get(0));
-                } catch (Exception e) {
-                    if (f) {
-                        Log.e("SwanActivityTaskManager", "getTopTaskId", e);
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static void r(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65549, null, message) != null) || !j()) {
-            return;
-        }
-        m().A((Bundle) message.obj);
-    }
-
-    @RequiresApi(api = 21)
-    public final int n(ActivityManager.AppTask appTask) {
+    public static dk3 s(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, appTask)) == null) {
-            if (appTask != null) {
-                try {
-                    ActivityManager.RecentTaskInfo taskInfo = appTask.getTaskInfo();
-                    if (taskInfo != null) {
-                        return taskInfo.id;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (i == null) {
+                synchronized (dk3.class) {
+                    if (i == null) {
+                        i = new dk3(context);
                     }
-                    return -1;
-                } catch (Exception e) {
-                    if (f) {
-                        Log.e("SwanActivityTaskManager", "getTaskId", e);
-                        return -1;
-                    }
-                    return -1;
                 }
             }
-            return -1;
+            return i;
         }
-        return invokeL.intValue;
+        return (dk3) invokeL.objValue;
     }
 
-    public void y(@Nullable us2.a aVar, int i) {
+    public static void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, aVar, i) == null) {
-            rk3.l(new a(this, aVar, i), "getLaunchTask");
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && i != null) {
+            i.h();
+            i = null;
         }
     }
 
-    public static void q(@NonNull Message message) {
-        ArrayList<Integer> arrayList;
+    public final void t() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65548, null, message) != null) || !j()) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.setAction("android.settings.WIFI_SETTINGS");
+            if (!(this.a instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            this.a.startActivity(intent);
+        }
+    }
+
+    @Override // com.baidu.tieba.bk3
+    public void a(ek3 ek3Var, zn3<gk3<fk3>> zn3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, ek3Var, zn3Var) != null) || zn3Var == null) {
             return;
         }
-        dk3 m = m();
-        Object obj = message.obj;
-        if (obj instanceof Bundle) {
-            Bundle bundle = (Bundle) obj;
-            bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
-            SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) bundle.getParcelable("key_stack_info");
-            if (swanTaskDeadEvent != null && !TextUtils.isEmpty(swanTaskDeadEvent.getAppId())) {
-                if (ProcessUtils.isMainProcess() || ((arrayList = m.c) != null && arrayList.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
-                    m.d.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
-                    m.e.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
-                }
-            }
+        if (ek3Var != null && ek3Var.e) {
+            t();
+            g(0, "success", null, zn3Var);
+            return;
         }
-    }
-
-    public final void A(@Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && bundle != null && this.c != null) {
-            String string = bundle.getString("app_id");
-            int i = bundle.getInt("key_task_id", -1);
-            if (!TextUtils.isEmpty(string)) {
-                int i2 = this.d.get(string.hashCode(), -1);
-                if (i2 > -1) {
-                    this.c.remove(Integer.valueOf(i2));
-                    this.d.delete(string.hashCode());
-                    this.e.remove(i2);
-                    if (f) {
-                        Log.d("SwanActivityTaskManager", "removeTaskFromCache: " + string + ", oldTask=" + i2);
-                    }
-                }
-                this.c.remove(Integer.valueOf(i));
-                return;
-            }
-            int i3 = bundle.getInt("key_task_id_old", -1);
-            if (i3 == -1) {
-                this.c.remove(Integer.valueOf(i));
-            } else {
-                int i4 = 0;
-                while (true) {
-                    if (i4 >= this.c.size()) {
-                        break;
-                    } else if (this.c.get(i4).intValue() == i3) {
-                        this.c.set(i4, Integer.valueOf(i));
-                        break;
-                    } else {
-                        i4++;
-                    }
-                }
-                SwanTaskDeadEvent swanTaskDeadEvent = this.e.get(i3);
-                if (swanTaskDeadEvent != null) {
-                    if (swanTaskDeadEvent.getAppId() != null) {
-                        this.d.delete(swanTaskDeadEvent.getAppId().hashCode());
-                    }
-                    this.e.remove(i3);
-                }
-            }
-            if (f) {
-                Log.d("SwanActivityTaskManager", "removeTaskFromCache nowTask=" + i + ", old=" + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.c);
-            }
-        }
-    }
-
-    public final void h(@Nullable String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, i2) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_task_id", i2);
-            bundle.putInt("key_task_id_old", i);
-            bundle.putString("app_id", str);
-            n43 e = n43.e();
-            p43 p43Var = new p43(123, bundle);
-            p43Var.f(true);
-            e.h(p43Var);
-        }
-    }
-
-    public boolean l(int i) {
-        InterceptResult invokeI;
-        ActivityManager activityManager;
-        List<ActivityManager.AppTask> appTasks;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (!j() || !g || (activityManager = this.a) == null || (appTasks = activityManager.getAppTasks()) == null) {
-                return false;
-            }
-            int i2 = 0;
-            for (ActivityManager.AppTask appTask : appTasks) {
-                if (i2 > 0 && n(appTask) == i) {
-                    appTask.finishAndRemoveTask();
-                    return true;
-                }
-                i2++;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public synchronized boolean v(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
-            synchronized (this) {
-                ArrayList<Integer> arrayList = this.c;
-                if (z) {
-                    arrayList = o();
-                }
-                if (arrayList != null && !arrayList.isEmpty() && this.a != null) {
-                    this.b = null;
-                    Iterator<Integer> it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        if (u(it.next().intValue(), true, true)) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Nullable
-    public final ArrayList<Integer> o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<Integer> arrayList = null;
-            if (!g) {
-                return null;
-            }
-            ActivityManager activityManager = this.a;
-            if (activityManager != null) {
-                List<ActivityManager.AppTask> appTasks = activityManager.getAppTasks();
-                int size = appTasks.size();
-                if (size < 2) {
-                    return null;
-                }
-                arrayList = new ArrayList<>(size - 1);
-                for (int i = 1; i < size; i++) {
-                    int n = n(appTasks.get(i));
-                    if (n != -1) {
-                        arrayList.add(Integer.valueOf(n));
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final boolean s(int i, boolean z) {
-        InterceptResult invokeCommon;
-        ActivityManager activityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!g) {
-                return false;
-            }
-            List<ActivityManager.AppTask> list = this.b;
-            if ((!z || list == null) && (activityManager = this.a) != null) {
-                list = activityManager.getAppTasks();
-                if (z) {
-                    this.b = list;
-                }
-            }
-            if (list != null) {
-                for (ActivityManager.AppTask appTask : list) {
-                    if (i == n(appTask)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public void z(@Nullable Intent intent, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, intent, i) == null) {
-            ArrayList<Integer> o = o();
-            int i2 = -1;
-            if (!t(this.c, o)) {
-                i();
-                h(null, -1, i);
-            }
-            if (f) {
-                if (intent != null) {
-                    i2 = intent.getFlags();
-                }
-                Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + o + ", mLaunchTaskList=" + this.c + ", flag=" + i2);
-            }
-            this.c = o;
-        }
-    }
-
-    public final boolean t(List<Integer> list, List<Integer> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list, list2)) == null) {
-            if (list == null || list2 == null || list.size() != list2.size()) {
-                return false;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                if (!TextUtils.equals(String.valueOf(list.get(i)), String.valueOf(list2.get(i)))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @AnyThread
-    public synchronized boolean u(int i, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (i > -1) {
-                    if (this.a != null) {
-                        if (s(i, z)) {
-                            if (f) {
-                                Log.i("SwanActivityTaskManager", "moveTaskToFront:" + i);
-                            }
-                            try {
-                                this.a.moveTaskToFront(i, 2, null);
-                                return true;
-                            } catch (Exception e) {
-                                x42.d("SwanActivityTaskManager", "moveTaskToFront", e);
-                            }
-                        } else if (this.e.indexOfKey(i) >= 0) {
-                            SwanTaskDeadEvent swanTaskDeadEvent = this.e.get(i);
-                            if (swanTaskDeadEvent != null) {
-                                vs2.a aVar = (vs2.a) ((vs2.a) ((vs2.a) new vs2.a().v0(swanTaskDeadEvent.getAppId())).R0(swanTaskDeadEvent.getPageScheme())).I0("1202000800000000");
-                                Bundle bundle = new Bundle();
-                                ArrayList<Integer> stackList = swanTaskDeadEvent.getStackList();
-                                if (stackList != null && !stackList.isEmpty()) {
-                                    SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
-                                    Iterator<Integer> it = stackList.iterator();
-                                    while (it.hasNext()) {
-                                        Integer next = it.next();
-                                        SwanTaskDeadEvent swanTaskDeadEvent2 = this.e.get(next.intValue(), null);
-                                        if (swanTaskDeadEvent2 != null) {
-                                            sparseArray.put(next.intValue(), swanTaskDeadEvent2);
-                                        }
-                                    }
-                                    swanTaskDeadEvent.setHistoryCache(sparseArray);
-                                }
-                                bundle.putParcelable("key_stack_info", swanTaskDeadEvent);
-                                SwanLauncher.j().n(aVar, bundle);
-                                if (f) {
-                                    Log.i("SwanActivityTaskManager", "launch dead app:" + swanTaskDeadEvent.getAppId());
-                                }
-                                return true;
-                            }
-                        } else if (f) {
-                            Log.d("SwanActivityTaskManager", "Not Found taskId:" + i + " cacheSize:" + this.e.size());
-                        }
-                        return false;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean w(@NonNull Context context, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            try {
-                Intent intent = new Intent(context, SwanRelayActivity.class);
-                intent.putExtra("key_task_id", i);
-                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                PendingIntent.getActivity(context, 0, intent, 134217728).send();
-                return true;
-            } catch (Exception e) {
-                if (f) {
-                    Log.e("SwanActivityTaskManager", "moveTaskToFrontByActivity", e);
-                }
-                return u(i, z, false);
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public void x(@Nullable SwanAppActivity swanAppActivity) {
-        g72 Z;
-        f72 f72Var;
-        yx2 Q1;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, swanAppActivity) == null) && j() && swanAppActivity != null && (Z = swanAppActivity.Z()) != null && (f72Var = (f72) Z.n(f72.class)) != null && (Q1 = f72Var.Q1()) != null) {
-            Bundle bundle = new Bundle();
-            String R = swanAppActivity.R();
-            int taskId = swanAppActivity.getTaskId();
-            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(R, taskId, Q1.i() + "?" + Q1.j(), this.c));
-            bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
-            n43 e = n43.e();
-            p43 p43Var = new p43(124, bundle);
-            p43Var.f(true);
-            e.h(p43Var);
-            if (f) {
-                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.R() + StringUtil.ARRAY_ELEMENT_SEPARATOR + swanAppActivity.getTaskId());
-            }
-        }
+        this.h.a(ek3Var, zn3Var);
     }
 }

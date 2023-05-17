@@ -299,14 +299,14 @@ public final class DateTimeUtils {
                 calendar3.set(14, 0);
                 if (calendar.after(calendar2)) {
                     if (j4 > 0) {
-                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1508), Long.valueOf(j4));
+                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15db), Long.valueOf(j4));
                     }
                     if (j5 > 0) {
-                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1509), Long.valueOf(j5));
+                        return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15dc), Long.valueOf(j5));
                     }
-                    return context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f150a);
+                    return context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15dd);
                 } else if (calendar.after(calendar3)) {
-                    return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1507), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
+                    return String.format(context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f15da), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
                 } else {
                     if (z2) {
                         return new SimpleDateFormat("MM-dd", Locale.getDefault()).format(calendar.getTime());

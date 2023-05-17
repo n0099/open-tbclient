@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface bh {
     String a();
 

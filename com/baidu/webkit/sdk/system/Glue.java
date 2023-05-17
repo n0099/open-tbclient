@@ -12,12 +12,12 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Glue {
     public static Field ImmutableField;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
@@ -137,7 +137,7 @@ public final class Glue {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
         public android.webkit.JsResult mJsResult;
 

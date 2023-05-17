@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultHttpDataSource implements HttpDataSource {
     public static final int DEFAULT_CONNECT_TIMEOUT_MILLIS = 8000;
     public static final int DEFAULT_READ_TIMEOUT_MILLIS = 8000;

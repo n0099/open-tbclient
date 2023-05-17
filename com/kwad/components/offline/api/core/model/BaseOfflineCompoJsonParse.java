@@ -3,7 +3,7 @@ package com.kwad.components.offline.api.core.model;
 import androidx.annotation.Nullable;
 import com.kwad.components.offline.api.core.model.IOfflineCompoJsonParse;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseOfflineCompoJsonParse<T extends IOfflineCompoJsonParse> implements IOfflineCompoJsonParse {
     public abstract void parseJson(T t, JSONObject jSONObject);
 

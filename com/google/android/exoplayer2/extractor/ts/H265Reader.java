@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.ParsableNalUnitBitArray;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class H265Reader implements ElementaryStreamReader {
     public static final int BLA_W_LP = 16;
     public static final int CRA_NUT = 21;
@@ -40,7 +40,7 @@ public final class H265Reader implements ElementaryStreamReader {
     public void packetFinished() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SampleReader {
         public static final int FIRST_SLICE_FLAG_OFFSET = 2;
         public boolean isFirstParameterSet;

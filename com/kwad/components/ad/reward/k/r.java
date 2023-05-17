@@ -12,12 +12,12 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
 import com.kwad.components.core.video.DetailVideoView;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class r {
     @Nullable
     public static Animator a(AdTemplate adTemplate, View view2, DetailVideoView detailVideoView) {
         ValueAnimator a;
-        if (detailVideoView == null || (a = detailVideoView.a(adTemplate, (int) (detailVideoView.getHeight() - detailVideoView.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070391)), (ValueAnimator.AnimatorUpdateListener) null)) == null) {
+        if (detailVideoView == null || (a = detailVideoView.a(adTemplate, (int) (detailVideoView.getHeight() - detailVideoView.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704cc)), (ValueAnimator.AnimatorUpdateListener) null)) == null) {
             return null;
         }
         Animator q = q(view2);
@@ -50,6 +50,6 @@ public final class r {
         if (view2 == null || view2.getHeight() == 0) {
             return null;
         }
-        return ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070390));
+        return ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, view2.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0704cb));
     }
 }

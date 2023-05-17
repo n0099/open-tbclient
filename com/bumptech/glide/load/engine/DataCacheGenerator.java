@@ -8,7 +8,7 @@ import com.bumptech.glide.load.engine.DataFetcherGenerator;
 import com.bumptech.glide.load.model.ModelLoader;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DataCacheGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object> {
     public File cacheFile;
     public final List<Key> cacheKeys;

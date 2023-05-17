@@ -38,7 +38,7 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.y.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0040a extends c {
+    public static class C0043a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
@@ -46,16 +46,16 @@ public class a {
 
         /* renamed from: com.baidu.android.pushservice.y.f.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0041a implements Callback {
+        public class C0044a implements Callback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0041a(C0040a c0040a) {
+            public C0044a(C0043a c0043a) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {c0040a};
+                    Object[] objArr = {c0043a};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -82,7 +82,7 @@ public class a {
             }
         }
 
-        public C0040a(Context context, List list) {
+        public C0043a(Context context, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class a {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if (d.d(this.c)) {
-                        com.baidu.android.pushservice.y.a.a(this.c).a(a.c(this.c, this.d), a.e(this.c), new C0041a(this));
+                        com.baidu.android.pushservice.y.a.a(this.c).a(a.c(this.c, this.d), a.e(this.c), new C0044a(this));
                     }
                 } catch (Exception unused) {
                 }
@@ -208,7 +208,7 @@ public class a {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, context, list) == null) || context == null || list == null || list.isEmpty()) {
             return;
         }
-        e.a().a(new C0040a(context, list));
+        e.a().a(new C0043a(context, list));
     }
 
     public static String e(Context context) {

@@ -1,138 +1,238 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mario.gldraw2d.params.MirrorType;
-import com.baidu.mario.gldraw2d.params.ScaleType;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class uc0 implements Cloneable {
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes7.dex */
+public class uc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static boolean b;
+    public static String c;
+    public static ArrayList<String> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public MirrorType c;
-    public int d;
-    public ScaleType e;
-    public float f;
-    public int g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948206055, "Lcom/baidu/tieba/uc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948206055, "Lcom/baidu/tieba/uc0;");
+                return;
+            }
+        }
+        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        if (appInfoService != null) {
+            l(appInfoService.isDebug());
+        }
+        a = uc0.class.getName();
+        b = false;
+        c = null;
+        d = new ArrayList<>();
+    }
 
     public uc0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 0.0f;
-        this.b = 0.0f;
-        this.c = MirrorType.NO_MIRROR;
-        this.d = 0;
-        this.e = ScaleType.FIT_XY;
-        this.f = 1.0f;
-        this.g = -90;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public uc0 clone() {
+    public static boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (uc0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String a(boolean z, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
+            if (!i()) {
                 return null;
             }
+            String str4 = c;
+            if (str4 != null && !str3.startsWith(str4)) {
+                return null;
+            }
+            if (z && !j(str)) {
+                return null;
+            }
+            StringBuffer stringBuffer = new StringBuffer(100);
+            stringBuffer.append(str);
+            stringBuffer.append(":");
+            stringBuffer.append(str2);
+            stringBuffer.append(":");
+            stringBuffer.append(str3);
+            return stringBuffer.toString();
         }
-        return (uc0) invokeV.objValue;
+        return (String) invokeCommon.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2, String str3) {
+        String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public MirrorType d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (MirrorType) invokeV.objValue;
-    }
-
-    public ScaleType e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (ScaleType) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.d = i;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
+            Log.d(a, a2);
         }
     }
 
-    public void j(MirrorType mirrorType) {
+    public static void f(String str, String str2, String str3) {
+        String a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
-            this.c = mirrorType;
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
+            Log.e(a, a2);
         }
+    }
+
+    public static void h(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65545, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
+            Log.i(a, a2);
+        }
+    }
+
+    public static void m(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65550, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
+            Log.v(a, a2);
+        }
+    }
+
+    public static void n(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
+            Log.w(a, a2);
+        }
+    }
+
+    public static int c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
+            if (i() && th != null) {
+                Log.e(a, th.getMessage(), th);
+                return k(0, th.getMessage());
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return k(0, str);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
+            return k(0, th.getMessage());
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return k(2, str);
+        }
+        return invokeL.intValue;
+    }
+
+    public static void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
+            b = z;
+        }
+    }
+
+    public static boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            boolean z = false;
+            if (d.size() == 0) {
+                return false;
+            }
+            Iterator<String> it = d.iterator();
+            while (it.hasNext()) {
+                if (str.startsWith(it.next())) {
+                    z = true;
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int k(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, str)) == null) {
+            if (!i()) {
+                return -1;
+            }
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length < 5) {
+                return -1;
+            }
+            StackTraceElement stackTraceElement = stackTrace[4];
+            String methodName = stackTraceElement.getMethodName();
+            String className = stackTraceElement.getClassName();
+            if (i > 1 && !j(className)) {
+                return -1;
+            }
+            if (i == 0) {
+                f(className, methodName, str);
+                return 0;
+            } else if (i == 1) {
+                n(className, methodName, str);
+                return 0;
+            } else if (i == 2) {
+                h(className, methodName, str);
+                return 0;
+            } else if (i == 3) {
+                b(className, methodName, str);
+                return 0;
+            } else {
+                m(className, methodName, str);
+                return 0;
+            }
+        }
+        return invokeIL.intValue;
     }
 }

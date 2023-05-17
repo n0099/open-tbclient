@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.IntentConstants;
 import com.sina.weibo.sdk.constant.WBConstants;
 import java.io.File;
 import java.lang.reflect.Field;
@@ -12,15 +13,15 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: com.ss.android.downloadlib.g.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0691a implements InvocationHandler {
+    /* loaded from: classes10.dex */
+    public static class C0705a implements InvocationHandler {
         public Object a;
 
-        public C0691a(Object obj) {
+        public C0705a(Object obj) {
             this.a = obj;
         }
 
@@ -81,7 +82,7 @@ public class a {
         boolean z = false;
         if (com.ss.android.downloadlib.addownload.j.i().optInt("hook", 0) == 1 && (objArr[1] instanceof String) && (objArr[2] instanceof Intent)) {
             Intent intent = (Intent) objArr[2];
-            if ("android.intent.action.VIEW".equals(intent.getAction()) && com.ss.android.socialbase.downloader.constants.e.a.equals(intent.getType())) {
+            if (IntentConstants.ACTION_BOX_BROWSER.equals(intent.getAction()) && com.ss.android.socialbase.downloader.constants.e.a.equals(intent.getType())) {
                 if (com.ss.android.socialbase.appdownloader.f.d.c()) {
                     String optString = com.ss.android.downloadlib.addownload.j.i().optString("hook_vivo_arg", "com.android.settings");
                     if (!StringUtil.NULL_STRING.equals(optString)) {
@@ -138,7 +139,7 @@ public class a {
             if (obj2 == null || (cls = Class.forName("android.app.IActivityManager")) == null) {
                 return;
             }
-            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C0691a(obj2)));
+            declaredField2.set(obj, Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{cls}, new C0705a(obj2)));
         } catch (Throwable unused) {
         }
     }

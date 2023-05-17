@@ -1,77 +1,88 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class l03 {
+import java.io.IOException;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
+/* loaded from: classes6.dex */
+public final class l03 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile l03 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public ue1 d;
+    public MediaType a;
+    public final FormBody b;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != -2) {
-                return i != 0 ? 6 : 0;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public l03() {
+    public l03(FormBody formBody) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {formBody};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = formBody;
+    }
+
+    public void b(MediaType mediaType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
+            this.a = mediaType;
         }
     }
 
-    public static l03 b() {
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
+            this.b.writeTo(bufferedSink);
+        }
+    }
+
+    public static l03 a(FormBody formBody, MediaType mediaType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
+            l03 l03Var = new l03(formBody);
+            l03Var.b(mediaType);
+            return l03Var;
+        }
+        return (l03) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (l03.class) {
-                    if (e == null) {
-                        e = new l03();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.contentLength();
         }
-        return (l03) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @NonNull
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("finalUrl", str);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaType mediaType = this.a;
+            if (mediaType == null) {
+                return this.b.contentType();
             }
-            return jSONObject;
+            return mediaType;
         }
-        return (JSONObject) invokeL.objValue;
+        return (MediaType) invokeV.objValue;
     }
 }

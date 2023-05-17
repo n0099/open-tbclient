@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk;
 import com.bytedance.sdk.openadsdk.AdConfig;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class TTAdConfig implements AdConfig {
     public String a;
     public String b;
@@ -141,7 +141,7 @@ public final class TTAdConfig implements AdConfig {
         return this.k;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public String a;
         public String b;

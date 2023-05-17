@@ -3,11 +3,11 @@ package com.baidu.cyberplayer.sdk.videodownload;
 import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberVideoDownloader {
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DMDownloadError {
         public static final int Cust01 = 1901;
         public static final int Cust02 = 1902;
@@ -25,7 +25,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DownloadListener {
         void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
 
@@ -33,7 +33,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DownloadOperation {
         public static final int DELETE = 0;
 
@@ -42,7 +42,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DownloadSubStatus {
         public static final int FILE_EXIST = 1;
         public static final int UNKNOWN = 0;
@@ -52,7 +52,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class DownloadTaskStatus {
         public static final int ABNORMAL_EXIT = 8;
         public static final int CANCELLED = 5;

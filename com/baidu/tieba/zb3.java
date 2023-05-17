@@ -1,64 +1,80 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.n83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes7.dex */
-public class zb3 extends UnitedSchemeBaseInterceptor {
+@Deprecated
+/* loaded from: classes8.dex */
+public class zb3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
-    public String getInterceptorName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aiapps_scheme_compat_interceptor" : (String) invokeV.objValue;
-    }
-
-    public zb3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zb3(da3 da3Var) {
+        super(da3Var, "/swanAPI/hideLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
-    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
-            Uri uri = unitedSchemeEntity.getUri();
-            String firstPath = unitedSchemeEntity.getFirstPath();
-            if (uri != null && !TextUtils.isEmpty(uri.getHost()) && !TextUtils.isEmpty(firstPath)) {
-                String host = uri.getHost();
-                if (host.toLowerCase().matches("v\\d+") && TextUtils.equals(firstPath, "swan")) {
-                    String uri2 = uri.toString();
-                    if (TextUtils.isEmpty(uri2)) {
-                        return false;
-                    }
-                    unitedSchemeEntity.resetUriAndPath(Uri.parse(uri2.replace(UnitedSchemeEntity.UNITED_SCHEME + host + "/" + firstPath, UnitedSchemeEntity.UNITED_SCHEME + "swanAPI")));
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (db3.b) {
+                Log.d("HideLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            return false;
+            if (!(context instanceof SwanAppActivity)) {
+                g62.c("hideLoading", "context not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
+                return false;
+            }
+            p82 Z = ((SwanAppActivity) context).Z();
+            if (Z == null) {
+                g62.c("hideLoading", "none fragmentManger");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragmentManger");
+                return false;
+            }
+            m82 m = Z.m();
+            if (!(m instanceof n83.a)) {
+                g62.c("hideLoading", "fragment not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+                return false;
+            } else if (m.getContext() == null) {
+                g62.c("hideLoading", "fragment has detached");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment has detached");
+                return false;
+            } else {
+                o83.c(m);
+                g62.i("hideLoading", "hide loading success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

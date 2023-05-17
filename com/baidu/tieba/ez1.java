@@ -1,116 +1,62 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ez1 extends wy1 {
+/* loaded from: classes5.dex */
+public class ez1 extends dz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
+    @Override // com.baidu.tieba.jx1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947751533, "Lcom/baidu/tieba/ez1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947751533, "Lcom/baidu/tieba/ez1;");
-                return;
-            }
-        }
-        f = ho1.a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ActionConfigApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ez1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public ez1(@NonNull hx1 hx1Var) {
+        super(hx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {hx1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
+                super((hx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public static String z(Object obj) {
-        InterceptResult invokeL;
+    public g12 x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (!TextUtils.isEmpty(str)) {
-                    return str;
-                }
-                return "log info is invalid";
-            } else if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.length() != 0) {
-                    return jSONObject.toString();
-                }
-                return "log info is invalid";
-            } else {
-                return "log info is invalid";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#isAllowedAdOpenAppSync", false);
+            if (g93.b0() == null) {
+                return new g12(1001, "swan app is null");
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("isAllowed", ns2.a().d());
+                return new g12(0, "success", jSONObject);
+            } catch (Exception e) {
+                g62.d("ActionConfigApi", e.getMessage(), e);
+                return new g12(1001, e.getMessage() + "");
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void x(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || str == null || str.length() <= 3145728) {
-            return;
-        }
-        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
-    }
-
-    public xz1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f) {
-                Log.d("LogApi", "start logToFile action, params = " + str);
-                x(str);
-            }
-            Pair<xz1, JSONObject> s = s(str);
-            if (!((xz1) s.first).isSuccess()) {
-                return (xz1) s.first;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            x42.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
-            return xz1.f();
-        }
-        return (xz1) invokeL.objValue;
+        return (g12) invokeV.objValue;
     }
 }

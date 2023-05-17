@@ -248,20 +248,20 @@ public class AdvisoryFilterSessionTask extends TaskManager.Task {
                                         chatSession.setLastMsgUid(optLong6);
                                     }
                                     arrayList2 = arrayList;
-                                    try {
-                                        arrayList2.add(addAdvisoryValue(jSONObject, chatSession));
-                                        str2 = str;
-                                    } catch (Exception e3) {
-                                        e = e3;
-                                        str2 = str;
-                                        LogUtils.e(str2, "parseBusinessSessions exception ", e);
-                                        i5 = i + 1;
-                                        jSONArray2 = jSONArray;
-                                        str3 = str2;
-                                    }
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    arrayList2 = arrayList;
+                                }
+                                try {
+                                    arrayList2.add(addAdvisoryValue(jSONObject, chatSession));
+                                    str2 = str;
                                 } catch (Exception e4) {
                                     e = e4;
-                                    arrayList2 = arrayList;
+                                    str2 = str;
+                                    LogUtils.e(str2, "parseBusinessSessions exception ", e);
+                                    i5 = i + 1;
+                                    jSONArray2 = jSONArray;
+                                    str3 = str2;
                                 }
                             }
                         } catch (Exception e5) {

@@ -3,7 +3,7 @@ package com.baidu.pass.ecommerce.common.adapter;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder {
     public int position;
     public T t;

@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class SoSource {
     public static final int LOAD_FLAG_ALLOW_IMPLICIT_PROVISION = 1;
     @Deprecated

@@ -3,7 +3,7 @@ package com.kwad.components.core.webview.kwai;
 import android.graphics.Bitmap;
 import android.webkit.WebChromeClient;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     @Nullable

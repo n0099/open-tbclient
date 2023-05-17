@@ -1,6 +1,6 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.br3;
+import com.baidu.tieba.ks3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -15,7 +15,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
     public static final int LEVEL_FIELD_NUMBER = 1;
@@ -28,7 +28,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Alert, b> implements Object {
         public int a;
         public int b;
@@ -78,7 +78,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$Alert buildPartial() {
-            Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (br3) null);
+            Bdtls$Alert bdtls$Alert = new Bdtls$Alert(this, (ks3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -328,7 +328,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         return super.writeReplace();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AbstractParser<Bdtls$Alert> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.Parser
@@ -373,7 +373,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, br3 br3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Alert(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -408,7 +408,7 @@ public final class Bdtls$Alert extends GeneratedMessageLite implements MessageLi
         }
     }
 
-    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, br3 br3Var) {
+    public /* synthetic */ Bdtls$Alert(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
         this(builder);
     }
 

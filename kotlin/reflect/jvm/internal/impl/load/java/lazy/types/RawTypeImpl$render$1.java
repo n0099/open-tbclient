@@ -4,7 +4,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RawTypeImpl$render$1 extends Lambda implements Function2<String, String, Boolean> {
     public static final RawTypeImpl$render$1 INSTANCE = new RawTypeImpl$render$1();
 

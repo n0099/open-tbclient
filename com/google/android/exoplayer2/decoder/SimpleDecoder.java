@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.util.Assertions;
 import java.lang.Exception;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class SimpleDecoder<I extends DecoderInputBuffer, O extends OutputBuffer, E extends Exception> implements Decoder<I, O, E> {
     public int availableInputBufferCount;
     public final I[] availableInputBuffers;

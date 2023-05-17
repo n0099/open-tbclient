@@ -6,7 +6,7 @@ import android.database.Cursor;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.io.Closeable;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class j implements Closeable {
     public l a;
 

@@ -1,200 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.animation.TypeEvaluator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes4.dex */
-public class h18 extends w08 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static w08 d = null;
-    public static String e = "tb_oficial_msg_";
+/* loaded from: classes5.dex */
+public class h18 implements TypeEvaluator<j18> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public j18 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947770970, "Lcom/baidu/tieba/h18;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947770970, "Lcom/baidu/tieba/h18;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h18() {
-        super("tb_oficial_msg_", OfficialChatMessage.class);
+    public h18(j18 j18Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {j18Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = j18Var;
     }
 
-    public static synchronized h18 w() {
-        InterceptResult invokeV;
-        h18 h18Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.animation.TypeEvaluator
+    /* renamed from: a */
+    public j18 evaluate(float f, j18 j18Var, j18 j18Var2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (h18.class) {
-                if (d == null) {
-                    d = new h18();
-                }
-                h18Var = (h18) d;
-            }
-            return h18Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), j18Var, j18Var2})) == null) {
+            float f2 = 1.0f - f;
+            float f3 = f2 * f2;
+            float f4 = 2.0f * f * f2;
+            j18 j18Var3 = this.a;
+            float f5 = f * f;
+            return new j18((int) ((j18Var.a * f3) + (j18Var3.a * f4) + (j18Var2.a * f5)), (int) ((f3 * j18Var.b) + (f4 * j18Var3.b) + (f5 * j18Var2.b)));
         }
-        return (h18) invokeV.objValue;
-    }
-
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x00b5: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:29:0x00b5 */
-    public static List<l18> x() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Exception e2;
-        Cursor cursor;
-        Cursor cursor2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            Cursor cursor3 = null;
-            ArrayList arrayList2 = null;
-            try {
-                try {
-                    cursor = d18.d().e("SELECT * FROM tb_message_center WHERE custom_group_type = ? AND (user_type = ? OR user_type = ?) ORDER BY visit_time DESC, last_content_time DESC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                    if (cursor != null) {
-                        try {
-                            arrayList = new ArrayList(cursor.getCount());
-                            while (cursor.moveToNext()) {
-                                try {
-                                    l18 l18Var = new l18();
-                                    l18Var.h(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                                    l18Var.j(cursor.getInt(cursor.getColumnIndex("unread_count")));
-                                    l18Var.i(cursor.getString(cursor.getColumnIndex("group_head")));
-                                    l18Var.g(cursor.getString(cursor.getColumnIndex("group_name")));
-                                    l18Var.k(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    int columnIndex = cursor.getColumnIndex("visit_time");
-                                    if (columnIndex >= 0) {
-                                        l18Var.l(cursor.getLong(columnIndex));
-                                    }
-                                    arrayList.add(l18Var);
-                                } catch (Exception e3) {
-                                    e2 = e3;
-                                    e2.printStackTrace();
-                                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                                    ji.a(cursor);
-                                    return arrayList;
-                                }
-                            }
-                            arrayList2 = arrayList;
-                        } catch (Exception e4) {
-                            arrayList = null;
-                            e2 = e4;
-                        }
-                    }
-                    ji.a(cursor);
-                    return arrayList2;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor3 = cursor2;
-                    ji.a(cursor3);
-                    throw th;
-                }
-            } catch (Exception e5) {
-                arrayList = null;
-                e2 = e5;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ji.a(cursor3);
-                throw th;
-            }
-        } else {
-            return (List) invokeV.objValue;
-        }
-    }
-
-    public static List<String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    d18 d2 = d18.d();
-                    cursor = d2.e("SELECT * FROM tb_message_center WHERE  custom_group_type" + RFC1522Codec.PREFIX + " AND (user_type" + RFC1522Codec.PREFIX + " OR user_type=?) ORDER BY last_content_time ASC", new String[]{String.valueOf(4), String.valueOf(3), String.valueOf(1)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            arrayList.add(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    TiebaStatic.printDBExceptionLog(e2, "ImMessageCenterDao.getOfficalListFromDb", new Object[0]);
-                }
-                return arrayList;
-            } finally {
-                ji.a(cursor);
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void A(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("read_count", Integer.valueOf(i));
-                d18 d2 = d18.d();
-                int update = d2.update(e + j, contentValues, "mid = ?", new String[]{String.valueOf(j2)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public void z(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            try {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("visit_time", Long.valueOf(j2));
-                contentValues.put("unread_count", (Integer) 0);
-                int update = d18.d().update("tb_message_center", contentValues, "gid = ?", new String[]{String.valueOf(j)});
-                BdLog.d("updateReadCount result = " + update);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
+        return (j18) invokeCommon.objValue;
     }
 }

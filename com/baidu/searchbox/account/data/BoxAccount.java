@@ -1,14 +1,22 @@
 package com.baidu.searchbox.account.data;
 
+import android.text.TextUtils;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BoxAccount {
+    public static final String ARTICLE_TRUE = "1";
+    public static final String MEMBER_VIP_TRUE = "1";
+    public static Map<String, List<String>> stokenMapping;
     public boolean addressSwitch;
     public int age;
-    public boolean baijiahao;
+    public boolean attentionFansSwitch;
+    public String avatarBig;
+    public String bcArticle;
     @Deprecated
     public String bduss;
     public String birthday;
@@ -18,21 +26,41 @@ public class BoxAccount {
     public long deadline;
     @Deprecated
     public String displayname;
-    public ErrorBean errorBean = new ErrorBean();
+    @Deprecated
+    public String dynamicPortrait;
     @Deprecated
     public int expiryTime;
     public HashMap<String, String> extFields;
+    public String firstDistributeNickname;
+    public int firstPopType;
     public int gender;
+    public String guideNickDialogInterval;
+    public String headTag;
     public String horoscope;
     @Deprecated
     public boolean incompleteUser;
+    public boolean isChildAccount;
+    public boolean isDefaultNick;
     @Deprecated
     public boolean isInitialPortrait;
     @Deprecated
     public String isLay;
+    public boolean isShowAge;
+    public boolean isShowCity;
+    public boolean isShowGender;
+    public boolean isShowStar;
     public int level;
+    public long memberEndTime;
+    public String memberVip;
+    public boolean newFlag;
+    public long nickModifyDuration;
+    public int nickModifyTimes;
     @Deprecated
     public String nickname;
+    public int operateWidgetNum;
+    public String ornament;
+    public String ornamentId;
+    public String popType;
     @Deprecated
     public String portrait;
     @Deprecated
@@ -41,21 +69,87 @@ public class BoxAccount {
     public String provinceCode;
     @Deprecated
     public String ptoken;
+    public String recommendNick;
     public boolean searchByInterestSwitch;
     public boolean searchByTelSwitch;
+    public boolean showComment;
+    public int showType;
     public String signature;
     @Deprecated
     public String uid;
     public String uk;
+    public String userType;
+    public int userWidgetNum;
     public int vip;
+    public int widgetNum;
+    public Audit nickNameAudit = new Audit();
+    public Audit signatureAudit = new Audit();
+    public ErrorBean errorBean = new ErrorBean();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public class Audit {
+        public String data;
+        public int status;
+
+        public Audit() {
+        }
+
+        public Audit parse(String str) {
+            if (TextUtils.isEmpty(str)) {
+                return this;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.status = jSONObject.optInt("status");
+                this.data = jSONObject.optString("data");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return this;
+        }
+
+        public void setData(String str) {
+            this.data = str;
+        }
+
+        public void setStatus(int i) {
+            this.status = i;
+        }
+
+        public String getData() {
+            return this.data;
+        }
+
+        public int getStatus() {
+            return this.status;
+        }
+
+        public String toString() {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", this.data);
+                jSONObject.put("status", this.status);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+    }
+
+    /* loaded from: classes3.dex */
     public class ErrorBean {
+        public String currentVocation;
         public int errorCode;
         public String errorMsg;
         public String renickname;
+        public String vocation;
+        public String vocationUrl;
 
         public ErrorBean() {
+        }
+
+        public void setCurrentVocation(String str) {
+            this.currentVocation = str;
         }
 
         public void setErrorCode(int i) {
@@ -70,6 +164,18 @@ public class BoxAccount {
             this.renickname = str;
         }
 
+        public void setVocation(String str) {
+            this.vocation = str;
+        }
+
+        public void setVocationUrl(String str) {
+            this.vocationUrl = str;
+        }
+
+        public String getCurrentVocation() {
+            return this.currentVocation;
+        }
+
         public int getErrorCode() {
             return this.errorCode;
         }
@@ -81,6 +187,14 @@ public class BoxAccount {
         public String getRenickname() {
             return this.renickname;
         }
+
+        public String getVocation() {
+            return this.vocation;
+        }
+
+        public String getVocationUrl() {
+            return this.vocationUrl;
+        }
     }
 
     public boolean getAddressSwitch() {
@@ -91,8 +205,16 @@ public class BoxAccount {
         return this.age;
     }
 
-    public boolean getBaijiahao() {
-        return this.baijiahao;
+    public boolean getAttentionFansSwitch() {
+        return this.attentionFansSwitch;
+    }
+
+    public String getAvatarBig() {
+        return this.avatarBig;
+    }
+
+    public String getBCArticle() {
+        return this.bcArticle;
     }
 
     public String getBduss() {
@@ -119,6 +241,10 @@ public class BoxAccount {
         return this.displayname;
     }
 
+    public String getDynamicPortrait() {
+        return this.dynamicPortrait;
+    }
+
     public ErrorBean getErrorBean() {
         return this.errorBean;
     }
@@ -132,6 +258,14 @@ public class BoxAccount {
             this.extFields = new HashMap<>();
         }
         return this.extFields;
+    }
+
+    public String getFirstDistributeNickname() {
+        return this.firstDistributeNickname;
+    }
+
+    public int getFirstPopType() {
+        return this.firstPopType;
     }
 
     public int getGender() {
@@ -149,8 +283,24 @@ public class BoxAccount {
         return null;
     }
 
+    public long getGuideNickDialogInterval() {
+        try {
+            return Long.parseLong(this.guideNickDialogInterval);
+        } catch (Exception unused) {
+            return 0L;
+        }
+    }
+
+    public String getHeadTag() {
+        return this.headTag;
+    }
+
     public String getHoroscope() {
         return this.horoscope;
+    }
+
+    public boolean getIsChildAccount() {
+        return this.isChildAccount;
     }
 
     public String getIsLay() {
@@ -161,8 +311,52 @@ public class BoxAccount {
         return this.level;
     }
 
+    public long getMemberEndTime() {
+        return this.memberEndTime;
+    }
+
+    public String getMemberVip() {
+        return this.memberVip;
+    }
+
+    public boolean getNewFlag() {
+        return this.newFlag;
+    }
+
+    public long getNickModifyDuration() {
+        return this.nickModifyDuration;
+    }
+
+    public long getNickModifyDurationOfDay() {
+        return (this.nickModifyDuration * 1000) / 86400000;
+    }
+
+    public int getNickModifyTimes() {
+        return this.nickModifyTimes;
+    }
+
+    public Audit getNickNameAudit() {
+        return this.nickNameAudit;
+    }
+
     public String getNickname() {
         return this.nickname;
+    }
+
+    public int getOperateWidgetNum() {
+        return this.operateWidgetNum;
+    }
+
+    public String getOrnament() {
+        return this.ornament;
+    }
+
+    public String getOrnamentId() {
+        return this.ornamentId;
+    }
+
+    public String getPopType() {
+        return this.popType;
     }
 
     public String getPortrait() {
@@ -185,6 +379,10 @@ public class BoxAccount {
         return this.ptoken;
     }
 
+    public String getRecommendNick() {
+        return this.recommendNick;
+    }
+
     public boolean getSearchByInterestSwitch() {
         return this.searchByInterestSwitch;
     }
@@ -193,8 +391,16 @@ public class BoxAccount {
         return this.searchByTelSwitch;
     }
 
+    public int getShowType() {
+        return this.showType;
+    }
+
     public String getSignature() {
         return this.signature;
+    }
+
+    public Audit getSignatureAudit() {
+        return this.signatureAudit;
     }
 
     public String getUid() {
@@ -205,8 +411,27 @@ public class BoxAccount {
         return this.uk;
     }
 
+    public String getUserType() {
+        return this.userType;
+    }
+
+    public int getUserWidgetNum() {
+        return this.userWidgetNum;
+    }
+
     public int getVip() {
         return this.vip;
+    }
+
+    public String getVipIconUrl() {
+        if (this.vip != 0) {
+            return AccountConstants.ACCOUNT_VIP_URL_PREFIX + this.vip + AccountConstants.ACCOUNT_VIP_URL_SUFFIX;
+        }
+        return null;
+    }
+
+    public int getWidgetNum() {
+        return this.widgetNum;
     }
 
     public int hashCode() {
@@ -217,12 +442,46 @@ public class BoxAccount {
         return 0;
     }
 
+    public boolean isDefaultNick() {
+        return this.isDefaultNick;
+    }
+
+    public boolean isDefaultPortriat() {
+        if (TextUtils.isEmpty(this.headTag)) {
+            return false;
+        }
+        if (!this.headTag.equals("1") && !this.headTag.equals("2")) {
+            return false;
+        }
+        return true;
+    }
+
     public boolean isIncompleteUser() {
         return this.incompleteUser;
     }
 
     public boolean isInitialPortrait() {
         return this.isInitialPortrait;
+    }
+
+    public boolean isShowAge() {
+        return this.isShowAge;
+    }
+
+    public boolean isShowCity() {
+        return this.isShowCity;
+    }
+
+    public boolean isShowComment() {
+        return this.showComment;
+    }
+
+    public boolean isShowGender() {
+        return this.isShowGender;
+    }
+
+    public boolean isShowStar() {
+        return this.isShowStar;
     }
 
     public JSONObject toJson() {
@@ -259,6 +518,18 @@ public class BoxAccount {
         return false;
     }
 
+    public String getAvatar(boolean z) {
+        if (z) {
+            return this.avatarBig;
+        }
+        return this.portrait;
+    }
+
+    @Deprecated
+    public String getHeadTag(String str) {
+        return this.headTag;
+    }
+
     public void setAddressSwitch(boolean z) {
         this.addressSwitch = z;
     }
@@ -267,8 +538,16 @@ public class BoxAccount {
         this.age = i;
     }
 
-    public void setBaijiahao(boolean z) {
-        this.baijiahao = z;
+    public void setAttentionFansSwitch(boolean z) {
+        this.attentionFansSwitch = z;
+    }
+
+    public void setAvatarBig(String str) {
+        this.avatarBig = str;
+    }
+
+    public void setBCArticle(String str) {
+        this.bcArticle = str;
     }
 
     public void setBduss(String str) {
@@ -295,6 +574,10 @@ public class BoxAccount {
         this.displayname = str;
     }
 
+    public void setDynamicPortrait(String str) {
+        this.dynamicPortrait = str;
+    }
+
     public void setErrorBean(ErrorBean errorBean) {
         this.errorBean = errorBean;
     }
@@ -307,8 +590,24 @@ public class BoxAccount {
         this.extFields = hashMap;
     }
 
+    public void setFirstDistributeNickname(String str) {
+        this.firstDistributeNickname = str;
+    }
+
+    public void setFirstPopType(int i) {
+        this.firstPopType = i;
+    }
+
     public void setGender(int i) {
         this.gender = i;
+    }
+
+    public void setGuideNickDialogInterval(String str) {
+        this.guideNickDialogInterval = str;
+    }
+
+    public void setHeadTag(String str) {
+        this.headTag = str;
     }
 
     public void setHoroscope(String str) {
@@ -323,6 +622,14 @@ public class BoxAccount {
         this.isInitialPortrait = z;
     }
 
+    public void setIsChildAccount(boolean z) {
+        this.isChildAccount = z;
+    }
+
+    public void setIsDefaultNick(boolean z) {
+        this.isDefaultNick = z;
+    }
+
     public void setIsLay(String str) {
         this.isLay = str;
     }
@@ -331,8 +638,48 @@ public class BoxAccount {
         this.level = i;
     }
 
+    public void setMemberEndTime(long j) {
+        this.memberEndTime = j;
+    }
+
+    public void setMemberVip(String str) {
+        this.memberVip = str;
+    }
+
+    public void setNewFlag(boolean z) {
+        this.newFlag = z;
+    }
+
+    public void setNickModifyDuration(long j) {
+        this.nickModifyDuration = j;
+    }
+
+    public void setNickModifyTimes(int i) {
+        this.nickModifyTimes = i;
+    }
+
+    public void setNickNameAudit(Audit audit) {
+        this.nickNameAudit = audit;
+    }
+
     public void setNickname(String str) {
         this.nickname = str;
+    }
+
+    public void setOperateWidgetNum(int i) {
+        this.operateWidgetNum = i;
+    }
+
+    public void setOrnament(String str) {
+        this.ornament = str;
+    }
+
+    public void setOrnamentId(String str) {
+        this.ornamentId = str;
+    }
+
+    public void setPopType(String str) {
+        this.popType = str;
     }
 
     public void setPortrait(String str) {
@@ -355,6 +702,10 @@ public class BoxAccount {
         this.ptoken = str;
     }
 
+    public void setRecommendNick(String str) {
+        this.recommendNick = str;
+    }
+
     public void setSearchByInterestSwitch(boolean z) {
         this.searchByInterestSwitch = z;
     }
@@ -363,8 +714,36 @@ public class BoxAccount {
         this.searchByTelSwitch = z;
     }
 
+    public void setShowAge(boolean z) {
+        this.isShowAge = z;
+    }
+
+    public void setShowCity(boolean z) {
+        this.isShowCity = z;
+    }
+
+    public void setShowComment(boolean z) {
+        this.showComment = z;
+    }
+
+    public void setShowGender(boolean z) {
+        this.isShowGender = z;
+    }
+
+    public void setShowStar(boolean z) {
+        this.isShowStar = z;
+    }
+
+    public void setShowType(int i) {
+        this.showType = i;
+    }
+
     public void setSignature(String str) {
         this.signature = str;
+    }
+
+    public void setSignatureAudit(Audit audit) {
+        this.signatureAudit = audit;
     }
 
     public void setUid(String str) {
@@ -375,8 +754,20 @@ public class BoxAccount {
         this.uk = str;
     }
 
+    public void setUserType(String str) {
+        this.userType = str;
+    }
+
+    public void setUserWidgetNum(int i) {
+        this.userWidgetNum = i;
+    }
+
     public void setVip(int i) {
         this.vip = i;
+    }
+
+    public void setWidgetNum(int i) {
+        this.widgetNum = i;
     }
 
     public String toString() {

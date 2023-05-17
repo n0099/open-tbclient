@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class RelevanceItemListFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class RelevanceItemListFragment extends BaseFragment {
     public ArrayList<Long> d;
     public CustomMessageListener e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemSearchMessage)) {
-                this.a.F1(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
+                this.a.G1(((EvaluateRelevanceItemSearchMessage) customResponsedMessage).content);
             }
         }
     }
@@ -85,21 +85,21 @@ public class RelevanceItemListFragment extends BaseFragment {
         this.e = new a(this, 2921529);
     }
 
-    public final void H1() {
+    public final void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             registerListener(this.e);
         }
     }
 
-    public void I1() {
+    public void J1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && isLoadingViewAttached()) {
             hideLoadingView(this.a);
         }
     }
 
-    public void K1() {
+    public void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             hideLoadingView(this.a);
@@ -126,7 +126,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void F1(String str) {
+    public void G1(String str) {
         RelevanceItemListController relevanceItemListController;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (relevanceItemListController = this.b) == null) {
@@ -137,7 +137,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         showLoadingView(this.a);
     }
 
-    public boolean G1(long j) {
+    public boolean H1(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
@@ -149,7 +149,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         return invokeJ.booleanValue;
     }
 
-    public void J1(String str) {
+    public void K1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             hideLoadingView(this.a);
@@ -157,7 +157,7 @@ public class RelevanceItemListFragment extends BaseFragment {
         }
     }
 
-    public void L1(String str) {
+    public void M1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.c = str;
@@ -189,7 +189,7 @@ public class RelevanceItemListFragment extends BaseFragment {
                 str = "";
             }
             if (!TextUtils.isEmpty(str)) {
-                F1(str);
+                G1(str);
                 return;
             }
             showLoadingView(this.a);
@@ -203,10 +203,10 @@ public class RelevanceItemListFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             if (this.a == null) {
-                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0306, (ViewGroup) null);
+                this.a = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d031d, (ViewGroup) null);
             }
             initData();
-            H1();
+            I1();
             return this.a;
         }
         return (View) invokeLLL.objValue;

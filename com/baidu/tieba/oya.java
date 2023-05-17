@@ -1,33 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hya;
-import com.baidu.tieba.lya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
-public class oya implements lya {
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public final class oya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public volatile IPushInvoke b;
-    public final lya.a c;
-    public rya d;
+    public final Map<Long, AugmentedFace> a;
 
-    public oya(lya.a aVar) {
+    public oya() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,36 +27,23 @@ public class oya implements lya {
                 return;
             }
         }
-        this.a = new AtomicInteger(1);
-        this.c = aVar;
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    public final void a(int i) {
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            Log.i("PushConnectionClient", "notifyFailed result: " + i);
-            lya.a aVar = this.c;
-            if (aVar != null) {
-                hya.a aVar2 = (hya.a) aVar;
-                aVar2.getClass();
-                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
-                    aVar2.b(HonorPushErrorEnum.fromCode(i));
-                } else {
-                    aVar2.f.a.post(new gya(aVar2, i));
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
                 }
             }
+            return augmentedFace;
         }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() != 3 && this.a.get() != 4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (AugmentedFace) invokeJL.objValue;
     }
 }

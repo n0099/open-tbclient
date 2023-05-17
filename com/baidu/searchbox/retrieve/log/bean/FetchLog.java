@@ -8,7 +8,7 @@ import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchLog {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String END_TIME = "endTime";

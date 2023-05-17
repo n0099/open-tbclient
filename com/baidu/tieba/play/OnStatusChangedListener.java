@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public interface OnStatusChangedListener {
     void onStatusChange(VideoStatus videoStatus);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class VideoStatus {
         public static final /* synthetic */ VideoStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

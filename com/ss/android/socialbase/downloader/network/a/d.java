@@ -4,7 +4,7 @@ import com.ss.android.socialbase.downloader.network.i;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d implements i {
     public final Object a;
     public final List<com.ss.android.socialbase.downloader.model.c> b;

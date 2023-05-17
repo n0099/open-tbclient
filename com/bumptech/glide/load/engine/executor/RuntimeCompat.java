@@ -6,7 +6,7 @@ import android.util.Log;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class RuntimeCompat {
     public static final String CPU_LOCATION = "/sys/devices/system/cpu/";
     public static final String CPU_NAME_REGEX = "cpu[0-9]+";

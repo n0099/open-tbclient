@@ -1,5 +1,5 @@
 package com.baidu.pass.main.facesdk.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceSDKActionConfig {
     public float eyeCloseThreshold = 0.7f;
     public float eyeOpenThreshold = 0.3f;

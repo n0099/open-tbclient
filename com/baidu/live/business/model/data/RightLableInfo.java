@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RightLableInfo implements Parcelable {
     public static final Parcelable.Creator<RightLableInfo> CREATOR = new Parcelable.Creator<RightLableInfo>() { // from class: com.baidu.live.business.model.data.RightLableInfo.1
         /* JADX DEBUG: Method merged with bridge method */

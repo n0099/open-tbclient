@@ -6,7 +6,6 @@ import android.os.Build;
 import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.URL;
 import java.util.Enumeration;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.m.a";
@@ -95,7 +94,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
-                for (String str2 : new URL(str).getHost().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) {
+                for (String str2 : new URL(str).getHost().split("\\.")) {
                     for (int i = 0; i < str2.length(); i++) {
                         if (!Character.isDigit(str2.charAt(i))) {
                             return false;

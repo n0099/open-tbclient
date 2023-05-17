@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DecoderInputBuffer extends Buffer {
     public static final int BUFFER_REPLACEMENT_MODE_DIRECT = 2;
     public static final int BUFFER_REPLACEMENT_MODE_DISABLED = 0;
@@ -15,7 +15,7 @@ public class DecoderInputBuffer extends Buffer {
     public long timeUs;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface BufferReplacementMode {
     }
 

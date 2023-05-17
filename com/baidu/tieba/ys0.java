@@ -1,85 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URL;
-import java.util.List;
-import java.util.regex.Pattern;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
-@JvmName(name = "AuthStrategyHelper")
-/* loaded from: classes7.dex */
-public final class ys0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class ys0 extends ts0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile vs0 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ny0 O;
 
-    public static final String a() {
+    @Override // com.baidu.tieba.ss0, com.baidu.tieba.rs0
+    public int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("host", "vdept3.bdstatic.com");
-                jSONObject2.put("auth", "1_1_1_3");
-                jSONArray.put(jSONObject2);
-                jSONObject.put("hosts", jSONArray);
-            } catch (Exception e) {
-                lj0.c("AuthStrategyHelper", e.toString());
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject3, "defaultHostAuthConfig.toString()");
-            return jSONObject3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 23;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static final List<us0> b() {
+    @Override // com.baidu.tieba.ss0
+    public void D1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ss0
+    public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = xs0.a(q01.l().getString("host_auth_config", a()));
-            }
-            vs0 vs0Var = a;
-            if (vs0Var != null) {
-                return vs0Var.a();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final synchronized us0 c(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ys0(@NonNull kw0 kw0Var, @Nullable Context context) {
+        super(kw0Var, context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (ys0.class) {
-                if (str == null) {
-                    return null;
-                }
-                List<us0> b = b();
-                if (b == null) {
-                    return null;
-                }
-                try {
-                    String host = new URL(str).getHost();
-                    for (us0 us0Var : b) {
-                        if (Pattern.matches(us0Var.b(), host)) {
-                            return us0Var;
-                        }
-                    }
-                } catch (Exception e) {
-                    lj0.a("AuthStrategyHelper", e.getMessage());
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kw0Var, context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((kw0) objArr2[0], (Context) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (us0) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.et0, com.baidu.tieba.rs0
+    public void G0(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            ny0 ny0Var = new ny0();
+            this.O = ny0Var;
+            b(ny0Var);
+            fy0 fy0Var = this.b;
+            if (fy0Var != null) {
+                fy0Var.h0(Boolean.FALSE);
+            }
+            v().setClickable(false);
+            w0(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.rs0
+    public boolean X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return V();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rs0, com.baidu.tieba.tx0
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            int i = this.a.d;
+            if (i > 0) {
+                o0(i);
+            }
+        }
     }
 }

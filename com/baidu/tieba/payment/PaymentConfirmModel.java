@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.payment.data.PayRequestData;
 import com.baidu.tieba.payment.message.ResponsePaymentConfirmInfoMessage;
 import com.baidu.tieba.payment.message.ResponsePaymentPayMessage;
@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a9<T> a;
+    public g9<T> a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -46,12 +46,12 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         return invokeV.booleanValue;
     }
 
-    public PaymentConfirmModel(a9<T> a9Var) {
+    public PaymentConfirmModel(g9<T> g9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,10 +61,10 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.a = a9Var;
+        this.a = g9Var;
     }
 
-    public void V(PayRequestData payRequestData) {
+    public void U(PayRequestData payRequestData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, payRequestData) != null) || payRequestData == null) {
             return;
@@ -82,7 +82,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         this.a.sendMessage(httpMessage);
     }
 
-    public void W() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -92,7 +92,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void X() {
+    public void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -102,7 +102,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void Y(PaymentConfirmRequestData paymentConfirmRequestData) {
+    public void X(PaymentConfirmRequestData paymentConfirmRequestData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, paymentConfirmRequestData) != null) || paymentConfirmRequestData == null) {
             return;

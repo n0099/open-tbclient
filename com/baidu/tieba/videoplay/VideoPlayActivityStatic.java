@@ -12,7 +12,7 @@ import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconHttpResponse;
 import com.baidu.tbadk.mainTab.videoRedIcon.VideoRedIconSocketResponse;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.VideoRedIcon.RedIcon;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoPlayActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public class VideoPlayActivityStatic {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            xo9.d(CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708, "c/f/video/redIcon", VideoRedIconHttpResponse.class, VideoRedIconSocketResponse.class);
-            xo9.e(CmdConfigHttp.CMD_POST_VIDEO_MARK_RED_ICON, "c/c/video/markRedIcon", TbHttpResponsedMessage.class, true, false, true, true);
+            zq9.d(CmdConfigHttp.CMD_VIDEO_TAB_RED_ICON, 309708, "c/f/video/redIcon", VideoRedIconHttpResponse.class, VideoRedIconSocketResponse.class);
+            zq9.e(CmdConfigHttp.CMD_POST_VIDEO_MARK_RED_ICON, "c/c/video/markRedIcon", TbHttpResponsedMessage.class, true, false, true, true);
         }
     }
 

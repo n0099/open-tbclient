@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.downloader.WDownLoadService;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class U {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public class U {
             if (info != null) {
                 string = info.getDl_name();
             } else {
-                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16ff);
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f0);
             }
-            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1700), 0);
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f1), 0);
             try {
                 WDownLoadService.a(this.b);
             } catch (Exception e) {
@@ -100,9 +100,9 @@ public class U {
             if (info != null) {
                 string = info.getDl_name();
             } else {
-                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1703);
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f4);
             }
-            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1703), i);
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f4), i);
         }
     }
 
@@ -116,9 +116,9 @@ public class U {
             if (info != null) {
                 string = info.getDl_name();
             } else {
-                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16ff);
+                string = wDownLoadService.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f0);
             }
-            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1700), 0);
+            wDownLoadService.a(info, string, this.b.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f1), 0);
             WDownLoadService.a(this.b);
             this.b.stopSelf();
             e1.a(this.b.getApplicationContext()).b(new f1(this.a), 1).a();

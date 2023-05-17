@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import android.util.SparseIntArray;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,14 +12,72 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ii3 extends u93 {
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes6.dex */
+public final class ii3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final Pattern a;
+    public static final Pattern b;
+    public static final SparseIntArray c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+        public int d;
+        public int e;
+        public int f;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            this.b = -1;
+            this.c = -1;
+            this.d = -1;
+            this.e = -1;
+            this.f = -1;
+        }
+
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a != -1 && this.b != -1 && this.c != -1 && this.d != -1 && this.e != -1 && this.f != -1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -37,100 +92,166 @@ public class ii3 extends u93 {
                 return;
             }
         }
-        c = ho1.a;
+        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
+        b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
+        SparseIntArray sparseIntArray = new SparseIntArray();
+        c = sparseIntArray;
+        sparseIntArray.put(d("jan"), 0);
+        c.put(d("feb"), 1);
+        c.put(d("mar"), 2);
+        c.put(d("apr"), 3);
+        c.put(d("may"), 4);
+        c.put(d("jun"), 5);
+        c.put(d("jul"), 6);
+        c.put(d("aug"), 7);
+        c.put(d("sep"), 8);
+        c.put(d("oct"), 9);
+        c.put(d("nov"), 10);
+        c.put(d("dec"), 11);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ii3(u83 u83Var) {
-        super(u83Var, "/swanAPI/getSystemRiskInfo");
+    public static int a(@NonNull Matcher matcher, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, matcher, i)) == null) {
+            try {
+                String group = matcher.group(i);
+                if (TextUtils.isEmpty(group)) {
+                    return -1;
+                }
+                if (group.length() == 2) {
+                    return ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
+                }
+                return group.charAt(0) - '0';
+            } catch (Exception unused) {
+                return -1;
             }
         }
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        String h;
-        String a;
-        String O;
+    public static int b(@NonNull Matcher matcher, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            ur1 h0 = er2.h0();
-            JSONObject jSONObject = new JSONObject();
-            if (context == null) {
-                try {
-                    context = er2.c();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
+            try {
+                return c.get(d(matcher.group(i)), -1);
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static int c(@NonNull Matcher matcher, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, matcher, i)) == null) {
+            try {
+                String group = matcher.group(i);
+                if (TextUtils.isEmpty(group)) {
+                    return -1;
+                }
+                if (group.length() == 2) {
+                    int charAt = ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
+                    if (charAt >= 70) {
+                        return charAt + FeatureCodes.SKY_SEG;
+                    }
+                    return charAt + 2000;
+                } else if (group.length() == 3) {
+                    return ((group.charAt(0) - '0') * 100) + ((group.charAt(1) - '0') * 10) + (group.charAt(2) - '0') + FeatureCodes.SKY_SEG;
+                } else {
+                    if (group.length() == 4) {
+                        return ((group.charAt(0) - '0') * 1000) + ((group.charAt(1) - '0') * 100) + ((group.charAt(2) - '0') * 10) + (group.charAt(3) - '0');
+                    }
+                    return 1970;
+                }
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = -1;
+            if (!TextUtils.isEmpty(str) && str.length() >= 3) {
+                for (int i2 = 0; i2 < 3; i2++) {
+                    i += Character.toLowerCase(str.charAt(i2)) - 'a';
                 }
             }
-            String str = "";
-            if (h0 == null) {
-                h = "";
-            } else {
-                h = h0.h(context);
-            }
-            jSONObject.put(DpStatConstants.KEY_USER_ID, h);
-            if (h0 == null) {
-                a = "";
-            } else {
-                a = er2.G0().a(context);
-            }
-            jSONObject.put("zid", a);
-            jSONObject.put("idfa", "");
-            jSONObject.put("imei", rl3.r());
-            if (x73Var == null) {
-                O = "";
-            } else {
-                O = x73Var.O();
-            }
-            jSONObject.put("appkey", O);
-            jSONObject.put("os", "android");
-            jSONObject.put("osVersion", Build.VERSION.RELEASE);
-            jSONObject.put("hostName", context.getPackageName());
-            jSONObject.put("hostVersion", rl3.D());
-            jSONObject.put("model", Build.MODEL);
-            jSONObject.put("uuid", jo4.b(context).a());
-            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-            if (h0 != null) {
-                str = h0.i(context);
-            }
-            jSONObject.put("cuid", str);
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
-            }
-            String b = so4.b(UUID.randomUUID().toString().getBytes(), false);
-            String a2 = pk3.a(b, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-            String d = pk3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a2 + ", rsaKey=" + d);
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("key", d);
-                jSONObject3.put("value", a2);
-                jSONObject2.put("content", jSONObject3);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-            return true;
+            return i;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static long e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1L;
+            }
+            b bVar = new b(null);
+            Matcher matcher = a.matcher(str);
+            if (matcher.find()) {
+                bVar.c = a(matcher, 1);
+                bVar.b = b(matcher, 2);
+                bVar.a = c(matcher, 3);
+                f(bVar, matcher, 4);
+            } else {
+                Matcher matcher2 = b.matcher(str);
+                if (!matcher2.find()) {
+                    return -1L;
+                }
+                bVar.b = b(matcher2, 1);
+                bVar.c = a(matcher2, 2);
+                f(bVar, matcher2, 3);
+                bVar.a = c(matcher2, 4);
+            }
+            if (bVar.a()) {
+                return -1L;
+            }
+            if (bVar.a >= 2038) {
+                bVar.a = 2038;
+                bVar.b = 0;
+                bVar.c = 1;
+            }
+            GregorianCalendar gregorianCalendar = new GregorianCalendar();
+            gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
+            gregorianCalendar.set(bVar.a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f);
+            return gregorianCalendar.getTimeInMillis();
+        }
+        return invokeL.longValue;
+    }
+
+    public static void f(@NonNull b bVar, @NonNull Matcher matcher, int i) {
+        int i2;
+        int i3;
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65542, null, bVar, matcher, i) == null) {
+            try {
+                String group = matcher.group(i);
+                if (TextUtils.isEmpty(group)) {
+                    return;
+                }
+                int charAt = group.charAt(0) - '0';
+                if (group.charAt(1) != ':') {
+                    i2 = 2;
+                    charAt = (charAt * 10) + (group.charAt(1) - '0');
+                } else {
+                    i2 = 1;
+                }
+                bVar.d = charAt;
+                bVar.e = ((group.charAt(i3) - '0') * 10) + (group.charAt(i4) - '0');
+                int i5 = i2 + 1 + 1 + 1 + 1;
+                bVar.f = ((group.charAt(i5) - '0') * 10) + (group.charAt(i5 + 1) - '0');
+            } catch (Exception unused) {
+            }
+        }
     }
 }

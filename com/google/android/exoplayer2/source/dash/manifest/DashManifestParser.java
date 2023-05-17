@@ -6,6 +6,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.util.Pair;
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.coremedia.iso.boxes.sampleentry.SubtitleSampleEntry;
 import com.google.android.exoplayer2.C;
@@ -34,7 +35,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DashManifestParser extends DefaultHandler implements ParsingLoadable.Parser<DashManifest> {
     public static final String TAG = "MpdParser";
     public final String contentId;
@@ -46,7 +47,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
     public void parseAdaptationSetChild(XmlPullParser xmlPullParser) throws XmlPullParserException, IOException {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class RepresentationInfo {
         public final String baseUrl;
         public final ArrayList<DrmInitData.SchemeData> drmSchemeDatas;
@@ -984,7 +985,7 @@ public class DashManifestParser extends DefaultHandler implements ParsingLoadabl
         long parseDuration = parseDuration(xmlPullParser, "mediaPresentationDuration", C.TIME_UNSET);
         long parseDuration2 = parseDuration(xmlPullParser, "minBufferTime", C.TIME_UNSET);
         String attributeValue = xmlPullParser.getAttributeValue(null, "type");
-        if (attributeValue != null && attributeValue.equals("dynamic")) {
+        if (attributeValue != null && attributeValue.equals(PraiseUBCHelper.SOURCE_DYNAMIC)) {
             z = true;
         } else {
             z = false;

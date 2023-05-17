@@ -19,14 +19,14 @@ import com.hihonor.cloudservice.support.account.service.HonorIDSignInService;
 import com.hihonor.cloudservice.tasks.OnFailureListener;
 import com.hihonor.cloudservice.tasks.OnSuccessListener;
 import com.hihonor.cloudservice.tasks.Task;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String o = HonorSSOLoginActivity.class.getSimpleName();
     public static final int p = 1002;
     public static final int q = 1003;
     public HonorIDSignInService n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements OnFailureListener {
         public a() {
         }
@@ -45,7 +45,7 @@ public class HonorSSOLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements OnSuccessListener<SignInAccountInfo> {
         public b() {
         }

@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import tbclient.GetLockWindowMsg.DataRes;
+/* loaded from: classes6.dex */
 public class je9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
+    public String a;
+    public String b;
+    public ke9 c;
+    public MetaData d;
 
     public je9() {
         Interceptable interceptable = $ic;
@@ -24,52 +27,59 @@ public class je9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = false;
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public ke9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return invokeV.booleanValue;
+        return (ke9) invokeV.objValue;
     }
 
-    public void d(int i) {
+    public MetaData d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
         }
+        return (MetaData) invokeV.objValue;
     }
 
-    public void e(int i) {
+    public void e(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
+            return;
         }
+        this.a = dataRes.publish_user;
+        this.b = dataRes.publish_pic;
+        MetaData metaData = new MetaData();
+        this.d = metaData;
+        metaData.parserProtobuf(dataRes.author);
+        this.d.setPendantData(null);
+        ke9 ke9Var = new ke9();
+        this.c = ke9Var;
+        ke9Var.e(dataRes.thread_info);
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SocketAddCommonParamSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SOCKET_ADD_COMMON_PARAM_ENABLE = "android_lcs_common_param";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

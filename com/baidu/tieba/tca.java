@@ -1,60 +1,89 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.inter.IFetchJob;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-@Service
-/* loaded from: classes6.dex */
-public class tca extends IFetchJob {
+/* loaded from: classes7.dex */
+public class tca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Matrix a;
+    public Bitmap b;
 
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public String getFetchJobType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tbFetch" : (String) invokeV.objValue;
-    }
-
-    public tca() {
+    public tca(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = bitmap;
+        this.a = new Matrix();
     }
 
-    public final void a(String str, String str2, String str3, long j, long j2, long j3, List<String> list) {
+    public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).fetchUpload(str, str2, str3, j, j2, j3, list);
-        }
-    }
-
-    @Override // com.baidu.searchbox.retrieve.inter.IFetchJob
-    public void dispatch(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, canvas) != null) || canvas == null) {
             return;
         }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add("*/*");
-        a(jSONObject.optString("type", "tbFetch"), jSONObject.optString("jobId", ""), jSONObject.optString("version", ""), jSONObject.optLong("maxSizeLimit", 10240L), jSONObject.optLong("startTime", 0L), jSONObject.optLong("endTime", System.currentTimeMillis()), arrayList);
+        canvas.drawBitmap(this.b, this.a, null);
+    }
+
+    public Matrix b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public Bitmap c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Bitmap bitmap = this.b;
+            if (bitmap == null) {
+                return 0;
+            }
+            return bitmap.getWidth();
+        }
+        return invokeV.intValue;
     }
 }

@@ -1,97 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.provider.Settings;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ji3 extends u93 {
+import java.util.regex.Pattern;
+/* loaded from: classes6.dex */
+public class ji3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
+    public static final Pattern c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ji3(u83 u83Var) {
-        super(u83Var, "/swanAPI/getAutoRotationSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884213, "Lcom/baidu/tieba/ji3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947884213, "Lcom/baidu/tieba/ji3;");
                 return;
             }
         }
+        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+        c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                x42.c("getAutoRotationSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (u93.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!c(str) && !d(str)) {
                 return false;
-            } else if (context == null) {
-                x42.c("getAutoRotationSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (u93.b) {
-                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
-                }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return false;
-            } else {
-                try {
-                    int i = Settings.System.getInt(context.getApplicationContext().getContentResolver(), "accelerometer_rotation");
-                    if (u93.b) {
-                        Log.d("SwanAppAction", "getAutoRotationSync --- isRotateOn: " + i);
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    if (i != 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    try {
-                        jSONObject.put("isRotateOn", z);
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException unused) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                        if (u93.b) {
-                            Log.e("SwanAppAction", "getAutoRotationSync --- json exception");
-                        }
-                        return false;
-                    }
-                } catch (Exception e) {
-                    if (u93.b) {
-                        e.printStackTrace();
-                        Log.e("SwanAppAction", "getAutoRotationSync --- can't get setting");
-                    }
-                    return false;
+            }
+            return a.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            if (!f(str) && !e(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return c.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '[') {
+                int i = length - 1;
+                if (str.charAt(i) == ']') {
+                    str = str.substring(1, i);
                 }
             }
+            return a(str);
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

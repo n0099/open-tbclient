@@ -1,45 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class mk5 implements pj5<PrePageKeyEvent> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+/* loaded from: classes6.dex */
+public interface mk5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
 
-    public mk5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(@NonNull Context context, long j, int i, String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pj5
-    /* renamed from: a */
-    public boolean onEvent(PrePageKeyEvent prePageKeyEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, prePageKeyEvent)) == null) {
-            if (prePageKeyEvent != null && !TextUtils.isEmpty(prePageKeyEvent.prePageKey)) {
-                TbPageExtraHelper.setPrePageKey(prePageKeyEvent.prePageKey);
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    void b(@NonNull Context context, long j);
+
+    void c(@NonNull Context context, long j, String str);
+
+    void d(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
 }

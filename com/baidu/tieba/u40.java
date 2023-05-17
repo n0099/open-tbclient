@@ -1,56 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import java.io.Closeable;
+import java.util.zip.ZipFile;
+/* loaded from: classes7.dex */
 public class u40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, t40> a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        List<t40> a();
-    }
-
-    public u40(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        for (t40 t40Var : aVar.a()) {
-            this.a.put(t40Var.e(), t40Var);
-        }
-    }
-
-    public t40 a(String str) {
+    public static boolean a(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (t40) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cursor)) == null) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public List<t40> b() {
-        InterceptResult invokeV;
+    public static boolean b(Closeable closeable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(ZipFile zipFile) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zipFile)) == null) {
+            if (zipFile != null) {
+                try {
+                    zipFile.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

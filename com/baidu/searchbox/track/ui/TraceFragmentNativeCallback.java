@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.devices.DeviceUtil;
 @TargetApi(26)
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TraceFragmentNativeCallback extends BaseTraceFragmentCallback {
     public FragmentManager.FragmentLifecycleCallbacks mFragmentCallbacks;
 

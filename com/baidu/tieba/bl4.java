@@ -1,78 +1,91 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
-public class bl4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class bl4 extends pk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public bl4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    @Override // com.baidu.tieba.pk4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
-            FileInputStream fileInputStream2 = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.reset();
-                fileInputStream = new FileInputStream(file);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a = a(messageDigest.digest(), "", z);
-                            bo4.d(fileInputStream);
-                            return a;
-                        }
-                    }
-                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                    bo4.d(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    bo4.d(fileInputStream2);
-                    throw th;
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", el4.b().d());
+                jSONObject.put("tipmsgs", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                ol4.b();
+                jSONObject3.put("version", ol4.c());
+                jSONObject.put("web_degrade_strategy", jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("version", kl4.a().b());
+                jSONObject.put("pkg_preload", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("version", al4.b().c());
+                jSONObject.put("pkg_clean_strategy", jSONObject5);
+                JSONObject jSONObject6 = new JSONObject();
+                jSONObject6.put("version", dl4.a().b());
+                jSONObject.put("getpkg_retry_switch", jSONObject6);
+                JSONObject jSONObject7 = new JSONObject();
+                jSONObject7.put("version", ql4.d());
+                jSONObject.put("update_expire_time", jSONObject7);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("version", il4.f().h());
+                jSONObject.put("page_tips", jSONObject8);
+                if (ml4.a) {
+                    JSONObject jSONObject9 = new JSONObject();
+                    jSONObject9.put("version", ml4.b);
+                    jSONObject.put("heartbeat", jSONObject9);
                 }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("version", fl4.a().b());
+                jSONObject.put("local_debug", jSONObject10);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("version", rg4.a().a());
+                jSONObject.put(rg4.a().c(), jSONObject11);
+                if (nl4.b()) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("version", nl4.a());
+                    jSONObject.put("api_description", jSONObject12);
+                }
+                JSONObject jSONObject13 = new JSONObject();
+                jSONObject13.put("version", pl4.b().c());
+                jSONObject.put("tts", jSONObject13);
+                new JSONObject().put("version", gl4.a().c());
+                jSONObject.put("no_history_apps", jSONObject13);
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("version", sl4.d());
+                jSONObject.put("app_inner_preload", jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("version", ll4.a().b());
+                jSONObject.put("simple_control_item", jSONObject15);
+            } catch (JSONException unused) {
             }
-        } else {
-            return (String) invokeLZ.objValue;
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

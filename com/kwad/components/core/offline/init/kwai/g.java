@@ -20,7 +20,7 @@ import com.kwai.adclient.kscommerciallogger.model.BusinessType;
 import com.kwai.adclient.kscommerciallogger.model.SubBusinessType;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g implements IOfflineHostApi {
     public IAsync EP;
     public IEnvironment EQ;

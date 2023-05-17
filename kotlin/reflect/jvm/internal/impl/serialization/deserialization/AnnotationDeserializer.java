@@ -56,12 +56,12 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.UShortValue;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AnnotationDeserializer {
     public final ModuleDescriptor module;
     public final NotFoundClasses notFoundClasses;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;
@@ -127,11 +127,11 @@ public final class AnnotationDeserializer {
                     }
                 }
             } else {
-                ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-                if (!(mo2025getDeclarationDescriptor instanceof ClassDescriptor)) {
-                    mo2025getDeclarationDescriptor = null;
+                ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+                if (!(mo2044getDeclarationDescriptor instanceof ClassDescriptor)) {
+                    mo2044getDeclarationDescriptor = null;
                 }
-                ClassDescriptor classDescriptor = (ClassDescriptor) mo2025getDeclarationDescriptor;
+                ClassDescriptor classDescriptor = (ClassDescriptor) mo2044getDeclarationDescriptor;
                 if (classDescriptor != null && !KotlinBuiltIns.isKClass(classDescriptor)) {
                     return false;
                 }

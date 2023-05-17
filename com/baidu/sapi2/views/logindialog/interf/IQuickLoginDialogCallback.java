@@ -8,7 +8,7 @@ import com.baidu.sapi2.views.logindialog.bean.QuickLoginResult;
 import com.baidu.sapi2.views.logindialog.enums.ColorType;
 import com.baidu.sapi2.views.logindialog.enums.QuickLoginType;
 import com.baidu.sapi2.views.logindialog.view.LoadingView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IQuickLoginDialogCallback extends NoProguard {
     void onDismiss();
 

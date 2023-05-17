@@ -3,7 +3,7 @@ package com.baidu.searchbox.crius.parser;
 import android.content.Context;
 import android.view.View;
 import com.baidu.searchbox.crius.ui.CriusUI;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusDataFactory {
     public static CriusData create(Context context, final View view2) {
         CriusData criusData = new CriusData();

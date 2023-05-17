@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aa {
     public boolean a;
     public String b;

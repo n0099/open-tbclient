@@ -1,50 +1,111 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.guide.MaskView;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class we {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final o9 a;
 
-    public static View a(LayoutInflater layoutInflater, xe xeVar) {
-        InterceptResult invokeLL;
+    public we(Context context, o9 o9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, xeVar)) == null) {
-            View c = xeVar.c(layoutInflater);
-            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.c = xeVar.getXOffset();
-            layoutParams.d = xeVar.getYOffset();
-            layoutParams.a = xeVar.a();
-            layoutParams.b = xeVar.b();
-            ViewGroup.LayoutParams layoutParams2 = c.getLayoutParams();
-            if (layoutParams2 != null) {
-                ((ViewGroup.LayoutParams) layoutParams).width = layoutParams2.width;
-                ((ViewGroup.LayoutParams) layoutParams).height = layoutParams2.height;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, o9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            c.setLayoutParams(layoutParams);
-            return c;
         }
-        return (View) invokeLL.objValue;
+        this.a = o9Var;
     }
 
-    public static Rect b(View view2, int i, int i2) {
-        InterceptResult invokeLII;
+    public void a(oe oeVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
-            int[] iArr = new int[2];
-            view2.getLocationInWindow(iArr);
-            Rect rect = new Rect();
-            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
-            rect.offset(-i, -i2);
-            return rect;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oeVar) == null) {
+            try {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("nameSpace", oeVar.a);
+                contentValues.put("tableName", oeVar.b);
+                contentValues.put("maxSize", Integer.valueOf(oeVar.c));
+                contentValues.put("cacheVersion", Integer.valueOf(oeVar.e));
+                contentValues.put("cacheType", oeVar.d);
+                contentValues.put("lastActiveTime", Long.valueOf(oeVar.f));
+                SQLiteDatabase f = this.a.f();
+                if (f != null && f.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{oeVar.a}) == 0) {
+                    f.insert("cache_meta_info", null, contentValues);
+                }
+            } catch (Throwable th) {
+                this.a.i(th, "addOrUpdate");
+            }
         }
-        return (Rect) invokeLII.objValue;
+    }
+
+    public oe b(String str) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                cursor = this.a.f().rawQuery("SELECT nameSpace, tableName, maxSize, cacheType, cacheVersion, lastActiveTime FROM cache_meta_info where nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            try {
+                if (cursor.moveToNext()) {
+                    oe oeVar = new oe();
+                    oeVar.a = cursor.getString(0);
+                    oeVar.b = cursor.getString(1);
+                    oeVar.c = cursor.getInt(2);
+                    oeVar.d = cursor.getString(3);
+                    oeVar.e = cursor.getInt(4);
+                    oeVar.f = cursor.getLong(5);
+                    return oeVar;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                try {
+                    this.a.i(th, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE);
+                    return null;
+                } finally {
+                    og.a(cursor);
+                }
+            }
+            return null;
+        }
+        return (oe) invokeL.objValue;
+    }
+
+    public int delete(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                if (b(str) == null) {
+                    return 0;
+                }
+                return this.a.f().delete("cache_meta_info", "nameSpace = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "delete");
+                return 0;
+            }
+        }
+        return invokeL.intValue;
     }
 }

@@ -6,6 +6,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 import android.view.Surface;
+import com.baidu.searchbox.afx.dove.DoveRecordRuntime;
 import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import java.nio.Buffer;
@@ -14,7 +15,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTexture.OnFrameAvailableListener {
     public static final String TAG = "AlphaVideoRenderer";
     public int aPositionHandle;
@@ -36,7 +37,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     public volatile boolean onPlay = false;
     public volatile boolean mUpdateSurface = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }
@@ -46,6 +47,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         this.mTriangleVertices = asFloatBuffer;
         asFloatBuffer.put(AlphaVideoCoords.VERTICES).position(0);
         Matrix.setIdentityM(this.mSTMatrix, 0);
+        DoveRecordRuntime.getIDoveRecordIoc().initRecord();
     }
 
     @SuppressLint({"BDThrowableCheck"})
@@ -135,6 +137,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     public void onDrawFrame(GL10 gl10) {
         synchronized (this) {
             if (this.mUpdateSurface) {
+                DoveRecordRuntime.getIDoveRecordIoc().recordTask();
                 this.mSurfaceTexture.updateTexImage();
                 this.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
                 this.mUpdateSurface = false;

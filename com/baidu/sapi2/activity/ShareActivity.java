@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareActivity extends BaseActivity {
     public static final String B = "ShareActivity";
     public static final String C = "share_fail_code";

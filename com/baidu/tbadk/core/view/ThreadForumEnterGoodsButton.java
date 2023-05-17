@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cj7;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.pk7;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
             this.e = textView;
-            g35 d = g35.d(textView);
+            p45 d = p45.d(textView);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0305);
@@ -154,7 +154,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             d.o(R.string.J_X01);
             d.m(R.dimen.L_X02);
             d.l(R.color.CAM_X0305);
-            this.e.setCompoundDrawablePadding(ii.g(this.b, R.dimen.M_W_X002));
+            this.e.setCompoundDrawablePadding(ri.g(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -170,7 +170,7 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_good12, color, WebPManager.ResourceStateType.NORMAL_PRESS);
         this.f = pureDrawable;
         if (pureDrawable != null) {
-            this.f.setBounds(0, 0, ii.g(this.b, R.dimen.T_X09), ii.g(this.b, R.dimen.T_X09));
+            this.f.setBounds(0, 0, ri.g(this.b, R.dimen.T_X09), ri.g(this.b, R.dimen.T_X09));
         }
         f();
     }
@@ -194,9 +194,9 @@ public class ThreadForumEnterGoodsButton extends RelativeLayout implements View.
             MessageManager.getInstance().sendMessage(new CustomMessage(2003000, createNormalCfg2));
         } else if (i == 2) {
             c("c13967", 1);
-            cj7 cj7Var = new cj7();
-            cj7Var.e = 3;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, cj7Var));
+            pk7 pk7Var = new pk7();
+            pk7Var.e = 3;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, pk7Var));
         }
         View.OnClickListener onClickListener = this.g;
         if (onClickListener != null) {

@@ -23,7 +23,7 @@ import com.baidu.sofire.utility.WbEncryptUtil;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceSDKManager {
     public static FaceSDKManager a;
     public Context b;

@@ -7,7 +7,7 @@ import org.aspectj.runtime.internal.cflowstack.ThreadStack;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactory;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl11;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CFlowStack {
     public static ThreadStackFactory tsFactory;
     public ThreadStack stackProxy = tsFactory.getNewThreadStack();

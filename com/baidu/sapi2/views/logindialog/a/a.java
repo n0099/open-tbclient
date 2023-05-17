@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends PagerAdapter {
     public List<View> a;
 

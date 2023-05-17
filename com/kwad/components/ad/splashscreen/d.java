@@ -25,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.internal.api.SceneImpl;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.components.core.g.c<h> implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
     public KsScene fn;
     public AdInfo mAdInfo;
@@ -49,8 +49,8 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
         this.xV = i;
         ViewGroup jt = jt();
         this.iB = jt;
-        this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f091374);
-        DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f09137d);
+        this.mRootContainer = (AdBaseFrameLayout) jt.findViewById(R.id.obfuscated_res_0x7f0913af);
+        DetailVideoView detailVideoView = (DetailVideoView) this.iB.findViewById(R.id.obfuscated_res_0x7f0913b8);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
         this.mDetailVideoView.setVisibility(8);
@@ -145,7 +145,7 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
 
     private int getSplashLayoutId() {
         int i = this.xV;
-        return i == 1 ? R.layout.obfuscated_res_0x7f0d04ad : i == 0 ? R.layout.obfuscated_res_0x7f0d04ae : i == 2 ? R.layout.obfuscated_res_0x7f0d04ab : i == 3 ? R.layout.obfuscated_res_0x7f0d04ac : R.layout.obfuscated_res_0x7f0d04ae;
+        return i == 1 ? R.layout.obfuscated_res_0x7f0d04ca : i == 0 ? R.layout.obfuscated_res_0x7f0d04cb : i == 2 ? R.layout.obfuscated_res_0x7f0d04c8 : i == 3 ? R.layout.obfuscated_res_0x7f0d04c9 : R.layout.obfuscated_res_0x7f0d04cb;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -182,9 +182,9 @@ public final class d extends com.kwad.components.core.g.c<h> implements DialogIn
     public void ju() {
         if (com.kwad.components.ad.splashscreen.d.c.d(getContext(), getWidth(), getHeight()) && this.xV != 0) {
             if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 2) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091372), -1, 16, 16, -1);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0913ad), -1, 16, 16, -1);
             } else if (com.kwad.components.ad.splashscreen.d.c.c((h) this.EH) == 3) {
-                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f091372), -1, 16, -1, 16);
+                com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f0913ad), -1, 16, -1, 16);
             }
         }
     }

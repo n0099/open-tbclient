@@ -2,11 +2,11 @@ package com.baidu.searchbox.retrieve.timer;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimerList {
     public final List<String> mJobList = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Inner {
         public static final FetchTimerList INSTANCE = new FetchTimerList();
     }

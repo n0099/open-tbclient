@@ -1,5 +1,5 @@
 package com.baidu.searchbox.looper.impl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LooperMonitor_Factory {
     public static volatile LooperMonitor instance;
 

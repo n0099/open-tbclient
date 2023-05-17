@@ -1,46 +1,56 @@
 package com.baidu.tieba;
 
 import android.text.SpannableStringBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.AbstractComponent;
-import tbclient.FeedContentResource;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class sz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SpannableStringBuilder a;
+    public SpannableStringBuilder b;
 
-    public static final lx6 a(SpannableStringBuilder titleBuilder, List<FeedContentResource> contentList, uy6 feedExtraData) {
-        InterceptResult invokeLLL;
+    public sz6(SpannableStringBuilder titleBuilder, SpannableStringBuilder abstractBuilder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, titleBuilder, contentList, feedExtraData)) == null) {
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(contentList, "contentList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            lx6 lx6Var = new lx6(new fy6(titleBuilder, spannableStringBuilder));
-            c07.a(contentList, spannableStringBuilder, feedExtraData, lx6Var);
-            return lx6Var;
-        }
-        return (lx6) invokeLLL.objValue;
-    }
-
-    public static final void b(AbstractComponent abstractComponent, List<s17<?>> dataList, SpannableStringBuilder titleBuilder, uy6 feedExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, abstractComponent, dataList, titleBuilder, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(abstractComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            List<FeedContentResource> data = abstractComponent.data;
-            Intrinsics.checkNotNullExpressionValue(data, "data");
-            lx6 a = a(titleBuilder, data, feedExtraData);
-            if (a.g()) {
-                dataList.add(new t17(a, "abstract"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {titleBuilder, abstractBuilder};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+        Intrinsics.checkNotNullParameter(abstractBuilder, "abstractBuilder");
+        this.a = titleBuilder;
+        this.b = abstractBuilder;
+    }
+
+    public final SpannableStringBuilder a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (SpannableStringBuilder) invokeV.objValue;
+    }
+
+    public final SpannableStringBuilder b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (SpannableStringBuilder) invokeV.objValue;
     }
 }

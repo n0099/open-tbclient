@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xua;
+import com.baidu.tieba.vwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class KSNativeAdGroupImgAppDownloadView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,12 +104,12 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a5);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b2);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b3);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b4);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900e1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c2);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bf);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ee);
             this.h = (TextView) findViewById(R.id.ad_app_source);
             this.i = (ImageView) findViewById(R.id.ad_app_icon);
             this.j = (TextView) findViewById(R.id.ad_app_title);
@@ -172,7 +172,7 @@ public class KSNativeAdGroupImgAppDownloadView extends x {
             }
             this.j.setText(ksNativeAd.getAppName());
             this.k.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new xua(ksNativeAd.getActionDescription(), this.k));
+            ksNativeAd.setDownloadListener(new vwa(ksNativeAd.getActionDescription(), this.k));
         }
     }
 }

@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ReadApkFileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMUI10_PK = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx4nUogUyMCmzHhaEb420yvpw9zBs+ETzE9Qm77bGxl1Iml9JEkBkNTsUWOstLgUBajNhV+BAMVBHKMEdzoQbL5kIHkTgUVM65yewd+5+BhrcB9OQ3LHp+0BN6aLKZh71T4WvsvHFhfhQpShuGWkRkSaVGLFTHxX70kpWLzeZ3RtqiEUNIufPR2SFCH6EmecJ+HdkmBOh603IblCpGxwSWse0fDI98wZBEmV88RFaiYEgyiezLlWvXzqIj6I/xuyd5nGAegjH2y3cmoDE6CubecoB1jf4KdgACXgdiQ4Oc63MfLGTor3l6RCqeUk4APAMtyhK83jc72W1sdXMd/sj2wIDAQAB";
@@ -310,7 +309,7 @@ public class ReadApkFileUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65542, null, bArr, bArr2, bArr3, str)) == null) {
             Signature signature = Signature.getInstance(str);
-            signature.initVerify(KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr)));
+            signature.initVerify(KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr)));
             signature.update(bArr2);
             return signature.verify(bArr3);
         }

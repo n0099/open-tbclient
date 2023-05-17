@@ -13,7 +13,7 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sr9;
+import com.baidu.tieba.ut9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WorkPostNotifyFlutterData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FAIL_POST = "102";
@@ -40,14 +40,14 @@ public class WorkPostNotifyFlutterData {
     public NewWriteThreadData4Flutter threadData;
     public String videoId;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class NewWriteThreadData4Flutter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class WorkPostNotifyFlutterData {
         public VideoInfo videoInfo;
 
         @Keep
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Author {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Location {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class VideoInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -290,7 +290,7 @@ public class WorkPostNotifyFlutterData {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
             NewWriteThreadData4Flutter.VideoInfo videoInfo = new NewWriteThreadData4Flutter.VideoInfo();
             VideoInfo videoInfo2 = writeData.getVideoInfo();
-            String e = sr9.e();
+            String e = ut9.e();
             if (TextUtils.isEmpty(e)) {
                 e = videoInfo2.getThumbPath();
             }

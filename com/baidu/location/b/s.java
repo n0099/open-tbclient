@@ -6,7 +6,6 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
     public static final double[] a;
@@ -28,7 +27,7 @@ public class s {
     public HashMap<String, c> b;
     public HashMap<String, String> c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static s a;
@@ -51,7 +50,7 @@ public class s {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +79,7 @@ public class s {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -487,7 +486,7 @@ public class s {
         if (interceptable == null || interceptable.invokeLJ(1048576, this, gnssNavigationMessage, j) == null) {
             int svid = gnssNavigationMessage.getSvid();
             int type = gnssNavigationMessage.getType();
-            String str = (type != 257 ? type != 769 ? type != 1537 ? type != 1281 ? type != 1282 ? "none" : OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC : "CO" : ExifInterface.LONGITUDE_EAST : "R" : "G") + svid;
+            String str = (type != 257 ? type != 769 ? type != 1537 ? type != 1281 ? type != 1282 ? "none" : "CT" : "CO" : ExifInterface.LONGITUDE_EAST : "R" : "G") + svid;
             if (str.contains("none") || (hashMap = this.b) == null) {
                 return;
             }

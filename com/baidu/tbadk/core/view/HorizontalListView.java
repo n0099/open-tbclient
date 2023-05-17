@@ -17,7 +17,7 @@ import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HorizontalListView extends AdapterView<ListAdapter> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public DataSetObserver y;
     public GestureDetector.OnGestureListener z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void a(int i);
     }
@@ -71,7 +71,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         return (View) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -624,7 +624,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.g = Integer.MAX_VALUE;
                 this.i = new Scroller(getContext());
                 this.j = new GestureDetector(getContext(), this.z);
-                this.q = ii.l(getContext()) / 2;
+                this.q = ri.l(getContext()) / 2;
                 this.a = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }
@@ -649,12 +649,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                         if (action != 2) {
                             SwipeBackLayout.c cVar = this.w;
                             if (cVar != null) {
-                                cVar.n0();
+                                cVar.m0();
                             }
                         } else {
                             SwipeBackLayout.c cVar2 = this.w;
                             if (cVar2 != null) {
-                                cVar2.L0();
+                                cVar2.K0();
                             }
                             j(motionEvent);
                             if (this.v) {
@@ -670,7 +670,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                             this.t = MotionEventCompat.getY(motionEvent, actionIndex);
                             SwipeBackLayout.c cVar3 = this.w;
                             if (cVar3 != null) {
-                                cVar3.L0();
+                                cVar3.K0();
                             }
                         }
                     }
@@ -679,7 +679,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 this.v = false;
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.n0();
+                    cVar4.m0();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -704,12 +704,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     if (action != 2) {
                         SwipeBackLayout.c cVar = this.w;
                         if (cVar != null) {
-                            cVar.n0();
+                            cVar.m0();
                         }
                     } else {
                         SwipeBackLayout.c cVar2 = this.w;
                         if (cVar2 != null) {
-                            cVar2.L0();
+                            cVar2.K0();
                         }
                         if (!this.v) {
                             j(motionEvent);
@@ -722,14 +722,14 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     this.v = false;
                     SwipeBackLayout.c cVar3 = this.w;
                     if (cVar3 != null) {
-                        cVar3.n0();
+                        cVar3.m0();
                     }
                 }
             } else {
                 this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
                 SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
-                    cVar4.L0();
+                    cVar4.K0();
                 }
             }
             return super.onTouchEvent(motionEvent);

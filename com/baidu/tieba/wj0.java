@@ -1,326 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.tieba.a21;
+import com.baidu.nadcore.crius.uiwidget.ApkDownloadView;
+import com.baidu.nadcore.crius.uiwidget.JumpButton;
+import com.baidu.nadcore.crius.uiwidget.SyncTextView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.crius.data.RenderData;
+import com.baidu.searchbox.crius.factory.IComponentFactory;
+import com.baidu.searchbox.crius.util.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class wj0 extends z11 {
+/* loaded from: classes8.dex */
+public class wj0 implements IComponentFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wj0(SQLiteDatabase sQLiteDatabase) {
-        super(sQLiteDatabase);
+    public wj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sQLiteDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((SQLiteDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized a21.a a(h21 h21Var, y11... y11VarArr) {
+    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
+    public View createComponent(Context context, String str) {
         InterceptResult invokeLL;
-        a21.a a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, h21Var, y11VarArr)) == null) {
-            synchronized (this) {
-                a = super.a(h21Var, y11VarArr);
-            }
-            return a;
-        }
-        return (a21.a) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized int delete(h21 h21Var, y11... y11VarArr) {
-        InterceptResult invokeLL;
-        int delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, h21Var, y11VarArr)) == null) {
-            synchronized (this) {
-                try {
-                    delete = super.delete(h21Var, y11VarArr);
-                } catch (Exception unused) {
-                    return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
+                if (NativeConstants.COMPONENT_VIEWBTN.equalsIgnoreCase(str)) {
+                    return new JumpButton(context);
                 }
+                if ("download".equalsIgnoreCase(str)) {
+                    return new ApkDownloadView(context);
+                }
+                if (NativeConstants.COMPONENT_SYNC_TEXT_VIEW.equalsIgnoreCase(str)) {
+                    return new SyncTextView(context);
+                }
+                return null;
             }
-            return delete;
+            ImageView imageView = new ImageView(context);
+            imageView.setId(R.id.nad_base_delete_id);
+            imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.nad_pop_close_btn));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            imageView.setContentDescription("不感兴趣");
+            return imageView;
         }
-        return invokeLL.intValue;
+        return (View) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.z11
-    public synchronized boolean query(h21 h21Var, i21 i21Var) {
-        InterceptResult invokeLL;
-        boolean query;
+    @Override // com.baidu.searchbox.crius.factory.IComponentFactory
+    public boolean renderComponent(String str, View view2, RenderData renderData, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, h21Var, i21Var)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(h21Var, i21Var);
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, view2, renderData, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            if (renderData == null) {
+                return false;
+            }
+            if (!NativeConstants.COMPONENT_CLOSEAD.equalsIgnoreCase(str) && !"close".equalsIgnoreCase(str)) {
+                if (view2 instanceof JumpButton) {
+                    ((JumpButton) view2).setText(renderData.text);
+                    return true;
+                } else if (view2 instanceof ApkDownloadView) {
+                    ApkDownloadView apkDownloadView = (ApkDownloadView) view2;
+                    apkDownloadView.setDownloadStyle(renderData.downloadStyle);
+                    apkDownloadView.setTextSize(renderData.fontSize);
+                    apkDownloadView.setTextColor(ColorUtils.getColorRes(z, renderData.colorNight, renderData.color));
+                    apkDownloadView.setProgressColor(ColorUtils.getColorRes(z, renderData.progressNightColor, renderData.progressColor));
+                    apkDownloadView.setStrokeWidth(renderData.strokeWidth);
+                    apkDownloadView.setStrokeColor(ColorUtils.getColorRes(z, renderData.strokeNightColor, renderData.strokeColor));
+                    apkDownloadView.setBorderRadius(renderData.borderRadius);
+                    RenderData.BackgroundData backgroundData = renderData.backgroundData;
+                    if (backgroundData != null) {
+                        if (z) {
+                            str2 = backgroundData.backgroundColorNight;
+                        } else {
+                            str2 = backgroundData.backgroundColor;
+                        }
+                        apkDownloadView.setBackgroundColor(ColorUtils.parseColor(str2));
+                    }
+                    return true;
+                } else if (!(view2 instanceof SyncTextView)) {
                     return false;
+                } else {
+                    ((SyncTextView) view2).update(renderData, z, z3);
+                    return true;
                 }
             }
-            return query;
+            ImageView imageView = (ImageView) view2;
+            imageView.setImageDrawable(view2.getResources().getDrawable(R.drawable.nad_pop_close_btn));
+            imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized int update(h21 h21Var, i21 i21Var) {
-        InterceptResult invokeLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, h21Var, i21Var)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(h21Var, i21Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized void beginTransaction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                try {
-                    super.beginTransaction();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized void endTransaction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                try {
-                    super.endTransaction();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized void setTransactionSuccessful() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                try {
-                    super.setTransactionSuccessful();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized int delete(String str, i21 i21Var) {
-        InterceptResult invokeLL;
-        int delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, i21Var)) == null) {
-            synchronized (this) {
-                try {
-                    delete = super.delete(str, i21Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return delete;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized boolean query(h21 h21Var, y11... y11VarArr) {
-        InterceptResult invokeLL;
-        boolean query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, h21Var, y11VarArr)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(h21Var, y11VarArr);
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return query;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized int update(h21 h21Var, y11... y11VarArr) {
-        InterceptResult invokeLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, h21Var, y11VarArr)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(h21Var, y11VarArr);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized long insert(h21 h21Var) {
-        InterceptResult invokeL;
-        long insert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, h21Var)) == null) {
-            synchronized (this) {
-                try {
-                    insert = super.insert(h21Var);
-                } catch (Exception unused) {
-                    return -1L;
-                }
-            }
-            return insert;
-        }
-        return invokeL.longValue;
-    }
-
-    @Override // com.baidu.tieba.z11, com.baidu.tieba.a21
-    public synchronized Cursor query(m21 m21Var) {
-        InterceptResult invokeL;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, m21Var)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(m21Var);
-                } catch (Exception unused) {
-                    return new n21(null);
-                }
-            }
-            return query;
-        }
-        return (Cursor) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized long insert(String str, String[] strArr, Object... objArr) {
-        InterceptResult invokeLLL;
-        long insert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, strArr, objArr)) == null) {
-            synchronized (this) {
-                try {
-                    insert = super.insert(str, strArr, objArr);
-                } catch (Exception unused) {
-                    return -1L;
-                }
-            }
-            return insert;
-        }
-        return invokeLLL.longValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized Cursor query(String str, y11[] y11VarArr, i21 i21Var) {
-        InterceptResult invokeLLL;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, y11VarArr, i21Var)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(str, y11VarArr, i21Var);
-                } catch (Exception unused) {
-                    return new n21(null);
-                }
-            }
-            return query;
-        }
-        return (Cursor) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized int update(String str, ContentValues contentValues, i21 i21Var) {
-        InterceptResult invokeLLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, contentValues, i21Var)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(str, contentValues, i21Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized int update(Class<? extends h21> cls, i21 i21Var, y11[] y11VarArr, Object... objArr) {
-        InterceptResult invokeLLLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, cls, i21Var, y11VarArr, objArr)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(cls, i21Var, y11VarArr, objArr);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLLLL.intValue;
-    }
-
-    @Override // com.baidu.tieba.z11
-    public synchronized int update(String str, Column[] columnArr, i21 i21Var) {
-        InterceptResult invokeLLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, columnArr, i21Var)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(str, columnArr, i21Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLLL.intValue;
+        return invokeCommon.booleanValue;
     }
 }

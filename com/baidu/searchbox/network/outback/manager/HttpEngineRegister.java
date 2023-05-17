@@ -8,7 +8,7 @@ import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.statistics.IAdditionalRecord;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HttpEngineRegister {
     public static void register(final Context context, final String str, final String str2, List<CallFactory.CallFactoryProducer> list, final IOutbackClientIPProvider iOutbackClientIPProvider, final IAdditionalRecord iAdditionalRecord) {
         final HashMap hashMap = new HashMap();

@@ -1,90 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.hottopicselect.HotSelectCacheReqMessage;
+import com.baidu.tieba.hottopicselect.HotSelectCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class g08 {
+/* loaded from: classes5.dex */
+public class g08 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public long d;
-        public String e;
-        public long f;
-        public String g;
-        public long h;
-        public int i;
-        public int j;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public g08() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.f = 0L;
-            this.g = null;
-            this.h = 0L;
-            this.i = 0;
-            this.j = 0;
         }
     }
 
-    public static a a(String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof HotSelectCacheReqMessage)) {
                 return null;
             }
-            a aVar = new a();
+            HotSelectCacheResponseMessage hotSelectCacheResponseMessage = new HotSelectCacheResponseMessage();
             try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                    aVar.b = optJSONObject.optString("user_id");
-                    aVar.c = optJSONObject.optString("nick_name");
-                    aVar.d = optJSONObject.optLong("caller_time");
-                    aVar.e = optJSONObject.optString("caller_content");
-                    aVar.f = optJSONObject.optLong("thread_id");
-                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                    optJSONObject.optString("forum_name");
-                    aVar.h = optJSONObject.optLong("post_id");
-                    aVar.i = optJSONObject.optInt("msg_type");
-                    aVar.j = optJSONObject.optInt("remind_count");
-                }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+                hotSelectCacheResponseMessage.decodeInBackGround(2016491, (byte[]) null);
+            } catch (Exception unused) {
             }
+            return hotSelectCacheResponseMessage;
         }
-        return (a) invokeL.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

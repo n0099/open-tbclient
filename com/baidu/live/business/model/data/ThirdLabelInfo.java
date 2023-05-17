@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThirdLabelInfo implements Parcelable {
     public static final Parcelable.Creator<ThirdLabelInfo> CREATOR = new Parcelable.Creator<ThirdLabelInfo>() { // from class: com.baidu.live.business.model.data.ThirdLabelInfo.1
         /* JADX DEBUG: Method merged with bridge method */

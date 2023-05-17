@@ -4,7 +4,7 @@ import com.kwad.sdk.core.request.model.StatusInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fm implements com.kwad.sdk.core.d<StatusInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(StatusInfo statusInfo, JSONObject jSONObject) {

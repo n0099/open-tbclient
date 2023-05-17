@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BrotliInputStream extends InputStream implements INoProGuard {
     public static final int DEFAULT_BUFFER_SIZE = 16384;
     public final Decoder decoder;

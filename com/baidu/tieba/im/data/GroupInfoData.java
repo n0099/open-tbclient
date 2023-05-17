@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.gg;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.in;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +24,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class GroupInfoData extends AbstractImageProvider implements in, Parcelable, Serializable, PreLoadImageProvider {
+/* loaded from: classes6.dex */
+public class GroupInfoData extends AbstractImageProvider implements rn, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
+    public static final String SHARE_KEY_ALBUM_ID = "album_id";
     public static final String SHARE_KEY_FID = "fid";
+    public static final String SHARE_KEY_FROM_GROUP_ID = "share_chatroom_id";
     public static final String SHARE_KEY_GROUP_ID = "chatroom_id";
+    public static final String SHARE_KEY_SCHEMA = "schema";
     public static final String SHARE_KEY_THREAD_ID = "thread_id";
+    public static final String SHARE_KEY_TOPIC_ID = "topic_id";
+    public static final String SHARE_KEY_TOPIC_NAME = "topic_name";
     public static final String SHARE_KEY_TYPE = "r_type";
     public static final BdUniqueId TYPE_FRS_GROUP;
     public static final long serialVersionUID = 5616188082014345808L;
@@ -64,7 +69,7 @@ public class GroupInfoData extends AbstractImageProvider implements in, Parcelab
         return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<GroupInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -318,7 +323,7 @@ public class GroupInfoData extends AbstractImageProvider implements in, Parcelab
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,7 +366,7 @@ public class GroupInfoData extends AbstractImageProvider implements in, Parcelab
             groupInfoData.setGroupId(groupChatRoomPojo.getRoomId());
             groupInfoData.setName(groupChatRoomPojo.getName());
             groupInfoData.setPortrait(groupChatRoomPojo.getAvatar());
-            groupInfoData.forumId = gg.g(groupChatRoomPojo.getForumId(), -1L);
+            groupInfoData.forumId = pg.g(groupChatRoomPojo.getForumId(), -1L);
             groupInfoData.forumName = groupChatRoomPojo.getForumName();
             groupInfoData.lastUpdateTime = groupChatRoomPojo.getTimestamp();
             return groupInfoData;

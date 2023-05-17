@@ -5,7 +5,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import com.bytedance.pangle.activity.IPluginActivity;
 import com.bytedance.pangle.log.ZeusLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static void a(IPluginActivity iPluginActivity, Activity activity) {
         try {

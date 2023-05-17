@@ -1,38 +1,64 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes7.dex */
 public class vg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        String str3;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
-            } else {
-                str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (hexString.length() == 1) {
+                    sb.append(TransactionIdCreater.FILL_BYTE);
+                }
+                sb.append(hexString);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return String.valueOf(str.hashCode());
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
             try {
-                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, i);
-                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, str2);
-                jSONObject.put("responseData", str3);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(str.getBytes());
+                return a(messageDigest.digest());
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-            return jSONObject.toString();
         }
-        return (String) invokeILL.objValue;
+        return (String) invokeL.objValue;
     }
 }

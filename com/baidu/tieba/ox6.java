@@ -1,176 +1,172 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.helper.CommonOnClickKt;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class ox6 extends wx6 implements s17<ox6> {
+/* loaded from: classes6.dex */
+public class ox6 extends PopupWindow implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jy6 b;
-    public final wy6 c;
-    public final String d;
-    public final Function2<View, String, Unit> e;
-    public final Function2<View, String, Unit> f;
-    public final Function2<wy6, View, Unit> g;
+    public TextView a;
+    public TextView b;
+    public TextView c;
+    public View d;
+    public View e;
+    public View f;
+    public LinearLayout g;
+    public qx6 h;
+    public Context i;
 
-    @Override // com.baidu.tieba.s17
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_head" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ox6 a;
 
-    public ox6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (ox6) invokeV.objValue;
-    }
+        public a(ox6 ox6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ox6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ox6Var;
+        }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090fdf).getTop();
+                int y = (int) motionEvent.getY();
+                if (motionEvent.getAction() == 1 && y < top) {
+                    this.a.dismiss();
+                }
                 return true;
             }
-            if (obj instanceof ox6) {
-                ox6 ox6Var = (ox6) obj;
-                return Intrinsics.areEqual(this.b, ox6Var.b) && Intrinsics.areEqual(this.c, ox6Var.c) && Intrinsics.areEqual(this.d, ox6Var.d) && Intrinsics.areEqual(this.e, ox6Var.e) && Intrinsics.areEqual(this.f, ox6Var.f) && Intrinsics.areEqual(this.g, ox6Var.g);
-            }
-            return false;
+            return invokeLL.booleanValue;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int hashCode = this.b.hashCode() * 31;
-            wy6 wy6Var = this.c;
-            int hashCode2 = (hashCode + (wy6Var == null ? 0 : wy6Var.hashCode())) * 31;
-            String str = this.d;
-            return ((((((hashCode2 + (str != null ? str.hashCode() : 0)) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g.hashCode();
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "CardHeadUiState(headData=" + this.b + ", feedBackData=" + this.c + ", schema=" + this.d + ", onItemClick=" + this.e + ", onImageClick=" + this.f + ", onFeedBackClick=" + this.g + ')';
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public ox6(jy6 headData, wy6 wy6Var, String str, Function2<? super View, ? super String, Unit> onItemClick, Function2<? super View, ? super String, Unit> onImageClick, Function2<? super wy6, ? super View, Unit> onFeedBackClick) {
-        super(null, null, 3, null);
+    public ox6(Context context, int i) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {headData, wy6Var, str, onItemClick, onImageClick, onFeedBackClick};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(headData, "headData");
-        Intrinsics.checkNotNullParameter(onItemClick, "onItemClick");
-        Intrinsics.checkNotNullParameter(onImageClick, "onImageClick");
-        Intrinsics.checkNotNullParameter(onFeedBackClick, "onFeedBackClick");
-        this.b = headData;
-        this.c = wy6Var;
-        this.d = str;
-        this.e = onItemClick;
-        this.f = onImageClick;
-        this.g = onFeedBackClick;
+        b(context, i);
+        this.i = context;
+        e();
+        c(TbadkCoreApplication.getInst().getSkinType());
+        this.a.setOnClickListener(this);
+        this.b.setOnClickListener(this);
+        this.c.setOnClickListener(this);
     }
 
-    public /* synthetic */ ox6(jy6 jy6Var, wy6 wy6Var, String str, Function2 function2, Function2 function22, Function2 function23, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(jy6Var, wy6Var, str, (i & 8) != 0 ? CommonOnClickKt.b() : function2, (i & 16) != 0 ? CommonOnClickKt.b() : function22, (i & 32) != 0 ? CommonOnClickKt.a() : function23);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.s17
-    public /* bridge */ /* synthetic */ ox6 b() {
-        d();
-        return this;
-    }
-
-    public final wy6 e() {
-        InterceptResult invokeV;
+    public void d(qx6 qx6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qx6Var) == null) {
+            this.h = qx6Var;
         }
-        return (wy6) invokeV.objValue;
     }
 
-    public final jy6 f() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            dismiss();
+            qx6 qx6Var = this.h;
+            if (qx6Var == null) {
+                return;
+            }
+            if (view2 == this.a) {
+                qx6Var.b();
+            } else if (view2 == this.b) {
+                qx6Var.a();
+            }
         }
-        return (jy6) invokeV.objValue;
     }
 
-    public final Function2<wy6, View, Unit> g() {
-        InterceptResult invokeV;
+    public final void b(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d027e, (ViewGroup) null);
+            this.d = inflate;
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09267b);
+            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f09263f);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0925df);
+            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090fdf);
+            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f0914c2);
+            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f0914c3);
+            if (i == 1) {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            } else {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0204);
+            }
         }
-        return (Function2) invokeV.objValue;
     }
 
-    public final Function2<View, String, Unit> h() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundResource(this.g, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
         }
-        return (Function2) invokeV.objValue;
     }
 
-    public final Function2<View, String, Unit> i() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (Build.VERSION.SDK_INT >= 22) {
+                setAttachedInDecor(false);
+            }
+            setContentView(this.d);
+            GreyUtil.grey(this);
+            setWidth(-1);
+            setHeight(ri.j(this.i));
+            setFocusable(true);
+            setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
+            this.d.setOnTouchListener(new a(this));
         }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
     }
 }

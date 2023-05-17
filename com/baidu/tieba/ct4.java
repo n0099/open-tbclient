@@ -1,40 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.baseEditMark.MarkData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class ct4 {
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class ct4 extends zs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z, boolean z2, String str);
+    @Override // com.baidu.tieba.ys4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
     }
-
-    public abstract void a();
-
-    public abstract void d();
-
-    public abstract boolean e();
-
-    public abstract MarkData f();
-
-    public abstract String g();
-
-    public abstract void h(boolean z);
-
-    public abstract void i(MarkData markData);
-
-    public abstract void j(a aVar);
 
     public ct4() {
         Interceptable interceptable = $ic;
@@ -50,29 +33,18 @@ public abstract class ct4 {
         }
     }
 
-    public static ct4 b(BaseActivity baseActivity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ys4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001279, ct4.class, baseActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (ct4) runTask.getData();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
             return null;
         }
-        return (ct4) invokeL.objValue;
-    }
-
-    public static ct4 c(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921318, ct4.class, baseFragmentActivity);
-            if (runTask != null && runTask.getData() != null) {
-                return (ct4) runTask.getData();
-            }
-            return null;
-        }
-        return (ct4) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

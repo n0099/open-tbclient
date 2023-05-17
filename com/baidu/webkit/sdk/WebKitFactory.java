@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.GlobalConstants;
@@ -37,7 +38,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebKitFactory {
     public static final String ARCH_ARM = "armv";
     public static final int ARCH_ARM_INT = 7;
@@ -95,7 +96,7 @@ public final class WebKitFactory {
     public static Object sForceInitLock = new Object();
     public static SwitchState sEnableMultipleProcess = SwitchState.Invalid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DelayedInitTask extends Thread {
         public boolean mResult;
 
@@ -218,7 +219,7 @@ public final class WebKitFactory {
                 Log.w(WebKitFactory.TAG, "CloudSettings.restoreLastSentTimeFromCfg");
                 CloudSettings.restoreLastSentTimeFromCfg();
             }
-            if (!WebSettingsGlobalBlink.getHttpDnsUpdateEnabled() && (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false"))) {
+            if (!WebSettingsGlobalBlink.getHttpDnsUpdateEnabled() && (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) == null || !WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE))) {
                 HttpDnsCache.tryToUpdateHttpDnsCache(WebViewFactory.getContext());
             }
             Context context = WebViewFactory.getContext();
@@ -230,7 +231,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -239,14 +240,14 @@ public final class WebKitFactory {
         void onForceInitZeusStart();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum SwitchState {
         Invalid,
         On,
         Off
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;

@@ -27,7 +27,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DiskLruCache implements Closeable {
     public static final long ANY_SEQUENCE_NUMBER = -1;
     public static final String CLEAN = "CLEAN";
@@ -77,14 +77,14 @@ public final class DiskLruCache implements Closeable {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class Editor {
         public boolean committed;
         public final Entry entry;
         public boolean hasErrors;
         public final boolean[] written;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class FaultHidingOutputStream extends FilterOutputStream {
             public FaultHidingOutputStream(OutputStream outputStream) {
                 super(outputStream);
@@ -234,7 +234,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class Entry {
         public Editor currentEditor;
         public final String key;
@@ -287,7 +287,7 @@ public final class DiskLruCache implements Closeable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class Snapshot implements Closeable {
         public final InputStream[] ins;
         public final String key;

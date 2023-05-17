@@ -1,155 +1,161 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
+import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.ForumToolPerm;
-/* loaded from: classes5.dex */
-public class o67 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetLevelInfo.DataRes;
+/* loaded from: classes6.dex */
+public class o67<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static UserData a;
-    public static boolean b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
+    public BaseActivity<T> b;
+    public fb c;
+    public CustomMessageListener d;
 
-    public static UserData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
-        }
-        return (UserData) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(DataRes dataRes, boolean z, int i, String str);
     }
 
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a extends fb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o67 a;
 
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            UserData a2 = a();
-            if (a2 == null || a2.getIs_manager() != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            UserData a2 = a();
-            if (a2 == null || a2.getIs_manager() != 3) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static UserData b(FrsViewData frsViewData) {
-        InterceptResult invokeL;
-        UserData userData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
-            if (frsViewData != null) {
-                userData = frsViewData.getUserData();
-            } else {
-                userData = null;
-            }
-            a = userData;
-            return userData;
-        }
-        return (UserData) invokeL.objValue;
-    }
-
-    public static boolean d(UserData userData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
-            if (userData == null) {
-                return false;
-            }
-            int is_manager = userData.getIs_manager();
-            if (is_manager != 1 && is_manager != 2 && is_manager != 3 && is_manager != 4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        List<ForumToolPerm> forumToolAuth;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            UserData a2 = a();
-            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
-                for (int i = 0; i < forumToolAuth.size(); i++) {
-                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
-                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
-                        return true;
-                    }
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(o67 o67Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o67Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return false;
+            this.a = o67Var;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static void i(rw rwVar, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65544, null, rwVar, frsViewData) != null) || rwVar == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && (d(b(frsViewData)) || h())) {
-            rwVar.f(4);
-        } else {
-            rwVar.g(4);
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
+                    GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
+                    this.a.a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
+                } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
+                    GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
+                    this.a.a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
+                }
+            }
         }
     }
 
-    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o67 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(o67 o67Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o67Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o67Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
+                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
+                this.a.a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
+            }
+        }
+    }
+
+    public o67(c cVar, BaseActivity<T> baseActivity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) != null) || threadCommentAndPraiseInfoLayout == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
+        this.c = new a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
+        this.d = new b(this, 2003007);
+        this.a = cVar;
+        this.b = baseActivity;
+        b();
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
+            getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
+            this.b.sendMessage(getLevelInfoReadCacheRequestMessage);
         }
-        if (frsViewData != null && d(b(frsViewData))) {
-            threadCommentAndPraiseInfoLayout.setManageVisible(true);
-        } else {
-            threadCommentAndPraiseInfoLayout.setManageVisible(false);
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
+            getLevelInfoRequestMessage.setForumId(i);
+            this.b.sendMessage(getLevelInfoRequestMessage);
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.registerListener(this.d);
+            this.b.registerListener(this.c);
         }
     }
 }

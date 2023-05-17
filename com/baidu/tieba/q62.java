@@ -1,69 +1,147 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.p62;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebSettings;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public final class q62 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class q62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043708, "Lcom/baidu/tieba/q62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948043708, "Lcom/baidu/tieba/q62;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = ho1.a;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            g93 b0;
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = g93.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.N();
+            }
+        }
     }
 
-    @NonNull
-    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == 93029162 && str.equals("appjs")) {
-                c = 0;
-            } else {
-                c = 65535;
+    /* loaded from: classes7.dex */
+    public static class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                return true;
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                p62.a d = p62.b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
-            }
-            if (a) {
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
+            return invokeLL.booleanValue;
         }
-        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            g93 b0;
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = g93.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.w0();
+            }
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    public static View a(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) null);
+            inflate.setOnTouchListener(new b());
+            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+            viewGroup.removeView(inflate);
+            viewGroup.addView(inflate);
+            return inflate;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            an3.a0(new a());
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            an3.a0(new c());
+        }
+    }
+
+    public static void d(@NonNull Activity activity, @NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, view2) == null) {
+            ((ViewGroup) activity.getWindow().getDecorView()).removeView(view2);
+        }
     }
 }

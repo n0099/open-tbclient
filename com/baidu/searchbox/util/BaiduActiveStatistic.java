@@ -5,7 +5,7 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BaiduActiveStatistic {
     public static final String BAIDU_ACTIVE_UBC_ID = "3822";
     public static final String UBC_EXT_KEY_ACTIVE_TIME_INFO = "active_time_info";

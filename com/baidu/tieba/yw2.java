@@ -1,220 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yw2 extends u93 {
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class yw2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uw2 c;
-    public ex2 d;
-    public ww2 e;
-    public vw2 f;
-    public bx2 g;
-    public tw2 h;
-    public cx2 i;
-    public ax2 j;
-    public dx2 k;
-    public xw2 l;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yw2(u83 u83Var) {
-        super(u83Var, "/swanAPI/video");
+    public yw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 3;
+        this.b = true;
+        this.d = "back";
+        this.e = 60;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public static yw2 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (u93.b) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            yw2 yw2Var = new yw2();
+            if (jSONObject != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    int length = optJSONArray.length();
+                    int i = 0;
+                    for (int i2 = 0; i2 < length; i2++) {
+                        String optString = optJSONArray.optString(i2);
+                        char c = 65535;
+                        int hashCode = optString.hashCode();
+                        if (hashCode != -1367751899) {
+                            if (hashCode == 92896879 && optString.equals(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER)) {
+                                c = 0;
+                            }
+                        } else if (optString.equals("camera")) {
+                            c = 1;
+                        }
+                        if (c != 0) {
+                            if (c == 1) {
+                                i |= 2;
+                            }
+                        } else {
+                            i |= 1;
+                        }
+                    }
+                    yw2Var.a = i;
+                }
+                yw2Var.b = jSONObject.optBoolean("compressed", true);
+                int i3 = 60;
+                int optInt = jSONObject.optInt("maxDuration", 60);
+                if (optInt <= 60) {
+                    i3 = optInt;
+                }
+                yw2Var.e = i3;
+                yw2Var.d = jSONObject.optString("camera");
+                yw2Var.c = jSONObject.optString("cb");
             }
-            return false;
+            return yw2Var;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.u93
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
-        InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
-            x42.i("VideoPlayerAction", "handleSubAction subAction : " + str + "params : " + u93.a(unitedSchemeEntity, "params"));
-            switch (str.hashCode()) {
-                case -1701478259:
-                    if (str.equals("/swanAPI/video/pause")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440375597:
-                    if (str.equals("/swanAPI/video/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440349763:
-                    if (str.equals("/swanAPI/video/play")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440267007:
-                    if (str.equals("/swanAPI/video/seek")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1440252277:
-                    if (str.equals("/swanAPI/video/stop")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1145507635:
-                    if (str.equals("/swanAPI/video/remove")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1049743086:
-                    if (str.equals("/swanAPI/video/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -274000988:
-                    if (str.equals("/swanAPI/video/fullScreen")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 711122280:
-                    if (str.equals("/swanAPI/video/sendDanmu")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1568993060:
-                    if (str.equals("/swanAPI/video/playbackRate")) {
-                        c = '\t';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (this.c == null) {
-                        this.c = new uw2("/swanAPI/video/open");
-                    }
-                    c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 1:
-                    if (this.d == null) {
-                        this.d = new ex2("/swanAPI/video/update");
-                    }
-                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 2:
-                    if (this.j == null) {
-                        this.j = new ax2("/swanAPI/video/remove");
-                    }
-                    c2 = this.j.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 3:
-                    if (this.e == null) {
-                        this.e = new ww2("/swanAPI/video/play");
-                    }
-                    c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 4:
-                    if (this.f == null) {
-                        this.f = new vw2("/swanAPI/video/pause");
-                    }
-                    c2 = this.f.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 5:
-                    if (this.g == null) {
-                        this.g = new bx2("/swanAPI/video/seek");
-                    }
-                    c2 = this.g.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 6:
-                    if (this.h == null) {
-                        this.h = new tw2("/swanAPI/video/fullScreen");
-                    }
-                    c2 = this.h.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case 7:
-                    if (this.i == null) {
-                        this.i = new cx2("/swanAPI/video/sendDanmu");
-                    }
-                    c2 = this.i.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case '\b':
-                    if (this.k == null) {
-                        this.k = new dx2("/swanAPI/video/stop");
-                    }
-                    c2 = this.k.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                case '\t':
-                    if (this.l == null) {
-                        this.l = new xw2("/swanAPI/video/playbackRate");
-                    }
-                    c2 = this.l.c(context, unitedSchemeEntity, callbackHandler, x73Var);
-                    break;
-                default:
-                    c2 = false;
-                    break;
-            }
-            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, x73Var)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
+        return (yw2) invokeL.objValue;
     }
 }

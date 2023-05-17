@@ -1,5 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import android.graphics.drawable.Drawable;
+/* loaded from: classes5.dex */
 public interface fx5 {
-    void onItemSelected(int i);
+    void setLastUpdatedLabel(CharSequence charSequence);
+
+    void setLoadingDrawable(Drawable drawable);
+
+    void setPullLabel(CharSequence charSequence);
+
+    void setRefreshingLabel(CharSequence charSequence);
+
+    void setReleaseLabel(CharSequence charSequence);
 }

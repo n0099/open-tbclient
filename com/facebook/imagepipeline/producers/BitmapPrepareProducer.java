@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.CloseableStaticBitmap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BitmapPrepareProducer implements Producer<CloseableReference<CloseableImage>> {
     public static final String PRODUCER_NAME = "BitmapPrepareProducer";
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
@@ -13,7 +13,7 @@ public class BitmapPrepareProducer implements Producer<CloseableReference<Closea
     public final int mMinBitmapSizeBytes;
     public final boolean mPreparePrefetch;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class BitmapPrepareConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public final int mMaxBitmapSizeBytes;
         public final int mMinBitmapSizeBytes;

@@ -1,5 +1,5 @@
 package com.huawei.hms.common.api;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface Releasable {
     void release();
 }

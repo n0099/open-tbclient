@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static volatile e a;
@@ -51,7 +51,7 @@ public final class e {
     public IPushClientFactory r;
     public int s;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

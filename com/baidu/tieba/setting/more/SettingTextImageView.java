@@ -15,13 +15,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.rg9;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ti9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SettingTextImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class SettingTextImageView extends FrameLayout {
     public final void c(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, rg9.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, ti9.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -84,7 +84,7 @@ public class SettingTextImageView extends FrameLayout {
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 1);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
             this.d.invalidate();
-            g35.d(this).i(R.color.CAM_X0205);
+            p45.d(this).i(R.color.CAM_X0205);
         }
     }
 
@@ -132,11 +132,11 @@ public class SettingTextImageView extends FrameLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0823, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090775);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090f77);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bb);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0854, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090792);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090fab);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902c8);
         }
     }
 

@@ -5,7 +5,7 @@ import com.baidu.searchbox.network.outback.core.internal.Util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadersConverter {
     public static void checkName(String str) {
         if (str != null) {

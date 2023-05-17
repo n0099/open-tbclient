@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hf5 {
+/* loaded from: classes5.dex */
+public abstract class hf5 implements Comparable<hf5> {
     public static /* synthetic */ Interceptable $ic;
-    public static hf5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(kf5 kf5Var);
+    }
+
+    public abstract void b(a aVar);
+
+    public abstract int c();
+
+    public abstract void d();
 
     public hf5() {
         Interceptable interceptable = $ic;
@@ -26,38 +34,21 @@ public class hf5 {
                 return;
             }
         }
-        this.a = 0;
+        d();
     }
 
-    public static hf5 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(hf5 hf5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (hf5.class) {
-                    if (b == null) {
-                        b = new hf5();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hf5Var)) == null) {
+            if (hf5Var == null) {
+                return 1;
             }
-            return b;
+            return c() - hf5Var.c();
         }
-        return (hf5) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
-        }
+        return invokeL.intValue;
     }
 }

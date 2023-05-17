@@ -1,116 +1,177 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes7.dex */
 public class uh5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "add_user_collect_emotoin";
+    public static String b = "image_url";
+    public static String c = "thumbnail_url";
+    public static String d = "pic_id";
+    public static String e = "package_id";
+    public static String f = "#(meme,setting)";
+    public static String g = "#(meme,collect_";
+    public static String h = "meme,collect_";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
-    public uh5() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948211015, "Lcom/baidu/tieba/uh5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948211015, "Lcom/baidu/tieba/uh5;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.e)) {
-                return this.d;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return this.e;
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("collect_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
+            } else {
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
+            }
+            sb.append(currentAccount);
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public String e() {
+    public static String b() {
+        InterceptResult invokeV;
+        String currentAccount;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("diy_");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                currentAccount = "";
+            } else {
+                currentAccount = TbadkCoreApplication.getCurrentAccount();
+            }
+            sb.append(currentAccount);
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return Math.abs(b().hashCode()) + "";
         }
         return (String) invokeV.objValue;
     }
 
-    public String f() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return Math.abs(a().hashCode()) + "";
         }
         return (String) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public static void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) && jSONObject != null) {
-            this.a = jSONObject.optString("background_day_img");
-            this.b = jSONObject.optString("background_night_img");
-            this.c = jSONObject.optString("background_dark_img");
-            this.d = jSONObject.optString("nav_bar_day_color");
-            jSONObject.optString("nav_bar_night_color");
-            this.e = jSONObject.optString("nav_bar_dark_color");
-            this.f = jSONObject.optString("text_normal_color");
-            this.g = jSONObject.optString("text_selected_color");
+        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
+        int i = 0;
+        int i2 = 0;
+        while (matcher.find()) {
+            String[] split = matcher.group().split(",");
+            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
+                i2++;
+            }
+        }
+        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
+        while (matcher2.find()) {
+            String[] split2 = matcher2.group().split(",");
+            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
+                i++;
+            }
+        }
+        if (i2 > 0) {
+            StatisticItem statisticItem = new StatisticItem("c12223");
+            statisticItem.param("obj_param1", i2);
+            TiebaStatic.log(statisticItem);
+        }
+        if (i > 0) {
+            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
+            statisticItem2.param("obj_param1", i);
+            TiebaStatic.log(statisticItem2);
         }
     }
 }

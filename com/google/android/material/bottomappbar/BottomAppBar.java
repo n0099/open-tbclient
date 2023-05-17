@@ -46,10 +46,10 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static final long ANIMATION_DURATION = 300;
-    public static final int DEF_STYLE_RES = 2131755854;
+    public static final int DEF_STYLE_RES = 2131755865;
     public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
     public static final int FAB_ALIGNMENT_MODE_END = 1;
     public static final int FAB_ANIMATION_MODE_SCALE = 0;
@@ -78,7 +78,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public final boolean paddingRightSystemWindowInsets;
     public int rightInset;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface AnimationListener {
         void onAnimationEnd(BottomAppBar bottomAppBar);
 
@@ -86,12 +86,12 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface FabAlignmentMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface FabAnimationMode {
     }
 
@@ -103,7 +103,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public void setTitle(CharSequence charSequence) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
         @NonNull
         public final Rect fabContentRect;
@@ -123,7 +123,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         bottomAppBar.setFabDiameter(height);
                         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view2.getLayoutParams();
                         if (Behavior.this.originalBottomMargin == 0) {
-                            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043f) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070587) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                             ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                             ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                             if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -155,7 +155,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
                         bottomAppBar.setFabDiameter(height);
                         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view2.getLayoutParams();
                         if (Behavior.this.originalBottomMargin == 0) {
-                            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043f) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
+                            ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin = bottomAppBar.getBottomInset() + (bottomAppBar.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070587) - ((floatingActionButton.getMeasuredHeight() - height) / 2));
                             ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin = bottomAppBar.getLeftInset();
                             ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin = bottomAppBar.getRightInset();
                             if (ViewUtils.isLayoutRtl(floatingActionButton)) {
@@ -332,7 +332,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.hideOnScroll = z;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomappbar.BottomAppBar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -385,7 +385,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     public BottomAppBar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400f1);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0400f2);
     }
 
     private void createFabTranslationXAnimation(int i, @NonNull List<Animator> list) {
@@ -471,7 +471,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.paddingLeftSystemWindowInsets = obtainStyledAttributes.getBoolean(9, false);
         this.paddingRightSystemWindowInsets = obtainStyledAttributes.getBoolean(10, false);
         obtainStyledAttributes.recycle();
-        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043e);
+        this.fabOffsetEndMode = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070586);
         this.materialShapeDrawable.setShapeAppearanceModel(ShapeAppearanceModel.builder().setTopEdge(new BottomAppBarTopEdgeTreatment(obtainStyledAttributes.getDimensionPixelOffset(4, 0), obtainStyledAttributes.getDimensionPixelOffset(5, 0), obtainStyledAttributes.getDimensionPixelOffset(6, 0))).build());
         this.materialShapeDrawable.setShadowCompatibilityMode(2);
         this.materialShapeDrawable.setPaintStyle(Paint.Style.FILL);

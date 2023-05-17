@@ -1,5 +1,5 @@
 package com.kwad.components.ad.fullscreen.kwai;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static int bC() {
         return a.ej.getValue().intValue();

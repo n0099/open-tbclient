@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.timer.bean;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimerBasicBean {
     public long mExpiredTime;
     public String mJobId;

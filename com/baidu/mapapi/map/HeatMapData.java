@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.os.Bundle;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeatMapData {
     public double[] a;
     public double[] b;

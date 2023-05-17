@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.kf7;
-import com.baidu.tieba.lx;
-import com.baidu.tieba.m65;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.v75;
+import com.baidu.tieba.xg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,8 +46,8 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes4.dex */
-public class CardItemRecommendLayout extends LinearLayout implements lx {
+/* loaded from: classes5.dex */
+public class CardItemRecommendLayout extends LinearLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EMTextView a;
@@ -56,7 +56,7 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
     public List<ItemInfo> d;
     public final Point e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class d extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
         public boolean e;
         public ItemInfo f;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -119,17 +119,17 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
                     return;
                 }
             }
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c8a);
+            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cb5);
             this.a = barImageView;
             barImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
             this.a.setDrawCorner(true);
             this.a.setShowOuterBorder(true);
             this.a.setPlaceHolder(3);
-            this.a.setPageId(g9.a(view2.getContext()).getUniqueId());
-            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090c8b);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c8d);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c8c);
+            this.a.setPageId(m9.a(view2.getContext()).getUniqueId());
+            this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090cb6);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cb8);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090cb7);
             this.itemView.setOnClickListener(new a(this));
         }
 
@@ -175,7 +175,7 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_small_star, R.color.CAM_X0305, null);
-                g35.d(this.b).w(R.color.CAM_X0105);
+                p45.d(this.b).w(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -185,7 +185,7 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends RecyclerView.ItemDecoration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,12 +213,12 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
         public void getItemOffsets(@NonNull Rect rect, int i, @NonNull RecyclerView recyclerView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
-                rect.set(0, 0, ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
+                rect.set(0, 0, ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X006), 0);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements BdRecyclerView.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,12 +247,12 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(3, i + 1, 2)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(3, i + 1, 2)));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c extends RecyclerView.Adapter<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -296,7 +296,7 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar, i) == null) && ListUtils.getItem(this.a.d, i) != null) {
                 dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(3, i + 1, 1)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(3, i + 1, 1)));
             }
         }
 
@@ -308,7 +308,7 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0351, (ViewGroup) null));
+                d dVar = new d(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0368, (ViewGroup) null));
                 dVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return dVar;
             }
@@ -384,12 +384,12 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
         b();
     }
 
-    public void setData(ax4 ax4Var) {
+    public void setData(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ax4Var) == null) && (ax4Var instanceof kf7)) {
-            kf7 kf7Var = (kf7) ax4Var;
-            if (kf7Var.c() != null) {
-                this.d = kf7Var.c();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) && (jy4Var instanceof xg7)) {
+            xg7 xg7Var = (xg7) jy4Var;
+            if (xg7Var.c() != null) {
+                this.d = xg7Var.c();
                 this.c.notifyDataSetChanged();
             }
         }
@@ -402,16 +402,16 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
             EMTextView eMTextView = new EMTextView(getContext());
             this.a = eMTextView;
             eMTextView.setGravity(16);
-            this.a.setText(R.string.obfuscated_res_0x7f0f0787);
-            g35 d2 = g35.d(this.a);
+            this.a.setText(R.string.obfuscated_res_0x7f0f07f5);
+            p45 d2 = p45.d(this.a);
             d2.C(R.string.F_X02);
             d2.B(R.dimen.T_X07);
-            this.a.setPadding(ii.g(getContext(), R.dimen.M_W_X005), ii.g(getContext(), R.dimen.M_H_X004), ii.g(getContext(), R.dimen.M_W_X005), ii.g(getContext(), R.dimen.M_H_X008));
+            this.a.setPadding(ri.g(getContext(), R.dimen.M_W_X005), ri.g(getContext(), R.dimen.M_H_X004), ri.g(getContext(), R.dimen.M_W_X005), ri.g(getContext(), R.dimen.M_H_X008));
             addView(this.a, new LinearLayout.LayoutParams(-1, -2));
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            this.b.setPadding(ii.g(getContext(), R.dimen.M_W_X004), 0, ii.g(getContext(), R.dimen.M_W_X005), 0);
+            this.b.setPadding(ri.g(getContext(), R.dimen.M_W_X004), 0, ri.g(getContext(), R.dimen.M_W_X005), 0);
             this.b.addItemDecoration(new a(this));
             this.b.setOnItemClickListener(new b(this));
             addView(this.b, new LinearLayout.LayoutParams(-1, -2));
@@ -421,13 +421,13 @@ public class CardItemRecommendLayout extends LinearLayout implements lx {
         }
     }
 
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            g35.d(this.a).w(R.color.CAM_X0105);
-            g35 d2 = g35.d(this);
+            p45.d(this.a).w(R.color.CAM_X0105);
+            p45 d2 = p45.d(this);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }

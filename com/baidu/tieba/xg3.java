@@ -1,69 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes7.dex */
-public final class xg3 extends yg3 {
+import org.json.JSONObject;
+@Deprecated
+/* loaded from: classes8.dex */
+public class xg3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayList a;
-        public final /* synthetic */ xg3 b;
-
-        public a(xg3 xg3Var, ArrayList arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xg3Var, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xg3Var;
-            this.a = arrayList;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m(this.a);
-                this.b.j();
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xg3(tg3 tg3Var) {
-        super(tg3Var);
+    public xg3(da3 da3Var) {
+        super(da3Var, "/swanAPI/getStorageSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tg3Var};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tg3) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,109 +38,33 @@ public final class xg3 extends yg3 {
         }
     }
 
-    @Override // com.baidu.tieba.yg3
-    public void f() {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
-            return;
-        }
-        long j = 0;
-        if (yg3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.g(new a(this, this.b.n()));
-        if (yg3.f) {
-            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        long j = 0;
-        if (yg3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.b();
-        this.g = true;
-        if (yg3.f) {
-            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public void l() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (yg3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            this.a.h();
-            if (yg3.f) {
-                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
             }
+            String Q = hz1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            JSONObject O = hz1.O(g93Var.f0().g().getString(Q, null));
+            if (O == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
+                return false;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(O, 0);
+            return true;
         }
-    }
-
-    public ArrayList<sg3> k(String str) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (yg3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            ArrayList<sg3> arrayList = new ArrayList<>();
-            try {
-                arrayList = this.a.e(str);
-            } catch (Exception e) {
-                x42.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
-            }
-            if (yg3.f) {
-                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void m(ArrayList<sg3> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
-            if (yg3.f) {
-                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
-            }
-            Iterator<sg3> it = arrayList.iterator();
-            while (it.hasNext()) {
-                sg3 next = it.next();
-                if (next != null) {
-                    if (yg3.f) {
-                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
-                    }
-                    int i = next.i;
-                    if (i != 0) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                this.a.d(next.a, next.b, next.c);
-                                this.a.a(next);
-                                this.b.y(next);
-                            }
-                        } else {
-                            this.a.d(next.a, next.b, next.c);
-                            this.b.g(next);
-                        }
-                    } else {
-                        this.a.a(next);
-                        this.b.y(next);
-                    }
-                }
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

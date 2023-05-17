@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsCacheHelper {
     public static final String DIR_NAME = "dns";
     public static final String SP_BACKUPIP_KEY = "SP_BACKUPIP_KEY";

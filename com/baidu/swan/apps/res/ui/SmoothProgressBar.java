@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static final int e;
 

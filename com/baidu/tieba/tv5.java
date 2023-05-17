@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+import android.graphics.drawable.Animatable;
+import com.facebook.imagepipeline.image.ImageInfo;
+/* loaded from: classes7.dex */
 public interface tv5 {
-    void setLastUpdatedLabel(CharSequence charSequence);
+    void a(String str, ImageInfo imageInfo, Animatable animatable);
 
-    void setLoadingDrawable(Drawable drawable);
-
-    void setPullLabel(CharSequence charSequence);
-
-    void setRefreshingLabel(CharSequence charSequence);
-
-    void setReleaseLabel(CharSequence charSequence);
+    void b(String str, Throwable th);
 }

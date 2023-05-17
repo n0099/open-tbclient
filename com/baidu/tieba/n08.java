@@ -1,194 +1,117 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes5.dex */
+import java.util.Iterator;
+/* loaded from: classes6.dex */
 public class n08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
 
-    public n08() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a extends db {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-    }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+                if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
+                    PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
+                    if (pushNotifyMessageDecoder.getMsgList() != null) {
+                        Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
+                        while (it.hasNext()) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
+                        }
+                    }
+                }
+                return socketResponsedMessage;
+            }
+            return (SocketResponsedMessage) invokeL.objValue;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+        @Override // com.baidu.tieba.ab
+        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+            c(socketResponsedMessage2);
+            return socketResponsedMessage2;
         }
-        return invokeV.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            b();
+            c();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            o08.b(104102, ResponseUpdateMaskInfoMessage.class, false);
+            o08.b(202003, ResponsePullMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            o08.b(202009, PushResponseMessage.class, false);
+            o08.b(202006, PushNotifyMessageDecoder.class, false);
+            o08.b(104103, ResponseGetMaskInfoMessage.class, false);
+            o08.b(304100, ResponseAddFriendMessage.class, false);
+            o08.b(304102, ResponseDeleteFriendMessage.class, false);
+            o08.b(304103, ResponseApplyMessage.class, false);
+            o08.b(104104, ResponseCheckUserMaskMessage.class, false);
+            MessageManager.getInstance().registerStickyMode(2001120);
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean e() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            MessageManager.getInstance().addResponsedMessageRule(new a(202006));
+            MessageManager.getInstance().addResponsedMessageRule(new s38());
+            MessageManager.getInstance().addResponsedMessageRule(new w38());
+            MessageManager.getInstance().addMessageRule(new r38());
+            return true;
         }
         return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static n08 g(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                n08 n08Var = new n08();
-                try {
-                    n08Var.a = (String) map.get("user_id");
-                    n08Var.b = (String) map.get("username");
-                    n08Var.c = (String) map.get("avatar");
-                    n08Var.d = ((Boolean) map.get("is_free")).booleanValue();
-                    n08Var.e = ((Integer) map.get("pos")).intValue();
-                } catch (Exception unused) {
-                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
-                }
-                if (n08Var.f()) {
-                    return n08Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (n08) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<n08> h(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Object obj = hashMap.get("imUserList");
-            if (obj instanceof List) {
-                int i = 0;
-                while (true) {
-                    List list = (List) obj;
-                    if (i >= list.size()) {
-                        break;
-                    }
-                    n08 g = g(list.get(i));
-                    if (g != null) {
-                        arrayList.add(g);
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || n08.class != obj.getClass()) {
-                return false;
-            }
-            String str = this.a;
-            String str2 = ((n08) obj).a;
-            if (str != null) {
-                return str.equals(str2);
-            }
-            if (str2 == null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

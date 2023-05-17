@@ -1,11 +1,22 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import com.baidu.tieba.h82;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
+/* loaded from: classes6.dex */
 public interface jt1 {
-    String a();
+    int a();
 
-    String b();
+    VideoPlayerFactory b();
 
-    String getAppName();
+    int c();
 
-    String getSchemeHeader();
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(h82.c cVar);
 }

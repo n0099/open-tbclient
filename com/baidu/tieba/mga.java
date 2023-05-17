@@ -1,115 +1,201 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.IBinder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-/* loaded from: classes5.dex */
-public final class mga {
+/* loaded from: classes6.dex */
+public class mga {
     public static /* synthetic */ Interceptable $ic;
-    public static final mga c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
-    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void U();
-
-        void a(Activity activity);
-
-        void b();
-
-        void onActivityDestroyed(Activity activity);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973090, "Lcom/baidu/tieba/mga;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947973090, "Lcom/baidu/tieba/mga;");
-                return;
-            }
-        }
-        c = new mga();
-    }
-
-    public mga() {
+    public static void a() {
+        bha c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = hha.c()) != null) {
+            c.b();
         }
-        this.a = new LinkedHashSet();
     }
 
-    public static mga a() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.getAppContext();
+            }
+            return null;
         }
-        return (mga) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public final Set<a> b() {
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.d();
+            }
+            return 0;
         }
-        return (Set) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void c() {
+    public static bga i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                this.a.clear();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return hha.e();
+        }
+        return (bga) invokeV.objValue;
+    }
+
+    public static fga j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return hha.f();
+        }
+        return (fga) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            aha b = hha.b();
+            if (b != null) {
+                return b.isAgreePrivacy();
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.isDebug();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.c(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static IBinder e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            bha c = hha.c();
+            if (c != null) {
+                return c.a(str);
+            }
+            return null;
+        }
+        return (IBinder) invokeL.objValue;
+    }
+
+    public static String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.e(str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String k(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.b(z);
+            }
+            return "";
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public static void q(int i) {
+        zga a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = hha.a()) != null) {
+            a.a(i);
         }
     }
 
-    public final void d(a aVar) {
+    public static int f(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this.a) {
-                this.a.add(aVar);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.getInt(str, i);
             }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long g(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
+            zga a = hha.a();
+            if (a != null) {
+                return a.getLong(str, j);
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static void n(String str, int i) {
+        zga a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = hha.a()) != null) {
+            a.putInt(str, i);
         }
     }
 
-    public final void e(Context context) {
+    public static void o(String str, long j) {
+        zga a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
-            try {
-                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new tga(this));
-            } catch (Exception unused) {
-                hha.b("registerActivityLifecycleCallbacks encounter exception");
-            }
-            this.b = true;
+        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = hha.a()) != null) {
+            a.putLong(str, j);
+        }
+    }
+
+    public static void p(String str, String str2) {
+        zga a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = hha.a()) != null) {
+            a.putString(str, str2);
         }
     }
 }

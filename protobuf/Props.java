@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Props extends Message {
     public static final String DEFAULT_ENDTIME = "";
     public static final String DEFAULT_EXPIREDNOTIFY = "";
@@ -49,7 +49,7 @@ public final class Props extends Message {
     public static final Integer DEFAULT_UPDATETIME = 0;
     public static final List<String> DEFAULT_PATTERN = Collections.emptyList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<Props> {
         public String endTime;
         public String expiredNotify;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends ConnectivityManager.NetworkCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

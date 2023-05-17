@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTaskObj {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchTaskObj";

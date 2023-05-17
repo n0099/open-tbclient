@@ -17,7 +17,7 @@ import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 @TargetApi(8)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static final float o = 12.0f;
     public static ZoomImageView p;

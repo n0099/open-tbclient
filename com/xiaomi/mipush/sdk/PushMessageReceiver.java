@@ -6,7 +6,7 @@ import android.content.Intent;
 import com.huawei.hms.support.api.entity.auth.AuthCode;
 import com.xiaomi.mipush.sdk.MessageHandleService;
 import com.xiaomi.push.en;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public void onCommandResult(Context context, MiPushCommandMessage miPushCommandMessage) {
     }

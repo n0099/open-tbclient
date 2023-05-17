@@ -9,7 +9,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.tieba.R;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChildVerifyActivity extends BaseActivity {
     public static final String EXTRA_EXTERNAL_URL = "external_url";
     public static final String u = "ChildVerifyActivity";

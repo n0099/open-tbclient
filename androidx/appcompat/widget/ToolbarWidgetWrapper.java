@@ -57,7 +57,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     public ToolbarWidgetWrapper(Toolbar toolbar, boolean z) {
-        this(toolbar, z, R.string.obfuscated_res_0x7f0f003a, R.drawable.obfuscated_res_0x7f080074);
+        this(toolbar, z, R.string.obfuscated_res_0x7f0f003a, R.drawable.obfuscated_res_0x7f080075);
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
@@ -72,7 +72,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         if (this.mActionMenuPresenter == null) {
             ActionMenuPresenter actionMenuPresenter = new ActionMenuPresenter(this.mToolbar.getContext());
             this.mActionMenuPresenter = actionMenuPresenter;
-            actionMenuPresenter.setId(R.id.obfuscated_res_0x7f09006f);
+            actionMenuPresenter.setId(R.id.obfuscated_res_0x7f09007c);
         }
         this.mActionMenuPresenter.setCallback(callback);
         this.mToolbar.setMenu((MenuBuilder) menu, this.mActionMenuPresenter);

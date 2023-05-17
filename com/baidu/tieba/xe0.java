@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.Vector;
-import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class xe0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<Integer> a;
-    public long b;
-    public long c;
-    public Vector<Integer> d;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
 
     public xe0() {
         Interceptable interceptable = $ic;
@@ -32,136 +33,46 @@ public class xe0 {
                 return;
             }
         }
-        this.a = new Vector<>();
-        this.c = 0L;
-        this.d = new Vector<>();
+        this.a = true;
+        this.b = true;
+        this.c = true;
     }
 
-    public void d() {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.b <= 0) {
-                this.b = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            int i = (int) (currentTimeMillis - this.b);
-            if (i < 0) {
-                return;
-            }
-            this.a.add(Integer.valueOf(i));
-            this.b = currentTimeMillis;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public String a(boolean z) {
-        InterceptResult invokeZ;
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            Vector<Integer> vector = this.a;
-            if (vector == null || vector.size() == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                Integer num = this.a.get(i);
-                if (num != null) {
-                    f += num.intValue();
-                    jSONArray.put(num);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (!super.equals(obj)) {
+                if (obj instanceof xe0) {
+                    xe0 xe0Var = (xe0) obj;
+                    if (xe0Var.b != this.b || xe0Var.c != this.c || xe0Var.a != this.a) {
+                    }
                 }
+                return false;
             }
-            if (z) {
-                String jSONArray2 = jSONArray.toString();
-                if (TextUtils.isEmpty(jSONArray2)) {
-                    return "";
-                }
-                return jSONArray2;
-            }
-            return new DecimalFormat(".0").format(f / size);
+            return true;
         }
-        return (String) invokeZ.objValue;
-    }
-
-    public String c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            Vector<Integer> vector = this.d;
-            if (vector == null || vector.size() == 0) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            float f = 0.0f;
-            int size = this.d.size();
-            for (int i = 0; i < size; i++) {
-                Integer num = this.d.get(i);
-                if (num != null) {
-                    f += num.intValue();
-                    jSONArray.put(num);
-                }
-            }
-            if (z) {
-                String jSONArray2 = jSONArray.toString();
-                if (TextUtils.isEmpty(jSONArray2)) {
-                    return "";
-                }
-                return jSONArray2;
-            }
-            return new DecimalFormat(".0").format(f / size);
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Vector<Integer> vector = this.a;
-            if (vector == null || vector.size() == 0) {
-                return 0;
-            }
-            int size = this.a.size();
-            int i = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                Integer num = this.a.get(i2);
-                if (num != null) {
-                    i += num.intValue();
-                }
-            }
-            float f = (i * 1.0f) / size;
-            if (f == 0.0f) {
-                return 0;
-            }
-            return Math.round(1000.0f / f);
-        }
-        return invokeV.intValue;
-    }
-
-    public void e() {
-        int currentTimeMillis;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c <= 0 || (currentTimeMillis = (int) (System.currentTimeMillis() - this.c)) < 0) {
-            return;
-        }
-        this.d.add(Integer.valueOf(currentTimeMillis));
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = 0L;
-            this.c = 0L;
-            this.a.clear();
-            this.d.clear();
-        }
+        return invokeL.booleanValue;
     }
 }

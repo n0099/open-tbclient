@@ -1,33 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.res.ColorStateList;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ComponentInfo;
+import android.content.pm.ResolveInfo;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.auth.NTLMEngineImpl;
-/* loaded from: classes5.dex */
+import java.util.List;
+/* loaded from: classes6.dex */
 public class nh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ColorStateList a(int i) {
-        InterceptResult invokeI;
+    public static Intent a(Context context) {
+        InterceptResult invokeL;
+        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            int i2 = i - (-805306368);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                queryIntentActivities = context.getPackageManager().queryIntentActivities(new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER"), 32);
+            } catch (Throwable th) {
+                oh1.d(th);
+            }
+            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
+                for (ResolveInfo resolveInfo : queryIntentActivities) {
+                    String str = resolveInfo.activityInfo.permission;
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    Intent intent = new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER");
+                    intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
+                    if (Build.VERSION.SDK_INT > 11) {
+                        intent.addFlags(32);
+                    }
+                    if (TextUtils.isEmpty(str) || context.checkCallingOrSelfPermission(str) == 0) {
+                        if (intent.getComponent() != null && context.getPackageName().equals(intent.getComponent().getPackageName())) {
+                            return intent;
+                        }
+                    }
+                }
+                return null;
+            }
+            return null;
         }
-        return (ColorStateList) invokeI.objValue;
-    }
-
-    public static ColorStateList b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = i - (-1728053248);
-            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
-        }
-        return (ColorStateList) invokeI.objValue;
+        return (Intent) invokeL.objValue;
     }
 }

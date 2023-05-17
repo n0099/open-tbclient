@@ -1,24 +1,39 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-/* loaded from: classes3.dex */
-public interface bn0 extends cn0 {
-    void onActivityCreated(Activity activity, Bundle bundle);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public interface bn0 {
+    public static final bn0 a = new a();
 
-    void onActivityDestroyed(Activity activity);
+    void a(boolean z);
 
-    void onActivityPaused(Activity activity);
+    /* loaded from: classes5.dex */
+    public static class a implements bn0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void onActivityResumed(Activity activity);
+        @Override // com.baidu.tieba.bn0
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            }
+        }
 
-    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
-
-    void onActivityStarted(Activity activity);
-
-    void onActivityStopped(Activity activity);
-
-    void onBackgroundToForeground(Activity activity);
-
-    void onForegroundToBackground(Activity activity);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

@@ -6,7 +6,7 @@ import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.dns.transmit.model.DnsResponse;
 import com.baidu.searchbox.dns.transmit.task.AsyncTask;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsTransmitTask extends AsyncTask {
     public static final String TASK_TYPE = "DNS_TASK";
     public int mAddressType;

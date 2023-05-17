@@ -36,14 +36,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiCache {
     public static final Map<String, SoftReference<String>> cache = new ConcurrentHashMap();
     public Context context;
     public final List<String> oldModuleIds = new ArrayList();
     public final List<String> newModuleIds = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface LoadModuleEventListener {
         void onFailure(SapiOptions.Cache.Module module);
 

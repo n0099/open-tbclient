@@ -23,7 +23,7 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.util.AdErrorConvertor;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class NativeUnifiedADDataAdapter implements NativeUnifiedADData, Download
     public DownloadConfirmListener d;
 
     /* renamed from: com.qq.e.ads.nativ.NativeUnifiedADDataAdapter$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class UnifiedAdListener implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

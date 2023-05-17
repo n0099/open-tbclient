@@ -10,7 +10,7 @@ import com.kwad.sdk.core.report.f;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements c {
     public AdTemplate mAdTemplate;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -23,7 +23,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     }
 
     private void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0596a(view2.getContext()).L(this.mAdTemplate).a(new a.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.b.1
+        com.kwad.components.core.c.a.a.a(new a.C0610a(view2.getContext()).L(this.mAdTemplate).a(new a.b() { // from class: com.kwad.components.ad.reward.presenter.platdetail.b.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 b.this.P(z);
@@ -56,7 +56,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913a5);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913e0);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

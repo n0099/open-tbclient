@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cz implements Comparable<cz> {
     public int a;
 
@@ -62,7 +62,7 @@ public class cz implements Comparable<cz> {
         JSONArray jSONArray = new JSONArray();
         Iterator<cp> it = this.f203a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m255a());
+            jSONArray.put(it.next().m274a());
         }
         jSONObject.put("ah", jSONArray);
         return jSONObject;

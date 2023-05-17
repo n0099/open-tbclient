@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RouteStep implements Parcelable {
     public static final Parcelable.Creator<RouteStep> CREATOR = new m();
     public int a;

@@ -1,18 +1,18 @@
 package com.baidu.tieba.advert.sdk.stretagy;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.m26;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.u55;
+import com.baidu.tieba.y36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SplashNativePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SPLASH_BEAR_CHANNEL_FAIL = 82;
@@ -41,19 +41,19 @@ public class SplashNativePolicy {
     public final boolean loadResult;
     public int plgAdType;
 
-    @l45
+    @u55
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @l45
+    @u55
     private native void nativeReleaseSplash();
 
-    @l45
+    @u55
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @l45
+    @u55
     private native void onNativeSplashEvent(int i, int i2);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,15 +83,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        m26.d().l(true);
+                        y36.d().l(true);
                         return;
                     case 129:
-                        m26.d().l(false);
+                        y36.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        m26.d().b();
+                        y36.d().b();
                         return;
                     case 131:
                     default:
@@ -115,12 +115,12 @@ public class SplashNativePolicy {
             }
         }
         this.plgAdType = 0;
-        this.loadResult = fi.d().h("splash_policy", 1);
+        this.loadResult = oi.d().h("splash_policy", 1);
         PrintStream printStream = System.out;
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @l45
+    @u55
     public void eventCallback(int i) {
         int i2;
         Interceptable interceptable = $ic;
@@ -129,11 +129,11 @@ public class SplashNativePolicy {
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i != 128 && i != 129) {
                 if (i == 131) {
-                    m26.d().i(-1);
+                    y36.d().i(-1);
                 } else if (i == 132) {
-                    m26.d().i(-2);
+                    y36.d().i(-2);
                 } else if (i == 130) {
-                    m26.d().i(-3);
+                    y36.d().i(-3);
                 }
             } else {
                 int i3 = this.plgAdType;
@@ -144,27 +144,27 @@ public class SplashNativePolicy {
                 } else {
                     i2 = 3;
                 }
-                m26.d().i(i2);
+                y36.d().i(i2);
             }
-            if (ii.E()) {
+            if (ri.E()) {
                 switch (i) {
                     case 128:
-                        m26.d().l(true);
+                        y36.d().l(true);
                         return;
                     case 129:
-                        m26.d().l(false);
+                        y36.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        m26.d().b();
+                        y36.d().b();
                         return;
                     case 131:
                     default:
                         return;
                 }
             }
-            jg.a().postAtFrontOfQueue(new a(this, i));
+            sg.a().postAtFrontOfQueue(new a(this, i));
         }
     }
 

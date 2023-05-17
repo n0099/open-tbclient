@@ -2,7 +2,7 @@ package okhttp3.internal.platform;
 
 import android.os.Build;
 import android.util.Log;
-import com.baidu.android.common.security.RSAUtil;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -24,7 +24,7 @@ import okhttp3.Protocol;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AndroidPlatform extends Platform {
     public static final int MAX_LOG_LENGTH = 4000;
     public final CloseGuard closeGuard = CloseGuard.get();
@@ -34,7 +34,7 @@ public class AndroidPlatform extends Platform {
     public final OptionalMethod<Socket> setUseSessionTickets;
     public final Class<?> sslParametersClass;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         public final Method checkServerTrusted;
         public final Object x509TrustManagerExtensions;
@@ -51,7 +51,7 @@ public class AndroidPlatform extends Platform {
         @Override // okhttp3.internal.tls.CertificateChainCleaner
         public List<Certificate> clean(List<Certificate> list, String str) throws SSLPeerUnverifiedException {
             try {
-                return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
+                return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
             } catch (IllegalAccessException e) {
                 throw new AssertionError(e);
             } catch (InvocationTargetException e2) {
@@ -66,7 +66,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AndroidTrustRootIndex implements TrustRootIndex {
         public final Method findByIssuerAndSignatureMethod;
         public final X509TrustManager trustManager;
@@ -110,7 +110,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class CloseGuard {
         public final Method getMethod;
         public final Method openMethod;
@@ -128,7 +128,7 @@ public class AndroidPlatform extends Platform {
             Method method3 = null;
             try {
                 Class<?> cls = Class.forName("dalvik.system.CloseGuard");
-                Method method4 = cls.getMethod("get", new Class[0]);
+                Method method4 = cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Class[0]);
                 method2 = cls.getMethod("open", String.class);
                 method = cls.getMethod("warnIfOpen", new Class[0]);
                 method3 = method4;

@@ -1,96 +1,85 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.StateListDrawable;
-import android.util.StateSet;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class sb4 extends StateListDrawable {
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+/* loaded from: classes7.dex */
+public class sb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public View b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(View view2);
-
-        void b(View view2);
-    }
-
-    public sb4() {
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return "number";
+                case 4:
+                case 9:
+                case 10:
+                default:
+                    return "object";
+                case 6:
+                    return "array object";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function object";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
             }
         }
-        this.b = null;
-        addState(new int[]{16842919}, new ColorDrawable(0));
-        addState(new int[0], new ColorDrawable(0));
+        return (String) invokeI.objValue;
     }
 
-    public sb4(Drawable drawable) {
+    public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSTypeMismatchException)) == null) {
+            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType));
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(qg2 qg2Var, JSTypeMismatchException jSTypeMismatchException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, qg2Var, jSTypeMismatchException) == null) {
+            qg2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType)));
+        }
+    }
+
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return String.format("%s: %s", str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void call(n12 n12Var, boolean z, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{n12Var, Boolean.valueOf(z), obj}) == null) {
+            o34 e = o34.e(n12Var);
+            if (z) {
+                e.d(obj);
+            } else {
+                e.b(obj);
             }
-        }
-        this.b = null;
-        addState(new int[]{16842919}, drawable);
-        addState(new int[0], drawable);
-    }
-
-    @Override // android.graphics.drawable.StateListDrawable, android.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public boolean onStateChange(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
-            if (this.b != null && this.a != null) {
-                if (StateSet.stateSetMatches(new int[]{16842919}, iArr)) {
-                    this.a.b(this.b);
-                } else {
-                    this.a.a(this.b);
-                }
-            }
-            return super.onStateChange(iArr);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void b(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b = view2;
         }
     }
 }

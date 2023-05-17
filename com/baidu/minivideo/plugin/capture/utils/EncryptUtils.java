@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class EncryptUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCRYPT_MD5 = "MD5";

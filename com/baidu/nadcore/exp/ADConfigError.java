@@ -1,5 +1,5 @@
 package com.baidu.nadcore.exp;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ADConfigError extends Exception {
     public static final String ERROR_NET_ERROR_RESPONSE_NULL = "1";
     public static final String ERROR_NULL_CODE = "4";

@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ie1 {
+/* loaded from: classes6.dex */
+public abstract class ie1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
+    public boolean a;
+
+    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
 
     public ie1() {
         Interceptable interceptable = $ic;
@@ -24,7 +28,40 @@ public class ie1 {
                 return;
             }
         }
-        this.a = -1L;
-        this.b = -1L;
+        this.a = false;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            this.a = false;
+            try {
+                sQLiteDatabase.beginTransaction();
+                if (b(sQLiteDatabase)) {
+                    sQLiteDatabase.setTransactionSuccessful();
+                    this.a = true;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                try {
+                    sQLiteDatabase.endTransaction();
+                } catch (Exception unused2) {
+                }
+                throw th;
+            }
+            try {
+                sQLiteDatabase.endTransaction();
+            } catch (Exception unused3) {
+            }
+        }
     }
 }

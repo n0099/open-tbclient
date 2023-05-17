@@ -2,10 +2,10 @@ package com.baidu.searchbox.pms.constants;
 
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ErrorConstant {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class Code {
         public static final int DATA_WRITE_DB = 2407;
         public static final int DOWNLOAD_BULK_DOWNLOADED = 2216;
@@ -37,7 +37,7 @@ public class ErrorConstant {
         public static final int META_ERROR_RESPONSE = 2103;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ErrorMsg {
         public static final String DATA_WRITE_DB = "data:write db error";
         public static final String DOWNLOAD_BULK_DOWNLOADED = "onBulkDownloaded success:%d,error:%d,cancel:%d";
@@ -65,7 +65,7 @@ public class ErrorConstant {
         public static final String META_ERROR_RESPONSE = "metadata : parse response error - ";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class TipMsg {
         public static final String META_ERROR_NETWORK = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0035);
         public static final String META_ERROR_CONNECTION = ErrorConstant.getTipMsg(R.string.obfuscated_res_0x7f0f0033);

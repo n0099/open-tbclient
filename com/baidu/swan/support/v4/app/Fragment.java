@@ -23,20 +23,20 @@ import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import com.baidu.tieba.gm4;
-import com.baidu.tieba.jm4;
-import com.baidu.tieba.lm4;
-import com.baidu.tieba.ql4;
-import com.baidu.tieba.sl4;
-import com.baidu.tieba.tl4;
-import com.baidu.tieba.ul4;
-import com.baidu.tieba.yl4;
+import com.baidu.tieba.bn4;
+import com.baidu.tieba.cn4;
+import com.baidu.tieba.dn4;
+import com.baidu.tieba.hn4;
+import com.baidu.tieba.pn4;
+import com.baidu.tieba.sn4;
+import com.baidu.tieba.un4;
+import com.baidu.tieba.zm4;
 import com.bumptech.glide.load.engine.GlideException;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener {
-    public static final jm4<String, Class<?>> Z = new jm4<>();
+    public static final sn4<String, Class<?>> Z = new sn4<>();
     public static final Object a0 = new Object();
     public boolean A;
     public boolean B;
@@ -48,7 +48,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public View I;
     public View J;
     public boolean K;
-    public yl4 M;
+    public hn4 M;
     public boolean N;
     public boolean O;
     public Object Q;
@@ -75,9 +75,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public boolean p;
     public boolean q;
     public int r;
-    public ul4 s;
-    public sl4 t;
-    public ul4 u;
+    public dn4 s;
+    public bn4 t;
+    public dn4 u;
     public Fragment v;
     public int w;
     public int x;
@@ -134,19 +134,19 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return null;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class InstantiationException extends RuntimeException {
         public InstantiationException(String str, Exception exc) {
             super(str, exc);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class a extends ql4 {
+    /* loaded from: classes4.dex */
+    public class a extends zm4 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.ql4
+        @Override // com.baidu.tieba.zm4
         @Nullable
         public View a(int i) {
             View view2 = Fragment.this.I;
@@ -156,7 +156,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             throw new IllegalStateException("Fragment does not have a view");
         }
 
-        @Override // com.baidu.tieba.ql4
+        @Override // com.baidu.tieba.zm4
         public boolean b() {
             if (Fragment.this.I != null) {
                 return true;
@@ -182,13 +182,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.O = true;
             this.M = this.t.i(this.g, this.N, false);
         }
-        yl4 yl4Var = this.M;
-        if (yl4Var != null) {
-            yl4Var.b();
+        hn4 hn4Var = this.M;
+        if (hn4Var != null) {
+            hn4Var.b();
         }
     }
 
-    public final tl4 B() {
+    public final cn4 B() {
         return this.s;
     }
 
@@ -236,9 +236,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.O = true;
                 this.M = this.t.i(this.g, true, false);
             }
-            yl4 yl4Var = this.M;
-            if (yl4Var != null) {
-                yl4Var.f();
+            hn4 hn4Var = this.M;
+            if (hn4Var != null) {
+                hn4Var.f();
             }
         }
     }
@@ -256,9 +256,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void X0() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.s();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.s();
         }
         this.F = false;
         A0();
@@ -270,9 +270,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void Z0() {
         onLowMemory();
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.u();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.u();
         }
     }
 
@@ -285,7 +285,20 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.I;
     }
 
-    public void d0() {
+    public void c1() {
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.x();
+        }
+        this.F = false;
+        onPause();
+        if (this.F) {
+            return;
+        }
+        throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onPause()");
+    }
+
+    public void e0() {
         this.f = -1;
         this.g = null;
         this.l = false;
@@ -309,23 +322,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.O = false;
     }
 
-    public void d1() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.x();
-        }
-        this.F = false;
-        onPause();
-        if (this.F) {
-            return;
-        }
-        throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onPause()");
-    }
-
     public void f1() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.z();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.z();
         }
         if (this.N) {
             this.N = false;
@@ -333,37 +333,37 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.O = true;
                 this.M = this.t.i(this.g, false, false);
             }
-            yl4 yl4Var = this.M;
-            if (yl4Var != null) {
+            hn4 hn4Var = this.M;
+            if (hn4Var != null) {
                 if (!this.C) {
-                    yl4Var.g();
+                    hn4Var.g();
                 } else {
-                    yl4Var.e();
+                    hn4Var.e();
                 }
             }
         }
     }
 
     public final FragmentActivity getActivity() {
-        sl4 sl4Var = this.t;
-        if (sl4Var == null) {
+        bn4 bn4Var = this.t;
+        if (bn4Var == null) {
             return null;
         }
-        return (FragmentActivity) sl4Var.getActivity();
+        return (FragmentActivity) bn4Var.getActivity();
     }
 
     public Context getContext() {
-        sl4 sl4Var = this.t;
-        if (sl4Var == null) {
+        bn4 bn4Var = this.t;
+        if (bn4Var == null) {
             return null;
         }
-        return sl4Var.getContext();
+        return bn4Var.getContext();
     }
 
     public final Resources getResources() {
-        sl4 sl4Var = this.t;
-        if (sl4Var != null) {
-            return sl4Var.getContext().getResources();
+        bn4 bn4Var = this.t;
+        if (bn4Var != null) {
+            return bn4Var.getContext().getResources();
         }
         throw new IllegalStateException("Fragment " + this + " not attached to Activity");
     }
@@ -373,9 +373,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void j1() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.C();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.C();
         }
         this.F = false;
         N0();
@@ -386,9 +386,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void l0() {
-        ul4 ul4Var = new ul4();
-        this.u = ul4Var;
-        ul4Var.j(this.t, new a(), this);
+        dn4 dn4Var = new dn4();
+        this.u = dn4Var;
+        dn4Var.j(this.t, new a(), this);
     }
 
     public final boolean m0() {
@@ -446,7 +446,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return false;
     }
 
-    public final tl4 q() {
+    public final cn4 q() {
         if (this.u == null) {
             l0();
             int i = this.a;
@@ -471,7 +471,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.R;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
         public final Bundle mState;
@@ -481,7 +481,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             return 0;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
@@ -546,9 +546,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             y0(menu, menuInflater);
             z = true;
         }
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            return z | ul4Var.r(menu, menuInflater);
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            return z | dn4Var.r(menu, menuInflater);
         }
         return z;
     }
@@ -559,18 +559,18 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public final void requestPermissions(@NonNull String[] strArr, int i) {
-        sl4 sl4Var = this.t;
-        if (sl4Var != null) {
-            sl4Var.p(this, strArr, i);
+        bn4 bn4Var = this.t;
+        if (bn4Var != null) {
+            bn4Var.p(this, strArr, i);
             return;
         }
         throw new IllegalStateException("Fragment " + this + " not attached to Activity");
     }
 
     public void startActivityForResult(Intent intent, int i) {
-        sl4 sl4Var = this.t;
-        if (sl4Var != null) {
-            sl4Var.r(this, intent, i);
+        bn4 bn4Var = this.t;
+        if (bn4Var != null) {
+            bn4Var.r(this, intent, i);
             return;
         }
         throw new IllegalStateException("Fragment " + this + " not attached to Activity");
@@ -601,9 +601,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public LayoutInflater D(Bundle bundle) {
         LayoutInflater m = this.t.m();
         q();
-        ul4 ul4Var = this.u;
-        ul4Var.J();
-        lm4.a(m, ul4Var);
+        dn4 dn4Var = this.u;
+        dn4Var.J();
+        un4.a(m, dn4Var);
         return m;
     }
 
@@ -615,11 +615,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.F = true;
     }
 
-    public void S0(Configuration configuration) {
+    public void R0(Configuration configuration) {
         onConfigurationChanged(configuration);
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.o(configuration);
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.o(configuration);
         }
     }
 
@@ -628,8 +628,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (v0(menuItem)) {
                 return true;
             }
-            ul4 ul4Var = this.u;
-            if (ul4Var != null && ul4Var.p(menuItem)) {
+            dn4 dn4Var = this.u;
+            if (dn4Var != null && dn4Var.p(menuItem)) {
                 return true;
             }
             return false;
@@ -646,8 +646,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (this.D && this.E && H0(menuItem)) {
                 return true;
             }
-            ul4 ul4Var = this.u;
-            if (ul4Var != null && ul4Var.v(menuItem)) {
+            dn4 dn4Var = this.u;
+            if (dn4Var != null && dn4Var.v(menuItem)) {
                 return true;
             }
             return false;
@@ -660,9 +660,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (this.D && this.E) {
                 I0(menu);
             }
-            ul4 ul4Var = this.u;
-            if (ul4Var != null) {
-                ul4Var.w(menu);
+            dn4 dn4Var = this.u;
+            if (dn4Var != null) {
+                dn4Var.w(menu);
             }
         }
     }
@@ -676,9 +676,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             J0(menu);
             z = true;
         }
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            return z | ul4Var.y(menu);
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            return z | dn4Var.y(menu);
         }
         return z;
     }
@@ -690,8 +690,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void h1(Bundle bundle) {
         Parcelable e0;
         L0(bundle);
-        ul4 ul4Var = this.u;
-        if (ul4Var != null && (e0 = ul4Var.e0()) != null) {
+        dn4 dn4Var = this.u;
+        if (dn4Var != null && (e0 = dn4Var.e0()) != null) {
             bundle.putParcelable(androidx.fragment.app.FragmentActivity.FRAGMENTS_TAG, e0);
         }
     }
@@ -722,9 +722,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void startActivity(Intent intent) {
-        sl4 sl4Var = this.t;
-        if (sl4Var != null) {
-            sl4Var.r(this, intent, -1);
+        bn4 bn4Var = this.t;
+        if (bn4Var != null) {
+            bn4Var.r(this, intent, -1);
             return;
         }
         throw new IllegalStateException("Fragment " + this + " not attached to Activity");
@@ -738,11 +738,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void u0(Context context) {
         Activity activity;
         this.F = true;
-        sl4 sl4Var = this.t;
-        if (sl4Var == null) {
+        bn4 bn4Var = this.t;
+        if (bn4Var == null) {
             activity = null;
         } else {
-            activity = sl4Var.getActivity();
+            activity = bn4Var.getActivity();
         }
         if (activity != null) {
             this.F = false;
@@ -762,11 +762,11 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     public void G0(Context context, AttributeSet attributeSet, Bundle bundle) {
         Activity activity;
         this.F = true;
-        sl4 sl4Var = this.t;
-        if (sl4Var == null) {
+        bn4 bn4Var = this.t;
+        if (bn4Var == null) {
             activity = null;
         } else {
-            activity = sl4Var.getActivity();
+            activity = bn4Var.getActivity();
         }
         if (activity != null) {
             this.F = false;
@@ -775,9 +775,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public View W0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.V();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.V();
         }
         return z0(layoutInflater, viewGroup, bundle);
     }
@@ -788,16 +788,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void Q0(Bundle bundle) {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.V();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.V();
         }
         this.F = false;
         r0(bundle);
         if (this.F) {
-            ul4 ul4Var2 = this.u;
-            if (ul4Var2 != null) {
-                ul4Var2.n();
+            dn4 dn4Var2 = this.u;
+            if (dn4Var2 != null) {
+                dn4Var2.n();
                 return;
             }
             return;
@@ -821,9 +821,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public void U0(Bundle bundle) {
         Parcelable parcelable;
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.V();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.V();
         }
         this.F = false;
         w0(bundle);
@@ -842,16 +842,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void Y0() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.t();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.t();
         }
         this.F = false;
         C0();
         if (this.F) {
-            yl4 yl4Var = this.M;
-            if (yl4Var != null) {
-                yl4Var.c();
+            hn4 hn4Var = this.M;
+            if (hn4Var != null) {
+                hn4Var.c();
                 return;
             }
             return;
@@ -860,17 +860,17 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void g1() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.V();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.V();
             this.u.E();
         }
         this.F = false;
         onResume();
         if (this.F) {
-            ul4 ul4Var2 = this.u;
-            if (ul4Var2 != null) {
-                ul4Var2.A();
+            dn4 dn4Var2 = this.u;
+            if (dn4Var2 != null) {
+                dn4Var2.A();
                 this.u.E();
                 return;
             }
@@ -880,21 +880,21 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     public void i1() {
-        ul4 ul4Var = this.u;
-        if (ul4Var != null) {
-            ul4Var.V();
+        dn4 dn4Var = this.u;
+        if (dn4Var != null) {
+            dn4Var.V();
             this.u.E();
         }
         this.F = false;
         M0();
         if (this.F) {
-            ul4 ul4Var2 = this.u;
-            if (ul4Var2 != null) {
-                ul4Var2.B();
+            dn4 dn4Var2 = this.u;
+            if (dn4Var2 != null) {
+                dn4Var2.B();
             }
-            yl4 yl4Var = this.M;
-            if (yl4Var != null) {
-                yl4Var.d();
+            hn4 hn4Var = this.M;
+            if (hn4Var != null) {
+                hn4Var.d();
                 return;
             }
             return;
@@ -904,7 +904,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public String toString() {
         StringBuilder sb = new StringBuilder(128);
-        gm4.a(this, sb);
+        pn4.a(this, sb);
         if (this.f >= 0) {
             sb.append(" #");
             sb.append(this.f);
@@ -1033,14 +1033,14 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (this.M != null) {
             printWriter.print(str);
             printWriter.println("Loader Manager:");
-            yl4 yl4Var = this.M;
-            yl4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+            hn4 hn4Var = this.M;
+            hn4Var.h(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
         }
         if (this.u != null) {
             printWriter.print(str);
             printWriter.println("Child " + this.u + ":");
-            ul4 ul4Var = this.u;
-            ul4Var.b(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
+            dn4 dn4Var = this.u;
+            dn4Var.b(str + GlideException.IndentedAppendable.INDENT, fileDescriptor, printWriter, strArr);
         }
     }
 

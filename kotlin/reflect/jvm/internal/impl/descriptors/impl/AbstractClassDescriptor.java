@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractClassDescriptor extends ModuleAwareClassDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final NotNullLazyValue<SimpleType> defaultType;

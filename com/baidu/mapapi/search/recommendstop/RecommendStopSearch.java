@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.recommendstop;
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.n;
 import com.baidu.platform.core.e.b;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RecommendStopSearch extends n {
     public boolean b = false;
     public com.baidu.platform.core.e.a a = new b();

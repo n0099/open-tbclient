@@ -21,10 +21,10 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Random;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements com.kwad.sdk.core.download.d {
         public a() {
         }
@@ -43,11 +43,11 @@ public final class b {
     }
 
     /* renamed from: com.kwad.components.core.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0595b implements com.kwad.sdk.service.kwai.b {
+    /* loaded from: classes9.dex */
+    public static class C0609b implements com.kwad.sdk.service.kwai.b {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c implements com.kwad.sdk.service.kwai.d {
         public c() {
         }
@@ -127,7 +127,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d implements f {
         public d() {
         }
@@ -303,7 +303,7 @@ public final class b {
     }
 
     public static void lj() {
-        ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0595b());
+        ServiceProvider.put(com.kwad.sdk.service.kwai.b.class, new C0609b());
     }
 
     public static void lk() {

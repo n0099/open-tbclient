@@ -1,17 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes6.dex */
-public interface qbb {
-    void h(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, edb edbVar, hdb hdbVar, PayCallBackBean payCallBackBean, IPayCallback<CurrencyChargeMessage> iPayCallback);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public abstract class qbb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void i(Activity activity, hdb hdbVar, Dialog dialog, IYYPayWayView iYYPayWayView);
+    @Deprecated
+    public void a(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        }
+    }
 
-    void r(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
+    public String c(Object obj) throws InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public qbb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                t7b.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 }

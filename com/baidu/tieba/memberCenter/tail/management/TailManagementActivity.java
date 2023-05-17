@@ -5,25 +5,25 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.to8;
-import com.baidu.tieba.wo8;
-import com.baidu.tieba.xo8;
+import com.baidu.tieba.oq8;
+import com.baidu.tieba.rq8;
+import com.baidu.tieba.sq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public to8 a;
-    public wo8 b;
-    public xo8 c;
-    public to8.f d;
+    public oq8 a;
+    public rq8 b;
+    public sq8 c;
+    public oq8.f d;
     public View.OnClickListener e;
 
-    /* loaded from: classes5.dex */
-    public class a implements to8.f {
+    /* loaded from: classes6.dex */
+    public class a implements oq8.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TailManagementActivity a;
@@ -46,7 +46,7 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // com.baidu.tieba.to8.f
+        @Override // com.baidu.tieba.oq8.f
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -57,16 +57,16 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     this.a.b.l(g);
                 }
                 TailManagementActivity tailManagementActivity = this.a;
-                xo8 xo8Var = tailManagementActivity.c;
+                sq8 sq8Var = tailManagementActivity.c;
                 if (tailManagementActivity.b.h().size() != 0) {
                     z = false;
                 }
-                xo8Var.e(g, z);
+                sq8Var.e(g, z);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,11 +101,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                     boolean z2 = !this.a.b.g();
                     this.a.b.l(z2);
                     TailManagementActivity tailManagementActivity = this.a;
-                    xo8 xo8Var = tailManagementActivity.c;
+                    sq8 sq8Var = tailManagementActivity.c;
                     if (tailManagementActivity.b.h().size() != 0) {
                         z = false;
                     }
-                    xo8Var.e(z2, z);
+                    sq8Var.e(z2, z);
                     this.a.a.j();
                 }
             }
@@ -145,19 +145,19 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08d8);
-            this.b = new wo8(getPageContext());
-            this.a = new to8(getPageContext(), this.b, this.d);
-            xo8 xo8Var = new xo8(this, this.e);
-            this.c = xo8Var;
-            xo8Var.d(this.a);
-            xo8 xo8Var2 = this.c;
+            setContentView(R.layout.obfuscated_res_0x7f0d0909);
+            this.b = new rq8(getPageContext());
+            this.a = new oq8(getPageContext(), this.b, this.d);
+            sq8 sq8Var = new sq8(this, this.e);
+            this.c = sq8Var;
+            sq8Var.d(this.a);
+            sq8 sq8Var2 = this.c;
             if (this.b.h().size() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            xo8Var2.e(false, z);
+            sq8Var2.e(false, z);
             if (this.b.i(getIntent().getSerializableExtra("list"))) {
                 this.a.j();
             }

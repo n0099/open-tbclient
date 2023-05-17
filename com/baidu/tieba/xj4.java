@@ -1,183 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xj4 {
+/* loaded from: classes8.dex */
+public class xj4 extends mi4<dk4> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> c;
-    public static volatile xj4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile Set<String> b;
+    public final String d;
 
-    /* loaded from: classes7.dex */
-    public static class a extends ho4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_nohistoryapps");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
+    @Override // com.baidu.tieba.mi4
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948302279, "Lcom/baidu/tieba/xj4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948302279, "Lcom/baidu/tieba/xj4;");
-                return;
-            }
-        }
-        c = new HashSet();
-        d = null;
-        c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-        c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
-        c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
-        c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
-    }
-
-    public xj4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xj4(String str, bh4 bh4Var, mk4 mk4Var) {
+        super(bh4Var, mk4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bh4Var, mk4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((bh4) objArr2[0], (mk4) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.a = new a();
-        d();
+        this.d = str;
     }
 
-    public static xj4 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4
+    /* renamed from: w */
+    public dk4 t(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (xj4.class) {
-                    if (d == null) {
-                        d = new xj4();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+            return nm4.i(this.d, jSONObject);
+        }
+        return (dk4) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4
+    /* renamed from: u */
+    public boolean e(dk4 dk4Var) {
+        InterceptResult invokeL;
+        List<gi4> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, dk4Var)) == null) {
+            if (dk4Var == null || (list = dk4Var.a) == null) {
+                return false;
+            }
+            for (gi4 gi4Var : list) {
+                if (!gi4Var.a()) {
+                    return false;
                 }
             }
-            return d;
+            return true;
         }
-        return (xj4) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mi4
+    /* renamed from: v */
+    public ai4 s(dk4 dk4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> set = c;
-            if (this.b != null) {
-                set = this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, dk4Var)) == null) {
+            this.a.E();
+            om4 om4Var = new om4();
+            o(dk4Var.a, om4Var);
+            if (om4Var.n() == 0) {
+                this.a.F();
+                return null;
             }
-            String[] strArr = new String[set.size()];
-            int i = 0;
-            for (String str : set) {
-                strArr[i] = str;
-                i++;
-            }
-            return strArr;
+            this.a.G(om4Var);
+            ri4.d(dk4Var, this.a);
+            return null;
         }
-        return (String[]) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("appids", "");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                HashSet hashSet = new HashSet();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    hashSet.add(jSONArray.optString(i));
-                }
-                this.b = hashSet;
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appids")) == null) {
-            return;
-        }
-        f(optJSONArray, optString);
-    }
-
-    public final void f(JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, jSONArray, str) == null) && jSONArray != null && !TextUtils.isEmpty(str)) {
-            HashSet hashSet = new HashSet();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                hashSet.add(jSONArray.optString(i));
-            }
-            this.b = hashSet;
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.clear();
-            edit.putString("version", str);
-            edit.putString("appids", jSONArray.toString());
-            edit.apply();
-        }
+        return (ai4) invokeL.objValue;
     }
 }

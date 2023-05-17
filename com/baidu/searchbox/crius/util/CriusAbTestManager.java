@@ -3,7 +3,7 @@ package com.baidu.searchbox.crius.util;
 import android.util.Log;
 import com.baidu.searchbox.abtest.AbTestManager;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusAbTestManager {
     public static final String CRIUS_LAYOUT_FLATTEN_SWITCH = "crius_layout_enhance_switch";
     public static final String TAG = "CriusAbTestManager";

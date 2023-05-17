@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapLocationPoiPresenter extends BasePresenter<IBaseView> implements GetLocationCallback {
     public static final int GET_LOCATION_CODE = 1001;
     public static final String KEY_BDSTOKEN = "bdstoken";

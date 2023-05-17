@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedMemberScope;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DeserializedPackageFragment extends PackageFragmentDescriptorImpl {
     public final StorageManager storageManager;
 

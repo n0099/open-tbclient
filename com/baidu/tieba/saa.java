@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.write.sticker.view.StickerView;
-/* loaded from: classes6.dex */
+import androidx.annotation.NonNull;
+/* loaded from: classes7.dex */
 public interface saa {
-    void a(StickerView stickerView);
+    void l(@NonNull xaa xaaVar);
 
-    void b(StickerView stickerView, boolean z);
-
-    void c(StickerView stickerView);
-
-    void onDelete();
+    void q(@NonNull xaa xaaVar, boolean z);
 }

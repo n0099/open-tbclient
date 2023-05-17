@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -122,29 +122,29 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             this.c = findViewById(R.id.custom_push_permission_dialog_animation_floor_view);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
                 this.d = findViewById(R.id.animation_layout);
-                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(ii.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, ii.g(getContext(), R.dimen.tbds22)).into(this.d);
+                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(ri.g(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, ri.g(getContext(), R.dimen.tbds22)).into(this.d);
                 ViewGroup.LayoutParams layoutParams2 = this.c.getLayoutParams();
-                layoutParams2.width = ii.g(context, R.dimen.tbds774);
+                layoutParams2.width = ri.g(context, R.dimen.tbds774);
                 this.c.setLayoutParams(layoutParams2);
                 TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.c);
             } else {
-                TBSelector.makeDrawableSelector().setShape(0).radius(ii.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.c);
+                TBSelector.makeDrawableSelector().setShape(0).radius(ri.g(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.c);
             }
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_cancel_button);
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             this.e.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
-            f65 f65Var = new f65();
-            f65Var.s(R.color.CAM_X0105);
-            this.e.setConfig(f65Var);
+            o75 o75Var = new o75();
+            o75Var.s(R.color.CAM_X0105);
+            this.e.setConfig(o75Var);
             this.e.k();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
             this.f.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
-            f65 f65Var2 = new f65();
-            f65Var2.q(R.color.CAM_X0302);
-            this.f.setConfig(f65Var2);
+            o75 o75Var2 = new o75();
+            o75Var2.q(R.color.CAM_X0302);
+            this.f.setConfig(o75Var2);
         }
     }
 

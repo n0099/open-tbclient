@@ -6,7 +6,7 @@ import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectJavaType;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaWildcardType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaWildcardType extends ReflectJavaType implements JavaWildcardType {
     public final WildcardType reflectType;
 

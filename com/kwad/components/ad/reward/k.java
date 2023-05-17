@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class k extends com.kwad.components.core.g.a {
     @NonNull
     public com.kwad.components.ad.reward.j.a eF;
@@ -349,7 +349,7 @@ public final class k extends com.kwad.components.core.g.a {
     }
 
     public final void a(Context context, final int i, int i2, long j, boolean z, final com.kwad.sdk.core.report.f fVar) {
-        com.kwad.components.core.c.a.a.a(new a.C0596a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b() { // from class: com.kwad.components.ad.reward.k.2
+        com.kwad.components.core.c.a.a.a(new a.C0610a(context).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).ae(i2).l(j).a(new a.b() { // from class: com.kwad.components.ad.reward.k.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 k.this.a(i, fVar);

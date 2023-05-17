@@ -3,10 +3,10 @@ package com.tencent.mm.opensdk.modelpay;
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class JumpToOfflinePay {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Req extends BaseReq {
         public static final String TAG = "MicroMsg.SDK.JumpToOfflinePay.Req";
 
@@ -31,7 +31,7 @@ public class JumpToOfflinePay {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Resp extends BaseResp {
         public Resp() {
         }

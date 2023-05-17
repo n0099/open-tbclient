@@ -4,7 +4,7 @@ import com.baidu.webkit.internal.INoProGuard;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebAddress implements INoProGuard {
     public static final String GOOD_IRI_CHAR = "a-zA-Z0-9 -\ud7ff豈-﷏ﷰ-\uffef";
     public static final int MATCH_GROUP_AUTHORITY = 2;

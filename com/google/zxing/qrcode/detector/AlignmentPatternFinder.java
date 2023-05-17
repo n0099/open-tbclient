@@ -5,7 +5,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AlignmentPatternFinder {
     public final int height;
     public final BitMatrix image;

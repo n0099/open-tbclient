@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.pg;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
@@ -33,7 +33,7 @@ import com.baidu.tieba.themeCenter.bubble.list.BubbleListActivity;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
 import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
 import com.baidu.tieba.themeCenter.dressCenter.DressupCenterActivity;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,12 +41,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ThemeStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), gg.g(substring.substring(0, indexOf), 0L))));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(tbPageContext.getPageActivity(), pg.g(substring.substring(0, indexOf), 0L))));
                         return 0;
                     } else if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_PERSONAL_CARD_DETAIL)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardCategoryActivityConfig(tbPageContext.getPageActivity())));
@@ -90,7 +90,7 @@ public class ThemeStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,8 +123,8 @@ public class ThemeStatic {
                         if (indexOf == -1) {
                             indexOf = substring.length();
                         }
-                        int e = gg.e(substring.substring(0, indexOf), 0);
-                        f55 m = f55.m();
+                        int e = pg.e(substring.substring(0, indexOf), 0);
+                        o65 m = o65.m();
                         if (e == m.n("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), 0)) {
                             i = 1;
                         } else {
@@ -142,7 +142,7 @@ public class ThemeStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +176,7 @@ public class ThemeStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class ThemeStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class e implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,8 +277,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        xo9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        xo9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        zq9.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        zq9.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

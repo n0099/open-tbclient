@@ -2,7 +2,7 @@ package com.baidu.pass.ecommerce.callback;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SimpleTextWatcher implements TextWatcher {
     @Override // android.text.TextWatcher
     public void afterTextChanged(Editable editable) {

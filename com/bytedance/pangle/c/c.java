@@ -7,7 +7,7 @@ import com.bytedance.pangle.GlobalParam;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusConstants;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static File a;
     public static File b;

@@ -1,176 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.qh3;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class nk3 {
+/* loaded from: classes6.dex */
+public class nk3 extends jk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ qm3 c;
-
-        public a(int i, long j, qm3 qm3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), qm3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = j;
-            this.c = qm3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    nk3.f(jSONObject, kz2.c(), this.a, this.b);
-                } catch (Exception e) {
-                    xk3.f(jSONObject, "errorMsg", e.getMessage());
-                }
-                this.c.a(jSONObject);
-            }
-        }
-    }
-
-    public nk3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nk3(da3 da3Var) {
+        super(da3Var, "/swanAPI/openTabBar");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((da3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (nk3.class) {
-                    a = e();
-                }
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void d(@NonNull us2 us2Var, @NonNull qm3<JSONObject> qm3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, us2Var, qm3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(us2Var.i("host_launch_type"), us2Var.k("box_cold_launch"), qm3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        String replace;
-        String replace2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                g62.c("openTabBar", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (jk3.k()) {
+                g62.c("OpenTabBarAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
             } else {
-                replace = str.replace("_", "-");
-            }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            xk3.f(jSONObject, "model", Build.MODEL);
-            xk3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            xk3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            qh3.a a2 = qh3.a(er2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            xk3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            xk3.f(jSONObject, "appCurVersion", rl3.D());
-            xk3.f(jSONObject, "startupType", String.valueOf(i2));
-            xk3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(tq2.i());
-            xk3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            xk3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) w73.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                xk3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                xk3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
+                sk3 j = jk3.j();
+                if (j == null) {
+                    g62.c("OpenTabBarAction", "tabBarViewController is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (!j.r(optParamsAsJo.optBoolean("animation"))) {
+                    g62.c("openTabBar", "open bottom bar fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
                 } else {
-                    str = "0";
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
                 }
-                xk3.f(jSONObject, "lowMemory", str);
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

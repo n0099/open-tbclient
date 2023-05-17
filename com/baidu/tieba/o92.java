@@ -1,70 +1,87 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987009, "Lcom/baidu/tieba/o92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947987009, "Lcom/baidu/tieba/o92;");
-                return;
-            }
-        }
-        a = ho1.a;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(NetworkStatus networkStatus);
     }
 
-    public o92(v62 v62Var) {
+    /* loaded from: classes6.dex */
+    public class a implements SwanAppNetworkUtils.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(o92 o92Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o92Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            this.a.a(NetworkStatus.NETWORK_UNKNOWN);
+                            return;
+                        } else {
+                            this.a.a(NetworkStatus.NETWORK_OFFLINE);
+                            return;
+                        }
+                    }
+                    this.a.a(NetworkStatus.NETWORK_BAD);
+                    return;
+                }
+                this.a.a(NetworkStatus.NETWORK_GOOD);
+            }
+        }
+    }
+
+    public o92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v62Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @JavascriptInterface
-    public String setData(String str, String str2) {
-        InterceptResult invokeLL;
+    public void a(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (a) {
-                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
-            }
-            int i = 0;
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                kt2.U().y(new ai2(str, str2), false);
-            } else {
-                i = 202;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bVar) != null) || bVar == null) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        SwanAppNetworkUtils.b(new a(this, bVar));
     }
 }

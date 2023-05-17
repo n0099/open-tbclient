@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public interface f extends IInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b extends Binder implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 1;
@@ -66,7 +66,7 @@ public interface f extends IInterface {
         public static final String c = "com.baidu.helios.bridge.multiprocess.OnGetResultRemoteCallback";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class a implements f {
             public static /* synthetic */ Interceptable $ic;
             public static f a;

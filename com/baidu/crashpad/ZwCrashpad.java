@@ -7,6 +7,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.io.File;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ZwCrashpad {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ZwCrashpad CRASHPAD";
@@ -384,7 +385,7 @@ public class ZwCrashpad {
                     if (z) {
                         str = "true";
                     } else {
-                        str = "false";
+                        str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
                     }
                     mUploadCrashLogFailedEncrypt = str;
                     if (mNativeIsInitialized) {

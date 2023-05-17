@@ -6,10 +6,11 @@ import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e extends g {
     @Override // com.baidu.webkit.internal.b.g
     public final boolean a(Context context, String str) {
@@ -19,7 +20,7 @@ public final class e extends g {
                 if (context.getPackageManager().resolveActivity(parseUri, 0) == null) {
                     String str2 = parseUri.getPackage();
                     if (str2 != null) {
-                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://search?q=pname:".concat(String.valueOf(str2))));
+                        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://search?q=pname:".concat(String.valueOf(str2))));
                         intent.addCategory("android.intent.category.BROWSABLE");
                         return g.a(context, intent);
                     }

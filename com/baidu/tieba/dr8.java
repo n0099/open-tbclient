@@ -1,180 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dr8 extends vm<tr8, b> {
+/* loaded from: classes5.dex */
+public class dr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<HotTopicDetailActivity> a;
-    public qv4<tr8> b;
 
-    /* loaded from: classes4.dex */
-    public class a implements qv4<tr8> {
+    /* loaded from: classes5.dex */
+    public class a extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr8 a;
+        public final /* synthetic */ EditText a;
+        public final /* synthetic */ SpannableStringBuilder b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ EmotionGroupType d;
+        public final /* synthetic */ dr8 e;
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qv4
-        /* renamed from: a */
-        public void c(View view2, tr8 tr8Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, tr8Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        public a(dr8 dr8Var) {
+        public a(dr8 dr8Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dr8Var};
+                Object[] objArr = {dr8Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = dr8Var;
+            this.e = dr8Var;
+            this.a = editText;
+            this.b = spannableStringBuilder;
+            this.c = i;
+            this.d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qv4
-        /* renamed from: b */
-        public void d(View view2, tr8 tr8Var, int i, long j) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, tr8Var, Integer.valueOf(i), Long.valueOf(j)}) == null) && tr8Var != null && this.a.a != null) {
-                cr8.a("c13820", tr8Var, i, ((HotTopicDetailActivity) this.a.a.getOrignalPage()).A1());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailSpecialItem a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
-            super(hotTopicDetailSpecialItem);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicDetailSpecialItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, str, i) == null) {
+                super.onLoaded((a) cnVar, str, i);
+                if (cnVar != null) {
+                    this.e.c(this.a, this.b, this.c, cnVar, this.d);
                 }
             }
-            this.a = hotTopicDetailSpecialItem;
-        }
-
-        public void a(tr8 tr8Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, tr8Var) == null) && tr8Var != null) {
-                this.a.a(tr8Var);
-            }
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a.c(i);
-            }
-        }
-
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a.setCurrentTopicId(str);
-            }
-        }
-
-        public void d(qv4<tr8> qv4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, qv4Var) == null) {
-                this.a.setOnItemCoverListener(qv4Var);
-            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dr8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), sr8.a);
+    public dr8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, ea5 ea5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, ea5Var) == null) {
+            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
+                Toast makeText = Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.too_many_face, 0);
+                GreyUtil.grey(makeText);
+                makeText.show();
                 return;
             }
-        }
-        this.b = new a(this);
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-            bVar.c(this.a.getOrignalPage().A1());
-            bVar.d(this.b);
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tr8 tr8Var, b bVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tr8Var, bVar})) == null) {
-            if (tr8Var != null && bVar != null) {
-                bVar.a(tr8Var);
-                bVar.b(TbadkCoreApplication.getInst().getSkinType());
-                return bVar.getView();
+            String d = ea5Var.d();
+            EmotionGroupType type = ea5Var.getType();
+            if (d != null) {
+                lg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, cn cnVar, EmotionGroupType emotionGroupType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), cnVar, emotionGroupType}) == null) {
+            Bitmap p = cnVar.p();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
+            int width = p.getWidth();
+            if (emotionGroupType == EmotionGroupType.LOCAL) {
+                width = (int) (width * 0.5d);
+            }
+            bitmapDrawable.setBounds(0, 0, width, width);
+            bitmapDrawable.setGravity(119);
+            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+            editText.getText().insert(i, spannableStringBuilder);
+        }
     }
 }

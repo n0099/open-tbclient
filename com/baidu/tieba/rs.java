@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
+import com.baidu.tieba.ss;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class rs<T> extends qs<T> {
+/* loaded from: classes7.dex */
+public abstract class rs<D extends BuoyViewData, VM extends ss<D>> implements ts, xs<D, VM> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,22 +22,6 @@ public class rs<T> extends qs<T> {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.qs
-    public void o(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            super.o(t);
-        }
-    }
-
-    @Override // com.baidu.tieba.qs
-    public void p(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            super.p(t);
         }
     }
 }

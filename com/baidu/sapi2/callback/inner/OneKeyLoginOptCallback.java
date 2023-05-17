@@ -2,7 +2,7 @@ package com.baidu.sapi2.callback.inner;
 
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.result.OneKeyLoginOptResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface OneKeyLoginOptCallback extends NoProguard {
     void onFinish(OneKeyLoginOptResult oneKeyLoginOptResult);
 }

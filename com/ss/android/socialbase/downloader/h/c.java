@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements f, Runnable {
     public static final String a = c.class.getSimpleName();
     public r A;

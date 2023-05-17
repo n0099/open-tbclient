@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CLEAR_ALL = 1;
@@ -14,7 +14,7 @@ public class MemoryModifyLastMsgMessage extends CustomResponsedMessage<a> {
     public static final int TYPE_SEND_MSG = 3;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.crius.ui.indicator;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IndicatorAttrs {
     public int indicatorContentLRMargin;
     public String indicatorDefaultColor;

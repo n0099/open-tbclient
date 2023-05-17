@@ -1,7 +1,7 @@
 package com.baidu.mapapi.navi;
 
 import com.baidu.mapapi.navi.NaviParaOption;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public /* synthetic */ class a {
     public static final /* synthetic */ int[] a;
 

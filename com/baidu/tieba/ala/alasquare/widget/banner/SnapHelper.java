@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SnapHelper extends RecyclerView.OnFlingListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
 
     public abstract int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int i, int i2);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public abstract class SnapHelper extends RecyclerView.OnFlingListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

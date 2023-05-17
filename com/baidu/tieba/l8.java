@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,27 +7,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+/* loaded from: classes6.dex */
 public class l8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n8 a;
-    public Context b;
-    public int c;
+    public String a;
 
-    public l8(Context context) {
+    public l8(File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,103 +33,111 @@ public class l8 {
                 return;
             }
         }
-        this.b = context;
-        this.a = new o8(context);
-        this.c = t8.b().a();
+        this.a = null;
+        this.a = file.getAbsolutePath();
     }
 
-    public n8 a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (n8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b() : invokeV.booleanValue;
     }
 
-    public HashMap<String, j8> b(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0088 A[Catch: Exception -> 0x0084, TRY_LEAVE, TryCatch #6 {Exception -> 0x0084, blocks: (B:50:0x0080, B:54:0x0088), top: B:68:0x0080 }] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean b() {
+        InterceptResult invokeV;
+        FileInputStream fileInputStream;
+        Exception e;
+        ZipInputStream zipInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, j8> hashMap = new HashMap<>();
-            if (!TextUtils.isEmpty(str)) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return invokeV.booleanValue;
+        }
+        if (TextUtils.isEmpty(this.a)) {
+            return false;
+        }
+        ZipInputStream zipInputStream2 = null;
+        try {
+            fileInputStream = new FileInputStream(new File(this.a));
+        } catch (Exception e2) {
+            fileInputStream = null;
+            e = e2;
+            zipInputStream = null;
+        } catch (Throwable th) {
+            th = th;
+            fileInputStream = null;
+        }
+        try {
+            zipInputStream = new ZipInputStream(new BufferedInputStream(fileInputStream));
+            while (true) {
                 try {
-                    JSONArray jSONArray = new JSONObject(str).getJSONArray("exps");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        int length = jSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = jSONArray.getJSONObject(i);
-                            if (jSONObject != null) {
-                                int i2 = jSONObject.getInt("exp_id");
-                                long j = jSONObject.getLong("expired_time");
-                                int i3 = jSONObject.getInt("components_key");
-                                if (System.currentTimeMillis() / 1000 <= j) {
-                                    j8 j8Var = new j8(i2, i3, j);
-                                    hashMap.put(i2 + "_" + i3, j8Var);
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    m8.a("V1DataProcessor", "parse config JSONException!", e);
-                }
-            }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public List<r8> c(int i) {
-        InterceptResult invokeI;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String d = this.a.d();
-            if (!TextUtils.isEmpty(d)) {
-                try {
-                    JSONArray jSONArray = new JSONObject(d).getJSONArray("exps");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        int length = jSONArray.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                            if (jSONObject2 != null && (jSONObject = jSONObject2.getJSONObject("components_values")) != null) {
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    if (w10.a(next, this.c) == i) {
-                                        arrayList.add(new r8(next, jSONObject.get(next)));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    m8.a("V1DataProcessor", "parse config JSONException!", e);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                JSONObject jSONObject = new JSONObject();
-                String e = this.a.e();
-                String d = this.a.d();
-                if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(d)) {
                     try {
-                        jSONObject.put("version", e);
-                        jSONObject.put("data", new JSONObject(d));
-                        n10.i(jSONObject);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                        ZipEntry nextEntry = zipInputStream.getNextEntry();
+                        if (nextEntry == null) {
+                            try {
+                                zipInputStream.close();
+                                fileInputStream.close();
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
+                            }
+                            return true;
+                        } else if (!nextEntry.isDirectory() && nextEntry.getName().contains("../")) {
+                            try {
+                                zipInputStream.close();
+                                fileInputStream.close();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
+                            }
+                            return false;
+                        }
+                    } catch (Exception e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        if (zipInputStream != null) {
+                            try {
+                                zipInputStream.close();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
+                                return false;
+                            }
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                            return false;
+                        }
+                        return false;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    zipInputStream2 = zipInputStream;
+                    if (zipInputStream2 != null) {
+                        try {
+                            zipInputStream2.close();
+                        } catch (Exception e7) {
+                            e7.printStackTrace();
+                            throw th;
+                        }
+                    }
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    throw th;
                 }
             }
+        } catch (Exception e8) {
+            e = e8;
+            zipInputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            if (zipInputStream2 != null) {
+            }
+            if (fileInputStream != null) {
+            }
+            throw th;
         }
     }
 }

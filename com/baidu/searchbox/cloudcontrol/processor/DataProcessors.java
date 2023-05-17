@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.cloudcontrol.runtime.ICloudControlRegister;
-import com.baidu.tieba.mi9;
+import com.baidu.tieba.ok9;
 import java.util.HashMap;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DataProcessors {
     public HashMap<String, ICloudControlProcessor> mDataProcessors = new HashMap<>();
 
@@ -17,7 +17,7 @@ public class DataProcessors {
 
     @Inject
     private ICloudControlRegister getCloudControlRegister() {
-        return mi9.a();
+        return ok9.a();
     }
 
     public void collectProcessors() {

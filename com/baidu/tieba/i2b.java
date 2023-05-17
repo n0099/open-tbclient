@@ -1,18 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+/* loaded from: classes5.dex */
 public final class i2b {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
+    public static final i2b d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor a;
+    public final ExecutorService b;
+    public final Executor c;
+
+    /* loaded from: classes5.dex */
+    public static final class a implements Executor {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.util.concurrent.Executor
+        public final void execute(Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                runnable.run();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -27,6 +60,42 @@ public final class i2b {
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, "C", ExifInterface.LATITUDE_SOUTH, "Q", "R", ExifInterface.GPS_MEASUREMENT_IN_PROGRESS, "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+        d = new i2b();
+    }
+
+    public i2b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = k2b.a();
+        this.a = new a();
+        this.c = k2b.b();
+    }
+
+    public static ExecutorService a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d.b : (ExecutorService) invokeV.objValue;
+    }
+
+    public static Executor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a : (Executor) invokeV.objValue;
+    }
+
+    public static Executor c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.c : (Executor) invokeV.objValue;
     }
 }

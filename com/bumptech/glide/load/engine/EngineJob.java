@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     public static final EngineResourceFactory DEFAULT_FACTORY = new EngineResourceFactory();
     public final GlideExecutor animationExecutor;
@@ -48,7 +48,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     public boolean useAnimationPool;
     public boolean useUnlimitedSourceGeneratorPool;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class CallLoadFailed implements Runnable {
         public final ResourceCallback cb;
 
@@ -69,7 +69,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class CallResourceReady implements Runnable {
         public final ResourceCallback cb;
 
@@ -92,7 +92,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ResourceCallbackAndExecutor {
         public final ResourceCallback cb;
         public final Executor executor;
@@ -114,7 +114,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ResourceCallbacksAndExecutors implements Iterable<ResourceCallbackAndExecutor> {
         public final List<ResourceCallbackAndExecutor> callbacksAndExecutors;
 
@@ -231,7 +231,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class EngineResourceFactory {
         public <R> EngineResource<R> build(Resource<R> resource, boolean z, Key key, EngineResource.ResourceListener resourceListener) {
             return new EngineResource<>(resource, z, true, key, resourceListener);

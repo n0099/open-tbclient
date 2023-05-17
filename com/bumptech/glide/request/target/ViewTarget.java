@@ -20,11 +20,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public static final String TAG = "ViewTarget";
     public static boolean isTagUsedAtLeastOnce = false;
-    public static int tagId = 2131299813;
+    public static int tagId = 2131299858;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;
@@ -35,7 +35,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
     public final T f1063view;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SizeDeterminer {
         public static final int PENDING_SIZE = 0;
         @Nullable
@@ -53,7 +53,7 @@ public abstract class ViewTarget<T extends View, Z> extends BaseTarget<Z> {
             return i > 0 || i == Integer.MIN_VALUE;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static final class SizeDeterminerLayoutListener implements ViewTreeObserver.OnPreDrawListener {
             public final WeakReference<SizeDeterminer> sizeDeterminerRef;
 

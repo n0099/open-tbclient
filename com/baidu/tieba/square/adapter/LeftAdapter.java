@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +30,12 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
     public List<String> c;
     public int d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(View view2, int i, String str);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,12 +60,12 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09257b);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0925be);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e6);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f092629);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public class LeftAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0563, viewGroup, false));
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0582, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }

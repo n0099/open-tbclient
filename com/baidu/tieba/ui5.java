@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public class ui5 implements dj1 {
+/* loaded from: classes7.dex */
+public class ui5 implements oi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,16 +25,21 @@ public class ui5 implements dj1 {
         }
     }
 
-    @Override // com.baidu.tieba.dj1
-    public Object get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oi5
+    public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new yv7());
-            arrayList.add(new cg9());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            FrameLayout frameLayout = (FrameLayout) view2;
+            if (z) {
+                frameLayout.addView(view3, 0);
+            } else {
+                frameLayout.addView(view3);
+            }
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.width = -2;
+            layoutParams.height = -2;
+            layoutParams.gravity = 17;
+            view3.setLayoutParams(layoutParams);
         }
-        return invokeV.objValue;
     }
 }

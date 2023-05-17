@@ -1,97 +1,92 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.RemoveViewNPE;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.lq5;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class oq5 {
+/* loaded from: classes6.dex */
+public class oq5<Q extends lq5, P extends mq5> implements nq5<Q, P> {
     public static /* synthetic */ Interceptable $ic;
-    public static final oq5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public Q d;
+    public P e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040918, "Lcom/baidu/tieba/oq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040918, "Lcom/baidu/tieba/oq5;");
-                return;
-            }
-        }
-        a = new oq5();
-    }
-
-    public oq5() {
+    public oq5(int i, int i2, String str, Q q, P p) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, q, p};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
+        this.c = str;
+        this.d = q;
+        this.e = p;
     }
 
-    @JvmStatic
-    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
-        tq5 tq5Var;
+    @Override // com.baidu.tieba.nq5
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
-            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
-            Intrinsics.checkNotNullParameter(e, "e");
-            View childAt = viewGroup.getChildAt(i);
-            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
-            if (childAt instanceof ViewGroup) {
-                tq5Var = a.b((ViewGroup) childAt);
-            } else {
-                tq5Var = null;
-            }
-            if (tq5Var != null) {
-                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + tq5Var.b().getClass().getSimpleName() + ", id: " + tq5Var.b().getId() + "], child index is: " + tq5Var.a();
-                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
-                BdLog.detailException(initCause);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
-                initCause.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public final tq5 b(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.nq5
+    public Q b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt instanceof ViewGroup) {
-                    b((ViewGroup) childAt);
-                } else if (childAt == null) {
-                    return new tq5(viewGroup, i);
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (tq5) invokeL.objValue;
+        return (Q) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nq5
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nq5
+    public P d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (P) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nq5
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

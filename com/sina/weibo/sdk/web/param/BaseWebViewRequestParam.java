@@ -16,7 +16,7 @@ import com.sina.weibo.sdk.auth.AuthInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.web.BaseWebViewRequestData;
 import com.sina.weibo.sdk.web.WebRequestType;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseWebViewRequestParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public abstract class BaseWebViewRequestParam {
     public Context context;
     public String transaction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ExtraTaskCallback {
         void onComplete(String str);
 
@@ -55,7 +55,7 @@ public abstract class BaseWebViewRequestParam {
     public abstract void updateRequestUrl(String str);
 
     /* renamed from: com.sina.weibo.sdk.web.param.BaseWebViewRequestParam$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$sina$weibo$sdk$web$WebRequestType;
         public static /* synthetic */ Interceptable $ic;

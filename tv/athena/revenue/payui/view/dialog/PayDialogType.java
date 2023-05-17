@@ -2,7 +2,7 @@ package tv.athena.revenue.payui.view.dialog;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public enum PayDialogType {
     PAY_AMOUNT_DIALOG(1),
     PAY_INPUT_DIALOG(2),

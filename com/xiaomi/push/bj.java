@@ -6,11 +6,11 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bj {
     public static final Map<Class<?>, Class<?>> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a<T> {
         public final Class<? extends T> a;
 
@@ -98,7 +98,7 @@ public class bj {
     }
 
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
-        return (T) a(cls, str, a(objArr)).invoke(null, m213a(objArr));
+        return (T) a(cls, str, a(objArr)).invoke(null, m232a(objArr));
     }
 
     public static <T> T a(Object obj, String str) {
@@ -203,7 +203,7 @@ public class bj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Object[] m213a(Object... objArr) {
+    public static Object[] m232a(Object... objArr) {
         if (objArr == null || objArr.length <= 0) {
             return null;
         }
@@ -220,7 +220,7 @@ public class bj {
     }
 
     public static <T> T b(Object obj, String str, Object... objArr) {
-        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m213a(objArr));
+        return (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m232a(objArr));
     }
 
     public static void b(Object obj, String str, Object obj2) {

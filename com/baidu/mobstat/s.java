@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.exifinterface.media.ExifInterface;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum s {
     SERVICE(1) { // from class: com.baidu.mobstat.s.1
         @Override // com.baidu.mobstat.s

@@ -1,83 +1,40 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.n83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class cc3 extends wy1 {
+@Deprecated
+/* loaded from: classes5.dex */
+public class cc3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HideCaptureScreenShareDialogApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements qm3<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ cc3 c;
-
-        public a(cc3 cc3Var, boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cc3Var, Boolean.valueOf(z), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = cc3Var;
-            this.a = z;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                if (bool.booleanValue()) {
-                    bc3.e(this.a);
-                    this.c.d(this.b, new xz1(0));
-                    return;
-                }
-                this.c.d(this.b, new xz1(10005, "system deny"));
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc3(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public cc3(da3 da3Var) {
+        super(da3Var, "/swanAPI/showLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,20 +42,63 @@ public class cc3 extends wy1 {
         }
     }
 
-    public xz1 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#hideCaptureScreenShareDialog", false);
-            Pair<xz1, JSONObject> s = s(str);
-            xz1 xz1Var = (xz1) s.first;
-            if (!xz1Var.isSuccess()) {
-                return xz1Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (db3.b) {
+                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            bc3.b(new a(this, jSONObject.optBoolean("hide"), jSONObject.optString("cb")));
-            return new xz1(0);
+            if (g93Var != null && g93Var.n0()) {
+                if (db3.b) {
+                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                return false;
+            } else if (!(context instanceof SwanAppActivity)) {
+                g62.c("showLoading", "context not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    g62.c("showLoading", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                g62.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
+                String optString = optParamsAsJo.optString("title");
+                if (TextUtils.isEmpty(optString)) {
+                    g62.c("showLoading", "none title");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
+                p82 Z = ((SwanAppActivity) context).Z();
+                if (Z == null) {
+                    g62.c("showLoading", "none fragment");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
+                    return false;
+                }
+                m82 m = Z.m();
+                if (!(m instanceof n83.a)) {
+                    g62.c("showLoading", "fragment not support");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+                    return false;
+                }
+                n83 d = ((n83.a) m).d();
+                if (d == null) {
+                    g62.c("showLoading", "can't get floatLayer");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
+                    return false;
+                }
+                o83.f(d, context, optString, optBoolean);
+                g62.i("showLoading", "show loading success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
-        return (xz1) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

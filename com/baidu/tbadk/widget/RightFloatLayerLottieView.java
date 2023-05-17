@@ -20,13 +20,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e85;
+import com.baidu.tieba.n95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RightFloatLayerLottieView extends RightFloatLayerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,20 +39,20 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     public TBLottieAnimationView y;
     public View z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RightFloatLayerLottieView a;
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0201a extends AnimatorListenerAdapter {
+        /* loaded from: classes4.dex */
+        public class C0213a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0201a(a aVar) {
+            public C0213a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,18 +105,18 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.z.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.C(rightFloatLayerLottieView.z, new C0201a(this), 0L);
+                rightFloatLayerLottieView.C(rightFloatLayerLottieView.z, new C0213a(this), 0L);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RightFloatLayerLottieView a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements LottieListener<LottieComposition> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements LottieListener<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,7 +261,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -297,7 +297,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +332,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +367,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -402,7 +402,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class i implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -506,14 +506,14 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @NonNull
-    public static RightFloatLayerView E(e85 e85Var, @NonNull Context context) {
+    public static RightFloatLayerView E(n95 n95Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, e85Var, context)) == null) {
-            if (e85Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, n95Var, context)) == null) {
+            if (n95Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (e85Var.c()) {
+            if (n95Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -616,10 +616,10 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(e85 e85Var) {
+    public void setData(n95 n95Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, e85Var) == null) && e85Var != null && !this.s && !e85Var.a()) {
-            if (l(e85Var)) {
+        if ((interceptable == null || interceptable.invokeL(1048585, this, n95Var) == null) && n95Var != null && !this.s && !n95Var.a()) {
+            if (l(n95Var)) {
                 this.w.setVisibility(0);
             } else {
                 this.b.setVisibility(4);
@@ -627,9 +627,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             }
             this.x.setVisibility(0);
             this.z.setVisibility(8);
-            F(e85Var.d, this.y);
-            F(e85Var.c, this.A);
-            v(e85Var);
+            F(n95Var.d, this.y);
+            F(n95Var.c, this.A);
+            v(n95Var);
             this.s = true;
         }
     }

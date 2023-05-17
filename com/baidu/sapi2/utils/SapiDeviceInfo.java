@@ -20,14 +20,14 @@ import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiDeviceInfo implements NoProguard {
     public static final String OS_TYPE = "android";
     public static final int VERSION = 11;
     public static final String DELIMITER = Character.toString(1);
     public static final String AES_KEY = TextUtils.join("", new String[]{"O", "a", "L", "h", "z", "O", "K", ExifInterface.GPS_DIRECTION_TRUE, ExifInterface.GPS_DIRECTION_TRUE, "Q", "G", "L", "w", "8", "h", "P"});
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class DeviceInfoCookieManager {
         public static Map<String, String> cookiesMap = new HashMap();
 

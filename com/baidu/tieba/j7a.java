@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.data.TbMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes5.dex */
+import com.baidu.ugc.editvideo.filter.FilterValue;
+/* loaded from: classes6.dex */
 public class j7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
+    public TbMultiMediaData a;
+    public FilterValue b;
+    public MediaTrackConfig c;
+    public float d;
+    public TbMusicData e;
+    public int f;
+    public int g;
 
     public j7a() {
         Interceptable interceptable = $ic;
@@ -41,174 +37,115 @@ public class j7a {
         }
     }
 
-    public ArrayList<String> c() {
+    public FilterValue a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (FilterValue) invokeV.objValue;
+    }
+
+    public MediaTrackConfig b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (MediaTrackConfig) invokeV.objValue;
+    }
+
+    public TbMultiMediaData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (TbMultiMediaData) invokeV.objValue;
     }
 
-    public String e() {
+    public TbMusicData d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (TbMusicData) invokeV.objValue;
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.g;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean a(EditText editText) {
-        InterceptResult invokeL;
-        Editable text;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
-            if (editText == null || (text = editText.getText()) == null) {
-                return false;
-            }
-            int d = d(text);
-            if (d > 0) {
-                editText.requestFocus();
-                editText.setSelection(d);
-                return true;
-            }
-            editText.setSelection(editText.getSelectionEnd());
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public int d(Spanned spanned) {
-        InterceptResult invokeL;
+    public float g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
-            if (spanned == null) {
-                return 0;
-            }
-            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
-            int length = spanned.length();
-            if (backgroundColorSpanArr != null && backgroundColorSpanArr.length > 0) {
-                return spanned.getSpanEnd(backgroundColorSpanArr[0]);
-            }
-            return length;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
-        return invokeL.intValue;
+        return invokeV.floatValue;
     }
 
-    public void m(ArrayList<String> arrayList) {
+    public void h(FilterValue filterValue) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || interceptable.invokeL(1048583, this, filterValue) == null) {
+            this.b = filterValue;
         }
     }
 
-    public void n(String str) {
+    public void i(MediaTrackConfig mediaTrackConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaTrackConfig) == null) {
+            this.c = mediaTrackConfig;
         }
     }
 
-    public boolean b(EditText editText, EditText editText2) {
-        InterceptResult invokeLL;
+    public void j(TbMultiMediaData tbMultiMediaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
-            if (ListUtils.isEmpty(c())) {
-                return false;
-            }
-            if (!a(editText) && !a(editText2)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void h(EditText editText, EditText editText2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
-            i(editText, true);
-            i(editText2, false);
-            b(editText, editText2);
+        if (interceptable == null || interceptable.invokeL(1048585, this, tbMultiMediaData) == null) {
+            this.a = tbMultiMediaData;
         }
     }
 
-    public void i(EditText editText, boolean z) {
+    public void k(TbMusicData tbMusicData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) != null) || editText == null) {
-            return;
-        }
-        f(editText, z);
-    }
-
-    public void l(EditText editText, EditText editText2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
-            h(editText, editText2);
+        if (interceptable == null || interceptable.invokeL(1048586, this, tbMusicData) == null) {
+            this.e = tbMusicData;
         }
     }
 
-    public void f(EditText editText, boolean z) {
-        Editable text;
-        Object[] spans;
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048581, this, editText, z) != null) || editText == null || (text = editText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        yq5.j(text);
-        j(text);
-    }
-
-    public void g(SpanGroupEditText spanGroupEditText) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, spanGroupEditText) != null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        yq5.k(spanGroupEditText);
-    }
-
-    public final void j(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) && spannable != null && !ListUtils.isEmpty(this.a)) {
-            String obj = spannable.toString();
-            if (TextUtils.isEmpty(obj)) {
-                return;
-            }
-            Iterator<String> it = this.a.iterator();
-            while (it.hasNext()) {
-                k(spannable, obj, it.next());
-            }
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.g = i;
         }
     }
 
-    public final void k(Spannable spannable, String str, String str2) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) && spannable != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            int indexOf = str.indexOf(str2);
-            int length = str2.length();
-            while (indexOf >= 0) {
-                int i = indexOf + length;
-                int color = SkinManager.getColor(R.color.CAM_X0101);
-                int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
-                BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
-                spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
-                spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-                indexOf = str.indexOf(str2, i);
-            }
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void n(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            this.d = f;
         }
     }
 }

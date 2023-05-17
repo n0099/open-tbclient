@@ -5,36 +5,36 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a78;
-import com.baidu.tieba.ea8;
-import com.baidu.tieba.fa8;
-import com.baidu.tieba.ga8;
+import com.baidu.tieba.ac8;
+import com.baidu.tieba.bc8;
+import com.baidu.tieba.s88;
+import com.baidu.tieba.zb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final fa8 a;
-    public final ea8 b;
+    public final ac8 a;
+    public final zb8 b;
     public final Context c;
     public RecyclerView d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c extends BaseTagItemViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes6.dex */
         public class a extends ViewGroup {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements ga8 {
+    /* loaded from: classes6.dex */
+    public class b implements bc8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TagAdapter a;
@@ -116,23 +116,23 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
             this(tagAdapter);
         }
 
-        @Override // com.baidu.tieba.ga8
+        @Override // com.baidu.tieba.bc8
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i2 > 0) {
-                this.a.notifyItemRangeInserted(i, i2);
-            }
-        }
-
-        @Override // com.baidu.tieba.ga8
-        public void b(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && i >= 0 && i2 > 0) {
                 this.a.notifyItemRangeRemoved(i, i2);
             }
         }
 
-        @Override // com.baidu.tieba.ga8
+        @Override // com.baidu.tieba.bc8
+        public void b(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && i >= 0 && i2 > 0) {
+                this.a.notifyItemRangeInserted(i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.bc8
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i >= 0 && i2 > 0) {
@@ -141,12 +141,12 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         }
     }
 
-    public TagAdapter(fa8 fa8Var, ea8 ea8Var, Context context) {
+    public TagAdapter(ac8 ac8Var, zb8 zb8Var, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fa8Var, ea8Var, context};
+            Object[] objArr = {ac8Var, zb8Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -156,9 +156,9 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
                 return;
             }
         }
-        this.a = fa8Var;
+        this.a = ac8Var;
         this.c = context;
-        this.b = ea8Var;
+        this.b = zb8Var;
         this.b.l(new b(this, null));
         this.a.a(this.b);
     }
@@ -234,11 +234,11 @@ public class TagAdapter extends RecyclerView.Adapter<BaseTagItemViewHolder> {
         }
     }
 
-    public void p(a78 a78Var) {
-        fa8 fa8Var;
+    public void p(s88 s88Var) {
+        ac8 ac8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, a78Var) == null) && (fa8Var = this.a) != null) {
-            fa8Var.c(a78Var);
+        if ((interceptable == null || interceptable.invokeL(1048590, this, s88Var) == null) && (ac8Var = this.a) != null) {
+            ac8Var.c(s88Var);
         }
     }
 

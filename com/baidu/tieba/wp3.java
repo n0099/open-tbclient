@@ -1,50 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class wp3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class wp3 extends me3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278223, "Lcom/baidu/tieba/wp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278223, "Lcom/baidu/tieba/wp3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wp3(Context context, String str) {
+        super(context, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-        a = ho1.a;
-    }
-
-    public static void a(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            af3 af3Var = new af3();
-            af3Var.a = "swan";
-            af3Var.b = str;
-            af3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                af3Var.e = str3;
-            }
-            af3Var.f = str5;
-            af3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + af3Var.f());
-            }
-            qe3.x("1372", af3Var);
         }
     }
 }

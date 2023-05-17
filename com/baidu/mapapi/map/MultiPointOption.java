@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MultiPointOption extends OverlayOptions {
     public List<MultiPointItem> a;
     public BitmapDescriptor b;

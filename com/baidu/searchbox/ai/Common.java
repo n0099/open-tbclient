@@ -3,7 +3,7 @@ package com.baidu.searchbox.ai;
 import android.util.Log;
 import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Common {
     public static final String TAG = "Common";
 

@@ -6,7 +6,7 @@ import com.baidu.mobstat.Session;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SessionAnalysis {
     public boolean a = false;
     public Map<String, a> b = new HashMap();
@@ -23,7 +23,7 @@ public class SessionAnalysis {
     public LaunchInfo m;
     public Callback mCallback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Callback {
         void onCallback(JSONObject jSONObject);
     }
@@ -31,7 +31,7 @@ public class SessionAnalysis {
     public void doSendNewSessionLog(Context context) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String a;
         public long b;

@@ -7,7 +7,7 @@ import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.appdownloader.f.e;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements com.ss.android.download.api.b.a {
     public static c a() {
         return a.a;
@@ -133,7 +133,7 @@ public class c implements com.ss.android.download.api.b.a {
         j.h().a("service_ttdownloader", 3, jSONObject);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static c a = new c();
     }

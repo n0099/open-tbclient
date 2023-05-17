@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class EBusinessProtocolView extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,13 +51,13 @@ public class EBusinessProtocolView extends Dialog {
     public f o;
     public WebViewClient p;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface f {
         void a(boolean z);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class WindowType {
         public static final /* synthetic */ WindowType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -122,7 +122,7 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class EBusinessProtocolView extends Dialog {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class e {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -301,7 +301,7 @@ public class EBusinessProtocolView extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EBusinessProtocolView(@NonNull Context context, WindowType windowType) {
-        super(context, R.style.obfuscated_res_0x7f1003bb);
+        super(context, R.style.obfuscated_res_0x7f1003c8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    f65 f65Var = new f65();
-                    f65Var.q(R.color.CAM_X0107);
-                    this.e.setConfig(f65Var);
+                    o75 o75Var = new o75();
+                    o75Var.q(R.color.CAM_X0107);
+                    this.e.setConfig(o75Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.protocol_cancel));
                     this.f.setTextSize(R.dimen.tbds42);
-                    f65 f65Var2 = new f65();
-                    f65Var2.q(R.color.CAM_X0302);
-                    this.f.setConfig(f65Var2);
+                    o75 o75Var2 = new o75();
+                    o75Var2.q(R.color.CAM_X0302);
+                    this.f.setConfig(o75Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.protocol_agree));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.tip_known));
-            f65 f65Var3 = new f65();
-            f65Var3.q(R.color.CAM_X0302);
+            o75 o75Var3 = new o75();
+            o75Var3.q(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(f65Var3);
+            this.h.setConfig(o75Var3);
         }
     }
 
@@ -455,8 +455,8 @@ public class EBusinessProtocolView extends Dialog {
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onCreate(bundle);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - ii.g(this.a, R.dimen.tbds90);
-            layoutParams.height = ii.g(this.a, R.dimen.tbds879);
+            layoutParams.width = this.a.getResources().getDisplayMetrics().widthPixels - ri.g(this.a, R.dimen.tbds90);
+            layoutParams.height = ri.g(this.a, R.dimen.tbds879);
             setContentView(this.b, layoutParams);
             setCanceledOnTouchOutside(true);
             g();

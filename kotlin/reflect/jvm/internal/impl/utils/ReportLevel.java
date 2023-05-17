@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.utils;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum ReportLevel {
     IGNORE("ignore"),
     WARN("warn"),
@@ -10,7 +10,7 @@ public enum ReportLevel {
     public static final Companion Companion = new Companion(null);
     public final String description;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

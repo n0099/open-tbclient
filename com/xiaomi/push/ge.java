@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ge extends XMPushService.j {
     public final /* synthetic */ gc a;
 
@@ -20,13 +20,13 @@ public class ge extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "shutdown the connection. " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f431a;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         this.a.b.a(this.b, this.f431a);
     }
 }

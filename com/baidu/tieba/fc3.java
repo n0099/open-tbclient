@@ -1,32 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentUris;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.content.pm.ProviderInfo;
-import android.content.res.Resources;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Point;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyCharacterMap;
-import android.view.ViewConfiguration;
-import android.view.WindowManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,239 +8,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes4.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public class fc3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static ContentObserver c;
-    public static ContentResolver d;
-    public static PackageManager e;
-    public static boolean f;
-    public static long g;
-    public static List<dc3> h;
-    public static Runnable i;
-    public static int j;
-    public static Uri k;
-    public static String l;
-    public static String m;
+    public static boolean q;
+    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a extends ContentObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Handler a;
-
-        /* renamed from: com.baidu.tieba.fc3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0265a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Uri a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0265a(a aVar, Uri uri) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, uri};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = uri;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    fc3.q(this.b.a, this.a);
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Handler handler, Handler handler2) {
-            super(handler);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {handler, handler2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Handler) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = handler2;
-        }
-
-        @Override // android.database.ContentObserver
-        public void onChange(boolean z, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, uri) == null) {
-                super.onChange(z, uri);
-                if (fc3.a) {
-                    Log.d("SYSTEM_SCREENSHOT", "onChange(), uri: " + uri);
-                }
-                ExecutorUtilsExt.postOnElastic(new RunnableC0265a(this, uri), "systemScreenShot", 1);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Handler b;
-        public final /* synthetic */ d c;
-
-        public b(String str, Handler handler, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, handler, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = handler;
-            this.c = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fc3.e();
-                if (fc3.a) {
-                    Log.d("SYSTEM_SCREENSHOT", "mCount: " + fc3.j);
-                }
-                if (ek3.a()) {
-                    j = 500;
-                } else {
-                    j = 100;
-                }
-                if (!fc3.m(this.a, fc3.k) && fc3.j <= 10) {
-                    this.b.postDelayed(fc3.i, j);
-                } else if (fc3.m(this.a, fc3.k) && fc3.l() && !fc3.o(this.a, fc3.k)) {
-                    for (dc3 dc3Var : fc3.h) {
-                        if (dc3Var != null) {
-                            dc3Var.a(this.c);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static String a;
-        public static String[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-809089068, "Lcom/baidu/tieba/fc3$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-809089068, "Lcom/baidu/tieba/fc3$c;");
-                    return;
-                }
-            }
-            a = MediaStore.Images.Media.EXTERNAL_CONTENT_URI.toString();
-            b = new String[]{"_display_name", "_data", "date_added", "_id"};
-        }
-
-        public static boolean e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-                if (str != null && (str.toLowerCase().contains(StatisticConstants.SCREENSHOT) || str.contains("截屏") || str.contains("截图"))) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public static boolean f(long j, long j2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-                if (Math.abs(j - j2) <= 10) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Uri b;
-
-        public d(String str, Long l, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, l, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            l.longValue();
-            this.b = uri;
-        }
-
-        public /* synthetic */ d(String str, Long l, Uri uri, a aVar) {
-            this(str, l, uri);
-        }
-    }
+    public final String a;
+    public final double b;
+    public final double c;
+    public final float d;
+    public final double e;
+    public final double f;
+    public final double g;
+    public final double h;
+    public final String i;
+    public final String j;
+    public final String k;
+    public final String l;
+    public final String m;
+    public final String n;
+    public final String o;
+    public final String p;
 
     static {
         InterceptResult invokeClinit;
@@ -281,291 +46,73 @@ public class fc3 {
                 return;
             }
         }
-        a = ho1.a;
-        g = System.currentTimeMillis() - 10000;
-        h = new ArrayList();
-        j = 0;
-        l = null;
-        m = null;
+        q = qp1.a;
+        r = "LocationResult";
     }
 
-    public static int j() {
-        InterceptResult invokeV;
+    public fc3(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            boolean hasPermanentMenuKey = ViewConfiguration.get(AppRuntime.getAppContext()).hasPermanentMenuKey();
-            boolean deviceHasKey = KeyCharacterMap.deviceHasKey(4);
-            if (!hasPermanentMenuKey && !deviceHasKey) {
-                Resources resources = AppRuntime.getAppContext().getResources();
-                return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean m(String str, Uri uri) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, uri)) == null) {
-            if (ek3.a()) {
-                return n(uri);
-            }
-            new BitmapFactory.Options().inJustDecodeBounds = true;
-            if (BitmapFactory.decodeFile(str) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static /* synthetic */ int e() {
-        int i2 = j;
-        j = i2 + 1;
-        return i2;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - b;
-            if (lt2.a().b() && currentTimeMillis > 2000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            if (System.currentTimeMillis() - g <= 1000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static double i(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, uri)) == null) {
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(d, uri);
-                if (bitmap == null) {
-                    return 0.0d;
-                }
-                int height = bitmap.getHeight();
-                int width = bitmap.getWidth();
-                if (width == 0) {
-                    return 0.0d;
-                }
-                return height / (width * 1.0d);
-            } catch (Exception unused) {
-                return 0.0d;
-            }
-        }
-        return invokeL.doubleValue;
-    }
-
-    public static boolean n(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            try {
-                if (MediaStore.Images.Media.getBitmap(d, uri) == null) {
-                    return false;
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean p(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || am4.a(context, com.kuaishou.weapon.p0.h.i) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void r(dc3 dc3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65554, null, dc3Var) == null) && dc3Var != null) {
-            h.add(dc3Var);
-        }
-    }
-
-    public static void u(dc3 dc3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65557, null, dc3Var) == null) && dc3Var != null) {
-            h.remove(dc3Var);
-        }
-    }
-
-    public static boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (ek3.a()) {
-                Uri uri = k;
-                if (uri != null && !TextUtils.equals(l, uri.toString())) {
-                    return false;
-                }
-                return true;
-            } else if (!TextUtils.isEmpty(str) && !TextUtils.equals(m, str)) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean o(String str, Uri uri) {
-        InterceptResult invokeLL;
-        double d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, uri)) == null) {
-            Point point = new Point();
-            WindowManager windowManager = (WindowManager) AppRuntime.getAppContext().getSystemService("window");
-            if (windowManager.getDefaultDisplay() != null) {
-                windowManager.getDefaultDisplay().getSize(point);
-            }
-            int j2 = point.y + j();
-            int i2 = point.x;
-            double d3 = 0.0d;
-            if (i2 != 0) {
-                d2 = j2 / (i2 * 1.0d);
-            } else {
-                d2 = 0.0d;
-            }
-            double d4 = d2 * 1.2d;
-            if (ek3.a()) {
-                d3 = i(uri);
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            if (i4 != 0) {
-                d3 = i3 / (i4 * 1.0d);
-            }
-            if (d3 > d4) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Not initialized variable reg: 4, insn: 0x0157: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:44:0x0157 */
-    public static void q(Handler handler, Uri uri) {
-        Cursor cursor;
-        Closeable closeable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, handler, uri) == null) {
-            if (!uri.toString().matches(c.a + ".*")) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (t() && f) {
-                g = System.currentTimeMillis();
-                return;
-            }
-            j = 0;
-            g = System.currentTimeMillis();
-            Closeable closeable2 = null;
-            try {
-                try {
-                    cursor = d.query(uri, c.b, null, null, "date_added DESC");
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                String string = cursor.getString(cursor.getColumnIndex("_data"));
-                                long j2 = cursor.getLong(cursor.getColumnIndex("date_added"));
-                                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                                k = uri;
-                                if (ek3.a()) {
-                                    k = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex("_id")));
-                                }
-                                if (a) {
-                                    Log.d("SYSTEM_SCREENSHOT", "imagepath: " + string);
-                                    Log.d("SYSTEM_SCREENSHOT", "dateAdded: " + j2);
-                                    Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis);
-                                    Log.d("SYSTEM_SCREENSHOT", "imageUri: " + k.toString());
-                                }
-                                if (k(string)) {
-                                    bo4.d(cursor);
-                                    return;
-                                }
-                                l = k.toString();
-                                m = string;
-                                if (c.e(string) && c.f(currentTimeMillis, j2)) {
-                                    f = true;
-                                    b bVar = new b(string, handler, new d(string, Long.valueOf(j2), k, null));
-                                    i = bVar;
-                                    handler.post(bVar);
-                                } else {
-                                    f = false;
-                                }
-                            }
-                        } catch (RuntimeException unused) {
-                            if (e != null) {
-                                List<ProviderInfo> queryContentProviders = e.queryContentProviders(null, 0, 131072);
-                                HashMap hashMap = new HashMap();
-                                hashMap.put("from", "SystemScreenshot");
-                                hashMap.put("page", "SystemScreenshot");
-                                hashMap.put("ext", queryContentProviders.toString());
-                                ee3.j(BdNetTypeUtil.NATION_CODE, hashMap);
-                            }
-                            bo4.d(cursor);
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable2 = closeable;
-                    bo4.d(closeable2);
-                    throw th;
-                }
-            } catch (RuntimeException unused2) {
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bo4.d(closeable2);
-                throw th;
-            }
-            bo4.d(cursor);
         }
+        this.a = str;
+        this.b = d;
+        this.c = d2;
+        this.d = f;
+        this.e = d3;
+        this.f = d4;
+        this.g = 0.0d;
+        this.h = d3;
+        this.i = str2;
+        this.j = str3;
+        this.k = str4;
+        this.l = str5;
+        this.m = str6;
+        this.n = str7;
+        this.o = str8;
+        this.p = str9;
     }
 
-    public static void s(Context context) {
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, context) == null) {
-            e = context.getPackageManager();
-            Handler handler = new Handler(Looper.getMainLooper());
-            d = context.getContentResolver();
-            c = new a(handler, handler);
-            if (p(context)) {
-                d.registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, c);
-            } else if (a && rl3.G()) {
-                x42.i("SYSTEM_SCREENSHOT", "WRITE_EXTERNAL_STORAGE permission denied");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("longitude", this.b);
+                jSONObject.put("latitude", this.c);
+                jSONObject.put("speed", this.d);
+                jSONObject.put("accuracy", this.e);
+                jSONObject.put("altitude", this.f);
+                jSONObject.put("verticalAccuracy", this.g);
+                jSONObject.put("horizontalAccuracy", this.h);
+                jSONObject.put("country", this.i);
+                jSONObject.put("countryCode", this.j);
+                jSONObject.put("city", this.k);
+                jSONObject.put("cityCode", this.l);
+                jSONObject.put("province", this.m);
+                jSONObject.put("district", this.n);
+                jSONObject.put("street", this.o);
+                jSONObject.put("streetNumber", this.p);
+                jSONObject.put("isFullAccuracy", true);
+            } catch (JSONException e) {
+                if (q) {
+                    String str = r;
+                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
+                }
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

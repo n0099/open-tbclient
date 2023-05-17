@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.kernel;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DumediaInfoConverter implements CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnVideoSizeChangedListener, CyberPlayerManager.OnMediaSourceChangedListener {
     public final AbsVideoKernel mKernel;
     public IKernelPlayer mPlayerCallback;

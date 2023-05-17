@@ -7,6 +7,7 @@ import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +16,7 @@ import com.google.android.gms.common.internal.BaseGmsClient;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import com.kwad.sdk.core.download.DownloadParams;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +25,7 @@ public final class g {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{file, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.addFlags(3);
             Context context = b.getContext();
@@ -85,7 +86,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask)) == null) {
             File file = new File(downloadTask.getTargetFilePath());
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.addFlags(3);
             Context context = b.getContext();

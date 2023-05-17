@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImmersionUtils {
     public static final int STANDARD_STATUSBAR_HEIGHT = 50;
     public static boolean canUseImmersion = false;

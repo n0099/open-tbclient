@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ds extends aj.a {
     public int a;
 
@@ -23,8 +23,8 @@ public abstract class ds extends aj.a {
     }
 
     public static void a(Context context, hp hpVar) {
-        dl m284a = dm.a().m284a();
-        String a = m284a == null ? "" : m284a.a();
+        dl m303a = dm.a().m303a();
+        String a = m303a == null ? "" : m303a.a();
         if (TextUtils.isEmpty(a) || TextUtils.isEmpty(hpVar.a())) {
             return;
         }
@@ -45,7 +45,7 @@ public abstract class ds extends aj.a {
             try {
                 try {
                     File file2 = new File(context.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m764a(file2);
+                    y.m783a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         lock = randomAccessFile.getChannel().lock();
@@ -130,11 +130,11 @@ public abstract class ds extends aj.a {
     }
 
     private String c() {
-        return "dc_job_result_time_" + mo221a();
+        return "dc_job_result_time_" + mo240a();
     }
 
     private String d() {
-        return "dc_job_result_" + mo221a();
+        return "dc_job_result_" + mo240a();
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.aj.a.a()Ljava/lang/String; */
@@ -142,19 +142,19 @@ public abstract class ds extends aj.a {
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.aj.a.a()Ljava/lang/String; */
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m286a() {
-        return Cdo.a(this.f235a, String.valueOf(mo221a()), this.a);
+    public boolean m305a() {
+        return Cdo.a(this.f235a, String.valueOf(mo240a()), this.a);
     }
 
     public abstract String b();
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m287b() {
+    public boolean m306b() {
         return true;
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m288c() {
+    public boolean m307c() {
         return false;
     }
 
@@ -164,14 +164,14 @@ public abstract class ds extends aj.a {
         if (TextUtils.isEmpty(b)) {
             return;
         }
-        if (m286a()) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("DC run job mutual: " + mo221a());
+        if (m305a()) {
+            com.xiaomi.channel.commonutils.logger.b.m120a("DC run job mutual: " + mo240a());
             return;
         }
-        dl m284a = dm.a().m284a();
-        String a = m284a == null ? "" : m284a.a();
-        if (!TextUtils.isEmpty(a) && m287b()) {
-            if (m288c()) {
+        dl m303a = dm.a().m303a();
+        String a = m303a == null ? "" : m303a.a();
+        if (!TextUtils.isEmpty(a) && m306b()) {
+            if (m307c()) {
                 SharedPreferences sharedPreferences = this.f235a.getSharedPreferences("mipush_extra", 0);
                 if (bo.a(b).equals(sharedPreferences.getString(d(), null))) {
                     long j = sharedPreferences.getLong(c(), 0L);

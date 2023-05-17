@@ -1,5 +1,5 @@
 package com.yy.open.log;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RSAException extends Exception {
     public static final long serialVersionUID = -5880250001612327539L;
 

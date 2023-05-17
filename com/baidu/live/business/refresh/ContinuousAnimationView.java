@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.live.business.refresh.BdSwipeRefreshLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ContinuousAnimationView extends LottieAnimationView implements BdSwipeRefreshLayout.h {
     public boolean a;
     public boolean b;
@@ -49,7 +49,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     public final void z() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animator.AnimatorListener {
         public a() {
         }

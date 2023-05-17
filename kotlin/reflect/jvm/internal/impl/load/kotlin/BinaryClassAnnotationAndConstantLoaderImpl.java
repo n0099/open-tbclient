@@ -25,7 +25,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.UShortValue;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.AnnotationDeserializer;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BinaryClassAnnotationAndConstantLoaderImpl extends AbstractBinaryClassAnnotationAndConstantLoader<AnnotationDescriptor, ConstantValue<?>> {
     public final AnnotationDeserializer annotationDeserializer;
     public final ModuleDescriptor module;

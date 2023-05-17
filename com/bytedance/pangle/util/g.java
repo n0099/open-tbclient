@@ -10,7 +10,7 @@ import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class g {
     public static void a(InputStream inputStream, OutputStream outputStream) {
         if (inputStream == null) {

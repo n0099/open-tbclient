@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import view.CriusTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusRender {
     public static final String TAG = "CriusRender";
     public CriusData criusData;
@@ -43,12 +43,12 @@ public class CriusRender {
     public int mImageTemplateFlag = 1;
     public boolean canReuse = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IHScrollListener {
         void onScrollStateChanged(int i, CriusData criusData);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IHrefClick {
         void onClick(View view2, String str, Map<String, String> map);
     }

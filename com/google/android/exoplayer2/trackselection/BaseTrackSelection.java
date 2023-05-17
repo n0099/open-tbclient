@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseTrackSelection implements TrackSelection {
     public final long[] blacklistUntilTimes;
     public final Format[] formats;
@@ -17,7 +17,7 @@ public abstract class BaseTrackSelection implements TrackSelection {
     public final int length;
     public final int[] tracks;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DecreasingBandwidthComparator implements Comparator<Format> {
         public DecreasingBandwidthComparator() {
         }

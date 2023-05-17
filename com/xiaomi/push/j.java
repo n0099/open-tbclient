@@ -8,13 +8,14 @@ import android.text.TextUtils;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class j {
     public static volatile int a = 0;
 
@@ -37,7 +38,7 @@ public class j {
                 com.xiaomi.channel.commonutils.logger.b.a("get isMIUI failed", th);
                 a = 0;
             }
-            if (TextUtils.isEmpty(m629a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m629a("ro.miui.ui.version.name"))) {
+            if (TextUtils.isEmpty(m648a("ro.miui.ui.version.code")) && TextUtils.isEmpty(m648a("ro.miui.ui.version.name"))) {
                 z = false;
                 if (z) {
                     i = 2;
@@ -55,11 +56,11 @@ public class j {
     }
 
     public static int a(Context context) {
-        String m629a = m629a("ro.miui.ui.version.code");
-        if (TextUtils.isEmpty(m629a) || !TextUtils.isDigitsOnly(m629a)) {
+        String m648a = m648a("ro.miui.ui.version.code");
+        if (TextUtils.isEmpty(m648a) || !TextUtils.isDigitsOnly(m648a)) {
             return 0;
         }
-        return Integer.parseInt(m629a);
+        return Integer.parseInt(m648a);
     }
 
     public static n a(String str) {
@@ -68,9 +69,9 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m628a() {
+    public static String m647a() {
         int a2 = s.a();
-        return (!m631a() || a2 <= 0) ? "" : a2 < 2 ? Key.ALPHA : a2 < 3 ? "development" : "stable";
+        return (!m650a() || a2 <= 0) ? "" : a2 < 2 ? Key.ALPHA : a2 < 3 ? "development" : "stable";
     }
 
     public static String a(Intent intent) {
@@ -129,10 +130,10 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m629a(String str) {
+    public static String m648a(String str) {
         try {
             try {
-                return (String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, "get", str, "");
+                return (String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, str, "");
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to get property. " + e);
                 return null;
@@ -143,7 +144,7 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m630a() {
+    public static void m649a() {
         if (f811a != null) {
             return;
         }
@@ -198,17 +199,17 @@ public class j {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m631a() {
+    public static boolean m650a() {
         return a() == 1;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m632a(Context context) {
-        return context != null && m633a(context.getPackageName());
+    public static boolean m651a(Context context) {
+        return context != null && m652a(context.getPackageName());
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m633a(String str) {
+    public static boolean m652a(String str) {
         return "com.xiaomi.xmsf".equals(str);
     }
 
@@ -221,7 +222,7 @@ public class j {
     }
 
     public static n b(String str) {
-        m630a();
+        m649a();
         return f811a.get(str.toUpperCase());
     }
 
@@ -243,7 +244,7 @@ public class j {
             a2 = r.a("ro.csc.countryiso_code", "");
         }
         if (TextUtils.isEmpty(a2)) {
-            a2 = m634b(r.a("ro.product.country.region", ""));
+            a2 = m653b(r.a("ro.product.country.region", ""));
         }
         if (TextUtils.isEmpty(a2)) {
             a2 = r.a("gsm.vivo.countrycode", "");
@@ -258,18 +259,18 @@ public class j {
             a2 = r.a("persist.sys.country", "");
         }
         if (!TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("get region from system, region = " + a2);
+            com.xiaomi.channel.commonutils.logger.b.m120a("get region from system, region = " + a2);
         }
         if (TextUtils.isEmpty(a2)) {
             String country = Locale.getDefault().getCountry();
-            com.xiaomi.channel.commonutils.logger.b.m101a("locale.default.country = " + country);
+            com.xiaomi.channel.commonutils.logger.b.m120a("locale.default.country = " + country);
             return country;
         }
         return a2;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m634b(String str) {
+    public static String m653b(String str) {
         if (TextUtils.isEmpty(str)) {
             return str;
         }
@@ -278,37 +279,37 @@ public class j {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m635b() {
+    public static boolean m654b() {
         return a() == 2;
     }
 
     public static String c() {
-        return m629a("ro.miui.ui.version.name");
+        return m648a("ro.miui.ui.version.name");
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m636c() {
+    public static boolean m655c() {
         if (b < 0) {
-            b = !m638e() ? 1 : 0;
+            b = !m657e() ? 1 : 0;
         }
         return b > 0;
     }
 
     public static String d() {
-        return m629a("ro.build.characteristics");
+        return m648a("ro.build.characteristics");
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static boolean m637d() {
+    public static boolean m656d() {
         return !n.China.name().equalsIgnoreCase(a(b()).name());
     }
 
     public static String e() {
-        return m629a("ro.product.manufacturer");
+        return m648a("ro.product.manufacturer");
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static boolean m638e() {
+    public static boolean m657e() {
         String str = "";
         try {
             str = r.a("ro.miui.ui.version.code", "");

@@ -1,30 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SyncServiceConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class nw4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile nw4 a;
+/* loaded from: classes6.dex */
+public class nw4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str, int i, String str2);
-
-        void b(String str);
-
-        void c(AccountData accountData);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,65 +31,19 @@ public abstract class nw4 {
         }
     }
 
-    public abstract BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, a aVar);
-
-    public abstract b c(String str);
-
-    public abstract void d();
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = null;
+    public static void a() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (i = a) != -1 && i != TbSingleton.getInstance().getPersonalizedRecSwitch()) {
+            TbSingleton.getInstance().personalizedRecSwitchChanged = true;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
         }
     }
 
-    public nw4() {
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
-    }
-
-    public static nw4 b() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (nw4.class) {
-                    if (a == null && (runTask = MessageManager.getInstance().runTask(2001293, nw4.class)) != null && runTask.getData() != null) {
-                        a = (nw4) runTask.getData();
-                    }
-                }
-            }
-            return a;
-        }
-        return (nw4) invokeV.objValue;
     }
 }

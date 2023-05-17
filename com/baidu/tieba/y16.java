@@ -1,41 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class y16 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.View;
+import androidx.annotation.Nullable;
+/* loaded from: classes8.dex */
+public interface y16 extends jl0<View> {
 
-    public y16(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        try {
-            if (jSONObject.has("code")) {
-                jSONObject.getInt("code");
-            }
-            if (jSONObject.has("msg")) {
-                jSONObject.getString("msg");
-            }
-        } catch (JSONException e) {
-            BdLog.e(e.getMessage());
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        boolean a(View view2);
     }
+
+    boolean a(View view2);
+
+    void onChangeSkinType(int i);
+
+    void setOnClickInterceptListener(@Nullable a aVar);
 }

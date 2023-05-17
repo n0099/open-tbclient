@@ -1,126 +1,113 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.download.center.clearcache.BaseClearCache;
-import com.baidu.searchbox.download.center.clearcache.DiskManager;
-import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
-import com.baidu.searchbox.download.center.clearcache.IClearCacheContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.List;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class pp6 implements IClearCacheContext {
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class pp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ko6> a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void addClearCache(List<BaseClearCache> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void clearHistoryFile() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public BaseClearCache getDownloadClearCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (BaseClearCache) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void notifyDiskLevelChanged(DiskManager.NotifyLevel notifyLevel, DiskManager.DiskLevel diskLevel, DiskManager.DiskLevel diskLevel2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, notifyLevel, diskLevel, diskLevel2) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void notifyPersonalClearCacheTipsChange() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void registerBackForegroundEvent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void registerDiskUsageLevelChangedObserver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void startDownloadActivity(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-        }
-    }
-
-    public pp6() {
+    public pp6(List<ko6> data, long j, long j2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = i;
+        this.c = i2;
+        this.d = z;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ pp6(List list, long j, long j2, int i, int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, j, j2, i, i2, r9);
+        boolean z2;
+        if ((i3 & 32) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
         }
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public List<File> getAppFileList() {
+    public final List<ko6> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return DiskUtilKt.getAppFileList();
+            return this.b;
         }
-        return (List) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public List<File> getUserAssetFileList() {
-        InterceptResult invokeV;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return DiskUtilKt.getUserAssetFileList();
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
-        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
-    public void cleanCacheMonitorUBC(String str) {
+    public final void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            DiskUtilKt.cleanCacheMonitorUBC(str);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.xl9;
+import com.baidu.tieba.zn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl9 mForumSquareRespData;
+    public zn9 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareHttpResponsedMessage() {
@@ -36,13 +36,13 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public xl9 getData() {
+    public zn9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mForumSquareRespData;
         }
-        return (xl9) invokeV.objValue;
+        return (zn9) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,9 +64,9 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
             if (getError() != 0 || getForumSquareResIdl.data == null) {
                 return;
             }
-            xl9 xl9Var = new xl9();
-            this.mForumSquareRespData = xl9Var;
-            xl9Var.a(getForumSquareResIdl.data);
+            zn9 zn9Var = new zn9();
+            this.mForumSquareRespData = zn9Var;
+            zn9Var.a(getForumSquareResIdl.data);
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.xiaomi.clientreport.manager;
 
 import com.xiaomi.clientreport.data.PerfClientReport;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements Runnable {
     public final /* synthetic */ PerfClientReport a;
 

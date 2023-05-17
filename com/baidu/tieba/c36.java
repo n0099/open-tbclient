@@ -1,60 +1,22 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
-import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.Charset;
-@Singleton
-@Service
-/* loaded from: classes3.dex */
-public class c36 implements bs2 {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetAddressList.friendList;
+import tbclient.GetAddressList.listData;
+import tbclient.GetAddressList.robotsList;
+/* loaded from: classes5.dex */
+public class c36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a02 a;
-
-        public a(c36 c36Var, a02 a02Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c36Var, a02Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a02Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
-                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
-            }
-        }
-    }
+    public String a;
+    public List<ac5> b;
 
     public c36() {
         Interceptable interceptable = $ic;
@@ -70,12 +32,56 @@ public class c36 implements bs2 {
         }
     }
 
-    @Override // com.baidu.tieba.bs2
-    public void a(Context context, a02 a02Var) {
+    public List<ac5> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, a02Var) != null) || !(context instanceof Activity)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
+            }
+            return this.b;
         }
-        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, b36.class, new Bundle(), new a(this, a02Var));
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(listData listdata) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) && listdata != null) {
+            this.a = listdata.key;
+            if (listdata.friend_list != null) {
+                this.b = new ArrayList();
+                for (friendList friendlist : listdata.friend_list) {
+                    ac5 ac5Var = new ac5();
+                    ac5Var.i(friendlist);
+                    ac5Var.j(this.a);
+                    this.b.add(ac5Var);
+                }
+            }
+        }
+    }
+
+    public void d(robotsList robotslist) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) && robotslist != null) {
+            this.a = robotslist.key;
+            if (robotslist.friend_list != null) {
+                this.b = new ArrayList();
+                for (friendList friendlist : robotslist.friend_list) {
+                    ac5 ac5Var = new ac5();
+                    ac5Var.i(friendlist);
+                    ac5Var.j(this.a);
+                    this.b.add(ac5Var);
+                }
+            }
+        }
     }
 }

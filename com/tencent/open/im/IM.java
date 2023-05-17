@@ -5,13 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.IntentConstants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.TDialog;
 import com.tencent.open.utils.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IM extends BaseApi {
     public static final String CHAT_TYPE_AIO = "thirdparty2c";
     public static final String CHAT_TYPE_AUDIO_CHAT = "audio_chat";
@@ -53,9 +53,9 @@ public class IM extends BaseApi {
                     }
                 }
                 if (l.d(activity)) {
-                    Intent intent = new Intent("android.intent.action.VIEW");
+                    Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                     intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.c.getOpenId()), l.l(this.c.getAppId()), l.l(str3))));
-                    intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, str3);
+                    intent.putExtra("pkg_name", str3);
                     activity.startActivity(intent);
                     return 0;
                 }

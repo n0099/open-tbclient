@@ -4,7 +4,7 @@ import android.text.Layout;
 import com.google.android.exoplayer2.util.Assertions;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TtmlStyle {
     public static final int FONT_SIZE_UNIT_EM = 2;
     public static final int FONT_SIZE_UNIT_PERCENT = 3;
@@ -32,12 +32,12 @@ public final class TtmlStyle {
     public int fontSizeUnit = -1;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface FontSizeUnit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface StyleFlags {
     }
 

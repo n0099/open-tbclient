@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.utils.DebugUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PmsContentProviderImpl {
     public static final String AUTHORITY = AppRuntime.getApplication().getPackageName() + ".pms.db.provider";
     public static final Uri BASE_URI;

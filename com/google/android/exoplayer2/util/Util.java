@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.DisplayCompat;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerLibraryInfo;
 import com.google.android.exoplayer2.ParserException;
@@ -39,7 +40,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Util {
     public static final int[] CRC32_BYTES_MSBF;
     public static final String DEVICE;
@@ -640,7 +641,7 @@ public final class Util {
                 String str = null;
                 try {
                     Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                    str = (String) cls.getMethod("get", String.class).invoke(cls, "sys.display-size");
+                    str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "sys.display-size");
                 } catch (Exception e) {
                     Log.e("Util", "Failed to read sys.display-size", e);
                 }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AspectGLSurfaceView extends GLSurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class AspectGLSurfaceView extends GLSurfaceView {
     public GLSurfaceView.Renderer c;
     public GLSurfaceView.Renderer d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements GLSurfaceView.Renderer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

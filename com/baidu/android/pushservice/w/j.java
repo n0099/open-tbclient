@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import org.json.JSONException;
@@ -83,8 +82,8 @@ public class j extends c {
                     kVar.a(jSONObject.getLong("expiretime"));
                 }
                 int i = !jSONObject.isNull(Constants.EXTRA_NOTIFY_ID) ? jSONObject.getInt(Constants.EXTRA_NOTIFY_ID) : kVar.q() != com.baidu.android.pushservice.w.m.l.i.a() ? Utility.p(context, kVar.h()) : 0;
-                if (!jSONObject.isNull(WebvttCueParser.ENTITY_LESS_THAN)) {
-                    com.baidu.android.pushservice.a0.i.b(context, "last_time", jSONObject.optLong(WebvttCueParser.ENTITY_LESS_THAN));
+                if (!jSONObject.isNull("lt")) {
+                    com.baidu.android.pushservice.a0.i.b(context, "last_time", jSONObject.optLong("lt"));
                 }
                 if (!jSONObject.isNull("wbn")) {
                     int optInt = jSONObject.optInt("wbn");
@@ -203,8 +202,8 @@ public class j extends c {
                             kVar.b(jSONObject.getLong("interval"));
                         }
                         int i = !jSONObject.isNull(Constants.EXTRA_NOTIFY_ID) ? jSONObject.getInt(Constants.EXTRA_NOTIFY_ID) : kVar.q() != com.baidu.android.pushservice.w.m.l.i.a() ? Utility.p(this.b, kVar.h()) : 0;
-                        if (!jSONObject.isNull(WebvttCueParser.ENTITY_LESS_THAN)) {
-                            com.baidu.android.pushservice.a0.i.b(this.b, "last_time", jSONObject.optLong(WebvttCueParser.ENTITY_LESS_THAN));
+                        if (!jSONObject.isNull("lt")) {
+                            com.baidu.android.pushservice.a0.i.b(this.b, "last_time", jSONObject.optLong("lt"));
                         }
                         if (!jSONObject.isNull("wbn")) {
                             int optInt = jSONObject.optInt("wbn");

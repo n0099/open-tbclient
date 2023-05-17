@@ -1,248 +1,403 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
+import android.util.DisplayMetrics;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class r36 extends u93 {
+import org.aspectj.runtime.reflect.SignatureImpl;
+/* loaded from: classes7.dex */
+public class r36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
 
-    /* loaded from: classes6.dex */
-    public class a extends ResponseCallback {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ x73 c;
-        public final /* synthetic */ r36 d;
+    }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
+    @NonNull
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
-        public a(r36 r36Var, String str, CallbackHandler callbackHandler, x73 x73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r36Var, str, callbackHandler, x73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final r36 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-509778922, "Lcom/baidu/tieba/r36$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-509778922, "Lcom/baidu/tieba/r36$b;");
                     return;
                 }
             }
-            this.d = r36Var;
-            this.a = str;
-            this.b = callbackHandler;
-            this.c = x73Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.d.n(response, this.a, this.b, this.c);
-                return response;
-            }
-            return invokeLI.objValue;
+            a = new r36(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r36(u83 u83Var) {
-        super(u83Var, "/swanAPI/navigateToProgram");
+    public r36() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        try {
+            this.a = TbConfig.getVersion();
+            this.b = ti.k();
+            this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.d = r();
+            this.e = s();
+            this.f = ti.g();
+            this.g = TbadkCoreApplication.getInst().getImei();
+            this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            this.j = BdBaseApplication.getInst().getPackageName();
+            this.k = TbadkCoreApplication.getInst().getAndroidId();
+            this.l = "com.baidu.tieba.fileprovider";
+        } catch (Exception e) {
+            BdLog.e(e);
+        }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    @NonNull
+    public final String r() {
+        InterceptResult invokeV;
+        String sb;
+        String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (x73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
             } else {
-                String g0 = x73.g0();
-                if (!TextUtils.isEmpty(g0) && !TextUtils.isEmpty(g0.trim())) {
-                    String optString = optParamsAsJo.optString("cb");
-                    if (TextUtils.isEmpty(optString)) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
                     }
-                    String optString2 = optParamsAsJo.optString("path");
-                    if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
-                        y36.j(context, unitedSchemeEntity.getParam("params"));
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                        return true;
-                    }
-                    Request l = l(g0, optParamsAsJo);
-                    if (l == null) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                        return false;
-                    }
-                    m(l.body(), unitedSchemeEntity, optString, callbackHandler, x73Var);
-                    return true;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+                sb = sb2.toString();
             }
+            String k = ti.k();
+            if (TextUtils.isEmpty(k)) {
+                replace = "0.0";
+            } else {
+                replace = k.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + TbConfig.getVersion() + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Uri k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
-            String schemeHead = SchemeConfig.getSchemeHead();
-            if (TextUtils.isEmpty(schemeHead)) {
-                schemeHead = BaiduIdentityManager.VALUE_OSNAME;
-            }
-            buildUpon.scheme(schemeHead);
-            if (u93.b) {
-                Log.i("NavigateToSmartProgram", buildUpon.build().toString());
-            }
-            return buildUpon.build();
-        }
-        return (Uri) invokeL.objValue;
+    public /* synthetic */ r36(a aVar) {
+        this();
     }
 
-    public final Request l(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public static r36 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                String b = xx2.b(rl3.n());
-                JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (r36) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.k)) {
                 try {
-                    jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-                    jSONObject2.put("srcAppPage", b);
-                    jSONObject2.put("params", jSONObject);
-                    Request build = new Request.Builder().url(er2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
-                    if (u93.b) {
-                        Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
-                    }
-                    return build;
+                    this.k = TbadkCoreApplication.getInst().getAndroidId();
                 } catch (Exception e) {
-                    if (u93.b) {
-                        e.printStackTrace();
-                    }
+                    BdLog.e(e);
+                    return "";
                 }
             }
-            return null;
+            return this.k;
         }
-        return (Request) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, x73 x73Var) {
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, x73Var) == null) {
-            af4 af4Var = new af4(er2.o().I(), requestBody, new a(this, str, callbackHandler, x73Var));
-            af4Var.f = true;
-            af4Var.g = false;
-            af4Var.h = true;
-            bf4.g().e(af4Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
-    public final void n(Response response, String str, CallbackHandler callbackHandler, x73 x73Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, x73Var) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(response.body().string());
-                if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                Uri k = k(optJSONObject.optString("scheme"));
-                if (k == null) {
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
-                    return;
-                }
-                if (SchemeRouter.invokeScheme(x73Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
-                    i = 0;
-                } else {
-                    i = 1001;
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i).toString());
-            } catch (Exception e) {
-                if (u93.b) {
-                    Log.d("NavigateToSmartProgram", e.getMessage());
-                }
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
+            if (baiduIdForAnti == null) {
+                return "";
             }
+            return baiduIdForAnti;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                try {
+                    this.a = TbConfig.getVersion();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.c)) {
+                try {
+                    this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.l == null) {
+                this.l = "com.baidu.tieba.fileprovider";
+            }
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (StringUtils.isNull(this.g)) {
+                try {
+                    this.g = TbadkCoreApplication.getInst().getImei();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (StringUtils.isNull(this.i)) {
+                try {
+                    this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (StringUtils.isNull(this.f)) {
+                this.f = ti.g();
+            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (StringUtils.isNull(this.h)) {
+                try {
+                    this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (StringUtils.isNull(this.b)) {
+                this.b = ti.k();
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (StringUtils.isNull(this.j)) {
+                try {
+                    this.j = BdBaseApplication.getInst().getPackageName();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (StringUtils.isNull(this.e)) {
+                try {
+                    this.e = s();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String sampleId = TbSingleton.getInstance().getSampleId();
+            if (sampleId == null) {
+                return "";
+            }
+            return sampleId.replace(SignatureImpl.SEP, ',');
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (StringUtils.isNull(this.d)) {
+                try {
+                    this.d = r();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            DisplayMetrics displayMetrics = TbadkCoreApplication.getInst().getResources().getDisplayMetrics();
+            int i = 0;
+            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", TbConfig.getVersion(), String.valueOf(displayMetrics.densityDpi)};
+            StringBuilder sb = new StringBuilder();
+            String str = "";
+            while (i < 5) {
+                String str2 = strArr[i];
+                sb.append(str);
+                sb.append(str2);
+                i++;
+                str = "_";
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

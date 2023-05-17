@@ -185,11 +185,11 @@ public class d {
 
     /* renamed from: com.baidu.android.pushservice.m.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0027d implements DatabaseErrorHandler {
+    public static class C0030d implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0027d() {
+        public C0030d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,7 +203,7 @@ public class d {
             }
         }
 
-        public /* synthetic */ C0027d(a aVar) {
+        public /* synthetic */ C0030d(a aVar) {
             this();
         }
 
@@ -2294,7 +2294,7 @@ public class d {
                         }
                         String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                         SQLiteDatabase sQLiteDatabase = null;
-                        a = Build.VERSION.SDK_INT >= 11 ? new e(context, str, 12, new C0027d(null)) : new e(context, str, (SQLiteDatabase.CursorFactory) null, 12);
+                        a = Build.VERSION.SDK_INT >= 11 ? new e(context, str, 12, new C0030d(null)) : new e(context, str, (SQLiteDatabase.CursorFactory) null, 12);
                         try {
                             SQLiteDatabase sQLiteDatabase2 = a.getWritableDatabase();
                             try {

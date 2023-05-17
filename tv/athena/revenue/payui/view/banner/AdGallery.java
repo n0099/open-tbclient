@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.Gallery;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class AdGallery extends Gallery implements View.OnTouchListener {
     public final Handler a;
     public int b;
@@ -24,7 +24,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public final BroadcastReceiver h;
     public boolean i;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a extends BroadcastReceiver {
         public a() {
         }
@@ -42,7 +42,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class b extends Handler {
         public WeakReference<AdGallery> a;
 

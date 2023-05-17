@@ -19,7 +19,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MovieView extends FrameLayout implements ICyberVideoView {
     public g A;
     public CyberPlayerManager.OnVideoSizeChangedListener B;
@@ -76,40 +76,40 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public a y;
     public e z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface g {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum h {
         ERROR,
         IDLE,
@@ -120,7 +120,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         PLAYBACK_COMPLETED
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum i {
         PAUSED,
         RESUMED

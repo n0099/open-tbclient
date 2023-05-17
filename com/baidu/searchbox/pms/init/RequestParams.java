@@ -10,14 +10,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestParams {
     public List<Channel> channelList;
     public JSONObject filter;
     public String runNode;
     public String runType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Channel {
         public PackageCallback callback;
         public String channelId;

@@ -14,7 +14,7 @@ import com.cmic.sso.sdk.e.e;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

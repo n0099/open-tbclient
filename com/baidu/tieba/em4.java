@@ -1,203 +1,162 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
-/* loaded from: classes4.dex */
-public class em4<K, V> extends jm4<K, V> implements Map<K, V> {
+/* loaded from: classes5.dex */
+public class em4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, em4> d;
+    public static Map<String, Map<String, em4>> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public im4<K, V> h;
+    public final String a;
+    public final String b;
+    public final AbiType c;
 
-    /* loaded from: classes4.dex */
-    public class a extends im4<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ em4 d;
-
-        public a(em4 em4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947739133, "Lcom/baidu/tieba/em4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {em4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = em4Var;
-        }
-
-        @Override // com.baidu.tieba.im4
-        public int e(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-                return this.d.e(obj);
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.im4
-        public int f(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                return this.d.g(obj);
-            }
-            return invokeL.intValue;
-        }
-
-        @Override // com.baidu.tieba.im4
-        public void h(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-                this.d.i(i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947739133, "Lcom/baidu/tieba/em4;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.im4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.clear();
-            }
-        }
-
-        @Override // com.baidu.tieba.im4
-        public Map<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Map) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.im4
-        public int d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d.c;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.im4
-        public Object b(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-                return this.d.b[(i << 1) + i2];
-            }
-            return invokeII.objValue;
-        }
-
-        @Override // com.baidu.tieba.im4
-        public void g(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
-                this.d.put(k, v);
-            }
-        }
-
-        @Override // com.baidu.tieba.im4
-        public V i(int i, V v) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
-                return this.d.j(i, v);
-            }
-            return (V) invokeIL.objValue;
-        }
+        d = new HashMap();
+        e = new HashMap();
     }
 
-    public em4() {
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public em4(@NonNull String str, @NonNull AbiType abiType) {
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, abiType};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // java.util.Map
-    public Set<Map.Entry<K, V>> entrySet() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return l().l();
+        if (TextUtils.isEmpty(str)) {
+            str2 = "";
+        } else {
+            str2 = str;
         }
-        return (Set) invokeV.objValue;
+        this.a = str2;
+        this.c = abiType;
+        this.b = a(str, abiType);
     }
 
-    @Override // java.util.Map
-    public Set<K> keySet() {
-        InterceptResult invokeV;
+    @Nullable
+    public static synchronized em4 e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return l().m();
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public final im4<K, V> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h == null) {
-                this.h = new a(this);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            synchronized (em4.class) {
+                em4 em4Var = null;
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    c(str);
+                    em4 em4Var2 = d.get(str2);
+                    if (em4Var2 != null) {
+                        if (TextUtils.equals(str, em4Var2.a)) {
+                            em4Var = em4Var2;
+                        }
+                    }
+                    return em4Var;
+                }
+                return null;
             }
-            return this.h;
         }
-        return (im4) invokeV.objValue;
+        return (em4) invokeLL.objValue;
     }
 
-    @Override // java.util.Map
-    public Collection<V> values() {
-        InterceptResult invokeV;
+    public static String a(String str, AbiType abiType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return l().n();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, abiType)) == null) {
+            return "so_" + str + "_" + abiType.id;
         }
-        return (Collection) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public boolean m(Collection<?> collection) {
+    @Nullable
+    public static synchronized em4 d(String str, AbiType abiType) {
+        InterceptResult invokeLL;
+        em4 e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, abiType)) == null) {
+            synchronized (em4.class) {
+                e2 = e(str, a(str, abiType));
+            }
+            return e2;
+        }
+        return (em4) invokeLL.objValue;
+    }
+
+    public static synchronized Map<String, em4> b(@NonNull String str) {
         InterceptResult invokeL;
+        HashMap hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
-            return im4.p(this, collection);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (em4.class) {
+                hashMap = new HashMap(c(str));
+            }
+            return hashMap;
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // java.util.Map
-    public void putAll(Map<? extends K, ? extends V> map) {
+    public static synchronized Map<String, em4> c(@NonNull String str) {
+        InterceptResult invokeL;
+        Map<String, em4> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            b(this.c + map.size());
-            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
-                put(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (em4.class) {
+                map = e.get(str);
+                if (map == null) {
+                    map = new HashMap<>();
+                    if (!TextUtils.isEmpty(str)) {
+                        for (AbiType abiType : AbiType.values()) {
+                            em4 em4Var = new em4(str, abiType);
+                            map.put(em4Var.b, em4Var);
+                        }
+                        d.putAll(map);
+                        e.put(str, map);
+                    }
+                }
             }
+            return map;
         }
+        return (Map) invokeL.objValue;
     }
 }

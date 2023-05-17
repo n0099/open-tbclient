@@ -1,47 +1,138 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public interface p61 {
-    void a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "navBarToolNew");
+    public static final p61 b = new a();
 
-    ViewGroup.LayoutParams b();
+    void a(View view2, q61 q61Var);
 
-    void c(View.OnLayoutChangeListener onLayoutChangeListener);
+    int[] b();
 
-    void d();
+    int[] c();
 
-    void f(int i);
+    /* loaded from: classes6.dex */
+    public static class a implements p61 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean h();
+        @Override // com.baidu.tieba.p61
+        public int[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_right_padding} : (int[]) invokeV.objValue;
+        }
 
-    void i(FrameLayout.LayoutParams layoutParams);
+        /* renamed from: com.baidu.tieba.p61$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class View$OnClickListenerC0413a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ q61 a;
 
-    boolean j();
+            public View$OnClickListenerC0413a(a aVar, q61 q61Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, q61Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = q61Var;
+            }
 
-    void k(int i);
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    this.a.g();
+                }
+            }
+        }
 
-    void l(t61 t61Var);
+        /* loaded from: classes6.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ q61 a;
 
-    void m(boolean z);
+            public b(a aVar, q61 q61Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, q61Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = q61Var;
+            }
 
-    boolean n();
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    this.a.k();
+                }
+            }
+        }
 
-    void o(ViewGroup viewGroup);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void onDestroy();
+        @Override // com.baidu.tieba.p61
+        public int[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new int[]{R.drawable.nad_web_back, R.drawable.nad_web_close};
+            }
+            return (int[]) invokeV.objValue;
+        }
 
-    void p(n61 n61Var);
-
-    void r(String str);
-
-    void s(View.OnLayoutChangeListener onLayoutChangeListener);
-
-    void t(int i, boolean z);
-
-    void u(r61 r61Var);
-
-    void v();
+        @Override // com.baidu.tieba.p61
+        public void a(View view2, q61 q61Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, q61Var) == null) {
+                int intValue = ((Integer) view2.getTag()).intValue();
+                if (intValue == R.drawable.nad_web_back) {
+                    view2.setOnClickListener(new View$OnClickListenerC0413a(this, q61Var));
+                } else if (intValue == R.drawable.nad_web_close) {
+                    view2.setOnClickListener(new b(this, q61Var));
+                }
+            }
+        }
+    }
 }

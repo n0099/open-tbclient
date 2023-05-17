@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.message.SpriteTipHttpResponseMessage;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.de9;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
-import com.baidu.tieba.fg9;
-import com.baidu.tieba.hc9;
+import com.baidu.tieba.hi9;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
-import com.baidu.tieba.ir7;
+import com.baidu.tieba.vs7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,12 +22,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RecommendFrsStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class RecommendFrsStatic {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return fg9.b(tbPageContext, strArr);
+                return hi9.b(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }
@@ -83,8 +83,8 @@ public class RecommendFrsStatic {
         tbHttpMessageTask2.setRetry(3);
         messageManager2.registerTask(tbHttpMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(BigdayActivityConfig.class, BigdayActivity.class);
-        ir7.b().c();
-        hc9.c().d();
+        vs7.b().c();
+        de9.c().d();
         UrlManager.getInstance().addListener(new a());
         TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(CmdConfigHttp.CMD_REQUEST_SPRITE_LOOP, TbConfig.SERVER_ADDRESS + TbConfig.REQUEST_SPRITE_LOOP);
         tbHttpMessageTask3.setResponsedClass(SpriteTipHttpResponseMessage.class);

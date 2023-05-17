@@ -9,7 +9,6 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -540,7 +539,7 @@ public class SmartMsg extends NormalMsg {
                 this.mValuationUrl = jSONObject.optString("operation_url");
                 this.mValuationTxt = jSONObject.optString("operation_name");
                 this.mTopicId = jSONObject.optLong("topic_id");
-                this.mTopicName = jSONObject.optString(IntentConfig.TOPIC_NAME);
+                this.mTopicName = jSONObject.optString("topic_name");
                 return true;
             } catch (JSONException e) {
                 LogUtils.e("SmartMsg", "parseJsonString JSONException", e);

@@ -1,61 +1,115 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tieba.feed.component.CardPlayVoiceView;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class o27 extends c17<CardPlayVoiceView, VoiceData.VoiceModel> {
+import java.net.URLEncoder;
+import java.util.Map;
+@Autowired
+/* loaded from: classes6.dex */
+public class o27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o27(String str) {
-        super(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980437, "Lcom/baidu/tieba/o27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947980437, "Lcom/baidu/tieba/o27;");
+                return;
+            }
+        }
+        jx4.e();
+    }
+
+    public o27() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.c17, com.baidu.tieba.r17
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Inject
+    public static k27 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            z27.n(a, null, null, null, -2);
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return rl6.a();
         }
-        return (View) invokeL.objValue;
+        return (k27) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r17
-    /* renamed from: e */
-    public void b(@NonNull CardPlayVoiceView cardPlayVoiceView, @NonNull VoiceData.VoiceModel voiceModel) {
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardPlayVoiceView, voiceModel) == null) {
-            cardPlayVoiceView.update(voiceModel);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    sb.append("&");
+                    sb.append(URLEncoder.encode(str2, "UTF-8"));
+                    sb.append("=");
+                    sb.append(URLEncoder.encode(str3, "UTF-8"));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (!TextUtils.isEmpty(str) && map != null && !map.isEmpty()) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(str.trim());
+                try {
+                    for (String str2 : map.keySet()) {
+                        sb.append("&");
+                        sb.append(URLEncoder.encode(str2, "UTF-8"));
+                        sb.append("=");
+                        sb.append(URLEncoder.encode(map.get(str2), "UTF-8"));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return sb.toString();
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            d().a(context, str);
         }
     }
 }

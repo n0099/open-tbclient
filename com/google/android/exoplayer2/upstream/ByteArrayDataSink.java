@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.upstream;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ByteArrayDataSink implements DataSink {
     public ByteArrayOutputStream stream;
 

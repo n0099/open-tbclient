@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.h;
 
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements ThreadFactory {
     public final String a;
     public final AtomicInteger b;

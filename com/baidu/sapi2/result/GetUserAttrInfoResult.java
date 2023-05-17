@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.sapi2.NoProguard;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetUserAttrInfoResult extends SapiResult implements NoProguard {
     public static final int CODE_JSON_EXCEPTION = -101;
     public static final int CODE_NOT_LOGIN = -102;

@@ -1,5 +1,5 @@
 package com.baidu.pass.biometrics.base;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BiometricType {
     public static final int LIVENESS_RECOG = 4;
 

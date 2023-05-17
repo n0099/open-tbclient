@@ -1,508 +1,274 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
+import android.content.Context;
+import android.opengl.EGLContext;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.DefaultParams;
+import com.baidu.ar.bean.DuMixARConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class te0 {
-    public static /* synthetic */ Interceptable $ic;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class te0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static ue0 b = null;
+    public static af0 c = null;
+    public static Context d = null;
+    public static byte[] e = null;
+    public static JSONObject f = null;
+    public static JSONObject g = null;
+    public static boolean h = true;
+    public static String i = "live";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public File b;
-    public File c;
-    public List<c> d;
-    public b e;
-    public je0 f;
-    public long g;
-    public int h;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onProgress(int i, int i2);
+
+        void onResult(boolean z, String str);
     }
 
-    public boolean i(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b<T> implements je0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public T a;
-        public boolean b;
-        public final /* synthetic */ te0 c;
-
-        /* loaded from: classes6.dex */
-        public class a extends Thread {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Thread, java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.c.s(this.a);
-                    this.b.f(null);
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.te0$b$b  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0438b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-            public final /* synthetic */ Exception b;
-            public final /* synthetic */ b c;
-
-            public RunnableC0438b(b bVar, boolean z, Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, Boolean.valueOf(z), exc};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = z;
-                this.b = exc;
-            }
-
-            /* JADX DEBUG: Multi-variable search result rejected for r0v17, resolved type: com.baidu.tieba.te0$c */
-            /* JADX DEBUG: Multi-variable search result rejected for r0v32, resolved type: com.baidu.tieba.te0$c */
-            /* JADX WARN: Multi-variable type inference failed */
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    int i = 0;
-                    if (this.a) {
-                        while (i < this.c.c.d.size()) {
-                            c cVar = (c) this.c.c.d.get(i);
-                            if (cVar != 0) {
-                                cVar.a(this.c.a, this.c.c.b.getAbsolutePath());
-                            }
-                            i++;
-                        }
-                        if (this.c.c.f != null) {
-                            this.c.c.f.b(this.c.c.b.getAbsolutePath());
-                            return;
-                        }
-                        return;
-                    }
-                    while (i < this.c.c.d.size()) {
-                        c cVar2 = (c) this.c.c.d.get(i);
-                        if (cVar2 != 0) {
-                            cVar2.b(this.c.a, this.b);
-                        }
-                        i++;
-                    }
-                    if (this.c.c.f != null) {
-                        this.c.c.f.onFailed(this.b);
-                    }
-                }
-            }
-        }
-
-        public b(te0 te0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {te0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = te0Var;
-        }
-
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                te0.j("res:" + str);
-            }
-        }
-
-        public void g(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.a = t;
-            }
-        }
-
-        public /* synthetic */ b(te0 te0Var, a aVar) {
-            this(te0Var);
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void a(long j, long j2, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) && i != this.c.h) {
-                this.c.g = j2;
-                this.c.h = i;
-                for (int i2 = 0; i2 < this.c.d.size(); i2++) {
-                    c cVar = (c) this.c.d.get(i2);
-                    if (cVar != null) {
-                        cVar.c(this.a, j, j2, i);
-                    }
-                }
-                if (this.c.f != null) {
-                    this.c.f.a(j, j2, i);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (this.c.p()) {
-                    d("onCompleted(download): " + str);
-                }
-                new a(this, str).start();
-                this.b = false;
-            }
-        }
-
-        public void f(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && this.c.d != null && !this.c.d.isEmpty()) {
-                new Handler(Looper.getMainLooper()).post(new RunnableC0438b(this, this.c.q(), exc));
-            }
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.b;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void onFailed(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, exc) == null) {
-                if (this.c.p()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("onFailed: ");
-                    sb.append(this.c.a);
-                    sb.append("\n");
-                    if (exc != null) {
-                        str = exc.getMessage();
-                    } else {
-                        str = "";
-                    }
-                    sb.append(str);
-                    d(sb.toString());
-                }
-                if (this.c.c.exists()) {
-                    this.c.c.delete();
-                }
-                for (int i = 0; i < this.c.d.size(); i++) {
-                    c cVar = (c) this.c.d.get(i);
-                    if (cVar != null) {
-                        cVar.b(this.a, exc);
-                    }
-                }
-                if (this.c.f != null) {
-                    this.c.f.onFailed(exc);
-                }
-                this.b = false;
-            }
-        }
-
-        @Override // com.baidu.tieba.je0
-        public void onStarted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.b = true;
-                if (this.c.p()) {
-                    d("onStarted");
-                }
-                for (int i = 0; i < this.c.d.size(); i++) {
-                    c cVar = (c) this.c.d.get(i);
-                    if (cVar != null) {
-                        cVar.d(this.a);
-                    }
-                }
-                if (this.c.f != null) {
-                    this.c.f.onStarted();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void a(T t, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, t, str) == null) {
-            }
-        }
-
-        public void b(T t, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, exc) == null) {
-            }
-        }
-
-        public void c(T t, long j, long j2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{t, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            }
-        }
-
-        public void d(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            }
-        }
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public te0(String str, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-        this.b = file;
-        this.d = new ArrayList();
-        this.c = new File(this.b.getAbsolutePath() + ".loading");
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            Log.d("DuAr_FileLoader", str);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || q() || r()) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948178186, "Lcom/baidu/tieba/te0;")) == null) {
             return;
         }
-        synchronized (this) {
-            if (!q() && !r()) {
-                if (this.e == null) {
-                    b bVar = new b(this, null);
-                    this.e = bVar;
-                    bVar.g(this);
-                }
-                ke0 c2 = de0.c();
-                if (c2 != null) {
-                    c2.a(this.a, this.c.getParent(), this.c.getName(), this.e);
-                }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948178186, "Lcom/baidu/tieba/te0;");
+        }
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            Log.e("DuAr_DuController", "ar->" + str);
+        }
+    }
+
+    public static void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
+            k(context, "10000", "2288883fb087c4a37fbaf12bce65916e", "");
+        }
+    }
+
+    public static void p(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, aVar) == null) {
+            hf0.e().k(aVar);
+        }
+    }
+
+    public static void q(af0 af0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65554, null, af0Var) == null) {
+            c = af0Var;
+        }
+    }
+
+    public static void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
+            i = str;
+        }
+    }
+
+    public static void s(ue0 ue0Var) {
+        File f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, null, ue0Var) == null) {
+            b = ue0Var;
+            if (ue0Var == null && (f2 = hf0.e().f()) != null) {
+                b = new ue0(f2.getAbsolutePath());
             }
         }
     }
 
-    public void l(c cVar) {
+    public static void t(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            if (q()) {
-                if (cVar != null) {
-                    cVar.a(this, this.b.getAbsolutePath());
-                    return;
-                }
-                return;
-            }
-            if (cVar != null && !this.d.contains(cVar)) {
-                this.d.add(cVar);
-            }
-            k();
+        if ((interceptable != null && interceptable.invokeL(65557, null, file) != null) || file == null) {
+            return;
+        }
+        ue0 ue0Var = b;
+        if (ue0Var == null) {
+            ue0Var = new ue0(file.getAbsolutePath());
+        }
+        s(ue0Var);
+    }
+
+    public static void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
+            h = z;
+            t(hf0.e().f());
         }
     }
 
-    public File m() {
+    public static byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return e;
         }
-        return (File) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public int n() {
+    public static af0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
         }
-        return invokeV.intValue;
+        return (af0) invokeV.objValue;
     }
 
-    public String o() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return i;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean p() {
+    public static synchronized ye0 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return de0.m();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            File file = this.b;
-            if (file != null && file.exists()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            synchronized (te0.class) {
+                if (g != null && g.length() > 0) {
+                    return ye0.b(g);
+                }
+                return null;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return (ye0) invokeV.objValue;
     }
 
-    public boolean r() {
+    public static ue0 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            b bVar = this.e;
-            if (bVar != null && bVar.e()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return b;
+        }
+        return (ue0) invokeV.objValue;
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return d;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return se0.a0();
+        }
+        return invokeV.intValue;
+    }
+
+    public static String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return se0.b0();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return a;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean s(String str) {
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return hf0.e().h();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static DefaultParams d(EGLContext eGLContext) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            File file = new File(str);
-            boolean z2 = false;
-            try {
-                if (p()) {
-                    j("onCompleted-unzip:" + str + "\nto " + this.b.getAbsolutePath());
-                }
-                File file2 = new File(this.b + ".ziping");
-                if (file2.exists()) {
-                    if (p()) {
-                        j("delete older exists " + file2);
-                    }
-                    cf0.e(file2);
-                }
-                boolean z3 = true;
-                try {
-                    if0.a(file, file2);
-                    z = true;
-                } catch (Exception e) {
-                    j("unzipFile Exception : " + e.getMessage() + " " + str);
-                    z = false;
-                }
-                if (!z || !i(file2)) {
-                    z3 = false;
-                }
-                if (!z3) {
-                    if (p()) {
-                        j("faild on afterUnziped " + file2);
-                    }
-                    cf0.e(file2);
-                    z2 = z3;
-                } else {
-                    z2 = file2.renameTo(this.b) & z3;
-                }
-            } catch (Exception e2) {
-                j("Exception on onFileLoaderCompledted " + e2.getMessage());
-                e2.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eGLContext)) == null) {
+            String g2 = ue0.g();
+            if (m()) {
+                a("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + g2);
             }
-            cf0.d(file);
-            return z2;
+            DefaultParams defaultParams = new DefaultParams();
+            defaultParams.setFaceAlgoModelPath(g2);
+            JSONObject jSONObject = f;
+            if (jSONObject != null && jSONObject.length() > 0) {
+                defaultParams.setGradingConfig(f);
+            }
+            if (eGLContext != null) {
+                defaultParams.setUseTextureIO(true);
+                defaultParams.setShareContext(eGLContext);
+            }
+            JSONObject jSONObject2 = f;
+            if (jSONObject2 != null && jSONObject2.length() > 0) {
+                defaultParams.setGradingConfig(f);
+                if (m()) {
+                    a("getDuMixDefaultParams  " + f.toString());
+                }
+            }
+            return defaultParams;
         }
-        return invokeL.booleanValue;
+        return (DefaultParams) invokeL.objValue;
+    }
+
+    public static void k(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, str, str2, str3) == null) {
+            l(context, str, str2, str3, null);
+        }
+    }
+
+    @Deprecated
+    public static void l(Context context, String str, String str2, String str3, ue0 ue0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65549, null, context, str, str2, str3, ue0Var) == null) {
+            if (m()) {
+                a("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
+            }
+            d = context.getApplicationContext();
+            DuMixARConfig.setAppId(str);
+            DuMixARConfig.setAPIKey(str2);
+            DuMixARConfig.setSecretKey(str3);
+            ef0.d().i(d);
+            s(ue0Var);
+        }
     }
 }

@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.animation.AnimationUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HideBottomViewOnScrollBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static final int ENTER_ANIMATION_DURATION = 225;
     public static final int EXIT_ANIMATION_DURATION = 175;

@@ -1,8 +1,8 @@
 package com.baidu.nadcore.player.strategy;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IVideoUpdateStrategy {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum VolumeIconState {
         FORCE_CLOSE,
         ALWAYS_SHOW,

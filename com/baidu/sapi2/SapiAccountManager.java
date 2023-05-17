@@ -53,9 +53,10 @@ import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.pl1;
+import com.baidu.tieba.ym1;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,7 +66,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static final int LOGOUT_TYPE_CLOSE_AN_ACCOUNT = 4;
     public static final int LOGOUT_TYPE_DEFAULT = 0;
@@ -90,7 +91,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public char isUseOpenBdussTpl = 0;
     public UbcUploadImplCallback ubcUploadImplCallback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
@@ -308,7 +309,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiConfiguration sapiConfiguration2 = getSapiConfiguration();
         if (sapiConfiguration2 != null) {
             sapiConfiguration2.setAgreeDangerousProtocol(z);
-            pl1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            ym1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
             sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
             if (sapiConfiguration2.supportFaceLogin) {
                 new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);
@@ -335,7 +336,7 @@ public final class SapiAccountManager implements ISAccountManager {
         }
         hashMap.put("success_count", str2);
         if (z) {
-            str = "na";
+            str = ComboPraiseManager.PRAISE_SOURCE_PREFIX_NA;
         } else {
             str = DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB;
         }

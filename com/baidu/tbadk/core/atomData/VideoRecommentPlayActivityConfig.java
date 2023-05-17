@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -23,7 +24,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -72,7 +73,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class PersonalPageParams implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String IDENTIFER_FROM_THREAD_TAB = "15";
@@ -85,7 +86,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         @SerializedName("enter_type")
         public String enterType;
         @NonNull
-        @SerializedName("pageId")
+        @SerializedName(IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID)
         public String flutterPageId;
         @SerializedName("from_comment")
         public String fromComment;

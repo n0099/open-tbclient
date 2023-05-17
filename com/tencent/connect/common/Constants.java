@@ -1,7 +1,7 @@
 package com.tencent.connect.common;
 
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Constants {
     public static final int ACTIVITY_CANCEL = 0;
     public static final int ACTIVITY_OK = -1;

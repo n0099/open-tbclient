@@ -1,5 +1,5 @@
 package com.hihonor.push.sdk.common.data;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface UpMsgType {
     public static final String QUERY_PUSH_STATUS = "up_msg_query_push_status";
     public static final String REQUEST_PUSH_TOKEN = "up_msg_request_push_token";

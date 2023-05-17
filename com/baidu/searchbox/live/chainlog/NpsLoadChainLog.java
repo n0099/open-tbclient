@@ -15,7 +15,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NpsLoadChainLog {
     public static final int ERR_CODE_UNUSED = Integer.MIN_VALUE;
     public static final String FROM = "yysdk";
@@ -46,7 +46,7 @@ public class NpsLoadChainLog {
     public YYPluginProgressInvokeService yyService;
     public String yysdkVer;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Holder {
         public static final NpsLoadChainLog INSTANCE = new NpsLoadChainLog();
     }

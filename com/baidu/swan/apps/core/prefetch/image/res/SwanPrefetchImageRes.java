@@ -4,28 +4,28 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.bt2;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.rk3;
-import com.baidu.tieba.x73;
-import com.baidu.tieba.y13;
+import com.baidu.tieba.am3;
+import com.baidu.tieba.g93;
+import com.baidu.tieba.h33;
+import com.baidu.tieba.ku2;
+import com.baidu.tieba.ns2;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class SwanPrefetchImageRes implements bt2 {
+/* loaded from: classes4.dex */
+public class SwanPrefetchImageRes implements ku2 {
     public static final HashMap<String, List<String>> c = new HashMap<>(10);
     public static final List<String> d = new ArrayList();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static final SwanPrefetchImageRes a = new SwanPrefetchImageRes();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public final /* synthetic */ List a;
         public final /* synthetic */ String b;
@@ -41,7 +41,7 @@ public class SwanPrefetchImageRes implements bt2 {
             for (String str : this.a) {
                 SwanPrefetchImageRes.this.f(str);
             }
-            if (bt2.a) {
+            if (ku2.a) {
                 Log.d("SwanPerformance", "start prefetch image appKey = " + this.b + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
             }
         }
@@ -59,7 +59,7 @@ public class SwanPrefetchImageRes implements bt2 {
     }
 
     public final void f(@NonNull String str) {
-        BdNet bdNet = new BdNet(er2.c());
+        BdNet bdNet = new BdNet(ns2.c());
         bdNet.setEventListener(new INetListener() { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.12
             @Override // com.baidu.webkit.net.INetListener
             public void onNetDownloadComplete(BdNet bdNet2) {
@@ -100,14 +100,14 @@ public class SwanPrefetchImageRes implements bt2 {
 
             @Override // com.baidu.webkit.net.INetListener
             public void onNetResponseCode(BdNet bdNet2, BdNetTask bdNetTask, int i) {
-                if (bt2.a) {
+                if (ku2.a) {
                     Log.d("SwanPerformance", "response code = " + i);
                 }
             }
 
             @Override // com.baidu.webkit.net.INetListener
             public void onNetTaskStart(BdNet bdNet2, BdNetTask bdNetTask) {
-                if (bt2.a) {
+                if (ku2.a) {
                     Log.d("SwanPerformance", "start prefetch image = " + bdNetTask.getUrl());
                 }
             }
@@ -189,17 +189,17 @@ public class SwanPrefetchImageRes implements bt2 {
                 add("http://b.hiphotos.baidu.com/baike/whfpf%3D640%2C360%2C0/sign=f5fefd63a8cc7cd9fa7867995f3c170b/3c6d55fbb2fb431634739cf42ba4462308f7d3d4.jpg");
             }
         });
-        if (bt2.a) {
+        if (ku2.a) {
             Log.d("SwanPerformance", "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
         }
     }
 
     public void d(String str) {
-        if (TextUtils.isEmpty(str) || !y13.m()) {
+        if (TextUtils.isEmpty(str) || !h33.m()) {
             return;
         }
         if (d.contains(str)) {
-            if (bt2.a) {
+            if (ku2.a) {
                 Log.d("SwanPerformance", "has prefetch this appKey = " + str);
                 return;
             }
@@ -207,14 +207,14 @@ public class SwanPrefetchImageRes implements bt2 {
         }
         List<String> list = c.get(str);
         if (list != null && !list.isEmpty()) {
-            x73 b0 = x73.b0();
+            g93 b0 = g93.b0();
             if (b0 != null && !b0.I()) {
                 d.add(str);
-                rk3.k(new a(list, str), "PrefetchImageRes");
-            } else if (bt2.a) {
+                am3.k(new a(list, str), "PrefetchImageRes");
+            } else if (ku2.a) {
                 Log.d("SwanPerformance", "app is occupied");
             }
-        } else if (bt2.a) {
+        } else if (ku2.a) {
             Log.d("SwanPerformance", "can't find res, appKey = " + str);
         }
     }

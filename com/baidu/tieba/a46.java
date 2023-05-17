@@ -1,269 +1,138 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
+import android.os.Environment;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.api.share.Share;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class a46 extends ActivityDelegation {
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+/* loaded from: classes4.dex */
+public class a46 extends BdAsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdInfo a;
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a46 a;
-
-        public a(a46 a46Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947565254, "Lcom/baidu/tieba/a46;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a46Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = a46Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947565254, "Lcom/baidu/tieba/a46;");
                 return;
             }
-            this.a.f(true);
         }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a46 a;
-
-        public b(a46 a46Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a46Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a46Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
-            }
-            this.a.f(false);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-            }
-        }
-
-        public c(a46 a46Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a46Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        b = Environment.getExternalStorageDirectory() + "/tieba/.advideo";
+        c = File.separator;
     }
 
     public a46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onAttachedToWindow() {
+    public final void b(boolean z, File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e();
-            g(getAgent(), this.mParams.getString("options"));
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, file) == null) {
+            if (z && file != null) {
+                File file2 = new File(b + c + (yi.c(this.a.adVideoUrl) + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION));
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                if (file.renameTo(file2)) {
+                    this.a.videoLocalPath = file2.getAbsolutePath();
+                } else {
+                    this.a.videoLocalPath = "";
+                }
+            } else {
+                this.a.videoLocalPath = "";
+            }
+            e46.i(this.a);
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void onSelfFinish() {
+    public void c(AdInfo adInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            h();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adInfo) == null) {
+            this.a = adInfo;
         }
     }
 
-    public final int d(int i, String str) {
-        InterceptResult invokeIL;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0093, code lost:
+        if (r12.equalsIgnoreCase(r11.a.videoMd5) == false) goto L26;
+     */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Boolean doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        File file;
+        boolean z;
+        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (str.equals(Share.WEIXIN_FRIEND)) {
-                return 3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voidArr)) == null) {
+            String str = b + c + "advideo.temp";
+            file = new File(str);
+            if (file.exists()) {
+                file.delete();
             }
-            if (str.equals(Share.WEIXIN_TIMELINE)) {
-                return 2;
-            }
-            if (str.equals(Share.QQFRIEND)) {
-                return 8;
-            }
-            if (str.equals(Share.QQDENGLU)) {
-                return 4;
-            }
-            if (str.equals(Share.SINAWEIBO)) {
-                return 6;
-            }
-            return i;
-        }
-        return invokeIL.intValue;
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.mResult.putBoolean("share_result", z);
-            h();
-            finish();
-        }
-    }
-
-    public final void g(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, str) == null) {
-            if (activity == null) {
-                f(false);
-                return;
-            }
-            z36 z36Var = new z36();
+            z = false;
             try {
-                z36Var.q(new JSONObject(str));
-                TbadkCoreApplication.getInst().setCurAiAppid(z36Var.x0);
-                if (!TextUtils.isEmpty(z36Var.o())) {
-                    int d = d(-1, z36Var.o());
-                    if (!TextUtils.isEmpty(z36Var.n()) && !TextUtils.isEmpty(z36Var.m())) {
-                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                        httpMessage.addParam("scheme", z36Var.n());
-                        httpMessage.setExtra(new sw4(z36Var, activity, d, new a(this)));
-                        MessageManager.getInstance().sendMessage(httpMessage);
-                        return;
-                    }
-                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, z36Var, true));
-                    f(ua5.b(activity, d));
-                    return;
+                new File(b).mkdirs();
+                if (!file.createNewFile()) {
+                    b(false, null);
+                    return Boolean.FALSE;
                 }
-                TiebaStatic.log(new StatisticItem("c13530").param("obj_id", z36Var.x0).param("obj_type", z36Var.y0).param("obj_source", z36Var.z0));
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, z36Var, false);
-                shareDialogConfig.onCancelListener = new b(this);
-                shareDialogConfig.onDismissListener = new c(this);
-                JSONArray p = z36Var.p();
-                if (p != null && !TextUtils.isEmpty(z36Var.n()) && !TextUtils.isEmpty(z36Var.m())) {
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < p.length(); i++) {
-                        try {
-                            arrayList.add(Integer.valueOf(d(-1, p.getString(i))));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (!ListUtils.isEmpty(arrayList)) {
-                        z36Var.i(arrayList);
-                    }
-                    HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
-                    httpMessage2.addParam("scheme", z36Var.n());
-                    httpMessage2.setExtra(new sw4(z36Var, activity, shareDialogConfig.onCancelListener));
-                    MessageManager.getInstance().sendMessage(httpMessage2);
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-            } catch (JSONException unused) {
-                f(false);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            tf tfVar = new tf();
+            tfVar.b().s(this.a.adVideoUrl);
+            c2 = new qf(tfVar).c(str, null, 3, 3000, -1, -1, true, true);
+            try {
+                if (TextUtils.isEmpty(this.a.videoMd5)) {
+                    b(c2, file);
+                    return Boolean.valueOf(c2);
+                }
+                String b2 = yi.b(new FileInputStream(str));
+                if (TextUtils.isEmpty(b2)) {
+                    c2 = false;
+                }
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+            }
+        } else {
+            return (Boolean) invokeL.objValue;
         }
+        z = c2;
+        b(z, file);
+        return Boolean.valueOf(z);
     }
 }

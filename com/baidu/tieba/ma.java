@@ -1,83 +1,39 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.client.socket.coder.CoderException;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+/* loaded from: classes6.dex */
 public class ma {
     public static /* synthetic */ Interceptable $ic;
+    public static ma a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public final Handler c;
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310937, "Lcom/baidu/tieba/ma;")) == null) {
+            return;
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ma a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ma maVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {maVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = maVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what == 1) {
-                    this.a.c.removeMessages(1);
-                    BdLog.i("this is reconn time:" + this.a.b);
-                    BdSocketLinkService.startService(true, "time to reconnStragety");
-                    ma.c(this.a);
-                    if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (this.a.b >= eh.o().q("alert_im", 3)) {
-                            BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                            bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.b) + "_times");
-                        }
-                    }
-                    int[] c = da.c();
-                    if (c != null && this.a.b < c.length) {
-                        BdLog.i("Next will be delay:" + c[this.a.b]);
-                        this.a.c.sendMessageDelayed(this.a.c.obtainMessage(1), (long) (c[this.a.b] * 1000));
-                        return;
-                    }
-                    this.a.f("reconnStragety to the end");
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448310937, "Lcom/baidu/tieba/ma;");
         }
     }
 
@@ -85,67 +41,202 @@ public class ma {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = false;
-        this.b = 0;
-        this.c = new a(this, Looper.getMainLooper());
     }
 
-    public static /* synthetic */ int c(ma maVar) {
-        int i = maVar.b;
-        maVar.b = i + 1;
-        return i;
-    }
-
-    public void f(String str) {
+    public static ma f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a) {
-            ea.a("reconn", 0, 0, "stop", BdSocketLinkService.STOP_RECONN, str);
-            this.a = false;
-            this.b = 0;
-            BdLog.i("stop reconnStrategy");
-            this.c.removeMessages(1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (ma.class) {
+                    if (a == null) {
+                        a = new ma();
+                    }
+                }
+            }
+            return a;
         }
+        return (ma) invokeV.objValue;
     }
 
-    public void e(String str) {
+    public byte[] a(byte[] bArr, int i, int i2) throws Exception {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!BdSocketLinkService.isAvailable()) {
-                f("online failed 5");
-            } else if (!this.a) {
-                this.a = true;
-                this.c.removeMessages(1);
-                if (ij.j().l()) {
-                    BdLog.d("启动重连策略失败，  WebSocketClient opened");
-                    f("in Opened");
-                    return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ni.a(byteArrayInputStream, byteArrayOutputStream);
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toByteArray();
+            } finally {
+                og.d(byteArrayOutputStream);
+                og.c(byteArrayInputStream);
+            }
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public byte[] g(byte[] bArr, int i, int i2) throws Exception {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ni.c(byteArrayInputStream, byteArrayOutputStream);
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toByteArray();
+            } finally {
+                og.d(byteArrayOutputStream);
+                og.c(byteArrayInputStream);
+            }
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public SocketResponsedMessage b(int i, byte[] bArr, SocketMessage socketMessage, SocketMessageTask socketMessageTask, boolean z) throws CoderException {
+        InterceptResult invokeCommon;
+        int i2;
+        SocketResponsedMessage newInstance;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), bArr, socketMessage, socketMessageTask, Boolean.valueOf(z)})) == null) {
+            try {
+                Class<? extends SocketResponsedMessage> responsedClass = socketMessageTask.getResponsedClass();
+                try {
+                    newInstance = responsedClass.getConstructor(new Class[0]).newInstance(new Object[0]);
+                } catch (Exception unused) {
+                    newInstance = responsedClass.getConstructor(Integer.TYPE).newInstance(Integer.valueOf(i));
                 }
-                d();
-                BdLog.d("启动重连策略");
-                this.b = 0;
-                int[] c = da.c();
-                if (c != null && c.length >= 1) {
-                    BdLog.i("start reconnStrategy... the first will be delay" + c[0]);
-                    int i = BdSocketLinkService.STOP_RECONN;
-                    ea.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.b));
-                    Handler handler = this.c;
-                    handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c[0] * 1000));
-                    return;
+                newInstance.setOrginalMessage(socketMessage);
+                if (z) {
+                    try {
+                        newInstance.onDecodeFailedInBackGround(i, bArr, ja.c);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    newInstance.decodeInBackGround(i, bArr);
                 }
-                BdLog.i("don't have reconnStrategy!");
+                return newInstance;
+            } catch (Throwable th) {
+                long j = 0;
+                if (socketMessage != null) {
+                    j = socketMessage.getClientLogID();
+                }
+                long j2 = j;
+                if (bArr != null) {
+                    i2 = bArr.length;
+                } else {
+                    i2 = 0;
+                }
+                BdStatisticsManager.getInstance().error("im", j2, (String) null, "cmd", Integer.valueOf(i), "byteslength", Integer.valueOf(i2), "comment", th.getMessage());
+                throw new CoderException(ja.c);
+            }
+        }
+        return (SocketResponsedMessage) invokeCommon.objValue;
+    }
+
+    public na c(byte[] bArr) throws CoderException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            int f = la.f();
+            if (bArr != null && bArr.length >= f) {
+                la a2 = la.a(bArr);
+                if (a2 != null) {
+                    na naVar = new na();
+                    naVar.a = a2;
+                    naVar.b = bArr;
+                    naVar.c = f;
+                    naVar.d = bArr.length - f;
+                    return naVar;
+                }
+                throw new CoderException(ja.b);
+            }
+            throw new CoderException(ja.b);
+        }
+        return (na) invokeL.objValue;
+    }
+
+    public na d(na naVar) throws CoderException {
+        InterceptResult invokeL;
+        la laVar;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, naVar)) == null) {
+            if (naVar != null && (laVar = naVar.a) != null && naVar.b != null) {
+                if (laVar.d() && naVar.d > 0) {
+                    if (oa.a().b() != null) {
+                        try {
+                            byte[] a2 = zi.a(oa.a().b(), naVar.b, naVar.c, naVar.d);
+                            naVar.b = a2;
+                            naVar.c = 0;
+                            naVar.d = a2.length;
+                        } catch (Exception unused) {
+                            throw new CoderException(ja.h);
+                        }
+                    } else {
+                        throw new CoderException(ja.g);
+                    }
+                }
+                if (laVar.c() && (i = naVar.d) > 0) {
+                    try {
+                        byte[] g = g(naVar.b, naVar.c, i);
+                        naVar.b = g;
+                        naVar.c = 0;
+                        naVar.d = g.length;
+                    } catch (Exception unused2) {
+                        throw new CoderException(ja.f);
+                    }
+                }
+                return naVar;
+            }
+            throw new CoderException(ja.b);
+        }
+        return (na) invokeL.objValue;
+    }
+
+    public byte[] e(SocketMessage socketMessage, int i, boolean z, boolean z2) throws CoderException {
+        InterceptResult invokeCommon;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{socketMessage, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (socketMessage == null) {
+                return null;
+            }
+            byte[] encodeInBackGround = socketMessage.encodeInBackGround();
+            byte[] encodeExtraDataInBackGround = socketMessage.encodeExtraDataInBackGround();
+            if (encodeExtraDataInBackGround != null) {
+                ByteBuffer allocate = ByteBuffer.allocate(encodeInBackGround.length + encodeExtraDataInBackGround.length + la.g);
+                if (encodeExtraDataInBackGround.length <= Integer.MAX_VALUE) {
+                    allocate.putInt(encodeExtraDataInBackGround.length);
+                    allocate.put(encodeExtraDataInBackGround);
+                    allocate.put(encodeInBackGround);
+                    encodeInBackGround = allocate.array();
+                    z3 = true;
+                } else {
+                    throw new CoderException(ja.e);
+                }
             } else {
-                BdLog.d("重连策略正在运行中， 再次启动无效");
-                ea.a("reconn", 0, 0, "start", BdSocketLinkService.ALLREADY, "have in Running,so invalid");
+                z3 = false;
             }
+            if (encodeInBackGround != null && z) {
+                encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
+            }
+            if (encodeInBackGround != null && z2) {
+                encodeInBackGround = zi.c(oa.a().b(), encodeInBackGround);
+            }
+            return la.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }
+        return (byte[]) invokeCommon.objValue;
     }
 }

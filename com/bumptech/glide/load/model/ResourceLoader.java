@@ -11,7 +11,7 @@ import com.bumptech.glide.load.Options;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
     public static final String TAG = "ResourceLoader";
     public final Resources resources;
@@ -23,7 +23,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         return true;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class AssetFileDescriptorFactory implements ModelLoaderFactory<Integer, AssetFileDescriptor> {
         public final Resources resources;
 
@@ -41,7 +41,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Integer, ParcelFileDescriptor> {
         public final Resources resources;
 
@@ -60,7 +60,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class StreamFactory implements ModelLoaderFactory<Integer, InputStream> {
         public final Resources resources;
 
@@ -79,7 +79,7 @@ public class ResourceLoader<Data> implements ModelLoader<Integer, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class UriFactory implements ModelLoaderFactory<Integer, Uri> {
         public final Resources resources;
 

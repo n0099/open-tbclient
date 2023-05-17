@@ -1,7 +1,7 @@
 package com.baidu.pass.face.platform.utils;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DensityUtils {
     public static final float DOT_FIVE = 0.5f;
     public static final int PORTRAIT_DEGREE_270 = 270;

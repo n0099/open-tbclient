@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.FIELD, ElementType.METHOD})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface SerializedName {
     String[] alternate() default {};
 

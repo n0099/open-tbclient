@@ -9,7 +9,7 @@ import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e implements Closeable {
     public BufferedOutputStream a;
     public FileDescriptor b;

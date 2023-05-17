@@ -1,5 +1,5 @@
 package tv.athena.revenue.payui.webview;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public enum UrlPageType {
     WALLET_DETAIL_PAGE(1),
     RD_PAGE(2),

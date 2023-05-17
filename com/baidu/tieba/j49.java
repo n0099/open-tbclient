@@ -1,69 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class j49 implements in {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
+/* loaded from: classes6.dex */
+public class j49 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833466, "Lcom/baidu/tieba/j49;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833466, "Lcom/baidu/tieba/j49;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public ArrayList<n49> a;
 
     public j49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.a = new ArrayList<>();
     }
 
-    public int a() {
+    public ArrayList<n49> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return invokeV.intValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final boolean b(ExcContent excContent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            if (longValue == 2 || longValue == 0 || longValue == 1) {
+                return true;
+            }
+            return false;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        q49 q49Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
+            loop0: while (true) {
+                q49Var = null;
+                for (ExcContent excContent : list) {
+                    if (excContent != null && excContent.type != null) {
+                        if (b(excContent)) {
+                            m49 a = p49.a(tbPageContext, excContent);
+                            if (a == null) {
+                                continue;
+                            } else if (a.a()) {
+                                if (q49Var != null) {
+                                    this.a.add(q49Var);
+                                }
+                                this.a.add(a);
+                            } else {
+                                if (q49Var == null) {
+                                    q49Var = new q49();
+                                }
+                                q49Var.c(a.b());
+                            }
+                        } else {
+                            if (q49Var != null) {
+                                this.a.add(q49Var);
+                            }
+                            this.a.add(p49.b(excContent));
+                        }
+                    }
+                }
+                break loop0;
+            }
+            if (q49Var != null) {
+                this.a.add(q49Var);
+            }
+        }
     }
 }

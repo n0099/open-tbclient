@@ -1,8 +1,8 @@
 package com.baidu.swan.bdtls.impl.model;
 
 import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.tieba.br3;
-import com.baidu.tieba.cr3;
+import com.baidu.tieba.ks3;
+import com.baidu.tieba.ls3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -20,7 +20,7 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Bdtls$ClientHello extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static final int CIPHERSUITES_FIELD_NUMBER = 2;
     public static final int EXTENSIONS_FIELD_NUMBER = 3;
@@ -37,7 +37,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
     public Bdtls$Random random_;
     public ByteString sKR_;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ClientHello, b> implements Object {
         public int a;
         public Bdtls$Random b = Bdtls$Random.getDefaultInstance();
@@ -265,7 +265,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: o */
         public Bdtls$ClientHello buildPartial() {
-            Bdtls$ClientHello bdtls$ClientHello = new Bdtls$ClientHello(this, (br3) null);
+            Bdtls$ClientHello bdtls$ClientHello = new Bdtls$ClientHello(this, (ks3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -365,7 +365,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         return this.extensions_;
     }
 
-    public List<? extends cr3> getExtensionsOrBuilderList() {
+    public List<? extends ls3> getExtensionsOrBuilderList() {
         return this.extensions_;
     }
 
@@ -413,7 +413,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         return super.writeReplace();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AbstractParser<Bdtls$ClientHello> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.Parser
@@ -492,7 +492,7 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, br3 br3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ClientHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -524,11 +524,11 @@ public final class Bdtls$ClientHello extends GeneratedMessageLite implements Mes
         return this.extensions_.get(i);
     }
 
-    public cr3 getExtensionsOrBuilder(int i) {
+    public ls3 getExtensionsOrBuilder(int i) {
         return this.extensions_.get(i);
     }
 
-    public /* synthetic */ Bdtls$ClientHello(GeneratedMessageLite.Builder builder, br3 br3Var) {
+    public /* synthetic */ Bdtls$ClientHello(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
         this(builder);
     }
 

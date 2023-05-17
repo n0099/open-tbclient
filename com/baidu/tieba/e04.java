@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.os.Handler;
+import android.os.Message;
+import android.os.SystemClock;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +12,83 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class e04 implements st1 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class e04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static boolean a;
+    public static long b;
+    public static Handler c;
+    public static long d;
+    public static final Handler.Callback e;
+    public static final e04 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, d04> a;
+
+    /* loaded from: classes5.dex */
+    public static final class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-884788061, "Lcom/baidu/tieba/e04$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-884788061, "Lcom/baidu/tieba/e04$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.Handler.Callback
+        public final boolean handleMessage(Message msg) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, msg)) == null) {
+                Intrinsics.checkNotNullParameter(msg, "msg");
+                if (msg.what == 0 && e04.f.g() && e04.a(e04.f) < SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
+                    long elapsedRealtime = SystemClock.elapsedRealtime();
+                    e04.b = (e04.a(e04.f) + elapsedRealtime) - e04.c(e04.f);
+                    e04 e04Var = e04.f;
+                    e04.d = elapsedRealtime;
+                    Handler b = e04.b(e04.f);
+                    if (b != null) {
+                        b.sendEmptyMessageDelayed(0, 1000L);
+                    }
+                    if ((e04.a(e04.f) / 1000) % 15 == 0) {
+                        fz3.o.U(e04.a(e04.f));
+                        return true;
+                    }
+                    return true;
+                }
+                e04 e04Var2 = e04.f;
+                e04.d = 0L;
+                e04.f.i(false);
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +103,8 @@ public class e04 implements st1 {
                 return;
             }
         }
-        b = ho1.a;
+        f = new e04();
+        e = a.a;
     }
 
     public e04() {
@@ -46,76 +117,89 @@ public class e04 implements st1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
-        c();
     }
 
-    @Override // com.baidu.tieba.st1
-    public xz1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
-        InterceptResult invokeLLL;
+    public final long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, bl2Var)) == null) {
-            return b(str, jSONObject, bl2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        return (xz1) invokeLLL.objValue;
+        return invokeV.longValue;
     }
 
-    public final xz1 b(String str, JSONObject jSONObject, bl2 bl2Var) {
-        InterceptResult invokeLLL;
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, bl2Var)) == null) {
-            d04 d04Var = this.a.get(str);
-            if (d04Var != null) {
-                if (b) {
-                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
-                }
-                return d04Var.a(jSONObject, bl2Var);
-            }
-            if (b) {
-                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
-            }
-            return new xz1(10002, "no such api.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
         }
-        return (xz1) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(new b04());
-            d(new c04());
-            d(new zy3());
-            d(new dz3());
-            d(new az3());
-            d(new s04());
-            d(new bz3());
-            d(new i04());
-            d(new p04());
-            d(new yy3());
-            d(new fz3());
-            d(new cz3());
-            d(new ez3());
-            d(new l04());
-            d(new r04());
-            d(new m04());
-            d(new o04());
-            d(new n04());
+            long j = b;
+            if (j < 30000) {
+                return;
+            }
+            b = j % 30000;
+            fz3.o.M();
         }
     }
 
-    public void d(d04 d04Var) {
+    public static final /* synthetic */ long a(e04 e04Var) {
+        return b;
+    }
+
+    public static final /* synthetic */ Handler b(e04 e04Var) {
+        return c;
+    }
+
+    public static final /* synthetic */ long c(e04 e04Var) {
+        return d;
+    }
+
+    public final void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, d04Var) == null) {
-            if (b && TextUtils.isEmpty(d04Var.a)) {
-                throw new IllegalArgumentException("action name is null");
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            a = z;
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (c == null) {
+                c = new Handler(e);
             }
-            if (b && this.a.containsKey(d04Var.a)) {
-                throw new IllegalArgumentException("duplicate action: " + d04Var);
+            b = fz3.o.A();
+            a = true;
+            d = SystemClock.elapsedRealtime();
+            Handler handler = c;
+            if (handler != null) {
+                handler.sendEmptyMessageDelayed(0, 1000L);
             }
-            this.a.put(d04Var.a, d04Var);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            a = false;
+            Handler handler = c;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            if (d > 0) {
+                long elapsedRealtime = SystemClock.elapsedRealtime();
+                b = (b + elapsedRealtime) - d;
+                d = elapsedRealtime;
+            }
+            fz3.o.U(b);
         }
     }
 }

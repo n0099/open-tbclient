@@ -8,6 +8,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.google.protobuf.CodedInputStream;
 import com.ss.android.download.api.config.q;
@@ -18,12 +19,12 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static com.ss.android.downloadlib.addownload.b.g a(Context context, Uri uri) {
         if (context != null && uri != null && "market".equals(uri.getScheme())) {
             try {
-                Intent intent = new Intent("android.intent.action.VIEW", uri);
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, uri);
                 if (!l.a(context, intent)) {
                     return new com.ss.android.downloadlib.addownload.b.g(6, 13);
                 }
@@ -56,7 +57,7 @@ public class h {
         }
         Context context = com.ss.android.downloadlib.addownload.j.getContext();
         Uri parse = Uri.parse(str);
-        Intent intent = new Intent("android.intent.action.VIEW");
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(parse);
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.putExtra("open_url", str);
@@ -316,7 +317,7 @@ public class h {
         }
         try {
             Uri parse = Uri.parse(str);
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(parse);
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.putExtra("open_url", str);
@@ -388,7 +389,7 @@ public class h {
             String a3 = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("af"), optString);
             boolean a4 = com.ss.android.socialbase.appdownloader.f.a.a(i, context, a2);
             StringBuilder sb = new StringBuilder(String.format(a, str, a3, a2));
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             String i2 = com.ss.android.socialbase.appdownloader.f.d.i();
             if (l.d(context, i2)) {
                 intent.setPackage(i2);
@@ -417,7 +418,7 @@ public class h {
     }
 
     public static boolean a(@NonNull Activity activity, @NonNull String str, @NonNull HashMap<String, String> hashMap) {
-        Intent intent = new Intent("android.intent.action.VIEW");
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(Uri.parse(BaseConstants.MARKET_PREFIX + str));
         intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
         intent.putExtra("param", hashMap);
@@ -483,7 +484,7 @@ public class h {
             context = com.ss.android.downloadlib.addownload.j.getContext();
         }
         if (!TextUtils.isEmpty(str)) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             if (!(context instanceof Activity)) {
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 if (com.ss.android.socialbase.downloader.g.a.c().a("fix_app_link_flag")) {

@@ -1,171 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.publisher.ReplyEditorParams;
-import com.baidu.tieba.b73;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class h53 extends u93 {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Modifier;
+/* loaded from: classes5.dex */
+public class h53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements z43 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-
-        public a(h53 h53Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774659, "Lcom/baidu/tieba/h53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h53Var, callbackHandler, unitedSchemeEntity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.z43
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject == null) {
-                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.c);
-                } else {
-                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.c);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z43
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            }
-        }
-
-        public b(h53 h53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h53(u83 u83Var) {
-        super(u83Var, "/swanAPI/community/openReplyEditor");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947774659, "Lcom/baidu/tieba/h53;");
                 return;
             }
         }
+        a = qp1.a;
     }
 
-    public final void j(Context context) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void a(int i, String str, String str2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            b73.a aVar = new b73.a(context);
-            aVar.m(false);
-            aVar.U(R.string.obfuscated_res_0x7f0f13e7);
-            aVar.v(R.string.obfuscated_res_0x7f0f13eb);
-            aVar.O(R.string.obfuscated_res_0x7f0f011a, new b(this));
-            aVar.X();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, bundle}) == null) {
+            g53 b = b(str);
+            if (b == null) {
+                if (!a) {
+                    c(i, str2, null);
+                    return;
+                }
+                throw new RuntimeException("Messenger创建代理类失败");
+            }
+            if (a) {
+                Log.d("MDelegate-Delegation", "exec call messenger delegation: " + str);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            b.a = bundle;
+            b.b = i;
+            b.c = str2;
+            b.b(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    @SuppressLint({"BDThrowableCheck"})
+    public static g53 b(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
-                return false;
-            } else if (x73Var.n0()) {
-                if (u93.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.e("MDelegate-Delegation", "create delegation with null delegate name");
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                JSONObject d = xk3.d(unitedSchemeEntity.getParam("params"));
-                String optString = d.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
+                return null;
+            }
+            try {
+                Class<?> cls = Class.forName(str);
+                if (cls == null) {
+                    if (!a) {
+                        return null;
+                    }
+                    throw new RuntimeException("Messenger代理类不存在：" + str);
                 }
-                a aVar = new a(this, callbackHandler, unitedSchemeEntity, optString);
-                ReplyEditorParams fromJson = ReplyEditorParams.fromJson(d);
-                if (fromJson == null) {
-                    j(context);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params info");
-                    return false;
+                int modifiers = cls.getModifiers();
+                if (g53.class.isAssignableFrom(cls) && !cls.isInterface() && !Modifier.isAbstract(modifiers)) {
+                    Constructor<?> declaredConstructor = cls.getDeclaredConstructor(new Class[0]);
+                    declaredConstructor.setAccessible(true);
+                    Object newInstance = declaredConstructor.newInstance(new Object[0]);
+                    if (!(newInstance instanceof g53)) {
+                        if (!a) {
+                            return null;
+                        }
+                        throw new RuntimeException("Messenger代理类不是:" + g53.class.getName());
+                    }
+                    return (g53) newInstance;
                 }
-                d53.c().e(x73Var, fromJson, aVar);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                if (!a) {
+                    return null;
+                }
+                throw new RuntimeException("Messenger代理类不合法：" + str);
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException e) {
+                if (!a) {
+                    return null;
+                }
+                e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
-        return invokeLLLL.booleanValue;
+        return (g53) invokeL.objValue;
+    }
+
+    public static void c(int i, String str, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeILL(65539, null, i, str, bundle) != null) || o53.a(str)) {
+            return;
+        }
+        if (a) {
+            Log.d("MDelegate-Delegation", "send result to client: " + i + " observer: " + str);
+        }
+        Bundle bundle2 = new Bundle();
+        bundle2.putString("key_observer_id", str);
+        if (bundle != null) {
+            bundle2.putBundle("key_result_data", bundle);
+        }
+        if (i == -1000) {
+            z53.f(bundle2);
+        } else {
+            z53.e(i, bundle2);
+        }
     }
 }

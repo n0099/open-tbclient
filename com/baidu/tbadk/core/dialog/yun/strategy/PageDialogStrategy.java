@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.b;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.p25;
+import com.baidu.tieba.y35;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,13 +19,13 @@ import com.google.gson.annotations.SerializedName;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
-public class PageDialogStrategy implements p25 {
+/* loaded from: classes4.dex */
+public class PageDialogStrategy implements y35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Data {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class PageDialogStrategy implements p25 {
         }
     }
 
-    @Override // com.baidu.tieba.p25
+    @Override // com.baidu.tieba.y35
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -75,7 +75,7 @@ public class PageDialogStrategy implements p25 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.p25
+    @Override // com.baidu.tieba.y35
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -91,7 +91,7 @@ public class PageDialogStrategy implements p25 {
                 if (Build.VERSION.SDK_INT >= 26) {
                     obj = b.a(",", data.pageNameList);
                 }
-                dj8 yunDialogLog = YunDialogLog.getInstance();
+                yk8 yunDialogLog = YunDialogLog.getInstance();
                 yunDialogLog.c("YunDialogManager", "云弹窗命中页面限制策略，当前页面：" + data.currentPageName + "，配置限制页面：" + obj);
             }
             return contains;

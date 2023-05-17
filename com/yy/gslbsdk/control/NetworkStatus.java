@@ -1,7 +1,8 @@
 package com.yy.gslbsdk.control;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetworkStatus {
     public static final int IP_V4 = 1;
     public static final int IP_V6 = 2;
@@ -21,7 +22,7 @@ public class NetworkStatus {
     }
 
     public static NetworkStatus getInstanceClone() {
-        return getInstance().m765clone();
+        return getInstance().m784clone();
     }
 
     public boolean canV4() {
@@ -67,7 +68,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m765clone() {
+    public NetworkStatus m784clone() {
         NetworkStatus networkStatus = new NetworkStatus();
         networkStatus.mEnableV6 = this.mEnableV6;
         networkStatus.mStatus = this.mStatus;
@@ -89,7 +90,7 @@ public class NetworkStatus {
         if (this.mEnableV6) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         objArr[0] = str;
         objArr[1] = Integer.valueOf(this.mStatus);

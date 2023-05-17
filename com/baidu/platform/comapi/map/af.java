@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class af implements com.baidu.platform.comjni.map.basemap.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.baidu.platform.comapi.map.af";

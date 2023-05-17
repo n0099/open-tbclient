@@ -1,73 +1,72 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.personPolymeric.constant.PersonStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class w99 extends eh5 {
+/* loaded from: classes8.dex */
+public abstract class w99 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948225554, "Lcom/baidu/tieba/w99;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948225554, "Lcom/baidu/tieba/w99;");
-                return;
-            }
-        }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
-    }
-
-    public final void g() {
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i = j;
-            layoutParams.width = i;
-            layoutParams.height = i;
-            layoutParams.topMargin = k;
-            this.c.setLayoutParams(layoutParams);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w99(Context context, View.OnClickListener onClickListener) {
-        super(context, onClickListener);
+    public w99(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View.OnClickListener) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g();
+        this.a = z;
+    }
+
+    public PersonStatus g(UserData userData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, userData)) == null) {
+            if (userData == null) {
+                if (this.a) {
+                    return PersonStatus.HOST_DEFAULT;
+                }
+                return PersonStatus.GUEST_DEFAULT;
+            } else if (userData.isBaijiahaoUser()) {
+                if (this.a) {
+                    return PersonStatus.HOST_BJH;
+                }
+                return PersonStatus.GUEST_BJH;
+            } else if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            } else {
+                return PersonStatus.GUEST_DEFAULT;
+            }
+        }
+        return (PersonStatus) invokeL.objValue;
+    }
+
+    public PersonStatus h(da9 da9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da9Var)) == null) {
+            if (da9Var != null && da9Var.j() != null) {
+                return g(da9Var.j());
+            }
+            if (this.a) {
+                return PersonStatus.HOST_DEFAULT;
+            }
+            return PersonStatus.GUEST_DEFAULT;
+        }
+        return (PersonStatus) invokeL.objValue;
     }
 }

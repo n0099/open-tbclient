@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CloudSettings implements INoProGuard, INetListener {
     public static final String CLOUD_SETTING_URL = "https://browserkernel.baidu.com/config/t5config?cmd=1&";
     public static final String CLOUD_SETTING_URL_HTTP = "http://browserkernel.baidu.com/config/t5config?cmd=1&";
@@ -41,7 +41,7 @@ public class CloudSettings implements INoProGuard, INetListener {
     public int mNetres = -1;
     public ByteArrayOutputStream mData = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a {
         public long a;
         public int b = -1;

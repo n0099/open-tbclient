@@ -25,7 +25,7 @@ jadx.core.utils.exceptions.JadxRuntimeException: Init of enum ARMEABI_V7A uses e
 	at jadx.core.dex.visitors.EnumVisitor.visit(EnumVisitor.java:100)
  */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class AbiType {
     public static final /* synthetic */ AbiType[] $VALUES;
     public static final AbiType ARM64_V8A;

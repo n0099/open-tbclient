@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.util.io.FileUtils;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,24 +8,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class fm6 {
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class fm6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, String> a;
-    public static boolean b;
-    public static final String c;
-    public static final String d;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947768986, "Lcom/baidu/tieba/fm6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947768986, "Lcom/baidu/tieba/fm6;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,113 +56,26 @@ public class fm6 {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public final String a(uz6 businessInfo) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            fm6.g();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947768986, "Lcom/baidu/tieba/fm6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947768986, "Lcom/baidu/tieba/fm6;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = false;
-        c = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res";
-        d = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res.zip";
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || !FileUtils.exists(d)) {
-            return;
-        }
-        km6.a(new a(), "ResLoader", 3);
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && n45.b(d, c)) {
-            FileUtils.deleteFile(d);
-        }
-    }
-
-    public static synchronized Uri b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            synchronized (fm6.class) {
-                Uri c2 = c(str);
-                if (c2 != null) {
-                    return c2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+                if (Intrinsics.areEqual(businessInfo.a().get("is_link_thread"), "1")) {
+                    return "4";
                 }
-                return d(str2);
-            }
-        }
-        return (Uri) invokeLL.objValue;
-    }
-
-    public static synchronized Uri c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (fm6.class) {
-                f();
-                String str2 = c + File.separator + str;
-                if (FileUtils.exists(str2)) {
-                    return new Uri.Builder().scheme("file").path(str2).build();
+                if (Intrinsics.areEqual(businessInfo.a().get(VideoPlayActivityConfig.IS_SHARE_THREAD), "1")) {
+                    return "5";
                 }
-                return null;
-            }
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public static synchronized Uri d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (fm6.class) {
-                e();
-                String str2 = a.get(str);
-                if (TextUtils.isEmpty(str2)) {
-                    return null;
+                if (Intrinsics.areEqual(businessInfo.a().get("thread_type"), "0")) {
+                    return "1";
                 }
-                return Uri.parse(str2);
+                if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK) && !Intrinsics.areEqual(businessInfo.a().get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
+                    return "1";
+                }
+                return "2";
             }
-        }
-        return (Uri) invokeL.objValue;
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || b) {
-            return;
-        }
-        b = true;
-        try {
-            JSONObject jSONObject = new JSONObject(f55.m().s("dynamic_res_url", ""));
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                a.put(next, jSONObject.optString(next));
-            }
-        } catch (Throwable th) {
-            dj8 defaultLog = DefaultLog.getInstance();
-            defaultLog.b("DynamicResLoader", "exception:" + th);
+            return (String) invokeL.objValue;
         }
     }
 }

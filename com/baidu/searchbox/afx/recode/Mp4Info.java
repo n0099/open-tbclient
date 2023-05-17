@@ -1,7 +1,7 @@
 package com.baidu.searchbox.afx.recode;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Mp4Info {
     public final int mBitrate;
     public final long mDurationUs;

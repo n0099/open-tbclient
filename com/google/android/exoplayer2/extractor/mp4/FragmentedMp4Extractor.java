@@ -34,7 +34,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FragmentedMp4Extractor implements Extractor {
     public static final int FLAG_ENABLE_CEA608_TRACK = 8;
     public static final int FLAG_ENABLE_EMSG_TRACK = 4;
@@ -90,7 +90,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     public static final byte[] PIFF_SAMPLE_ENCRYPTION_BOX_EXTENDED_TYPE = {-94, 57, 79, 82, 90, -101, 79, 20, -94, 68, 108, 66, 124, 100, -115, -12};
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Flags {
     }
 
@@ -98,7 +98,7 @@ public final class FragmentedMp4Extractor implements Extractor {
     public void release() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MetadataSampleInfo {
         public final long presentationTimeDeltaUs;
         public final int size;
@@ -109,7 +109,7 @@ public final class FragmentedMp4Extractor implements Extractor {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class TrackBundle {
         public int currentSampleInTrackRun;
         public int currentSampleIndex;

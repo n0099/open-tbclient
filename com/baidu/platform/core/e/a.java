@@ -2,7 +2,7 @@ package com.baidu.platform.core.e;
 
 import com.baidu.mapapi.search.recommendstop.OnGetRecommendStopResultListener;
 import com.baidu.mapapi.search.recommendstop.RecommendStopSearchOption;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a();
 

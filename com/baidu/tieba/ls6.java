@@ -1,41 +1,63 @@
 package com.baidu.tieba;
 
+import android.graphics.BitmapFactory;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ls6 extends zx4 {
+/* loaded from: classes6.dex */
+public class ls6 extends kf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public List<ms6> i;
-    public String j;
-    public boolean k;
-    public int l;
-    public int m;
 
-    public void B(rc5 rc5Var) {
+    @Override // com.baidu.tieba.kf5
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rc5Var) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "_local" : (String) invokeV.objValue;
     }
 
-    public void z(String str) {
+    @Override // com.baidu.tieba.kf5
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "_local" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kf5
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
         }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.kf5
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kf5
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public ls6() {
@@ -51,203 +73,77 @@ public class ls6 extends zx4 {
                 return;
             }
         }
-        this.k = false;
-        this.l = Integer.MIN_VALUE;
-        this.m = Integer.MIN_VALUE;
-        d(14);
+        u();
     }
 
-    public String e() {
+    @Override // com.baidu.tieba.kf5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbFaceManager.i().m();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.kf5
+    public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
+            return EmotionGroupType.LOCAL;
         }
-        return (String) invokeV.objValue;
+        return (EmotionGroupType) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kf5
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return TbFaceManager.i().n(i);
         }
-        return (String) invokeV.objValue;
+        return (String) invokeI.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String getFrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<ms6> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static ls6 o(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.kf5
+    public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            ls6 ls6Var = new ls6();
-            String optString = jSONObject.optString("forum_id");
-            ls6Var.r(optString);
-            String optString2 = jSONObject.optString("forum_name");
-            ls6Var.t(optString2);
-            ls6Var.p(jSONObject.optString("avatar"));
-            ls6Var.y(jSONObject.optString("member_count"));
-            ls6Var.D(jSONObject.optString("thread_count"));
-            JSONArray optJSONArray = jSONObject.optJSONArray("threadlist");
-            ArrayList arrayList = new ArrayList();
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    ms6 e = ms6.e(optJSONArray.optJSONObject(i));
-                    e.f(optString);
-                    e.g(optString2);
-                    arrayList.add(e);
-                }
-            }
-            ls6Var.C(arrayList);
-            ls6Var.z(jSONObject.optString("need_trans"));
-            ls6Var.v(jSONObject.optString("from"));
-            ls6Var.B(rc5.c(jSONObject.optJSONObject("theme_color")));
-            return ls6Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            return TbFaceManager.i().p(str);
         }
-        return (ls6) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void A(int i) {
+    @Override // com.baidu.tieba.kf5
+    public cn n(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.m = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return o(str);
         }
+        return (cn) invokeL.objValue;
     }
 
-    public void C(List<ms6> list) {
+    @Override // com.baidu.tieba.kf5
+    public cn o(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.i = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return TbFaceManager.i().k(str);
         }
+        return (cn) invokeL.objValue;
     }
 
-    public void D(String str) {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.l = i;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void y(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.g = str;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.q(7);
+            super.t(3);
+            cn cnVar = new cn(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08087c), false);
+            super.s(cnVar);
+            super.r(cnVar);
         }
     }
 }

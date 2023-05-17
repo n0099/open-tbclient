@@ -1,123 +1,193 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.im.settingcache.GroupSettingItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class h48<T> {
+/* loaded from: classes5.dex */
+public class h48 extends f48 {
     public static /* synthetic */ Interceptable $ic;
+    public static h48 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public T b;
+
+    /* loaded from: classes5.dex */
+    public class a extends et5<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GroupSettingItemData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ h48 c;
+
+        public a(h48 h48Var, GroupSettingItemData groupSettingItemData, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h48Var, groupSettingItemData, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = h48Var;
+            this.a = groupSettingItemData;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.et5
+        /* renamed from: a */
+        public Void doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773853, "Lcom/baidu/tieba/h48;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947773853, "Lcom/baidu/tieba/h48;");
+                return;
+            }
+        }
+        b = new h48();
+    }
 
     public h48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public T a() {
+    public static h48 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (T) invokeV.objValue;
+        return (h48) invokeV.objValue;
     }
 
-    public int b() {
+    @Override // com.baidu.tieba.f48
+    public se<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            c25.d();
+            return c25.e("tb.im_group_setting");
         }
-        return invokeV.intValue;
+        return (se) invokeV.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
-    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int c(String str, String str2) {
-        InterceptResult invokeLL;
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (str == null) {
-                return -1;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() == 3) {
-                    jSONArray.optString(0);
-                    this.a = jSONArray.optInt(1);
-                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                    if (1 == this.a) {
-                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
-                        String optString2 = optJSONObject.optString("shareSourceIcon");
-                        String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString("shareUrl");
-                        String optString5 = optJSONObject.optString("shareSourceUrl");
-                        if (TextUtils.isEmpty(optString4)) {
-                            ?? r4 = (T) new ShareFromPBMsgData();
-                            r4.setContent(optJSONObject.optString("themeContent"));
-                            r4.setForumName(optJSONObject.optString("forumName"));
-                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                            r4.setPostId(optJSONObject.optString("postID"));
-                            r4.setThreadId(optJSONObject.optString("themeID"));
-                            r4.setTitle(optJSONObject.optString("themeTitle"));
-                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.b = r4;
-                            return 0;
-                        }
-                        ?? r1 = (T) new ShareFromGameCenterMsgData();
-                        r1.setContent(optJSONObject.optString("themeContent"));
-                        r1.setForumName(optJSONObject.optString("forumName"));
-                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r1.setPostId(optJSONObject.optString("postID"));
-                        r1.setThreadId(optJSONObject.optString("themeID"));
-                        r1.setTitle(optJSONObject.optString("themeTitle"));
-                        r1.setButton(optString);
-                        r1.setShareSource(optString3);
-                        r1.setShareSourceIcon(optString2);
-                        r1.setShareSourceUrl(optString5);
-                        r1.setShareUrl(optString4);
-                        this.b = r1;
-                        return 1;
-                    } else if (4 == this.a) {
-                        ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
-                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
-                        r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.b = r12;
-                        return 2;
-                    } else {
-                        return -1;
-                    }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.e(GroupSettingItemData.class);
+        }
+    }
+
+    @Override // com.baidu.tieba.f48
+    public void h(ChatSetting chatSetting) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
+            String uid = groupSettingItemData.getUid();
+            String gid = groupSettingItemData.getGid();
+            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
+                se<String> b2 = b();
+                String str = uid + "@" + gid;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(groupSettingItemData);
+                synchronized (this.a) {
+                    this.a.put(str, groupSettingItemData);
                 }
-                return -1;
-            } catch (Exception unused) {
-                return -1;
+                b2.g(str, jsonStrWithObject);
+            } else if (!TbConfig.getDebugSwitch()) {
+            } else {
+                throw new RuntimeException("key param is null");
             }
         }
-        return invokeLL.intValue;
+    }
+
+    @Override // com.baidu.tieba.f48
+    public void i(ChatSetting chatSetting, is5<Void> is5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, is5Var) == null) && chatSetting != null && (chatSetting instanceof GroupSettingItemData)) {
+            GroupSettingItemData groupSettingItemData = (GroupSettingItemData) chatSetting;
+            String uid = groupSettingItemData.getUid();
+            String gid = groupSettingItemData.getGid();
+            if (!TextUtils.isEmpty(uid) && !TextUtils.isEmpty(gid)) {
+                String str = uid + "@" + gid;
+                synchronized (this.a) {
+                    this.a.put(str, groupSettingItemData);
+                }
+                it5.c(new a(this, groupSettingItemData, str), is5Var);
+            } else if (!TbConfig.getDebugSwitch()) {
+            } else {
+                throw new RuntimeException("key param is null");
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.f48
+    /* renamed from: k */
+    public GroupSettingItemData a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            GroupSettingItemData groupSettingItemData = null;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String str3 = str + "@" + str2;
+            synchronized (this.a) {
+                ChatSetting chatSetting = this.a.get(str3);
+                if (chatSetting instanceof GroupSettingItemData) {
+                    groupSettingItemData = (GroupSettingItemData) chatSetting;
+                }
+            }
+            if (groupSettingItemData == null) {
+                GroupSettingItemData groupSettingItemData2 = new GroupSettingItemData();
+                groupSettingItemData2.setUid(str);
+                groupSettingItemData2.setGid(str2);
+                groupSettingItemData2.setAcceptNotify(true);
+                groupSettingItemData2.setInGroup(true);
+                return groupSettingItemData2;
+            }
+            return groupSettingItemData;
+        }
+        return (GroupSettingItemData) invokeLL.objValue;
     }
 }

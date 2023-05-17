@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface fd9 {
-    <T> void a(T t);
+    void p0(boolean z);
 }

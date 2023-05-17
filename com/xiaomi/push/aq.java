@@ -8,7 +8,7 @@ import android.content.pm.PackageInfo;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Parcel;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class aq implements at {
     public static boolean a;
 
@@ -31,7 +31,7 @@ public class aq implements at {
     /* renamed from: a  reason: collision with other field name */
     public final Object f112a = new Object();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a implements ServiceConnection {
         public a() {
         }
@@ -46,7 +46,7 @@ public class aq implements at {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public static String a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
@@ -63,7 +63,7 @@ public class aq implements at {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public static boolean m188a(IBinder iBinder) {
+        public static boolean m207a(IBinder iBinder) {
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -102,7 +102,7 @@ public class aq implements at {
         }
         synchronized (this.f112a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m101a("huawei's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m120a("huawei's " + str + " wait...");
                 this.f112a.wait(3000L);
             } catch (Exception unused) {
             }
@@ -133,14 +133,14 @@ public class aq implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a  reason: collision with other method in class */
-    public String mo186a() {
+    public String mo205a() {
         a("getOAID");
         return this.f113a;
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo187a() {
+    public boolean mo206a() {
         return a;
     }
 }

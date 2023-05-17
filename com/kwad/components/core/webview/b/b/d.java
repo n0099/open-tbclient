@@ -16,7 +16,7 @@ import com.kwad.components.core.i.e;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends e {
     public com.kwad.components.core.webview.b.b.b Ob;
     public String Od;
@@ -30,12 +30,12 @@ public class d extends e {
     public AdTemplate mAdTemplate;
     public Presenter mPresenter;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         boolean fG();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public boolean Oe;
         public boolean Oo;
@@ -109,7 +109,7 @@ public class d extends e {
     public final View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup) {
         getDialog().requestWindowFeature(1);
         if (this.Om == null) {
-            this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04c3, viewGroup, false);
+            this.Om = (KSFrameLayout) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04e0, viewGroup, false);
         }
         return this.Om;
     }

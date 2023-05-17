@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DelegatingSimpleTypeImpl extends DelegatingSimpleType {
     public final SimpleType delegate;
 

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import java.util.List;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnimatorSetCompat {
     public static void playTogether(@NonNull AnimatorSet animatorSet, @NonNull List<Animator> list) {
         int size = list.size();

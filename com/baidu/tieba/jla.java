@@ -1,55 +1,100 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ala;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-/* loaded from: classes5.dex */
-public class jla {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class jla extends gla {
     public static /* synthetic */ Interceptable $ic;
-    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888522, "Lcom/baidu/tieba/jla;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947888522, "Lcom/baidu/tieba/jla;");
+    @Override // com.baidu.tieba.gla
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 206;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.gla
+    public void j(lla llaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, llaVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.gla
+    public void n(lla llaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, llaVar) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jla(dla dlaVar, lla llaVar, ala.a aVar) {
+        super(dlaVar, llaVar, aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dlaVar, llaVar, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((dla) objArr2[0], (lla) objArr2[1], (ala.a) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new DecimalFormat("0.00");
     }
 
-    public static String a(long j, long j2) {
+    @Override // com.baidu.tieba.gla
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(j);
+            return randomAccessFile;
         }
-        return (String) invokeCommon.objValue;
+        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.gla
+    public Map<String, String> f(lla llaVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, llaVar)) == null) {
+            HashMap hashMap = new HashMap();
+            long c = llaVar.c() + llaVar.b();
+            long a = llaVar.a();
+            hashMap.put("Range", "bytes=" + c + "-" + a);
+            return hashMap;
         }
-        return invokeLL.intValue;
+        return (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gla
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return jla.class.getSimpleName();
+        }
+        return (String) invokeV.objValue;
     }
 }

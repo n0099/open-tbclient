@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.image;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImmutableQualityInfo implements QualityInfo {
     public static final QualityInfo FULL_QUALITY = of(Integer.MAX_VALUE, true, true);
     public boolean mIsOfFullQuality;

@@ -10,7 +10,7 @@ import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.ij1;
+import com.baidu.tieba.yj1;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileUploadStrategy implements IUpload {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final int KEEP_ALIVE_TIME = 60000;
@@ -28,14 +28,14 @@ public class FileUploadStrategy implements IUpload {
     public boolean mInvalidDirDeleted = false;
     public ThreadPoolExecutor mUploadExecutor = new ThreadPoolExecutor(1, 1, 60000, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Constants {
         public static final int MAX_COUNT_ATTACHMENT = 100;
         public static final long MAX_LIFE_TIME = 2592000000L;
         public static final int UPLOAD_MAX_FILE = 5;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         @NonNull
         public File mFile;
@@ -69,7 +69,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FileName {
         public static final String FILE_ID_SEPARATOR = "_";
         public static final String SEPARATOR = "#";
@@ -144,7 +144,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class StoreUtil {
         public static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
         public static final String BASE_UPLOAD_ATTACHMENT_DIR = "attachment";
@@ -181,7 +181,7 @@ public class FileUploadStrategy implements IUpload {
             if (applicationContext != null) {
                 appContext = applicationContext;
             }
-            return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), ij1.b().replace(":", "_"));
+            return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), yj1.b().replace(":", "_"));
         }
 
         @NonNull
@@ -190,7 +190,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TrimConfig {
         public long mLifeTime;
         public int mMaxCount;
@@ -275,7 +275,7 @@ public class FileUploadStrategy implements IUpload {
 
     @Override // com.baidu.searchbox.aperf.bosuploader.uploadstrategy.IUpload
     public void upload(@NonNull List<File> list, @NonNull final String str, @NonNull String str2) {
-        final File createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), ij1.b(), str2);
+        final File createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), yj1.b(), str2);
         if (createAttachZipFile != null) {
             this.mUploadExecutor.execute(new Runnable() { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1
                 @Override // java.lang.Runnable

@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,363 +14,592 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class pb5 {
     public static /* synthetic */ Interceptable $ic;
+    public static pb5 o;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public c c;
+    public int a;
+    public boolean b;
+    public boolean c;
     public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public boolean l;
+    public String m;
+    public String n;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Object, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public b a;
-        public volatile NetWork b;
-        public final /* synthetic */ pb5 c;
-
-        /* loaded from: classes5.dex */
-        public class a implements Comparator<Map.Entry<String, Integer>> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // java.util.Comparator
-            /* renamed from: a */
-            public int compare(Map.Entry<String, Integer> entry, Map.Entry<String, Integer> entry2) {
-                InterceptResult invokeLL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
-                    return (int) (gg.e(String.valueOf(entry.getValue()), 0) - gg.e(String.valueOf(entry2.getValue()), 0));
-                }
-                return invokeLL.intValue;
-            }
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public c(pb5 pb5Var, b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948056294, "Lcom/baidu/tieba/pb5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pb5Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = pb5Var;
-            this.a = null;
-            this.b = null;
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                try {
-                    this.b = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_IP_LIST);
-                    String postNetData = this.b.postNetData();
-                    if (this.b.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        JSONObject jSONObject = new JSONObject(postNetData);
-                        if (jSONObject.optInt("error_code") == 0) {
-                            String optString = jSONObject.optString("urls");
-                            this.c.b = this.c.j(optString);
-                            if (this.c.b != null && this.c.b.size() > 0) {
-                                HashMap hashMap = new HashMap();
-                                int i = 0;
-                                for (int i2 = 0; i2 < this.c.b.size(); i2++) {
-                                    String str = (String) this.c.b.get(i2);
-                                    ub5 ub5Var = new ub5();
-                                    ub5Var.a(str);
-                                    if (ub5Var.d()) {
-                                        hashMap.put(str, Integer.valueOf(ub5Var.b()));
-                                    }
-                                }
-                                if (hashMap.size() > 0) {
-                                    this.c.b = new ArrayList();
-                                    ArrayList<Map.Entry> arrayList = new ArrayList(hashMap.entrySet());
-                                    Collections.sort(arrayList, new a(this));
-                                    StringBuilder sb = new StringBuilder(50);
-                                    for (Map.Entry entry : arrayList) {
-                                        this.c.b.add(entry.getKey());
-                                        if (i != 0) {
-                                            sb.append(",");
-                                        }
-                                        i++;
-                                        sb.append((String) entry.getKey());
-                                    }
-                                    optString = sb.toString();
-                                }
-                                f55.m().A("KeyOfSharedPrefListGetTime", System.currentTimeMillis());
-                                f55.m().B("KeyOfSharedPrefIpList", optString);
-                                return null;
-                            }
-                            return null;
-                        }
-                        return null;
-                    }
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return (Void) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onCancelled(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948056294, "Lcom/baidu/tieba/pb5;");
+                return;
             }
         }
+        o = new pb5();
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
+    public static pb5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return o;
         }
+        return (pb5) invokeV.objValue;
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.b != null) {
-                    this.b.cancelNetConnect();
-                    this.b = null;
-                }
-                this.c.c = null;
-                super.cancel(true);
-            }
+    public boolean A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
+        return invokeV.booleanValue;
+    }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.c.c = null;
-                b bVar = this.a;
-                if (bVar != null) {
-                    bVar.a();
-                }
-            }
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return rb5.c().g();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            qs9.r();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static pb5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-523661466, "Lcom/baidu/tieba/pb5$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-523661466, "Lcom/baidu/tieba/pb5$d;");
-                    return;
-                }
-            }
-            a = new pb5(null);
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
         }
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            if (!this.j && !this.i) {
+                return 0;
+            }
+            if (this.j && !this.i) {
+                return 1;
+            }
+            if (!this.j && this.i) {
+                return 2;
+            }
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch_has_done", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            rb5.c().l();
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return this.n;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return o65.m().i("permit_screen_lock", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return rb5.c().d();
+        }
+        return invokeV.intValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return rb5.c().e();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "follow_friends_push_switch", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_invitation_answer_switch", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
+            qs9.n();
+        }
+    }
+
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+            return this.h;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            if (this.a > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public pb5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.d = false;
-        this.d = false;
-        this.b = null;
+        this.a = 300;
+        this.b = true;
+        this.c = false;
+        this.d = true;
+        this.e = true;
+        this.f = true;
+        this.g = true;
+        this.h = true;
+        this.i = false;
+        this.j = true;
+        this.k = true;
+        this.l = false;
+        this.m = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
+        this.n = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
     }
 
-    public static pb5 f() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d.a;
-        }
-        return (pb5) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f55.m().n("KeyOfSharedPrefImCount", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            if (!this.f && !this.g && !this.h && !this.d && !s() && !H() && !o() && !n() && !F() && !r()) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = false;
-        }
-    }
-
-    public /* synthetic */ pb5(a aVar) {
-        this();
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TiebaIMConfig.defaultUrl.equals(str)) {
-            this.a = str;
-            f55.m().B("KeyOfSharedPrefValidIp", str);
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) && this.c == null) {
-            this.d = true;
-            c cVar = new c(this, bVar);
-            this.c = cVar;
-            cVar.setSelfExecute(true);
-            this.c.execute(new Object[0]);
-        }
-    }
-
-    public List<String> g() {
+    public final boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                if (System.currentTimeMillis() - f55.m().o("KeyOfSharedPrefListGetTime", 0L) > 86400000) {
-                    f55.m().B("KeyOfSharedPrefIpList", "");
-                    return null;
-                }
-                this.b = j(f55.m().s("KeyOfSharedPrefIpList", null));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            o65 m = o65.m();
+            if (m.n(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", -1) != 0) {
+                return false;
             }
-            return this.b;
+            return true;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String h() {
+    public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int e = e();
-            if (e >= 10) {
-                f55.m().z("KeyOfSharedPrefImCount", 0);
-                f55.m().B("KeyOfSharedPrefValidIp", "");
-                this.a = null;
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            o65 m = o65.m();
+            if (m.n(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", 1) == 1) {
+                return true;
             }
-            if (this.a == null) {
-                this.a = f55.m().s("KeyOfSharedPrefValidIp", null);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            o65 m = o65.m();
+            int n = m.n(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", -1);
+            if (n == 0 || n == 1) {
+                return true;
             }
-            if (!hi.isEmpty(this.a)) {
-                f55.m().z("KeyOfSharedPrefImCount", e + 1);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "follow_friends_push_switch", z);
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "follow_friends_push_switch_has_done", true);
+        }
+    }
+
+    public void Y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch", z);
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch_has_done", true);
+        }
+    }
+
+    public void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.e = z;
+            b();
+        }
+    }
+
+    public void L(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean("group_notify", z);
+            b();
+        }
+    }
+
+    public void M(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d = z;
+            b();
+        }
+    }
+
+    public void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.b = z;
+            b();
+        }
+    }
+
+    public void O(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            if (i == 0) {
+                this.a = i;
+                nb5.h0().a0(0);
+                nb5.h0().d0(0);
             } else {
-                this.a = null;
+                this.a = 300;
             }
-            return this.a;
+            b();
         }
-        return (String) invokeV.objValue;
     }
 
-    public final List<String> j(String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public void P(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null && str.length() > 0 && (split = str.split(",")) != null && split.length > 0) {
-                ArrayList arrayList = new ArrayList(3);
-                for (String str2 : split) {
-                    arrayList.add(str2);
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.k = z;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public void Q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.h = z;
+            b();
+        }
+    }
+
+    public void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.f = z;
+            b();
+        }
+    }
+
+    public void S(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.j = z;
+        }
+    }
+
+    public void T(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void U(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.g = z;
+            b();
+        }
+    }
+
+    public void V(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public void W(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void X(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            this.m = str;
+        }
+    }
+
+    public void Z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", z);
+        }
+    }
+
+    public void a0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_invitation_answer_switch", z);
+        }
+    }
+
+    public void b0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
+            rb5.c().h(z, j(), k());
+        }
+    }
+
+    public void d0(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            if (i == 0) {
+                S(false);
+                T(false);
+            } else if (i == 1) {
+                S(true);
+                T(false);
+            } else if (i == 2) {
+                S(false);
+                T(true);
+            } else {
+                S(true);
+                T(true);
+            }
+        }
+    }
+
+    public void c0(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
+            rb5.c().h(F(), i, i2);
+        }
+    }
+
+    public void f0(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            rb5.c().m(z, j);
+        }
     }
 }

@@ -9,6 +9,7 @@ import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.RetryException;
 import com.baidu.searchbox.dns.transmit.transmitter.exception.StopRequestException;
 import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.privateapi.PrivateApiUtils;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -21,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpDataTransmitter<T> implements HttpTransmitter<T> {
     public static final String CHARSET = "UTF-8";
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded;charset=UTF-8";
@@ -167,7 +168,7 @@ public abstract class HttpDataTransmitter<T> implements HttpTransmitter<T> {
         } else {
             stringBuffer.append("1.0");
         }
-        if ("REL".equals(Build.VERSION.CODENAME)) {
+        if (PrivateApiUtils.SDK_VERSION_NAME.equals(Build.VERSION.CODENAME)) {
             String str2 = Build.MODEL;
             if (str2.length() > 0) {
                 stringBuffer.append("; ");

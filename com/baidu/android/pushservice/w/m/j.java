@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.w.m;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.message.PublicMsg;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,8 +65,8 @@ public final class j {
                     publicMsg.mIsSupportApp = z;
                     publicMsg.mSupportAppname = jSONObject2.getString("as_pkg_name");
                 }
-                if (!jSONObject.isNull(EmotionResourceInfo.JSON_KEY_PKG_NAME)) {
-                    publicMsg.mPkgName = jSONObject.getString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                if (!jSONObject.isNull("pkg_name")) {
+                    publicMsg.mPkgName = jSONObject.getString("pkg_name");
                 }
                 if (!jSONObject.isNull("pkg_vercode")) {
                     publicMsg.mPkgVercode = jSONObject.getInt("pkg_vercode");

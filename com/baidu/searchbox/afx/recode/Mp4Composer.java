@@ -13,12 +13,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Mp4Composer {
     public static final String TAG = "Mp4Composer";
     public ExecutorService mExecutorService;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Listener {
         void onCompleted();
 

@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.downloader.i;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class o implements com.ss.android.socialbase.downloader.downloader.m, com.ss.android.socialbase.downloader.downloader.n {
     public static final String a = "o";
     public volatile com.ss.android.socialbase.downloader.downloader.i b;

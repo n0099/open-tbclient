@@ -1,128 +1,83 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class vx9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "databases";
-    public static final String b = "shared_prefs";
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class vx9 extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
+    public wx9 b;
+    public DressItemData c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948256306, "Lcom/baidu/tieba/vx9;")) == null) {
-            return;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public vx9(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948256306, "Lcom/baidu/tieba/vx9;");
-        }
-    }
-
-    public static final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            c(dy9.f());
-            e();
-            d();
-            dy9.a();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a();
-            f();
-            h();
-            g();
-        }
-    }
-
-    public static final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Intrinsics.areEqual("mounted", Environment.getExternalStorageState()) && dy9.c(dy9.d().getExternalCacheDir())) {
-                return true;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, dressItemData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = tbPageContext;
+        this.c = dressItemData;
+        this.b = new wx9(tbPageContext);
     }
 
-    public static final boolean e() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return dy9.c(dy9.d().getCacheDir());
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            this.b.d(this.c);
+            this.a.getLayoutMode().k(this.b.a());
+            return this.b.a();
         }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean f() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File filesDir = dy9.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
-            }
-            return dy9.c(new File(str, a));
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return dy9.c(dy9.d().getFilesDir());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return dy9.c(dy9.g(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            File filesDir = dy9.d().getFilesDir();
-            if (filesDir != null) {
-                str = filesDir.getParent();
-            } else {
-                str = null;
-            }
-            boolean c = dy9.c(new File(str, b));
-            if (c) {
-                dy9.b();
-            }
-            return c;
-        }
-        return invokeV.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

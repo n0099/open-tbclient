@@ -1,44 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.graphics.Color;
+import android.text.TextUtils;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
-import com.baidu.android.common.security.RSAUtil;
+import androidx.core.content.ContextCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
-public final class p41 {
+/* loaded from: classes6.dex */
+public class p41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
-        InterceptResult invokeLL;
+    @ColorInt
+    public static int a(@Nullable String str, @ColorRes int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ContextCompat.getColor(bj0.b(), i);
+            }
             try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, publicKey);
-                return cipher.doFinal(bArr);
-            } catch (Exception unused) {
-                return null;
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                return ContextCompat.getColor(bj0.b(), i);
             }
         }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr));
-        }
-        return (PublicKey) invokeL.objValue;
+        return invokeLI.intValue;
     }
 }

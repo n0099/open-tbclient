@@ -1,65 +1,56 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public interface tr1 {
-    boolean A();
+/* loaded from: classes7.dex */
+public class tr1 implements yt1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean B();
+    @Override // com.baidu.tieba.yt1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
-    JSONObject C();
+    @Override // com.baidu.tieba.yt1
+    public void b(String str, wx1 wx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wx1Var) == null) {
+        }
+    }
 
-    boolean D();
+    @Override // com.baidu.tieba.yt1
+    public void c(SwanAppActivity swanAppActivity, String str, wx1 wx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity, str, wx1Var) == null) {
+        }
+    }
 
-    void E();
+    @Override // com.baidu.tieba.yt1
+    public void d(String str, String str2, JSONObject jSONObject, wx1 wx1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, jSONObject, wx1Var) == null) {
+        }
+    }
 
-    long F();
-
-    boolean G();
-
-    long H();
-
-    String getExpInfos();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    boolean p();
-
-    int q();
-
-    boolean r();
-
-    boolean s();
-
-    boolean t();
-
-    int u();
-
-    boolean v();
-
-    boolean w();
-
-    boolean x();
-
-    int y();
-
-    boolean z();
+    public tr1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

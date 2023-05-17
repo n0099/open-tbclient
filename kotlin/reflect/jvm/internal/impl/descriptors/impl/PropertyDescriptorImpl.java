@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -34,7 +35,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.utils.SmartSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImpl implements PropertyDescriptor {
     public FieldDescriptor backingField;
     public FieldDescriptor delegateField;
@@ -228,7 +229,7 @@ public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImp
                             break;
                     }
                 } else {
-                    objArr[1] = "copy";
+                    objArr[1] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
                 }
                 switch (i) {
                     case 7:
@@ -348,7 +349,7 @@ public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImp
         return null;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class CopyConfiguration {
         public ReceiverParameterDescriptor dispatchReceiverParameter;
         public CallableMemberDescriptor.Kind kind;

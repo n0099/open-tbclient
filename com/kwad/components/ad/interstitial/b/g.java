@@ -6,7 +6,7 @@ import com.kwad.sdk.api.KsInterstitialAd;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g extends b implements a.b {
     public static long hs = 1000;
     public c gh;
@@ -15,7 +15,7 @@ public final class g extends b implements a.b {
     public int hu;
     public AdTemplate mAdTemplate;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public int hv;
         public boolean hw;

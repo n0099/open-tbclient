@@ -1,7 +1,7 @@
 package com.vivo.push.util;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface e {
     String a(String str, String str2);
 

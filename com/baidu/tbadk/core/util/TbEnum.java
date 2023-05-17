@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class TbEnum {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ChatInputStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INPUT_DRAFT_KEY = "input_draft";
@@ -33,7 +33,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ChatType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP_MODE = 0;
@@ -55,7 +55,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CustomGroupId {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String GROUP_UPDATE = "-1002";
@@ -79,7 +79,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CustomGroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP_VALIDATION = -4;
@@ -112,7 +112,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class GamePlayOrderMsgStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LETTER_TYPE_ORDER_ACCEPT = 2;
@@ -142,7 +142,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class GroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP_TYPE_NOTIFY = 8;
@@ -169,7 +169,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgContentSubType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short FRS_SUB_TYPE_EXTRA_SHARE = 4;
@@ -192,12 +192,13 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgContentType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_CONTENT_TYPE_ACTIVITY = 6;
         public static final short MSG_CONTENT_TYPE_BIG_EMOTION = 4;
         public static final short MSG_CONTENT_TYPE_BREAK_ICE = 30;
+        public static final short MSG_CONTENT_TYPE_COMMON_SHARE_CARD = 38;
         public static final short MSG_CONTENT_TYPE_EXTRA = 9;
         public static final short MSG_CONTENT_TYPE_GAMEPLAY_ORDER = 34;
         public static final short MSG_CONTENT_TYPE_INVITE_2_GROUP = 5;
@@ -223,6 +224,8 @@ public abstract class TbEnum {
         public static final int MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK = 7013;
         public static final int MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG = 7002;
         public static final int MSG_CONTENT_TYPE_SYSTEM_RECALL_MSG_PERSONAL = 7015;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_CHAT_ROOM = 7020;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_COMMON = 7021;
         public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_FORUM = 7009;
         public static final int MSG_CONTENT_TYPE_SYSTEM_SHARE_THREAD = 7010;
         public static final int MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST = 7011;
@@ -260,7 +263,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final short MSG_STATUS_MY_SENDFAIL = 2;
@@ -290,7 +293,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class MsgVoiceStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int VOICE_STATUS_DOWNLOADING = 2;
@@ -313,7 +316,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ParamKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String CHAT_MODE = "chat_mode";
@@ -339,7 +342,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ResourceType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BIGIMAGE = 1;
@@ -361,7 +364,7 @@ public abstract class TbEnum {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class SystemMessage {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EVENT_ID_ADD_FRIEND = "406";

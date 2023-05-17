@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ah {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0061 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -30,7 +30,7 @@ public class ah {
         try {
             try {
                 File file = new File(new File(context.getExternalFilesDir(null), "/.vdevdir/"), "lcfp.lock");
-                y.m764a(file);
+                y.m783a(file);
                 randomAccessFile = new RandomAccessFile(file, "rw");
                 try {
                     fileLock = randomAccessFile.getChannel().lock();
@@ -155,7 +155,7 @@ public class ah {
                 y.a(bufferedReader);
                 throw th;
             }
-        } else if (!y.m764a(file)) {
+        } else if (!y.m783a(file)) {
             return true;
         }
         arrayList.add(str2);

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tieba.jza;
+import com.baidu.tieba.h1b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +23,13 @@ import java.util.TimeZone;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -129,7 +129,7 @@ public class n {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
@@ -296,8 +296,8 @@ public class n {
                 jSONObject.put(HttpConstants.HTTP_HARDWARE, jSONObject4);
                 jSONObject.put("aaid", str);
                 jSONObject.put("token", str2);
-                jSONObject.put("app_id", jza.c(context).a("client/app_id"));
-                jSONObject.put("region", jza.c(context).a("region"));
+                jSONObject.put("app_id", h1b.c(context).a("client/app_id"));
+                jSONObject.put("region", h1b.c(context).a("region"));
                 return jSONObject.toString();
             } catch (JSONException unused) {
                 HMSLog.e("ReportAaidToken", "Catch JSONException.");

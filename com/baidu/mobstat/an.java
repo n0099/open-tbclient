@@ -5,7 +5,7 @@ import com.baidu.android.common.others.IStringUtil;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class an {
     public String a;
     public String b;

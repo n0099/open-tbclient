@@ -390,25 +390,6 @@ public class NetWorkUtils {
         return (String) invokeV.objValue;
     }
 
-    public static String getNetworkClass() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                if (activeNetworkInfo.getType() == 1) {
-                    return "wifi";
-                }
-                if (activeNetworkInfo.getType() == 0) {
-                    return getMobileNetworkType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
-                }
-                return "unknown";
-            }
-            return "no";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public static String getWifiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -485,6 +466,25 @@ public class NetWorkUtils {
             }
         }
         return (String) invokeIL.objValue;
+    }
+
+    public static String getNetworkClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            NetworkInfo activeNetworkInfo = getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                if (activeNetworkInfo.getType() == 1) {
+                    return "wifi";
+                }
+                if (activeNetworkInfo.getType() == 0) {
+                    return getMobileNetworkType(activeNetworkInfo.getSubtype(), activeNetworkInfo.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "no";
+        }
+        return (String) invokeV.objValue;
     }
 
     @Deprecated

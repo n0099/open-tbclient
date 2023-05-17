@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ia implements is<ia, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
@@ -21,11 +21,11 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
     public int compareTo(ia iaVar) {
         int a2;
         if (ia.class.equals(iaVar.getClass())) {
-            int compareTo = Boolean.valueOf(m533a()).compareTo(Boolean.valueOf(iaVar.m533a()));
+            int compareTo = Boolean.valueOf(m552a()).compareTo(Boolean.valueOf(iaVar.m552a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m533a() || (a2 = it.a(this.f605a, iaVar.f605a)) == 0) {
+            if (!m552a() || (a2 = it.a(this.f605a, iaVar.f605a)) == 0) {
                 return 0;
             }
             return a2;
@@ -47,19 +47,19 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo621a();
+        jdVar.mo640a();
         while (true) {
-            ja mo617a = jdVar.mo617a();
-            byte b = mo617a.a;
+            ja mo636a = jdVar.mo636a();
+            byte b = mo636a.a;
             if (b == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            if (mo617a.f813a == 1 && b == 15) {
-                jb mo618a = jdVar.mo618a();
-                this.f605a = new ArrayList(mo618a.f814a);
-                for (int i = 0; i < mo618a.f814a; i++) {
+            if (mo636a.f813a == 1 && b == 15) {
+                jb mo637a = jdVar.mo637a();
+                this.f605a = new ArrayList(mo637a.f814a);
+                for (int i = 0; i < mo637a.f814a; i++) {
                     hp hpVar = new hp();
                     hpVar.a(jdVar);
                     this.f605a.add(hpVar);
@@ -73,19 +73,19 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m533a() {
+    public boolean m552a() {
         return this.f605a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m534a(ia iaVar) {
+    public boolean m553a(ia iaVar) {
         if (iaVar == null) {
             return false;
         }
-        boolean m533a = m533a();
-        boolean m533a2 = iaVar.m533a();
-        if (m533a || m533a2) {
-            return m533a && m533a2 && this.f605a.equals(iaVar.f605a);
+        boolean m552a = m552a();
+        boolean m552a2 = iaVar.m552a();
+        if (m552a || m552a2) {
+            return m552a && m552a2 && this.f605a.equals(iaVar.f605a);
         }
         return true;
     }
@@ -104,12 +104,12 @@ public class ia implements is<ia, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo625a();
+        jdVar.mo644a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ia)) {
-            return m534a((ia) obj);
+            return m553a((ia) obj);
         }
         return false;
     }

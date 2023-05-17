@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EncodedCacheKeyMultiplexProducer extends MultiplexProducer<Pair<CacheKey, ImageRequest.RequestLevel>, EncodedImage> {
     public final CacheKeyFactory mCacheKeyFactory;
 

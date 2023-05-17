@@ -12,9 +12,9 @@ import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.hj1;
+import com.baidu.tieba.xj1;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ANRContext {
     public static final IANRContext ANR_CONTEXT_DEFAULT = new IANRContext() { // from class: com.baidu.searchbox.anr.impl.ANRContext.1
         @Override // com.baidu.searchbox.anr.ioc.IANRContext
@@ -22,7 +22,7 @@ public class ANRContext {
             if (AppConfig.isDebug()) {
                 Log.d(BlockMonitor.TAG, "onAppNotResponding");
             }
-            hj1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
+            xj1<IANRRegister> iANRUploadList = ANRRuntime.getInstance().getIANRUploadList();
             if (iANRUploadList != null && iANRUploadList.getList() != null && aNRInfo != null) {
                 if (AppConfig.isDebug()) {
                     Log.i(BlockMonitor.TAG, "ANRInfo = " + aNRInfo.getStackTrace());

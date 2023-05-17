@@ -101,12 +101,12 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0022c implements j.a {
+    public class C0025c implements j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d a;
 
-        public C0022c(c cVar, d dVar) {
+        public C0025c(c cVar, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -218,6 +218,6 @@ public class c {
     public final com.baidu.android.pushservice.z.c b(d dVar, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, str)) == null) ? new com.baidu.android.pushservice.p.j(this.a, str, new C0022c(this, dVar)) : (com.baidu.android.pushservice.z.c) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, str)) == null) ? new com.baidu.android.pushservice.p.j(this.a, str, new C0025c(this, dVar)) : (com.baidu.android.pushservice.z.c) invokeLL.objValue;
     }
 }

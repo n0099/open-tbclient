@@ -6,7 +6,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Session {
     public volatile long a = 0;
     public volatile long b = 0;
@@ -17,7 +17,7 @@ public class Session {
     public List<a> g = new ArrayList();
     public volatile JSONObject h = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String a;
         public String b;

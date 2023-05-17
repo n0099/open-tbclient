@@ -7,12 +7,12 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kk8;
+import com.baidu.tieba.fm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NpsPluginLoadingDialogActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,14 +75,14 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            kk8.j().n();
+            fm8.j().n();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091596) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0915d3) {
             finish();
             x1();
         }
@@ -105,7 +105,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d099b);
+            setContentView(R.layout.obfuscated_res_0x7f0d09d1);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
@@ -115,16 +115,16 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091596);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0915d3);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
-            if (!kk8.j().m()) {
+            if (!fm8.j().m()) {
                 finish();
             } else {
-                kk8.j().o(this);
+                fm8.j().o(this);
             }
         }
     }

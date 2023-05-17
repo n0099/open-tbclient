@@ -1,6 +1,7 @@
 package com.baidu.spswitch.utils;
 
 import android.app.Activity;
+import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ViewUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -119,10 +120,10 @@ public class ViewUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
-            if ((activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) != 0) {
-                return true;
+            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & CodedInputStream.DEFAULT_SIZE_LIMIT) == 0) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }

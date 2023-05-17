@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-/* loaded from: classes7.dex */
-public class wsa implements AdEventListener {
+/* loaded from: classes8.dex */
+public class wsa implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public final /* synthetic */ NativeExpressADData2 c;
-    public final /* synthetic */ ExpressAdListenerWrapper d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ vsa f;
+    public final /* synthetic */ lta b;
+    public final /* synthetic */ tsa c;
 
-    public wsa(vsa vsaVar, NativeExpressADData2 nativeExpressADData2, ExpressAdListenerWrapper expressAdListenerWrapper, String str) {
+    public wsa(tsa tsaVar, lta ltaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vsaVar, nativeExpressADData2, expressAdListenerWrapper, str};
+            Object[] objArr = {tsaVar, ltaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,81 +31,44 @@ public class wsa implements AdEventListener {
                 return;
             }
         }
-        this.f = vsaVar;
-        this.c = nativeExpressADData2;
-        this.d = expressAdListenerWrapper;
-        this.e = str;
+        this.c = tsaVar;
+        this.b = ltaVar;
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onAdClosed() {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
             LogPrinter.d();
-            this.f.onAdClose(this.c);
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.e);
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onClick() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onExposed() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.e();
-            this.f.onAdShow(this.c, this.a, new String[0]);
+            this.c.onAdClicked(this.b, this.a, new String[0]);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
         }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderFail() {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
             LogPrinter.d();
-            this.f.onError(0, "RenderFail");
+            this.c.onAdShow(this.b, false, new String[0]);
         }
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderSuccess() {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.e("onRenderFail message: " + str + ", code = " + i, new Object[0]);
+            this.c.onError(i, str);
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             LogPrinter.d();
-            this.f.e.put(this.c, this.d);
-            this.f.onAdLoaded((vsa) this.c);
+            this.c.onAdLoaded((tsa) this.b);
         }
     }
 }

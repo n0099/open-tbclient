@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.api.OptionalPendingResult;
 import com.huawei.hms.common.api.internal.OptionalPendingResultImpl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PendingResultsCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DiscardedPendingResult<R extends Result> extends EmptyPendingResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public final class PendingResultsCreator {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class InstantPendingResult<R extends Result> extends EmptyPendingResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

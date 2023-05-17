@@ -5,7 +5,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.v56;
+import com.baidu.tieba.h76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<v56> followCloseList;
+    public List<h76> followCloseList;
     public int followCloseNum;
     public List<ThreadData> followList;
     public int followStatus;
@@ -81,9 +81,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            v56 v56Var = new v56();
-                            v56Var.c(optJSONObject3);
-                            this.followCloseList.add(v56Var);
+                            h76 h76Var = new h76();
+                            h76Var.c(optJSONObject3);
+                            this.followCloseList.add(h76Var);
                         }
                     }
                 }

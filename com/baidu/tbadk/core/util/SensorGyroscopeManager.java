@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SensorGyroscopeManager implements SensorEventListener, LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SENSOR_DELAY_UI = 20000;
@@ -40,13 +40,13 @@ public class SensorGyroscopeManager implements SensorEventListener, LifecycleObs
     public final float[] mSensorParams;
 
     /* renamed from: com.baidu.tbadk.core.util.SensorGyroscopeManager$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnSensorEventListener {
         void onSensorChanged(SensorEvent sensorEvent);
     }
@@ -58,7 +58,7 @@ public class SensorGyroscopeManager implements SensorEventListener, LifecycleObs
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final SensorGyroscopeManager INSTANCE;

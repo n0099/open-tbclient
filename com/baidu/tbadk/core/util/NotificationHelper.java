@@ -15,12 +15,13 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.ga5;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.jj;
+import com.baidu.tieba.nb5;
+import com.baidu.tieba.pb5;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NotificationHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_SUPPORT_PROGRESS_NOTIFICATION = true;
@@ -56,7 +57,7 @@ public class NotificationHelper {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SwitchData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,8 +170,8 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             if ((UtilHelper.isOppoDevice() || RomTypeUtil.isOnePlus()) && Build.VERSION.SDK_INT >= 26) {
-                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, aj.a(R.string.notify_channel_primary_oppo), 4);
-                notificationChannel.setDescription(aj.a(R.string.notify_channel_primary_oppo_desc));
+                NotificationChannel notificationChannel = new NotificationChannel(OPPO_IM_CHANNEL, jj.a(R.string.notify_channel_primary_oppo), 4);
+                notificationChannel.setDescription(jj.a(R.string.notify_channel_primary_oppo_desc));
                 notificationChannel.enableLights(true);
                 ((NotificationManager) context.getSystemService("notification")).createNotificationChannel(notificationChannel);
             }
@@ -238,7 +239,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!ea5.L() && ea5.R()) {
+            if (!nb5.L() && nb5.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -252,13 +253,13 @@ public class NotificationHelper {
                     } else {
                         z2 = false;
                     }
-                    if (ga5.d().B()) {
+                    if (pb5.d().B()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (ga5.d().C()) {
+                    if (pb5.d().C()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -270,7 +271,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (ga5.d().x()) {
+            if (pb5.d().x()) {
                 switchData.isLight = true;
             }
             return switchData;
@@ -285,8 +286,8 @@ public class NotificationHelper {
             try {
                 NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
                 if (Build.VERSION.SDK_INT >= 26) {
-                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, aj.a(R.string.notify_channel_primary), 3);
-                    notificationChannel.setLightColor(-16776961);
+                    NotificationChannel notificationChannel = new NotificationChannel(PRIMARY_CHANNEL_2, jj.a(R.string.notify_channel_primary), 3);
+                    notificationChannel.setLightColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(false);
                     notificationChannel.setSound(null, null);
@@ -330,8 +331,8 @@ public class NotificationHelper {
                     } else {
                         str = PRIMARY_CHANNEL_2;
                     }
-                    NotificationChannel notificationChannel = new NotificationChannel(str, aj.a(R.string.notify_channel_primary), 3);
-                    notificationChannel.setLightColor(-16776961);
+                    NotificationChannel notificationChannel = new NotificationChannel(str, jj.a(R.string.notify_channel_primary), 3);
+                    notificationChannel.setLightColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
                     notificationChannel.setLockscreenVisibility(0);
                     notificationChannel.enableVibration(switchData.isVibrate);
                     if (!switchData.isSound) {
@@ -367,7 +368,7 @@ public class NotificationHelper {
             if (switchData == null) {
                 return false;
             }
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 str = context.getString(R.string.obfuscated_res_0x7f0f029e);
             }
             try {
@@ -411,7 +412,7 @@ public class NotificationHelper {
             }
             if (switchData.isLight) {
                 notif_excption.defaults &= -5;
-                notif_excption.ledARGB = -16776961;
+                notif_excption.ledARGB = BaseAnimatedElement.DEBUG_PAINT_COLOR;
                 notif_excption.ledOnMS = 400;
                 notif_excption.ledOffMS = 700;
                 notif_excption.flags = 1 | notif_excption.flags;

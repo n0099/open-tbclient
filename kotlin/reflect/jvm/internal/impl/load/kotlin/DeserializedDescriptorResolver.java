@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ClassData;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.DeserializationComponents;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.IncompatibleVersionErrorData;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedPackageMemberScope;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DeserializedDescriptorResolver {
     public DeserializationComponents components;
     public static final Companion Companion = new Companion(null);
@@ -33,7 +33,7 @@ public final class DeserializedDescriptorResolver {
     public static final JvmMetadataVersion KOTLIN_1_3_M1_METADATA_VERSION = new JvmMetadataVersion(1, 1, 11);
     public static final JvmMetadataVersion KOTLIN_1_3_RC_METADATA_VERSION = new JvmMetadataVersion(1, 1, 13);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

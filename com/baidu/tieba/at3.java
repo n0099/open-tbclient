@@ -1,103 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public interface at3 {
-    String a(Context context);
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
+/* loaded from: classes4.dex */
+public class at3 extends qp4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String getDeviceId(Context context);
-
-    /* loaded from: classes3.dex */
-    public static class a implements at3 {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final at3 a;
+    }
 
-        @Override // com.baidu.tieba.at3
-        public String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.a(context);
-            }
-            return (String) invokeL.objValue;
-        }
+    /* loaded from: classes4.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final at3 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.at3
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.b(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.at3
-        public String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.c(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.at3
-        public String d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.d(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.at3
-        public String getDeviceId(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.getDeviceId(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public a(at3 delegation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-936534997, "Lcom/baidu/tieba/at3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-936534997, "Lcom/baidu/tieba/at3$b;");
                     return;
                 }
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
+            a = new at3(null);
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at3() {
+        super("app_quick_config");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static at3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (at3) invokeV.objValue;
+    }
+
+    public /* synthetic */ at3(a aVar) {
+        this();
     }
 }

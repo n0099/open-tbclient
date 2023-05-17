@@ -4,11 +4,11 @@ import androidx.annotation.NonNull;
 import com.kwad.components.core.webview.b.a.q;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class m implements com.kwad.sdk.core.webview.kwai.a {
     public a NH;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void b(q qVar);
     }

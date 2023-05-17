@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.util.Log;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tbadk.widget.viewpager.VerticalViewPager;
+import com.baidu.searchbox.afx.recode.OutputSurface;
+import com.baidu.tbadk.core.atomData.TbFileVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,36 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class e1a implements View.OnClickListener, Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
+import com.faceunity.FaceUnityUtils;
+import com.faceunity.gles.FullFrameRect;
+import com.faceunity.gles.Texture2dProgram;
+import com.faceunity.wrapper.faceunity;
+/* loaded from: classes5.dex */
+public class e1a implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
-    public static boolean e;
+    public static int m;
+    public static int n;
+    public static int[] o;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TBLottieAnimationView a;
-    public final VerticalViewPager b;
-    public boolean c;
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, animator) == null) {
-        }
-    }
+    public SurfaceTexture a;
+    public Surface b;
+    public Object c;
+    public boolean d;
+    public Context e;
+    public String f;
+    public int g;
+    public int h;
+    public FullFrameRect i;
+    public FullFrameRect j;
+    public int k;
+    public final float[] l;
 
     static {
         InterceptResult invokeClinit;
@@ -58,150 +52,139 @@ public class e1a implements View.OnClickListener, Animator.AnimatorListener, Val
                 return;
             }
         }
-        d = f55.m().i("key_video_guide_up_slide_animated", false);
-        e = f55.m().i("key_video_guide_left_slide_animated", false);
+        o = new int[]{0, 0, 0};
     }
 
-    public void c() {
-        TBLottieAnimationView tBLottieAnimationView;
+    public Surface d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (tBLottieAnimationView = this.a) != null && this.b != null && !this.c && d && !e && !tBLottieAnimationView.isAnimating()) {
-            this.a.setImageAssetsFolder("lottie_video_guide_left");
-            k(R.raw.lottie_video_guide_left);
-            e = true;
-            this.c = true;
-            f55.m().w("key_video_guide_left_slide_animated", true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return (Surface) invokeV.objValue;
     }
 
-    public void d() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (tBLottieAnimationView = this.a) != null && this.b != null && !this.c && !d && !tBLottieAnimationView.isAnimating()) {
-            this.a.setImageAssetsFolder("lottie_video_guide_up");
-            k(R.raw.lottie_video_guide_up);
-            d = true;
-            this.c = true;
-            f55.m().w("key_video_guide_up_slide_animated", true);
-        }
-    }
-
-    public e1a(TBLottieAnimationView tBLottieAnimationView, VerticalViewPager verticalViewPager) {
+    public e1a(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tBLottieAnimationView, verticalViewPager};
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.a = tBLottieAnimationView;
-        this.b = verticalViewPager;
+        this.c = new Object();
+        this.f = "normal";
+        this.l = new float[16];
+        this.e = context;
+        this.f = str;
+        this.g = i;
+        this.h = i2;
         f();
     }
 
-    public static void a() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            e = true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.c) {
+                while (!this.d) {
+                    try {
+                        this.c.wait(500L);
+                        if (!this.d) {
+                            throw new RuntimeException("Surface frame wait timed out");
+                        }
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                this.d = false;
+            }
+            b("before updateTexImage");
+            this.a.updateTexImage();
         }
     }
 
-    public final void e() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a.isAnimating()) {
-                this.a.pauseAnimation();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.release();
+            this.b = null;
+            this.a = null;
+            FullFrameRect fullFrameRect = this.i;
+            if (fullFrameRect != null) {
+                fullFrameRect.release(false);
+                this.i = null;
             }
-            this.a.setVisibility(8);
+            faceunity.fuDestroyItem(n);
+            int[] iArr = o;
+            n = 0;
+            iArr[1] = 0;
+            faceunity.fuDestroyItem(m);
+            int[] iArr2 = o;
+            m = 0;
+            iArr2[0] = 0;
+            faceunity.fuOnDeviceLost();
+        }
+    }
+
+    public void b(String str) {
+        int glGetError;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || (glGetError = GLES20.glGetError()) == 0) {
+            return;
+        }
+        Log.e(OutputSurface.TAG, str + ": glError " + glGetError);
+        throw new RuntimeException(str + ": glError " + glGetError);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.updateTexImage();
+            this.a.getTransformMatrix(this.l);
+            faceunity.fuItemSetParam(m, TbFileVideoActivityConfig.FILTER_NAME, this.f);
+            faceunity.fuItemSetParam(m, "eye_bright", 0.0d);
+            faceunity.fuItemSetParam(m, "tooth_whiten", 0.0d);
+            this.i.drawFrame(faceunity.fuBeautifyImage(this.k, 1, this.g, this.h, 0, o), this.l);
         }
     }
 
     public final void f() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (tBLottieAnimationView = this.a) != null && this.b != null) {
-            tBLottieAnimationView.setOnClickListener(this);
-            this.a.addAnimatorUpdateListener(this);
-            this.a.addAnimatorListener(this);
-            this.a.setRepeatCount(2);
-            this.a.setRepeatMode(1);
-        }
-    }
-
-    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
+            this.i = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
+            Log.d(OutputSurface.TAG, "onSurfaceCreated: ");
+            FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_EXT));
+            this.j = fullFrameRect;
+            this.k = fullFrameRect.createTextureObject();
+            this.a = new SurfaceTexture(this.k);
+            this.b = new Surface(this.a);
+            int upFaceUnity = FaceUnityUtils.setUpFaceUnity(this.e);
+            m = upFaceUnity;
+            o[0] = upFaceUnity;
+            this.a.setOnFrameAvailableListener(this);
         }
     }
 
-    public void h() {
+    @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
+    public void onFrameAvailable(SurfaceTexture surfaceTexture) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.b != null) {
-            e();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.setVisibility(0);
-            this.a.playAnimation();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            b(this.b);
-        }
-    }
-
-    public final void b(VerticalViewPager verticalViewPager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, verticalViewPager) == null) {
-            verticalViewPager.setCurrentItem(verticalViewPager.getCurrentItem() + 1, true);
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a.setAnimation(i);
-            i();
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, animator) == null) && this.a != null && this.b != null) {
-            e();
-        }
-    }
-
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, valueAnimator) == null) && (tBLottieAnimationView = this.a) != null && this.b != null && tBLottieAnimationView.isAnimating() && !e && d) {
-            valueAnimator.getAnimatedFraction();
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            e();
+        if (interceptable == null || interceptable.invokeL(1048582, this, surfaceTexture) == null) {
+            Log.d(OutputSurface.TAG, "new frame available");
+            synchronized (this.c) {
+                if (!this.d) {
+                    this.d = true;
+                    this.c.notifyAll();
+                } else {
+                    throw new RuntimeException("mFrameAvailable already set, frame could be dropped");
+                }
+            }
         }
     }
 }

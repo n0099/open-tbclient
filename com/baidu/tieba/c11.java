@@ -1,113 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.player.helper.NetUtils;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.tieba.ft0;
+import com.baidu.tieba.gn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.Pair;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
+import kotlin.text.StringsKt__StringsKt;
+@JvmName(name = "VideoClarity")
+/* loaded from: classes5.dex */
 public final class c11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
-    public final int c;
-    public final String d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public c11() {
-        this(null, null, 0, null, 15, null);
+    public static final Pair<Integer, Integer> a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Context) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), (String) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) {
+            if (i <= 0) {
+                return new Pair<>(0, Integer.valueOf(i2));
             }
+            if (i >= i3) {
+                return new Pair<>(Integer.valueOf(i3 - 1), Integer.valueOf(i2));
+            }
+            return new Pair<>(Integer.valueOf(i), Integer.valueOf(i2));
         }
+        return (Pair) invokeIII.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static final Pair<Integer, Integer> b(int i, Pair<Integer, Integer> pair, int i2, int i3, double d, ClarityUrlList clarityUrlList, int i4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof c11) {
-                    c11 c11Var = (c11) obj;
-                    return Intrinsics.areEqual(this.a, c11Var.a) && Intrinsics.areEqual(this.b, c11Var.b) && this.c == c11Var.c && Intrinsics.areEqual(this.d, c11Var.d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pair, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), clarityUrlList, Integer.valueOf(i4)})) == null) {
+            if (i < 0) {
+                return c(pair, i2, i3, d);
+            }
+            return e(clarityUrlList.size(), i, i4, i2);
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static final Pair<Integer, Integer> c(Pair<Integer, Integer> defaultClarity, int i, int i2, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{defaultClarity, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            Intrinsics.checkNotNullParameter(defaultClarity, "defaultClarity");
+            if (!NetUtils.c()) {
+                return a(defaultClarity.getFirst().intValue(), 2, i);
+            }
+            return d(i2, i, d, defaultClarity.getSecond().intValue());
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static final Pair<Integer, Integer> d(int i, int i2, double d, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)})) == null) {
+            if (!gt0.g()) {
+                return a(i3, 4, i2);
+            }
+            gn0 a = gn0.a.a();
+            Intrinsics.checkNotNullExpressionValue(a, "IPlayerSpeedScoreManager.Impl.getInstance()");
+            float staticDeviceScore = a.getStaticDeviceScore();
+            boolean z = false;
+            if (staticDeviceScore > 0 && staticDeviceScore < 0.3d) {
+                z = true;
+            }
+            if (z) {
+                return a(i, 3, i2);
+            }
+            if (d > 5.6f) {
+                return a(i, 6, i2);
+            }
+            return a(i3, 4, i2);
+        }
+        return (Pair) invokeCommon.objValue;
+    }
+
+    public static final bz0 g(ClarityUrlList list, int i, double d, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{list, Integer.valueOf(i), Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Pair<Integer, Integer> a = gt0.a(list);
+            int size = list.size();
+            Pair<Integer, Integer> h = h(z, list, b(i, a, size, size - 1, d, list, 0));
+            bz0 bz0Var = new bz0();
+            bz0Var.a = h.getFirst().intValue();
+            bz0Var.b = h.getSecond().intValue();
+            return bz0Var;
+        }
+        return (bz0) invokeCommon.objValue;
+    }
+
+    public static final Pair<Integer, Integer> e(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3, i4)) == null) {
+            if (i <= i2) {
+                return a(i3, 4, i4);
+            }
+            return a((i4 - i2) - 1, 1, i4);
+        }
+        return (Pair) invokeIIII.objValue;
+    }
+
+    public static final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != -2) {
+                return i;
+            }
+            if (Intrinsics.areEqual(gt0.c(), ft0.a.a)) {
+                return d11.f();
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static final Pair<Integer, Integer> h(boolean z, ClarityUrlList list, Pair<Integer, Integer> selectedClarity) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), list, selectedClarity})) == null) {
+            Intrinsics.checkNotNullParameter(list, "list");
+            Intrinsics.checkNotNullParameter(selectedClarity, "selectedClarity");
+            if (!z) {
+                ClarityUrlList.c cVar = list.get(selectedClarity.getFirst().intValue());
+                Intrinsics.checkNotNullExpressionValue(cVar, "list[result.first]");
+                String selectKey = cVar.c();
+                String d = gt0.d();
+                Intrinsics.checkNotNullExpressionValue(selectKey, "selectKey");
+                if (StringsKt__StringsKt.contains$default((CharSequence) d, (CharSequence) selectKey, false, 2, (Object) null)) {
+                    int i = 0;
+                    for (ClarityUrlList.c entity : list) {
+                        String d2 = gt0.d();
+                        Intrinsics.checkNotNullExpressionValue(entity, "entity");
+                        String c = entity.c();
+                        Intrinsics.checkNotNullExpressionValue(c, "entity.key");
+                        if (!StringsKt__StringsKt.contains$default((CharSequence) d2, (CharSequence) c, false, 2, (Object) null)) {
+                            return new Pair<>(Integer.valueOf(i), 0);
+                        }
+                        i++;
+                    }
+                    return selectedClarity;
                 }
-                return false;
+                return selectedClarity;
             }
-            return true;
+            return selectedClarity;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context context = this.a;
-            int hashCode = (context != null ? context.hashCode() : 0) * 31;
-            String str = this.b;
-            int hashCode2 = (((hashCode + (str != null ? str.hashCode() : 0)) * 31) + this.c) * 31;
-            String str2 = this.d;
-            return hashCode2 + (str2 != null ? str2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "ActionInfo(context=" + this.a + ", text=" + this.b + ", sequence=" + this.c + ", cmd=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public c11(Context context, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i), str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        this.b = str;
-        this.c = i;
-        this.d = str2;
-    }
-
-    public /* synthetic */ c11(Context context, String str, int i, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? null : context, (i2 & 2) != 0 ? null : str, (i2 & 4) != 0 ? -1 : i, (i2 & 8) != 0 ? null : str2);
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Context) invokeV.objValue;
+        return (Pair) invokeCommon.objValue;
     }
 }

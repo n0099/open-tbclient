@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
+/* loaded from: classes7.dex */
 public interface qj5 {
-    void a(oj5 oj5Var);
+    @WorkerThread
+    void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo);
 }

@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BdExpandListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int d0 = 1;
@@ -43,7 +43,7 @@ public class BdExpandListView extends BdTypeListView {
     public Runnable b0;
     public int c0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(float f);
 
@@ -67,7 +67,7 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class BdExpandListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.ExpandListView);
         this.R = obtainStyledAttributes.getDimensionPixelSize(d0, 0);
         obtainStyledAttributes.recycle();
     }

@@ -4,7 +4,7 @@ import com.kwad.sdk.core.network.c;
 import com.kwad.sdk.export.proxy.AdHttpProxy;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements AdHttpProxy {
     @Override // com.kwad.sdk.export.proxy.AdHttpProxy
     public final c doGet(String str, Map<String, String> map) {

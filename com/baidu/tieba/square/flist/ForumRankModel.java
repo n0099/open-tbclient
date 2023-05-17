@@ -9,16 +9,16 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.c25;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
-import com.baidu.tieba.me;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ForumRankModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,13 +26,13 @@ public class ForumRankModel extends BdBaseModel {
     public b b;
     public String c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends BdAsyncTask<Void, ForumRankData, ForumRankData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,8 +96,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                t05.d();
-                me<String> e = t05.e("tb.forum_rank");
+                c25.d();
+                se<String> e = c25.e("tb.forum_rank");
                 if (e != null) {
                     str = e.get("forum_rank_cache_key_" + this.a.a);
                 } else {
@@ -143,7 +143,7 @@ public class ForumRankModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,7 +168,7 @@ public class ForumRankModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -181,7 +181,7 @@ public class ForumRankModel extends BdBaseModel {
         this.c = bundle.getString("st_type");
     }
 
-    public void c0(Bundle bundle) {
+    public void b0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             bundle.putString("id", this.a);

@@ -1,68 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class i34 extends ff2 {
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+/* loaded from: classes5.dex */
+public class i34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static volatile i34 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, ArrayList<b>> a;
+    public final ExecutorService b;
+    public String c;
+    public Object d;
 
-    @Override // com.baidu.tieba.ff2
-    public EventTarget A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
     }
 
-    @Override // com.baidu.tieba.ff2
-    public EventTarget D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hf2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a extends bg2 {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public final /* synthetic */ JsArrayBuffer a;
+        public final /* synthetic */ b b;
+        public final /* synthetic */ i34 c;
 
-        @Override // com.baidu.tieba.cg2
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan-game-worker.js" : (String) invokeV.objValue;
-        }
-
-        public a(String str) {
+        public a(i34 i34Var, JsArrayBuffer jsArrayBuffer, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {i34Var, jsArrayBuffer, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -72,38 +60,211 @@ public class i34 extends ff2 {
                     return;
                 }
             }
-            this.a = str;
+            this.c = i34Var;
+            this.a = jsArrayBuffer;
+            this.b = bVar;
         }
 
-        @Override // com.baidu.tieba.cg2
-        public String getInitBasePath() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-            return (String) invokeV.objValue;
+            String g = this.c.g(this.a.buffer());
+            File file = new File(g);
+            if (file.exists()) {
+                if (!file.isDirectory()) {
+                    this.b.a(g);
+                } else {
+                    this.b.b();
+                }
+            } else if (this.c.e(g, this.b)) {
+            } else {
+                this.c.i(g, this.a.buffer());
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i34(@NonNull String str) {
-        super("worker", new a(str), null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802559, "Lcom/baidu/tieba/i34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947802559, "Lcom/baidu/tieba/i34;");
+                return;
+            }
+        }
+        e = qp1.a;
+    }
+
+    public static i34 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (f == null) {
+                synchronized (i34.class) {
+                    if (f == null) {
+                        f = new i34();
+                    }
+                }
+            }
+            return f;
+        }
+        return (i34) invokeV.objValue;
+    }
+
+    public i34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (cg2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        this.a = new HashMap<>();
+        this.b = Executors.newCachedThreadPool();
+        this.d = new Object();
+        this.c = c34.g() + c34.f();
+    }
+
+    public final boolean e(String str, b bVar) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
+            synchronized (this.d) {
+                ArrayList<b> arrayList = this.a.get(str);
+                z = true;
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                    this.a.put(str, arrayList);
+                    z = false;
+                }
+                arrayList.add(bVar);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
+            this.b.execute(new a(this, jsArrayBuffer, bVar));
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            synchronized (this.d) {
+                ArrayList<b> arrayList = this.a.get(str);
+                if (arrayList == null) {
+                    return;
+                }
+                boolean isEmpty = TextUtils.isEmpty(str);
+                Iterator<b> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    b next = it.next();
+                    if (!isEmpty) {
+                        if (e) {
+                            Log.e("AudioBufferManager", "save success path: " + str);
+                        }
+                        next.a(str);
+                    } else {
+                        next.b();
+                    }
+                }
+                this.a.remove(str);
+            }
+        }
+    }
+
+    public final String g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            String h = c34.h(bArr);
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.c);
+            sb.append(bArr.length);
+            if (TextUtils.isEmpty(h)) {
+                h = "";
+            }
+            sb.append(h);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void i(String str, byte[] bArr) {
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
+            File file = new File(this.c);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(str + ".bdsave");
+            Closeable closeable = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file2);
+                    try {
+                        fileOutputStream.write(bArr);
+                        fileOutputStream.flush();
+                        File file3 = new File(str);
+                        if (file3.exists() && !file3.isDirectory()) {
+                            file3.delete();
+                        }
+                        if (file2.renameTo(file3)) {
+                            if (e) {
+                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
+                            }
+                            d(str);
+                        } else {
+                            if (e) {
+                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
+                            }
+                            file2.delete();
+                            d(null);
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (e) {
+                            e.printStackTrace();
+                        }
+                        if (file2.exists()) {
+                            file2.delete();
+                        }
+                        d(null);
+                        kp4.d(fileOutputStream);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable = ".bdsave";
+                    kp4.d(closeable);
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                kp4.d(closeable);
+                throw th;
+            }
+            kp4.d(fileOutputStream);
         }
     }
 }

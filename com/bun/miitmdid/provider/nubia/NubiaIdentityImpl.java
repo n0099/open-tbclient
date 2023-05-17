@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.f0;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NubiaIdentityImpl {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep

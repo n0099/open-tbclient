@@ -9,18 +9,18 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.ut8;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.pv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ut8 a;
+    public pv8 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -66,9 +66,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             t1();
-            ut8 ut8Var = new ut8(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = ut8Var;
-            setContentView(ut8Var.d());
+            pv8 pv8Var = new pv8(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = pv8Var;
+            setContentView(pv8Var.d());
             u1();
         }
     }
@@ -89,7 +89,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String s = f55.m().s("key_interest_guide_show", "");
+            String s = o65.m().s("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(s);
             if (!StringUtils.isNull(s)) {
@@ -97,9 +97,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            f55 m = f55.m();
+            o65 m = o65.m();
             m.B("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            f55.m().A("key_interest_panel_show_time", System.currentTimeMillis());
+            o65.m().A("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 }

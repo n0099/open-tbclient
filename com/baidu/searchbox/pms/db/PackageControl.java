@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PackageControl {
     public static volatile PackageControl sInstance;
     public Context mContext = AppRuntime.getAppContext();

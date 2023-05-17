@@ -9,7 +9,7 @@ import com.kwad.components.core.video.g;
 import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.components.ad.reward.presenter.a implements View.OnClickListener, com.kwad.components.core.webview.b.d.b {
     public ImageView eE;
     @NonNull
@@ -101,8 +101,8 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.eE = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913a8);
-        this.si = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e2);
+        this.eE = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913e3);
+        this.si = (ImageView) findViewById(R.id.obfuscated_res_0x7f09131d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -1,6 +1,7 @@
 package com.faceunity.gles;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GeneratedTexture {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK = 0;
@@ -34,7 +35,7 @@ public class GeneratedTexture {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.faceunity.gles.GeneratedTexture$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$GeneratedTexture$Image;
         public static /* synthetic */ Interceptable $ic;
@@ -67,7 +68,7 @@ public class GeneratedTexture {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Image {
         public static final /* synthetic */ Image[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +146,7 @@ public class GeneratedTexture {
                 return;
             }
         }
-        GRID = new int[]{-16776961, -16711681, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, -65281, -1, 1073742079, 1073807104, -16711681, -65281, 65280, -2147483393, -16777216, -256, -65281, -256, -65536};
+        GRID = new int[]{BaseAnimatedElement.DEBUG_PAINT_COLOR, -16711681, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, -65281, -1, 1073742079, 1073807104, -16711681, -65281, 65280, -2147483393, -16777216, -256, -65281, -256, -65536};
         sCoarseImageData = generateCoarseData();
         sFineImageData = generateFineData();
     }
@@ -155,8 +156,8 @@ public class GeneratedTexture {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             byte[] bArr = new byte[16384];
-            checkerPattern(bArr, 0, 0, 32, 32, -16776961, -65536, 1);
-            checkerPattern(bArr, 32, 32, 64, 64, -16776961, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 2);
+            checkerPattern(bArr, 0, 0, 32, 32, BaseAnimatedElement.DEBUG_PAINT_COLOR, -65536, 1);
+            checkerPattern(bArr, 32, 32, 64, 64, BaseAnimatedElement.DEBUG_PAINT_COLOR, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 2);
             checkerPattern(bArr, 0, 32, 32, 64, -65536, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, 4);
             checkerPattern(bArr, 32, 0, 64, 32, -1, -16777216, 8);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);

@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ThreadPoolMgr {
     public static final String TAG = "ThreadPoolMgr";
     public static ThreadPoolMgr mThreadPoolMgr;
@@ -18,7 +18,7 @@ public class ThreadPoolMgr {
     public boolean mReleaseAble;
     public HashMap<String, String> mThreadName = new HashMap<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ITaskExecutor {
         boolean addTask(Runnable runnable);
 
@@ -33,7 +33,7 @@ public class ThreadPoolMgr {
         void shutdownNow(long j);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CustomThreadPoolExecutor implements ITaskExecutor {
         public ThreadPoolExecutor mExcutorSvc;
 
@@ -104,7 +104,7 @@ public class ThreadPoolMgr {
         return !this.mExecutorSvc.isShutdown();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public final AtomicInteger threadNumber = new AtomicInteger(1);
         public final ThreadGroup group = Thread.currentThread().getThreadGroup();

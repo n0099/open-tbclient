@@ -10,7 +10,7 @@ import android.view.Window;
 import android.webkit.WebView;
 import com.baidu.mobstat.ak;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ay {
     public static final ay k = new ay();
     public static volatile boolean l = true;

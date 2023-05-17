@@ -1,5 +1,5 @@
 package com.baidu.searchbox.v8engine;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JsCodeCacheResult {
     public final String businessId;
     public final boolean isCacheUsed;

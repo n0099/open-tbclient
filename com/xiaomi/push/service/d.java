@@ -7,11 +7,11 @@ import android.os.SystemClock;
 import android.service.notification.StatusBarNotification;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static List<a> a = new CopyOnWriteArrayList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public final int a;
 
@@ -45,10 +45,10 @@ public class d {
     }
 
     public static void a(Context context, StatusBarNotification statusBarNotification, int i) {
-        if (!com.xiaomi.push.j.m632a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
+        if (!com.xiaomi.push.j.m651a(context) || i <= 0 || statusBarNotification == null || Build.VERSION.SDK_INT < 20) {
             return;
         }
-        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m711a(statusBarNotification.getNotification())));
+        a(new a(statusBarNotification.getKey(), SystemClock.elapsedRealtime(), i, ay.m730a(statusBarNotification.getNotification())));
     }
 
     public static void a(a aVar) {

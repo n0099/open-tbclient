@@ -1,20 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.media.AudioManager;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
-/* loaded from: classes4.dex */
-public class gr2 implements ik4 {
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes5.dex */
+public class gr2 extends an2<rr2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioManager b;
+
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
+    }
 
     public gr2() {
         Interceptable interceptable = $ic;
@@ -30,31 +40,63 @@ public class gr2 implements ik4 {
         }
     }
 
-    @Override // com.baidu.tieba.ik4
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return gl2.e();
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) != null) || command.obj == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (!rr2Var.P()) {
+            d(rr2Var, command.what, "Not Set!! Volume: " + command.obj, false);
+            return;
+        }
+        Object obj = command.obj;
+        if (obj instanceof Double) {
+            try {
+                double doubleValue = ((Double) obj).doubleValue();
+                d(rr2Var, command.what, "Volume: " + command.obj, false);
+                if (doubleValue > 1.0d) {
+                    doubleValue = 1.0d;
+                }
+                if (doubleValue < 0.0d) {
+                    doubleValue = 0.0d;
+                }
+                f(doubleValue, rr2Var.getContext());
+            } catch (Exception unused) {
+                if (an2.a) {
+                    Log.e(b(), "setVolume param type error");
+                }
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.ik4
-    public String c() {
-        InterceptResult invokeV;
+    public final void f(double d, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return gl2.c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ik4
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            gl2.f(jSONObject);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) context.getSystemService("audio");
+            }
+            AudioManager audioManager = this.b;
+            if (audioManager == null) {
+                return;
+            }
+            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
+            if (round == this.b.getStreamVolume(3)) {
+                if (an2.a) {
+                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
+                    return;
+                }
+                return;
+            }
+            if (d > 0.0d && round == 0) {
+                round = 1;
+            }
+            if (an2.a) {
+                Log.d("【InlineCommand】", "setVolumeInt" + round);
+            }
+            this.b.setStreamVolume(3, round, 0);
         }
     }
 }

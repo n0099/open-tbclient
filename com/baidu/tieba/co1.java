@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class co1 implements rn1 {
+/* loaded from: classes5.dex */
+public class co1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static co1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public bo1 b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public co1() {
+        super("BackgroundThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,52 +24,36 @@ public class co1 implements rn1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.rn1
-    public String a() {
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && a == null) {
+            co1 co1Var = new co1();
+            a = co1Var;
+            co1Var.start();
+            b = new Handler(a.getLooper());
+        }
+    }
+
+    public static Handler b() {
         InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            bo1 bo1Var = this.b;
-            return bo1Var.a(this.a, bo1Var.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (co1.class) {
+                a();
+                handler = b;
+            }
+            return handler;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn1
-    public void a(Context context, sn1 sn1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sn1Var) == null) {
-            this.a = context;
-            bo1 bo1Var = new bo1();
-            this.b = bo1Var;
-            bo1Var.c = null;
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                bo1Var.b = cls;
-                bo1Var.a = cls.newInstance();
-            } catch (Throwable unused) {
-            }
-            try {
-                bo1Var.c = bo1Var.b.getMethod("getOAID", Context.class);
-            } catch (Throwable unused2) {
-            }
-            try {
-                bo1Var.b.getMethod("getVAID", Context.class);
-            } catch (Throwable unused3) {
-            }
-            try {
-                bo1Var.b.getMethod("getAAID", Context.class);
-            } catch (Throwable unused4) {
-            }
-            if (sn1Var != null) {
-                sn1Var.a();
-            }
-        }
+        return (Handler) invokeV.objValue;
     }
 }

@@ -11,13 +11,12 @@ import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
 import com.baidu.searchbox.net.update.v2.UpdateAction;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static final String DESC_PATCH_ACTION = "desc_patch";
     public static final String DESC_PATCH_VERSION = "desc_patch_v";
@@ -67,8 +66,8 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
         if (str == null && str2 != null) {
             return -1;
         }
-        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-        String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split = str.split("\\.");
+        String[] split2 = str2.split("\\.");
         int i = 0;
         while (i < split.length && i < split2.length) {
             try {

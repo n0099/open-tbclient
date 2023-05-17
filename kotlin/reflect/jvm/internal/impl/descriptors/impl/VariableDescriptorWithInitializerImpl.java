@@ -7,7 +7,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.storage.NullableLazyValue;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class VariableDescriptorWithInitializerImpl extends VariableDescriptorImpl {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public NullableLazyValue<ConstantValue<?>> compileTimeInitializer;
@@ -55,7 +55,7 @@ public abstract class VariableDescriptorWithInitializerImpl extends VariableDesc
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.VariableDescriptor
     /* renamed from: getCompileTimeInitializer */
-    public ConstantValue<?> mo2021getCompileTimeInitializer() {
+    public ConstantValue<?> mo2040getCompileTimeInitializer() {
         NullableLazyValue<ConstantValue<?>> nullableLazyValue = this.compileTimeInitializer;
         if (nullableLazyValue != null) {
             return nullableLazyValue.invoke();

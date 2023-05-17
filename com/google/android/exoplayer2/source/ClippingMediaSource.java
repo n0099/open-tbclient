@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ClippingMediaSource implements MediaSource, MediaSource.Listener {
     public final boolean enableInitialDiscontinuity;
     public final long endUs;
@@ -17,7 +17,7 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
     public MediaSource.Listener sourceListener;
     public final long startUs;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ClippingTimeline extends ForwardingTimeline {
         public final long endUs;
         public final long startUs;

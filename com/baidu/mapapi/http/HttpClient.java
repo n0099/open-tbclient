@@ -17,7 +17,7 @@ import java.net.URL;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpClient {
     public static boolean isHttpsEnable = true;
     public HttpURLConnection a;
@@ -28,7 +28,7 @@ public class HttpClient {
     public String f;
     public ProtoResultCallback g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum HttpStateError {
         NO_ERROR,
         NETWORK_ERROR,
@@ -37,7 +37,7 @@ public class HttpClient {
         SERVER_ERROR
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ProtoResultCallback {
         public abstract void onFailed(HttpStateError httpStateError);
 
@@ -49,7 +49,7 @@ public class HttpClient {
         this.g = protoResultCallback;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements HostnameVerifier {
         @Override // javax.net.ssl.HostnameVerifier
         public boolean verify(String str, SSLSession sSLSession) {

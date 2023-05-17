@@ -4,9 +4,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.oc5;
+import com.baidu.tieba.s55;
+import com.baidu.tieba.u55;
+import com.baidu.tieba.xd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FocusFeedBridgeHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,18 +27,18 @@ public class FocusFeedBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FocusFeedBridgeHandler(j45 j45Var) {
-        super(j45Var);
+    public FocusFeedBridgeHandler(s55 s55Var) {
+        super(s55Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j45Var};
+            Object[] objArr = {s55Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j45) newInitContext.callArgs[0]);
+                super((s55) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,18 +46,18 @@ public class FocusFeedBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @l45("appointNotice")
+    @u55("appointNotice")
     public void appointNotice(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
             int optInt = jSONObject.optInt("activityId");
             int optInt2 = jSONObject.optInt("state");
             String optString = jSONObject.optString("curNum");
-            oc5 oc5Var = new oc5();
-            oc5Var.a(optInt);
-            oc5Var.c(optInt2);
-            oc5Var.b(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, oc5Var));
+            xd5 xd5Var = new xd5();
+            xd5Var.a(optInt);
+            xd5Var.c(optInt2);
+            xd5Var.b(optString);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, xd5Var));
         }
     }
 }

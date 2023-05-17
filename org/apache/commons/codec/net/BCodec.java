@@ -6,7 +6,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 import org.apache.commons.codec.binary.Base64;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BCodec extends RFC1522Codec implements StringEncoder, StringDecoder {
     public final String charset;
 

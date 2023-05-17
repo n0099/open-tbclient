@@ -3,19 +3,20 @@ package com.xiaomi.mipush.sdk;
 import android.content.ComponentName;
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.xiaomi.push.bj;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n {
     public static int a = -1;
 
     public static ag a(Context context) {
-        return m173a(context) ? ag.HUAWEI : c(context) ? ag.OPPO : d(context) ? ag.VIVO : ag.OTHER;
+        return m192a(context) ? ag.HUAWEI : c(context) ? ag.OPPO : d(context) ? ag.VIVO : ag.OTHER;
     }
 
     public static boolean a() {
         try {
-            String str = (String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, "get", "ro.build.hw_emui_api_level", "");
+            String str = (String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "ro.build.hw_emui_api_level", "");
             if (!TextUtils.isEmpty(str)) {
                 if (Integer.parseInt(str) >= 9) {
                     return true;
@@ -28,7 +29,7 @@ public class n {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m173a(Context context) {
+    public static boolean m192a(Context context) {
         try {
             if (context.getPackageManager().getServiceInfo(new ComponentName("com.huawei.hwid", "com.huawei.hms.core.service.HMSCoreService"), 128) != null) {
                 if (a()) {

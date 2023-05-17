@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.HandlerThread;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static volatile Handler a;
 

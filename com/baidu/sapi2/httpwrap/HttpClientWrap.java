@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpClientWrap {
     public String appSignKey;
     public Context context;

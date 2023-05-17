@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.k65;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.t75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void p(k65 k65Var) {
+    public void p(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k65Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t75Var) == null) {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LightEmotionView extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
             EMTextView eMTextView;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (eMTextView = this.b) != null) {
-                g35 d = g35.d(eMTextView);
+                p45 d = p45.d(eMTextView);
                 d.w(R.color.CAM_X0101);
                 d.C(R.string.F_X01);
                 d.o(R.string.J_X07);
@@ -150,7 +150,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
 
     public void o(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !hi.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !qi.isEmpty(str)) {
             lightEmotionView.b.setText(str);
         }
     }

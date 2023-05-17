@@ -1,27 +1,58 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.ar5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class xq5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class xq5 extends wq5<tq5, ar5.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> e;
 
-    @NonNull
-    public static Fragment a(@NonNull FragmentManager fragmentManager, int i, @NonNull Fragment fragment) {
-        InterceptResult invokeLIL;
+    public xq5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, fragmentManager, i, fragment)) == null) {
-            FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
-            beginTransaction.add(i, fragment, fragment.getClass().getCanonicalName());
-            beginTransaction.commitAllowingStateLoss();
-            return fragment;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Fragment) invokeLIL.objValue;
+        this.e = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wq5
+    /* renamed from: g */
+    public void d(ViewType viewType, tq5 tq5Var, ar5.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, tq5Var, aVar) == null) {
+            tq5Var.b(aVar);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wq5
+    /* renamed from: h */
+    public tq5 f(ViewType viewType, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) {
+            return new tq5(this.e.getPageActivity());
+        }
+        return (tq5) invokeLL.objValue;
     }
 }

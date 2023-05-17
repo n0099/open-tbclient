@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class x1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "https://jau.xdplt.com/";

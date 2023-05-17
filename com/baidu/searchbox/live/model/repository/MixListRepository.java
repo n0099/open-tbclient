@@ -24,7 +24,7 @@ import kotlin.TuplesKt;
 import kotlin.collections.MapsKt__MapsKt;
 import org.json.JSONArray;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0005\u0018\u0000B\u0007¢\u0006\u0004\b\u0011\u0010\u0012J)\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\u0012\u0010\u0006\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u00040\u0003¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\f\u001a\u00020\u00052\u0006\u0010\u000b\u001a\u00020\nH\u0002¢\u0006\u0004\b\f\u0010\rR\u0016\u0010\u000f\u001a\u00020\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010¨\u0006\u0013"}, d2 = {"Lcom/baidu/searchbox/live/model/repository/MixListRepository;", "Lcom/baidu/searchbox/live/data/req/LiveListParamsMix;", "listParams", "Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;", "Lcom/baidu/searchbox/live/model/res/MixResult;", "Lcom/baidu/searchbox/live/domain/SlideListInfo;", WebChromeClient.KEY_ARG_CALLBACK, "", "fetchLiveSlideList", "(Lcom/baidu/searchbox/live/data/req/LiveListParamsMix;Lcom/baidu/searchbox/live/model/res/OnMixDataLoaded;)V", "", "responseString", "parseSlideListData", "(Ljava/lang/String;)Lcom/baidu/searchbox/live/domain/SlideListInfo;", "", "isRequestIng", "Z", "<init>", "()V", "lib-live-mini-shell_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MixListRepository {
     public boolean isRequestIng;
 

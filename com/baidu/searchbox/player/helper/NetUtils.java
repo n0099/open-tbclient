@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetUtils {
     public static final String NETWORK_TYPE_CELL_2G = "2g";
     public static final String NETWORK_TYPE_CELL_3G = "3g";
@@ -32,7 +32,7 @@ public class NetUtils {
     public static NetStatus mOldStatus;
     public static NetStatus mStatus;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetStatus {
         NET_DOWN,
         NET_WIFI,

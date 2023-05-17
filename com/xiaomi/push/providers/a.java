@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a extends SQLiteOpenHelper {
     public static int a = 1;
 

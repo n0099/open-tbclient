@@ -3,7 +3,7 @@ package com.facebook.common.streams;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LimitedInputStream extends FilterInputStream {
     public int mBytesToRead;
     public int mBytesToReadWhenMarked;

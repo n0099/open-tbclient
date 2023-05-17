@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class rt2 implements ot2 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public abstract class rt2 implements vt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ff2 a;
+    public int a;
 
     public rt2() {
         Interceptable interceptable = $ic;
@@ -23,42 +25,41 @@ public class rt2 implements ot2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.ot2
-    public void onPause() {
+    public JSONObject d(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            ff2 ff2Var = this.a;
-            if (ff2Var != null) {
-                ff2Var.suspendTimer();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", str);
+                jSONObject.put("value", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ot2
-    public void onResume() {
+    public boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            ff2 ff2Var = this.a;
-            if (ff2Var != null) {
-                ff2Var.continueTimer();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a == -1) {
+                ns2.g0().getSwitch(str, 0);
+                this.a = 0;
             }
-        }
-    }
-
-    public final void a() {
-        t92 W;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ff2 ff2Var = this.a;
-            if ((ff2Var == null || ff2Var.isDestroyed()) && (W = re2.U().W()) != null && (W.e() instanceof ff2)) {
-                this.a = (ff2) W.e();
+            if (this.a != 1) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

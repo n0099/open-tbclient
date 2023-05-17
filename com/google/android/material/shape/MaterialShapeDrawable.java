@@ -39,7 +39,7 @@ import com.google.android.material.shape.ShapePath;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable, Shapeable {
     public static final int SHADOW_COMPAT_MODE_ALWAYS = 2;
     public static final int SHADOW_COMPAT_MODE_DEFAULT = 0;
@@ -76,7 +76,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     public final Region transparentRegion;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface CompatibilityShadowMode {
     }
 
@@ -89,7 +89,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         return -3;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class MaterialShapeDrawableState extends Drawable.ConstantState {
         public int alpha;
         @Nullable
@@ -568,7 +568,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
 
     @NonNull
     public static MaterialShapeDrawable createWithElevationOverlay(Context context, float f) {
-        int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040180, MaterialShapeDrawable.class.getSimpleName());
+        int color = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040190, MaterialShapeDrawable.class.getSimpleName());
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable();
         materialShapeDrawable.initializeElevationOverlay(context);
         materialShapeDrawable.setFillColor(ColorStateList.valueOf(color));

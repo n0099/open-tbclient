@@ -16,23 +16,23 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm5;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.on5;
+import com.baidu.tieba.p85;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class BlueLikeButton extends TextView implements g75 {
+/* loaded from: classes7.dex */
+public class BlueLikeButton extends TextView implements p85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.p85
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -107,14 +107,14 @@ public class BlueLikeButton extends TextView implements g75 {
         this.b = false;
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.p85
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b) {
             return;
         }
         TiebaStatic.log(new StatisticItem("c12503").param("obj_locate", "4"));
-        if (!hi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+        if (!qi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
             StatisticItem statisticItem = new StatisticItem("c12507");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_locate", 2);
@@ -123,17 +123,17 @@ public class BlueLikeButton extends TextView implements g75 {
         }
         if (!this.a) {
             Context context = getContext();
-            if ((context instanceof Activity) && (context instanceof fm5)) {
+            if ((context instanceof Activity) && (context instanceof on5)) {
                 String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-                List<String> currentPageSourceKeyList = ((fm5) context).getCurrentPageSourceKeyList();
-                if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !hi.isEmpty(stringExtra)) {
+                List<String> currentPageSourceKeyList = ((on5) context).getCurrentPageSourceKeyList();
+                if (currentPageSourceKeyList != null && StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") && !qi.isEmpty(stringExtra)) {
                     TiebaStatic.log(new StatisticItem("c12613").param("obj_type", 1).param("tid", stringExtra));
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.p85
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -141,7 +141,7 @@ public class BlueLikeButton extends TextView implements g75 {
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.p85
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -149,7 +149,7 @@ public class BlueLikeButton extends TextView implements g75 {
         }
     }
 
-    @Override // com.baidu.tieba.g75
+    @Override // com.baidu.tieba.p85
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -170,22 +170,22 @@ public class BlueLikeButton extends TextView implements g75 {
             this.a = z;
             if (z) {
                 if (this.b) {
-                    setText(R.string.obfuscated_res_0x7f0f06ad);
-                    TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(ii.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
+                    setText(R.string.obfuscated_res_0x7f0f071b);
+                    TBSelector.makeDrawableSelector().setShape(0).setType(1).radius(ri.g(getContext(), R.dimen.tbds42)).defaultColor(R.color.CAM_X0204).into(this);
                     SkinManager.setViewTextColor(this, R.color.CAM_X0105, 1);
                     return;
                 }
-                setText(R.string.obfuscated_res_0x7f0f06ad);
+                setText(R.string.obfuscated_res_0x7f0f071b);
                 setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_gray_bg));
                 setPadding(0, 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1);
             } else if (this.b) {
-                setText(R.string.obfuscated_res_0x7f0f02b7);
-                TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(ii.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(ii.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
+                setText(R.string.obfuscated_res_0x7f0f02e1);
+                TBSelector.selectorBackgroundDrawable(DrawableSelector.make().setShape(0).setType(1).radius(ri.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0303, R.color.CAM_X0302).build(), DrawableSelector.make().setShape(0).setType(1).radius(ri.g(getContext(), R.dimen.tbds42)).gradientLinear(DrawableSelector.TL_BR, R.color.cp_link_tip_b_alpha50, R.color.cp_link_tip_a_alpha50).build()).into(this);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0101, 1);
             } else {
-                setText(R.string.obfuscated_res_0x7f0f02b7);
+                setText(R.string.obfuscated_res_0x7f0f02e1);
                 setBackgroundDrawable(SkinManager.getDrawable(R.drawable.selector_like_button_bg));
                 setPadding(getResources().getDimensionPixelSize(R.dimen.tbds20), 0, 0, 0);
                 setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_add_follow_white), (Drawable) null, (Drawable) null, (Drawable) null);

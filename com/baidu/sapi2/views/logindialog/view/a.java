@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import com.baidu.sapi2.views.logindialog.utils.ViewUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends ViewGroup {
     public static final String k = "number";
     public static final String l = "text";
@@ -33,14 +33,14 @@ public class a extends ViewGroup {
     public c i;
     public List<EditText> j;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(String str);
     }
 
     /* renamed from: com.baidu.sapi2.views.logindialog.view.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0145a implements TextWatcher {
+    /* loaded from: classes3.dex */
+    public class C0149a implements TextWatcher {
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
@@ -49,7 +49,7 @@ public class a extends ViewGroup {
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         }
 
-        public C0145a() {
+        public C0149a() {
         }
 
         @Override // android.text.TextWatcher
@@ -61,7 +61,7 @@ public class a extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnKeyListener {
         public b() {
         }
@@ -79,7 +79,7 @@ public class a extends ViewGroup {
         super(context);
         this.c = 0;
         this.d = 0;
-        this.e = k;
+        this.e = "number";
         this.f = null;
         this.g = null;
         this.h = Color.parseColor("#1F1F1F");
@@ -198,7 +198,7 @@ public class a extends ViewGroup {
     }
 
     public void b() {
-        C0145a c0145a = new C0145a();
+        C0149a c0149a = new C0149a();
         b bVar = new b();
         this.j.clear();
         for (int i = 0; i < this.b; i++) {
@@ -218,7 +218,7 @@ public class a extends ViewGroup {
             editText.setGravity(17);
             editText.setPadding(0, ViewUtils.dp2px(this.a, 1.0f), 0, 0);
             editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
-            if (k.equals(this.e)) {
+            if ("number".equals(this.e)) {
                 editText.setInputType(2);
             } else if (m.equals(this.e)) {
                 editText.setTransformationMethod(PasswordTransformationMethod.getInstance());
@@ -229,7 +229,7 @@ public class a extends ViewGroup {
             }
             editText.setId(i);
             editText.setEms(1);
-            editText.addTextChangedListener(c0145a);
+            editText.addTextChangedListener(c0149a);
             addView(editText, i);
             this.j.add(editText);
         }

@@ -16,6 +16,7 @@ import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,7 +28,7 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
@@ -100,7 +101,7 @@ public final class j {
             LogUtil.logD("Utility", "startSystemInstallUI安装文件存在:" + file.exists() + ":" + file.getPath());
             com.baidu.util.a.a(context).b("lcsdk_xml", "sessionId", a3.c());
             com.baidu.util.a.a(context).b("lcsdk_xml", "sessionInfo", a3.b());
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(268435457);

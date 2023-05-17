@@ -11,7 +11,7 @@ import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.LiveSDKParams;
 import com.baidu.livesdk.sdk.im.BDIMConversation;
 import com.baidu.livesdk.sdk.im.live.LiveIMManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IMLikeRequest implements LikeRequest {
     public static final boolean DEBUG = false;
     public static final long TIME_INTERVAL = 1200;

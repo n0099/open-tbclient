@@ -15,7 +15,7 @@ public class ContentModelParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("ty", "d");
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0096, code lost:
         if (r2.equals("gs") != false) goto L24;
      */
     @Nullable

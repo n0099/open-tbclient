@@ -5,14 +5,15 @@ import com.baidu.sapi2.ServiceManager;
 import com.baidu.sapi2.service.interfaces.ISAccountManager;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utils {
     public static Map<String, String> buildCommonParams() {
         SapiConfiguration confignation;
         HashMap hashMap = new HashMap();
-        hashMap.put("client", "android");
+        hashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
         if (isAccountManager != null && (confignation = isAccountManager.getConfignation()) != null) {
             String clientId = SapiUtils.getClientId(confignation.context);

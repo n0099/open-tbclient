@@ -11,7 +11,7 @@ import com.baidu.searchbox.bddownload.core.listener.assist.ListenerAssist;
 import com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadBlockProgressListener implements DownloadListener, DownloadBlockProgressListenerAssist.Listener4Callback, ListenerAssist {
     public final DownloadBlockProgressListenerAssist assist;
 
@@ -36,7 +36,7 @@ public abstract class DownloadBlockProgressListener implements DownloadListener,
         return this.assist.isAlwaysRecoverAssistModel();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Listener4ModelCreator implements ListenerModelHandler.ModelCreator<DownloadBlockProgressListenerAssist.Listener4Model> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */

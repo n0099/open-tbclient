@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e55;
+import com.baidu.tieba.n65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,9 +116,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = e55.l.length;
+                int length = n65.l.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(e55.l[i])) {
+                    if (str.equals(n65.l[i])) {
                         return true;
                     }
                 }

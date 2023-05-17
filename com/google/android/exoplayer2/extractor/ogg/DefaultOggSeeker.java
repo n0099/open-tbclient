@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultOggSeeker implements OggSeeker {
     public static final int DEFAULT_OFFSET = 30000;
     public static final int MATCH_BYTE_RANGE = 100000;
@@ -27,7 +27,7 @@ public final class DefaultOggSeeker implements OggSeeker {
     public long targetGranule;
     public long totalGranules;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class OggSeekMap implements SeekMap {
         @Override // com.google.android.exoplayer2.extractor.SeekMap
         public boolean isSeekable() {

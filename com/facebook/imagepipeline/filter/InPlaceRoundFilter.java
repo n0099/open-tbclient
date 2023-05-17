@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.filter;
 
 import android.graphics.Bitmap;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class InPlaceRoundFilter {
     public static void roundBitmapInPlace(Bitmap bitmap) {
         boolean z;

@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u2b;
-import com.baidu.tieba.v2b;
-import com.baidu.tieba.z2b;
+import com.baidu.tieba.s4b;
+import com.baidu.tieba.t4b;
+import com.baidu.tieba.x4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.squareup.wire2.WireField;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<FrameEntity> ADAPTER;
@@ -37,7 +37,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     @WireField(adapter = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                     return;
                 }
             }
-            this.shapes = z2b.i();
+            this.shapes = x4b.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                z2b.a(list);
+                x4b.a(list);
                 this.shapes = list;
                 return this;
             }
@@ -127,7 +127,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,39 +154,39 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public FrameEntity decode(u2b u2bVar) throws IOException {
+        public FrameEntity decode(s4b s4bVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u2bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s4bVar)) == null) {
                 Builder builder = new Builder();
-                long c = u2bVar.c();
+                long c = s4bVar.c();
                 while (true) {
-                    int f = u2bVar.f();
+                    int f = s4bVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = u2bVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(u2bVar));
+                                            FieldEncoding g = s4bVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(s4bVar));
                                         } else {
-                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(u2bVar));
+                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(s4bVar));
                                         }
                                     } else {
-                                        builder.clipPath(ProtoAdapter.STRING.decode(u2bVar));
+                                        builder.clipPath(ProtoAdapter.STRING.decode(s4bVar));
                                     }
                                 } else {
-                                    builder.transform(Transform.ADAPTER.decode(u2bVar));
+                                    builder.transform(Transform.ADAPTER.decode(s4bVar));
                                 }
                             } else {
-                                builder.layout(Layout.ADAPTER.decode(u2bVar));
+                                builder.layout(Layout.ADAPTER.decode(s4bVar));
                             }
                         } else {
-                            builder.alpha(ProtoAdapter.FLOAT.decode(u2bVar));
+                            builder.alpha(ProtoAdapter.FLOAT.decode(s4bVar));
                         }
                     } else {
-                        u2bVar.d(c);
+                        s4bVar.d(c);
                         return builder.build();
                     }
                 }
@@ -197,27 +197,27 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(v2b v2bVar, FrameEntity frameEntity) throws IOException {
+        public void encode(t4b t4bVar, FrameEntity frameEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v2bVar, frameEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t4bVar, frameEntity) == null) {
                 Float f = frameEntity.alpha;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(v2bVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(t4bVar, 1, f);
                 }
                 Layout layout = frameEntity.layout;
                 if (layout != null) {
-                    Layout.ADAPTER.encodeWithTag(v2bVar, 2, layout);
+                    Layout.ADAPTER.encodeWithTag(t4bVar, 2, layout);
                 }
                 Transform transform = frameEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(v2bVar, 3, transform);
+                    Transform.ADAPTER.encodeWithTag(t4bVar, 3, transform);
                 }
                 String str = frameEntity.clipPath;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(v2bVar, 4, str);
+                    ProtoAdapter.STRING.encodeWithTag(t4bVar, 4, str);
                 }
-                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(v2bVar, 5, frameEntity.shapes);
-                v2bVar.k(frameEntity.unknownFields());
+                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(t4bVar, 5, frameEntity.shapes);
+                t4bVar.k(frameEntity.unknownFields());
             }
         }
 
@@ -276,7 +276,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 if (transform != null) {
                     newBuilder2.transform = Transform.ADAPTER.redact(transform);
                 }
-                z2b.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
+                x4b.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -345,7 +345,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = z2b.g("shapes", list);
+        this.shapes = x4b.g("shapes", list);
     }
 
     public boolean equals(Object obj) {
@@ -359,7 +359,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 return false;
             }
             FrameEntity frameEntity = (FrameEntity) obj;
-            if (unknownFields().equals(frameEntity.unknownFields()) && z2b.f(this.alpha, frameEntity.alpha) && z2b.f(this.layout, frameEntity.layout) && z2b.f(this.transform, frameEntity.transform) && z2b.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
+            if (unknownFields().equals(frameEntity.unknownFields()) && x4b.f(this.alpha, frameEntity.alpha) && x4b.f(this.layout, frameEntity.layout) && x4b.f(this.transform, frameEntity.transform) && x4b.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
                 return true;
             }
             return false;
@@ -425,7 +425,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             builder.layout = this.layout;
             builder.transform = this.transform;
             builder.clipPath = this.clipPath;
-            builder.shapes = z2b.c("shapes", this.shapes);
+            builder.shapes = x4b.c("shapes", this.shapes);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

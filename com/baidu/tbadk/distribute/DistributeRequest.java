@@ -3,7 +3,7 @@ package com.baidu.tbadk.distribute;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import java.util.List;
 import tbclient.LogTogether.AdReq;
 import tbclient.LogTogether.DataReq;
 import tbclient.LogTogether.LogTogetherReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DistributeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class DistributeRequest extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 LogTogetherReqIdl.Builder builder2 = new LogTogetherReqIdl.Builder();
                 builder.Ad = this.adReqList;
-                jr5.a(builder, false);
+                ss5.a(builder, false);
                 builder2.data = builder.build(false);
                 return builder2.build(false);
             }

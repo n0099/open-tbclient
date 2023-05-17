@@ -9,25 +9,25 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i75;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.in;
-import com.baidu.tieba.j75;
-import com.baidu.tieba.l75;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.r85;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.s85;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.v85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BannerFlowView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public i75 c;
-    public m75 d;
+    public r85 c;
+    public v85 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,25 +89,25 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new i75(context, this.a, this.b, null);
-            this.d = new m75(context, l75.a);
+            this.c = new r85(context, this.a, this.b, null);
+            this.d = new v85(context, u85.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            layoutParams.setMargins(0, 0, ii.g(context, R.dimen.obfuscated_res_0x7f0701d5), ii.g(context, R.dimen.obfuscated_res_0x7f0701be));
+            layoutParams.setMargins(0, 0, ri.g(context, R.dimen.obfuscated_res_0x7f0701d5), ri.g(context, R.dimen.obfuscated_res_0x7f0701be));
             addView(this.b, layoutParams);
             View view2 = new View(context);
             this.e = view2;
             view2.setBackgroundColor(SkinManager.getColor(R.color.common_color_10043));
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, ii.g(context, R.dimen.obfuscated_res_0x7f070198));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, ri.g(context, R.dimen.obfuscated_res_0x7f070198));
             layoutParams2.gravity = 80;
             addView(this.e, layoutParams2);
         }
     }
 
-    public void setData(List<in> list) {
+    public void setData(List<rn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             this.a.removeAllViews();
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(j75.a<l75, m75.a> aVar) {
-        m75 m75Var;
+    public void setOnItemClickListener(s85.a<u85, v85.a> aVar) {
+        v85 v85Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (m75Var = this.d) != null) {
-            m75Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (v85Var = this.d) != null) {
+            v85Var.e(aVar);
         }
     }
 }

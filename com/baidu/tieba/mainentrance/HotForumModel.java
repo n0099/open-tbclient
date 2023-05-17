@@ -6,32 +6,32 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ij8;
-import com.baidu.tieba.jj8;
-import com.baidu.tieba.za;
+import com.baidu.tieba.dl8;
+import com.baidu.tieba.el8;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.g9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HotForumModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a9 a;
+    public g9 a;
     public b b;
-    public List<ij8> c;
+    public List<dl8> c;
     public HotSearchInfoData d;
-    public List<jj8> e;
+    public List<el8> e;
     public String f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void F(String str);
 
-        void r(List<ij8> list, List<jj8> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void r(List<dl8> list, List<el8> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -54,8 +54,8 @@ public class HotForumModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    /* loaded from: classes6.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotForumModel a;
@@ -82,13 +82,13 @@ public class HotForumModel extends BdBaseModel {
             this.a = hotForumModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 boolean z = responsedMessage instanceof HotForumSocketResponseMessage;
                 if (!z && !(responsedMessage instanceof HotForumHttpResponseMessage)) {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0d30));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0db6));
                 } else if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof HotForumNetMessage)) {
                     if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
                         if (responsedMessage instanceof HotForumHttpResponseMessage) {
@@ -110,46 +110,46 @@ public class HotForumModel extends BdBaseModel {
                     } else if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                         this.a.b.F(responsedMessage.getErrorString());
                     } else {
-                        this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0d30));
+                        this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0db6));
                     }
                 } else {
-                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0d30));
+                    this.a.b.F(this.a.a.getString(R.string.obfuscated_res_0x7f0f0db6));
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotForumModel(a9 a9Var, b bVar) {
-        super(a9Var);
+    public HotForumModel(g9 g9Var, b bVar) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var, bVar};
+            Object[] objArr = {g9Var, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a9Var;
+        this.a = g9Var;
         this.b = bVar;
-        f0();
+        e0();
     }
 
-    public final void f0() {
+    public final void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_HTTP_GET_HOTFORUM, 303116));
         }
     }
 
-    public void g0() {
+    public void f0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             sendMessage(new HotForumNetMessage());

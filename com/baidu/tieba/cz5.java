@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public abstract class cz5 extends ClickableSpan {
+/* loaded from: classes5.dex */
+public class cz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,12 +25,36 @@ public abstract class cz5 extends ClickableSpan {
         }
     }
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint ds) {
+    public static void b(p95 p95Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ds) == null) {
-            Intrinsics.checkNotNullParameter(ds, "ds");
-            ds.setColor(TbadkApplication.getInst().getResources().getColor(R.color.CAM_X0303));
+        if ((interceptable != null && interceptable.invokeL(65537, null, p95Var) != null) || p95Var == null) {
+            return;
         }
+        if (p95Var.b != 0) {
+            o65.m().B("app_entrance_nologin", p95Var.b + "");
+        }
+        if (p95Var.a != 0 && TbadkCoreApplication.getCurrentAccount() != null) {
+            o65.m().B("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), p95Var.a + "");
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        String s;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                s = o65.m().s("app_entrance_nologin", "");
+            } else {
+                o65 m = o65.m();
+                s = m.s("app_entrance_" + TbadkCoreApplication.getCurrentAccount(), "");
+            }
+            int e = pg.e(s, 0);
+            if (e != 1 && e == 2) {
+                return 1;
+            }
+            return 2;
+        }
+        return invokeV.intValue;
     }
 }

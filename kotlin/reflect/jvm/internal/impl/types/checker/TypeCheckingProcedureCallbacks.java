@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types.checker;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface TypeCheckingProcedureCallbacks {
     boolean assertEqualTypeConstructors(TypeConstructor typeConstructor, TypeConstructor typeConstructor2);
 

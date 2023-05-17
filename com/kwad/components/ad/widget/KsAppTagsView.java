@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.baidu.tieba.R;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KsAppTagsView extends LinearLayout {
     public int Cu;
 
@@ -57,7 +57,7 @@ public class KsAppTagsView extends LinearLayout {
     }
 
     public void setAppTags(List<String> list) {
-        c(list, R.layout.obfuscated_res_0x7f0d0492);
+        c(list, R.layout.obfuscated_res_0x7f0d04af);
     }
 
     public void setMaxCount(int i) {

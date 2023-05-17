@@ -1,35 +1,179 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.ApkDownloadView;
+import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class lh9 {
+/* loaded from: classes6.dex */
+public class lh9 extends qh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HeadImageView h;
+    public TextView i;
+    public ApkDownloadView j;
+    public boolean k;
 
-    public lh9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lh9 a;
+
+        public a(lh9 lh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = lh9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.j.performClick();
             }
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class b implements y16.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ah9 a;
+        public final /* synthetic */ lh9 b;
+
+        public b(lh9 lh9Var, ah9 ah9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lh9Var, ah9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lh9Var;
+            this.a = ah9Var;
         }
-        DnsModel.MSG_OK.equals(jSONObject.optString("status"));
+
+        @Override // com.baidu.tieba.y16.a
+        public boolean a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                lh9 lh9Var = this.b;
+                if (lh9Var.k) {
+                    n16.a(this.a.j);
+                } else {
+                    AdCard adCard = lh9Var.f;
+                    if (adCard != null) {
+                        n16.a(adCard.getButtonCmdScheme());
+                    }
+                }
+                si8.c(this.b.c);
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lh9(View view2, String str) {
+        super(view2, str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        l();
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.k = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.qh9
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.b();
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0101, 1);
+            this.j.setTextColorInitSkin(R.color.CAM_X0101);
+            this.j.setBackgroundSkin(R.drawable.obfuscated_res_0x7f081439);
+            this.j.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.qh9
+    public void c(ah9 ah9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ah9Var) == null) {
+            super.c(ah9Var);
+            this.h.N(ah9Var.c, 10, false);
+            this.i.setText(ah9Var.b);
+            this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0901));
+            this.j.setInitText(ah9Var.e);
+            if (this.c != null) {
+                this.b.setOnClickListener(new a(this));
+                this.j.setOnClickInterceptListener(new b(this, ah9Var));
+                AdCard adCard = this.f;
+                if (adCard != null) {
+                    new x16(this.j, bh9.d(adCard));
+                }
+            }
+            b();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092742);
+            this.h = headImageView;
+            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.i = (TextView) a(R.id.user_name);
+            this.j = (ApkDownloadView) a(R.id.obfuscated_res_0x7f09091f);
+        }
     }
 }

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Photo extends Message {
     public static final String DEFAULT_BIGURL = "";
     public static final String DEFAULT_PICID = "";
@@ -14,7 +14,7 @@ public final class Photo extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String smallurl;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<Photo> {
         public String bigurl;
         public String picId;

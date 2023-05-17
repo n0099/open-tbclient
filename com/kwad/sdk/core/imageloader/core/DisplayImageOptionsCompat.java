@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DisplayImageOptionsCompat {
     public final int blurRadius;
     public final boolean cacheInMemory;
@@ -26,7 +26,7 @@ public final class DisplayImageOptionsCompat {
     public final int strokeColor;
     public final float strokeWidth;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public int blurRadius;
         public int cornerRound;

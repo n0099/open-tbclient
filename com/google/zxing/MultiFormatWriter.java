@@ -15,11 +15,11 @@ import com.google.zxing.oned.UPCEWriter;
 import com.google.zxing.pdf417.PDF417Writer;
 import com.google.zxing.qrcode.QRCodeWriter;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MultiFormatWriter implements Writer {
 
     /* renamed from: com.google.zxing.MultiFormatWriter$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$BarcodeFormat;
 

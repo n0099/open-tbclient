@@ -1,134 +1,201 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
+import com.baidu.android.imsdk.upload.AsyncChatTask;
+import com.baidu.android.imsdk.upload.AsyncUploadTask;
+import com.baidu.android.imsdk.upload.IUploadTransferListener;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import com.yy.hiidostatis.inner.util.cipher.Base64Util;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Map;
-/* loaded from: classes7.dex */
-public class x98 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile x98 a;
+/* loaded from: classes8.dex */
+public class x98 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "x98";
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public String b;
+    public w98 c;
 
-    public x98() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948255314, "Lcom/baidu/tieba/x98;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948255314, "Lcom/baidu/tieba/x98;");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+    public void onSendMessageResult(int i, ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
+        }
+    }
+
+    public x98(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.b = str;
     }
 
-    public static x98 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onResult(int i, String str, String str2) {
+        FileOutputStream fileOutputStream;
+        Throwable th;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (x98.class) {
-                    if (a == null) {
-                        a = new x98();
-                    }
-                }
-            }
-            return a;
-        }
-        return (x98) invokeV.objValue;
-    }
-
-    public void b(long j, String str, String str2, String str3, String str4, long j2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, Long.valueOf(j2)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            y08.f().l(TbadkCoreApplication.getCurrentAccount(), str, str2, str3, str4, j, 0L, j2, true);
-        }
-    }
-
-    public void c(@Nullable List<ChatRoomInfo> list, @Nullable List<ChatRoomInfo> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (list2 == null) {
-                list2 = new ArrayList<>();
-            }
-            for (ChatRoomInfo chatRoomInfo : list) {
-                if (chatRoomInfo != null) {
-                    hashMap.put(Long.valueOf(chatRoomInfo.getRoomId()), chatRoomInfo);
-                }
-            }
-            for (ChatRoomInfo chatRoomInfo2 : list2) {
-                if (chatRoomInfo2 != null) {
-                    hashMap2.put(Long.valueOf(chatRoomInfo2.getRoomId()), chatRoomInfo2);
-                }
-            }
-            if (a11.c(hashMap)) {
-                if (a11.c(hashMap2)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo3 : list2) {
-                    if (chatRoomInfo3 != null) {
-                        b(chatRoomInfo3.getRoomId(), chatRoomInfo3.getName(), chatRoomInfo3.getAvatar(), chatRoomInfo3.getForumId(), chatRoomInfo3.getForumName(), chatRoomInfo3.getTimestamp());
-                    }
-                }
-            } else if (a11.c(hashMap2)) {
-                if (a11.c(hashMap)) {
-                    return;
-                }
-                for (ChatRoomInfo chatRoomInfo4 : list) {
-                    if (chatRoomInfo4 != null) {
-                        d(chatRoomInfo4.getRoomId(), chatRoomInfo4.getName(), chatRoomInfo4.getAvatar(), false);
-                    }
-                }
-            } else {
-                if (!a11.c(hashMap2) && hashMap2.entrySet() != null && hashMap2.entrySet().iterator() != null) {
-                    for (Map.Entry entry : hashMap2.entrySet()) {
-                        if (entry != null && entry.getValue() != null) {
-                            if (hashMap.containsKey(entry.getKey())) {
-                                if (!((ChatRoomInfo) hashMap.get(entry.getKey())).isSubscribe()) {
-                                    d(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), true);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+            if (i == 0 && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        byte[] decode = Base64Util.decode(str2);
+                        File file = new File(this.b);
+                        if (file.exists()) {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                try {
+                                    fileOutputStream.write(decode);
+                                    fileOutputStream.flush();
+                                    fileOutputStream2 = fileOutputStream;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    if (this.c != null) {
+                                        this.c.isFailed();
+                                    }
+                                    LogUtils.e(d, e.getMessage());
+                                    if (fileOutputStream != null) {
+                                        fileOutputStream.close();
+                                    }
+                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                                    return;
                                 }
-                            } else {
-                                b(((ChatRoomInfo) entry.getValue()).getRoomId(), ((ChatRoomInfo) entry.getValue()).getName(), ((ChatRoomInfo) entry.getValue()).getAvatar(), ((ChatRoomInfo) entry.getValue()).getForumId(), ((ChatRoomInfo) entry.getValue()).getForumName(), ((ChatRoomInfo) entry.getValue()).getTimestamp());
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e3) {
+                                        LogUtils.e(d, e3.getMessage());
+                                    }
+                                }
+                                throw th;
                             }
+                        } else if (this.c != null) {
+                            this.c.isFailed();
                         }
+                    } catch (Exception e4) {
+                        LogUtils.e(d, e4.getMessage());
                     }
-                }
-                if (!a11.c(hashMap) && hashMap.entrySet() != null && hashMap.entrySet().iterator() != null) {
-                    for (Map.Entry entry2 : hashMap.entrySet()) {
-                        if (entry2 != null && entry2.getValue() != null) {
-                            if (!hashMap2.containsKey(entry2.getKey())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            } else if (((ChatRoomInfo) hashMap2.get(entry2.getKey())).getIsShow() == 0 && TextUtils.isEmpty(((ChatRoomInfo) hashMap2.get(entry2.getKey())).getName())) {
-                                d(((ChatRoomInfo) entry2.getValue()).getRoomId(), ((ChatRoomInfo) entry2.getValue()).getName(), ((ChatRoomInfo) entry2.getValue()).getAvatar(), false);
-                            }
-                        }
+                } catch (Exception e5) {
+                    fileOutputStream = null;
+                    e = e5;
+                } catch (Throwable th3) {
+                    fileOutputStream = null;
+                    th = th3;
+                    if (fileOutputStream != null) {
                     }
+                    throw th;
                 }
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                return;
+            }
+            w98 w98Var = this.c;
+            if (w98Var != null) {
+                w98Var.isFailed();
             }
         }
     }
 
-    public final void d(long j, String str, String str2, boolean z) {
+    public void b(@NonNull w98 w98Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, str2, Boolean.valueOf(z)}) == null) && j != 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            y08.f().q(TbadkCoreApplication.getCurrentAccount(), j, str, str2, z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w98Var) == null) {
+            this.c = w98Var;
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFailed(int i, int i2, String str) {
+        w98 w98Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (w98Var = this.c) != null) {
+            w98Var.isFailed();
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFinished(int i, String str) {
+        w98 w98Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (w98Var = this.c) != null) {
+            w98Var.a(str);
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+            if (i == 0) {
+                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
+                return;
+            }
+            w98 w98Var = this.c;
+            if (w98Var != null) {
+                w98Var.isFailed();
+            }
         }
     }
 }

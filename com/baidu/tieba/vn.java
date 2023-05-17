@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface vn {
-    void onOver();
+    void cancelRefresh();
+
+    sn getAdapter();
+
+    int getFirstVisiblePosition();
+
+    int getLastVisiblePosition();
 }

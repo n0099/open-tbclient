@@ -5,7 +5,7 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.process.BitmapProcessor;
 import com.kwad.sdk.core.imageloader.utils.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ProcessAndDisplayImageTask implements Runnable {
     public static final String LOG_POSTPROCESS_IMAGE = "PostProcess image before displaying [%s]";
     public final DecodedResult decodedResult;

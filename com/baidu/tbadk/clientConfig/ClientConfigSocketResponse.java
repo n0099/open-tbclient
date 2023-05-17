@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetClientConfig.DataRes;
 import tbclient.GetClientConfig.GetClientConfigResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ClientConfigSocketResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

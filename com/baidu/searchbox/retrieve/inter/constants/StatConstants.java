@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.inter.constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StatConstants {
     public static final String ERR_CODE_CLIENT_CHECK_EMPTY = "1";
     public static final String ERR_CODE_CLIENT_CHECK_EXPIRED = "3";

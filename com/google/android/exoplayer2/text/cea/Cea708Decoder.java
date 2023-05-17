@@ -24,7 +24,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Cea708Decoder extends CeaDecoder {
     public static final int CC_VALID_FLAG = 4;
     public static final int CHARACTER_BIG_CARONS = 42;
@@ -120,7 +120,7 @@ public final class Cea708Decoder extends CeaDecoder {
         return TAG;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CueBuilder {
         public static final int BORDER_AND_EDGE_TYPE_NONE = 0;
         public static final int BORDER_AND_EDGE_TYPE_UNIFORM = 3;
@@ -524,7 +524,7 @@ public final class Cea708Decoder extends CeaDecoder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DtvCcPacket {
         public int currentIndex = 0;
         public final byte[] packetData;
@@ -751,7 +751,7 @@ public final class Cea708Decoder extends CeaDecoder {
                     handleSetPenAttributes();
                     return;
                 }
-            case COMMAND_SPC /* 145 */:
+            case 145:
                 if (!this.currentCueBuilder.isDefined()) {
                     this.serviceBlockPacket.skipBits(24);
                     return;

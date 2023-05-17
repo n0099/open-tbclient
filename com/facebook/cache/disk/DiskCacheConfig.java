@@ -13,7 +13,7 @@ import com.facebook.common.internal.Supplier;
 import com.facebook.common.internal.Suppliers;
 import java.io.File;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DiskCacheConfig {
     public final String mBaseDirectoryName;
     public final Supplier<File> mBaseDirectoryPathSupplier;
@@ -28,7 +28,7 @@ public class DiskCacheConfig {
     public final long mMinimumSizeLimit;
     public final int mVersion;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public String mBaseDirectoryName;
         public Supplier<File> mBaseDirectoryPathSupplier;

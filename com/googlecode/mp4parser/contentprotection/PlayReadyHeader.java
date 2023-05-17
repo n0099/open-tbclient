@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static UUID PROTECTION_SYSTEM_ID = UUID.fromString("9A04F079-9840-4286-AB92-E65BE0885F95");
     public long length;
     public List<PlayReadyRecord> records;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class PlayReadyRecord {
         public int type;
 
@@ -23,7 +23,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
 
         public abstract void parse(ByteBuffer byteBuffer);
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             public ByteBuffer value;
 
@@ -42,7 +42,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class EmeddedLicenseStore extends PlayReadyRecord {
             public ByteBuffer value;
 
@@ -66,7 +66,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class RMHeader extends PlayReadyRecord {
             public String header;
 

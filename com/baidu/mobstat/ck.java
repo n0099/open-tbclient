@@ -14,13 +14,13 @@ import java.util.Random;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.ws.WebSocketProtocol;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ck extends cj {
     public static final /* synthetic */ boolean f = !ck.class.desiredAssertionStatus();
     public ByteBuffer g;
     public final Random h = new Random();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Throwable {
         public int b;
 

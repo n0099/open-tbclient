@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UsbAbTestConst {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD_RETARGET_NOTIFICATION_REMIND = "12_28_notification_remind_ad";
@@ -16,6 +16,7 @@ public class UsbAbTestConst {
     public static final String KEY_CONCERN_FEED_TEST = "12.38_concern_feed_test";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_EXIT_REMIND_TIP = "12_28_exit_remind_ad";
+    public static final String KEY_EXTRA_DURATION = "12.41_extra_duration";
     public static final String KEY_FEED_LIVE_CARD_STYLE_A = "12_39_livecard_style_a";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
     public static final String KEY_FORUM_REC_REASON_COLOR_TEST_A = "12_19_rec_a";

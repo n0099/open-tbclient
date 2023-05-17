@@ -57,7 +57,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak", "InlinedApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FeedbackListActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,13 +85,13 @@ public class FeedbackListActivity extends Activity {
     public Handler v;
     public BroadcastReceiver w;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedbackListActivity a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -176,13 +176,13 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedbackListActivity a;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -255,7 +255,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -315,7 +315,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -350,7 +350,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements AbsListView.RecyclerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -379,7 +379,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -421,7 +421,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class g implements AdapterView.OnItemLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -459,7 +459,7 @@ public class FeedbackListActivity extends Activity {
                     RelativeLayout relativeLayout = new RelativeLayout(applicationContext);
                     RelativeLayout relativeLayout2 = new RelativeLayout(applicationContext);
                     relativeLayout2.setBackgroundDrawable(null);
-                    relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f081322);
+                    relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0814ac);
                     RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(p1.a(applicationContext, 19.0f), p1.a(applicationContext, 23.0f));
                     relativeLayout2.setLayoutParams(layoutParams);
                     ImageView imageView = new ImageView(applicationContext);
@@ -499,7 +499,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -536,7 +536,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -562,7 +562,7 @@ public class FeedbackListActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class j extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1024,7 +1024,7 @@ public class FeedbackListActivity extends Activity {
             button.setText(t1.a("22"));
             this.g.setTextSize(16.0f);
             this.g.setTextColor(-12814593);
-            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef7);
+            this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08103f);
             LinearLayout.LayoutParams layoutParams11 = new LinearLayout.LayoutParams(p1.a(getApplicationContext(), 122.0f), p1.a(getApplicationContext(), 40.0f));
             layoutParams11.setMargins(0, p1.a(getApplicationContext(), 15.0f), 0, 0);
             this.b.addView(this.g, layoutParams11);

@@ -1,102 +1,180 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.tq2;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class q33 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes7.dex */
+public class q33 implements ku2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040856, "Lcom/baidu/tieba/q33;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final q33 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-538497446, "Lcom/baidu/tieba/q33$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-538497446, "Lcom/baidu/tieba/q33$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040856, "Lcom/baidu/tieba/q33;");
+            a = new q33(null);
+        }
+    }
+
+    public q33() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public static void a() {
-        String[] list;
+    public static q33 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (list = tq2.q().list()) != null && list.length > 0) {
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    yg4 yg4Var = new yg4();
-                    yg4Var.g = str;
-                    yg4Var.i = -1L;
-                    uf4.i().f(yg4Var);
-                }
-            }
-            tq2.e.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
+        return (q33) invokeV.objValue;
     }
 
-    public static void b(String str) {
-        File s;
-        String[] list;
+    public /* synthetic */ q33(a aVar) {
+        this();
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && !TextUtils.isEmpty(str) && (s = tq2.s(str)) != null && (list = s.list()) != null && list.length > 1) {
-            List<yg4> q = e33.q(str);
-            for (String str2 : list) {
-                long j = -1;
-                try {
-                    j = Long.parseLong(str2);
-                } catch (NumberFormatException e) {
-                    if (a) {
-                        p33.b(Log.getStackTraceString(e));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
+                }
+                d.setLayoutParams(layoutParams2);
+            }
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(ns2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (ku2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+                return inflate;
+            }
+            return d;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                int length = iArr.length;
+                LayoutInflater from = LayoutInflater.from(ns2.c());
+                for (int i : iArr) {
+                    View inflate = from.inflate(i, (ViewGroup) null);
+                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                    if (copyOnWriteArrayList == null) {
+                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
                     }
+                    copyOnWriteArrayList.add(inflate);
+                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
                 }
-                if (!c(j, q)) {
-                    bo4.L(tq2.t(str, str2));
-                    p33.b("delete plugin name = " + str + " ; version = " + str2);
+                if (ku2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
                 }
-            }
-            yg4 yg4Var = null;
-            if (q != null) {
-                if (q.size() == 1) {
-                    yg4Var = q.get(0);
-                } else if (q.size() >= 2) {
-                    yg4Var = q.get(1);
+            } catch (Exception e) {
+                if (ku2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
                 }
-            }
-            if (yg4Var != null) {
-                uf4.i().f(yg4Var);
             }
         }
     }
 
-    public static boolean c(long j, List<yg4> list) {
-        InterceptResult invokeJL;
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    yg4 yg4Var = list.get(i);
-                    if (yg4Var != null && (j == yg4Var.i || j == ml3.c(yg4Var.j))) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (ku2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
                 }
             }
-            return false;
+            if (ku2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                if (view2 == null) {
+                    str = " cache view is null";
+                } else {
+                    str = " adopt cached view";
+                }
+                sb.append(str);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
         }
-        return invokeJL.booleanValue;
+        return (View) invokeI.objValue;
     }
 }

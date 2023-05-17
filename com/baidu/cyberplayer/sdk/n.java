@@ -10,10 +10,10 @@ import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
 import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends GZIPOutputStream {
         public a(OutputStream outputStream) throws IOException {
             super(outputStream);

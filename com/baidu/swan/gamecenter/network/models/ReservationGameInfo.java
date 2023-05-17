@@ -2,7 +2,7 @@ package com.baidu.swan.gamecenter.network.models;
 
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ReservationGameInfo implements Serializable {
     @SerializedName("app_id")
     public String app_id;

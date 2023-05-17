@@ -3,7 +3,7 @@ package com.xiaomi.clientreport.data;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.bs;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Config {
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
     public static final long DEFAULT_EVENT_UPLOAD_FREQUENCY = 86400;
@@ -19,7 +19,7 @@ public class Config {
     public long mPerfUploadFrequency;
     public boolean mPerfUploadSwitchOpen;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public int mEventEncrypted = -1;
         public int mEventUploadSwitchOpen = -1;

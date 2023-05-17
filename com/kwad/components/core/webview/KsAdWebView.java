@@ -11,6 +11,7 @@ import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
+import com.baidu.searchbox.IntentConstants;
 import com.kwad.components.core.c.a.a;
 import com.kwad.components.core.m.p;
 import com.kwad.components.core.webview.kwai.c;
@@ -18,7 +19,7 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.q;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KsAdWebView extends com.kwad.components.core.webview.b {
     public com.kwad.components.core.webview.kwai.c KJ;
     public long KK;
@@ -28,7 +29,7 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
     public c.a gX;
     public String mUniqueId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements DownloadListener {
         public a() {
         }
@@ -41,7 +42,7 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
         public final void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             if (KsAdWebView.this.gX == null || KsAdWebView.this.gX.getAdTemplate() == null || !KsAdWebView.this.gX.ps()) {
                 try {
-                    KsAdWebView.this.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                    KsAdWebView.this.getContext().startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)));
                     return;
                 } catch (Exception e) {
                     com.kwad.sdk.core.e.b.printStackTrace(e);
@@ -54,23 +55,23 @@ public class KsAdWebView extends com.kwad.components.core.webview.b {
             if (readyClientConfig != null) {
                 readyClientConfig.R(KsAdWebView.this.gX.getAdTemplate());
             }
-            com.kwad.components.core.c.a.a.a(new a.C0596a(KsAdWebView.this.getContext2()).L(KsAdWebView.this.gX.getAdTemplate()).al(true));
+            com.kwad.components.core.c.a.a.a(new a.C0610a(KsAdWebView.this.getContext2()).L(KsAdWebView.this.gX.getAdTemplate()).al(true));
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void kU();
 
         void onSuccess();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void nu();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         void a(int i, String str, String str2);
 

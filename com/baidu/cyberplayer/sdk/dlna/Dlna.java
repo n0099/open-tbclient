@@ -5,7 +5,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Dlna {
     public static int DLNA_ERROR_CREATE_CTRL_POINT_TIMER_THREAD_FAIL = -1011;
     public static int DLNA_ERROR_CREATE_SSDP_THREAD_FIAL = -1017;
@@ -28,7 +28,7 @@ public class Dlna {
     public static String TAG = "DLNA";
     public DlnaProvider a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static final Dlna a = new Dlna();
     }

@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.api.Result;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ResultCallbacks<R extends Result> implements ResultCallback<R> {
     public abstract void onFailure(@NonNull Status status);
 

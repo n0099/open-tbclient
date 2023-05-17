@@ -1,13 +1,13 @@
 package com.baidu.swan.apps.performance;
 
 import android.util.Log;
-import com.baidu.tieba.ho1;
+import com.baidu.tieba.qp1;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UbcFlowEvent {
-    public static final boolean g = ho1.a;
+    public static final boolean g = qp1.a;
     public final String a;
     public long b = System.currentTimeMillis();
     public String c = "";
@@ -15,7 +15,7 @@ public class UbcFlowEvent {
     public RecordType e = RecordType.KEEP;
     public boolean f = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum RecordType {
         KEEP,
         UPDATE,

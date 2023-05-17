@@ -17,32 +17,32 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq9;
-import com.baidu.tieba.dq9;
-import com.baidu.tieba.eq9;
-import com.baidu.tieba.sz5;
+import com.baidu.tieba.e16;
+import com.baidu.tieba.es9;
+import com.baidu.tieba.fs9;
+import com.baidu.tieba.gs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JS_PROMPT_ACCOUNT_METHOD_EXIT = "exit";
     public static final String JS_PROMPT_INTERFACE_NAME = "AccountJsBridge";
     public static final String PAGE_TYPE = "page_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public cq9 jsBridge;
-    public eq9 jsCallback;
-    public dq9 jsPromptInterface;
+    public es9 jsBridge;
+    public gs9 jsCallback;
+    public fs9 jsPromptInterface;
     public NavigationBar mNavigationBar;
     public String mPageType;
     public BaseWebView mWebView;
 
-    /* loaded from: classes3.dex */
-    public class a implements eq9 {
+    /* loaded from: classes4.dex */
+    public class a implements gs9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AccountRestoreActivity a;
@@ -65,7 +65,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
             this.a = accountRestoreActivity;
         }
 
-        @Override // com.baidu.tieba.eq9
+        @Override // com.baidu.tieba.gs9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -92,7 +92,7 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 return;
             }
         }
-        this.jsPromptInterface = new dq9(this) { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
+        this.jsPromptInterface = new fs9(this) { // from class: com.baidu.tieba.account.AccountRestoreActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AccountRestoreActivity this$0;
@@ -115,12 +115,12 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.dq9
+            @Override // com.baidu.tieba.fs9
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLLLL = interceptable2.invokeLLLL(1048576, this, str, str2, str3, jsPromptResult)) == null) {
-                    if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, str2)) {
+                    if (TextUtils.equals(AccountRestoreActivity.JS_PROMPT_INTERFACE_NAME, str) && TextUtils.equals("exit", str2)) {
                         jsPromptResult.confirm();
                         this.this$0.exitPage();
                         return true;
@@ -159,20 +159,20 @@ public class AccountRestoreActivity extends BaseActivity<AccountRestoreActivity>
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0024);
-            cq9 cq9Var = new cq9();
-            this.jsBridge = cq9Var;
-            cq9Var.a(this.jsPromptInterface);
+            es9 es9Var = new es9();
+            this.jsBridge = es9Var;
+            es9Var.a(this.jsPromptInterface);
             this.mPageType = getIntent().getStringExtra("page_type");
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f028f));
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f0924b2)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f09287c);
+            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02ba));
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f09251d)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            BaseWebView baseWebView = (BaseWebView) findViewById(R.id.obfuscated_res_0x7f0928ec);
             this.mWebView = baseWebView;
             baseWebView.setOnJsPromptCallback(this.jsCallback);
             BaseWebView baseWebView2 = this.mWebView;
-            baseWebView2.loadUrl(sz5.a + "?_client_version=" + TbConfig.getVersion());
+            baseWebView2.loadUrl(e16.a + "?_client_version=" + TbConfig.getVersion());
         }
     }
 }

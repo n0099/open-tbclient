@@ -4,9 +4,10 @@ import android.content.ClipboardManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.l45;
+import com.baidu.tieba.s55;
+import com.baidu.tieba.u55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ClipboardBridgeHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,18 +28,18 @@ public class ClipboardBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ClipboardBridgeHandler(j45 j45Var) {
-        super(j45Var);
+    public ClipboardBridgeHandler(s55 s55Var) {
+        super(s55Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j45Var};
+            Object[] objArr = {s55Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j45) newInitContext.callArgs[0]);
+                super((s55) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,7 +47,7 @@ public class ClipboardBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @l45("copy")
+    @u55(CommandUBCHelper.COMMAND_UBC_TYPE_COPY)
     public JSONObject copyToClipboard(JSONObject jSONObject) throws JSONException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.data.constant;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MixTagConstants {
     public static final String ENTER_ROOM = "MixLiveCell_fake_list";
     public static final String MIX_ACT = "MixLiveCell_fake_act";

@@ -2,13 +2,13 @@ package com.baidu.searchbox.network.outback.callback;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ExtraInfoCallback {
     public static ExtraInfoDispatcher sExtraInfoDispatcher = new ExtraInfoDispatcher();
 
     public abstract void onReceiveClientIP(String str);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ExtraInfoDispatcher {
         public List<ExtraInfoCallback> mExtraCallbacks = new CopyOnWriteArrayList();
 

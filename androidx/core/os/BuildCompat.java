@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresOptIn;
 import androidx.annotation.RestrictTo;
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.privateapi.PrivateApiUtils;
 /* loaded from: classes.dex */
 public class BuildCompat {
 
@@ -93,7 +94,7 @@ public class BuildCompat {
 
     @RestrictTo({RestrictTo.Scope.TESTS})
     public static boolean isAtLeastPreReleaseCodename(@NonNull String str, @NonNull String str2) {
-        if ("REL".equals(str2) || str2.compareTo(str) < 0) {
+        if (PrivateApiUtils.SDK_VERSION_NAME.equals(str2) || str2.compareTo(str) < 0) {
             return false;
         }
         return true;

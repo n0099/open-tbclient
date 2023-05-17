@@ -8,7 +8,7 @@ import com.baidu.crius.CriusNode;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.ui.CriusUI;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUIIndicatorView extends CriusUI<SwiperIndicatorView> {
     public SwiperIndicatorView mIndicatorView;
     public ViewPager mRelatedVp;

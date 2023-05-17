@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.Window;
 import androidx.appcompat.widget.TooltipCompatHandler;
 import com.baidu.mobstat.ak;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class aj {
     public static volatile boolean a = true;
     public a b;
@@ -23,7 +23,7 @@ public class aj {
         }
     };
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }

@@ -7,10 +7,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.tieba.ho1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.qp1;
+/* loaded from: classes4.dex */
 public abstract class LoadingLayout extends FrameLayout {
-    public static final boolean d = ho1.a;
+    public static final boolean d = qp1.a;
     public View a;
     public ILoadingLayout$State b;
     public ILoadingLayout$State c;
@@ -61,7 +61,7 @@ public abstract class LoadingLayout extends FrameLayout {
     public void setReleaseLabel(CharSequence charSequence) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static final /* synthetic */ int[] a;
 

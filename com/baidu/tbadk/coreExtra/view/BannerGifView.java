@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.ov4;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.ww4;
+import com.baidu.tieba.xw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BannerGifView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class BannerGifView extends RelativeLayout {
     public String e;
     public String f;
     public boolean g;
-    public nv4 h;
-    public ov4 i;
-    public final ov4 j;
+    public ww4 h;
+    public xw4 i;
+    public final xw4 j;
     public final View.OnClickListener k;
 
-    /* loaded from: classes3.dex */
-    public class a implements ov4 {
+    /* loaded from: classes4.dex */
+    public class a implements xw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BannerGifView a;
@@ -62,7 +62,7 @@ public class BannerGifView extends RelativeLayout {
             this.a = bannerGifView;
         }
 
-        @Override // com.baidu.tieba.ov4
+        @Override // com.baidu.tieba.xw4
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,10 +202,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(nv4 nv4Var) {
+    public void setIWindowChangedListener(ww4 ww4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, nv4Var) == null) {
-            this.h = nv4Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ww4Var) == null) {
+            this.h = ww4Var;
         }
     }
 
@@ -217,10 +217,10 @@ public class BannerGifView extends RelativeLayout {
         }
     }
 
-    public void setOnClickEventListener(ov4 ov4Var) {
+    public void setOnClickEventListener(xw4 xw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, ov4Var) == null) {
-            this.i = ov4Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, xw4Var) == null) {
+            this.i = xw4Var;
         }
     }
 
@@ -237,7 +237,7 @@ public class BannerGifView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 if (!TextUtils.isEmpty(this.f)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(getContext()), new String[]{this.f});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(getContext()), new String[]{this.f});
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -249,7 +249,7 @@ public class BannerGifView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.gif_banner_view, this);
-            this.b = (ImageView) inflate.findViewById(R.id.btn_close);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0904a6);
             this.c = inflate.findViewById(R.id.image_mask);
             GifView gifView = (GifView) inflate.findViewById(R.id.image_gif);
             this.a = gifView;

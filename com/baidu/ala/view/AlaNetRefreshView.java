@@ -10,13 +10,13 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ch5;
+import com.baidu.tieba.li5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AlaNetRefreshView extends ch5 {
+public class AlaNetRefreshView extends li5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mNetFailTipView;
@@ -26,7 +26,7 @@ public class AlaNetRefreshView extends ch5 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaNetRefreshView(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0100, (ViewGroup) null));
+        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0102, (ViewGroup) null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,10 +42,10 @@ public class AlaNetRefreshView extends ch5 {
                 return;
             }
         }
-        this.mNetRefreshImg = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090209);
-        this.mNetFailTipView = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09020a);
-        this.mNetRefreshBtn = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090207);
-        this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090208);
+        this.mNetRefreshImg = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090216);
+        this.mNetFailTipView = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090217);
+        this.mNetRefreshBtn = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090214);
+        this.mNetRefreshContainer = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f090215);
     }
 
     public void onChangeSkinType() {
@@ -62,7 +62,7 @@ public class AlaNetRefreshView extends ch5 {
             TextView textView2 = this.mNetRefreshBtn;
             if (textView2 != null) {
                 SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0106);
-                SkinManager.setBackgroundResource(this.mNetRefreshBtn, R.drawable.obfuscated_res_0x7f0801e2);
+                SkinManager.setBackgroundResource(this.mNetRefreshBtn, R.drawable.obfuscated_res_0x7f0801fa);
             }
             ImageView imageView = this.mNetRefreshImg;
             if (imageView != null) {

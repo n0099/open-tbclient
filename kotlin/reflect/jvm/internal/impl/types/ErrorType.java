@@ -10,7 +10,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ErrorType extends SimpleType {
     public final List<TypeProjection> arguments;
     public final TypeConstructor constructor;

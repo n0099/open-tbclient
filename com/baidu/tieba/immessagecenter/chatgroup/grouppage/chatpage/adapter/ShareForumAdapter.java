@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ViewHolder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,8 +115,9 @@ public class ShareForumAdapter extends BaseChatAdapter<ShareForumSysMsg, ViewHol
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             ChatShareCard chatShareCard = new ChatShareCard(context);
+            chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090e43);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090e72);
             chatShareCard.setCurrentCardType((short) 33);
             return new ViewHolder(chatShareCard);
         }

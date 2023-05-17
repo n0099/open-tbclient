@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.or5;
+import com.baidu.tieba.ox5;
+import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class RichTextMaker<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public abstract class RichTextMaker<T> {
     public abstract void c(@NonNull View view2, int i, @NonNull T t);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class IconPos {
         public static final /* synthetic */ IconPos[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,11 +106,11 @@ public abstract class RichTextMaker<T> {
                 } else {
                     z = false;
                 }
-                or5.a(z);
+                xs5.a(z);
                 if (this != START_OFFSET) {
                     z2 = false;
                 }
-                or5.d(z2);
+                xs5.d(z2);
                 this.offset = i;
                 return this;
             }
@@ -127,8 +127,8 @@ public abstract class RichTextMaker<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class a extends cw5 {
+    /* loaded from: classes4.dex */
+    public class a extends ox5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int j;
@@ -161,11 +161,11 @@ public abstract class RichTextMaker<T> {
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.cw5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.ox5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cw5.b bVar = this.i;
+                ox5.b bVar = this.i;
                 if (bVar != null) {
                     bVar.a(this);
                 }
@@ -175,7 +175,7 @@ public abstract class RichTextMaker<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -215,7 +215,7 @@ public abstract class RichTextMaker<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int g = 1;

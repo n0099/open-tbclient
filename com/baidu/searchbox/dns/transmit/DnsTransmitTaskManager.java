@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsTransmitTaskManager {
     public static volatile DnsTransmitTaskManager taskManager;
     public final Object taskLock;
     public HashMap<String, DnsTransmitTask> taskMap;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Holder {
         public static DnsTransmitTaskManager INSTANCE = new DnsTransmitTaskManager();
     }

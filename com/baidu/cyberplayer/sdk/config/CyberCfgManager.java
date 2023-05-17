@@ -15,7 +15,6 @@ import com.baidu.cyberplayer.sdk.c;
 import com.baidu.cyberplayer.sdk.d;
 import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.statistics.DpNetworkUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
@@ -31,7 +30,7 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberCfgManager {
     @Keep
     public static final String KEY_ACCURATE_SEEK_ENABLE = "accurate_seek_enable";
@@ -268,8 +267,8 @@ public class CyberCfgManager {
                 return 0;
             }
             try {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = str.split("\\.");
+                String[] split2 = str2.split("\\.");
                 if (split != null && split2 != null) {
                     int min = Math.min(split.length, split2.length);
                     int i2 = 0;

@@ -107,7 +107,7 @@ public class DrawerArrowDrawable extends Drawable {
         this.mPaint.setStrokeJoin(Paint.Join.MITER);
         this.mPaint.setStrokeCap(Paint.Cap.BUTT);
         this.mPaint.setAntiAlias(true);
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(null, R.styleable.DrawerArrowToggle, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026b, com.baidu.tieba.R.style.obfuscated_res_0x7f1000b9);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(null, R.styleable.DrawerArrowToggle, com.baidu.tieba.R.attr.obfuscated_res_0x7f040285, com.baidu.tieba.R.style.obfuscated_res_0x7f1000b9);
         setColor(obtainStyledAttributes.getColor(3, 0));
         setBarThickness(obtainStyledAttributes.getDimension(7, 0.0f));
         setSpinEnabled(obtainStyledAttributes.getBoolean(6, true));

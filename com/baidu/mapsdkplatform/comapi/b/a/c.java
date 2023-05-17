@@ -33,7 +33,7 @@ import java.util.zip.GZIPOutputStream;
 import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
@@ -57,7 +57,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;

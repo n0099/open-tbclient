@@ -19,14 +19,14 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.TypeAliasExpansionReportStrategy;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeChecker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TypeAliasExpander {
     public static final Companion Companion = new Companion(null);
     public static final TypeAliasExpander NON_REPORTING = new TypeAliasExpander(TypeAliasExpansionReportStrategy.DO_NOTHING.INSTANCE, false);
     public final TypeAliasExpansionReportStrategy reportStrategy;
     public final boolean shouldCheckBounds;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -151,7 +151,7 @@ public final class TypeAliasExpander {
         SimpleType asSimpleType = TypeSubstitutionKt.asSimpleType(unwrap);
         if (!KotlinTypeKt.isError(asSimpleType) && TypeUtilsKt.requiresTypeAliasExpansion(asSimpleType)) {
             TypeConstructor constructor = asSimpleType.getConstructor();
-            ClassifierDescriptor mo2025getDeclarationDescriptor = constructor.mo2025getDeclarationDescriptor();
+            ClassifierDescriptor mo2044getDeclarationDescriptor = constructor.mo2044getDeclarationDescriptor();
             int i2 = 0;
             if (constructor.getParameters().size() == asSimpleType.getArguments().size()) {
                 z = true;
@@ -160,9 +160,9 @@ public final class TypeAliasExpander {
             }
             if (_Assertions.ENABLED && !z) {
                 throw new AssertionError("Unexpected malformed type: " + asSimpleType);
-            } else if (!(mo2025getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-                if (mo2025getDeclarationDescriptor instanceof TypeAliasDescriptor) {
-                    TypeAliasDescriptor typeAliasDescriptor = (TypeAliasDescriptor) mo2025getDeclarationDescriptor;
+            } else if (!(mo2044getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+                if (mo2044getDeclarationDescriptor instanceof TypeAliasDescriptor) {
+                    TypeAliasDescriptor typeAliasDescriptor = (TypeAliasDescriptor) mo2044getDeclarationDescriptor;
                     if (typeAliasExpansion.isRecursion(typeAliasDescriptor)) {
                         this.reportStrategy.recursiveTypeAlias(typeAliasDescriptor);
                         Variance variance = Variance.INVARIANT;

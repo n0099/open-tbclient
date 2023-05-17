@@ -12,6 +12,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import com.win.opensdk.R;
 import com.win.opensdk.r2;
 import com.win.opensdk.s2;
 import com.win.opensdk.y;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CircleProgressbar extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +105,7 @@ public class CircleProgressbar extends TextView {
         }
         this.a = 2;
         this.b = ColorStateList.valueOf(0);
-        this.d = -16776961;
+        this.d = BaseAnimatedElement.DEBUG_PAINT_COLOR;
         this.e = 8;
         this.f = new Paint();
         this.g = new RectF();
@@ -138,7 +139,7 @@ public class CircleProgressbar extends TextView {
         }
         this.a = 2;
         this.b = ColorStateList.valueOf(0);
-        this.d = -16776961;
+        this.d = BaseAnimatedElement.DEBUG_PAINT_COLOR;
         this.e = 8;
         this.f = new Paint();
         this.g = new RectF();

@@ -7,8 +7,8 @@ import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m41;
-import com.baidu.tieba.wk1;
+import com.baidu.tieba.c51;
+import com.baidu.tieba.ml1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener, MediaPlayer.OnSeekCompleteListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
     public Surface b;
     public SurfaceHolder c;
-    public wk1 d;
+    public ml1 d;
     public State e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,10 +128,10 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
     }
 
     public final void f(int i) {
-        wk1 wk1Var;
+        ml1 ml1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (wk1Var = this.d) != null) {
-            wk1Var.a(i);
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (ml1Var = this.d) != null) {
+            ml1Var.a(i);
         }
     }
 
@@ -161,10 +161,10 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
         }
     }
 
-    public void m(wk1 wk1Var) {
+    public void m(ml1 ml1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, wk1Var) == null) {
-            this.d = wk1Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ml1Var) == null) {
+            this.d = ml1Var;
         }
     }
 
@@ -404,7 +404,7 @@ public class BaseMediaPlayer implements MediaPlayer.OnPreparedListener, MediaPla
 
     public void r(Context context, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) && this.a != null && context != null && m41.a(context, "android.permission.WAKE_LOCK")) {
+        if ((interceptable == null || interceptable.invokeLI(1048598, this, context, i) == null) && this.a != null && context != null && c51.a(context, "android.permission.WAKE_LOCK")) {
             this.a.setWakeMode(context.getApplicationContext(), i);
         }
     }

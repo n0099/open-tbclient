@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic = null;
     public static r e = null;
@@ -26,7 +26,7 @@ public class r {
     public Context c;
     public u d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,15 +34,15 @@ public class r {
         public final /* synthetic */ r b;
 
         /* renamed from: com.kuaishou.weapon.p0.r$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0545a extends TimerTask {
+        /* loaded from: classes9.dex */
+        public class C0559a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ s a;
             public final /* synthetic */ t b;
             public final /* synthetic */ a c;
 
-            public C0545a(a aVar, s sVar, t tVar) {
+            public C0559a(a aVar, s sVar, t tVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class r {
                         }
                         return;
                     }
-                    new Timer().schedule(new C0545a(this, a, a2), 600000L);
+                    new Timer().schedule(new C0559a(this, a, a2), 600000L);
                     a.c(this.a);
                     this.b.d.a(this.a);
                     File file = new File(a2.e);

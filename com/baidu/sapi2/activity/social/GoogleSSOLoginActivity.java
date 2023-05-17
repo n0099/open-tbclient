@@ -14,7 +14,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String n = "GoogleSSOLoginActivity";
     public static final int o = 1000;

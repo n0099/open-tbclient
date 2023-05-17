@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeTailInUser;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SmallTailThemeData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final SmallTailThemeData DEFAULT;
@@ -109,7 +110,7 @@ public class SmallTailThemeData implements Serializable {
             }
         }
         this.url = jSONObject.optString("url");
-        this.dynamic = jSONObject.optString("dynamic");
+        this.dynamic = jSONObject.optString(PraiseUBCHelper.SOURCE_DYNAMIC);
         this.propsId = jSONObject.optString("props_id");
     }
 

@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class ww0 extends vw0 {
+@Service
+/* loaded from: classes8.dex */
+public class ww0 implements cn0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yw0 f;
-
-    public abstract void V(yw0 yw0Var);
 
     public ww0() {
         Interceptable interceptable = $ic;
@@ -22,18 +22,17 @@ public abstract class ww0 extends vw0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.f = new yw0();
     }
 
-    @Override // com.baidu.tieba.vw0
-    public void F(dx0 dx0Var) {
+    @Override // com.baidu.tieba.cn0
+    public sz0 create() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dx0Var) == null) {
-            this.f.a(dx0Var);
-            V(this.f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new zw0();
         }
+        return (sz0) invokeV.objValue;
     }
 }

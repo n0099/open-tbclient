@@ -9,11 +9,11 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e50;
-import com.baidu.tieba.k40;
-import com.baidu.tieba.n40;
-import com.baidu.tieba.q40;
+import com.baidu.tieba.c50;
+import com.baidu.tieba.n50;
 import com.baidu.tieba.t40;
+import com.baidu.tieba.w40;
+import com.baidu.tieba.z40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,16 +26,16 @@ import java.util.List;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class OaidProvider extends t40 {
+/* loaded from: classes3.dex */
+public class OaidProvider extends c50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q40.a d;
+    public z40.a d;
     public h e;
     public g f;
-    public List<t40.d<String>> g;
+    public List<c50.d<String>> g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,13 +43,13 @@ public class OaidProvider extends t40 {
         public final /* synthetic */ OaidProvider b;
 
         /* renamed from: com.baidu.helios.ids.oid.OaidProvider$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class RunnableC0096a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0099a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0096a(a aVar) {
+            public RunnableC0099a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,12 +106,12 @@ public class OaidProvider extends t40 {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
-                this.b.b.d.submit(new RunnableC0096a(this));
+                this.b.b.d.submit(new RunnableC0099a(this));
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,8 +120,8 @@ public class OaidProvider extends t40 {
         public final /* synthetic */ g c;
         public final /* synthetic */ OaidProvider d;
 
-        /* loaded from: classes2.dex */
-        public class a implements e50.a {
+        /* loaded from: classes3.dex */
+        public class a implements n50.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
@@ -146,7 +146,7 @@ public class OaidProvider extends t40 {
                 this.a = j;
             }
 
-            @Override // com.baidu.tieba.e50.a
+            @Override // com.baidu.tieba.n50.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -189,12 +189,12 @@ public class OaidProvider extends t40 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.sendEmptyMessageDelayed(0, 50000L);
-                e50.a().b(this.b, new a(this, SystemClock.elapsedRealtime()));
+                n50.a().b(this.b, new a(this, SystemClock.elapsedRealtime()));
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public class OaidProvider extends t40 {
                 this.d.e.h(this.b);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.b, "00000000-0000-0000-0000-000000000000")) {
                     try {
-                        String b = t40.b("A10", new k40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
+                        String b = c50.b("A10", new t40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(this.b.getBytes("UTF-8")));
                         this.d.e.e(b);
                         this.d.e.l(b);
                         this.d.e.d(32L, 124L);
@@ -250,7 +250,7 @@ public class OaidProvider extends t40 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class d implements IIdentifierListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public class OaidProvider extends t40 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,14 +331,14 @@ public class OaidProvider extends t40 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t40.d a;
+        public final /* synthetic */ c50.d a;
         public final /* synthetic */ OaidProvider b;
 
-        public f(OaidProvider oaidProvider, t40.d dVar) {
+        public f(OaidProvider oaidProvider, c50.d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -370,7 +370,7 @@ public class OaidProvider extends t40 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -397,13 +397,13 @@ public class OaidProvider extends t40 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
         public boolean b;
-        public n40 c;
+        public w40 c;
         public String d;
         public int e;
         public ArrayList<String> f;
@@ -429,7 +429,7 @@ public class OaidProvider extends t40 {
             }
             this.j = oaidProvider;
             this.b = true;
-            this.c = new n40();
+            this.c = new w40();
             this.f = new ArrayList<>();
         }
 
@@ -640,15 +640,15 @@ public class OaidProvider extends t40 {
         this.g = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.t40
+    @Override // com.baidu.tieba.c50
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.b() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.t40
-    public void f(t40.c cVar) {
+    @Override // com.baidu.tieba.c50
+    public void f(c50.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.d = this.a.f(e());
@@ -670,8 +670,8 @@ public class OaidProvider extends t40 {
         }
     }
 
-    @Override // com.baidu.tieba.t40
-    public void g(t40.d<String> dVar) {
+    @Override // com.baidu.tieba.c50
+    public void g(c50.d<String> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             this.b.d.submit(new f(this, dVar));
@@ -681,14 +681,14 @@ public class OaidProvider extends t40 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (t40.d<String> dVar : this.g) {
+            for (c50.d<String> dVar : this.g) {
                 j(dVar);
             }
             this.g.clear();
         }
     }
 
-    public final void j(t40.d<String> dVar) {
+    public final void j(c50.d<String> dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
             Bundle bundle = new Bundle();

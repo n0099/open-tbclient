@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.ScrollerCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ViewDragHelper {
     public static final int BASE_SETTLE_DURATION = 256;
     public static final int DIRECTION_ALL = 3;
@@ -66,7 +66,7 @@ public class ViewDragHelper {
         }
     };
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Callback {
         public int clampViewPositionHorizontal(View view2, int i, int i2) {
             return 0;

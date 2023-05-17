@@ -1,119 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.app.Activity;
+import android.view.View;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.CardForum;
-import tbclient.Personalized.PersonalForum;
-/* loaded from: classes6.dex */
-public class st7 extends wi6 implements ej6 {
+/* loaded from: classes7.dex */
+public class st7 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForum e;
 
-    public static boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163027, "Lcom/baidu/tieba/st7;")) == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public st7() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948163027, "Lcom/baidu/tieba/st7;");
         }
     }
 
-    @Override // com.baidu.tieba.ej6
-    public int getPosition() {
-        InterceptResult invokeV;
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            CardForum cardForum = this.e;
-            if (cardForum != null) {
-                return cardForum.position.intValue();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.getCount(getDataList()) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public void O(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.showBottomDivider = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.showTopDivider = z;
-        }
-    }
-
-    public void k(CardForum cardForum) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
-            this.e = cardForum;
-            this.mGroupTitle = cardForum.card_title;
-            if (cardForum.position != null) {
-                g(e() + cardForum.position.intValue());
-            } else {
-                g(e() + 0);
-            }
-            if (ListUtils.getCount(cardForum.forum_list) > 0) {
-                for (PersonalForum personalForum : cardForum.forum_list) {
-                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                        vi6 vi6Var = new vi6();
-                        vi6Var.b = personalForum.avatar;
-                        vi6Var.c = personalForum.forum_name;
-                        vi6Var.d = gg.e("" + personalForum.forum_id, -1);
-                        boolean z = true;
-                        if (personalForum.is_like.intValue() != 1) {
-                            z = false;
-                        }
-                        vi6Var.e = z;
-                        c(vi6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                try {
+                    if (activity.isInMultiWindowMode()) {
+                        return true;
                     }
+                    return false;
+                } catch (Throwable unused) {
+                    return false;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+        int i = 0;
+        View childAt = bdTypeRecyclerView.getChildAt(0);
+        if (childAt != null) {
+            i = childAt.getTop();
+        }
+        a = firstVisiblePosition;
+        b = i;
+    }
+
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || a > bdTypeRecyclerView.getCount() - 1) {
+            return;
+        }
+        bdTypeRecyclerView.requestFocusFromTouch();
+        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, b);
+        a = 0;
+        b = 0;
     }
 }

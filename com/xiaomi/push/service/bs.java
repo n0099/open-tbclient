@@ -3,7 +3,6 @@ package com.xiaomi.push.service;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.ByteArrayOutputStream;
@@ -11,7 +10,7 @@ import java.security.KeyFactory;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bs {
     public static RSAPublicKey a;
 
@@ -20,7 +19,7 @@ public class bs {
 
     static {
         try {
-            a = (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(f950a));
+            a = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(f950a));
         } catch (Throwable unused) {
             com.xiaomi.channel.commonutils.logger.b.d("rsa key pair init failure!!!");
         }

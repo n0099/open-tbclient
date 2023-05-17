@@ -2,64 +2,120 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.GroupChatBottomSheetController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class x68 extends FastRequest.b<Void> {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class x68 implements kk1<ik5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final String b;
-    @NonNull
-    public final ChatPage c;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.net.FastRequest.b
-    /* renamed from: g */
-    public void e(@NonNull Void r5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+    /* loaded from: classes8.dex */
+    public class a implements ik5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public GroupChatBottomSheetController b;
+
+        public a(x68 x68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ik5
+        public void onChangeSkinType(int i) {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.c0(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.nk5
+        public void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, list, Long.valueOf(j), str, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
+                if (groupChatBottomSheetController == null) {
+                    this.b = new GroupChatBottomSheetController(tbPageContext, j, str, j2, list, z, z2);
+                } else {
+                    groupChatBottomSheetController.j0(j, str, j2, list, z, z2);
+                }
+                this.b.l0();
+            }
+        }
+
+        @Override // com.baidu.tieba.ik5
+        public void onDestroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
+                if (groupChatBottomSheetController != null) {
+                    groupChatBottomSheetController.d0();
+                }
+                this.b = null;
+            }
+        }
+
+        @Override // com.baidu.tieba.ik5
+        public void onPause() {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.f0();
+            }
+        }
+
+        @Override // com.baidu.tieba.ik5
+        public void onResume() {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.g0();
+            }
         }
     }
 
-    public x68(@Nullable String str, @NonNull ChatPage chatPage) {
+    public x68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, chatPage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = str;
-        this.c = chatPage;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tbadk.net.FastRequest.b
-    /* renamed from: f */
-    public void b(int i, @NonNull String str, @Nullable Void r7) {
+    @Override // com.baidu.tieba.kk1
+    /* renamed from: a */
+    public ik5 getService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
-            super.b(i, str, r7);
-            BdLog.d("error: " + i + " " + str);
-            String str2 = this.b;
-            if (str2 != null && !StringUtils.isNull(str2)) {
-                this.c.m1(this.b, false);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
+        return (ik5) invokeV.objValue;
     }
 }

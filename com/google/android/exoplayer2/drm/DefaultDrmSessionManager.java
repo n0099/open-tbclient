@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSessionManager<T>, DefaultDrmSession.ProvisioningManager<T> {
     public static final String CENC_SCHEME_MIME_TYPE = "cenc";
     public static final int INITIAL_DRM_REQUEST_RETRY_COUNT = 3;
@@ -49,7 +49,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     public final List<DefaultDrmSession<T>> sessions;
     public final UUID uuid;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface EventListener {
         void onDrmKeysLoaded();
 
@@ -61,11 +61,11 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Mode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class MediaDrmEventListener implements ExoMediaDrm.OnEventListener<T> {
         public MediaDrmEventListener() {
         }
@@ -79,7 +79,7 @@ public class DefaultDrmSessionManager<T extends ExoMediaCrypto> implements DrmSe
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class MediaDrmHandler extends Handler {
         public MediaDrmHandler(Looper looper) {
             super(looper);

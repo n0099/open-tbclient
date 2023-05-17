@@ -9,7 +9,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     public final Gson context;
     public final TypeAdapter<T> delegate;

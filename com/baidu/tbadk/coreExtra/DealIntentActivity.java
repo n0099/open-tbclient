@@ -7,13 +7,13 @@ import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.v8;
+import com.baidu.tieba.b9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DealIntentActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class DealIntentActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            v8.b(this);
+            b9.b(this);
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent != null) {
@@ -62,7 +62,7 @@ public class DealIntentActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (v8.d(this) && v8.a(i)) {
+            if (b9.d(this) && b9.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

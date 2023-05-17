@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.source.SampleStream;
 import com.google.android.exoplayer2.util.MediaClock;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface Renderer extends ExoPlayer.ExoPlayerComponent {
     public static final int STATE_DISABLED = 0;
     public static final int STATE_ENABLED = 1;

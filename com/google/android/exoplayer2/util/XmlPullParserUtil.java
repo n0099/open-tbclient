@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class XmlPullParserUtil {
     public static String getAttributeValue(XmlPullParser xmlPullParser, String str) {
         int attributeCount = xmlPullParser.getAttributeCount();

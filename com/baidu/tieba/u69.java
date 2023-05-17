@@ -1,90 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.ij5;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes6.dex */
-public class u69 implements ij5, PersonPostModel.d, PersonPostModel.c {
+/* loaded from: classes7.dex */
+public class u69 extends en<r79, CardViewHolder<b89>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public PersonPostModel a;
-    @Nullable
-    public ij5.a b;
+    public TbPageContext a;
+    public b89 b;
 
-    public u69(@NonNull TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u69(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.ij5
-    public void a(@Nullable ij5.a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: s */
+    public CardViewHolder<b89> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.b = new b89(this.a);
+            return new CardViewHolder<>(this.b);
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void u(boolean z) {
+        b89 b89Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (b89Var = this.b) != null) {
+            b89Var.x(z);
         }
     }
 
-    @Override // com.baidu.tieba.ij5
-    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
+    public void onPause() {
+        b89 b89Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
-            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (b89Var = this.b) != null) {
+            b89Var.u();
         }
     }
 
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-    public void r0(PersonPostModel personPostModel, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r79 r79Var, CardViewHolder<b89> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) && this.b != null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator<in> it = personPostModel.threadList.iterator();
-            while (it.hasNext()) {
-                in next = it.next();
-                if (next instanceof CardPersonDynamicThreadData) {
-                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
-                    if (!TextUtils.equals(threadData.getTid(), "0")) {
-                        arrayList.add(threadData);
-                    }
-                }
-            }
-            this.b.b(arrayList, personPostModel.getDataResMap());
-            this.b.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r79Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(r79Var);
+            return cardViewHolder.getView();
         }
-    }
-
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-    public void x0(PersonPostModel personPostModel, boolean z) {
-        ij5.a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && (aVar = this.b) != null) {
-            aVar.a();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

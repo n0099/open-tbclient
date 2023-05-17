@@ -1,76 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public final class lg3 {
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class lg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, fg3> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941873, "Lcom/baidu/tieba/lg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ SwanInterfaceType e;
+
+        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947941873, "Lcom/baidu/tieba/lg3;");
-                return;
-            }
-        }
-        boolean z = ho1.a;
-        a = new HashMap();
-    }
-
-    public lg3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static fg3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
-        }
-        return (fg3) invokeV.objValue;
-    }
-
-    public static fg3 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            fg3 fg3Var = a.get(str);
-            if (fg3Var == null) {
-                synchronized (lg3.class) {
-                    fg3Var = a.get(str);
-                    if (fg3Var == null) {
-                        fg3Var = new fg3(str);
-                        a.put(str, fg3Var);
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return fg3Var;
+            this.a = i;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = swanInterfaceType;
         }
-        return (fg3) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.a;
+                if (i != 2000 && i != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                String n = zf3.n(f93.K().k());
+                JSONObject jSONObject = new JSONObject();
+                gm3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, f93.K().getAppId());
+                gm3.f(jSONObject, "hostName", ns2.n().a());
+                gm3.f(jSONObject, "network", hp4.e());
+                gm3.f(jSONObject, "launchid", f93.K().q().W().V());
+                if (z) {
+                    gm3.f(jSONObject, "response", this.b);
+                    gm3.f(jSONObject, HiAnalyticsConstant.HaKey.BI_KEY_RESULT, this.c);
+                    gm3.f(jSONObject, "request_url", this.d);
+                }
+                lg3.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
+            }
+        }
+    }
+
+    public static void a(SwanInterfaceType swanInterfaceType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
+            c(swanInterfaceType, 2000, null, null);
+        }
+    }
+
+    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
+            am3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
+        }
+    }
+
+    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
+            String str3 = null;
+            if (response != null) {
+                String valueOf = String.valueOf(response.code());
+                str3 = response.request().url().toString();
+                str2 = valueOf;
+            } else {
+                str2 = null;
+            }
+            b(swanInterfaceType, i, str3, str2, str);
+        }
+    }
+
+    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("from", str);
+                jSONObject2.put("type", str2);
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("page", str3);
+                }
+                jSONObject2.put("value", String.valueOf(i));
+                if (jSONObject != null) {
+                    jSONObject2.put("ext", jSONObject);
+                }
+                nf3.k("874", jSONObject2);
+                if (z) {
+                    nf3.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
+                }
+            } catch (JSONException e) {
+                if (g93.v) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

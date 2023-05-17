@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import android.os.Build;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ap {
     public static String anZ;
     public static String aoa;

@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.text;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SimpleSubtitleOutputBuffer extends SubtitleOutputBuffer {
     public final SimpleSubtitleDecoder owner;
 

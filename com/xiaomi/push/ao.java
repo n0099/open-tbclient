@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.am;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ao implements Runnable {
     public final /* synthetic */ am.b a;
 

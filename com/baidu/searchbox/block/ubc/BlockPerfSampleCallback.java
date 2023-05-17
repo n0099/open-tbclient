@@ -9,7 +9,7 @@ import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BlockPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static final String ACTIVE_BLOCK_UPLOAD_TYPE = "1";
     public static final String PASSIVE_BLOCK_UPLOAD_TYPE = "0";

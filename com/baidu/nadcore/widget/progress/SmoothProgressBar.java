@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public SmoothProgressBar(Context context) {
         super(context);

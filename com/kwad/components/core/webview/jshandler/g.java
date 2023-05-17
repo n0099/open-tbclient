@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g implements com.kwad.sdk.core.webview.kwai.a {
     public Handler Ll = new Handler(Looper.getMainLooper());
     public com.kwad.sdk.core.webview.a.kwai.b Lt;

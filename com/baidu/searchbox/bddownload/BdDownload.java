@@ -16,7 +16,7 @@ import com.baidu.searchbox.bddownload.core.file.DownloadUriOutputStream;
 import com.baidu.searchbox.bddownload.core.file.ProcessFileStrategy;
 import com.baidu.searchbox.bddownload.statistic.IBDDownloadStatistic;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdDownload {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile BdDownload singleton;
@@ -33,7 +33,7 @@ public class BdDownload {
     @Nullable
     public IBDDownloadStatistic statistic;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public IBDDownloadStatistic bdDownloadStatistic;
         public CallbackDispatcher callbackDispatcher;

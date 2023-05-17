@@ -7,7 +7,7 @@ import com.kwad.components.offline.api.core.video.BaseKsMediaPlayerView;
 import com.kwad.components.offline.api.core.video.IKsMediaPlayer;
 import com.kwad.components.offline.api.core.video.IKsMediaPlayerView;
 import com.kwad.sdk.utils.am;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends BaseKsMediaPlayerView {
     public DetailVideoView Fe;
 

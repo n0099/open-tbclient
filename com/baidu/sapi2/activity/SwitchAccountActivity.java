@@ -15,7 +15,7 @@ import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwitchAccountActivity extends BaseActivity {
     public static final String w = "https://wappass.baidu.com/v6/changeAccount";
     public WebAuthResult t = new WebAuthResult() { // from class: com.baidu.sapi2.activity.SwitchAccountActivity.1

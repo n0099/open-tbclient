@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.q5b;
-import com.baidu.tieba.w5b;
-import com.baidu.tieba.x5b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.u7b;
+import com.baidu.tieba.v7b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
-public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements w5b, q5b {
+/* loaded from: classes10.dex */
+public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements u7b, o7b {
     public static final long serialVersionUID = 4262875056400218316L;
-    public x5b<? super Resource> dispose;
+    public v7b<? super Resource> dispose;
     public Resource resource;
 
-    public OnSubscribeUsing$DisposeAction(x5b<? super Resource> x5bVar, Resource resource) {
-        this.dispose = x5bVar;
+    public OnSubscribeUsing$DisposeAction(v7b<? super Resource> v7bVar, Resource resource) {
+        this.dispose = v7bVar;
         this.resource = resource;
         lazySet(false);
     }
 
     /* JADX DEBUG: Type inference failed for r2v0. Raw type applied. Possible types: Resource, ? super Resource */
-    /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.tieba.x5b<? super Resource>, Resource] */
-    @Override // com.baidu.tieba.w5b
+    /* JADX WARN: Type inference failed for: r0v2, types: [com.baidu.tieba.v7b<? super Resource>, Resource] */
+    @Override // com.baidu.tieba.u7b
     public void call() {
         if (compareAndSet(false, true)) {
             ?? r0 = (Resource) false;
@@ -31,12 +31,12 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
         }
     }
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public boolean isUnsubscribed() {
         return get();
     }
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public void unsubscribe() {
         call();
     }

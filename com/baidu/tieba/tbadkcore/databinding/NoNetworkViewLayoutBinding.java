@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class NoNetworkViewLayoutBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

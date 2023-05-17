@@ -2,7 +2,6 @@ package com.huawei.hms.support.hianalytics;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +35,7 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             HashMap hashMap = new HashMap();
             if (context != null && !TextUtils.isEmpty(str)) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = str.split("\\.");
                 if (split.length >= 2) {
                     String str2 = split[0];
                     String str3 = split[1];

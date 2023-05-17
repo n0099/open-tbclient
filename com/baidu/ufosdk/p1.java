@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 @SuppressLint({"SimpleDateFormat", "InlinedApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class p1 {
     public static /* synthetic */ Interceptable $ic;
     public static SimpleDateFormat a;
@@ -118,7 +119,8 @@ public class p1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
             if (j / 1000000000 > 0) {
-                return "" + (((float) (j / 100000000)) / 10.0f) + "G";
+                long j2 = j / CoolPraiseView.BILLION;
+                return "" + (((float) j2) / 10.0f) + "G";
             } else if (j / 1000000 > 0) {
                 return "" + (((float) (j / 100000)) / 10.0f) + "M";
             } else if (j / 1000 > 0) {
@@ -541,7 +543,7 @@ public class p1 {
             RelativeLayout relativeLayout = new RelativeLayout(context);
             RelativeLayout relativeLayout2 = new RelativeLayout(context);
             try {
-                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f081324);
+                relativeLayout.setBackgroundResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0814ae);
             } catch (Exception e) {
                 e.printStackTrace();
             }

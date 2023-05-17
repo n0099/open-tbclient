@@ -11,7 +11,7 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class TypeConstructorSubstitution extends TypeSubstitution {
     public static final Companion Companion = new Companion(null);
 
@@ -28,7 +28,7 @@ public abstract class TypeConstructorSubstitution extends TypeSubstitution {
 
     public abstract TypeProjection get(TypeConstructor typeConstructor);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -97,7 +97,7 @@ public abstract class TypeConstructorSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2030get(KotlinType kotlinType) {
+    public TypeProjection mo2049get(KotlinType kotlinType) {
         return get(kotlinType.getConstructor());
     }
 }

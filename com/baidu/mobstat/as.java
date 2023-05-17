@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class as {
     public static final as u = new as();
     public Context a;
@@ -55,7 +55,7 @@ public class as {
     public float z = 0.0f;
     public Object A = new Object();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(an anVar);
 

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface sn<T> {
+    int getCount();
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
-public interface sn {
-    void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j);
+    T getItem(int i);
+
+    void notifyDataSetChanged();
 }

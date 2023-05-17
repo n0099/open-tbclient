@@ -7,7 +7,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.tencent.open.log.SLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static final Uri a = Uri.parse("content://telephony/carriers/preferapn");
 

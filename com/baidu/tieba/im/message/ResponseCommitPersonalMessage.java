@@ -5,7 +5,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tieba.b48;
+import com.baidu.tieba.r58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.squareup.wire.Wire;
 import protobuf.BlockInfo;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgResIdl;
 import protobuf.CommitPersonalMsg.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANT_CHAT = 2230303;
@@ -59,7 +59,7 @@ public class ResponseCommitPersonalMessage extends ResponseCommitMessage {
             }
             long longValue = dataRes.msgId.longValue();
             setToUserType(commitPersonalMsgResIdl.data.toUserType.intValue());
-            setMsgId(b48.a(longValue));
+            setMsgId(r58.a(longValue));
             setRecordId(commitPersonalMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitPersonalMsgResIdl.data.groupId));
             setToUserId(String.valueOf(commitPersonalMsgResIdl.data.toUid));

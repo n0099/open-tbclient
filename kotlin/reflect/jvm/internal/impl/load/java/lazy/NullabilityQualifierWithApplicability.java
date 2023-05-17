@@ -5,7 +5,7 @@ import java.util.Collection;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.load.java.AnnotationTypeQualifierResolver;
 import kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.NullabilityQualifierWithMigrationStatus;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NullabilityQualifierWithApplicability {
     public final NullabilityQualifierWithMigrationStatus nullabilityQualifier;
     public final Collection<AnnotationTypeQualifierResolver.QualifierApplicabilityType> qualifierApplicabilityTypes;

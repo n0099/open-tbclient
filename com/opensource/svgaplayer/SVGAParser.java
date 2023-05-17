@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.model.response.TaskProcessData;
 import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.tieba.c2b;
+import com.baidu.tieba.a4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.text.StringsKt__StringsKt;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000f\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0012\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\f\u0018\u0000 =:\u0003=>?B\u000f\u0012\u0006\u00102\u001a\u000201¢\u0006\u0004\b;\u0010<J\u0017\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\b\u001a\u00020\u00012\u0006\u0010\u0007\u001a\u00020\u0006H\u0002¢\u0006\u0004\b\b\u0010\tJ\u0017\u0010\b\u001a\u00020\u00012\u0006\u0010\n\u001a\u00020\u0001H\u0002¢\u0006\u0004\b\b\u0010\u000bJ\u001d\u0010\u0010\u001a\u00020\u000f2\u0006\u0010\f\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u0010\u0010\u0011J\u001f\u0010\u0012\u001a\u00020\u000f2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\u0012\u0010\u0011J/\u0010\u0017\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\r2\b\b\u0002\u0010\u0016\u001a\u00020\u0015¢\u0006\u0004\b\u0017\u0010\u0018J%\u0010\u001a\u001a\n\u0012\u0004\u0012\u00020\u000f\u0018\u00010\u00192\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u001a\u0010\u001bJ\u0019\u0010\u001e\u001a\u0004\u0018\u00010\u001c2\u0006\u0010\u001d\u001a\u00020\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u001f\u0010\"\u001a\u00020\u000f2\u0006\u0010!\u001a\u00020 2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b\"\u0010#J\u001f\u0010&\u001a\u00020\u000f2\u0006\u0010%\u001a\u00020$2\u0006\u0010\u000e\u001a\u00020\rH\u0002¢\u0006\u0004\b&\u0010'J\u0017\u0010(\u001a\u00020\u00152\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b(\u0010)J1\u0010*\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\r2\b\b\u0002\u0010\u0016\u001a\u00020\u0015H\u0007¢\u0006\u0004\b*\u0010\u0018J\u001f\u0010*\u001a\u00020\u000f2\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u000e\u001a\u00020\rH\u0007¢\u0006\u0004\b*\u0010+J\u001f\u0010*\u001a\u00020\u000f2\u0006\u0010,\u001a\u00020\u00012\u0006\u0010\u000e\u001a\u00020\rH\u0007¢\u0006\u0004\b*\u0010\u0011J\u0019\u0010-\u001a\u0004\u0018\u00010\u001c2\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b-\u0010.J\u001f\u0010/\u001a\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0002\u001a\u00020\u0001H\u0002¢\u0006\u0004\b/\u00100R\u0016\u00102\u001a\u0002018\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b2\u00103R\"\u00105\u001a\u0002048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b5\u00106\u001a\u0004\b7\u00108\"\u0004\b9\u0010:¨\u0006@"}, d2 = {"Lcom/opensource/svgaplayer/SVGAParser;", "", "cacheKey", "Ljava/io/File;", "buildCacheDir", "(Ljava/lang/String;)Ljava/io/File;", "Ljava/net/URL;", "url", "buildCacheKey", "(Ljava/net/URL;)Ljava/lang/String;", "str", "(Ljava/lang/String;)Ljava/lang/String;", "name", "Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;", WebChromeClient.KEY_ARG_CALLBACK, "", "decodeFromAssets", "(Ljava/lang/String;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "decodeFromCacheKey", "Ljava/io/InputStream;", "inputStream", "", "closeInputStream", "decodeFromInputStream", "(Ljava/io/InputStream;Ljava/lang/String;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;Z)V", "Lkotlin/Function0;", "decodeFromURL", "(Ljava/net/URL;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)Lkotlin/Function0;", "", "byteArray", "inflate", "([B)[B", "Lcom/opensource/svgaplayer/SVGAVideoEntity;", "videoItem", "invokeCompleteCallback", "(Lcom/opensource/svgaplayer/SVGAVideoEntity;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "Ljava/lang/Exception;", "e", "invokeErrorCallback", "(Ljava/lang/Exception;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "isCached", "(Ljava/lang/String;)Z", "parse", "(Ljava/net/URL;Lcom/opensource/svgaplayer/SVGAParser$ParseCompletion;)V", "assetsName", "readAsBytes", "(Ljava/io/InputStream;)[B", ZeusPerformanceTiming.KEY_UNZIP, "(Ljava/io/InputStream;Ljava/lang/String;)V", "Landroid/content/Context;", "context", "Landroid/content/Context;", "Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "fileDownloader", "Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "getFileDownloader", "()Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "setFileDownloader", "(Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;)V", "<init>", "(Landroid/content/Context;)V", "Companion", "FileDownloader", "ParseCompletion", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SVGAParser {
     public static /* synthetic */ Interceptable $ic;
     public static final LinkedBlockingQueue<Runnable> c;
@@ -64,7 +64,7 @@ public final class SVGAParser {
     public FileDownloader a;
     public final Context b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(SVGAVideoEntity sVGAVideoEntity);
 
@@ -72,13 +72,13 @@ public final class SVGAParser {
     }
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\t\b\u0016\u0018\u0000B\u0007¢\u0006\u0004\b\u0018\u0010\u0019Jg\u0010\u000f\u001a\b\u0012\u0004\u0012\u00020\b0\u000e2\u0006\u0010\u0002\u001a\u00020\u00012!\u0010\t\u001a\u001d\u0012\u0013\u0012\u00110\u0004¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\u0007\u0012\u0004\u0012\u00020\b0\u00032%\u0010\r\u001a!\u0012\u0017\u0012\u00150\nj\u0002`\u000b¢\u0006\f\b\u0005\u0012\b\b\u0006\u0012\u0004\b\b(\f\u0012\u0004\u0012\u00020\b0\u0003H\u0016¢\u0006\u0004\b\u000f\u0010\u0010R\"\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017¨\u0006\u001a"}, d2 = {"Lcom/opensource/svgaplayer/SVGAParser$FileDownloader;", "Ljava/net/URL;", "url", "Lkotlin/Function1;", "Ljava/io/InputStream;", "Lkotlin/ParameterName;", "name", "inputStream", "", TaskProcessData.keyComplete, "Ljava/lang/Exception;", "Lkotlin/Exception;", "e", SmsLoginView.f.l, "Lkotlin/Function0;", "resume", "(Ljava/net/URL;Lkotlin/Function1;Lkotlin/Function1;)Lkotlin/Function0;", "", "noCache", "Z", "getNoCache", "()Z", "setNoCache", "(Z)V", "<init>", "()V", "library_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FileDownloader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +245,7 @@ public final class SVGAParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public final class SVGAParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -316,7 +316,7 @@ public final class SVGAParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -351,7 +351,7 @@ public final class SVGAParser {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -780,7 +780,7 @@ public final class SVGAParser {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, inputStream, str) == null) {
-            i = c2b.a;
+            i = a4b.a;
             synchronized (Integer.valueOf(i)) {
                 File j = j(str);
                 j.mkdirs();

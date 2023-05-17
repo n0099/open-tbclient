@@ -29,8 +29,8 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.tieba.x00;
-import com.baidu.tieba.y10;
+import com.baidu.tieba.g10;
+import com.baidu.tieba.i20;
 import com.baidu.util.Base64Encoder;
 import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import java.io.ByteArrayOutputStream;
@@ -66,7 +66,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 @SuppressLint({"StaticFieldLeak"})
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class BaiduActiveManager {
     public static final String ACTIVE_DEVICE_BEHAVIOR_PURPOSE = "active";
     public static final String BASIC_DEVICE_BEHAVIOR_SCENE = "basic";
@@ -96,7 +96,7 @@ public final class BaiduActiveManager {
     public String mConfirmExt = null;
     public String mClnCuid = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static final class ActiveTimeParser {
         public static final String TAG = "ActiveTimeParser";
         public static ActiveTimeParser mParser;
@@ -180,7 +180,7 @@ public final class BaiduActiveManager {
     }
 
     private String getRandId() {
-        return new SharedPrefsWrapper(WARM_TIPS_SP_NAME).getString(RAND_ID, "");
+        return new SharedPrefsWrapper("com.baidu.searchbox.warmtips").getString("randid", "");
     }
 
     private boolean isNeedUploadCloneCuid() {
@@ -286,8 +286,8 @@ public final class BaiduActiveManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x00e6  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x015d  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x00e7  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x015e  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -322,7 +322,7 @@ public final class BaiduActiveManager {
                 e = e3;
                 e.printStackTrace();
                 String encode = encode(getRandId(), "none");
-                String encode2 = encode(y10.f(AppRuntime.getAppContext()).e(), "none");
+                String encode2 = encode(i20.f(AppRuntime.getAppContext()).e(), "none");
                 String encode3 = encode(this.mInvokeSource, "none");
                 String encode4 = encode(this.mLauncherSource, "none");
                 String encode5 = encode(this.mLauncherExt, "none");
@@ -337,7 +337,7 @@ public final class BaiduActiveManager {
                 jSONObject.put("fnplus", encrypt2);
                 jSONObject.put(GrowthConstant.UBC_KEY_FIT, str);
                 jSONObject.put(GrowthConstant.UBC_KEY_LUT, str2);
-                jSONObject.put(RAND_ID, encode);
+                jSONObject.put("randid", encode);
                 jSONObject.put("iid", encode2);
                 jSONObject.put("source", encode3);
                 jSONObject.put("lsr", encode4);
@@ -356,7 +356,7 @@ public final class BaiduActiveManager {
                 e = e4;
                 e.printStackTrace();
                 String encode10 = encode(getRandId(), "none");
-                String encode22 = encode(y10.f(AppRuntime.getAppContext()).e(), "none");
+                String encode22 = encode(i20.f(AppRuntime.getAppContext()).e(), "none");
                 String encode32 = encode(this.mInvokeSource, "none");
                 String encode42 = encode(this.mLauncherSource, "none");
                 String encode52 = encode(this.mLauncherExt, "none");
@@ -371,7 +371,7 @@ public final class BaiduActiveManager {
                 jSONObject.put("fnplus", encrypt2);
                 jSONObject.put(GrowthConstant.UBC_KEY_FIT, str);
                 jSONObject.put(GrowthConstant.UBC_KEY_LUT, str2);
-                jSONObject.put(RAND_ID, encode10);
+                jSONObject.put("randid", encode10);
                 jSONObject.put("iid", encode22);
                 jSONObject.put("source", encode32);
                 jSONObject.put("lsr", encode42);
@@ -397,7 +397,7 @@ public final class BaiduActiveManager {
             str2 = str;
         }
         String encode102 = encode(getRandId(), "none");
-        String encode222 = encode(y10.f(AppRuntime.getAppContext()).e(), "none");
+        String encode222 = encode(i20.f(AppRuntime.getAppContext()).e(), "none");
         String encode322 = encode(this.mInvokeSource, "none");
         String encode422 = encode(this.mLauncherSource, "none");
         String encode522 = encode(this.mLauncherExt, "none");
@@ -414,7 +414,7 @@ public final class BaiduActiveManager {
             jSONObject.put("fnplus", encrypt2);
             jSONObject.put(GrowthConstant.UBC_KEY_FIT, str);
             jSONObject.put(GrowthConstant.UBC_KEY_LUT, str2);
-            jSONObject.put(RAND_ID, encode102);
+            jSONObject.put("randid", encode102);
             jSONObject.put("iid", encode222);
             jSONObject.put("source", encode322);
             jSONObject.put("lsr", encode422);
@@ -776,23 +776,23 @@ public final class BaiduActiveManager {
         } else {
             mStartRequest = true;
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.searchbox.util.BaiduActiveManager.1
-                /* JADX WARN: Code restructure failed: missing block: B:47:0x01c8, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:47:0x01c9, code lost:
                     if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L46;
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:53:0x01d8, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:53:0x01d9, code lost:
                     if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L46;
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:59:0x01ea, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:59:0x01eb, code lost:
                     if (com.baidu.searchbox.util.BaiduActiveManager.DEBUG == false) goto L46;
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:60:0x01ec, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:60:0x01ed, code lost:
                     com.baidu.android.common.logging.Log.d(com.baidu.searchbox.util.BaiduActiveManager.TAG, "active request finished");
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:61:0x01ef, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:61:0x01f0, code lost:
                     r0 = com.baidu.searchbox.util.BaiduActiveManager.mStartRequest = false;
                     r14.this$0.sendActiveUBCEvent(-1, r6);
                  */
-                /* JADX WARN: Code restructure failed: missing block: B:62:0x01f7, code lost:
+                /* JADX WARN: Code restructure failed: missing block: B:62:0x01f8, code lost:
                     return;
                  */
                 @Override // java.lang.Runnable
@@ -825,7 +825,7 @@ public final class BaiduActiveManager {
                             }
                             appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
                             if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + x00.b().h());
+                                Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + g10.b().h());
                                 Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
                             }
                             activePostData = BaiduActiveManager.this.getActivePostData();

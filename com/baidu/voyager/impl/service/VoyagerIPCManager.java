@@ -6,8 +6,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.fna;
-import com.baidu.tieba.vna;
+import com.baidu.tieba.dpa;
+import com.baidu.tieba.tpa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.voyager.impl.IVoyagerService;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VoyagerIPCManager {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -65,8 +65,8 @@ public class VoyagerIPCManager {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: com.baidu.voyager.impl.service.VoyagerIPCManager$1$a */
-                /* loaded from: classes7.dex */
-                public class a implements vna {
+                /* loaded from: classes8.dex */
+                public class a implements tpa {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IVoyagerCallback a;
@@ -89,7 +89,7 @@ public class VoyagerIPCManager {
                         this.a = iVoyagerCallback;
                     }
 
-                    @Override // com.baidu.tieba.vna
+                    @Override // com.baidu.tieba.tpa
                     public void onFailure(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -112,7 +112,7 @@ public class VoyagerIPCManager {
                         }
                     }
 
-                    @Override // com.baidu.tieba.vna
+                    @Override // com.baidu.tieba.tpa
                     public void onSuccess(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -137,8 +137,8 @@ public class VoyagerIPCManager {
                 }
 
                 /* renamed from: com.baidu.voyager.impl.service.VoyagerIPCManager$1$b */
-                /* loaded from: classes7.dex */
-                public class b implements vna {
+                /* loaded from: classes8.dex */
+                public class b implements tpa {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IVoyagerCallback a;
@@ -161,7 +161,7 @@ public class VoyagerIPCManager {
                         this.a = iVoyagerCallback;
                     }
 
-                    @Override // com.baidu.tieba.vna
+                    @Override // com.baidu.tieba.tpa
                     public void onFailure(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -184,7 +184,7 @@ public class VoyagerIPCManager {
                         }
                     }
 
-                    @Override // com.baidu.tieba.vna
+                    @Override // com.baidu.tieba.tpa
                     public void onSuccess(String str, JSONObject jSONObject) {
                         IVoyagerCallback iVoyagerCallback;
                         String jSONObject2;
@@ -227,7 +227,7 @@ public class VoyagerIPCManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
                         try {
-                            fna.n().q(list, str, j, i, i2, new JSONObject(str2));
+                            dpa.n().q(list, str, j, i, i2, new JSONObject(str2));
                         } catch (JSONException e) {
                             if (VoyagerIPCManager.a) {
                                 e.printStackTrace();
@@ -240,7 +240,7 @@ public class VoyagerIPCManager {
                 public void uploadFileListWithCallback(List<String> list, String str, long j, int i, IVoyagerCallback iVoyagerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), iVoyagerCallback}) == null) {
-                        fna.n().r(list, str, j, i, new a(this, iVoyagerCallback));
+                        dpa.n().r(list, str, j, i, new a(this, iVoyagerCallback));
                     }
                 }
 
@@ -249,7 +249,7 @@ public class VoyagerIPCManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3}) == null) {
                         try {
-                            fna.n().s(str, str2, i, i2, new JSONObject(str3));
+                            dpa.n().s(str, str2, i, i2, new JSONObject(str3));
                         } catch (JSONException e) {
                             if (VoyagerIPCManager.a) {
                                 e.printStackTrace();
@@ -262,7 +262,7 @@ public class VoyagerIPCManager {
                 public void uploadZipFileWithCallback(String str, String str2, int i, IVoyagerCallback iVoyagerCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLIL(1048579, this, str, str2, i, iVoyagerCallback) == null) {
-                        fna.n().t(str, str2, new b(this, iVoyagerCallback));
+                        dpa.n().t(str, str2, new b(this, iVoyagerCallback));
                     }
                 }
             }, false);

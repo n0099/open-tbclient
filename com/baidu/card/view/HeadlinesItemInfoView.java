@@ -13,15 +13,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.pg;
 import com.baidu.tieba.view.HeadlinesItemCountDownView;
-import com.baidu.tieba.xz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadlinesItemInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,27 +110,27 @@ public class HeadlinesItemInfoView extends FrameLayout {
         }
     }
 
-    public void b(xz4 xz4Var) {
+    public void b(g15 g15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xz4Var) != null) || xz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g15Var) != null) || g15Var == null) {
             return;
         }
-        this.b.N(xz4Var.f(), 10, false);
-        this.c.setText(xz4Var.l());
-        this.e.setText(xz4Var.b());
-        this.d.setData(gg.g(xz4Var.d(), 0L), xz4Var.c(), xz4Var.k());
+        this.b.N(g15Var.f(), 10, false);
+        this.c.setText(g15Var.l());
+        this.e.setText(g15Var.b());
+        this.d.setData(pg.g(g15Var.d(), 0L), g15Var.c(), g15Var.k());
         c(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            g35 d = g35.d(this);
+            p45 d = p45.d(this);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0201);
-            g35.d(this.c).w(R.color.CAM_X0107);
+            p45.d(this.c).w(R.color.CAM_X0107);
             this.d.i(i);
-            g35 d2 = g35.d(this.e);
+            p45 d2 = p45.d(this.e);
             d2.w(R.color.CAM_X0304);
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0304);

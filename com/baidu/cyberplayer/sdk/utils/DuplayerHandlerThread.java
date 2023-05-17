@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.utils;
 import android.os.HandlerThread;
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuplayerHandlerThread extends HandlerThread {
     public static final int STATE_IDLE = 0;
     public static final int STATE_IN_USE = 1;

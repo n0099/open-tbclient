@@ -26,7 +26,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public static final boolean DEBUG = LLog.sDebug;
     public static final String TAG = "LSStrategy";
@@ -34,7 +34,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
     public ThreadPoolExecutor mContentExecutor;
     public boolean mInvalidDirDeleted;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Constants {
         public static final int KEEP_ALIVE_TIME = 60000;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -43,14 +43,14 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         public static final int UPLOAD_MAX_FILE = 5;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Type {
         CONTENT,
         ATTACHMENT
     }
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.upload.LogSystemUploaderStrategy$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$basic$upload$LogSystemUploaderStrategy$Type;
 
@@ -68,7 +68,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         @NonNull
         public File mFile;
@@ -102,7 +102,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class FileName {
         public static final String FILE_ID_SEPARATOR = "_";
         public static final String SEPARATOR = "#";
@@ -177,7 +177,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class StoreUtil {
         public static final String BASE_GZIP_TMP = ".gz.tmp";
         public static final String BASE_TMP = ".tmp";
@@ -237,7 +237,7 @@ public class LogSystemUploaderStrategy extends BaseUploaderStrategy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class TrimConfig {
         public long mLifeTime;
         public int mMaxCount;

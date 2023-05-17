@@ -1,150 +1,44 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class ch4 {
+import java.util.Arrays;
+import java.util.HashSet;
+/* loaded from: classes5.dex */
+public final class ch4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public JSONObject e;
 
-    public ch4() {
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle a(@NonNull zg4 zg4Var, @Nullable Bundle bundle, String... strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, zg4Var, bundle, strArr)) == null) {
+            if (bundle == null) {
+                bundle = new Bundle();
             }
-        }
-        this.a = -1;
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static ch4 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+            if (bundle.getLong("timestamp", -1L) < 0) {
+                bundle.putLong("timestamp", System.currentTimeMillis());
             }
-            try {
-                return b(new JSONObject(str));
-            } catch (JSONException unused) {
-                return null;
-            }
+            return zg4Var.m(bundle, new HashSet(Arrays.asList(strArr)));
         }
-        return (ch4) invokeL.objValue;
+        return (Bundle) invokeLLL.objValue;
     }
 
-    public void h(JSONObject jSONObject) {
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle b(@NonNull zg4 zg4Var, @NonNull String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.e = jSONObject;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, zg4Var, strArr)) == null) {
+            return a(zg4Var, null, strArr);
         }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void k(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public static ch4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            ch4 ch4Var = new ch4();
-            ch4Var.i(jSONObject.optInt("errno", -1));
-            ch4Var.j(jSONObject.optString("errmsg"));
-            ch4Var.l(jSONObject.optString("tipmsg"));
-            ch4Var.k(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID));
-            ch4Var.h(jSONObject.optJSONObject("data"));
-            return ch4Var;
-        }
-        return (ch4) invokeL.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

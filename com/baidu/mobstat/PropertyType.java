@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface PropertyType {
     public static final String EVENT_PROPERTRY = "3";
     public static final String PAGE_PROPERTRY = "4";

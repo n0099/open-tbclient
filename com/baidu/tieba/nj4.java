@@ -1,49 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class nj4 {
+/* loaded from: classes6.dex */
+public class nj4 extends si4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nj4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public ij4 a;
+    public boolean b;
 
-    /* loaded from: classes5.dex */
-    public static class a extends ho4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_ceres");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public nj4() {
+    public nj4(ij4 ij4Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ij4Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,68 +29,56 @@ public class nj4 {
                 return;
             }
         }
-        this.a = new a();
+        this.a = ij4Var;
+        this.b = z;
     }
 
-    public static nj4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (nj4.class) {
-                    if (b == null) {
-                        b = new nj4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (nj4) invokeV.objValue;
-    }
-
-    public String a() {
+    @Override // com.baidu.tieba.si4
+    public ij4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("ceres_info", "0");
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (ij4) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("global_info", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public mj4 d(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.si4
+    public boolean b(ij4 ij4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ij4Var)) == null) {
+            ij4 ij4Var2 = this.a;
+            if (ij4Var2 == ij4Var) {
+                return true;
             }
-            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
-            if (optJSONObject == null || optJSONObject2 == null) {
-                return null;
-            }
-            String optString = optJSONObject.optString("version");
-            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
-                return null;
-            }
-            String optString2 = optJSONObject2.optString("version");
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
-                return null;
-            }
-            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
-            return new mj4(optJSONArray, optJSONObject3);
+            return ij4Var2.d(ij4Var);
         }
-        return (mj4) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.si4
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
+            return;
+        }
+        if (z) {
+            ij4 ij4Var = this.a;
+            ij4Var.a.b.b = 0L;
+            ij4Var.b(0);
+        }
+        gj4.b().f(this.a);
+    }
+
+    @Override // com.baidu.tieba.si4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "isAttached=" + this.b + " " + super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

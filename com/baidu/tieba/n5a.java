@@ -1,48 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ScrollView;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
-public class n5a extends PopupWindow {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class n5a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public a b;
-    public int c;
-    public LinearLayout d;
-    public Context e;
-    public int f;
+    public g9 a;
+    public List<CloudMusicData.MusicTagList.MusicList> b;
+    public c c;
+    public String d;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void S0(int i);
+    /* loaded from: classes6.dex */
+    public interface c {
+        void w1(View view2, String str, int i);
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public a b;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ n5a c;
 
-        public b(int i, a aVar) {
+        public a(n5a n5aVar, CloudMusicData.MusicTagList.MusicList musicList, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), aVar};
+                Object[] objArr = {n5aVar, musicList, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -52,120 +64,200 @@ public class n5a extends PopupWindow {
                     return;
                 }
             }
-            this.a = i;
-            this.b = aVar;
+            this.c = n5aVar;
+            this.a = musicList;
+            this.b = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.b) != null) {
-                aVar.S0(this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.c != null) {
+                this.c.c.w1(view2, this.a.resource, this.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n5a(Context context) {
-        super(context);
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TbImageView b;
+        public View c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public TextView g;
+        public View h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08030c);
+                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+                SkinManager.setImageResource(this.b, R.drawable.btn_icon_play_video_n);
+            }
+        }
+    }
+
+    public n5a(g9 g9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.e = context;
-        b(context);
+        this.d = "";
+        this.a = g9Var;
+        this.b = new ArrayList();
     }
 
-    public void a(View view2) {
+    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            view2.setOnClickListener(new b(this.c, this.b));
-            this.d.addView(view2);
-            this.c++;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+            return;
         }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            int i2 = this.a;
-            if (i2 != -1) {
-                this.d.getChildAt(i2).setSelected(false);
+        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
+            if (!this.b.contains(musicList)) {
+                this.b.add(musicList);
             }
-            this.a = i;
-            this.d.getChildAt(i).setSelected(true);
+        }
+        notifyDataSetChanged();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void d(int i) {
+    public void e(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public void e(a aVar) {
+    public void f(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            getItem(i).isLoading = z;
+            notifyDataSetChanged();
         }
     }
 
-    public final void b(Context context) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            ScrollView scrollView = new ScrollView(context);
-            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
-            LinearLayout linearLayout = new LinearLayout(context);
-            this.d = linearLayout;
-            linearLayout.setOrientation(1);
-            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            scrollView.addView(this.d);
-            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            scrollView.setPadding(0, 0, ii.d(context, 1.0f), ii.d(context, 1.0f));
-            scrollView.setFadingEdgeLength(0);
-            scrollView.setScrollbarFadingEnabled(false);
-            try {
-                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(scrollView, 2);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01fe, viewGroup, false);
+                bVar = new b();
+                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091789);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091786);
+                bVar.a = tbImageView;
+                tbImageView.setDrawerType(1);
+                bVar.a.setIsRound(true);
+                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08035b);
+                bVar.a.setDefaultBgResource(R.color.transparent);
+                bVar.a.setBorderWidth(ri.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                bVar.a.setConrers(15);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091787);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09178a);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091783);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091785);
+                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091784);
+                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f0914c0);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
             }
-            setContentView(scrollView);
-            GreyUtil.grey(this);
-        }
-    }
-
-    @Override // android.widget.PopupWindow
-    public void showAsDropDown(View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
-            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
-            int measuredWidth = getContentView().getMeasuredWidth();
-            if (measuredWidth < view2.getWidth()) {
-                measuredWidth = view2.getWidth();
+            bVar.b(TbadkCoreApplication.getInst().getSkinType());
+            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
+            if (musicList != null) {
+                bVar.d.setText(musicList.name);
+                bVar.a.N(musicList.image, 10, false);
+                bVar.e.setText(musicList.author);
+                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
+                if (musicList.isLoading) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(4);
+                }
+                if (musicList.equals(o5a.b().a())) {
+                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f0803fb);
+                    bVar.a.setDrawBorder(true);
+                    bVar.g.setVisibility(0);
+                    bVar.c.setVisibility(4);
+                    musicList.isLoading = false;
+                    bVar.g.setOnClickListener(new a(this, musicList, i));
+                } else if (o5a.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
+                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.a.setDrawBorder(true);
+                    bVar.g.setVisibility(8);
+                    bVar.c.setVisibility(4);
+                    musicList.isLoading = false;
+                } else {
+                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.a.setDrawBorder(false);
+                    bVar.g.setVisibility(8);
+                }
             }
-            int measuredHeight = getContentView().getMeasuredHeight();
-            int i3 = this.f;
-            if (measuredHeight > i3) {
-                measuredHeight = i3;
-            }
-            setWidth(measuredWidth);
-            setHeight(measuredHeight);
-            super.showAsDropDown(view2, i, i2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

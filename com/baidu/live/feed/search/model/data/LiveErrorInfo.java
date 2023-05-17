@@ -2,7 +2,7 @@ package com.baidu.live.feed.search.model.data;
 
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveErrorInfo {
     public String errMsg;
     public int errno;

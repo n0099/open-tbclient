@@ -1,8 +1,8 @@
 package com.baidu.searchbox.audio.nps;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class R {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class style {
 
         /* renamed from: audio_default_activity_style */

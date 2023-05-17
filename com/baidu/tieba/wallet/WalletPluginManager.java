@@ -10,7 +10,7 @@ import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.tieba.aw4;
+import com.baidu.tieba.jx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmProxyCallback;
 import java.util.Map;
 import kotlin.jvm.functions.Function1;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class WalletPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NPS_MODE = "Wallet";
@@ -30,7 +30,7 @@ public class WalletPluginManager {
     public transient /* synthetic */ FieldHolder $fh;
     public IWalletPlugin mIWalletPlugin;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final WalletPluginManager instance;
@@ -939,7 +939,7 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, iInvokeCallback) == null) {
-            if (aw4.c().contains("Host") && aw4.c().contains("-Wallet")) {
+            if (jx4.c().contains("Host") && jx4.c().contains("-Wallet")) {
                 if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
                     return;

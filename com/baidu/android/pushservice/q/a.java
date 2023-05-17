@@ -29,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.q.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0031a {
+    public static /* synthetic */ class C0034a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
@@ -55,7 +55,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ b(a aVar, C0031a c0031a) {
+        public /* synthetic */ b(a aVar, C0034a c0034a) {
             this(aVar);
         }
 

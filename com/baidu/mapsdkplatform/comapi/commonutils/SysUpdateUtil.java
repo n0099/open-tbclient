@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     public static /* synthetic */ Interceptable $ic = null;
     public static NACommonMemCache a = null;

@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.constants;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static volatile String a = "";
     public static volatile String b = "";

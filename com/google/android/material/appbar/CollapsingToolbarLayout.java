@@ -40,10 +40,10 @@ import com.google.android.material.internal.CollapsingTextHelper;
 import com.google.android.material.internal.DescendantOffsetUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CollapsingToolbarLayout extends FrameLayout {
     public static final int DEFAULT_SCRIM_ANIMATION_DURATION = 600;
-    public static final int DEF_STYLE_RES = 2131755834;
+    public static final int DEF_STYLE_RES = 2131755845;
     @NonNull
     public final CollapsingTextHelper collapsingTextHelper;
     public boolean collapsingTitleEnabled;
@@ -74,7 +74,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
     public View toolbarDirectChild;
     public int toolbarId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class LayoutParams extends FrameLayout.LayoutParams {
         public static final int COLLAPSE_MODE_OFF = 0;
         public static final int COLLAPSE_MODE_PARALLAX = 2;
@@ -141,7 +141,7 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class OffsetUpdateListener implements AppBarLayout.OnOffsetChangedListener {
         public OffsetUpdateListener() {
         }
@@ -205,10 +205,10 @@ public class CollapsingToolbarLayout extends FrameLayout {
 
     @NonNull
     public static ViewOffsetHelper getViewOffsetHelper(@NonNull View view2) {
-        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0927e9);
+        ViewOffsetHelper viewOffsetHelper = (ViewOffsetHelper) view2.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092859);
         if (viewOffsetHelper == null) {
             ViewOffsetHelper viewOffsetHelper2 = new ViewOffsetHelper(view2);
-            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0927e9, viewOffsetHelper2);
+            view2.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092859, viewOffsetHelper2);
             return viewOffsetHelper2;
         }
         return viewOffsetHelper;
@@ -489,8 +489,8 @@ public class CollapsingToolbarLayout extends FrameLayout {
         }
         this.collapsingTitleEnabled = obtainStyledAttributes.getBoolean(15, true);
         setTitle(obtainStyledAttributes.getText(14));
-        this.collapsingTextHelper.setExpandedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001ff);
-        this.collapsingTextHelper.setCollapsedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001e3);
+        this.collapsingTextHelper.setExpandedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f100209);
+        this.collapsingTextHelper.setCollapsedTextAppearance(com.baidu.tieba.R.style.obfuscated_res_0x7f1001ef);
         if (obtainStyledAttributes.hasValue(9)) {
             this.collapsingTextHelper.setExpandedTextAppearance(obtainStyledAttributes.getResourceId(9, 0));
         }

@@ -6,7 +6,7 @@ import com.baidu.smallgame.sdk.Log;
 import java.lang.ref.WeakReference;
 import java.util.Observable;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetRequest extends Observable {
     public static final boolean DEBUG = false;
     public static final String TAG = "NetRequest";
@@ -15,12 +15,12 @@ public class NetRequest extends Observable {
     public RedirectInterceptor mRedirectInterceptor;
     public RequestInterceptor mRequestInterceptor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface RedirectInterceptor {
         boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface RequestInterceptor {
         boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam);
     }

@@ -1,99 +1,31 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.ashley.core.ComponentOperationHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i0<y> a;
-    public g7<b0, k6<y>> b;
-    public g7<b0, i0<y>> c;
-    public q7<c> d;
-    public g7<b0, n6> e;
-    public b f;
-    public boolean g;
+    public final k0<c0> a;
+    public final k0<c0> b;
+    public boolean c;
+    public boolean d;
+    public ComponentOperationHandler e;
+    public l0<z> f;
+    public o6<z> g;
+    public r6 h;
+    public r6 i;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends j7<n6> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.j7
-        /* renamed from: g */
-        public n6 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return new n6();
-            }
-            return (n6) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public z a;
-        public int b;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-    }
-
-    public c0(i0<y> i0Var) {
+    public c0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {i0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,172 +35,155 @@ public class c0 {
                 return;
             }
         }
-        this.b = new g7<>();
-        this.c = new g7<>();
-        this.d = new q7<>(true, 16);
-        this.e = new g7<>();
-        this.f = new b(null);
-        this.g = false;
-        this.a = i0Var;
+        this.f = new l0<>();
+        this.g = new o6<>(false, 16);
+        this.h = new r6();
+        this.i = new r6();
+        this.a = new k0<>();
+        this.b = new k0<>();
     }
 
-    public final i0<y> d(b0 b0Var) {
+    public c0 a(z zVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, b0Var)) == null) {
-            i0<y> c2 = this.c.c(b0Var);
-            if (c2 == null) {
-                k6<y> k6Var = new k6<>(false, 16);
-                i0<y> i0Var = new i0<>(k6Var);
-                this.b.i(b0Var, k6Var);
-                this.c.i(b0Var, i0Var);
-                this.e.i(b0Var, new n6());
-                Iterator<y> it = this.a.iterator();
-                while (it.hasNext()) {
-                    f(it.next());
-                }
-                return i0Var;
-            }
-            return c2;
-        }
-        return (i0) invokeL.objValue;
-    }
-
-    public void e(z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zVar) == null) {
-            int i = 0;
-            while (true) {
-                q7<c> q7Var = this.d;
-                if (i < q7Var.b) {
-                    if (q7Var.get(i).a == zVar) {
-                        g7.e<n6> n = this.e.n();
-                        n.c();
-                        while (n.hasNext()) {
-                            n6 next = n.next();
-                            int h = next.h();
-                            int i2 = i;
-                            while (i2 < h) {
-                                int i3 = i2 + 1;
-                                if (next.e(i3)) {
-                                    next.k(i2);
-                                } else {
-                                    next.c(i2);
-                                }
-                                i2 = i3;
-                            }
-                        }
-                        this.d.h(i);
-                        i--;
-                    }
-                    i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zVar)) == null) {
+            if (b(zVar)) {
+                ComponentOperationHandler componentOperationHandler = this.e;
+                if (componentOperationHandler != null) {
+                    componentOperationHandler.a(this);
                 } else {
-                    return;
+                    g();
                 }
             }
+            return this;
         }
+        return (c0) invokeL.objValue;
     }
 
-    public void a(b0 b0Var, int i, z zVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, b0Var, i, zVar) == null) {
-            d(b0Var);
-            int i2 = 0;
-            while (true) {
-                q7<c> q7Var = this.d;
-                if (i2 >= q7Var.b || q7Var.get(i2).b > i) {
-                    break;
-                }
-                i2++;
-            }
-            g7.e<n6> n = this.e.n();
-            n.c();
-            while (n.hasNext()) {
-                n6 next = n.next();
-                for (int h = next.h(); h > i2; h--) {
-                    if (next.e(h - 1)) {
-                        next.k(h);
-                    } else {
-                        next.c(h);
-                    }
-                }
-                next.c(i2);
-            }
-            this.e.c(b0Var).k(i2);
-            c cVar = new c(null);
-            cVar.a = zVar;
-            cVar.b = i;
-            this.d.insert(i2, cVar);
-        }
-    }
-
-    public i0<y> b(b0 b0Var) {
+    public <T extends z> T c(a0 a0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b0Var)) == null) {
-            return d(b0Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a0Var)) == null) {
+            if (a0Var.c() < this.f.b()) {
+                return (T) this.f.a(a0Var.c());
+            }
+            return null;
         }
-        return (i0) invokeL.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public boolean c() {
+    public <T extends z> T d(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) {
+            return (T) c(a0.b(cls));
+        }
+        return (T) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.c0 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean b(z zVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zVar)) == null) {
+            Class<?> cls = zVar.getClass();
+            z d = d(cls);
+            if (zVar == d) {
+                return false;
+            }
+            if (d != null) {
+                k(cls);
+            }
+            int d2 = a0.d(cls);
+            this.f.d(d2, zVar);
+            this.g.a(zVar);
+            this.h.k(d2);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public z i(Class<? extends z> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
+            z a = this.f.a(a0.b(cls).c());
+            if (a != null && k(cls)) {
+                ComponentOperationHandler componentOperationHandler = this.e;
+                if (componentOperationHandler != null) {
+                    componentOperationHandler.c(this);
+                } else {
+                    h();
+                }
+            }
+            return a;
+        }
+        return (z) invokeL.objValue;
+    }
+
+    public boolean k(Class<? extends z> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, cls)) == null) {
+            int c = a0.b(cls).c();
+            z a = this.f.a(c);
+            if (a != null) {
+                this.f.d(c, null);
+                this.g.i(a, true);
+                this.h.c(c);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public r6 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.h;
         }
-        return invokeV.booleanValue;
+        return (r6) invokeV.objValue;
     }
 
-    public void f(y yVar) {
+    public r6 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, yVar) == null) {
-            n6 e = this.f.e();
-            n6 e2 = this.f.e();
-            g7.c<b0> f = this.e.f();
-            f.c();
-            while (true) {
-                boolean z = false;
-                if (!f.hasNext()) {
-                    break;
-                }
-                b0 next = f.next();
-                int g = next.g();
-                n6 f2 = yVar.f();
-                boolean e3 = f2.e(g);
-                if (next.h(yVar) && !yVar.d) {
-                    z = true;
-                }
-                if (e3 != z) {
-                    n6 c2 = this.e.c(next);
-                    k6<y> c3 = this.b.c(next);
-                    if (z) {
-                        e.j(c2);
-                        c3.a(yVar);
-                        f2.k(g);
-                    } else {
-                        e2.j(c2);
-                        c3.i(yVar, true);
-                        f2.c(g);
-                    }
-                }
-            }
-            this.g = true;
-            c[] o = this.d.o();
-            try {
-                for (int i = e2.i(0); i >= 0; i = e2.i(i + 1)) {
-                    o[i].a.a(yVar);
-                }
-                for (int i2 = e.i(0); i2 >= 0; i2 = e.i(i2 + 1)) {
-                    o[i2].a.b(yVar);
-                }
-            } finally {
-                e.b();
-                e2.b();
-                this.f.c(e);
-                this.f.c(e2);
-                this.d.p();
-                this.g = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return (r6) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.b(this);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.b(this);
+        }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.c0 */
+    /* JADX WARN: Multi-variable type inference failed */
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048585, this) != null) {
+            return;
+        }
+        while (true) {
+            o6<z> o6Var = this.g;
+            if (o6Var.b > 0) {
+                i(o6Var.get(0).getClass());
+            } else {
+                return;
             }
         }
     }

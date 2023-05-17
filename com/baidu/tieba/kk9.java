@@ -1,175 +1,287 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.browser.BrowserType;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.util.IBaiduIdentityContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class kk9 implements gk9 {
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class kk9 implements IBaiduIdentityContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BaseFragmentActivity a;
-    @NonNull
-    public final ViewGroup b;
-    public int c;
-    public boolean d;
-    public int e;
-    public boolean f;
-    public long g;
 
-    @Override // com.baidu.tieba.gk9
-    public void c() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public byte[] encryptByNativeBds(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? new byte[0] : (byte[]) invokeLL.objValue;
     }
 
-    public kk9(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getAppMode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, viewGroup, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        this.c = -1;
-        this.d = true;
-        this.e = 0;
-        this.f = false;
-        this.b = viewGroup;
-        this.c = i;
-        this.g = System.currentTimeMillis();
-        this.a = baseFragmentActivity;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public void a(boolean z) {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getBDVCInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.gk9
-    public boolean d() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getIid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public void e() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean getJoinUserExperiencePreference(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public boolean f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getLocString(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, context, i)) == null) {
+            return null;
         }
-        return invokeV.booleanValue;
+        return (String) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public int g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getLocationInfo(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    @NonNull
-    public BaseFragmentActivity getActivity() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getMatrixstyle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
+            return null;
         }
-        return (BaseFragmentActivity) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public int getAdSource() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getOEMChannel(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    @NonNull
-    public ViewGroup getRootView() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getOsBranch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.b;
+            return null;
         }
-        return (ViewGroup) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public BdUniqueId getUniqueId() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getPassUid(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.getUniqueId();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public boolean h() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return ik9.a(this.a.getIntent());
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean getPrivacySwitch(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String[] getProcessUARegex(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? new String[0] : (String[]) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getSearchBoxTypeId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getTn(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gk9
-    public long i() {
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isBlinkEnable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return false;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isDataFlowPopDialog(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isPeakTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public boolean isSelfUpdateInstalled(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public CookieManager obtainCookieManager(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return null;
+        }
+        return (CookieManager) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String processUrlExternal(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
+            return null;
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public String processUserAgentExternal(String str, BrowserType browserType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, str, browserType)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
+    public void setCookieManualNoBdussOperate(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048601, this, str, str2, z) == null) {
+        }
+    }
+
+    public kk9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 }

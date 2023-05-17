@@ -13,7 +13,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = UserSettingForceListListener.FORCE_LIST_ACTION, module = "usersetting")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UserSettingForceListListener extends JSONObjectCommandListener {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String DEFAULT_VERSION = "0";

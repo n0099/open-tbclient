@@ -1,85 +1,66 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class dz3 extends d04 {
+/* loaded from: classes5.dex */
+public class dz3 extends bz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721804, "Lcom/baidu/tieba/dz3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947721804, "Lcom/baidu/tieba/dz3;");
-                return;
-            }
+    @Override // com.baidu.tieba.bz3
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
         }
-        c = ho1.a;
+    }
+
+    @Override // com.baidu.tieba.bz3
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reward_banner_html" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dz3() {
-        super("openApp");
+    public dz3(Context context, AdElementInfo adElementInfo, cy3 cy3Var) {
+        super(context, adElementInfo, cy3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, cy3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (cy3) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.d04
-    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.bz3
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
-            if (c) {
-                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                bl2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            yz3.a(optString, "openApp", null, null, null);
-            if (!mz3.h(AppRuntime.getAppContext(), optString)) {
-                bl2Var.onFail(31011, "app is not installed");
-                yz3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
-                return null;
-            }
-            if (mz3.l(AppRuntime.getAppContext(), optString)) {
-                bl2Var.a(null);
-                yz3.a(optString, "openApp", "success", null, null);
-            } else {
-                bl2Var.onFail(31019, "open app fail");
-                yz3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d06df, (ViewGroup) null);
         }
-        return (xz1) invokeLL.objValue;
+        return (View) invokeV.objValue;
     }
 }

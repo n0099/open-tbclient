@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.source.smoothstreaming;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.google.android.exoplayer2.source.smoothstreaming";
     public static final String BUILD_TYPE = "release";

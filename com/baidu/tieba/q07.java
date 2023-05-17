@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ClickableSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class q07 implements i07 {
+/* loaded from: classes7.dex */
+public final class q07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
 
     public q07() {
         Interceptable interceptable = $ic;
@@ -25,52 +25,26 @@ public final class q07 implements i07 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.i07
-    public SpannableString b(Context context, jz6 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        int i;
-        int i2;
+    public final Map<String, String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            String c = richTextData.f().c();
-            SpannableString spannableString = new SpannableString(c);
-            int g = ii.g(pw6.a, R.dimen.L_X01);
-            int g2 = ii.g(pw6.a, R.dimen.tbds10);
-            int g3 = ii.g(pw6.a, R.dimen.T_X10);
-            int g4 = ii.g(pw6.a, R.dimen.M_W_X002);
-            int g5 = ii.g(pw6.a, R.dimen.M_W_X002);
-            int g6 = ii.g(pw6.a, R.dimen.tbds42);
-            oy6 a = richTextData.f().a();
-            if (a != null) {
-                i = y27.a.b(a);
-            } else {
-                i = R.color.CAM_X0302;
-            }
-            oy6 b = richTextData.f().b();
-            if (b != null) {
-                i2 = y27.a.b(b);
-            } else {
-                i2 = R.color.CAM_X0101;
-            }
-            k55 k55Var = new k55(g, -1, i, g3, i2, g4, g6);
-            k55Var.b(g2);
-            k55Var.i(g5);
-            k55Var.f(true);
-            k55Var.g(true);
-            k55Var.d(ii.g(pw6.a, R.dimen.tbds7));
-            spannableString.setSpan(k55Var, 0, c.length(), 17);
-            if (!TextUtils.isEmpty(richTextData.d())) {
-                spannableString.setSpan(clickableSpan, 0, c.length(), 33);
-            }
-            return spannableString;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    public final void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
+        }
     }
 }

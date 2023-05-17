@@ -1,122 +1,84 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
-import android.widget.Toast;
-import androidx.core.content.FileProvider;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-/* loaded from: classes6.dex */
-public final class v31 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class v31 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile v31 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static boolean a(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    if (TextUtils.isEmpty(li0.a().v())) {
-                        return false;
-                    }
-                    Uri uriForFile = FileProvider.getUriForFile(context, li0.a().v(), file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
-                            context.grantUriPermission(resolveInfo.activityInfo.packageName, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException | Exception unused) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void b(Dialog dialog) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, dialog) != null) || dialog == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189749, "Lcom/baidu/tieba/v31;")) == null) {
             return;
         }
-        try {
-            dialog.show();
-        } catch (Exception unused) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948189749, "Lcom/baidu/tieba/v31;");
         }
     }
 
-    public static void c(Activity activity, Intent intent) {
+    public v31() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, activity, intent) == null) {
-            e(activity, intent, true);
-        }
-    }
-
-    public static boolean d(Context context, Intent intent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
-            return e(context, intent, false);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean e(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent, z)) == null) {
-            return f(context, intent, z, false);
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean f(Context context, Intent intent, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z || !(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            try {
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException unused) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
-                return false;
-            } catch (SecurityException unused2) {
-                if (!z2) {
-                    return false;
-                }
-                Toast.makeText(context, (int) R.string.nad_activity_not_found, 0).show();
-                return false;
-            } catch (Exception unused3) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeCommon.booleanValue;
+        this.a = 0L;
+    }
+
+    public static v31 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (v31.class) {
+                    if (b == null) {
+                        b = new v31();
+                    }
+                }
+            }
+            return b;
+        }
+        return (v31) invokeV.objValue;
+    }
+
+    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
+        InterceptResult invokeLLI;
+        ElasticTask elasticTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                synchronized (this) {
+                    long j = this.a + 1;
+                    this.a = j;
+                    elasticTask = new ElasticTask(runnable, str, j, i);
+                }
+                return elasticTask;
+            }
+            throw new IllegalArgumentException("illegal params");
+        }
+        return (ElasticTask) invokeLLI.objValue;
     }
 }

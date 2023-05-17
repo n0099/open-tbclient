@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class H5PayParams {
     public Map<String, String> appClientExpand;
     public int appId;

@@ -5,7 +5,7 @@ import com.xiaomi.push.dl;
 import com.xiaomi.push.hh;
 import com.xiaomi.push.hu;
 import com.xiaomi.push.ig;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class r implements dl {
     public Context a;
 
@@ -15,7 +15,7 @@ public class r implements dl {
 
     @Override // com.xiaomi.push.dl
     public String a() {
-        return b.m145a(this.a).d();
+        return b.m164a(this.a).d();
     }
 
     @Override // com.xiaomi.push.dl

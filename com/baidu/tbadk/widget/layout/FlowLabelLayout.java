@@ -7,13 +7,13 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlowLabelLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,8 +61,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     @Override // android.view.View
@@ -110,8 +110,8 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public int getHorizontalSpacing() {

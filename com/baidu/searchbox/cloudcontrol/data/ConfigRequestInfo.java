@@ -3,7 +3,7 @@ package com.baidu.searchbox.cloudcontrol.data;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConfigRequestInfo extends CloudControlRequestInfo {
     public static final String CONFIG = "config";
 

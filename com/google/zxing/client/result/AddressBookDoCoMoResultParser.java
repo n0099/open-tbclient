@@ -2,7 +2,7 @@ package com.google.zxing.client.result;
 
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.Result;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AddressBookDoCoMoResultParser extends AbstractDoCoMoResultParser {
     public static String parseName(String str) {
         int indexOf = str.indexOf(44);

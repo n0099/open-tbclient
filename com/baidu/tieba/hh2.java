@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
+import android.webkit.ValueCallback;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hh2 extends eh2 {
+/* loaded from: classes5.dex */
+public class hh2 implements V8FileSystemDelegatePolicy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hh2(@NonNull dh2 dh2Var) {
-        super(dh2Var);
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public hh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dh2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dh2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.eh2
-    public void e() {
+    @Override // com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy
+    public void loadFileFromUrl(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f(uf4.i().v().keySet());
-            d();
-            ArraySet<String> a = a();
-            mp1 mp1Var = this.b;
-            if (mp1Var != null) {
-                mp1Var.f();
-            }
-            c(a);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            fh2.e().g(str, valueCallback);
         }
     }
 }

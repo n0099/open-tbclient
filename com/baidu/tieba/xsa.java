@@ -1,85 +1,114 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
+import android.content.Context;
+import android.widget.Button;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
-/* loaded from: classes7.dex */
-public class xsa extends FunNativeAd2Bridger<NativeExpressADData2, View> {
+/* loaded from: classes8.dex */
+public class xsa implements TTAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public final /* synthetic */ vsa c;
+    public Button a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xsa(vsa vsaVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public xsa(Button button) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vsaVar, reporterPidLoader};
+            Object[] objArr = {button};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = vsaVar;
+        this.a = button;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public final String a(Context context, long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f0852, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f0853) : (String) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(NativeExpressADData2 nativeExpressADData2) {
-        InterceptResult invokeL;
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadActive(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, nativeExpressADData2)) == null) {
-            return nativeExpressADData2.getAdView();
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, NativeExpressADData2 nativeExpressADData2, BaseNativeAd2<NativeExpressADData2, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, nativeExpressADData2, baseNativeAd2, funAdInteractionListener}) == null) {
-            NativeExpressADData2 nativeExpressADData22 = nativeExpressADData2;
-            this.c.onShowStart(nativeExpressADData22, this.b);
-            this.b = true;
-            ExpressAdListenerWrapper<AdEventListener> expressAdListenerWrapper = this.c.e.get(nativeExpressADData22);
-            if (expressAdListenerWrapper == null) {
-                LogPrinter.e("Can not get correspond listener by gdtNativeExpress2.", new Object[0]);
-            } else {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(a(button.getContext(), j, j2));
             }
-            expressInflater.inflate();
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFailed(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0851);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadFinished(long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0854);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onDownloadPaused(long j, long j2, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            LogPrinter.d("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(a(button.getContext(), j, j2));
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0851);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
+    public void onInstalled(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
+            Button button = this.a;
+            if (button != null) {
+                button.setText(R.string.obfuscated_res_0x7f0f0855);
+            }
         }
     }
 }

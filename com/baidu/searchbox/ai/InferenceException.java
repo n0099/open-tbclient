@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InferenceException extends Exception {
     public static final int ERR_CONVERT_RESULT = 2;
     public static final int ERR_NO_RESULT = 1;

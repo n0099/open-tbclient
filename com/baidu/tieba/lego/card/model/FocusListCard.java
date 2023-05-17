@@ -1,8 +1,8 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class FocusListCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MIN_FOCUS_ITEMS = 3;
@@ -23,7 +23,7 @@ public class FocusListCard extends BaseCardInfo {
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,10 +70,10 @@ public class FocusListCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = dh8.b(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = dh8.b(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = dh8.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = dh8.b(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = yi8.b(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = yi8.b(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = yi8.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = yi8.b(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         if (optJSONArray2 == null) {
             length = 0;
@@ -95,8 +95,8 @@ public class FocusListCard extends BaseCardInfo {
                     if (optJSONArray.length() > 2) {
                         aVar.c = optJSONArray.getString(2);
                     }
-                    aVar.d = dh8.b(optJSONObject.optString("focusColor", ""));
-                    aVar.e = dh8.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.d = yi8.b(optJSONObject.optString("focusColor", ""));
+                    aVar.e = yi8.b(optJSONObject.optString("focusColorNight", ""));
                     aVar.f = optJSONObject.optString("scheme");
                     aVar.g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);

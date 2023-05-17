@@ -31,7 +31,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.util.collectionUtils.ScopeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JvmPackageScope implements MemberScope {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(JvmPackageScope.class), "kotlinScopes", "getKotlinScopes()Ljava/util/List;"))};
     public final LazyJavaResolverContext c;
@@ -78,22 +78,22 @@ public final class JvmPackageScope implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
         recordLookup(name, lookupLocation);
-        ClassDescriptor mo2027getContributedClassifier = this.javaScope.mo2027getContributedClassifier(name, lookupLocation);
-        if (mo2027getContributedClassifier != null) {
-            return mo2027getContributedClassifier;
+        ClassDescriptor mo2046getContributedClassifier = this.javaScope.mo2046getContributedClassifier(name, lookupLocation);
+        if (mo2046getContributedClassifier != null) {
+            return mo2046getContributedClassifier;
         }
         ClassifierDescriptor classifierDescriptor = null;
         for (MemberScope memberScope : getKotlinScopes()) {
-            ClassifierDescriptor mo2027getContributedClassifier2 = memberScope.mo2027getContributedClassifier(name, lookupLocation);
-            if (mo2027getContributedClassifier2 != null) {
-                if ((mo2027getContributedClassifier2 instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2027getContributedClassifier2).isExpect()) {
+            ClassifierDescriptor mo2046getContributedClassifier2 = memberScope.mo2046getContributedClassifier(name, lookupLocation);
+            if (mo2046getContributedClassifier2 != null) {
+                if ((mo2046getContributedClassifier2 instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2046getContributedClassifier2).isExpect()) {
                     if (classifierDescriptor == null) {
-                        classifierDescriptor = mo2027getContributedClassifier2;
+                        classifierDescriptor = mo2046getContributedClassifier2;
                     }
                 } else {
-                    return mo2027getContributedClassifier2;
+                    return mo2046getContributedClassifier2;
                 }
             }
         }

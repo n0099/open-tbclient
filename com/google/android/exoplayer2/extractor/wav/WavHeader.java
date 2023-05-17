@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.extractor.wav;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WavHeader {
     public final int averageBytesPerSecond;
     public final int bitsPerSample;

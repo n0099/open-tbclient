@@ -28,7 +28,7 @@ import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.tieba.R;
 import java.text.MessageFormat;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmsPager extends LinearLayout implements a.c {
     public static final String q = "sdk_situation";
     public static final String r = "pop_login";
@@ -50,7 +50,7 @@ public class SmsPager extends LinearLayout implements a.c {
     public Animation o;
     public CountDownTimer p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends DynamicPwdLoginCallback {
         public final /* synthetic */ long a;
 
@@ -62,7 +62,7 @@ public class SmsPager extends LinearLayout implements a.c {
         public void onStart() {
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -122,7 +122,7 @@ public class SmsPager extends LinearLayout implements a.c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends CountDownTimer {
         public a(long j, long j2) {
             super(j, j2);
@@ -151,7 +151,7 @@ public class SmsPager extends LinearLayout implements a.c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -165,7 +165,7 @@ public class SmsPager extends LinearLayout implements a.c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public c() {
         }

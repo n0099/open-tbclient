@@ -2,7 +2,7 @@ package com.baidu.sapi2.dto;
 
 import android.view.View;
 import com.baidu.sapi2.enums.LoginTypes;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiWebDTO extends SapiDTO {
     public LoginTypes excludeTypes;
     public View loadingView;

@@ -15,14 +15,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CompressBitmapTask extends AsyncTask<Uri, Integer, ByteArrayOutputStream> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public ICompressBitmapListener mListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ICompressBitmapListener {
         void onComplete(ByteArrayOutputStream byteArrayOutputStream);
     }

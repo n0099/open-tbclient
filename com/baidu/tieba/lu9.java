@@ -1,69 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class lu9 extends CustomMessageListener {
+import java.lang.ref.WeakReference;
+/* loaded from: classes6.dex */
+public class lu9 extends ku9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public rs9 b;
+    public final WeakReference<View> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lu9(MainTabActivity mainTabActivity) {
-        super(2921736);
+    public lu9(View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {view2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        this.b = new WeakReference<>(view2);
+        this.a = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        rs9 rs9Var;
+    @Override // com.baidu.tieba.ku9
+    public void b() {
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
-            MainTabActivity mainTabActivity = this.a;
-            this.b = mainTabActivity.e;
-            mainTabActivity.O1(true);
-            if (MainTabActivity.Y && (rs9Var = this.b) != null && rs9Var.h() != null) {
-                this.b.h().a();
-            }
-            rs9 rs9Var2 = this.b;
-            if (rs9Var2 != null && rs9Var2.c() != null) {
-                this.b.c().b();
-            }
-            zw9.c().b();
-            zw9.c().a();
-            if (y35.a().f()) {
-                y35.a().g(this.a.getClass().getName());
-                y35.a().l(false);
-            }
-            if (y35.a().e()) {
-                y35.a().b();
-                y35.a().h(this.a.getClass().getName());
-                y35.a().k(false);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.b.get()) != null) {
+            view2.setVisibility(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.ku9
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            eu9.a = Math.max(eu9.a, this.a + 1);
+        }
+    }
+
+    @Override // com.baidu.tieba.ku9
+    public void d() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = this.b.get()) != null) {
+            view2.setVisibility(8);
         }
     }
 }

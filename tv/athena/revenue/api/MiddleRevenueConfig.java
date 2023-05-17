@@ -13,7 +13,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u001d\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u0000:\u0001TB\u0011\b\u0002\u0012\u0006\u0010Q\u001a\u00020P¢\u0006\u0004\bR\u0010SJ\u000f\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0002\u0010\u0003R$\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\"\u0010\f\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\"\u0010\u0012\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0014\u0010\u0003\"\u0004\b\u0015\u0010\u0016R\"\u0010\u0017\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0017\u0010\r\u001a\u0004\b\u0018\u0010\u000f\"\u0004\b\u0019\u0010\u0011R\"\u0010\u001a\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u0010\r\u001a\u0004\b\u001b\u0010\u000f\"\u0004\b\u001c\u0010\u0011R\"\u0010\u001d\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u0013\u001a\u0004\b\u001e\u0010\u0003\"\u0004\b\u001f\u0010\u0016R\"\u0010 \u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b \u0010\u0013\u001a\u0004\b!\u0010\u0003\"\u0004\b\"\u0010\u0016R\"\u0010#\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b#\u0010\u0013\u001a\u0004\b$\u0010\u0003\"\u0004\b%\u0010\u0016R\"\u0010&\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b&\u0010\u0013\u001a\u0004\b'\u0010\u0003\"\u0004\b(\u0010\u0016R\"\u0010*\u001a\u00020)8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b*\u0010+\u001a\u0004\b*\u0010,\"\u0004\b-\u0010.R\"\u0010/\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b/\u0010\u0013\u001a\u0004\b0\u0010\u0003\"\u0004\b1\u0010\u0016R\"\u00103\u001a\u0002028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b3\u00104\u001a\u0004\b5\u00106\"\u0004\b7\u00108R\"\u00109\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b9\u0010\u0013\u001a\u0004\b:\u0010\u0003\"\u0004\b;\u0010\u0016R$\u0010=\u001a\u0004\u0018\u00010<8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b=\u0010>\u001a\u0004\b?\u0010@\"\u0004\bA\u0010BR\"\u0010D\u001a\u00020C8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bD\u0010E\u001a\u0004\bF\u0010G\"\u0004\bH\u0010IR\"\u0010J\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bJ\u0010\r\u001a\u0004\bK\u0010\u000f\"\u0004\bL\u0010\u0011R\"\u0010M\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bM\u0010\u0013\u001a\u0004\bN\u0010\u0003\"\u0004\bO\u0010\u0016¨\u0006U"}, d2 = {"Ltv/athena/revenue/api/MiddleRevenueConfig;", "", "toString", "()Ljava/lang/String;", "Landroid/content/Context;", "appContext", "Landroid/content/Context;", "getAppContext", "()Landroid/content/Context;", "setAppContext", "(Landroid/content/Context;)V", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "I", "getAppId", "()I", "setAppId", "(I)V", "appName", "Ljava/lang/String;", "getAppName", "setAppName", "(Ljava/lang/String;)V", "authType", "getAuthType", "setAuthType", "currencyType", "getCurrencyType", "setCurrencyType", "deviceId", "getDeviceId", "setDeviceId", "gslbAppId", "getGslbAppId", "setGslbAppId", "hostId", "getHostId", "setHostId", "httpUrl", "getHttpUrl", "setHttpUrl", "", "isTestEnv", "Z", "()Z", "setTestEnv", "(Z)V", "packageName", "getPackageName", "setPackageName", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "protoType", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "getProtoType", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "setProtoType", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)V", "token", "getToken", "setToken", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "tokenCallback", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "getTokenCallback", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "setTokenCallback", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;)V", "", "uid", "J", "getUid", "()J", "setUid", "(J)V", "useChannel", "getUseChannel", "setUseChannel", "version", WebChromeClient.MSG_METHOD_GETVERSION, "setVersion", "Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "builder", "<init>", "(Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;)V", "MiddleRevenueConfigBuilder", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MiddleRevenueConfig {
     public Context appContext;
     public int appId;
@@ -35,7 +35,7 @@ public final class MiddleRevenueConfig {
 
     @Keep
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0011\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b0\b\u0007\u0018\u0000B\u0007¢\u0006\u0004\bd\u0010eJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\n\u001a\u00020\u00002\u0006\u0010\t\u001a\u00020\b¢\u0006\u0004\b\n\u0010\u000bJ\u0015\u0010\u000e\u001a\u00020\u00002\u0006\u0010\r\u001a\u00020\f¢\u0006\u0004\b\u000e\u0010\u000fJ\u0015\u0010\u0011\u001a\u00020\u00002\u0006\u0010\u0010\u001a\u00020\b¢\u0006\u0004\b\u0011\u0010\u000bJ\u0017\u0010\u0013\u001a\u00020\u00002\u0006\u0010\u0012\u001a\u00020\fH\u0007¢\u0006\u0004\b\u0013\u0010\u000fJ\u0015\u0010\u0015\u001a\u00020\u00002\u0006\u0010\u0014\u001a\u00020\b¢\u0006\u0004\b\u0015\u0010\u000bJ\u0015\u0010\u0017\u001a\u00020\u00002\u0006\u0010\u0016\u001a\u00020\f¢\u0006\u0004\b\u0017\u0010\u000fJ\u0015\u0010\u0019\u001a\u00020\u00002\u0006\u0010\u0018\u001a\u00020\f¢\u0006\u0004\b\u0019\u0010\u000fJ\u0015\u0010\u001b\u001a\u00020\u00002\u0006\u0010\u001a\u001a\u00020\f¢\u0006\u0004\b\u001b\u0010\u000fJ\u0015\u0010\u001d\u001a\u00020\u00002\u0006\u0010\u001c\u001a\u00020\f¢\u0006\u0004\b\u001d\u0010\u000fJ\u0017\u0010 \u001a\u00020\u00002\u0006\u0010\u001f\u001a\u00020\u001eH\u0007¢\u0006\u0004\b \u0010!J\u0017\u0010#\u001a\u00020\u00002\u0006\u0010\"\u001a\u00020\fH\u0007¢\u0006\u0004\b#\u0010\u000fJ\u0015\u0010%\u001a\u00020\u00002\u0006\u0010$\u001a\u00020\f¢\u0006\u0004\b%\u0010\u000fJ\u0015\u0010(\u001a\u00020\u00002\u0006\u0010'\u001a\u00020&¢\u0006\u0004\b(\u0010)J\u0019\u0010,\u001a\u00020\u00002\b\u0010+\u001a\u0004\u0018\u00010*H\u0007¢\u0006\u0004\b,\u0010-J\u0015\u0010/\u001a\u00020\u00002\u0006\u0010.\u001a\u00020\u001e¢\u0006\u0004\b/\u0010!J\u0015\u00101\u001a\u00020\u00002\u0006\u00100\u001a\u00020\f¢\u0006\u0004\b1\u0010\u000fJ\u0017\u00104\u001a\u00020\u00002\b\u00103\u001a\u0004\u0018\u000102¢\u0006\u0004\b4\u00105J\u0015\u00108\u001a\u00020\u00002\u0006\u00107\u001a\u000206¢\u0006\u0004\b8\u00109J\u0015\u0010;\u001a\u00020\u00002\u0006\u0010:\u001a\u00020\b¢\u0006\u0004\b;\u0010\u000bJ\u0015\u0010=\u001a\u00020\u00002\u0006\u0010<\u001a\u00020\f¢\u0006\u0004\b=\u0010\u000fR$\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010>\u001a\u0004\b?\u0010@\"\u0004\b\u0006\u0010AR\"\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010B\u001a\u0004\bC\u0010D\"\u0004\b\n\u0010ER\"\u0010\r\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\r\u0010F\u001a\u0004\bG\u0010H\"\u0004\b\u000e\u0010IR\"\u0010\u0010\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0010\u0010B\u001a\u0004\bJ\u0010D\"\u0004\b\u0011\u0010ER\"\u0010\u0014\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0014\u0010B\u001a\u0004\bK\u0010D\"\u0004\b\u0015\u0010ER\"\u0010\u0016\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0016\u0010F\u001a\u0004\bL\u0010H\"\u0004\b\u0017\u0010IR\"\u0010M\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bM\u0010F\u001a\u0004\bN\u0010H\"\u0004\b\u0019\u0010IR\"\u0010\u001a\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u0010F\u001a\u0004\bO\u0010H\"\u0004\b\u001b\u0010IR\"\u0010\u001c\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010F\u001a\u0004\bP\u0010H\"\u0004\b\u001d\u0010IR\"\u0010.\u001a\u00020\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b.\u0010Q\u001a\u0004\b.\u0010R\"\u0004\b/\u0010SR\"\u0010$\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010F\u001a\u0004\bT\u0010H\"\u0004\b%\u0010IR\"\u0010'\u001a\u00020&8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b'\u0010U\u001a\u0004\bV\u0010W\"\u0004\b(\u0010XR\"\u00100\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u0010F\u001a\u0004\bY\u0010H\"\u0004\b1\u0010IR$\u00103\u001a\u0004\u0018\u0001028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b3\u0010Z\u001a\u0004\b[\u0010\\\"\u0004\b4\u0010]R\"\u00107\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b7\u0010^\u001a\u0004\b_\u0010`\"\u0004\b8\u0010aR\"\u0010:\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010B\u001a\u0004\bb\u0010D\"\u0004\b;\u0010ER\"\u0010<\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b<\u0010F\u001a\u0004\bc\u0010H\"\u0004\b=\u0010I¨\u0006f"}, d2 = {"Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "Ltv/athena/revenue/api/MiddleRevenueConfig;", "build", "()Ltv/athena/revenue/api/MiddleRevenueConfig;", "Landroid/content/Context;", "appContext", "setAppContext", "(Landroid/content/Context;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "setAppId", "(I)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "", "appName", "setAppName", "(Ljava/lang/String;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "authType", "setAuthType", "country", "setCountry", "currencyType", "setCurrencyType", "deviceId", "setDeviceId", "gslpAppId", "setGslbAppId", "hostId", "setHostId", "httpUrl", "setHttpUrl", "", "isOpenRisk", "setIsOpenRisk", "(Z)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "language", "setLanguage", "packageName", "setPackageName", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "protoType", "setProtoType", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "Ltv/athena/revenue/api/MiddleReportConfig;", "reportConfig", "setReportConfig", "(Ltv/athena/revenue/api/MiddleReportConfig;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "isTestEnv", "setTestEnv", "token", "setToken", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "tokenCallback", "setTokenCallback", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "", "uid", "setUid", "(J)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "useChannel", "setUseChannel", "version", "setVersion", "Landroid/content/Context;", "getAppContext", "()Landroid/content/Context;", "(Landroid/content/Context;)V", "I", "getAppId", "()I", "(I)V", "Ljava/lang/String;", "getAppName", "()Ljava/lang/String;", "(Ljava/lang/String;)V", "getAuthType", "getCurrencyType", "getDeviceId", "gslbAppId", "getGslbAppId", "getHostId", "getHttpUrl", "Z", "()Z", "(Z)V", "getPackageName", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "getProtoType", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)V", "getToken", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "getTokenCallback", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;)V", "J", "getUid", "()J", "(J)V", "getUseChannel", WebChromeClient.MSG_METHOD_GETVERSION, "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class MiddleRevenueConfigBuilder {
         public Context appContext;
         public int appId;
@@ -238,87 +238,87 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAppContext  reason: collision with other method in class */
-        public final void m2250setAppContext(Context context) {
+        public final void m2269setAppContext(Context context) {
             this.appContext = context;
         }
 
         /* renamed from: setAppId  reason: collision with other method in class */
-        public final void m2251setAppId(int i) {
+        public final void m2270setAppId(int i) {
             this.appId = i;
         }
 
         /* renamed from: setAppName  reason: collision with other method in class */
-        public final void m2252setAppName(String str) {
+        public final void m2271setAppName(String str) {
             this.appName = str;
         }
 
         /* renamed from: setAuthType  reason: collision with other method in class */
-        public final void m2253setAuthType(int i) {
+        public final void m2272setAuthType(int i) {
             this.authType = i;
         }
 
         /* renamed from: setCurrencyType  reason: collision with other method in class */
-        public final void m2254setCurrencyType(int i) {
+        public final void m2273setCurrencyType(int i) {
             this.currencyType = i;
         }
 
         /* renamed from: setDeviceId  reason: collision with other method in class */
-        public final void m2255setDeviceId(String str) {
+        public final void m2274setDeviceId(String str) {
             this.deviceId = str;
         }
 
         /* renamed from: setGslbAppId  reason: collision with other method in class */
-        public final void m2256setGslbAppId(String str) {
+        public final void m2275setGslbAppId(String str) {
             this.gslbAppId = str;
         }
 
         /* renamed from: setHostId  reason: collision with other method in class */
-        public final void m2257setHostId(String str) {
+        public final void m2276setHostId(String str) {
             this.hostId = str;
         }
 
         /* renamed from: setHttpUrl  reason: collision with other method in class */
-        public final void m2258setHttpUrl(String str) {
+        public final void m2277setHttpUrl(String str) {
             this.httpUrl = str;
         }
 
         /* renamed from: setPackageName  reason: collision with other method in class */
-        public final void m2259setPackageName(String str) {
+        public final void m2278setPackageName(String str) {
             this.packageName = str;
         }
 
         /* renamed from: setProtoType  reason: collision with other method in class */
-        public final void m2260setProtoType(ProtocolType protocolType) {
+        public final void m2279setProtoType(ProtocolType protocolType) {
             this.protoType = protocolType;
         }
 
         /* renamed from: setTestEnv  reason: collision with other method in class */
-        public final void m2261setTestEnv(boolean z) {
+        public final void m2280setTestEnv(boolean z) {
             this.isTestEnv = z;
         }
 
         /* renamed from: setToken  reason: collision with other method in class */
-        public final void m2262setToken(String str) {
+        public final void m2281setToken(String str) {
             this.token = str;
         }
 
         /* renamed from: setTokenCallback  reason: collision with other method in class */
-        public final void m2263setTokenCallback(IToken iToken) {
+        public final void m2282setTokenCallback(IToken iToken) {
             this.tokenCallback = iToken;
         }
 
         /* renamed from: setUid  reason: collision with other method in class */
-        public final void m2264setUid(long j) {
+        public final void m2283setUid(long j) {
             this.uid = j;
         }
 
         /* renamed from: setUseChannel  reason: collision with other method in class */
-        public final void m2265setUseChannel(int i) {
+        public final void m2284setUseChannel(int i) {
             this.useChannel = i;
         }
 
         /* renamed from: setVersion  reason: collision with other method in class */
-        public final void m2266setVersion(String str) {
+        public final void m2285setVersion(String str) {
             this.version = str;
         }
     }

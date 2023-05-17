@@ -1,5 +1,5 @@
 package com.baidu.searchbox.v8engine.net;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum NetRequestStatusCode {
     NO_ERROR,
     URL_ERROR,

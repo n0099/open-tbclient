@@ -4,19 +4,18 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Pair;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static volatile d a;
     public static final String[] c = {"com", "android", "ss"};
     public static final int[] d = {3101, 3102, 3103, 3201, 3202, 3203};
     public final LinkedList<a> b = new LinkedList<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public final String a;
         public final int b;
@@ -65,8 +64,8 @@ public class d {
         String[] split2;
         boolean z;
         try {
-            split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            split = str.split("\\.");
+            split2 = str2.split("\\.");
         } catch (Throwable th) {
             th.printStackTrace();
         }

@@ -5,12 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.tieba.ho1;
+import com.baidu.tieba.qp1;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
-    public static final boolean DEBUG = ho1.a;
+    public static final boolean DEBUG = qp1.a;
     public String mCallback;
     public WeakReference<CallbackHandler> mCallbackHandlerWeakRef;
 
@@ -26,7 +27,7 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (context == null || intent == null || "android.net.conn.CONNECTIVITY_CHANGE" != intent.getAction() || TextUtils.isEmpty(this.mCallback) || isInitialStickyBroadcast()) {
+        if (context == null || intent == null || NetworkMonitor.NET_CHANGE_ACTION != intent.getAction() || TextUtils.isEmpty(this.mCallback) || isInitialStickyBroadcast()) {
             return;
         }
         if (DEBUG) {

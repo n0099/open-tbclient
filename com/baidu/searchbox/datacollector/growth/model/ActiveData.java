@@ -2,13 +2,13 @@ package com.baidu.searchbox.datacollector.growth.model;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActiveData {
     public String mChannel;
     public JSONObject mExtend;
     public String mType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public String channel;
         public JSONObject extend;

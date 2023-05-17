@@ -6,7 +6,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadTaskStartEndListener implements DownloadListener {
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
     public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {

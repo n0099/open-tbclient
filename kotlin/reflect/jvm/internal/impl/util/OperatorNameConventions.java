@@ -1,6 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.util;
 
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.util.Set;
@@ -9,7 +10,7 @@ import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.text.Regex;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class OperatorNameConventions {
     @JvmField
     public static final Name AND;
@@ -114,7 +115,7 @@ public final class OperatorNameConventions {
         Name identifier8 = Name.identifier("iterator");
         Intrinsics.checkExpressionValueIsNotNull(identifier8, "Name.identifier(\"iterator\")");
         ITERATOR = identifier8;
-        Name identifier9 = Name.identifier("get");
+        Name identifier9 = Name.identifier(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE);
         Intrinsics.checkExpressionValueIsNotNull(identifier9, "Name.identifier(\"get\")");
         GET = identifier9;
         Name identifier10 = Name.identifier("set");

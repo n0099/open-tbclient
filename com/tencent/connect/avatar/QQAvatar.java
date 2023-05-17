@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -19,7 +19,7 @@ import com.tencent.open.utils.f;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QQAvatar extends BaseApi {
     public static final String FROM_SDK_AVATAR_SET_IMAGE = "FROM_SDK_AVATAR_SET_IMAGE";
     public IUiListener a;
@@ -129,9 +129,9 @@ public class QQAvatar extends BaseApi {
             }
             stringBuffer.append("&sdk_version=" + Base64.encodeToString(l.i(Constants.SDK_VERSION), 2));
             SLog.v("QQAVATAR", "-->set avatar, url: " + stringBuffer.toString());
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.putExtra("FROM_WHERE", FROM_SDK_AVATAR_SET_IMAGE);
-            intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+            intent.putExtra("pkg_name", activity.getPackageName());
             intent.setData(Uri.parse(stringBuffer.toString()));
             if (a(intent)) {
                 UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_EDIT_AVATAR, iUiListener);
@@ -182,9 +182,9 @@ public class QQAvatar extends BaseApi {
             }
             stringBuffer.append("&sdk_version=" + Base64.encodeToString(l.i(Constants.SDK_VERSION), 2));
             SLog.v("QQAVATAR", "-->set dynamic avatar, url: " + stringBuffer.toString());
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.putExtra("FROM_WHERE", FROM_SDK_AVATAR_SET_IMAGE);
-            intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+            intent.putExtra("pkg_name", activity.getPackageName());
             intent.setData(Uri.parse(stringBuffer.toString()));
             if (a(intent)) {
                 UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_EDIT_DYNAMIC_AVATAR, iUiListener);

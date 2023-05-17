@@ -1,5 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import java.io.IOException;
+import java.io.InputStream;
+/* loaded from: classes6.dex */
 public interface lt1 {
-    boolean a();
+    InputStream a(InputStream inputStream) throws IOException;
 }

@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.upstream.Loader;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ParsingLoadable<T> implements Loader.Loadable {
     public volatile long bytesLoaded;
     public final DataSource dataSource;
@@ -15,7 +15,7 @@ public final class ParsingLoadable<T> implements Loader.Loadable {
     public volatile T result;
     public final int type;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Parser<T> {
         T parse(Uri uri, InputStream inputStream) throws IOException;
     }

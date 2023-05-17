@@ -1,16 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zq0 extends uq0 {
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class zq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final er0 b;
+    @NonNull
+    public final Map<String, b> a;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.optString("type");
+            jSONObject.optString("zip_url");
+            jSONObject.optInt("width");
+            jSONObject.optInt("height");
+        }
+
+        public /* synthetic */ b(JSONObject jSONObject, a aVar) {
+            this(jSONObject);
+        }
+    }
 
     public zq0() {
         Interceptable interceptable = $ic;
@@ -25,26 +69,27 @@ public class zq0 extends uq0 {
                 return;
             }
         }
-        this.b = b("okhttp");
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.gr0
-    public er0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (er0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uq0
-    public er0 b(String str) {
+    @Nullable
+    public static zq0 a(@Nullable JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new rr0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return null;
+            }
+            zq0 zq0Var = new zq0();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    b bVar = new b(optJSONObject, null);
+                    q11.e(zq0Var.a, bVar.a, bVar);
+                }
+            }
+            return zq0Var;
         }
-        return (er0) invokeL.objValue;
+        return (zq0) invokeL.objValue;
     }
 }

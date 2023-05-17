@@ -1,6 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static final String JSNATIVE_DOMAIN_WLIST_ACTION = "jsnative_domain_wlist";
     public static final String JSNATIVE_DOMAIN_WLIST_VERSION = "jsnative_domain_wlist_v";
@@ -68,20 +69,34 @@ public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(Context context, String str, String str2, ActionData<JSONObject> actionData) {
-        if (actionData == null || !TextUtils.equals(str2, JSNATIVE_DOMAIN_WLIST_ACTION) || TextUtils.isEmpty(actionData.version)) {
-            return false;
-        }
-        if (!TextUtils.equals(actionData.version, getLocalVersion(context, str, str2)) && actionData.data != null) {
-            if (DEBUG) {
-                String str3 = TAG;
-                Log.d(str3, "value.data " + actionData.data);
+        String jSONArray;
+        boolean z = false;
+        if (actionData != null && TextUtils.equals(str2, JSNATIVE_DOMAIN_WLIST_ACTION)) {
+            if (TextUtils.isEmpty(actionData.version)) {
+                return false;
             }
-            setDomainWhiteList(actionData.data.optJSONArray(WHITELIST));
-            whiteListEnable = actionData.data.optBoolean(WHITELIST_ENABLE, true);
-            PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(JSNATIVE_DOMAIN_WLIST_VERSION, actionData.version).putBoolean(KEY_JSNATIVE_DOMAIN_WHITE_ENABLE, whiteListEnable).putString(KEY_JSNATIVE_DOMAIN_WHITE_LIST, actionData.data.toString()).apply();
-            return true;
+            if (TextUtils.equals(actionData.version, getLocalVersion(context, str, str2))) {
+                return false;
+            }
+            if (actionData.data != null) {
+                if (DEBUG) {
+                    String str3 = TAG;
+                    Log.d(str3, "value.data " + actionData.data);
+                }
+                JSONArray optJSONArray = actionData.data.optJSONArray(WHITELIST);
+                setDomainWhiteList(optJSONArray);
+                z = true;
+                whiteListEnable = actionData.data.optBoolean(WHITELIST_ENABLE, true);
+                SharedPreferences.Editor putBoolean = PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(JSNATIVE_DOMAIN_WLIST_VERSION, actionData.version).putBoolean(KEY_JSNATIVE_DOMAIN_WHITE_ENABLE, whiteListEnable);
+                if (optJSONArray == null) {
+                    jSONArray = "";
+                } else {
+                    jSONArray = optJSONArray.toString();
+                }
+                putBoolean.putString(KEY_JSNATIVE_DOMAIN_WHITE_LIST, jSONArray).apply();
+            }
         }
-        return false;
+        return z;
     }
 
     @Override // com.baidu.searchbox.net.update.v2.AbstractCommandListener

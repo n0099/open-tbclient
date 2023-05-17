@@ -1,84 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
+import com.baidu.searchbox.pms.init.PmsManager;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.tbadk.data.IconStampData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.io.File;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
 public class rc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sc5 a;
-    public sc5 b;
 
-    public void f(String str) {
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    public rc5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return null;
+                        }
+                        return "reply_7_times.mp4";
+                    }
+                    return "post_7_times.mp4";
+                }
+                return "reply_1_times.mp4";
             }
+            return "post_1_times.mp4";
         }
+        return (String) invokeI.objValue;
     }
 
-    public sc5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (sc5) invokeV.objValue;
-    }
-
-    public sc5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (sc5) invokeV.objValue;
-    }
-
-    public static rc5 c(JSONObject jSONObject) {
+    public static boolean a(IconStampData iconStampData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
+            if (iconStampData == null) {
+                return false;
             }
-            rc5 rc5Var = new rc5();
-            rc5Var.e(sc5.c(jSONObject.optJSONObject("day")));
-            rc5Var.d(sc5.c(jSONObject.optJSONObject("dark")));
-            rc5Var.f(jSONObject.toString());
-            return rc5Var;
+            String c = c(iconStampData.stampType);
+            if (TextUtils.isEmpty(c)) {
+                return false;
+            }
+            File file = new File(jm.b(c));
+            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || !file.exists()) {
+                return false;
+            }
+            return true;
         }
-        return (rc5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void d(sc5 sc5Var) {
+    public static void b(boolean z) {
+        String c;
+        String c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sc5Var) == null) {
-            this.b = sc5Var;
-        }
-    }
-
-    public void e(sc5 sc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sc5Var) == null) {
-            this.a = sc5Var;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            if (z) {
+                c = c(1);
+                c2 = c(3);
+            } else {
+                c = c(2);
+                c2 = c(4);
+            }
+            if (!TextUtils.isEmpty(c) && !TextUtils.isEmpty(c2)) {
+                String str = BdBaseApplication.getInst().getResHashMap().get(c2);
+                if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
+                    RequestParams requestParams = new RequestParams();
+                    requestParams.setRunType(fm.a);
+                    requestParams.setRunNode("aps");
+                    ArrayList arrayList = new ArrayList();
+                    arrayList.add("com.baidu.tieba.resloader." + c);
+                    arrayList.add("com.baidu.tieba.resloader." + c2);
+                    requestParams.addChannel(new em(arrayList, (DefaultDownloadCallback) null));
+                    PmsManager.getInstance().execute(requestParams);
+                }
+            }
         }
     }
 }

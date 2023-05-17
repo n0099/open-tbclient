@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.searchbox.dns.transmit.DnsTransmitTask;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsStrategy {
     public DnsModel cacheDnsModel;
     public DnsTransmitTask dnsTransmitTask;
     public int parseSubType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Factory {
         public static final int DEFAULT_EXPIRE_INTERVAL = 60000;
         public static final int PRE_FETCH_INTERVAL = 180000;

@@ -1,29 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.net.Proxy;
-import java.net.ProxySelector;
-import java.net.SocketAddress;
-import java.net.URI;
-import java.util.Collections;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class g60 extends ProxySelector {
+import java.net.URISyntaxException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
+/* loaded from: classes5.dex */
+public class g60 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // java.net.ProxySelector
-    public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, uri, socketAddress, iOException) == null) {
-        }
-    }
 
     public g60() {
         Interceptable interceptable = $ic;
@@ -39,16 +28,20 @@ public class g60 extends ProxySelector {
         }
     }
 
-    @Override // java.net.ProxySelector
-    public List<Proxy> select(URI uri) {
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (uri != null) {
-                return Collections.singletonList(Proxy.NO_PROXY);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            try {
+                return chain.proceed(chain.request());
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
+                }
+                throw e;
             }
-            throw new IllegalArgumentException("uri must not be null");
         }
-        return (List) invokeL.objValue;
+        return (Response) invokeL.objValue;
     }
 }

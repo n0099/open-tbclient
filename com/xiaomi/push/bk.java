@@ -1,11 +1,11 @@
 package com.xiaomi.push;
 
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bk {
     public LinkedList<a> a = new LinkedList<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final bk a = new bk();
 
@@ -29,19 +29,19 @@ public class bk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m214a() {
+    private void m233a() {
         if (this.a.size() > 100) {
             this.a.removeFirst();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m215a() {
+    public synchronized int m234a() {
         return this.a.size();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m216a() {
+    public synchronized LinkedList<a> m235a() {
         LinkedList<a> linkedList;
         linkedList = this.a;
         this.a = new LinkedList<>();
@@ -50,6 +50,6 @@ public class bk {
 
     public synchronized void a(Object obj) {
         this.a.add(new a(0, obj));
-        m214a();
+        m233a();
     }
 }

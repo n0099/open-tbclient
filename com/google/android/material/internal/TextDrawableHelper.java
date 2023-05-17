@@ -10,7 +10,7 @@ import com.google.android.material.resources.TextAppearance;
 import com.google.android.material.resources.TextAppearanceFontCallback;
 import java.lang.ref.WeakReference;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TextDrawableHelper {
     @Nullable
     public TextAppearance textAppearance;
@@ -41,7 +41,7 @@ public class TextDrawableHelper {
     @Nullable
     public WeakReference<TextDrawableDelegate> delegate = new WeakReference<>(null);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface TextDrawableDelegate {
         @NonNull
         int[] getState();

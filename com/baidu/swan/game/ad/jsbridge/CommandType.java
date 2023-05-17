@@ -1,7 +1,7 @@
 package com.baidu.swan.game.ad.jsbridge;
 
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum CommandType {
     ACTION_URL("setActionUrl"),
     GET_CONFS("getConfs"),

@@ -18,7 +18,7 @@ import com.baidubce.model.AbstractBceResponse;
 import com.baidubce.util.DateUtils;
 import java.net.URI;
 import java.net.URISyntaxException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CONTENT_TYPE = "application/json; charset=utf-8";

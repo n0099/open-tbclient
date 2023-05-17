@@ -1,86 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerHttpResponseMessage;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerNetModel;
+import com.baidu.tieba.downloadmanager.net.DownloadManagerSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ForumGuide.LikeForum;
-/* loaded from: classes5.dex */
-public class or6 {
+/* loaded from: classes6.dex */
+public class or6 extends jr6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<mr6> a;
+    public DownloadManagerNetModel b;
+    public pr6 c;
+    public qr6 d;
+    public mr6 e;
 
-    public or6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public or6(BaseFragment baseFragment, int i) {
+        super(baseFragment, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragment) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.c = new pr6(1, i);
+        DownloadManagerNetModel downloadManagerNetModel = new DownloadManagerNetModel(baseFragment.getPageContext(), this.c);
+        this.b = downloadManagerNetModel;
+        downloadManagerNetModel.w0(this);
+        this.b.setUniqueId(baseFragment.getUniqueId());
     }
 
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void L(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        qr6 qr6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof DownloadManagerHttpResponseMessage)) {
+            qr6Var = (qr6) ((DownloadManagerHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (qr6Var != null && f(qr6Var)) {
+            return;
+        }
+        e(mvcHttpResponsedMessage.getError(), mvcHttpResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void z(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        qr6 qr6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof DownloadManagerSocketResponseMessage)) {
+            qr6Var = ((DownloadManagerSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (qr6Var != null && f(qr6Var)) {
+            return;
+        }
+        e(mvcSocketResponsedMessage.getError(), mvcSocketResponsedMessage.getErrorString());
+    }
+
+    @Override // com.baidu.tieba.jr6
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<mr6> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().B(0);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.c();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.jr6
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.b();
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.jr6
+    public void d(mr6 mr6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, mr6Var) == null) {
+            this.e = mr6Var;
+        }
+    }
+
+    public final void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && i != 0) {
+            this.e.b(i, str);
+        }
+    }
+
+    public final boolean f(qr6 qr6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qr6Var)) == null) {
+            if (qr6Var == null) {
+                return false;
             }
-        }
-    }
-
-    public ArrayList<mr6> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void c(List<?> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
-            return;
-        }
-        d(list, null);
-    }
-
-    public void d(List<?> list, Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
-            return;
-        }
-        try {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (!(list.get(i) instanceof LikeForum)) {
-                    return;
-                }
-                mr6 mr6Var = new mr6();
-                mr6Var.y((LikeForum) list.get(i));
-                if (!TextUtils.isEmpty(mr6Var.j())) {
-                    this.a.add(mr6Var);
-                }
+            if (this.c.a() != 1) {
+                this.d.a(qr6Var);
+            } else {
+                this.d = qr6Var;
             }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+            mr6 mr6Var = this.e;
+            qr6 qr6Var2 = this.d;
+            mr6Var.a(qr6Var2.a, qr6Var2.b, qr6Var2.c.intValue());
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

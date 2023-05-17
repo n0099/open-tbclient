@@ -2,13 +2,13 @@ package com.kwad.components.core.video;
 
 import android.os.SystemClock;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public volatile boolean Kx;
     public long Ky;
     public a Kz = new a();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public long KA = 0;
         public int KB = 0;

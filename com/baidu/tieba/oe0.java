@@ -1,168 +1,233 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.os.Process;
+import android.os.StatFs;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
+import java.io.BufferedReader;
 import java.io.File;
-import java.util.Objects;
-/* loaded from: classes5.dex */
+import java.io.FileReader;
+import java.io.IOException;
+/* loaded from: classes6.dex */
 public class oe0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static oe0 h;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile int a = -1;
+    public static volatile String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public File c;
-    public File d;
-    public File e;
-    public File f;
-    public File g;
 
-    public oe0() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948029231, "Lcom/baidu/tieba/oe0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948029231, "Lcom/baidu/tieba/oe0;");
         }
     }
 
-    public static synchronized void a() {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (oe0.class) {
-                if (h == null) {
-                    h = new oe0();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    String path = Environment.getExternalStorageDirectory().getPath();
+                    if (path == null || path.length() <= 0) {
+                        le0.d("sdk_Utils", "External path is null, so SDCard no free space");
+                        return -1L;
+                    }
+                    StatFs statFs = new StatFs(path);
+                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
                 }
+                return -1L;
+            } catch (Exception unused) {
+                le0.d("sdk_Utils", "SDCard no free space");
+                return -1L;
             }
         }
+        return invokeV.longValue;
     }
 
-    public static oe0 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (h == null) {
-                a();
-            }
-            return h;
-        }
-        return (oe0) invokeV.objValue;
-    }
-
-    public static File f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d().g;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public File h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return d().f;
-            }
-            return d().e;
-        }
-        return (File) invokeZ.objValue;
-    }
-
-    public static File e(Context context) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File file = new File(context.getFilesDir(), FileUtils.DIR_DUAR);
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = null;
+            try {
+                if (e(context)) {
+                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
+                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+                    str = context.getExternalCacheDir().getPath();
+                }
+            } catch (Exception unused) {
             }
-            return file;
+            return str;
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"NewApi"})
-    public File c(Context context) {
+    public static String c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                return ((Context) Objects.requireNonNull(context)).getExternalFilesDir(FileUtils.DIR_DUAR);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String str = null;
+            if (context == null) {
+                le0.e("sdk_Utils", "getVideoStatisticsPath ctx = null");
+                return null;
             }
-            return null;
+            String b2 = b(context);
+            if (!TextUtils.isEmpty(b2)) {
+                str = b2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+            }
+            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
+            le0.c("sdk_Utils", "Utils.getExternalStorageSpace():" + a());
+            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
+                str = str2;
+            }
+            new File(str).mkdirs();
+            if (!f()) {
+                str = str + File.separator + "remote";
+            }
+            le0.c("sdk_Utils", "getVideoStatisticsPath folder:" + str);
+            return str;
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void i(Context context) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = e(context);
-            File c = c(context);
-            this.b = c;
-            if (c == null) {
-                this.b = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = g();
+                if (TextUtils.isEmpty(b)) {
+                    b = h();
+                }
+                return b;
             }
-            if (this.b != null) {
-                this.c = new File(this.b, "sdk");
-                File file = new File(this.c, "arsource");
-                this.d = file;
-                if (!file.exists()) {
-                    this.d.mkdirs();
-                }
-            }
-            if (this.a != null) {
-                new File(this.a, "sdk");
-                File file2 = new File(this.a, "sdklibs/armeabi-v7a");
-                this.e = file2;
-                if (!file2.exists()) {
-                    this.e.mkdirs();
-                }
-                File file3 = new File(this.a, "sdklibs/arm64-v8a");
-                this.f = file3;
-                if (!file3.exists()) {
-                    this.f.mkdirs();
-                }
-                File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
-                this.g = file4;
-                if (!file4.exists()) {
-                    this.g.mkdirs();
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        PackageManager packageManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (context != null && (packageManager = context.getPackageManager()) != null) {
+                try {
+                    if (packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0) {
+                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a < 0) {
+                Context a2 = je0.a();
+                if (a2 == null || a2.getPackageName().equals(d())) {
+                    a = 1;
+                } else {
+                    a = 0;
+                }
+            }
+            return a == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int myPid = Process.myPid();
+            try {
+                ActivityManager activityManager = (ActivityManager) je0.a().getSystemService("activity");
+                if (activityManager != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.pid == myPid) {
+                            return runningAppProcessInfo.processName;
+                        }
+                    }
+                    return null;
+                }
+                return null;
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
+            return (String) invokeV.objValue;
+        }
+        BufferedReader bufferedReader2 = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
+            try {
+                String readLine = bufferedReader.readLine();
+                if (!TextUtils.isEmpty(readLine)) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                } catch (IOException unused) {
+                }
+                return readLine;
+            } catch (Exception unused2) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused5) {
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

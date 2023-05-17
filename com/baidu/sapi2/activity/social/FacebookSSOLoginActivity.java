@@ -16,13 +16,13 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String p = FacebookSSOLoginActivity.class.getSimpleName();
     public CallbackManager n;
     public LoginManager o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements FacebookCallback<LoginResult> {
         public a() {
         }

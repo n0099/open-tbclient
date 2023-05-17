@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class StyleConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class StyleConfig implements Serializable {
     @SerializedName(RecordVideoActivityConfig.SHOW_TYPE)
     public int showType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ThemeStyle extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

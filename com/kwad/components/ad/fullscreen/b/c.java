@@ -8,7 +8,7 @@ import com.kwad.components.ad.reward.d.f;
 import com.kwad.components.ad.reward.d.j;
 import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.playable.PlayableSource;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends com.kwad.components.ad.reward.presenter.a implements f, com.kwad.components.core.webview.b.d.b {
     public View ev;
     public View ew;
@@ -82,8 +82,8 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ev = findViewById(R.id.obfuscated_res_0x7f091297);
-        this.ew = findViewById(R.id.obfuscated_res_0x7f091298);
+        this.ev = findViewById(R.id.obfuscated_res_0x7f0912d2);
+        this.ew = findViewById(R.id.obfuscated_res_0x7f0912d3);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

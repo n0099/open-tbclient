@@ -3,7 +3,7 @@ package com.ss.android.socialbase.appdownloader.f;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.ss.android.socialbase.downloader.i.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static String a(String str) {
         if (TextUtils.isEmpty(str)) {

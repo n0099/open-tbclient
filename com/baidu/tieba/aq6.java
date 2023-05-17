@@ -1,9 +1,32 @@
 package com.baidu.tieba;
 
-import java.util.List;
-/* loaded from: classes3.dex */
-public interface aq6 {
-    void a(List<vp6> list, List<vp6> list2, int i);
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.tieba.fq6;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public final class aq6 extends wp6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aq6() {
+        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new dq6());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((fq6) objArr[0], (fq6.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

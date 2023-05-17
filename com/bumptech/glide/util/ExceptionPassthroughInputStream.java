@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ExceptionPassthroughInputStream extends InputStream {
     @GuardedBy("POOL")
     public static final Queue<ExceptionPassthroughInputStream> POOL = Util.createQueue(0);

@@ -1,78 +1,113 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class cw7 implements in {
+/* loaded from: classes5.dex */
+public class cw7 extends xc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public ThreadData V0;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689254, "Lcom/baidu/tieba/cw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947689254, "Lcom/baidu/tieba/cw7;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public cw7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.zc9
+    public int e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e;
+            return 1;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static cw7 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cw7(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            cw7 cw7Var = new cw7();
-            cw7Var.a = jSONObject.optString("title");
-            cw7Var.b = jSONObject.optString("desc");
-            cw7Var.c = jSONObject.optString("tag");
-            cw7Var.d = jSONObject.optString("img");
-            return cw7Var;
         }
-        return (cw7) invokeL.objValue;
+        q0(true);
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public boolean isPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.isPlaying();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xc9, com.baidu.tieba.zc9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.stopPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public boolean onBackground(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            return super.onBackground(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xc9, com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || threadData == null) {
+            return;
+        }
+        super.setData(threadData);
+        ThreadData threadData2 = this.V0;
+        this.V0 = threadData;
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public void setUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            super.setUniqueId(bdUniqueId);
+        }
     }
 }

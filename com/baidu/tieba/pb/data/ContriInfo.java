@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ContriInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class ContriInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!hi.isEmpty(this.colorMsg) && !hi.isEmpty(this.afterMsg)) {
+            if (!qi.isEmpty(this.colorMsg) && !qi.isEmpty(this.afterMsg)) {
                 return true;
             }
             return false;
@@ -91,7 +91,7 @@ public class ContriInfo implements Serializable {
         this.colorMsg = jSONObject.optString("color_msg");
         String optString = jSONObject.optString("after_msg");
         this.afterMsg = optString;
-        if (!hi.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
+        if (!qi.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.afterMsg.substring(0, indexOf));
             sb.append("\n");

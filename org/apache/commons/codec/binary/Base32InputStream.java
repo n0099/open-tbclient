@@ -1,7 +1,7 @@
 package org.apache.commons.codec.binary;
 
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Base32InputStream extends BaseNCodecInputStream {
     public Base32InputStream(InputStream inputStream) {
         this(inputStream, false);

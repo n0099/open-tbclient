@@ -39,7 +39,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImagePipeline {
     public static final CancellationException PREFETCH_EXCEPTION = new CancellationException("Prefetching is not enabled");
     public final MemoryCache<CacheKey, CloseableImage> mBitmapMemoryCache;
@@ -60,7 +60,7 @@ public class ImagePipeline {
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
     /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$9  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass9 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice;
 

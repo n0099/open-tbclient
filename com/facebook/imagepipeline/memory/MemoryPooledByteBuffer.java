@@ -9,7 +9,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MemoryPooledByteBuffer implements PooledByteBuffer {
     @VisibleForTesting
     @GuardedBy("this")
@@ -25,7 +25,7 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
             z = false;
         }
         Preconditions.checkArgument(z);
-        this.mBufRef = closeableReference.mo87clone();
+        this.mBufRef = closeableReference.mo106clone();
         this.mSize = i;
     }
 

@@ -2,7 +2,7 @@ package com.baidu.platform.core.i;
 
 import com.baidu.mapapi.search.weather.OnGetWeatherResultListener;
 import com.baidu.mapapi.search.weather.WeatherSearchOption;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a {
     void a();
 

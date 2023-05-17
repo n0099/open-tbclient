@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NewGodInfo extends Message {
     public static final String DEFAULT_FIELDNAME = "";
     public static final String DEFAULT_TYPENAME = "";
@@ -20,7 +20,7 @@ public final class NewGodInfo extends Message {
     public static final Integer DEFAULT_FIELDID = 0;
     public static final Integer DEFAULT_TYPE = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<NewGodInfo> {
         public Integer fieldId;
         public String fieldName;

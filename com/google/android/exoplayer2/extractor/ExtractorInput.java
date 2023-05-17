@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.extractor;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface ExtractorInput {
     void advancePeekPosition(int i) throws IOException, InterruptedException;
 

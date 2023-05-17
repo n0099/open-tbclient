@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedReserveWrapData implements Parcelable {
     public static final Parcelable.Creator<LiveFeedReserveWrapData> CREATOR = new Parcelable.Creator<LiveFeedReserveWrapData>() { // from class: com.baidu.live.business.model.data.LiveFeedReserveWrapData.1
         /* JADX DEBUG: Method merged with bridge method */

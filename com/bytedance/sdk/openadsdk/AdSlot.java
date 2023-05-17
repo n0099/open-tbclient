@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk;
 import android.support.v4.media.session.MediaSessionCompat;
 import com.bytedance.sdk.openadsdk.api.a;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdSlot implements TTAdSlot {
     public String a;
     public int b;
@@ -31,7 +31,7 @@ public class AdSlot implements TTAdSlot {
     public String x;
     public TTAdLoadType y;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public String a;
         public String g;

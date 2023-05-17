@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseMenuView extends FrameLayout {
     public Context a;
     public View b;
@@ -45,10 +45,10 @@ public abstract class BaseMenuView extends FrameLayout {
     public BaseMenuView(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
         super(context, attributeSet, i);
         this.a = context;
-        View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d008f, this);
-        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09031c);
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09050e);
-        this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700dc);
+        View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0091, this);
+        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f090329);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090525);
+        this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700e3);
     }
 
     public View getBgView() {
@@ -61,9 +61,9 @@ public abstract class BaseMenuView extends FrameLayout {
 
     public void setMode() {
         Resources resources = getResources();
-        this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081215));
-        this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0602d3));
-        this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0602d4));
+        this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081383));
+        this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0603e7));
+        this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0603e8));
         this.c.setAlpha(1.0f);
     }
 }

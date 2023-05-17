@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.source;
 
 import android.util.Pair;
 import com.google.android.exoplayer2.Timeline;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractConcatenatedTimeline extends Timeline {
     public final int childCount;
     public final ShuffleOrder shuffleOrder;

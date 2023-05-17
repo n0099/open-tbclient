@@ -8,7 +8,7 @@ import android.net.wifi.WifiManager;
 import android.text.TextUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetworkUtils {
     public static NetworkInfo a(Context context) {
         ConnectivityManager connectivityManager;
@@ -49,7 +49,7 @@ public class NetworkUtils {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),

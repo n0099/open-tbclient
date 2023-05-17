@@ -1,32 +1,13 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface yp6 {
+    void a(ko6 ko6Var, long j, kq6 kq6Var, eo6 eo6Var);
 
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class yp6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    void b(ko6 ko6Var);
 
-    public static xp6 a(BaseFragment baseFragment, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, baseFragment, i)) == null) {
-            if (baseFragment == null) {
-                return null;
-            }
-            if (i == 1) {
-                return new cq6(baseFragment, i);
-            }
-            if (i == 2) {
-                return new bq6(baseFragment, i);
-            }
-            if (i != 3) {
-                return null;
-            }
-            return new zp6(baseFragment, i);
-        }
-        return (xp6) invokeLI.objValue;
-    }
+    void c(int i, int i2);
+
+    void clear();
+
+    boolean d(ko6 ko6Var, long j, kq6 kq6Var, eo6 eo6Var);
 }

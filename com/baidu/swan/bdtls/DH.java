@@ -2,7 +2,7 @@ package com.baidu.swan.bdtls;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DH {
     @Keep
     public static native int getGroupId();

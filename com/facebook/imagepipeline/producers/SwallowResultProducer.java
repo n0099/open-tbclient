@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SwallowResultProducer<T> implements Producer<Void> {
     public final Producer<T> mInputProducer;
 

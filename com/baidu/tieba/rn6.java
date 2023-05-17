@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.util.io.FileUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,143 +13,146 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class rn6 {
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class rn6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, String> a;
+    public static boolean b;
+    public static final String c;
+    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<? extends pn6> a;
-    public List<? extends Object> b;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            rn6.g();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948127439, "Lcom/baidu/tieba/rn6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948127439, "Lcom/baidu/tieba/rn6;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final boolean a;
-
-        public a(boolean z, int i) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127439, "Lcom/baidu/tieba/rn6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = z;
-        }
-
-        public final boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public rn6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948127439, "Lcom/baidu/tieba/rn6;");
                 return;
             }
         }
-        this.a = CollectionsKt__CollectionsKt.emptyList();
-        this.b = CollectionsKt__CollectionsKt.emptyList();
+        a = new HashMap();
+        b = false;
+        c = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res";
+        d = BdBaseApplication.getInst().getFilesDir().toString() + File.separator + "res_cache" + File.separator + "dynamic_big_res.zip";
     }
 
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: java.util.List<? extends com.baidu.tieba.pn6>, java.util.List<com.baidu.tieba.pn6> */
-    public final List<pn6> b() {
-        InterceptResult invokeV;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || !FileUtils.exists(d)) {
+            return;
         }
-        return (List) invokeV.objValue;
+        wn6.a(new a(), "ResLoader", 3);
     }
 
-    public final List<Object> c() {
-        InterceptResult invokeV;
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && w55.b(d, c)) {
+            FileUtils.deleteFile(d);
         }
-        return (List) invokeV.objValue;
     }
 
-    public final a a(ym6 item, bp6 timer, sm6 config) {
-        InterceptResult invokeLLL;
+    public static synchronized Uri b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            Iterator<? extends pn6> it = this.a.iterator();
-            int i = 0;
-            boolean z = false;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            synchronized (rn6.class) {
+                Uri c2 = c(str);
+                if (c2 != null) {
+                    return c2;
                 }
-                pn6 next = it.next();
-                boolean b = next.b(item, timer, config);
-                if (b) {
-                    i = next.a();
-                    z = b;
-                    break;
-                }
-                z = b;
+                return d(str2);
             }
-            return new a(z, i);
         }
-        return (a) invokeLLL.objValue;
+        return (Uri) invokeLL.objValue;
     }
 
-    public final void d(List<? extends pn6> list) {
+    public static synchronized Uri c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.a = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (rn6.class) {
+                f();
+                String str2 = c + File.separator + str;
+                if (FileUtils.exists(str2)) {
+                    return new Uri.Builder().scheme("file").path(str2).build();
+                }
+                return null;
+            }
         }
+        return (Uri) invokeL.objValue;
     }
 
-    public final void e(List<? extends Object> list) {
+    public static synchronized Uri d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            Intrinsics.checkNotNullParameter(list, "<set-?>");
-            this.b = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            synchronized (rn6.class) {
+                e();
+                String str2 = a.get(str);
+                if (TextUtils.isEmpty(str2)) {
+                    return null;
+                }
+                return Uri.parse(str2);
+            }
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || b) {
+            return;
+        }
+        b = true;
+        try {
+            JSONObject jSONObject = new JSONObject(o65.m().s("dynamic_res_url", ""));
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                a.put(next, jSONObject.optString(next));
+            }
+        } catch (Throwable th) {
+            yk8 defaultLog = DefaultLog.getInstance();
+            defaultLog.b("DynamicResLoader", "exception:" + th);
         }
     }
 }

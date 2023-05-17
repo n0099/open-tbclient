@@ -4,21 +4,21 @@ import android.opengl.GLES20;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.nf0;
-import com.baidu.tieba.vf0;
+import com.baidu.tieba.dg0;
+import com.baidu.tieba.lg0;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForegroundRenderer extends MediaBaseRenderer {
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(nf0 nf0Var, int i, float[] fArr) {
-        if (nf0Var == null || nf0Var.l() == null) {
+    public void onDrawFrame(dg0 dg0Var, int i, float[] fArr) {
+        if (dg0Var == null || dg0Var.l() == null) {
             return;
         }
-        for (int i2 = 1; i2 < nf0Var.l().size(); i2++) {
-            MediaTrack mediaTrack = nf0Var.l().get(i2);
-            if (mediaTrack != null && vf0.m(mediaTrack, "watermark")) {
-                long b = nf0Var.b();
+        for (int i2 = 1; i2 < dg0Var.l().size(); i2++) {
+            MediaTrack mediaTrack = dg0Var.l().get(i2);
+            if (mediaTrack != null && lg0.m(mediaTrack, "watermark")) {
+                long b = dg0Var.b();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                         long j = mediaSegment.start;
@@ -26,7 +26,7 @@ public class ForegroundRenderer extends MediaBaseRenderer {
                         if (j != j2 && b >= j && b <= j2) {
                         }
                     }
-                    int i3 = nf0Var.i(mediaSegment, mediaSegment.textureId, null);
+                    int i3 = dg0Var.i(mediaSegment, mediaSegment.textureId, null);
                     GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
                     GLES20.glViewport(gLViewPortLocation.x, gLViewPortLocation.y, gLViewPortLocation.width, gLViewPortLocation.height);
                     GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);

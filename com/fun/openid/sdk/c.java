@@ -21,7 +21,7 @@ import com.fun.openid.sdk.a;
 import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class c {
     public final Object d = new Object();
     public ServiceConnection e = new a(this);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -54,7 +54,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,22 +88,22 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c0534a;
+            com.fun.openid.sdk.a c0548a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 c cVar = this.a;
-                int i = a.AbstractBinderC0533a.a;
+                int i = a.AbstractBinderC0547a.a;
                 if (iBinder == null) {
-                    c0534a = null;
+                    c0548a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
                     if (queryLocalInterface != null && (queryLocalInterface instanceof com.fun.openid.sdk.a)) {
-                        c0534a = (com.fun.openid.sdk.a) queryLocalInterface;
+                        c0548a = (com.fun.openid.sdk.a) queryLocalInterface;
                     } else {
-                        c0534a = new a.AbstractBinderC0533a.C0534a(iBinder);
+                        c0548a = new a.AbstractBinderC0547a.C0548a(iBinder);
                     }
                 }
-                cVar.a = c0534a;
+                cVar.a = c0548a;
                 synchronized (this.a.d) {
                     this.a.d.notify();
                 }
@@ -148,8 +148,8 @@ public class c {
             com.fun.openid.sdk.a aVar = this.a;
             String str3 = this.b;
             String str4 = this.c;
-            a.AbstractBinderC0533a.C0534a c0534a = (a.AbstractBinderC0533a.C0534a) aVar;
-            c0534a.getClass();
+            a.AbstractBinderC0547a.C0548a c0548a = (a.AbstractBinderC0547a.C0548a) aVar;
+            c0548a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -157,7 +157,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c0534a.a.transact(1, obtain, obtain2, 0);
+                c0548a.a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

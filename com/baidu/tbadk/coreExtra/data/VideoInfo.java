@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAFT_JSON_NAME = "new_video_info";

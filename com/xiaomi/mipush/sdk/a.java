@@ -12,7 +12,7 @@ import com.xiaomi.push.en;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public Set<String> a = new HashSet();
 
@@ -40,7 +40,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         en a;
         String packageName;
-        String m373a;
+        String m392a;
         int i;
         Intent intent = activity.getIntent();
         if (intent == null) {
@@ -55,17 +55,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             a = en.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m373a = em.m373a(intExtra);
+            m392a = em.m392a(intExtra);
             i = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
             a = en.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m373a = em.m373a(intExtra);
+            m392a = em.m392a(intExtra);
             i = 1008;
         }
-        a.a(packageName, m373a, stringExtra, i, null);
+        a.a(packageName, m392a, stringExtra, i, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

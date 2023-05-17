@@ -1,185 +1,114 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ji4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
-public class us3 {
+import java.io.IOException;
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class us3<T> extends ws3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Method a;
-    public Method b;
-    public Object c;
+    public String d;
+    public String e;
+    public ji4.c f;
+    public String g;
+    public int h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221524, "Lcom/baidu/tieba/us3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948221524, "Lcom/baidu/tieba/us3;");
-                return;
-            }
-        }
-        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
-    }
-
-    public static Class<?> d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ws3
+    public void e(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String[] strArr = d;
-            for (int i = 0; i < strArr.length; i++) {
-                try {
-                    return bc4.a(strArr[i]);
-                } catch (Throwable unused) {
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) {
         }
-        return (Class) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ws3
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && this.a != null && this.b != null) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!c()) {
-                return -1;
-            }
-            try {
-                Object invoke = this.b.invoke(this.c, new Object[0]);
-                if (invoke == null) {
-                    return -1;
-                }
-                return ((Integer) invoke).intValue();
-            } catch (Throwable unused) {
-                return -1;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public us3(Class<?> cls, Context context) {
+    public us3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (cls == null) {
+        this.d = null;
+        this.e = null;
+        this.f = null;
+    }
+
+    @Override // com.baidu.tieba.ws3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            k(this.d, this.e, this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.ws3
+    public void h(byte[] bArr) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                if (!TextUtils.equals(b(), "GET")) {
+                    str = "Bdtls";
+                } else {
+                    str = Base64.encodeToString(bArr, 2);
+                }
+                hashMap.put("Bdtls", str);
+            } else {
+                hashMap.put("Bdtls-Downgrade", "1");
+            }
+            this.f.a(hashMap, bArr, this.d);
+        }
+    }
+
+    public void k(String str, String str2, ji4.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, cVar) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        try {
-            this.c = a(context, cls);
-            Method i3 = bc4.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
-            this.a = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-            Method i4 = bc4.i(cls, "perfLockRelease", new Class[0]);
-            this.b = i4;
-            if (i4 != null) {
-                i4.setAccessible(true);
-            }
-        } catch (Throwable unused) {
+        this.d = str;
+        this.e = str2;
+        this.f = cVar;
+        if (str2 == null) {
+            this.g = "GET";
+        } else {
+            this.g = "POST";
         }
-    }
-
-    public static us3 b(@NonNull Context context) {
-        Class<?> cls;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                cls = d();
-                try {
-                    zb4.c(cls);
-                } catch (Throwable unused) {
-                }
-            } catch (Throwable unused2) {
-                cls = null;
-            }
-            return new us3(cls, context);
+        if (cs3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
         }
-        return (us3) invokeL.objValue;
-    }
-
-    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
-            Object obj = null;
-            try {
-                Constructor c = bc4.c(cls, Context.class);
-                if (c != null) {
-                    obj = c.newInstance(context);
-                }
-            } catch (Throwable unused) {
-            }
-            if (obj == null) {
-                try {
-                    return bc4.m(cls);
-                } catch (Throwable unused2) {
-                    return obj;
-                }
-            }
-            return obj;
-        }
-        return invokeLL.objValue;
-    }
-
-    public int e(int i, int... iArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
-            if (!c()) {
-                return -1;
-            }
-            try {
-                Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
-                if (invoke == null) {
-                    return -1;
-                }
-                return ((Integer) invoke).intValue();
-            } catch (Throwable unused) {
-                return -1;
-            }
-        }
-        return invokeIL.intValue;
+        a(this.e);
     }
 }

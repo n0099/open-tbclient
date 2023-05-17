@@ -1,139 +1,152 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class e42 extends i32<TextView, f42> {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class e42 extends d42 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, Class<? extends m22>> m;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppComponentContainerView i;
-    public TextView j;
+    public List<m22> k;
+    public boolean l;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684294, "Lcom/baidu/tieba/e42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947684294, "Lcom/baidu/tieba/e42;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        m = hashMap;
+        hashMap.put("setFillStyle", j32.class);
+        m.put("fillRect", y22.class);
+        m.put("setStrokeStyle", s32.class);
+        m.put("strokeStyle", z32.class);
+        m.put("setLineCap", m32.class);
+        m.put("setLineJoin", o32.class);
+        m.put("setLineWidth", p32.class);
+        m.put("setLineDash", n32.class);
+        m.put("setMiterLimit", q32.class);
+        m.put("strokeRect", y32.class);
+        m.put("moveTo", c32.class);
+        m.put("lineTo", b32.class);
+        m.put("stroke", x32.class);
+        m.put("fill", x22.class);
+        m.put("beginPath", p22.class);
+        m.put("rect", e32.class);
+        m.put("clearRect", r22.class);
+        m.put("closePath", t22.class);
+        m.put("arc", o22.class);
+        m.put("bezierCurveTo", q22.class);
+        m.put("quadraticCurveTo", d32.class);
+        m.put("scale", i32.class);
+        m.put("rotate", g32.class);
+        m.put("translate", c42.class);
+        m.put("transform", b42.class);
+        m.put("setTransform", v32.class);
+        m.put("font", a32.class);
+        m.put("setFontSize", k32.class);
+        m.put("setTextAlign", t32.class);
+        m.put("setTextBaseline", u32.class);
+        m.put("fillText", z22.class);
+        m.put("strokeText", a42.class);
+        m.put("clip", s22.class);
+        m.put("drawImage", w22.class);
+        m.put(CommandUBCHelper.COMMAND_UBC_TYPE_SAVE, h32.class);
+        m.put("restore", f32.class);
+        m.put("setShadow", r32.class);
+        m.put("setGlobalAlpha", l32.class);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e42(@NonNull Context context, @NonNull f42 f42Var) {
-        super(context, f42Var);
+    public e42(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, f42Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (j32) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.i = new SwanAppComponentContainerView(context);
-        this.j = new TextView(context);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i32, com.baidu.tieba.k32, com.baidu.tieba.m32
-    @NonNull
-    /* renamed from: Z */
-    public p42 k(@NonNull f42 f42Var, @NonNull f42 f42Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, f42Var, f42Var2)) == null) {
-            p42 k = super.k(f42Var, f42Var2);
-            if (!TextUtils.equals(f42Var.E, f42Var2.E) && (TextUtils.equals(f42Var.E, "scroll") || TextUtils.equals(f42Var2.E, "scroll"))) {
-                k.b(7);
+        this.k = new ArrayList();
+        this.l = false;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                String optString = optJSONObject.optString("method");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+                Class<? extends m22> cls = m.get(optString);
+                if (cls != null) {
+                    m22 newInstance = cls.newInstance();
+                    newInstance.b(optJSONArray);
+                    this.k.add(newInstance);
+                }
             }
-            if (!TextUtils.equals(f42Var.E, f42Var2.E) || (TextUtils.equals(f42Var2.E, "scroll") && f42Var.D != f42Var2.D)) {
-                k.b(8);
+            this.l = jSONObject.optInt("reserve") != 0;
+        } catch (Exception e) {
+            if (qp1.a) {
+                e.printStackTrace();
             }
-            return k;
-        }
-        return (p42) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k32
-    /* renamed from: c0 */
-    public void Q(@NonNull TextView textView, @NonNull f42 f42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, f42Var) == null) {
-            if (m32.h) {
-                Log.d("Component-CoverView", "renderBackground");
-            }
-            if (f42Var.j == null) {
-                return;
-            }
-            SwanAppComponentContainerView m = m();
-            if (m != null) {
-                m.setModel(f42Var);
-            }
-            ViewParent parent = textView.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(f42Var.k);
-            gradientDrawable.setCornerRadius(f42Var.n);
-            gradientDrawable.setStroke(f42Var.l, f42Var.m);
-            ((View) parent).setBackground(gradientDrawable);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k32
-    /* renamed from: b0 */
-    public void P(@NonNull View view2, @NonNull f42 f42Var) {
+    public List<m22> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, f42Var) == null) {
-            if (m32.h) {
-                Log.d("Component-CoverView", "renderAlpha");
-            }
-            if (f42Var.j == null) {
-                return;
-            }
-            ViewParent parent = view2.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            super.P((View) parent, f42Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
+        return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m32
-    @NonNull
-    /* renamed from: a0 */
-    public TextView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    public boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
         }
-        return (TextView) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m32
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.d42, com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.isValid();
         }
-        return (SwanAppComponentContainerView) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

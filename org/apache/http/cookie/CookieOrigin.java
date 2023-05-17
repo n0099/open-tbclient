@@ -1,6 +1,6 @@
 package org.apache.http.cookie;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CookieOrigin {
     public CookieOrigin(String str, int i, String str2, boolean z) {
         throw new RuntimeException("Stub!");

@@ -1,5 +1,5 @@
 package com.baidu.ufosdk.hybrid.api;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IBridgeApi {
     public static final boolean DEBUG = false;
     public static final String TAG = "IBridgeApi";

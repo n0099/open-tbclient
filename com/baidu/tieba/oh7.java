@@ -1,50 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.CardHListViewData;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class oh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final i87 a;
+    public final FrsFragment b;
+    public final pm7 c;
+    public final jm7 d;
+    public final FrsModelController e;
+    public final p97 f;
+    public final hh7 g;
 
-    public static boolean a(ArrayList<in> arrayList, String str, CardHListViewData cardHListViewData, int i) {
-        InterceptResult invokeLLLI;
+    public oh7(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
-            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
-                int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    in inVar = arrayList.get(i2);
-                    if ((inVar instanceof CardHListViewData) && str.equals(((CardHListViewData) inVar).threadId)) {
-                        return false;
-                    }
-                }
-                int i3 = i + 1;
-                if (i3 > 0) {
-                    ListUtils.add(arrayList, i3, cardHListViewData);
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLLLI.booleanValue;
-    }
-
-    public static boolean b(FrsRequestData frsRequestData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) {
-            if (frsRequestData == null || frsRequestData.a0() != 1) {
-                return false;
-            }
-            return true;
+        if (frsFragment != null) {
+            this.b = frsFragment;
+            this.d = frsFragment.w0();
+            this.a = this.b.x1();
+            this.c = this.b.T3();
+            this.e = this.b.U0();
+            this.f = this.b.N3();
+            this.g = this.b.m1();
+            return;
         }
-        return invokeL.booleanValue;
+        throw new NullPointerException("FrsActivity is NullPointerException");
     }
 }

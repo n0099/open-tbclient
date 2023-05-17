@@ -17,35 +17,35 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.cb8;
-import com.baidu.tieba.gl5;
-import com.baidu.tieba.hl5;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.pm5;
+import com.baidu.tieba.qm5;
+import com.baidu.tieba.td8;
+import com.baidu.tieba.xc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetworkView.b {
+/* loaded from: classes6.dex */
+public class ChatAggregationFragment extends BaseFragment implements pm5, NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public cb8 b;
+    public xc8 b;
     public ViewEventCenter c;
     public CustomMessageListener d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    @Override // com.baidu.tieba.gl5
-    public boolean A0(hl5 hl5Var) {
+    @Override // com.baidu.tieba.pm5
+    public boolean B0(qm5 qm5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hl5Var)) == null) ? hl5Var == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qm5Var)) == null) ? qm5Var == null : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gl5
-    public boolean e1() {
+    @Override // com.baidu.tieba.pm5
+    public boolean f1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -54,7 +54,7 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,22 +211,22 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.d);
-            cb8 cb8Var = this.b;
-            if (cb8Var != null) {
-                cb8Var.D0();
+            xc8 xc8Var = this.b;
+            if (xc8Var != null) {
+                xc8Var.D0();
             }
         }
     }
 
-    public final boolean J1(Intent intent) {
+    public final boolean K1(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             if (intent == null || intent.getIntExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, -1) == -1) {
                 return false;
             }
@@ -236,52 +236,44 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-    public void i(boolean z) {
-        cb8 cb8Var;
+    public void e(boolean z) {
+        xc8 xc8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (cb8Var = this.b) != null) {
-            cb8Var.M0(z);
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (xc8Var = this.b) != null) {
+            xc8Var.M0(z);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            new yb8(this).c();
+            new td8(this).c();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        cb8 cb8Var;
+        xc8 xc8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (cb8Var = this.b) != null) {
-            cb8Var.I0(getPageContext(), i);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (xc8Var = this.b) != null) {
+            xc8Var.I0(getPageContext(), i);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             super.onUserChanged(z);
         }
     }
 
-    public void B() {
-        cb8 cb8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cb8Var = this.b) != null) {
-            cb8Var.b1();
-        }
-    }
-
-    public ViewEventCenter I1() {
+    public ViewEventCenter J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (this.c == null) {
                 this.c = new ViewEventCenter();
             }
@@ -290,22 +282,22 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
         return (ViewEventCenter) invokeV.objValue;
     }
 
-    public void K1() {
-        cb8 cb8Var;
+    public void L1() {
+        xc8 xc8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (cb8Var = this.b) != null) {
-            cb8Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (xc8Var = this.b) != null) {
+            xc8Var.a();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            cb8 cb8Var = this.b;
-            if (cb8Var != null) {
-                cb8Var.E0();
+            xc8 xc8Var = this.b;
+            if (xc8Var != null) {
+                xc8Var.E0();
             }
         }
     }
@@ -313,11 +305,11 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
-            cb8 cb8Var = this.b;
-            if (cb8Var != null) {
-                cb8Var.q0();
+            xc8 xc8Var = this.b;
+            if (xc8Var != null) {
+                xc8Var.q0();
                 this.b.s1(isPrimary());
             }
         }
@@ -326,19 +318,27 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            cb8 cb8Var = this.b;
-            if (cb8Var != null) {
-                cb8Var.H0();
+            xc8 xc8Var = this.b;
+            if (xc8Var != null) {
+                xc8Var.F0();
             }
+        }
+    }
+
+    public void y() {
+        xc8 xc8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (xc8Var = this.b) != null) {
+            xc8Var.b1();
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1 && i == 12011) {
                 Bundle extras = intent.getExtras();
@@ -361,13 +361,13 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
-            cb8 cb8Var = new cb8(this);
-            this.b = cb8Var;
-            cb8Var.B0(bundle);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
+            xc8 xc8Var = new xc8(this);
+            this.b = xc8Var;
+            xc8Var.B0(bundle);
             View K0 = this.b.K0();
             this.b.I0(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-            I1().addEventDelegate(this);
+            J1().addEventDelegate(this);
             registerListener(this.e);
             registerListener(this.f);
             registerListener(this.d);
@@ -379,8 +379,8 @@ public class ChatAggregationFragment extends BaseFragment implements gl5, NoNetw
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, view2, bundle) == null) {
-            if (getActivity() != null && J1(getActivity().getIntent())) {
+        if (interceptable == null || interceptable.invokeLL(1048591, this, view2, bundle) == null) {
+            if (getActivity() != null && K1(getActivity().getIntent())) {
                 this.b.N0(getActivity().getIntent());
             } else {
                 this.b.C0();

@@ -370,17 +370,17 @@ public class ChatUserDBManager extends DBBase {
         return (ContentValues) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0037 */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0034, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:19:0x0038 */
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x0035, code lost:
         if (r10 != null) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0042, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0043, code lost:
         if (r10 == null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0044, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0045, code lost:
         r10.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0047, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0048, code lost:
         return null;
      */
     /* JADX WARN: Multi-variable type inference failed */
@@ -864,17 +864,17 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0087 */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0120, code lost:
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0088 */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0122, code lost:
         if (r4 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x0122, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x0124, code lost:
         r4.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x013b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x013d, code lost:
         if (r4 != null) goto L39;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x013f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0141, code lost:
         return;
      */
     /* JADX WARN: Multi-variable type inference failed */

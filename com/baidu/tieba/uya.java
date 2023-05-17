@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableException;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+/* loaded from: classes7.dex */
 public class uya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public boolean a;
+    public final /* synthetic */ InstallActivity b;
 
-    public uya(Context context, String str) {
+    public uya(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,48 +30,47 @@ public class uya {
                 return;
             }
         }
-        if (context != null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
-                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
-                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putBoolean(str, true);
-                    edit.apply();
+        this.b = installActivity;
+        this.a = false;
+    }
+
+    public void b(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            synchronized (this.b) {
+                if (this.a) {
+                    return;
                 }
-                context = createDeviceProtectedStorageContext;
+                this.a = true;
+                this.b.d = com.google.ar.core.p.CANCELLED;
+                boolean z = exc instanceof UnavailableException;
+                this.b.j(exc);
             }
-            this.a = context.getSharedPreferences(str, 0);
-            return;
         }
-        throw new NullPointerException("context is null!");
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        SharedPreferences.Editor edit;
+    public void a(com.google.ar.core.p pVar) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
-                return edit.remove(str).commit();
+        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
+            synchronized (this.b) {
+                if (!this.a) {
+                    this.b.d = pVar;
+                    int ordinal = pVar.ordinal();
+                    if (ordinal != 0) {
+                        if (ordinal == 1) {
+                            this.b.j(new UnavailableUserDeclinedInstallationException());
+                        } else if (ordinal == 2) {
+                            z = this.b.g;
+                            if (!z) {
+                                this.b.i();
+                            }
+                            this.b.j(null);
+                        }
+                        this.a = true;
+                    }
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
-                return edit.putString(str, str2).commit();
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

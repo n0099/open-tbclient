@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface LazyStringList extends ProtocolStringList {
     void add(ByteString byteString);
 

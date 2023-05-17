@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.metadata.MetadataInputBuffer;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class EventMessageDecoder implements MetadataDecoder {
     @Override // com.google.android.exoplayer2.metadata.MetadataDecoder
     public Metadata decode(MetadataInputBuffer metadataInputBuffer) {

@@ -9,7 +9,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class UPCEANExtension5Support {
     public static final int[] CHECK_DIGIT_ENCODINGS = {24, 20, 18, 17, 12, 6, 3, 10, 9, 5};
     public final int[] decodeMiddleCounters = new int[4];

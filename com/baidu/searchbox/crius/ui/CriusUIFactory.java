@@ -10,7 +10,7 @@ import com.baidu.searchbox.crius.ui.swiper.CriusUISwiperView;
 import com.baidu.searchbox.crius.ui.view.CriusUILayout;
 import com.baidu.searchbox.crius.ui.view.CriusUIRelativeLayout;
 import com.baidu.searchbox.crius.ui.view.CriusUIVirtualLayout;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUIFactory {
     public static CriusUI create(Context context, CriusData criusData) {
         if (!TextUtils.isEmpty(criusData.component)) {
@@ -50,7 +50,7 @@ public class CriusUIFactory {
                 }
                 break;
             case 3619493:
-                if (str.equals(NativeConstants.TYPE_VIEW)) {
+                if (str.equals("view")) {
                     c = 0;
                     break;
                 }

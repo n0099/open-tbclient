@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class IdentifierIdClient {
     public static /* synthetic */ Interceptable $ic = null;
     @Keep
@@ -83,7 +83,7 @@ public class IdentifierIdClient {
 
     @Keep
     /* renamed from: com.vivo.identifier.IdentifierIdClient$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass1 extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

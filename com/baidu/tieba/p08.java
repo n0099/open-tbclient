@@ -1,84 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class p08 implements in {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class p08 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008337, "Lcom/baidu/tieba/p08;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static ImMessageCenterPojo a(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8) {
+                if (imMessageCenterPojo.getUnread_count() <= 0) {
+                    return imMessageCenterPojo;
+                }
+                return b(imMessageCenterPojo, j38.n().k());
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948008337, "Lcom/baidu/tieba/p08;");
-                return;
-            }
+            return imMessageCenterPojo;
         }
-        e = BdUniqueId.gen();
+        return (ImMessageCenterPojo) invokeL.objValue;
     }
 
-    public p08() {
+    public static ImMessageCenterPojo b(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, imMessageCenterPojo, list)) == null) {
+            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
+            imMessageCenterPojo2.setGid(imMessageCenterPojo.getGid());
+            imMessageCenterPojo2.setGroup_name(imMessageCenterPojo.getGroup_name());
+            imMessageCenterPojo2.setNameShow(imMessageCenterPojo.getNameShow());
+            imMessageCenterPojo2.setGroup_head(imMessageCenterPojo.getGroup_head());
+            imMessageCenterPojo2.setIs_hidden(imMessageCenterPojo.getIs_hidden());
+            imMessageCenterPojo2.setUnread_count(imMessageCenterPojo.getUnread_count());
+            imMessageCenterPojo2.setLast_rid(imMessageCenterPojo.getLast_rid());
+            imMessageCenterPojo2.setLast_user_name(imMessageCenterPojo.getLast_user_name());
+            imMessageCenterPojo2.setLast_content_time(imMessageCenterPojo.getLast_content_time());
+            imMessageCenterPojo2.setLast_content(imMessageCenterPojo.getLast_content());
+            imMessageCenterPojo2.setSend_status(imMessageCenterPojo.getSend_status());
+            imMessageCenterPojo2.setType(imMessageCenterPojo.getType());
+            imMessageCenterPojo2.setSelf(imMessageCenterPojo.isSelf());
+            imMessageCenterPojo2.setIsFriend(imMessageCenterPojo.getIsFriend());
+            imMessageCenterPojo2.setFollowStatus(imMessageCenterPojo.getFollowStatus());
+            imMessageCenterPojo2.setCustomGroupType(imMessageCenterPojo.getCustomGroupType());
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            for (ImMessageCenterPojo imMessageCenterPojo3 : list) {
+                if (imMessageCenterPojo3 != null && imMessageCenterPojo3.getCustomGroupType() == 4) {
+                    if (!j48.j().c(currentAccount, imMessageCenterPojo3.getGid())) {
+                        imMessageCenterPojo2.setUnread_count(imMessageCenterPojo2.getUnread_count() - imMessageCenterPojo3.getUnread_count());
+                    } else {
+                        i48.a().c(true);
+                    }
+                }
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b)) {
-                return true;
+            if (imMessageCenterPojo2.getUnread_count() <= 0) {
+                imMessageCenterPojo2.setUnread_count(1);
+                i48.a().c(false);
             }
-            return false;
+            return imMessageCenterPojo2;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("pid");
-        this.b = jSONObject.optString("url");
+        return (ImMessageCenterPojo) invokeLL.objValue;
     }
 }

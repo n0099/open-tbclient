@@ -34,7 +34,7 @@ import java.util.regex.Matcher;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ContentUtil {
     public static final byte GZIP_HEAD_1 = 117;
     public static final byte GZIP_HEAD_2 = 123;

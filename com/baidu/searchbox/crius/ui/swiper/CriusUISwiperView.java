@@ -7,7 +7,7 @@ import com.baidu.crius.CriusNode;
 import com.baidu.searchbox.crius.CriusRuntime;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.ui.CriusUI;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUISwiperView extends CriusUI<CriusSwiperView> {
     public static final String TAG = "CriusUISwiperView";
     public CriusSwiperAdapter mAdapter;

@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgleftView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: H */
     public MsgCommonItemAdapter.MsgViewHolder<MsgleftView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -107,7 +107,7 @@ public class MsgLeftViewItemAdapter extends MsgCommonItemAdapter<MsgleftView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.vm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;

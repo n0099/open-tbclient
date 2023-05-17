@@ -20,7 +20,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiOptions implements NoProguard {
     public static final int DEFAULT_GRAY = 1000000;
     public static final String KEY_ADDRESS_USE_WEB = "address_use_web";
@@ -84,14 +84,14 @@ public final class SapiOptions implements NoProguard {
     public Cache cache = new Cache();
     public Gray gray = new Gray();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Cache {
         public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
         public String version;
         public List<Module> modules = new ArrayList();
         public boolean enabled = true;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class Module {
             public String downloadUrl;
             public String hash;
@@ -189,7 +189,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Gray implements NoProguard {
         public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
         public static final String FUN_NAME_CHINA_MOBILE_OAUTH = "cm_oauth";
@@ -216,7 +216,7 @@ public final class SapiOptions implements NoProguard {
         public static final String KEY_SHARE_CHECK_ONLINE_SWITCH = "share_check_online_switch";
         public Map<String, GrayModule> grayModuleMap = new HashMap();
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class GrayModule implements NoProguard {
             public String extraParams;
             public boolean meetGray;
@@ -345,7 +345,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CacheGray {
         public List<Cache.Module> modules = new ArrayList();
         public String percent;
@@ -374,7 +374,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PkgSigns {
         public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";
         public static final String KEY_SC_AUTHORIZED_PACKAGES = "sc_authorized_packages";

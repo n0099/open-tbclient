@@ -1,5 +1,5 @@
 package com.baidu.searchbox.util;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KVStorageProxyImpl_Factory {
     public static volatile KVStorageProxyImpl instance;
 

@@ -3,7 +3,7 @@ package com.kwad.components.ad.splashscreen.widget;
 import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import com.kwad.components.ad.splashscreen.widget.SkipView;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
     int Y(int i);
 

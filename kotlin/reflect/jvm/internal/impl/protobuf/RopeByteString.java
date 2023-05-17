@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
 import kotlin.reflect.jvm.internal.impl.protobuf.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RopeByteString extends ByteString {
     public static final int[] minLengthByDepth;
     public int hash;
@@ -20,7 +20,7 @@ public class RopeByteString extends ByteString {
     public final int totalLength;
     public final int treeDepth;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Balancer {
         public final Stack<ByteString> prefixesStack;
 
@@ -86,7 +86,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PieceIterator implements Iterator<LiteralByteString> {
         public final Stack<RopeByteString> breadCrumbs;
         public LiteralByteString next;
@@ -140,7 +140,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class RopeByteIterator implements ByteString.ByteIterator {
         public ByteString.ByteIterator bytes;
         public int bytesRemaining;
@@ -185,7 +185,7 @@ public class RopeByteString extends ByteString {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class RopeInputStream extends InputStream {
         public LiteralByteString currentPiece;
         public int currentPieceIndex;

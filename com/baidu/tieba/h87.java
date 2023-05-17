@@ -1,35 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class h87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gb5 a;
-    public FrsActivity b;
-    public Map<String, Date> c;
-    public boolean d;
+    public qh7 a;
 
-    public h87(FrsActivity frsActivity) {
+    public h87(TbPageContext tbPageContext, qh7 qh7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext, qh7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,86 +27,27 @@ public class h87 {
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
+        this.a = qh7Var;
     }
 
-    public void a() {
-        gb5 gb5Var;
+    public void a(pz5 pz5Var) {
+        qh7 qh7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gb5Var = this.a) != null) {
-            gb5Var.q();
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            gb5 gb5Var = this.a;
-            if (gb5Var != null && gb5Var.t()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Date c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pz5Var) == null) && (qh7Var = this.a) != null && qh7Var.U0() != null && this.a.U0().C0() != null && this.a.x1() != null && pz5Var != null && this.a.x1().g0() != null && this.a.w0() != null) {
+            BdTypeRecyclerView g0 = this.a.x1().g0();
+            int i = pz5Var.a;
+            if (i != 2) {
+                if (i != 3 || pz5Var.a() == null) {
+                    return;
+                }
+                g0.removeHeaderView(pz5Var.a());
+                this.a.w0().y0(0);
+            } else if (pz5Var.a() == null) {
             } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
+                g0.removeHeaderView(pz5Var.a());
+                g0.addHeaderView(pz5Var.a(), g0.getHeaderViewsCount() - 1);
+                this.a.w0().y0(8);
             }
-            Date date = new Date(System.currentTimeMillis());
-            Map<String, Date> map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
-                    this.d = true;
-                }
-            } else {
-                this.d = true;
-            }
-            return date;
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        FrsActivity frsActivity;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date c = c(str);
-            boolean z = false;
-            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                i = 0;
-            } else {
-                i = 11;
-            }
-            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !ga5.d().n()) && this.d && hb5.g(TbadkCoreApplication.getInst(), i)) {
-                FrsActivity frsActivity2 = this.b;
-                if (frsActivity2 != null && frsActivity2.x1() != null) {
-                    z = this.b.x1().B;
-                }
-                HashMap hashMap = new HashMap();
-                if (z) {
-                    hashMap.put("view_params_key_style", "short");
-                }
-                gb5 gb5Var = this.a;
-                if (gb5Var != null) {
-                    gb5Var.q();
-                }
-                this.a = hb5.j(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                this.c.put(str, c);
-                TbSingleton.getInstance().setHasShowTip(this.c);
-                return;
-            }
-            ii.S(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
         }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.listener.assist.TaskProgressListenerAssist;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadStatusListener extends DownloadTaskProgressListener {
     public abstract void canceled(@NonNull DownloadTask downloadTask);
 
@@ -19,7 +19,7 @@ public abstract class DownloadStatusListener extends DownloadTaskProgressListene
     public abstract void warn(@NonNull DownloadTask downloadTask);
 
     /* renamed from: com.baidu.searchbox.bddownload.core.listener.DownloadStatusListener$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$bddownload$core$cause$EndCause;
 

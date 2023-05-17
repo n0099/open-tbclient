@@ -1,5 +1,5 @@
 package com.yy.gslbsdk.protocol;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HijackInfo {
     public String dnsip;
     public String hip;

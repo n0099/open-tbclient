@@ -1,38 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class vo5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247533, "Lcom/baidu/tieba/vo5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948247533, "Lcom/baidu/tieba/vo5;");
-                return;
-            }
-        }
-        new ArrayList();
-    }
-
-    public static void a(uo5 uo5Var) {
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, uo5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001453, uo5Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return NotificationManagerCompat.from(context.getApplicationContext()).areNotificationsEnabled();
+            } catch (Exception unused) {
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 }

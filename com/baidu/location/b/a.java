@@ -25,7 +25,7 @@ import java.util.Locale;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String q = "BDLocConfigManager";
@@ -49,29 +49,29 @@ public class a {
     public SharedPreferences r;
     public long s;
     public String t;
-    public C0098a u;
+    public C0102a u;
     public boolean v;
     public String w;
     public String x;
     public String y;
 
     /* renamed from: com.baidu.location.b.a$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0098a extends com.baidu.location.e.f {
+    /* loaded from: classes3.dex */
+    public class C0102a extends com.baidu.location.e.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public boolean b;
         public final /* synthetic */ a c;
 
-        public C0098a(a aVar) {
+        public C0102a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,7 +140,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -251,7 +251,7 @@ public class a {
                 }
             }
             if (this.u == null) {
-                this.u = new C0098a(this);
+                this.u = new C0102a(this);
             }
             this.u.a(str3);
         }

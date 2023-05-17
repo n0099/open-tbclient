@@ -1,61 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.k6a;
+import com.baidu.tieba.m6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.imageloader.core.ImageLoader;
+import java.io.File;
 import java.util.List;
-import tbclient.SimpleForum;
-/* loaded from: classes5.dex */
+import java.util.Vector;
+/* loaded from: classes6.dex */
 public class o6a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile o6a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public List<SimpleForum> b;
-    public String c;
-    public b d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public BdUniqueId i;
-    public za j;
+    public m6a a;
+    public List<t6a> b;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(List<SimpleForum> list, int i);
-
-        void onError();
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    /* loaded from: classes6.dex */
+    public class a implements s6a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o6a a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(o6a o6aVar, int i, int i2) {
-            super(i, i2);
+        public a(o6a o6aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o6aVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {o6aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,50 +47,24 @@ public class o6a {
             this.a = o6aVar;
         }
 
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.s6a
+        public void a(k6a.b bVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
-            if (!z && !(responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) && this.a.i != ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
-                return;
-            }
-            if (responsedMessage.hasError()) {
-                if (this.a.d != null) {
-                    this.a.d.onError();
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                k6a.a().c(bVar);
+                if (!kna.e(this.a.b)) {
+                    o6a o6aVar = this.a;
+                    o6aVar.h((t6a) kna.c(o6aVar.b, 0));
+                    kna.g(this.a.b, 0);
                 }
-                return;
-            }
-            if (z) {
-                GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                this.a.b = getRepostForumHttpResMessage.getForumList();
-                this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
-                this.a.g = getRepostForumHttpResMessage.getPrivateThread();
-            }
-            if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                this.a.b = getRepostForumSocketResMessage.getForumList();
-                this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
-                this.a.g = getRepostForumSocketResMessage.getPrivateThread();
-            }
-            if (this.a.d != null) {
-                this.a.d.a(this.a.b, this.a.g);
             }
         }
     }
 
-    public o6a(BdUniqueId bdUniqueId) {
+    public o6a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,53 +74,110 @@ public class o6a {
                 return;
             }
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.j = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.j);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.j.getSocketMessageListener().setSelfListener(true);
+        this.b = new Vector();
+        this.a = new m6a.b().d();
     }
 
-    public void i(b bVar) {
+    public void i(u6a u6aVar, l6a l6aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, u6aVar, l6aVar) == null) {
+            List<t6a> c2 = q6a.c(u6aVar, l6aVar);
+            if (!kna.e(c2)) {
+                for (t6a t6aVar : c2) {
+                    h(t6aVar);
+                }
+            }
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public void j(v6a v6aVar, l6a l6aVar) {
+        t6a b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, v6aVar, l6aVar) == null) && (b = q6a.b(v6aVar, l6aVar)) != null) {
+            h(b);
         }
     }
 
-    public void k(String str) {
+    public static o6a f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (o6a.class) {
+                    if (c == null) {
+                        c = new o6a();
+                    }
+                }
+            }
+            return c;
+        }
+        return (o6a) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
+            return;
+        }
+        throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
+    }
+
+    public r6a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            c();
+            return this.a.b;
+        }
+        return (r6a) invokeV.objValue;
+    }
+
+    public Bitmap d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Bitmap a2 = g().a(str);
+            if (a2 != null && !a2.isRecycled()) {
+                return a2;
+            }
+            Bitmap a3 = e().a(str);
+            if (a3 == null || a3.isRecycled()) {
+                return null;
+            }
+            return a3;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public final void h(t6a t6aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, t6aVar) == null) {
+            c();
+            k6a.b b = k6a.a().b();
+            if (b != null) {
+                b.m(this.a.a);
+                b.setDataSource(t6aVar.a);
+                b.h(t6aVar, new a(this));
+                return;
+            }
+            this.b.add(t6aVar);
         }
     }
 
-    public void l(String str) {
+    public h6a e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            c();
+            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+            if (!TextUtils.equals(this.a.c.b(), str)) {
+                this.a.c.d(str);
+            }
+            return this.a.c;
         }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.e);
-            getRepostForumReqMessage.setThreadContent(this.f);
-            getRepostForumReqMessage.setForumId(this.h);
-            getRepostForumReqMessage.setTag(this.a);
-            getRepostForumReqMessage.setRequestId(this.i);
-            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
-        }
+        return (h6a) invokeV.objValue;
     }
 }

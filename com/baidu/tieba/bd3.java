@@ -1,49 +1,39 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.tieba.le3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class bd3 extends id3<b> {
+/* loaded from: classes4.dex */
+public class bd3 extends fd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String m;
-    public final Activity n;
-    public final boolean o;
-    public final String p;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes4.dex */
+    public class a implements zn3<je3<le3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ ed3 b;
+        public final /* synthetic */ mv1 c;
+        public final /* synthetic */ bd3 d;
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final boolean b;
-        public final JSONObject c;
-
-        public b(boolean z, String str, JSONObject jSONObject) {
+        public a(bd3 bd3Var, CallbackHandler callbackHandler, ed3 ed3Var, mv1 mv1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), str, jSONObject};
+                Object[] objArr = {bd3Var, callbackHandler, ed3Var, mv1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,139 +43,105 @@ public class bd3 extends id3<b> {
                     return;
                 }
             }
-            this.a = str == null ? "" : str;
-            this.b = z;
-            this.c = jSONObject;
+            this.d = bd3Var;
+            this.a = callbackHandler;
+            this.b = ed3Var;
+            this.c = mv1Var;
         }
 
-        public /* synthetic */ b(boolean z, String str, JSONObject jSONObject, a aVar) {
-            this(z, str, jSONObject);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(je3<le3.e> je3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return String.format("Result(%b):%s", Boolean.valueOf(this.b), this.a);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
+                if (!ee3.h(je3Var)) {
+                    ee3.q(je3Var, this.a, this.b.e);
+                    this.b.k = null;
+                } else {
+                    ed3 ed3Var = this.b;
+                    ed3Var.m = false;
+                    this.d.m(this.a, (SwanAppSlaveManager) this.c, ed3Var);
+                }
+                if (this.c.y(this.b)) {
+                    this.d.o();
+                    return;
+                }
+                g62.c("insertWebView", "insert webview widget fail");
+                this.a.handleSchemeDispatchCallback(this.b.e, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
-            return (String) invokeV.objValue;
         }
     }
 
-    public bd3(Activity activity, boolean z, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd3(da3 da3Var) {
+        super(da3Var, "/swanAPI/insertWebView");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z), str, str2};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((da3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = activity;
-        this.m = str;
-        this.o = z;
-        this.p = str2;
     }
 
-    @Override // com.baidu.tieba.id3
-    public void I() {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.I();
-            vz2.f();
-        }
-    }
-
-    @Override // com.baidu.tieba.id3
-    public SwanInterfaceType z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return SwanInterfaceType.ACCREDIT_DATA;
-        }
-        return (SwanInterfaceType) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uc3
-    @SuppressLint({"BDThrowableCheck"})
-    /* renamed from: P */
-    public b m(JSONObject jSONObject) throws JSONException {
-        InterceptResult invokeL;
-        JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONObject c = vc3.c(jSONObject);
-            int optInt = c.optInt("errno", 10001);
-            if (optInt != 0) {
-                if (11001 == optInt) {
-                    vc3.m(c);
-                    vc3.t("Accredit", c.toString());
-                }
-                if (uc3.f) {
-                    throw new JSONException("Illegal errno=" + optInt + " errms=" + c.optString("errms"));
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (db3.b) {
+                Log.d("InsertWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject jSONObject3 = c.getJSONObject("data");
-            String str = "";
-            if (jSONObject3 != null) {
-                str = jSONObject3.optString("code", "");
-                jSONObject2 = jSONObject3.optJSONObject("opendata");
+            ed3 h = ed3.h(unitedSchemeEntity);
+            if (!h.isValid()) {
+                g62.c("insertWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (!TextUtils.isEmpty(h.j) && l(h.j, h.n)) {
+                g62.c("insertWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             } else {
-                jSONObject2 = null;
+                mv1 mv1Var = (mv1) tu2.U().A(h.c);
+                if (mv1Var == null) {
+                    g62.c("insertWebView", "viewManager is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                if (TextUtils.equals(h.l, "quickPass")) {
+                    g93Var.e0().g(context, "scope_webview_extra_operation", new a(this, callbackHandler, h, mv1Var));
+                } else if (!mv1Var.y(h)) {
+                    g62.c("insertWebView", "insert webview widget fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    o();
+                }
+                g62.i("insertWebView", "insert webview widget success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            return new b(this.o, str, jSONObject2, null);
         }
-        return (b) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uc3
-    public boolean j() {
-        InterceptResult invokeV;
+    public final void o() {
+        p82 V;
+        o82 o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ma_id", M().O());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, M().O());
-                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
-                jSONObject2.put("host_key_hash", vc3.g());
-                String l = er2.o().l();
-                if (!TextUtils.isEmpty(l)) {
-                    jSONObject2.put("host_api_key", l);
-                }
-                jSONObject.put("open", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("permit", Boolean.toString(this.o));
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put(this.m, jSONObject3);
-                jSONObject.put("accredits", jSONObject4);
-                if (!TextUtils.isEmpty(this.p)) {
-                    jSONObject.put("provider_appkey", this.p);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            v("data", jSONObject.toString());
-            return true;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (V = tu2.U().V()) != null && (o = V.o()) != null) {
+            g62.i("insertWebView", "disable navigationStyle custom");
+            o.n3();
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.id3
-    public HttpRequest w(id3 id3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, id3Var)) == null) {
-            return er2.o().o(this.n, id3Var.B());
-        }
-        return (HttpRequest) invokeL.objValue;
     }
 }

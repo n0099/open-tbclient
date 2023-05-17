@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 @TargetApi(17)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DummySurface extends Surface {
     public static final int EGL_PROTECTED_CONTENT_EXT = 12992;
     public static final String TAG = "DummySurface";
@@ -29,7 +29,7 @@ public final class DummySurface extends Surface {
     public final DummySurfaceThread thread;
     public boolean threadReleased;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DummySurfaceThread extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Handler.Callback {
         public static final int MSG_INIT = 1;
         public static final int MSG_RELEASE = 3;

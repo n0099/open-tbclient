@@ -3,7 +3,7 @@ package com.facebook.fresco.ui.common;
 import java.util.Map;
 import javax.annotation.Nullable;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ControllerListener2<INFO> {
     void onFailure(String str, Throwable th, @Nullable Extras extras);
 
@@ -17,7 +17,7 @@ public interface ControllerListener2<INFO> {
 
     void onSubmit(String str, Object obj, @Nullable Extras extras);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Extras {
         @Nullable
         public Map<String, Object> pipe;

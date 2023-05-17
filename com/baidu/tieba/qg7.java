@@ -1,205 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.pm9;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qg7 extends PriorityOrganizer.Task {
+/* loaded from: classes7.dex */
+public class qg7 extends ax<jy4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsActivity m;
-    public FrsFragment n;
-    public boolean o;
+    public CardItemRecommendLayout f;
 
-    /* loaded from: classes6.dex */
-    public class a implements pm9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qg7 a;
-
-        public a(qg7 qg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qg7Var;
-        }
-
-        @Override // com.baidu.tieba.pm9.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t();
-            }
-        }
-
-        @Override // com.baidu.tieba.pm9.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.t();
-            }
-        }
-
-        @Override // com.baidu.tieba.pm9.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(qg7 qg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                r15.s("userIcon");
-            }
-        }
-    }
-
-    public qg7(FrsActivity frsActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qg7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.m = frsActivity;
+        this.f = new CardItemRecommendLayout(context);
     }
 
-    public void F(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tx
+    /* renamed from: s */
+    public void a(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.o = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, jy4Var) == null) {
+            this.f.setData(jy4Var);
         }
     }
 
-    public qg7(FrsActivity frsActivity, FrsFragment frsFragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.o = false;
-        this.m = frsActivity;
-        this.n = frsFragment;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
+    @Override // com.baidu.tieba.ax
+    public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.o) {
-                return true;
-            }
-            FrsFragment frsFragment = this.n;
-            if (frsFragment != null && !frsFragment.H3()) {
-                return true;
-            }
-            return false;
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ux
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (r15.j()) {
-                return false;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            if (!PollingModel.z0() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.m.A1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (PollingModel.z0()) {
-                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                pm9 pm9Var = new pm9();
-                pm9Var.d(iconPopData);
-                pm9Var.e(new a(this));
-                pm9Var.f(new b(this));
-                r15.m("userIcon");
-                if (!this.o) {
-                    this.n.O4(true);
-                    return;
-                }
-                return;
-            }
-            t();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

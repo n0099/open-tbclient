@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ClientIdHelper {
     public static final String BI_CLIENT_ID_FILE_NAME = "hdcltid.ini";
     public static final String BI_CLIENT_ID_FILE_SUFFIX = ".ini";

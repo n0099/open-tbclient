@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bv {
     public static volatile bv a;
 
@@ -41,14 +41,14 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m225a(String str, String str2, long j) {
+    public synchronized void m244a(String str, String str2, long j) {
         SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
         edit.putLong(str2, j);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m226a(String str, String str2, String str3) {
+    public synchronized void m245a(String str, String str2, String str3) {
         SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
         edit.putString(str2, str3);
         edit.commit();

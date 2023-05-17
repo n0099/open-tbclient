@@ -9,7 +9,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Polyline extends Overlay {
     public int a;
     public List<LatLng> b;

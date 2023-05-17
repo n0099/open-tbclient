@@ -10,17 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.google.gson.annotations.SerializedName;
+/* loaded from: classes6.dex */
 public class TaskInfo extends BaseInfo<IChatRoomEnterListener.TaskInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @SerializedName("origin_msg_id")
     public long originMsgId;
+    @SerializedName("origin_msg_key")
     public String originMsgKey;
+    @SerializedName("task_error_msg")
     public String taskErrorMsg;
+    @SerializedName("task_id")
     public String taskId;
+    @SerializedName("task_progress")
     public int taskProgress;
+    @SerializedName("task_result")
     public int taskResult;
+    @SerializedName("task_state")
     public int taskState;
+    @SerializedName("task_type")
     public int taskType;
 
     public TaskInfo() {

@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.ki;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.ti;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TiebaActiveService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVE_FAIL = 1;
@@ -46,7 +46,7 @@ public class TiebaActiveService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class TiebaActiveService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class TiebaActiveService extends BdBaseService {
                     this.a = netWork;
                     netWork.addPostData("apk", TbadkCoreApplication.getInst().getApp().getPackageName());
                     this.a.addPostData("imei", TbadkCoreApplication.getInst().getImei());
-                    this.a.addPostData("model", ki.g());
+                    this.a.addPostData("model", ti.g());
                     this.a.addPostData("edition", TbConfig.getVersion());
                     this.a.addPostData(BDLocation.BDLOCATION_GNSS_PROVIDER_FROM_SYSTEM, Build.VERSION.SDK);
                     this.a.getNetContext().getRequest().mIsBaiduServer = false;
@@ -143,7 +143,7 @@ public class TiebaActiveService extends BdBaseService {
                     }
                     return null;
                 } catch (Exception e) {
-                    f55.m().z("active", 1);
+                    o65.m().z("active", 1);
                     BdLog.e(e.getMessage());
                     return null;
                 }
@@ -164,11 +164,11 @@ public class TiebaActiveService extends BdBaseService {
                         this.b.mHandler.removeCallbacks(this.b.mRunnable);
                         this.b.mHandler.postDelayed(this.b.mRunnable, 60000L);
                     } else {
-                        f55.m().z("active", 1);
+                        o65.m().z("active", 1);
                         this.b.stopSelf();
                     }
                 }
-                f55.m().z("active", 2);
+                o65.m().z("active", 2);
                 this.b.stopSelf();
             }
         }
@@ -251,7 +251,7 @@ public class TiebaActiveService extends BdBaseService {
     private void saveChannelToShare(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65547, this, str) == null) && str != null && str.length() > 0) {
-            f55.m().B("channel_id", str);
+            o65.m().B("channel_id", str);
         }
     }
 
@@ -260,7 +260,7 @@ public class TiebaActiveService extends BdBaseService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
             super.onStart(intent, i);
-            if (isActived() && f55.m().n("active", 2) != 1) {
+            if (isActived() && o65.m().n("active", 2) != 1) {
                 stopSelf();
             } else {
                 sendActive();
@@ -272,7 +272,7 @@ public class TiebaActiveService extends BdBaseService {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            return f55.m().s("channel_id", null);
+            return o65.m().s("channel_id", null);
         }
         return (String) invokeV.objValue;
     }

@@ -1,341 +1,223 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
+import com.baidu.tieba.n42;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public final class m42 {
+/* loaded from: classes6.dex */
+public abstract class m42<V extends SwanEditText, M extends n42> extends r42<V, M> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public bn3 a;
-    @NonNull
-    public ArrayMap<String, m32> b;
-    @NonNull
-    public ArrayMap<String, List<m32>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947922622, "Lcom/baidu/tieba/m42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947922622, "Lcom/baidu/tieba/m42;");
-                return;
-            }
-        }
-        d = ho1.a;
-    }
-
-    public m42(@NonNull bn3 bn3Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m42(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bn3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, m};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (s42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bn3Var;
-        this.b = new ArrayMap<>();
-        this.c = new ArrayMap<>();
     }
 
-    @Nullable
-    public SwanAppComponentContainerView a(String str) {
-        InterceptResult invokeL;
+    public void f0(@NonNull V v, @NonNull M m) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
+            if (v42.h) {
+                Log.d("Component-EditText", "renderSelection");
             }
-            m32 m32Var = this.b.get(str);
-            if (m32Var == null) {
-                x42.c("Component-Container", "getContainerView : get a null  component#" + str);
-                return null;
+            Editable text = v.getText();
+            int i2 = 0;
+            if (text != null) {
+                i2 = text.length();
             }
-            return m32Var.m();
-        }
-        return (SwanAppComponentContainerView) invokeL.objValue;
-    }
-
-    @UiThread
-    public boolean b(m32 m32Var) {
-        InterceptResult invokeL;
-        boolean b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m32Var)) == null) {
-            if (m32Var == null) {
-                q42.a("Component-Container", "insert component with a null component");
-                return false;
+            int i3 = m.H;
+            if (i3 <= i2 && (i = m.G) >= 0 && i <= i3) {
+                v.setSelection(i, i3);
             }
-            n32 n = m32Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = m32Var.o();
-            SwanAppComponentContainerView m = m32Var.m();
-            if (m == null) {
-                q42.a("Component-Container", "insert " + o + " with a null container view");
-                return false;
-            }
-            if (this.b.containsKey(str2)) {
-                x42.o("Component-Container", o + " repeat insert: " + str2);
-            }
-            if (TextUtils.isEmpty(str2)) {
-                q42.a("Component-Container", "insert " + o + " with a empty component id");
-                return false;
-            }
-            dy2 dy2Var = n.h;
-            if (dy2Var == null) {
-                q42.a("Component-Container", "insert " + o + " with a null position");
-                return false;
-            }
-            if (!dy2Var.h()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("insert ");
-                sb.append(o);
-                sb.append(" with a invalid position: ");
-                Object obj = n.h;
-                if (obj == null) {
-                    obj = StringUtil.NULL_STRING;
-                }
-                sb.append(obj);
-                q42.a("Component-Container", sb.toString());
-                n.h = new dy2();
-            }
-            if (!l42.c(n)) {
-                if (TextUtils.isEmpty(n.d)) {
-                    b = this.a.c(m, n.h);
-                } else {
-                    SwanAppComponentContainerView a = a(n.d);
-                    if (a == null) {
-                        x42.c("Component-Container", "insert " + o + " to parent with a null parent container view");
-                        return false;
-                    }
-                    if (a.indexOfChild(m) >= 0) {
-                        q42.a("Component-Container", o + " repeat insert view!");
-                        a.removeView(m);
-                    }
-                    a.addView(m, n.b());
-                    b = true;
-                }
-            } else {
-                b = l42.b(this, n, m);
-                if (!b) {
-                    q42.a("Component-Container", o + " insertComponentForScroll fail");
-                }
-            }
-            if (b) {
-                this.b.put(n.b, m32Var);
-                if (m32Var.s(2)) {
-                    x42.o("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
-                    List<m32> list = this.c.get(str);
-                    if (list == null) {
-                        list = new ArrayList<>();
-                        this.c.put(str, list);
-                    }
-                    list.add(m32Var);
-                }
-            }
-            return b;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        m32 value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d) {
-                Log.d("Component-Container", "container destroy");
-            }
-            for (Map.Entry<String, m32> entry : this.b.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null) {
-                    value.y();
-                }
-            }
-            this.b.clear();
-            this.c.clear();
         }
     }
 
-    public final boolean d(@NonNull m32 m32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull n32 n32Var) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t42
+    /* renamed from: b0 */
+    public void Q(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, m32Var, swanAppComponentContainerView, n32Var)) == null) {
-            String o = m32Var.o();
-            if (d) {
-                Log.d("Component-Container", o + " perform position update");
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            if (v42.h) {
+                Log.d("Component-EditText", "renderBackground");
             }
-            dy2 dy2Var = n32Var.h;
-            if (dy2Var != null && dy2Var.h()) {
-                if (l42.c(n32Var) && !l42.e(this, n32Var, swanAppComponentContainerView)) {
-                    q42.a("Component-Container", o + " performPositionUpdateForScroll fail");
-                }
-                String str = n32Var.d;
-                if (TextUtils.isEmpty(str)) {
-                    return this.a.a(swanAppComponentContainerView, n32Var.h);
-                }
-                SwanAppComponentContainerView a = a(str);
-                if (a == null) {
-                    x42.c("Component-Container", "update " + o + " to parent with a null parent container view");
-                    return false;
-                } else if (swanAppComponentContainerView.getParent() == a) {
-                    a.updateViewLayout(swanAppComponentContainerView, n32Var.b());
-                    return true;
-                } else {
-                    q42.a("Component-Container", "update " + o + " to parent with a illegal parent view");
-                    return false;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("insert ");
-            sb.append(o);
-            sb.append(" with a invalid position: ");
-            Object obj = n32Var.h;
-            if (obj == null) {
-                obj = StringUtil.NULL_STRING;
-            }
-            sb.append(obj);
-            q42.a("Component-Container", sb.toString());
-            return false;
+            v.setBackgroundColor(0);
         }
-        return invokeLLL.booleanValue;
     }
 
-    @UiThread
-    public boolean e(m32 m32Var) {
-        InterceptResult invokeL;
+    public void d0(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, m32Var)) == null) {
-            boolean z = false;
-            if (m32Var == null) {
-                q42.a("Component-Container", "remove component with a null component");
-                return false;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
+            if (v42.h) {
+                Log.d("Component-EditText", "renderCursor");
             }
-            n32 n = m32Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = m32Var.o();
-            SwanAppComponentContainerView m = m32Var.m();
-            if (m == null) {
-                q42.a("Component-Container", "remove " + o + " with a null container view");
-                return false;
-            } else if (TextUtils.isEmpty(str2)) {
-                q42.a("Component-Container", "remove " + o + " with a empty component id");
-                return false;
-            } else {
-                if (!l42.c(n)) {
-                    if (TextUtils.isEmpty(n.d)) {
-                        z = this.a.removeView(m);
-                    } else {
-                        SwanAppComponentContainerView a = a(n.d);
-                        if (a == null) {
-                            x42.c("Component-Container", "remove " + o + " to parent with a null parent container view");
-                        } else if (a == m.getParent()) {
-                            a.removeView(m);
-                            z = true;
-                        } else {
-                            q42.a("Component-Container", "remove " + o + " to parent with a illegal parent view");
-                        }
-                    }
-                } else {
-                    z = l42.g(this, n, m);
-                    if (!z) {
-                        q42.a("Component-Container", o + " removeComponentForScroll fail");
-                    }
-                }
-                if (z || m32Var.s(1)) {
-                    this.b.remove(str2);
-                    if (m32Var.s(2)) {
-                        x42.o("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
-                        List<m32> list = this.c.get(str);
-                        if (list != null) {
-                            list.remove(m32Var);
-                        }
-                    }
-                }
-                return z;
+            Editable text = v.getText();
+            int i = 0;
+            if (text != null) {
+                i = text.length();
+            }
+            int i2 = m.F;
+            if (i2 <= i && i2 >= 0) {
+                v.setSelection(i2);
             }
         }
-        return invokeL.booleanValue;
     }
 
-    @UiThread
-    public boolean f(m32 m32Var, @NonNull p42 p42Var) {
+    public final void e0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
+            if (v42.h) {
+                Log.d("Component-EditText", "renderMaxLength");
+            }
+            if (m.D >= 0) {
+                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r42, com.baidu.tieba.t42, com.baidu.tieba.v42
+    @NonNull
+    /* renamed from: Z */
+    public y52 k(@NonNull M m, @NonNull M m2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, m32Var, p42Var)) == null) {
-            if (m32Var == null) {
-                q42.a("Component-Container", "update component with a null component");
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
+            y52 k = super.k(m, m2);
+            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
+                k.b(6);
             }
-            n32 n = m32Var.n();
-            String o = m32Var.o();
-            SwanAppComponentContainerView m = m32Var.m();
-            if (m == null) {
-                q42.a("Component-Container", "update " + o + " with a null container view");
-                return false;
+            if (m.D != m2.D) {
+                k.b(10);
             }
-            if (!this.b.containsKey(n.b)) {
-                x42.c("Component-Container", "don't insert" + o);
+            if (m.F != m2.F) {
+                k.b(11);
             }
-            if (m32Var instanceof e42) {
-                if (p42Var.a(7)) {
-                    boolean d2 = l42.d(this, m32Var, n, m, p42Var);
-                    if (!d2) {
-                        q42.a("Component-Container", o + " perform scroll type update fail");
+            if (m.G != m2.G || m.H != m2.H) {
+                k.b(12);
+            }
+            if (!TextUtils.equals(m.I, m2.I)) {
+                k.b(13);
+            }
+            return k;
+        }
+        return (y52) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r42
+    /* renamed from: a0 */
+    public void T(@NonNull V v, @NonNull M m, @NonNull y52 y52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, y52Var) == null) {
+            super.O(v, m, y52Var);
+            if (y52Var.a(11)) {
+                d0(v, m);
+            }
+            if (y52Var.a(12)) {
+                f0(v, m);
+            }
+            if (y52Var.a(10)) {
+                e0(v, m);
+            }
+            if (y52Var.a(13)) {
+                c0(v, m);
+            }
+        }
+    }
+
+    public boolean c0(@NonNull V v, @NonNull M m) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
+            if (v42.h) {
+                Log.d("Component-EditText", "renderConfirmType:" + m.I);
+            }
+            String str = m.I;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -906336856:
+                    if (str.equals("search")) {
+                        c = 1;
+                        break;
                     }
-                    return d2;
-                } else if (p42Var.a(8)) {
-                    l42.f(this, m32Var, n, m, p42Var);
+                    break;
+                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                    if (str.equals("go")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3089282:
+                    if (str.equals("done")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3377907:
+                    if (str.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3526536:
+                    if (str.equals("send")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return false;
+                            }
+                            v.setImeOptions(6);
+                        } else {
+                            v.setImeOptions(2);
+                        }
+                    } else {
+                        v.setImeOptions(5);
+                    }
+                } else {
+                    v.setImeOptions(3);
                 }
-            }
-            if (p42Var.a(3) && !d(m32Var, m, n)) {
-                x42.c("Component-Container", o + " perform position update fail");
-                return false;
-            } else if (m32Var instanceof k32) {
-                k32 k32Var = (k32) m32Var;
-                if (k32Var.J()) {
-                    if (d) {
-                        Log.d("Component-Container", o + "perform position update with animation");
-                    }
-                    if (!k32Var.M()) {
-                        x42.c("Component-Container", o + " perform position update with animation fail");
-                        return false;
-                    }
-                    return true;
-                }
-                return true;
             } else {
-                return true;
+                v.setImeOptions(4);
             }
+            return true;
         }
         return invokeLL.booleanValue;
     }

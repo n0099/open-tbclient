@@ -15,7 +15,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ActiveResources {
     @VisibleForTesting
     public final Map<Key, ResourceWeakReference> activeEngineResources;
@@ -28,13 +28,13 @@ public final class ActiveResources {
     public final ReferenceQueue<EngineResource<?>> resourceReferenceQueue;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface DequeuedResourceCallback {
         void onResourceDequeued();
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ResourceWeakReference extends WeakReference<EngineResource<?>> {
         public final boolean isCacheable;
         public final Key key;

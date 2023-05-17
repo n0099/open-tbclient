@@ -19,6 +19,7 @@ import android.webkit.WebSettings;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +35,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class l1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -512,7 +513,7 @@ public class l1 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
             try {
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                String str = (String) cls.getMethod("get", String.class).invoke(cls, "gsm.version.baseband");
+                String str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, "gsm.version.baseband");
                 return TextUtils.isEmpty(str) ? i1.c : str;
             } catch (Throwable unused) {
                 return i1.d;

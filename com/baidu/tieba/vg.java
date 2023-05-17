@@ -1,206 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
+/* loaded from: classes7.dex */
 public class vg {
     public static /* synthetic */ Interceptable $ic;
+    public static vg b;
     public transient /* synthetic */ FieldHolder $fh;
-    public rg a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public Map<String, String> i;
+    public final ThreadPoolExecutor a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448319772, "Lcom/baidu/tieba/vg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448319772, "Lcom/baidu/tieba/vg;");
+                return;
+            }
+        }
+        b = new vg();
+    }
 
     public vg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ScheduledThreadPoolExecutor(1);
     }
 
-    public static String d() {
+    public static vg a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (BdNetTypeUtil.isWifiNet()) {
-                return "WIFI";
-            }
-            if (BdNetTypeUtil.is2GNet()) {
-                return "2G";
-            }
-            if (BdNetTypeUtil.is3GNet()) {
-                return "3G";
-            }
-            if (BdNetTypeUtil.is4GNet() || BdNetTypeUtil.isNetWorkAvailable()) {
-                return "4G";
-            }
-            return HlsPlaylistParser.METHOD_NONE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (vg) invokeV.objValue;
     }
 
-    public void a(String str) {
-        String[] split;
+    public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.i == null) {
-                this.i = new HashMap();
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            if (this.a.getTaskCount() >= 1) {
+                new Thread(runnable).start();
+                return;
             }
-            String[] split2 = str.split("&");
-            if (split2 != null && split2.length != 0) {
-                for (String str2 : split2) {
-                    if (!TextUtils.isEmpty(str2) && (split = str2.split("=")) != null && split.length == 2) {
-                        try {
-                            this.i.put(split[0], URLDecoder.decode(split[1], IMAudioTransRequest.CHARSET));
-                        } catch (UnsupportedEncodingException e) {
-                            BdLog.e(e);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (this.i == null) {
-                this.i = new HashMap();
-            }
-            this.i.put(str, str2);
-        }
-    }
-
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject jSONObject2 = new JSONObject();
-                if (this.a != null) {
-                    jSONObject2.put("app_version", this.a.c);
-                    jSONObject2.put("client_timestamp", Long.toString(System.currentTimeMillis()));
-                    jSONObject2.put("cuid", this.a.g);
-                    jSONObject2.put("shoubai_cuid", this.a.h);
-                    jSONObject2.put("from", this.a.d);
-                    jSONObject2.put("uid", this.a.l);
-                }
-                jSONObject2.put("client_ip", ug.b());
-                jSONObject2.put("network", d());
-                jSONObject2.put("model", ki.g());
-                jSONObject2.put("brand", Build.BRAND);
-                jSONObject2.put("os_type", "AND");
-                jSONObject2.put(HttpConstants.OS_VERSION, ki.k());
-                jSONObject2.put("active_id", ug.a());
-                jSONObject2.put("mission_id", ug.c());
-                jSONObject.put("base_info", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                if (this.b != null) {
-                    jSONObject3.put("module", this.b);
-                }
-                if (this.c != null) {
-                    jSONObject3.put("action", this.c);
-                }
-                if (this.d != null) {
-                    jSONObject3.put("error_code", this.d);
-                }
-                if (this.e != null) {
-                    jSONObject3.put("error_message", this.e);
-                }
-                if (this.i != null) {
-                    StringBuilder sb = new StringBuilder();
-                    for (Map.Entry<String, String> entry : this.i.entrySet()) {
-                        sb.append(entry.getKey());
-                        sb.append(":");
-                        sb.append(entry.getValue());
-                        sb.append("|");
-                    }
-                    if (sb.length() > 0) {
-                        sb.deleteCharAt(sb.length() - 1);
-                    }
-                    jSONObject3.put("ext1", sb);
-                }
-                if (this.f != null) {
-                    jSONObject3.put("id", this.f);
-                }
-                if (this.g != null) {
-                    jSONObject3.put("title", this.g);
-                }
-                if (this.h != null) {
-                    jSONObject3.put("abstract", this.h);
-                }
-                jSONObject.put("debug_info", jSONObject3);
-                jSONObject.put("kpi", new JSONObject());
-            } catch (JSONException e) {
-                BdLog.e(e);
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
         }
     }
 
-    public void f(rg rgVar) {
+    public void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, rgVar) == null) {
-            this.a = rgVar;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
+            }
         }
     }
 }

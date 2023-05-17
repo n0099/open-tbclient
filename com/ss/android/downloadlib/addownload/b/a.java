@@ -3,7 +3,7 @@ package com.ss.android.downloadlib.addownload.b;
 import com.ss.android.downloadlib.g.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public long a;
     public long b;

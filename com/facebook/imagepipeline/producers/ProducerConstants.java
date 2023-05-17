@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ProducerConstants {
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
     public static final String EXTRA_BITMAP_SIZE = "bitmapSize";

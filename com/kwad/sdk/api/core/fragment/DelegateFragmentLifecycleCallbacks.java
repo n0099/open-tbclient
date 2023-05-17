@@ -6,7 +6,7 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.kwad.sdk.api.core.fragment.KsFragmentManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DelegateFragmentLifecycleCallbacks extends FragmentManager.FragmentLifecycleCallbacks {
     public final KsFragmentManager.FragmentLifecycleCallbacks mBase;
     public final KsFragmentManager mFragmentManager;

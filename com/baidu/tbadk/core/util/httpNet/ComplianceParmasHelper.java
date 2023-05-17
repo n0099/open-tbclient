@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.switchs.ComplianceParmasSwitch;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.ji;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ComplianceParmasHelper {
     public static /* synthetic */ Interceptable $ic;
     public static String SERVER_ADDRESS_PEIWAN;
@@ -57,7 +57,7 @@ public class ComplianceParmasHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return ai.j(str.getBytes());
+                return ji.j(str.getBytes());
             }
             return str;
         }

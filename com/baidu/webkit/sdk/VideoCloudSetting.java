@@ -4,12 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.SparseArray;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoCloudSetting {
     public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
     public static final String DEFAULT_ERROR_LOG_ENABLE_ALL = "enable_all";
@@ -42,7 +41,7 @@ public class VideoCloudSetting {
     public static final int SETTING_HOST = 1;
     public static final String TAG = "VideoCloudSettings";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum MatchedType {
         FAILED,
         AND_NEED_CHECK_NEXT,
@@ -50,7 +49,7 @@ public class VideoCloudSetting {
         SUCCESS
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class VideoCloudSettingItem {
         public boolean mIsCloseAll;
         public boolean mIsEnableAll;
@@ -135,7 +134,7 @@ public class VideoCloudSetting {
             if (!TextUtils.isEmpty(str) && (strArr = this.mSubItems) != null) {
                 int length = strArr.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(this.mSubItems[i]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                    if (str.equals(this.mSubItems[i]) || (this.mType == 0 && illegibilityMatch(str, this.mSubItems[i], "\\.", "*"))) {
                         return true;
                     }
                 }
@@ -168,7 +167,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class VideoSettings {
         public SparseArray<VideoCloudSettingItem> mItems = new SparseArray<>();
 

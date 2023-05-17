@@ -9,13 +9,13 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public final Set<RetainingDataSource> mDataSources = Collections.newSetFromMap(new WeakHashMap());
     @Nullable
     public Supplier<DataSource<T>> mCurrentDataSourceSupplier = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class RetainingDataSource<T> extends AbstractDataSource<T> {
         @GuardedBy("RetainingDataSource.this")
         @Nullable
@@ -30,7 +30,7 @@ public class RetainingDataSourceSupplier<T> implements Supplier<DataSource<T>> {
             return true;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             @Override // com.facebook.datasource.DataSubscriber
             public void onCancellation(DataSource<T> dataSource) {

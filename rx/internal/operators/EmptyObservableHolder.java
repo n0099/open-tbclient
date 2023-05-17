@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.p5b;
-/* loaded from: classes9.dex */
-public enum EmptyObservableHolder implements j5b.a<Object> {
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.n7b;
+/* loaded from: classes10.dex */
+public enum EmptyObservableHolder implements h7b.a<Object> {
     INSTANCE;
     
-    public static final j5b<Object> EMPTY = j5b.a(INSTANCE);
+    public static final h7b<Object> EMPTY = h7b.a(INSTANCE);
 
-    public static <T> j5b<T> instance() {
-        return (j5b<T>) EMPTY;
+    public static <T> h7b<T> instance() {
+        return (h7b<T>) EMPTY;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
-    public void call(p5b<? super Object> p5bVar) {
-        p5bVar.onCompleted();
+    @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
+    public void call(n7b<? super Object> n7bVar) {
+        n7bVar.onCompleted();
     }
 }

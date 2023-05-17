@@ -26,7 +26,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends com.kwad.components.ad.draw.kwai.a {
     public KsAdWebView bF;
     public r.a bG;
@@ -288,8 +288,8 @@ public final class c extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0911d2);
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09129d);
+        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09120d);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0912d8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

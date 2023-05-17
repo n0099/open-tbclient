@@ -1,171 +1,148 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fe;
+import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ke<T> extends ee<T> {
+/* loaded from: classes6.dex */
+public abstract class ke<T> implements re<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final de<T> c;
+    public final boolean a;
+    public final le b;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ke b;
+    public abstract ne<T> i(String str);
 
-        public a(ke keVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {keVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = keVar;
-            this.a = str;
-        }
+    public abstract void j(ne<T> neVar);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c.o(this.a);
-            }
-        }
-    }
+    public abstract void l(String str);
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ke b;
+    public abstract void m(String str);
 
-        public b(ke keVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {keVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = keVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c.n(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ke(de<T> deVar, fe feVar, boolean z) {
-        super(feVar, z);
+    public ke(le leVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {deVar, feVar, Boolean.valueOf(z)};
+            Object[] objArr = {leVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((fe) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = deVar;
+        this.b = leVar;
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.le
-    public void b(String str) {
+    @Override // com.baidu.tieba.re
+    public T a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.b instanceof fe.b) {
-                mg.a().b(new a(this, str));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            ne<T> k = k(str, str2);
+            if (k == null) {
+                return null;
             }
-            if (this.b instanceof fe.a) {
-                mg.a().b(new b(this, str));
+            return k.b;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.re
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            l(h(str, str2));
+        }
+    }
+
+    @Override // com.baidu.tieba.re
+    public se.b<T> e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            ne<T> k = k(str, str2);
+            if (k == null) {
+                return null;
             }
+            se.b<T> bVar = new se.b<>();
+            bVar.a = str2;
+            bVar.b = k.b;
+            long j = k.f;
+            bVar.c = k.d;
+            return bVar;
         }
+        return (se.b) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.le
-    public void g(String str) {
+    public String h(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.c.c(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (this.a) {
+                return str + "@" + str2;
+            }
+            return str2;
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ee
-    public he<T> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.c.f(str);
-        }
-        return (he) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ee
-    public void j(he<T> heVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, heVar) == null) {
-            this.c.b(heVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.ee
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c.e(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ee
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c.a(str, true);
-        }
-    }
-
-    public de<T> n() {
+    @Override // com.baidu.tieba.re
+    public le c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (de) invokeV.objValue;
+        return (le) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.re
+    public void f(String str, String str2, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
+            ne<T> neVar = new ne<>();
+            neVar.a = h(str, str2);
+            neVar.c = str;
+            neVar.f = j;
+            neVar.b = t;
+            neVar.e = System.currentTimeMillis();
+            neVar.d = System.currentTimeMillis();
+            j(neVar);
+        }
+    }
+
+    public ne<T> k(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            String h = h(str, str2);
+            ne<T> i = i(h);
+            if (i == null) {
+                BdLog.isDebugMode();
+                return null;
+            } else if (i.f < System.currentTimeMillis()) {
+                m(h);
+                BdLog.isDebugMode();
+                return null;
+            } else {
+                if (this.b.a()) {
+                    i.e = System.currentTimeMillis();
+                    j(i);
+                }
+                BdLog.isDebugMode();
+                return i;
+            }
+        }
+        return (ne) invokeLL.objValue;
     }
 }

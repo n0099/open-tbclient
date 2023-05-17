@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class da {
     public static int a(Context context, int i) {
         int a = ha.a(context);
@@ -36,17 +36,17 @@ public class da {
                     try {
                         if (isVar instanceof hy) {
                             String str = ((hy) isVar).f593d;
-                            if (!TextUtils.isEmpty(str) && em.a(em.m372a(str)) != -1) {
-                                a = em.a(em.m372a(str));
+                            if (!TextUtils.isEmpty(str) && em.a(em.m391a(str)) != -1) {
+                                a = em.a(em.m391a(str));
                                 break;
                             }
                         } else if (isVar instanceof ig) {
                             String str2 = ((ig) isVar).f655d;
                             if (!TextUtils.isEmpty(str2)) {
-                                if (em.a(em.m372a(str2)) != -1) {
-                                    a = em.a(em.m372a(str2));
+                                if (em.a(em.m391a(str2)) != -1) {
+                                    a = em.a(em.m391a(str2));
                                 }
-                                if (hr.UploadTinyData.equals(em.m372a(str2))) {
+                                if (hr.UploadTinyData.equals(em.m391a(str2))) {
                                     return -1;
                                 }
                             }
@@ -121,7 +121,7 @@ public class da {
             ir.a(idVar, bArr);
             a(str, context, idVar, bArr.length);
         } catch (ix unused) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m120a("fail to convert bytes to container");
         }
     }
 }

@@ -1,30 +1,39 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-/* loaded from: classes5.dex */
-public class jg4 implements fg4<wg4> {
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+/* loaded from: classes6.dex */
+public class jg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public Map<String, String> c;
+    public RequestBody d;
+    public ResponseCallback e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public Object i;
+    public int j;
+    public int k;
+    public a l;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pkg_main" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fg4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
     }
 
     public jg4() {
@@ -37,24 +46,86 @@ public class jg4 implements fg4<wg4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
     }
 
-    @Override // com.baidu.tieba.fg4
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
+    public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL,pkg_type INT DEFAULT 0," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
+            return this.l;
         }
-        return (String) invokeV.objValue;
+        return (a) invokeV.objValue;
+    }
+
+    public jg4(String str, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, responseCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.e = responseCallback;
+    }
+
+    public jg4(String str, RequestBody requestBody, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, requestBody, responseCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.d = requestBody;
+        this.e = responseCallback;
+    }
+
+    public jg4 a(MediaType mediaType, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
+            if (mediaType != null && str != null) {
+                this.d = RequestBody.create(mediaType, str);
+            }
+            return this;
+        }
+        return (jg4) invokeLL.objValue;
     }
 }

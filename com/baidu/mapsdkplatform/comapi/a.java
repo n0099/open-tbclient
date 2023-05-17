@@ -15,6 +15,7 @@ import com.baidu.mapapi.common.BaiduMapSDKException;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
 import com.baidu.mapsdkplatform.comapi.util.SysUpdateObservable;
 import com.baidu.mapsdkplatform.comapi.util.h;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements PermissionCheck.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
@@ -103,7 +104,7 @@ public class a implements PermissionCheck.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
             intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
             Context context = this.b;
             if (context != null && (fVar = this.d) != null) {

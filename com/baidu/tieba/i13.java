@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public interface i13 extends j13 {
-    void b(JSONObject jSONObject);
+/* loaded from: classes5.dex */
+public interface i13 {
+    boolean a(l13 l13Var);
 }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,12 +96,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02cf, this);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bcb);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e6, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090bf6);
             this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
             this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6a);
-            this.e = findViewById(R.id.obfuscated_res_0x7f090bcc);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b95);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090bf7);
         }
     }
 

@@ -15,19 +15,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberClassLoader extends BaseDexClassLoader {
     public static Class a;
     public static Class b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             CyberClassLoader.b(CyberClassLoader.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
@@ -43,7 +43,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class c {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             Object obj = CyberClassLoader.b(classLoader, "pathList").get(classLoader);
@@ -58,7 +58,7 @@ public class CyberClassLoader extends BaseDexClassLoader {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class d {
         public static void b(ClassLoader classLoader, File file) throws Throwable {
             String path = file.getPath();

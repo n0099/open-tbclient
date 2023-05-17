@@ -1,114 +1,155 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class hs2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes5.dex */
+public class hs2 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public CountDownLatch a;
+    public File b;
+    public AtomicInteger c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947834210, "Lcom/baidu/tieba/hs2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hs2 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hs2 hs2Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hs2Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947834210, "Lcom/baidu/tieba/hs2;");
+            this.a = hs2Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 100) {
+                    b bVar = (b) message.obj;
+                    File file = new File(this.a.b, bVar.a);
+                    kp4.m(file.getParentFile());
+                    try {
+                        FileOutputStream fileOutputStream = new FileOutputStream(file);
+                        fileOutputStream.write(bVar.b);
+                        fileOutputStream.close();
+                    } catch (Exception e) {
+                        if (this.a.c != null) {
+                            this.a.c.incrementAndGet();
+                        }
+                        g62.l("FileOutputThread", "write file fail - " + file.getAbsolutePath(), e);
+                    }
+                } else if (i == 200) {
+                    if (this.a.a != null) {
+                        this.a.a.countDown();
+                    }
+                    this.a.quit();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public byte[] b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hs2(String str, int i, File file, CountDownLatch countDownLatch, AtomicInteger atomicInteger) {
+        super(str, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), file, countDownLatch, atomicInteger};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
+        this.b = file;
+        this.a = countDownLatch;
+        this.c = atomicInteger;
     }
 
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public static String a(v62 v62Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public hs2(String str, File file, CountDownLatch countDownLatch, AtomicInteger atomicInteger) {
+        this(str, 0, file, countDownLatch, atomicInteger);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v62Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (v62Var != null) {
-                try {
-                    jSONObject.put("containerId", v62Var.getContainerId());
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
-                } catch (JSONException e) {
-                    if (!a) {
-                        e.printStackTrace();
-                    } else {
-                        throw new RuntimeException(e);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, file, countDownLatch, atomicInteger};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (File) objArr2[2], (CountDownLatch) objArr2[3], (AtomicInteger) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            String b = b(re2.U().T());
-            x42.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + kj2.r(b));
-            jSONObject.put("sdkExtension", b);
-            jSONObject.put("gameSdkExtension", b(fr2.i().s()));
-            jSONObject.put("isDebugSdk", a);
-            if ((v62Var instanceof NgWebView) && ((NgWebView) v62Var).isSwanWebMode()) {
-                jSONObject.put("ctsEnabled", lg3.a().getInt("aiapps_web_mode_cts_use_key", 0));
-            }
-            String string = lg3.a().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && w33.s()) {
-                jSONObject.put("ctsJsAddress", new JSONObject(string));
-            }
-            String i = er2.o().i();
-            if (!TextUtils.isEmpty(i)) {
-                jSONObject.put("hostName", i);
-            }
-            jSONObject.put(Constants.PARAM_PLATFORM, "android");
-            JSONObject a2 = dh3.a();
-            a2.put("swanswitch_common_sys_info_binding", true);
-            a2.put("swanswitch_ab_sync_auth", true);
-            jSONObject.put("abTestSwitch", a2);
-            jSONObject.put("userDataPath", uj2.USER_DATA_PATH);
-            jSONObject.put("preloadId", re2.U().a0());
-            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
-            jSONObject.put("ttsExtractJSUrl", gk4.b().a());
-            jSONObject.put("coreJSPath", re2.U().c0());
-            if (hx1.d()) {
-                jSONObject.put("pendingList", new JSONArray((Collection) sz1.d()));
-            }
-            jSONObject.put("swanNativeVersion", io1.a());
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                return "";
-            }
-            return jSONObject2;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(ExtensionCore extensionCore) {
-        InterceptResult invokeL;
+    public Handler d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
-            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
-                return extensionCore.extensionCorePath;
-            }
-            return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this, getLooper());
         }
-        return (String) invokeL.objValue;
+        return (Handler) invokeV.objValue;
     }
 }

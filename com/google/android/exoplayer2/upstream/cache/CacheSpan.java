@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.C;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CacheSpan implements Comparable<CacheSpan> {
     @Nullable
     public final File file;

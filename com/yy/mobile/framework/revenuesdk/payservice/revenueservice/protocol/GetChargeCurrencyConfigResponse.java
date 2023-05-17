@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public String bubbleActMsg;
     public String currencyName;
@@ -136,29 +136,6 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         return arrayList;
     }
 
-    public List<PayWayInfo> optPayWayInfoList(JSONArray jSONArray) {
-        ArrayList arrayList = new ArrayList();
-        if (jSONArray == null) {
-            return arrayList;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                PayWayInfo payWayInfo = new PayWayInfo();
-                payWayInfo.id = optJSONObject.optString("id");
-                payWayInfo.name = optJSONObject.optString("name");
-                payWayInfo.payChannel = optJSONObject.optString("payChannel");
-                payWayInfo.payMethod = optJSONObject.optString("payMethod");
-                payWayInfo.tips = optJSONObject.optString("tips");
-                payWayInfo.payMethod = optJSONObject.optString("payMethod");
-                payWayInfo.perFreePassAmount = optJSONObject.optDouble("perFreePassAmount", 0.0d);
-                arrayList.add(payWayInfo);
-            }
-        }
-        return arrayList;
-    }
-
     public List<GiftBagsInfo> optGiftBagsInfoList(JSONArray jSONArray) {
         ArrayList arrayList = new ArrayList();
         if (jSONArray == null) {
@@ -178,6 +155,31 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 giftBagsInfo.successButtonMsg = optJSONObject.optString("successButtonMsg", "");
                 giftBagsInfo.giftbag.addAll(optGiftBagItemInfoList(optJSONObject.optJSONArray("giftbag")));
                 arrayList.add(giftBagsInfo);
+            }
+        }
+        return arrayList;
+    }
+
+    public List<PayWayInfo> optPayWayInfoList(JSONArray jSONArray) {
+        ArrayList arrayList = new ArrayList();
+        if (jSONArray == null) {
+            return arrayList;
+        }
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                PayWayInfo payWayInfo = new PayWayInfo();
+                payWayInfo.id = optJSONObject.optString("id");
+                payWayInfo.name = optJSONObject.optString("name");
+                payWayInfo.payChannel = optJSONObject.optString("payChannel");
+                payWayInfo.payMethod = optJSONObject.optString("payMethod");
+                payWayInfo.tips = optJSONObject.optString("tips");
+                payWayInfo.payMethod = optJSONObject.optString("payMethod");
+                payWayInfo.showInAmountView = optJSONObject.optBoolean("showInAmountView", false);
+                payWayInfo.perFreePassAmount = optJSONObject.optDouble("perFreePassAmount", 0.0d);
+                payWayInfo.passFreeAlwaysConfirm = optJSONObject.optBoolean("passFreeAlwaysConfirm", false);
+                arrayList.add(payWayInfo);
             }
         }
         return arrayList;

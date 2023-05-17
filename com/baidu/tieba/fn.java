@@ -1,47 +1,65 @@
 package com.baidu.tieba;
 
-import android.view.animation.OvershootInterpolator;
+import android.view.View;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fn extends OvershootInterpolator {
+/* loaded from: classes5.dex */
+public abstract class fn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
+    public View a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fn(float f) {
-        super(f);
+    public abstract View a();
+
+    public abstract void d();
+
+    public fn() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Float) newInitContext.callArgs[0]).floatValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f;
+        this.a = null;
     }
 
-    @Override // android.view.animation.OvershootInterpolator, android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            float f2 = f - 1.0f;
-            float f3 = this.a;
-            return ((-0.5f) * f2 * (((f3 + 1.0f) * f2) + f3)) + 1.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            View view2 = this.a;
+            if (view2 == null) {
+                return -1;
+            }
+            Object tag = view2.getTag();
+            if (!(tag instanceof TypeAdapter.ViewHolder)) {
+                return -1;
+            }
+            return ((TypeAdapter.ViewHolder) tag).getAdapterPosition();
         }
-        return invokeF.floatValue;
+        return invokeV.intValue;
+    }
+
+    public final View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = a();
+            }
+            return this.a;
+        }
+        return (View) invokeV.objValue;
     }
 }

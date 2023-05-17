@@ -5,7 +5,7 @@ import com.ksad.download.DownloadTask;
 import com.kwad.sdk.utils.LruHashMap;
 import com.kwad.sdk.utils.ab;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.ksad.download.c {
     public static final Map<String, String> WN = new LruHashMap(10);
 

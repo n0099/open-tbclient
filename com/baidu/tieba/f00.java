@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.pm.ApplicationInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class f00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ApplicationInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
+    public e00 a;
 
     public f00() {
         Interceptable interceptable = $ic;
@@ -27,8 +25,18 @@ public class f00 {
                 return;
             }
         }
-        this.b = 0;
-        this.c = false;
-        this.d = false;
+        this.a = new e00(32);
+    }
+
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.a.j(bArr) : (byte[]) invokeL.objValue;
+    }
+
+    public byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.a.m(bArr) : (byte[]) invokeL.objValue;
     }
 }

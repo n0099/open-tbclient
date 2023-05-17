@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi;
 import androidx.annotation.Keep;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum PurchaseStatus {
     UNKNOWN(0, "未知状态"),
     ORDER_START(100, "开始下单请求"),

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.Preconditions;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DBInnerIter<O> implements Iterator<O> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

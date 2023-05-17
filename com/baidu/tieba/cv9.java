@@ -1,130 +1,83 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes4.dex */
-public final class cv9 {
+import java.util.Timer;
+import java.util.TimerTask;
+/* loaded from: classes5.dex */
+public class cv9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bt9 a;
-    public boolean b;
-    public boolean c;
+    public Timer a;
+    public TimerTask b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688355, "Lcom/baidu/tieba/cv9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947688355, "Lcom/baidu/tieba/cv9;");
-                return;
-            }
-        }
-        d = new a(null);
-    }
-
-    public /* synthetic */ cv9(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final cv9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a() : (cv9) invokeV.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a {
+    /* loaded from: classes5.dex */
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cv9 a;
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        /* renamed from: com.baidu.tieba.cv9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0254a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0254a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.b();
+                }
+            }
         }
 
-        public a() {
+        public a(cv9 cv9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cv9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final cv9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (cv9) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final cv9 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-877250907, "Lcom/baidu/tieba/cv9$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-877250907, "Lcom/baidu/tieba/cv9$b;");
                     return;
                 }
             }
-            a = new b();
-            b = new cv9(null);
+            this.a = cv9Var;
         }
 
-        public b() {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sg.a().post(new RunnableC0254a(this));
             }
-        }
-
-        public final cv9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (cv9) invokeV.objValue;
         }
     }
 
@@ -132,56 +85,47 @@ public final class cv9 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new bt9();
     }
 
-    public final bt9 b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (bt9) invokeV.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+                this.a = null;
+            }
+            TimerTask timerTask = this.b;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.b = null;
+            }
         }
     }
 
-    public final void f(boolean z) {
+    public void a() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a != null) {
+            return;
         }
+        this.a = new Timer();
+        a aVar = new a(this);
+        this.b = aVar;
+        Timer timer = this.a;
+        if (zy5.a()) {
+            j = 1000;
+        } else {
+            j = 2400000;
+        }
+        timer.schedule(aVar, j);
     }
 }

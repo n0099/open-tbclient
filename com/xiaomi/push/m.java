@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class m implements Runnable {
     public final /* synthetic */ ComponentName a;
 
@@ -23,7 +23,7 @@ public final class m implements Runnable {
                 packageManager.setComponentEnabledSetting(this.a, 2, 1);
             }
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("close static register of network status receiver failed:" + th);
+            com.xiaomi.channel.commonutils.logger.b.m120a("close static register of network status receiver failed:" + th);
         }
     }
 }

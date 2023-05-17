@@ -3,11 +3,11 @@ package kotlin.reflect.jvm.internal.impl.util;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.util.Check;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ValueParameterCountCheck implements Check {
     public final String description;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AtLeast extends ValueParameterCountCheck {
         public final int n;
 
@@ -40,7 +40,7 @@ public abstract class ValueParameterCountCheck implements Check {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Equals extends ValueParameterCountCheck {
         public final int n;
 
@@ -58,7 +58,7 @@ public abstract class ValueParameterCountCheck implements Check {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NoValueParameters extends ValueParameterCountCheck {
         public static final NoValueParameters INSTANCE = new NoValueParameters();
 
@@ -72,7 +72,7 @@ public abstract class ValueParameterCountCheck implements Check {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SingleValueParameter extends ValueParameterCountCheck {
         public static final SingleValueParameter INSTANCE = new SingleValueParameter();
 

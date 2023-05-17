@@ -1,94 +1,185 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.personCenter.view.PersonOftenFuncItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import org.json.JSONArray;
-/* loaded from: classes4.dex */
-public class f89 {
+/* loaded from: classes5.dex */
+public class f89 extends wi6<n79> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout i;
+    public LinearLayout j;
+    public TextView k;
+    public PersonOftenFuncItemView l;
+    public PersonOftenFuncItemView m;
 
-    public static void a(String str, List<in> list) {
+    @Override // com.baidu.tieba.wi6
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0789 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
-        if (list == null) {
-            list = new ArrayList<>();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f89(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            in inVar = list.get(i);
-            if (inVar instanceof wc5) {
-                wc5 wc5Var = (wc5) inVar;
-                if (!wc5Var.c()) {
-                    jSONArray.put(wc5Var.a());
+        View h = h();
+        int g = ri.g(this.c, R.dimen.M_W_X003);
+        h.setPadding(g, 0, g, 0);
+        this.i = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091917);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091ade);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091adf);
+        j(g(), this.a);
+    }
+
+    @Override // com.baidu.tieba.wi6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
+            p45 d = p45.d(this.i);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            p45 d2 = p45.d(this.k);
+            d2.o(R.string.J_X06);
+            d2.f(R.color.CAM_X0205);
+            p45 d3 = p45.d(this.j);
+            d3.o(R.string.J_X06);
+            d3.f(R.color.CAM_X0205);
+            int childCount = this.j.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.j.getChildAt(i2);
+                if (childAt instanceof LinearLayout) {
+                    int i3 = 0;
+                    while (true) {
+                        LinearLayout linearLayout = (LinearLayout) childAt;
+                        if (i3 < linearLayout.getChildCount()) {
+                            View childAt2 = linearLayout.getChildAt(i3);
+                            if (childAt2 instanceof PersonOftenFuncItemView) {
+                                PersonOftenFuncItemView personOftenFuncItemView = (PersonOftenFuncItemView) childAt2;
+                                SkinManager.setBackgroundColor(personOftenFuncItemView, R.color.CAM_X0205);
+                                SkinManager.setViewTextColor(personOftenFuncItemView.b, (int) R.color.CAM_X0105);
+                            }
+                            i3++;
+                        }
+                    }
                 }
             }
         }
-        jSONArray.put(str);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    public static String c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
+    public void onScroll() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext != null && !StringUtils.isNull(str)) {
-                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
-                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            PersonOftenFuncItemView personOftenFuncItemView = this.l;
+            boolean z2 = true;
+            if (personOftenFuncItemView != null) {
+                if (!personOftenFuncItemView.d && !TbSingleton.getInstance().isMyTabClicked()) {
+                    z = false;
+                } else {
+                    z = true;
                 }
-                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+                personOftenFuncItemView.d = z;
+                this.l.d();
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d(wc5 wc5Var, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, wc5Var, bdUniqueId) != null) || wc5Var == null || StringUtils.isNull(wc5Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", wc5Var.a());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public static void b(wc5 wc5Var, List<in> list) {
-        wc5 wc5Var2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, wc5Var, list) == null) && wc5Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(wc5Var.a())) {
-            JSONArray jSONArray = new JSONArray();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                in inVar = list.get(i);
-                if ((inVar instanceof wc5) && (wc5Var2 = (wc5) inVar) != wc5Var && !wc5Var2.c()) {
-                    jSONArray.put(wc5Var2.a());
+            PersonOftenFuncItemView personOftenFuncItemView2 = this.m;
+            if (personOftenFuncItemView2 != null) {
+                if (!personOftenFuncItemView2.d && !TbSingleton.getInstance().isMyTabClicked()) {
+                    z2 = false;
                 }
+                personOftenFuncItemView2.d = z2;
+                this.m.d();
             }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-            httpMessage.addParam("pic_list", jSONArray.toString());
-            if (jSONArray.length() <= 0) {
-                httpMessage.addParam("truncat", 1);
-            } else {
-                httpMessage.addParam("truncat", 0);
+            TbSingleton.getInstance().setMyTabClicked(false);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wi6
+    /* renamed from: r */
+    public void i(n79 n79Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n79Var) == null) {
+            if (n79Var != null && n79Var.c() != null && !ListUtils.isEmpty(n79Var.c())) {
+                this.j.removeAllViews();
+                List<k79> c = n79Var.c();
+                LinearLayout linearLayout = new LinearLayout(getContext());
+                int i = 0;
+                for (k79 k79Var : c) {
+                    i++;
+                    if (i % 4 == 1) {
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+                        layoutParams.bottomMargin = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+                        LinearLayout linearLayout2 = new LinearLayout(getContext());
+                        linearLayout2.setOrientation(0);
+                        linearLayout2.setLayoutParams(layoutParams);
+                        this.j.addView(linearLayout2);
+                        linearLayout = linearLayout2;
+                    }
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2, 1.0f);
+                    PersonOftenFuncItemView personOftenFuncItemView = new PersonOftenFuncItemView(getContext());
+                    personOftenFuncItemView.a(k79Var);
+                    personOftenFuncItemView.setLayoutParams(layoutParams2);
+                    linearLayout.addView(personOftenFuncItemView);
+                    int i2 = k79Var.a;
+                    if (i2 == 59) {
+                        this.l = personOftenFuncItemView;
+                    } else if (i2 == 63) {
+                        this.m = personOftenFuncItemView;
+                    }
+                }
+                if (c.size() != 0 && c.size() % 4 != 0) {
+                    for (int i3 = 0; i3 < 4 - (c.size() % 4); i3++) {
+                        PersonOftenFuncItemView personOftenFuncItemView2 = new PersonOftenFuncItemView(getContext());
+                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -2);
+                        layoutParams3.weight = 1.0f;
+                        personOftenFuncItemView2.setLayoutParams(layoutParams3);
+                        linearLayout.addView(personOftenFuncItemView2);
+                    }
+                }
+                j(g(), this.a);
+                return;
             }
-            MessageManager.getInstance().sendMessage(httpMessage);
+            q(8);
         }
     }
 }

@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.sdk.core.video.kwai.a {
     public static volatile boolean adO;
     public static final Queue<d> adP = new ConcurrentLinkedQueue();
@@ -39,7 +39,7 @@ public final class d extends com.kwad.sdk.core.video.kwai.a {
     public int mSarDen;
     public int mSarNum;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements IKSVodPlayer.OnBufferingUpdateListener, IKSVodPlayer.OnErrorListener, IKSVodPlayer.OnEventListener, IKSVodPlayer.OnPreparedListener, IKSVodPlayer.OnVideoSizeChangedListener, IKSVodPlayer.OnVodPlayerReleaseListener {
         public final WeakReference<d> mWeakMediaPlayer;
 

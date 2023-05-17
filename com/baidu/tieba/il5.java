@@ -1,29 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public abstract class il5 {
+/* loaded from: classes6.dex */
+public class il5 implements yk5<AgreeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gl5> eventDelegates;
-    public boolean isDispatchMvcEventing;
-    public BdUniqueId uniqueId;
-
-    public void onBeforeDispatchMvcEvent(hl5 hl5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hl5Var) == null) {
-        }
-    }
 
     public il5() {
         Interceptable interceptable = $ic;
@@ -35,85 +23,30 @@ public abstract class il5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.isDispatchMvcEventing = false;
-    }
-
-    public void addEventDelegate(gl5 gl5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gl5Var) == null) {
-            if (this.eventDelegates == null) {
-                this.eventDelegates = new ArrayList();
-            }
-            if (this.eventDelegates.contains(gl5Var)) {
-                return;
-            }
-            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-            }
-            this.eventDelegates.add(gl5Var);
         }
     }
 
-    public void removeEventDelegate(gl5 gl5Var) {
-        List<gl5> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, gl5Var) != null) || (list = this.eventDelegates) == null || !list.contains(gl5Var)) {
-            return;
-        }
-        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
-            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
-        }
-        this.eventDelegates.remove(gl5Var);
-    }
-
-    public boolean dispatchMvcEvent(hl5 hl5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yk5
+    /* renamed from: a */
+    public boolean onEvent(AgreeEvent agreeEvent) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hl5Var)) == null) {
-            if (hl5Var == null) {
-                return false;
-            }
-            if (hl5Var.e() == null) {
-                hl5Var.i(this.uniqueId);
-            }
-            if (this.eventDelegates == null) {
-                return false;
-            }
-            try {
-                this.isDispatchMvcEventing = true;
-                onBeforeDispatchMvcEvent(hl5Var);
-                int size = this.eventDelegates.size();
-                z = false;
-                for (int i = 0; i < size; i++) {
-                    try {
-                        gl5 gl5Var = this.eventDelegates.get(i);
-                        if (gl5Var != null && ((!gl5Var.e1() || (gl5Var.e1() && hl5Var.e() == gl5Var.getUniqueId())) && (z = gl5Var.A0(hl5Var)) && hl5Var.f())) {
-                            return true;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        try {
-                            BdLog.e(th);
-                            if (TbadkCoreApplication.getInst().isDebugMode()) {
-                                throw new RuntimeException(th);
-                            }
-                            this.isDispatchMvcEventing = false;
-                            return z;
-                        } finally {
-                            this.isDispatchMvcEventing = false;
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
+            if (agreeEvent != null && agreeEvent.agreeData != null) {
+                hr9 hr9Var = new hr9();
+                hr9Var.b = agreeEvent.agreeData;
+                String str = agreeEvent.agreeExtra;
+                if (AgreeEvent.IS_THREAD.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, hr9Var));
+                    return true;
+                } else if (AgreeEvent.IS_POST.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, hr9Var));
+                    return true;
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                z = false;
             }
-            this.isDispatchMvcEventing = false;
-            return z;
+            return false;
         }
         return invokeL.booleanValue;
     }

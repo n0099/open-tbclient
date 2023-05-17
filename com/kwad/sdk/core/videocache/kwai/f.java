@@ -6,7 +6,7 @@ import com.kwad.sdk.utils.ab;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.HashMap;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f implements c {
     public static String cI(String str) {
         Uri parse = Uri.parse(str);

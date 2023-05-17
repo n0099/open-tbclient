@@ -1,126 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.open.SocialOperation;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class u33 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class u33 implements y33 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160020, "Lcom/baidu/tieba/u33;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160020, "Lcom/baidu/tieba/u33;");
+    @Override // com.baidu.tieba.y33
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageInitRender" : (String) invokeV.objValue;
+    }
+
+    public u33() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
+        this.a = -1L;
+        this.b = -1L;
     }
 
-    public static String a(String str, long j, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
+    @Override // com.baidu.tieba.y33
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2})) == null) {
-            x73 M = x73.M();
-            if (M == null) {
-                str3 = "";
-            } else {
-                str3 = zz1.a(M.O());
-            }
-            String[] strArr = {str3, str, String.valueOf(j), str2};
-            Arrays.sort(strArr);
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 4; i++) {
-                sb.append(strArr[i]);
-            }
-            try {
-                return pk3.c("SHA-1", sb.toString().getBytes(), false);
-            } catch (NoSuchAlgorithmException e) {
-                if (!a) {
-                    return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            long j = this.a;
+            if (j >= 0) {
+                long j2 = this.b;
+                if (j2 >= 0) {
+                    return j2 - j;
                 }
-                Log.e("SwanPluginHostSign", "getSignature occurs exception:", e);
-                return "";
+                return -1L;
             }
+            return -1L;
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.longValue;
     }
 
-    public static boolean c(String str, String str2, yg4 yg4Var) {
-        InterceptResult invokeLLL;
-        int length;
+    @Override // com.baidu.tieba.y33
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, yg4Var)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && yg4Var != null) {
-                String str3 = yg4Var.q;
-                if (TextUtils.isEmpty(str3)) {
-                    return false;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(str3).optJSONArray(str);
-                    if (optJSONArray == null || (length = optJSONArray.length()) == 0) {
-                        return false;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < length; i++) {
-                        String optString = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                    return o83.b(new URI(str2).getHost(), arrayList);
-                } catch (URISyntaxException | JSONException e) {
-                    p33.b(Log.getStackTraceString(e));
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.b = j;
         }
-        return invokeLLL.booleanValue;
     }
 
-    public static String b(yg4 yg4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.y33
+    public void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yg4Var)) == null) {
-            if (yg4Var == null) {
-                return "";
-            }
-            String str = yg4Var.p;
-            JSONObject jSONObject = new JSONObject();
-            String uuid = UUID.randomUUID().toString();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            try {
-                jSONObject.put("noncestr", uuid);
-                jSONObject.put("timestamp", currentTimeMillis);
-                jSONObject.put(SocialOperation.GAME_SIGNATURE, a(uuid, currentTimeMillis, str));
-            } catch (JSONException e) {
-                p33.b(Log.getStackTraceString(e));
-            }
-            return jSONObject.toString();
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.a = j;
         }
-        return (String) invokeL.objValue;
     }
 }

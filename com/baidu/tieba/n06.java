@@ -5,14 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class n06 {
     public static /* synthetic */ Interceptable $ic;
+    public static n06 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public cx4 b;
-    public String c;
+    public zm0 a;
 
     public n06() {
         Interceptable interceptable = $ic;
@@ -24,23 +22,34 @@ public class n06 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = vm0.b().a();
     }
 
-    public static n06 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static n06 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (n06.class) {
+                    if (b == null) {
+                        b = new n06();
+                    }
+                }
             }
-            n06 n06Var = new n06();
-            n06Var.a = jSONObject.optInt("download_state");
-            n06Var.b = cx4.b(jSONObject.optJSONObject("app_info"));
-            n06Var.c = jSONObject.optString("download_hint");
-            return n06Var;
+            return b;
         }
-        return (n06) invokeL.objValue;
+        return (n06) invokeV.objValue;
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return this.a.a(str, i);
+        }
+        return invokeLI.intValue;
     }
 }

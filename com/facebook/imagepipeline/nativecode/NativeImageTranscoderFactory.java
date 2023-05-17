@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.nativecode;
 
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class NativeImageTranscoderFactory {
     public static ImageTranscoderFactory getNativeImageTranscoderFactory(int i, boolean z, boolean z2) {
         try {

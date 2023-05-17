@@ -1,31 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IAlertManager;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes3.dex */
-public class bl implements IAlertManager {
+/* loaded from: classes5.dex */
+public abstract class bl extends uk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path t;
+    public Paint u;
+    public a v;
+    public boolean w;
 
-    @Override // com.baidu.nps.interfa.IAlertManager
-    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, onClickListener, str3) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public interface a {
+        Path a(RectF rectF);
 
-    @Override // com.baidu.nps.interfa.IAlertManager
-    public void onAlert(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
-        }
+        void b(Canvas canvas);
     }
 
     public bl() {
@@ -38,7 +36,64 @@ public class bl implements IAlertManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.t = new Path();
+        this.u = null;
+        this.w = false;
+    }
+
+    @Override // com.baidu.tieba.sk
+    public void c(vk vkVar, ImageView imageView, ImageView.ScaleType scaleType) {
+        Path a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, vkVar, imageView, scaleType) == null) {
+            super.c(vkVar, imageView, scaleType);
+            a aVar = this.v;
+            if (aVar == null || (a2 = aVar.a(j())) == null) {
+                return;
+            }
+            this.t.set(a2);
+            if (this.u == null) {
+                Paint paint = new Paint();
+                this.u = paint;
+                paint.setStyle(Paint.Style.STROKE);
+                this.u.setAntiAlias(true);
+                this.u.setColor(637534208);
+                this.u.setDither(true);
+                this.u.setStrokeWidth(2.0f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sk
+    public void g(Canvas canvas, vk vkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, vkVar, imageView) == null) {
+            super.g(canvas, vkVar, imageView);
+            if (!this.w) {
+                return;
+            }
+            canvas.drawPath(this.t, this.u);
+            a aVar = this.v;
+            if (aVar != null) {
+                aVar.b(canvas);
+            }
+        }
+    }
+
+    public void t(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.v = aVar;
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.w = z;
         }
     }
 }

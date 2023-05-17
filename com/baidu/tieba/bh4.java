@@ -1,381 +1,224 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.bj4;
-import com.baidu.tieba.wi4;
-import com.baidu.tieba.yi4;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ak4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class bh4 {
+/* loaded from: classes5.dex */
+public abstract class bh4 implements yg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static JSONArray a(String str, long j, boolean z) {
-        InterceptResult invokeCommon;
-        long j2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            List<qg4> l = if4.b().l(str, j);
-            JSONArray jSONArray = new JSONArray();
-            if (l != null && !l.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                try {
-                    for (qg4 qg4Var : l) {
-                        if (qg4Var.b) {
-                            j2 = qg4Var.c;
-                        } else {
-                            yg4 b = dl4.b(qg4Var.a, qg4Var.d, qg4Var.e, arrayList);
-                            if (b == null) {
-                                j2 = 0;
-                            } else {
-                                j2 = b.i;
-                            }
-                        }
-                        if (j2 != 0) {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("bundle_id", qg4Var.a);
-                            jSONObject.put("pkg_ver", j2);
-                            if (z) {
-                                jSONObject.put("category", 6);
-                            }
-                            jSONArray.put(jSONObject);
-                        }
-                    }
-                } catch (JSONException unused) {
-                }
-                if (!arrayList.isEmpty()) {
-                    uf4.i().g(arrayList);
-                }
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeCommon.objValue;
-    }
-
-    @NonNull
-    public static JSONObject b() throws JSONException {
+    public xg4<gi4> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("swan_ext_ver", g(0));
-            jSONObject.put("game_ext_ver", g(1));
-            jSONObject.put("swan_ext_vercode", if4.b().j(0));
-            jSONObject.put("game_ext_vercode", if4.b().j(1));
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return (JSONObject) invokeV.objValue;
+        return (xg4) invokeV.objValue;
     }
 
-    @NonNull
-    public static JSONObject c() throws JSONException {
+    public Map<String, String> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("swan_core_ver", h(0));
-            jSONObject.put("swan_game_ver", h(1));
-            jSONObject.put("swan_vercode", if4.b().w(0));
-            jSONObject.put("game_vercode", if4.b().w(1));
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static JSONObject d(wi4 wi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, wi4Var)) == null) {
-            if (wi4Var != null && wi4Var.f() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("framework", c());
-                    jSONObject.put(ETAG.KEY_EXTENSION, b());
-                    JSONArray jSONArray = new JSONArray();
-                    for (wi4.a aVar : wi4Var.f()) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("bundle_id", aVar.a());
-                        jSONObject2.put("category", aVar.b());
-                        jSONObject2.put("pkg_ver", aVar.e());
-                        JSONObject jSONObject3 = new JSONObject();
-                        jSONObject3.put("min_version", aVar.d());
-                        jSONObject3.put("max_version", aVar.c());
-                        jSONObject2.put("version_range", jSONObject3);
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("list", jSONArray);
-                    return jSONObject;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public static JSONObject e(yi4 yi4Var) {
-        InterceptResult invokeL;
+    public void C(ai4 ai4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yi4Var)) == null) {
-            if (yi4Var != null && yi4Var.f() != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("framework", c());
-                    jSONObject.put(ETAG.KEY_EXTENSION, b());
-                    JSONArray jSONArray = new JSONArray();
-                    for (yi4.a aVar : yi4Var.f()) {
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("bundle_id", aVar.b());
-                        if (aVar.c() != -1) {
-                            jSONObject2.put("category", aVar.c());
-                        }
-                        jSONObject2.put("pkg_ver", aVar.d());
-                        jSONObject2.put("app_sign", aVar.a());
-                        if (aVar.c() == 0 && aVar.d() != -1 && aVar.d() != 0) {
-                            jSONObject2.put("dep", a(aVar.b(), aVar.d(), true));
-                        }
-                        if (aVar instanceof bj4.b) {
-                            bj4.b bVar = (bj4.b) aVar;
-                            String[] i = bVar.i();
-                            if (i != null && i.length > 0) {
-                                jSONObject2.put("path", new JSONArray((Collection) Arrays.asList(i)));
-                            }
-                            JSONObject jSONObject3 = new JSONObject();
-                            List<bj4.a> j = bVar.j();
-                            if (j != null && !j.isEmpty()) {
-                                JSONArray jSONArray2 = new JSONArray();
-                                for (bj4.a aVar2 : j) {
-                                    JSONObject jSONObject4 = new JSONObject();
-                                    jSONObject4.put("id", aVar2.a());
-                                    jSONObject4.put("type", aVar2.getType());
-                                    jSONArray2.put(jSONObject4);
-                                }
-                                jSONObject3.put("list", jSONArray2);
-                                jSONObject3.put("ver", j.get(0).b());
-                            }
-                            jSONObject2.put("sub_info", jSONObject3);
-                        }
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("list", jSONArray);
-                    return jSONObject;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ai4Var) == null) {
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void G(om4 om4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, om4Var) == null) {
+        }
+    }
+
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+        }
+    }
+
+    public void I(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yg4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.yg4
+    public void n(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        }
+    }
+
+    public ah4 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (ah4) invokeV.objValue;
     }
 
-    public static HashMap<String, String> k(cj4 cj4Var) {
+    public xg4<hi4> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (xg4) invokeV.objValue;
+    }
+
+    public xg4<bi4> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (xg4) invokeV.objValue;
+    }
+
+    public xg4<di4> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (xg4) invokeV.objValue;
+    }
+
+    public Map<String, String> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public xg4<fi4> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (xg4) invokeV.objValue;
+    }
+
+    public tg4<ak4.a> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (tg4) invokeV.objValue;
+    }
+
+    public am4 w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, cj4Var)) == null) {
-            if (cj4Var == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("bundle_id", cj4Var.f());
-            hashMap.put("category", String.valueOf(cj4Var.a()));
-            hashMap.put("pkg_ver", String.valueOf(cj4Var.j()));
-            hashMap.put("expect_pkg_ver", String.valueOf(cj4Var.j()));
-            hashMap.put("sub_id", cj4Var.k());
-            if (!TextUtils.equals(cj4Var.b(), "-1")) {
-                hashMap.put("from", cj4Var.b());
-            }
-            if (TextUtils.isEmpty(cj4Var.i())) {
-                cj4Var.m(h(cj4Var.a()));
-            }
-            if (!TextUtils.isEmpty(cj4Var.i())) {
-                hashMap.put("framework_ver", cj4Var.i());
-            }
-            if (TextUtils.isEmpty(cj4Var.h())) {
-                cj4Var.l(g(cj4Var.a()));
-            }
-            if (!TextUtils.isEmpty(cj4Var.h())) {
-                hashMap.put("extension_ver", cj4Var.h());
-            }
-            long w = if4.b().w(cj4Var.a());
-            long j = if4.b().j(cj4Var.a());
-            if (cj4Var.a() == 1) {
-                hashMap.put("game_vercode", w + "");
-                hashMap.put("game_ext_vercode", j + "");
-            } else {
-                hashMap.put("swan_vercode", w + "");
-                hashMap.put("swan_ext_vercode", j + "");
-            }
-            if (cj4Var.g() != -1) {
-                hashMap.put("expect_pkg_ver", String.valueOf(cj4Var.g()));
-            }
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            return null;
         }
-        return (HashMap) invokeL.objValue;
+        return (am4) invokeL.objValue;
     }
 
-    public static HashMap<String, String> f(dj4 dj4Var) {
-        InterceptResult invokeL;
+    public xg4<hi4> x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, dj4Var)) == null) {
-            if (dj4Var == null) {
-                return null;
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (!TextUtils.equals(dj4Var.b(), "-1")) {
-                hashMap.put("from", dj4Var.b());
-            }
-            if (!TextUtils.equals(dj4Var.c(), "-1")) {
-                hashMap.put("scene", dj4Var.c());
-            }
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
         }
-        return (HashMap) invokeL.objValue;
+        return (xg4) invokeV.objValue;
     }
 
-    public static String g(int i) {
-        InterceptResult invokeI;
+    public Map<String, String> y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            String v = if4.b().v(i);
-            if (TextUtils.isEmpty(v)) {
-                return "0";
-            }
-            return v;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return null;
         }
-        return (String) invokeI.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public static String h(int i) {
-        InterceptResult invokeI;
+    public xg4<ii4> z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            String J = if4.b().J(i);
-            if (TextUtils.isEmpty(J)) {
-                return "0";
-            }
-            return J;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
         }
-        return (String) invokeI.objValue;
+        return (xg4) invokeV.objValue;
     }
 
-    public static HashMap<String, String> i(zi4 zi4Var) {
-        InterceptResult invokeL;
+    public bh4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, zi4Var)) == null) {
-            PMSAppInfo pMSAppInfo = null;
-            if (zi4Var == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("bundle_id", zi4Var.g());
-            hashMap.put("category", String.valueOf(zi4Var.a()));
-            if (zi4Var.m() == -1) {
-                pMSAppInfo = uf4.i().u(zi4Var.g());
-                if (pMSAppInfo != null && uf4.i().o(wg4.class, zi4Var.g()) != null) {
-                    zi4Var.u(pMSAppInfo.versionCode);
-                } else {
-                    zi4Var.u(0L);
-                }
-            }
-            hashMap.put("pkg_ver", String.valueOf(zi4Var.m()));
-            if (zi4Var.a() == 0 && zi4Var.m() != -1 && zi4Var.m() != 0) {
-                hashMap.put("dep", a(zi4Var.g(), zi4Var.m(), false).toString());
-            }
-            if (zi4Var.f() == -1) {
-                if (pMSAppInfo == null) {
-                    pMSAppInfo = uf4.i().u(zi4Var.g());
-                }
-                if (pMSAppInfo != null && pMSAppInfo.csProtocolVersion >= PMSConstants.a.a()) {
-                    zi4Var.o(pMSAppInfo.appSign);
-                } else {
-                    zi4Var.o(0L);
-                }
-            }
-            hashMap.put("app_sign", String.valueOf(zi4Var.f()));
-            if (zi4Var.i() != -1) {
-                hashMap.put("expect_pkg_ver", String.valueOf(zi4Var.i()));
-            }
-            String k = zi4Var.k();
-            if (TextUtils.isEmpty(k)) {
-                k = h(zi4Var.a());
-                zi4Var.s(k);
-            }
-            String str = "0";
-            if (TextUtils.isEmpty(k)) {
-                k = "0";
-            }
-            hashMap.put("framework_ver", k);
-            long w = if4.b().w(zi4Var.a());
-            long j = if4.b().j(zi4Var.a());
-            if (zi4Var.a() == 1) {
-                hashMap.put("game_vercode", w + "");
-                hashMap.put("game_ext_vercode", j + "");
-            } else {
-                hashMap.put("swan_vercode", w + "");
-                hashMap.put("swan_ext_vercode", j + "");
-            }
-            String j2 = zi4Var.j();
-            if (TextUtils.isEmpty(j2)) {
-                j2 = g(zi4Var.a());
-                zi4Var.r(j2);
-            }
-            if (!TextUtils.isEmpty(j2)) {
-                str = j2;
-            }
-            hashMap.put("extension_ver", str);
-            if (!TextUtils.isEmpty(zi4Var.l())) {
-                hashMap.put("path", zi4Var.l());
-            }
-            if (!TextUtils.equals(zi4Var.b(), "-1")) {
-                hashMap.put("from", zi4Var.b());
-            }
-            if (!TextUtils.equals(zi4Var.c(), "-1")) {
-                hashMap.put("scene", zi4Var.c());
-            }
-            hashMap.put(HttpRetryStrategyDataParse.DOWNFLOW_RETRY_REQUEST_PARAM, String.valueOf(zi4Var.n()));
-            hashMap.put("host_env", String.valueOf(if4.b().B()));
-            return hashMap;
         }
-        return (HashMap) invokeL.objValue;
     }
 
-    public static HashMap<String, String> j(aj4 aj4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zg4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, aj4Var)) == null) {
-            if (aj4Var == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
             }
-            HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("bundle_id", aj4Var.f());
-            hashMap.put("category", String.valueOf(aj4Var.a()));
-            if (TextUtils.isEmpty(aj4Var.h())) {
-                aj4Var.i(String.valueOf(-1));
-            }
-            hashMap.put("plugin_ver", aj4Var.h());
-            if (aj4Var.g() >= 0) {
-                hashMap.put("plugin_vercode", aj4Var.g() + "");
-            }
-            return hashMap;
+            return bundle2;
         }
-        return (HashMap) invokeL.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

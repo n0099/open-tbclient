@@ -1,10 +1,10 @@
 package com.baidu.livesdk.api.service;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface LiveDataRequest {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PageDataReceiver {
         void onReceiver(PageData pageData);
     }
@@ -13,7 +13,7 @@ public interface LiveDataRequest {
 
     void release();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LiveData {
         public String content;
         public String roomId;
@@ -40,7 +40,7 @@ public interface LiveDataRequest {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PageData {
         public String errno;
         public List<LiveData> liveDatas;
@@ -91,7 +91,7 @@ public interface LiveDataRequest {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PageInfo {
         public int page;
         public int pageSize;

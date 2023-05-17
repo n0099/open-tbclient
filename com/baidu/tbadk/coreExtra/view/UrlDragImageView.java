@@ -29,6 +29,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -47,24 +48,24 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
+import com.baidu.tieba.aw5;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.ed5;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.fd5;
+import com.baidu.tieba.d25;
+import com.baidu.tieba.fi5;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.j2a;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.kg5;
-import com.baidu.tieba.ng5;
-import com.baidu.tieba.ou5;
-import com.baidu.tieba.pq5;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.l4a;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.ne5;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.oe5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.wh5;
+import com.baidu.tieba.yr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -75,7 +76,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UrlDragImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final String i0;
@@ -97,7 +98,7 @@ public class UrlDragImageView extends RelativeLayout {
     public boolean L;
     public boolean M;
     public boolean N;
-    public ng5 O;
+    public wh5 O;
     public int P;
     public int Q;
     public p R;
@@ -141,23 +142,23 @@ public class UrlDragImageView extends RelativeLayout {
     public RectF y;
     public RectF z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface o {
         void a(String str, byte[] bArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface p {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UrlDragImageView a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -235,7 +236,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class l implements SubsamplingScaleImageView.OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -263,7 +264,7 @@ public class UrlDragImageView extends RelativeLayout {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements View.OnTouchListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -324,8 +325,8 @@ public class UrlDragImageView extends RelativeLayout {
                         if (scale < f) {
                             this.c.b.g.setScaleAndCenter(f, this.b);
                         }
-                        jg.a().removeCallbacks(this.c.b.f0);
-                        jg.a().postDelayed(this.c.b.f0, 1000L);
+                        sg.a().removeCallbacks(this.c.b.f0);
+                        sg.a().postDelayed(this.c.b.f0, 1000L);
                     } else {
                         this.c.b.U = motionEvent.getY();
                         UrlDragImageView urlDragImageView = this.c.b;
@@ -400,8 +401,8 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class a implements kg5 {
+    /* loaded from: classes4.dex */
+    public class a implements th5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UrlDragImageView a;
@@ -424,10 +425,10 @@ public class UrlDragImageView extends RelativeLayout {
             this.a = urlDragImageView;
         }
 
-        @Override // com.baidu.tieba.kg5
-        public void a(tm tmVar, String str, boolean z) {
+        @Override // com.baidu.tieba.th5
+        public void a(cn cnVar, String str, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLLZ(1048576, this, tmVar, str, z) != null) {
+            if (interceptable != null && interceptable.invokeLLZ(1048576, this, cnVar, str, z) != null) {
                 return;
             }
             this.a.l = true;
@@ -439,12 +440,12 @@ public class UrlDragImageView extends RelativeLayout {
             if (dragImageView == null || dragImageView.r0) {
                 return;
             }
-            urlDragImageView.M(tmVar);
+            urlDragImageView.M(cnVar);
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b implements ou5 {
+    /* loaded from: classes4.dex */
+    public class b implements aw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UrlDragImageView a;
@@ -467,7 +468,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.a = urlDragImageView;
         }
 
-        @Override // com.baidu.tieba.ou5
+        @Override // com.baidu.tieba.aw5
         public void onLoadFinished() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -478,20 +479,20 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements u05.e {
+    /* loaded from: classes4.dex */
+    public class c implements d25.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u05 a;
+        public final /* synthetic */ d25 a;
         public final /* synthetic */ String b;
         public final /* synthetic */ UrlDragImageView c;
 
-        public c(UrlDragImageView urlDragImageView, u05 u05Var, String str) {
+        public c(UrlDragImageView urlDragImageView, d25 d25Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {urlDragImageView, u05Var, str};
+                Object[] objArr = {urlDragImageView, d25Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -502,33 +503,33 @@ public class UrlDragImageView extends RelativeLayout {
                 }
             }
             this.c = urlDragImageView;
-            this.a = u05Var;
+            this.a = d25Var;
             this.b = str;
         }
 
-        @Override // com.baidu.tieba.u05.e
-        public void onClick(u05 u05Var) {
+        @Override // com.baidu.tieba.d25.e
+        public void onClick(d25 d25Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
                 this.a.dismiss();
                 this.c.d0(this.b);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class d implements u05.e {
+    /* loaded from: classes4.dex */
+    public class d implements d25.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u05 a;
+        public final /* synthetic */ d25 a;
         public final /* synthetic */ UrlDragImageView b;
 
-        public d(UrlDragImageView urlDragImageView, u05 u05Var) {
+        public d(UrlDragImageView urlDragImageView, d25 d25Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {urlDragImageView, u05Var};
+                Object[] objArr = {urlDragImageView, d25Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -539,25 +540,25 @@ public class UrlDragImageView extends RelativeLayout {
                 }
             }
             this.b = urlDragImageView;
-            this.a = u05Var;
+            this.a = d25Var;
         }
 
-        @Override // com.baidu.tieba.u05.e
-        public void onClick(u05 u05Var) {
+        @Override // com.baidu.tieba.d25.e
+        public void onClick(d25 d25Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, d25Var) == null) {
                 this.a.dismiss();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class e implements ed5 {
+    /* loaded from: classes4.dex */
+    public class e implements ne5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UrlDragImageView a;
 
-        @Override // com.baidu.tieba.ed5
+        @Override // com.baidu.tieba.ne5
         public boolean onFileDownloaded(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -567,7 +568,7 @@ public class UrlDragImageView extends RelativeLayout {
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ed5
+        @Override // com.baidu.tieba.ne5
         public boolean onPreDownload(DownloadData downloadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -595,7 +596,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.a = urlDragImageView;
         }
 
-        @Override // com.baidu.tieba.ed5
+        @Override // com.baidu.tieba.ne5
         public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
@@ -607,12 +608,12 @@ public class UrlDragImageView extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.ed5
+        @Override // com.baidu.tieba.ne5
         public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
                 this.a.c0.setVisibility(8);
-                jg.a().postDelayed(this.a.g0, 1500L);
+                sg.a().postDelayed(this.a.g0, BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT);
                 this.a.M = false;
                 UrlDragImageView urlDragImageView = this.a;
                 urlDragImageView.L = urlDragImageView.E();
@@ -620,7 +621,7 @@ public class UrlDragImageView extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.ed5
+        @Override // com.baidu.tieba.ne5
         public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
@@ -635,7 +636,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -669,7 +670,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements DragImageView.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -708,7 +709,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class i implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -748,7 +749,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -807,7 +808,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class k implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -846,13 +847,13 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class m implements ou5 {
+    /* loaded from: classes4.dex */
+    public class m implements aw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UrlDragImageView a;
 
-        @Override // com.baidu.tieba.ou5
+        @Override // com.baidu.tieba.aw5
         public void onLoadFinished() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -878,8 +879,8 @@ public class UrlDragImageView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class n extends bg<tm> {
+    /* loaded from: classes4.dex */
+    public class n extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UrlDragImageView a;
@@ -902,7 +903,7 @@ public class UrlDragImageView extends RelativeLayout {
             this.a = urlDragImageView;
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.kg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
@@ -915,10 +916,10 @@ public class UrlDragImageView extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tmVar, str, i) != null) {
+            if (interceptable != null && interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cnVar, str, i) != null) {
                 return;
             }
             this.a.m = false;
@@ -928,7 +929,7 @@ public class UrlDragImageView extends RelativeLayout {
             if (dragImageView == null || dragImageView.r0) {
                 return;
             }
-            urlDragImageView.M(tmVar);
+            urlDragImageView.M(cnVar);
         }
     }
 
@@ -947,7 +948,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
         i0 = TbadkCoreApplication.getInst().getString(R.string.original_img_look);
         j0 = 52428800L;
-        r0 = ii.j(TbadkCoreApplication.getInst()) / 5;
+        r0 = ri.j(TbadkCoreApplication.getInst()) / 5;
         s0 = ViewConfiguration.get(TbadkCoreApplication.getInst()).getScaledTouchSlop();
     }
 
@@ -963,7 +964,7 @@ public class UrlDragImageView extends RelativeLayout {
             imageFileInfo.setFilePath(str);
             imageFileInfo.setTempFile(true);
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(wg5.g(this.P, this.Q));
+            imageFileInfo.addPageAction(fi5.g(this.P, this.Q));
             if (this.O.c(imageFileInfo, false) != null) {
                 return false;
             }
@@ -980,7 +981,7 @@ public class UrlDragImageView extends RelativeLayout {
             circleProgressView.setCircleBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
             this.c0.setCircleForegroundColor(SkinManager.getColor(R.color.CAM_X0302));
             this.c0.setProgress(0);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.g(getContext(), R.dimen.tbds80), ii.g(getContext(), R.dimen.tbds80));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ri.g(getContext(), R.dimen.tbds80), ri.g(getContext(), R.dimen.tbds80));
             layoutParams.addRule(13);
             this.c0.setVisibility(8);
             addView(this.c0, layoutParams);
@@ -1012,11 +1013,11 @@ public class UrlDragImageView extends RelativeLayout {
             if (dragImageView2 != null) {
                 dragImageView2.setVisibility(8);
             }
-            jg.a().removeCallbacks(this.f0);
-            j2a.a().d(-1);
+            sg.a().removeCallbacks(this.f0);
+            l4a.a().d(-1);
             ImageUrlData imageUrlData = this.K;
             if (imageUrlData != null) {
-                fd5.k().f(TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl), 13);
+                oe5.k().f(TbMd5.getNameMd5FromUrl(imageUrlData.originalUrl), 13);
             }
         }
     }
@@ -1085,7 +1086,7 @@ public class UrlDragImageView extends RelativeLayout {
         this.g0 = new g(this);
         this.h0 = new k(this);
         this.b = context;
-        this.O = new ng5();
+        this.O = new wh5();
         O();
     }
 
@@ -1122,18 +1123,18 @@ public class UrlDragImageView extends RelativeLayout {
         return invokeZ.booleanValue;
     }
 
-    public final void M(tm tmVar) {
+    public final void M(cn cnVar) {
         o oVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, tmVar) == null) {
-            if (tmVar != null && (oVar = this.i) != null) {
-                oVar.a(tmVar.q(), tmVar.k());
+        if (interceptable == null || interceptable.invokeL(1048588, this, cnVar) == null) {
+            if (cnVar != null && (oVar = this.i) != null) {
+                oVar.a(cnVar.q(), cnVar.k());
             }
-            if (tmVar != null && tmVar.p() != null) {
-                Bitmap p2 = tmVar.p();
+            if (cnVar != null && cnVar.p() != null) {
+                Bitmap p2 = cnVar.p();
                 this.d.setLoadBigImage(true);
-                if (tmVar.t()) {
-                    this.d.setGifData(tmVar.k(), p2);
+                if (cnVar.t()) {
+                    this.d.setGifData(cnVar.k(), p2);
                     this.d.setImageUrlData(this.K);
                     this.d.invalidate();
                     this.d.h0();
@@ -1152,7 +1153,7 @@ public class UrlDragImageView extends RelativeLayout {
                         this.a0 = null;
                     }
                     this.d.setImageUrlData(this.K);
-                    this.d.setImageData(p2, tmVar.k());
+                    this.d.setImageData(p2, cnVar.k());
                     c0();
                 }
                 b0();
@@ -1210,7 +1211,7 @@ public class UrlDragImageView extends RelativeLayout {
         this.g0 = new g(this);
         this.h0 = new k(this);
         this.b = context;
-        this.O = new ng5();
+        this.O = new wh5();
         O();
     }
 
@@ -1486,12 +1487,12 @@ public class UrlDragImageView extends RelativeLayout {
         return (String) invokeV.objValue;
     }
 
-    private void setThumbBitmapToView(tm tmVar) {
+    private void setThumbBitmapToView(cn cnVar) {
         Bitmap p2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65558, this, tmVar) == null) && !this.l && tmVar != null && (p2 = tmVar.p()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65558, this, cnVar) == null) && !this.l && cnVar != null && (p2 = cnVar.p()) != null) {
             this.k = true;
-            if (tmVar.t()) {
+            if (cnVar.t()) {
                 this.e.setImageUrlData(this.K);
                 this.e.setImageBitmap(p2);
                 this.a0 = null;
@@ -1503,7 +1504,7 @@ public class UrlDragImageView extends RelativeLayout {
                     this.e.setImageLoadCallBack(new m(this));
                 }
                 this.e.setImageUrlData(this.K);
-                this.e.setImageData(p2, tmVar.k());
+                this.e.setImageData(p2, cnVar.k());
             }
             b0();
         }
@@ -1545,7 +1546,7 @@ public class UrlDragImageView extends RelativeLayout {
         downloadData.setType(13);
         downloadData.setPath(this.E + StorageFile.getInstance().getDirectoryName(str) + "/" + str);
         downloadData.setCallback(new e(this));
-        fd5.k().m(downloadData, 100);
+        oe5.k().m(downloadData, 100);
         this.d0 = true;
     }
 
@@ -1581,7 +1582,7 @@ public class UrlDragImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{rect, Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
             if (z) {
-                i2 = ii.g(getContext(), R.dimen.tbds80);
+                i2 = ri.g(getContext(), R.dimen.tbds80);
             } else {
                 i2 = 0;
             }
@@ -1669,7 +1670,7 @@ public class UrlDragImageView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(this.K.originalUrl);
             if (this.K.originalProcess >= 0) {
-                fd5.k().f(nameMd5FromUrl, 13);
+                oe5.k().f(nameMd5FromUrl, 13);
                 this.K.originalProcess = -1;
                 c0();
                 return;
@@ -1678,17 +1679,17 @@ public class UrlDragImageView extends RelativeLayout {
             if (pVar != null) {
                 pVar.a();
             }
-            a9<?> a2 = g9.a(this.b);
+            g9<?> a2 = m9.a(this.b);
             if (a2 == null) {
                 d0(nameMd5FromUrl);
-            } else if (BdNetTypeUtil.isNetWorkAvailable() && !BdNetTypeUtil.isWifiNet() && !f55.m().i("original_img_down_tip", false)) {
-                f55.m().w("original_img_down_tip", true);
-                u05 u05Var = new u05(a2.getPageActivity());
-                u05Var.setMessageId(R.string.original_img_down_no_wifi_tip);
-                u05Var.setPositiveButton(R.string.alert_yes_button, new c(this, u05Var, nameMd5FromUrl));
-                u05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new d(this, u05Var));
-                u05Var.create(a2);
-                u05Var.show();
+            } else if (BdNetTypeUtil.isNetWorkAvailable() && !BdNetTypeUtil.isWifiNet() && !o65.m().i("original_img_down_tip", false)) {
+                o65.m().w("original_img_down_tip", true);
+                d25 d25Var = new d25(a2.getPageActivity());
+                d25Var.setMessageId(R.string.original_img_down_no_wifi_tip);
+                d25Var.setPositiveButton(R.string.alert_yes_button, new c(this, d25Var, nameMd5FromUrl));
+                d25Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03c3, new d(this, d25Var));
+                d25Var.create(a2);
+                d25Var.show();
             } else {
                 d0(nameMd5FromUrl);
             }
@@ -1740,12 +1741,12 @@ public class UrlDragImageView extends RelativeLayout {
             if (i2 < 0) {
                 i2 = imageUrlData.urlType;
             }
-            tm tmVar = null;
+            cn cnVar = null;
             if (AbstractImageLoaderProc.isImageFileExist(str, i2)) {
-                tmVar = AbstractImageLoaderProc.loadBdImageFromLocal(str, i2);
+                cnVar = AbstractImageLoaderProc.loadBdImageFromLocal(str, i2);
             }
-            if (tmVar != null) {
-                setThumbBitmapToView(tmVar);
+            if (cnVar != null) {
+                setThumbBitmapToView(cnVar);
             }
         }
     }
@@ -1867,8 +1868,8 @@ public class UrlDragImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.E = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-            this.P = ii.l(this.b);
-            this.Q = ii.j(this.b) - ((int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070257));
+            this.P = ri.l(this.b);
+            this.Q = ri.j(this.b) - ((int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f07036c));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             DragImageView dragImageView = new DragImageView(this.b);
             this.d = dragImageView;
@@ -1883,7 +1884,7 @@ public class UrlDragImageView extends RelativeLayout {
             addView(this.g, layoutParams);
             ProgressBar progressBar = new ProgressBar(this.b, null, 16843399);
             this.c = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081086));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811df));
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams2.addRule(13);
             this.c.setLayoutParams(layoutParams2);
@@ -1912,11 +1913,11 @@ public class UrlDragImageView extends RelativeLayout {
                     return;
                 }
                 this.m = true;
-                a9<?> a2 = g9.a(this.b);
+                g9<?> a2 = m9.a(this.b);
                 if (a2 != null) {
                     bdUniqueId = a2.getUniqueId();
                 }
-                cg.h().l(str, 27, new n(this), 0, 0, false, bdUniqueId, Boolean.valueOf(z), this.d.getImageData(), Boolean.valueOf(this.j));
+                lg.h().l(str, 27, new n(this), 0, 0, false, bdUniqueId, Boolean.valueOf(z), this.d.getImageData(), Boolean.valueOf(this.j));
                 return;
             }
             this.e.setVisibility(0);
@@ -1925,8 +1926,8 @@ public class UrlDragImageView extends RelativeLayout {
             imageFileInfo.setFilePath(str);
             imageFileInfo.setTempFile(true);
             imageFileInfo.clearPageActions();
-            imageFileInfo.addPageAction(wg5.g(this.P, this.Q));
-            tm c2 = this.O.c(imageFileInfo, false);
+            imageFileInfo.addPageAction(fi5.g(this.P, this.Q));
+            cn c2 = this.O.c(imageFileInfo, false);
             if (c2 != null) {
                 this.l = true;
                 this.c.setVisibility(8);
@@ -1958,13 +1959,13 @@ public class UrlDragImageView extends RelativeLayout {
                 TextView textView2 = new TextView(this.b);
                 this.f = textView2;
                 textView2.setText(this.K.mTagName);
-                this.f.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07032e));
+                this.f.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070447));
                 SkinManager.setViewTextColor(this.f, R.color.common_color_10013, 1, 0);
                 SkinManager.setBackgroundColor(this.f, R.color.common_color_10215);
                 this.f.setAlpha(0.75f);
                 this.f.setIncludeFontPadding(false);
                 this.f.setGravity(17);
-                int g2 = ii.g(this.b, R.dimen.obfuscated_res_0x7f0701d4);
+                int g2 = ri.g(this.b, R.dimen.obfuscated_res_0x7f0701d4);
                 this.f.setPadding(g2, g2, g2, g2);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
                 layoutParams.bottomMargin = this.d.getBottomOffset();
@@ -2006,9 +2007,9 @@ public class UrlDragImageView extends RelativeLayout {
                 if (i3 == 0) {
                     if (this.s == null) {
                         if (this.g.getVisibility() == 0) {
-                            this.s = pq5.c(this.g);
+                            this.s = yr5.c(this.g);
                         } else {
-                            this.s = pq5.c(this.d);
+                            this.s = yr5.c(this.d);
                         }
                     }
                     if (this.x == null && this.s != null) {
@@ -2040,7 +2041,7 @@ public class UrlDragImageView extends RelativeLayout {
                             width = imageBitmap.getWidth();
                             i2 = height;
                         }
-                        float i4 = ii.i(getContext());
+                        float i4 = ri.i(getContext());
                         int i5 = (int) (i2 * i4);
                         int i6 = (int) (width * i4);
                         if (i6 > this.s.getWidth() && this.s.getWidth() != 0) {
@@ -2051,11 +2052,11 @@ public class UrlDragImageView extends RelativeLayout {
                             i6 = (int) (i6 / ((i5 * 1.0f) / this.s.getHeight()));
                             i5 = this.s.getHeight();
                         }
-                        int j2 = (ii.j(getContext()) - i5) / 2;
-                        int l2 = (ii.l(getContext()) - i6) / 2;
+                        int j2 = (ri.j(getContext()) - i5) / 2;
+                        int l2 = (ri.l(getContext()) - i6) / 2;
                         this.B = new Rect(l2, j2, i6 + l2, i5 + j2);
                         this.C = new Rect(this.B);
-                        this.J = j2 / ii.j(getContext());
+                        this.J = j2 / ri.j(getContext());
                         this.A = new Rect(0, 0, this.s.getWidth(), this.s.getHeight());
                     }
                     this.o = x;

@@ -6,7 +6,7 @@ import com.kwad.components.ad.reward.widget.KsToastView;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class m extends a {
     public float pY;
     public n qa;
@@ -86,7 +86,7 @@ public final class m extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f091385);
+        KsToastView ksToastView = (KsToastView) findViewById(R.id.obfuscated_res_0x7f0913c0);
         this.qh = ksToastView;
         ksToastView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.presenter.m.2
             @Override // android.view.View.OnClickListener

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.ss.android.socialbase.appdownloader.c;
 import com.ss.android.socialbase.appdownloader.c.g;
 import com.ss.android.socialbase.appdownloader.d;
@@ -14,7 +15,7 @@ import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b implements l {
     public List<Integer> a;
     public BroadcastReceiver b;
@@ -289,7 +290,7 @@ public class b implements l {
                 };
                 try {
                     IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                    intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
                     N.registerReceiver(this.b, intentFilter);
                 } catch (Throwable th) {
                     th.printStackTrace();

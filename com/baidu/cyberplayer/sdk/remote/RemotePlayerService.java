@@ -10,7 +10,7 @@ import com.baidu.cyberplayer.sdk.o;
 import com.baidu.cyberplayer.sdk.remote.g;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RemotePlayerService extends Service {
     public long getKernelNetHandle() {
         return 0L;

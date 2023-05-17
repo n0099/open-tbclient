@@ -1,43 +1,71 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
-import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tk8 implements BrowserProxyService {
+/* loaded from: classes7.dex */
+public class tk8 extends df5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tk8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tk8(Context context) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        this.p = new int[]{20, 19};
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.BrowserProxyService
-    @NonNull
-    public IBrowserView buildLightBrowserViewInstance() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tk8(Context context, boolean z) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (tf6.e("https://live-tmp/")) {
-                return new uk8();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new rk8();
         }
-        return (IBrowserView) invokeV.objValue;
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, ri.g(getContext(), R.dimen.obfuscated_res_0x7f0703d4));
+        ((LinearLayout.LayoutParams) layoutParams).leftMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).rightMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070383);
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f070383);
+        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{20, 19};
     }
 }

@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GeneralResource;
-/* loaded from: classes7.dex */
-public class wz4 extends BaseCardInfo {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BannerImage;
+/* loaded from: classes8.dex */
+public class wz4 extends BaseCardInfo implements rn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
+    public List<wy4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class wz4 extends BaseCardInfo {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public wz4() {
@@ -46,26 +46,33 @@ public class wz4 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(GeneralResource generalResource) {
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) && generalResource != null) {
-            this.a = generalResource.res_image;
-            this.b = generalResource.res_link;
-            this.c = generalResource.res_floor.intValue();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
+            return;
+        }
+        this.a.clear();
+        int min = Math.min(list.size(), 10);
+        for (int i = 0; i < min; i++) {
+            wy4 wy4Var = new wy4();
+            wy4Var.d(list.get(i));
+            this.a.add(wy4Var);
         }
     }
 }

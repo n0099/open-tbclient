@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CopyObjectRequest extends GenericObjectRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

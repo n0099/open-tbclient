@@ -7,6 +7,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -27,23 +28,23 @@ import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
 import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ca5;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.fc5;
+import com.baidu.tieba.a35;
+import com.baidu.tieba.b65;
+import com.baidu.tieba.bt5;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.el5;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.hh5;
 import com.baidu.tieba.im.message.ResponsedGroupChatListCompleteMessage;
-import com.baidu.tieba.q15;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.qb;
-import com.baidu.tieba.r15;
-import com.baidu.tieba.s45;
-import com.baidu.tieba.sr5;
-import com.baidu.tieba.t45;
-import com.baidu.tieba.vj5;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.yf5;
-import com.baidu.tieba.za;
-import com.baidu.tieba.zn5;
+import com.baidu.tieba.ip5;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.od5;
+import com.baidu.tieba.wb;
+import com.baidu.tieba.z25;
+import com.baidu.tieba.z55;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +57,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.Callable;
 import tbclient.AlaLiveInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PollingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_BROADCAST = "activity_broadcast";
@@ -71,6 +72,7 @@ public class PollingModel extends BdBaseModel {
     public static final String MEMBER_BROADCAST = "member_broadcast";
     public static final String POLLING_TYPE_LEVEL_ICON_LIVE = "live,level,icon,festival_info";
     public static final String POLLING_TYPE_LOOP = "live,level,icon,festival_info,live_follow_second_floor,member_broadcast,activity_broadcast";
+    public static final String SP_KEY_GROUP_CHAT_DISTURB_SETTING = "sp_key_group_chat_disturb_setting";
     public static final String SUBSCRIBE_GROUP_CHAT_LIST = "chatroom_message_tab";
     public transient /* synthetic */ FieldHolder $fh;
     public LiveRemindData a;
@@ -78,7 +80,7 @@ public class PollingModel extends BdBaseModel {
     public BdUniqueId c;
     public LevePopData d;
     public IconPopData e;
-    public fc5 f;
+    public od5 f;
     public List<AlaLiveInfo> g;
     public List<AlaLiveInfo> h;
     public final List<AlaLiveInfo> i;
@@ -91,16 +93,16 @@ public class PollingModel extends BdBaseModel {
     public c p;
     public MemberBroadcastData q;
     public String r;
-    public final sr5 s;
-    public q15 t;
-    public za u;
+    public final bt5 s;
+    public z25 t;
+    public fb u;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(ChatRoomEntranceData chatRoomEntranceData);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         void onSuccess(List<AlaLiveInfo> list);
     }
@@ -125,20 +127,20 @@ public class PollingModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
-    public class a extends za {
+    /* loaded from: classes4.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PollingModel a;
 
         /* renamed from: com.baidu.tbadk.core.leveiconlivepolling.PollingModel$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0195a implements Runnable {
+        /* loaded from: classes4.dex */
+        public class RunnableC0207a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0195a(a aVar) {
+            public RunnableC0207a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -188,7 +190,7 @@ public class PollingModel extends BdBaseModel {
             this.a = pollingModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             MemberBroadcastData activityBroadcastData;
             Interceptable interceptable = $ic;
@@ -202,35 +204,35 @@ public class PollingModel extends BdBaseModel {
                     arrayList = Arrays.asList(dataType.split(","));
                 }
             }
-            if (!ListUtils.isEmpty(arrayList) && (responsedMessage instanceof q45)) {
-                q45 q45Var = (q45) responsedMessage;
-                this.a.r = q45Var.getUniqueId();
+            if (!ListUtils.isEmpty(arrayList) && (responsedMessage instanceof z55)) {
+                z55 z55Var = (z55) responsedMessage;
+                this.a.r = z55Var.getUniqueId();
                 if (arrayList.contains("live")) {
-                    this.a.a = q45Var.getLiveRemindData();
+                    this.a.a = z55Var.getLiveRemindData();
                 }
                 if (arrayList.contains("level")) {
-                    this.a.d = q45Var.getLevePopData();
+                    this.a.d = z55Var.getLevePopData();
                 }
                 if (arrayList.contains("icon")) {
-                    this.a.e = q45Var.getIconPopData();
+                    this.a.e = z55Var.getIconPopData();
                 }
                 if (arrayList.contains(PollingModel.FESTIVAL)) {
-                    this.a.f = q45Var.getFestivalConfigData();
+                    this.a.f = z55Var.getFestivalConfigData();
                 }
                 if (arrayList.contains(PollingModel.LIVE_FOLLOW_SECOND_FLOOR)) {
                     this.a.g.clear();
-                    this.a.g.addAll(q45Var.getLiveFollowSecondFloor());
+                    this.a.g.addAll(z55Var.getLiveFollowSecondFloor());
                 }
                 if (arrayList.contains(PollingModel.LIVE_INDEX_SECOND_FLOOR)) {
                     this.a.h.clear();
-                    this.a.h.addAll(q45Var.getLiveIndexSecondFloor());
+                    this.a.h.addAll(z55Var.getLiveIndexSecondFloor());
                 }
                 if (arrayList.contains(PollingModel.LIVE_PIC_SECOND_FLOOR)) {
                     this.a.i.clear();
-                    this.a.i.addAll(q45Var.getLivePicSecondFloor());
+                    this.a.i.addAll(z55Var.getLivePicSecondFloor());
                 }
                 if (arrayList.contains(PollingModel.CHATROOM_FRS)) {
-                    this.a.o = q45Var.getChatRoomEntranceData();
+                    this.a.o = z55Var.getChatRoomEntranceData();
                     this.a.n = new ChatEntranceLoopData();
                     this.a.n.setEntranceData(this.a.o);
                     this.a.n.setUniqueId(this.a.r);
@@ -240,45 +242,45 @@ public class PollingModel extends BdBaseModel {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921763, this.a.n));
                 }
                 if (arrayList.contains(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST)) {
-                    this.a.m = q45Var.getSubscribeChatHaveUnReadMsg();
+                    this.a.m = z55Var.getSubscribeChatHaveUnReadMsg();
                 }
                 if (arrayList.contains(PollingModel.MEMBER_BROADCAST)) {
-                    this.a.q = q45Var.getMemberBroadcastData();
+                    this.a.q = z55Var.getMemberBroadcastData();
                     if (this.a.q != null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921774, this.a.q));
                     }
                 }
-                if (arrayList.contains(PollingModel.ACTIVITY_BROADCAST) && (activityBroadcastData = q45Var.getActivityBroadcastData()) != null) {
+                if (arrayList.contains(PollingModel.ACTIVITY_BROADCAST) && (activityBroadcastData = z55Var.getActivityBroadcastData()) != null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921801, activityBroadcastData));
                 }
             }
             if (this.a.d != null) {
                 PollingModel pollingModel = this.a;
-                if (pollingModel.A0(pollingModel.d, PollingModel.F0())) {
+                if (pollingModel.z0(pollingModel.d, PollingModel.F0())) {
                     PollingModel.O0(this.a.d, false);
                 }
             }
             if (this.a.e != null) {
                 PollingModel pollingModel2 = this.a;
-                if (pollingModel2.y0(pollingModel2.e, PollingModel.E0())) {
+                if (pollingModel2.x0(pollingModel2.e, PollingModel.E0())) {
                     PollingModel.N0(this.a.e, false);
                 }
             }
             if (this.a.f != null) {
-                yf5.b().update(this.a.f);
+                hh5.b().update(this.a.f);
             }
             this.a.I0();
             PollingModel pollingModel3 = this.a;
             pollingModel3.K0(responsedMessage, pollingModel3.m);
             PollingModel pollingModel4 = this.a;
             pollingModel4.H0(responsedMessage, pollingModel4.m);
-            qb.b().a("showPollingLiveRecommend", new RunnableC0195a(this));
+            wb.b().a("showPollingLiveRecommend", new RunnableC0207a(this));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921728));
             this.a.G0();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,7 +338,7 @@ public class PollingModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -348,20 +350,20 @@ public class PollingModel extends BdBaseModel {
         this.h = new ArrayList();
         this.i = new ArrayList();
         this.o = new ChatRoomEntranceData();
-        this.s = sr5.g();
+        this.s = bt5.g();
         this.u = new a(this, CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, 309732);
         this.b = tbPageContext;
         setUniqueId(bdUniqueId);
         this.c = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, xo9.a(TbConfig.GET_POLLING_DATA, 309732));
-        zn5 zn5Var = new zn5(309732);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, zq9.a(TbConfig.GET_POLLING_DATA, 309732));
+        ip5 ip5Var = new ip5(309732);
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        zn5Var.setResponsedClass(PollingSocketResMessage.class);
-        zn5Var.g(true);
-        zn5Var.h(false);
-        MessageManager.getInstance().registerTask(zn5Var);
+        ip5Var.setResponsedClass(PollingSocketResMessage.class);
+        ip5Var.g(true);
+        ip5Var.h(false);
+        MessageManager.getInstance().registerTask(ip5Var);
         this.u.getHttpMessageListener().setSelfListener(true);
         this.u.getSocketMessageListener().setSelfListener(true);
         registerListener(this.u);
@@ -385,7 +387,7 @@ public class PollingModel extends BdBaseModel {
         return (LevePopData) invokeV.objValue;
     }
 
-    public static boolean z0() {
+    public static boolean y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
@@ -398,17 +400,17 @@ public class PollingModel extends BdBaseModel {
         TbPageContext tbPageContext;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.t != null && (tbPageContext = this.b) != null && tbPageContext.getPageActivity() != null) {
-            r15.o(this.b.getPageActivity(), this.t);
+            a35.o(this.b.getPageActivity(), this.t);
         }
     }
 
     public final void I0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s45.a().d(this.a);
+            b65.a().d(this.a);
             LiveRemindDataEvent liveRemindDataEvent = new LiveRemindDataEvent();
             liveRemindDataEvent.liveRemindData = this.a;
-            vj5.i(liveRemindDataEvent);
+            el5.i(liveRemindDataEvent);
         }
     }
 
@@ -426,7 +428,7 @@ public class PollingModel extends BdBaseModel {
         if ((interceptable == null || interceptable.invokeLZ(65539, null, iconPopData, z) == null) && iconPopData != null) {
             iconPopData.setHadShow(z);
             TbSingleton.getInstance().setIconPopData(iconPopData);
-            f55 m = f55.m();
+            o65 m = o65.m();
             m.B("key_polling_icon_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(iconPopData));
         }
     }
@@ -436,12 +438,12 @@ public class PollingModel extends BdBaseModel {
         if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, levePopData, z) == null) && levePopData != null) {
             levePopData.setHadShow(z);
             TbSingleton.getInstance().setLevePopData(levePopData);
-            f55 m = f55.m();
+            o65 m = o65.m();
             m.B("key_polling_level_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(levePopData));
         }
     }
 
-    public final boolean y0(IconPopData iconPopData, IconPopData iconPopData2) {
+    public final boolean x0(IconPopData iconPopData, IconPopData iconPopData2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, iconPopData, iconPopData2)) == null) {
@@ -454,6 +456,17 @@ public class PollingModel extends BdBaseModel {
             return false;
         }
         return invokeLL.booleanValue;
+    }
+
+    public final int B0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            o65 m = o65.m();
+            String q = o65.q(SP_KEY_GROUP_CHAT_DISTURB_SETTING);
+            return !m.i(q + str, true);
+        }
+        return invokeL.intValue;
     }
 
     public void C0(String str) {
@@ -470,10 +483,10 @@ public class PollingModel extends BdBaseModel {
         }
     }
 
-    public void M0(q15 q15Var) {
+    public void M0(z25 z25Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, q15Var) == null) {
-            this.t = q15Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, z25Var) == null) {
+            this.t = z25Var;
         }
     }
 
@@ -498,10 +511,10 @@ public class PollingModel extends BdBaseModel {
         }
     }
 
-    public final boolean A0(LevePopData levePopData, LevePopData levePopData2) {
+    public final boolean z0(LevePopData levePopData, LevePopData levePopData2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, levePopData, levePopData2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, levePopData, levePopData2)) == null) {
             if (levePopData == null) {
                 return false;
             }
@@ -513,9 +526,9 @@ public class PollingModel extends BdBaseModel {
         return invokeLL.booleanValue;
     }
 
-    public void B0(String str, String str2, long j, String str3, String str4) {
+    public void A0(String str, String str2, long j, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), str3, str4}) == null) {
             PollingReqMessage pollingReqMessage = new PollingReqMessage();
             pollingReqMessage.setDataType(str);
             pollingReqMessage.setForumName(str2);
@@ -523,6 +536,9 @@ public class PollingModel extends BdBaseModel {
             pollingReqMessage.setChatroomId(j);
             pollingReqMessage.setDataRoomListMsg(str4);
             pollingReqMessage.setTag(this.c);
+            if (!StringUtils.isNull(str2)) {
+                pollingReqMessage.setChatroomMask(B0(str2));
+            }
             MessageManager.getInstance().sendMessage(pollingReqMessage);
         }
     }
@@ -554,8 +570,8 @@ public class PollingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
             int i = 0;
-            LiveRemindRecommendData c2 = s45.a().c(0);
-            if (c2 != null && t45.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+            LiveRemindRecommendData c2 = b65.a().c(0);
+            if (c2 != null && c65.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
                 HashMap hashMap = new HashMap();
                 if (c2.getRemindType() == 1) {
                     i = 3;
@@ -575,8 +591,8 @@ public class PollingModel extends BdBaseModel {
                 hashMap.put("view_top_params_key_yyext", c2.getYyExtData());
                 hashMap.put("view_top_params_key_type", Integer.valueOf(i));
                 hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (ca5.f(null, tbPageContext, hashMap, 0L, 4000L) != null) {
-                    t45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                if (lb5.f(null, tbPageContext, hashMap, 0L, 4000L) != null) {
+                    c65.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
                 }
             }
         }

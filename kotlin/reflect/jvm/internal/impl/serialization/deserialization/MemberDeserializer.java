@@ -59,7 +59,7 @@ import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptor
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MemberDeserializer {
     public final AnnotationDeserializer annotationDeserializer;
     public final DeserializationContext c;

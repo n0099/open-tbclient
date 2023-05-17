@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimmable {
     public final MemoryCache.CacheTrimStrategy mCacheTrimStrategy;
     @VisibleForTesting
@@ -41,13 +41,13 @@ public class CountingMemoryCache<K, V> implements MemoryCache<K, V>, MemoryTrimm
     @GuardedBy("this")
     public long mLastCacheParamsCheck = SystemClock.uptimeMillis();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface EntryStateObserver<K> {
         void onExclusivityChanged(K k, boolean z);
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Entry<K, V> {
         public int clientCount = 0;
         public boolean isOrphan = false;

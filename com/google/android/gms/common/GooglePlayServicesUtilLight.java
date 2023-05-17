@@ -29,7 +29,7 @@ import com.google.android.gms.common.wrappers.Wrappers;
 import java.util.concurrent.atomic.AtomicBoolean;
 @ShowFirstParty
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GooglePlayServicesUtilLight {
     @KeepForSdk
     public static final int GMS_AVAILABILITY_NOTIFICATION_ID = 10436;
@@ -231,7 +231,7 @@ public class GooglePlayServicesUtilLight {
         boolean z2;
         PackageInfo packageInfo;
         try {
-            context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f044b);
+            context.getResources().getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f048e);
         } catch (Throwable unused) {
             Log.e("GooglePlayServicesUtil", "The Google Play services resources were not found. Check your project configuration to ensure that the resources are included.");
         }

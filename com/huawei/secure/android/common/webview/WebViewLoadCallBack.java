@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface WebViewLoadCallBack {
     void a(String str, ErrorCode errorCode);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ErrorCode {
         public static final /* synthetic */ ErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

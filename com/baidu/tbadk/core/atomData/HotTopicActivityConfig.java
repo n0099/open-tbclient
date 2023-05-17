@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HotTopicActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_BANG = "5";
@@ -70,7 +70,7 @@ public class HotTopicActivityConfig extends IntentConfig {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3, str4, locate)) == null) {
             Intent intent = getIntent();
             intent.putExtra("topic_id", str);
-            intent.putExtra(IntentConfig.TOPIC_NAME, str2);
+            intent.putExtra("topic_name", str2);
             intent.putExtra("is_video_topic", str3);
             if (StringUtils.isNull(str4)) {
                 str4 = "1";

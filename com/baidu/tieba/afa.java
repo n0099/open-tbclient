@@ -1,68 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.android.util.sp.SharedPrefsWrapper;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class afa extends SharedPrefsWrapper {
+import java.nio.ByteBuffer;
+/* loaded from: classes4.dex */
+public final class afa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final afa a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-948093936, "Lcom/baidu/tieba/afa$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-948093936, "Lcom/baidu/tieba/afa$a;");
-                    return;
-                }
-            }
-            a = new afa();
+    public static void a(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
+            return;
         }
+        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public afa() {
-        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
+    public static void b(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((SharedPreferences) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
+            return;
         }
-    }
-
-    public static afa d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (afa) invokeV.objValue;
+        throw new IllegalArgumentException("ByteBuffer is already full.");
     }
 }

@@ -1,20 +1,52 @@
 package com.baidu.tieba;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.MultiForumPerm;
-/* loaded from: classes4.dex */
+import java.util.Iterator;
+import java.util.LinkedList;
+/* loaded from: classes5.dex */
 public class gy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
+    public final LinkedList<hy4> a;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final gy4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-760112695, "Lcom/baidu/tieba/gy4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-760112695, "Lcom/baidu/tieba/gy4$b;");
+                    return;
+                }
+            }
+            a = new gy4(null);
+        }
+    }
 
     public gy4() {
         Interceptable interceptable = $ic;
@@ -26,63 +58,57 @@ public class gy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new LinkedList<>();
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
-        int i;
+    public static gy4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        boolean z2 = false;
-        if (jSONObject.optInt("is_bawu") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if ("manager".equals(jSONObject.optString("bawu_type"))) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
-            i = 2;
-        } else {
-            i = 0;
-        }
-        this.b = i;
-        if (jSONObject.optInt("is_deleted") == 1) {
-            z2 = true;
-        }
-        this.c = z2;
+        return (gy4) invokeV.objValue;
     }
 
-    public void b(MultiForumPerm multiForumPerm) {
-        boolean z;
-        int i;
+    public /* synthetic */ gy4(a aVar) {
+        this();
+    }
+
+    public final hy4 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Iterator<hy4> it = this.a.iterator();
+            while (it.hasNext()) {
+                hy4 next = it.next();
+                if (next.b() == i) {
+                    return next;
+                }
+            }
+            return null;
         }
-        boolean z2 = false;
-        if (multiForumPerm.is_bawu.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
+        return (hy4) invokeI.objValue;
+    }
+
+    @MainThread
+    public void b(int i) {
+        hy4 a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
+            a2.run();
         }
-        this.a = z;
-        if ("manager".equals(multiForumPerm.bawu_type)) {
-            i = 1;
-        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
-            i = 2;
-        } else {
-            i = 0;
+    }
+
+    public void d(@Nullable BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            Iterator<hy4> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().a(bdUniqueId);
+            }
         }
-        this.b = i;
-        if (multiForumPerm.is_deleted.intValue() == 1) {
-            z2 = true;
-        }
-        this.c = z2;
     }
 }

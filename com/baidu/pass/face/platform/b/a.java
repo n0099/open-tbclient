@@ -9,7 +9,7 @@ import com.baidu.pass.face.platform.model.ImageInfo;
 import com.baidu.pass.main.facesdk.FaceInfo;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public FaceExtInfo[] a;
     public FaceExtInfo b;

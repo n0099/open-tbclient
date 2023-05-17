@@ -22,16 +22,16 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d78;
+import com.baidu.tieba.a98;
+import com.baidu.tieba.b98;
 import com.baidu.tieba.feed.widget.AutoDegradeTagView;
-import com.baidu.tieba.i78;
-import com.baidu.tieba.ii;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.ReplyContentView;
-import com.baidu.tieba.j78;
-import com.baidu.tieba.or5;
-import com.baidu.tieba.s78;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.v88;
+import com.baidu.tieba.xs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,12 +39,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
-public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHolder extends BaseViewHolder> extends d78<ChildItemData, Holder<ChildViewHolder>> {
+/* loaded from: classes6.dex */
+public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHolder extends BaseViewHolder> extends v88<ChildItemData, Holder<ChildViewHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public i78<? extends BaseChatAdapter, ChildItemData> i;
+    public a98<? extends BaseChatAdapter, ChildItemData> i;
 
     public void I(@NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Holder<ChildViewHolder extends BaseViewHolder> extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,19 +143,19 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull j78 j78Var) {
+        public void d(@NonNull b98 b98Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j78Var) == null) {
-                super.d(j78Var);
-                this.a.d(j78Var);
-                this.b.d(j78Var);
-                this.c.d(j78Var);
-                this.d.d(j78Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b98Var) == null) {
+                super.d(b98Var);
+                this.a.d(b98Var);
+                this.b.d(b98Var);
+                this.c.d(b98Var);
+                this.d.d(b98Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class SelfHolder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,6 +177,8 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         @Nullable
         public ReplyContentView p;
         public AutoDegradeTagView q;
+        public TextView r;
+        public LinearLayout s;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SelfHolder(@NonNull View view2, boolean z) {
@@ -196,36 +198,38 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
                     return;
                 }
             }
-            this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09030a);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091857);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b7);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0926c4);
+            this.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090317);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a3);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092723);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092730);
             this.e = (ImageView) view2.findViewById(R.id.btn_msgitem_resend);
-            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091c47);
-            this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904e2);
-            this.h = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0904e1);
-            this.i = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0904e0);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090775);
-            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a5d);
+            this.f = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091c9b);
+            this.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904f8);
+            this.h = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0904f7);
+            this.i = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f0904f6);
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090792);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090a87);
             this.l = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090024);
-            this.m = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f09089b);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09089a);
+            this.m = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f0908b8);
+            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908b7);
             this.n = tbImageView;
             tbImageView.setPlaceHolder(0);
-            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090899);
-            AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f0926bc);
+            this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908b6);
+            this.r = (TextView) view2.findViewById(R.id.kaogao_icon);
+            this.s = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090dd8);
+            AutoDegradeTagView autoDegradeTagView = (AutoDegradeTagView) view2.findViewById(R.id.obfuscated_res_0x7f092728);
             this.q = autoDegradeTagView;
             if (autoDegradeTagView.getLayoutParams() != null) {
-                this.q.getLayoutParams().height = ii.g(view2.getContext(), R.dimen.tbds44);
+                this.q.getLayoutParams().height = ri.g(view2.getContext(), R.dimen.tbds44);
             }
-            this.q.setTagConfig(ii.g(view2.getContext(), R.dimen.T_X08), ii.g(view2.getContext(), R.dimen.tbds35), ii.g(view2.getContext(), R.dimen.M_W_X002), R.color.CAM_X0105);
+            this.q.setTagConfig(ri.g(view2.getContext(), R.dimen.T_X08), ri.g(view2.getContext(), R.dimen.tbds35), ri.g(view2.getContext(), R.dimen.M_W_X002), R.color.CAM_X0105);
             if (z && view2.getContext() != null) {
-                ReplyContentView e = s78.e(view2.getContext());
+                ReplyContentView e = k98.e(view2.getContext());
                 this.p = e;
                 this.j.addView(e);
             }
             if (view2.getContext() != null) {
-                this.l.addView(s78.d(view2.getContext()));
+                this.l.addView(k98.d(view2.getContext()));
             }
         }
 
@@ -258,11 +262,11 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void d(@NonNull j78 j78Var) {
+        public void d(@NonNull b98 b98Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j78Var) == null) {
-                super.d(j78Var);
-                j78.d(this.e, j78Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b98Var) == null) {
+                super.d(b98Var);
+                b98.d(this.e, b98Var);
             }
         }
     }
@@ -290,18 +294,18 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter<ChildItemData extends com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, ChildViewHolder extends com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
         T(i, view2, viewGroup, (BaseMsg) obj, (Holder) viewHolder);
         return view2;
     }
 
-    public <T extends BaseChatAdapter> void H(@NonNull i78<T, ChildItemData> i78Var) {
+    public <T extends BaseChatAdapter> void H(@NonNull a98<T, ChildItemData> a98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i78Var) == null) {
-            this.i = i78Var;
-            i78Var.f(this);
-            this.g.c(i78Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a98Var) == null) {
+            this.i = a98Var;
+            a98Var.f(this);
+            this.g.c(a98Var);
         }
     }
 
@@ -309,7 +313,7 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, viewGroup)) == null) {
-            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0424, viewGroup, false), V());
+            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d043f, viewGroup, false), V());
         }
         return (SelfHolder) invokeL.objValue;
     }
@@ -318,13 +322,13 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0425, viewGroup, false), V());
+            return new SelfHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0440, viewGroup, false), V());
         }
         return (SelfHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: P */
     public final Holder<ChildViewHolder> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -343,11 +347,11 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
             } else {
                 z = false;
             }
-            or5.e(z, "子类视图不需要手动添加到父布局中");
+            xs5.e(z, "子类视图不需要手动添加到父布局中");
             if (M.itemView.getParent() != null) {
                 z2 = false;
             }
-            or5.e(z2, "子类视图不需要手动添加到父布局中");
+            xs5.e(z2, "子类视图不需要手动添加到父布局中");
             N.j.addView(J.itemView);
             O.j.addView(M.itemView);
             I(N.k);
@@ -364,11 +368,11 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
     public final void S(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull SelfHolder selfHolder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), viewGroup, childitemdata, selfHolder, list, Integer.valueOf(i2)}) == null) {
-            s78.i(childitemdata, selfHolder);
-            s78.h(childitemdata, selfHolder);
-            s78.l(childitemdata, selfHolder);
-            s78.j(this.mContext, childitemdata, selfHolder, A());
-            s78.k(this.mContext, childitemdata, selfHolder, C(), A());
+            k98.i(childitemdata, selfHolder);
+            k98.h(childitemdata, selfHolder);
+            k98.l(childitemdata, selfHolder);
+            k98.j(this.mContext, childitemdata, selfHolder, A());
+            k98.k(this.mContext, childitemdata, selfHolder, C(), A());
         }
     }
 
@@ -383,7 +387,7 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d78, com.baidu.tieba.vm
+    @Override // com.baidu.tieba.v88, com.baidu.tieba.en
     /* renamed from: U */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         SelfHolder selfHolder;
@@ -427,15 +431,15 @@ public abstract class BaseChatAdapter<ChildItemData extends BaseMsg, ChildViewHo
                 selfHolder3 = holder.b;
             }
             Q(i, childitemdata, selfHolder3.k, list, skinType);
-            or5.c(this.i, "必须绑定消费发送帮助器");
+            xs5.c(this.i, "必须绑定消费发送帮助器");
             if (childitemdata.getItemStatus() == 0) {
                 this.i.m(childitemdata, i);
             }
-            s78.g(C(), childitemdata, holder.itemView);
+            k98.g(C(), childitemdata, holder.itemView);
         }
     }
 
-    @Override // com.baidu.tieba.d78
+    @Override // com.baidu.tieba.v88
     @NonNull
     public Context getContext() {
         InterceptResult invokeV;

@@ -1,132 +1,220 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public final class wd3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class wd3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(@NonNull String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            return str + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements sp1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Activity d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ wd3 g;
 
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
-            lg3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
+        public a(wd3 wd3Var, boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wd3Var, Boolean.valueOf(z), callbackHandler, str, activity, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = wd3Var;
+            this.a = z;
+            this.b = callbackHandler;
+            this.c = str;
+            this.d = activity;
+            this.e = str2;
+            this.f = str3;
         }
-    }
 
-    public static void j(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
-            lg3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
-        }
-    }
-
-    public static void k(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
-            lg3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
-        }
-    }
-
-    public static void l(boolean z, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
-            lg3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
-        }
-    }
-
-    public static void m(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
-            lg3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
-        }
-    }
-
-    public static void n(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
-            lg3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String appId = w73.K().getAppId();
-            fg3 a = lg3.a();
-            a.remove(a("SwanAppStabilitySp-obtainData", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
-            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
-            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
-            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
-            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        @Override // com.baidu.tieba.sp1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 0) {
+                    this.g.k(this.a, this.b, this.c, this.d, this.e, "snsapi_userinfo", this.f);
+                } else {
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+                }
+            }
         }
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return lg3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", w73.K().getAppId()), i);
+    /* loaded from: classes8.dex */
+    public class b implements zn3<se3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ wd3 f;
+
+        public b(wd3 wd3Var, Activity activity, boolean z, String str, CallbackHandler callbackHandler, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wd3Var, activity, Boolean.valueOf(z), str, callbackHandler, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = wd3Var;
+            this.a = activity;
+            this.b = z;
+            this.c = str;
+            this.d = callbackHandler;
+            this.e = str2;
         }
-        return invokeI.intValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(se3 se3Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se3Var) == null) {
+                g62.b("OpenData", "onOpenDataCallback:: ", se3Var);
+                g93 c = this.f.c();
+                if (c != null) {
+                    z = c.N().e(this.a);
+                } else {
+                    z = false;
+                }
+                if (!se3Var.E()) {
+                    if (!z && !this.b) {
+                        zf3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 3, this.c);
+                    }
+                    ee3.n(se3Var, this.d, this.e);
+                    return;
+                }
+                if (z && !this.b) {
+                    zf3.S("success", 3, this.c);
+                }
+                this.d.handleSchemeDispatchCallback(this.e, UnitedSchemeUtility.wrapCallbackParams(se3Var.g, 0).toString());
+            }
+        }
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wd3(da3 da3Var) {
+        super(da3Var, "/swanAPI/getUserInfo");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            return lg3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", w73.K().getAppId()), i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeI.intValue;
     }
 
-    public static int e(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
+        Activity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return lg3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", w73.K().getAppId()), i);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                os2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                os2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                os2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+                return false;
+            }
+            if (context instanceof Activity) {
+                w = (Activity) context;
+            } else {
+                w = g93Var.w();
+            }
+            Activity activity = w;
+            if (activity == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                os2.j().c(callbackHandler, UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity").toString());
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("invokeFrom");
+            if (!g93Var.N().e(context)) {
+                zf3.S("show", 3, optString2);
+            }
+            String f = e53.f(optParamsAsJo.optString("__plugin__", null));
+            tp1 N = g93Var.N();
+            boolean j = ee3.j(optParamsAsJo);
+            if (!N.e(context) && j) {
+                N.f(activity, null, new a(this, j, callbackHandler, optString, activity, f, optString2));
+            } else {
+                k(j, callbackHandler, optString, activity, f, "snsapi_userinfo", optString2);
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return invokeI.intValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public final void k(boolean z, CallbackHandler callbackHandler, String str, Activity activity, String str2, String str3, String str4) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return lg3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", w73.K().getAppId()), false);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), callbackHandler, str, activity, str2, str3, str4}) == null) {
+            g93 b0 = g93.b0();
+            if (b0 != null) {
+                z2 = b0.N().e(activity);
+            } else {
+                z2 = false;
+            }
+            se3.B(activity, str3, str2, z, "getUserInfoApi", new b(this, activity, z2, str4, callbackHandler, str));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return lg3.a().getBoolean(a("SwanAppStabilitySp-obtainData", w73.K().getAppId()), false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return lg3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", w73.K().getAppId()), false);
-        }
-        return invokeV.booleanValue;
     }
 }

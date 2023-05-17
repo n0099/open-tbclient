@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TfrfBox extends AbstractFullBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_2 = null;
     public List<Entry> entries;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class Entry {
         public long fragmentAbsoluteDuration;
         public long fragmentAbsoluteTime;

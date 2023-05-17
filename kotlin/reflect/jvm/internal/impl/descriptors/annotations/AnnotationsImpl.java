@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AnnotationsImpl implements Annotations {
     public final List<AnnotationDescriptor> annotations;
 
@@ -16,7 +16,7 @@ public final class AnnotationsImpl implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2020findAnnotation(FqName fqName) {
+    public AnnotationDescriptor mo2039findAnnotation(FqName fqName) {
         return Annotations.DefaultImpls.findAnnotation(this, fqName);
     }
 

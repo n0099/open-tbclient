@@ -1,65 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class i01 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class i01 implements h01 {
     public static /* synthetic */ Interceptable $ic;
+    public static final i01 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static AudioManager a(@Nullable Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l01
+    public void end(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                return (AudioManager) context.getSystemService("audio");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
-        return (AudioManager) invokeL.objValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l01
+    public void stop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamMaxVolume(3);
-            }
-            return -1;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
-        return invokeL.intValue;
     }
 
-    public static int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamVolume(3);
+    /* loaded from: classes5.dex */
+    public static class a extends i01 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return -1;
         }
-        return invokeL.intValue;
     }
 
-    public static void d(Context context, int i) {
-        AudioManager a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947799583, "Lcom/baidu/tieba/i01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947799583, "Lcom/baidu/tieba/i01;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public i01() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
-            a.setStreamVolume(3, i, 8);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 }

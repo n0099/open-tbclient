@@ -18,13 +18,13 @@ import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.util.collectionUtils.ScopeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ChainedMemberScope implements MemberScope {
     public static final Companion Companion = new Companion(null);
     public final String debugName;
     public final List<MemberScope> scopes;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -54,17 +54,17 @@ public final class ChainedMemberScope implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
         ClassifierDescriptor classifierDescriptor = null;
         for (MemberScope memberScope : this.scopes) {
-            ClassifierDescriptor mo2027getContributedClassifier = memberScope.mo2027getContributedClassifier(name, lookupLocation);
-            if (mo2027getContributedClassifier != null) {
-                if ((mo2027getContributedClassifier instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2027getContributedClassifier).isExpect()) {
+            ClassifierDescriptor mo2046getContributedClassifier = memberScope.mo2046getContributedClassifier(name, lookupLocation);
+            if (mo2046getContributedClassifier != null) {
+                if ((mo2046getContributedClassifier instanceof ClassifierDescriptorWithTypeParameters) && ((ClassifierDescriptorWithTypeParameters) mo2046getContributedClassifier).isExpect()) {
                     if (classifierDescriptor == null) {
-                        classifierDescriptor = mo2027getContributedClassifier;
+                        classifierDescriptor = mo2046getContributedClassifier;
                     }
                 } else {
-                    return mo2027getContributedClassifier;
+                    return mo2046getContributedClassifier;
                 }
             }
         }

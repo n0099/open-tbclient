@@ -22,13 +22,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CallbackDispatcher {
     public static final String TAG = "CallbackDispatcher";
     public final DownloadListener transmit;
     public final Handler uiHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DefaultTransmitListener implements DownloadListener {
         @NonNull
         public final Handler uiHandler;

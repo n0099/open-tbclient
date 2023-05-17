@@ -8,13 +8,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ScrollTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.digest4util.Sha2Crypt;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class VerticalScrollNumberView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,10 +50,10 @@ public class VerticalScrollNumberView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            this.b = ii.g(context, R.dimen.obfuscated_res_0x7f070201);
-            this.c = ii.g(this.a, R.dimen.obfuscated_res_0x7f070225);
-            this.d = ii.g(this.a, R.dimen.obfuscated_res_0x7f0701d4);
-            this.e = ii.g(this.a, R.dimen.obfuscated_res_0x7f070303);
+            this.b = ri.g(context, R.dimen.obfuscated_res_0x7f070201);
+            this.c = ri.g(this.a, R.dimen.obfuscated_res_0x7f070225);
+            this.d = ri.g(this.a, R.dimen.obfuscated_res_0x7f0701d4);
+            this.e = ri.g(this.a, R.dimen.obfuscated_res_0x7f07040b);
         }
     }
 

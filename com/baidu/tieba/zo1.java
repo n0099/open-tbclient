@@ -1,49 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zo1 extends e43 {
+/* loaded from: classes8.dex */
+public class zo1 implements ap1 {
     public static /* synthetic */ Interceptable $ic;
+    public static zo1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public yv3 c;
-    public DownloadParams.SwanAppDownloadType d;
+    public ap1 a;
+    public boolean b;
 
-    @Override // com.baidu.tieba.c43
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.c43
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public zo1(yv3 yv3Var, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
+    public zo1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv3Var, swanAppDownloadType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,26 +29,73 @@ public class zo1 extends e43 {
                 return;
             }
         }
-        this.c = yv3Var;
-        this.d = swanAppDownloadType;
+        this.a = null;
+        this.b = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e43, com.baidu.tieba.c43
-    public void onEvent(@NonNull a43 a43Var) {
-        Bundle a;
+    public static zo1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, a43Var) == null) && (a = a43Var.a()) != null && this.c != null) {
-            int i = a.getInt("state", DownloadState.NOT_START.value());
-            int i2 = a.getInt("progress", 0);
-            this.c.c(DownloadState.convert(i), i2);
-            this.c.a(i2);
-            String string = a.getString("packageName", "");
-            if (!TextUtils.isEmpty(string)) {
-                this.c.d(string);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (zo1.class) {
+                    if (c == null) {
+                        c = new zo1();
+                    }
+                }
             }
-            if (this.d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.c.f(true);
+            return c;
+        }
+        return (zo1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ap1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ap1 ap1Var = this.a;
+            if (ap1Var == null) {
+                return null;
+            }
+            try {
+                return ap1Var.a();
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ap1
+    public void a(Context context, bp1 bp1Var) {
+        ap1 dp1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bp1Var) == null) {
+            try {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                int ordinal = com.baidu.sso.u.a.a(Build.MANUFACTURER).ordinal();
+                if (ordinal != 0) {
+                    if (ordinal == 1) {
+                        dp1Var = new dp1();
+                    } else if (ordinal == 2) {
+                        dp1Var = new lp1();
+                    } else if (ordinal == 3) {
+                        dp1Var = new jp1();
+                    } else if (ordinal == 4) {
+                        dp1Var = new fp1();
+                    }
+                    this.a = dp1Var;
+                } else {
+                    this.a = null;
+                }
+                if (this.a != null) {
+                    this.a.a(context, bp1Var);
+                }
+            } catch (Throwable unused) {
             }
         }
     }

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PoiFilter implements Parcelable {
     public String a;
     public String b;
@@ -15,17 +15,17 @@ public final class PoiFilter implements Parcelable {
     public static Map<SortName, String> f = new HashMap();
     public static final Parcelable.Creator<PoiFilter> CREATOR = new c();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum IndustryType {
         HOTEL,
         CATER,
         LIFE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface SortName {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public enum CaterSortName implements SortName {
             DEFAULT,
             CATER_PRICE,
@@ -35,7 +35,7 @@ public final class PoiFilter implements Parcelable {
             CATER_SERVICE_RATING
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public enum HotelSortName implements SortName {
             DEFAULT,
             HOTEL_PRICE,
@@ -45,7 +45,7 @@ public final class PoiFilter implements Parcelable {
             HOTEL_HEALTH_SCORE
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public enum LifeSortName implements SortName {
             DEFAULT,
             PRICE,
@@ -60,7 +60,7 @@ public final class PoiFilter implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public String a;
         public String b;

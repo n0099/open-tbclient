@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class NormalSpriteViewBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,11 +47,11 @@ public final class NormalSpriteViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            DynamicAnimView dynamicAnimView = (DynamicAnimView) view2.findViewById(R.id.obfuscated_res_0x7f09211d);
+            DynamicAnimView dynamicAnimView = (DynamicAnimView) view2.findViewById(R.id.obfuscated_res_0x7f09217f);
             if (dynamicAnimView != null) {
                 return new NormalSpriteViewBinding((FrameLayout) view2, dynamicAnimView);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f09211d)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f09217f)));
         }
         return (NormalSpriteViewBinding) invokeL.objValue;
     }
@@ -61,7 +61,7 @@ public final class NormalSpriteViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06c8, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d06ea, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

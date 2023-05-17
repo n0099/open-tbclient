@@ -1,7 +1,7 @@
 package com.baidu.searchbox.devicescore;
 
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScoreMetaBuilder {
     public static ScoreMetaData buildLaunchSpeedMetaData(long j) {
         ScoreMetaData scoreMetaData = new ScoreMetaData();

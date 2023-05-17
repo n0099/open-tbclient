@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.wz5;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.i16;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
@@ -67,7 +67,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
     public boolean m;
     public boolean n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -301,14 +301,14 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            setGuideContent(wz5.e().h(), wz5.e().g());
+            setGuideContent(i16.e().h(), i16.e().g());
         }
     }
 
     public final void c(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.VipAdFreeGuideLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.VipAdFreeGuideLayout);
             this.g = obtainStyledAttributes.getBoolean(1, false);
             this.h = obtainStyledAttributes.getDimensionPixelOffset(0, u);
             obtainStyledAttributes.recycle();
@@ -415,7 +415,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
                 }
                 blRadius.brRadius(f2).into(this);
             }
-            g35 d = g35.d(this.e);
+            p45 d = p45.d(this.e);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0311);
             if (this.g) {

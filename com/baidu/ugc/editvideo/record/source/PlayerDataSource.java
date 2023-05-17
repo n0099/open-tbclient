@@ -4,16 +4,16 @@ import android.graphics.SurfaceTexture;
 import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.tieba.bma;
-import com.baidu.tieba.hla;
-import com.baidu.tieba.mla;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.kna;
+import com.baidu.tieba.zna;
 import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
 import com.baidu.ugc.editvideo.record.source.IMediaDataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public static final int STATE_IDLE = 0;
     public static final int STATE_PAUSED = 4;
@@ -36,7 +36,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     public boolean isReportError = false;
     public List<IDataSourceView.IPlayerDataSourceView> mSourceViewList = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnPlayStateListener {
         void pause();
 
@@ -163,7 +163,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void createPlayer(boolean z) {
-        if (bma.a(this.mPath) && mla.e(this.mPathList)) {
+        if (zna.a(this.mPath) && kna.e(this.mPathList)) {
             return;
         }
         pause();
@@ -182,7 +182,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
             }
             this.mCurrentState = 1;
         } catch (Exception e) {
-            hla.g(e);
+            fna.g(e);
             this.mMediaPlayer = null;
             this.mPath = null;
             this.mPathList = null;
@@ -195,7 +195,7 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     }
 
     private VideoPlayData getCurrentPlayData() {
-        if (mla.e(this.mPathList)) {
+        if (kna.e(this.mPathList)) {
             return null;
         }
         long currentPosition = getCurrentPosition();

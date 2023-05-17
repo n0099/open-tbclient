@@ -1,35 +1,36 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tb0 {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
+/* loaded from: classes7.dex */
+public class tb0 implements rb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fc0 a;
-    public static final z80 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
 
-    /* loaded from: classes6.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ub0<T> m;
-        public vb0<T> n;
+        public final /* synthetic */ pb0 a;
+        public final /* synthetic */ Object b;
 
-        public a(ub0<T> ub0Var, vb0<T> vb0Var) {
+        public a(tb0 tb0Var, pb0 pb0Var, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ub0Var, vb0Var};
+                Object[] objArr = {tb0Var, pb0Var, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,82 +40,185 @@ public class tb0 {
                     return;
                 }
             }
-            this.m = null;
-            this.n = null;
-            this.m = ub0Var;
-            this.n = vb0Var;
+            this.a = pb0Var;
+            this.b = obj;
         }
 
-        @Override // com.baidu.live.asynctask.BdAsyncTask
-        public void q(T t) {
-            vb0<T> vb0Var;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (vb0Var = this.n) != null) {
-                vb0Var.onReturnDataInUI(t);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.call(this.b);
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.live.asynctask.BdAsyncTask
-        /* renamed from: z */
-        public T f(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-                try {
-                    if (this.m == null) {
-                        return null;
-                    }
-                    return this.m.a();
-                } catch (Throwable th) {
-                    ec0.c(th);
-                    return null;
-                }
-            }
-            return (T) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948175303, "Lcom/baidu/tieba/tb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pb0 a;
+        public final /* synthetic */ Object b;
+
+        public b(tb0 tb0Var, pb0 pb0Var, Object obj) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb0Var, pb0Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948175303, "Lcom/baidu/tieba/tb0;");
+            this.a = pb0Var;
+            this.b = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.call(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pb0 a;
+        public final /* synthetic */ Object b;
+
+        public c(tb0 tb0Var, pb0 pb0Var, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tb0Var, pb0Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pb0Var;
+            this.b = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.call(this.b);
+            }
+        }
+    }
+
+    public tb0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fc0.a();
-        b = new z80(BdAsyncTaskParallelType.SERIAL, a);
+        this.a = new Handler(Looper.getMainLooper());
     }
 
-    public static <T> BdAsyncTask a(ub0<T> ub0Var, vb0<T> vb0Var) {
-        InterceptResult invokeLL;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ub0Var, vb0Var)) == null) {
-            return b(ub0Var, vb0Var, 2);
-        }
-        return (BdAsyncTask) invokeLL.objValue;
-    }
-
-    public static <T> BdAsyncTask b(ub0<T> ub0Var, vb0<T> vb0Var, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, ub0Var, vb0Var, i)) == null) {
-            if (ub0Var != null) {
-                a aVar = new a(ub0Var, vb0Var);
-                aVar.v(b);
-                aVar.x(a);
-                aVar.w(i);
-                aVar.g(new String[0]);
-                return aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (BdAsyncTask) invokeLLI.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rb0
+    public void a(int i, Object obj, pb0 pb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, obj, pb0Var) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        pb0Var.call(obj);
+                    } else {
+                        zb0.a(new c(this, pb0Var, obj));
+                    }
+                } else if (b()) {
+                    zb0.a(new b(this, pb0Var, obj));
+                } else {
+                    pb0Var.call(obj);
+                }
+            } else if (b()) {
+                pb0Var.call(obj);
+            } else {
+                this.a.post(new a(this, pb0Var, obj));
+            }
+        }
+    }
+
+    public synchronized void c(WeakHashMap<Object, List<qb0>> weakHashMap, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, weakHashMap, obj) == null) {
+            synchronized (this) {
+                for (Map.Entry<Object, List<qb0>> entry : weakHashMap.entrySet()) {
+                    if (entry != null && entry.getValue() != null) {
+                        for (qb0 qb0Var : entry.getValue()) {
+                            if (qb0Var.b(obj)) {
+                                qb0Var.call(obj);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void d(WeakHashMap<Object, List<qb0>> weakHashMap, Object obj, Class<?> cls, int i, pb0 pb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{weakHashMap, obj, cls, Integer.valueOf(i), pb0Var}) == null) {
+            synchronized (this) {
+                List<qb0> list = null;
+                if (weakHashMap.containsKey(obj)) {
+                    list = weakHashMap.get(obj);
+                }
+                if (list == null) {
+                    list = new ArrayList<>();
+                    weakHashMap.put(obj, list);
+                }
+                list.add(new qb0(i, cls, pb0Var, this));
+            }
+        }
+    }
+
+    public void e(WeakHashMap<Object, List<qb0>> weakHashMap, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, weakHashMap, obj) == null) {
+            List<qb0> remove = weakHashMap.remove(obj);
+            if (!ec0.c(remove)) {
+                for (qb0 qb0Var : remove) {
+                    qb0Var.a();
+                }
+            }
+            remove.clear();
+        }
     }
 }

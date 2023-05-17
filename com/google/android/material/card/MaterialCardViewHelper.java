@@ -31,7 +31,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialCardViewHelper {
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
     public static final int CHECKED_ICON_LAYER_INDEX = 2;
@@ -146,7 +146,7 @@ public class MaterialCardViewHelper {
         if (this.clickableForegroundDrawable == null) {
             LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
             this.clickableForegroundDrawable = layerDrawable;
-            layerDrawable.setId(2, R.id.obfuscated_res_0x7f091721);
+            layerDrawable.setId(2, R.id.obfuscated_res_0x7f091766);
         }
         return this.clickableForegroundDrawable;
     }
@@ -333,8 +333,8 @@ public class MaterialCardViewHelper {
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070483);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070484);
+        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705d3);
+        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0705d4);
         obtainStyledAttributes.recycle();
     }
 
@@ -424,7 +424,7 @@ public class MaterialCardViewHelper {
             DrawableCompat.setTintList(wrap, this.checkedIconTint);
         }
         if (this.clickableForegroundDrawable != null) {
-            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091721, createCheckedIconLayer());
+            this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091766, createCheckedIconLayer());
         }
     }
 
@@ -515,7 +515,7 @@ public class MaterialCardViewHelper {
         ColorStateList colorStateList2 = MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 4);
         this.rippleColor = colorStateList2;
         if (colorStateList2 == null) {
-            this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, R.attr.obfuscated_res_0x7f040171));
+            this.rippleColor = ColorStateList.valueOf(MaterialColors.getColor(this.materialCardView, R.attr.obfuscated_res_0x7f04017c));
         }
         setCardForegroundColor(MaterialResources.getColorStateList(this.materialCardView.getContext(), typedArray, 1));
         updateRippleColor();

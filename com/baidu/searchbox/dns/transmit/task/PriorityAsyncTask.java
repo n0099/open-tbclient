@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.transmit.task;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class PriorityAsyncTask extends AsyncTask implements Comparable<PriorityAsyncTask> {
     public static final int DEFAULT_PRIORITY = 0;
     public int mPriority;

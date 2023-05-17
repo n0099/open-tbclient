@@ -17,7 +17,7 @@ import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Code93Reader extends OneDReader {
     public static final int ASTERISK_ENCODING;
     public static final int[] CHARACTER_ENCODINGS;

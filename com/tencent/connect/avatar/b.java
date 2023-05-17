@@ -6,7 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends View {
     public Rect a;
     public Paint b;

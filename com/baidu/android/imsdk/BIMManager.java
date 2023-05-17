@@ -113,11 +113,11 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.k70;
+import com.baidu.tieba.h70;
+import com.baidu.tieba.j80;
+import com.baidu.tieba.j90;
+import com.baidu.tieba.l80;
 import com.baidu.tieba.t70;
-import com.baidu.tieba.t80;
-import com.baidu.tieba.v70;
-import com.baidu.tieba.y60;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -287,7 +287,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    if (t70.b() == 0) {
+                    if (j80.b() == 0) {
                         if (LoginManager.getInstance(BIMManager.sContext).getCurrentState() != LoginManager.LoginState.LOGINED) {
                             LogUtils.e("BIMManager", "checkIMLoginState lcp connected, but im not login, triggle im relogin");
                             LoginManager.getInstance(BIMManager.sContext).triggleLogoutListener(1000, Constants.ERROR_LOGIN_STATE_ERROR);
@@ -368,7 +368,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65627, null)) == null) {
-            return t70.getProtocolType();
+            return j80.getProtocolType();
         }
         return (String) invokeV.objValue;
     }
@@ -385,14 +385,14 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void initLCP() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65639, null) == null) {
-            v70.g().l(sContext);
+            l80.g().l(sContext);
         }
     }
 
     public static void pingRequest() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65674, null) == null) {
-            t70.e();
+            j80.e();
         }
     }
 
@@ -401,7 +401,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         if (interceptable == null || interceptable.invokeV(65675, null) == null) {
             try {
                 LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-                k70.c.postDelayed(checkIMLoginState, 30000L);
+                t70.c.postDelayed(checkIMLoginState, 30000L);
             } catch (Exception e) {
                 LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e);
             }
@@ -443,7 +443,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 return false;
             }
             try {
-                t80.a = z;
+                j90.a = z;
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
             }
@@ -564,7 +564,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65635, null, context) == null) {
             try {
-                k70.c(context);
+                t70.c(context);
                 LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
             } catch (Exception e) {
                 LogUtils.e(BaseManager.TAG, "imLogoutByLcp exception ", e);
@@ -609,7 +609,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        k70.e(this.val$context);
+                        t70.e(this.val$context);
                     }
                 }
             });
@@ -2673,8 +2673,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 if (i != 0) {
                     z = true;
                 }
-                t80.c(applicationContext, z);
-                t80.d(applicationContext, i);
+                j90.c(applicationContext, z);
+                j90.d(applicationContext, i);
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.setLcpEnv not found");
             }
@@ -2715,7 +2715,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                         }
                         try {
                             BIMManager.initIMServiceImpl(context2);
-                            k70.c.removeCallbacks(BIMManager.checkIMLoginState);
+                            t70.c.removeCallbacks(BIMManager.checkIMLoginState);
                             if (z2) {
                                 BIMManager.postCheckRunnable();
                             }
@@ -2735,7 +2735,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             ConversationManagerImpl.getInstance(applicationContext);
             Utility.clearExpiredMsg(applicationContext);
             registerInternalListener(RetrieveMsgReceiver.getInstance(applicationContext));
-            y60.d().e(applicationContext, str, i, Constants.isDebugMode());
+            h70.d().e(applicationContext, str, i, Constants.isDebugMode());
             return true;
         }
         return invokeCommon.booleanValue;
@@ -2825,7 +2825,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             if (i == 1) {
                 return true;
             }
-            if (i == 0 && j > 0 && (Constants.PAFLAG & j) != 0 && (queryPaInfo = PaInfoDBManager.getInstance(context.getApplicationContext()).queryPaInfo(j)) != null && queryPaInfo.getSubtype() != 7) {
+            if (i == 0 && j > 0 && (17592186044416L & j) != 0 && (queryPaInfo = PaInfoDBManager.getInstance(context.getApplicationContext()).queryPaInfo(j)) != null && queryPaInfo.getSubtype() != 7) {
                 if (!SessionParam.USER_SESSION_NOTIFICATION_CHAT_TYPES.contains(Integer.valueOf(queryPaInfo.getSubtype())) || queryPaInfo.getBusinessType() == 27) {
                     return true;
                 }

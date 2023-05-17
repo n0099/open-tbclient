@@ -9,12 +9,12 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CircleProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class CircleProgressView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = ii.g(this.a, R.dimen.obfuscated_res_0x7f070224);
+            this.h = ri.g(this.a, R.dimen.obfuscated_res_0x7f070224);
             this.d = new RectF();
             Paint paint = new Paint();
             this.b = paint;

@@ -7,7 +7,7 @@ import com.baidu.sapi2.views.logindialog.enums.ColorType;
 import com.baidu.sapi2.views.logindialog.enums.QuickLoginType;
 import com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback;
 import com.baidu.sapi2.views.logindialog.view.LoadingView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class QuickLoginDialogCallback implements IQuickLoginDialogCallback {
     @Override // com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback
     public void onDismiss() {

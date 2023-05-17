@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.SystemClock;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static final int DEGREES_IN_FULL_ROTATION = 360;
     public static final int FRAME_INTERVAL_MS = 20;

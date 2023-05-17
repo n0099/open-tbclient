@@ -1,7 +1,7 @@
 package org.apache.commons.codec.digest4util;
 
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class B64 {
     public static final String B64T = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 

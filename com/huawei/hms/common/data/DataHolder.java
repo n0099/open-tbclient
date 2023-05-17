@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DataHolder extends AbstractSafeParcelable implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Builder BUILDER;
@@ -53,13 +53,13 @@ public final class DataHolder extends AbstractSafeParcelable implements Closeabl
     public int version;
 
     /* renamed from: com.huawei.hms.common.data.DataHolder$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +185,7 @@ public final class DataHolder extends AbstractSafeParcelable implements Closeabl
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DataHolderException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,7 @@
 package com.kwad.components.ad.reward.presenter;
 
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j extends a {
     public com.kwad.components.core.video.g mVideoPlayStateListener = new com.kwad.components.core.video.h() { // from class: com.kwad.components.ad.reward.presenter.j.1
         @Override // com.kwad.components.core.video.h, com.kwad.components.core.video.g

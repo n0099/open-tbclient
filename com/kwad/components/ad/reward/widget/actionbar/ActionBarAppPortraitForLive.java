@@ -13,7 +13,7 @@ import com.kwad.components.core.c.a.a;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.c;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     public DownloadProgressView dk;
     public AdTemplate mAdTemplate;
@@ -21,7 +21,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     public k nM;
     public a wO;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void R(boolean z);
     }
@@ -41,7 +41,7 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view2, final boolean z) {
-        com.kwad.components.core.c.a.a.a(new a.C0596a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
+        com.kwad.components.core.c.a.a.a(new a.C0610a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(true).l(this.nM.eF.getPlayDuration()).ae(view2 == this.dk ? 1 : 2).a(new a.b() { // from class: com.kwad.components.ad.reward.widget.actionbar.ActionBarAppPortraitForLive.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 if (ActionBarAppPortraitForLive.this.wO != null) {
@@ -52,8 +52,8 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     }
 
     private void initView() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b8, this);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0912da);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04d5, this);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091315);
     }
 
     public final void a(@NonNull k kVar, @NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, a aVar) {

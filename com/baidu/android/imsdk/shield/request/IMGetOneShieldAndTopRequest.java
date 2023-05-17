@@ -121,7 +121,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mContext = context;
         this.mContacter = j;
         this.mKey = str;
-        int i3 = (j & Constants.PAFLAG) != 0 ? 1 : 0;
+        int i3 = (j & 17592186044416L) != 0 ? 1 : 0;
         this.mChatType = i3;
         this.mContacterType = getContacterType(i3);
     }

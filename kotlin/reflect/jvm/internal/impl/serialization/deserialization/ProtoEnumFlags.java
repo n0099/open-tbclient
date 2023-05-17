@@ -9,11 +9,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities;
 import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ProtoEnumFlags {
     public static final ProtoEnumFlags INSTANCE = new ProtoEnumFlags();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;

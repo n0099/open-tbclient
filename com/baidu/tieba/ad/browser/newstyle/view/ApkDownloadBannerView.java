@@ -14,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.m06;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements m06 {
+/* loaded from: classes4.dex */
+public class ApkDownloadBannerView extends LinearLayout implements y16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -36,7 +36,7 @@ public class ApkDownloadBannerView extends LinearLayout implements m06 {
     public int f;
     public boolean g;
 
-    @Override // com.baidu.tieba.m06
+    @Override // com.baidu.tieba.y16
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -46,14 +46,14 @@ public class ApkDownloadBannerView extends LinearLayout implements m06 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -61,21 +61,21 @@ public class ApkDownloadBannerView extends LinearLayout implements m06 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m06
+    @Override // com.baidu.tieba.y16
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.m06
-    public void setOnClickInterceptListener(m06.a aVar) {
+    @Override // com.baidu.tieba.y16
+    public void setOnClickInterceptListener(y16.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -209,16 +209,16 @@ public class ApkDownloadBannerView extends LinearLayout implements m06 {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0065, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0067, (ViewGroup) this, true);
             setOrientation(1);
-            int d = ii.d(getContext(), 22.0f);
-            int d2 = ii.d(getContext(), 11.0f);
+            int d = ri.d(getContext(), 22.0f);
+            int d2 = ri.d(getContext(), 11.0f);
             setPadding(d, d2, d, d2);
-            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09028e);
-            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090290);
-            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090291);
+            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f09029b);
+            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f09029d);
+            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f09029e);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090902);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090921);
             this.e = textView;
             if (this.g) {
                 i = 0;
@@ -279,12 +279,12 @@ public class ApkDownloadBannerView extends LinearLayout implements m06 {
         return (BannerDownloadStateBar) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tk0
-    public void update(String str, @NonNull ak0 ak0Var) {
+    @Override // com.baidu.tieba.jl0
+    public void update(String str, @NonNull qk0 qk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, ak0Var) == null) {
-            getActionBar().setState(d(ak0Var.c));
-            this.b.setProgress((int) (Math.max(ak0Var.i, ak0Var.j) * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, qk0Var) == null) {
+            getActionBar().setState(d(qk0Var.c));
+            this.b.setProgress((int) (Math.max(qk0Var.i, qk0Var.j) * 100.0f));
         }
     }
 }

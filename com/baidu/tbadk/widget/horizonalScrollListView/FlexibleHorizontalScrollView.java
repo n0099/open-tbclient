@@ -6,13 +6,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.DecelerateInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ci;
+import com.baidu.tieba.li;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     public float f;
     public int g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
             }
             if (this.g == 0) {
                 setOverScrollMode(2);
-                int a2 = ci.a(getContext());
+                int a2 = li.a(getContext());
                 this.g = a2;
                 this.f = (this.a * 1.0f) / a2;
             }

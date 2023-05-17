@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.py4;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Objects;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImMessageCenterShowItemData extends AbstractImageProvider implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int defaultDataType = 0;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public py4 atInfoData;
+    public yz4 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -79,7 +79,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ImMessageCenterShowItemData m45clone() {
+    public ImMessageCenterShowItemData m64clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -93,13 +93,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public py4 getAtInfoData() {
+    public yz4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (py4) invokeV.objValue;
+        return (yz4) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -417,10 +417,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(py4 py4Var) {
+    public void setAtInfoData(yz4 yz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, py4Var) == null) {
-            this.atInfoData = py4Var;
+        if (interceptable == null || interceptable.invokeL(1048613, this, yz4Var) == null) {
+            this.atInfoData = yz4Var;
         }
     }
 

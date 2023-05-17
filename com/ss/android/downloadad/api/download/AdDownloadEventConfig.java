@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdDownloadEventConfig implements DownloadEventConfig {
     public String mClickButtonTag;
     public String mClickContinueLabel;
@@ -26,7 +26,7 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
     public void setQuickAppEventTag(String str) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public AdDownloadEventConfig eventConfig = new AdDownloadEventConfig();
 

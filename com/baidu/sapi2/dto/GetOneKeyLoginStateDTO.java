@@ -1,5 +1,5 @@
 package com.baidu.sapi2.dto;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetOneKeyLoginStateDTO {
     public static final int DEFAULT_CONNECT_TIMEOUT = 15000;
     public static long beginTime;

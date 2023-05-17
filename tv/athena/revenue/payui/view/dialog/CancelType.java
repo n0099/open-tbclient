@@ -2,7 +2,7 @@ package tv.athena.revenue.payui.view.dialog;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public enum CancelType {
     ON_START_SHOW_FAIL(0),
     BUTTOM_AREA_CLICK(1),

@@ -48,18 +48,18 @@ import java.util.jar.JarFile;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.sofire.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C0162a extends Callback {
+    /* loaded from: classes4.dex */
+    public static class C0168a extends Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0162a() {
+        public C0168a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -371,7 +371,7 @@ public class a {
                         break;
                     }
                 }
-                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0162a(), new Class[]{Context.class, Intent.class}, context, intent);
+                com.baidu.sofire.b.c.a(100028, "onReceiveAwakeMessage", new C0168a(), new Class[]{Context.class, Intent.class}, context, intent);
             } catch (Throwable unused) {
                 int i2 = b.a;
             }

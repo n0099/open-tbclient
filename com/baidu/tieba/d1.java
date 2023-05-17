@@ -1,41 +1,40 @@
 package com.baidu.tieba;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
-import com.baidu.tieba.d1.a;
-import com.baidu.tieba.g7;
-import com.baidu.tieba.k6;
-import com.baidu.tieba.m1;
-import com.baidu.tieba.y4;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.baidu.tieba.i3;
+import com.baidu.tieba.p3;
+import com.baidu.tieba.q1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-/* loaded from: classes4.dex */
-public abstract class d1<P extends a> extends y0<q3, P> {
+/* loaded from: classes5.dex */
+public class d1 extends c1<i3, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k6<g7.b<String, f4>> b;
-    public a c;
+    public i3.a b;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y0
+    @Override // com.baidu.tieba.c1
     /* renamed from: g */
-    public void c(w0 w0Var, String str, t2 t2Var, P p) {
+    public void c(a1 a1Var, String str, x2 x2Var, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, w0Var, str, t2Var, p) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, a1Var, str, x2Var, aVar) == null) {
         }
     }
 
-    public abstract f4 h(t2 t2Var, P p);
-
-    /* loaded from: classes4.dex */
-    public static class a extends u0<q3> {
+    /* loaded from: classes5.dex */
+    public static class a extends y0<i3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public m1.b b;
+        public boolean b;
+        public boolean c;
+        public Texture.TextureFilter d;
+        public Texture.TextureFilter e;
+        public i3.a f;
+        public String g;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -50,110 +49,99 @@ public abstract class d1<P extends a> extends y0<q3, P> {
                     return;
                 }
             }
-            m1.b bVar = new m1.b();
-            this.b = bVar;
-            Texture.TextureFilter textureFilter = Texture.TextureFilter.Linear;
-            bVar.g = textureFilter;
-            bVar.f = textureFilter;
-            Texture.TextureWrap textureWrap = Texture.TextureWrap.Repeat;
-            bVar.i = textureWrap;
-            bVar.h = textureWrap;
+            this.b = false;
+            this.c = false;
+            Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
+            this.d = textureFilter;
+            this.e = textureFilter;
+            this.f = null;
+            this.g = null;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d1(b1 b1Var) {
-        super(b1Var);
+    public d1(f1 f1Var) {
+        super(f1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b1Var};
+            Object[] objArr = {f1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b1) newInitContext.callArgs[0]);
+                super((f1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new k6<>();
-        this.c = new a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: java.lang.String */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r6v1, types: [com.baidu.tieba.f4, V] */
-    @Override // com.baidu.tieba.x0
+    @Override // com.baidu.tieba.b1
     /* renamed from: f */
-    public k6<s0> a(String str, t2 t2Var, P p) {
+    public o6<w0> a(String str, x2 x2Var, a aVar) {
         InterceptResult invokeLLL;
-        m1.b bVar;
+        boolean z;
+        String str2;
+        i3.a aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, t2Var, p)) == null) {
-            k6<s0> k6Var = new k6<>();
-            ?? h = h(t2Var, p);
-            if (h == 0) {
-                return k6Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, x2Var, aVar)) == null) {
+            o6<w0> o6Var = new o6<>();
+            if (aVar != null && (aVar2 = aVar.f) != null) {
+                this.b = aVar2;
+                return o6Var;
             }
-            g7.b<String, f4> bVar2 = new g7.b<>();
-            bVar2.a = str;
-            bVar2.b = h;
-            synchronized (this.b) {
-                this.b.a(bVar2);
-            }
-            if (p != null) {
-                bVar = p.b;
+            if (aVar != null && aVar.b) {
+                z = true;
             } else {
-                bVar = this.c.b;
+                z = false;
             }
-            k6.b<ModelMaterial> it = h.c.iterator();
-            while (it.hasNext()) {
-                k6<m4> k6Var2 = it.next().i;
-                if (k6Var2 != null) {
-                    k6.b<m4> it2 = k6Var2.iterator();
-                    while (it2.hasNext()) {
-                        k6Var.a(new s0(it2.next().a, Texture.class, bVar));
+            this.b = new i3.a(x2Var, z);
+            if (aVar != null && (str2 = aVar.g) != null) {
+                o6Var.a(new w0(str2, p3.class));
+            } else {
+                for (int i = 0; i < this.b.d().length; i++) {
+                    x2 b = b(this.b.c(i));
+                    q1.b bVar = new q1.b();
+                    if (aVar != null) {
+                        bVar.c = aVar.c;
+                        bVar.f = aVar.d;
+                        bVar.g = aVar.e;
                     }
+                    o6Var.a(new w0(b, Texture.class, bVar));
                 }
             }
-            return k6Var;
+            return o6Var;
         }
-        return (k6) invokeLLL.objValue;
+        return (o6) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.y0
-    /* renamed from: i */
-    public q3 d(w0 w0Var, String str, t2 t2Var, P p) {
+    @Override // com.baidu.tieba.c1
+    /* renamed from: h */
+    public i3 d(a1 a1Var, String str, x2 x2Var, a aVar) {
         InterceptResult invokeLLLL;
-        f4 f4Var;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, w0Var, str, t2Var, p)) == null) {
-            synchronized (this.b) {
-                f4Var = null;
-                for (int i = 0; i < this.b.b; i++) {
-                    if (this.b.get(i).a.equals(str)) {
-                        f4Var = this.b.get(i).b;
-                        this.b.h(i);
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, a1Var, str, x2Var, aVar)) == null) {
+            if (aVar != null && (str2 = aVar.g) != null) {
+                String str3 = x2Var.s(this.b.b[0]).h().toString();
+                p3.a f = ((p3) a1Var.j(str2, p3.class)).f(str3);
+                if (f != null) {
+                    return new i3(x2Var, f);
                 }
+                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar.g);
             }
-            if (f4Var == null) {
-                return null;
+            int length = this.b.d().length;
+            o6 o6Var = new o6(length);
+            for (int i = 0; i < length; i++) {
+                o6Var.a(new q3((Texture) a1Var.j(this.b.c(i), Texture.class)));
             }
-            q3 q3Var = new q3(f4Var, new y4.a(w0Var));
-            Iterator<r6> it = q3Var.h().iterator();
-            while (it.hasNext()) {
-                if (it.next() instanceof Texture) {
-                    it.remove();
-                }
-            }
-            return q3Var;
+            return new i3(this.b, (o6<q3>) o6Var, true);
         }
-        return (q3) invokeLLLL.objValue;
+        return (i3) invokeLLLL.objValue;
     }
 }

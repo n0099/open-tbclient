@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.gesture;
 
 import com.baidu.searchbox.live.gesture.HorizonMotionEventCaptureView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IEventAdapter {
     boolean isEnable();
 

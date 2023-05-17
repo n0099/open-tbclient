@@ -1,280 +1,191 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionVoteEntryView;
-import com.baidu.tieba.p55;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+/* loaded from: classes6.dex */
 public class mw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public BdTypeListView b;
-    public q55 c;
-    public RelativeLayout d;
-    public NoNetworkView e;
-    public PbListView f;
-    public wv6 g;
-    public ForumEmotionVoteEntryView h;
-    public ih5 i;
-    public NoDataView j;
-    public LinearLayout k;
 
-    public mw6(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public static List<String> a(String str, InputStream inputStream) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, inputStream)) == null) {
+            ZipInputStream zipInputStream = null;
+            try {
+                ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(inputStream));
+                while (true) {
+                    try {
+                        ZipEntry nextEntry = zipInputStream2.getNextEntry();
+                        if (nextEntry == null) {
+                            break;
+                        } else if (!nextEntry.isDirectory()) {
+                            h(str, nextEntry.getName(), zipInputStream2);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        zipInputStream = zipInputStream2;
+                        si.e(zipInputStream);
+                        throw th;
+                    }
+                }
+                zipInputStream2.close();
+                si.e(zipInputStream2);
+                byte[] e = e(str, "map.txt");
+                if (e != null) {
+                    String str2 = new String(e, "UTF-8");
+                    LinkedList linkedList = new LinkedList();
+                    for (String str3 : str2.split("\n")) {
+                        String trim = str3.trim();
+                        if (trim.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                            String[] split = trim.split("=");
+                            if (split.length == 2) {
+                                String trim2 = split[0].trim();
+                                String trim3 = split[1].trim();
+                                g(str, "s_" + trim3 + ".png", b(trim2, false));
+                                g(str, "d_" + trim3 + ".gif", b(trim2, true));
+                                linkedList.add(trim2);
+                            }
+                        }
+                    }
+                    return linkedList;
+                }
+                throw new FileNotFoundException("map.txt file not exsit!");
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (List) invokeLL.objValue;
+        }
+    }
+
+    public static String b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
+            long hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
+            }
+            StringBuilder sb = new StringBuilder();
+            if (z) {
+                str2 = "d_";
+            } else {
+                str2 = "s_";
+            }
+            sb.append(str2);
+            sb.append(hashCode);
+            return sb.toString();
+        }
+        return (String) invokeLZ.objValue;
+    }
+
+    public static String c(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            long hashCode = str.hashCode();
+            if (hashCode < 0) {
+                hashCode *= -1;
+            }
+            StringBuilder sb = new StringBuilder();
+            if (z) {
+                str2 = "s_";
+            } else {
+                str2 = "d_";
+            }
+            sb.append(str2);
+            sb.append(hashCode);
+            String sb2 = sb.toString();
+            if (z2 && !z) {
+                return sb2 + ".gif";
+            }
+            return sb2 + ".jpg";
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static boolean g(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            String str4 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/" + str + "/";
+            File file = new File(str4, str2);
+            if (!file.exists()) {
+                return false;
+            }
+            File file2 = new File(str4, str3);
+            if (file2.exists()) {
+                if (file2.delete() && file.renameTo(file2)) {
+                    return true;
+                }
+                return FileHelper.copyFileByRelativelyPath(file.getAbsolutePath(), file2.getAbsolutePath());
+            } else if (file.renameTo(file2)) {
+                return true;
+            } else {
+                return FileHelper.copyFileByRelativelyPath(file.getAbsolutePath(), file2.getAbsolutePath());
             }
         }
-        this.a = tbPageContext;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02f8, (ViewGroup) null);
-        this.d = relativeLayout;
-        this.e = (NoNetworkView) relativeLayout.findViewById(R.id.no_network_view);
-        BdTypeListView bdTypeListView = (BdTypeListView) this.d.findViewById(R.id.obfuscated_res_0x7f090b64);
-        this.b = bdTypeListView;
-        bdTypeListView.addHeaderView(this.k);
-        this.b.setDivider(null);
-        q55 q55Var = new q55(this.a);
-        this.c = q55Var;
-        q55Var.a0(bdUniqueId);
-        this.b.setPullRefresh(this.c);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.f = pbListView;
-        pbListView.a();
-        j();
-        i();
-        k();
-        q();
+        return invokeLLL.booleanValue;
     }
 
-    public void a() {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.y();
-        }
-    }
-
-    public BdTypeListView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (BdTypeListView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public ViewGroup d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public ForumEmotionVoteEntryView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return (ForumEmotionVoteEntryView) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PbListView pbListView = this.f;
-            if (pbListView != null) {
-                pbListView.g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Bitmap f = f(str, "panel.png");
+            if (f == null) {
+                return false;
             }
-            this.b.setNextPage(null);
+            f.recycle();
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void g() {
-        ih5 ih5Var;
+    public static byte[] e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ih5Var = this.i) != null) {
-            ih5Var.dettachView(this.d);
-            this.i = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return FileHelper.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public void h() {
+    public static Bitmap f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            NoDataView noDataView = this.j;
-            if (noDataView != null) {
-                noDataView.setVisibility(8);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return FileHelper.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+        }
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static boolean h(String str, String str2, InputStream inputStream) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, inputStream)) == null) {
+            if (FileHelper.saveFileByStream(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2, inputStream) != null) {
+                return true;
             }
-            this.g.c().setVisibility(0);
-            this.h.setVisibility(0);
+            return false;
         }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            wv6 wv6Var = new wv6(this.a);
-            this.g = wv6Var;
-            wv6Var.c().setVisibility(8);
-            this.b.addHeaderView(this.g.c());
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-            this.k = linearLayout;
-            linearLayout.setGravity(17);
-            this.b.addHeaderView(this.k);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = new ForumEmotionVoteEntryView(this.a.getPageActivity());
-            this.h = forumEmotionVoteEntryView;
-            this.b.addHeaderView(forumEmotionVoteEntryView);
-        }
-    }
-
-    public void p() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (pbListView = this.f) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.b.setNextPage(this.f);
-            }
-            this.f.Q();
-            this.f.S();
-        }
-    }
-
-    public void q() {
-        TbPageContext tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (tbPageContext = this.a) != null && this.d != null) {
-            ih5 ih5Var = new ih5(tbPageContext.getPageActivity());
-            this.i = ih5Var;
-            ih5Var.attachView(this.d, false);
-            this.i.onChangeSkinType();
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f.r(R.color.CAM_X0204);
-            this.f.e(i);
-            this.c.H(i);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-            this.e.d(this.a, i);
-            ForumEmotionVoteEntryView forumEmotionVoteEntryView = this.h;
-            if (forumEmotionVoteEntryView != null) {
-                forumEmotionVoteEntryView.b(i);
-            }
-        }
-    }
-
-    public void m(ForumEmotionData forumEmotionData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, forumEmotionData) != null) || forumEmotionData == null) {
-            return;
-        }
-        g();
-        if (forumEmotionData.banner != null) {
-            this.g.c().setVisibility(0);
-            this.g.f(this.a.getUniqueId());
-            this.g.e(new aw6(forumEmotionData.banner));
-            this.g.h();
-        }
-        List<String> list = forumEmotionData.forum_avatar;
-        if (list != null) {
-            this.h.setAvatarList(list);
-        }
-    }
-
-    public void n(p55.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, gVar) == null) {
-            this.c.f(gVar);
-        }
-    }
-
-    public void o(BdListView.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, pVar) == null) {
-            this.b.setOnSrollToBottomListener(pVar);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.j == null) {
-                this.j = NoDataViewFactory.b(this.a.getPageActivity(), this.k, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ii.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070237)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f059d)), null, true);
-            }
-            this.j.setVisibility(0);
-            this.g.c().setVisibility(4);
-            this.h.setVisibility(4);
-            this.j.f(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void s() {
-        PbListView pbListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (pbListView = this.f) != null) {
-            if (pbListView.c().getParent() == null) {
-                this.b.setNextPage(this.f);
-            }
-            this.f.F(this.a.getResources().getString(R.string.list_no_more));
-            this.f.g();
-        }
+        return invokeLLL.booleanValue;
     }
 }

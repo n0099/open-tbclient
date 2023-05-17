@@ -1,40 +1,44 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class nx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DownloadState a;
+    public String b;
+    public int c;
 
-    public static String a(String str, HashMap<String, String> hashMap) {
+    public nx3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = DownloadState.NOT_START;
+        this.c = Integer.parseInt("0");
+    }
+
+    public static nx3 a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, hashMap)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (hashMap != null) {
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
-                    sb.append("&");
-                }
-            }
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append(str);
-            sb2.append("?code2=");
-            jx3 jx3Var = new jx3();
-            sb2.append(jx3Var.a(sb.toString() + "b" + System.currentTimeMillis() + "=1"));
-            String sb3 = sb2.toString();
-            StringBuilder sb4 = new StringBuilder();
-            sb4.append("&b" + System.currentTimeMillis());
-            sb4.append("=");
-            sb4.append("1");
-            return sb3 + sb4.toString();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            nx3 nx3Var = new nx3();
+            nx3Var.b = str2;
+            return nx3Var;
         }
-        return (String) invokeLL.objValue;
+        return (nx3) invokeLL.objValue;
     }
 }

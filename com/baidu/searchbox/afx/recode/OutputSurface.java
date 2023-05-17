@@ -10,7 +10,7 @@ import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.baidu.webkit.internal.monitor.MonitorType;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static final String TAG = "OutputSurface";
     public static final boolean VERBOSE = false;

@@ -2,7 +2,7 @@ package com.baidu.searchbox.crius.parser;
 
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScaleFocusPoint {
     public static final float DEFAULT_VALUE = 0.5f;
     public float x = 0.5f;

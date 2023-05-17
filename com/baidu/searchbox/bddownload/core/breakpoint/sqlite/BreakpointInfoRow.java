@@ -3,7 +3,7 @@ package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 import android.database.Cursor;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointInfoRow {
     public final boolean chunked;
     public final String etag;

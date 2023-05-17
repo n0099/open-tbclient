@@ -3,7 +3,7 @@ package com.baidu.pass.main.facesdk;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceSec {
     public static final String TAG = "FaceSec";
     public byte[] value;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class SingleActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public static WeakHashMap<String, WeakReference<SingleActivity>> e;

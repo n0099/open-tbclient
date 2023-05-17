@@ -1,5 +1,5 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MyLocationData {
     public final float accuracy;
     public final float direction;
@@ -8,7 +8,7 @@ public class MyLocationData {
     public final int satellitesNum;
     public final float speed;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public double a;
         public double b;

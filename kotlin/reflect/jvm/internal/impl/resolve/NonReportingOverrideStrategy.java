@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.resolve;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class NonReportingOverrideStrategy extends OverridingStrategy {
     public abstract void conflict(CallableMemberDescriptor callableMemberDescriptor, CallableMemberDescriptor callableMemberDescriptor2);
 

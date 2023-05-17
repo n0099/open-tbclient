@@ -12,7 +12,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 @TargetApi(21)
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class RetryJobSchedulerService extends JobService {
     @Override // android.app.job.JobService
     public boolean onStopJob(JobParameters jobParameters) {

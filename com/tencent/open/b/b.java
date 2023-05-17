@@ -6,7 +6,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.tencent.open.log.SLog;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends WebView {
     public b(Context context) {
         super(context);

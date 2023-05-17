@@ -7,17 +7,17 @@ import kotlin.reflect.jvm.internal.impl.descriptors.ClassifierDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeConstructorMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface TypeConstructor extends TypeConstructorMarker {
     KotlinBuiltIns getBuiltIns();
 
     /* renamed from: getDeclarationDescriptor */
-    ClassifierDescriptor mo2025getDeclarationDescriptor();
+    ClassifierDescriptor mo2044getDeclarationDescriptor();
 
     List<TypeParameterDescriptor> getParameters();
 
     /* renamed from: getSupertypes */
-    Collection<KotlinType> mo2026getSupertypes();
+    Collection<KotlinType> mo2045getSupertypes();
 
     boolean isDenotable();
 

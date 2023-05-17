@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SlideableGridView extends LinearLayout {
     public b a;
     public a b;
@@ -20,7 +20,7 @@ public class SlideableGridView extends LinearLayout {
     public PointPageIndicator h;
     public int[] i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class a {
         public abstract int a(int i);
 
@@ -47,7 +47,7 @@ public class SlideableGridView extends LinearLayout {
         return -1;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends PagerAdapterImpl {
         public Context c;
 
@@ -61,12 +61,12 @@ public class SlideableGridView extends LinearLayout {
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
-        public void b(View view2, int i) {
+        public void onConfigItem(View view2, int i) {
             ((GridPageView) view2).a(SlideableGridView.this.b.a(i), i);
         }
 
         @Override // com.baidu.swan.menu.viewpager.PagerAdapterImpl
-        public View c(ViewGroup viewGroup, int i) {
+        public View onInstantiateItem(ViewGroup viewGroup, int i) {
             GridPageView gridPageView = new GridPageView(this.c);
             gridPageView.setGridItemAdapter(SlideableGridView.this.b);
             SlideableGridView slideableGridView = SlideableGridView.this;
@@ -84,7 +84,7 @@ public class SlideableGridView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends ViewPager.SimpleOnPageChangeListener {
         public c() {
         }
@@ -154,11 +154,11 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public void a(Context context) {
-        PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f0800fe, R.drawable.obfuscated_res_0x7f0800ff);
-        e.f((int) getResources().getDimension(R.dimen.common_grid_indicator_margin));
+        PointPageIndicator e = new PointPageIndicator(context).e(R.drawable.obfuscated_res_0x7f080116, R.drawable.obfuscated_res_0x7f080117);
+        e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07023d));
         this.h = e;
-        this.i[0] = (int) getResources().getDimension(R.dimen.common_grid_indicator_height);
-        this.i[1] = (int) getResources().getDimension(R.dimen.common_grid_indicator_height2);
+        this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07023b);
+        this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07023c);
         addView(this.h, e());
     }
 
@@ -193,7 +193,7 @@ public class SlideableGridView extends LinearLayout {
     }
 
     public int d() {
-        return (int) getResources().getDimension(R.dimen.common_grid_indicator_height);
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07023b);
     }
 
     public LinearLayout.LayoutParams e() {

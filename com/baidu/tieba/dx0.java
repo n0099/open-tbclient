@@ -1,19 +1,27 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface dx0 {
-    void onBufferingUpdate(int i);
 
-    void onCompletion();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class dx0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile cx0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean onError(int i, int i2, Object obj);
-
-    boolean onInfo(int i, int i2, Object obj);
-
-    boolean onMediaSourceChanged(int i, int i2, Object obj);
-
-    void onPrepared();
-
-    void onSeekComplete();
-
-    void onVideoSizeChanged(int i, int i2, int i3, int i4);
+    public static synchronized cx0 a() {
+        InterceptResult invokeV;
+        cx0 cx0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (dx0.class) {
+                if (a == null) {
+                    a = new cx0();
+                }
+                cx0Var = a;
+            }
+            return cx0Var;
+        }
+        return (cx0) invokeV.objValue;
+    }
 }

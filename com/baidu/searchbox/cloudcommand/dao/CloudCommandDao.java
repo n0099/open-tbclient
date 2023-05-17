@@ -6,7 +6,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudCommandDao {
     public static CloudCommandDao mInstance;
     public SQLiteDatabase mDB = CommandDatabaseHelper.getDatabase();

@@ -1,153 +1,372 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.nc4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dd4 implements BaiduMap.OnMapLoadedCallback, BaiduMap.OnMapClickListener, BaiduMap.OnMapRenderCallback, BaiduMap.OnMarkerClickListener, View.OnClickListener, BaiduMap.OnMapStatusChangeListener, BaiduMap.OnMyLocationClickListener {
+/* loaded from: classes5.dex */
+public class dd4 implements oc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public hd4 b;
+    public oc4 a;
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, mapStatus) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ qc4 b;
+        public final /* synthetic */ nc4.b c;
+        public final /* synthetic */ dd4 d;
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMyLocationClickListener
-    public boolean onMyLocationClick() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700693, "Lcom/baidu/tieba/dd4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(dd4 dd4Var, int i, qc4 qc4Var, nc4.b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var, Integer.valueOf(i), qc4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947700693, "Lcom/baidu/tieba/dd4;");
-                return;
+            this.d = dd4Var;
+            this.a = i;
+            this.b = qc4Var;
+            this.c = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Context b = ac4.b();
+                if (b == null) {
+                    g62.c("RecommendButton", "context is null.");
+                    return;
+                }
+                this.d.a = nc4.c(this.a, b, this.b);
+                this.d.a.t(this.c);
             }
         }
-        boolean z = ho1.a;
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapLoadedCallback
-    public void onMapLoaded() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            x42.i("map", "onMapLoaded");
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vc4 a;
+        public final /* synthetic */ dd4 b;
+
+        public b(dd4 dd4Var, vc4 vc4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var, vc4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dd4Var;
+            this.a = vc4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.d(this.a);
+            }
         }
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapRenderCallback
-    public void onMapRenderFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            cd4.d(this.b);
-            x42.i("map", "onMapRenderFinished");
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nc4.b a;
+        public final /* synthetic */ dd4 b;
+
+        public c(dd4 dd4Var, nc4.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dd4Var;
+            this.a = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.t(this.a);
+            }
         }
     }
 
-    public dd4(@NonNull hd4 hd4Var) {
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ dd4 b;
+
+        public d(dd4 dd4Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dd4Var;
+            this.a = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
+                this.b.a.m(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dd4 a;
+
+        public e(dd4 dd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dd4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.show();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dd4 a;
+
+        public f(dd4 dd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dd4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.hide();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dd4 a;
+
+        public g(dd4 dd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dd4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.destroy();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dd4 a;
+
+        public h(dd4 dd4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dd4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dd4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.update();
+            }
+        }
+    }
+
+    public dd4(int i, @NonNull qc4 qc4Var, nc4.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hd4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i), qc4Var, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = hd4Var;
+        an3.e0(new a(this, i, qc4Var, bVar));
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
-    public boolean onMarkerClick(Marker marker) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oc4
+    public void d(vc4 vc4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, marker)) == null) {
-            gd4 H = this.b.H(marker);
-            if (H != null) {
-                cd4.e(marker, this.b);
-                H.b(this.b);
-                x42.i("map", "onMarkerClick marker id " + marker.getId());
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            cd4.b(view2, this.b);
-            x42.i("map", "Control View click");
+        if (interceptable == null || interceptable.invokeL(1048576, this, vc4Var) == null) {
+            an3.e0(new b(this, vc4Var));
         }
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapClickListener
-    public void onMapClick(LatLng latLng) {
+    @Override // com.baidu.tieba.oc4
+    public void m(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng) == null) {
-            cd4.c(this.b, latLng);
-            x42.i("map", "onMapClick LatLng " + latLng);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            an3.e0(new d(this, z));
         }
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChange(MapStatus mapStatus) {
+    @Override // com.baidu.tieba.oc4
+    public void t(nc4.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mapStatus) == null) {
-            x42.i("map", "onMapStatusChange");
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            an3.e0(new c(this, bVar));
         }
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeFinish(MapStatus mapStatus) {
+    @Override // com.baidu.tieba.mc4
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mapStatus) == null) {
-            cd4.f(this.b, mapStatus, this.a);
-            x42.i("map", "onMapStatusChangeFinish");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            an3.e0(new g(this));
         }
     }
 
-    @Override // com.baidu.mapapi.map.BaiduMap.OnMapStatusChangeListener
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+    @Override // com.baidu.tieba.mc4
+    public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, mapStatus, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            an3.e0(new f(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.mc4
+    public void show() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            an3.e0(new e(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.oc4
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            an3.e0(new h(this));
         }
     }
 }

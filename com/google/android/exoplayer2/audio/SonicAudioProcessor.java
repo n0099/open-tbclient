@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.ShortBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SonicAudioProcessor implements AudioProcessor {
     public static final float CLOSE_THRESHOLD = 0.01f;
     public static final float MAXIMUM_PITCH = 8.0f;

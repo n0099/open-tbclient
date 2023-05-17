@@ -5,8 +5,8 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.u35;
-import com.baidu.tieba.y35;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.h55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
@@ -54,9 +54,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            u35.o();
-            u35.r(null, true);
-            y35.a().j(true);
+            d55.o();
+            d55.r(null, true);
+            h55.a().j(true);
         }
     }
 
@@ -64,10 +64,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            u35.r(null, true);
+            d55.r(null, true);
             b = System.currentTimeMillis();
-            u35.b = false;
-            y35.a().j(false);
+            d55.b = false;
+            h55.a().j(false);
         }
     }
 
@@ -77,18 +77,18 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                u35.k("lifecycle-1st-create", false);
-                u35.v();
+                d55.k("lifecycle-1st-create", false);
+                d55.v();
                 return;
             }
-            u35.b = true;
+            d55.b = true;
             long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            u35.j(currentTimeMillis);
-            u35.k("lifecycle", true);
-            u35.v();
+            d55.j(currentTimeMillis);
+            d55.k("lifecycle", true);
+            d55.v();
         }
     }
 }

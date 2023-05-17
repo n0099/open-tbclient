@@ -11,12 +11,12 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.WechatPayProxy;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PayMethodProxyFactory {
     public final String TAG = "PayMethodProxyFactory";
     public Map<String, IPaySdkServiceProxy> payMethodProxyMap = new HashMap(5);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Holder {
         public static final PayMethodProxyFactory instance = new PayMethodProxyFactory();
     }

@@ -1,229 +1,219 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
+import com.baidu.tieba.setting.privacy.PrivacyMarkActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.util.ArrayList;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class oj9 {
+/* loaded from: classes6.dex */
+public class oj9 extends e9<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public volatile boolean b;
-    public long c;
+    public g9<?> a;
+    public View b;
+    public NavigationBar c;
+    public TextView d;
+    public TextView e;
+    public BdSwitchView f;
+    public TextView g;
+    public TextView h;
+    public BdSwitchView i;
+    public boolean j;
+    public boolean k;
+    public BdSwitchView.b l;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes6.dex */
+    public class a implements BdSwitchView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ oj9 a;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final oj9 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-544783347, "Lcom/baidu/tieba/oj9$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-544783347, "Lcom/baidu/tieba/oj9$b;");
+        public a(oj9 oj9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oj9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new oj9(null);
+            this.a = oj9Var;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948034315, "Lcom/baidu/tieba/oj9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+        public void d0(View view2, BdSwitchView.SwitchState switchState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
+                int i = 3;
+                boolean z = false;
+                int i2 = 1;
+                if (view2 == this.a.f) {
+                    oj9 oj9Var = this.a;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        z = true;
+                    }
+                    oj9Var.k = z;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        i = 1;
+                    }
+                    this.a.a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, i));
+                } else if (view2 == this.a.i) {
+                    oj9 oj9Var2 = this.a;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        z = true;
+                    }
+                    oj9Var2.j = z;
+                    if (switchState == BdSwitchView.SwitchState.ON) {
+                        i = 1;
+                    }
+                    this.a.a.sendMessage(new PrivacySettingMessage("bazhu_show_outside", i));
+                }
+                StatisticItem param = new StatisticItem("c14003").param("uid", TbadkCoreApplication.getCurrentAccount());
+                if (view2 != this.a.f) {
+                    i2 = 2;
+                }
+                TiebaStatic.log(param.param("obj_type", i2));
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948034315, "Lcom/baidu/tieba/oj9;");
-                return;
-            }
         }
-        d = dj9.a;
-        e = oj9.class.getSimpleName();
     }
 
-    public static oj9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (oj9) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.b || System.currentTimeMillis() - this.c > 172800000) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public oj9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oj9(g9<PrivacyMarkActivity> g9Var, int i) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g9Var, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String b2 = ej9.b("fulllog_switch", null);
-        if (!TextUtils.isEmpty(b2)) {
-            this.b = Boolean.valueOf(b2).booleanValue();
-        }
-        this.c = Long.parseLong(ej9.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis())));
+        this.l = new a(this);
+        this.a = g9Var;
+        C(g9Var.getPageActivity(), i);
+        a();
     }
 
-    public /* synthetic */ oj9(a aVar) {
-        this();
-    }
-
-    public void b(String str) {
+    public View B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            Logger logger = LoggerManager.getLogger("net");
-            logger.e("1809", "netLog", str);
-            logger.flush(true);
-            if (g()) {
-                e(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean z = !this.k;
+            this.k = z;
+            if (z) {
+                this.f.m();
+            } else {
+                this.f.j();
             }
         }
     }
 
-    public void c(String str) {
+    public void E() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && g()) {
-            Logger logger = LoggerManager.getLogger("net");
-            logger.d("1809", "netLog", str);
-            logger.flush(true);
-            e(false);
-        }
-    }
-
-    public final boolean d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j - this.a > 60000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean d2 = d(currentTimeMillis);
-            if (d2) {
-                this.a = currentTimeMillis;
-            }
-            if (z || d2) {
-                String b2 = ej9.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("net");
-                IUploadTask iUploadTask = (IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE);
-                if (iUploadTask != null) {
-                    long j = currentTimeMillis - 5184000000L;
-                    long j2 = currentTimeMillis + 3600000;
-                    iUploadTask.activeUploadSnapShot("netLog", b2, arrayList, null, 10240L, j, j2, true, null);
-                    if (d) {
-                        String str = e;
-                        Log.i(str, "dataId" + b2 + "   isMatchTimeInterval(curTime) == true");
-                        String str2 = e;
-                        Log.i(str2, "startTime==" + j + "endTime==" + j2);
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = !this.j;
+            this.j = z;
+            if (z) {
+                this.i.m();
+            } else {
+                this.i.j();
             }
         }
     }
 
-    public boolean f(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
+    public final void C(Context context, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, networkStatRecord)) == null) {
-            int c = ej9.c();
-            if (networkStatRecord.exception == null && networkStatRecord.receiveHeaderTs - networkStatRecord.sendHeaderTs < c && networkStatRecord.realResponseLength <= 1048576 && networkStatRecord.requestBodyLength <= 1048576) {
-                return false;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07d8, (ViewGroup) null);
+            this.b = inflate;
+            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
+            this.c = navigationBar;
+            navigationBar.setCenterTextTitle(context.getString(R.string.obfuscated_res_0x7f0f10b5));
+            this.c.showBottomLine();
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910f2);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910ef);
+            this.f = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f0910f0);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091966);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091963);
+            this.i = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f091964);
+            this.d.setText(R.string.obfuscated_res_0x7f0f0bf7);
+            this.e.setText(R.string.obfuscated_res_0x7f0f0bf6);
+            this.g.setText(R.string.obfuscated_res_0x7f0f0bf8);
+            this.h.setText(R.string.obfuscated_res_0x7f0f0bf9);
+            int i2 = i & 3;
+            int i3 = (i >> 2) & 3;
+            if (i2 == 3) {
+                this.i.j();
+            } else {
+                this.i.m();
             }
-            return true;
+            if (i3 == 3) {
+                this.f.j();
+            } else {
+                this.f.m();
+            }
+            boolean z2 = true;
+            if (i2 != 3) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.j = z;
+            if (i3 == 3) {
+                z2 = false;
+            }
+            this.k = z2;
+            this.f.setOnSwitchStateChangeListener(this.l);
+            this.i.setOnSwitchStateChangeListener(this.l);
         }
-        return invokeL.booleanValue;
     }
 
-    public synchronized boolean h(JSONObject jSONObject, JSONObject jSONObject2) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jSONObject, jSONObject2)) == null) {
-            synchronized (this) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("type");
-                    String optString2 = jSONObject.optString("fulllog");
-                    if (TextUtils.equals(optString, "fulllog_network")) {
-                        if (TextUtils.equals(optString2, "1")) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            this.a = currentTimeMillis;
-                            this.c = currentTimeMillis;
-                            this.b = true;
-                            e(true);
-                            if (d) {
-                                Log.i(e, "Start online real full network log!");
-                            }
-                            ej9.e("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
-                        } else if (TextUtils.equals(optString2, "0")) {
-                            this.b = false;
-                            if (d) {
-                                Log.i(e, "Stop online real full network log!");
-                            }
-                        }
-                        ej9.e("fulllog_switch", String.valueOf(this.b));
-                    }
-                }
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0109);
+            this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
         }
-        return invokeLL.booleanValue;
     }
 }

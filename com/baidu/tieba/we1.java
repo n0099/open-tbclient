@@ -1,7 +1,25 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface we1 {
-    void onError(String str);
 
-    void onSuccess(String str);
+import android.content.pm.PackageInfo;
+import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+/* loaded from: classes8.dex */
+public class we1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static PackageInfo a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (!new File(str).exists()) {
+                return null;
+            }
+            return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
+        }
+        return (PackageInfo) invokeLI.objValue;
+    }
 }

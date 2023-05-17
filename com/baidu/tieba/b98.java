@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class b98 extends ea8 {
+/* loaded from: classes4.dex */
+public class b98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.da8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
+    public a98<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
     public b98() {
         Interceptable interceptable = $ic;
@@ -41,33 +31,37 @@ public class b98 extends ea8 {
         }
     }
 
-    @Override // com.baidu.tieba.ea8
-    public List<ca8> j(@NonNull List list) {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> a98<T, Msg> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (a98<T, Msg>) this.a;
+        }
+        return (a98) invokeV.objValue;
+    }
+
+    @Nullable
+    public static b98 b(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                Object obj = list.get(i);
-                if (obj instanceof BaseMsg) {
-                    BaseMsg baseMsg = (BaseMsg) obj;
-                    List<AbilityItem> quickOperate = baseMsg.getCommonMsgField().getQuickOperate();
-                    if (ListUtils.isEmpty(quickOperate)) {
-                        break;
-                    }
-                    for (int i2 = 0; i2 < ListUtils.getCount(quickOperate); i2++) {
-                        AbilityItem abilityItem = (AbilityItem) ListUtils.getItem(quickOperate, i2);
-                        if (abilityItem != null && abilityItem.getStyleConf() != null && abilityItem.getStyleConf().shouldShow()) {
-                            f98 f98Var = new f98();
-                            f98Var.d(abilityItem);
-                            f98Var.e(baseMsg);
-                            arrayList.add(f98Var);
-                        }
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (b98) view2.getTag(R.id.obfuscated_res_0x7f0922bb);
         }
-        return (List) invokeL.objValue;
+        return (b98) invokeL.objValue;
+    }
+
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull a98<T, Msg> a98Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a98Var) == null) {
+            this.a = a98Var;
+        }
+    }
+
+    public static void d(@NonNull View view2, @NonNull b98 b98Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, b98Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f0922bb, b98Var);
+        }
     }
 }

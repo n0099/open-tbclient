@@ -3,7 +3,7 @@ package com.baidu.searchbox.network.outback.core;
 import com.baidu.searchbox.network.outback.cookie.CookieManager;
 import java.net.ProxySelector;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CallFactoryParams {
     public CookieManager cookieManager;
     public int mConnectTimeoutMs;
@@ -14,7 +14,7 @@ public class CallFactoryParams {
     public int mReadTimeoutMs;
     public int mWriteTimeoutMs;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public CookieManager cookieManager;
         public ProxySelector mProxySelector;

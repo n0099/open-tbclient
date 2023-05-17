@@ -5,11 +5,11 @@ import com.ss.android.downloadlib.activity.TTDelegateActivity;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j {
     public static Map<String, a> a = Collections.synchronizedMap(new HashMap());
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 

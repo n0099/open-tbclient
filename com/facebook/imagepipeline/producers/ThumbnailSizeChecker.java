@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.producers;
 
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ThumbnailSizeChecker {
     public static final float ACCEPTABLE_REQUESTED_TO_ACTUAL_SIZE_RATIO = 1.3333334f;
     public static final int ROTATED_90_DEGREES_CLOCKWISE = 90;

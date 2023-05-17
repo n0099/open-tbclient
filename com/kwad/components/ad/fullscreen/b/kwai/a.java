@@ -5,7 +5,7 @@ import com.baidu.tieba.R;
 import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     public TextView ey;
     public g mVideoPlayStateListener = new h() { // from class: com.kwad.components.ad.fullscreen.b.kwai.a.1
@@ -39,7 +39,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f091398);
+        this.ey = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d3);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

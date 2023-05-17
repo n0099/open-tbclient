@@ -1,84 +1,164 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tieba.b01;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class zz0 {
+/* loaded from: classes8.dex */
+public class zz0<T extends b01> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object[] a;
+    public int b;
+    public int c;
+    public final int d;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements CyberPlayerManager.InstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+    public zz0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = 0;
+        i = i <= 0 ? 2 : i;
+        this.d = i;
+        this.a = new Object[i];
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public final void d(T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || e(t)) {
+            return;
+        }
+        int i = this.b;
+        Object[] objArr = this.a;
+        if (i < objArr.length) {
+            objArr[i] = t;
+            this.b = i + 1;
+            return;
+        }
+        int i2 = 0;
+        while (true) {
+            Object[] objArr2 = this.a;
+            if (i2 < objArr2.length - 1) {
+                int i3 = i2 + 1;
+                objArr2[i2] = objArr2[i3];
+                i2 = i3;
+            } else {
+                objArr2[this.b - 1] = t;
+                return;
+            }
+        }
+    }
+
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b <= 0) {
+                return null;
+            }
+            if (this.c >= this.d) {
+                v01.j("acquire(), active player is overSize : " + this.d);
+            }
+            int i = this.b;
+            int i2 = i - 1;
+            Object[] objArr = this.a;
+            T t = (T) objArr[i2];
+            objArr[i2] = null;
+            this.b = i - 1;
+            this.c++;
+            t.onInit();
+            return t;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Nullable
+    public T b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.b > 0) {
+                if (this.c >= this.d) {
+                    v01.j("acquire(" + str + "), active player is overSize : " + this.d);
+                }
+                int i = -1;
+                for (int i2 = 0; i2 < this.b; i2++) {
+                    if (((b01) this.a[i2]).verify(str)) {
+                        i = i2;
+                    }
+                }
+                if (i != -1) {
+                    this.c++;
+                    Object[] objArr = this.a;
+                    T t = (T) objArr[i];
+                    objArr[i] = null;
+                    while (true) {
+                        int i3 = this.b;
+                        if (i < i3 - 1) {
+                            Object[] objArr2 = this.a;
+                            int i4 = i + 1;
+                            objArr2[i] = objArr2[i4];
+                            i = i4;
+                        } else {
+                            this.a[i3 - 1] = null;
+                            this.b = i3 - 1;
+                            t.onInit();
+                            return t;
+                        }
+                    }
                 }
             }
+            return null;
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallError(int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-                lj0.c("BdCyberUtils", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + str);
-            }
-        }
-
-        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
-        public void onInstallSuccess(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-                lj0.c("BdCyberUtils", "onInstallSuccess: type=" + i + ", ver=" + str);
-            }
-        }
+        return (T) invokeL.objValue;
     }
 
-    public static void a() {
+    public void c(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            b(new b(null), 31);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || e(t)) {
+            return;
         }
+        d(t);
+        t.onInit();
     }
 
-    public static void b(@Nullable CyberPlayerManager.InstallListener installListener, int i) {
+    public final boolean e(T t) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, installListener, i) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
-            j01.a(li0.a().g(), q01.m(), i, hashMap, installListener, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, t)) == null) {
+            for (int i = 0; i < this.b; i++) {
+                if (this.a[i] == t) {
+                    return true;
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public void f(@NonNull T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, t) != null) || e(t)) {
+            return;
+        }
+        d(t);
+        this.c--;
+        t.onRelease();
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.searchbox.launch.IdleLaunchTask;
 import com.baidu.searchbox.launch.SmartLaunchScheduler;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class IdleTaskRegister {
     public final Map<String, IdleLaunchTask> mTaskMap = new HashMap();
 

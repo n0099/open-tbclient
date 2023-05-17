@@ -14,7 +14,7 @@ import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public final FlexByteArrayPool mFlexByteArrayPool;
 

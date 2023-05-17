@@ -19,7 +19,7 @@ import com.fun.module.gdt.u;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GDTNativeUnifiedImg2View extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,8 +124,8 @@ public class GDTNativeUnifiedImg2View extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ad);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b1);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ba);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900be);
         }
     }
 

@@ -1,188 +1,69 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-/* loaded from: classes3.dex */
-public class aja {
+/* loaded from: classes4.dex */
+public final class aja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public int d;
-    public boolean e;
-    public DownloadException f;
-    public yia g;
-    public String h;
-    public boolean i;
 
-    public void s(long j) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            d().edit().putBoolean(str, true).apply();
         }
     }
 
-    public aja() {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return d().getBoolean(str, false);
         }
+        return invokeL.booleanValue;
     }
 
-    public yia a() {
+    public static long c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return d().getLong(str, 0L);
+        }
+        return invokeL.longValue;
+    }
+
+    public static SharedPreferences d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return wha.h().getContext().getSharedPreferences("baidu_ab_general_config", 0);
         }
-        return (yia) invokeV.objValue;
+        return (SharedPreferences) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return d().getString(str, str2);
         }
-        return invokeV.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public Exception c() {
-        InterceptResult invokeV;
+    public static void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            d().edit().putString(str, str2).apply();
         }
     }
 
-    public void k(yia yiaVar) {
+    public static void g(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, yiaVar) == null) {
-            this.g = yiaVar;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void m(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadException) == null) {
-            this.f = downloadException;
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void o(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
+            d().edit().putLong(str, j).apply();
         }
     }
 }

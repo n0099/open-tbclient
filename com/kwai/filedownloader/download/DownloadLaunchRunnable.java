@@ -29,7 +29,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DownloadLaunchRunnable implements f, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadPoolExecutor auN;
@@ -61,7 +61,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
     public final com.kwai.filedownloader.a.a aux;
     public volatile boolean hw;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class DiscardSafely extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4243896780616180062L;
@@ -87,7 +87,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class RetryDirectly extends Throwable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4127585119566978768L;
@@ -113,7 +113,7 @@ public final class DownloadLaunchRunnable implements f, Runnable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

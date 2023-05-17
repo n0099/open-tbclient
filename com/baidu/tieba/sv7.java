@@ -1,8 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.os.Looper;
+import android.os.MessageQueue;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.homepage.personalize.model.RecPersonalizePageModel;
+import com.baidu.tieba.x70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,30 +20,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class sv7 extends ax4 {
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import tbclient.Personalized.DataRes;
+/* loaded from: classes7.dex */
+public class sv7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final sv7 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile DataRes a;
+    public volatile boolean b;
+    public volatile boolean c;
 
-    @Override // com.baidu.tieba.ax4
-    public yy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
+    /* loaded from: classes7.dex */
+    public class a implements x70.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public a(sv7 sv7Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sv7Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
         }
-        return (yy4) invokeV.objValue;
+
+        @Override // com.baidu.tieba.x70.b
+        public void a(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                RecPersonalizePageModel.e().l(responsedMessage);
+            }
+        }
+
+        @Override // com.baidu.tieba.x70.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                sg.a().post(this.a);
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.ax4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    /* loaded from: classes7.dex */
+    public class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public b(sv7 sv7Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sv7Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
         }
-        return (ThreadData) invokeV.objValue;
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    this.a.run();
+                    return false;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
     }
 
     static {
@@ -49,7 +127,7 @@ public class sv7 extends ax4 {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        d = new sv7();
     }
 
     public sv7() {
@@ -62,17 +140,137 @@ public class sv7 extends ax4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.c = false;
+    }
+
+    public static synchronized sv7 c() {
+        InterceptResult invokeV;
+        sv7 sv7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (sv7.class) {
+                sv7Var = d;
+            }
+            return sv7Var;
+        }
+        return (sv7) invokeV.objValue;
+    }
+
+    public synchronized DataRes a() {
+        InterceptResult invokeV;
+        DataRes dataRes;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    f();
+                }
+                this.b = true;
+                dataRes = this.a;
+            }
+            return dataRes;
+        }
+        return (DataRes) invokeV.objValue;
+    }
+
+    public synchronized boolean e() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                z = this.c;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
+            synchronized (this) {
+                x70.d(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, new a(this, runnable));
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public synchronized void h(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, runnable) == null) {
+            synchronized (this) {
+                if (!d()) {
+                    this.c = false;
+                    return;
+                }
+                this.c = true;
+                Looper.myQueue().addIdleHandler(new b(this, runnable));
+            }
+        }
+    }
+
+    public synchronized boolean d() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
+            synchronized (this) {
+                long o = o65.m().o("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
+                o65 m = o65.m();
+                long o2 = m.o("recommend_frs_refresh_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
+                if (o2 != 0) {
+                    if (Math.abs(System.currentTimeMillis() - o2) <= o) {
+                        z = false;
+                    }
+                }
+                z = true;
+            }
+            return z;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        se<byte[]> c;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
+                tx4.t().z();
+            }
+            if ((!l65.q().u() || l65.q().o() < l65.q().p()) && (c = c25.c("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount())) != null && (bArr = c.get("0")) != null && bArr.length != 0) {
+                try {
+                    DataRes dataRes = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
+                    if (dataRes != null && dataRes.thread_list != null && dataRes.thread_list.size() > 0) {
+                        this.a = dataRes;
+                    }
+                } catch (IOException e) {
+                    BdLog.e(e);
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921687, null));
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                    return;
+                }
+                f();
+                if (this.a == null || d()) {
+                    qr5 qr5Var = new qr5();
+                    qr5Var.b = "";
+                    qr5Var.a = 0;
+                    RecPersonalizePageModel.e().m(1, 0, qr5Var, 1, 0);
+                }
+            }
+        }
     }
 }

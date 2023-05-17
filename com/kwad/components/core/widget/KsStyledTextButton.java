@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import com.kwad.components.core.m.j;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KsStyledTextButton extends TextView implements e {
     public KsStyledTextButton(Context context) {
         super(context);

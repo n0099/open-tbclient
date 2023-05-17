@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.CreateBarTipSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.hx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            yv4 layoutMode = getLayoutMode();
+            hx4 layoutMode = getLayoutMode();
             int i4 = 0;
             if (i == 4) {
                 z = true;
@@ -98,9 +98,9 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             boolean isOn = new CreateBarTipSwitch().isOn();
             TbPageContext<CreateBarSuccessActivity> pageContext2 = getPageContext();
             if (isOn) {
-                i2 = R.string.obfuscated_res_0x7f0f04a1;
+                i2 = R.string.obfuscated_res_0x7f0f04f1;
             } else {
-                i2 = R.string.obfuscated_res_0x7f0f049e;
+                i2 = R.string.obfuscated_res_0x7f0f04ee;
             }
             String string = pageContext2.getString(i2);
             int length = string.length();
@@ -109,13 +109,13 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i3 = R.string.obfuscated_res_0x7f0f04a2;
+                i3 = R.string.obfuscated_res_0x7f0f04f2;
             } else {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i3 = R.string.obfuscated_res_0x7f0f049f;
+                i3 = R.string.obfuscated_res_0x7f0f04ef;
             }
             sb.append(pageContext.getString(i3));
             SpannableString spannableString = new SpannableString(sb.toString());
@@ -135,7 +135,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0218);
+            setContentView(R.layout.obfuscated_res_0x7f0d0229);
             initData();
             x1();
         }
@@ -144,8 +144,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090775);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09240b);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090792);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09246f);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
@@ -155,8 +155,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092391);
         }
     }
 }

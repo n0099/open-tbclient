@@ -1,5 +1,5 @@
 package com.google.ar.core.exceptions;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UnsupportedConfigurationException extends RuntimeException {
     public UnsupportedConfigurationException() {
     }

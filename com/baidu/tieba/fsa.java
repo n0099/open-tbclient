@@ -1,76 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes4.dex */
-public class fsa implements TTAdDislike.DislikeInteractionCallback {
+import java.nio.charset.Charset;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes5.dex */
+public class fsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ wra b;
-    public final /* synthetic */ FunAdInteractionListener c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ csa e;
 
-    public fsa(csa csaVar, View view2, wra wraVar, FunAdInteractionListener funAdInteractionListener, String str) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947776085, "Lcom/baidu/tieba/fsa;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {csaVar, view2, wraVar, funAdInteractionListener, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.e = csaVar;
-        this.a = view2;
-        this.b = wraVar;
-        this.c = funAdInteractionListener;
-        this.d = str;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947776085, "Lcom/baidu/tieba/fsa;");
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            View view2 = this.a;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
-            }
-            this.e.onAdClose(this.b);
-            FunAdInteractionListener funAdInteractionListener = this.c;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.d);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            Charset forName = Charset.forName("UTF-8");
+            SecretKeySpec secretKeySpec = new SecretKeySpec(Base64.decode(str2.getBytes(forName), 0), "AES");
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(2, secretKeySpec);
+            return new String(cipher.doFinal(Base64.decode(str.getBytes(forName), 0)), forName);
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (String) invokeLL.objValue;
     }
 }

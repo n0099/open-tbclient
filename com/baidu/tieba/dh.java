@@ -1,65 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.log.NetLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class dh {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "net_work_http_log";
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static String b;
+    public static String c;
+    public static String d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302505, "Lcom/baidu/tieba/dh;")) == null) {
-            return;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return c;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448302505, "Lcom/baidu/tieba/dh;");
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean d(gh ghVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ghVar)) == null) {
+            if (!(ghVar instanceof vh) && !(ghVar instanceof uh) && !(ghVar instanceof th)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
+            c = str;
         }
     }
 
-    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
-        String str3;
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) != null) || !BdBaseApplication.getInst().isSmallFlow()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            b = str;
         }
-        og statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-        statsItem.b("action", "network_monitor_a");
-        statsItem.b("cmd", String.valueOf(i));
-        statsItem.b("url", str2);
-        String str4 = "1";
-        if (z) {
-            str3 = "1";
-        } else {
-            str3 = "0";
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            a = z;
         }
-        statsItem.b("issuccess", str3);
-        if (!z2) {
-            str4 = "0";
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            d = str;
         }
-        statsItem.b("ishttp", str4);
-        statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, BdNetTypeUtil.getNetType());
-        statsItem.b("connt", String.valueOf(j));
-        statsItem.b("rwt", String.valueOf(j2));
-        statsItem.b("parset", String.valueOf(j3));
-        statsItem.b("fbt", String.valueOf(j4));
-        statsItem.b("abt", String.valueOf(j5));
-        statsItem.b("salno", String.valueOf(i2));
-        NetLog.getInstance().c(a, statsItem.toString());
-        BdStatisticsManager.getInstance().performance(str, statsItem);
     }
 }

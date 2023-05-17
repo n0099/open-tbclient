@@ -12,7 +12,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaScope
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaMethod;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class LazyJavaStaticScope extends LazyJavaScope {
     @Override // kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaScope
     public void computeNonDeclaredProperties(Name name, Collection<PropertyDescriptor> collection) {

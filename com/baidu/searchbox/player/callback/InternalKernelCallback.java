@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.event.PlayerEventTrigger;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InternalKernelCallback extends SimpleDuMediaCallback {
     public final PlayerEventTrigger mTrigger;
 

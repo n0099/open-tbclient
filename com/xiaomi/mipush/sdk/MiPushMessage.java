@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MiPushMessage implements PushMessageHandler.a {
     public static final String KEY_ALIAS = "alias";
     public static final String KEY_CATEGORY = "category";

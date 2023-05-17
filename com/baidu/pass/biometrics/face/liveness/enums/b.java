@@ -2,11 +2,11 @@ package com.baidu.pass.biometrics.face.liveness.enums;
 
 import com.baidu.pass.biometrics.face.liveness.view.face.CircleProgressView;
 import java.util.TimerTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b extends TimerTask {
     public CircleProgressView a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }

@@ -17,7 +17,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +41,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FeedbackBrowserActivity extends BaseActivity implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +83,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +117,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,7 +216,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +258,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,7 +281,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                     return;
                 }
             }
-            setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0603c8));
+            setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0604f4));
         }
     }
 
@@ -515,7 +514,7 @@ public class FeedbackBrowserActivity extends BaseActivity implements h {
                 t tVar = new t(this);
                 this.d = tVar;
                 if (com.baidu.ufosdk.b.m() == 1) {
-                    i = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+                    i = -15132391;
                 } else {
                     i = -1;
                 }

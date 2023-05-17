@@ -8,7 +8,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.baidu.sapi2.utils.Log;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends SurfaceView implements SurfaceHolder.Callback {
     public static final int f = 1001;
     public SurfaceHolder a;
@@ -18,9 +18,9 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
     public Camera.PreviewCallback e;
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class HandlerC0140a extends Handler {
-        public HandlerC0140a() {
+    /* loaded from: classes3.dex */
+    public class HandlerC0144a extends Handler {
+        public HandlerC0144a() {
         }
 
         @Override // android.os.Handler
@@ -34,7 +34,7 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
 
     public a(Context context, Camera camera) {
         super(context);
-        this.d = new HandlerC0140a();
+        this.d = new HandlerC0144a();
         this.b = camera;
         SurfaceHolder holder = getHolder();
         this.a = holder;
@@ -42,7 +42,7 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
         this.a.setType(3);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Camera.AutoFocusCallback {
         public static final String c = b.class.getSimpleName();
         public static final long d = 500;

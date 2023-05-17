@@ -3,7 +3,7 @@ package com.kwad.sdk.pngencrypt;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class n {
     public static Charset alc = Charset.forName("ISO-8859-1");
     public static Charset ald = Charset.forName("UTF-8");

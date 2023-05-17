@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static final int a(BitmapFactory.Options options, int i, int i2) {
         int b = b(options, i, i2);

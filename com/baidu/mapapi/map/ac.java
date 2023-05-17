@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.view.View;
 import com.baidu.platform.comapi.map.MapTextureView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ac implements View.OnClickListener {
     public final /* synthetic */ TextureMapView a;
 

@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.decoder.ImageDecoder;
 import com.facebook.imagepipeline.decoder.ProgressiveJpegConfig;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImagePipelineExperiments {
     public final int mBitmapCloseableRefType;
     public boolean mBitmapPrepareToDrawForPrefetch;
@@ -46,12 +46,12 @@ public class ImagePipelineExperiments {
     public final WebpBitmapFactory.WebpErrorLogger mWebpErrorLogger;
     public final boolean mWebpSupportEnabled;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ProducerFactoryMethod {
         ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public int mBitmapCloseableRefType;
         public final ImagePipelineConfig.Builder mConfigBuilder;
@@ -252,7 +252,7 @@ public class ImagePipelineExperiments {
         this.mTrackedKeysSize = builder.mTrackedKeysSize;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultProducerFactoryMethod implements ProducerFactoryMethod {
         @Override // com.facebook.imagepipeline.core.ImagePipelineExperiments.ProducerFactoryMethod
         public ProducerFactory createProducerFactory(Context context, ByteArrayPool byteArrayPool, ImageDecoder imageDecoder, ProgressiveJpegConfig progressiveJpegConfig, boolean z, boolean z2, boolean z3, ExecutorSupplier executorSupplier, PooledByteBufferFactory pooledByteBufferFactory, MemoryCache<CacheKey, CloseableImage> memoryCache, MemoryCache<CacheKey, PooledByteBuffer> memoryCache2, BufferedDiskCache bufferedDiskCache, BufferedDiskCache bufferedDiskCache2, CacheKeyFactory cacheKeyFactory, PlatformBitmapFactory platformBitmapFactory, int i, int i2, boolean z4, int i3, CloseableReferenceFactory closeableReferenceFactory, boolean z5, int i4) {

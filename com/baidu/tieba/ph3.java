@@ -1,210 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.media.AudioManager;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class ph3 {
     public static /* synthetic */ Interceptable $ic;
-    public static ph3 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, b> a;
-    public AudioManager b;
-    public boolean c;
-    public BroadcastReceiver d;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final String d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ph3 this$0;
-
-        public a(ph3 ph3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ph3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = ph3Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
-                if (this.this$0.b == null) {
-                    this.this$0.b = (AudioManager) er2.c().getSystemService("audio");
-                }
-                for (Map.Entry entry : this.this$0.a.entrySet()) {
-                    if (this.this$0.b != null) {
-                        i = this.this$0.b.getStreamVolume(3);
-                    } else {
-                        i = 0;
-                    }
-                    ((b) entry.getValue()).a(i);
-                }
-            }
-        }
-    }
-
-    public ph3() {
+    public ph3(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
-        this.d = new a(this);
+        this.a = str;
+        this.b = i;
+        this.c = str2;
+        this.d = str3;
     }
 
-    public static ph3 e() {
-        InterceptResult invokeV;
+    public static Bundle a(String str, int i, String str2, String str3) {
+        InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (ph3.class) {
-                    if (e == null) {
-                        e = new ph3();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65537, null, str, i, str2, str3)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("bundle_sp_name_key", str);
+            bundle.putString("bundle_prefs_key", str2);
+            bundle.putInt("bundle_data_type_key", i);
+            bundle.putString("bundle_data_value_key", str3);
+            return bundle;
         }
-        return (ph3) invokeV.objValue;
+        return (Bundle) invokeLILL.objValue;
     }
 
-    public static void h() {
-        ph3 ph3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (ph3Var = e) != null) {
-            ph3Var.g();
-        }
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
-            er2.c().registerReceiver(this.d, intentFilter);
-            this.c = true;
-        }
-    }
-
-    private void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            try {
-                er2.c().unregisterReceiver(this.d);
-                this.c = false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = (AudioManager) er2.c().getSystemService("audio");
-            }
-            AudioManager audioManager = this.b;
-            if (audioManager != null) {
-                return audioManager.getStreamMaxVolume(3);
-            }
-            return 100;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-                this.b = null;
-                this.c = false;
-            }
-            e = null;
-        }
-    }
-
-    public void d(@NonNull String str, @NonNull b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, bVar) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        synchronized (this) {
-            this.a.put(str, bVar);
-            if (!this.c) {
-                registerReceiver();
-            }
-            if (ho1.a) {
-                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
-            }
-        }
-    }
-
-    public boolean i(@NonNull String str) {
+    public static ph3 b(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bundle)) == null) {
+            if (bundle.isEmpty()) {
+                return null;
             }
-            synchronized (this) {
-                b remove = this.a.remove(str);
-                if (this.a.size() == 0 && this.c) {
-                    unregisterReceiver();
-                }
-                if (ho1.a && remove != null) {
-                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
-                }
-                if (remove != null) {
-                    z = true;
-                }
-            }
-            return z;
+            return new ph3(bundle.getString("bundle_sp_name_key"), bundle.getInt("bundle_data_type_key"), bundle.getString("bundle_prefs_key"), bundle.getString("bundle_data_value_key"));
         }
-        return invokeL.booleanValue;
+        return (ph3) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SpMethodInfo{mDataType=" + this.b + ", mPrefName='" + this.c + "', mDataValue='" + this.d + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

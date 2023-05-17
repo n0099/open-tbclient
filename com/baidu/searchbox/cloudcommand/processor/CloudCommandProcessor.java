@@ -10,12 +10,12 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.fj1;
-import com.baidu.tieba.hj1;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.xj1;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudCommandProcessor implements ICloudControlProcessor {
     public static final String COMMAND_CLOUD_VERSION = "command_cloudconfig_version";
     public static final String COMMAND_KEY = "command";
@@ -37,10 +37,10 @@ public class CloudCommandProcessor implements ICloudControlProcessor {
     public static final String VALUE_INVALID = "0";
     public static final String VALUE_SUC = "1";
     @Inject
-    public hj1<ICloudCommandObserver> mCloudCommandObservers;
+    public xj1<ICloudCommandObserver> mCloudCommandObservers;
 
     public void initmCloudCommandObservers() {
-        fj1 b = fj1.b();
+        vj1 b = vj1.b();
         this.mCloudCommandObservers = b;
         b.a(new ICloudCommandObserver_CloudCommandProcessor_ListProvider());
     }
@@ -54,8 +54,8 @@ public class CloudCommandProcessor implements ICloudControlProcessor {
     }
 
     private ICloudCommandObserver getCommandObserver(String str) {
-        hj1<ICloudCommandObserver> hj1Var = this.mCloudCommandObservers;
-        if (hj1Var != null && hj1Var.getList() != null && this.mCloudCommandObservers.getList().size() > 0) {
+        xj1<ICloudCommandObserver> xj1Var = this.mCloudCommandObservers;
+        if (xj1Var != null && xj1Var.getList() != null && this.mCloudCommandObservers.getList().size() > 0) {
             for (ICloudCommandObserver iCloudCommandObserver : this.mCloudCommandObservers.getList()) {
                 if (TextUtils.equals(str, iCloudCommandObserver.getCommandType())) {
                     return iCloudCommandObserver;

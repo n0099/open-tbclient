@@ -1,8 +1,9 @@
 package com.baidu.searchbox.bddownload.core.breakpoint.sqlite;
 
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.RemitSyncExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RemitSyncToDBHelper {
     public long delayMillis;
     public final RemitSyncExecutor executor;
@@ -39,7 +40,7 @@ public class RemitSyncToDBHelper {
 
     public RemitSyncToDBHelper(@NonNull RemitSyncExecutor remitSyncExecutor) {
         this.executor = remitSyncExecutor;
-        this.delayMillis = 1500L;
+        this.delayMillis = BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT;
     }
 
     public void shutdown() {

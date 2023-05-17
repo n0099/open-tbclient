@@ -3,11 +3,11 @@ package com.baidu.searchbox.player.utils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.BDPlayerConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class BdVideoLog {
     public static VideoLog sVideoLog = new DefaultVideoLog();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class DefaultVideoLog extends VideoLog {
         @Override // com.baidu.searchbox.player.utils.VideoLog
         public boolean isLoggable(int i, @Nullable String str) {

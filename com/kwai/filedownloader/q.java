@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.x;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final b aty;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final q atz;
@@ -41,7 +41,7 @@ public final class q {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public final class q {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

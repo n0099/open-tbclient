@@ -5,6 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.util.Log;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
@@ -12,7 +13,7 @@ import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
 import javax.annotation.Nullable;
 @SafeParcelable.Class(creator = "GoogleCertificatesQueryCreator")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class zzs extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzs> CREATOR = new zzt();
     @SafeParcelable.Field(getter = "getCallingPackage", id = 1)
@@ -22,7 +23,7 @@ public final class zzs extends AbstractSafeParcelable {
     public final zzi zzb;
     @SafeParcelable.Field(getter = "getAllowTestKeys", id = 3)
     public final boolean zzc;
-    @SafeParcelable.Field(defaultValue = "false", getter = "getIgnoreTestKeysOverride", id = 4)
+    @SafeParcelable.Field(defaultValue = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE, getter = "getIgnoreTestKeysOverride", id = 4)
     public final boolean zzd;
 
     public zzs(String str, @Nullable zzi zziVar, boolean z, boolean z2) {

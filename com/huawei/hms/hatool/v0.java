@@ -4,9 +4,8 @@ import android.annotation.TargetApi;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.u0b;
+import com.baidu.tieba.s2b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class v0 {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -68,7 +67,7 @@ public class v0 {
                 y.c("hmsSdk", "url is null");
                 return str;
             }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             if (split.length < i) {
                 return "";
             }
@@ -96,10 +95,10 @@ public class v0 {
             } else {
                 String a3 = a(a2, i);
                 if (!TextUtils.isEmpty(a3)) {
-                    if (str2.equals(u0b.b(a2))) {
+                    if (str2.equals(s2b.b(a2))) {
                         return true;
                     }
-                    if (str2.equals(u0b.b(a3))) {
+                    if (str2.equals(s2b.b(a3))) {
                         try {
                             String substring = a2.substring(0, a2.length() - a3.length());
                             if (substring.endsWith(".")) {

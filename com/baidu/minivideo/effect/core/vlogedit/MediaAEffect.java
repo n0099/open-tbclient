@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vf0;
+import com.baidu.tieba.lg0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaAEffect implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AE_ANIM_ONCE = "once";
@@ -46,7 +46,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<MediaAEffect> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public class MediaAEffect implements Parcelable, Cloneable {
             try {
                 MediaAEffect mediaAEffect = (MediaAEffect) super.clone();
                 if (TextUtils.isEmpty(mediaAEffect.shaderConfigKey)) {
-                    mediaAEffect.shaderConfigKey = vf0.b;
+                    mediaAEffect.shaderConfigKey = lg0.b;
                 }
                 if (mediaAEffect.mediaOneAEffects != null) {
                     ArrayList arrayList = new ArrayList();

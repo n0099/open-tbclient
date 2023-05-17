@@ -8,7 +8,6 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.shield.IGetSubscriptionListener;
 import com.baidu.android.imsdk.shield.model.GetSubscriptionResult;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,7 +60,7 @@ public class IMGetSubscriptionRequest extends IMSubscriptionBaseRequest {
                 GetSubscriptionResult.SubscriptionInfo subscriptionInfo = new GetSubscriptionResult.SubscriptionInfo();
                 subscriptionInfo.setStatus(jSONObject.optInt("subscription_state"));
                 subscriptionInfo.setDescription(jSONObject.optString("description"));
-                subscriptionInfo.setTopicName(jSONObject.optString(IntentConfig.TOPIC_NAME));
+                subscriptionInfo.setTopicName(jSONObject.optString("topic_name"));
                 subscriptionInfo.setTopicId(jSONObject.optLong("topic_id"));
                 subscriptionInfo.setMiNiTopicId(jSONObject.optString("fminapp_topic"));
                 return subscriptionInfo;

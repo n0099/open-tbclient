@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ZoomImageView extends BdImageViewTouch {
     public boolean J;
     public float K;
@@ -13,14 +13,14 @@ public class ZoomImageView extends BdImageViewTouch {
     public a M;
     public b N;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Drawable drawable);
 
         void b(Bitmap bitmap);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         boolean a(ZoomImageView zoomImageView, double d, double d2);
 

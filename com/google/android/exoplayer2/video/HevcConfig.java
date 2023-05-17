@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HevcConfig {
     public final List<byte[]> initializationData;
     public final int nalUnitLengthFieldLength;

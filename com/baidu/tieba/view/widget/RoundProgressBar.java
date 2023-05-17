@@ -11,13 +11,13 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ez5;
+import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class RoundProgressBar extends View {
     public RectF k;
     public a l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(int i);
     }
@@ -124,15 +124,15 @@ public class RoundProgressBar extends View {
         }
         this.a = new Paint();
         this.k = new RectF();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ez5.RoundProgressBar);
-        this.b = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.CAM_X0607));
-        this.c = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.CAM_X0302));
-        this.d = obtainStyledAttributes.getColor(4, getResources().getColor(R.color.CAM_X0201));
-        this.e = obtainStyledAttributes.getDimension(6, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
-        this.f = obtainStyledAttributes.getDimension(7, UtilHelper.getDimenPixelSize(R.dimen.tbds7));
-        this.g = obtainStyledAttributes.getInteger(1, 100);
-        this.i = obtainStyledAttributes.getBoolean(9, true);
-        this.j = obtainStyledAttributes.getInt(8, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q06.RoundProgressBar);
+        this.b = obtainStyledAttributes.getColor(2, getResources().getColor(R.color.CAM_X0607));
+        this.c = obtainStyledAttributes.getColor(5, getResources().getColor(R.color.CAM_X0302));
+        this.d = obtainStyledAttributes.getColor(9, getResources().getColor(R.color.CAM_X0201));
+        this.e = obtainStyledAttributes.getDimension(11, UtilHelper.getDimenPixelSize(R.dimen.tbds10));
+        this.f = obtainStyledAttributes.getDimension(12, UtilHelper.getDimenPixelSize(R.dimen.tbds7));
+        this.g = obtainStyledAttributes.getInteger(3, 100);
+        this.i = obtainStyledAttributes.getBoolean(15, true);
+        this.j = obtainStyledAttributes.getInt(13, 0);
         obtainStyledAttributes.recycle();
     }
 

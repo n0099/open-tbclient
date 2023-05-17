@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MarkEnforcingInputStream extends FilterInputStream {
     public static final int END_OF_STREAM = -1;
     public static final int UNSET = Integer.MIN_VALUE;

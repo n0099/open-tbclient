@@ -13,7 +13,7 @@ import java.util.List;
 import tbclient.VideoRedIcon.DataRes;
 import tbclient.VideoRedIcon.RedIcon;
 import tbclient.VideoRedIcon.VideoRedIconResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoRedIconHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

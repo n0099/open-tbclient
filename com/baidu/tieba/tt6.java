@@ -1,54 +1,60 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankHttpResMsg;
+import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankReqMsg;
+import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class tt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public RoundRelativeLayout c;
-    public ImageView d;
-    public ImageView e;
-    public ImageView f;
-    public TextView g;
-    public TextView h;
-    public int i;
-    public int j;
-    public boolean k;
+    public BdUniqueId a;
+    public int b;
+    public rt6 c;
+    public b d;
+    public fb e;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(rt6 rt6Var);
+
+        void onError(int i, String str);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ tt6 a;
 
-        public a(tt6 tt6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(tt6 tt6Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tt6Var};
+                Object[] objArr = {tt6Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,37 +63,55 @@ public class tt6 {
             this.a = tt6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
+        @Override // com.baidu.tieba.fb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cr6.b(this.a.a, null);
-                StatisticItem statisticItem = new StatisticItem("c13645");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                int i2 = 1;
-                statisticItem.param("obj_locate", 1);
-                if (this.a.k) {
-                    i = 5;
-                } else {
-                    i = 1;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
+                return;
+            }
+            rt6 rt6Var = null;
+            if (responsedMessage instanceof HotUserRankHttpResMsg) {
+                rt6Var = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
+            } else if (responsedMessage instanceof HotUserRankSocketResMsg) {
+                rt6Var = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
+            }
+            if (responsedMessage.getError() == 0) {
+                if (this.a.b == 1 && (rt6Var == null || ListUtils.isEmpty(rt6Var.b))) {
+                    if (this.a.d != null) {
+                        this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0db6));
+                    }
+                } else if (rt6Var != null) {
+                    this.a.c.a = rt6Var.a;
+                    this.a.c.b.addAll(rt6Var.b);
+                    this.a.c.c = rt6Var.c;
+                    this.a.c.d = rt6Var.d;
+                    this.a.c.e = rt6Var.e;
+                    this.a.c.f = rt6Var.f;
+                    if (!ListUtils.isEmpty(rt6Var.b)) {
+                        this.a.c.g = rt6Var.g;
+                        tt6.c(this.a);
+                    } else {
+                        this.a.c.g = false;
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(rt6Var);
+                    }
                 }
-                statisticItem.param("obj_type", i);
-                if (!this.a.k) {
-                    i2 = 3;
-                }
-                statisticItem.param("obj_source", i2);
-                TiebaStatic.log(statisticItem);
+            } else if (this.a.d != null) {
+                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
     }
 
-    public tt6(TbPageContext<?> tbPageContext) {
+    public tt6(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -97,67 +121,108 @@ public class tt6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02ec, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092122);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092138);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09213e);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092140);
-        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092124);
-        this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0911a4);
-        this.g.setText(R.string.forum_square_title);
-        this.h.setText(R.string.forum_square_desc);
-        this.b.setOnClickListener(new a(this));
-        this.i = ii.g(this.a.getPageActivity(), R.dimen.tbds90);
-        this.j = ii.g(this.a.getPageActivity(), R.dimen.tbds58);
-        RoundRelativeLayout roundRelativeLayout = this.c;
-        int i3 = this.i;
-        roundRelativeLayout.setRoundLayoutRadius(new float[]{i3, i3, i3, i3, i3, i3, i3, i3});
+        this.b = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
+        this.e = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.e);
+        m();
+        l();
+        this.c = new rt6();
     }
 
-    public void e(boolean z) {
+    public static /* synthetic */ int c(tt6 tt6Var) {
+        int i = tt6Var.b;
+        tt6Var.b = i + 1;
+        return i;
+    }
+
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.k = z;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
+            hotUserRankReqMsg.forumId = j;
+            hotUserRankReqMsg.pageSize = 20;
+            hotUserRankReqMsg.pageNum = this.b;
+            hotUserRankReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
         }
     }
 
-    public void c(fr6 fr6Var) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fr6Var) == null) {
-            if (fr6Var.isTop()) {
-                if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
-                    int i = marginLayoutParams.bottomMargin;
-                    int i2 = this.j;
-                    if (i != i2) {
-                        marginLayoutParams.bottomMargin = i2;
-                        this.c.requestLayout();
-                    }
-                }
-            } else if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
-                if (marginLayoutParams2.bottomMargin != 0) {
-                    marginLayoutParams2.bottomMargin = 0;
-                    this.c.requestLayout();
-                }
-            }
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0206);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f08068a, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setImageResource(this.e, R.drawable.pic_mask_square_circle);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
+            hotUserRankReqMsg.category = str;
+            hotUserRankReqMsg.pageSize = 20;
+            hotUserRankReqMsg.pageNum = this.b;
+            hotUserRankReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
         }
     }
 
-    public View d() {
+    public void n(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public rt6 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (View) invokeV.objValue;
+        return (rt6) invokeV.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            MessageManager.getInstance().removeMessage(this.a);
+            MessageManager.getInstance().unRegisterListener(this.a);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            ip5 ip5Var = new ip5(309652);
+            ip5Var.setResponsedClass(HotUserRankSocketResMsg.class);
+            ip5Var.g(true);
+            ip5Var.setPriority(4);
+            MessageManager.getInstance().registerTask(ip5Var);
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, zq9.a(TbConfig.HOT_USER_RANK_URL, 309652));
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

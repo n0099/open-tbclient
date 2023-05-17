@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,30 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+/* loaded from: classes5.dex */
 public class h95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final h95 b;
+    public static volatile h95 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, i95> a;
+    public boolean a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778565, "Lcom/baidu/tieba/h95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947778565, "Lcom/baidu/tieba/h95;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947778565, "Lcom/baidu/tieba/h95;")) == null) {
+            return;
         }
-        b = new h95();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947778565, "Lcom/baidu/tieba/h95;");
+        }
     }
 
     public h95() {
@@ -45,60 +44,73 @@ public class h95 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = false;
+        this.b = 0;
+        try {
+            fc fcVar = new fc("", "apk_ab_test.txt", DiskFileOperate.Action.READ);
+            fcVar.setSdCard(true);
+            fcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            if (fcVar.call()) {
+                String a = fcVar.a();
+                if (a != null) {
+                    this.b = Integer.parseInt(a);
+                }
+                if (this.b == 1 || this.b == 2) {
+                    this.a = true;
+                }
+            }
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 
-    public static h95 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static h95 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return b;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
-            h95 h95Var = new h95();
-            h95Var.a(optJSONObject);
-            return h95Var;
-        }
-        return (h95) invokeL.objValue;
-    }
-
-    public i95 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !StringUtils.isNull(str)) {
-                return this.a.get(str);
-            }
-            return null;
-        }
-        return (i95) invokeL.objValue;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        int length;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (optJSONArray != null) {
-            this.a = new HashMap<>();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    i95 g = i95.g(optJSONObject);
-                    if (!StringUtils.isNull(g.f())) {
-                        this.a.put(g.f(), g);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (h95.class) {
+                    if (c == null) {
+                        c = new h95();
                     }
                 }
             }
+            return c;
         }
+        return (h95) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = "pub_env=" + this.b + ParamableElem.DIVIDE_PARAM;
+            if (!this.a) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 }

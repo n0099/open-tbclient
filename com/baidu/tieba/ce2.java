@@ -1,464 +1,115 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-import android.webkit.ValueCallback;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.TreeMap;
-/* loaded from: classes3.dex */
-public final class ce2 {
+import java.io.File;
+/* loaded from: classes5.dex */
+public class ce2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static LinkedList<e> b;
-    public static Map<String, du1> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface f {
-        void onReady();
-    }
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
 
-        public a() {
+        public a(String str, PrefetchEvent prefetchEvent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+            this.b = prefetchEvent;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ce2.a) {
-                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
-                }
-                ce2.n(kt2.U().getActivity());
-                if (ce2.a) {
-                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
-                }
+                ce2.d(this.a);
+                ce2.d(ce2.e(this.a, this.b.pageUrl));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b extends l62 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ boolean b;
-
-        public b(e eVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = z;
-        }
-
-        @Override // com.baidu.tieba.l62
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (ce2.a) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + this.a.a.a() + " url: " + str);
-                }
-                if (!w33.D() || !re2.U().q0()) {
-                    ce2.l(this.a, this.b);
-                } else {
-                    ce2.m(this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements ValueCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ boolean b;
-
-        public c(e eVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (ce2.a) {
-                    Log.d("SwanAppSlavePool", "slave onReceiveValue: " + str);
-                }
-                ce2.l(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d extends l62 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ du1 a;
-
-        public d(du1 du1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {du1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = du1Var;
-        }
-
-        @Override // com.baidu.tieba.l62
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.destroy();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public du1 a;
-        public boolean b;
-        public final ArrayList<f> c;
-        public long d;
-        public long e;
-        public boolean f;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new ArrayList<>();
-            this.f = true;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947671801, "Lcom/baidu/tieba/ce2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947671801, "Lcom/baidu/tieba/ce2;");
-                return;
-            }
-        }
-        a = ho1.a;
-        b = new LinkedList<>();
-        c = new TreeMap();
-    }
-
-    public static void d() {
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            b.clear();
-            c.clear();
-        }
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 != null && b0.Q() != null) {
-                return b0.Q().u;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void m(@NonNull e eVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65549, null, eVar, z) == null) {
-            i52.k().o(eVar.a, new c(eVar, z));
-        }
-    }
-
-    public static void o(@NonNull String str, du1 du1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, du1Var) == null) {
-            Map<String, du1> map = c;
-            if (str == null) {
-                str = "";
-            }
-            map.put(str, du1Var);
-        }
-    }
-
-    public static void q(e eVar, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65553, null, eVar, fVar) != null) || fVar == null) {
+        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !h33.a()) {
             return;
         }
-        if (eVar.b) {
-            fVar.onReady();
+        String str = prefetchEvent.appPath;
+        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
             return;
         }
-        eVar.c.add(fVar);
-        eVar.f = false;
+        am3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
     }
 
-    public static e e(Context context, int i, boolean z) {
-        InterceptResult invokeCommon;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!he2.d()) {
-                i = 0;
-            }
-            e eVar = new e();
-            eVar.d = System.currentTimeMillis();
-            eVar.b = false;
-            eVar.a = re2.U().K0(context, i, new b(eVar, z));
-            return eVar;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (e) invokeCommon.objValue;
-    }
-
-    public static e f(@Nullable Activity activity, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, activity, i)) == null) {
-            if (a) {
-                Log.d("SwanAppSlavePool", "getPreloadSlaveManager: " + i);
-                Log.d("SwanAppSlavePool", Log.getStackTraceString(new Exception()));
-            }
-            return g(activity, i, false);
+        File file = new File(str);
+        if (!file.exists()) {
+            return;
         }
-        return (e) invokeLI.objValue;
-    }
-
-    public static e g(@Nullable Activity activity, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (a) {
-                Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
-            }
-            if (!he2.d()) {
-                i = 0;
-            }
-            e eVar = null;
-            Iterator<e> it = b.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                e next = it.next();
-                if (next.a.Q() == i) {
-                    eVar = next;
-                    break;
+        if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list != null && list.length != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
+                    }
                 }
             }
-            if (eVar == null) {
-                return e(k(activity), i, false);
-            }
-            b.remove(eVar);
-            du1 du1Var = eVar.a;
-            if (du1Var != null && activity != null) {
-                du1Var.attachActivity(activity);
-            }
-            if (a) {
-                Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
-            }
-            if (!z) {
-                int g = y13.g();
-                if (g <= 0) {
-                    g = 600;
-                }
-                rl3.b0(new a(), g);
-            }
-            return eVar;
-        }
-        return (e) invokeCommon.objValue;
-    }
-
-    public static du1 h(@NonNull String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            Map<String, du1> map = c;
-            if (str != null) {
-                str2 = str;
-            } else {
-                str2 = "";
-            }
-            du1 du1Var = map.get(str2);
-            if (du1Var != null) {
-                c.remove(str);
-            }
-            return du1Var;
-        }
-        return (du1) invokeL.objValue;
-    }
-
-    public static Context k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context == null) {
-                return er2.c();
-            }
-            if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                return er2.c();
-            }
-            return context;
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    public static boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            for (int i2 = 0; i2 < b.size(); i2++) {
-                if (b.get(i2).a.Q() == i) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            if (!j(0)) {
-                b.add(e(k(context), 0, true));
-            }
-            if (!j(1) && he2.d() && i()) {
-                b.add(e(k(context), 1, true));
-            }
-        }
-    }
-
-    public static void l(@NonNull e eVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65548, null, eVar, z) == null) {
-            if (z && eVar.f) {
-                ie2.j(eVar.a);
-            }
-            eVar.e = System.currentTimeMillis();
-            eVar.b = true;
-            if (eVar.c.isEmpty()) {
+        } else if (file.isFile()) {
+            String absolutePath = file.getAbsolutePath();
+            if (TextUtils.isEmpty(absolutePath)) {
                 return;
             }
-            Iterator<f> it = eVar.c.iterator();
-            while (it.hasNext()) {
-                f next = it.next();
-                if (next != null) {
-                    next.onReady();
-                }
+            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
             }
-            eVar.c.clear();
         }
     }
 
-    public static void p(@NonNull du1<?> du1Var) {
+    public static String e(@NonNull String str, String str2) {
+        InterceptResult invokeLL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, du1Var) == null) {
-            if (du1Var.Q() == 1 && !i()) {
-                if (re2.U().l0()) {
-                    du1Var.destroy();
-                    return;
-                } else {
-                    re2.U().K(new d(du1Var));
-                    return;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = ym3.f(str2);
+            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
+                return null;
             }
-            e eVar = new e();
-            eVar.d = System.currentTimeMillis();
-            eVar.b = false;
-            eVar.a = du1Var;
-            b.add(eVar);
-            if (w33.D() && re2.U().q0()) {
-                m(eVar, true);
-            } else {
-                l(eVar, true);
-            }
+            String substring = f.substring(0, lastIndexOf);
+            return str + File.separator + substring;
         }
+        return (String) invokeLL.objValue;
     }
 }

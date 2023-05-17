@@ -1,207 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.network.outback.statistics.DoRecordManager;
-import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.searchbox.network.outback.statistics.RecordObserver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.util.Random;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public final class sf {
+/* loaded from: classes7.dex */
+public class sf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public final e b;
-    public final c c;
-    public final d d;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final sf a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(263077628, "Lcom/baidu/tieba/sf$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(263077628, "Lcom/baidu/tieba/sf$b;");
-                    return;
-                }
-            }
-            a = new sf(null);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements RecordObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        public final void a(NetworkStatRecord networkStatRecord) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && networkStatRecord.subFrom == 8927) {
-                networkStatRecord.from = tf.a(networkStatRecord.url);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("ext", networkStatRecord.toUBCJson());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent("1625", jSONObject);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
-        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
-                a(networkStatRecord);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements RecordObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ d(a aVar) {
-            this();
-        }
-
-        public final void a(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, networkStatRecord, i) == null) && networkStatRecord != null && i == DoRecordManager.FAILED_MSG && networkStatRecord.subFrom == 8927) {
-                networkStatRecord.from = tf.a(networkStatRecord.url);
-                JSONObject uBCJson = networkStatRecord.toUBCJson();
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent("850", uBCJson.toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
-        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord, i) == null) {
-                a(networkStatRecord, i);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements RecordObserver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ e(a aVar) {
-            this();
-        }
-
-        public final boolean b(NetworkStatRecord networkStatRecord) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatRecord)) == null) {
-                if (networkStatRecord.from == 3 || networkStatRecord.subFrom != 8927 || new Random().nextInt(100) >= 20) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public final void a(NetworkStatRecord networkStatRecord) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, networkStatRecord) == null) && networkStatRecord != null && b(networkStatRecord)) {
-                networkStatRecord.from = tf.a(networkStatRecord.url);
-                JSONObject uBCJson = networkStatRecord.toUBCJson();
-                UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-                if (uBCManager != null) {
-                    uBCManager.onEvent("94", uBCJson.toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.network.outback.statistics.RecordObserver
-        public void doRecord(NetworkStatRecord networkStatRecord, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) {
-                a(networkStatRecord);
-            }
-        }
-    }
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
+    public long g;
+    public String h;
+    public int i;
+    public int j;
+    public String k;
+    public String l;
+    public BDHttpDnsResult.ResolveType m;
+    public boolean n;
+    public BDHttpDnsResult.ResolveStatus o;
+    public String p;
+    public int q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public int v;
+    public long w;
+    public long x;
+    public long y;
 
     public sf() {
         Interceptable interceptable = $ic;
@@ -216,36 +48,26 @@ public final class sf {
                 return;
             }
         }
-        this.a = false;
-        this.b = new e(null);
-        this.c = new c(null);
-        this.d = new d(null);
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (!this.a) {
-                    this.a = true;
-                    DoRecordManager.getInstance().attach(this.b);
-                    DoRecordManager.getInstance().attach(this.c);
-                    DoRecordManager.getInstance().attach(this.d);
-                }
-            }
-        }
-    }
-
-    public /* synthetic */ sf(a aVar) {
-        this();
-    }
-
-    public static sf a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (sf) invokeV.objValue;
+        this.a = -1L;
+        this.b = -1L;
+        this.c = -1L;
+        this.d = -1L;
+        this.e = 0;
+        this.f = -1L;
+        this.g = -1L;
+        this.h = "";
+        this.i = -1;
+        this.j = 0;
+        this.k = null;
+        this.l = null;
+        this.m = null;
+        this.o = null;
+        this.p = null;
+        this.q = 0;
+        this.r = null;
+        this.s = null;
+        this.t = null;
+        this.u = null;
+        this.v = 0;
     }
 }

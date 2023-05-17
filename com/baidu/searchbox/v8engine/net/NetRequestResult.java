@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.net;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.net.NetInfo;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetRequestResult {
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_REQUEST = 0;
     public static final byte NET_REQUEST_RESULT_FROM_TYPE_RESPONSE = 1;

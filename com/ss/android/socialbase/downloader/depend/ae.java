@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface ae extends IInterface {
     boolean a(DownloadInfo downloadInfo) throws RemoteException;
 
@@ -14,7 +14,7 @@ public interface ae extends IInterface {
 
     boolean c(DownloadInfo downloadInfo) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a extends Binder implements ae {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -22,12 +22,12 @@ public interface ae extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ae$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0703a implements ae {
+        /* loaded from: classes10.dex */
+        public static class C0717a implements ae {
             public static ae a;
             public IBinder b;
 
-            public C0703a(IBinder iBinder) {
+            public C0717a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -123,7 +123,7 @@ public interface ae extends IInterface {
         }
 
         public static ae a() {
-            return C0703a.a;
+            return C0717a.a;
         }
 
         public static ae a(IBinder iBinder) {
@@ -134,7 +134,7 @@ public interface ae extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ae)) {
                 return (ae) queryLocalInterface;
             }
-            return new C0703a(iBinder);
+            return new C0717a(iBinder);
         }
 
         @Override // android.os.Binder

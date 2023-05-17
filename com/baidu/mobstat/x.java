@@ -9,7 +9,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class x {
     public static final x a = new x();
     public Handler b = new Handler();

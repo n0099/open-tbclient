@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.image;
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
 import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CloseableAnimatedImage extends CloseableImage {
     public AnimatedImageResult mImageResult;
     public boolean mIsStateful;

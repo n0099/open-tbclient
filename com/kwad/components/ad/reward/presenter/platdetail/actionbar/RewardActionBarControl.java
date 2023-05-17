@@ -12,7 +12,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RewardActionBarControl {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -33,7 +33,7 @@ public final class RewardActionBarControl {
     public Handler mHandler = new Handler(Looper.getMainLooper());
     public boolean rF = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum ShowActionBarResult {
         SHOW_NEW_STYLE,
         SHOW_NATIVE_DEFAULT,
@@ -48,7 +48,7 @@ public final class RewardActionBarControl {
         SHOW_NATIVE_LIVE_SUBSCRIBE
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements com.kwad.components.ad.reward.presenter.platdetail.actionbar.a {
         public List<com.kwad.components.ad.reward.presenter.platdetail.actionbar.a> rK;
         public ShowActionBarResult rL;
@@ -79,26 +79,26 @@ public final class RewardActionBarControl {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(boolean z, com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void e(com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         void f(com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface e {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         boolean g(com.kwad.components.ad.reward.presenter.platdetail.actionbar.a aVar);
     }

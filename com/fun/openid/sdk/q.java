@@ -7,6 +7,7 @@ import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
 import android.util.Log;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -94,7 +95,7 @@ public class q {
             try {
                 try {
                     Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                    str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "unknown");
+                    str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "unknown");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "0";

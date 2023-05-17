@@ -4,7 +4,7 @@ import com.facebook.common.soloader.SoLoaderProxy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImagePipelineNativeLoader {
     public static final List<String> DEPENDENCIES = Collections.unmodifiableList(new ArrayList());
     public static final String DSO_NAME = "imagepipeline";

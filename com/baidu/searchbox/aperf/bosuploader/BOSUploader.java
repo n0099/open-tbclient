@@ -23,7 +23,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BOSUploader {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String OS_ANDROID = "android";

@@ -10,7 +10,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.tieba.R;
 import com.baidu.validation.result.ValidationResult;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AuthWidgetForCashierActivity extends BaseActivity {
     public static final String u = "passport://passport.baidu.com/cashiersdk_auth_pass";
     public static final String v = "EXTRA_PARAM_AUTH_ID";

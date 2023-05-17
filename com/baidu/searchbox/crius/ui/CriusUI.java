@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.crius.CriusNode;
 import com.baidu.searchbox.crius.CriusRuntime;
 import com.baidu.searchbox.crius.parser.CriusData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class CriusUI<T extends View> implements RenderImplInterface {
     public static final String TAG = "CriusUI";
     public T mView;

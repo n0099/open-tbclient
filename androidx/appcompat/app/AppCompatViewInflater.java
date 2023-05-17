@@ -29,8 +29,6 @@ import androidx.appcompat.widget.AppCompatToggleButton;
 import androidx.appcompat.widget.TintContextWrapper;
 import androidx.collection.SimpleArrayMap;
 import androidx.core.view.ViewCompat;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -214,8 +212,8 @@ public class AppCompatViewInflater {
     }
 
     private View createViewFromTag(Context context, String str, AttributeSet attributeSet) {
-        if (str.equals(NativeConstants.TYPE_VIEW)) {
-            str = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
+        if (str.equals("view")) {
+            str = attributeSet.getAttributeValue(null, "class");
         }
         try {
             this.mConstructorArgs[0] = context;

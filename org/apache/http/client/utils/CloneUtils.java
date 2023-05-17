@@ -1,6 +1,6 @@
 package org.apache.http.client.utils;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CloneUtils {
     public CloneUtils() {
         throw new RuntimeException("Stub!");

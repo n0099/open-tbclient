@@ -10,7 +10,7 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
     @Nullable
     public AnimatorSet currentAnimation;

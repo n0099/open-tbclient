@@ -7,7 +7,7 @@ import com.tencent.open.a.d;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.g;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static Class<?> a;
     public static Class<?> b;

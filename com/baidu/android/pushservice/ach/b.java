@@ -54,12 +54,12 @@ public class b implements com.baidu.android.pushservice.v.b {
 
     /* renamed from: com.baidu.android.pushservice.ach.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0019b extends c {
+    public class C0022b extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
 
-        public C0019b(b bVar, Context context) {
+        public C0022b(b bVar, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

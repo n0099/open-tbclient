@@ -3,7 +3,7 @@ package org.apache.http.impl.cookie;
 import java.util.Date;
 import org.apache.http.cookie.SetCookie2;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BasicClientCookie2 extends BasicClientCookie implements SetCookie2 {
     public BasicClientCookie2(String str, String str2) {
         super(null, null);

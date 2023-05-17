@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class g implements Parcelable.Creator<PoiDetailInfo> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.os.Parcelable.Creator

@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
-import com.baidu.tieba.bw;
-import com.baidu.tieba.cw;
+import com.baidu.searchbox.common.security.PermissionStorage;
+import com.baidu.tieba.kw;
+import com.baidu.tieba.lw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public class BdPermissionActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Intent intent = getIntent();
             this.a = intent.getIntExtra("request_code", 0);
-            this.b = intent.getStringArrayExtra("permissions");
+            this.b = intent.getStringArrayExtra(PermissionStorage.PermissionItem.TABLE_NAME);
         }
     }
 
@@ -64,7 +65,7 @@ public class BdPermissionActivity extends Activity {
             }
             if (z) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
-            } else if (cw.c(this, this.a)) {
+            } else if (lw.c(this, this.a)) {
                 ActivityCompat.requestPermissions(this, this.b, this.a);
             } else {
                 onRequestPermissionsResult(this.a, this.b, new int[0]);
@@ -85,7 +86,7 @@ public class BdPermissionActivity extends Activity {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = bw.b().c(this.a);
+            ActivityCompat.OnRequestPermissionsResultCallback c = kw.b().c(this.a);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

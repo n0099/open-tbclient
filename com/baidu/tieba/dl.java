@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import com.baidu.adp.base.BdBaseApplication;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes4.dex */
-public class dl implements IResourcesFetcher {
+/* loaded from: classes5.dex */
+public class dl extends cl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path v;
+    public boolean w;
+    public Rect x;
 
     public dl() {
         Interceptable interceptable = $ic;
@@ -32,30 +32,48 @@ public class dl implements IResourcesFetcher {
         }
     }
 
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources getBaseContextResources() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sk
+    public void e(Canvas canvas, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return BdBaseApplication.getInst().getResources();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
+            canvas.save();
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
+            }
+            drawable.draw(canvas);
+            canvas.restore();
         }
-        return (Resources) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources getGlobalResources() {
-        InterceptResult invokeV;
+    public final void t(Rect rect) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return BdBaseApplication.getInst().getResources();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
+            return;
         }
-        return (Resources) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.IResourcesFetcher
-    public Resources[] getWrapperResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
+        boolean z2 = true;
+        if (this.v != null && this.w == this.l.b) {
+            z = false;
+        } else {
+            z = true;
+        }
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z2 = z;
+        }
+        this.w = this.l.b;
+        if (z2) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+            }
+            this.v.close();
+        }
     }
 }

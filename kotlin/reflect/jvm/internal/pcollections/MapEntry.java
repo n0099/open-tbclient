@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.pcollections;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MapEntry<K, V> implements Serializable {
     public final K key;
     public final V value;

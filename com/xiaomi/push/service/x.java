@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class x {
 
     /* renamed from: a  reason: collision with other field name */
@@ -18,7 +18,7 @@ public class x {
     public static void a(Context context, int i, String str) {
         synchronized (f1011a) {
             for (String str2 : f1011a.keySet()) {
-                com.xiaomi.channel.commonutils.logger.b.m101a("notify registration error. " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m120a("notify registration error. " + str2);
                 a(context, str2, f1011a.get(str2), i, str);
             }
             f1011a.clear();
@@ -63,7 +63,7 @@ public class x {
         try {
             synchronized (f1011a) {
                 for (String str : f1011a.keySet()) {
-                    com.xiaomi.channel.commonutils.logger.b.m101a("processing pending registration request. " + str);
+                    com.xiaomi.channel.commonutils.logger.b.m120a("processing pending registration request. " + str);
                     ah.a(xMPushService, str, f1011a.get(str));
                     if (z && !com.xiaomi.push.t.a()) {
                         try {
@@ -82,7 +82,7 @@ public class x {
 
     public static void a(String str, byte[] bArr) {
         synchronized (f1011a) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("pending registration request. " + str);
+            com.xiaomi.channel.commonutils.logger.b.m120a("pending registration request. " + str);
             f1011a.put(str, bArr);
         }
     }

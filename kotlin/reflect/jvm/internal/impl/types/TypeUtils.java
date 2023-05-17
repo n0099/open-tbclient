@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewTypeVariableConstructor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypeUtils {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final SimpleType DONT_CARE = ErrorUtils.createErrorTypeWithCustomDebugName("DONT_CARE");
@@ -439,7 +439,7 @@ public class TypeUtils {
         throw new IllegalStateException(format222);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SpecialType extends DelegatingSimpleType {
         public final String name;
 
@@ -562,9 +562,9 @@ public class TypeUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(30);
         }
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor instanceof ClassDescriptor) {
-            return (ClassDescriptor) mo2025getDeclarationDescriptor;
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor instanceof ClassDescriptor) {
+            return (ClassDescriptor) mo2044getDeclarationDescriptor;
         }
         return null;
     }
@@ -573,8 +573,8 @@ public class TypeUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(62);
         }
-        if (kotlinType.getConstructor().mo2025getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
-            return (TypeParameterDescriptor) kotlinType.getConstructor().mo2025getDeclarationDescriptor();
+        if (kotlinType.getConstructor().mo2044getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
+            return (TypeParameterDescriptor) kotlinType.getConstructor().mo2044getDeclarationDescriptor();
         }
         return null;
     }
@@ -583,7 +583,7 @@ public class TypeUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(29);
         }
-        if (kotlinType.getConstructor().mo2025getDeclarationDescriptor() instanceof ClassDescriptor) {
+        if (kotlinType.getConstructor().mo2044getDeclarationDescriptor() instanceof ClassDescriptor) {
             return false;
         }
         for (KotlinType kotlinType2 : getImmediateSupertypes(kotlinType)) {
@@ -699,7 +699,7 @@ public class TypeUtils {
         }
         TypeConstructor constructor = kotlinType.getConstructor();
         if (constructor instanceof IntersectionTypeConstructor) {
-            for (KotlinType kotlinType2 : ((IntersectionTypeConstructor) constructor).mo2026getSupertypes()) {
+            for (KotlinType kotlinType2 : ((IntersectionTypeConstructor) constructor).mo2045getSupertypes()) {
                 if (contains(kotlinType2, function1, hashSet)) {
                     return true;
                 }
@@ -764,9 +764,9 @@ public class TypeUtils {
             $$$reportNull$$$0(18);
         }
         TypeSubstitutor create = TypeSubstitutor.create(kotlinType);
-        Collection<KotlinType> mo2026getSupertypes = kotlinType.getConstructor().mo2026getSupertypes();
-        ArrayList arrayList = new ArrayList(mo2026getSupertypes.size());
-        for (KotlinType kotlinType2 : mo2026getSupertypes) {
+        Collection<KotlinType> mo2045getSupertypes = kotlinType.getConstructor().mo2045getSupertypes();
+        ArrayList arrayList = new ArrayList(mo2045getSupertypes.size());
+        for (KotlinType kotlinType2 : mo2045getSupertypes) {
             KotlinType createSubstitutedSupertype = createSubstitutedSupertype(kotlinType, kotlinType2, create);
             if (createSubstitutedSupertype != null) {
                 arrayList.add(createSubstitutedSupertype);
@@ -790,7 +790,7 @@ public class TypeUtils {
         }
         TypeConstructor constructor = kotlinType.getConstructor();
         if (constructor instanceof IntersectionTypeConstructor) {
-            for (KotlinType kotlinType2 : constructor.mo2026getSupertypes()) {
+            for (KotlinType kotlinType2 : constructor.mo2045getSupertypes()) {
                 if (isNullableType(kotlinType2)) {
                     return true;
                 }

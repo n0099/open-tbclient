@@ -7,7 +7,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.sr9;
+import com.baidu.tieba.ut9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Objects;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PublishProgressData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class PublishProgressData {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921526, this));
                 if (this.isWork && this.progress == 93) {
                     WorkPostNotifyFlutterData notifyFlutterVideoUploadSucc = WorkPostNotifyFlutterData.notifyFlutterVideoUploadSucc();
-                    notifyFlutterVideoUploadSucc.setFlutterPageId(sr9.b());
+                    notifyFlutterVideoUploadSucc.setFlutterPageId(ut9.b());
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterVideoUploadSucc));
                 }
             }

@@ -12,14 +12,14 @@ import java.lang.ref.WeakReference;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class JsCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference a;
     public String b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class JsCallbackException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

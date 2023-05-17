@@ -27,13 +27,13 @@ import kotlin.reflect.jvm.internal.impl.types.model.TypeArgumentMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeVariance;
 import kotlin.reflect.jvm.internal.impl.utils.SmartList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AbstractTypeChecker {
     public static final AbstractTypeChecker INSTANCE = new AbstractTypeChecker();
     @JvmField
     public static boolean RUN_SLOW_ASSERTIONS;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;
@@ -205,7 +205,7 @@ public final class AbstractTypeChecker {
                     }
                     if (substitutionSupertypePolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            supertypesDeque.add(substitutionSupertypePolicy.mo2029transformType(abstractTypeCheckerContext, kotlinTypeMarker));
+                            supertypesDeque.add(substitutionSupertypePolicy.mo2048transformType(abstractTypeCheckerContext, kotlinTypeMarker));
                         }
                     }
                 }
@@ -252,7 +252,7 @@ public final class AbstractTypeChecker {
                     }
                     if (supertypesPolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            supertypesDeque.add(supertypesPolicy.mo2029transformType(abstractTypeCheckerContext, kotlinTypeMarker));
+                            supertypesDeque.add(supertypesPolicy.mo2048transformType(abstractTypeCheckerContext, kotlinTypeMarker));
                         }
                     }
                 }
@@ -387,12 +387,12 @@ public final class AbstractTypeChecker {
                     }
                     if (supertypesPolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            SimpleTypeMarker mo2029transformType = supertypesPolicy.mo2029transformType(abstractTypeCheckerContext, kotlinTypeMarker);
-                            if (abstractTypeCheckerContext.isNothingConstructor(abstractTypeCheckerContext.typeConstructor(mo2029transformType))) {
+                            SimpleTypeMarker mo2048transformType = supertypesPolicy.mo2048transformType(abstractTypeCheckerContext, kotlinTypeMarker);
+                            if (abstractTypeCheckerContext.isNothingConstructor(abstractTypeCheckerContext.typeConstructor(mo2048transformType))) {
                                 abstractTypeCheckerContext.clear();
                                 return true;
                             }
-                            supertypesDeque.add(mo2029transformType);
+                            supertypesDeque.add(mo2048transformType);
                         }
                         continue;
                     } else {

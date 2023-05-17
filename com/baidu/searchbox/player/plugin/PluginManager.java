@@ -5,7 +5,7 @@ import com.baidu.searchbox.player.BDVideoPlayer;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PluginManager {
     public final BDVideoPlayer mPlayer;
     public final ArrayList<AbsPlugin> mPlugins = new ArrayList<>();

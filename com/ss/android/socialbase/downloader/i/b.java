@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.i;
 
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import org.apache.http.HttpStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static String a(int i) {
         if (i != 449) {

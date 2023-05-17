@@ -39,7 +39,7 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusData {
     public static final String TAG = "CriusData";
     public static int fontLevel = 1;
@@ -191,7 +191,7 @@ public class CriusData {
     public double width;
     public int widthPixels;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface BusinessConverter {
         String changeTimeText(String str);
     }
@@ -518,7 +518,7 @@ public class CriusData {
     }
 
     public boolean isView() {
-        return NativeConstants.TYPE_VIEW.equals(this.type);
+        return "view".equals(this.type);
     }
 
     public CriusData(Context context, JSONObject jSONObject, boolean z, BusinessConverter businessConverter) {

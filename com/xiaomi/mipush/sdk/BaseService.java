@@ -6,11 +6,11 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseService extends Service {
     public a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Handler {
         public WeakReference<BaseService> a;
 
@@ -33,7 +33,7 @@ public abstract class BaseService extends Service {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler " + baseService.toString() + " kill self");
-            if (!baseService.mo121a()) {
+            if (!baseService.mo140a()) {
                 baseService.stopSelf();
                 return;
             }
@@ -43,7 +43,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    public abstract boolean mo121a();
+    public abstract boolean mo140a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

@@ -10,7 +10,7 @@ import com.kwad.components.ad.reward.d.j;
 import com.kwad.components.ad.reward.k;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends com.kwad.components.ad.reward.presenter.a implements f, com.kwad.components.core.webview.b.d.b {
     public com.kwad.components.ad.reward.d.e mPlayEndPageListener = new com.kwad.components.ad.reward.d.e() { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.e.1
         @Override // com.kwad.components.ad.reward.d.e
@@ -86,9 +86,9 @@ public final class e extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sl = findViewById(R.id.obfuscated_res_0x7f091297);
-        this.sm = findViewById(R.id.obfuscated_res_0x7f091298);
-        this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ed);
+        this.sl = findViewById(R.id.obfuscated_res_0x7f0912d2);
+        this.sm = findViewById(R.id.obfuscated_res_0x7f0912d3);
+        this.sn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091228);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

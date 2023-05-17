@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
 import com.baidu.ar.arplay.c.e;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class d extends BroadcastReceiver {
@@ -65,7 +66,7 @@ public class d extends BroadcastReceiver {
     public static void e(Context context) {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE");
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
         context.getApplicationContext().registerReceiver(bj(), intentFilter);
     }
 
@@ -75,7 +76,7 @@ public class d extends BroadcastReceiver {
             return;
         }
         fT = this;
-        if ("android.net.conn.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction()) || "com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction())) {
+        if (NetworkMonitor.NET_CHANGE_ACTION.equalsIgnoreCase(intent.getAction()) || "com.baidu.ar.baiduarsdk.CONNECTIVITY_CHANGE".equalsIgnoreCase(intent.getAction())) {
             if (e.f(context)) {
                 Log.e(d.class.getName(), "<--- network connected --->");
                 fQ = true;

@@ -10,13 +10,13 @@ import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoSessionManager {
     public static final String TAG = "VideoSessionManager";
     public final ArrayMap<String, String> mSessionIdCache;
     public SystemEventTrigger mSystemEventTrigger;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Holder {
         public static final VideoSessionManager mInstance = new VideoSessionManager();
     }

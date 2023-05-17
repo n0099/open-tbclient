@@ -1,10 +1,11 @@
 package com.baidu.tieba.memberCenter.memberpay;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.wp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,23 +20,109 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MemberPayResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h a;
+    public i a;
     public c b;
     public b c;
+    public g d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
+    public class g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public List<a> d;
+
+        /* loaded from: classes6.dex */
+        public class a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public String a;
+            public List<Integer> b;
+
+            public a(g gVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {gVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            public void a(JSONObject jSONObject) throws Exception {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                    return;
+                }
+                this.a = jSONObject.optString("text");
+                JSONArray optJSONArray = jSONObject.optJSONArray("color_idx");
+                if (optJSONArray != null) {
+                    this.b = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        this.b.add(Integer.valueOf(optJSONArray.optInt(i, -1)));
+                    }
+                }
+            }
+        }
+
+        public g(MemberPayResult memberPayResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {memberPayResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(JSONObject jSONObject) throws Exception {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("title");
+            this.b = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+            this.c = jSONObject.optString("button_jump_url");
+            JSONArray optJSONArray = jSONObject.optJSONArray("item");
+            if (optJSONArray != null) {
+                this.d = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    a aVar = new a(this);
+                    aVar.a(optJSONObject);
+                    this.d.add(aVar);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
     public static class VipPayPrivilegeData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DYNAMIC_DISAPPEAR_CLICK = "click";
         public static final String DYNAMIC_DISAPPEAR_CONCEL = "concel";
-        public static final int NEW_TIP_COLOR_ID = 2131099720;
+        public static final int NEW_TIP_COLOR_ID = 2131099732;
         public static final String NEW_TIP_TEXT = "NEW";
         public static final String TIP_SHOW = "1";
-        public static final int WAIT_TIP_COLOR_ID = 2131099751;
+        public static final int WAIT_TIP_COLOR_ID = 2131099763;
         public static final String WAIT_TIP_TEXT = "敬请期待";
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("dynamic_color")
@@ -131,20 +218,20 @@ public class MemberPayResult {
                     return SkinManager.getColor(WAIT_TIP_COLOR_ID);
                 }
                 if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    return un9.f(this.dynamicColorDark);
+                    return wp9.f(this.dynamicColorDark);
                 }
-                return un9.f(this.dynamicColor);
+                return wp9.f(this.dynamicColor);
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<e> a;
-        public List<g> b;
+        public List<h> b;
         public String c;
 
         public a() {
@@ -196,14 +283,14 @@ public class MemberPayResult {
             }
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
-                g gVar = new g();
-                gVar.a(optJSONArray2.optJSONObject(i2));
-                this.b.add(gVar);
+                h hVar = new h();
+                hVar.a(optJSONArray2.optJSONObject(i2));
+                this.b.add(hVar);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +324,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,12 +358,12 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<e> a;
-        public List<g> b;
+        public List<h> b;
         public String c;
 
         public d() {
@@ -329,14 +416,14 @@ public class MemberPayResult {
             int length2 = optJSONArray2.length();
             for (int i2 = 0; i2 < length2; i2++) {
                 JSONObject jSONObject3 = optJSONArray2.getJSONObject(i2);
-                g gVar = new g();
-                gVar.a(jSONObject3);
-                this.b.add(gVar);
+                h hVar = new h();
+                hVar.a(jSONObject3);
+                this.b.add(hVar);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -389,7 +476,7 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -421,12 +508,12 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class g {
+    /* loaded from: classes6.dex */
+    public static class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public g() {
+        public h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -450,13 +537,13 @@ public class MemberPayResult {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class h {
+    /* loaded from: classes6.dex */
+    public static class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public f a;
 
-        public h() {
+        public i() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -492,17 +579,18 @@ public class MemberPayResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new h();
+        this.a = new i();
         this.b = new c();
         this.c = new b();
+        this.d = new g(this);
     }
 
     public void a(JSONObject jSONObject) throws Exception {
@@ -515,5 +603,6 @@ public class MemberPayResult {
         this.b.a(jSONObject.optJSONObject("goods_info"));
         jSONObject.optString("equal_cost");
         this.c.a(jSONObject.optJSONArray("equity"));
+        this.d.a(jSONObject.optJSONObject("desc"));
     }
 }

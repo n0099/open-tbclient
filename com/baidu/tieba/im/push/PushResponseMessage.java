@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.az4;
 import com.baidu.tieba.im.message.ResponsePullMessage;
 import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.j05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,11 +18,11 @@ import protobuf.PushMessage.DataRes;
 import protobuf.PushMessage.PushMessageResIdl;
 import protobuf.PushMessage.PushMsg;
 import protobuf.PushMsgInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PushResponseMessage extends ResponsePullMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public az4 notificationData;
+    public j05 notificationData;
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage
     public boolean isPulledMessage() {
@@ -52,13 +52,13 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public az4 getNotificationData() {
+    public j05 getNotificationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.notificationData;
         }
-        return (az4) invokeV.objValue;
+        return (j05) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage, com.baidu.adp.framework.message.SocketResponsedMessage

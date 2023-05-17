@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.util;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GlobalTools {
     public static String ACCOUNT_ID = null;
     public static Context APP_CONTEXT = null;

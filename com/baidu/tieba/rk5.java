@@ -1,81 +1,22 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class rk5 extends tj1<rl> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public interface rk5 {
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b implements rl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void a(@Nullable a aVar);
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.rl
-        public void a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
-                soLoaderEvent.name = str;
-                vj5.i(soLoaderEvent);
-            }
-        }
-    }
-
-    public rk5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public rl createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
-        }
-        return (rl) invokeV.objValue;
-    }
+    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
 }

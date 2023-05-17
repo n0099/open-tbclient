@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.v55;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.e75;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,11 +26,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpecHotTopicHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Long, Pair<String, String>> mMap;
-    public static bg mResourceCallback;
+    public static kg mResourceCallback;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,7 +47,7 @@ public class SpecHotTopicHelper {
             }
         }
         mMap = new HashMap();
-        mResourceCallback = new bg<tm>() { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.2
+        mResourceCallback = new kg<cn>() { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -66,13 +66,13 @@ public class SpecHotTopicHelper {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.bg
-            public void onLoaded(tm tmVar, String str, int i) {
+            @Override // com.baidu.tieba.kg
+            public void onLoaded(cn cnVar, String str, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, tmVar, str, i) == null) {
-                    super.onLoaded((AnonymousClass2) tmVar, str, i);
-                    if (tmVar != null) {
-                        TbImageMemoryCache.v().g(str, tmVar.p());
+                if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, cnVar, str, i) == null) {
+                    super.onLoaded((AnonymousClass2) cnVar, str, i);
+                    if (cnVar != null) {
+                        TbImageMemoryCache.u().f(str, cnVar.p());
                     }
                 }
             }
@@ -94,39 +94,39 @@ public class SpecHotTopicHelper {
     }
 
     public static void addSpecTopic(ThreadData threadData, SpannableString spannableString, String str, int i) {
-        tm loadBdImageFromLocal;
-        tm loadBdImageFromLocal2;
+        cn loadBdImageFromLocal;
+        cn loadBdImageFromLocal2;
         BitmapDrawable bitmapDrawable;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLLI(65539, null, threadData, spannableString, str, i) == null) && threadData != null && spannableString != null && !StringUtils.isNull(str)) {
             String leftHotIconUrl = threadData.getLeftHotIconUrl();
             String rightHotIconUrl = threadData.getRightHotIconUrl();
             if (!StringUtils.isNull(leftHotIconUrl) && !StringUtils.isNull(rightHotIconUrl)) {
-                Bitmap u = TbImageMemoryCache.v().u(leftHotIconUrl);
-                if ((u == null || !AbstractImageLoaderProc.isImageFileExist(leftHotIconUrl, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(leftHotIconUrl, 10)) != null) {
-                    u = loadBdImageFromLocal.p();
-                    TbImageMemoryCache.v().g(leftHotIconUrl, u);
+                Bitmap t = TbImageMemoryCache.u().t(leftHotIconUrl);
+                if ((t == null || !AbstractImageLoaderProc.isImageFileExist(leftHotIconUrl, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(leftHotIconUrl, 10)) != null) {
+                    t = loadBdImageFromLocal.p();
+                    TbImageMemoryCache.u().f(leftHotIconUrl, t);
                 }
-                Bitmap u2 = TbImageMemoryCache.v().u(rightHotIconUrl);
-                if ((u2 == null || !AbstractImageLoaderProc.isImageFileExist(rightHotIconUrl, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(rightHotIconUrl, 10)) != null) {
-                    u2 = loadBdImageFromLocal2.p();
-                    TbImageMemoryCache.v().g(rightHotIconUrl, u2);
+                Bitmap t2 = TbImageMemoryCache.u().t(rightHotIconUrl);
+                if ((t2 == null || !AbstractImageLoaderProc.isImageFileExist(rightHotIconUrl, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(rightHotIconUrl, 10)) != null) {
+                    t2 = loadBdImageFromLocal2.p();
+                    TbImageMemoryCache.u().f(rightHotIconUrl, t2);
                 }
-                if (u != null && !u.isRecycled() && u2 != null && !u2.isRecycled()) {
+                if (t != null && !t.isRecycled() && t2 != null && !t2.isRecycled()) {
                     int i2 = 0;
                     for (int i3 = 0; i3 < str.length(); i3++) {
                         if (str.charAt(i3) == '#') {
                             if (i2 % 2 == 0) {
-                                bitmapDrawable = new BitmapDrawable(u);
-                                bitmapDrawable.setBounds(0, 0, u.getWidth(), u.getHeight());
+                                bitmapDrawable = new BitmapDrawable(t);
+                                bitmapDrawable.setBounds(0, 0, t.getWidth(), t.getHeight());
                             } else {
-                                bitmapDrawable = new BitmapDrawable(u2);
-                                bitmapDrawable.setBounds(0, 0, u2.getWidth(), u2.getHeight());
+                                bitmapDrawable = new BitmapDrawable(t2);
+                                bitmapDrawable.setBounds(0, 0, t2.getWidth(), t2.getHeight());
                             }
-                            v55 v55Var = new v55(bitmapDrawable);
-                            v55Var.b(ii.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
+                            e75 e75Var = new e75(bitmapDrawable);
+                            e75Var.b(ri.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
                             int i4 = i + i3;
-                            spannableString.setSpan(v55Var, i4, i4 + 1, 33);
+                            spannableString.setSpan(e75Var, i4, i4 + 1, 33);
                             i2++;
                         }
                     }
@@ -140,13 +140,13 @@ public class SpecHotTopicHelper {
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Bitmap u = TbImageMemoryCache.v().u(str);
-            Bitmap u2 = TbImageMemoryCache.v().u(str2);
-            if (u != null && u2 != null) {
+            Bitmap t = TbImageMemoryCache.u().t(str);
+            Bitmap t2 = TbImageMemoryCache.u().t(str2);
+            if (t != null && t2 != null) {
                 return;
             }
-            if (!ii.E()) {
-                jg.a().post(new Runnable(str, str2) { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1
+            if (!ri.E()) {
+                sg.a().post(new Runnable(str, str2) { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String val$left;
@@ -175,15 +175,15 @@ public class SpecHotTopicHelper {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            cg.h().m(this.val$left, 10, SpecHotTopicHelper.mResourceCallback, null);
-                            cg.h().m(this.val$right, 10, SpecHotTopicHelper.mResourceCallback, null);
+                            lg.h().m(this.val$left, 10, SpecHotTopicHelper.mResourceCallback, null);
+                            lg.h().m(this.val$right, 10, SpecHotTopicHelper.mResourceCallback, null);
                         }
                     }
                 });
                 return;
             }
-            cg.h().m(str, 10, mResourceCallback, null);
-            cg.h().m(str2, 10, mResourceCallback, null);
+            lg.h().m(str, 10, mResourceCallback, null);
+            lg.h().m(str2, 10, mResourceCallback, null);
         }
     }
 

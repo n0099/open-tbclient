@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
+import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class km8 extends tj1<ShareChannelService> {
+/* loaded from: classes6.dex */
+public class km8 extends jk1<LiveRealAuthService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,14 +27,14 @@ public class km8 extends tj1<ShareChannelService> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
+    @Override // com.baidu.tieba.jk1
     /* renamed from: a */
-    public ShareChannelService createService() throws ServiceNotFoundException {
+    public LiveRealAuthService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new lm8();
         }
-        return (ShareChannelService) invokeV.objValue;
+        return (LiveRealAuthService) invokeV.objValue;
     }
 }

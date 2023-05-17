@@ -9,13 +9,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AtomicFile {
     public static final String TAG = "AtomicFile";
     public final File backupName;
     public final File baseName;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class AtomicFileOutputStream extends OutputStream {
         public boolean closed = false;
         public final FileOutputStream fileOutputStream;

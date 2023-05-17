@@ -5,7 +5,7 @@ import com.baidu.searchbox.dns.transmit.DnsTransmitter;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.dns.transmit.model.DnsResponse;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpDnsPolicy {
     public static DnsModel getIpListByHost(String str) {
         Map<String, DnsModel> dnsMap;

@@ -1,113 +1,76 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.widget.EditText;
-import android.widget.Toast;
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
+/* loaded from: classes6.dex */
 public class ip8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<String> a;
+    public vo8 b;
+    public LinkedHashMap<String, yo8> c;
 
-    /* loaded from: classes5.dex */
-    public class a extends bg<tm> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ SpannableStringBuilder b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ EmotionGroupType d;
-        public final /* synthetic */ ip8 e;
-
-        public a(ip8 ip8Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ip8Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ip8Var;
-            this.a = editText;
-            this.b = spannableStringBuilder;
-            this.c = i;
-            this.d = emotionGroupType;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
-                super.onLoaded((a) tmVar, str, i);
-                if (tmVar != null) {
-                    this.e.c(this.a, this.b, this.c, tmVar, this.d);
-                }
-            }
-        }
-    }
-
-    public ip8() {
+    public ip8(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, v85 v85Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, v85Var) == null) {
-            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
-                Toast makeText = Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.too_many_face, 0);
-                GreyUtil.grey(makeText);
-                makeText.show();
                 return;
             }
-            String d = v85Var.d();
-            EmotionGroupType type = v85Var.getType();
-            if (d != null) {
-                cg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
+        }
+        if (dataRes == null) {
+            return;
+        }
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new hp8(dataRes);
+        new jp8(dataRes.special_list);
+        new ap8(dataRes.cooperate_list);
+        new ep8(dataRes.theme_list);
+        new wo8(dataRes.banner_list);
+        new mp8(dataRes.task_list);
+        new lp8(dataRes.rank, dataRes.user);
+        new cp8(dataRes.daily_list);
+        vo8 vo8Var = new vo8();
+        this.b = vo8Var;
+        vo8Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    yo8 yo8Var = new yo8(vipBasicList);
+                    if (yo8Var.c != 3 || yo8Var.a().size() >= 2) {
+                        this.c.put(yo8Var.d, yo8Var);
+                    }
+                }
             }
         }
-    }
-
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, tm tmVar, EmotionGroupType emotionGroupType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), tmVar, emotionGroupType}) == null) {
-            Bitmap p = tmVar.p();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-            int width = p.getWidth();
-            if (emotionGroupType == EmotionGroupType.LOCAL) {
-                width = (int) (width * 0.5d);
+        List<String> list3 = dataRes.card_order;
+        if (list3 != null && list3.size() > 0) {
+            this.a = new ArrayList<>();
+            for (String str3 : dataRes.card_order) {
+                if (!StringUtils.isNull(str3)) {
+                    this.a.add(str3);
+                }
             }
-            bitmapDrawable.setBounds(0, 0, width, width);
-            bitmapDrawable.setGravity(119);
-            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
-            editText.getText().insert(i, spannableStringBuilder);
         }
     }
 }

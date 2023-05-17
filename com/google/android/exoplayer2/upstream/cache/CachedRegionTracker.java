@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CachedRegionTracker implements Cache.Listener {
     public static final int CACHED_TO_END = -2;
     public static final int NOT_CACHED = -1;
@@ -23,7 +23,7 @@ public final class CachedRegionTracker implements Cache.Listener {
     public void onSpanTouched(Cache cache, CacheSpan cacheSpan, CacheSpan cacheSpan2) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Region implements Comparable<Region> {
         public long endOffset;
         public int endOffsetIndex;

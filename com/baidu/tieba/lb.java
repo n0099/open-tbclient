@@ -1,71 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class lb {
+import java.util.LinkedList;
+/* loaded from: classes6.dex */
+public class lb extends kb<SocketMessage, SocketMessageTask, eb, SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
+    public ia i;
 
-    public lb(int i, int i2, int i3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lb(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = r0;
-        int[] iArr = {i, i2, i3};
+        this.i = null;
+        this.i = new ia(messageManager);
+        this.e = pb.c();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x9
+    /* renamed from: A */
+    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 1) {
-                return 0;
-            }
-            return iArr[0];
+        if (interceptable == null || interceptable.invokeLL(1048576, this, socketMessage, socketMessageTask) == null) {
+            this.i.f(socketMessage, socketMessageTask);
         }
-        return invokeV.intValue;
     }
 
-    public int b() {
+    @Override // com.baidu.tieba.x9
+    public LinkedList<SocketMessage> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) {
+            return this.i.e(i, bdUniqueId);
+        }
+        return (LinkedList) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.x9
+    public void h(int i, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kb
+    /* renamed from: y */
+    public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) {
+            return this.a.getController().k(socketMessage, socketMessageTask);
+        }
+        return (SocketMessage) invokeLL.objValue;
+    }
+
+    public ia x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr == null || iArr.length != 3) {
-                return 0;
-            }
-            int netType = BdNetTypeUtil.netType();
-            if (netType != 1) {
-                if (netType != 2) {
-                    if (netType != 3) {
-                        return this.a[2];
-                    }
-                    return this.a[1];
-                }
-                return this.a[0];
-            }
-            return this.a[2];
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
         }
-        return invokeV.intValue;
+        return (ia) invokeV.objValue;
+    }
+
+    public void z(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            this.i.B(bdUniqueId);
+        }
     }
 }

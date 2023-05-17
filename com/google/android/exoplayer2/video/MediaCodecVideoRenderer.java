@@ -37,7 +37,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public static final String KEY_CROP_BOTTOM = "crop-bottom";
     public static final String KEY_CROP_LEFT = "crop-left";
@@ -90,7 +90,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         return j < -500000;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CodecMaxValues {
         public final int height;
         public final int inputSize;
@@ -104,7 +104,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @TargetApi(23)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class OnFrameRenderedListenerV23 implements MediaCodec.OnFrameRenderedListener {
         public OnFrameRenderedListenerV23(MediaCodec mediaCodec) {
             mediaCodec.setOnFrameRenderedListener(this, new Handler());

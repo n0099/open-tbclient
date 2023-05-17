@@ -1,9 +1,10 @@
 package com.baidu.tieba.browser.core.webview.flyweight;
 
 import android.text.TextUtils;
+import com.baidu.android.util.media.WebpUtils;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.rg6;
+import com.baidu.tieba.di6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FlyWeightConfig {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> a;
@@ -81,7 +82,7 @@ public class FlyWeightConfig {
                 }
                 add("jpg");
                 add("jpeg");
-                add("webp");
+                add(WebpUtils.TYPE_IMG_WEBP);
                 add("png");
                 add("ico");
                 add(NativeConstants.TYPE_GIF);
@@ -94,7 +95,7 @@ public class FlyWeightConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String a2 = rg6.a(str);
+            String a2 = di6.a(str);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -125,7 +126,7 @@ public class FlyWeightConfig {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
-            String a2 = rg6.a(str);
+            String a2 = di6.a(str);
             if (TextUtils.isEmpty(a2) && !TextUtils.isEmpty(map.get("Accept")) && map.get("Accept").contains(SapiWebView.DATA_MIME_TYPE)) {
                 a2 = "html";
             }

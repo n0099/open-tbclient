@@ -1,29 +1,85 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
-public interface bfa {
-    void a(int i);
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.Locale;
+/* loaded from: classes5.dex */
+public final class bfa {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static int b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(boolean z);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947644428, "Lcom/baidu/tieba/bfa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947644428, "Lcom/baidu/tieba/bfa;");
+                return;
+            }
+        }
+        a = new Object();
+    }
 
-    String c(String str);
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(b(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
+            }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append("; TurboNet/");
+            sb.append("53.0.2785.116");
+            sb.append(')');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
 
-    int d();
-
-    String e(String str);
-
-    Context getAppContext();
-
-    int getInt(String str, int i);
-
-    long getLong(String str, long j);
-
-    boolean isDebug();
-
-    void putInt(String str, int i);
-
-    void putLong(String str, long j);
-
-    void putString(String str, String str2);
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException unused) {
+                        throw new IllegalStateException("Cannot determine package version");
+                    }
+                }
+                i = b;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
 }

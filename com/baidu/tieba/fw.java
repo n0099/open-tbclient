@@ -1,79 +1,74 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.os.HandlerThread;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebViewFactory;
-import java.util.List;
-/* loaded from: classes4.dex */
-public final class fw {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class fw extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304892, "Lcom/baidu/tieba/fw;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fw(String str, int i) {
+        super(str, i);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448304892, "Lcom/baidu/tieba/fw;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static ActivityManager.RunningAppProcessInfo a(Context context) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int myPid = Process.myPid();
-            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
-            if (runningAppProcesses != null && !runningAppProcesses.isEmpty()) {
-                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                    if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
-                        return runningAppProcessInfo;
-                    }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                Looper looper = getLooper();
+                if (Build.VERSION.SDK_INT >= 18) {
+                    looper.quitSafely();
+                } else {
+                    looper.quit();
                 }
-                return null;
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return null;
         }
-        return (ActivityManager.RunningAppProcessInfo) invokeL.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        ActivityManager.RunningAppProcessInfo a2;
+    @Override // android.os.HandlerThread
+    public boolean quit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(a) && (a2 = a(context)) != null) {
-                a = a2.processName;
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return quitSafely();
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
+    @Override // android.os.HandlerThread
+    public boolean quitSafely() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String b = b(context);
-            if (b != null && b.equals(WebViewFactory.CHROMIUM_HOST_APP)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            gw.c(this);
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

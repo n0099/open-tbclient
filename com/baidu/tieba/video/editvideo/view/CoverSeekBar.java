@@ -21,7 +21,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.video.editvideo.scale.ScalableType;
 import com.baidu.tieba.video.editvideo.scale.ScalableVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CoverSeekBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class CoverSeekBar extends FrameLayout {
     public float k;
     public Handler l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void a();
 
@@ -56,20 +56,20 @@ public class CoverSeekBar extends FrameLayout {
         void onProgress(int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CoverSeekBar a;
 
         /* renamed from: com.baidu.tieba.video.editvideo.view.CoverSeekBar$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0459a implements MediaPlayer.OnInfoListener {
+        /* loaded from: classes7.dex */
+        public class C0477a implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0459a(a aVar) {
+            public C0477a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public class CoverSeekBar extends FrameLayout {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.a.c.i();
-                    mediaPlayer.setOnInfoListener(new C0459a(this));
+                    mediaPlayer.setOnInfoListener(new C0477a(this));
                     return;
                 }
                 this.a.c.h(0);
@@ -135,7 +135,7 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class CoverSeekBar extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -329,7 +329,7 @@ public class CoverSeekBar extends FrameLayout {
         }
         this.a = 10;
         this.l = new b(this);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04db, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04f8, this);
         g();
     }
 
@@ -360,11 +360,11 @@ public class CoverSeekBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-            this.d = ii.l(getContext()) / 10;
-            this.e = ii.g(getContext(), R.dimen.obfuscated_res_0x7f070238);
+            this.d = ri.l(getContext()) / 10;
+            this.e = ri.g(getContext(), R.dimen.obfuscated_res_0x7f07034e);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091025);
-            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f0907ca);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09105d);
+            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f0907e8);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }
     }

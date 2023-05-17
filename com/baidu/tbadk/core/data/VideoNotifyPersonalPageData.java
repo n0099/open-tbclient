@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +13,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoNotifyPersonalPageData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +29,7 @@ public class VideoNotifyPersonalPageData implements Serializable {
     @SerializedName("message")
     public String deleteStatusMessage;
     @NonNull
-    @SerializedName("pageId")
+    @SerializedName(IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID)
     public String flutterPageId;
     @SerializedName("is_delete")
     public int isDeleteOperate;

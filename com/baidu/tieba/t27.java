@@ -1,60 +1,36 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.RecommendCardView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class t27 extends c17<RecommendCardView, zx6> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.recyclerview.widget.RecyclerView;
+/* loaded from: classes7.dex */
+public interface t27 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t27(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(View view2, f37<?> f37Var, e37<?, ?> e37Var);
     }
 
-    @Override // com.baidu.tieba.c17, com.baidu.tieba.r17
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            z27.h(a);
-            return a;
-        }
-        return (View) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(@NonNull f37<?> f37Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r17
-    /* renamed from: e */
-    public void b(@NonNull RecommendCardView recommendCardView, @NonNull zx6 zx6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recommendCardView, zx6Var) == null) {
-            recommendCardView.update(zx6Var);
-        }
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(@NonNull f37<?> f37Var, @NonNull e37<?, ?> e37Var, int i);
+
+        void b(@NonNull RecyclerView recyclerView);
     }
+
+    /* loaded from: classes7.dex */
+    public interface d {
+        boolean a(View view2, f37<?> f37Var, e37<?, ?> e37Var);
+    }
+
+    void c(b bVar);
+
+    void e(c cVar);
+
+    void i(a aVar);
 }

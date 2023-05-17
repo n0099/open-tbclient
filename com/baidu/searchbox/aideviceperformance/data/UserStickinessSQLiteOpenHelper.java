@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UserStickinessSQLiteOpenHelper extends DataBaseOpenHelper {
     public static final String COLUMN_SPACER = "_";
     public static final String COUNT_PREFIX = "count_";

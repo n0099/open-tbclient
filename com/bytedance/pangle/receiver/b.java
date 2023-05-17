@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static final c a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         boolean a(Context context);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements c {
         public a() {
         }
@@ -78,23 +78,23 @@ public final class b {
     }
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0522b extends e {
+    /* loaded from: classes8.dex */
+    public static class C0536b extends e {
         @Override // com.bytedance.pangle.receiver.b.e, com.bytedance.pangle.receiver.b.a, com.bytedance.pangle.receiver.b.c
         public final boolean a(Context context) {
             return false;
         }
 
-        public C0522b() {
+        public C0536b() {
             super((byte) 0);
         }
 
-        public /* synthetic */ C0522b(byte b) {
+        public /* synthetic */ C0536b(byte b) {
             this();
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d extends a {
         public d() {
             super((byte) 0);
@@ -115,7 +115,7 @@ public final class b {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e extends a {
         public e() {
             super((byte) 0);
@@ -151,7 +151,7 @@ public final class b {
         } else if (i < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C0522b((byte) 0);
+            a = new C0536b((byte) 0);
         }
     }
 

@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.games.view.webview.GameWebViewManager;
+import com.baidu.cyberplayer.sdk.videodownload.CyberVideoDownloader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,29 +16,105 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
-/* loaded from: classes6.dex */
-public class vb4 extends EventTargetImpl {
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class vb4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
     public transient /* synthetic */ FieldHolder $fh;
-    public hu1 a;
-    public volatile String b;
-    public e c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ vb4 b;
 
-        public a(vb4 vb4Var, String str) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && vb4.a) {
+                Log.e("SwanGameRevisitUtils", "请求配置信息失败，err = " + exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                if (200 == i && !TextUtils.isEmpty(str)) {
+                    try {
+                        if (vb4.a) {
+                            Log.d("SwanGameRevisitUtils", "回访引导配置信息 = " + str);
+                        }
+                        JSONObject jSONObject = new JSONObject(str);
+                        if (jSONObject.optInt("errno") == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null && optJSONObject.length() != 0) {
+                            JSONArray optJSONArray = optJSONObject.optJSONArray(vb4.i);
+                            if (optJSONArray != null) {
+                                uh3.a().putString(vb4.i, optJSONArray.toString());
+                            }
+                            String optString = optJSONObject.optString("version");
+                            if (TextUtils.isEmpty(optString)) {
+                                return;
+                            }
+                            JSONObject c = vb4.c();
+                            if (c == null) {
+                                vb4.r(optJSONObject);
+                            } else if (TextUtils.equals(c.optString("version"), vb4.p(optString))) {
+                                vb4.k(c);
+                            } else {
+                                vb4.i(optJSONObject, c);
+                                vb4.j(optJSONObject, c);
+                                vb4.r(optJSONObject);
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else if (vb4.a) {
+                    Log.e("SwanGameRevisitUtils", "回访引导配置信息下发异常");
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+
+        public b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vb4Var, str};
+                Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,175 +124,21 @@ public class vb4 extends EventTargetImpl {
                     return;
                 }
             }
-            this.b = vb4Var;
-            this.a = str;
+            this.a = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.a == null) {
-                    this.b.F();
+                try {
+                    this.a.put("version", vb4.p(this.a.optString("version")));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                if (!this.b.a.c()) {
-                    this.b.a.H();
-                }
-                this.b.a.loadUrl(this.a);
-                this.b.D("open", new wb4(this.a));
+                uh3.a().putString("swan_game_guide_toast", this.a.toString());
+                vb4.k(this.a);
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb4 a;
-
-        public b(vb4 vb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vb4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.a.c()) {
-                this.a.a.removeFromParent();
-                this.a.a.destroy();
-                this.a.a = null;
-                vb4 vb4Var = this.a;
-                vb4Var.D("close", new wb4(vb4Var.b));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ vb4 b;
-
-        public c(vb4 vb4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vb4Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                if (TextUtils.equals("1", this.a)) {
-                    this.b.a.g(true);
-                } else {
-                    this.b.a.g(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb4 a;
-
-        public d(vb4 vb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vb4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.close();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-        public long d;
-
-        public e(String str, String str2, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = j;
-        }
-
-        public /* synthetic */ e(String str, String str2, long j, a aVar) {
-            this(str, str2, j);
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "H5GameInfo{mGameId='" + this.a + "', mGameName='" + this.b + "', mStartLoadingTimestamp=" + this.c + ", mFinishLoadingTimestamp=" + this.d + '}';
-            }
-            return (String) invokeV.objValue;
         }
     }
 
@@ -237,206 +155,189 @@ public class vb4 extends EventTargetImpl {
                 return;
             }
         }
-        d = ho1.a;
+        a = qp1.a;
+        b = "bbaspg_guide_";
+        c = "custom_guide_list";
+        d = "appid";
+        e = "shown_count";
+        f = "image_index";
+        g = "last_time";
+        h = "reset";
+        i = "duration_permission_list";
     }
 
-    public static vb4 E() {
+    public static JSONObject n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            ff2 n = x34.m().n();
-            if (n == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            String string = uh3.a().getString("swan_game_guide_toast", "");
+            if (TextUtils.isEmpty(string)) {
                 return null;
             }
-            EventTarget n2 = n.n();
-            if (!(n2 instanceof e24)) {
+            try {
+                return new JSONObject(string);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
                 return null;
             }
-            return ((e24) n2).getWebViewManager();
         }
-        return (vb4) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public final void F() {
+    public static /* synthetic */ JSONObject c() {
+        return n();
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
-            GameWebViewManager gameWebViewManager = new GameWebViewManager(er2.c());
-            this.a = gameWebViewManager;
-            gameWebViewManager.i(new d(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return w54.d() + File.separator + "guide_res";
         }
+        return (String) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            rl3.e0(new b(this));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vb4(hf2 hf2Var) {
-        super(hf2Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hf2Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final boolean G(String str) {
+    @NonNull
+    public static String o(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            return l() + File.separator + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            return an3.D() + "-" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void i(JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null) {
+            try {
+                String optString = jSONObject.optString(b + h, "0");
+                jSONObject2.optString(b + h, "-1");
+                if (TextUtils.equals(optString, "1")) {
+                    jSONObject.put(b + e, 0);
+                    jSONObject.put(b + g, 0);
+                    jSONObject.put(b + f, 0);
+                } else {
+                    jSONObject.put(b + e, jSONObject2.optInt(b + e, 0));
+                    jSONObject.put(b + g, jSONObject2.optLong(b + g, 0L));
+                }
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void j(JSONObject jSONObject, JSONObject jSONObject2) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray(c)) != null && optJSONArray.length() > 0 && (optJSONArray2 = jSONObject.optJSONArray(c)) != null && optJSONArray2.length() > 0) {
+            int length = optJSONArray2.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
+                String optString = optJSONObject.optString(d, "");
+                String optString2 = optJSONObject.optString(h, "0");
+                int length2 = optJSONArray.length();
+                int i3 = 0;
+                while (true) {
+                    if (i3 < length2) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        String optString3 = optJSONObject2.optString(d, "-1");
+                        String optString4 = optJSONObject2.optString(h, "0");
+                        if (TextUtils.equals(optString3, optString)) {
+                            try {
+                                if (!TextUtils.equals(optString4, optString2)) {
+                                    optJSONObject.put(e, "0");
+                                    optJSONObject.put(g, "0");
+                                    optJSONObject.put(f, "0");
+                                } else {
+                                    optJSONObject.put(e, jSONObject2.optString(e, "0"));
+                                    optJSONObject.put(g, jSONObject2.optString(g, "0"));
+                                    optJSONObject.put(f, jSONObject2.optString(f, "0"));
+                                }
+                            } catch (JSONException e2) {
+                                if (a) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                        } else {
+                            i3++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, jSONObject) == null) && jSONObject != null) {
+            if (!TextUtils.isEmpty(jSONObject.optString(b + StatConstants.VALUE_TYPE_ZIP))) {
+                String optString = jSONObject.optString(b + StatConstants.VALUE_TYPE_ZIP);
+                String m = m(optString);
+                if (TextUtils.isEmpty(m)) {
+                    return;
+                }
+                File file = new File(o(m));
+                if (file.exists() && file.isDirectory() && file.length() > 0) {
+                    if (a) {
+                        Log.d("SwanGameRevisitUtils", optString + " 资源文件夹已存在");
+                        return;
+                    }
+                    return;
+                }
+                kp4.L(file);
+                x54.f().b(AppRuntime.getAppContext(), optString, m, l());
+            }
+        }
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return false;
+                return null;
             }
-            String lowerCase = str.toLowerCase(Locale.US);
-            if (!lowerCase.startsWith("http://") && !lowerCase.startsWith("https://")) {
-                return false;
+            String lastPathSegment = Uri.parse(str).getLastPathSegment();
+            if (TextUtils.isEmpty(lastPathSegment) || !lastPathSegment.contains(".zip")) {
+                return null;
             }
-            return true;
+            return lastPathSegment.replace(".zip", "");
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @JavascriptInterface
-    public void setCloseViewVisibility(JsObject jsObject) {
+    public static void r(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
-            e02 F = e02.F(jsObject);
-            if (F == null) {
-                D("error", C(null, "1001"));
-            } else {
-                rl3.e0(new c(this, F.C("setCloseViewVisibility", null)));
-            }
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final xb4 C(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            switch (str2.hashCode()) {
-                case 1507424:
-                    if (str2.equals("1001")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 1507425:
-                    if (str2.equals("1002")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    return null;
-                }
-                return new xb4(str, str2, "open:host not in white list");
-            }
-            return new xb4(str, str2, "open:url is invalid");
-        }
-        return (xb4) invokeLL.objValue;
-    }
-
-    public final void D(String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
-            if (d) {
-                Log.i("GameWebViewApi", "dispatchEvent:" + str + "," + obj);
-            }
-            dispatchEvent(new JSEvent(str, obj));
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.c == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: H5GameInfo is null.");
-                    return;
-                }
-                return;
-            }
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                if (d) {
-                    Log.d("GameWebViewApi", "onGameLoadingFinish: SwanApp is null.");
-                    return;
-                }
-                return;
-            }
-            this.c.d = System.currentTimeMillis();
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingFinish: " + this.c);
-            }
-            yb4.a(b0, this.c);
-            this.c = null;
-        }
-    }
-
-    @JavascriptInterface
-    public void onGameLoadingStart(JsObject jsObject) {
-        e02 F;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jsObject) != null) || (F = e02.F(jsObject)) == null) {
+        if ((interceptable != null && interceptable.invokeL(65554, null, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        String B = F.B("gameId");
-        String B2 = F.B("gameName");
-        if (!TextUtils.isEmpty(B) && !TextUtils.isEmpty(B2)) {
-            this.c = new e(B, B2, System.currentTimeMillis(), null);
-            if (d) {
-                Log.d("GameWebViewApi", "onGameLoadingStart: " + this.c);
-            }
-            ja4.call(F, true, null);
-            return;
+        if (a) {
+            Log.d("SwanGameRevisitUtils", "回访引导配置信息存入 = " + jSONObject);
         }
-        ja4.call(F, false, null);
+        am3.k(new b(jSONObject), "swanGameGuideUpdateRunnable");
     }
 
-    @JavascriptInterface
-    public void open(JsObject jsObject) {
+    public static void q() {
+        g93 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
-            e02 F = e02.F(jsObject);
-            if (F == null) {
-                D("error", C(null, "1001"));
-                return;
-            }
-            String C = F.C("url", null);
-            if (!G(C)) {
-                D("error", C(C, "1001"));
-            } else if (!o83.h(C)) {
-                D("error", C(C, "1002"));
-            } else {
-                if (d) {
-                    Log.i("GameWebViewApi", "open:" + C);
-                }
-                this.b = C;
-                rl3.e0(new a(this, C));
-            }
+        if ((interceptable != null && interceptable.invokeV(65553, null) != null) || (M = g93.M()) == null) {
+            return;
         }
+        M.i0().getRequest().url(x54.b().t()).cookieManager(ns2.q().a()).requestFrom(16).requestFrom(CyberVideoDownloader.DMDownloadError.Sys05).build().executeAsync(new a());
     }
 }

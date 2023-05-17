@@ -14,8 +14,9 @@ import com.baidu.mapapi.utils.b;
 import com.baidu.mapapi.utils.poi.IllegalPoiSearchArgumentException;
 import com.baidu.mapapi.utils.route.RouteParaOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaiduMapRoutePlan {
     public static boolean a = true;
 
@@ -91,7 +92,7 @@ public class BaiduMapRoutePlan {
         sb.append(context.getPackageName());
         Uri parse = Uri.parse(sb.toString());
         Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
+        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.setData(parse);
         context.startActivity(intent);

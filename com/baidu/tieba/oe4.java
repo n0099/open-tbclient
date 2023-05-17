@@ -1,33 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import java.util.List;
-import okhttp3.Interceptor;
-/* loaded from: classes5.dex */
-public interface oe4 {
-    CookieManager f();
+import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class oe4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public yv2 a;
+    public View b;
 
-    int g();
-
-    Context getAppContext();
-
-    int getReadTimeout();
-
-    String getUserAgent();
-
-    boolean h();
-
-    boolean i();
-
-    boolean isDebug();
-
-    void j(String str, HttpRequestBuilder httpRequestBuilder);
-
-    int k();
-
-    List<Interceptor> l();
-
-    int m();
+    public oe4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

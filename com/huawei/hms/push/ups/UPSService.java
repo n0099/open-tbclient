@@ -2,8 +2,8 @@ package com.huawei.hms.push.ups;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.f0b;
-import com.baidu.tieba.i0b;
+import com.baidu.tieba.d2b;
+import com.baidu.tieba.g2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import com.huawei.hms.push.ups.entity.UPSRegisterCallBack;
 import com.huawei.hms.push.ups.entity.UPSTurnCallBack;
 import com.huawei.hms.push.ups.entity.UPSUnRegisterCallBack;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class UPSService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public final class UPSService {
             if (!s.b()) {
                 uPSTurnCallBack.onResult(new TokenResult(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.getExternalCode()));
             } else {
-                HmsMessaging.getInstance(context).turnOffPush().a(new f0b<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.2
+                HmsMessaging.getInstance(context).turnOffPush().a(new d2b<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UPSTurnCallBack a;
@@ -87,15 +87,15 @@ public final class UPSService {
                         this.a = uPSTurnCallBack;
                     }
 
-                    @Override // com.baidu.tieba.f0b
-                    public void onComplete(i0b<Void> i0bVar) {
+                    @Override // com.baidu.tieba.d2b
+                    public void onComplete(g2b<Void> g2bVar) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, i0bVar) == null) {
-                            if (i0bVar.h()) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, g2bVar) == null) {
+                            if (g2bVar.h()) {
                                 this.a.onResult(new CodeResult());
                                 return;
                             }
-                            ApiException apiException = (ApiException) i0bVar.d();
+                            ApiException apiException = (ApiException) g2bVar.d();
                             this.a.onResult(new CodeResult(apiException.getStatusCode(), apiException.getMessage()));
                         }
                     }
@@ -112,7 +112,7 @@ public final class UPSService {
             if (!s.b()) {
                 uPSTurnCallBack.onResult(new TokenResult(ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.getExternalCode()));
             } else {
-                HmsMessaging.getInstance(context).turnOnPush().a(new f0b<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.1
+                HmsMessaging.getInstance(context).turnOnPush().a(new d2b<Void>(uPSTurnCallBack) { // from class: com.huawei.hms.push.ups.UPSService.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UPSTurnCallBack a;
@@ -135,15 +135,15 @@ public final class UPSService {
                         this.a = uPSTurnCallBack;
                     }
 
-                    @Override // com.baidu.tieba.f0b
-                    public void onComplete(i0b<Void> i0bVar) {
+                    @Override // com.baidu.tieba.d2b
+                    public void onComplete(g2b<Void> g2bVar) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, i0bVar) == null) {
-                            if (i0bVar.h()) {
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, g2bVar) == null) {
+                            if (g2bVar.h()) {
                                 this.a.onResult(new CodeResult());
                                 return;
                             }
-                            ApiException apiException = (ApiException) i0bVar.d();
+                            ApiException apiException = (ApiException) g2bVar.d();
                             this.a.onResult(new CodeResult(apiException.getStatusCode(), apiException.getMessage()));
                         }
                     }

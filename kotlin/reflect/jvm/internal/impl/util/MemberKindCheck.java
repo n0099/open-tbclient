@@ -3,11 +3,11 @@ package kotlin.reflect.jvm.internal.impl.util;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.util.Check;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class MemberKindCheck implements Check {
     public final String description;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Member extends MemberKindCheck {
         public static final Member INSTANCE = new Member();
 
@@ -24,7 +24,7 @@ public abstract class MemberKindCheck implements Check {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class MemberOrExtension extends MemberKindCheck {
         public static final MemberOrExtension INSTANCE = new MemberOrExtension();
 

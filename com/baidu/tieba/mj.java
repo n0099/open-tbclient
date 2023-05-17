@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes5.dex */
-public class mj extends sj {
+/* loaded from: classes6.dex */
+public abstract class mj implements pk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String[] e;
-    public List<BasicNameValuePair> f;
+    public volatile byte[] a;
+    public volatile boolean b;
 
-    public mj(String str) {
+    public abstract byte[] d();
+
+    public mj() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,10 +28,22 @@ public class mj extends sj {
                 return;
             }
         }
-        this.a = str;
-        this.b = "/";
-        this.d = null;
-        this.e = null;
-        this.f = null;
+        this.a = null;
+        this.b = false;
+    }
+
+    public byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (!this.b) {
+                    this.b = true;
+                    this.a = d();
+                }
+            }
+            return this.a;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

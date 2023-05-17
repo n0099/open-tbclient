@@ -1,7 +1,7 @@
 package com.baidu.webkit.internal.monitor;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MonitorType implements INoProGuard {
     public static final int MONITOR_TYPE_AD = 24577;
     public static final int MONITOR_TYPE_ADD_JAVA_SCRIPT = 12320;

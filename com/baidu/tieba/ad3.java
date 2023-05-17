@@ -1,83 +1,253 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.setting.oauth.TaskState;
+import com.baidu.ar.statistic.StatisticConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ad3<ResultDataT> {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class ad3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ResultDataT a;
-    public TaskState b;
-    public OAuthException c;
+    public String c;
 
-    public ad3() {
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ g93 c;
+        public final /* synthetic */ ad3 d;
+
+        /* renamed from: com.baidu.tieba.ad3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0218a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Bitmap a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0218a(a aVar, Bitmap bitmap) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bitmap};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bitmap;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.b;
+                    aVar.d.o(this.a, aVar.a, aVar.b, aVar.c);
+                }
+            }
+        }
+
+        public a(ad3 ad3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad3Var, unitedSchemeEntity, callbackHandler, g93Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ad3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = g93Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Bitmap y = xm3.y();
+                if (y == null) {
+                    this.d.n(this.a, this.b, "can't get screenshot");
+                } else {
+                    am3.k(new RunnableC0218a(this, y), "savescreenshot");
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad3(da3 da3Var) {
+        super(da3Var, "/swanAPI/getScreenshot");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TaskState.INIT;
     }
 
-    public OAuthException a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (OAuthException) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            OAuthException oAuthException = this.c;
-            if (oAuthException == null) {
-                return 0;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                g62.c("Screenshot", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
-            return oAuthException.mErrorCode;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TaskState.FINISHED == this.b && this.c == null) {
-                return true;
+            String optString = gm3.d(unitedSchemeEntity.getParam("params")).optString("name");
+            this.c = optString;
+            if (TextUtils.isEmpty(optString)) {
+                g62.c("Screenshot", "invalid params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            return false;
+            m(unitedSchemeEntity, callbackHandler, g93Var);
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void e() {
+    public final JSONObject l(boolean z, String str, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = TaskState.FINISHED;
-            this.c = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, str2})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.c);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("message", str2);
+                }
+                if (z) {
+                    jSONObject.put("path", str);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeCommon.objValue;
+    }
+
+    public final void m(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull g93 g93Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, g93Var) == null) {
+            an3.e0(new a(this, unitedSchemeEntity, callbackHandler, g93Var));
         }
     }
 
-    public void d(OAuthException oAuthException) {
+    public final void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, oAuthException) == null) {
-            this.c = oAuthException;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, str) == null) {
+            g62.c("Screenshot", str);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(false, null, str), 0));
+        }
+    }
+
+    public final void o(@NonNull Bitmap bitmap, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, @NonNull g93 g93Var) {
+        String x;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, bitmap, unitedSchemeEntity, callbackHandler, g93Var) == null) && (x = og3.x(g93Var.b)) != null) {
+            String str = x + File.separator + StatisticConstants.SCREENSHOT;
+            File file = new File(str);
+            if (!file.exists() || !file.isDirectory()) {
+                file.delete();
+                if (!file.mkdir()) {
+                    n(unitedSchemeEntity, callbackHandler, "mkdir fail");
+                    return;
+                }
+            }
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.getDefault());
+            String str2 = str + File.separator + simpleDateFormat.format(new Date()) + this.c + ".png";
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(str2);
+                    } catch (FileNotFoundException e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+                    g62.i("Screenshot", "save screenshot to " + str2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l(true, og3.J(str2, g93Var.b), "success"), 0));
+                    fileOutputStream.close();
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileOutputStream2 = fileOutputStream;
+                    e.printStackTrace();
+                    n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
+                    if (fileOutputStream2 != null) {
+                        fileOutputStream2.close();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
+                            n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+                n(unitedSchemeEntity, callbackHandler, "save screenshot fail");
+            }
         }
     }
 }

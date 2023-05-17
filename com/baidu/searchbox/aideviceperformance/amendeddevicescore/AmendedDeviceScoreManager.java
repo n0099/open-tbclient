@@ -15,7 +15,7 @@ import com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceW
 import com.baidu.searchbox.aideviceperformance.utils.LaunchSpeedReadUtil;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
     public static final String SP_KEY_AMENDED_DEVICE_SCORE = "amended_device_score";
     public static final String SP_KEY_AMENDED_DEVICE_SCORE_MODEL_VERSION = "amended_device_score_model_version";

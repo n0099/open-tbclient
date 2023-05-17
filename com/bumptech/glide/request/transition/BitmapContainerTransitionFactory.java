@@ -5,13 +5,13 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BitmapContainerTransitionFactory<R> implements TransitionFactory<R> {
     public final TransitionFactory<Drawable> realFactory;
 
     public abstract Bitmap getBitmap(R r);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class BitmapGlideAnimation implements Transition<R> {
         public final Transition<Drawable> transition;
 

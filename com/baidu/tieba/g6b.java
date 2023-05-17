@@ -1,61 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OnSubscribeAmb$Selection;
-/* loaded from: classes4.dex */
-public final class g6b<T> extends p5b<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final p5b<? super T> e;
-    public final OnSubscribeAmb$Selection<T> f;
-    public boolean g;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
+/* loaded from: classes5.dex */
+public interface g6b {
+    g6b a();
 
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.g) {
-                return true;
-            }
-            if (this.f.get() == this) {
-                this.g = true;
-                return true;
-            } else if (this.f.compareAndSet(null, this)) {
-                this.f.unsubscribeOthers(this);
-                this.g = true;
-                return true;
-            } else {
-                this.f.unsubscribeLosers();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
+    boolean b(String str);
 
-    @Override // com.baidu.tieba.k5b
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.e.onCompleted();
-        }
-    }
+    void c(Framedata framedata);
 
-    @Override // com.baidu.tieba.k5b
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.e.onError(th);
-        }
-    }
+    String d();
 
-    @Override // com.baidu.tieba.k5b
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.e.onNext(t);
-        }
-    }
+    boolean e(String str);
+
+    void f(Framedata framedata) throws InvalidDataException;
+
+    String g();
+
+    void h(Framedata framedata) throws InvalidDataException;
+
+    void reset();
+
+    String toString();
 }

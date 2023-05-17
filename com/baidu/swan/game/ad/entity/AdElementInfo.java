@@ -13,7 +13,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdElementInfo implements Parcelable {
     public static final int ACTION_TYPE_DOWNLOAD = 2;
     public static final int ACTION_TYPE_LANDING_PAGE = 1;
@@ -239,7 +239,7 @@ public class AdElementInfo implements Parcelable {
         return this.mGdtAd;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AdElementInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

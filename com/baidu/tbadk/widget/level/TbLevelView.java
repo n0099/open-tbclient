@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.lw5;
 import com.baidu.tieba.tbadkcore.databinding.LayoutTbLevelViewBinding;
-import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\u0018\u00002\u00020\u0001B%\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0006\u0010\u0012\u001a\u00020\u0013J\u0006\u0010\u0014\u001a\u00020\u0011J\u0016\u0010\u0014\u001a\u00020\u00112\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\fJ\b\u0010\u0015\u001a\u00020\u0013H\u0002J\u001e\u0010\u0015\u001a\u00020\u00132\u0006\u0010\r\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u000b\u001a\u00020\fJ\u0018\u0010\u0016\u001a\u00020\u00132\u0006\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\r\u001a\u00020\u0007H\u0002J\u0016\u0010\u0017\u001a\u00020\u00132\u0006\u0010\r\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\u000fJ\u000e\u0010\u0018\u001a\u00020\u00132\u0006\u0010\u000b\u001a\u00020\fJ\u0010\u0010\u0019\u001a\u00020\u00132\u0006\u0010\r\u001a\u00020\u0007H\u0002R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001a"}, d2 = {"Lcom/baidu/tbadk/widget/level/TbLevelView;", "Landroid/widget/FrameLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/LayoutTbLevelViewBinding;", "fullName", "", "level", "levelName", "", "simpleLevelWidth", "", "onChangeSkin", "", "prefetchWidth", "refreshView", "setFullLevel", "setLevel", "setMode", "setSimpleLevel", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class TbLevelView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public final class TbLevelView extends FrameLayout {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
             this.a.b.setVisibility(0);
             this.a.c.setVisibility(8);
-            SkinManager.setBackgroundResource(this.a.b, zu5.a.b(i, Boolean.FALSE));
+            SkinManager.setBackgroundResource(this.a.b, lw5.a.b(i, Boolean.FALSE));
         }
     }
 
@@ -171,8 +171,8 @@ public final class TbLevelView extends FrameLayout {
             this.a.b.setVisibility(8);
             this.a.c.setVisibility(0);
             this.a.c.setText(str);
-            SkinManager.setViewTextColor(this.a.c, zu5.a.c(i));
-            SkinManager.setBackgroundResource(this.a.c, zu5.a.b(i, Boolean.TRUE));
+            SkinManager.setViewTextColor(this.a.c, lw5.a.c(i));
+            SkinManager.setBackgroundResource(this.a.c, lw5.a.b(i, Boolean.TRUE));
         }
     }
 

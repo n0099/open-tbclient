@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.sug;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.n;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SuggestionSearch extends n {
     public boolean b = false;
     public com.baidu.platform.core.h.a a = new com.baidu.platform.core.h.b();

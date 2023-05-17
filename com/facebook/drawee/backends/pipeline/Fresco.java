@@ -10,13 +10,13 @@ import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Fresco {
     public static final Class<?> TAG = Fresco.class;
     public static DraweeControllerBuilderSupplierFactory mFactory;
     public static volatile boolean sIsInitialized;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DraweeControllerBuilderSupplierFactory implements Supplier<Supplier<? extends AbstractDraweeControllerBuilder>> {
         public Context mContext;
         public DraweeConfig mImagePipelineConfig;

@@ -1,189 +1,160 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.f82;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.tieba.p82;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class s82 {
+/* loaded from: classes7.dex */
+public class s82 extends m82 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public final f82 c;
+    public RelativeLayout G0;
+    public RelativeLayout H0;
 
-    /* loaded from: classes6.dex */
-    public class a implements f82.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s82 a;
-
-        public a(s82 s82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s82Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s82Var;
+    @Override // com.baidu.tieba.m82
+    public boolean I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
-
-        @Override // com.baidu.tieba.f82.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                z72.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                y72.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
-                this.a.e(networkStatus);
-                if (s82.d) {
-                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                }
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-476651330, "Lcom/baidu/tieba/s82$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-476651330, "Lcom/baidu/tieba/s82$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+    @Override // com.baidu.tieba.m82
+    public boolean f2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105212, "Lcom/baidu/tieba/s82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948105212, "Lcom/baidu/tieba/s82;");
-                return;
-            }
+    @Override // com.baidu.tieba.m82
+    public boolean h2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
         }
-        d = ho1.a;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m82
+    public void m2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
     }
 
     public s82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.c = new f82();
     }
 
-    public final void c() {
+    public static s82 Y2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.a(new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new s82();
+        }
+        return (s82) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m82
+    public void X1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            Y1(view2);
+            w2(-1);
+            F2(-16777216);
+            y2(N(R.string.obfuscated_res_0x7f0f1424));
+            A2(true);
+            M2(false);
         }
     }
 
-    public void f() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0916ed) {
+                ns2.t0().a();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090306) {
+                Z2();
+            }
+        }
+    }
+
+    public final void X2(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916ed);
+            this.G0 = relativeLayout;
+            relativeLayout.setOnClickListener(this);
+            if (ns2.y0().d() || !an3.G()) {
+                this.G0.setVisibility(8);
+            }
+            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090306);
+            this.H0 = relativeLayout2;
+            relativeLayout2.setOnClickListener(this);
+        }
+    }
+
+    public final void Z2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = true;
-            if (w73.K().k() == 1) {
-                z = false;
+            if (m82.F0) {
+                Log.d("SwanAppBaseFragment", "startSettingFragment");
             }
-            this.b = z;
-            this.a = 0L;
+            p82 P1 = P1();
+            if (P1 == null) {
+                y83.f(getContext(), R.string.obfuscated_res_0x7f0f01d0).G();
+                return;
+            }
+            p82.b i = P1.i("navigateTo");
+            i.n(p82.g, p82.i);
+            i.k("authority", null).a();
+            wy2.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
         }
     }
 
-    public void g() {
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    @Nullable
+    public View z0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d08c6, viewGroup, false);
+            X1(inflate);
+            X2(inflate);
+            if (W1()) {
+                inflate = Z1(inflate);
             }
+            return G1(inflate, this);
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
-            return;
-        }
-        if (this.a == 0) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
-            }
-            this.a = System.currentTimeMillis();
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.a > 2000) {
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
-            }
-            c();
-            g();
-        }
-        this.a = currentTimeMillis;
-    }
-
-    public final void e(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                x72.f(R.string.obfuscated_res_0x7f0f141c);
-            } else {
-                x72.f(R.string.obfuscated_res_0x7f0f1412);
-            }
-        }
+        return (View) invokeLLL.objValue;
     }
 }

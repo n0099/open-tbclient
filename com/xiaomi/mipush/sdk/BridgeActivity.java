@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BridgeActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {

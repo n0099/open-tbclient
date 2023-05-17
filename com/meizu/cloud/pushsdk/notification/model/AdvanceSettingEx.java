@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdvanceSettingEx implements Parcelable {
     public static final String ADVANCE_SETTING_EX = "as";
     public static final Parcelable.Creator<AdvanceSettingEx> CREATOR = new Parcelable.Creator<AdvanceSettingEx>() { // from class: com.meizu.cloud.pushsdk.notification.model.AdvanceSettingEx.1

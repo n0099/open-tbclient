@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void F1();
+    public abstract void G1();
 
     public AlaSquareBaseFragment() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public abstract class AlaSquareBaseFragment extends AlaAutoRefreshFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onNetRefreshButtonClicked();
-            F1();
+            G1();
         }
     }
 

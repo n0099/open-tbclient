@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fu implements fy {
     public final /* synthetic */ ft a;
 

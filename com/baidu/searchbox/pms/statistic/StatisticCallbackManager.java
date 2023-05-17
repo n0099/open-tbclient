@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import com.baidu.searchbox.pms.IPmsContext;
 import com.baidu.searchbox.pms.PmsRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StatisticCallbackManager {
     public static volatile ApplicationInfo sAppInfo;
     public static StatisticCallbackManager sInstance;

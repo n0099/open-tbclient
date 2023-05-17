@@ -2,7 +2,7 @@ package com.baidu.pass.http;
 
 import android.content.Context;
 import com.baidu.pass.common.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
     public static final String a = "PassHttpClientRequest";
     public int b;

@@ -11,25 +11,25 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.c28;
+import com.baidu.tieba.d28;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
-import com.baidu.tieba.o08;
-import com.baidu.tieba.p08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IceBreakRequestCallback mCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<p08> list);
+        void onSuccess(List<d28> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -64,7 +64,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -113,12 +113,12 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    o08 o08Var;
+                    c28 c28Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (o08Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (c28Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
                         return;
                     }
-                    List<p08> a = o08Var.a();
+                    List<d28> a = c28Var.a();
                     if (!ListUtils.isEmpty(a) && this.this$0.mCallback != null) {
                         this.this$0.mCallback.onSuccess(a);
                     }

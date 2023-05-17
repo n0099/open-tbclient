@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launch;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmartLaunchController {
     public static boolean isSmartLaunchEnable;
 

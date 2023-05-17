@@ -1,27 +1,61 @@
 package com.baidu.tieba;
 
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class jg1 {
+/* loaded from: classes6.dex */
+public class jg1 {
     public static /* synthetic */ Interceptable $ic;
+    public static jg1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public kg1 a;
 
-    public abstract void a(int i, String str);
-
-    public jg1() {
+    public jg1(kg1 kg1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {kg1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = kg1Var;
+    }
+
+    public static void c(kg1 kg1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, kg1Var) == null) && b == null) {
+            synchronized (jg1.class) {
+                if (b == null) {
+                    b = new jg1(kg1Var);
+                }
+            }
+        }
+    }
+
+    public static jg1 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (jg1) invokeV.objValue;
+    }
+
+    public void a(ImageView imageView, String str) {
+        kg1 kg1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) && (kg1Var = this.a) != null) {
+            kg1Var.a(imageView, str);
         }
     }
 }

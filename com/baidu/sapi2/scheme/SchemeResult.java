@@ -3,7 +3,7 @@ package com.baidu.sapi2.scheme;
 import com.baidu.sapi2.result.SapiResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SchemeResult extends SapiResult {
     public static final int ERROR_CODE_SC_PACKAGE_SIGN_ERROR = -604;
     public static final int ERROR_CODE_SYSTEM_ERROR = -603;

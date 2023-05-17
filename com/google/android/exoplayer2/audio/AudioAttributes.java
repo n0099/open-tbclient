@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.audio;
 
 import android.annotation.TargetApi;
 import android.media.AudioAttributes;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AudioAttributes {
     public static final AudioAttributes DEFAULT = new Builder().build();
     public android.media.AudioAttributes audioAttributesV21;
@@ -10,7 +10,7 @@ public final class AudioAttributes {
     public final int flags;
     public final int usage;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public int contentType = 0;
         public int flags = 0;

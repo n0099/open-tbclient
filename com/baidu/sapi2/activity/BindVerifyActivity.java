@@ -28,7 +28,7 @@ import com.baidu.validation.callback.ValidationCallback;
 import com.baidu.validation.dto.ValidationDTO;
 import com.baidu.validation.result.ValidationResult;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BindVerifyActivity extends Activity {
     public static final int A = 300;
     public static final int B = 301;

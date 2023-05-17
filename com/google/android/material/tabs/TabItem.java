@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.appcompat.widget.TintTypedArray;
 import com.google.android.material.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TabItem extends View {
     public final int customLayout;
     public final Drawable icon;

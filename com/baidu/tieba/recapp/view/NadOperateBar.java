@@ -22,11 +22,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.o11;
+import com.baidu.tieba.e21;
 import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.tieba.recapp.lego.view.XfremodeRoundLayout;
 import com.baidu.tieba.recapp.view.NadOperateBar;
+import com.baidu.tieba.t41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0003\u0018\u0000 :2\u00020\u0001:\u0001:B'\b\u0007\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\b\u0010+\u001a\u00020\u000eH\u0002J\u0010\u0010,\u001a\u0004\u0018\u00010\u00182\u0006\u0010-\u001a\u00020\u000eJ\b\u0010.\u001a\u00020/H\u0014J\u0016\u00100\u001a\u00020/2\u0006\u00101\u001a\u00020\n2\u0006\u00102\u001a\u00020\u000eJ\u0010\u00103\u001a\u00020/2\b\u00104\u001a\u0004\u0018\u000105J\u0016\u00106\u001a\u00020/2\u0006\u00107\u001a\u0002082\u0006\u00109\u001a\u00020\fR\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000b\u001a\u0004\u0018\u00010\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\r\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u001a\u0010\u0013\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0010\"\u0004\b\u0014\u0010\u0012R\u001a\u0010\u0015\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0010\"\u0004\b\u0016\u0010\u0012R\u001b\u0010\u0017\u001a\u00020\u00188FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u001b\u0010\u001c\u001a\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u001f\u001a\u0004\u0018\u00010 X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010!\u001a\u00020\"8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b%\u0010\u001c\u001a\u0004\b#\u0010$R\u001b\u0010&\u001a\u00020\u00188FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b(\u0010\u001c\u001a\u0004\b'\u0010\u001aR\u000e\u0010)\u001a\u00020*X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006;"}, d2 = {"Lcom/baidu/tieba/recapp/view/NadOperateBar;", "Lcom/baidu/tieba/recapp/lego/view/XfremodeRoundLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "adAppInfo", "Lcom/baidu/tbadk/core/data/AdvertAppInfo;", "animCallback", "Lcom/baidu/tieba/recapp/lego/view/AdCardBaseView$IOperateExpandAnimCallback;", "containRecommendReason", "", "getContainRecommendReason", "()Z", "setContainRecommendReason", "(Z)V", "isAddAnimRunable", "setAddAnimRunable", "isExpanded", "setExpanded", "longButtonContainer", "Landroid/widget/RelativeLayout;", "getLongButtonContainer", "()Landroid/widget/RelativeLayout;", "longButtonContainer$delegate", "Lkotlin/Lazy;", "mainHandler", "Landroid/os/Handler;", "parentCardView", "Lcom/baidu/tieba/recapp/lego/view/AdCardBaseView;", "recommendReason", "Landroid/widget/TextView;", "getRecommendReason", "()Landroid/widget/TextView;", "recommendReason$delegate", "shortButtonContainer", "getShortButtonContainer", "shortButtonContainer$delegate", "startAnimation", "Ljava/lang/Runnable;", "checkCanExpand", "getDownloadButtonContainer", "isShortButton", "onDetachedFromWindow", "", "setAdInfo", "info", "isOperateExpanded", "setRecommendReason", "reason", "", "startExpandAnim", DelayTB.DELAY, "", WebChromeClient.KEY_ARG_CALLBACK, "Companion", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class NadOperateBar extends XfremodeRoundLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -151,7 +151,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
     }
 
     @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\t"}, d2 = {"Lcom/baidu/tieba/recapp/view/NadOperateBar$Companion;", "", "()V", "BG_SCALE_ANIMATOR_DURATION", "", "OPERATE_HEIGHT", "", "TEXT_ALPHA_ANIMATOR_DELAY", "TEXT_ALPHA_ANIMATOR_DURATION", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,7 +229,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f0918e4);
+                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f091930);
                 }
                 return (RelativeLayout) invokeV.objValue;
             }
@@ -267,7 +267,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f0918e2);
+                    return (RelativeLayout) this.this$0.findViewById(R.id.obfuscated_res_0x7f09192e);
                 }
                 return (RelativeLayout) invokeV.objValue;
             }
@@ -305,13 +305,13 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return (TextView) this.this$0.findViewById(R.id.obfuscated_res_0x7f0918e3);
+                    return (TextView) this.this$0.findViewById(R.id.obfuscated_res_0x7f09192f);
                 }
                 return (TextView) invokeV.objValue;
             }
         });
         this.m = new Handler(Looper.getMainLooper());
-        this.n = new Runnable() { // from class: com.baidu.tieba.xf9
+        this.n = new Runnable() { // from class: com.baidu.tieba.th9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -323,7 +323,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 }
             }
         };
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0655, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0677, this);
         getRecommendReason().setTextColor(SkinManager.getColor(R.color.CAM_X0304));
         this.i = false;
         this.h = false;
@@ -375,7 +375,7 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                 this$0.setVisibility(0);
                 AdCardBaseView.p pVar = this$0.l;
                 if (pVar != null) {
-                    pVar.b();
+                    pVar.onAnimStart();
                 }
                 ClogBuilder clogBuilder = new ClogBuilder();
                 ClogBuilder v = clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).v("OPERATE");
@@ -392,11 +392,11 @@ public final class NadOperateBar extends XfremodeRoundLayout {
                     str = advertAppInfo2.g;
                 }
                 q.p(str);
-                o11.b(clogBuilder);
+                e21.b(clogBuilder);
                 AnimatorSet animatorSet = new AnimatorSet();
-                final ValueAnimator ofInt = ValueAnimator.ofInt(0, d41.c.a(this$0.getContext(), 34.6f));
+                final ValueAnimator ofInt = ValueAnimator.ofInt(0, t41.c.a(this$0.getContext(), 34.6f));
                 ofInt.setDuration(300L);
-                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.wf9
+                ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.sh9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.ui.UnifyTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BdSpanTouchFixTextView extends UnifyTextView implements ISpanTouchFix {
     public boolean mNeedForceEventToParent;
     public boolean mRealPressStatus;

@@ -1,37 +1,37 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.j9b;
-import com.baidu.tieba.p5b;
-import com.baidu.tieba.p9b;
-import com.baidu.tieba.q5b;
-import com.baidu.tieba.x5b;
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.ibb;
+import com.baidu.tieba.n7b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.obb;
+import com.baidu.tieba.v7b;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements j5b.a<T> {
-    public final x5b<? super q5b> connection;
+/* loaded from: classes10.dex */
+public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements h7b.a<T> {
+    public final v7b<? super o7b> connection;
     public final int numberOfSubscribers;
-    public final j9b<? extends T> source;
+    public final ibb<? extends T> source;
 
-    public OnSubscribeAutoConnect(j9b<? extends T> j9bVar, int i, x5b<? super q5b> x5bVar) {
+    public OnSubscribeAutoConnect(ibb<? extends T> ibbVar, int i, v7b<? super o7b> v7bVar) {
         if (i > 0) {
-            this.source = j9bVar;
+            this.source = ibbVar;
             this.numberOfSubscribers = i;
-            this.connection = x5bVar;
+            this.connection = v7bVar;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    public void call(p5b<? super T> p5bVar) {
-        this.source.D(p9b.c(p5bVar));
+    public void call(n7b<? super T> n7bVar) {
+        this.source.F(obb.c(n7bVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
-            this.source.E(this.connection);
+            this.source.G(this.connection);
         }
     }
 
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
+    @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((p5b) ((p5b) obj));
+        call((n7b) ((n7b) obj));
     }
 }

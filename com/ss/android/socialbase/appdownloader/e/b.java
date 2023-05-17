@@ -3,7 +3,7 @@ package com.ss.android.socialbase.appdownloader.e;
 import android.content.Context;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b extends com.ss.android.socialbase.downloader.depend.d {
     public Context a;
     public int b;

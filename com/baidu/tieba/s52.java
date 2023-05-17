@@ -1,20 +1,35 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class s52 implements z42 {
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class s52 extends n42 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String L;
+    public int M;
+    public String N;
+    public String O;
+    public boolean P;
+    public boolean Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public int U;
+    public int V;
+    public boolean W;
+    public boolean X;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s52() {
+        super("textArea", "componentId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,58 +37,137 @@ public class s52 implements z42 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.L = "";
+        this.N = "";
+        this.O = "";
+    }
+
+    private void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            int g = xm3.g(c(jSONObject, "minHeight", 0.0f));
+            if (g < 0) {
+                g = 0;
+            }
+            this.U = g;
+            int g2 = xm3.g(c(this.j, "maxHeight", 2.1474836E9f));
+            if (g2 < 0) {
+                g2 = Integer.MAX_VALUE;
+            }
+            this.V = g2;
+        }
+    }
+
+    @Override // com.baidu.tieba.n42, com.baidu.tieba.s42, com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        mz2 mz2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("placeholder");
+        o(jSONObject);
+        boolean z = false;
+        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
+        this.Q = optBoolean;
+        if (optBoolean && (mz2Var = this.h) != null) {
+            mz2Var.j(-2);
+            this.h.k(true);
+        }
+        boolean optBoolean2 = jSONObject.optBoolean("fixed");
+        this.R = optBoolean2;
+        mz2 mz2Var2 = this.h;
+        if (mz2Var2 != null) {
+            mz2Var2.i(optBoolean2);
+        }
+        this.S = jSONObject.optBoolean("showConfirmBar", true);
+        this.T = jSONObject.optBoolean("adjustPosition", true);
+        this.W = jSONObject.optBoolean("disabled", false);
+        if (jSONObject.optInt("confirmHold") == 1) {
+            z = true;
+        }
+        this.X = z;
+        i();
+    }
+
+    @Override // com.baidu.tieba.n42, com.baidu.tieba.s42, com.baidu.tieba.u42, com.baidu.tieba.w42
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.W = jSONObject.optBoolean("disabled", this.W);
+            this.L = jSONObject.optString("placeholder", this.L);
+            this.t = jSONObject.optString("value", this.t);
+            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
+            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
+            this.T = jSONObject.optBoolean("adjustPosition", this.T);
+            n(jSONObject);
+            p(jSONObject);
+            o(jSONObject);
+            i();
+        }
+    }
+
+    public final void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
+            this.Q = optBoolean;
+            mz2 mz2Var = this.h;
+            if (mz2Var != null) {
+                if (optBoolean) {
+                    mz2Var.j(-2);
+                    this.h.k(true);
+                    return;
+                }
+                int c = mz2Var.c();
+                int i = this.K;
+                if (i > 0) {
+                    c = i;
+                }
+                this.h.j(c);
+                this.h.k(false);
             }
         }
     }
 
-    public static void d() {
-        x73 M;
+    public final void o(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = x73.M()) == null) {
-            return;
-        }
-        gk3.j(M.getActivity());
-        System.exit(0);
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z42
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return q52.e().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z42
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = wk3.i(bundle, "extraWSUrl");
-            a52.i(wk3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            a52.j(wk3.i(bundle, "slavePreload"));
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) != null) {
+            this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
+            this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+            this.O = optJSONObject.optString("color");
         }
     }
 
-    @Override // com.baidu.tieba.z42
-    public void b(Bundle bundle) {
+    public final void p(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", a);
-            bundle.putString("slavePreload", a52.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, a52.a());
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
+            this.R = optBoolean;
+            mz2 mz2Var = this.h;
+            if (mz2Var != null) {
+                mz2Var.i(optBoolean);
+            }
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.P = z;
         }
     }
 }

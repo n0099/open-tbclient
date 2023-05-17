@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ng3 extends x33 {
+/* loaded from: classes6.dex */
+public class ng3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
 
     public ng3() {
         Interceptable interceptable = $ic;
@@ -27,26 +28,51 @@ public class ng3 extends x33 {
         }
     }
 
-    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, ashmemFileDescriptor) != null) || !ProcessUtils.isMainProcess()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        Bundle bundle = new Bundle();
-        bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-        bundle.putParcelable("result", ashmemFileDescriptor);
-        r43.a(bundle, ng3.class);
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.x33
-    public void b(@NonNull Bundle bundle) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
-            if (ashmemFileDescriptor != null) {
-                rg3.b(ashmemFileDescriptor);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.b = j;
         }
     }
 }

@@ -17,7 +17,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadUriOutputStream implements DownloadOutputStream {
     @NonNull
     public final FileChannel channel;
@@ -41,7 +41,7 @@ public class DownloadUriOutputStream implements DownloadOutputStream {
         throw new FileNotFoundException("result of " + uri + " is null!");
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Factory implements DownloadOutputStream.Factory {
         @Override // com.baidu.searchbox.bddownload.core.file.DownloadOutputStream.Factory
         public boolean supportSeek() {

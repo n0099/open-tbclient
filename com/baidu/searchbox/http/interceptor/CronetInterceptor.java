@@ -39,7 +39,7 @@ import okio.BufferedSource;
 import okio.Okio;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CronetInterceptor implements Interceptor {
     public static final boolean DEBUG = false;
     public static final int DEFAULT_BUFFER_SIZE = 8192;
@@ -48,7 +48,7 @@ public class CronetInterceptor implements Interceptor {
     public static Method sEnableSslRedirectMethod;
     public OkHttpClient mOkHttpClient;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class RobustInputStream extends FilterInputStream {
         public volatile HttpURLConnection conn;
         public volatile boolean readComplete;
@@ -267,7 +267,9 @@ public class CronetInterceptor implements Interceptor {
                 openHttpURLConnection.disconnect();
                 return chain.proceed(request);
             }
-            openHttpURLConnection.setInstanceFollowRedirects(this.mOkHttpClient.followRedirects());
+            if (openHttpURLConnection != null) {
+                openHttpURLConnection.setInstanceFollowRedirects(this.mOkHttpClient.followRedirects());
+            }
             if (this.mOkHttpClient.followSslRedirects()) {
                 Method method = sEnableSslRedirectMethod;
                 if (method == null) {
@@ -420,6 +422,7 @@ public class CronetInterceptor implements Interceptor {
                     if (!TextUtils.isEmpty(str4)) {
                         networkStatRecord.errheaders = str4;
                     }
+                    networkStatRecord.bindMobileStatus = build2.header("bd-frame-bind4gstatus");
                 }
                 return build2;
             } catch (IOException e6) {

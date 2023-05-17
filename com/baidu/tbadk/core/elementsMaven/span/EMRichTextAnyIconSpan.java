@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i35;
+import com.baidu.tieba.r45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public static final int l;
@@ -42,7 +42,7 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public int k;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -282,8 +282,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
             float f2 = f + this.h;
             float f3 = this.j;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (i35.b(charSequence)) {
-                i35.a(fontMetricsInt, (int) paint.getTextSize());
+            if (r45.b(charSequence)) {
+                r45.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = f3 - UtilHelper.getDimenPixelSize(R.dimen.tbds2);
             } else {
                 dimenPixelSize = f3 + UtilHelper.getDimenPixelSize(R.dimen.tbds3) + this.k;

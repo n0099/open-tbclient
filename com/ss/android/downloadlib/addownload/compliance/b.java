@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.security.PermissionStorage;
 import com.ss.android.download.api.config.q;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
@@ -16,11 +17,11 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public SoftReference<Activity> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static b a = new b();
     }
@@ -66,7 +67,7 @@ public class b {
                 bVar.f = optJSONObject.optString("version_name");
                 bVar.g = optJSONObject.optString("developer_name");
                 bVar.i = optJSONObject.optString("policy_url");
-                JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
+                JSONArray optJSONArray = optJSONObject.optJSONArray(PermissionStorage.PermissionItem.TABLE_NAME);
                 if (optJSONArray != null) {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         JSONObject jSONObject = (JSONObject) optJSONArray.get(i);

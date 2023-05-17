@@ -1,5 +1,5 @@
 package com.baidu.searchbox.slide;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;

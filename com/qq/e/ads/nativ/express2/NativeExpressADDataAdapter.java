@@ -16,7 +16,7 @@ import com.qq.e.comm.compliance.DownloadConfirmCallBack;
 import com.qq.e.comm.compliance.DownloadConfirmListener;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NativeExpressADDataAdapter implements NativeExpressADData2, DownloadConfirmListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

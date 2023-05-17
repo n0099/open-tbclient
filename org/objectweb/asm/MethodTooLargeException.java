@@ -1,5 +1,5 @@
 package org.objectweb.asm;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MethodTooLargeException extends IndexOutOfBoundsException {
     public static final long serialVersionUID = 6807380416709738314L;
     public final String className;

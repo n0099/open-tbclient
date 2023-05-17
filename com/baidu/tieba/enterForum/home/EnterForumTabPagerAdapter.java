@@ -9,15 +9,15 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
-import com.baidu.tieba.hw5;
+import com.baidu.tieba.tx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements hw5 {
+/* loaded from: classes5.dex */
+public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements tx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
@@ -26,7 +26,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements h
     public boolean d;
     public FragmentManager e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements h
         this.a = list;
     }
 
-    @Override // com.baidu.tieba.hw5
+    @Override // com.baidu.tieba.tx5
     public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

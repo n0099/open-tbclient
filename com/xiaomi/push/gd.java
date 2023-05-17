@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class gd extends XMPushService.j {
     public final /* synthetic */ long a;
 
@@ -19,18 +19,18 @@ public class gd extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "check the ping-pong." + this.b;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         Thread.yield();
-        if (!this.f430a.m430c() || this.f430a.a(this.a)) {
+        if (!this.f430a.m449c() || this.f430a.a(this.a)) {
             return;
         }
-        com.xiaomi.push.service.o.a(this.f430a.b).m743b();
+        com.xiaomi.push.service.o.a(this.f430a.b).m762b();
         this.f430a.b.a(22, (Exception) null);
     }
 }

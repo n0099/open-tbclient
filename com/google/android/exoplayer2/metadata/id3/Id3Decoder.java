@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.metadata.id3;
 
 import android.util.Log;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataDecoder;
 import com.google.android.exoplayer2.metadata.MetadataInputBuffer;
@@ -12,7 +13,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Id3Decoder implements MetadataDecoder {
     public static final int FRAME_FLAG_V3_HAS_GROUP_IDENTIFIER = 32;
     public static final int FRAME_FLAG_V3_IS_COMPRESSED = 128;
@@ -31,7 +32,7 @@ public final class Id3Decoder implements MetadataDecoder {
     public static final String TAG = "Id3Decoder";
     public final FramePredicate framePredicate;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface FramePredicate {
         boolean evaluate(int i, int i2, int i3, int i4, int i5);
     }
@@ -44,7 +45,7 @@ public final class Id3Decoder implements MetadataDecoder {
         return i != 1 ? i != 2 ? i != 3 ? "ISO-8859-1" : "UTF-8" : "UTF-16BE" : "UTF-16";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Id3Header {
         public final int framesSize;
         public final boolean isUnsynchronized;
@@ -127,7 +128,7 @@ public final class Id3Decoder implements MetadataDecoder {
         if (i2 == 2) {
             str = FileUtils.IMAGE_FILE_START + Util.toLowerInvariant(new String(bArr, 0, 3, "ISO-8859-1"));
             if (str.equals("image/jpg")) {
-                str = "image/jpeg";
+                str = WordCommandManager.IMAGE_JPEG;
             }
             indexOfZeroByte = 2;
         } else {

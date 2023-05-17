@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NovelWebViewActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_IS_SHOW_TOAST_TIP = "key_is_show_toast_tip";

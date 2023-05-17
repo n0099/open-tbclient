@@ -1,19 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes7.dex */
-public interface z45 {
-    void a(Context context);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class z45 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    public z45() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

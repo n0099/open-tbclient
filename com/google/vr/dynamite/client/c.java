@@ -1,5 +1,5 @@
 package com.google.vr.dynamite.client;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends Exception {
     public final int a = 1;
 

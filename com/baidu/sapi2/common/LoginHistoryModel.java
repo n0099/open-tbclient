@@ -4,7 +4,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.SyncAccountUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoginHistoryModel implements NoProguard {
     public String bduss;
     public String displayname;

@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultDataSource implements DataSource {
     public static final String SCHEME_ASSET = "asset";
     public static final String SCHEME_CONTENT = "content";

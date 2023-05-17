@@ -1,94 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
-public class cn1 implements ThreadFactory {
+/* loaded from: classes5.dex */
+public class cn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicInteger d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public String b;
-    public int c;
+    public SharedPreferences a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680419, "Lcom/baidu/tieba/cn1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947680419, "Lcom/baidu/tieba/cn1;");
-                return;
-            }
-        }
-        d = new AtomicInteger(1);
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cn1() {
-        this(5);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public cn1(int i) {
+    public cn1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicInteger(1);
-        this.b = "sso-" + d.getAndIncrement() + "-thread-";
-        this.c = i;
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
+            this.a = sharedPreferences;
+            sharedPreferences.edit();
+        } catch (Throwable th) {
+            po1.d(th);
+        }
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-            if (thread.isDaemon()) {
-                thread.setDaemon(false);
-            }
-            int i = this.c;
-            if (i != 5) {
-                thread.setPriority(i);
-            } else {
-                thread.setPriority(5);
-            }
-            return thread;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("xyus", "");
         }
-        return (Thread) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

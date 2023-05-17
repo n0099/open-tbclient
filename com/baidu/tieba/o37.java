@@ -1,104 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.feed.widget.uistate.PersonAttentionUiStateKt;
+import com.baidu.tieba.feed.component.CardAbstractView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function3;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class o37 extends q17 {
+/* loaded from: classes6.dex */
+public class o37 extends p27<CardAbstractView, yy6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hz6 c;
-    public final String d;
-    public Function1<? super lz6, Unit> e;
-    public final Function2<o37, TbPageContext<?>, Unit> f;
-    public final Function3<o37, TbPageContext<?>, Object, Unit> g;
 
-    @JvmOverloads
-    public o37(hz6 personAttentionData, String str, Function1<? super lz6, Unit> onStat, Function2<? super o37, ? super TbPageContext<?>, Unit> onAttentionClick, Function3<? super o37, ? super TbPageContext<?>, Object, Unit> registerAttentionListener) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o37(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {personAttentionData, str, onStat, onAttentionClick, registerAttentionListener};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(personAttentionData, "personAttentionData");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
-        Intrinsics.checkNotNullParameter(registerAttentionListener, "registerAttentionListener");
-        this.c = personAttentionData;
-        this.d = str;
-        this.e = onStat;
-        this.f = onAttentionClick;
-        this.g = registerAttentionListener;
     }
 
-    public /* synthetic */ o37(hz6 hz6Var, String str, Function1 function1, Function2 function2, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(hz6Var, str, (i & 4) != 0 ? PersonAttentionUiStateKt.c : function1, (i & 8) != 0 ? PersonAttentionUiStateKt.c() : function2, (i & 16) != 0 ? PersonAttentionUiStateKt.b : function3);
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.p27, com.baidu.tieba.e37
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            m47.l(a, null, 0);
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public final Function2<o37, TbPageContext<?>, Unit> e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e37
+    /* renamed from: e */
+    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull yy6 yy6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, yy6Var) == null) {
+            cardAbstractView.f(yy6Var);
         }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tieba.lz6, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tieba.lz6, kotlin.Unit> */
-    public final Function1<lz6, Unit> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final hz6 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (hz6) invokeV.objValue;
-    }
-
-    public final Function3<o37, TbPageContext<?>, Object, Unit> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (Function3) invokeV.objValue;
     }
 }

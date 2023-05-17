@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class m77 {
+import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.SearchPostForum.SearchForum;
+/* loaded from: classes6.dex */
+public class m77 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static m77 b;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public List<FrsTabInfo> g;
 
     static {
         InterceptResult invokeClinit;
@@ -30,13 +40,88 @@ public class m77 {
                 return;
             }
         }
-        b = new m77();
+        h = BdUniqueId.gen();
     }
 
-    public m77() {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return h;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public List<FrsTabInfo> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public m77(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,34 +131,22 @@ public class m77 {
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.f = str;
     }
 
-    public static m77 a() {
-        InterceptResult invokeV;
+    public void l(SearchForum searchForum) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, searchForum) != null) || searchForum == null) {
+            return;
         }
-        return (m77) invokeV.objValue;
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
-            }
-            return !TextUtils.isEmpty(this.a.get(i));
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
-        }
+        this.a = searchForum.forum_id.longValue();
+        this.b = searchForum.forum_name;
+        this.c = searchForum.avatar;
+        this.d = searchForum.post_num;
+        this.e = searchForum.concern_num;
+        String str = searchForum.slogan;
+        String str2 = searchForum.intro;
+        searchForum.has_concerned.intValue();
+        this.g = searchForum.tab_info;
     }
 }

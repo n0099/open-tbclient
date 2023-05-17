@@ -7,7 +7,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.android.util.io.BaseJsonData;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -127,7 +126,7 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
             long j = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
+                j = jSONObject.optLong("requestid");
                 i2 = jSONObject.optInt("error_code", 0);
                 if (i2 != 0) {
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);

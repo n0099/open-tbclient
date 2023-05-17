@@ -1,27 +1,65 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.iw1;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-@Service
-/* loaded from: classes6.dex */
-public class qa4 extends iw1 implements jp1 {
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+/* loaded from: classes7.dex */
+public class qa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<iw1.a> a;
+    public final String a;
+    public final Object b;
 
-    public qa4() {
+    public static String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return "number";
+                case 4:
+                default:
+                    return "unknown";
+                case 6:
+                    return "array";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function";
+                case 9:
+                    return "object";
+                case 10:
+                    return "arraybuffer";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public qa4(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,69 +69,90 @@ public class qa4 extends iw1 implements jp1 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        this.a = str;
+        this.b = obj;
     }
 
-    @Nullable
-    public static qa4 c() {
+    public static Object a(qg2 qg2Var, String str, String str2, qa4 qa4Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, qg2Var, str, str2, qa4Var)) == null) {
+            if (qa4Var.g()) {
+                return qa4Var.d();
+            }
+            String a = na4.a(str, str2, qa4Var.e());
+            qg2Var.throwJSException(JSExceptionType.Error, a);
+            return a;
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static qa4 b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new qa4(str, null);
+        }
+        return (qa4) invokeL.objValue;
+    }
+
+    public static qa4 i(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+            return new qa4(null, obj);
+        }
+        return (qa4) invokeL.objValue;
+    }
+
+    public static Object h() {
         InterceptResult invokeV;
-        u34 u34Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            g72 V = kt2.U().V();
-            if (V == null || (u34Var = (u34) V.n(u34.class)) == null) {
-                return null;
-            }
-            return u34Var.x3();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new JsObject();
         }
-        return (qa4) invokeV.objValue;
+        return invokeV.objValue;
     }
 
-    public synchronized void d() {
+    public Object d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                Iterator<iw1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                this.a.clear();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jp1
-    public iw1 getInstance() {
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c();
+            if (this.a == null) {
+                return true;
+            }
+            return false;
         }
-        return (iw1) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.iw1
-    public synchronized void a(iw1.a aVar) {
+    public String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            synchronized (this) {
-                if (!this.a.contains(aVar)) {
-                    this.a.add(aVar);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (g()) {
+                return na4.b(str);
             }
+            return na4.a(str, str2, e());
         }
-    }
-
-    @Override // com.baidu.tieba.iw1
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                Iterator<iw1.a> it = this.a.iterator();
-                while (it.hasNext()) {
-                    it.next().b(i);
-                }
-            }
-        }
+        return (String) invokeLL.objValue;
     }
 }

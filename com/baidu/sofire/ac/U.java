@@ -13,6 +13,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.sofire.MyReceiver;
 import com.baidu.sofire.a.c;
 import com.baidu.sofire.b.b;
@@ -45,7 +46,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class U implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_DAILY_ALARM = 6;
@@ -124,7 +125,7 @@ public class U implements Runnable {
     public JSONObject mWholeJson;
     public File tmpDir;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class UpgradeResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -310,7 +311,7 @@ public class U implements Runnable {
                     sRetryDownoadHostCareApksTimesCount++;
                 }
                 if (!sMonitorNetworkWhenUpgradeNoNet) {
-                    IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                    IntentFilter intentFilter = new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
                     MyReceiver myReceiver = com.baidu.sofire.k.b.g;
                     if (myReceiver == null) {
                         com.baidu.sofire.k.b.g = new MyReceiver().a();
@@ -427,7 +428,7 @@ public class U implements Runnable {
                 if (!((ArrayList) e).contains(Integer.valueOf(apkInfo.key))) {
                     Context context = this.context;
                     if (apkInfo.network == 1 && !com.baidu.sofire.k.b.l(context)) {
-                        IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                        IntentFilter intentFilter = new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
                         if (com.baidu.sofire.k.b.g == null) {
                             com.baidu.sofire.k.b.g = new MyReceiver().a();
                         }
@@ -504,7 +505,7 @@ public class U implements Runnable {
                             sRetryDownoadHostCareApksTimesCount++;
                         }
                         if (!sMonitorNetworkWhenUpgradeNoNet) {
-                            IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                            IntentFilter intentFilter2 = new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
                             MyReceiver myReceiver = com.baidu.sofire.k.b.g;
                             if (myReceiver == null) {
                                 com.baidu.sofire.k.b.g = new MyReceiver().a();
@@ -764,14 +765,14 @@ public class U implements Runnable {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:142:0x0554 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:151:0x0564 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:153:0x0567 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:142:0x0556 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:151:0x0566 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:153:0x0569 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:161:0x0591 A[Catch: all -> 0x05fa, TryCatch #14 {all -> 0x05fa, blocks: (B:159:0x0580, B:161:0x0591, B:162:0x059c, B:164:0x05a9, B:165:0x05af), top: B:213:0x0580 }] */
-    /* JADX WARN: Removed duplicated region for block: B:164:0x05a9 A[Catch: all -> 0x05fa, TryCatch #14 {all -> 0x05fa, blocks: (B:159:0x0580, B:161:0x0591, B:162:0x059c, B:164:0x05a9, B:165:0x05af), top: B:213:0x0580 }] */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x0600  */
-    /* JADX WARN: Removed duplicated region for block: B:178:0x062c  */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x0593 A[Catch: all -> 0x05fc, TryCatch #16 {all -> 0x05fc, blocks: (B:159:0x0582, B:161:0x0593, B:162:0x059e, B:164:0x05ab, B:165:0x05b1), top: B:213:0x0582 }] */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x05ab A[Catch: all -> 0x05fc, TryCatch #16 {all -> 0x05fc, blocks: (B:159:0x0582, B:161:0x0593, B:162:0x059e, B:164:0x05ab, B:165:0x05b1), top: B:213:0x0582 }] */
+    /* JADX WARN: Removed duplicated region for block: B:173:0x0602  */
+    /* JADX WARN: Removed duplicated region for block: B:178:0x062e  */
     /* JADX WARN: Type inference failed for: r14v12 */
     /* JADX WARN: Type inference failed for: r14v13 */
     /* JADX WARN: Type inference failed for: r14v15, types: [java.lang.Object] */
@@ -1365,13 +1366,13 @@ public class U implements Runnable {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:215:0x03b3  */
-    /* JADX WARN: Removed duplicated region for block: B:216:0x03b5  */
-    /* JADX WARN: Removed duplicated region for block: B:219:0x03ba A[Catch: all -> 0x06af, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b1, B:112:0x01b8, B:114:0x01ce, B:115:0x01d2, B:117:0x01e7, B:118:0x01ee, B:120:0x01f4, B:122:0x01fa, B:125:0x020a, B:126:0x020e, B:130:0x021c, B:134:0x0227, B:136:0x0233, B:140:0x0241, B:141:0x024e, B:207:0x0386, B:208:0x038a, B:213:0x03aa, B:217:0x03b6, B:219:0x03ba, B:220:0x03bc, B:222:0x03c4, B:223:0x03d4, B:225:0x03dc, B:227:0x03eb, B:229:0x03f3, B:231:0x03fd, B:232:0x040b, B:234:0x0411, B:235:0x0420, B:236:0x0425, B:238:0x0431, B:240:0x0437, B:242:0x0447, B:244:0x044d, B:245:0x0454, B:247:0x045e, B:249:0x0462, B:251:0x046e, B:253:0x047d, B:255:0x0481, B:262:0x04ac, B:252:0x0476, B:258:0x0492, B:260:0x049c, B:261:0x04a7, B:263:0x04b0, B:265:0x04bd, B:267:0x04d6, B:269:0x04e0, B:271:0x04e7, B:272:0x04eb, B:274:0x04f1, B:277:0x0504, B:279:0x0508, B:280:0x0511, B:281:0x0519, B:284:0x0538, B:286:0x053e, B:288:0x0545, B:290:0x054b, B:291:0x0552, B:292:0x0555, B:293:0x0569, B:295:0x056f, B:297:0x057b, B:299:0x0583, B:303:0x0591, B:306:0x059b, B:308:0x05ce, B:309:0x05d1, B:315:0x0618, B:310:0x05d9, B:312:0x05ea, B:314:0x0612, B:321:0x0636, B:316:0x0623, B:318:0x0629, B:320:0x0633, B:322:0x063a, B:323:0x064a, B:338:0x066d, B:347:0x0696, B:349:0x069a, B:351:0x069f, B:352:0x06a6, B:353:0x06a7, B:354:0x06ae, B:343:0x0677, B:345:0x0684, B:346:0x068f, B:48:0x0076, B:209:0x039e, B:67:0x00bc), top: B:432:0x001d }] */
-    /* JADX WARN: Removed duplicated region for block: B:222:0x03c4 A[Catch: all -> 0x06af, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b1, B:112:0x01b8, B:114:0x01ce, B:115:0x01d2, B:117:0x01e7, B:118:0x01ee, B:120:0x01f4, B:122:0x01fa, B:125:0x020a, B:126:0x020e, B:130:0x021c, B:134:0x0227, B:136:0x0233, B:140:0x0241, B:141:0x024e, B:207:0x0386, B:208:0x038a, B:213:0x03aa, B:217:0x03b6, B:219:0x03ba, B:220:0x03bc, B:222:0x03c4, B:223:0x03d4, B:225:0x03dc, B:227:0x03eb, B:229:0x03f3, B:231:0x03fd, B:232:0x040b, B:234:0x0411, B:235:0x0420, B:236:0x0425, B:238:0x0431, B:240:0x0437, B:242:0x0447, B:244:0x044d, B:245:0x0454, B:247:0x045e, B:249:0x0462, B:251:0x046e, B:253:0x047d, B:255:0x0481, B:262:0x04ac, B:252:0x0476, B:258:0x0492, B:260:0x049c, B:261:0x04a7, B:263:0x04b0, B:265:0x04bd, B:267:0x04d6, B:269:0x04e0, B:271:0x04e7, B:272:0x04eb, B:274:0x04f1, B:277:0x0504, B:279:0x0508, B:280:0x0511, B:281:0x0519, B:284:0x0538, B:286:0x053e, B:288:0x0545, B:290:0x054b, B:291:0x0552, B:292:0x0555, B:293:0x0569, B:295:0x056f, B:297:0x057b, B:299:0x0583, B:303:0x0591, B:306:0x059b, B:308:0x05ce, B:309:0x05d1, B:315:0x0618, B:310:0x05d9, B:312:0x05ea, B:314:0x0612, B:321:0x0636, B:316:0x0623, B:318:0x0629, B:320:0x0633, B:322:0x063a, B:323:0x064a, B:338:0x066d, B:347:0x0696, B:349:0x069a, B:351:0x069f, B:352:0x06a6, B:353:0x06a7, B:354:0x06ae, B:343:0x0677, B:345:0x0684, B:346:0x068f, B:48:0x0076, B:209:0x039e, B:67:0x00bc), top: B:432:0x001d }] */
-    /* JADX WARN: Removed duplicated region for block: B:225:0x03dc A[Catch: all -> 0x06af, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b1, B:112:0x01b8, B:114:0x01ce, B:115:0x01d2, B:117:0x01e7, B:118:0x01ee, B:120:0x01f4, B:122:0x01fa, B:125:0x020a, B:126:0x020e, B:130:0x021c, B:134:0x0227, B:136:0x0233, B:140:0x0241, B:141:0x024e, B:207:0x0386, B:208:0x038a, B:213:0x03aa, B:217:0x03b6, B:219:0x03ba, B:220:0x03bc, B:222:0x03c4, B:223:0x03d4, B:225:0x03dc, B:227:0x03eb, B:229:0x03f3, B:231:0x03fd, B:232:0x040b, B:234:0x0411, B:235:0x0420, B:236:0x0425, B:238:0x0431, B:240:0x0437, B:242:0x0447, B:244:0x044d, B:245:0x0454, B:247:0x045e, B:249:0x0462, B:251:0x046e, B:253:0x047d, B:255:0x0481, B:262:0x04ac, B:252:0x0476, B:258:0x0492, B:260:0x049c, B:261:0x04a7, B:263:0x04b0, B:265:0x04bd, B:267:0x04d6, B:269:0x04e0, B:271:0x04e7, B:272:0x04eb, B:274:0x04f1, B:277:0x0504, B:279:0x0508, B:280:0x0511, B:281:0x0519, B:284:0x0538, B:286:0x053e, B:288:0x0545, B:290:0x054b, B:291:0x0552, B:292:0x0555, B:293:0x0569, B:295:0x056f, B:297:0x057b, B:299:0x0583, B:303:0x0591, B:306:0x059b, B:308:0x05ce, B:309:0x05d1, B:315:0x0618, B:310:0x05d9, B:312:0x05ea, B:314:0x0612, B:321:0x0636, B:316:0x0623, B:318:0x0629, B:320:0x0633, B:322:0x063a, B:323:0x064a, B:338:0x066d, B:347:0x0696, B:349:0x069a, B:351:0x069f, B:352:0x06a6, B:353:0x06a7, B:354:0x06ae, B:343:0x0677, B:345:0x0684, B:346:0x068f, B:48:0x0076, B:209:0x039e, B:67:0x00bc), top: B:432:0x001d }] */
-    /* JADX WARN: Removed duplicated region for block: B:240:0x0437 A[Catch: all -> 0x06af, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b1, B:112:0x01b8, B:114:0x01ce, B:115:0x01d2, B:117:0x01e7, B:118:0x01ee, B:120:0x01f4, B:122:0x01fa, B:125:0x020a, B:126:0x020e, B:130:0x021c, B:134:0x0227, B:136:0x0233, B:140:0x0241, B:141:0x024e, B:207:0x0386, B:208:0x038a, B:213:0x03aa, B:217:0x03b6, B:219:0x03ba, B:220:0x03bc, B:222:0x03c4, B:223:0x03d4, B:225:0x03dc, B:227:0x03eb, B:229:0x03f3, B:231:0x03fd, B:232:0x040b, B:234:0x0411, B:235:0x0420, B:236:0x0425, B:238:0x0431, B:240:0x0437, B:242:0x0447, B:244:0x044d, B:245:0x0454, B:247:0x045e, B:249:0x0462, B:251:0x046e, B:253:0x047d, B:255:0x0481, B:262:0x04ac, B:252:0x0476, B:258:0x0492, B:260:0x049c, B:261:0x04a7, B:263:0x04b0, B:265:0x04bd, B:267:0x04d6, B:269:0x04e0, B:271:0x04e7, B:272:0x04eb, B:274:0x04f1, B:277:0x0504, B:279:0x0508, B:280:0x0511, B:281:0x0519, B:284:0x0538, B:286:0x053e, B:288:0x0545, B:290:0x054b, B:291:0x0552, B:292:0x0555, B:293:0x0569, B:295:0x056f, B:297:0x057b, B:299:0x0583, B:303:0x0591, B:306:0x059b, B:308:0x05ce, B:309:0x05d1, B:315:0x0618, B:310:0x05d9, B:312:0x05ea, B:314:0x0612, B:321:0x0636, B:316:0x0623, B:318:0x0629, B:320:0x0633, B:322:0x063a, B:323:0x064a, B:338:0x066d, B:347:0x0696, B:349:0x069a, B:351:0x069f, B:352:0x06a6, B:353:0x06a7, B:354:0x06ae, B:343:0x0677, B:345:0x0684, B:346:0x068f, B:48:0x0076, B:209:0x039e, B:67:0x00bc), top: B:432:0x001d }] */
-    /* JADX WARN: Removed duplicated region for block: B:263:0x04b0 A[Catch: all -> 0x06af, TryCatch #16 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0140, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0141, B:101:0x017b, B:103:0x017f, B:104:0x0183, B:105:0x018a, B:106:0x018b, B:107:0x018f, B:109:0x0195, B:111:0x01b1, B:112:0x01b8, B:114:0x01ce, B:115:0x01d2, B:117:0x01e7, B:118:0x01ee, B:120:0x01f4, B:122:0x01fa, B:125:0x020a, B:126:0x020e, B:130:0x021c, B:134:0x0227, B:136:0x0233, B:140:0x0241, B:141:0x024e, B:207:0x0386, B:208:0x038a, B:213:0x03aa, B:217:0x03b6, B:219:0x03ba, B:220:0x03bc, B:222:0x03c4, B:223:0x03d4, B:225:0x03dc, B:227:0x03eb, B:229:0x03f3, B:231:0x03fd, B:232:0x040b, B:234:0x0411, B:235:0x0420, B:236:0x0425, B:238:0x0431, B:240:0x0437, B:242:0x0447, B:244:0x044d, B:245:0x0454, B:247:0x045e, B:249:0x0462, B:251:0x046e, B:253:0x047d, B:255:0x0481, B:262:0x04ac, B:252:0x0476, B:258:0x0492, B:260:0x049c, B:261:0x04a7, B:263:0x04b0, B:265:0x04bd, B:267:0x04d6, B:269:0x04e0, B:271:0x04e7, B:272:0x04eb, B:274:0x04f1, B:277:0x0504, B:279:0x0508, B:280:0x0511, B:281:0x0519, B:284:0x0538, B:286:0x053e, B:288:0x0545, B:290:0x054b, B:291:0x0552, B:292:0x0555, B:293:0x0569, B:295:0x056f, B:297:0x057b, B:299:0x0583, B:303:0x0591, B:306:0x059b, B:308:0x05ce, B:309:0x05d1, B:315:0x0618, B:310:0x05d9, B:312:0x05ea, B:314:0x0612, B:321:0x0636, B:316:0x0623, B:318:0x0629, B:320:0x0633, B:322:0x063a, B:323:0x064a, B:338:0x066d, B:347:0x0696, B:349:0x069a, B:351:0x069f, B:352:0x06a6, B:353:0x06a7, B:354:0x06ae, B:343:0x0677, B:345:0x0684, B:346:0x068f, B:48:0x0076, B:209:0x039e, B:67:0x00bc), top: B:432:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:215:0x03b9  */
+    /* JADX WARN: Removed duplicated region for block: B:216:0x03bb  */
+    /* JADX WARN: Removed duplicated region for block: B:219:0x03c0 A[Catch: all -> 0x06b6, TryCatch #15 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0141, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0142, B:101:0x017c, B:103:0x0180, B:104:0x0184, B:105:0x018c, B:106:0x018d, B:107:0x0191, B:109:0x0197, B:111:0x01b3, B:112:0x01ba, B:114:0x01d0, B:115:0x01d4, B:117:0x01e9, B:118:0x01f0, B:120:0x01f6, B:122:0x01fc, B:125:0x020c, B:126:0x0210, B:130:0x021f, B:134:0x022a, B:136:0x0237, B:140:0x0245, B:141:0x0252, B:207:0x038b, B:208:0x038f, B:213:0x03b0, B:217:0x03bc, B:219:0x03c0, B:220:0x03c2, B:222:0x03ca, B:223:0x03da, B:225:0x03e2, B:227:0x03f1, B:229:0x03f9, B:231:0x0403, B:232:0x0411, B:234:0x0417, B:235:0x0426, B:236:0x042b, B:238:0x0437, B:240:0x043d, B:242:0x044d, B:244:0x0453, B:245:0x045a, B:247:0x0464, B:249:0x0468, B:251:0x0474, B:253:0x0483, B:255:0x0487, B:262:0x04b2, B:252:0x047c, B:258:0x0498, B:260:0x04a2, B:261:0x04ad, B:263:0x04b6, B:265:0x04c3, B:267:0x04dc, B:269:0x04e6, B:271:0x04ed, B:272:0x04f1, B:274:0x04f7, B:277:0x050a, B:279:0x050e, B:280:0x0517, B:281:0x051f, B:284:0x053e, B:286:0x0544, B:288:0x054b, B:290:0x0551, B:291:0x0558, B:292:0x055b, B:293:0x056f, B:295:0x0575, B:297:0x0581, B:299:0x0589, B:303:0x0597, B:306:0x05a1, B:308:0x05d4, B:309:0x05d7, B:315:0x061e, B:310:0x05df, B:312:0x05f0, B:314:0x0618, B:321:0x063c, B:316:0x0629, B:318:0x062f, B:320:0x0639, B:322:0x0640, B:323:0x0650, B:338:0x0673, B:347:0x069c, B:349:0x06a0, B:351:0x06a5, B:352:0x06ac, B:353:0x06ad, B:354:0x06b5, B:343:0x067d, B:345:0x068a, B:346:0x0695, B:48:0x0076, B:67:0x00bc, B:209:0x03a3), top: B:429:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:222:0x03ca A[Catch: all -> 0x06b6, TryCatch #15 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0141, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0142, B:101:0x017c, B:103:0x0180, B:104:0x0184, B:105:0x018c, B:106:0x018d, B:107:0x0191, B:109:0x0197, B:111:0x01b3, B:112:0x01ba, B:114:0x01d0, B:115:0x01d4, B:117:0x01e9, B:118:0x01f0, B:120:0x01f6, B:122:0x01fc, B:125:0x020c, B:126:0x0210, B:130:0x021f, B:134:0x022a, B:136:0x0237, B:140:0x0245, B:141:0x0252, B:207:0x038b, B:208:0x038f, B:213:0x03b0, B:217:0x03bc, B:219:0x03c0, B:220:0x03c2, B:222:0x03ca, B:223:0x03da, B:225:0x03e2, B:227:0x03f1, B:229:0x03f9, B:231:0x0403, B:232:0x0411, B:234:0x0417, B:235:0x0426, B:236:0x042b, B:238:0x0437, B:240:0x043d, B:242:0x044d, B:244:0x0453, B:245:0x045a, B:247:0x0464, B:249:0x0468, B:251:0x0474, B:253:0x0483, B:255:0x0487, B:262:0x04b2, B:252:0x047c, B:258:0x0498, B:260:0x04a2, B:261:0x04ad, B:263:0x04b6, B:265:0x04c3, B:267:0x04dc, B:269:0x04e6, B:271:0x04ed, B:272:0x04f1, B:274:0x04f7, B:277:0x050a, B:279:0x050e, B:280:0x0517, B:281:0x051f, B:284:0x053e, B:286:0x0544, B:288:0x054b, B:290:0x0551, B:291:0x0558, B:292:0x055b, B:293:0x056f, B:295:0x0575, B:297:0x0581, B:299:0x0589, B:303:0x0597, B:306:0x05a1, B:308:0x05d4, B:309:0x05d7, B:315:0x061e, B:310:0x05df, B:312:0x05f0, B:314:0x0618, B:321:0x063c, B:316:0x0629, B:318:0x062f, B:320:0x0639, B:322:0x0640, B:323:0x0650, B:338:0x0673, B:347:0x069c, B:349:0x06a0, B:351:0x06a5, B:352:0x06ac, B:353:0x06ad, B:354:0x06b5, B:343:0x067d, B:345:0x068a, B:346:0x0695, B:48:0x0076, B:67:0x00bc, B:209:0x03a3), top: B:429:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:225:0x03e2 A[Catch: all -> 0x06b6, TryCatch #15 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0141, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0142, B:101:0x017c, B:103:0x0180, B:104:0x0184, B:105:0x018c, B:106:0x018d, B:107:0x0191, B:109:0x0197, B:111:0x01b3, B:112:0x01ba, B:114:0x01d0, B:115:0x01d4, B:117:0x01e9, B:118:0x01f0, B:120:0x01f6, B:122:0x01fc, B:125:0x020c, B:126:0x0210, B:130:0x021f, B:134:0x022a, B:136:0x0237, B:140:0x0245, B:141:0x0252, B:207:0x038b, B:208:0x038f, B:213:0x03b0, B:217:0x03bc, B:219:0x03c0, B:220:0x03c2, B:222:0x03ca, B:223:0x03da, B:225:0x03e2, B:227:0x03f1, B:229:0x03f9, B:231:0x0403, B:232:0x0411, B:234:0x0417, B:235:0x0426, B:236:0x042b, B:238:0x0437, B:240:0x043d, B:242:0x044d, B:244:0x0453, B:245:0x045a, B:247:0x0464, B:249:0x0468, B:251:0x0474, B:253:0x0483, B:255:0x0487, B:262:0x04b2, B:252:0x047c, B:258:0x0498, B:260:0x04a2, B:261:0x04ad, B:263:0x04b6, B:265:0x04c3, B:267:0x04dc, B:269:0x04e6, B:271:0x04ed, B:272:0x04f1, B:274:0x04f7, B:277:0x050a, B:279:0x050e, B:280:0x0517, B:281:0x051f, B:284:0x053e, B:286:0x0544, B:288:0x054b, B:290:0x0551, B:291:0x0558, B:292:0x055b, B:293:0x056f, B:295:0x0575, B:297:0x0581, B:299:0x0589, B:303:0x0597, B:306:0x05a1, B:308:0x05d4, B:309:0x05d7, B:315:0x061e, B:310:0x05df, B:312:0x05f0, B:314:0x0618, B:321:0x063c, B:316:0x0629, B:318:0x062f, B:320:0x0639, B:322:0x0640, B:323:0x0650, B:338:0x0673, B:347:0x069c, B:349:0x06a0, B:351:0x06a5, B:352:0x06ac, B:353:0x06ad, B:354:0x06b5, B:343:0x067d, B:345:0x068a, B:346:0x0695, B:48:0x0076, B:67:0x00bc, B:209:0x03a3), top: B:429:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:240:0x043d A[Catch: all -> 0x06b6, TryCatch #15 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0141, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0142, B:101:0x017c, B:103:0x0180, B:104:0x0184, B:105:0x018c, B:106:0x018d, B:107:0x0191, B:109:0x0197, B:111:0x01b3, B:112:0x01ba, B:114:0x01d0, B:115:0x01d4, B:117:0x01e9, B:118:0x01f0, B:120:0x01f6, B:122:0x01fc, B:125:0x020c, B:126:0x0210, B:130:0x021f, B:134:0x022a, B:136:0x0237, B:140:0x0245, B:141:0x0252, B:207:0x038b, B:208:0x038f, B:213:0x03b0, B:217:0x03bc, B:219:0x03c0, B:220:0x03c2, B:222:0x03ca, B:223:0x03da, B:225:0x03e2, B:227:0x03f1, B:229:0x03f9, B:231:0x0403, B:232:0x0411, B:234:0x0417, B:235:0x0426, B:236:0x042b, B:238:0x0437, B:240:0x043d, B:242:0x044d, B:244:0x0453, B:245:0x045a, B:247:0x0464, B:249:0x0468, B:251:0x0474, B:253:0x0483, B:255:0x0487, B:262:0x04b2, B:252:0x047c, B:258:0x0498, B:260:0x04a2, B:261:0x04ad, B:263:0x04b6, B:265:0x04c3, B:267:0x04dc, B:269:0x04e6, B:271:0x04ed, B:272:0x04f1, B:274:0x04f7, B:277:0x050a, B:279:0x050e, B:280:0x0517, B:281:0x051f, B:284:0x053e, B:286:0x0544, B:288:0x054b, B:290:0x0551, B:291:0x0558, B:292:0x055b, B:293:0x056f, B:295:0x0575, B:297:0x0581, B:299:0x0589, B:303:0x0597, B:306:0x05a1, B:308:0x05d4, B:309:0x05d7, B:315:0x061e, B:310:0x05df, B:312:0x05f0, B:314:0x0618, B:321:0x063c, B:316:0x0629, B:318:0x062f, B:320:0x0639, B:322:0x0640, B:323:0x0650, B:338:0x0673, B:347:0x069c, B:349:0x06a0, B:351:0x06a5, B:352:0x06ac, B:353:0x06ad, B:354:0x06b5, B:343:0x067d, B:345:0x068a, B:346:0x0695, B:48:0x0076, B:67:0x00bc, B:209:0x03a3), top: B:429:0x001d }] */
+    /* JADX WARN: Removed duplicated region for block: B:263:0x04b6 A[Catch: all -> 0x06b6, TryCatch #15 {, blocks: (B:20:0x001d, B:24:0x002b, B:26:0x002f, B:28:0x003d, B:30:0x0041, B:31:0x0046, B:42:0x0058, B:44:0x0060, B:45:0x0066, B:49:0x0081, B:51:0x0085, B:53:0x0089, B:55:0x0095, B:57:0x009e, B:61:0x00aa, B:63:0x00b4, B:65:0x00b8, B:71:0x00cc, B:73:0x00d4, B:74:0x00dc, B:76:0x00e0, B:80:0x00e8, B:87:0x0108, B:89:0x0113, B:91:0x0122, B:93:0x012f, B:95:0x0133, B:96:0x0136, B:97:0x0139, B:98:0x0141, B:90:0x011f, B:82:0x00ec, B:84:0x00f4, B:86:0x00fa, B:99:0x0142, B:101:0x017c, B:103:0x0180, B:104:0x0184, B:105:0x018c, B:106:0x018d, B:107:0x0191, B:109:0x0197, B:111:0x01b3, B:112:0x01ba, B:114:0x01d0, B:115:0x01d4, B:117:0x01e9, B:118:0x01f0, B:120:0x01f6, B:122:0x01fc, B:125:0x020c, B:126:0x0210, B:130:0x021f, B:134:0x022a, B:136:0x0237, B:140:0x0245, B:141:0x0252, B:207:0x038b, B:208:0x038f, B:213:0x03b0, B:217:0x03bc, B:219:0x03c0, B:220:0x03c2, B:222:0x03ca, B:223:0x03da, B:225:0x03e2, B:227:0x03f1, B:229:0x03f9, B:231:0x0403, B:232:0x0411, B:234:0x0417, B:235:0x0426, B:236:0x042b, B:238:0x0437, B:240:0x043d, B:242:0x044d, B:244:0x0453, B:245:0x045a, B:247:0x0464, B:249:0x0468, B:251:0x0474, B:253:0x0483, B:255:0x0487, B:262:0x04b2, B:252:0x047c, B:258:0x0498, B:260:0x04a2, B:261:0x04ad, B:263:0x04b6, B:265:0x04c3, B:267:0x04dc, B:269:0x04e6, B:271:0x04ed, B:272:0x04f1, B:274:0x04f7, B:277:0x050a, B:279:0x050e, B:280:0x0517, B:281:0x051f, B:284:0x053e, B:286:0x0544, B:288:0x054b, B:290:0x0551, B:291:0x0558, B:292:0x055b, B:293:0x056f, B:295:0x0575, B:297:0x0581, B:299:0x0589, B:303:0x0597, B:306:0x05a1, B:308:0x05d4, B:309:0x05d7, B:315:0x061e, B:310:0x05df, B:312:0x05f0, B:314:0x0618, B:321:0x063c, B:316:0x0629, B:318:0x062f, B:320:0x0639, B:322:0x0640, B:323:0x0650, B:338:0x0673, B:347:0x069c, B:349:0x06a0, B:351:0x06a5, B:352:0x06ac, B:353:0x06ad, B:354:0x06b5, B:343:0x067d, B:345:0x068a, B:346:0x0695, B:48:0x0076, B:67:0x00bc, B:209:0x03a3), top: B:429:0x001d }] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -1455,7 +1456,7 @@ public class U implements Runnable {
                                     com.baidu.sofire.a.a.a(this.context, sRetryPingTimesCount, false);
                                     sRetryPingTimesCount++;
                                 }
-                                IntentFilter intentFilter = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                                IntentFilter intentFilter = new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
                                 MyReceiver myReceiver = com.baidu.sofire.k.b.g;
                                 if (myReceiver == null) {
                                     com.baidu.sofire.k.b.g = new MyReceiver().a();
@@ -1563,49 +1564,49 @@ public class U implements Runnable {
                                             if (!TextUtils.isEmpty(optString6)) {
                                                 try {
                                                     arrayList2 = arrayList8;
-                                                    try {
-                                                        if (applicationInfo.className.startsWith(".")) {
-                                                            applicationInfo.className = next + applicationInfo.className;
-                                                        }
-                                                    } catch (Throwable th) {
-                                                        th = th;
-                                                        list = b;
-                                                        arrayList4 = arrayList10;
-                                                        jSONObject2 = optJSONObject4;
-                                                        com.baidu.sofire.k.b.a(th);
-                                                        packageInfo = null;
-                                                        jSONObject3 = jSONObject2;
-                                                        ApkInfo apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
-                                                        apkInfo.isOnce = i6;
-                                                        apkInfo.es = optString5;
-                                                        apkInfo.priority = jSONObject3.getInt("pr");
-                                                        if (jSONObject3.optInt("mem") == 1) {
-                                                        }
-                                                        apkInfo.isMem = z4;
-                                                        if (packageInfo != null) {
-                                                        }
-                                                        optJSONObject = jSONObject3.optJSONObject("e");
-                                                        if (optJSONObject != null) {
-                                                        }
-                                                        optJSONObject2 = jSONObject3.optJSONObject("ext");
-                                                        if (optJSONObject2 != null) {
-                                                        }
-                                                        apkInfo.signMD5 = optString4;
-                                                        apkInfo.startTime = System.currentTimeMillis();
-                                                        ArrayList arrayList11 = (ArrayList) list;
-                                                        indexOf = arrayList11.indexOf(apkInfo);
-                                                        if (indexOf >= 0) {
-                                                        }
-                                                        arrayList10 = arrayList6;
-                                                        arrayList8 = arrayList5;
-                                                        optJSONObject3 = jSONObject;
-                                                        keys = it;
-                                                        arrayList9 = arrayList3;
-                                                        b = list;
+                                                } catch (Throwable th) {
+                                                    th = th;
+                                                    arrayList2 = arrayList8;
+                                                }
+                                                try {
+                                                    if (applicationInfo.className.startsWith(".")) {
+                                                        applicationInfo.className = next + applicationInfo.className;
                                                     }
                                                 } catch (Throwable th2) {
                                                     th = th2;
-                                                    arrayList2 = arrayList8;
+                                                    list = b;
+                                                    arrayList4 = arrayList10;
+                                                    jSONObject2 = optJSONObject4;
+                                                    com.baidu.sofire.k.b.a(th);
+                                                    packageInfo = null;
+                                                    jSONObject3 = jSONObject2;
+                                                    ApkInfo apkInfo = new ApkInfo(optInt, next, optString, optString2, str);
+                                                    apkInfo.isOnce = i6;
+                                                    apkInfo.es = optString5;
+                                                    apkInfo.priority = jSONObject3.getInt("pr");
+                                                    if (jSONObject3.optInt("mem") == 1) {
+                                                    }
+                                                    apkInfo.isMem = z4;
+                                                    if (packageInfo != null) {
+                                                    }
+                                                    optJSONObject = jSONObject3.optJSONObject("e");
+                                                    if (optJSONObject != null) {
+                                                    }
+                                                    optJSONObject2 = jSONObject3.optJSONObject("ext");
+                                                    if (optJSONObject2 != null) {
+                                                    }
+                                                    apkInfo.signMD5 = optString4;
+                                                    apkInfo.startTime = System.currentTimeMillis();
+                                                    ArrayList arrayList11 = (ArrayList) list;
+                                                    indexOf = arrayList11.indexOf(apkInfo);
+                                                    if (indexOf >= 0) {
+                                                    }
+                                                    arrayList10 = arrayList6;
+                                                    arrayList8 = arrayList5;
+                                                    optJSONObject3 = jSONObject;
+                                                    keys = it;
+                                                    arrayList9 = arrayList3;
+                                                    b = list;
                                                 }
                                             } else {
                                                 arrayList2 = arrayList8;
@@ -2040,7 +2041,7 @@ public class U implements Runnable {
                         int i15 = this.mFrom;
                         if (i15 == 1 || i15 == 2 || i15 == 3) {
                             sMonitorNetworkWhenUpgradeNoNet = true;
-                            IntentFilter intentFilter2 = new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+                            IntentFilter intentFilter2 = new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION);
                             if (com.baidu.sofire.k.b.g == null) {
                                 com.baidu.sofire.k.b.g = new MyReceiver().a();
                             }

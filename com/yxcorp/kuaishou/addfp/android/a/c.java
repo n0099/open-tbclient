@@ -12,6 +12,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.tieba.k46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.zip.CRC32;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +281,7 @@ public class c {
                             if (bufferedReader2 != null) {
                                 bufferedReader2.close();
                             }
-                            jSONObject.put("k46", g.a(Long.toString(j2)));
+                            jSONObject.put(k46.d, g.a(Long.toString(j2)));
                             jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
                             jSONObject.put("k111", g.a("KWE_NPN"));
                             jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
@@ -309,7 +310,7 @@ public class c {
                         }
                     } catch (IOException unused3) {
                     }
-                    jSONObject.put("k46", g.a(Long.toString(j2)));
+                    jSONObject.put(k46.d, g.a(Long.toString(j2)));
                     jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
                     jSONObject.put("k111", g.a("KWE_NPN"));
                     jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));
@@ -346,7 +347,7 @@ public class c {
                     } catch (Throwable th3) {
                         th = th3;
                     }
-                    jSONObject.put("k46", g.a(Long.toString(j2)));
+                    jSONObject.put(k46.d, g.a(Long.toString(j2)));
                     jSONObject.put("k110", g.a(Orange.getInstance().gKpsd()));
                     jSONObject.put("k111", g.a("KWE_NPN"));
                     jSONObject.put("k113", g.a(Orange.getInstance().gManu(context, com.yxcorp.kuaishou.addfp.c.a.a.a())));

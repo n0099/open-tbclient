@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class au implements at, InvocationHandler {
     public static final String[][] a = {new String[]{"com.bun.supplier.IIdentifierListener", "com.bun.supplier.IdSupplier"}, new String[]{"com.bun.miitmdid.core.IIdentifierListener", "com.bun.miitmdid.supplier.IdSupplier"}};
 
@@ -41,7 +41,7 @@ public class au implements at, InvocationHandler {
     /* renamed from: a  reason: collision with other field name */
     public volatile a f119a = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
@@ -206,12 +206,12 @@ public class au implements at, InvocationHandler {
     }
 
     public static void b(String str) {
-        com.xiaomi.channel.commonutils.logger.b.m101a("mdid:" + str);
+        com.xiaomi.channel.commonutils.logger.b.m120a("mdid:" + str);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo186a() {
+    public String mo205a() {
         a("getOAID");
         if (this.f119a == null) {
             return null;
@@ -221,7 +221,7 @@ public class au implements at, InvocationHandler {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo187a() {
+    public boolean mo206a() {
         a("isSupported");
         return this.f119a != null && Boolean.TRUE.equals(this.f119a.f124a);
     }

@@ -1,89 +1,126 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class g01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kv0 a;
 
-    public static boolean a(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(":");
-                String[] split2 = str2.split(":");
-                if (split.length != 0 && split2.length != 0) {
-                    try {
-                        Calendar calendar = Calendar.getInstance();
-                        long timeInMillis = calendar.getTimeInMillis();
-                        calendar.set(11, b01.c(split[0]));
-                        calendar.set(12, b01.c(split[1]));
-                        long timeInMillis2 = calendar.getTimeInMillis();
-                        calendar.set(11, b01.c(split2[0]));
-                        calendar.set(12, b01.c(split2[1]));
-                        long timeInMillis3 = calendar.getTimeInMillis();
-                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
-                            return false;
-                        }
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final g01 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-827619101, "Lcom/baidu/tieba/g01$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-827619101, "Lcom/baidu/tieba/g01$b;");
+                    return;
                 }
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static void b(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
-            f01.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
-            if (z) {
-                activity.setRequestedOrientation(8);
-            } else {
-                activity.setRequestedOrientation(0);
-            }
-            activity.getWindow().setFlags(1024, 1024);
+            a = new g01(null);
         }
     }
 
-    public static void c(Activity activity, boolean z) {
+    public g01() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
-            if (z) {
-                activity.getWindow().addFlags(128);
-            } else {
-                activity.getWindow().clearFlags(128);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void startActivity(Context context, ComponentName componentName) throws Exception {
+    public static g01 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
-            new Intent().setComponent(componentName);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (g01) invokeV.objValue;
+    }
+
+    public f01 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new f01();
+        }
+        return (f01) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            kv0 kv0Var = new kv0();
+            this.a = kv0Var;
+            kv0Var.registerReceiver();
         }
     }
 
-    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
-            new Intent().setComponent(new ComponentName(str, str2 + str3));
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a == null) {
+            e();
+        }
+    }
+
+    public /* synthetic */ g01(a aVar) {
+        this();
+    }
+
+    public void a(@NonNull rs0 rs0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rs0Var) == null) {
+            f();
+            v01.a("session manager bind player =>" + rs0Var);
+            this.a.b(rs0Var.x());
+        }
+    }
+
+    public void d(@NonNull lv0 lv0Var) {
+        kv0 kv0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lv0Var) == null) && (kv0Var = this.a) != null) {
+            kv0Var.c(lv0Var);
+        }
+    }
+
+    public void g(@NonNull rs0 rs0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rs0Var) == null) {
+            v01.a("session manager unbind player =>" + rs0Var);
+            kv0 kv0Var = this.a;
+            if (kv0Var != null) {
+                kv0Var.d(rs0Var.x());
+            }
         }
     }
 }

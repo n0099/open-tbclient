@@ -15,7 +15,7 @@ import java.util.List;
 import protobuf.GetMaskInfo.DataRes;
 import protobuf.GetMaskInfo.GetMaskInfoResIdl;
 import protobuf.GetMaskInfo.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final int FALSE = 0;
@@ -108,10 +108,10 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 }
                 for (int i3 = 0; i3 < i2; i3++) {
                     BlackListItemData blackListItemData = new BlackListItemData();
-                    blackListItemData.V(list.get(i3).portrait);
+                    blackListItemData.U(list.get(i3).portrait);
                     blackListItemData.setUserId(list.get(i3).uid.longValue());
                     blackListItemData.setUserName(list.get(i3).name);
-                    blackListItemData.W(list.get(i3).nameShow);
+                    blackListItemData.V(list.get(i3).nameShow);
                     this.blackList.add(blackListItemData);
                 }
             }

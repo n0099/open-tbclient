@@ -3,15 +3,15 @@ package com.baidu.tieba.impersonal.help;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s17;
+import com.baidu.tieba.f37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class MsgDiffCallback<T extends s17<?>> extends DiffUtil.Callback {
+/* loaded from: classes6.dex */
+public class MsgDiffCallback<T extends f37<?>> extends DiffUtil.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<T> a;

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import com.baidu.sapi2.ecommerce.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScrollLayout extends FrameLayout {
     public static final float DRAG_SPEED_MULTIPLIER = 1.2f;
     public static final int DRAG_SPEED_SLOP = 30;
@@ -42,7 +42,7 @@ public class ScrollLayout extends FrameLayout {
     public int openedOffset;
     public Scroller scroller;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum InnerStatus {
         EXIT,
         HALF,
@@ -51,7 +51,7 @@ public class ScrollLayout extends FrameLayout {
         SCROLLING
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnScrollChangedListener {
         void onChildScroll(int i);
 
@@ -60,7 +60,7 @@ public class ScrollLayout extends FrameLayout {
         void onScrollProgressChanged(float f);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Status {
         EXIT,
         HALF,
@@ -68,7 +68,7 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* renamed from: com.baidu.pass.ecommerce.view.ScrollLayout$3  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus;
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.data.RenderData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface INativeRenderFactory {
     @Nullable
     View createView(Context context, String str);

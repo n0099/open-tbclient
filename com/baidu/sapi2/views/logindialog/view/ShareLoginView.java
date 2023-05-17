@@ -25,7 +25,7 @@ import com.baidu.sapi2.views.logindialog.enums.QuickLoginType;
 import com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback;
 import com.baidu.tieba.R;
 import java.text.MessageFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareLoginView extends RelativeLayout {
     public static final String j = "quick_login";
     public Context a;
@@ -38,15 +38,15 @@ public class ShareLoginView extends RelativeLayout {
     public ShareStorage.StorageModel h;
     public ILoginConfirmCallback i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.ShareLoginView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0144a extends WebAuthListener {
+        /* loaded from: classes3.dex */
+        public class C0148a extends WebAuthListener {
             public final /* synthetic */ long a;
 
-            public C0144a(long j) {
+            public C0148a(long j) {
                 this.a = j;
             }
 
@@ -95,12 +95,12 @@ public class ShareLoginView extends RelativeLayout {
             } else if (!ShareLoginView.this.i.onPreStart(false)) {
                 Log.e(QuickLoginDialog.STAG, "sharelogin privacy is not agree");
             } else {
-                CoreViewRouter.getInstance().invokeV2ShareLogin(ShareLoginView.this.b, ShareLoginView.this.h, new C0144a(System.currentTimeMillis()), "quick_login");
+                CoreViewRouter.getInstance().invokeV2ShareLogin(ShareLoginView.this.b, ShareLoginView.this.h, new C0148a(System.currentTimeMillis()), "quick_login");
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements AsyncImageLoader.IAsyncImageLoaderListener {
         public b() {
         }

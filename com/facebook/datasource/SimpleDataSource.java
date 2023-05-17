@@ -2,7 +2,7 @@ package com.facebook.datasource;
 
 import com.facebook.common.internal.Preconditions;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SimpleDataSource<T> extends AbstractDataSource<T> {
     public static <T> SimpleDataSource<T> create() {
         return new SimpleDataSource<>();

@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.searchbox.aideviceperformance.data.DBItemModel;
 import com.baidu.searchbox.aideviceperformance.data.LaunchTimeSQLiteOpenHelper;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchSpeedReadUtil {
     public static final long CACHE_EXPIRE_TIME = 604800000;
     public static final boolean DEBUG = Config.isDebug();

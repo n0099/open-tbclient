@@ -5,7 +5,7 @@ import com.baidu.searchbox.aideviceperformance.data.UserStickinessSQLiteOpenHelp
 import com.baidu.searchbox.aideviceperformance.stickiness.IStickinessScoreDataProvider;
 import com.baidu.searchbox.aideviceperformance.stickiness.StickinessScoreManager;
 import com.baidu.searchbox.aideviceperformanceboxproxy.data.UserStickinessSQLiteOpenSingleton;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StickinessScoreManagerSingleton extends StickinessScoreManager {
     public static StickinessScoreManagerSingleton sInstance = new StickinessScoreManagerSingleton();
 

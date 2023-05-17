@@ -15,7 +15,7 @@ import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.google.gson.internal.bind.TypeAdapters;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatisticRecorder implements Recordable {
     public static final boolean DEBUG = false;
     public static final String TAG = "ElasticRecord";

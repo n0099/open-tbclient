@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ParseUtils {
     public static final String BIZ_NAME_PREFIX = "aps_";
     public static final String UNIQUE_VERSION = "unique_version";

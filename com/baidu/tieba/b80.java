@@ -1,75 +1,96 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.searchbox.security.WarmTipsManager;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b80 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static long b;
+    public static long c;
+    public static volatile String d;
+    public static volatile long e;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
-    public int d;
-    public String e;
-    public boolean f;
-    public byte[] g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public long o;
-    public boolean p;
-    public List<w70> q;
 
-    public b80() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598703, "Lcom/baidu/tieba/b80;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947598703, "Lcom/baidu/tieba/b80;");
                 return;
             }
         }
-        this.a = new byte[0];
-        this.b = -1L;
-        this.c = 5000L;
-        this.d = -1;
-        this.e = "";
-        this.f = false;
-        this.g = new byte[0];
-        this.h = 60000L;
-        this.i = -1L;
-        this.j = -1L;
-        this.k = -1;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = -1L;
-        this.p = false;
-        this.q = new ArrayList();
+        a = AppConfig.isDebug();
+        b = -1L;
+        c = -1L;
+        d = "";
+        e = -1L;
     }
 
-    public String toString() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.n) {
-                return "Request correlationId :" + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
-            }
-            return "Response correlationId " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
+    }
+
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d;
         }
         return (String) invokeV.objValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a() != -1 && !TextUtils.isEmpty(str)) {
+            if (System.currentTimeMillis() - e < 10000) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set source too often，ignore this set source " + str);
+                }
+            } else if (!TextUtils.equals("push", str) && !TextUtils.equals(PbModel.WISE, str) && !TextUtils.equals("scheme", str) && !TextUtils.equals(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN, str) && !TextUtils.equals(WarmTipsManager.WIDGET_SOURCE_VALUE, str)) {
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "cannot distinguish the source: " + str);
+                }
+            } else {
+                e = System.currentTimeMillis();
+                d = str;
+                if (!TextUtils.equals(a80.e(), str)) {
+                    a80.g(str);
+                }
+                if (a) {
+                    Log.d(LaunchStatsUtils.TAG, "set external transfer source: " + str);
+                }
+            }
+        }
     }
 }

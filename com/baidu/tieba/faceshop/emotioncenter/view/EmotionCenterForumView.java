@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,10 +107,10 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0270, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090bc1);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b9d);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b4b);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0285, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090bec);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bc8);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b76);
             setOnClickListener(this);
         }
     }
@@ -120,7 +120,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
             SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804f0, i);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0805b7, i);
         }
     }
 

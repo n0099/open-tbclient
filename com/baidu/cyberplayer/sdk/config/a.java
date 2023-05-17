@@ -2,24 +2,23 @@ package com.baidu.cyberplayer.sdk.config;
 
 import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.webkit.sdk.VideoCloudSetting;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: com.baidu.cyberplayer.sdk.config.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public enum EnumC0088a {
+    /* loaded from: classes3.dex */
+    public enum EnumC0091a {
         FAILED,
         AND_NEED_CHECK_NEXT,
         OR_NEED_CHECK_NEXT,
         SUCCESS
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public int e;
         public boolean c = false;
@@ -90,7 +89,7 @@ public class a {
             if (!TextUtils.isEmpty(str) && (strArr = this.a) != null) {
                 int length = strArr.length;
                 for (int i = 0; i < length; i++) {
-                    if (!str.equals(this.a[i]) && (this.e != 0 || !a(str, this.a[i], EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "*"))) {
+                    if (!str.equals(this.a[i]) && (this.e != 0 || !a(str, this.a[i], "\\.", "*"))) {
                         if (this.e == 1) {
                             if (str.contains("." + this.a[i])) {
                             }
@@ -121,12 +120,12 @@ public class a {
             return true;
         }
 
-        public EnumC0088a b(String str) {
+        public EnumC0091a b(String str) {
             if (this.d) {
-                return EnumC0088a.FAILED;
+                return EnumC0091a.FAILED;
             }
             boolean a = a(str);
-            return this.b ? a ? EnumC0088a.AND_NEED_CHECK_NEXT : EnumC0088a.FAILED : a ? EnumC0088a.SUCCESS : EnumC0088a.OR_NEED_CHECK_NEXT;
+            return this.b ? a ? EnumC0091a.AND_NEED_CHECK_NEXT : EnumC0091a.FAILED : a ? EnumC0091a.SUCCESS : EnumC0091a.OR_NEED_CHECK_NEXT;
         }
     }
 
@@ -135,8 +134,8 @@ public class a {
         boolean z = false;
         bVar.a(0);
         bVar.a(str, "|", ParamableElem.DIVIDE_PARAM);
-        EnumC0088a b2 = bVar.b(str2);
-        return Boolean.valueOf((b2 == EnumC0088a.SUCCESS || b2 == EnumC0088a.AND_NEED_CHECK_NEXT) ? true : true);
+        EnumC0091a b2 = bVar.b(str2);
+        return Boolean.valueOf((b2 == EnumC0091a.SUCCESS || b2 == EnumC0091a.AND_NEED_CHECK_NEXT) ? true : true);
     }
 
     public static boolean a(String str, ArrayList<String> arrayList) {

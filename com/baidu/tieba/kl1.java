@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface kl1 {
-    void a();
+    void onVideoSizeChanged(int i, int i2);
 
-    void b(ll1 ll1Var);
+    void setDisplayMode(int i);
 }

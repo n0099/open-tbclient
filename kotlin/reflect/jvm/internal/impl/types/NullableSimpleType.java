@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.types;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NullableSimpleType extends DelegatingSimpleTypeImpl {
     @Override // kotlin.reflect.jvm.internal.impl.types.DelegatingSimpleType, kotlin.reflect.jvm.internal.impl.types.KotlinType
     public boolean isMarkedNullable() {

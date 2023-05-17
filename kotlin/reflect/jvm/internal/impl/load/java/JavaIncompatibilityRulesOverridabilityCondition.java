@@ -24,11 +24,11 @@ import kotlin.reflect.jvm.internal.impl.resolve.ExternalOverridabilityCondition;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaIncompatibilityRulesOverridabilityCondition implements ExternalOverridabilityCondition {
     public static final Companion Companion = new Companion(null);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -52,9 +52,9 @@ public final class JavaIncompatibilityRulesOverridabilityCondition implements Ex
                 Intrinsics.checkExpressionValueIsNotNull(valueParameters, "f.valueParameters");
                 Object single = CollectionsKt___CollectionsKt.single((List<? extends Object>) valueParameters);
                 Intrinsics.checkExpressionValueIsNotNull(single, "f.valueParameters.single()");
-                ClassifierDescriptor mo2025getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2025getDeclarationDescriptor();
-                if (mo2025getDeclarationDescriptor instanceof ClassDescriptor) {
-                    classDescriptor = mo2025getDeclarationDescriptor;
+                ClassifierDescriptor mo2044getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2044getDeclarationDescriptor();
+                if (mo2044getDeclarationDescriptor instanceof ClassDescriptor) {
+                    classDescriptor = mo2044getDeclarationDescriptor;
                 }
                 ClassDescriptor classDescriptor3 = classDescriptor;
                 if (classDescriptor3 != null && KotlinBuiltIns.isPrimitiveClass(classDescriptor2) && Intrinsics.areEqual(DescriptorUtilsKt.getFqNameSafe(classDescriptor2), DescriptorUtilsKt.getFqNameSafe(classDescriptor3))) {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class he {
     public static HashMap<String, ArrayList<hl>> a(Context context, List<hl> list) {
         if (list == null || list.size() == 0) {
@@ -43,7 +43,7 @@ public class he {
             a(context, hgVar, a);
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m101a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m120a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
     }
 
     public static void a(Context context, hl hlVar) {

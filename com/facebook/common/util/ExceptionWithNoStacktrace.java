@@ -1,5 +1,5 @@
 package com.facebook.common.util;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ExceptionWithNoStacktrace extends Exception {
     public ExceptionWithNoStacktrace(String str) {
         super(str);

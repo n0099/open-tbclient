@@ -15,7 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoUtil {
     public static final FileFilter CPU_FILTER = new FileFilter() { // from class: com.baidu.pass.main.facesdk.statistic.DeviceInfoUtil.1
         @Override // java.io.FileFilter

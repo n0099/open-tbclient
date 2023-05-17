@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class SimpleNavigationBar extends FrameLayout {
     public TextView a;
     public TextView b;
@@ -17,7 +17,7 @@ public class SimpleNavigationBar extends FrameLayout {
     public ImageView d;
     public d e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface d {
         void a();
 
@@ -26,7 +26,7 @@ public class SimpleNavigationBar extends FrameLayout {
         void onRightClick();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -39,7 +39,7 @@ public class SimpleNavigationBar extends FrameLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -52,7 +52,7 @@ public class SimpleNavigationBar extends FrameLayout {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class c implements View.OnClickListener {
         public c() {
         }
@@ -107,7 +107,7 @@ public class SimpleNavigationBar extends FrameLayout {
 
     public final void b(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(R.layout.pay_ui_layout_navigation, (ViewGroup) this, true);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091172);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ac);
         this.a = (TextView) findViewById(R.id.tv_title);
         this.b = (TextView) findViewById(R.id.tv_right);
         this.d = (ImageView) findViewById(R.id.iv_right);

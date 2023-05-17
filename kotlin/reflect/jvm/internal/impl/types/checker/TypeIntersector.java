@@ -20,13 +20,13 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.SpecialTypesKt;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TypeIntersector {
     public static final TypeIntersector INSTANCE = new TypeIntersector();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ResultNullability {
         public static final /* synthetic */ ResultNullability[] $VALUES;
         public static final ResultNullability ACCEPT_NULL;
@@ -56,7 +56,7 @@ public final class TypeIntersector {
 
         public abstract ResultNullability combine(UnwrappedType unwrappedType);
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class ACCEPT_NULL extends ResultNullability {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public ACCEPT_NULL(String str, int i) {
@@ -69,7 +69,7 @@ public final class TypeIntersector {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class NOT_NULL extends ResultNullability {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.reflect.jvm.internal.impl.types.checker.TypeIntersector.ResultNullability
@@ -83,7 +83,7 @@ public final class TypeIntersector {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class START extends ResultNullability {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public START(String str, int i) {
@@ -96,7 +96,7 @@ public final class TypeIntersector {
             }
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class UNKNOWN extends ResultNullability {
             /* JADX DEBUG: Incorrect args count in method signature: ()V */
             public UNKNOWN(String str, int i) {
@@ -228,10 +228,10 @@ public final class TypeIntersector {
         ArrayList<UnwrappedType> arrayList = new ArrayList();
         for (SimpleType simpleType : list) {
             if (simpleType.getConstructor() instanceof IntersectionTypeConstructor) {
-                Collection<KotlinType> mo2026getSupertypes = simpleType.getConstructor().mo2026getSupertypes();
-                Intrinsics.checkExpressionValueIsNotNull(mo2026getSupertypes, "type.constructor.supertypes");
-                ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2026getSupertypes, 10));
-                for (KotlinType it : mo2026getSupertypes) {
+                Collection<KotlinType> mo2045getSupertypes = simpleType.getConstructor().mo2045getSupertypes();
+                Intrinsics.checkExpressionValueIsNotNull(mo2045getSupertypes, "type.constructor.supertypes");
+                ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(mo2045getSupertypes, 10));
+                for (KotlinType it : mo2045getSupertypes) {
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
                     SimpleType upperIfFlexible = FlexibleTypesKt.upperIfFlexible(it);
                     if (simpleType.isMarkedNullable()) {

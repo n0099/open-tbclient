@@ -1,25 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
-/* loaded from: classes6.dex */
-public class pz4 extends zx4 implements xk5 {
+import org.json.JSONObject;
+import tbclient.MultiForumPerm;
+/* loaded from: classes7.dex */
+public class pz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long d;
-    public String e;
-    public String f;
-    public boolean g;
-    public int h;
-    public int i;
-    public String j;
+    public boolean a;
+    public int b;
+    public boolean c;
 
     public pz4() {
         Interceptable interceptable = $ic;
@@ -31,144 +26,63 @@ public class pz4 extends zx4 implements xk5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        d(8);
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ax4
-    public String getRecomReason() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, recommendForumInfo) != null) || recommendForumInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            this.d = recommendForumInfo.forum_id.longValue();
-            this.e = recommendForumInfo.avatar;
-            this.f = recommendForumInfo.forum_name;
-            boolean z = true;
-            if (recommendForumInfo.is_like.intValue() != 1) {
-                z = false;
-            }
-            this.g = z;
-            this.h = recommendForumInfo.member_count.intValue();
-            this.i = recommendForumInfo.thread_count.intValue();
-            this.j = recommendForumInfo.recom_reason;
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        boolean z2 = false;
+        if (jSONObject.optInt("is_bawu") == 1) {
+            z = true;
+        } else {
+            z = false;
         }
+        this.a = z;
+        if ("manager".equals(jSONObject.optString("bawu_type"))) {
+            i = 1;
+        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(jSONObject.optString("bawu_type"))) {
+            i = 2;
+        } else {
+            i = 0;
+        }
+        this.b = i;
+        if (jSONObject.optInt("is_deleted") == 1) {
+            z2 = true;
+        }
+        this.c = z2;
     }
 
-    public void n(boolean z) {
+    public void b(MultiForumPerm multiForumPerm) {
+        boolean z;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.g = z;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiForumPerm) != null) || multiForumPerm == null) {
+            return;
         }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
+        boolean z2 = false;
+        if (multiForumPerm.is_bawu.intValue() == 1) {
+            z = true;
+        } else {
+            z = false;
         }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.j = str;
+        this.a = z;
+        if ("manager".equals(multiForumPerm.bawu_type)) {
+            i = 1;
+        } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(multiForumPerm.bawu_type)) {
+            i = 2;
+        } else {
+            i = 0;
         }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.i = i;
+        this.b = i;
+        if (multiForumPerm.is_deleted.intValue() == 1) {
+            z2 = true;
         }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void v(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f = str;
-        }
+        this.c = z2;
     }
 }

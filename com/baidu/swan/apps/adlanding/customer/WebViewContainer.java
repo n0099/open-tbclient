@@ -7,10 +7,10 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-import com.baidu.tieba.eu1;
-import com.baidu.tieba.ol3;
+import com.baidu.tieba.nv1;
+import com.baidu.tieba.xm3;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebViewContainer extends FrameLayout {
     public OverScroller a;
     public float b;
@@ -30,24 +30,24 @@ public class WebViewContainer extends FrameLayout {
     public float p;
     public int q;
     public int r;
-    public eu1 s;
+    public nv1 s;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         boolean a(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends GestureDetector.SimpleOnGestureListener {
         public final WebViewContainer a;
 
@@ -158,12 +158,12 @@ public class WebViewContainer extends FrameLayout {
         this.l = aVar;
     }
 
-    public void setInternalWebView(eu1 eu1Var) {
-        this.s = eu1Var;
+    public void setInternalWebView(nv1 nv1Var) {
+        this.s = nv1Var;
     }
 
     public void setMinFlingVelocity(int i) {
-        this.m = ol3.g(i);
+        this.m = xm3.g(i);
     }
 
     public void setOnUpListener(c cVar) {

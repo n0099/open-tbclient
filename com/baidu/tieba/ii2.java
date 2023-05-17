@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gj2;
+import com.baidu.tieba.cs2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes4.dex */
-public abstract class ii2<T extends gj2> {
+/* loaded from: classes6.dex */
+public class ii2 implements fi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public T a;
+    public final String[] a;
 
-    public ii2(@NonNull T t) {
+    public ii2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,25 +28,41 @@ public abstract class ii2<T extends gj2> {
                 return;
             }
         }
-        this.a = t;
+        this.a = new String[]{og3.w(), og3.y(), ld2.c()};
     }
 
-    @NonNull
-    public File b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return new File(a(), String.valueOf(j));
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public File a() {
+    @Override // com.baidu.tieba.fi2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.f();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = kp4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            if (qp1.a) {
+                b(arraySet);
+            }
+            g62.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (File) invokeV.objValue;
+        return (ArraySet) invokeV.objValue;
+    }
+
+    public final void b(ArraySet<String> arraySet) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
+            return;
+        }
+        String[] strArr = {xj2.b().getAbsolutePath(), ni3.c().getAbsolutePath(), cs2.b.d(), vl3.b(), fs2.k(), d33.b()};
+        for (int i = 0; i < 6; i++) {
+            String K = kp4.K(strArr[i]);
+            if (!TextUtils.isEmpty(K)) {
+                arraySet.add(K);
+            }
+        }
     }
 }

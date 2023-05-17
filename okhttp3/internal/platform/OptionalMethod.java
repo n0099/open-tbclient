@@ -2,7 +2,7 @@ package okhttp3.internal.platform;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OptionalMethod<T> {
     public final String methodName;
     public final Class[] methodParams;

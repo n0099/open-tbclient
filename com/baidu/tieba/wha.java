@@ -1,26 +1,59 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
-import com.baidu.ugc.utils.FileUtils;
-/* loaded from: classes6.dex */
-public class wha {
+import com.baidu.ubs.analytics.SampleResult;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public final class wha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioPlayData a;
-    public xha b;
+    public Context a;
+    public String b;
+    public String c;
+    public boolean d;
+    public JSONArray e;
+    public Map<String, com.baidu.ubs.analytics.a.g> f;
 
-    public wha(AudioPlayData audioPlayData) {
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wha a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-316405572, "Lcom/baidu/tieba/wha$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-316405572, "Lcom/baidu/tieba/wha$a;");
+                    return;
+                }
+            }
+            a = new wha((byte) 0);
+        }
+    }
+
+    public wha() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {audioPlayData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,39 +63,133 @@ public class wha {
                 return;
             }
         }
-        this.a = audioPlayData;
-        if (audioPlayData == null || !FileUtils.isExists(audioPlayData.audioPath)) {
-            return;
+        this.d = true;
+    }
+
+    public static wha h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
         }
-        this.b = new xha(audioPlayData.audioPath);
+        return (wha) invokeV.objValue;
     }
 
-    public xha a() {
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (xha) invokeV.objValue;
-    }
-
-    public AudioPlayData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (AudioPlayData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            xha xhaVar = this.b;
-            return xhaVar != null && xhaVar.i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
         return invokeV.booleanValue;
     }
 
-    public void d(xha xhaVar) {
+    public final Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xhaVar) == null) {
-            this.b = xhaVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
         }
+        return (Context) invokeV.objValue;
+    }
+
+    public final String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final Map<String, com.baidu.ubs.analytics.a.g> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.f;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public /* synthetic */ wha(byte b) {
+        this();
+    }
+
+    public final void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.a = context;
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final synchronized void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            synchronized (this) {
+                this.d = z;
+            }
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final synchronized void c(List<com.baidu.ubs.analytics.a.g> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            synchronized (this) {
+                this.f = new HashMap();
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
+                        this.f.put(list.get(i).getId(), list.get(i));
+                    }
+                }
+            }
+        }
+    }
+
+    public final SampleResult f(String str) {
+        InterceptResult invokeL;
+        Map<String, com.baidu.ubs.analytics.a.g> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (this.e != null) {
+                for (int i = 0; i < this.e.length(); i++) {
+                    JSONObject optJSONObject = this.e.optJSONObject(i);
+                    if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
+                        return eja.a(optJSONObject.optString("group"));
+                    }
+                }
+                return SampleResult.OTHERE;
+            } else if (str != null && (map = this.f) != null) {
+                if (map.containsKey(str)) {
+                    return eja.a(this.f.get(str).getGroup());
+                }
+                return SampleResult.OTHERE;
+            } else {
+                return SampleResult.OTHERE;
+            }
+        }
+        return (SampleResult) invokeL.objValue;
     }
 }

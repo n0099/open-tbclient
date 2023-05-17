@@ -1,7 +1,7 @@
 package com.baidu.pass.face.platform.model;
 
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public FaceExtInfo[] a;
     public FaceStatusNewEnum b;

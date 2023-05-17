@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Metadata implements Parcelable {
     public static final Parcelable.Creator<Metadata> CREATOR = new Parcelable.Creator<Metadata>() { // from class: com.google.android.exoplayer2.metadata.Metadata.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -23,7 +23,7 @@ public final class Metadata implements Parcelable {
     };
     public final Entry[] entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Entry extends Parcelable {
     }
 

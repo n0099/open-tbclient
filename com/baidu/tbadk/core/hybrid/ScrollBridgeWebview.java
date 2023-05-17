@@ -9,18 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ScrollBridgeWebview extends BridgeWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public boolean b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void b(int i, int i2, int i3, int i4);
 
-        void e(int i, int i2, int i3, int i4);
+        void d(int i, int i2, int i3, int i4);
 
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
@@ -75,7 +75,7 @@ public class ScrollBridgeWebview extends BridgeWebView {
             super.onScrollChanged(i, i2, i3, i4);
             if (this.a != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.a.e(i, i2, i3, i4);
+                    this.a.d(i, i2, i3, i4);
                 } else if (getScrollY() == 0) {
                     this.a.b(i, i2, i3, i4);
                 } else {

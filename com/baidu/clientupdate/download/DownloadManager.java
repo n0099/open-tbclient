@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.jni.MiniGzip;
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
@@ -53,7 +52,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -927,7 +926,7 @@ public final class DownloadManager {
             d dVar = this.mLogUtils;
             String c = this.mBaiduParamManager.c();
             String b = this.mBaiduParamManager.b();
-            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, str);
+            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", "RSA", str);
         }
     }
 
@@ -1199,7 +1198,7 @@ public final class DownloadManager {
                     LogUtil.logE("DownloadManager", "apk的md5值：" + a2);
                     if (str4.equals(a2)) {
                         LogUtil.logE("DownloadManager", "第一次RSA验证通过");
-                        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, "");
+                        this.mLogUtils.a(this.mBaiduParamManager.c(), "0", this.mBaiduParamManager.b(), "a8", "0", (System.currentTimeMillis() / 1000) + "", "", "RSA", "");
                         j.a(this.mContext, this.privateApkFile);
                     } else if (this.isDownloadPublicKey.booleanValue()) {
                         LogUtil.logE("DownloadManager", "RSA验证失败，下载公钥重新验证");

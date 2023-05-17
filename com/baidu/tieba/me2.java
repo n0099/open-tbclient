@@ -1,56 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.cs2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import java.io.File;
+/* loaded from: classes6.dex */
 public class me2 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947969711, "Lcom/baidu/tieba/me2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947969711, "Lcom/baidu/tieba/me2;");
-        }
-    }
-
-    public static int a(@NonNull us2 us2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, us2Var)) == null) {
-            int i = a;
-            if (i != 0) {
-                return i;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947969711, "Lcom/baidu/tieba/me2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return us2Var.j("preAppReadyState", 0);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947969711, "Lcom/baidu/tieba/me2;");
+                return;
+            }
         }
-        return invokeL.intValue;
+        a = qp1.a;
     }
 
-    public static void c(int i) {
+    public static le2 a(PMSAppInfo pMSAppInfo, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            a = i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
+            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
+                return null;
+            }
+            File i = cs2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+            if (!i.exists()) {
+                if (a) {
+                    Log.w("PrefetchUtils", "aiapp dir not exist ");
+                }
+                return null;
+            }
+            le2 le2Var = new le2();
+            if (new File(i, "app.json").exists()) {
+                if (a) {
+                    Log.d("PrefetchUtils", "find main pkg's app config file");
+                }
+                le2Var.a = i;
+                return le2Var;
+            } else if (TextUtils.isEmpty(str)) {
+                return null;
+            } else {
+                String g = ym3.g(str);
+                int lastIndexOf = g.lastIndexOf(File.separator);
+                if (lastIndexOf >= 0) {
+                    g = g.substring(0, lastIndexOf);
+                }
+                if (!new File(i, g).exists()) {
+                    return null;
+                }
+                int lastIndexOf2 = g.lastIndexOf(File.separator);
+                while (lastIndexOf2 >= 0) {
+                    g = g.substring(0, lastIndexOf2);
+                    if (new File(i, g + File.separator + "app.json").exists()) {
+                        if (a) {
+                            Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
+                        }
+                        le2Var.b = true;
+                        le2Var.c = g;
+                        le2Var.a = new File(i, g);
+                        return le2Var;
+                    }
+                    lastIndexOf2 = g.lastIndexOf(File.separator);
+                }
+                return null;
+            }
         }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = 0;
-        }
+        return (le2) invokeLL.objValue;
     }
 }

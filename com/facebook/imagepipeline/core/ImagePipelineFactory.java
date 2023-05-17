@@ -39,7 +39,7 @@ import com.facebook.imagepipeline.transcoder.SimpleImageTranscoderFactory;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImagePipelineFactory {
     public static final Class<?> TAG = ImagePipelineFactory.class;
     public static boolean sForceSinglePipelineInstance;

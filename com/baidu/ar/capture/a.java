@@ -7,13 +7,13 @@ import android.os.Message;
 /* loaded from: classes.dex */
 public class a {
     public HandlerThread kY;
-    public HandlerC0054a kZ;
+    public HandlerC0057a kZ;
     public String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class HandlerC0054a extends Handler {
-        public HandlerC0054a(Looper looper) {
+    public static final class HandlerC0057a extends Handler {
+        public HandlerC0057a(Looper looper) {
             super(looper);
         }
 
@@ -42,9 +42,9 @@ public class a {
     }
 
     public void execute(Runnable runnable) {
-        HandlerC0054a handlerC0054a = this.kZ;
-        if (handlerC0054a != null) {
-            handlerC0054a.a(runnable);
+        HandlerC0057a handlerC0057a = this.kZ;
+        if (handlerC0057a != null) {
+            handlerC0057a.a(runnable);
         }
     }
 
@@ -52,13 +52,13 @@ public class a {
         HandlerThread handlerThread = new HandlerThread(this.mTag);
         this.kY = handlerThread;
         handlerThread.start();
-        this.kZ = new HandlerC0054a(this.kY.getLooper());
+        this.kZ = new HandlerC0057a(this.kY.getLooper());
     }
 
     public void stop() {
-        HandlerC0054a handlerC0054a = this.kZ;
-        if (handlerC0054a != null) {
-            handlerC0054a.release();
+        HandlerC0057a handlerC0057a = this.kZ;
+        if (handlerC0057a != null) {
+            handlerC0057a.release();
             this.kZ = null;
         }
         HandlerThread handlerThread = this.kY;

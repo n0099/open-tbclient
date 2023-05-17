@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine.net;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.v8engine.NotProguard;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetRequestSettings {
     public int mTimeout = 60000;
     public long mUploadDataLimit = Config.FULL_TRACE_LOG_LIMIT;

@@ -1,260 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.CloseAdData;
-import com.baidu.tbadk.data.PayMemberInfoData;
-import com.baidu.tbadk.data.UserData;
-import com.baidu.tbadk.getUserInfo.GetUserInfoHttpResponseMessage;
-import com.baidu.tbadk.getUserInfo.GetUserInfoRequstData;
-import com.baidu.tbadk.getUserInfo.GetUserInfoSocketResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fg5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static fg5 c = null;
-    public static boolean d = true;
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class fg5 extends ue5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public TbHttpMessageTask b;
+    public final xf5 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947763189, "Lcom/baidu/tieba/fg5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947763189, "Lcom/baidu/tieba/fg5;");
+    @Override // com.baidu.tieba.ue5
+    public void c(we5 we5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, we5Var) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fg5 a;
-
-        public a(fg5 fg5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fg5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fg5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                GetUserInfoRequstData c = this.a.c();
-                c.setNetType(NetMessage.NetType.HTTP);
-                if (this.a.b != null) {
-                    new HttpClient.a(c.getHttpMessage(), this.a.b).execute(new HttpMessage[0]);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-
-        public b(fg5 fg5Var, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fg5Var, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = accountData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lw4.g(this.a);
-            }
-        }
-    }
-
-    public fg5() {
+    public fg5(xf5 xf5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xf5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static fg5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (c == null) {
-                synchronized (fg5.class) {
-                    if (c == null) {
-                        c = new fg5();
-                    }
-                }
-            }
-            return c;
-        }
-        return (fg5) invokeV.objValue;
-    }
-
-    public UserData e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (UserData) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            km6.a(new a(this), "sendGetUserInfoForDau", 3);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (d) {
-                g();
-                d = false;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            MessageManager.getInstance().sendMessage(c());
         }
+        this.a = xf5Var;
     }
 
-    public final GetUserInfoRequstData c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ue5
+    public we5 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetUserInfoRequstData getUserInfoRequstData = new GetUserInfoRequstData(CmdConfigHttp.CMD_GET_USER_INFO, 303024);
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                getUserInfoRequstData.setUid(gg.g(currentAccountObj.getID(), 0L));
-            }
-            getUserInfoRequstData.setScreenWidth(ii.l(TbadkCoreApplication.getInst().getApp()));
-            return getUserInfoRequstData;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setBarLauncherType(6);
+            editorTools.setBackgroundColorId(R.color.CAM_X0602);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.setMoreDeskBgColorId(R.color.CAM_X0206);
+            editorTools.F(false);
+            return new eg5(editorTools);
         }
-        return (GetUserInfoRequstData) invokeV.objValue;
+        return (we5) invokeL.objValue;
     }
 
-    public void f() {
+    @Override // com.baidu.tieba.ue5
+    public void d(we5 we5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xo9.h(303024, GetUserInfoSocketResponseMessage.class, false, false);
-            TbHttpMessageTask c2 = xo9.c(303024, CmdConfigHttp.CMD_GET_USER_INFO, TbConfig.GET_USER_INFO, GetUserInfoHttpResponseMessage.class, false, false, true, false);
-            this.b = c2;
-            c2.setTimeOut(ib.d().b());
-            this.b.setRetry(ib.d().a());
-            this.b.setConnectTimeOut(ib.d().c());
-        }
-    }
-
-    public void i(UserData userData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, userData) == null) {
-            this.a = userData;
-            if (userData == null) {
-                return;
-            }
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj == null) {
-                currentAccountObj = new AccountData();
-            }
-            if (!StringUtils.isNull(userData.getUserName())) {
-                currentAccountObj.setAccount(userData.getUserName());
-            }
-            if (!StringUtils.isNull(userData.getPortrait())) {
-                currentAccountObj.setPortrait(userData.getPortrait());
-            }
-            currentAccountObj.setSex(userData.getSex());
-            currentAccountObj.setMemberType(userData.getIsMem());
-            currentAccountObj.setVipInfo(userData.getUserVipInfo());
-            currentAccountObj.setPersonalBgUrl(userData.getBg_pic());
-            if (userData.getGodUserData() != null) {
-                currentAccountObj.setGodType(userData.getGodUserData().getType());
-            }
-            if (userData.getNewGodData() != null) {
-                currentAccountObj.setNewGodStatus(userData.getNewGodData().getStatus());
-            }
-            if (!TextUtils.isEmpty(userData.getUk())) {
-                currentAccountObj.setUk(userData.getUk());
-            }
-            currentAccountObj.setIsBigV(userData.isBigV());
-            currentAccountObj.setNameShow(userData.getName_show());
-            TbadkCoreApplication.getInst().setDefaultBubble(userData.getBimg_url());
-            TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(userData.getDynamicUrl());
-            PayMemberInfoData payMemberInfoData = userData.getPayMemberInfoData();
-            if (currentAccountObj.getVipInfo() != null) {
-                currentAccountObj.setMemberIconUrl(currentAccountObj.getVipInfo().getVipIconUrl());
-            } else {
-                currentAccountObj.setMemberIconUrl(null);
-            }
-            CloseAdData closeAdData = userData.getCloseAdData();
-            if (closeAdData != null) {
-                currentAccountObj.setMemberCloseAdIsOpen(closeAdData.V());
-                currentAccountObj.setMemberCloseAdVipClose(closeAdData.W());
-            }
-            currentAccountObj.setUserIcons(userData.getIconInfo());
-            currentAccountObj.setIsSelectTail(userData.getIsSelectTail());
-            mg.a().c(new b(this, currentAccountObj));
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247, payMemberInfoData));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, we5Var) == null) {
+            EditorTools b = we5Var.b();
+            b.setHideBigEmotion(true);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            b.d(new gg5(b.getContext(), this.a));
+            df5 p = b.p(5);
+            p.d = 0;
+            p.e(false);
+            b.setClearEbPadding(true);
+            b.f();
         }
     }
 }

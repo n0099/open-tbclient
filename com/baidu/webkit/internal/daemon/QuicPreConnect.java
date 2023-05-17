@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QuicPreConnect implements INoProGuard, INetListener {
     public static final String LOG_TAG = "QuicPreConnect";
     public static boolean mDownloading = false;

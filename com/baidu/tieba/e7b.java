@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,42 +7,157 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class e7b implements l5b {
+import rx.exceptions.MissingBackpressureException;
+/* loaded from: classes5.dex */
+public final class e7b {
     public static /* synthetic */ Interceptable $ic;
-    public static final l5b g;
+    public static final d a;
+    public static final d b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public l5b b;
-    public boolean c;
-    public long d;
-    public long e;
-    public l5b f;
 
-    /* loaded from: classes4.dex */
-    public static class a implements l5b {
+    /* loaded from: classes5.dex */
+    public interface d {
+        boolean a() throws MissingBackpressureException;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a implements d {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.l5b
-        public void request(long j) {
+        @Override // com.baidu.tieba.e7b.d
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
             }
+            return invokeV.booleanValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-876953028, "Lcom/baidu/tieba/e7b$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-876953028, "Lcom/baidu/tieba/e7b$a;");
+                    return;
+                }
+            }
+            a = new a();
         }
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.e7b.d
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-876952997, "Lcom/baidu/tieba/e7b$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-876952997, "Lcom/baidu/tieba/e7b$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-876952966, "Lcom/baidu/tieba/e7b$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-876952966, "Lcom/baidu/tieba/e7b$c;");
+                    return;
+                }
+            }
+            a = new c();
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.e7b.d
+        public boolean a() throws MissingBackpressureException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                throw new MissingBackpressureException("Overflowed buffer");
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -60,174 +174,10 @@ public final class e7b implements l5b {
                 return;
             }
         }
-        g = new a();
-    }
-
-    public e7b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-            return;
-        }
-        while (true) {
-            synchronized (this) {
-                long j = this.d;
-                long j2 = this.e;
-                l5b l5bVar = this.f;
-                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (i == 0 && j2 == 0 && l5bVar == null) {
-                    this.c = false;
-                    return;
-                }
-                this.d = 0L;
-                this.e = 0L;
-                this.f = null;
-                long j3 = this.a;
-                if (j3 != Long.MAX_VALUE) {
-                    long j4 = j3 + j;
-                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
-                        j3 = j4 - j2;
-                        if (j3 >= 0) {
-                            this.a = j3;
-                        } else {
-                            throw new IllegalStateException("more produced than requested");
-                        }
-                    } else {
-                        this.a = Long.MAX_VALUE;
-                        j3 = Long.MAX_VALUE;
-                    }
-                }
-                if (l5bVar != null) {
-                    if (l5bVar == g) {
-                        this.b = null;
-                    } else {
-                        this.b = l5bVar;
-                        l5bVar.request(j3);
-                    }
-                } else {
-                    l5b l5bVar2 = this.b;
-                    if (l5bVar2 != null && i != 0) {
-                        l5bVar2.request(j);
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            if (j > 0) {
-                synchronized (this) {
-                    if (this.c) {
-                        this.e += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a;
-                        if (j2 != Long.MAX_VALUE) {
-                            long j3 = j2 - j;
-                            if (j3 >= 0) {
-                                this.a = j3;
-                            } else {
-                                throw new IllegalStateException("more items arrived than were requested");
-                            }
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n > 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    @Override // com.baidu.tieba.l5b
-    public void request(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    return;
-                }
-                synchronized (this) {
-                    if (this.c) {
-                        this.d += j;
-                        return;
-                    }
-                    this.c = true;
-                    try {
-                        long j2 = this.a + j;
-                        if (j2 < 0) {
-                            j2 = Long.MAX_VALUE;
-                        }
-                        this.a = j2;
-                        l5b l5bVar = this.b;
-                        if (l5bVar != null) {
-                            l5bVar.request(j);
-                        }
-                        a();
-                        return;
-                    } catch (Throwable th) {
-                        synchronized (this) {
-                            this.c = false;
-                            throw th;
-                        }
-                    }
-                }
-            }
-            throw new IllegalArgumentException("n >= 0 required");
-        }
-    }
-
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void c(l5b l5bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l5bVar) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    if (l5bVar == null) {
-                        l5bVar = g;
-                    }
-                    this.f = l5bVar;
-                    return;
-                }
-                this.c = true;
-                try {
-                    this.b = l5bVar;
-                    if (l5bVar != null) {
-                        l5bVar.request(this.a);
-                    }
-                    a();
-                } catch (Throwable th) {
-                    synchronized (this) {
-                        this.c = false;
-                        throw th;
-                    }
-                }
-            }
-        }
+        c cVar = c.a;
+        a = cVar;
+        b = cVar;
+        b bVar = b.a;
+        a aVar = a.a;
     }
 }

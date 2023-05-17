@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.y60;
+import com.baidu.tieba.h70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -165,7 +165,7 @@ public class ScreenUbc {
             if (jSONObject.length() > 0) {
                 jSONArray.put(jSONObject);
             }
-            y60.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            h70.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

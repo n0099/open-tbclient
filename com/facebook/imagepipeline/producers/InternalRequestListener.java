@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.listener.RequestListener2;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InternalRequestListener extends InternalProducerListener implements RequestListener2 {
     @Nullable
     public final RequestListener mRequestListener;

@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.text.style.ReplacementSpan;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BetterImageSpan extends ReplacementSpan {
     public static final int ALIGN_BASELINE = 1;
     public static final int ALIGN_BOTTOM = 0;
@@ -20,7 +20,7 @@ public class BetterImageSpan extends ReplacementSpan {
     public int mWidth;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface BetterImageSpanAlignment {
     }
 

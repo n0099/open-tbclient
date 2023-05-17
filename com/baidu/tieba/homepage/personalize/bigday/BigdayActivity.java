@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BigdayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                f55.m().A("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                o65.m().A("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -102,13 +102,13 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d016c);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903dc);
+            setContentView(R.layout.obfuscated_res_0x7f0d0170);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903ef);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903db);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903ee);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f070288));
+                ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f070394));
             }
             Intent intent = getIntent();
             if (intent != null) {

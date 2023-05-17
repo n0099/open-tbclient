@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DragView extends FrameLayout {
     public ViewDragHelper a;
     public View b;
@@ -21,7 +21,7 @@ public class DragView extends FrameLayout {
     public boolean j;
     public int k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i);
 
@@ -30,7 +30,7 @@ public class DragView extends FrameLayout {
         void onClose();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends ViewDragHelper.Callback {
         public a() {
         }

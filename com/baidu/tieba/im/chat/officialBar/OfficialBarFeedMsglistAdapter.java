@@ -13,23 +13,23 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.xk5;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public c b;
-    public ArrayList<xk5> c;
+    public ArrayList<gm5> c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void d(View view2, Object obj, int i, long j);
     }
@@ -41,8 +41,8 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i : invokeI.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public static class a implements xk5 {
+    /* loaded from: classes6.dex */
+    public static class a implements gm5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -152,7 +152,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b extends RecyclerView.ViewHolder implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,20 +181,20 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
                 }
             }
             this.e = officialBarFeedMsglistAdapter;
-            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918c2);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c7);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0918c1);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f09190e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091913);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09190d);
             this.a.setShowOval(true);
             this.a.setPlaceHolder(2);
             this.a.setShowOuterBorder(false);
             this.a.setShowInnerBorder(true);
-            this.a.setStrokeWith(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.a.setStrokeWith(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
         }
 
-        public void a(xk5 xk5Var) {
+        public void a(gm5 gm5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, xk5Var) == null) {
-                this.d = (a) xk5Var;
+            if (interceptable == null || interceptable.invokeL(1048576, this, gm5Var) == null) {
+                this.d = (a) gm5Var;
                 SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
                 SkinManager.setBackgroundResource(this.c, R.drawable.icon_official_bar_red_dot);
                 this.a.setStrokeColorResId(R.color.CAM_X0401);
@@ -245,7 +245,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         this.b = cVar;
     }
 
-    public void l(ArrayList<? extends xk5> arrayList) {
+    public void l(ArrayList<? extends gm5> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) != null) || arrayList == null) {
             return;
@@ -260,7 +260,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList<xk5> arrayList = this.c;
+            ArrayList<gm5> arrayList = this.c;
             if (arrayList == null) {
                 return 0;
             }
@@ -271,12 +271,12 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ArrayList<xk5> arrayList;
+        ArrayList<gm5> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) && (arrayList = this.c) != null && arrayList.size() > 0) {
-            xk5 xk5Var = this.c.get(i);
-            if ((viewHolder instanceof b) && (xk5Var instanceof a)) {
-                ((b) viewHolder).a(xk5Var);
+            gm5 gm5Var = this.c.get(i);
+            if ((viewHolder instanceof b) && (gm5Var instanceof a)) {
+                ((b) viewHolder).a(gm5Var);
             }
         }
     }
@@ -287,7 +287,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new b(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d06de, (ViewGroup) null));
+            return new b(this, this.a.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0702, (ViewGroup) null));
         }
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }

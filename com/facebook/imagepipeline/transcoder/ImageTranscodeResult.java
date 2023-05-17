@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.transcoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImageTranscodeResult {
     public final int mTranscodeStatus;
 

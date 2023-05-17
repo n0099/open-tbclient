@@ -1,49 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Userlike.UserFollowLive;
-/* loaded from: classes4.dex */
-public class ik6 implements qz6<Message> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ik6 extends bk6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<jz7> a;
+    public String b;
+    public String c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947856437, "Lcom/baidu/tieba/ik6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947856437, "Lcom/baidu/tieba/ik6;");
+                return;
+            }
+        }
+        d = BdUniqueId.gen();
+    }
 
     public ik6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList();
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<jz7> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(jz7 jz7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jz7Var) == null) {
+            this.a.add(jz7Var);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qz6
-    /* renamed from: a */
-    public s17<?> b(Message message) {
-        InterceptResult invokeL;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof UserFollowLive)) {
-                return null;
-            }
-            bp7 bp7Var = new bp7();
-            bp7Var.d((UserFollowLive) message);
-            ni6 ni6Var = new ni6(null, bp7Var.c(), ImageViewerConfig.FROM_CONCERN);
-            gz6 gz6Var = new gz6();
-            gz6Var.a = ni6Var;
-            return new t17(new qw6(gz6Var), "ala_live_attention");
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
-        return (s17) invokeL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
     }
 }

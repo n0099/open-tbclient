@@ -5,16 +5,17 @@ import android.net.Uri;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.common.others.url.UrlUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.eg9;
+import com.baidu.tieba.gi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class PersonPolymericDispatcher implements eg9 {
+/* loaded from: classes7.dex */
+public class PersonPolymericDispatcher implements gi9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URI_PREFIX = "com.baidu.tieba://unidispatch/usercenter?";
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +34,7 @@ public class PersonPolymericDispatcher implements eg9 {
         }
     }
 
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
@@ -43,7 +44,7 @@ public class PersonPolymericDispatcher implements eg9 {
             if (jSONObject.optString("useMainState") != null && jSONObject.optString("useMainState").equals("1")) {
                 hashMap.put("useMainState", "true");
             } else {
-                hashMap.put("useMainState", "false");
+                hashMap.put("useMainState", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
             }
             String appendParams = UrlUtils.appendParams(URI_PREFIX, hashMap);
             PersonPolymericActivityConfig personPolymericActivityConfig = new PersonPolymericActivityConfig(context);

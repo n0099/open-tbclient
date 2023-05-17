@@ -1,74 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-/* loaded from: classes7.dex */
-public abstract class yia {
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes8.dex */
+public final class yia {
     public static /* synthetic */ Interceptable $ic;
+    public static List<WeakReference<ScheduledFuture<?>>> a;
+    public static ExecutorService b;
+    public static ScheduledExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void a(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948332504, "Lcom/baidu/tieba/yia;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948332504, "Lcom/baidu/tieba/yia;");
+                return;
+            }
+        }
+        a = new ArrayList();
+        b = Executors.newFixedThreadPool(2);
+        c = Executors.newScheduledThreadPool(2);
+    }
+
+    public static synchronized void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
+            synchronized (yia.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                c.execute(runnable);
+            }
         }
     }
 
-    public void b(long j, boolean z) {
+    public static void c(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            ExecutorService executorService = b;
+            if (executorService == null || executorService.isShutdown()) {
+                b = Executors.newFixedThreadPool(2);
+            }
+            b.execute(runnable);
         }
     }
 
-    public void c() {
+    public static synchronized void b(Runnable runnable, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(DownloadException downloadException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadException) == null) {
-        }
-    }
-
-    public void g(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    public yia() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (yia.class) {
+                if (c == null || c.isShutdown()) {
+                    c = Executors.newScheduledThreadPool(2);
+                }
+                a.add(new WeakReference<>(c.scheduleAtFixedRate(runnable, j, j2, TimeUnit.MILLISECONDS)));
             }
         }
     }

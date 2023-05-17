@@ -1,7 +1,7 @@
 package com.facebook.cache.disk;
 
 import com.facebook.cache.disk.DiskStorage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultEntryEvictionComparatorSupplier implements EntryEvictionComparatorSupplier {
     @Override // com.facebook.cache.disk.EntryEvictionComparatorSupplier
     public EntryEvictionComparator get() {

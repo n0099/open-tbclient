@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

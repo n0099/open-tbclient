@@ -43,7 +43,7 @@ import java.util.zip.GZIPOutputStream;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic = null;
     public static float A = 2.3f;

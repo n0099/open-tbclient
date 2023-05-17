@@ -1,14 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zy4 extends ThreadData {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public abstract class zy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void parserJson(JSONObject jSONObject);
 
     public zy4() {
         Interceptable interceptable = $ic;
@@ -20,6 +23,17 @@ public class zy4 extends ThreadData {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void parserJson(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

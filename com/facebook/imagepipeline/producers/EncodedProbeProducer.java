@@ -8,7 +8,7 @@ import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EncodedProbeProducer implements Producer<EncodedImage> {
     public static final String PRODUCER_NAME = "EncodedProbeProducer";
     public final CacheKeyFactory mCacheKeyFactory;
@@ -22,7 +22,7 @@ public class EncodedProbeProducer implements Producer<EncodedImage> {
         return PRODUCER_NAME;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ProbeConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final CacheKeyFactory mCacheKeyFactory;
         public final BufferedDiskCache mDefaultBufferedDiskCache;

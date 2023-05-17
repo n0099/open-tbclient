@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.text.tx3g.Tx3gDecoder;
 import com.google.android.exoplayer2.text.webvtt.Mp4WebvttDecoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface SubtitleDecoderFactory {
     public static final SubtitleDecoderFactory DEFAULT = new SubtitleDecoderFactory() { // from class: com.google.android.exoplayer2.text.SubtitleDecoderFactory.1
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

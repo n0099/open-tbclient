@@ -1,60 +1,76 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardForumEnterView;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class d27 extends c17<CardForumEnterView, nx6> {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class d27 implements v17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d27(String str) {
-        super(str);
+    public d27() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.c17, com.baidu.tieba.r17
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.v17
+    public SpannableString b(Context context, w07 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            z27.n(a, null, null, null, -2);
-            return a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            String c = richTextData.f().c();
+            SpannableString spannableString = new SpannableString(c);
+            int g = ri.g(cy6.a, R.dimen.L_X01);
+            int g2 = ri.g(cy6.a, R.dimen.tbds10);
+            int g3 = ri.g(cy6.a, R.dimen.T_X10);
+            int g4 = ri.g(cy6.a, R.dimen.M_W_X002);
+            int g5 = ri.g(cy6.a, R.dimen.M_W_X002);
+            int g6 = ri.g(cy6.a, R.dimen.tbds42);
+            b07 a = richTextData.f().a();
+            if (a != null) {
+                i = l47.a.b(a);
+            } else {
+                i = R.color.CAM_X0302;
+            }
+            b07 b = richTextData.f().b();
+            if (b != null) {
+                i2 = l47.a.b(b);
+            } else {
+                i2 = R.color.CAM_X0101;
+            }
+            t65 t65Var = new t65(g, -1, i, g3, i2, g4, g6);
+            t65Var.b(g2);
+            t65Var.i(g5);
+            t65Var.f(true);
+            t65Var.g(true);
+            t65Var.d(ri.g(cy6.a, R.dimen.tbds7));
+            spannableString.setSpan(t65Var, 0, c.length(), 17);
+            if (!TextUtils.isEmpty(richTextData.d())) {
+                spannableString.setSpan(clickableSpan, 0, c.length(), 33);
+            }
+            return spannableString;
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r17
-    /* renamed from: e */
-    public void b(@NonNull CardForumEnterView cardForumEnterView, @NonNull nx6 nx6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardForumEnterView, nx6Var) == null) {
-            cardForumEnterView.update(nx6Var);
-        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

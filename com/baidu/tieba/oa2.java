@@ -1,74 +1,101 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class oa2 extends z92 {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class oa2 extends ha2<JSONObject, g12> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948025449, "Lcom/baidu/tieba/oa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements ia2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948025449, "Lcom/baidu/tieba/oa2;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        l = ho1.a;
+
+        @Override // com.baidu.tieba.ia2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fa2 fa2Var = new fa2();
+                fa2Var.g(this.a);
+                fa2Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
+            }
+        }
+
+        public static ia2 b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                aVar.a = str;
+                return aVar;
+            }
+            return (ia2) invokeL.objValue;
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oa2(boolean z, boolean z2) {
-        super(z, z2);
+    public oa2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        if (l) {
-            Log.d("PreloadMasterManagerMulti", "PreloadMasterManagerMulti created");
         }
     }
 
-    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.la2
+    @NonNull
+    /* renamed from: c */
+    public g12 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
-            if (this.e == null || this.e.b == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new g12(202);
             }
-            if (pMSAppInfo.versionCode == this.e.b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.e.a) && !m(cVar, this.e.c)) {
-                return false;
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new g12(202, "data is required");
             }
-            return true;
+            String optString = optJSONObject.optString("path");
+            if (TextUtils.isEmpty(optString)) {
+                return new g12(202, "path is required");
+            }
+            v92 b = v92.b();
+            if (!b.d()) {
+                b.g(a.b(optString));
+            }
+            return new g12(0);
         }
-        return invokeLL.booleanValue;
+        return (g12) invokeL.objValue;
     }
 }

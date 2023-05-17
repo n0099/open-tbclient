@@ -29,15 +29,15 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.k15;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CardForumHeadLayout extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
     public int m;
     public ThreadData n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.j = (TextView) findViewById(R.id.thread_extend_info);
             this.b.setShowOval(true);
             this.b.setAutoChangeStyle(true);
-            this.b.setStrokeWith(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.b.setStrokeWith(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.b.setStrokeColorResId(R.color.CAM_X0401);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.d.setOnClickListener(this);
@@ -241,10 +241,10 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         }
         this.m = skinType;
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
-        int g = ii.g(getContext(), R.dimen.tbds42);
+        int g = ri.g(getContext(), R.dimen.tbds42);
         pureDrawable.setBounds(0, 0, g, g);
         this.d.setCompoundDrawables(null, null, pureDrawable, null);
-        this.d.setCompoundDrawablePadding(ii.g(getContext(), R.dimen.M_W_X002));
+        this.d.setCompoundDrawablePadding(ri.g(getContext(), R.dimen.M_W_X002));
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
         SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0109);
@@ -284,7 +284,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (threadData = this.n) != null) {
             int indexTextColorRes = TagTextHelper.getIndexTextColorRes(threadData.position + 1);
-            this.h.setCompoundDrawablePadding(ii.g(getContext(), R.dimen.M_W_X002));
+            this.h.setCompoundDrawablePadding(ri.g(getContext(), R.dimen.M_W_X002));
             int color = SkinManager.getColor(indexTextColorRes);
             ThreadData threadData2 = this.n;
             if (threadData2.isFromLowFlowsPage) {
@@ -300,7 +300,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             } else {
                 mutate = SkinManager.getDrawable(R.drawable.icon_pure_topic_hot).mutate();
             }
-            int g = ii.g(getContext(), R.dimen.tbds42);
+            int g = ri.g(getContext(), R.dimen.tbds42);
             if (mutate == null) {
                 return;
             }
@@ -343,7 +343,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     }
                     textView2.setText(str2);
                     h();
-                    b05 forumData = threadData.getForumData();
+                    k15 forumData = threadData.getForumData();
                     this.b.setPlaceHolder(1);
                     this.b.setVisibility(0);
                     this.b.N(forumData.a(), 10, false);
@@ -433,7 +433,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.d.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.k));
             this.b.N(str2, 10, false);
             this.f.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
-            this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0459), StringHelper.numberUniformFormatExtra(i2)));
+            this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04a6), StringHelper.numberUniformFormatExtra(i2)));
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.d);
             if (ListUtils.isEmpty(list)) {
                 this.c.setVisibility(8);

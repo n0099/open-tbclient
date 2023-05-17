@@ -3,7 +3,7 @@ package com.baidu.live.feedpage.interfaces;
 import android.view.View;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ILiveFeedPageView extends ILiveFeedLifecycle, ILiveFeedRefresh, ILiveFeedOther {
     void lazyLoad();
 

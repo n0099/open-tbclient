@@ -10,7 +10,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
     public static final String EXTRA_PARAM_AUTH_ID = "EXTRA_PARAM_AUTH_ID";
     public static final String EXTRA_PARAM_SCENE = "EXTRA_PARAM_SCENE";

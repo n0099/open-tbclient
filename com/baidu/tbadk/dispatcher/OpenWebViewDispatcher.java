@@ -10,15 +10,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
-import com.baidu.tieba.eg9;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.gi9;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class OpenWebViewDispatcher implements eg9 {
+/* loaded from: classes4.dex */
+public class OpenWebViewDispatcher implements gi9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class OpenWebViewDispatcher implements eg9 {
         }
     }
 
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;
@@ -78,7 +78,7 @@ public class OpenWebViewDispatcher implements eg9 {
                 bundle2.putString(BdUniDispatchSchemeController.PARAM_OPEN_TYPE, str);
                 bundle = bundle2;
             }
-            pt4.C(context, optString2, optString, optBoolean, optBoolean2, optBoolean3, false, optBoolean4, optBoolean5, optBoolean6, z, bundle);
+            yu4.C(context, optString2, optString, optBoolean, optBoolean2, optBoolean3, false, optBoolean4, optBoolean5, optBoolean6, z, bundle);
         } catch (Exception e) {
             BdLog.e(e);
         }

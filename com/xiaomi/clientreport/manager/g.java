@@ -1,5 +1,5 @@
 package com.xiaomi.clientreport.manager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g implements Runnable {
     public final /* synthetic */ f a;
 

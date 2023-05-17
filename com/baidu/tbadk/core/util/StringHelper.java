@@ -12,11 +12,12 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,8 +37,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes3.dex */
-public class StringHelper extends hi {
+/* loaded from: classes4.dex */
+public class StringHelper extends qi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_CARD_DAY_BEFORE;
     public static final String ALA_CARD_HOUR_BEFORE;
@@ -94,11 +95,11 @@ public class StringHelper extends hi {
         HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
         MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
         SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04c2);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0512);
         TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
         TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
         TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0bb3);
+        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c35);
         TIME_MINUTE_SINGLE = string;
         TIME_STR = new String[]{TIME_DAY, TIME_HOUR, string, TIME_SECOND};
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
@@ -117,16 +118,16 @@ public class StringHelper extends hi {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            hi.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            hi.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            hi.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            hi.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            hi.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            hi.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            hi.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            hi.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            hi.FORMATE_DATE_MS.setTimeZone(timeZone);
-            hi.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            qi.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            qi.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            qi.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            qi.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            qi.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            qi.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            qi.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            qi.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            qi.FORMATE_DATE_MS.setTimeZone(timeZone);
+            qi.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -150,8 +151,8 @@ public class StringHelper extends hi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (hi.FORMATE_DATE_MS) {
-                format = hi.FORMATE_DATE_MS.format(date2);
+            synchronized (qi.FORMATE_DATE_MS) {
+                format = qi.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -164,8 +165,8 @@ public class StringHelper extends hi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             Date date2 = new Date();
-            synchronized (hi.FORMATE_DATE_DAY) {
-                format = hi.FORMATE_DATE_DAY.format(date2);
+            synchronized (qi.FORMATE_DATE_DAY) {
+                format = qi.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -226,7 +227,7 @@ public class StringHelper extends hi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -299,7 +300,7 @@ public class StringHelper extends hi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (hi.isChinese(str.charAt(i2))) {
+                if (qi.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -477,7 +478,7 @@ public class StringHelper extends hi {
                 int i2 = 0;
                 for (int i3 = 0; i3 < length; i3++) {
                     char charAt = str.charAt(i3);
-                    if (hi.isChinese(charAt)) {
+                    if (qi.isChinese(charAt)) {
                         i2 += 2;
                     } else {
                         i2++;
@@ -505,7 +506,7 @@ public class StringHelper extends hi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (hi.isChinese(str.charAt(i2))) {
+                if (qi.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -542,7 +543,7 @@ public class StringHelper extends hi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (hi.isChinese(str.charAt(i2))) {
+                if (qi.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -580,7 +581,7 @@ public class StringHelper extends hi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (hi.isChinese(replaceAll.charAt(i2))) {
+                    if (qi.isChinese(replaceAll.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -658,7 +659,7 @@ public class StringHelper extends hi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (hi.isChinese(charSequence.charAt(i2))) {
+                if (qi.isChinese(charSequence.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -691,7 +692,7 @@ public class StringHelper extends hi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (hi.isChinese(str.charAt(i2))) {
+                if (qi.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -772,7 +773,7 @@ public class StringHelper extends hi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (hi.isChinese(str.charAt(i2))) {
+                    if (qi.isChinese(str.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -814,7 +815,7 @@ public class StringHelper extends hi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return hi.getDateStringDay(date2);
+                return qi.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -1321,7 +1322,7 @@ public class StringHelper extends hi {
             int length = charSequence.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (hi.isChinese(charSequence.charAt(i2))) {
+                if (qi.isChinese(charSequence.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -1373,8 +1374,8 @@ public class StringHelper extends hi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (hi.FORMATE_DATE_DAY_1) {
-                format = hi.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (qi.FORMATE_DATE_DAY_1) {
+                format = qi.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -1386,8 +1387,8 @@ public class StringHelper extends hi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, date2)) == null) {
-            synchronized (hi.FORMATE_DATE_DAY_NO_YEAR) {
-                format = hi.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (qi.FORMATE_DATE_DAY_NO_YEAR) {
+                format = qi.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -1510,8 +1511,8 @@ public class StringHelper extends hi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, date2)) == null) {
-            synchronized (hi.FORMATE_DATE_DAY_WEEK) {
-                format = hi.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (qi.FORMATE_DATE_DAY_WEEK) {
+                format = qi.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -1666,7 +1667,7 @@ public class StringHelper extends hi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, str)) == null) {
-            if (!hi.isEmpty(str)) {
+            if (!qi.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1681,7 +1682,7 @@ public class StringHelper extends hi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, str)) == null) {
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return false;
             }
             try {
@@ -1783,11 +1784,11 @@ public class StringHelper extends hi {
         if (interceptable == null || (invokeI = interceptable.invokeI(65617, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08f4);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0962);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f126d);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f133c);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08f4);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0962);
         }
         return (String) invokeI.objValue;
     }
@@ -1984,11 +1985,11 @@ public class StringHelper extends hi {
                 j = 0;
             }
             String valueOf = String.valueOf(j);
-            if (j >= 100000000) {
-                long j2 = j % 100000000;
+            if (j >= CoolPraiseView.BILLION) {
+                long j2 = j % CoolPraiseView.BILLION;
                 if (j2 != 0) {
                     double d = ((float) j) / 1.0E8f;
-                    double d2 = j / 100000000;
+                    double d2 = j / CoolPraiseView.BILLION;
                     if (j2 > 999999.0d) {
                         str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
                     } else {
@@ -1996,7 +1997,7 @@ public class StringHelper extends hi {
                     }
                     return str;
                 }
-                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                return (j / CoolPraiseView.BILLION) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
             } else if (j >= 10000000) {
                 float f = ((float) j) / 10000.0f;
                 long j3 = j / 10000;
@@ -2020,11 +2021,11 @@ public class StringHelper extends hi {
                 j = 0;
             }
             String valueOf = String.valueOf(j);
-            if (j >= 100000000) {
-                long j2 = j % 100000000;
+            if (j >= CoolPraiseView.BILLION) {
+                long j2 = j % CoolPraiseView.BILLION;
                 if (j2 != 0) {
                     double d = ((float) j) / 1.0E8f;
-                    double d2 = j / 100000000;
+                    double d2 = j / CoolPraiseView.BILLION;
                     if (j2 > 999999.0d) {
                         str = String.format("%.2f", Double.valueOf(d)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
                     } else {
@@ -2032,7 +2033,7 @@ public class StringHelper extends hi {
                     }
                     return str;
                 }
-                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                return (j / CoolPraiseView.BILLION) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
             } else if (j >= 1000000) {
                 float f = ((float) j) / 10000.0f;
                 long j3 = j / 10000;
@@ -2129,7 +2130,7 @@ public class StringHelper extends hi {
                 if (format2.endsWith(".0")) {
                     format2 = format2.substring(0, format2.length() - 2);
                 }
-                float d = gg.d(format2, 1.0f);
+                float d = pg.d(format2, 1.0f);
                 if (d >= 9999.0f) {
                     return "9999KW+";
                 }
@@ -2150,11 +2151,11 @@ public class StringHelper extends hi {
                 j = 0;
             }
             String valueOf = String.valueOf(j);
-            if (j >= 100000000) {
-                if (j % 100000000 != 0) {
+            if (j >= CoolPraiseView.BILLION) {
+                if (j % CoolPraiseView.BILLION != 0) {
                     return String.format("%.1f", Double.valueOf(((float) j) / 1.0E8f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
                 }
-                return (j / 100000000) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
+                return (j / CoolPraiseView.BILLION) + TbadkCoreApplication.getInst().getResources().getString(R.string.unit_yi);
             } else if (j >= 1000000) {
                 float f = ((float) j) / 10000.0f;
                 long j2 = j / 10000;
@@ -2206,7 +2207,7 @@ public class StringHelper extends hi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (hi.isChinese(str.charAt(i2))) {
+                if (qi.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -2257,7 +2258,7 @@ public class StringHelper extends hi {
             if (TextUtils.isEmpty(str)) {
                 return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_less_one_year), 1);
             }
-            float d = gg.d(str, 0.0f);
+            float d = pg.d(str, 0.0f);
             if (d > 1.0f) {
                 return String.format(TbadkCoreApplication.getInst().getString(R.string.ba_age_more_one_year), Integer.valueOf(Math.round(d)));
             }
@@ -2620,7 +2621,7 @@ public class StringHelper extends hi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return hi.getDateStringDay(date3);
+                return qi.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2631,7 +2632,7 @@ public class StringHelper extends hi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return hi.getDateStringHm(date3);
+                        return qi.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2640,13 +2641,13 @@ public class StringHelper extends hi {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (hi.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = hi.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (qi.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = qi.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (hi.FORMATE_DATE_DAY) {
-                        format = hi.FORMATE_DATE_DAY.format(date3);
+                    synchronized (qi.FORMATE_DATE_DAY) {
+                        format = qi.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2678,7 +2679,7 @@ public class StringHelper extends hi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return hi.getDateStringDay(date2);
+                return qi.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -2697,7 +2698,7 @@ public class StringHelper extends hi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return hi.getDateStringDay(date3);
+                return qi.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2708,7 +2709,7 @@ public class StringHelper extends hi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return hi.getDateStringHm(date3);
+                        return qi.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2716,7 +2717,7 @@ public class StringHelper extends hi {
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
-                    return hi.getDateStringDay(date3);
+                    return qi.getDateStringDay(date3);
                 }
             }
         }

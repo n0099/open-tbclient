@@ -5,7 +5,7 @@ import com.baidu.searchbox.network.outback.core.internal.Util;
 import java.net.MalformedURLException;
 import java.net.URL;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UrlWrapper {
     public String host;
     public HttpUrl httpUrl;

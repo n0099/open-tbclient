@@ -1,170 +1,311 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Point;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.Display;
-import android.view.View;
+import android.app.Activity;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.clickinfo.NadTouchInfoModel;
-import com.baidu.tieba.d41;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
-public final class rh0 implements oh0 {
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes7.dex */
+public final class rh0 implements rn0, qn0, sn0, tn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean d;
+    public static rh0 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NadTouchInfoModel a;
-    public WeakReference<qh0> b;
-    public WeakReference<View> c;
-    public final Context d;
-    public final int e;
-    public final int f;
-    public final int g;
+    public final CopyOnWriteArrayList<rn0> a;
+    public final LinkedList<WeakReference<Activity>> b;
+    public int c;
 
-    public rh0(@NonNull ph0 ph0Var, @NonNull View view2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948121487, "Lcom/baidu/tieba/rh0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948121487, "Lcom/baidu/tieba/rh0;");
+        }
+    }
+
+    public rh0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ph0Var, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = li0.b();
-        this.c = new WeakReference<>(view2);
-        this.b = new WeakReference<>(ph0Var.g0());
-        DisplayMetrics displayMetrics = this.d.getResources().getDisplayMetrics();
-        this.e = displayMetrics.widthPixels;
-        this.f = displayMetrics.heightPixels;
-        this.g = displayMetrics.densityDpi;
-        this.a = new NadTouchInfoModel(-1);
-        e();
+        this.a = new CopyOnWriteArrayList<>();
+        this.b = new LinkedList<>();
     }
 
-    @NonNull
-    public static oh0 b(@Nullable oh0 oh0Var, @NonNull ph0 ph0Var, @NonNull View view2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, oh0Var, ph0Var, view2)) == null) {
-            if (oh0Var == null) {
-                return new rh0(ph0Var, view2);
-            }
-            rh0 rh0Var = (rh0) oh0Var;
-            if (rh0Var.c.get() == null) {
-                rh0Var.c = new WeakReference<>(view2);
-            }
-            if (rh0Var.b.get() == null) {
-                rh0Var.b = new WeakReference<>(ph0Var.g0());
-            }
-            return rh0Var;
-        }
-        return (oh0) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oh0
-    public String a() {
+    public static rh0 e() {
         InterceptResult invokeV;
-        int i;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qh0 qh0Var = this.b.get();
-            if (qh0Var == null) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (rh0.class) {
+                    if (e == null) {
+                        e = new rh0();
+                    }
+                }
             }
-            int[] b = qh0Var.b();
-            int[] iArr = new int[2];
-            View view2 = this.c.get();
-            if (view2 != null) {
-                view2.getLocationOnScreen(iArr);
-            }
-            int i2 = iArr[1];
-            if (view2 != null) {
-                i = view2.getHeight() + i2;
-            } else {
-                i = 0;
-            }
-            Point d = d();
-            int i3 = this.e;
-            int i4 = this.f;
-            if (d != null) {
-                i3 = d.x;
-                i4 = d.y;
-            }
-            String[] strArr = new String[9];
-            strArr[0] = DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX;
-            if (d41.c.j()) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            strArr[1] = str;
-            strArr[2] = String.valueOf(b[0]);
-            strArr[3] = String.valueOf(b[1]);
-            strArr[4] = String.valueOf(i2);
-            strArr[5] = String.valueOf(i);
-            strArr[6] = String.valueOf(i3);
-            strArr[7] = String.valueOf(i4);
-            strArr[8] = String.valueOf(this.g);
-            String join = TextUtils.join(",", strArr);
-            c();
-            return join;
+            return e;
         }
-        return (String) invokeV.objValue;
+        return (rh0) invokeV.objValue;
     }
 
-    public final void c() {
-        View view2;
-        qh0 qh0Var;
-        o31 o31Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && j31.a && (view2 = this.c.get()) != null && (qh0Var = this.b.get()) != null && (o31Var = (o31) i31.a().a(o31.class)) != null) {
-            int[] iArr = qh0Var.b;
-            o31Var.a(view2, iArr[0], iArr[1]);
-        }
-    }
-
-    public final Point d() {
+    @Nullable
+    public Activity f() {
         InterceptResult invokeV;
-        Display display;
+        WeakReference<Activity> last;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View view2 = this.c.get();
-            if (view2 == null || Build.VERSION.SDK_INT < 17 || (display = view2.getDisplay()) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.b.isEmpty() || (last = this.b.getLast()) == null) {
                 return null;
             }
-            Point point = new Point();
-            display.getRealSize(point);
-            return point;
+            return last.get();
         }
-        return (Point) invokeV.objValue;
+        return (Activity) invokeV.objValue;
     }
 
-    public final void e() {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NadTouchInfoModel nadTouchInfoModel = this.a;
-            if (nadTouchInfoModel.b) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qn0
+    @Nullable
+    public Activity a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.b.isEmpty() && this.b.size() >= 2) {
+                LinkedList<WeakReference<Activity>> linkedList = this.b;
+                return linkedList.get(linkedList.size() - 2).get();
+            }
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qn0
+    @Nullable
+    public Activity c() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int size = this.b.size();
+            if (size < 2) {
+                return f();
+            }
+            for (int i = size - 1; i >= 0; i--) {
+                WeakReference<Activity> weakReference = this.b.get(i);
+                if (weakReference != null && (activity = weakReference.get()) != null && !activity.isFinishing()) {
+                    return activity;
+                }
+            }
+            return null;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tn0
+    public void b(@Nullable rn0 rn0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rn0Var) == null) && rn0Var != null && !this.a.contains(rn0Var)) {
+            if (d && this.a.size() > 0) {
+                CopyOnWriteArrayList<rn0> copyOnWriteArrayList = this.a;
+                copyOnWriteArrayList.add(copyOnWriteArrayList.size() - 1, rn0Var);
                 return;
             }
-            nadTouchInfoModel.a = this.g;
-            nadTouchInfoModel.b = true;
+            this.a.add(rn0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, activity) == null) {
+            if (g()) {
+                Iterator<rn0> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().onActivityStarted(activity);
+                }
+            }
+            int i = this.c + 1;
+            this.c = i;
+            if (i == 1) {
+                onBackgroundToForeground(activity);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
+            if (g()) {
+                Iterator<rn0> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().onActivityStopped(activity);
+                }
+            }
+            int i = this.c - 1;
+            this.c = i;
+            if (i == 0) {
+                onForegroundToBackground(activity);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tn0
+    public void d(@Nullable rn0 rn0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, rn0Var) == null) && rn0Var != null && this.a.contains(rn0Var)) {
+            this.a.remove(rn0Var);
+        }
+    }
+
+    public void h(@Nullable rn0 rn0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, rn0Var) == null) && rn0Var != null && !this.a.contains(rn0Var)) {
+            d = true;
+            this.a.add(rn0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, activity) != null) || !g()) {
+            return;
+        }
+        Iterator<rn0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onActivityPaused(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, activity) != null) || !g()) {
+            return;
+        }
+        Iterator<rn0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onActivityResumed(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, activity) != null) || !g()) {
+            return;
+        }
+        Iterator<rn0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onBackgroundToForeground(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, activity) != null) || !g()) {
+            return;
+        }
+        Iterator<rn0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onForegroundToBackground(activity);
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, bundle) == null) {
+            this.b.add(new WeakReference<>(activity));
+            if (!g()) {
+                return;
+            }
+            Iterator<rn0> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().onActivityCreated(activity, bundle);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            if (g()) {
+                Iterator<rn0> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().onActivityDestroyed(activity);
+                }
+            }
+            if (this.b.isEmpty()) {
+                return;
+            }
+            int size = this.b.size();
+            while (true) {
+                size--;
+                if (size >= 0) {
+                    if (this.b.get(size).get() == activity) {
+                        break;
+                    }
+                } else {
+                    size = -1;
+                    break;
+                }
+            }
+            if (size != -1) {
+                this.b.remove(size);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rn0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048587, this, activity, bundle) != null) || !g()) {
+            return;
+        }
+        Iterator<rn0> it = this.a.iterator();
+        while (it.hasNext()) {
+            it.next().onActivitySaveInstanceState(activity, bundle);
         }
     }
 }

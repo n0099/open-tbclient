@@ -1,27 +1,43 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class ic4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ic4 extends p34 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hc4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public int errCode;
 
-    public static synchronized hc4 a() {
-        InterceptResult invokeV;
-        hc4 hc4Var;
+    public ic4(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ic4.class) {
-                if (a == null) {
-                    a = new hc4();
-                }
-                hc4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return hc4Var;
         }
-        return (hc4) invokeV.objValue;
+        this.errCode = i;
+        this.errMsg = str;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "DesktopCommonResult{errCode=" + this.errCode + ", errMsg='" + this.errMsg + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

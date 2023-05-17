@@ -31,7 +31,7 @@ import kotlin.reflect.jvm.internal.impl.types.model.TypeArgumentMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeParameterMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeVariance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ClassicTypeCheckerContext extends AbstractTypeCheckerContext implements ClassicTypeSystemContext {
     public static final Companion Companion = new Companion(null);
     public final boolean allowedTypeVariable;
@@ -39,7 +39,7 @@ public class ClassicTypeCheckerContext extends AbstractTypeCheckerContext implem
     public final KotlinTypeRefiner kotlinTypeRefiner;
     public final boolean stubTypeEqualsToAnything;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -58,7 +58,7 @@ public class ClassicTypeCheckerContext extends AbstractTypeCheckerContext implem
             return new AbstractTypeCheckerContext.SupertypesPolicy.DoCustomTransform() { // from class: kotlin.reflect.jvm.internal.impl.types.checker.ClassicTypeCheckerContext$Companion$classicSubstitutionSupertypePolicy$2
                 @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeCheckerContext.SupertypesPolicy
                 /* renamed from: transformType */
-                public SimpleTypeMarker mo2029transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
+                public SimpleTypeMarker mo2048transformType(AbstractTypeCheckerContext abstractTypeCheckerContext, KotlinTypeMarker kotlinTypeMarker) {
                     ClassicTypeSystemContext classicTypeSystemContext2 = ClassicTypeSystemContext.this;
                     TypeSubstitutor typeSubstitutor = buildSubstitutor;
                     SimpleTypeMarker lowerBoundIfFlexible = classicTypeSystemContext2.lowerBoundIfFlexible(kotlinTypeMarker);

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.collection.ArraySet;
-/* loaded from: classes6.dex */
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+/* loaded from: classes8.dex */
 public interface wg2 {
-    ArraySet<String> a();
+    og2 a(String str, lh2 lh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy);
+
+    String getUserAgent();
 }

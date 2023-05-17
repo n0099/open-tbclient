@@ -75,7 +75,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             this.mText2 = (TextView) view2.findViewById(16908309);
             this.mIcon1 = (ImageView) view2.findViewById(16908295);
             this.mIcon2 = (ImageView) view2.findViewById(16908296);
-            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090940);
+            this.mIconRefine = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090961);
         }
     }
 
@@ -135,26 +135,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         }
     }
 
-    @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
-    public CharSequence convertToString(Cursor cursor) {
-        String columnString;
-        String columnString2;
-        if (cursor == null) {
-            return null;
-        }
-        String columnString3 = getColumnString(cursor, "suggest_intent_query");
-        if (columnString3 != null) {
-            return columnString3;
-        }
-        if (this.mSearchable.shouldRewriteQueryFromData() && (columnString2 = getColumnString(cursor, "suggest_intent_data")) != null) {
-            return columnString2;
-        }
-        if (!this.mSearchable.shouldRewriteQueryFromText() || (columnString = getColumnString(cursor, "suggest_text_1")) == null) {
-            return null;
-        }
-        return columnString;
-    }
-
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Object tag = view2.getTag();
@@ -192,7 +172,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     private CharSequence formatUrl(CharSequence charSequence) {
         if (this.mUrlColor == null) {
             TypedValue typedValue = new TypedValue();
-            this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04070c, typedValue, true);
+            this.mContext.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040750, typedValue, true);
             this.mUrlColor = this.mContext.getResources().getColorStateList(typedValue.resourceId);
         }
         SpannableString spannableString = new SpannableString(charSequence);
@@ -216,6 +196,26 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         }
         this.mOutsideDrawablesCache.put(flattenToShortString, constantState);
         return activityIcon;
+    }
+
+    @Override // androidx.cursoradapter.widget.CursorAdapter, androidx.cursoradapter.widget.CursorFilter.CursorFilterClient
+    public CharSequence convertToString(Cursor cursor) {
+        String columnString;
+        String columnString2;
+        if (cursor == null) {
+            return null;
+        }
+        String columnString3 = getColumnString(cursor, "suggest_intent_query");
+        if (columnString3 != null) {
+            return columnString3;
+        }
+        if (this.mSearchable.shouldRewriteQueryFromData() && (columnString2 = getColumnString(cursor, "suggest_intent_data")) != null) {
+            return columnString2;
+        }
+        if (!this.mSearchable.shouldRewriteQueryFromText() || (columnString = getColumnString(cursor, "suggest_text_1")) == null) {
+            return null;
+        }
+        return columnString;
     }
 
     private Drawable getActivityIcon(ComponentName componentName) {
@@ -422,7 +422,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
         View newView = super.newView(context, cursor, viewGroup);
         newView.setTag(new ChildViewCache(newView));
-        ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090940)).setImageResource(this.mCommitIconResId);
+        ((ImageView) newView.findViewById(R.id.obfuscated_res_0x7f090961)).setImageResource(this.mCommitIconResId);
         return newView;
     }
 

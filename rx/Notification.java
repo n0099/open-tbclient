@@ -1,14 +1,14 @@
 package rx;
 
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Notification<T> {
     public static final Notification<Void> d = new Notification<>(Kind.OnCompleted, null, null);
     public final Kind a;
     public final Throwable b;
     public final T c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Kind {
         OnNext,
         OnError,

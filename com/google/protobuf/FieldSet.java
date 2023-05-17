@@ -11,14 +11,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<FieldDescriptorType>> {
     public static final FieldSet DEFAULT_INSTANCE = new FieldSet(true);
     public boolean isImmutable;
     public boolean hasLazyField = false;
     public final SmallSortedMap<FieldDescriptorType, Object> fields = SmallSortedMap.newFieldMap(16);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FieldDescriptorLite<T extends FieldDescriptorLite<T>> extends Comparable<T> {
         Internal.EnumLiteMap<?> getEnumType();
 
@@ -36,7 +36,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
     }
 
     /* renamed from: com.google.protobuf.FieldSet$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$FieldType;
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
@@ -658,7 +658,7 @@ public final class FieldSet<FieldDescriptorType extends FieldDescriptorLite<Fiel
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public FieldSet<FieldDescriptorType> m89clone() {
+    public FieldSet<FieldDescriptorType> m108clone() {
         FieldSet<FieldDescriptorType> newFieldSet = newFieldSet();
         for (int i = 0; i < this.fields.getNumArrayEntries(); i++) {
             Map.Entry<FieldDescriptorType, Object> arrayEntryAt = this.fields.getArrayEntryAt(i);

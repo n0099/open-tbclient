@@ -20,6 +20,7 @@ import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,16 +69,16 @@ public class d extends com.baidu.android.pushservice.l.b {
     public class a extends com.baidu.android.pushservice.z.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterfaceC0025d c;
+        public final /* synthetic */ InterfaceC0028d c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d dVar, String str, short s, InterfaceC0025d interfaceC0025d) {
+        public a(d dVar, String str, short s, InterfaceC0028d interfaceC0028d) {
             super(str, s);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, str, Short.valueOf(s), interfaceC0025d};
+                Object[] objArr = {dVar, str, Short.valueOf(s), interfaceC0028d};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,7 +90,7 @@ public class d extends com.baidu.android.pushservice.l.b {
                     return;
                 }
             }
-            this.c = interfaceC0025d;
+            this.c = interfaceC0028d;
         }
 
         @Override // com.baidu.android.pushservice.z.c
@@ -102,7 +103,7 @@ public class d extends com.baidu.android.pushservice.l.b {
     }
 
     /* loaded from: classes.dex */
-    public static class b implements InterfaceC0025d {
+    public static class b implements InterfaceC0028d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -120,7 +121,7 @@ public class d extends com.baidu.android.pushservice.l.b {
             }
         }
 
-        @Override // com.baidu.android.pushservice.l.d.InterfaceC0025d
+        @Override // com.baidu.android.pushservice.l.d.InterfaceC0028d
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -134,17 +135,17 @@ public class d extends com.baidu.android.pushservice.l.b {
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String c;
         public final /* synthetic */ boolean d;
-        public final /* synthetic */ InterfaceC0025d e;
+        public final /* synthetic */ InterfaceC0028d e;
         public final /* synthetic */ d f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(d dVar, String str, short s, String str2, boolean z, InterfaceC0025d interfaceC0025d) {
+        public c(d dVar, String str, short s, String str2, boolean z, InterfaceC0028d interfaceC0028d) {
             super(str, s);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, str, Short.valueOf(s), str2, Boolean.valueOf(z), interfaceC0025d};
+                Object[] objArr = {dVar, str, Short.valueOf(s), str2, Boolean.valueOf(z), interfaceC0028d};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -159,7 +160,7 @@ public class d extends com.baidu.android.pushservice.l.b {
             this.f = dVar;
             this.c = str2;
             this.d = z;
-            this.e = interfaceC0025d;
+            this.e = interfaceC0028d;
         }
 
         @Override // com.baidu.android.pushservice.z.c
@@ -210,9 +211,9 @@ public class d extends com.baidu.android.pushservice.l.b {
                     Integer.parseInt((String) a.get(CloudStabilityUBCUtils.KEY_RESPONSE_CODE));
                 } catch (Exception unused) {
                 }
-                InterfaceC0025d interfaceC0025d = this.e;
-                if (interfaceC0025d != null) {
-                    interfaceC0025d.a();
+                InterfaceC0028d interfaceC0028d = this.e;
+                if (interfaceC0028d != null) {
+                    interfaceC0028d.a();
                 }
             }
         }
@@ -220,7 +221,7 @@ public class d extends com.baidu.android.pushservice.l.b {
 
     /* renamed from: com.baidu.android.pushservice.l.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0025d {
+    public interface InterfaceC0028d {
         void a();
     }
 
@@ -835,10 +836,10 @@ public class d extends com.baidu.android.pushservice.l.b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized void a(String str, InterfaceC0025d interfaceC0025d) {
+    public synchronized void a(String str, InterfaceC0028d interfaceC0028d) {
         String z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048580, this, str, interfaceC0025d) != null) {
+        if (interceptable != null && interceptable.invokeLL(1048580, this, str, interfaceC0028d) != null) {
             return;
         }
         synchronized (this) {
@@ -884,11 +885,11 @@ public class d extends com.baidu.android.pushservice.l.b {
                     }
                 }
                 if (System.currentTimeMillis() - k.a(this.a, "last_update_config_time", 0L) > a2) {
-                    a(Utility.I(this.a), str, interfaceC0025d);
+                    a(Utility.I(this.a), str, interfaceC0028d);
                     return;
                 }
-                if (interfaceC0025d != null) {
-                    com.baidu.android.pushservice.z.e.a().a(new a(this, "updateConfig-local", (short) 99, interfaceC0025d));
+                if (interfaceC0028d != null) {
+                    com.baidu.android.pushservice.z.e.a().a(new a(this, "updateConfig-local", (short) 99, interfaceC0028d));
                 }
                 return;
             } else {
@@ -969,12 +970,12 @@ public class d extends com.baidu.android.pushservice.l.b {
         }
     }
 
-    public void a(boolean z, String str, InterfaceC0025d interfaceC0025d) {
+    public void a(boolean z, String str, InterfaceC0028d interfaceC0028d) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), str, interfaceC0025d}) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), str, interfaceC0028d}) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        com.baidu.android.pushservice.z.e.a().a(new c(this, "ModeConfig-updateConfig", (short) 100, str, z, interfaceC0025d));
+        com.baidu.android.pushservice.z.e.a().a(new c(this, "ModeConfig-updateConfig", (short) 100, str, z, interfaceC0028d));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:143:0x0084 A[SYNTHETIC] */
@@ -1061,7 +1062,7 @@ public class d extends com.baidu.android.pushservice.l.b {
                             str2 = SystemProperties.get(fVar.a());
                         } else {
                             Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                            str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, fVar.a());
+                            str2 = (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(cls, fVar.a());
                         }
                         if (((str.equalsIgnoreCase("HUAWEI") && Utility.b()) || str.equalsIgnoreCase("HONOR")) && !Utility.K(this.a) && !Utility.a(str2, "\\d+\\.\\d+$") && Build.VERSION.SDK_INT >= 21 && PushSettings.h(this.a)) {
                             str2 = com.baidu.down.utils.Constants.SDK_VER;

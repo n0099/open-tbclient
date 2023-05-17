@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_FLUTTER_INIT_PARAM = "key_flutter_init_param";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SerializableMap implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2440454508522550999L;

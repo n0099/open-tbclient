@@ -1,5 +1,5 @@
 package com.xiaomi.mipush.sdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ac implements Runnable {
     public final /* synthetic */ NotificationClickedActivity a;
 

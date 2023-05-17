@@ -7,13 +7,13 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AtListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_SELECT_UID_DATA = "at_select_uid_data";
@@ -56,7 +56,7 @@ public class AtListActivityConfig extends IntentConfig {
             getIntent().putExtra("keyboard", false);
         }
         if (TbadkApplication.getInst().getCurrentActivity() != null && TbadkApplication.getInst().getCurrentActivity().getWindow() != null) {
-            ii.z(TbadkApplication.getInst(), TbadkApplication.getInst().getCurrentActivity().getWindow().getDecorView());
+            ri.z(TbadkApplication.getInst(), TbadkApplication.getInst().getCurrentActivity().getWindow().getDecorView());
         }
     }
 

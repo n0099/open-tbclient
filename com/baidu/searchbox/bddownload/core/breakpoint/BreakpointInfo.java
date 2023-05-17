@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointInfo {
     public final List<BlockInfo> blockInfoList = new ArrayList();
     public boolean chunked;

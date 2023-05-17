@@ -1,6 +1,14 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostFormRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,103 +16,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
-public class nh2 {
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public abstract class nh2 implements ph2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> a;
-    public final Map<String, a<Boolean>> b;
-    public final Map<String, a<b>> c;
-    public a<Exception> d;
 
-    /* loaded from: classes5.dex */
-    public static class a<T> {
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Set<qm3<T>> a;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashSet();
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.clear();
-            }
-        }
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (qm3<T> qm3Var : this.a) {
-                    qm3Var.a(t);
-                }
-            }
-        }
-
-        public void c(qm3<T> qm3Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qm3Var) == null) && qm3Var != null) {
-                this.a.add(qm3Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final long b;
-
-        public b(long j, long j2) {
+        public a(nh2 nh2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {nh2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = j;
-            this.b = j2;
-            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.b > 0) {
-                    return true;
-                }
-                return false;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && nh2.a) {
+                Log.e("AbsDefaultPurger", "onFail: " + exc);
             }
-            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) && nh2.a) {
+                Log.e("AbsDefaultPurger", "onSuccess: ");
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (nh2.a) {
+                    Log.d("AbsDefaultPurger", "parseResponse");
+                }
+                if (response == null || response.body() == null) {
+                    return null;
+                }
+                String string = response.body().string();
+                if (TextUtils.isEmpty(string)) {
+                    return null;
+                }
+                return new JSONObject(string);
+            }
+            return (JSONObject) invokeLI.objValue;
         }
     }
 
@@ -121,16 +101,7 @@ public class nh2 {
                 return;
             }
         }
-        boolean z = ho1.a;
-    }
-
-    public HashSet<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new HashSet<>(this.a);
-        }
-        return (HashSet) invokeV.objValue;
+        a = qp1.a;
     }
 
     public nh2() {
@@ -143,94 +114,104 @@ public class nh2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashSet();
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new a<>();
-    }
-
-    public static <T> a<T> i(Map<String, a<T>> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            a<T> aVar = map.get(str);
-            if (aVar == null) {
-                a<T> aVar2 = new a<>();
-                map.put(str, aVar2);
-                return aVar2;
-            }
-            return aVar;
-        }
-        return (a) invokeLL.objValue;
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i = i(this.b, str);
-            i.a(Boolean.valueOf(z));
-            i.b();
-        }
-    }
-
-    public void d(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            if (bVar == null || bVar.a()) {
-                i(this.c, str).a(bVar);
             }
         }
     }
 
-    public nh2 h(String str, qm3<Boolean> qm3Var) {
-        InterceptResult invokeLL;
+    @NonNull
+    public final ResponseCallback<JSONObject> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, qm3Var)) == null) {
-            g(this.b, str, qm3Var);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (nh2) invokeLL.objValue;
+        return (ResponseCallback) invokeV.objValue;
     }
 
-    public void b(Exception exc) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.d.a(exc);
-            this.d.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            dh4.i().c(str);
         }
     }
 
-    public nh2 e(qm3<Exception> qm3Var) {
-        InterceptResult invokeL;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, qm3Var)) == null) {
-            this.d.c(qm3Var);
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            dh4.i().h(str);
+            dh4.i().e(fi4.class, str);
         }
-        return (nh2) invokeL.objValue;
     }
 
-    public nh2 f(String... strArr) {
-        InterceptResult invokeL;
+    public void e(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.a.addAll(Arrays.asList(strArr));
-            return this;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
+            if (a) {
+                Log.d("AbsDefaultPurger", "clearData");
+            }
+            Set<String> d = rh2.d(list);
+            HashSet<String> hashSet = new HashSet(list);
+            if (d != null) {
+                hashSet.removeAll(d);
+            }
+            yh3.j().g("aiapp_setting_", hashSet, false);
+            yh3.j().g("aiapp_", hashSet, false);
+            for (String str : hashSet) {
+                if (a) {
+                    Log.d("AbsDefaultPurger", "clear storage files: " + str);
+                }
+                String v = og3.v(str);
+                if (!TextUtils.isEmpty(v)) {
+                    kp4.M(v);
+                }
+                String x = og3.x(str);
+                if (!TextUtils.isEmpty(x)) {
+                    kp4.M(x);
+                }
+            }
         }
-        return (nh2) invokeL.objValue;
     }
 
-    public final <T> nh2 g(Map<String, a<T>> map, String str, qm3<T> qm3Var) {
-        InterceptResult invokeLLL;
+    @SuppressLint({"BDThrowableCheck"})
+    public void g(@Nullable List<String> list) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, qm3Var)) == null) {
-            f(str);
-            i(map, str).c(qm3Var);
-            return this;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
+            if (a) {
+                Log.d("AbsDefaultPurger", "resetAccredit");
+            }
+            ArrayMap arrayMap = new ArrayMap();
+            arrayMap.put("ma_ids", list);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                ie3 a2 = ns2.q().a();
+                jSONObject.put("accredit", new JSONObject(arrayMap));
+                String v = ns2.o().v();
+                xf4 b = yf4.b();
+                if (b == null) {
+                    if (!a) {
+                        g62.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
+                    } else {
+                        throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
+                    }
+                }
+                kg4 g = kg4.g();
+                if (!g.c()) {
+                    b = null;
+                }
+                PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) g.postFormRequest().url(v)).addParam("data", jSONObject.toString());
+                if (b != null) {
+                    str = b.getUserAgent();
+                } else {
+                    str = "";
+                }
+                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) addParam.userAgent(str)).cookieManager(a2)).build().executeAsyncOnUIBack(c());
+            } catch (JSONException e) {
+                e.printStackTrace();
+                if (a) {
+                    Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e);
+                }
+            }
         }
-        return (nh2) invokeLLL.objValue;
     }
 }

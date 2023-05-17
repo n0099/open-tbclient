@@ -1,55 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
+import java.io.ByteArrayOutputStream;
+import java.util.zip.GZIPOutputStream;
+/* loaded from: classes7.dex */
 public class pha {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, tha thaVar, sha shaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, thaVar, shaVar) == null) {
-            if (hla.a) {
-                hla.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + shaVar.toString());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948063424, "Lcom/baidu/tieba/pha;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            nha g = kha.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (shaVar != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", shaVar.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", shaVar.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", shaVar.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", shaVar.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", shaVar.d + ""));
-                }
-                g.a("perf_record_arperf", str, thaVar.a, thaVar.b, thaVar.c, thaVar.d, thaVar.e, null, arrayList);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948063424, "Lcom/baidu/tieba/pha;");
+                return;
             }
         }
+        a = mga.m();
     }
 
-    public static void b(String str, String str2) {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (hla.a) {
-                hla.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            }
-            nha g = kha.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", fla.a(kha.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(fla.b(kha.c().getContext()))));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            byte[] bArr2 = null;
+            try {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
+                gZIPOutputStream.write(bArr);
+                gZIPOutputStream.finish();
+                gZIPOutputStream.close();
+                bArr2 = byteArrayOutputStream.toByteArray();
+                byteArrayOutputStream.close();
+                return bArr2;
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                    return bArr2;
                 }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
+                return bArr2;
             }
         }
+        return (byte[]) invokeL.objValue;
     }
 }

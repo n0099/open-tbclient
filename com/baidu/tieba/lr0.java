@@ -1,9 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.net.request.Headers;
-/* loaded from: classes5.dex */
-public interface lr0<T> extends kr0 {
-    void b(Headers headers, T t, int i);
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public final class lr0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final kr0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    T d(Headers headers, String str, int i) throws Exception;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952351, "Lcom/baidu/tieba/lr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952351, "Lcom/baidu/tieba/lr0;");
+                return;
+            }
+        }
+        a = new pr0();
+    }
 }

@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import com.baidu.searchbox.crius.render.OpacityController;
 import com.baidu.searchbox.crius.ui.IOpacitySupport;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RoundCornerRelativeLayout extends RelativeLayout implements IOpacitySupport {
     public Paint mBitmapPaint;
     public OpacityController mOpacityController;

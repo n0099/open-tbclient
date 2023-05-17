@@ -5,7 +5,7 @@ import com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PlayerUbcFlowStatisticsManager {
     public boolean mIsShowFirstFrame;
     public long mStartLoadingTime;

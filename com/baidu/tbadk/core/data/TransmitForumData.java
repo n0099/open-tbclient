@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.in;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
-public class TransmitForumData implements in, Parcelable {
+/* loaded from: classes4.dex */
+public class TransmitForumData implements rn, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TransmitForumData> CREATOR;
     public static final BdUniqueId ID_TRANSMIT_SELECT_DATA;
@@ -40,7 +40,7 @@ public class TransmitForumData implements in, Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<TransmitForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class TransmitForumData implements in, Parcelable {
         CREATOR = new a();
     }
 
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

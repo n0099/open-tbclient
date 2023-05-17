@@ -1,70 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
-public class q21 extends BaseExecutorCell {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes7.dex */
+public interface q21 {
+    a a(x21 x21Var, o21... o21VarArr);
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ArteryElasticExecutorCell" : (String) invokeV.objValue;
-    }
+    void beginTransaction();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q21(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    int delete(x21 x21Var, o21... o21VarArr);
+
+    void endTransaction();
+
+    Cursor query(c31 c31Var);
+
+    void setTransactionSuccessful();
+
+    int update(x21 x21Var, o21... o21VarArr);
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long a;
+        public final int b;
+
+        public a(long j, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = j;
+            this.b = i;
         }
-        this.c = new ThreadPoolExecutor(i, i, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-    }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e() < this.b) {
-                return true;
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public synchronized void g(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
-            synchronized (this) {
-                super.g(elasticTask);
-                d31.f().k();
-            }
+            return (String) invokeV.objValue;
         }
     }
 }

@@ -1,37 +1,281 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.Base64;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.net.QCodec;
-/* loaded from: classes5.dex */
-public final class n50 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.internal.ManufacturerUtils;
+/* loaded from: classes6.dex */
+public class n50 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
-    public static final byte[] b;
+    public static volatile n50 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z, String str);
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947953312, "Lcom/baidu/tieba/n50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947953312, "Lcom/baidu/tieba/n50;");
-                return;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947953312, "Lcom/baidu/tieba/n50;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947953312, "Lcom/baidu/tieba/n50;");
+        }
+    }
+
+    public n50() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        a = new byte[]{0, -118, 109, 108, -43, -56, 63, 62, 108, ExifInterface.MARKER_SOF1, -94, 72, -110, -122, -111, -109, 102, -12, 17, 110, 123, 1, -110, 124, 18, 78, -48, -23, 85, -21, -48, 4, ExifInterface.MARKER_SOF14, -68, 88, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -32, -14, 54, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, ExifInterface.MARKER_SOF3, -110, ExifInterface.MARKER_SOF3, 113, -21, -60, 66, -122, -52, Base64.INTERNAL_PADDING, 28, -48, -24, -96, -25, 13, -88, -96, -98, 23, -14, -89, 24, 90, 82, -16, -65, 107, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -22, 113, 24, -46, 120, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -13, 2, Constants.SHORT_PING_CMD_TYPE, 92, 9, 69, 91, 107, ExifInterface.MARKER_SOF15, -127, 54, -70, 104, 34, -13, 76, 26, 84, -1, -99, 80, -98, 43, ExifInterface.MARKER_SOS, -60, 86, 58, 107, 40, -69, -43, -109, -124, 103, -79, -43, -22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -11, -52, 55, 86, 75, -43, 114, -18, 2, 77, ExifInterface.MARKER_SOF11, -65, 3, 8, 45, 106, -117, -42, 56, 51, -11, -76, 21, 68, 116, -52, -71, 81, -17, 49, 71, 4, -1, -60, 52, ExifInterface.MARKER_SOF9, -72, 8, -100, 90, -12, 15, 108, 45, 86, 97, 20, 53, 70, -106, -36, -1, 10, -115, 53, -109, -52, -73, 108, 122, -8, 113, 98, Byte.MIN_VALUE, -81, 79, 98, -15, -36, 119, 118, ExifInterface.MARKER_SOF9, -125, 61, -98, 59, 111, 16, 22, 118, 40, -18, -5, 2, -17, 71, -114, ExifInterface.START_CODE, -45, 96, 10, -104, 64, QCodec.UNDERSCORE, -47, 73, ByteCompanionObject.MAX_VALUE, 88, ExifInterface.MARKER_SOF10, -3, -99, 16, ExifInterface.MARKER_SOF6, 27, -7, -36, 60, -60, -13, -99, 55, 55, -7, -96, -34, 7, -34, 28, ExifInterface.MARKER_APP1, -26, -96, ExifInterface.MARKER_APP1, 54, -108, 45, 6, -27, -106, -104, ExifInterface.MARKER_SOF6, -22, -71, -81, -30, 100, 61, -1, ExifInterface.MARKER_SOF5, 56, 48, ExifInterface.MARKER_SOF3, -11};
-        b = new byte[]{1, 0, 1};
+    }
+
+    public static n50 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (n50.class) {
+                    if (a == null) {
+                        a = new n50();
+                        return a;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (n50) invokeV.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo("com.huawei.hwid", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                String str = Build.BRAND;
+                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase("vivo") : false;
+                try {
+                    if (Build.VERSION.SDK_INT < 28) {
+                        return false;
+                    }
+                } catch (Throwable unused) {
+                }
+                return equalsIgnoreCase;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.meizu.flyme.openidsdk", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            try {
+                String str = Build.BRAND;
+                boolean equalsIgnoreCase = !TextUtils.isEmpty(str) ? str.equalsIgnoreCase(ManufacturerUtils.SAMSUNG) : false;
+                try {
+                    if (Build.VERSION.SDK_INT < 29) {
+                        return false;
+                    }
+                } catch (Throwable unused) {
+                }
+                return equalsIgnoreCase;
+            } catch (Throwable unused2) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.zui.deviceidservice", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                String str = Build.BRAND;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                return str.equalsIgnoreCase(RomUtils.MANUFACTURER_NUBIA);
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                if (Build.VERSION.SDK_INT < 29) {
+                    return false;
+                }
+                return context.getPackageManager().getPackageInfo("com.asus.msa.SupplementaryDID", 0) != null;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(Context context, a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            if (k()) {
+                o50.a(context, aVar);
+            } else if (d()) {
+                q50.a(context, aVar);
+            } else if (c(context)) {
+                i50.a(context, aVar);
+            } else if (j()) {
+                l50.a(context, aVar);
+            } else if (f()) {
+                p50.a(context, aVar);
+            } else if (e(context)) {
+                k50.a(context, aVar);
+            } else if (h()) {
+                m50.a(context, aVar);
+            } else if (g(context)) {
+                j50.a(context, aVar);
+            } else if (i(context)) {
+                h50.a(context, aVar);
+            } else {
+                aVar.a(false, null);
+            }
+        }
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                String str = Build.BRAND;
+                if (TextUtils.isEmpty(str)) {
+                    return false;
+                }
+                if (!str.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI) && !str.equalsIgnoreCase("redmi")) {
+                    if (!str.equalsIgnoreCase("blackshark")) {
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(11:3|4|5|(9:7|(1:11)|14|15|16|17|(1:22)|19|20)|25|15|16|17|(0)|19|20) */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0023, code lost:
+        if (r1.equalsIgnoreCase("oneplus") != false) goto L14;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean k() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                String str = Build.BRAND;
+                if (!TextUtils.isEmpty(str)) {
+                    if (!str.equalsIgnoreCase("oppo") && !str.equalsIgnoreCase("realme")) {
+                    }
+                    z = true;
+                    if (Build.VERSION.SDK_INT < 28) {
+                        return false;
+                    }
+                    return z;
+                }
+                z = false;
+                if (Build.VERSION.SDK_INT < 28) {
+                }
+                return z;
+            } catch (Throwable unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

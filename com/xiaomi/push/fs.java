@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fs extends Thread {
     public final /* synthetic */ fr a;
 
@@ -14,7 +14,7 @@ public class fs extends Thread {
         fm fmVar;
         try {
             fmVar = this.a.a;
-            fmVar.m412a();
+            fmVar.m431a();
         } catch (Exception e) {
             this.a.c(9, e);
         }

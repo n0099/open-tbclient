@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import com.baidu.tieba.R;
 import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public Button actionView;
     public int maxInlineActionWidth;
@@ -31,7 +31,7 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
 
     public void updateActionTextColorAlphaIfNeeded(float f) {
         if (f != 1.0f) {
-            this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040180), this.actionView.getCurrentTextColor(), f));
+            this.actionView.setTextColor(MaterialColors.layer(MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190), this.actionView.getCurrentTextColor(), f));
         }
     }
 
@@ -101,8 +101,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e5);
-        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f0920e4);
+        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f092148);
+        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f092147);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0055, code lost:
@@ -129,8 +129,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
                 super.onMeasure(i, i2);
             }
         }
-        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021e);
-        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07021c);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702bf);
+        int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702be);
         boolean z2 = false;
         if (this.messageView.getLayout().getLineCount() > 1) {
             z = true;

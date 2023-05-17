@@ -1,8 +1,8 @@
 package com.huawei.hms.support.api.entity.auth;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface AuthCode {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ErrorCode {
         public static final int CERT_FINGERPRINT_EMPTY = 907135702;
         public static final int GET_SCOPE_ERROR = 907135700;
@@ -10,7 +10,7 @@ public interface AuthCode {
         public static final int SCOPE_LIST_EMPTY = 907135701;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface StatusCode {
         public static final int AUTH_INFO_NOT_EXIST = 6002;
         public static final int CERT_FINGERPRINT_ERROR = 6003;

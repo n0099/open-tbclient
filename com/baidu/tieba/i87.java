@@ -1,2304 +1,2893 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.annotation.ColorRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.widget.design.behavior.AppBarLayoutStickyBehavior;
+import com.baidu.adp.widget.design.behavior.ExposeTagViewCoordinatorLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SelectImageHelper;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.MessageRedDotView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tbadk.core.view.PbListView;
+import com.baidu.tbadk.core.view.UserPhotoLayout;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
+import com.baidu.tieba.Cif;
+import com.baidu.tieba.f25;
+import com.baidu.tieba.frs.FrsAllThreadFragment;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.FrsTabViewPager;
+import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tieba.frs.vc.FrsTabViewController;
+import com.baidu.tieba.frs.view.FrsHeaderViewContainer;
+import com.baidu.tieba.frs.view.FrsMoveAreaBottomMenuView;
+import com.baidu.tieba.frs.view.FrsMultiDelBottomMenuView;
+import com.baidu.tieba.frs.view.FrsTopBarGroupEntranceGuideView;
+import com.baidu.tieba.i06;
+import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.voice.PlayVoiceBnt;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.view.CommonTipView;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public final class i87 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] AbsHListView;
-    public static final int AbsHListView_android_cacheColorHint = 3;
-    public static final int AbsHListView_android_choiceMode = 4;
-    public static final int AbsHListView_android_drawSelectorOnTop = 1;
-    public static final int AbsHListView_android_listSelector = 0;
-    public static final int AbsHListView_android_scrollingCache = 2;
-    public static final int AbsHListView_android_smoothScrollbar = 5;
-    public static final int AbsHListView_hlv_stackFromRight = 6;
-    public static final int AbsHListView_hlv_transcriptMode = 7;
-    public static final int[] ActionBar;
-    public static final int[] ActionBarLayout;
-    public static final int ActionBarLayout_android_layout_gravity = 0;
-    public static final int ActionBar_background = 0;
-    public static final int ActionBar_backgroundSplit = 1;
-    public static final int ActionBar_backgroundStacked = 2;
-    public static final int ActionBar_contentInsetEnd = 3;
-    public static final int ActionBar_contentInsetEndWithActions = 4;
-    public static final int ActionBar_contentInsetLeft = 5;
-    public static final int ActionBar_contentInsetRight = 6;
-    public static final int ActionBar_contentInsetStart = 7;
-    public static final int ActionBar_contentInsetStartWithNavigation = 8;
-    public static final int ActionBar_customNavigationLayout = 9;
-    public static final int ActionBar_displayOptions = 10;
-    public static final int ActionBar_divider = 11;
-    public static final int ActionBar_elevation = 12;
-    public static final int ActionBar_height = 13;
-    public static final int ActionBar_hideOnContentScroll = 14;
-    public static final int ActionBar_homeAsUpIndicator = 15;
-    public static final int ActionBar_homeLayout = 16;
-    public static final int ActionBar_icon = 17;
-    public static final int ActionBar_indeterminateProgressStyle = 18;
-    public static final int ActionBar_itemPadding = 19;
-    public static final int ActionBar_logo = 20;
-    public static final int ActionBar_navigationMode = 21;
-    public static final int ActionBar_popupTheme = 22;
-    public static final int ActionBar_progressBarPadding = 23;
-    public static final int ActionBar_progressBarStyle = 24;
-    public static final int ActionBar_subtitle = 25;
-    public static final int ActionBar_subtitleTextStyle = 26;
-    public static final int ActionBar_title = 27;
-    public static final int ActionBar_titleTextStyle = 28;
-    public static final int[] ActionMenuItemView;
-    public static final int ActionMenuItemView_android_minWidth = 0;
-    public static final int[] ActionMenuView;
-    public static final int[] ActionMode;
-    public static final int ActionMode_background = 0;
-    public static final int ActionMode_backgroundSplit = 1;
-    public static final int ActionMode_closeItemLayout = 2;
-    public static final int ActionMode_height = 3;
-    public static final int ActionMode_subtitleTextStyle = 4;
-    public static final int ActionMode_titleTextStyle = 5;
-    public static final int[] ActivityChooserView;
-    public static final int ActivityChooserView_expandActivityOverflowButtonDrawable = 0;
-    public static final int ActivityChooserView_initialActivityCount = 1;
-    public static final int[] AdImageView;
-    public static final int AdImageView_adCornerRadius = 0;
-    public static final int AdImageView_borderColor = 1;
-    public static final int AdImageView_borderColorWidth = 2;
-    public static final int AdImageView_circleType = 3;
-    public static final int AdImageView_errorHolder = 4;
-    public static final int AdImageView_holder = 5;
-    public static final int AdImageView_imageScaleType = 6;
-    public static final int AdImageView_leftBottomRadius = 7;
-    public static final int AdImageView_leftTopRadius = 8;
-    public static final int AdImageView_loadingHolder = 9;
-    public static final int AdImageView_rightBottomRadius = 10;
-    public static final int AdImageView_rightTopRadius = 11;
-    public static final int[] AdpPullToRefreshScrollView;
-    public static final int AdpPullToRefreshScrollView_adpFooterDurationTime = 0;
-    public static final int AdpPullToRefreshScrollView_adpFooterNeedRefreshDelta = 1;
-    public static final int AdpPullToRefreshScrollView_adpHeaderDurationTime = 2;
-    public static final int AdpPullToRefreshScrollView_adpHeaderHeight = 3;
-    public static final int AdpPullToRefreshScrollView_adpHeaderNeedRefreshDelta = 4;
-    public static final int AdpPullToRefreshScrollView_adpMode = 5;
-    public static final int[] AlertDialog;
-    public static final int AlertDialog_android_layout = 0;
-    public static final int AlertDialog_buttonIconDimen = 1;
-    public static final int AlertDialog_buttonPanelSideLayout = 2;
-    public static final int AlertDialog_listItemLayout = 3;
-    public static final int AlertDialog_listLayout = 4;
-    public static final int AlertDialog_multiChoiceItemLayout = 5;
-    public static final int AlertDialog_showTitle = 6;
-    public static final int AlertDialog_singleChoiceItemLayout = 7;
-    public static final int[] AnimatedStateListDrawableCompat;
-    public static final int AnimatedStateListDrawableCompat_android_constantSize = 3;
-    public static final int AnimatedStateListDrawableCompat_android_dither = 0;
-    public static final int AnimatedStateListDrawableCompat_android_enterFadeDuration = 4;
-    public static final int AnimatedStateListDrawableCompat_android_exitFadeDuration = 5;
-    public static final int AnimatedStateListDrawableCompat_android_variablePadding = 2;
-    public static final int AnimatedStateListDrawableCompat_android_visible = 1;
-    public static final int[] AnimatedStateListDrawableItem;
-    public static final int AnimatedStateListDrawableItem_android_drawable = 1;
-    public static final int AnimatedStateListDrawableItem_android_id = 0;
-    public static final int[] AnimatedStateListDrawableTransition;
-    public static final int AnimatedStateListDrawableTransition_android_drawable = 0;
-    public static final int AnimatedStateListDrawableTransition_android_fromId = 2;
-    public static final int AnimatedStateListDrawableTransition_android_reversible = 3;
-    public static final int AnimatedStateListDrawableTransition_android_toId = 1;
-    public static final int[] AppBarLayout;
-    public static final int[] AppBarLayoutStates;
-    public static final int AppBarLayoutStates_state_collapsed = 0;
-    public static final int AppBarLayoutStates_state_collapsible = 1;
-    public static final int AppBarLayoutStates_state_liftable = 2;
-    public static final int AppBarLayoutStates_state_lifted = 3;
-    public static final int[] AppBarLayout_Layout;
-    public static final int AppBarLayout_Layout_layout_scrollFlags = 0;
-    public static final int AppBarLayout_Layout_layout_scrollInterpolator = 1;
-    public static final int AppBarLayout_android_background = 0;
-    public static final int AppBarLayout_android_keyboardNavigationCluster = 2;
-    public static final int AppBarLayout_android_touchscreenBlocksFocus = 1;
-    public static final int AppBarLayout_elevation = 3;
-    public static final int AppBarLayout_expanded = 4;
-    public static final int AppBarLayout_liftOnScroll = 5;
-    public static final int AppBarLayout_liftOnScrollTargetViewId = 6;
-    public static final int AppBarLayout_statusBarForeground = 7;
-    public static final int[] AppCompatImageView;
-    public static final int AppCompatImageView_android_src = 0;
-    public static final int AppCompatImageView_srcCompat = 1;
-    public static final int AppCompatImageView_tint = 2;
-    public static final int AppCompatImageView_tintMode = 3;
-    public static final int[] AppCompatSeekBar;
-    public static final int AppCompatSeekBar_android_thumb = 0;
-    public static final int AppCompatSeekBar_tickMark = 1;
-    public static final int AppCompatSeekBar_tickMarkTint = 2;
-    public static final int AppCompatSeekBar_tickMarkTintMode = 3;
-    public static final int[] AppCompatTextHelper;
-    public static final int AppCompatTextHelper_android_drawableBottom = 2;
-    public static final int AppCompatTextHelper_android_drawableEnd = 6;
-    public static final int AppCompatTextHelper_android_drawableLeft = 3;
-    public static final int AppCompatTextHelper_android_drawableRight = 4;
-    public static final int AppCompatTextHelper_android_drawableStart = 5;
-    public static final int AppCompatTextHelper_android_drawableTop = 1;
-    public static final int AppCompatTextHelper_android_textAppearance = 0;
-    public static final int[] AppCompatTextView;
-    public static final int AppCompatTextView_android_textAppearance = 0;
-    public static final int AppCompatTextView_autoSizeMaxTextSize = 1;
-    public static final int AppCompatTextView_autoSizeMinTextSize = 2;
-    public static final int AppCompatTextView_autoSizePresetSizes = 3;
-    public static final int AppCompatTextView_autoSizeStepGranularity = 4;
-    public static final int AppCompatTextView_autoSizeTextType = 5;
-    public static final int AppCompatTextView_drawableBottomCompat = 6;
-    public static final int AppCompatTextView_drawableEndCompat = 7;
-    public static final int AppCompatTextView_drawableLeftCompat = 8;
-    public static final int AppCompatTextView_drawableRightCompat = 9;
-    public static final int AppCompatTextView_drawableStartCompat = 10;
-    public static final int AppCompatTextView_drawableTint = 11;
-    public static final int AppCompatTextView_drawableTintMode = 12;
-    public static final int AppCompatTextView_drawableTopCompat = 13;
-    public static final int AppCompatTextView_firstBaselineToTopHeight = 14;
-    public static final int AppCompatTextView_fontFamily = 15;
-    public static final int AppCompatTextView_fontVariationSettings = 16;
-    public static final int AppCompatTextView_lastBaselineToBottomHeight = 17;
-    public static final int AppCompatTextView_lineHeight = 18;
-    public static final int AppCompatTextView_textAllCaps = 19;
-    public static final int AppCompatTextView_textLocale = 20;
-    public static final int[] AppCompatTheme;
-    public static final int AppCompatTheme_actionBarDivider = 2;
-    public static final int AppCompatTheme_actionBarItemBackground = 3;
-    public static final int AppCompatTheme_actionBarPopupTheme = 4;
-    public static final int AppCompatTheme_actionBarSize = 5;
-    public static final int AppCompatTheme_actionBarSplitStyle = 6;
-    public static final int AppCompatTheme_actionBarStyle = 7;
-    public static final int AppCompatTheme_actionBarTabBarStyle = 8;
-    public static final int AppCompatTheme_actionBarTabStyle = 9;
-    public static final int AppCompatTheme_actionBarTabTextStyle = 10;
-    public static final int AppCompatTheme_actionBarTheme = 11;
-    public static final int AppCompatTheme_actionBarWidgetTheme = 12;
-    public static final int AppCompatTheme_actionButtonStyle = 13;
-    public static final int AppCompatTheme_actionDropDownStyle = 14;
-    public static final int AppCompatTheme_actionMenuTextAppearance = 15;
-    public static final int AppCompatTheme_actionMenuTextColor = 16;
-    public static final int AppCompatTheme_actionModeBackground = 17;
-    public static final int AppCompatTheme_actionModeCloseButtonStyle = 18;
-    public static final int AppCompatTheme_actionModeCloseDrawable = 19;
-    public static final int AppCompatTheme_actionModeCopyDrawable = 20;
-    public static final int AppCompatTheme_actionModeCutDrawable = 21;
-    public static final int AppCompatTheme_actionModeFindDrawable = 22;
-    public static final int AppCompatTheme_actionModePasteDrawable = 23;
-    public static final int AppCompatTheme_actionModePopupWindowStyle = 24;
-    public static final int AppCompatTheme_actionModeSelectAllDrawable = 25;
-    public static final int AppCompatTheme_actionModeShareDrawable = 26;
-    public static final int AppCompatTheme_actionModeSplitBackground = 27;
-    public static final int AppCompatTheme_actionModeStyle = 28;
-    public static final int AppCompatTheme_actionModeWebSearchDrawable = 29;
-    public static final int AppCompatTheme_actionOverflowButtonStyle = 30;
-    public static final int AppCompatTheme_actionOverflowMenuStyle = 31;
-    public static final int AppCompatTheme_activityChooserViewStyle = 32;
-    public static final int AppCompatTheme_alertDialogButtonGroupStyle = 33;
-    public static final int AppCompatTheme_alertDialogCenterButtons = 34;
-    public static final int AppCompatTheme_alertDialogStyle = 35;
-    public static final int AppCompatTheme_alertDialogTheme = 36;
-    public static final int AppCompatTheme_android_windowAnimationStyle = 1;
-    public static final int AppCompatTheme_android_windowIsFloating = 0;
-    public static final int AppCompatTheme_autoCompleteTextViewStyle = 37;
-    public static final int AppCompatTheme_borderlessButtonStyle = 38;
-    public static final int AppCompatTheme_buttonBarButtonStyle = 39;
-    public static final int AppCompatTheme_buttonBarNegativeButtonStyle = 40;
-    public static final int AppCompatTheme_buttonBarNeutralButtonStyle = 41;
-    public static final int AppCompatTheme_buttonBarPositiveButtonStyle = 42;
-    public static final int AppCompatTheme_buttonBarStyle = 43;
-    public static final int AppCompatTheme_buttonStyle = 44;
-    public static final int AppCompatTheme_buttonStyleSmall = 45;
-    public static final int AppCompatTheme_checkboxStyle = 46;
-    public static final int AppCompatTheme_checkedTextViewStyle = 47;
-    public static final int AppCompatTheme_colorAccent = 48;
-    public static final int AppCompatTheme_colorBackgroundFloating = 49;
-    public static final int AppCompatTheme_colorButtonNormal = 50;
-    public static final int AppCompatTheme_colorControlActivated = 51;
-    public static final int AppCompatTheme_colorControlHighlight = 52;
-    public static final int AppCompatTheme_colorControlNormal = 53;
-    public static final int AppCompatTheme_colorError = 54;
-    public static final int AppCompatTheme_colorPrimary = 55;
-    public static final int AppCompatTheme_colorPrimaryDark = 56;
-    public static final int AppCompatTheme_colorSwitchThumbNormal = 57;
-    public static final int AppCompatTheme_controlBackground = 58;
-    public static final int AppCompatTheme_dialogCornerRadius = 59;
-    public static final int AppCompatTheme_dialogPreferredPadding = 60;
-    public static final int AppCompatTheme_dialogTheme = 61;
-    public static final int AppCompatTheme_dividerHorizontal = 62;
-    public static final int AppCompatTheme_dividerVertical = 63;
-    public static final int AppCompatTheme_dropDownListViewStyle = 64;
-    public static final int AppCompatTheme_dropdownListPreferredItemHeight = 65;
-    public static final int AppCompatTheme_editTextBackground = 66;
-    public static final int AppCompatTheme_editTextColor = 67;
-    public static final int AppCompatTheme_editTextStyle = 68;
-    public static final int AppCompatTheme_homeAsUpIndicator = 69;
-    public static final int AppCompatTheme_imageButtonStyle = 70;
-    public static final int AppCompatTheme_listChoiceBackgroundIndicator = 71;
-    public static final int AppCompatTheme_listChoiceIndicatorMultipleAnimated = 72;
-    public static final int AppCompatTheme_listChoiceIndicatorSingleAnimated = 73;
-    public static final int AppCompatTheme_listDividerAlertDialog = 74;
-    public static final int AppCompatTheme_listMenuViewStyle = 75;
-    public static final int AppCompatTheme_listPopupWindowStyle = 76;
-    public static final int AppCompatTheme_listPreferredItemHeight = 77;
-    public static final int AppCompatTheme_listPreferredItemHeightLarge = 78;
-    public static final int AppCompatTheme_listPreferredItemHeightSmall = 79;
-    public static final int AppCompatTheme_listPreferredItemPaddingEnd = 80;
-    public static final int AppCompatTheme_listPreferredItemPaddingLeft = 81;
-    public static final int AppCompatTheme_listPreferredItemPaddingRight = 82;
-    public static final int AppCompatTheme_listPreferredItemPaddingStart = 83;
-    public static final int AppCompatTheme_panelBackground = 84;
-    public static final int AppCompatTheme_panelMenuListTheme = 85;
-    public static final int AppCompatTheme_panelMenuListWidth = 86;
-    public static final int AppCompatTheme_popupMenuStyle = 87;
-    public static final int AppCompatTheme_popupWindowStyle = 88;
-    public static final int AppCompatTheme_radioButtonStyle = 89;
-    public static final int AppCompatTheme_ratingBarStyle = 90;
-    public static final int AppCompatTheme_ratingBarStyleIndicator = 91;
-    public static final int AppCompatTheme_ratingBarStyleSmall = 92;
-    public static final int AppCompatTheme_searchViewStyle = 93;
-    public static final int AppCompatTheme_seekBarStyle = 94;
-    public static final int AppCompatTheme_selectableItemBackground = 95;
-    public static final int AppCompatTheme_selectableItemBackgroundBorderless = 96;
-    public static final int AppCompatTheme_spinnerDropDownItemStyle = 97;
-    public static final int AppCompatTheme_spinnerStyle = 98;
-    public static final int AppCompatTheme_switchStyle = 99;
-    public static final int AppCompatTheme_textAppearanceLargePopupMenu = 100;
-    public static final int AppCompatTheme_textAppearanceListItem = 101;
-    public static final int AppCompatTheme_textAppearanceListItemSecondary = 102;
-    public static final int AppCompatTheme_textAppearanceListItemSmall = 103;
-    public static final int AppCompatTheme_textAppearancePopupMenuHeader = 104;
-    public static final int AppCompatTheme_textAppearanceSearchResultSubtitle = 105;
-    public static final int AppCompatTheme_textAppearanceSearchResultTitle = 106;
-    public static final int AppCompatTheme_textAppearanceSmallPopupMenu = 107;
-    public static final int AppCompatTheme_textColorAlertDialogListItem = 108;
-    public static final int AppCompatTheme_textColorSearchUrl = 109;
-    public static final int AppCompatTheme_toolbarNavigationButtonStyle = 110;
-    public static final int AppCompatTheme_toolbarStyle = 111;
-    public static final int AppCompatTheme_tooltipForegroundColor = 112;
-    public static final int AppCompatTheme_tooltipFrameBackground = 113;
-    public static final int AppCompatTheme_viewInflaterClass = 114;
-    public static final int AppCompatTheme_windowActionBar = 115;
-    public static final int AppCompatTheme_windowActionBarOverlay = 116;
-    public static final int AppCompatTheme_windowActionModeOverlay = 117;
-    public static final int AppCompatTheme_windowFixedHeightMajor = 118;
-    public static final int AppCompatTheme_windowFixedHeightMinor = 119;
-    public static final int AppCompatTheme_windowFixedWidthMajor = 120;
-    public static final int AppCompatTheme_windowFixedWidthMinor = 121;
-    public static final int AppCompatTheme_windowMinWidthMajor = 122;
-    public static final int AppCompatTheme_windowMinWidthMinor = 123;
-    public static final int AppCompatTheme_windowNoTitle = 124;
-    public static final int[] AspectRatioFrameLayout;
-    public static final int AspectRatioFrameLayout_resize_mode = 0;
-    public static final int[] AutoChangeLineView;
-    public static final int AutoChangeLineView_isIndicator = 0;
-    public static final int AutoChangeLineView_isTextBold = 1;
-    public static final int AutoChangeLineView_labelBackground = 2;
-    public static final int AutoChangeLineView_labelGravity = 3;
-    public static final int AutoChangeLineView_labelTextColor = 4;
-    public static final int AutoChangeLineView_labelTextHeight = 5;
-    public static final int AutoChangeLineView_labelTextPadding = 6;
-    public static final int AutoChangeLineView_labelTextPaddingBottom = 7;
-    public static final int AutoChangeLineView_labelTextPaddingLeft = 8;
-    public static final int AutoChangeLineView_labelTextPaddingRight = 9;
-    public static final int AutoChangeLineView_labelTextPaddingTop = 10;
-    public static final int AutoChangeLineView_labelTextSize = 11;
-    public static final int AutoChangeLineView_labelTextWidth = 12;
-    public static final int AutoChangeLineView_lineMargin = 13;
-    public static final int AutoChangeLineView_maxColumns = 14;
-    public static final int AutoChangeLineView_maxLines = 15;
-    public static final int AutoChangeLineView_maxSelect = 16;
-    public static final int AutoChangeLineView_minSelect = 17;
-    public static final int AutoChangeLineView_selectType = 18;
-    public static final int AutoChangeLineView_singleLine = 19;
-    public static final int AutoChangeLineView_wordMargin = 20;
-    public static final int[] BDImageView;
-    public static final int BDImageView_adjustViewBounds = 0;
-    public static final int BDImageView_borderColor = 1;
-    public static final int BDImageView_borderSurroundContent = 2;
-    public static final int BDImageView_borderWidth = 3;
-    public static final int BDImageView_drawerType = 4;
-    public static final int BDImageView_foregroundColor = 5;
-    public static final int BDImageView_gifIcon = 6;
-    public static final int BDImageView_hasBorder = 7;
-    public static final int BDImageView_isRound = 8;
-    public static final int BDImageView_maxHeight = 9;
-    public static final int BDImageView_maxWidth = 10;
-    public static final int BDImageView_radius = 11;
-    public static final int BDImageView_radiusLeftBottom = 12;
-    public static final int BDImageView_radiusLeftTop = 13;
-    public static final int BDImageView_radiusRightBottom = 14;
-    public static final int BDImageView_radiusRightTop = 15;
-    public static final int BDImageView_showGifIcon = 16;
-    public static final int[] Badge;
-    public static final int Badge_backgroundColor = 0;
-    public static final int Badge_badgeGravity = 1;
-    public static final int Badge_badgeTextColor = 2;
-    public static final int Badge_horizontalOffset = 3;
-    public static final int Badge_maxCharacterCount = 4;
-    public static final int Badge_number = 5;
-    public static final int Badge_verticalOffset = 6;
-    public static final int[] BdRoundedImageView;
-    public static final int BdRoundedImageView_android_scaleType = 0;
-    public static final int BdRoundedImageView_border_color = 1;
-    public static final int BdRoundedImageView_border_width = 2;
-    public static final int BdRoundedImageView_corner_radius = 3;
-    public static final int BdRoundedImageView_is_oval = 4;
-    public static final int BdRoundedImageView_round_background = 5;
-    public static final int[] BottomAppBar;
-    public static final int BottomAppBar_backgroundTint = 0;
-    public static final int BottomAppBar_elevation = 1;
-    public static final int BottomAppBar_fabAlignmentMode = 2;
-    public static final int BottomAppBar_fabAnimationMode = 3;
-    public static final int BottomAppBar_fabCradleMargin = 4;
-    public static final int BottomAppBar_fabCradleRoundedCornerRadius = 5;
-    public static final int BottomAppBar_fabCradleVerticalOffset = 6;
-    public static final int BottomAppBar_hideOnScroll = 7;
-    public static final int BottomAppBar_paddingBottomSystemWindowInsets = 8;
-    public static final int BottomAppBar_paddingLeftSystemWindowInsets = 9;
-    public static final int BottomAppBar_paddingRightSystemWindowInsets = 10;
-    public static final int[] BottomNavigationView;
-    public static final int BottomNavigationView_backgroundTint = 0;
-    public static final int BottomNavigationView_elevation = 1;
-    public static final int BottomNavigationView_itemBackground = 2;
-    public static final int BottomNavigationView_itemHorizontalTranslationEnabled = 3;
-    public static final int BottomNavigationView_itemIconSize = 4;
-    public static final int BottomNavigationView_itemIconTint = 5;
-    public static final int BottomNavigationView_itemRippleColor = 6;
-    public static final int BottomNavigationView_itemTextAppearanceActive = 7;
-    public static final int BottomNavigationView_itemTextAppearanceInactive = 8;
-    public static final int BottomNavigationView_itemTextColor = 9;
-    public static final int BottomNavigationView_labelVisibilityMode = 10;
-    public static final int BottomNavigationView_menu = 11;
-    public static final int[] BottomSheetBehavior_Layout;
-    public static final int BottomSheetBehavior_Layout_android_elevation = 0;
-    public static final int BottomSheetBehavior_Layout_backgroundTint = 1;
-    public static final int BottomSheetBehavior_Layout_behavior_draggable = 2;
-    public static final int BottomSheetBehavior_Layout_behavior_expandedOffset = 3;
-    public static final int BottomSheetBehavior_Layout_behavior_fitToContents = 4;
-    public static final int BottomSheetBehavior_Layout_behavior_halfExpandedRatio = 5;
-    public static final int BottomSheetBehavior_Layout_behavior_hideable = 6;
-    public static final int BottomSheetBehavior_Layout_behavior_peekHeight = 7;
-    public static final int BottomSheetBehavior_Layout_behavior_saveFlags = 8;
-    public static final int BottomSheetBehavior_Layout_behavior_skipCollapsed = 9;
-    public static final int BottomSheetBehavior_Layout_gestureInsetBottomIgnored = 10;
-    public static final int BottomSheetBehavior_Layout_shapeAppearance = 11;
-    public static final int BottomSheetBehavior_Layout_shapeAppearanceOverlay = 12;
-    public static final int[] BubbleLayout;
-    public static final int BubbleLayout_bl_arrowHeight = 0;
-    public static final int BubbleLayout_bl_arrowPosition = 1;
-    public static final int BubbleLayout_bl_arrowWidth = 2;
-    public static final int BubbleLayout_bl_bubbleColor = 3;
-    public static final int BubbleLayout_bl_cornersRadius = 4;
-    public static final int BubbleLayout_bl_strokeColor = 5;
-    public static final int BubbleLayout_bl_strokeWidth = 6;
-    public static final int BubbleLayout_tb_bl_arrowDirection = 7;
-    public static final int[] ButtonBarLayout;
-    public static final int ButtonBarLayout_allowStacking = 0;
-    public static final int[] Capability;
-    public static final int Capability_queryPatterns = 0;
-    public static final int Capability_shortcutMatchRequired = 1;
-    public static final int[] CardView;
-    public static final int CardView_android_minHeight = 1;
-    public static final int CardView_android_minWidth = 0;
-    public static final int CardView_cardBackgroundColor = 2;
-    public static final int CardView_cardCornerRadius = 3;
-    public static final int CardView_cardElevation = 4;
-    public static final int CardView_cardMaxElevation = 5;
-    public static final int CardView_cardPreventCornerOverlap = 6;
-    public static final int CardView_cardUseCompatPadding = 7;
-    public static final int CardView_contentPadding = 8;
-    public static final int CardView_contentPaddingBottom = 9;
-    public static final int CardView_contentPaddingLeft = 10;
-    public static final int CardView_contentPaddingRight = 11;
-    public static final int CardView_contentPaddingTop = 12;
-    public static final int[] ChatVoiceView;
-    public static final int ChatVoiceView_is_left = 0;
-    public static final int[] Chip;
-    public static final int[] ChipGroup;
-    public static final int ChipGroup_checkedChip = 0;
-    public static final int ChipGroup_chipSpacing = 1;
-    public static final int ChipGroup_chipSpacingHorizontal = 2;
-    public static final int ChipGroup_chipSpacingVertical = 3;
-    public static final int ChipGroup_selectionRequired = 4;
-    public static final int ChipGroup_singleLine = 5;
-    public static final int ChipGroup_singleSelection = 6;
-    public static final int Chip_android_checkable = 5;
-    public static final int Chip_android_ellipsize = 2;
-    public static final int Chip_android_maxWidth = 3;
-    public static final int Chip_android_text = 4;
-    public static final int Chip_android_textAppearance = 0;
-    public static final int Chip_android_textColor = 1;
-    public static final int Chip_checkedIcon = 6;
-    public static final int Chip_checkedIconEnabled = 7;
-    public static final int Chip_checkedIconTint = 8;
-    public static final int Chip_checkedIconVisible = 9;
-    public static final int Chip_chipBackgroundColor = 10;
-    public static final int Chip_chipCornerRadius = 11;
-    public static final int Chip_chipEndPadding = 12;
-    public static final int Chip_chipIcon = 13;
-    public static final int Chip_chipIconEnabled = 14;
-    public static final int Chip_chipIconSize = 15;
-    public static final int Chip_chipIconTint = 16;
-    public static final int Chip_chipIconVisible = 17;
-    public static final int Chip_chipMinHeight = 18;
-    public static final int Chip_chipMinTouchTargetSize = 19;
-    public static final int Chip_chipStartPadding = 20;
-    public static final int Chip_chipStrokeColor = 21;
-    public static final int Chip_chipStrokeWidth = 22;
-    public static final int Chip_chipSurfaceColor = 23;
-    public static final int Chip_closeIcon = 24;
-    public static final int Chip_closeIconEnabled = 25;
-    public static final int Chip_closeIconEndPadding = 26;
-    public static final int Chip_closeIconSize = 27;
-    public static final int Chip_closeIconStartPadding = 28;
-    public static final int Chip_closeIconTint = 29;
-    public static final int Chip_closeIconVisible = 30;
-    public static final int Chip_ensureMinTouchTargetSize = 31;
-    public static final int Chip_hideMotionSpec = 32;
-    public static final int Chip_iconEndPadding = 33;
-    public static final int Chip_iconStartPadding = 34;
-    public static final int Chip_rippleColor = 35;
-    public static final int Chip_shapeAppearance = 36;
-    public static final int Chip_shapeAppearanceOverlay = 37;
-    public static final int Chip_showMotionSpec = 38;
-    public static final int Chip_textEndPadding = 39;
-    public static final int Chip_textStartPadding = 40;
-    public static final int[] CollapsingToolbarLayout;
-    public static final int[] CollapsingToolbarLayout_Layout;
-    public static final int CollapsingToolbarLayout_Layout_layout_collapseMode = 0;
-    public static final int CollapsingToolbarLayout_Layout_layout_collapseParallaxMultiplier = 1;
-    public static final int CollapsingToolbarLayout_collapsedTitleGravity = 0;
-    public static final int CollapsingToolbarLayout_collapsedTitleTextAppearance = 1;
-    public static final int CollapsingToolbarLayout_contentScrim = 2;
-    public static final int CollapsingToolbarLayout_expandedTitleGravity = 3;
-    public static final int CollapsingToolbarLayout_expandedTitleMargin = 4;
-    public static final int CollapsingToolbarLayout_expandedTitleMarginBottom = 5;
-    public static final int CollapsingToolbarLayout_expandedTitleMarginEnd = 6;
-    public static final int CollapsingToolbarLayout_expandedTitleMarginStart = 7;
-    public static final int CollapsingToolbarLayout_expandedTitleMarginTop = 8;
-    public static final int CollapsingToolbarLayout_expandedTitleTextAppearance = 9;
-    public static final int CollapsingToolbarLayout_maxLines = 10;
-    public static final int CollapsingToolbarLayout_scrimAnimationDuration = 11;
-    public static final int CollapsingToolbarLayout_scrimVisibleHeightTrigger = 12;
-    public static final int CollapsingToolbarLayout_statusBarScrim = 13;
-    public static final int CollapsingToolbarLayout_title = 14;
-    public static final int CollapsingToolbarLayout_titleEnabled = 15;
-    public static final int CollapsingToolbarLayout_toolbarId = 16;
-    public static final int[] ColorStateListItem;
-    public static final int ColorStateListItem_alpha = 2;
-    public static final int ColorStateListItem_android_alpha = 1;
-    public static final int ColorStateListItem_android_color = 0;
-    public static final int[] ColumnLayout;
-    public static final int[] ColumnLayout_Layout;
-    public static final int ColumnLayout_Layout_layout_column = 0;
-    public static final int ColumnLayout_columnOrientation = 0;
-    public static final int ColumnLayout_spacingLeft = 1;
-    public static final int ColumnLayout_spacingRight = 2;
-    public static final int[] CompoundButton;
-    public static final int CompoundButton_android_button = 0;
-    public static final int CompoundButton_buttonCompat = 1;
-    public static final int CompoundButton_buttonTint = 2;
-    public static final int CompoundButton_buttonTintMode = 3;
-    public static final int[] ConstraintLayout_Layout;
-    public static final int ConstraintLayout_Layout_android_elevation = 13;
-    public static final int ConstraintLayout_Layout_android_maxHeight = 8;
-    public static final int ConstraintLayout_Layout_android_maxWidth = 7;
-    public static final int ConstraintLayout_Layout_android_minHeight = 10;
-    public static final int ConstraintLayout_Layout_android_minWidth = 9;
-    public static final int ConstraintLayout_Layout_android_orientation = 0;
-    public static final int ConstraintLayout_Layout_android_padding = 1;
-    public static final int ConstraintLayout_Layout_android_paddingBottom = 5;
-    public static final int ConstraintLayout_Layout_android_paddingEnd = 12;
-    public static final int ConstraintLayout_Layout_android_paddingLeft = 2;
-    public static final int ConstraintLayout_Layout_android_paddingRight = 4;
-    public static final int ConstraintLayout_Layout_android_paddingStart = 11;
-    public static final int ConstraintLayout_Layout_android_paddingTop = 3;
-    public static final int ConstraintLayout_Layout_android_visibility = 6;
-    public static final int ConstraintLayout_Layout_barrierAllowsGoneWidgets = 14;
-    public static final int ConstraintLayout_Layout_barrierDirection = 15;
-    public static final int ConstraintLayout_Layout_barrierMargin = 17;
-    public static final int ConstraintLayout_Layout_chainUseRtl = 16;
-    public static final int ConstraintLayout_Layout_constraintSet = 18;
-    public static final int ConstraintLayout_Layout_constraint_referenced_ids = 19;
-    public static final int ConstraintLayout_Layout_constraint_referenced_tags = 20;
-    public static final int ConstraintLayout_Layout_flow_firstHorizontalBias = 71;
-    public static final int ConstraintLayout_Layout_flow_firstHorizontalStyle = 72;
-    public static final int ConstraintLayout_Layout_flow_firstVerticalBias = 73;
-    public static final int ConstraintLayout_Layout_flow_firstVerticalStyle = 74;
-    public static final int ConstraintLayout_Layout_flow_horizontalAlign = 75;
-    public static final int ConstraintLayout_Layout_flow_horizontalBias = 76;
-    public static final int ConstraintLayout_Layout_flow_horizontalGap = 77;
-    public static final int ConstraintLayout_Layout_flow_horizontalStyle = 78;
-    public static final int ConstraintLayout_Layout_flow_lastHorizontalBias = 79;
-    public static final int ConstraintLayout_Layout_flow_lastHorizontalStyle = 80;
-    public static final int ConstraintLayout_Layout_flow_lastVerticalBias = 81;
-    public static final int ConstraintLayout_Layout_flow_lastVerticalStyle = 82;
-    public static final int ConstraintLayout_Layout_flow_maxElementsWrap = 83;
-    public static final int ConstraintLayout_Layout_flow_verticalAlign = 84;
-    public static final int ConstraintLayout_Layout_flow_verticalBias = 85;
-    public static final int ConstraintLayout_Layout_flow_verticalGap = 86;
-    public static final int ConstraintLayout_Layout_flow_verticalStyle = 87;
-    public static final int ConstraintLayout_Layout_flow_wrapMode = 88;
-    public static final int ConstraintLayout_Layout_layoutDescription = 89;
-    public static final int ConstraintLayout_Layout_layout_constrainedHeight = 21;
-    public static final int ConstraintLayout_Layout_layout_constrainedWidth = 22;
-    public static final int ConstraintLayout_Layout_layout_constraintBaseline_creator = 23;
-    public static final int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf = 24;
-    public static final int ConstraintLayout_Layout_layout_constraintBottom_creator = 25;
-    public static final int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf = 26;
-    public static final int ConstraintLayout_Layout_layout_constraintBottom_toTopOf = 27;
-    public static final int ConstraintLayout_Layout_layout_constraintCircle = 28;
-    public static final int ConstraintLayout_Layout_layout_constraintCircleAngle = 29;
-    public static final int ConstraintLayout_Layout_layout_constraintCircleRadius = 30;
-    public static final int ConstraintLayout_Layout_layout_constraintDimensionRatio = 31;
-    public static final int ConstraintLayout_Layout_layout_constraintEnd_toEndOf = 32;
-    public static final int ConstraintLayout_Layout_layout_constraintEnd_toStartOf = 33;
-    public static final int ConstraintLayout_Layout_layout_constraintGuide_begin = 34;
-    public static final int ConstraintLayout_Layout_layout_constraintGuide_end = 35;
-    public static final int ConstraintLayout_Layout_layout_constraintGuide_percent = 36;
-    public static final int ConstraintLayout_Layout_layout_constraintHeight_default = 37;
-    public static final int ConstraintLayout_Layout_layout_constraintHeight_max = 38;
-    public static final int ConstraintLayout_Layout_layout_constraintHeight_min = 39;
-    public static final int ConstraintLayout_Layout_layout_constraintHeight_percent = 40;
-    public static final int ConstraintLayout_Layout_layout_constraintHorizontal_bias = 41;
-    public static final int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle = 42;
-    public static final int ConstraintLayout_Layout_layout_constraintHorizontal_weight = 43;
-    public static final int ConstraintLayout_Layout_layout_constraintLeft_creator = 44;
-    public static final int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf = 45;
-    public static final int ConstraintLayout_Layout_layout_constraintLeft_toRightOf = 46;
-    public static final int ConstraintLayout_Layout_layout_constraintRight_creator = 47;
-    public static final int ConstraintLayout_Layout_layout_constraintRight_toLeftOf = 48;
-    public static final int ConstraintLayout_Layout_layout_constraintRight_toRightOf = 49;
-    public static final int ConstraintLayout_Layout_layout_constraintStart_toEndOf = 50;
-    public static final int ConstraintLayout_Layout_layout_constraintStart_toStartOf = 51;
-    public static final int ConstraintLayout_Layout_layout_constraintTag = 90;
-    public static final int ConstraintLayout_Layout_layout_constraintTop_creator = 52;
-    public static final int ConstraintLayout_Layout_layout_constraintTop_toBottomOf = 53;
-    public static final int ConstraintLayout_Layout_layout_constraintTop_toTopOf = 54;
-    public static final int ConstraintLayout_Layout_layout_constraintVertical_bias = 55;
-    public static final int ConstraintLayout_Layout_layout_constraintVertical_chainStyle = 56;
-    public static final int ConstraintLayout_Layout_layout_constraintVertical_weight = 57;
-    public static final int ConstraintLayout_Layout_layout_constraintWidth_default = 58;
-    public static final int ConstraintLayout_Layout_layout_constraintWidth_max = 59;
-    public static final int ConstraintLayout_Layout_layout_constraintWidth_min = 60;
-    public static final int ConstraintLayout_Layout_layout_constraintWidth_percent = 61;
-    public static final int ConstraintLayout_Layout_layout_editor_absoluteX = 62;
-    public static final int ConstraintLayout_Layout_layout_editor_absoluteY = 63;
-    public static final int ConstraintLayout_Layout_layout_goneMarginBottom = 64;
-    public static final int ConstraintLayout_Layout_layout_goneMarginEnd = 65;
-    public static final int ConstraintLayout_Layout_layout_goneMarginLeft = 66;
-    public static final int ConstraintLayout_Layout_layout_goneMarginRight = 67;
-    public static final int ConstraintLayout_Layout_layout_goneMarginStart = 68;
-    public static final int ConstraintLayout_Layout_layout_goneMarginTop = 69;
-    public static final int ConstraintLayout_Layout_layout_optimizationLevel = 70;
-    public static final int[] ConstraintLayout_placeholder;
-    public static final int ConstraintLayout_placeholder_content = 0;
-    public static final int ConstraintLayout_placeholder_placeholder_emptyVisibility = 1;
-    public static final int[] ConstraintSet;
-    public static final int ConstraintSet_android_alpha = 15;
-    public static final int ConstraintSet_android_elevation = 28;
-    public static final int ConstraintSet_android_id = 1;
-    public static final int ConstraintSet_android_layout_height = 4;
-    public static final int ConstraintSet_android_layout_marginBottom = 8;
-    public static final int ConstraintSet_android_layout_marginEnd = 26;
-    public static final int ConstraintSet_android_layout_marginLeft = 5;
-    public static final int ConstraintSet_android_layout_marginRight = 7;
-    public static final int ConstraintSet_android_layout_marginStart = 25;
-    public static final int ConstraintSet_android_layout_marginTop = 6;
-    public static final int ConstraintSet_android_layout_width = 3;
-    public static final int ConstraintSet_android_maxHeight = 10;
-    public static final int ConstraintSet_android_maxWidth = 9;
-    public static final int ConstraintSet_android_minHeight = 12;
-    public static final int ConstraintSet_android_minWidth = 11;
-    public static final int ConstraintSet_android_orientation = 0;
-    public static final int ConstraintSet_android_pivotX = 13;
-    public static final int ConstraintSet_android_pivotY = 14;
-    public static final int ConstraintSet_android_rotation = 22;
-    public static final int ConstraintSet_android_rotationX = 23;
-    public static final int ConstraintSet_android_rotationY = 24;
-    public static final int ConstraintSet_android_scaleX = 20;
-    public static final int ConstraintSet_android_scaleY = 21;
-    public static final int ConstraintSet_android_transformPivotX = 16;
-    public static final int ConstraintSet_android_transformPivotY = 17;
-    public static final int ConstraintSet_android_translationX = 18;
-    public static final int ConstraintSet_android_translationY = 19;
-    public static final int ConstraintSet_android_translationZ = 27;
-    public static final int ConstraintSet_android_visibility = 2;
-    public static final int ConstraintSet_animate_relativeTo = 31;
-    public static final int ConstraintSet_barrierAllowsGoneWidgets = 29;
-    public static final int ConstraintSet_barrierDirection = 30;
-    public static final int ConstraintSet_barrierMargin = 33;
-    public static final int ConstraintSet_chainUseRtl = 32;
-    public static final int ConstraintSet_constraint_referenced_ids = 34;
-    public static final int ConstraintSet_constraint_referenced_tags = 35;
-    public static final int ConstraintSet_deriveConstraintsFrom = 36;
-    public static final int ConstraintSet_drawPath = 86;
-    public static final int ConstraintSet_flow_firstHorizontalBias = 87;
-    public static final int ConstraintSet_flow_firstHorizontalStyle = 88;
-    public static final int ConstraintSet_flow_firstVerticalBias = 89;
-    public static final int ConstraintSet_flow_firstVerticalStyle = 90;
-    public static final int ConstraintSet_flow_horizontalAlign = 91;
-    public static final int ConstraintSet_flow_horizontalBias = 92;
-    public static final int ConstraintSet_flow_horizontalGap = 93;
-    public static final int ConstraintSet_flow_horizontalStyle = 94;
-    public static final int ConstraintSet_flow_lastHorizontalBias = 95;
-    public static final int ConstraintSet_flow_lastHorizontalStyle = 96;
-    public static final int ConstraintSet_flow_lastVerticalBias = 97;
-    public static final int ConstraintSet_flow_lastVerticalStyle = 98;
-    public static final int ConstraintSet_flow_maxElementsWrap = 99;
-    public static final int ConstraintSet_flow_verticalAlign = 100;
-    public static final int ConstraintSet_flow_verticalBias = 101;
-    public static final int ConstraintSet_flow_verticalGap = 102;
-    public static final int ConstraintSet_flow_verticalStyle = 103;
-    public static final int ConstraintSet_flow_wrapMode = 104;
-    public static final int ConstraintSet_layout_constrainedHeight = 37;
-    public static final int ConstraintSet_layout_constrainedWidth = 38;
-    public static final int ConstraintSet_layout_constraintBaseline_creator = 39;
-    public static final int ConstraintSet_layout_constraintBaseline_toBaselineOf = 40;
-    public static final int ConstraintSet_layout_constraintBottom_creator = 41;
-    public static final int ConstraintSet_layout_constraintBottom_toBottomOf = 42;
-    public static final int ConstraintSet_layout_constraintBottom_toTopOf = 43;
-    public static final int ConstraintSet_layout_constraintCircle = 44;
-    public static final int ConstraintSet_layout_constraintCircleAngle = 45;
-    public static final int ConstraintSet_layout_constraintCircleRadius = 46;
-    public static final int ConstraintSet_layout_constraintDimensionRatio = 47;
-    public static final int ConstraintSet_layout_constraintEnd_toEndOf = 48;
-    public static final int ConstraintSet_layout_constraintEnd_toStartOf = 49;
-    public static final int ConstraintSet_layout_constraintGuide_begin = 50;
-    public static final int ConstraintSet_layout_constraintGuide_end = 51;
-    public static final int ConstraintSet_layout_constraintGuide_percent = 52;
-    public static final int ConstraintSet_layout_constraintHeight_default = 53;
-    public static final int ConstraintSet_layout_constraintHeight_max = 54;
-    public static final int ConstraintSet_layout_constraintHeight_min = 55;
-    public static final int ConstraintSet_layout_constraintHeight_percent = 56;
-    public static final int ConstraintSet_layout_constraintHorizontal_bias = 57;
-    public static final int ConstraintSet_layout_constraintHorizontal_chainStyle = 58;
-    public static final int ConstraintSet_layout_constraintHorizontal_weight = 59;
-    public static final int ConstraintSet_layout_constraintLeft_creator = 60;
-    public static final int ConstraintSet_layout_constraintLeft_toLeftOf = 61;
-    public static final int ConstraintSet_layout_constraintLeft_toRightOf = 62;
-    public static final int ConstraintSet_layout_constraintRight_creator = 63;
-    public static final int ConstraintSet_layout_constraintRight_toLeftOf = 64;
-    public static final int ConstraintSet_layout_constraintRight_toRightOf = 65;
-    public static final int ConstraintSet_layout_constraintStart_toEndOf = 66;
-    public static final int ConstraintSet_layout_constraintStart_toStartOf = 67;
-    public static final int ConstraintSet_layout_constraintTag = 105;
-    public static final int ConstraintSet_layout_constraintTop_creator = 68;
-    public static final int ConstraintSet_layout_constraintTop_toBottomOf = 69;
-    public static final int ConstraintSet_layout_constraintTop_toTopOf = 70;
-    public static final int ConstraintSet_layout_constraintVertical_bias = 71;
-    public static final int ConstraintSet_layout_constraintVertical_chainStyle = 72;
-    public static final int ConstraintSet_layout_constraintVertical_weight = 73;
-    public static final int ConstraintSet_layout_constraintWidth_default = 74;
-    public static final int ConstraintSet_layout_constraintWidth_max = 75;
-    public static final int ConstraintSet_layout_constraintWidth_min = 76;
-    public static final int ConstraintSet_layout_constraintWidth_percent = 77;
-    public static final int ConstraintSet_layout_editor_absoluteX = 78;
-    public static final int ConstraintSet_layout_editor_absoluteY = 79;
-    public static final int ConstraintSet_layout_goneMarginBottom = 80;
-    public static final int ConstraintSet_layout_goneMarginEnd = 81;
-    public static final int ConstraintSet_layout_goneMarginLeft = 82;
-    public static final int ConstraintSet_layout_goneMarginRight = 83;
-    public static final int ConstraintSet_layout_goneMarginStart = 84;
-    public static final int ConstraintSet_layout_goneMarginTop = 85;
-    public static final int ConstraintSet_motionProgress = 106;
-    public static final int ConstraintSet_motionStagger = 107;
-    public static final int ConstraintSet_pathMotionArc = 108;
-    public static final int ConstraintSet_pivotAnchor = 109;
-    public static final int ConstraintSet_transitionEasing = 110;
-    public static final int ConstraintSet_transitionPathRotate = 111;
-    public static final int[] CoordinatorLayout;
-    public static final int[] CoordinatorLayout_Layout;
-    public static final int CoordinatorLayout_Layout_android_layout_gravity = 0;
-    public static final int CoordinatorLayout_Layout_layout_anchor = 1;
-    public static final int CoordinatorLayout_Layout_layout_anchorGravity = 2;
-    public static final int CoordinatorLayout_Layout_layout_behavior = 3;
-    public static final int CoordinatorLayout_Layout_layout_dodgeInsetEdges = 4;
-    public static final int CoordinatorLayout_Layout_layout_insetEdge = 5;
-    public static final int CoordinatorLayout_Layout_layout_keyline = 6;
-    public static final int CoordinatorLayout_keylines = 0;
-    public static final int CoordinatorLayout_statusBarBackground = 1;
-    public static final int[] CornersImageView;
-    public static final int CornersImageView_border_color = 0;
-    public static final int CornersImageView_border_width = 1;
-    public static final int CornersImageView_corner_bottom_left_radius = 2;
-    public static final int CornersImageView_corner_bottom_right_radius = 3;
-    public static final int CornersImageView_corner_radius = 4;
-    public static final int CornersImageView_corner_top_left_radius = 5;
-    public static final int CornersImageView_corner_top_right_radius = 6;
-    public static final int CornersImageView_inner_border_color = 7;
-    public static final int CornersImageView_inner_border_width = 8;
-    public static final int CornersImageView_is_circle = 9;
-    public static final int CornersImageView_is_cover_src = 10;
-    public static final int CornersImageView_mask_color = 11;
-    public static final int[] DefaultTimeBar;
-    public static final int DefaultTimeBar_ad_marker_color = 0;
-    public static final int DefaultTimeBar_ad_marker_width = 1;
-    public static final int DefaultTimeBar_bar_height = 2;
-    public static final int DefaultTimeBar_buffered_color = 3;
-    public static final int DefaultTimeBar_played_ad_marker_color = 4;
-    public static final int DefaultTimeBar_played_color = 5;
-    public static final int DefaultTimeBar_scrubber_color = 6;
-    public static final int DefaultTimeBar_scrubber_disabled_size = 7;
-    public static final int DefaultTimeBar_scrubber_dragged_size = 8;
-    public static final int DefaultTimeBar_scrubber_drawable = 9;
-    public static final int DefaultTimeBar_scrubber_enabled_size = 10;
-    public static final int DefaultTimeBar_touch_target_height = 11;
-    public static final int DefaultTimeBar_unplayed_color = 12;
-    public static final int[] DragSort;
-    public static final int DragSort_click_remove_id = 0;
-    public static final int DragSort_collapsed_height = 1;
-    public static final int DragSort_drag_enabled = 2;
-    public static final int DragSort_drag_handle_id = 3;
-    public static final int DragSort_drag_scroll_start = 4;
-    public static final int DragSort_drop_animation_duration = 5;
-    public static final int DragSort_fling_handle_id = 6;
-    public static final int DragSort_float_alpha = 7;
-    public static final int DragSort_float_background_color = 8;
-    public static final int DragSort_max_drag_scroll_speed = 9;
-    public static final int DragSort_remove_animation_duration = 10;
-    public static final int DragSort_remove_enabled = 11;
-    public static final int DragSort_slide_shuffle_speed = 12;
-    public static final int DragSort_sort_enabled = 13;
-    public static final int DragSort_tb_drag_remove_mode = 14;
-    public static final int DragSort_tb_drag_start_mode = 15;
-    public static final int DragSort_track_drag_sort = 16;
-    public static final int DragSort_use_default_controller = 17;
-    public static final int[] DrawerArrowToggle;
-    public static final int DrawerArrowToggle_arrowHeadLength = 0;
-    public static final int DrawerArrowToggle_arrowShaftLength = 1;
-    public static final int DrawerArrowToggle_barLength = 2;
-    public static final int DrawerArrowToggle_color = 3;
-    public static final int DrawerArrowToggle_drawableSize = 4;
-    public static final int DrawerArrowToggle_gapBetweenBars = 5;
-    public static final int DrawerArrowToggle_spinBars = 6;
-    public static final int DrawerArrowToggle_thickness = 7;
-    public static final int[] EllipsizeTagTitleView;
-    public static final int EllipsizeTagTitleView_tag_title_ellipsize_text = 0;
-    public static final int EllipsizeTagTitleView_tag_title_line_space = 1;
-    public static final int EllipsizeTagTitleView_tag_title_max_line = 2;
-    public static final int EllipsizeTagTitleView_tag_title_tag_color = 3;
-    public static final int EllipsizeTagTitleView_tag_title_tag_corner_radius = 4;
-    public static final int EllipsizeTagTitleView_tag_title_tag_margin = 5;
-    public static final int EllipsizeTagTitleView_tag_title_tag_padding_horizontal = 6;
-    public static final int EllipsizeTagTitleView_tag_title_tag_padding_vertical = 7;
-    public static final int EllipsizeTagTitleView_tag_title_tag_stroke_width = 8;
-    public static final int EllipsizeTagTitleView_tag_title_text_color = 9;
-    public static final int EllipsizeTagTitleView_tag_title_text_size = 10;
-    public static final int EllipsizeTagTitleView_tag_title_text_style = 11;
-    public static final int[] EmotionButton;
-    public static final int EmotionButton_ebTextSize = 0;
-    public static final int EmotionButton_text = 1;
-    public static final int[] EntelechyPullUpRefreshView;
-    public static final int EntelechyPullUpRefreshView_tb_pull_show_top_line = 0;
-    public static final int EntelechyPullUpRefreshView_tb_pull_up_icon = 1;
-    public static final int[] ExpandIconView;
-    public static final int ExpandIconView_animationDuration = 0;
-    public static final int ExpandIconView_color = 1;
-    public static final int ExpandIconView_length = 2;
-    public static final int ExpandIconView_thick = 3;
-    public static final int[] ExpandListView;
-    public static final int ExpandListView_beforeExpandHeight = 0;
-    public static final int ExpandListView_expandDistance = 1;
-    public static final int[] ExpandableHListView;
-    public static final int ExpandableHListView_hlv_childDivider = 0;
-    public static final int ExpandableHListView_hlv_childIndicator = 1;
-    public static final int ExpandableHListView_hlv_childIndicatorGravity = 2;
-    public static final int ExpandableHListView_hlv_childIndicatorPaddingLeft = 3;
-    public static final int ExpandableHListView_hlv_childIndicatorPaddingTop = 4;
-    public static final int ExpandableHListView_hlv_groupIndicator = 5;
-    public static final int ExpandableHListView_hlv_indicatorGravity = 6;
-    public static final int ExpandableHListView_hlv_indicatorPaddingLeft = 7;
-    public static final int ExpandableHListView_hlv_indicatorPaddingTop = 8;
-    public static final int[] ExtendedFloatingActionButton;
-    public static final int[] ExtendedFloatingActionButton_Behavior_Layout;
-    public static final int ExtendedFloatingActionButton_Behavior_Layout_behavior_autoHide = 0;
-    public static final int ExtendedFloatingActionButton_Behavior_Layout_behavior_autoShrink = 1;
-    public static final int ExtendedFloatingActionButton_elevation = 0;
-    public static final int ExtendedFloatingActionButton_extendMotionSpec = 1;
-    public static final int ExtendedFloatingActionButton_hideMotionSpec = 2;
-    public static final int ExtendedFloatingActionButton_showMotionSpec = 3;
-    public static final int ExtendedFloatingActionButton_shrinkMotionSpec = 4;
-    public static final int[] FloatingActionButton;
-    public static final int[] FloatingActionButton_Behavior_Layout;
-    public static final int FloatingActionButton_Behavior_Layout_behavior_autoHide = 0;
-    public static final int FloatingActionButton_android_enabled = 0;
-    public static final int FloatingActionButton_backgroundTint = 1;
-    public static final int FloatingActionButton_backgroundTintMode = 2;
-    public static final int FloatingActionButton_borderWidth = 3;
-    public static final int FloatingActionButton_elevation = 4;
-    public static final int FloatingActionButton_ensureMinTouchTargetSize = 5;
-    public static final int FloatingActionButton_fabCustomSize = 6;
-    public static final int FloatingActionButton_fabSize = 7;
-    public static final int FloatingActionButton_hideMotionSpec = 8;
-    public static final int FloatingActionButton_hoveredFocusedTranslationZ = 9;
-    public static final int FloatingActionButton_maxImageSize = 10;
-    public static final int FloatingActionButton_pressedTranslationZ = 11;
-    public static final int FloatingActionButton_rippleColor = 12;
-    public static final int FloatingActionButton_shapeAppearance = 13;
-    public static final int FloatingActionButton_shapeAppearanceOverlay = 14;
-    public static final int FloatingActionButton_showMotionSpec = 15;
-    public static final int FloatingActionButton_useCompatPadding = 16;
-    public static final int[] FloatingLayout_Layout;
-    public static final int FloatingLayout_Layout_layout_clear = 0;
-    public static final int[] FlowLayout;
-    public static final int[] FlowLayout_LayoutParams;
-    public static final int FlowLayout_LayoutParams_layout_horizontalSpacing = 0;
-    public static final int FlowLayout_LayoutParams_layout_newLine = 1;
-    public static final int FlowLayout_LayoutParams_layout_verticalSpacing = 2;
-    public static final int FlowLayout_debugDraw = 0;
-    public static final int FlowLayout_horizontalSpacing = 1;
-    public static final int FlowLayout_itemSpacing = 2;
-    public static final int FlowLayout_lineSpacing = 3;
-    public static final int FlowLayout_orientation = 4;
-    public static final int FlowLayout_verticalSpacing = 5;
-    public static final int[] FontFamily;
-    public static final int[] FontFamilyFont;
-    public static final int FontFamilyFont_android_font = 0;
-    public static final int FontFamilyFont_android_fontStyle = 2;
-    public static final int FontFamilyFont_android_fontVariationSettings = 4;
-    public static final int FontFamilyFont_android_fontWeight = 1;
-    public static final int FontFamilyFont_android_ttcIndex = 3;
-    public static final int FontFamilyFont_font = 5;
-    public static final int FontFamilyFont_fontStyle = 6;
-    public static final int FontFamilyFont_fontVariationSettings = 7;
-    public static final int FontFamilyFont_fontWeight = 8;
-    public static final int FontFamilyFont_ttcIndex = 9;
-    public static final int FontFamily_fontProviderAuthority = 0;
-    public static final int FontFamily_fontProviderCerts = 1;
-    public static final int FontFamily_fontProviderFetchStrategy = 2;
-    public static final int FontFamily_fontProviderFetchTimeout = 3;
-    public static final int FontFamily_fontProviderPackage = 4;
-    public static final int FontFamily_fontProviderQuery = 5;
-    public static final int FontFamily_fontProviderSystemFontFamily = 6;
-    public static final int[] ForegroundLinearLayout;
-    public static final int ForegroundLinearLayout_android_foreground = 0;
-    public static final int ForegroundLinearLayout_android_foregroundGravity = 1;
-    public static final int ForegroundLinearLayout_foregroundInsidePadding = 2;
-    public static final int[] Fragment;
-    public static final int[] FragmentContainerView;
-    public static final int FragmentContainerView_android_name = 0;
-    public static final int FragmentContainerView_android_tag = 1;
-    public static final int Fragment_android_id = 1;
-    public static final int Fragment_android_name = 0;
-    public static final int Fragment_android_tag = 2;
-    public static final int[] FrsTabSortSwitchButton;
-    public static final int FrsTabSortSwitchButton_background_color = 0;
-    public static final int FrsTabSortSwitchButton_selected_text_color = 1;
-    public static final int FrsTabSortSwitchButton_slide_border_color = 2;
-    public static final int FrsTabSortSwitchButton_slide_border_width = 3;
-    public static final int FrsTabSortSwitchButton_slide_color = 4;
-    public static final int FrsTabSortSwitchButton_slide_height = 5;
-    public static final int FrsTabSortSwitchButton_text_horizontal_padding = 6;
-    public static final int FrsTabSortSwitchButton_text_size = 7;
-    public static final int FrsTabSortSwitchButton_un_selected_text_color = 8;
-    public static final int[] GameItemType;
-    public static final int GameItemType_second_line_type = 0;
-    public static final int[] GenericDraweeHierarchy;
-    public static final int GenericDraweeHierarchy_actualImageScaleType = 0;
-    public static final int GenericDraweeHierarchy_backgroundImage = 1;
-    public static final int GenericDraweeHierarchy_fadeDuration = 2;
-    public static final int GenericDraweeHierarchy_failureImage = 3;
-    public static final int GenericDraweeHierarchy_failureImageScaleType = 4;
-    public static final int GenericDraweeHierarchy_overlayImage = 5;
-    public static final int GenericDraweeHierarchy_placeholderImage = 6;
-    public static final int GenericDraweeHierarchy_placeholderImageScaleType = 7;
-    public static final int GenericDraweeHierarchy_pressedStateOverlayImage = 8;
-    public static final int GenericDraweeHierarchy_progressBarAutoRotateInterval = 9;
-    public static final int GenericDraweeHierarchy_progressBarImage = 10;
-    public static final int GenericDraweeHierarchy_progressBarImageScaleType = 11;
-    public static final int GenericDraweeHierarchy_retryImage = 12;
-    public static final int GenericDraweeHierarchy_retryImageScaleType = 13;
-    public static final int GenericDraweeHierarchy_roundAsCircle = 14;
-    public static final int GenericDraweeHierarchy_roundBottomEnd = 15;
-    public static final int GenericDraweeHierarchy_roundBottomLeft = 16;
-    public static final int GenericDraweeHierarchy_roundBottomRight = 17;
-    public static final int GenericDraweeHierarchy_roundBottomStart = 18;
-    public static final int GenericDraweeHierarchy_roundTopEnd = 19;
-    public static final int GenericDraweeHierarchy_roundTopLeft = 20;
-    public static final int GenericDraweeHierarchy_roundTopRight = 21;
-    public static final int GenericDraweeHierarchy_roundTopStart = 22;
-    public static final int GenericDraweeHierarchy_roundWithOverlayColor = 23;
-    public static final int GenericDraweeHierarchy_roundedCornerRadius = 24;
-    public static final int GenericDraweeHierarchy_roundingBorderColor = 25;
-    public static final int GenericDraweeHierarchy_roundingBorderPadding = 26;
-    public static final int GenericDraweeHierarchy_roundingBorderWidth = 27;
-    public static final int GenericDraweeHierarchy_viewAspectRatio = 28;
-    public static final int[] GradientColor;
-    public static final int[] GradientColorItem;
-    public static final int GradientColorItem_android_color = 0;
-    public static final int GradientColorItem_android_offset = 1;
-    public static final int GradientColor_android_centerColor = 7;
-    public static final int GradientColor_android_centerX = 3;
-    public static final int GradientColor_android_centerY = 4;
-    public static final int GradientColor_android_endColor = 1;
-    public static final int GradientColor_android_endX = 10;
-    public static final int GradientColor_android_endY = 11;
-    public static final int GradientColor_android_gradientRadius = 5;
-    public static final int GradientColor_android_startColor = 0;
-    public static final int GradientColor_android_startX = 8;
-    public static final int GradientColor_android_startY = 9;
-    public static final int GradientColor_android_tileMode = 6;
-    public static final int GradientColor_android_type = 2;
-    public static final int[] GridLayout;
-    public static final int[] GridLayout_LayoutParams;
-    public static final int GridLayout_LayoutParams_layout_gravity = 0;
-    public static final int GridLayout_gridHorizontalNum = 0;
-    public static final int GridLayout_gridHorizontalSpacing = 1;
-    public static final int GridLayout_gridMainOrientation = 2;
-    public static final int GridLayout_gridVerticalNum = 3;
-    public static final int GridLayout_gridVerticalSpacing = 4;
-    public static final int[] HListView;
-    public static final int HListView_android_divider = 1;
-    public static final int HListView_android_entries = 0;
-    public static final int HListView_hlv_dividerWidth = 2;
-    public static final int HListView_hlv_footerDividersEnabled = 3;
-    public static final int HListView_hlv_headerDividersEnabled = 4;
-    public static final int HListView_hlv_measureWithChild = 5;
-    public static final int HListView_hlv_overScrollFooter = 6;
-    public static final int HListView_hlv_overScrollHeader = 7;
-    public static final int[] HaloView;
-    public static final int HaloView_isblack = 0;
-    public static final int[] HeadImageView;
-    public static final int HeadImageView_isRadius = 0;
-    public static final int HeadImageView_percent = 1;
-    public static final int HeadImageView_showGifTag = 2;
-    public static final int[] HorizontalTranslateLayout;
-    public static final int HorizontalTranslateLayout_leftOffset = 0;
-    public static final int HorizontalTranslateLayout_leftWidth = 1;
-    public static final int HorizontalTranslateLayout_rightOffset = 2;
-    public static final int HorizontalTranslateLayout_rightWidth = 3;
-    public static final int HorizontalTranslateLayout_tapBack = 4;
-    public static final int HorizontalTranslateLayout_transBackground = 5;
-    public static final int HorizontalTranslateLayout_transTrack = 6;
-    public static final int[] IndicatorView;
-    public static final int IndicatorView_autoHide = 0;
-    public static final int IndicatorView_count = 1;
-    public static final int IndicatorView_drawable = 2;
-    public static final int IndicatorView_selector = 3;
-    public static final int IndicatorView_spacing = 4;
-    public static final int[] Insets;
-    public static final int Insets_paddingBottomSystemWindowInsets = 0;
-    public static final int Insets_paddingLeftSystemWindowInsets = 1;
-    public static final int Insets_paddingRightSystemWindowInsets = 2;
-    public static final int[] KPSwitchPanelLayout;
-    public static final int KPSwitchPanelLayout_ignore_recommend_height = 0;
-    public static final int[] LinearLayoutCompat;
-    public static final int[] LinearLayoutCompat_Layout;
-    public static final int LinearLayoutCompat_Layout_android_layout_gravity = 0;
-    public static final int LinearLayoutCompat_Layout_android_layout_height = 2;
-    public static final int LinearLayoutCompat_Layout_android_layout_weight = 3;
-    public static final int LinearLayoutCompat_Layout_android_layout_width = 1;
-    public static final int LinearLayoutCompat_android_baselineAligned = 2;
-    public static final int LinearLayoutCompat_android_baselineAlignedChildIndex = 3;
-    public static final int LinearLayoutCompat_android_gravity = 0;
-    public static final int LinearLayoutCompat_android_orientation = 1;
-    public static final int LinearLayoutCompat_android_weightSum = 4;
-    public static final int LinearLayoutCompat_divider = 5;
-    public static final int LinearLayoutCompat_dividerPadding = 6;
-    public static final int LinearLayoutCompat_measureWithLargestChild = 7;
-    public static final int LinearLayoutCompat_showDividers = 8;
-    public static final int[] LinearVideoLoadingSeekBar;
-    public static final int LinearVideoLoadingSeekBar_loadingViewHeight = 0;
-    public static final int LinearVideoLoadingSeekBar_progressColor = 1;
-    public static final int[] ListPopupWindow;
-    public static final int ListPopupWindow_android_dropDownHorizontalOffset = 0;
-    public static final int ListPopupWindow_android_dropDownVerticalOffset = 1;
-    public static final int[] LiveBroadcastCard;
-    public static final int LiveBroadcastCard_intro_singline = 0;
-    public static final int LiveBroadcastCard_status = 1;
-    public static final int[] LottieAnimationView;
-    public static final int LottieAnimationView_lottie_autoPlay = 0;
-    public static final int LottieAnimationView_lottie_cacheComposition = 12;
-    public static final int LottieAnimationView_lottie_colorFilter = 1;
-    public static final int LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove = 2;
-    public static final int LottieAnimationView_lottie_fallbackRes = 13;
-    public static final int LottieAnimationView_lottie_fileName = 3;
-    public static final int LottieAnimationView_lottie_imageAssetsFolder = 4;
-    public static final int LottieAnimationView_lottie_loop = 5;
-    public static final int LottieAnimationView_lottie_progress = 6;
-    public static final int LottieAnimationView_lottie_rawRes = 7;
-    public static final int LottieAnimationView_lottie_renderMode = 14;
-    public static final int LottieAnimationView_lottie_repeatCount = 8;
-    public static final int LottieAnimationView_lottie_repeatMode = 9;
-    public static final int LottieAnimationView_lottie_scale = 10;
-    public static final int LottieAnimationView_lottie_speed = 15;
-    public static final int LottieAnimationView_lottie_url = 11;
-    public static final int[] MaterialAlertDialog;
-    public static final int[] MaterialAlertDialogTheme;
-    public static final int MaterialAlertDialogTheme_materialAlertDialogBodyTextStyle = 0;
-    public static final int MaterialAlertDialogTheme_materialAlertDialogTheme = 1;
-    public static final int MaterialAlertDialogTheme_materialAlertDialogTitleIconStyle = 2;
-    public static final int MaterialAlertDialogTheme_materialAlertDialogTitlePanelStyle = 3;
-    public static final int MaterialAlertDialogTheme_materialAlertDialogTitleTextStyle = 4;
-    public static final int MaterialAlertDialog_backgroundInsetBottom = 0;
-    public static final int MaterialAlertDialog_backgroundInsetEnd = 1;
-    public static final int MaterialAlertDialog_backgroundInsetStart = 2;
-    public static final int MaterialAlertDialog_backgroundInsetTop = 3;
-    public static final int[] MaterialAutoCompleteTextView;
-    public static final int MaterialAutoCompleteTextView_android_inputType = 0;
-    public static final int[] MaterialButton;
-    public static final int[] MaterialButtonToggleGroup;
-    public static final int MaterialButtonToggleGroup_checkedButton = 0;
-    public static final int MaterialButtonToggleGroup_selectionRequired = 1;
-    public static final int MaterialButtonToggleGroup_singleSelection = 2;
-    public static final int MaterialButton_android_background = 0;
-    public static final int MaterialButton_android_checkable = 5;
-    public static final int MaterialButton_android_insetBottom = 4;
-    public static final int MaterialButton_android_insetLeft = 1;
-    public static final int MaterialButton_android_insetRight = 2;
-    public static final int MaterialButton_android_insetTop = 3;
-    public static final int MaterialButton_backgroundTint = 6;
-    public static final int MaterialButton_backgroundTintMode = 7;
-    public static final int MaterialButton_cornerRadius = 8;
-    public static final int MaterialButton_elevation = 9;
-    public static final int MaterialButton_icon = 10;
-    public static final int MaterialButton_iconGravity = 11;
-    public static final int MaterialButton_iconPadding = 12;
-    public static final int MaterialButton_iconSize = 13;
-    public static final int MaterialButton_iconTint = 14;
-    public static final int MaterialButton_iconTintMode = 15;
-    public static final int MaterialButton_rippleColor = 16;
-    public static final int MaterialButton_shapeAppearance = 17;
-    public static final int MaterialButton_shapeAppearanceOverlay = 18;
-    public static final int MaterialButton_strokeColor = 19;
-    public static final int MaterialButton_strokeWidth = 20;
-    public static final int[] MaterialCalendar;
-    public static final int[] MaterialCalendarItem;
-    public static final int MaterialCalendarItem_android_insetBottom = 3;
-    public static final int MaterialCalendarItem_android_insetLeft = 0;
-    public static final int MaterialCalendarItem_android_insetRight = 1;
-    public static final int MaterialCalendarItem_android_insetTop = 2;
-    public static final int MaterialCalendarItem_itemFillColor = 4;
-    public static final int MaterialCalendarItem_itemShapeAppearance = 5;
-    public static final int MaterialCalendarItem_itemShapeAppearanceOverlay = 6;
-    public static final int MaterialCalendarItem_itemStrokeColor = 7;
-    public static final int MaterialCalendarItem_itemStrokeWidth = 8;
-    public static final int MaterialCalendarItem_itemTextColor = 9;
-    public static final int MaterialCalendar_android_windowFullscreen = 0;
-    public static final int MaterialCalendar_dayInvalidStyle = 1;
-    public static final int MaterialCalendar_daySelectedStyle = 2;
-    public static final int MaterialCalendar_dayStyle = 3;
-    public static final int MaterialCalendar_dayTodayStyle = 4;
-    public static final int MaterialCalendar_rangeFillColor = 5;
-    public static final int MaterialCalendar_yearSelectedStyle = 6;
-    public static final int MaterialCalendar_yearStyle = 7;
-    public static final int MaterialCalendar_yearTodayStyle = 8;
-    public static final int[] MaterialCardView;
-    public static final int MaterialCardView_android_checkable = 0;
-    public static final int MaterialCardView_cardForegroundColor = 1;
-    public static final int MaterialCardView_checkedIcon = 2;
-    public static final int MaterialCardView_checkedIconTint = 3;
-    public static final int MaterialCardView_rippleColor = 4;
-    public static final int MaterialCardView_shapeAppearance = 5;
-    public static final int MaterialCardView_shapeAppearanceOverlay = 6;
-    public static final int MaterialCardView_state_dragged = 7;
-    public static final int MaterialCardView_strokeColor = 8;
-    public static final int MaterialCardView_strokeWidth = 9;
-    public static final int[] MaterialCheckBox;
-    public static final int MaterialCheckBox_buttonTint = 0;
-    public static final int MaterialCheckBox_useMaterialThemeColors = 1;
-    public static final int[] MaterialRadioButton;
-    public static final int MaterialRadioButton_buttonTint = 0;
-    public static final int MaterialRadioButton_useMaterialThemeColors = 1;
-    public static final int[] MaterialShape;
-    public static final int MaterialShape_shapeAppearance = 0;
-    public static final int MaterialShape_shapeAppearanceOverlay = 1;
-    public static final int[] MaterialTextAppearance;
-    public static final int MaterialTextAppearance_android_lineHeight = 0;
-    public static final int MaterialTextAppearance_lineHeight = 1;
-    public static final int[] MaterialTextView;
-    public static final int MaterialTextView_android_lineHeight = 1;
-    public static final int MaterialTextView_android_textAppearance = 0;
-    public static final int MaterialTextView_lineHeight = 2;
-    public static final int[] MaxHeightFrameLayout;
-    public static final int MaxHeightFrameLayout_mhf_HeightDimen = 0;
-    public static final int MaxHeightFrameLayout_mhf_HeightRatio = 1;
-    public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeight = 0;
-    public static final int MaxHeightScrollView_maxHeightRatio = 1;
-    public static final int MaxHeightScrollView_minHeightRatio = 2;
-    public static final int[] MenuGroup;
-    public static final int MenuGroup_android_checkableBehavior = 5;
-    public static final int MenuGroup_android_enabled = 0;
-    public static final int MenuGroup_android_id = 1;
-    public static final int MenuGroup_android_menuCategory = 3;
-    public static final int MenuGroup_android_orderInCategory = 4;
-    public static final int MenuGroup_android_visible = 2;
-    public static final int[] MenuItem;
-    public static final int MenuItem_actionLayout = 13;
-    public static final int MenuItem_actionProviderClass = 14;
-    public static final int MenuItem_actionViewClass = 15;
-    public static final int MenuItem_alphabeticModifiers = 16;
-    public static final int MenuItem_android_alphabeticShortcut = 9;
-    public static final int MenuItem_android_checkable = 11;
-    public static final int MenuItem_android_checked = 3;
-    public static final int MenuItem_android_enabled = 1;
-    public static final int MenuItem_android_icon = 0;
-    public static final int MenuItem_android_id = 2;
-    public static final int MenuItem_android_menuCategory = 5;
-    public static final int MenuItem_android_numericShortcut = 10;
-    public static final int MenuItem_android_onClick = 12;
-    public static final int MenuItem_android_orderInCategory = 6;
-    public static final int MenuItem_android_title = 7;
-    public static final int MenuItem_android_titleCondensed = 8;
-    public static final int MenuItem_android_visible = 4;
-    public static final int MenuItem_contentDescription = 17;
-    public static final int MenuItem_iconTint = 18;
-    public static final int MenuItem_iconTintMode = 19;
-    public static final int MenuItem_numericModifiers = 20;
-    public static final int MenuItem_showAsAction = 21;
-    public static final int MenuItem_tooltipText = 22;
-    public static final int[] MenuView;
-    public static final int MenuView_android_headerBackground = 4;
-    public static final int MenuView_android_horizontalDivider = 2;
-    public static final int MenuView_android_itemBackground = 5;
-    public static final int MenuView_android_itemIconDisabledAlpha = 6;
-    public static final int MenuView_android_itemTextAppearance = 1;
-    public static final int MenuView_android_verticalDivider = 3;
-    public static final int MenuView_android_windowAnimationStyle = 0;
-    public static final int MenuView_preserveIconSpacing = 7;
-    public static final int MenuView_subMenuArrow = 8;
-    public static final int[] ModeAttr;
-    public static final int ModeAttr_tb_background = 0;
-    public static final int ModeAttr_tb_button = 1;
-    public static final int ModeAttr_tb_divider = 2;
-    public static final int ModeAttr_tb_drawableLeft = 3;
-    public static final int ModeAttr_tb_drawableRight = 4;
-    public static final int ModeAttr_tb_drawableTop = 5;
-    public static final int ModeAttr_tb_progressDrawable = 6;
-    public static final int ModeAttr_tb_src = 7;
-    public static final int ModeAttr_tb_style = 8;
-    public static final int ModeAttr_tb_textColor = 9;
-    public static final int ModeAttr_tb_textColorHint = 10;
-    public static final int[] NADUnifyTextView;
-    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
-    public static final int NADUnifyTextView_spannable_top_padding = 1;
-    public static final int[] NadBdThumbSeekBar;
-    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
-    public static final int[] NadEnhanceButtonView;
-    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
-    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
-    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
-    public static final int[] NadRoundProgressBar;
-    public static final int NadRoundProgressBar_max = 0;
-    public static final int NadRoundProgressBar_nad_style = 1;
-    public static final int NadRoundProgressBar_reverse = 2;
-    public static final int NadRoundProgressBar_roundColor = 3;
-    public static final int NadRoundProgressBar_roundHintTextSize = 4;
-    public static final int NadRoundProgressBar_roundMax = 5;
-    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
-    public static final int NadRoundProgressBar_roundProgressColor = 7;
-    public static final int NadRoundProgressBar_roundTextColor = 8;
-    public static final int NadRoundProgressBar_roundTextSize = 9;
-    public static final int NadRoundProgressBar_roundWidth = 10;
-    public static final int NadRoundProgressBar_textColor = 11;
-    public static final int NadRoundProgressBar_textIsDisplayable = 12;
-    public static final int NadRoundProgressBar_textSize = 13;
-    public static final int[] NadShadowViewGroup;
-    public static final int NadShadowViewGroup_containerCornerRadius = 0;
-    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
-    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
-    public static final int NadShadowViewGroup_containerShadowColor = 3;
-    public static final int NadShadowViewGroup_containerShadowRadius = 4;
-    public static final int NadShadowViewGroup_deltaX = 5;
-    public static final int NadShadowViewGroup_deltaY = 6;
-    public static final int NadShadowViewGroup_enable = 7;
-    public static final int NadShadowViewGroup_shadowAlpha = 8;
-    public static final int[] NadTextProgressView;
-    public static final int NadTextProgressView_nad_progressGravity = 0;
-    public static final int NadTextProgressView_nad_progressTextColor = 1;
-    public static final int NadTextProgressView_nad_progressTextMode = 2;
-    public static final int NadTextProgressView_nad_progressTextSize = 3;
-    public static final int[] NavigationBar;
-    public static final int NavigationBar_canSpread = 0;
-    public static final int[] NavigationView;
-    public static final int NavigationView_android_background = 0;
-    public static final int NavigationView_android_fitsSystemWindows = 1;
-    public static final int NavigationView_android_maxWidth = 2;
-    public static final int NavigationView_elevation = 3;
-    public static final int NavigationView_headerLayout = 4;
-    public static final int NavigationView_itemBackground = 5;
-    public static final int NavigationView_itemHorizontalPadding = 6;
-    public static final int NavigationView_itemIconPadding = 7;
-    public static final int NavigationView_itemIconSize = 8;
-    public static final int NavigationView_itemIconTint = 9;
-    public static final int NavigationView_itemMaxLines = 10;
-    public static final int NavigationView_itemShapeAppearance = 11;
-    public static final int NavigationView_itemShapeAppearanceOverlay = 12;
-    public static final int NavigationView_itemShapeFillColor = 13;
-    public static final int NavigationView_itemShapeInsetBottom = 14;
-    public static final int NavigationView_itemShapeInsetEnd = 15;
-    public static final int NavigationView_itemShapeInsetStart = 16;
-    public static final int NavigationView_itemShapeInsetTop = 17;
-    public static final int NavigationView_itemTextAppearance = 18;
-    public static final int NavigationView_itemTextColor = 19;
-    public static final int NavigationView_menu = 20;
-    public static final int[] PayUi_NoScrollGridView;
-    public static final int PayUi_NoScrollGridView_pay_ui_gv_max_height_dp = 0;
-    public static final int[] PayUi_RoundImageView;
-    public static final int PayUi_RoundImageView_payUiBottomLeftRadius = 0;
-    public static final int PayUi_RoundImageView_payUiBottomRightRadius = 1;
-    public static final int PayUi_RoundImageView_payUiTopLeftRadius = 2;
-    public static final int PayUi_RoundImageView_payUiTopRightRadius = 3;
-    public static final int[] Pay_Ui_Banner;
-    public static final int Pay_Ui_Banner_playUiAspectRatio = 0;
-    public static final int[] PbWriteToolView;
-    public static final int PbWriteToolView_audioDayBackground = 0;
-    public static final int PbWriteToolView_audioDayKeyBoard = 1;
-    public static final int PbWriteToolView_audioHeight = 2;
-    public static final int PbWriteToolView_audioNightBackground = 3;
-    public static final int PbWriteToolView_audioNightKeyBoard = 4;
-    public static final int PbWriteToolView_audioWidth = 5;
-    public static final int PbWriteToolView_hideAt = 6;
-    public static final int PbWriteToolView_hideAudio = 7;
-    public static final int PbWriteToolView_hideCamera = 8;
-    public static final int PbWriteToolView_hideFace = 9;
-    public static final int[] PlaybackControlView;
-    public static final int PlaybackControlView_controller_layout_id = 0;
-    public static final int PlaybackControlView_fastforward_increment = 1;
-    public static final int PlaybackControlView_repeat_toggle_modes = 2;
-    public static final int PlaybackControlView_rewind_increment = 3;
-    public static final int PlaybackControlView_show_shuffle_button = 4;
-    public static final int PlaybackControlView_show_timeout = 5;
-    public static final int[] PopupWindow;
-    public static final int[] PopupWindowBackgroundState;
-    public static final int PopupWindowBackgroundState_state_above_anchor = 0;
-    public static final int PopupWindow_android_popupAnimationStyle = 1;
-    public static final int PopupWindow_android_popupBackground = 0;
-    public static final int PopupWindow_overlapAnchor = 2;
-    public static final int PopupWindow_popupAnimationStyle = 3;
-    public static final int PopupWindow_popupBackground = 4;
-    public static final int[] ProgressCircle;
-    public static final int ProgressCircle_indeterminate = 0;
-    public static final int ProgressCircle_indeterminateArcSize = 1;
-    public static final int ProgressCircle_indeterminatePeriod = 2;
-    public static final int ProgressCircle_indeterminateProgressAccentColor = 3;
-    public static final int ProgressCircle_progressAccentColor = 4;
-    public static final int ProgressCircle_progressBackgroundColor = 5;
-    public static final int ProgressCircle_progressStrokeWidth = 6;
-    public static final int[] PullToRefresh;
-    public static final int PullToRefresh_tb_ptrAdapterViewBackground = 0;
-    public static final int PullToRefresh_tb_ptrAnimationStyle = 1;
-    public static final int PullToRefresh_tb_ptrDrawable = 2;
-    public static final int PullToRefresh_tb_ptrDrawableBottom = 3;
-    public static final int PullToRefresh_tb_ptrDrawableEnd = 4;
-    public static final int PullToRefresh_tb_ptrDrawableStart = 5;
-    public static final int PullToRefresh_tb_ptrDrawableTop = 6;
-    public static final int PullToRefresh_tb_ptrHeaderBackground = 7;
-    public static final int PullToRefresh_tb_ptrHeaderSubTextColor = 8;
-    public static final int PullToRefresh_tb_ptrHeaderTextAppearance = 9;
-    public static final int PullToRefresh_tb_ptrHeaderTextColor = 10;
-    public static final int PullToRefresh_tb_ptrListViewExtrasEnabled = 11;
-    public static final int PullToRefresh_tb_ptrMode = 12;
-    public static final int PullToRefresh_tb_ptrOverScroll = 13;
-    public static final int PullToRefresh_tb_ptrRefreshableViewBackground = 14;
-    public static final int PullToRefresh_tb_ptrRotateDrawableWhilePulling = 15;
-    public static final int PullToRefresh_tb_ptrScrollingWhileRefreshingEnabled = 16;
-    public static final int PullToRefresh_tb_ptrShowIndicator = 17;
-    public static final int PullToRefresh_tb_ptrSubHeaderTextAppearance = 18;
-    public static final int[] RadiusProgressView;
-    public static final int RadiusProgressView_android_max = 0;
-    public static final int RadiusProgressView_android_progress = 1;
-    public static final int RadiusProgressView_android_radius = 2;
-    public static final int RadiusProgressView_radiusProgressColor = 3;
-    public static final int RadiusProgressView_solidColor = 4;
-    public static final int[] RangeSlider;
-    public static final int RangeSlider_leftThumbDrawable = 0;
-    public static final int RangeSlider_leftThumbPadding = 1;
-    public static final int RangeSlider_lineColor = 2;
-    public static final int RangeSlider_lineHeight = 3;
-    public static final int RangeSlider_maskColor = 4;
-    public static final int RangeSlider_maskCoverColor = 5;
-    public static final int RangeSlider_rightThumbDrawable = 6;
-    public static final int RangeSlider_rightThumbPadding = 7;
-    public static final int RangeSlider_sliderType = 8;
-    public static final int RangeSlider_thumbHeight = 9;
-    public static final int RangeSlider_thumbWidth = 10;
-    public static final int RangeSlider_values = 11;
-    public static final int RangeSlider_verticalLineBeyond = 12;
-    public static final int RangeSlider_verticalLineWidth = 13;
-    public static final int[] RawLayout;
-    public static final int RawLayout_layout_raw = 0;
-    public static final int RawLayout_rawOrientation = 1;
-    public static final int RawLayout_spacingBottom = 2;
-    public static final int RawLayout_spacingTop = 3;
-    public static final int[] RecycleListView;
-    public static final int RecycleListView_paddingBottomNoButtons = 0;
-    public static final int RecycleListView_paddingTopNoTitle = 1;
-    public static final int[] RecyclerView;
-    public static final int RecyclerView_android_clipToPadding = 1;
-    public static final int RecyclerView_android_descendantFocusability = 2;
-    public static final int RecyclerView_android_orientation = 0;
-    public static final int RecyclerView_fastScrollEnabled = 3;
-    public static final int RecyclerView_fastScrollHorizontalThumbDrawable = 4;
-    public static final int RecyclerView_fastScrollHorizontalTrackDrawable = 5;
-    public static final int RecyclerView_fastScrollVerticalThumbDrawable = 6;
-    public static final int RecyclerView_fastScrollVerticalTrackDrawable = 7;
-    public static final int RecyclerView_layoutManager = 8;
-    public static final int RecyclerView_reverseLayout = 9;
-    public static final int RecyclerView_spanCount = 10;
-    public static final int RecyclerView_stackFromEnd = 11;
-    public static final int[] RefresherView;
-    public static final int RefresherView_direction = 0;
-    public static final int RefresherView_empty_view = 1;
-    public static final int RefresherView_max_height = 2;
-    public static final int RefresherView_refresher_content = 3;
-    public static final int RefresherView_refresher_head = 4;
-    public static final int RefresherView_threshold_height = 5;
-    public static final int[] RoundCornerRelativeLayout;
-    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
-    public static final int[] SVCircleProgressBar;
-    public static final int SVCircleProgressBar_svprogress_max = 0;
-    public static final int SVCircleProgressBar_svprogress_roundColor = 1;
-    public static final int SVCircleProgressBar_svprogress_roundProgressColor = 2;
-    public static final int SVCircleProgressBar_svprogress_roundWidth = 3;
-    public static final int SVCircleProgressBar_svprogress_style = 4;
-    public static final int[] SVGAImageView;
-    public static final int SVGAImageView_antiAlias = 0;
-    public static final int SVGAImageView_autoPlay = 1;
-    public static final int SVGAImageView_clearsAfterStop = 2;
-    public static final int SVGAImageView_fillMode = 3;
-    public static final int SVGAImageView_loopCount = 4;
-    public static final int SVGAImageView_source = 5;
-    public static final int[] SVGImageView;
-    public static final int SVGImageView_css = 0;
-    public static final int SVGImageView_svg = 1;
-    public static final int[] SapiSDKInputFormView;
-    public static final int SapiSDKInputFormView_SapiSdkHint = 0;
-    public static final int SapiSDKInputFormView_SapiSdkInputIcon = 1;
-    public static final int SapiSDKInputFormView_SapiSdkInputPhone = 2;
-    public static final int SapiSDKInputFormView_SapiSdkMaxLength = 3;
-    public static final int SapiSDKInputFormView_SapiSdkMinLines = 4;
-    public static final int SapiSDKInputFormView_SapiSdkShowInputBottomLine = 5;
-    public static final int SapiSDKInputFormView_SapiSdkSingleLine = 6;
-    public static final int[] SapiSdkScrollLayout;
-    public static final int SapiSdkScrollLayout_SapiSdkAllowHorizontalScroll = 0;
-    public static final int SapiSdkScrollLayout_SapiSdkExitOffset = 1;
-    public static final int SapiSdkScrollLayout_SapiSdkHalfOffset = 2;
-    public static final int SapiSdkScrollLayout_SapiSdkIsSupportExit = 3;
-    public static final int SapiSdkScrollLayout_SapiSdkMode = 4;
-    public static final int SapiSdkScrollLayout_SapiSdkOpenedOffset = 5;
-    public static final int[] SapiSdkSlidingTabLayout;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkDividerColor = 0;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkDividerPadding = 1;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkDividerWidth = 2;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorColor = 3;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorCornerRadius = 4;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorGravity = 5;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorHeight = 6;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginBottom = 7;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginLeft = 8;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginRight = 9;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorMarginTop = 10;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorStyle = 11;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorWidth = 12;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkIndicatorWidthEqualTitle = 13;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabPadding = 14;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabSpaceEqual = 15;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabTextAllCaps = 16;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabTextBold = 17;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabTextSelectColor = 18;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabTextSize = 19;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabTextUnselectColor = 20;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkTabWidth = 21;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkUnderlineColor = 22;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkUnderlineGravity = 23;
-    public static final int SapiSdkSlidingTabLayout_SapiSdkUnderlineHeight = 24;
-    public static final int[] SapiSdkTabMsgView;
-    public static final int SapiSdkTabMsgView_SapiSdkTabViewBackgroundColor = 0;
-    public static final int SapiSdkTabMsgView_SapiSdkTabViewCornerRadius = 1;
-    public static final int SapiSdkTabMsgView_SapiSdkTabViewIsRadiusHalfHeight = 2;
-    public static final int SapiSdkTabMsgView_SapiSdkTabViewIsWidthHeightEqual = 3;
-    public static final int SapiSdkTabMsgView_SapiSdkTabViewStrokeColor = 4;
-    public static final int SapiSdkTabMsgView_SapiSdkTabViewStrokeWidth = 5;
-    public static final int[] SapiSdkTextFormView;
-    public static final int SapiSdkTextFormView_SapiSdkActionText = 0;
-    public static final int SapiSdkTextFormView_SapiSdkShowTextBottomLine = 1;
-    public static final int[] ScanningView;
-    public static final int ScanningView_lightDuration = 0;
-    public static final int ScanningView_lightImage = 1;
-    public static final int[] ScrimInsetsFrameLayout;
-    public static final int ScrimInsetsFrameLayout_insetForeground = 0;
-    public static final int[] ScrollingViewBehavior_Layout;
-    public static final int ScrollingViewBehavior_Layout_behavior_overlapTop = 0;
-    public static final int[] SearchView;
-    public static final int SearchView_android_focusable = 0;
-    public static final int SearchView_android_imeOptions = 3;
-    public static final int SearchView_android_inputType = 2;
-    public static final int SearchView_android_maxWidth = 1;
-    public static final int SearchView_closeIcon = 4;
-    public static final int SearchView_commitIcon = 5;
-    public static final int SearchView_defaultQueryHint = 6;
-    public static final int SearchView_goIcon = 7;
-    public static final int SearchView_iconifiedByDefault = 8;
-    public static final int SearchView_layout = 9;
-    public static final int SearchView_queryBackground = 10;
-    public static final int SearchView_queryHint = 11;
-    public static final int SearchView_searchHintIcon = 12;
-    public static final int SearchView_searchIcon = 13;
-    public static final int SearchView_submitBackground = 14;
-    public static final int SearchView_suggestionRowLayout = 15;
-    public static final int SearchView_voiceIcon = 16;
-    public static final int[] ShapeAppearance;
-    public static final int ShapeAppearance_cornerFamily = 0;
-    public static final int ShapeAppearance_cornerFamilyBottomLeft = 1;
-    public static final int ShapeAppearance_cornerFamilyBottomRight = 2;
-    public static final int ShapeAppearance_cornerFamilyTopLeft = 3;
-    public static final int ShapeAppearance_cornerFamilyTopRight = 4;
-    public static final int ShapeAppearance_cornerSize = 5;
-    public static final int ShapeAppearance_cornerSizeBottomLeft = 6;
-    public static final int ShapeAppearance_cornerSizeBottomRight = 7;
-    public static final int ShapeAppearance_cornerSizeTopLeft = 8;
-    public static final int ShapeAppearance_cornerSizeTopRight = 9;
-    public static final int[] ShapeableImageView;
-    public static final int ShapeableImageView_shapeAppearance = 0;
-    public static final int ShapeableImageView_shapeAppearanceOverlay = 1;
-    public static final int ShapeableImageView_strokeColor = 2;
-    public static final int ShapeableImageView_strokeWidth = 3;
-    public static final int[] SimpleAdInfoView;
-    public static final int SimpleAdInfoView_layoutId = 0;
-    public static final int[] SimpleCountDownView;
-    public static final int SimpleCountDownView_count_down_margin = 0;
-    public static final int SimpleCountDownView_count_down_timeColor = 1;
-    public static final int SimpleCountDownView_count_down_timeRectColor = 2;
-    public static final int SimpleCountDownView_count_down_timeRectHeight = 3;
-    public static final int SimpleCountDownView_count_down_timeRectRadius = 4;
-    public static final int SimpleCountDownView_count_down_timeRectWidth = 5;
-    public static final int SimpleCountDownView_count_down_timeSize = 6;
-    public static final int SimpleCountDownView_count_down_unitColor = 7;
-    public static final int SimpleCountDownView_count_down_unitSize = 8;
-    public static final int[] SimpleDraweeView;
-    public static final int SimpleDraweeView_actualImageResource = 0;
-    public static final int SimpleDraweeView_actualImageScaleType = 1;
-    public static final int SimpleDraweeView_actualImageUri = 2;
-    public static final int SimpleDraweeView_backgroundImage = 3;
-    public static final int SimpleDraweeView_fadeDuration = 4;
-    public static final int SimpleDraweeView_failureImage = 5;
-    public static final int SimpleDraweeView_failureImageScaleType = 6;
-    public static final int SimpleDraweeView_overlayImage = 7;
-    public static final int SimpleDraweeView_placeholderImage = 8;
-    public static final int SimpleDraweeView_placeholderImageScaleType = 9;
-    public static final int SimpleDraweeView_pressedStateOverlayImage = 10;
-    public static final int SimpleDraweeView_progressBarAutoRotateInterval = 11;
-    public static final int SimpleDraweeView_progressBarImage = 12;
-    public static final int SimpleDraweeView_progressBarImageScaleType = 13;
-    public static final int SimpleDraweeView_retryImage = 14;
-    public static final int SimpleDraweeView_retryImageScaleType = 15;
-    public static final int SimpleDraweeView_roundAsCircle = 16;
-    public static final int SimpleDraweeView_roundBottomEnd = 17;
-    public static final int SimpleDraweeView_roundBottomLeft = 18;
-    public static final int SimpleDraweeView_roundBottomRight = 19;
-    public static final int SimpleDraweeView_roundBottomStart = 20;
-    public static final int SimpleDraweeView_roundTopEnd = 21;
-    public static final int SimpleDraweeView_roundTopLeft = 22;
-    public static final int SimpleDraweeView_roundTopRight = 23;
-    public static final int SimpleDraweeView_roundTopStart = 24;
-    public static final int SimpleDraweeView_roundWithOverlayColor = 25;
-    public static final int SimpleDraweeView_roundedCornerRadius = 26;
-    public static final int SimpleDraweeView_roundingBorderColor = 27;
-    public static final int SimpleDraweeView_roundingBorderPadding = 28;
-    public static final int SimpleDraweeView_roundingBorderWidth = 29;
-    public static final int SimpleDraweeView_viewAspectRatio = 30;
-    public static final int[] SimpleExoPlayerView;
-    public static final int SimpleExoPlayerView_auto_show = 0;
-    public static final int SimpleExoPlayerView_controller_layout_id = 1;
-    public static final int SimpleExoPlayerView_default_artwork = 2;
-    public static final int SimpleExoPlayerView_fastforward_increment = 3;
-    public static final int SimpleExoPlayerView_hide_on_touch = 4;
-    public static final int SimpleExoPlayerView_player_layout_id = 5;
-    public static final int SimpleExoPlayerView_resize_mode = 6;
-    public static final int SimpleExoPlayerView_rewind_increment = 7;
-    public static final int SimpleExoPlayerView_show_timeout = 8;
-    public static final int SimpleExoPlayerView_shutter_background_color = 9;
-    public static final int SimpleExoPlayerView_surface_type = 10;
-    public static final int SimpleExoPlayerView_use_artwork = 11;
-    public static final int SimpleExoPlayerView_use_controller = 12;
-    public static final int[] Slider;
-    public static final int Slider_android_enabled = 0;
-    public static final int Slider_android_stepSize = 2;
-    public static final int Slider_android_value = 1;
-    public static final int Slider_android_valueFrom = 3;
-    public static final int Slider_android_valueTo = 4;
-    public static final int Slider_haloColor = 5;
-    public static final int Slider_haloRadius = 6;
-    public static final int Slider_labelBehavior = 7;
-    public static final int Slider_labelStyle = 8;
-    public static final int Slider_thumbColor = 9;
-    public static final int Slider_thumbElevation = 10;
-    public static final int Slider_thumbRadius = 11;
-    public static final int Slider_tickColor = 12;
-    public static final int Slider_tickColorActive = 13;
-    public static final int Slider_tickColorInactive = 14;
-    public static final int Slider_trackColor = 15;
-    public static final int Slider_trackColorActive = 16;
-    public static final int Slider_trackColorInactive = 17;
-    public static final int Slider_trackHeight = 18;
-    public static final int[] Snackbar;
-    public static final int[] SnackbarLayout;
-    public static final int SnackbarLayout_actionTextColorAlpha = 1;
-    public static final int SnackbarLayout_android_maxWidth = 0;
-    public static final int SnackbarLayout_animationMode = 2;
-    public static final int SnackbarLayout_backgroundOverlayColorAlpha = 3;
-    public static final int SnackbarLayout_backgroundTint = 4;
-    public static final int SnackbarLayout_backgroundTintMode = 5;
-    public static final int SnackbarLayout_elevation = 6;
-    public static final int SnackbarLayout_maxActionInlineWidth = 7;
-    public static final int Snackbar_snackbarButtonStyle = 0;
-    public static final int Snackbar_snackbarStyle = 1;
-    public static final int Snackbar_snackbarTextViewStyle = 2;
-    public static final int[] SortSwitchButton;
-    public static final int SortSwitchButton_background_border_alpha = 0;
-    public static final int SortSwitchButton_background_border_color = 1;
-    public static final int SortSwitchButton_background_border_width = 2;
-    public static final int SortSwitchButton_background_color = 3;
-    public static final int SortSwitchButton_selected_text_color = 4;
-    public static final int SortSwitchButton_slide_border_color = 5;
-    public static final int SortSwitchButton_slide_border_width = 6;
-    public static final int SortSwitchButton_slide_color = 7;
-    public static final int SortSwitchButton_slide_height = 8;
-    public static final int SortSwitchButton_slide_need_sync = 9;
-    public static final int SortSwitchButton_text_horizontal_padding = 10;
-    public static final int SortSwitchButton_text_size = 11;
-    public static final int SortSwitchButton_un_selected_text_color = 12;
-    public static final int[] Spinner;
-    public static final int Spinner_android_dropDownWidth = 3;
-    public static final int Spinner_android_entries = 0;
-    public static final int Spinner_android_popupBackground = 1;
-    public static final int Spinner_android_prompt = 2;
-    public static final int Spinner_popupTheme = 4;
-    public static final int[] StateListDrawable;
-    public static final int[] StateListDrawableItem;
-    public static final int StateListDrawableItem_android_drawable = 0;
-    public static final int StateListDrawable_android_constantSize = 3;
-    public static final int StateListDrawable_android_dither = 0;
-    public static final int StateListDrawable_android_enterFadeDuration = 4;
-    public static final int StateListDrawable_android_exitFadeDuration = 5;
-    public static final int StateListDrawable_android_variablePadding = 2;
-    public static final int StateListDrawable_android_visible = 1;
-    public static final int[] SubsamplingScaleImageView;
-    public static final int SubsamplingScaleImageView_assetName = 0;
-    public static final int SubsamplingScaleImageView_panEnabled = 1;
-    public static final int SubsamplingScaleImageView_quickScaleEnabled = 2;
-    public static final int SubsamplingScaleImageView_src = 3;
-    public static final int SubsamplingScaleImageView_tileBackgroundColor = 4;
-    public static final int SubsamplingScaleImageView_zoomEnabled = 5;
-    public static final int[] SwitchCompat;
-    public static final int SwitchCompat_android_textOff = 1;
-    public static final int SwitchCompat_android_textOn = 0;
-    public static final int SwitchCompat_android_thumb = 2;
-    public static final int SwitchCompat_showText = 3;
-    public static final int SwitchCompat_splitTrack = 4;
-    public static final int SwitchCompat_switchMinWidth = 5;
-    public static final int SwitchCompat_switchPadding = 6;
-    public static final int SwitchCompat_switchTextAppearance = 7;
-    public static final int SwitchCompat_thumbTextPadding = 8;
-    public static final int SwitchCompat_thumbTint = 9;
-    public static final int SwitchCompat_thumbTintMode = 10;
-    public static final int SwitchCompat_track = 11;
-    public static final int SwitchCompat_trackTint = 12;
-    public static final int SwitchCompat_trackTintMode = 13;
-    public static final int[] SwitchMaterial;
-    public static final int SwitchMaterial_useMaterialThemeColors = 0;
-    public static final int[] TBProgressButton;
-    public static final int TBProgressButton_btnBackgroundAlpha = 0;
-    public static final int TBProgressButton_btnBackgroundColor = 1;
-    public static final int TBProgressButton_btnColorStyle = 2;
-    public static final int TBProgressButton_btnText = 3;
-    public static final int TBProgressButton_btnTextSize = 4;
-    public static final int TBProgressButton_textColorInit = 5;
-    public static final int TBProgressButton_textColorProgress = 6;
-    public static final int[] TabItem;
-    public static final int TabItem_android_icon = 0;
-    public static final int TabItem_android_layout = 1;
-    public static final int TabItem_android_text = 2;
-    public static final int[] TabLayout;
-    public static final int TabLayout_tabBackground = 0;
-    public static final int TabLayout_tabContentStart = 1;
-    public static final int TabLayout_tabGravity = 2;
-    public static final int TabLayout_tabIconTint = 3;
-    public static final int TabLayout_tabIconTintMode = 4;
-    public static final int TabLayout_tabIndicator = 5;
-    public static final int TabLayout_tabIndicatorAnimationDuration = 6;
-    public static final int TabLayout_tabIndicatorColor = 7;
-    public static final int TabLayout_tabIndicatorFullWidth = 8;
-    public static final int TabLayout_tabIndicatorGravity = 9;
-    public static final int TabLayout_tabIndicatorHeight = 10;
-    public static final int TabLayout_tabInlineLabel = 11;
-    public static final int TabLayout_tabMaxWidth = 12;
-    public static final int TabLayout_tabMinWidth = 13;
-    public static final int TabLayout_tabMode = 14;
-    public static final int TabLayout_tabPadding = 15;
-    public static final int TabLayout_tabPaddingBottom = 16;
-    public static final int TabLayout_tabPaddingEnd = 17;
-    public static final int TabLayout_tabPaddingStart = 18;
-    public static final int TabLayout_tabPaddingTop = 19;
-    public static final int TabLayout_tabRippleColor = 20;
-    public static final int TabLayout_tabSelectedTextColor = 21;
-    public static final int TabLayout_tabTextAppearance = 22;
-    public static final int TabLayout_tabTextColor = 23;
-    public static final int TabLayout_tabUnboundedRipple = 24;
-    public static final int[] TbFrescoImage;
-    public static final int TbFrescoImage_tb_circleType = 0;
-    public static final int TbFrescoImage_tb_cornerRadius = 1;
-    public static final int TbFrescoImage_tb_errorHolder = 2;
-    public static final int TbFrescoImage_tb_holder = 3;
-    public static final int TbFrescoImage_tb_imageScaleType = 4;
-    public static final int TbFrescoImage_tb_leftBottomRadius = 5;
-    public static final int TbFrescoImage_tb_leftTopRadius = 6;
-    public static final int TbFrescoImage_tb_rightBottomRadius = 7;
-    public static final int TbFrescoImage_tb_rightTopRadius = 8;
-    public static final int[] TbImageView;
-    public static final int TbImageView_isShowGifTag = 0;
-    public static final int[] TbRichTextView;
-    public static final int TbRichTextView_defaultImage = 0;
-    public static final int TbRichTextView_faceHeight = 1;
-    public static final int TbRichTextView_faceWidth = 2;
-    public static final int TbRichTextView_includeFontPadding = 3;
-    public static final int TbRichTextView_linkColor = 4;
-    public static final int TbRichTextView_maxImageHeight = 5;
-    public static final int TbRichTextView_maxImageWidth = 6;
-    public static final int TbRichTextView_segmentMargin = 7;
-    public static final int TbRichTextView_singleLine = 8;
-    public static final int TbRichTextView_tbLineSpacing = 9;
-    public static final int TbRichTextView_textColor = 10;
-    public static final int TbRichTextView_textPadding = 11;
-    public static final int TbRichTextView_textSize = 12;
-    public static final int TbRichTextView_videoImage = 13;
-    public static final int[] TbSettingView;
-    public static final int TbSettingView_settingShowArraw = 0;
-    public static final int TbSettingView_settingText = 1;
-    public static final int TbSettingView_settingTextColor = 2;
-    public static final int TbSettingView_settingTextSize = 3;
-    public static final int TbSettingView_settingTip = 4;
-    public static final int TbSettingView_settingTipColor = 5;
-    public static final int[] TbTabLayout;
-    public static final int TbTabLayout_tabIndicatorWidth = 0;
-    public static final int[] TextAppearance;
-    public static final int TextAppearance_android_fontFamily = 10;
-    public static final int TextAppearance_android_shadowColor = 6;
-    public static final int TextAppearance_android_shadowDx = 7;
-    public static final int TextAppearance_android_shadowDy = 8;
-    public static final int TextAppearance_android_shadowRadius = 9;
-    public static final int TextAppearance_android_textColor = 3;
-    public static final int TextAppearance_android_textColorHint = 4;
-    public static final int TextAppearance_android_textColorLink = 5;
-    public static final int TextAppearance_android_textFontWeight = 11;
-    public static final int TextAppearance_android_textSize = 0;
-    public static final int TextAppearance_android_textStyle = 2;
-    public static final int TextAppearance_android_typeface = 1;
-    public static final int TextAppearance_fontFamily = 12;
-    public static final int TextAppearance_fontVariationSettings = 13;
-    public static final int TextAppearance_textAllCaps = 14;
-    public static final int TextAppearance_textLocale = 15;
-    public static final int[] TextInputEditText;
-    public static final int TextInputEditText_textInputLayoutFocusedRectEnabled = 0;
-    public static final int[] TextInputLayout;
-    public static final int TextInputLayout_android_enabled = 0;
-    public static final int TextInputLayout_android_hint = 2;
-    public static final int TextInputLayout_android_textColorHint = 1;
-    public static final int TextInputLayout_boxBackgroundColor = 3;
-    public static final int TextInputLayout_boxBackgroundMode = 4;
-    public static final int TextInputLayout_boxCollapsedPaddingTop = 5;
-    public static final int TextInputLayout_boxCornerRadiusBottomEnd = 6;
-    public static final int TextInputLayout_boxCornerRadiusBottomStart = 7;
-    public static final int TextInputLayout_boxCornerRadiusTopEnd = 8;
-    public static final int TextInputLayout_boxCornerRadiusTopStart = 9;
-    public static final int TextInputLayout_boxStrokeColor = 10;
-    public static final int TextInputLayout_boxStrokeErrorColor = 11;
-    public static final int TextInputLayout_boxStrokeWidth = 12;
-    public static final int TextInputLayout_boxStrokeWidthFocused = 13;
-    public static final int TextInputLayout_counterEnabled = 14;
-    public static final int TextInputLayout_counterMaxLength = 15;
-    public static final int TextInputLayout_counterOverflowTextAppearance = 16;
-    public static final int TextInputLayout_counterOverflowTextColor = 17;
-    public static final int TextInputLayout_counterTextAppearance = 18;
-    public static final int TextInputLayout_counterTextColor = 19;
-    public static final int TextInputLayout_endIconCheckable = 20;
-    public static final int TextInputLayout_endIconContentDescription = 21;
-    public static final int TextInputLayout_endIconDrawable = 22;
-    public static final int TextInputLayout_endIconMode = 23;
-    public static final int TextInputLayout_endIconTint = 24;
-    public static final int TextInputLayout_endIconTintMode = 25;
-    public static final int TextInputLayout_errorContentDescription = 26;
-    public static final int TextInputLayout_errorEnabled = 27;
-    public static final int TextInputLayout_errorIconDrawable = 28;
-    public static final int TextInputLayout_errorIconTint = 29;
-    public static final int TextInputLayout_errorIconTintMode = 30;
-    public static final int TextInputLayout_errorTextAppearance = 31;
-    public static final int TextInputLayout_errorTextColor = 32;
-    public static final int TextInputLayout_helperText = 33;
-    public static final int TextInputLayout_helperTextEnabled = 34;
-    public static final int TextInputLayout_helperTextTextAppearance = 35;
-    public static final int TextInputLayout_helperTextTextColor = 36;
-    public static final int TextInputLayout_hintAnimationEnabled = 37;
-    public static final int TextInputLayout_hintEnabled = 38;
-    public static final int TextInputLayout_hintTextAppearance = 39;
-    public static final int TextInputLayout_hintTextColor = 40;
-    public static final int TextInputLayout_passwordToggleContentDescription = 41;
-    public static final int TextInputLayout_passwordToggleDrawable = 42;
-    public static final int TextInputLayout_passwordToggleEnabled = 43;
-    public static final int TextInputLayout_passwordToggleTint = 44;
-    public static final int TextInputLayout_passwordToggleTintMode = 45;
-    public static final int TextInputLayout_placeholderText = 46;
-    public static final int TextInputLayout_placeholderTextAppearance = 47;
-    public static final int TextInputLayout_placeholderTextColor = 48;
-    public static final int TextInputLayout_prefixText = 49;
-    public static final int TextInputLayout_prefixTextAppearance = 50;
-    public static final int TextInputLayout_prefixTextColor = 51;
-    public static final int TextInputLayout_shapeAppearance = 52;
-    public static final int TextInputLayout_shapeAppearanceOverlay = 53;
-    public static final int TextInputLayout_startIconCheckable = 54;
-    public static final int TextInputLayout_startIconContentDescription = 55;
-    public static final int TextInputLayout_startIconDrawable = 56;
-    public static final int TextInputLayout_startIconTint = 57;
-    public static final int TextInputLayout_startIconTintMode = 58;
-    public static final int TextInputLayout_suffixText = 59;
-    public static final int TextInputLayout_suffixTextAppearance = 60;
-    public static final int TextInputLayout_suffixTextColor = 61;
-    public static final int[] ThemeEnforcement;
-    public static final int ThemeEnforcement_android_textAppearance = 0;
-    public static final int ThemeEnforcement_enforceMaterialTheme = 1;
-    public static final int ThemeEnforcement_enforceTextAppearance = 2;
-    public static final int[] Toolbar;
-    public static final int Toolbar_android_gravity = 0;
-    public static final int Toolbar_android_minHeight = 1;
-    public static final int Toolbar_buttonGravity = 2;
-    public static final int Toolbar_collapseContentDescription = 3;
-    public static final int Toolbar_collapseIcon = 4;
-    public static final int Toolbar_contentInsetEnd = 5;
-    public static final int Toolbar_contentInsetEndWithActions = 6;
-    public static final int Toolbar_contentInsetLeft = 7;
-    public static final int Toolbar_contentInsetRight = 8;
-    public static final int Toolbar_contentInsetStart = 9;
-    public static final int Toolbar_contentInsetStartWithNavigation = 10;
-    public static final int Toolbar_logo = 11;
-    public static final int Toolbar_logoDescription = 12;
-    public static final int Toolbar_maxButtonHeight = 13;
-    public static final int Toolbar_menu = 14;
-    public static final int Toolbar_navigationContentDescription = 15;
-    public static final int Toolbar_navigationIcon = 16;
-    public static final int Toolbar_popupTheme = 17;
-    public static final int Toolbar_subtitle = 18;
-    public static final int Toolbar_subtitleTextAppearance = 19;
-    public static final int Toolbar_subtitleTextColor = 20;
-    public static final int Toolbar_title = 21;
-    public static final int Toolbar_titleMargin = 22;
-    public static final int Toolbar_titleMarginBottom = 23;
-    public static final int Toolbar_titleMarginEnd = 24;
-    public static final int Toolbar_titleMarginStart = 25;
-    public static final int Toolbar_titleMarginTop = 26;
-    public static final int Toolbar_titleMargins = 27;
-    public static final int Toolbar_titleTextAppearance = 28;
-    public static final int Toolbar_titleTextColor = 29;
-    public static final int[] Tooltip;
-    public static final int Tooltip_android_layout_margin = 2;
-    public static final int Tooltip_android_minHeight = 4;
-    public static final int Tooltip_android_minWidth = 3;
-    public static final int Tooltip_android_padding = 1;
-    public static final int Tooltip_android_text = 5;
-    public static final int Tooltip_android_textAppearance = 0;
-    public static final int Tooltip_backgroundTint = 6;
-    public static final int[] TopBar;
-    public static final int TopBar_color_dark = 0;
-    public static final int TopBar_left = 1;
-    public static final int TopBar_leftText = 2;
-    public static final int TopBar_mid = 3;
-    public static final int TopBar_right = 4;
-    public static final int TopBar_rightText = 5;
-    public static final int TopBar_titleDrawable = 6;
-    public static final int TopBar_titleText = 7;
-    public static final int[] UFOShimmerFrameLayout;
-    public static final int UFOShimmerFrameLayout_ufo_angle = 0;
-    public static final int UFOShimmerFrameLayout_ufo_auto_start = 1;
-    public static final int UFOShimmerFrameLayout_ufo_base_alpha = 2;
-    public static final int UFOShimmerFrameLayout_ufo_dropoff = 3;
-    public static final int UFOShimmerFrameLayout_ufo_duration = 4;
-    public static final int UFOShimmerFrameLayout_ufo_fixed_height = 5;
-    public static final int UFOShimmerFrameLayout_ufo_fixed_width = 6;
-    public static final int UFOShimmerFrameLayout_ufo_intensity = 7;
-    public static final int UFOShimmerFrameLayout_ufo_relative_height = 8;
-    public static final int UFOShimmerFrameLayout_ufo_relative_width = 9;
-    public static final int UFOShimmerFrameLayout_ufo_repeat_count = 10;
-    public static final int UFOShimmerFrameLayout_ufo_repeat_delay = 11;
-    public static final int UFOShimmerFrameLayout_ufo_repeat_mode = 12;
-    public static final int UFOShimmerFrameLayout_ufo_shape = 13;
-    public static final int UFOShimmerFrameLayout_ufo_tilt = 14;
-    public static final int[] UFOTitleBar;
-    public static final int UFOTitleBar_logo = 0;
-    public static final int UFOTitleBar_title = 1;
-    public static final int[] ValidationWebView;
-    public static final int ValidationWebView_bottom_left = 0;
-    public static final int ValidationWebView_bottom_right = 1;
-    public static final int ValidationWebView_top_left = 2;
-    public static final int ValidationWebView_top_right = 3;
-    public static final int[] VerticalTranslateLayout;
-    public static final int VerticalTranslateLayout_bottomHeight = 0;
-    public static final int VerticalTranslateLayout_bottomOffset = 1;
-    public static final int VerticalTranslateLayout_tapBack = 2;
-    public static final int VerticalTranslateLayout_topHeight = 3;
-    public static final int VerticalTranslateLayout_topOffset = 4;
-    public static final int VerticalTranslateLayout_transBackground = 5;
-    public static final int VerticalTranslateLayout_transTrack = 6;
-    public static final int[] View;
-    public static final int[] ViewBackgroundHelper;
-    public static final int ViewBackgroundHelper_android_background = 0;
-    public static final int ViewBackgroundHelper_backgroundTint = 1;
-    public static final int ViewBackgroundHelper_backgroundTintMode = 2;
-    public static final int[] ViewPager2;
-    public static final int ViewPager2_android_orientation = 0;
-    public static final int[] ViewStubCompat;
-    public static final int ViewStubCompat_android_id = 0;
-    public static final int ViewStubCompat_android_inflatedId = 2;
-    public static final int ViewStubCompat_android_layout = 1;
-    public static final int View_accessibilityFocusable = 2;
-    public static final int View_alpha = 3;
-    public static final int View_android_focusable = 1;
-    public static final int View_android_theme = 0;
-    public static final int View_clickable = 4;
-    public static final int View_contentDescription = 5;
-    public static final int View_drawingCacheQuality = 6;
-    public static final int View_duplicateParentState = 7;
-    public static final int View_fadeScrollbars = 8;
-    public static final int View_fadingEdge = 9;
-    public static final int View_fadingEdgeLength = 10;
-    public static final int View_filterTouchesWhenObscured = 11;
-    public static final int View_fitsSystemWindows = 12;
-    public static final int View_focusable = 13;
-    public static final int View_focusableInTouchMode = 14;
-    public static final int View_hapticFeedbackEnabled = 15;
-    public static final int View_id = 16;
-    public static final int View_importantForAccessibility = 17;
-    public static final int View_isScrollContainer = 18;
-    public static final int View_keepScreenOn = 19;
-    public static final int View_layerType = 20;
-    public static final int View_layoutDirection = 21;
-    public static final int View_longClickable = 24;
-    public static final int View_minHeight = 22;
-    public static final int View_minWidth = 23;
-    public static final int View_nextFocusDown = 25;
-    public static final int View_nextFocusForward = 26;
-    public static final int View_nextFocusLeft = 27;
-    public static final int View_nextFocusRight = 28;
-    public static final int View_nextFocusUp = 29;
-    public static final int View_onClick = 30;
-    public static final int View_overScrollMode = 31;
-    public static final int View_padding = 32;
-    public static final int View_paddingBottom = 33;
-    public static final int View_paddingEnd = 34;
-    public static final int View_paddingLeft = 35;
-    public static final int View_paddingRight = 36;
-    public static final int View_paddingStart = 37;
-    public static final int View_paddingTop = 38;
-    public static final int View_requiresFadingEdge = 39;
-    public static final int View_rotation = 40;
-    public static final int View_rotationX = 41;
-    public static final int View_rotationY = 42;
-    public static final int View_saveEnabled = 43;
-    public static final int View_scaleX = 44;
-    public static final int View_scaleY = 45;
-    public static final int View_scrollX = 46;
-    public static final int View_scrollY = 47;
-    public static final int View_scrollbarAlwaysDrawHorizontalTrack = 48;
-    public static final int View_scrollbarAlwaysDrawVerticalTrack = 49;
-    public static final int View_scrollbarDefaultDelayBeforeFade = 50;
-    public static final int View_scrollbarFadeDuration = 51;
-    public static final int View_scrollbarSize = 52;
-    public static final int View_scrollbarStyle = 53;
-    public static final int View_scrollbarThumbHorizontal = 54;
-    public static final int View_scrollbarThumbVertical = 55;
-    public static final int View_scrollbarTrackHorizontal = 56;
-    public static final int View_scrollbarTrackVertical = 57;
-    public static final int View_scrollbars = 58;
-    public static final int View_soundEffectsEnabled = 59;
-    public static final int View_tag = 60;
-    public static final int View_textAlignment = 61;
-    public static final int View_textDirection = 62;
-    public static final int View_theme = 63;
-    public static final int View_transformPivotX = 64;
-    public static final int View_transformPivotY = 65;
-    public static final int View_translationX = 66;
-    public static final int View_translationY = 67;
-    public static final int View_verticalScrollbarPosition = 68;
-    public static final int View_visibility = 69;
-    public static final int[] VipAdFreeGuideLayout;
-    public static final int VipAdFreeGuideLayout_icon_size = 0;
-    public static final int VipAdFreeGuideLayout_is_panel = 1;
-    public static final int[] Voice_play_type;
-    public static final int Voice_play_type_play_type = 0;
-    public static final int[] XGridLayout;
-    public static final int XGridLayout_gridHorizontalSpace = 0;
-    public static final int XGridLayout_gridIsSquare = 1;
-    public static final int XGridLayout_gridMaxItem = 2;
-    public static final int XGridLayout_gridSpan = 3;
-    public static final int XGridLayout_gridVerticalSpace = 4;
-    public static final int[] bdvideoplayer_bdPlayerProgressView;
-    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressGravity = 0;
-    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextColor = 1;
-    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextMode = 2;
-    public static final int bdvideoplayer_bdPlayerProgressView_bdvideoplayer_progressTextSize = 3;
-    public static final int[] crius;
-    public static final int crius_cr_alignContent = 0;
-    public static final int crius_cr_alignItems = 1;
-    public static final int crius_cr_alignSelf = 2;
-    public static final int crius_cr_aspectRatio = 3;
-    public static final int crius_cr_borderAll = 4;
-    public static final int crius_cr_borderBottom = 5;
-    public static final int crius_cr_borderEnd = 6;
-    public static final int crius_cr_borderHorizontal = 7;
-    public static final int crius_cr_borderLeft = 8;
-    public static final int crius_cr_borderRight = 9;
-    public static final int crius_cr_borderStart = 10;
-    public static final int crius_cr_borderTop = 11;
-    public static final int crius_cr_borderVertical = 12;
-    public static final int crius_cr_direction = 13;
-    public static final int crius_cr_display = 14;
-    public static final int crius_cr_flex = 15;
-    public static final int crius_cr_flexBasis = 16;
-    public static final int crius_cr_flexDirection = 17;
-    public static final int crius_cr_flexGrow = 18;
-    public static final int crius_cr_flexShrink = 19;
-    public static final int crius_cr_height = 20;
-    public static final int crius_cr_justifyContent = 21;
-    public static final int crius_cr_marginAll = 22;
-    public static final int crius_cr_marginBottom = 23;
-    public static final int crius_cr_marginEnd = 24;
-    public static final int crius_cr_marginHorizontal = 25;
-    public static final int crius_cr_marginLeft = 26;
-    public static final int crius_cr_marginRight = 27;
-    public static final int crius_cr_marginStart = 28;
-    public static final int crius_cr_marginTop = 29;
-    public static final int crius_cr_marginVertical = 30;
-    public static final int crius_cr_maxHeight = 31;
-    public static final int crius_cr_maxWidth = 32;
-    public static final int crius_cr_minHeight = 33;
-    public static final int crius_cr_minWidth = 34;
-    public static final int crius_cr_overflow = 35;
-    public static final int crius_cr_paddingAll = 36;
-    public static final int crius_cr_paddingBottom = 37;
-    public static final int crius_cr_paddingEnd = 38;
-    public static final int crius_cr_paddingHorizontal = 39;
-    public static final int crius_cr_paddingLeft = 40;
-    public static final int crius_cr_paddingRight = 41;
-    public static final int crius_cr_paddingStart = 42;
-    public static final int crius_cr_paddingTop = 43;
-    public static final int crius_cr_paddingVertical = 44;
-    public static final int crius_cr_positionAll = 45;
-    public static final int crius_cr_positionBottom = 46;
-    public static final int crius_cr_positionEnd = 47;
-    public static final int crius_cr_positionHorizontal = 48;
-    public static final int crius_cr_positionLeft = 49;
-    public static final int crius_cr_positionRight = 50;
-    public static final int crius_cr_positionStart = 51;
-    public static final int crius_cr_positionTop = 52;
-    public static final int crius_cr_positionType = 53;
-    public static final int crius_cr_positionVertical = 54;
-    public static final int crius_cr_width = 55;
-    public static final int crius_cr_wrap = 56;
-    public static final int[] custom_state;
-    public static final int custom_state_custom_state_focused = 0;
-    public static final int custom_state_custom_state_skin = 1;
-    public static final int[] fixtextview;
-    public static final int fixtextview_measuretext = 0;
-    public static final int[] moreTabWidget;
-    public static final int moreTabWidget_widget_icon = 0;
-    public static final int moreTabWidget_widget_text = 1;
-    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
-    public static final int[] nad_progress;
-    public static final int nad_progress_nad_btn_foreground = 0;
-    public static final int nad_progress_nad_btn_foreground_end = 1;
-    public static final int nad_progress_nad_btn_max = 2;
-    public static final int nad_progress_nad_btn_prefix_icon = 3;
-    public static final int nad_progress_nad_btn_progress = 4;
-    public static final int nad_progress_nad_btn_radius = 5;
-    public static final int nad_progress_nad_btn_text = 6;
-    public static final int nad_progress_nad_btn_textBold = 7;
-    public static final int nad_progress_nad_btn_textColor = 8;
-    public static final int nad_progress_nad_btn_textSize = 9;
-    public static final int nad_progress_nad_prefix_icon_height = 10;
-    public static final int nad_progress_nad_prefix_icon_show = 11;
-    public static final int nad_progress_nad_prefix_icon_width = 12;
-    public static final int[] noNetworkView;
-    public static final int noNetworkView_is_support_offline = 0;
-    public static final int[] pass_liveness_CircleCameraLayout;
-    public static final int pass_liveness_CircleCameraLayout_pass_liveness_border_width = 0;
-    public static final int pass_liveness_CircleCameraLayout_pass_liveness_circle_camera_height = 1;
-    public static final int pass_liveness_CircleCameraLayout_pass_liveness_circle_camera_width = 2;
-    public static final int[] pass_liveness_CircleProgressView;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvBlockAngle = 0;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvCapRound = 1;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvCirclePadding = 2;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvDuration = 3;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvLabelPaddingBottom = 4;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvLabelPaddingLeft = 5;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvLabelPaddingRight = 6;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvLabelPaddingTop = 7;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvMax = 8;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvNormalColor = 9;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvProgress = 10;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvProgressColor = 11;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvShowTick = 12;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvStartAngle = 13;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvStrokeWidth = 14;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvSweepAngle = 15;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvTickSplitAngle = 16;
-    public static final int pass_liveness_CircleProgressView_pass_liveness_cpvTurn = 17;
-    public static final int[] pickerview;
-    public static final int pickerview_wheelview_dividerColor = 0;
-    public static final int pickerview_wheelview_gravity = 1;
-    public static final int pickerview_wheelview_lineSpacingMultiplier = 2;
-    public static final int pickerview_wheelview_textColorCenter = 3;
-    public static final int pickerview_wheelview_textColorOut = 4;
-    public static final int pickerview_wheelview_textSize = 5;
-    public static final int[] sapi_sdk_RoundWebview;
-    public static final int sapi_sdk_RoundWebview_sapi_sdk_bottom_left = 0;
-    public static final int sapi_sdk_RoundWebview_sapi_sdk_bottom_right = 1;
-    public static final int sapi_sdk_RoundWebview_sapi_sdk_top_left = 2;
-    public static final int sapi_sdk_RoundWebview_sapi_sdk_top_right = 3;
-    public static final int[] sapi_sdk_SwipeBackLayout;
-    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_directionMode = 0;
-    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_isSwipeFromEdge = 1;
-    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_maskAlpha = 2;
-    public static final int sapi_sdk_SwipeBackLayout_sapi_sdk_swipeBackFactor = 3;
-    public static final int[] sapi_sdk_circle_image_view;
-    public static final int sapi_sdk_circle_image_view_sapi_sdk_border_color = 0;
-    public static final int sapi_sdk_circle_image_view_sapi_sdk_border_width = 1;
-    public static final int[] sapi_sdk_sms_login_view;
-    public static final int sapi_sdk_sms_login_view_sapi_sdk_show_keyboard = 0;
-    public static final int[] spannable_etextview;
-    public static final int spannable_etextview_spannable_bottom_padding = 0;
-    public static final int spannable_etextview_spannable_top_padding = 1;
-    public static final int[] voiceCircleProgress;
-    public static final int voiceCircleProgress_arcColors = 0;
-    public static final int voiceCircleProgress_arcWidth = 1;
-    public static final int voiceCircleProgress_bgArcColor = 2;
-    public static final int voiceCircleProgress_mBgArcWidth = 3;
-    public static final int voiceCircleProgress_shadownRadius = 4;
-    public static final int voiceCircleProgress_startAngle = 5;
-    public static final int voiceCircleProgress_sweepAngle = 6;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import tbclient.FrsPage.TopbarEntrance;
+/* loaded from: classes5.dex */
+public class i87 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NoNetworkView A;
+    public NavigationBar B;
+    @NonNull
+    public final ti7 C;
+    public View D;
+    public View E;
+    public FrameLayout F;
+    public boolean G;
+    public boolean H;
+    public int I;
+    public boolean J;
+    public CommonTipView K;
+    public fm7 L;
+    public xc7 M;
+    public om7 N;
+    public GifView O;
+    public TbImageView P;
+    public HashSet<String> Q;
+    public hc9 R;
+    public int S;
+    public int T;
+    public View U;
+    public View V;
+    public ObservedChangeLinearLayout W;
+    public FrsTopBarGroupEntranceGuideView X;
+    public boolean Y;
+    public vc7 Z;
+    public FrsFragment a;
+    public boolean a0;
+    public NoPressedRelativeLayout b;
+    public o0a b0;
+    public CoordinatorLayout c;
+    public AppBarLayout c0;
+    public View d;
+    public AppBarLayoutStickyBehavior d0;
+    public View e;
+    public FrsHeaderViewContainer e0;
+    public ImageView f;
+    public CollapsingToolbarLayout f0;
+    public ImageView g;
+    public boolean g0;
+    public MessageRedDotView h;
+    public int h0;
+    public zm6 i;
+    public int i0;
+    public ImageView j;
+    public int j0;
+    public ImageView k;
+    public jm7 k0;
+    public TextView l;
+    public FrsMultiDelBottomMenuView l0;
+    public ImageView m;
+    public FrsMoveAreaBottomMenuView m0;
+    public ViewStub n;
+    public NavigationBarCoverTip n0;
+    public FrameLayout o;
+    public TextView o0;
+    public TbImageView p;
+    public TextView p0;
+    public TbImageView q;
+    public int q0;
+    public ExposeTagViewCoordinatorLayout r;
+    public int r0;
+    public FrsTabViewPager s;
+    public boolean s0;
+    public PbListView t;
+    public pn t0;
+    public BdTypeRecyclerView u;
+    public g7a u0;
+    public tc7 v;
+    public CustomMessageListener v0;
+    public mm7 w;
+    public AppBarLayout.OnOffsetChangedListener w0;
+    public f25 x;
+    public Runnable x0;
+    public View.OnClickListener y;
+    public boolean y0;
+    public NoNetworkView.b z;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947807457, "Lcom/baidu/tieba/i87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TopbarEntrance a;
+        public final /* synthetic */ i87 b;
+
+        public a(i87 i87Var, TopbarEntrance topbarEntrance) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var, topbarEntrance};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947807457, "Lcom/baidu/tieba/i87;");
+            this.b = i87Var;
+            this.a = topbarEntrance;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[2];
+                this.b.m.getLocationOnScreen(iArr);
+                int width = iArr[0] + (this.b.m.getWidth() / 2);
+                if (width > 0) {
+                    this.b.X.setTargetViewCenterX(width);
+                    FrsTopBarGroupEntranceGuideView frsTopBarGroupEntranceGuideView = this.b.X;
+                    if (il7.d()) {
+                        str = this.a.guide_tip_text;
+                    } else {
+                        str = this.a.guide_tip_first_text;
+                    }
+                    frsTopBarGroupEntranceGuideView.e(str);
+                    il7.e();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements f25.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public b(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // com.baidu.tieba.f25.c
+        public void a(f25 f25Var, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, f25Var, i, view2) == null) {
+                f25Var.e();
+                if (i == 0) {
+                    this.a.a.r5();
+                } else if (i == 1 && this.a.a.getPageContext() != null) {
+                    SelectImageHelper.getAlbumImage(this.a.a.getPageContext().getPageActivity());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public c(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.n == null) {
+                return;
+            }
+            this.a.o.setVisibility(0);
+            this.a.q.setVisibility(0);
+            this.a.p.setVisibility(8);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements gf {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        @Override // com.baidu.tieba.gf
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 4;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.gf
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 16;
+            }
+            return invokeV.intValue;
+        }
+
+        public d(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // com.baidu.tieba.gf
+        public View c(LayoutInflater layoutInflater) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
+                View inflate = layoutInflater.inflate(R.layout.tips_blue_left_up, (ViewGroup) null);
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09246c)).setText(R.string.obfuscated_res_0x7f0f083c);
+                this.a.a.getPageContext().getLayoutMode().k(inflate);
+                return inflate;
+            }
+            return (View) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.gf
+        public int getXOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return ri.g(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f070348);
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.gf
+        public int getYOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return -ri.g(this.a.a.getActivity(), R.dimen.obfuscated_res_0x7f0703ef);
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Cif.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.Cif.a
+        public void onShown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public e(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.Cif.a
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                o65.m().A("frs_video_activity_guide", 1L);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hf a;
+
+        public f(i87 i87Var, hf hfVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var, hfVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hfVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            hf hfVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (hfVar = this.a) != null) {
+                hfVar.d();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public g(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a0().notifyDataSetChanged();
+                if (!this.a.s0) {
+                    this.a.R.n(this.a.S, this.a.T, this.a.J, true);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class h extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(i87 i87Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    if (this.a.t0 == null) {
+                        this.a.t0 = new pn(new nn());
+                    }
+                    this.a.t0.q(this.a.u, 2);
+                } else if (this.a.t0 != null) {
+                    this.a.t0.w();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class i implements AppBarLayout.OnOffsetChangedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public i(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener, com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
+        public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLI(1048576, this, appBarLayout, i) != null) {
+                return;
+            }
+            this.a.Q(appBarLayout, i);
+            if (this.a.w != null && this.a.r.hasTargetView()) {
+                mm7 mm7Var = this.a.w;
+                if (i == 0 && !this.a.r.canDrag()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mm7Var.s(z);
+            }
+            if (!this.a.K0() && this.a.u0 != null) {
+                this.a.u0.g();
+            }
+            if (this.a.i0 != i && Math.abs(i) >= 0 && this.a.X() != -1) {
+                if (Math.abs(i) >= this.a.X()) {
+                    if (this.a.g0) {
+                        this.a.g0 = false;
+                        i87 i87Var = this.a;
+                        i87Var.U0(i87Var.g0);
+                    }
+                } else if (!this.a.g0) {
+                    this.a.g0 = true;
+                    i87 i87Var2 = this.a;
+                    i87Var2.U0(i87Var2.g0);
+                }
+                int d0 = this.a.d0() + this.a.l0() + this.a.n0();
+                int totalScrollRange = appBarLayout.getTotalScrollRange() - Math.abs(i);
+                int totalScrollRange2 = (appBarLayout.getTotalScrollRange() - d0) + this.a.C.g();
+                int g = totalScrollRange + this.a.C.g();
+                if (totalScrollRange2 <= 0) {
+                    return;
+                }
+                float abs = Math.abs(i * 1.0f) / totalScrollRange2;
+                if (Float.compare(abs, 1.0f) > 0) {
+                    abs = 1.0f;
+                }
+                if (Float.compare(abs, 0.05f) <= 0 && this.a.i0 - i < 0) {
+                    abs = 0.0f;
+                }
+                if (Float.compare(abs, 1.0f) != 0) {
+                    if (this.a.V != null) {
+                        if (this.a.t0() != UtilHelper.getStatusBarHeight()) {
+                            this.a.c2(0);
+                        }
+                        this.a.V.setVisibility(8);
+                    }
+                } else {
+                    this.a.c2(Math.abs(d0 - g));
+                    if (this.a.V != null) {
+                        this.a.V.setVisibility(0);
+                    }
+                }
+                if (this.a.B != null) {
+                    if (this.a.Y) {
+                        this.a.B.getBarBgView().setAlpha(abs);
+                        this.a.f2(false);
+                        this.a.C.c(abs);
+                    } else if (this.a.p0 != null) {
+                        this.a.p0.setAlpha(abs);
+                    }
+                }
+                this.a.i0 = i;
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921397, Integer.valueOf(i));
+                CustomMessage customMessage = new CustomMessage(2921397);
+                if (this.a.a != null && this.a.a.T3() != null && this.a.a.T3().B() != null && (this.a.a.T3().B().b instanceof BaseFragment)) {
+                    customMessage.setTag(((BaseFragment) this.a.a.T3().B().b).getUniqueId());
+                    customResponsedMessage.setOrginalMessage(customMessage);
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            }
+            if (this.a.w != null && this.a.w.k() > 0 && Math.abs(i) >= this.a.w.k()) {
+                this.a.w.x();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j implements jw5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public j(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // com.baidu.tieba.jw5
+        public void a(View view2, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && i2 != i4 && i4 > 0) {
+                this.a.f0.setMinimumHeight(i2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class k extends DefaultItemAnimator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ i87 b;
+
+        public k(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i87Var;
+            this.a = 0;
+        }
+
+        @Override // androidx.recyclerview.widget.SimpleItemAnimator
+        public void onRemoveFinished(RecyclerView.ViewHolder viewHolder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) {
+                super.onRemoveFinished(viewHolder);
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.u.getAdapter().notifyDataSetChanged();
+                }
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.SimpleItemAnimator
+        public void onRemoveStarting(RecyclerView.ViewHolder viewHolder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewHolder) == null) {
+                this.a++;
+                super.onRemoveStarting(viewHolder);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class l extends LinearLayoutManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public l(i87 i87Var, Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, recycler, state) == null) {
+                try {
+                    super.onLayoutChildren(recycler, state);
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class m implements RecyclerView.RecyclerListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public m(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.RecyclerListener
+        public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, viewHolder) == null) {
+                View view2 = viewHolder.itemView;
+                if (this.a.R != null) {
+                    this.a.R.k(view2);
+                }
+                PlayVoiceBnt playVoiceBnt = (PlayVoiceBnt) view2.findViewById(R.id.abstract_voice);
+                if (playVoiceBnt != null) {
+                    playVoiceBnt.k();
+                }
+                FrsCommonImageLayout frsCommonImageLayout = (FrsCommonImageLayout) view2.findViewById(R.id.abstract_img_layout);
+                if (frsCommonImageLayout != null) {
+                    frsCommonImageLayout.p();
+                }
+                if (view2 instanceof UserPhotoLayout) {
+                    ((UserPhotoLayout) view2).reset();
+                }
+                if (this.a.u0 != null) {
+                    this.a.u0.e(view2);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class n implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public n(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.Y3();
+                if (this.a.a != null && this.a.c0 != null) {
+                    this.a.a.E4();
+                    this.a.c0.setExpanded(true);
+                    if (this.a.R != null) {
+                        this.a.R.n(this.a.S, this.a.T, false, true);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class o implements ExposeTagViewCoordinatorLayout.NestedScrollAcceptedListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        public o(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // com.baidu.adp.widget.design.behavior.ExposeTagViewCoordinatorLayout.NestedScrollAcceptedListener
+        public void onNestedScrollAccepted(boolean z) {
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.w != null && this.a.r.hasTargetView()) {
+                mm7 mm7Var = this.a.w;
+                if (this.a.i0 == 0 && !this.a.r.canDrag()) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mm7Var.s(z2);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class p implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i87 a;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            }
+        }
+
+        public p(i87 i87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i87Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.w != null && this.a.r.hasTargetView()) {
+                this.a.w.s(false);
+                this.a.r.clearTargetView();
+            }
+        }
+    }
+
+    public i87(FrsFragment frsFragment, View.OnClickListener onClickListener, vc7 vc7Var, boolean z, jm7 jm7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment, onClickListener, vc7Var, Boolean.valueOf(z), jm7Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AbsHListView = new int[]{16843003, 16843004, 16843006, 16843009, 16843051, 16843313, R.attr.hlv_stackFromRight, R.attr.hlv_transcriptMode};
-        ActionBar = new int[]{R.attr.obfuscated_res_0x7f0400b0, R.attr.obfuscated_res_0x7f0400b7, R.attr.obfuscated_res_0x7f0400b8, R.attr.obfuscated_res_0x7f040194, R.attr.obfuscated_res_0x7f040195, R.attr.obfuscated_res_0x7f040196, R.attr.obfuscated_res_0x7f040197, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f040204, R.attr.obfuscated_res_0x7f040247, R.attr.obfuscated_res_0x7f040250, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f040312, R.attr.obfuscated_res_0x7f04032f, R.attr.obfuscated_res_0x7f040330, R.attr.obfuscated_res_0x7f040337, R.attr.obfuscated_res_0x7f040350, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f0404a4, R.attr.obfuscated_res_0x7f040508, R.attr.obfuscated_res_0x7f04056e, R.attr.obfuscated_res_0x7f040577, R.attr.obfuscated_res_0x7f040578, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040682, R.attr.obfuscated_res_0x7f040738, R.attr.obfuscated_res_0x7f040744};
-        ActionBarLayout = new int[]{16842931};
-        ActionMenuItemView = new int[]{16843071};
-        ActionMenuView = new int[0];
-        ActionMode = new int[]{R.attr.obfuscated_res_0x7f0400b0, R.attr.obfuscated_res_0x7f0400b7, R.attr.obfuscated_res_0x7f040166, R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f040682, R.attr.obfuscated_res_0x7f040744};
-        ActivityChooserView = new int[]{R.attr.obfuscated_res_0x7f04029c, R.attr.obfuscated_res_0x7f040351};
-        AdImageView = new int[]{R.attr.adCornerRadius, R.attr.obfuscated_res_0x7f0400e9, R.attr.borderColorWidth, R.attr.obfuscated_res_0x7f040154, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f04032e, R.attr.imageScaleType, R.attr.leftBottomRadius, R.attr.leftTopRadius, R.attr.loadingHolder, R.attr.rightBottomRadius, R.attr.rightTopRadius};
-        AdpPullToRefreshScrollView = new int[]{R.attr.obfuscated_res_0x7f04007f, R.attr.obfuscated_res_0x7f040080, R.attr.obfuscated_res_0x7f040081, R.attr.obfuscated_res_0x7f040082, R.attr.obfuscated_res_0x7f040083, R.attr.obfuscated_res_0x7f040084};
-        AlertDialog = new int[]{16842994, R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f040446, R.attr.obfuscated_res_0x7f040447, R.attr.obfuscated_res_0x7f0404ee, R.attr.obfuscated_res_0x7f04063e, R.attr.obfuscated_res_0x7f040644};
-        AnimatedStateListDrawableCompat = new int[]{16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
-        AnimatedStateListDrawableItem = new int[]{16842960, 16843161};
-        AnimatedStateListDrawableTransition = new int[]{16843161, 16843849, 16843850, 16843851};
-        AppBarLayout = new int[]{16842964, 16843919, 16844096, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f04029e, R.attr.obfuscated_res_0x7f040438, R.attr.obfuscated_res_0x7f040439, R.attr.obfuscated_res_0x7f040678};
-        AppBarLayoutStates = new int[]{R.attr.obfuscated_res_0x7f040671, R.attr.obfuscated_res_0x7f040672, R.attr.obfuscated_res_0x7f040674, R.attr.obfuscated_res_0x7f040675};
-        AppBarLayout_Layout = new int[]{R.attr.obfuscated_res_0x7f040429, R.attr.obfuscated_res_0x7f04042b};
-        AppCompatImageView = new int[]{16843033, R.attr.obfuscated_res_0x7f040666, R.attr.obfuscated_res_0x7f040736, R.attr.obfuscated_res_0x7f040737};
-        AppCompatSeekBar = new int[]{16843074, R.attr.obfuscated_res_0x7f040731, R.attr.obfuscated_res_0x7f040732, R.attr.obfuscated_res_0x7f040733};
-        AppCompatTextHelper = new int[]{16842804, 16843117, 16843118, 16843119, 16843120, 16843666, 16843667};
-        AppCompatTextView = new int[]{16842804, R.attr.obfuscated_res_0x7f0400a8, R.attr.obfuscated_res_0x7f0400a9, R.attr.obfuscated_res_0x7f0400aa, R.attr.obfuscated_res_0x7f0400ab, R.attr.obfuscated_res_0x7f0400ac, R.attr.obfuscated_res_0x7f040262, R.attr.obfuscated_res_0x7f040263, R.attr.obfuscated_res_0x7f040264, R.attr.obfuscated_res_0x7f040265, R.attr.obfuscated_res_0x7f040267, R.attr.obfuscated_res_0x7f040268, R.attr.obfuscated_res_0x7f040269, R.attr.obfuscated_res_0x7f04026a, R.attr.obfuscated_res_0x7f0402c0, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f040410, R.attr.obfuscated_res_0x7f04043e, R.attr.obfuscated_res_0x7f0406f1, R.attr.obfuscated_res_0x7f040713};
-        AppCompatTheme = new int[]{16842839, 16842926, R.attr.obfuscated_res_0x7f04004a, R.attr.obfuscated_res_0x7f04004b, R.attr.obfuscated_res_0x7f04004c, R.attr.obfuscated_res_0x7f04004d, R.attr.obfuscated_res_0x7f04004e, R.attr.obfuscated_res_0x7f04004f, R.attr.obfuscated_res_0x7f040050, R.attr.obfuscated_res_0x7f040051, R.attr.obfuscated_res_0x7f040052, R.attr.obfuscated_res_0x7f040053, R.attr.obfuscated_res_0x7f040054, R.attr.obfuscated_res_0x7f040055, R.attr.obfuscated_res_0x7f040056, R.attr.obfuscated_res_0x7f040058, R.attr.obfuscated_res_0x7f040059, R.attr.obfuscated_res_0x7f04005b, R.attr.obfuscated_res_0x7f04005d, R.attr.obfuscated_res_0x7f04005e, R.attr.obfuscated_res_0x7f04005f, R.attr.obfuscated_res_0x7f040060, R.attr.obfuscated_res_0x7f040061, R.attr.obfuscated_res_0x7f040062, R.attr.obfuscated_res_0x7f040063, R.attr.obfuscated_res_0x7f040064, R.attr.obfuscated_res_0x7f040065, R.attr.obfuscated_res_0x7f040066, R.attr.obfuscated_res_0x7f040067, R.attr.obfuscated_res_0x7f040068, R.attr.obfuscated_res_0x7f040069, R.attr.obfuscated_res_0x7f04006a, R.attr.obfuscated_res_0x7f040070, R.attr.obfuscated_res_0x7f040085, R.attr.obfuscated_res_0x7f040086, R.attr.obfuscated_res_0x7f040087, R.attr.obfuscated_res_0x7f040088, R.attr.obfuscated_res_0x7f0400a5, R.attr.obfuscated_res_0x7f0400f0, R.attr.obfuscated_res_0x7f04011d, R.attr.obfuscated_res_0x7f04011e, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f040126, R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012d, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f04013c, R.attr.obfuscated_res_0x7f04016d, R.attr.obfuscated_res_0x7f04016e, R.attr.obfuscated_res_0x7f04016f, R.attr.obfuscated_res_0x7f040170, R.attr.obfuscated_res_0x7f040171, R.attr.obfuscated_res_0x7f040172, R.attr.obfuscated_res_0x7f040173, R.attr.obfuscated_res_0x7f04017a, R.attr.obfuscated_res_0x7f04017b, R.attr.obfuscated_res_0x7f040181, R.attr.obfuscated_res_0x7f04019d, R.attr.obfuscated_res_0x7f04021a, R.attr.obfuscated_res_0x7f04021b, R.attr.obfuscated_res_0x7f04021c, R.attr.obfuscated_res_0x7f040253, R.attr.obfuscated_res_0x7f040258, R.attr.obfuscated_res_0x7f04026f, R.attr.obfuscated_res_0x7f040271, R.attr.obfuscated_res_0x7f040282, R.attr.obfuscated_res_0x7f040283, R.attr.obfuscated_res_0x7f040284, R.attr.obfuscated_res_0x7f04032f, R.attr.obfuscated_res_0x7f040343, R.attr.obfuscated_res_0x7f040442, R.attr.obfuscated_res_0x7f040443, R.attr.obfuscated_res_0x7f040444, R.attr.obfuscated_res_0x7f040445, R.attr.obfuscated_res_0x7f040448, R.attr.obfuscated_res_0x7f040449, R.attr.obfuscated_res_0x7f04044a, R.attr.obfuscated_res_0x7f04044b, R.attr.obfuscated_res_0x7f04044c, R.attr.obfuscated_res_0x7f04044d, R.attr.obfuscated_res_0x7f04044e, R.attr.obfuscated_res_0x7f04044f, R.attr.obfuscated_res_0x7f040450, R.attr.obfuscated_res_0x7f040530, R.attr.obfuscated_res_0x7f040531, R.attr.obfuscated_res_0x7f040532, R.attr.obfuscated_res_0x7f04056d, R.attr.obfuscated_res_0x7f04056f, R.attr.obfuscated_res_0x7f0405b8, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c1, R.attr.obfuscated_res_0x7f0405c2, R.attr.obfuscated_res_0x7f04061c, R.attr.obfuscated_res_0x7f04061e, R.attr.obfuscated_res_0x7f040621, R.attr.obfuscated_res_0x7f040622, R.attr.obfuscated_res_0x7f040661, R.attr.obfuscated_res_0x7f040662, R.attr.obfuscated_res_0x7f040693, R.attr.obfuscated_res_0x7f0406fc, R.attr.obfuscated_res_0x7f0406fe, R.attr.obfuscated_res_0x7f0406ff, R.attr.obfuscated_res_0x7f040700, R.attr.obfuscated_res_0x7f040702, R.attr.obfuscated_res_0x7f040703, R.attr.obfuscated_res_0x7f040704, R.attr.obfuscated_res_0x7f040705, R.attr.obfuscated_res_0x7f040709, R.attr.obfuscated_res_0x7f04070c, R.attr.obfuscated_res_0x7f04074a, R.attr.obfuscated_res_0x7f04074b, R.attr.obfuscated_res_0x7f04074c, R.attr.obfuscated_res_0x7f04074d, R.attr.obfuscated_res_0x7f040799, R.attr.obfuscated_res_0x7f0407ac, R.attr.obfuscated_res_0x7f0407ad, R.attr.obfuscated_res_0x7f0407ae, R.attr.obfuscated_res_0x7f0407af, R.attr.obfuscated_res_0x7f0407b0, R.attr.obfuscated_res_0x7f0407b1, R.attr.obfuscated_res_0x7f0407b2, R.attr.obfuscated_res_0x7f0407b3, R.attr.obfuscated_res_0x7f0407b4, R.attr.obfuscated_res_0x7f0407b5};
-        AspectRatioFrameLayout = new int[]{R.attr.obfuscated_res_0x7f0405d4};
-        AutoChangeLineView = new int[]{R.attr.obfuscated_res_0x7f04035b, R.attr.obfuscated_res_0x7f040368, R.attr.labelBackground, R.attr.labelGravity, R.attr.obfuscated_res_0x7f040406, R.attr.obfuscated_res_0x7f040407, R.attr.labelTextPadding, R.attr.labelTextPaddingBottom, R.attr.labelTextPaddingLeft, R.attr.labelTextPaddingRight, R.attr.labelTextPaddingTop, R.attr.obfuscated_res_0x7f04040d, R.attr.labelTextWidth, R.attr.obfuscated_res_0x7f04043f, R.attr.obfuscated_res_0x7f0404ca, R.attr.obfuscated_res_0x7f0404d0, R.attr.obfuscated_res_0x7f0404d1, R.attr.obfuscated_res_0x7f0404dd, R.attr.obfuscated_res_0x7f040620, R.attr.obfuscated_res_0x7f040645, R.attr.obfuscated_res_0x7f0407b6};
-        BDImageView = new int[]{R.attr.obfuscated_res_0x7f04007e, R.attr.obfuscated_res_0x7f0400e9, R.attr.obfuscated_res_0x7f0400ec, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f04026d, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f6, R.attr.obfuscated_res_0x7f040305, R.attr.obfuscated_res_0x7f040364, R.attr.obfuscated_res_0x7f0404cb, R.attr.obfuscated_res_0x7f0404d3, R.attr.obfuscated_res_0x7f0405b9, R.attr.obfuscated_res_0x7f0405ba, R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f0405bd, R.attr.obfuscated_res_0x7f0405be, R.attr.obfuscated_res_0x7f040639};
-        Badge = new int[]{R.attr.obfuscated_res_0x7f0400b1, R.attr.obfuscated_res_0x7f0400c0, R.attr.obfuscated_res_0x7f0400c2, R.attr.obfuscated_res_0x7f040334, R.attr.obfuscated_res_0x7f0404c9, R.attr.obfuscated_res_0x7f040514, R.attr.obfuscated_res_0x7f040792};
-        BdRoundedImageView = new int[]{16843037, R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.obfuscated_res_0x7f0401ad, R.attr.obfuscated_res_0x7f04036c, R.attr.obfuscated_res_0x7f0405f2};
-        BottomAppBar = new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f0402ab, R.attr.obfuscated_res_0x7f0402ac, R.attr.obfuscated_res_0x7f0402ad, R.attr.obfuscated_res_0x7f0402ae, R.attr.obfuscated_res_0x7f0402af, R.attr.obfuscated_res_0x7f040313, R.attr.obfuscated_res_0x7f040526, R.attr.obfuscated_res_0x7f040529, R.attr.obfuscated_res_0x7f04052b};
-        BottomNavigationView = new int[]{R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040370, R.attr.obfuscated_res_0x7f040373, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f040385, R.attr.obfuscated_res_0x7f040386, R.attr.obfuscated_res_0x7f040387, R.attr.obfuscated_res_0x7f04040f, R.attr.obfuscated_res_0x7f0404d8};
-        BottomSheetBehavior_Layout = new int[]{16843840, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400d4, R.attr.obfuscated_res_0x7f0400d5, R.attr.obfuscated_res_0x7f0400d6, R.attr.obfuscated_res_0x7f0400d7, R.attr.obfuscated_res_0x7f0400d8, R.attr.obfuscated_res_0x7f0400da, R.attr.obfuscated_res_0x7f0400db, R.attr.obfuscated_res_0x7f0400dc, R.attr.obfuscated_res_0x7f0402f5, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632};
-        BubbleLayout = new int[]{R.attr.bl_arrowHeight, R.attr.bl_arrowPosition, R.attr.bl_arrowWidth, R.attr.bl_bubbleColor, R.attr.bl_cornersRadius, R.attr.bl_strokeColor, R.attr.bl_strokeWidth, R.attr.tb_bl_arrowDirection};
-        ButtonBarLayout = new int[]{R.attr.obfuscated_res_0x7f040089};
-        Capability = new int[]{R.attr.obfuscated_res_0x7f0405ab, R.attr.obfuscated_res_0x7f040636};
-        CardView = new int[]{16843071, 16843072, R.attr.obfuscated_res_0x7f04011f, R.attr.obfuscated_res_0x7f040120, R.attr.obfuscated_res_0x7f040121, R.attr.obfuscated_res_0x7f040123, R.attr.obfuscated_res_0x7f040124, R.attr.obfuscated_res_0x7f040125, R.attr.obfuscated_res_0x7f040183, R.attr.obfuscated_res_0x7f040184, R.attr.obfuscated_res_0x7f040185, R.attr.obfuscated_res_0x7f040186, R.attr.obfuscated_res_0x7f040187};
-        ChatVoiceView = new int[]{R.attr.is_left};
-        Chip = new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f04013e, R.attr.obfuscated_res_0x7f04013f, R.attr.obfuscated_res_0x7f040141, R.attr.obfuscated_res_0x7f040143, R.attr.obfuscated_res_0x7f040144, R.attr.obfuscated_res_0x7f040145, R.attr.obfuscated_res_0x7f040146, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f04014e, R.attr.obfuscated_res_0x7f04014f, R.attr.obfuscated_res_0x7f040151, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f04015e, R.attr.obfuscated_res_0x7f040161, R.attr.obfuscated_res_0x7f040162, R.attr.obfuscated_res_0x7f040163, R.attr.obfuscated_res_0x7f040164, R.attr.obfuscated_res_0x7f040165, R.attr.obfuscated_res_0x7f040292, R.attr.obfuscated_res_0x7f040311, R.attr.obfuscated_res_0x7f040338, R.attr.obfuscated_res_0x7f04033c, R.attr.obfuscated_res_0x7f0405e1, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f04063b, R.attr.obfuscated_res_0x7f04070e, R.attr.obfuscated_res_0x7f040716};
-        ChipGroup = new int[]{R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f04014a, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f040624, R.attr.obfuscated_res_0x7f040645, R.attr.obfuscated_res_0x7f040646};
-        CollapsingToolbarLayout = new int[]{R.attr.obfuscated_res_0x7f040169, R.attr.obfuscated_res_0x7f04016a, R.attr.obfuscated_res_0x7f04019a, R.attr.obfuscated_res_0x7f04029f, R.attr.obfuscated_res_0x7f0402a0, R.attr.obfuscated_res_0x7f0402a1, R.attr.obfuscated_res_0x7f0402a2, R.attr.obfuscated_res_0x7f0402a3, R.attr.obfuscated_res_0x7f0402a4, R.attr.obfuscated_res_0x7f0402a5, R.attr.obfuscated_res_0x7f0404d0, R.attr.obfuscated_res_0x7f040604, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f040679, R.attr.obfuscated_res_0x7f040738, R.attr.obfuscated_res_0x7f04073a, R.attr.obfuscated_res_0x7f040749};
-        CollapsingToolbarLayout_Layout = new int[]{R.attr.obfuscated_res_0x7f04041d, R.attr.obfuscated_res_0x7f04041e};
-        ColorStateListItem = new int[]{16843173, 16843551, R.attr.obfuscated_res_0x7f04008a};
-        ColumnLayout = new int[]{R.attr.obfuscated_res_0x7f040188, R.attr.obfuscated_res_0x7f04065a, R.attr.obfuscated_res_0x7f04065b};
-        ColumnLayout_Layout = new int[]{R.attr.obfuscated_res_0x7f04041f};
-        CompoundButton = new int[]{16843015, R.attr.obfuscated_res_0x7f040128, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f04012f};
-        ConstraintLayout_Layout = new int[]{16842948, 16842965, 16842966, 16842967, 16842968, 16842969, 16842972, 16843039, 16843040, 16843071, 16843072, 16843699, 16843700, 16843840, R.attr.obfuscated_res_0x7f04006c, R.attr.obfuscated_res_0x7f04006d, R.attr.obfuscated_res_0x7f0400bb, R.attr.obfuscated_res_0x7f0400cb, R.attr.obfuscated_res_0x7f0400f7, R.attr.obfuscated_res_0x7f0400f8, R.attr.constraint_referenced_tags, R.attr.obfuscated_res_0x7f04021e, R.attr.obfuscated_res_0x7f04021f, R.attr.obfuscated_res_0x7f040220, R.attr.obfuscated_res_0x7f040221, R.attr.obfuscated_res_0x7f040222, R.attr.obfuscated_res_0x7f040223, R.attr.obfuscated_res_0x7f040224, R.attr.obfuscated_res_0x7f040225, R.attr.obfuscated_res_0x7f040226, R.attr.obfuscated_res_0x7f040227, R.attr.obfuscated_res_0x7f040228, R.attr.obfuscated_res_0x7f040229, R.attr.obfuscated_res_0x7f04022a, R.attr.obfuscated_res_0x7f04022b, R.attr.obfuscated_res_0x7f04022c, R.attr.obfuscated_res_0x7f04022d, R.attr.obfuscated_res_0x7f04022e, R.attr.obfuscated_res_0x7f04022f, R.attr.obfuscated_res_0x7f040230, R.attr.obfuscated_res_0x7f040231, R.attr.obfuscated_res_0x7f040232, R.attr.obfuscated_res_0x7f040233, R.attr.obfuscated_res_0x7f040234, R.attr.obfuscated_res_0x7f040235, R.attr.obfuscated_res_0x7f040236, R.attr.obfuscated_res_0x7f040237, R.attr.obfuscated_res_0x7f040238, R.attr.obfuscated_res_0x7f040239, R.attr.obfuscated_res_0x7f04023a, R.attr.obfuscated_res_0x7f04023b, R.attr.obfuscated_res_0x7f04023c, R.attr.obfuscated_res_0x7f04023d, R.attr.obfuscated_res_0x7f04023e, R.attr.obfuscated_res_0x7f04023f, R.attr.obfuscated_res_0x7f040240, R.attr.obfuscated_res_0x7f040241, R.attr.obfuscated_res_0x7f040242, R.attr.obfuscated_res_0x7f040243, R.attr.obfuscated_res_0x7f040244, R.attr.obfuscated_res_0x7f040245, R.attr.obfuscated_res_0x7f040246, R.attr.obfuscated_res_0x7f040248, R.attr.obfuscated_res_0x7f040249, R.attr.obfuscated_res_0x7f04024a, R.attr.obfuscated_res_0x7f04024b, R.attr.obfuscated_res_0x7f04024c, R.attr.obfuscated_res_0x7f04024d, R.attr.obfuscated_res_0x7f04024e, R.attr.obfuscated_res_0x7f04024f, R.attr.obfuscated_res_0x7f040255, R.attr.flow_firstHorizontalBias, R.attr.flow_firstHorizontalStyle, R.attr.flow_firstVerticalBias, R.attr.flow_firstVerticalStyle, R.attr.flow_horizontalAlign, R.attr.flow_horizontalBias, R.attr.flow_horizontalGap, R.attr.flow_horizontalStyle, R.attr.flow_lastHorizontalBias, R.attr.flow_lastHorizontalStyle, R.attr.flow_lastVerticalBias, R.attr.flow_lastVerticalStyle, R.attr.flow_maxElementsWrap, R.attr.flow_verticalAlign, R.attr.flow_verticalBias, R.attr.flow_verticalGap, R.attr.flow_verticalStyle, R.attr.flow_wrapMode, R.attr.layoutDescription, R.attr.layout_constraintTag};
-        ConstraintLayout_placeholder = new int[]{R.attr.obfuscated_res_0x7f0400f9, R.attr.placeholder_emptyVisibility};
-        ConstraintSet = new int[]{16842948, 16842960, 16842972, 16842996, 16842997, 16842999, 16843000, 16843001, 16843002, 16843039, 16843040, 16843071, 16843072, 16843189, 16843190, 16843551, 16843552, 16843553, 16843554, 16843555, 16843556, 16843557, 16843558, 16843559, 16843560, 16843701, 16843702, 16843770, 16843840, R.attr.obfuscated_res_0x7f04006c, R.attr.obfuscated_res_0x7f04006d, R.attr.animate_relativeTo, R.attr.obfuscated_res_0x7f0400bb, R.attr.obfuscated_res_0x7f0400cb, R.attr.obfuscated_res_0x7f0400f8, R.attr.constraint_referenced_tags, R.attr.deriveConstraintsFrom, R.attr.obfuscated_res_0x7f04021e, R.attr.obfuscated_res_0x7f04021f, R.attr.obfuscated_res_0x7f040220, R.attr.obfuscated_res_0x7f040221, R.attr.obfuscated_res_0x7f040222, R.attr.obfuscated_res_0x7f040223, R.attr.obfuscated_res_0x7f040224, R.attr.obfuscated_res_0x7f040225, R.attr.obfuscated_res_0x7f040226, R.attr.obfuscated_res_0x7f040227, R.attr.obfuscated_res_0x7f040228, R.attr.obfuscated_res_0x7f040229, R.attr.obfuscated_res_0x7f04022a, R.attr.obfuscated_res_0x7f04022b, R.attr.obfuscated_res_0x7f04022c, R.attr.obfuscated_res_0x7f04022d, R.attr.obfuscated_res_0x7f04022e, R.attr.obfuscated_res_0x7f04022f, R.attr.obfuscated_res_0x7f040230, R.attr.obfuscated_res_0x7f040231, R.attr.obfuscated_res_0x7f040232, R.attr.obfuscated_res_0x7f040233, R.attr.obfuscated_res_0x7f040234, R.attr.obfuscated_res_0x7f040235, R.attr.obfuscated_res_0x7f040236, R.attr.obfuscated_res_0x7f040237, R.attr.obfuscated_res_0x7f040238, R.attr.obfuscated_res_0x7f040239, R.attr.obfuscated_res_0x7f04023a, R.attr.obfuscated_res_0x7f04023b, R.attr.obfuscated_res_0x7f04023c, R.attr.obfuscated_res_0x7f04023d, R.attr.obfuscated_res_0x7f04023e, R.attr.obfuscated_res_0x7f04023f, R.attr.obfuscated_res_0x7f040240, R.attr.obfuscated_res_0x7f040241, R.attr.obfuscated_res_0x7f040242, R.attr.obfuscated_res_0x7f040243, R.attr.obfuscated_res_0x7f040244, R.attr.obfuscated_res_0x7f040245, R.attr.obfuscated_res_0x7f040246, R.attr.obfuscated_res_0x7f040248, R.attr.obfuscated_res_0x7f040249, R.attr.obfuscated_res_0x7f04024a, R.attr.obfuscated_res_0x7f04024b, R.attr.obfuscated_res_0x7f04024c, R.attr.obfuscated_res_0x7f04024d, R.attr.obfuscated_res_0x7f04024e, R.attr.obfuscated_res_0x7f04024f, R.attr.obfuscated_res_0x7f04025f, R.attr.flow_firstHorizontalBias, R.attr.flow_firstHorizontalStyle, R.attr.flow_firstVerticalBias, R.attr.flow_firstVerticalStyle, R.attr.flow_horizontalAlign, R.attr.flow_horizontalBias, R.attr.flow_horizontalGap, R.attr.flow_horizontalStyle, R.attr.flow_lastHorizontalBias, R.attr.flow_lastHorizontalStyle, R.attr.flow_lastVerticalBias, R.attr.flow_lastVerticalStyle, R.attr.flow_maxElementsWrap, R.attr.flow_verticalAlign, R.attr.flow_verticalBias, R.attr.flow_verticalGap, R.attr.flow_verticalStyle, R.attr.flow_wrapMode, R.attr.layout_constraintTag, R.attr.motionProgress, R.attr.motionStagger, R.attr.pathMotionArc, R.attr.pivotAnchor, R.attr.obfuscated_res_0x7f040766, R.attr.transitionPathRotate};
-        CoordinatorLayout = new int[]{R.attr.obfuscated_res_0x7f04038a, R.attr.obfuscated_res_0x7f040677};
-        CoordinatorLayout_Layout = new int[]{16842931, R.attr.obfuscated_res_0x7f040419, R.attr.obfuscated_res_0x7f04041a, R.attr.obfuscated_res_0x7f04041b, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f040425, R.attr.obfuscated_res_0x7f040426};
-        CornersImageView = new int[]{R.attr.obfuscated_res_0x7f0400ee, R.attr.obfuscated_res_0x7f0400ef, R.attr.corner_bottom_left_radius, R.attr.corner_bottom_right_radius, R.attr.obfuscated_res_0x7f0401ad, R.attr.corner_top_left_radius, R.attr.corner_top_right_radius, R.attr.inner_border_color, R.attr.inner_border_width, R.attr.is_circle, R.attr.is_cover_src, R.attr.mask_color};
-        DefaultTimeBar = new int[]{R.attr.obfuscated_res_0x7f04007b, R.attr.obfuscated_res_0x7f04007c, R.attr.obfuscated_res_0x7f0400ca, R.attr.obfuscated_res_0x7f04011c, R.attr.obfuscated_res_0x7f040567, R.attr.obfuscated_res_0x7f040568, R.attr.obfuscated_res_0x7f040615, R.attr.obfuscated_res_0x7f040616, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f040618, R.attr.obfuscated_res_0x7f040619, R.attr.obfuscated_res_0x7f040757, R.attr.obfuscated_res_0x7f040780};
-        DragSort = new int[]{R.attr.click_remove_id, R.attr.collapsed_height, R.attr.drag_enabled, R.attr.drag_handle_id, R.attr.drag_scroll_start, R.attr.drop_animation_duration, R.attr.fling_handle_id, R.attr.float_alpha, R.attr.float_background_color, R.attr.max_drag_scroll_speed, R.attr.remove_animation_duration, R.attr.remove_enabled, R.attr.slide_shuffle_speed, R.attr.sort_enabled, R.attr.tb_drag_remove_mode, R.attr.tb_drag_start_mode, R.attr.track_drag_sort, R.attr.use_default_controller};
-        DrawerArrowToggle = new int[]{R.attr.obfuscated_res_0x7f04009b, R.attr.obfuscated_res_0x7f04009c, R.attr.obfuscated_res_0x7f0400c4, R.attr.obfuscated_res_0x7f04016c, R.attr.obfuscated_res_0x7f040266, R.attr.obfuscated_res_0x7f0402f4, R.attr.obfuscated_res_0x7f040660, R.attr.obfuscated_res_0x7f04071f};
-        EllipsizeTagTitleView = new int[]{R.attr.tag_title_ellipsize_text, R.attr.tag_title_line_space, R.attr.tag_title_max_line, R.attr.tag_title_tag_color, R.attr.tag_title_tag_corner_radius, R.attr.tag_title_tag_margin, R.attr.tag_title_tag_padding_horizontal, R.attr.tag_title_tag_padding_vertical, R.attr.tag_title_tag_stroke_width, R.attr.tag_title_text_color, R.attr.tag_title_text_size, R.attr.tag_title_text_style};
-        EmotionButton = new int[]{R.attr.obfuscated_res_0x7f040281, R.attr.obfuscated_res_0x7f0406ef};
-        EntelechyPullUpRefreshView = new int[]{R.attr.obfuscated_res_0x7f0406e4, R.attr.obfuscated_res_0x7f0406e5};
-        ExpandIconView = new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f04016c, R.attr.obfuscated_res_0x7f040437, R.attr.obfuscated_res_0x7f04071e};
-        ExpandListView = new int[]{R.attr.obfuscated_res_0x7f0400d1, R.attr.obfuscated_res_0x7f04029d};
-        ExpandableHListView = new int[]{R.attr.hlv_childDivider, R.attr.hlv_childIndicator, R.attr.hlv_childIndicatorGravity, R.attr.hlv_childIndicatorPaddingLeft, R.attr.hlv_childIndicatorPaddingTop, R.attr.hlv_groupIndicator, R.attr.hlv_indicatorGravity, R.attr.hlv_indicatorPaddingLeft, R.attr.hlv_indicatorPaddingTop};
-        ExtendedFloatingActionButton = new int[]{R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f0402a6, R.attr.obfuscated_res_0x7f040311, R.attr.obfuscated_res_0x7f04063b, R.attr.obfuscated_res_0x7f040642};
-        ExtendedFloatingActionButton_Behavior_Layout = new int[]{R.attr.obfuscated_res_0x7f0400d2, R.attr.obfuscated_res_0x7f0400d3};
-        FloatingActionButton = new int[]{16842766, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f0400ed, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040292, R.attr.obfuscated_res_0x7f0402b0, R.attr.obfuscated_res_0x7f0402b1, R.attr.obfuscated_res_0x7f040311, R.attr.obfuscated_res_0x7f040336, R.attr.obfuscated_res_0x7f0404ce, R.attr.obfuscated_res_0x7f040574, R.attr.obfuscated_res_0x7f0405e1, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f04063b, R.attr.obfuscated_res_0x7f040782};
-        FloatingActionButton_Behavior_Layout = new int[]{R.attr.obfuscated_res_0x7f0400d2};
-        FloatingLayout_Layout = new int[]{R.attr.obfuscated_res_0x7f04041c};
-        FlowLayout = new int[]{R.attr.obfuscated_res_0x7f04020d, R.attr.horizontalSpacing, R.attr.obfuscated_res_0x7f040381, R.attr.obfuscated_res_0x7f040440, R.attr.obfuscated_res_0x7f04051d, R.attr.verticalSpacing};
-        FlowLayout_LayoutParams = new int[]{R.attr.layout_horizontalSpacing, R.attr.layout_newLine, R.attr.layout_verticalSpacing};
-        FontFamily = new int[]{R.attr.obfuscated_res_0x7f0402e5, R.attr.obfuscated_res_0x7f0402e6, R.attr.obfuscated_res_0x7f0402e7, R.attr.obfuscated_res_0x7f0402e8, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402ea, R.attr.obfuscated_res_0x7f0402eb};
-        FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, R.attr.obfuscated_res_0x7f0402e3, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402ee, R.attr.obfuscated_res_0x7f04076f};
-        ForegroundLinearLayout = new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f0402f1};
-        Fragment = new int[]{16842755, 16842960, 16842961};
-        FragmentContainerView = new int[]{16842755, 16842961};
-        FrsTabSortSwitchButton = new int[]{R.attr.background_color, R.attr.selected_text_color, R.attr.slide_border_color, R.attr.slide_border_width, R.attr.slide_color, R.attr.slide_height, R.attr.text_horizontal_padding, R.attr.text_size, R.attr.un_selected_text_color};
-        GameItemType = new int[]{R.attr.second_line_type};
-        GenericDraweeHierarchy = new int[]{R.attr.obfuscated_res_0x7f040025, R.attr.obfuscated_res_0x7f04005c, R.attr.obfuscated_res_0x7f04015b, R.attr.obfuscated_res_0x7f04015f, R.attr.obfuscated_res_0x7f040160, R.attr.obfuscated_res_0x7f0402a8, R.attr.obfuscated_res_0x7f0402c6, R.attr.obfuscated_res_0x7f0402c7, R.attr.obfuscated_res_0x7f0402cf, R.attr.obfuscated_res_0x7f0402d1, R.attr.obfuscated_res_0x7f0402d2, R.attr.obfuscated_res_0x7f0402d3, R.attr.obfuscated_res_0x7f040332, R.attr.obfuscated_res_0x7f040333, R.attr.obfuscated_res_0x7f04034b, R.attr.obfuscated_res_0x7f04034c, R.attr.obfuscated_res_0x7f04034d, R.attr.obfuscated_res_0x7f04034e, R.attr.obfuscated_res_0x7f04034f, R.attr.obfuscated_res_0x7f040357, R.attr.obfuscated_res_0x7f040358, R.attr.obfuscated_res_0x7f040359, R.attr.obfuscated_res_0x7f04035a, R.attr.obfuscated_res_0x7f04035c, R.attr.obfuscated_res_0x7f04035e, R.attr.obfuscated_res_0x7f04035f, R.attr.obfuscated_res_0x7f040360, R.attr.obfuscated_res_0x7f040361, R.attr.obfuscated_res_0x7f040489};
-        GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
-        GradientColorItem = new int[]{16843173, 16844052};
-        GridLayout = new int[]{R.attr.gridHorizontalNum, R.attr.gridHorizontalSpacing, R.attr.gridMainOrientation, R.attr.gridVerticalNum, R.attr.gridVerticalSpacing};
-        GridLayout_LayoutParams = new int[]{R.attr.layout_gravity};
-        HListView = new int[]{16842930, 16843049, R.attr.hlv_dividerWidth, R.attr.hlv_footerDividersEnabled, R.attr.hlv_headerDividersEnabled, R.attr.hlv_measureWithChild, R.attr.hlv_overScrollFooter, R.attr.hlv_overScrollHeader};
-        HaloView = new int[]{R.attr.obfuscated_res_0x7f04036f};
-        HeadImageView = new int[]{R.attr.obfuscated_res_0x7f040363, R.attr.obfuscated_res_0x7f040554, R.attr.obfuscated_res_0x7f04063a};
-        HorizontalTranslateLayout = new int[]{R.attr.obfuscated_res_0x7f040431, R.attr.obfuscated_res_0x7f040436, R.attr.obfuscated_res_0x7f0405da, R.attr.obfuscated_res_0x7f0405e0, R.attr.obfuscated_res_0x7f0406bd, R.attr.obfuscated_res_0x7f040760, R.attr.obfuscated_res_0x7f040761};
-        IndicatorView = new int[]{R.attr.obfuscated_res_0x7f0400a6, R.attr.obfuscated_res_0x7f0401b0, R.attr.obfuscated_res_0x7f040261, R.attr.obfuscated_res_0x7f040625, R.attr.obfuscated_res_0x7f040658};
-        Insets = new int[]{R.attr.obfuscated_res_0x7f040526, R.attr.obfuscated_res_0x7f040529, R.attr.obfuscated_res_0x7f04052b};
-        KPSwitchPanelLayout = new int[]{R.attr.ignore_recommend_height};
-        LinearLayoutCompat = new int[]{16842927, 16842948, 16843046, 16843047, 16843048, R.attr.obfuscated_res_0x7f040250, R.attr.obfuscated_res_0x7f040257, R.attr.obfuscated_res_0x7f0404d6, R.attr.obfuscated_res_0x7f040638};
-        LinearLayoutCompat_Layout = new int[]{16842931, 16842996, 16842997, 16843137};
-        LinearVideoLoadingSeekBar = new int[]{R.attr.loadingViewHeight, R.attr.obfuscated_res_0x7f040579};
-        ListPopupWindow = new int[]{16843436, 16843437};
-        LiveBroadcastCard = new int[]{R.attr.intro_singline, R.attr.obfuscated_res_0x7f040676};
-        LottieAnimationView = new int[]{R.attr.obfuscated_res_0x7f040274, R.attr.obfuscated_res_0x7f040275, R.attr.obfuscated_res_0x7f040276, R.attr.obfuscated_res_0x7f040277, R.attr.obfuscated_res_0x7f040278, R.attr.obfuscated_res_0x7f040279, R.attr.obfuscated_res_0x7f04027a, R.attr.obfuscated_res_0x7f04027b, R.attr.obfuscated_res_0x7f04027c, R.attr.obfuscated_res_0x7f04027d, R.attr.obfuscated_res_0x7f04027e, R.attr.obfuscated_res_0x7f04027f, R.attr.obfuscated_res_0x7f0404a9, R.attr.obfuscated_res_0x7f0404aa, R.attr.obfuscated_res_0x7f0404ab, R.attr.obfuscated_res_0x7f0404ac};
-        MaterialAlertDialog = new int[]{R.attr.obfuscated_res_0x7f0400b2, R.attr.obfuscated_res_0x7f0400b3, R.attr.obfuscated_res_0x7f0400b4, R.attr.obfuscated_res_0x7f0400b5};
-        MaterialAlertDialogTheme = new int[]{R.attr.obfuscated_res_0x7f0404b1, R.attr.obfuscated_res_0x7f0404b2, R.attr.obfuscated_res_0x7f0404b3, R.attr.obfuscated_res_0x7f0404b4, R.attr.obfuscated_res_0x7f0404b5};
-        MaterialAutoCompleteTextView = new int[]{16843296};
-        MaterialButton = new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f0401a5, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040337, R.attr.obfuscated_res_0x7f040339, R.attr.obfuscated_res_0x7f04033a, R.attr.obfuscated_res_0x7f04033b, R.attr.obfuscated_res_0x7f04033d, R.attr.obfuscated_res_0x7f04033e, R.attr.obfuscated_res_0x7f0405e1, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067b};
-        MaterialButtonToggleGroup = new int[]{R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040624, R.attr.obfuscated_res_0x7f040646};
-        MaterialCalendar = new int[]{16843277, R.attr.obfuscated_res_0x7f040209, R.attr.obfuscated_res_0x7f04020a, R.attr.obfuscated_res_0x7f04020b, R.attr.obfuscated_res_0x7f04020c, R.attr.obfuscated_res_0x7f0405bf, R.attr.obfuscated_res_0x7f0407b7, R.attr.obfuscated_res_0x7f0407b8, R.attr.obfuscated_res_0x7f0407b9};
-        MaterialCalendarItem = new int[]{16843191, 16843192, 16843193, 16843194, R.attr.obfuscated_res_0x7f040371, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f040382, R.attr.obfuscated_res_0x7f040383, R.attr.obfuscated_res_0x7f040387};
-        MaterialCardView = new int[]{16843237, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040138, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f0405e1, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f040673, R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067b};
-        MaterialCheckBox = new int[]{R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040783};
-        MaterialRadioButton = new int[]{R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f040783};
-        MaterialShape = new int[]{R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632};
-        MaterialTextAppearance = new int[]{16844159, R.attr.obfuscated_res_0x7f04043e};
-        MaterialTextView = new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f04043e};
-        MaxHeightFrameLayout = new int[]{R.attr.mhf_HeightDimen, R.attr.mhf_HeightRatio};
-        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404cb, R.attr.obfuscated_res_0x7f0404cc, R.attr.obfuscated_res_0x7f0404dc};
-        MenuGroup = new int[]{16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
-        MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, R.attr.obfuscated_res_0x7f040057, R.attr.obfuscated_res_0x7f04006b, R.attr.obfuscated_res_0x7f04006f, R.attr.obfuscated_res_0x7f04008b, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f04033d, R.attr.obfuscated_res_0x7f04033e, R.attr.obfuscated_res_0x7f040515, R.attr.obfuscated_res_0x7f040637, R.attr.obfuscated_res_0x7f04074f};
-        MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, R.attr.obfuscated_res_0x7f040573, R.attr.obfuscated_res_0x7f04067d};
-        ModeAttr = new int[]{R.attr.tb_background, R.attr.tb_button, R.attr.tb_divider, R.attr.tb_drawableLeft, R.attr.tb_drawableRight, R.attr.tb_drawableTop, R.attr.tb_progressDrawable, R.attr.tb_src, R.attr.tb_style, R.attr.tb_textColor, R.attr.tb_textColorHint};
-        NADUnifyTextView = new int[]{R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f04065f};
-        NadBdThumbSeekBar = new int[]{R.attr.nad_ThumbSeekBarStyle};
-        NadEnhanceButtonView = new int[]{R.attr.btnBackgroundEndColor, R.attr.btnBackgroundStartColor, R.attr.btnCornerRadius};
-        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404c5, R.attr.nad_style, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405e6, R.attr.roundHintTextSize, R.attr.obfuscated_res_0x7f0405e9, R.attr.roundPaintCapRound, R.attr.obfuscated_res_0x7f0405ec, R.attr.roundTextColor, R.attr.roundTextSize, R.attr.obfuscated_res_0x7f0405f1, R.attr.obfuscated_res_0x7f040708, R.attr.obfuscated_res_0x7f040712, R.attr.obfuscated_res_0x7f040715};
-        NadShadowViewGroup = new int[]{R.attr.containerCornerRadius, R.attr.containerDeltaHeight, R.attr.containerDeltaWidth, R.attr.containerShadowColor, R.attr.containerShadowRadius, R.attr.obfuscated_res_0x7f040216, R.attr.obfuscated_res_0x7f040217, R.attr.obfuscated_res_0x7f040289, R.attr.obfuscated_res_0x7f04062c};
-        NadTextProgressView = new int[]{R.attr.nad_progressGravity, R.attr.nad_progressTextColor, R.attr.nad_progressTextMode, R.attr.nad_progressTextSize};
-        NavigationBar = new int[]{R.attr.obfuscated_res_0x7f040131};
-        NavigationView = new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f040307, R.attr.obfuscated_res_0x7f040370, R.attr.obfuscated_res_0x7f040372, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f040377, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f04037c, R.attr.obfuscated_res_0x7f04037d, R.attr.obfuscated_res_0x7f04037e, R.attr.obfuscated_res_0x7f04037f, R.attr.obfuscated_res_0x7f040380, R.attr.obfuscated_res_0x7f040384, R.attr.obfuscated_res_0x7f040387, R.attr.obfuscated_res_0x7f0404d8};
-        PayUi_NoScrollGridView = new int[]{R.attr.pay_ui_gv_max_height_dp};
-        PayUi_RoundImageView = new int[]{R.attr.payUiBottomLeftRadius, R.attr.payUiBottomRightRadius, R.attr.payUiTopLeftRadius, R.attr.payUiTopRightRadius};
-        Pay_Ui_Banner = new int[]{R.attr.playUiAspectRatio};
-        PbWriteToolView = new int[]{R.attr.audioDayBackground, R.attr.audioDayKeyBoard, R.attr.obfuscated_res_0x7f0400a1, R.attr.audioNightBackground, R.attr.audioNightKeyBoard, R.attr.obfuscated_res_0x7f0400a4, R.attr.obfuscated_res_0x7f04030d, R.attr.obfuscated_res_0x7f04030e, R.attr.obfuscated_res_0x7f04030f, R.attr.obfuscated_res_0x7f040310};
-        PlaybackControlView = new int[]{R.attr.obfuscated_res_0x7f04019e, R.attr.obfuscated_res_0x7f0402bd, R.attr.obfuscated_res_0x7f0405d2, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f04063f, R.attr.obfuscated_res_0x7f040640};
-        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040521, R.attr.popupAnimationStyle, R.attr.popupBackground};
-        PopupWindowBackgroundState = new int[]{R.attr.obfuscated_res_0x7f040670};
-        ProgressCircle = new int[]{R.attr.obfuscated_res_0x7f040347, R.attr.obfuscated_res_0x7f040348, R.attr.obfuscated_res_0x7f040349, R.attr.obfuscated_res_0x7f04034a, R.attr.obfuscated_res_0x7f040575, R.attr.obfuscated_res_0x7f040576, R.attr.obfuscated_res_0x7f04057a};
-        PullToRefresh = new int[]{R.attr.tb_ptrAdapterViewBackground, R.attr.tb_ptrAnimationStyle, R.attr.tb_ptrDrawable, R.attr.tb_ptrDrawableBottom, R.attr.tb_ptrDrawableEnd, R.attr.tb_ptrDrawableStart, R.attr.tb_ptrDrawableTop, R.attr.tb_ptrHeaderBackground, R.attr.tb_ptrHeaderSubTextColor, R.attr.tb_ptrHeaderTextAppearance, R.attr.tb_ptrHeaderTextColor, R.attr.tb_ptrListViewExtrasEnabled, R.attr.tb_ptrMode, R.attr.tb_ptrOverScroll, R.attr.tb_ptrRefreshableViewBackground, R.attr.tb_ptrRotateDrawableWhilePulling, R.attr.tb_ptrScrollingWhileRefreshingEnabled, R.attr.tb_ptrShowIndicator, R.attr.tb_ptrSubHeaderTextAppearance};
-        RadiusProgressView = new int[]{16843062, 16843063, 16843176, R.attr.radiusProgressColor, R.attr.obfuscated_res_0x7f040654};
-        RangeSlider = new int[]{R.attr.obfuscated_res_0x7f040433, R.attr.obfuscated_res_0x7f040434, R.attr.obfuscated_res_0x7f04043d, R.attr.obfuscated_res_0x7f04043e, R.attr.obfuscated_res_0x7f0404ae, R.attr.obfuscated_res_0x7f0404af, R.attr.obfuscated_res_0x7f0405dc, R.attr.obfuscated_res_0x7f0405dd, R.attr.obfuscated_res_0x7f04064f, R.attr.obfuscated_res_0x7f040727, R.attr.obfuscated_res_0x7f04072c, R.attr.obfuscated_res_0x7f040787, R.attr.obfuscated_res_0x7f040790, R.attr.obfuscated_res_0x7f040791};
-        RawLayout = new int[]{R.attr.layout_raw, R.attr.obfuscated_res_0x7f0405c3, R.attr.spacingBottom, R.attr.obfuscated_res_0x7f04065c};
-        RecycleListView = new int[]{R.attr.obfuscated_res_0x7f040525, R.attr.obfuscated_res_0x7f04052e};
-        RecyclerView = new int[]{16842948, 16842987, 16842993, R.attr.obfuscated_res_0x7f0402b8, R.attr.obfuscated_res_0x7f0402b9, R.attr.obfuscated_res_0x7f0402ba, R.attr.obfuscated_res_0x7f0402bb, R.attr.obfuscated_res_0x7f0402bc, R.attr.obfuscated_res_0x7f040418, R.attr.obfuscated_res_0x7f0405d6, R.attr.obfuscated_res_0x7f04065d, R.attr.obfuscated_res_0x7f040668};
-        RefresherView = new int[]{R.attr.obfuscated_res_0x7f04021d, R.attr.obfuscated_res_0x7f040288, R.attr.obfuscated_res_0x7f0404d5, R.attr.obfuscated_res_0x7f0405c5, R.attr.obfuscated_res_0x7f0405c6, R.attr.obfuscated_res_0x7f040720};
-        RoundCornerRelativeLayout = new int[]{R.attr.round_edge_radius};
-        SVCircleProgressBar = new int[]{R.attr.obfuscated_res_0x7f040689, R.attr.obfuscated_res_0x7f04068a, R.attr.obfuscated_res_0x7f04068b, R.attr.obfuscated_res_0x7f04068c, R.attr.obfuscated_res_0x7f04068d};
-        SVGAImageView = new int[]{R.attr.obfuscated_res_0x7f040095, R.attr.obfuscated_res_0x7f0400a7, R.attr.clearsAfterStop, R.attr.obfuscated_res_0x7f0402be, R.attr.obfuscated_res_0x7f0404a7, R.attr.obfuscated_res_0x7f040657};
-        SVGImageView = new int[]{R.attr.obfuscated_res_0x7f0401fa, R.attr.obfuscated_res_0x7f040688};
-        SapiSDKInputFormView = new int[]{R.attr.obfuscated_res_0x7f04001e, R.attr.obfuscated_res_0x7f04002d, R.attr.obfuscated_res_0x7f04002e, R.attr.obfuscated_res_0x7f040030, R.attr.obfuscated_res_0x7f040031, R.attr.obfuscated_res_0x7f040034, R.attr.obfuscated_res_0x7f040036};
-        SapiSdkScrollLayout = new int[]{R.attr.obfuscated_res_0x7f040018, R.attr.obfuscated_res_0x7f04001c, R.attr.obfuscated_res_0x7f04001d, R.attr.obfuscated_res_0x7f04002f, R.attr.obfuscated_res_0x7f040032, R.attr.obfuscated_res_0x7f040033};
-        SapiSdkSlidingTabLayout = new int[]{R.attr.obfuscated_res_0x7f040019, R.attr.obfuscated_res_0x7f04001a, R.attr.obfuscated_res_0x7f04001b, R.attr.obfuscated_res_0x7f04001f, R.attr.obfuscated_res_0x7f040020, R.attr.obfuscated_res_0x7f040021, R.attr.obfuscated_res_0x7f040022, R.attr.obfuscated_res_0x7f040023, R.attr.obfuscated_res_0x7f040027, R.attr.obfuscated_res_0x7f040028, R.attr.obfuscated_res_0x7f040029, R.attr.obfuscated_res_0x7f04002a, R.attr.obfuscated_res_0x7f04002b, R.attr.obfuscated_res_0x7f04002c, R.attr.obfuscated_res_0x7f040037, R.attr.obfuscated_res_0x7f040038, R.attr.obfuscated_res_0x7f040039, R.attr.obfuscated_res_0x7f04003a, R.attr.obfuscated_res_0x7f04003b, R.attr.obfuscated_res_0x7f04003c, R.attr.obfuscated_res_0x7f04003d, R.attr.obfuscated_res_0x7f040044, R.attr.obfuscated_res_0x7f040045, R.attr.obfuscated_res_0x7f040046, R.attr.obfuscated_res_0x7f040047};
-        SapiSdkTabMsgView = new int[]{R.attr.obfuscated_res_0x7f04003e, R.attr.obfuscated_res_0x7f04003f, R.attr.obfuscated_res_0x7f040040, R.attr.obfuscated_res_0x7f040041, R.attr.obfuscated_res_0x7f040042, R.attr.obfuscated_res_0x7f040043};
-        SapiSdkTextFormView = new int[]{R.attr.obfuscated_res_0x7f040017, R.attr.obfuscated_res_0x7f040035};
-        ScanningView = new int[]{R.attr.obfuscated_res_0x7f04043a, R.attr.obfuscated_res_0x7f04043b};
-        ScrimInsetsFrameLayout = new int[]{R.attr.obfuscated_res_0x7f040354};
-        ScrollingViewBehavior_Layout = new int[]{R.attr.obfuscated_res_0x7f0400d9};
-        SearchView = new int[]{16842970, 16843039, 16843296, 16843364, R.attr.obfuscated_res_0x7f04015d, R.attr.obfuscated_res_0x7f040189, R.attr.obfuscated_res_0x7f040210, R.attr.obfuscated_res_0x7f0402f7, R.attr.obfuscated_res_0x7f040340, R.attr.obfuscated_res_0x7f040412, R.attr.obfuscated_res_0x7f0405a9, R.attr.obfuscated_res_0x7f0405aa, R.attr.obfuscated_res_0x7f04061a, R.attr.obfuscated_res_0x7f04061b, R.attr.obfuscated_res_0x7f04067e, R.attr.obfuscated_res_0x7f040686, R.attr.obfuscated_res_0x7f04079c};
-        ShapeAppearance = new int[]{R.attr.obfuscated_res_0x7f0401a0, R.attr.obfuscated_res_0x7f0401a1, R.attr.obfuscated_res_0x7f0401a2, R.attr.obfuscated_res_0x7f0401a3, R.attr.obfuscated_res_0x7f0401a4, R.attr.obfuscated_res_0x7f0401a6, R.attr.obfuscated_res_0x7f0401a7, R.attr.obfuscated_res_0x7f0401a8, R.attr.obfuscated_res_0x7f0401a9, R.attr.obfuscated_res_0x7f0401aa};
-        ShapeableImageView = new int[]{R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f04067a, R.attr.obfuscated_res_0x7f04067b};
-        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f040417};
-        SimpleCountDownView = new int[]{R.attr.count_down_margin, R.attr.count_down_timeColor, R.attr.count_down_timeRectColor, R.attr.count_down_timeRectHeight, R.attr.count_down_timeRectRadius, R.attr.count_down_timeRectWidth, R.attr.count_down_timeSize, R.attr.count_down_unitColor, R.attr.count_down_unitSize};
-        SimpleDraweeView = new int[]{R.attr.obfuscated_res_0x7f040024, R.attr.obfuscated_res_0x7f040025, R.attr.obfuscated_res_0x7f040026, R.attr.obfuscated_res_0x7f04005c, R.attr.obfuscated_res_0x7f04015b, R.attr.obfuscated_res_0x7f04015f, R.attr.obfuscated_res_0x7f040160, R.attr.obfuscated_res_0x7f0402a8, R.attr.obfuscated_res_0x7f0402c6, R.attr.obfuscated_res_0x7f0402c7, R.attr.obfuscated_res_0x7f0402cf, R.attr.obfuscated_res_0x7f0402d1, R.attr.obfuscated_res_0x7f0402d2, R.attr.obfuscated_res_0x7f0402d3, R.attr.obfuscated_res_0x7f040332, R.attr.obfuscated_res_0x7f040333, R.attr.obfuscated_res_0x7f04034b, R.attr.obfuscated_res_0x7f04034c, R.attr.obfuscated_res_0x7f04034d, R.attr.obfuscated_res_0x7f04034e, R.attr.obfuscated_res_0x7f04034f, R.attr.obfuscated_res_0x7f040357, R.attr.obfuscated_res_0x7f040358, R.attr.obfuscated_res_0x7f040359, R.attr.obfuscated_res_0x7f04035a, R.attr.obfuscated_res_0x7f04035c, R.attr.obfuscated_res_0x7f04035e, R.attr.obfuscated_res_0x7f04035f, R.attr.obfuscated_res_0x7f040360, R.attr.obfuscated_res_0x7f040361, R.attr.obfuscated_res_0x7f040489};
-        SimpleExoPlayerView = new int[]{R.attr.obfuscated_res_0x7f0400ae, R.attr.obfuscated_res_0x7f04019e, R.attr.obfuscated_res_0x7f040213, R.attr.obfuscated_res_0x7f0402bd, R.attr.obfuscated_res_0x7f040314, R.attr.obfuscated_res_0x7f040569, R.attr.obfuscated_res_0x7f0405d4, R.attr.obfuscated_res_0x7f0405d7, R.attr.obfuscated_res_0x7f040640, R.attr.obfuscated_res_0x7f040643, R.attr.obfuscated_res_0x7f040687, R.attr.obfuscated_res_0x7f040784, R.attr.obfuscated_res_0x7f040785};
-        Slider = new int[]{16842766, 16842788, 16843078, 16843486, 16843487, R.attr.obfuscated_res_0x7f040302, R.attr.obfuscated_res_0x7f040303, R.attr.obfuscated_res_0x7f040403, R.attr.obfuscated_res_0x7f040405, R.attr.obfuscated_res_0x7f040723, R.attr.obfuscated_res_0x7f040726, R.attr.obfuscated_res_0x7f040728, R.attr.obfuscated_res_0x7f04072d, R.attr.obfuscated_res_0x7f04072e, R.attr.obfuscated_res_0x7f04072f, R.attr.obfuscated_res_0x7f040759, R.attr.obfuscated_res_0x7f04075a, R.attr.obfuscated_res_0x7f04075b, R.attr.obfuscated_res_0x7f04075c};
-        Snackbar = new int[]{R.attr.obfuscated_res_0x7f040651, R.attr.obfuscated_res_0x7f040652, R.attr.obfuscated_res_0x7f040653};
-        SnackbarLayout = new int[]{16843039, R.attr.obfuscated_res_0x7f04006e, R.attr.obfuscated_res_0x7f040094, R.attr.obfuscated_res_0x7f0400b6, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba, R.attr.obfuscated_res_0x7f040285, R.attr.obfuscated_res_0x7f0404c7};
-        SortSwitchButton = new int[]{R.attr.background_border_alpha, R.attr.background_border_color, R.attr.background_border_width, R.attr.background_color, R.attr.selected_text_color, R.attr.slide_border_color, R.attr.slide_border_width, R.attr.slide_color, R.attr.slide_height, R.attr.slide_need_sync, R.attr.text_horizontal_padding, R.attr.text_size, R.attr.un_selected_text_color};
-        Spinner = new int[]{16842930, 16843126, 16843131, 16843362, R.attr.obfuscated_res_0x7f04056e};
-        StateListDrawable = new int[]{16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
-        StateListDrawableItem = new int[]{16843161};
-        SubsamplingScaleImageView = new int[]{R.attr.obfuscated_res_0x7f04009d, R.attr.obfuscated_res_0x7f04052f, R.attr.quickScaleEnabled, R.attr.obfuscated_res_0x7f040665, R.attr.tileBackgroundColor, R.attr.obfuscated_res_0x7f0407ba};
-        SwitchCompat = new int[]{16843044, 16843045, 16843074, R.attr.obfuscated_res_0x7f04063d, R.attr.obfuscated_res_0x7f040664, R.attr.obfuscated_res_0x7f040691, R.attr.obfuscated_res_0x7f040692, R.attr.obfuscated_res_0x7f040694, R.attr.obfuscated_res_0x7f040729, R.attr.obfuscated_res_0x7f04072a, R.attr.obfuscated_res_0x7f04072b, R.attr.obfuscated_res_0x7f040758, R.attr.obfuscated_res_0x7f04075d, R.attr.obfuscated_res_0x7f04075e};
-        SwitchMaterial = new int[]{R.attr.obfuscated_res_0x7f040783};
-        TBProgressButton = new int[]{R.attr.btnBackgroundAlpha, R.attr.btnBackgroundColor, R.attr.btnColorStyle, R.attr.obfuscated_res_0x7f040112, R.attr.obfuscated_res_0x7f040113, R.attr.obfuscated_res_0x7f04070a, R.attr.textColorProgress};
-        TabItem = new int[]{16842754, 16842994, 16843087};
-        TabLayout = new int[]{R.attr.obfuscated_res_0x7f040695, R.attr.obfuscated_res_0x7f040696, R.attr.obfuscated_res_0x7f040697, R.attr.obfuscated_res_0x7f040698, R.attr.obfuscated_res_0x7f040699, R.attr.obfuscated_res_0x7f04069a, R.attr.obfuscated_res_0x7f04069b, R.attr.obfuscated_res_0x7f04069c, R.attr.obfuscated_res_0x7f04069d, R.attr.obfuscated_res_0x7f04069e, R.attr.obfuscated_res_0x7f04069f, R.attr.obfuscated_res_0x7f0406a1, R.attr.obfuscated_res_0x7f0406a2, R.attr.obfuscated_res_0x7f0406a3, R.attr.obfuscated_res_0x7f0406a4, R.attr.obfuscated_res_0x7f0406a5, R.attr.obfuscated_res_0x7f0406a6, R.attr.obfuscated_res_0x7f0406a7, R.attr.obfuscated_res_0x7f0406a8, R.attr.obfuscated_res_0x7f0406a9, R.attr.obfuscated_res_0x7f0406aa, R.attr.obfuscated_res_0x7f0406ab, R.attr.obfuscated_res_0x7f0406ad, R.attr.obfuscated_res_0x7f0406ae, R.attr.obfuscated_res_0x7f0406af};
-        TbFrescoImage = new int[]{R.attr.tb_circleType, R.attr.tb_cornerRadius, R.attr.tb_errorHolder, R.attr.tb_holder, R.attr.tb_imageScaleType, R.attr.tb_leftBottomRadius, R.attr.tb_leftTopRadius, R.attr.tb_rightBottomRadius, R.attr.tb_rightTopRadius};
-        TbImageView = new int[]{R.attr.obfuscated_res_0x7f040366};
-        TbRichTextView = new int[]{R.attr.defaultImage, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f0402b3, R.attr.includeFontPadding, R.attr.obfuscated_res_0x7f040441, R.attr.obfuscated_res_0x7f0404cd, R.attr.maxImageWidth, R.attr.obfuscated_res_0x7f04061f, R.attr.obfuscated_res_0x7f040645, R.attr.tbLineSpacing, R.attr.obfuscated_res_0x7f040708, R.attr.obfuscated_res_0x7f040714, R.attr.obfuscated_res_0x7f040715, R.attr.obfuscated_res_0x7f040797};
-        TbSettingView = new int[]{R.attr.settingShowArraw, R.attr.obfuscated_res_0x7f040627, R.attr.settingTextColor, R.attr.obfuscated_res_0x7f040629, R.attr.obfuscated_res_0x7f04062a, R.attr.settingTipColor};
-        TbTabLayout = new int[]{R.attr.tabIndicatorWidth};
-        TextAppearance = new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0406f1, R.attr.obfuscated_res_0x7f040713};
-        TextInputEditText = new int[]{R.attr.obfuscated_res_0x7f040710};
-        TextInputLayout = new int[]{16842766, 16842906, 16843088, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040101, R.attr.obfuscated_res_0x7f040102, R.attr.obfuscated_res_0x7f040103, R.attr.obfuscated_res_0x7f040104, R.attr.obfuscated_res_0x7f040105, R.attr.obfuscated_res_0x7f040106, R.attr.obfuscated_res_0x7f040107, R.attr.obfuscated_res_0x7f040108, R.attr.obfuscated_res_0x7f040109, R.attr.obfuscated_res_0x7f04010a, R.attr.obfuscated_res_0x7f0401ba, R.attr.obfuscated_res_0x7f0401bb, R.attr.obfuscated_res_0x7f0401bc, R.attr.obfuscated_res_0x7f0401bd, R.attr.obfuscated_res_0x7f0401be, R.attr.obfuscated_res_0x7f0401bf, R.attr.obfuscated_res_0x7f04028a, R.attr.obfuscated_res_0x7f04028b, R.attr.obfuscated_res_0x7f04028c, R.attr.obfuscated_res_0x7f04028d, R.attr.obfuscated_res_0x7f04028e, R.attr.obfuscated_res_0x7f04028f, R.attr.obfuscated_res_0x7f040294, R.attr.obfuscated_res_0x7f040295, R.attr.obfuscated_res_0x7f040297, R.attr.obfuscated_res_0x7f040298, R.attr.obfuscated_res_0x7f040299, R.attr.obfuscated_res_0x7f04029a, R.attr.obfuscated_res_0x7f04029b, R.attr.obfuscated_res_0x7f040309, R.attr.obfuscated_res_0x7f04030a, R.attr.obfuscated_res_0x7f04030b, R.attr.obfuscated_res_0x7f04030c, R.attr.obfuscated_res_0x7f040315, R.attr.obfuscated_res_0x7f040316, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f040318, R.attr.obfuscated_res_0x7f040548, R.attr.obfuscated_res_0x7f040549, R.attr.obfuscated_res_0x7f04054a, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054c, R.attr.obfuscated_res_0x7f040561, R.attr.obfuscated_res_0x7f040562, R.attr.obfuscated_res_0x7f040563, R.attr.obfuscated_res_0x7f040570, R.attr.obfuscated_res_0x7f040571, R.attr.obfuscated_res_0x7f040572, R.attr.obfuscated_res_0x7f04062f, R.attr.obfuscated_res_0x7f040632, R.attr.obfuscated_res_0x7f04066b, R.attr.obfuscated_res_0x7f04066c, R.attr.obfuscated_res_0x7f04066d, R.attr.obfuscated_res_0x7f04066e, R.attr.obfuscated_res_0x7f04066f, R.attr.obfuscated_res_0x7f040683, R.attr.obfuscated_res_0x7f040684, R.attr.obfuscated_res_0x7f040685};
-        ThemeEnforcement = new int[]{16842804, R.attr.obfuscated_res_0x7f040290, R.attr.obfuscated_res_0x7f040291};
-        Toolbar = new int[]{16842927, 16843072, R.attr.obfuscated_res_0x7f040129, R.attr.obfuscated_res_0x7f040167, R.attr.obfuscated_res_0x7f040168, R.attr.obfuscated_res_0x7f040194, R.attr.obfuscated_res_0x7f040195, R.attr.obfuscated_res_0x7f040196, R.attr.obfuscated_res_0x7f040197, R.attr.obfuscated_res_0x7f040198, R.attr.obfuscated_res_0x7f040199, R.attr.obfuscated_res_0x7f0404a4, R.attr.obfuscated_res_0x7f0404a5, R.attr.obfuscated_res_0x7f0404c8, R.attr.obfuscated_res_0x7f0404d8, R.attr.obfuscated_res_0x7f040506, R.attr.obfuscated_res_0x7f040507, R.attr.obfuscated_res_0x7f04056e, R.attr.obfuscated_res_0x7f04067f, R.attr.obfuscated_res_0x7f040680, R.attr.obfuscated_res_0x7f040681, R.attr.obfuscated_res_0x7f040738, R.attr.obfuscated_res_0x7f04073b, R.attr.obfuscated_res_0x7f04073c, R.attr.obfuscated_res_0x7f04073d, R.attr.obfuscated_res_0x7f04073e, R.attr.obfuscated_res_0x7f04073f, R.attr.obfuscated_res_0x7f040740, R.attr.obfuscated_res_0x7f040742, R.attr.obfuscated_res_0x7f040743};
-        Tooltip = new int[]{16842804, 16842965, 16842998, 16843071, 16843072, 16843087, R.attr.obfuscated_res_0x7f0400b9};
-        TopBar = new int[]{R.attr.color_dark, R.attr.obfuscated_res_0x7f04042d, R.attr.obfuscated_res_0x7f040432, R.attr.obfuscated_res_0x7f0404db, R.attr.obfuscated_res_0x7f0405d8, R.attr.obfuscated_res_0x7f0405db, R.attr.obfuscated_res_0x7f040739, R.attr.obfuscated_res_0x7f040741};
-        UFOShimmerFrameLayout = new int[]{R.attr.obfuscated_res_0x7f040770, R.attr.obfuscated_res_0x7f040771, R.attr.obfuscated_res_0x7f040772, R.attr.obfuscated_res_0x7f040773, R.attr.obfuscated_res_0x7f040774, R.attr.obfuscated_res_0x7f040775, R.attr.obfuscated_res_0x7f040776, R.attr.obfuscated_res_0x7f040777, R.attr.obfuscated_res_0x7f040778, R.attr.obfuscated_res_0x7f040779, R.attr.obfuscated_res_0x7f04077a, R.attr.obfuscated_res_0x7f04077b, R.attr.obfuscated_res_0x7f04077c, R.attr.obfuscated_res_0x7f04077d, R.attr.obfuscated_res_0x7f04077e};
-        UFOTitleBar = new int[]{R.attr.obfuscated_res_0x7f0404a4, R.attr.obfuscated_res_0x7f040738};
-        ValidationWebView = new int[]{R.attr.bottom_left, R.attr.bottom_right, R.attr.top_left, R.attr.top_right};
-        VerticalTranslateLayout = new int[]{R.attr.obfuscated_res_0x7f0400f2, R.attr.obfuscated_res_0x7f0400f4, R.attr.obfuscated_res_0x7f0406bd, R.attr.obfuscated_res_0x7f040750, R.attr.obfuscated_res_0x7f040751, R.attr.obfuscated_res_0x7f040760, R.attr.obfuscated_res_0x7f040761};
-        View = new int[]{16842752, 16842970, R.attr.obfuscated_res_0x7f040049, R.attr.obfuscated_res_0x7f04008a, R.attr.obfuscated_res_0x7f040158, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f04026e, R.attr.obfuscated_res_0x7f040273, R.attr.obfuscated_res_0x7f0402b4, R.attr.obfuscated_res_0x7f0402b5, R.attr.obfuscated_res_0x7f0402b6, R.attr.obfuscated_res_0x7f0402bf, R.attr.obfuscated_res_0x7f0402c1, R.attr.obfuscated_res_0x7f0402e1, R.attr.obfuscated_res_0x7f0402e2, R.attr.obfuscated_res_0x7f040304, R.attr.obfuscated_res_0x7f040341, R.attr.obfuscated_res_0x7f040345, R.attr.obfuscated_res_0x7f040365, R.attr.obfuscated_res_0x7f040388, R.attr.obfuscated_res_0x7f040411, R.attr.obfuscated_res_0x7f040415, R.attr.obfuscated_res_0x7f04042a, R.attr.obfuscated_res_0x7f04042e, R.attr.obfuscated_res_0x7f0404a6, R.attr.obfuscated_res_0x7f04050c, R.attr.obfuscated_res_0x7f04050d, R.attr.obfuscated_res_0x7f04050e, R.attr.obfuscated_res_0x7f04050f, R.attr.obfuscated_res_0x7f040510, R.attr.obfuscated_res_0x7f040516, R.attr.obfuscated_res_0x7f040520, R.attr.obfuscated_res_0x7f040523, R.attr.obfuscated_res_0x7f040524, R.attr.obfuscated_res_0x7f040527, R.attr.obfuscated_res_0x7f040528, R.attr.obfuscated_res_0x7f04052a, R.attr.obfuscated_res_0x7f04052c, R.attr.obfuscated_res_0x7f04052d, R.attr.obfuscated_res_0x7f0405d3, R.attr.obfuscated_res_0x7f0405e2, R.attr.obfuscated_res_0x7f0405e3, R.attr.obfuscated_res_0x7f0405e4, R.attr.obfuscated_res_0x7f040600, R.attr.obfuscated_res_0x7f040602, R.attr.obfuscated_res_0x7f040603, R.attr.obfuscated_res_0x7f040607, R.attr.obfuscated_res_0x7f040608, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610, R.attr.obfuscated_res_0x7f040611, R.attr.obfuscated_res_0x7f040612, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040656, R.attr.obfuscated_res_0x7f0406b0, R.attr.obfuscated_res_0x7f0406f0, R.attr.obfuscated_res_0x7f04070d, R.attr.obfuscated_res_0x7f04071c, R.attr.obfuscated_res_0x7f040763, R.attr.obfuscated_res_0x7f040764, R.attr.obfuscated_res_0x7f04076a, R.attr.obfuscated_res_0x7f04076b, R.attr.obfuscated_res_0x7f040793, R.attr.obfuscated_res_0x7f04079a};
-        ViewBackgroundHelper = new int[]{16842964, R.attr.obfuscated_res_0x7f0400b9, R.attr.obfuscated_res_0x7f0400ba};
-        ViewPager2 = new int[]{16842948};
-        ViewStubCompat = new int[]{16842960, 16842994, 16842995};
-        VipAdFreeGuideLayout = new int[]{R.attr.icon_size, R.attr.is_panel};
-        Voice_play_type = new int[]{R.attr.play_type};
-        XGridLayout = new int[]{R.attr.gridHorizontalSpace, R.attr.obfuscated_res_0x7f0402fb, R.attr.obfuscated_res_0x7f0402fd, R.attr.obfuscated_res_0x7f0402fe, R.attr.gridVerticalSpace};
-        bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.obfuscated_res_0x7f0400cd, R.attr.obfuscated_res_0x7f0400ce, R.attr.obfuscated_res_0x7f0400cf, R.attr.obfuscated_res_0x7f0400d0};
-        crius = new int[]{R.attr.obfuscated_res_0x7f0401c0, R.attr.obfuscated_res_0x7f0401c1, R.attr.obfuscated_res_0x7f0401c2, R.attr.obfuscated_res_0x7f0401c3, R.attr.obfuscated_res_0x7f0401c4, R.attr.obfuscated_res_0x7f0401c5, R.attr.obfuscated_res_0x7f0401c6, R.attr.obfuscated_res_0x7f0401c7, R.attr.obfuscated_res_0x7f0401c8, R.attr.obfuscated_res_0x7f0401c9, R.attr.obfuscated_res_0x7f0401ca, R.attr.obfuscated_res_0x7f0401cb, R.attr.obfuscated_res_0x7f0401cc, R.attr.obfuscated_res_0x7f0401cd, R.attr.obfuscated_res_0x7f0401ce, R.attr.obfuscated_res_0x7f0401cf, R.attr.obfuscated_res_0x7f0401d0, R.attr.obfuscated_res_0x7f0401d1, R.attr.obfuscated_res_0x7f0401d2, R.attr.obfuscated_res_0x7f0401d3, R.attr.obfuscated_res_0x7f0401d4, R.attr.obfuscated_res_0x7f0401d5, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0401d7, R.attr.obfuscated_res_0x7f0401d8, R.attr.obfuscated_res_0x7f0401d9, R.attr.obfuscated_res_0x7f0401da, R.attr.obfuscated_res_0x7f0401db, R.attr.obfuscated_res_0x7f0401dc, R.attr.obfuscated_res_0x7f0401dd, R.attr.obfuscated_res_0x7f0401de, R.attr.obfuscated_res_0x7f0401df, R.attr.obfuscated_res_0x7f0401e0, R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0401e2, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f0401e4, R.attr.obfuscated_res_0x7f0401e5, R.attr.obfuscated_res_0x7f0401e6, R.attr.obfuscated_res_0x7f0401e7, R.attr.obfuscated_res_0x7f0401e8, R.attr.obfuscated_res_0x7f0401e9, R.attr.obfuscated_res_0x7f0401ea, R.attr.obfuscated_res_0x7f0401eb, R.attr.obfuscated_res_0x7f0401ec, R.attr.obfuscated_res_0x7f0401ed, R.attr.obfuscated_res_0x7f0401ee, R.attr.obfuscated_res_0x7f0401ef, R.attr.obfuscated_res_0x7f0401f0, R.attr.obfuscated_res_0x7f0401f1, R.attr.obfuscated_res_0x7f0401f2, R.attr.obfuscated_res_0x7f0401f3, R.attr.obfuscated_res_0x7f0401f4, R.attr.obfuscated_res_0x7f0401f5, R.attr.obfuscated_res_0x7f0401f6, R.attr.obfuscated_res_0x7f0401f7, R.attr.obfuscated_res_0x7f0401f8};
-        custom_state = new int[]{R.attr.custom_state_focused, R.attr.custom_state_skin};
-        fixtextview = new int[]{R.attr.obfuscated_res_0x7f0404d7};
-        moreTabWidget = new int[]{R.attr.widget_icon, R.attr.widget_text};
-        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.nad_bdvideoplayer_progressGravity, R.attr.nad_bdvideoplayer_progressTextColor, R.attr.nad_bdvideoplayer_progressTextMode, R.attr.nad_bdvideoplayer_progressTextSize};
-        nad_progress = new int[]{R.attr.nad_btn_foreground, R.attr.nad_btn_foreground_end, R.attr.nad_btn_max, R.attr.nad_btn_prefix_icon, R.attr.nad_btn_progress, R.attr.nad_btn_radius, R.attr.nad_btn_text, R.attr.nad_btn_textBold, R.attr.nad_btn_textColor, R.attr.nad_btn_textSize, R.attr.nad_prefix_icon_height, R.attr.nad_prefix_icon_show, R.attr.nad_prefix_icon_width};
-        noNetworkView = new int[]{R.attr.is_support_offline};
-        pass_liveness_CircleCameraLayout = new int[]{R.attr.obfuscated_res_0x7f040533, R.attr.obfuscated_res_0x7f040534, R.attr.obfuscated_res_0x7f040535};
-        pass_liveness_CircleProgressView = new int[]{R.attr.obfuscated_res_0x7f040536, R.attr.obfuscated_res_0x7f040537, R.attr.obfuscated_res_0x7f040538, R.attr.obfuscated_res_0x7f040539, R.attr.obfuscated_res_0x7f04053a, R.attr.obfuscated_res_0x7f04053b, R.attr.obfuscated_res_0x7f04053c, R.attr.obfuscated_res_0x7f04053d, R.attr.obfuscated_res_0x7f04053e, R.attr.obfuscated_res_0x7f04053f, R.attr.obfuscated_res_0x7f040540, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040543, R.attr.obfuscated_res_0x7f040544, R.attr.obfuscated_res_0x7f040545, R.attr.obfuscated_res_0x7f040546, R.attr.obfuscated_res_0x7f040547};
-        pickerview = new int[]{R.attr.obfuscated_res_0x7f0407a3, R.attr.obfuscated_res_0x7f0407a4, R.attr.obfuscated_res_0x7f0407a5, R.attr.obfuscated_res_0x7f0407a6, R.attr.obfuscated_res_0x7f0407a7, R.attr.obfuscated_res_0x7f0407a8};
-        sapi_sdk_RoundWebview = new int[]{R.attr.sapi_sdk_bottom_left, R.attr.sapi_sdk_bottom_right, R.attr.sapi_sdk_top_left, R.attr.sapi_sdk_top_right};
-        sapi_sdk_SwipeBackLayout = new int[]{R.attr.sapi_sdk_directionMode, R.attr.sapi_sdk_isSwipeFromEdge, R.attr.sapi_sdk_maskAlpha, R.attr.sapi_sdk_swipeBackFactor};
-        sapi_sdk_circle_image_view = new int[]{R.attr.sapi_sdk_border_color, R.attr.sapi_sdk_border_width};
-        sapi_sdk_sms_login_view = new int[]{R.attr.sapi_sdk_show_keyboard};
-        spannable_etextview = new int[]{R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f04065f};
-        voiceCircleProgress = new int[]{R.attr.obfuscated_res_0x7f040098, R.attr.obfuscated_res_0x7f04009a, R.attr.obfuscated_res_0x7f0400dd, R.attr.mBgArcWidth, R.attr.shadownRadius, R.attr.obfuscated_res_0x7f04066a, R.attr.obfuscated_res_0x7f040690};
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.o = null;
+        this.p = null;
+        this.q = null;
+        this.x = null;
+        this.y = null;
+        this.z = null;
+        this.C = si7.a();
+        this.G = true;
+        this.H = true;
+        this.I = 0;
+        this.J = false;
+        this.S = 0;
+        this.T = 0;
+        this.U = null;
+        this.V = null;
+        this.Y = false;
+        this.a0 = true;
+        this.g0 = true;
+        this.h0 = -1;
+        this.i0 = -1;
+        this.q0 = 0;
+        this.r0 = 0;
+        this.s0 = false;
+        this.v0 = new h(this, 2156674);
+        this.w0 = new i(this);
+        this.x0 = new c(this);
+        this.a = frsFragment;
+        this.y = onClickListener;
+        MessageManager.getInstance().registerListener(this.v0);
+        I0(vc7Var, z);
+        this.Q = new HashSet<>();
+        this.I = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+        this.j0 = TbadkCoreApplication.getInst().getSkinType();
+        this.k0 = jm7Var;
+    }
+
+    public void B1(int i2) {
+        FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i2) == null) && (frsMoveAreaBottomMenuView = this.m0) != null) {
+            frsMoveAreaBottomMenuView.setVisibility(i2);
+        }
+    }
+
+    public void C0(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.M != null) {
+            if (z) {
+                u1(false, true);
+            } else {
+                u1(false, false);
+            }
+        }
+    }
+
+    public void C1(int i2) {
+        FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i2) == null) && (frsMoveAreaBottomMenuView = this.m0) != null) {
+            frsMoveAreaBottomMenuView.setMoveNumber(i2);
+        }
+    }
+
+    public void D1(int i2) {
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i2) == null) && (frsMultiDelBottomMenuView = this.l0) != null) {
+            frsMultiDelBottomMenuView.setSelectNumber(i2);
+        }
+    }
+
+    public void E0(my4 my4Var) {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, my4Var) == null) && (mm7Var = this.w) != null) {
+            mm7Var.f(my4Var);
+        }
+    }
+
+    public void E1(boolean z) {
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (frsMultiDelBottomMenuView = this.l0) != null) {
+            frsMultiDelBottomMenuView.setIsBlockMode(z);
+        }
+    }
+
+    public void F1(int i2) {
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048587, this, i2) == null) && (frsMultiDelBottomMenuView = this.l0) != null) {
+            frsMultiDelBottomMenuView.setVisibility(i2);
+        }
+    }
+
+    public void G1(i06.c cVar) {
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, cVar) == null) && (frsMultiDelBottomMenuView = this.l0) != null) {
+            frsMultiDelBottomMenuView.setDeleteCallback(cVar);
+        }
+    }
+
+    public void H1(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.I = i2;
+        }
+    }
+
+    public void I1(bo boVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, boVar) == null) {
+            this.v.d(boVar);
+        }
+    }
+
+    public void J1(NoNetworkView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, bVar) == null) {
+            this.z = bVar;
+            NoNetworkView noNetworkView = this.A;
+            if (noNetworkView != null) {
+                noNetworkView.a(bVar);
+            }
+        }
+    }
+
+    public void K1(boolean z) {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && (mm7Var = this.w) != null) {
+            mm7Var.u(z);
+        }
+    }
+
+    public void N(RecyclerView.OnScrollListener onScrollListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, onScrollListener) == null) {
+            this.u.addOnScrollListener(onScrollListener);
+        }
+    }
+
+    public final void O(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048605, this, i2) != null) || this.a == null) {
+            return;
+        }
+        P(i2);
+    }
+
+    public void R(String str) {
+        om7 om7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048614, this, str) == null) && (om7Var = this.N) != null) {
+            om7Var.a(str);
+        }
+    }
+
+    public final void U0(boolean z) {
+        FrsFragment frsFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048624, this, z) == null) && z && (frsFragment = this.a) != null && frsFragment.w0() != null) {
+            this.a.w0().q0();
+        }
+    }
+
+    public final void U1(int i2) {
+        zm6 zm6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048625, this, i2) == null) && (zm6Var = this.i) != null) {
+            zm6Var.g(i2);
+        }
+    }
+
+    public void Z0(boolean z) {
+        g7a g7aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048639, this, z) == null) && z && (g7aVar = this.u0) != null) {
+            g7aVar.i(2000);
+        }
+    }
+
+    public void a2(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048643, this, z) == null) && this.L != null) {
+            if (mh5.h().k()) {
+                this.L.x(false);
+            } else {
+                this.L.x(z);
+            }
+        }
+    }
+
+    public final void h2(@ColorRes int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048664, this, i2) == null) && this.m != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.ic_icon_pure_topbar_group40_svg, i2, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        }
+    }
+
+    public void n1(int i2) {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048676, this, i2) == null) && (mm7Var = this.w) != null) {
+            mm7Var.q(i2);
+        }
+    }
+
+    public void o1(boolean z) {
+        AppBarLayout appBarLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048678, this, z) == null) && (appBarLayout = this.c0) != null) {
+            appBarLayout.setExpanded(z);
+        }
+    }
+
+    public void q1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048682, this, str) == null) {
+            tc7 tc7Var = this.v;
+            if (tc7Var instanceof fc7) {
+                ((fc7) tc7Var).t(str);
+            }
+        }
+    }
+
+    public void r1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048684, this, str) == null) {
+            this.v.a(str);
+        }
+    }
+
+    public void s1(int i2) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048686, this, i2) == null) && (view2 = this.d) != null) {
+            view2.setVisibility(i2);
+        }
+    }
+
+    public void t1(boolean z) {
+        xc7 xc7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048688, this, z) == null) && (xc7Var = this.M) != null) {
+            xc7Var.a(z);
+        }
+    }
+
+    public void v1(m97 m97Var) {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048692, this, m97Var) == null) && (mm7Var = this.w) != null) {
+            mm7Var.r(m97Var);
+        }
+    }
+
+    public void x1(boolean z) {
+        xc7 xc7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048696, this, z) == null) {
+            this.a0 = z;
+            if (!z && (xc7Var = this.M) != null) {
+                xc7Var.b(false, false);
+            }
+        }
+    }
+
+    public void y1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048698, this, z) == null) {
+            this.J = z;
+        }
+    }
+
+    public void h1(int i2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048663, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            zm6 zm6Var = this.i;
+            if (zm6Var != null) {
+                zm6Var.e(z, i2);
+            }
+            this.C.d(i2, z);
+        }
+    }
+
+    public void p1(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048680, this, i2, i3) == null) {
+            this.S = i2;
+            this.T = i3;
+        }
+    }
+
+    public void u1(boolean z, boolean z2) {
+        xc7 xc7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048690, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.a0 && (xc7Var = this.M) != null) {
+            xc7Var.b(z, z2);
+        }
+    }
+
+    public void z1(int i2, boolean z) {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048700, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && (mm7Var = this.w) != null) {
+            mm7Var.t(i2, z);
+        }
+    }
+
+    @NonNull
+    public static String f0(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            String fixedBarText = UtilHelper.getFixedBarText(str, 7, true, false);
+            if (fixedBarText.length() < 12) {
+                return fixedBarText + "吧";
+            }
+            return UtilHelper.getFixedBarText(str, 6, true, false) + "吧";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void A1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.G = z;
+            if (z) {
+                this.t.F(this.a.getResources().getString(R.string.load_more));
+                BdTypeRecyclerView bdTypeRecyclerView = this.u;
+                if (bdTypeRecyclerView.getChildAt(bdTypeRecyclerView.getChildCount() - 1) == this.t.c()) {
+                    this.t.S();
+                    this.a.b();
+                    return;
+                }
+                this.t.g();
+                return;
+            }
+            this.t.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b93));
+            this.t.g();
+        }
+    }
+
+    public void R0(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
+            this.s0 = z;
+            if (this.R == null) {
+                return;
+            }
+            FrsFragment frsFragment = this.a;
+            if (frsFragment != null && frsFragment.T3() != null && this.a.T3().B() != null) {
+                z2 = this.a.T3().B().b instanceof FrsAllThreadFragment;
+            } else {
+                z2 = true;
+            }
+            if (!z && z2) {
+                this.R.r(true);
+                this.R.n(this.S, this.T, this.J, true);
+                return;
+            }
+            this.R.r(false);
+            this.R.z();
+        }
+    }
+
+    public void c1(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048648, this, i2) == null) && TbadkCoreApplication.getCurrentAccount() == null) {
+            if ((i2 == 3 || i2 == 6) && o65.m().i("frs_login_tip", true)) {
+                if (this.K == null) {
+                    this.K = new CommonTipView(this.a.getActivity());
+                }
+                this.K.setText(R.string.obfuscated_res_0x7f0f07fc);
+                FrameLayout v0 = v0();
+                if (v0 != null) {
+                    this.K.j(v0, TbadkCoreApplication.getInst().getSkinType());
+                    o65.m().w("frs_login_tip", false);
+                }
+            }
+        }
+    }
+
+    public final void c2(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
+            View s0 = s0();
+            View u0 = u0();
+            if (UtilHelper.canUseStyleImmersiveSticky() && s0 != null && u0 != null && s0.getLayoutParams() != null && u0.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = s0.getLayoutParams();
+                int statusBarHeight = UtilHelper.getStatusBarHeight() - i2;
+                layoutParams.height = statusBarHeight;
+                if (statusBarHeight < 0) {
+                    layoutParams.height = 0;
+                }
+                s0.setLayoutParams(layoutParams);
+                ViewGroup.LayoutParams layoutParams2 = u0.getLayoutParams();
+                layoutParams2.height = i2;
+                if (i2 > UtilHelper.getStatusBarHeight()) {
+                    layoutParams2.height = UtilHelper.getStatusBarHeight();
+                }
+                u0.setLayoutParams(layoutParams2);
+            }
+        }
+    }
+
+    public void g1(rz4 rz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048659, this, rz4Var) == null) {
+            yz5 yz5Var = new yz5(this.a.getPageContext(), 1);
+            yz5Var.j(this.u);
+            HashMap hashMap = new HashMap();
+            hashMap.put("forum_name", this.a.v());
+            hashMap.put("forum_id", this.a.w());
+            yz5Var.k(hashMap);
+            yz5Var.i(rz4Var);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016516, yz5Var));
+        }
+    }
+
+    public void A0() {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.n != null && (frameLayout = this.o) != null) {
+            frameLayout.setVisibility(8);
+        }
+    }
+
+    public void B0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.H = false;
+            this.u.setNextPage(null);
+        }
+    }
+
+    public final boolean D0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            jm7 jm7Var = this.k0;
+            if (jm7Var != null && jm7Var.X()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void F0() {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (mm7Var = this.w) != null) {
+            mm7Var.n();
+        }
+    }
+
+    public void G0() {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (mm7Var = this.w) != null) {
+            mm7Var.o();
+        }
+    }
+
+    public boolean J0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            if (this.n == null || this.q.getVisibility() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean K0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return o65.m().i("key_reaction_guide_show_number", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean L0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            if (this.t.c().getParent() != null && this.H) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean M0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = this.m0;
+            if (frsMoveAreaBottomMenuView != null && frsMoveAreaBottomMenuView.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean N0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            mm7 mm7Var = this.w;
+            if (mm7Var != null) {
+                return mm7Var.j() instanceof FrsNewAreaFragment;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean O0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            fm7 fm7Var = this.L;
+            if (fm7Var == null) {
+                return false;
+            }
+            return fm7Var.m();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void O1() {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && (mm7Var = this.w) != null) {
+            mm7Var.v();
+        }
+    }
+
+    public void P0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            tc7 tc7Var = this.v;
+            if (tc7Var instanceof fc7) {
+                ((fc7) tc7Var).q();
+            }
+        }
+    }
+
+    public void Q0() {
+        tc7 tc7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048612, this) == null) && (tc7Var = this.v) != null) {
+            tc7Var.notifyDataSetChanged();
+        }
+    }
+
+    public void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            this.w.h();
+        }
+    }
+
+    public void S0() {
+        g7a g7aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048618, this) == null) && (g7aVar = this.u0) != null) {
+            g7aVar.d();
+        }
+    }
+
+    public void S1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            this.u.setVisibility(0);
+        }
+    }
+
+    public final void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
+            ImageView imageView = this.k;
+            if (imageView != null) {
+                imageView.setVisibility(0);
+            }
+            ImageView imageView2 = this.j;
+            if (imageView2 != null) {
+                imageView2.setVisibility(0);
+            }
+        }
+    }
+
+    public void T1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
+            this.H = true;
+            this.u.setNextPage(this.t);
+            int i2 = this.I;
+            if (i2 > 0) {
+                this.t.N(i2);
+            }
+            this.t.E(null);
+            this.t.S();
+        }
+    }
+
+    public void V() {
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048626, this) == null) && (frsMultiDelBottomMenuView = this.l0) != null) {
+            frsMultiDelBottomMenuView.a();
+        }
+    }
+
+    public void W() {
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048629, this) == null) && (frsMultiDelBottomMenuView = this.l0) != null) {
+            frsMultiDelBottomMenuView.b();
+        }
+    }
+
+    public void X1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048634, this) == null) {
+            U();
+            f25 f25Var = this.x;
+            if (f25Var != null) {
+                f25Var.m();
+            }
+        }
+    }
+
+    public View Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void Y0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
+            fm7 fm7Var = this.L;
+            if (fm7Var != null) {
+                fm7Var.p();
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
+        }
+    }
+
+    public View Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+            return this.E;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public tc7 a0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+            return this.v;
+        }
+        return (tc7) invokeV.objValue;
+    }
+
+    public void a1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048642, this) == null) {
+            O(TbadkCoreApplication.getInst().getSkinType());
+            fm7 fm7Var = this.L;
+            if (fm7Var != null) {
+                fm7Var.q();
+            }
+        }
+    }
+
+    public mm7 b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+            return this.w;
+        }
+        return (mm7) invokeV.objValue;
+    }
+
+    public void b2() {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048646, this) == null) && (mm7Var = this.w) != null) {
+            mm7Var.w();
+        }
+    }
+
+    public fm7 c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
+            return this.L;
+        }
+        return (fm7) invokeV.objValue;
+    }
+
+    public final int d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
+            if (!UtilHelper.canUseStyleImmersiveSticky()) {
+                return 0;
+            }
+            return UtilHelper.getStatusBarHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public void d2() {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048652, this) == null) && (mm7Var = this.w) != null) {
+            mm7Var.x();
+        }
+    }
+
+    public boolean e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
+            mm7 mm7Var = this.w;
+            if (mm7Var == null) {
+                return false;
+            }
+            return mm7Var.l();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e1() {
+        mm7 mm7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048654, this) == null) && (mm7Var = this.w) != null) {
+            mm7Var.w();
+        }
+    }
+
+    public void f1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048656, this) == null) {
+            I0(this.Z, this.a.h4());
+            tc7 tc7Var = this.v;
+            if (tc7Var != null) {
+                tc7Var.e();
+            }
+        }
+    }
+
+    public BdTypeRecyclerView g0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
+            return this.u;
+        }
+        return (BdTypeRecyclerView) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
+            FrsFragment frsFragment = this.a;
+            if (frsFragment == null) {
+                return null;
+            }
+            return frsFragment.s().getPageActivity();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public View h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
+            PbListView pbListView = this.t;
+            if (pbListView == null) {
+                return null;
+            }
+            return pbListView.c();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
+            zm6 zm6Var = this.i;
+            if (zm6Var != null) {
+                return zm6Var.c();
+            }
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void i1() {
+        NoNetworkView noNetworkView;
+        NoNetworkView.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048666, this) == null) && (noNetworkView = this.A) != null && (bVar = this.z) != null) {
+            noNetworkView.e(bVar);
+        }
+    }
+
+    @NonNull
+    public ti7 j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
+            return this.C;
+        }
+        return (ti7) invokeV.objValue;
+    }
+
+    public void j1() {
+        FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048668, this) == null) && (frsMoveAreaBottomMenuView = this.m0) != null) {
+            frsMoveAreaBottomMenuView.d();
+        }
+    }
+
+    public NavigationBar k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
+            return this.B;
+        }
+        return (NavigationBar) invokeV.objValue;
+    }
+
+    public boolean k1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048670, this)) == null) {
+            if (this.G) {
+                return false;
+            }
+            this.t.F(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b93));
+            this.t.g();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
+            NavigationBar navigationBar = this.B;
+            if (navigationBar == null) {
+                return 0;
+            }
+            return navigationBar.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public ObservedChangeLinearLayout m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048673, this)) == null) {
+            return this.W;
+        }
+        return (ObservedChangeLinearLayout) invokeV.objValue;
+    }
+
+    public void m1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048674, this) == null) {
+            this.v.notifyDataSetChanged();
+        }
+    }
+
+    public final int n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
+            if (this.A != null && !BdNetTypeUtil.isNetWorkAvailable()) {
+                return this.A.getHeight();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public hc9 o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
+            return this.R;
+        }
+        return (hc9) invokeV.objValue;
+    }
+
+    public TextView p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048679, this)) == null) {
+            return this.l;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public xc7 q0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048681, this)) == null) {
+            return this.M;
+        }
+        return (xc7) invokeV.objValue;
+    }
+
+    public RelativeLayout r0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048683, this)) == null) {
+            return this.b;
+        }
+        return (RelativeLayout) invokeV.objValue;
+    }
+
+    public View s0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048685, this)) == null) {
+            return this.U;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final int t0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048687, this)) == null) {
+            View view2 = this.U;
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    public View u0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048689, this)) == null) {
+            return this.V;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public FrameLayout v0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048691, this)) == null) {
+            return this.F;
+        }
+        return (FrameLayout) invokeV.objValue;
+    }
+
+    public FrsTopBarGroupEntranceGuideView w0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048693, this)) == null) {
+            return this.X;
+        }
+        return (FrsTopBarGroupEntranceGuideView) invokeV.objValue;
+    }
+
+    public ImageView x0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048695, this)) == null) {
+            return this.m;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public ImageView y0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048697, this)) == null) {
+            return this.k;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public ImageView z0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048699, this)) == null) {
+            return this.j;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
+    public final void H0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.O != null) {
+            return;
+        }
+        View R3 = this.a.R3();
+        this.O = (GifView) R3.findViewById(R.id.obfuscated_res_0x7f090dea);
+        TbImageView tbImageView = (TbImageView) R3.findViewById(R.id.obfuscated_res_0x7f092353);
+        this.P = tbImageView;
+        tbImageView.setPageId(this.a.getUniqueId());
+        this.O.setLayerType(1, null);
+        this.P.setLayerType(1, null);
+    }
+
+    public void P1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            this.H = true;
+            this.u.setNextPage(this.t);
+            this.t.E(this.y);
+            int i2 = this.I;
+            if (i2 > 0) {
+                this.t.N(i2);
+            }
+            this.t.g();
+            this.t.F(this.a.getResources().getString(R.string.list_click_load_more));
+        }
+    }
+
+    public void Q1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048613, this) != null) || this.n == null) {
+            return;
+        }
+        this.o.setVisibility(0);
+        this.q.setVisibility(8);
+        this.p.setVisibility(0);
+        TbadkCoreApplication.getInst().handler.postDelayed(this.x0, 5000L);
+    }
+
+    public void W1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048631, this) == null) {
+            this.H = false;
+            this.u.setNextPage(this.t);
+            int i2 = this.I;
+            if (i2 > 0) {
+                this.t.N(i2);
+            }
+            this.t.E(null);
+            this.t.g();
+            this.t.F(this.a.getResources().getString(R.string.list_has_no_more));
+        }
+    }
+
+    public boolean X0() {
+        InterceptResult invokeV;
+        AppBarLayoutStickyBehavior appBarLayoutStickyBehavior;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            if (this.c0 != null && (appBarLayoutStickyBehavior = this.d0) != null && appBarLayoutStickyBehavior.isSticky()) {
+                BdTypeRecyclerView bdTypeRecyclerView = this.u;
+                if (bdTypeRecyclerView != null) {
+                    bdTypeRecyclerView.setSelection(0);
+                }
+                this.d0.expandedAppBarLayout(this.c0);
+                return true;
+            }
+            fm7 fm7Var = this.L;
+            if (fm7Var != null && fm7Var.s()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d1() {
+        xc7 xc7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
+            if (this.a0 && (xc7Var = this.M) != null) {
+                xc7Var.b(false, false);
+            }
+            U1(8);
+            ImageView imageView = this.k;
+            if (imageView != null) {
+                imageView.setVisibility(8);
+            }
+            ImageView imageView2 = this.j;
+            if (imageView2 != null) {
+                imageView2.setVisibility(8);
+            }
+            ImageView imageView3 = this.m;
+            if (imageView3 != null) {
+                imageView3.setVisibility(8);
+            }
+            a2(false);
+            this.u.setVisibility(8);
+            this.e0.setVisibility(8);
+        }
+    }
+
+    public void l1() {
+        xc7 xc7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048672, this) == null) {
+            if (this.a0 && (xc7Var = this.M) != null) {
+                xc7Var.b(true, false);
+            }
+            U1(0);
+            T();
+            a2(this.a.n3());
+            this.u.setVisibility(0);
+            this.e0.setVisibility(0);
+        }
+    }
+
+    public final void I0(vc7 vc7Var, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048592, this, vc7Var, z) == null) {
+            this.Z = vc7Var;
+            View R3 = this.a.R3();
+            if (this.b == null) {
+                this.b = (NoPressedRelativeLayout) R3.findViewById(R.id.obfuscated_res_0x7f090c0f);
+            }
+            if (this.d == null) {
+                this.d = R3.findViewById(R.id.obfuscated_res_0x7f090c48);
+            }
+            if (this.c == null) {
+                this.c = (CoordinatorLayout) R3.findViewById(R.id.obfuscated_res_0x7f090cff);
+            }
+            if (this.E == null) {
+                this.E = R3.findViewById(R.id.obfuscated_res_0x7f090cd9);
+            }
+            if (this.F == null) {
+                this.F = (FrameLayout) R3.findViewById(R.id.obfuscated_res_0x7f090d46);
+            }
+            if (this.f0 == null) {
+                this.f0 = (CollapsingToolbarLayout) R3.findViewById(R.id.obfuscated_res_0x7f090c46);
+            }
+            if (this.e0 == null) {
+                this.e0 = (FrsHeaderViewContainer) R3.findViewById(R.id.obfuscated_res_0x7f090ee7);
+            }
+            if (this.w == null) {
+                this.w = new mm7(this.a);
+            }
+            if (this.W == null) {
+                ObservedChangeLinearLayout observedChangeLinearLayout = (ObservedChangeLinearLayout) R3.findViewById(R.id.obfuscated_res_0x7f09183c);
+                this.W = observedChangeLinearLayout;
+                observedChangeLinearLayout.setOnSizeChangeListener(new j(this));
+                if (this.X == null) {
+                    this.X = (FrsTopBarGroupEntranceGuideView) this.W.findViewById(R.id.obfuscated_res_0x7f092526);
+                }
+            }
+            this.C.h(this.a, R3, this.y);
+            if (this.B == null) {
+                this.B = this.C.e();
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (this.a.h4()) {
+                this.B.setVisibility(8);
+            }
+            if (this.D == null) {
+                this.D = R3.findViewById(R.id.obfuscated_res_0x7f090cfe);
+                wc7 c2 = vc7Var.c();
+                if (c2 != null) {
+                    c2.b(this.D);
+                }
+            }
+            if (this.e == null) {
+                this.e = (View) this.C.a(LogicField.BACK_BTN);
+                this.f = (ImageView) this.C.a(LogicField.BACK_IV);
+            }
+            if (this.k == null) {
+                this.k = (ImageView) this.C.a(LogicField.SEARCH_BTN);
+            }
+            if (this.i == null) {
+                this.i = (zm6) this.C.a(LogicField.MESSAGE_ICON_CONTROLLER);
+                this.g = (ImageView) this.C.a(LogicField.MESSAGE_BTN);
+                this.h = (MessageRedDotView) this.C.a(LogicField.MESSAGE_RED_DOT);
+            }
+            if (this.j == null) {
+                this.j = (ImageView) this.C.a(LogicField.SHARE_BTN);
+            }
+            if (this.m == null) {
+                ImageView imageView = (ImageView) this.C.a(LogicField.GROUP_BTN);
+                this.m = imageView;
+                if (imageView != null) {
+                    imageView.setVisibility(8);
+                }
+            }
+            if (this.l == null) {
+                TextView textView = (TextView) this.B.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, R.layout.obfuscated_res_0x7f0d037e, (View.OnClickListener) null);
+                this.l = textView;
+                textView.setVisibility(8);
+                Drawable drawable = SkinManager.getDrawable(R.drawable.icon_arrow12_white);
+                int g2 = ri.g(this.a.getActivity(), R.dimen.tbds31);
+                drawable.setBounds(0, 0, g2, g2);
+                this.l.setCompoundDrawables(null, null, drawable, null);
+                SkinManager.setBackgroundResourceSelector(this.l, R.drawable.bg_frs_private_status_n, R.drawable.bg_frs_private_status_s);
+                SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
+            }
+            if (z2) {
+                this.B.onChangeSkinType(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+                SkinManager.setBackgroundColor(this.B.getBottomLine(), R.color.CAM_X0204);
+            }
+            if (this.u == null) {
+                this.u = (BdTypeRecyclerView) R3.findViewById(R.id.obfuscated_res_0x7f090ce3);
+            }
+            k kVar = new k(this);
+            kVar.setSupportsChangeAnimations(false);
+            this.u.setItemAnimator(kVar);
+            BdTypeRecyclerView bdTypeRecyclerView = this.u;
+            bdTypeRecyclerView.setLayoutManager(new l(this, bdTypeRecyclerView.getContext()));
+            if (TbSingleton.getInstance().isSlideAnimEnable()) {
+                pn pnVar = new pn(new nn());
+                this.t0 = pnVar;
+                pnVar.q(this.u, 2);
+            }
+            this.u.setScrollable(this.a);
+            this.u.setFadingEdgeLength(0);
+            this.u.setOverScrollMode(2);
+            this.b.setBottomOrderView(this.u);
+            this.u.setOnTouchListener(this.a.U1);
+            this.u.setRecyclerListener(new m(this));
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+            BdTypeRecyclerView bdTypeRecyclerView2 = this.u;
+            bdTypeRecyclerView2.setPadding(dimenPixelSize, bdTypeRecyclerView2.getPaddingTop(), dimenPixelSize, this.u.getPaddingBottom());
+            if (this.t == null) {
+                PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
+                this.t = pbListView;
+                pbListView.c();
+            }
+            this.t.r(R.color.transparent);
+            this.t.v(ri.g(this.a.getActivity(), R.dimen.tbds182));
+            this.t.A();
+            this.t.J(R.dimen.tbfontsize33);
+            this.t.H(SkinManager.getColor(R.color.CAM_X0109));
+            this.t.D(R.color.CAM_X0110);
+            this.u.setOnSrollToBottomListener(this.a);
+            this.B.setOnClickListener(new n(this));
+            boolean isShowBigImage = TbImageHelper.getInstance().isShowBigImage();
+            if (this.v == null) {
+                this.v = vc7Var.b(this.a, this.u, isShowBigImage);
+            }
+            mm7 mm7Var = this.w;
+            if (mm7Var != null) {
+                mm7Var.t(1, false);
+            }
+            if (!z) {
+                if (this.A == null) {
+                    this.A = new NoNetworkView(this.a.getActivity());
+                    this.A.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+                    this.W.addView(this.A);
+                }
+                if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                    this.A.setVisibility(8);
+                } else {
+                    this.A.setVisibility(0);
+                }
+                this.A.d(this.a.getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            }
+            H0();
+            if (this.L == null) {
+                fm7 a2 = vc7Var.a(this.a, this.b);
+                this.L = a2;
+                a2.u(this.a.W3());
+            }
+            if (this.M == null) {
+                this.M = vc7Var.d(this.a, this.b);
+                t1(true);
+            }
+            if (this.U == null) {
+                this.U = R3.findViewById(R.id.obfuscated_res_0x7f0921c3);
+            }
+            if (this.V == null) {
+                this.V = R3.findViewById(R.id.obfuscated_res_0x7f0921c4);
+            }
+            if (this.R == null) {
+                this.R = new hc9(this.a.getPageContext(), this.u);
+            }
+            this.R.p(2);
+            this.R.u(this.a.getUniqueId());
+            if (this.u0 == null) {
+                this.u0 = new g7a(this.a.getPageContext(), this.u);
+            }
+            NavigationBarCoverTip navigationBarCoverTip = (NavigationBarCoverTip) R3.findViewById(R.id.obfuscated_res_0x7f09183f);
+            this.n0 = navigationBarCoverTip;
+            if (this.N == null) {
+                this.N = new om7(this.a, navigationBarCoverTip);
+            }
+            if (this.c0 == null) {
+                AppBarLayout appBarLayout = (AppBarLayout) R3.findViewById(R.id.obfuscated_res_0x7f090c22);
+                this.c0 = appBarLayout;
+                appBarLayout.addOnOffsetChangedListener(this.w0);
+                this.g0 = true;
+                this.h0 = -1;
+                CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) this.c0.getLayoutParams();
+                if (layoutParams.getBehavior() instanceof AppBarLayoutStickyBehavior) {
+                    this.d0 = (AppBarLayoutStickyBehavior) layoutParams.getBehavior();
+                }
+            }
+            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = (FrsMultiDelBottomMenuView) R3.findViewById(R.id.obfuscated_res_0x7f090cf7);
+            this.l0 = frsMultiDelBottomMenuView;
+            frsMultiDelBottomMenuView.setPageContext(this.a.getPageContext());
+            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = (FrsMoveAreaBottomMenuView) R3.findViewById(R.id.obfuscated_res_0x7f090cf4);
+            this.m0 = frsMoveAreaBottomMenuView;
+            frsMoveAreaBottomMenuView.setPageContext(this.a.getPageContext());
+            if (this.p0 == null) {
+                this.p0 = (TextView) this.C.a(LogicField.FOLD_TITLE);
+            }
+            ExposeTagViewCoordinatorLayout exposeTagViewCoordinatorLayout = (ExposeTagViewCoordinatorLayout) R3.findViewById(R.id.obfuscated_res_0x7f090cff);
+            this.r = exposeTagViewCoordinatorLayout;
+            exposeTagViewCoordinatorLayout.setListener(new o(this));
+            FrsTabViewPager frsTabViewPager = (FrsTabViewPager) R3.findViewById(R.id.obfuscated_res_0x7f090d5b);
+            this.s = frsTabViewPager;
+            frsTabViewPager.addOnPageChangeListener(new p(this));
+        }
+    }
+
+    public void L1(ArrayList<rn> arrayList, FrsViewData frsViewData) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048599, this, arrayList, frsViewData) != null) || frsViewData == null) {
+            return;
+        }
+        ArrayList<rn> switchThreadDataToThreadCardInfo = frsViewData.switchThreadDataToThreadCardInfo();
+        if (ListUtils.isEmpty(switchThreadDataToThreadCardInfo) || !frsViewData.mHasThreadExceptTop) {
+            k87 k87Var = new k87();
+            ArrayList<rn> arrayList2 = new ArrayList<>();
+            arrayList2.add(k87Var);
+            FrsFragment frsFragment = this.a;
+            if (frsFragment != null && frsFragment.U0() != null && this.a.U0().u0() == 0) {
+                k87Var.b(this.a.U0().p0());
+            }
+            switchThreadDataToThreadCardInfo = arrayList2;
+        }
+        if (ListUtils.getCount(switchThreadDataToThreadCardInfo) > 0) {
+            for (int i3 = 0; i3 < switchThreadDataToThreadCardInfo.size(); i3++) {
+                rn rnVar = switchThreadDataToThreadCardInfo.get(i3);
+                if (rnVar instanceof o15) {
+                    ((o15) rnVar).t.setSmartFrsPosition(i3);
+                }
+            }
+        }
+        this.v.g(switchThreadDataToThreadCardInfo, frsViewData);
+        hc9 hc9Var = this.R;
+        if (hc9Var != null && (i2 = this.S) != 0) {
+            hc9Var.n(i2, this.T, this.J, true);
+        }
+        FrsFragment frsFragment2 = this.a;
+        if (frsFragment2 != null) {
+            frsFragment2.T4();
+        }
+        FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = this.l0;
+        if (frsMultiDelBottomMenuView != null) {
+            frsMultiDelBottomMenuView.setFrsViewData(frsViewData);
+        }
+        g7a g7aVar = this.u0;
+        if (g7aVar != null) {
+            g7aVar.i(2000);
+        }
+    }
+
+    public final void Q(AppBarLayout appBarLayout, int i2) {
+        FrsFragment frsFragment;
+        ViewGroup.MarginLayoutParams marginLayoutParams;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048611, this, appBarLayout, i2) == null) && (frsFragment = this.a) != null && appBarLayout != null && frsFragment.T3() != null && this.a.getPageContext() != null) {
+            int d0 = d0() + l0() + n0();
+            int totalScrollRange = (appBarLayout.getTotalScrollRange() - Math.abs(i2)) + this.C.g();
+            FrsTabViewController T3 = this.a.T3();
+            ViewGroup.LayoutParams layoutParams = this.d.getLayoutParams();
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            } else {
+                marginLayoutParams = new ViewGroup.MarginLayoutParams(layoutParams);
+            }
+            FrsFragment frsFragment2 = this.a;
+            if (frsFragment2 != null && frsFragment2.q4()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (totalScrollRange <= 0) {
+                if (this.r0 != 2) {
+                    T3.f(2);
+                }
+                this.r0 = 2;
+                marginLayoutParams.topMargin = 0;
+            } else if (totalScrollRange > 0 && totalScrollRange < d0) {
+                if (this.r0 != 1) {
+                    T3.f(1);
+                }
+                this.r0 = 1;
+                marginLayoutParams.topMargin = 0;
+            } else {
+                if (this.r0 != 0) {
+                    T3.f(0);
+                }
+                this.r0 = 0;
+                if (z) {
+                    marginLayoutParams.topMargin = ri.g(this.a.getActivity(), R.dimen.tbds_30);
+                } else {
+                    marginLayoutParams.topMargin = 0;
+                }
+            }
+            if (z) {
+                this.d.setLayoutParams(marginLayoutParams);
+            }
+        }
+    }
+
+    public void V1(String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048628, this, str, i2) == null) {
+            if (this.o0 == null) {
+                TextView textView = new TextView(this.a.getActivity());
+                this.o0 = textView;
+                textView.setGravity(19);
+                this.o0.setPadding(ri.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07020f), 0, ri.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
+                this.o0.setLayoutParams(new ViewGroup.LayoutParams(-1, ri.g(this.a.getActivity(), R.dimen.tbds112)));
+                this.o0.setTextSize(0, ri.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070448));
+                this.o0.setMaxLines(2);
+                this.o0.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
+                this.o0.setTextColor(ContextCompat.getColor(this.a.getActivity(), R.color.CAM_X0101));
+            }
+            this.n0.setBackgroundColor(i2);
+            this.o0.setText(str);
+            this.n0.n(this.a.getActivity(), this.o0, 5000);
+        }
+    }
+
+    public void M1(String str) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048601, this, str) != null) || (textView = this.p0) == null || !TextUtils.isEmpty(textView.getText())) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            this.p0.setText("");
+            return;
+        }
+        this.p0.setText(f0(str));
+        rx4.c().h(str);
+    }
+
+    public void Y1(PostWriteCallBackData postWriteCallBackData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048637, this, postWriteCallBackData) == null) && postWriteCallBackData != null && postWriteCallBackData.mFrom == 2) {
+            if (postWriteCallBackData.getIconStampData() != null) {
+                tc5.c(this.a.s(), postWriteCallBackData, 1);
+                return;
+            }
+            if (this.b0 == null) {
+                this.b0 = new o0a(this.a.getActivity(), this.b);
+            }
+            this.b0.g(postWriteCallBackData);
+        }
+    }
+
+    public void N1() {
+        NavigationBar navigationBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && (navigationBar = this.B) != null && navigationBar.getBarBgView() != null && this.W != null) {
+            w1();
+            if (this.Y) {
+                this.B.getBarBgView().setAlpha(0.0f);
+                this.B.hideBottomLine();
+            } else {
+                View view2 = this.U;
+                if (view2 != null) {
+                    view2.setAlpha(1.0f);
+                }
+                View view3 = this.V;
+                if (view3 != null) {
+                    view3.setAlpha(1.0f);
+                }
+                TextView textView = this.p0;
+                if (textView != null) {
+                    textView.setAlpha(0.0f);
+                }
+                this.B.getBarBgView().setAlpha(1.0f);
+                this.B.showBottomLine();
+            }
+            V0(this.j0);
+        }
+    }
+
+    public final int X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            AppBarLayout appBarLayout = this.c0;
+            if (appBarLayout == null) {
+                return this.h0;
+            }
+            int i2 = this.h0;
+            if (i2 != -1) {
+                return i2;
+            }
+            int i3 = 0;
+            for (int childCount = appBarLayout.getChildCount() - 1; childCount >= 0; childCount--) {
+                View childAt = this.c0.getChildAt(childCount);
+                if (childAt != null) {
+                    int scrollFlags = ((AppBarLayout.LayoutParams) childAt.getLayoutParams()).getScrollFlags();
+                    if ((scrollFlags & 5) == 5) {
+                        if ((scrollFlags & 8) != 0) {
+                            i3 += ViewCompat.getMinimumHeight(childAt);
+                        }
+                    } else if (i3 > 0) {
+                        break;
+                    }
+                }
+            }
+            int max = Math.max(0, this.c0.getTotalScrollRange() - Math.abs(i3));
+            this.h0 = max;
+            return max;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void w1() {
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048694, this) == null) {
+            this.Y = D0();
+            FrsHeaderViewContainer frsHeaderViewContainer = this.e0;
+            if (frsHeaderViewContainer != null && (layoutParams = frsHeaderViewContainer.getLayoutParams()) != null && (layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                if (this.Y) {
+                    ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, 0, 0, 0);
+                } else {
+                    ((ViewGroup.MarginLayoutParams) layoutParams).setMargins(0, ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f07040f) + d0(), 0, 0);
+                }
+                this.e0.requestLayout();
+            }
+        }
+    }
+
+    public final void P(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
+            NavigationBar navigationBar = this.B;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), i2);
+                if (this.B.getBackground() != null && this.B.getBackground().mutate() != null) {
+                    this.B.getBackground().mutate().setAlpha(0);
+                }
+                SkinManager.setBackgroundColor(this.B.getBarBgView(), R.color.CAM_X0207);
+                SkinManager.setBackgroundColor(this.B.getBottomLine(), R.color.CAM_X0204);
+                SkinManager.setBackgroundColor(this.D, R.color.CAM_X0204, i2);
+                zm6 zm6Var = this.i;
+                if (zm6Var != null) {
+                    zm6Var.d(i2);
+                }
+                if (this.k != null) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                }
+                if (this.j != null) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                }
+                h2(R.color.CAM_X0106);
+            }
+            SkinManager.setBackgroundColor(this.U, R.color.CAM_X0207);
+            SkinManager.setBackgroundColor(this.V, R.color.CAM_X0207);
+            f2(true);
+        }
+    }
+
+    public void R1(z15 z15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048616, this, z15Var) == null) {
+            if (this.n == null) {
+                View R3 = this.a.R3();
+                ViewStub viewStub = (ViewStub) R3.findViewById(R.id.obfuscated_res_0x7f092983);
+                this.n = viewStub;
+                viewStub.setVisibility(0);
+                this.o = (FrameLayout) R3.findViewById(R.id.obfuscated_res_0x7f090d99);
+                this.p = (TbImageView) R3.findViewById(R.id.obfuscated_res_0x7f090d98);
+                this.q = (TbImageView) R3.findViewById(R.id.obfuscated_res_0x7f090d9a);
+                this.p.setPageId(this.a.getUniqueId());
+                this.q.setPageId(this.a.getUniqueId());
+                this.p.setDefaultBgResource(R.color.common_color_10022);
+                this.p.setDefaultResource(0);
+                this.q.setDefaultBgResource(R.color.common_color_10022);
+                this.q.setDefaultResource(0);
+                this.o.setOnClickListener(this.y);
+            }
+            this.o.setVisibility(0);
+            String a2 = z15Var.a();
+            String b2 = z15Var.b();
+            this.p.N(a2, 10, false);
+            this.q.N(b2, 10, false);
+            TbadkCoreApplication.getInst().handler.postDelayed(this.x0, 5000L);
+        }
+    }
+
+    public void V0(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
+            this.j0 = i2;
+            this.C.onChangeSkinType(i2);
+            zz5 zz5Var = new zz5(this.a, 4);
+            zz5Var.F(i2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016515, zz5Var));
+            yz5 yz5Var = new yz5(this.a.getPageContext(), 4);
+            yz5Var.l(i2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016516, yz5Var));
+            TbImageView tbImageView = this.P;
+            if (tbImageView != null) {
+                tbImageView.invalidate();
+            }
+            tc7 tc7Var = this.v;
+            if (tc7Var != null) {
+                tc7Var.b();
+                this.v.notifyDataSetChanged();
+            }
+            cp5.a(this.a.getPageContext(), this.b);
+            NoNetworkView noNetworkView = this.A;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a.getPageContext(), i2);
+            }
+            PbListView pbListView = this.t;
+            if (pbListView != null) {
+                pbListView.H(SkinManager.getColor(R.color.CAM_X0109));
+                this.t.e(i2);
+            }
+            TextView textView = this.p0;
+            if (textView != null) {
+                textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            }
+            O(i2);
+            xc7 xc7Var = this.M;
+            if (xc7Var != null) {
+                xc7Var.onChangeSkinType(i2);
+            }
+            fm7 fm7Var = this.L;
+            if (fm7Var != null) {
+                fm7Var.r(i2);
+            }
+            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = this.l0;
+            if (frsMultiDelBottomMenuView != null) {
+                frsMultiDelBottomMenuView.d();
+            }
+            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = this.m0;
+            if (frsMoveAreaBottomMenuView != null) {
+                frsMoveAreaBottomMenuView.c();
+            }
+            SkinManager.setBackgroundColor(this.d, R.color.CAM_X0202);
+        }
+    }
+
+    public final void f2(boolean z) {
+        NavigationBar navigationBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048657, this, z) == null) && (navigationBar = this.B) != null && navigationBar.getBarBgView() != null && this.Y) {
+            if (this.B.getBarBgView().getAlpha() < 0.5f) {
+                if (z || this.q0 != 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                    ImageView imageView = this.g;
+                    if (imageView != null) {
+                        imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
+                    }
+                    h2(R.color.CAM_X0101);
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                    this.q0 = 0;
+                }
+            } else if (z || this.q0 != 1) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                ImageView imageView2 = this.g;
+                if (imageView2 != null) {
+                    imageView2.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), null));
+                }
+                h2(R.color.CAM_X0106);
+                FrsTopBarGroupEntranceGuideView frsTopBarGroupEntranceGuideView = this.X;
+                if (frsTopBarGroupEntranceGuideView != null) {
+                    frsTopBarGroupEntranceGuideView.a();
+                }
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                this.q0 = 1;
+            }
+            e2();
+        }
+    }
+
+    public void T0(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048621, this, i2, i3) == null) {
+            g7a g7aVar = this.u0;
+            if (g7aVar != null) {
+                g7aVar.i(100);
+            }
+            if (this.u0 != null && !K0()) {
+                this.u0.g();
+            }
+            hc9 hc9Var = this.R;
+            if (hc9Var == null) {
+                return;
+            }
+            hc9Var.m(i2, i3, this.J, 1);
+            this.R.p(2);
+            this.R.q(false);
+        }
+    }
+
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048623, this) == null) && this.x == null && this.a.getPageContext() != null) {
+            String[] strArr = {this.a.getPageContext().getPageActivity().getString(R.string.take_photo), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f027e)};
+            f25 f25Var = new f25(this.a.getPageContext().getPageActivity());
+            this.x = f25Var;
+            f25Var.l(this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0e8b));
+            this.x.j(strArr, new b(this));
+            this.x.c(this.a.getPageContext());
+        }
+    }
+
+    public void W0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048630, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.v0);
+            hc9 hc9Var = this.R;
+            if (hc9Var != null) {
+                hc9Var.h();
+            }
+            om7 om7Var = this.N;
+            if (om7Var != null) {
+                om7Var.c();
+            }
+            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView = this.l0;
+            if (frsMultiDelBottomMenuView != null) {
+                frsMultiDelBottomMenuView.setPageContext(null);
+            }
+            FrsMoveAreaBottomMenuView frsMoveAreaBottomMenuView = this.m0;
+            if (frsMoveAreaBottomMenuView != null) {
+                frsMoveAreaBottomMenuView.setPageContext(null);
+            }
+            this.v.onDestory();
+            this.u.setOnSrollToBottomListener(null);
+            this.u.setScrollable(null);
+            TbadkCoreApplication.getInst().handler.removeCallbacks(this.x0);
+            CommonTipView commonTipView = this.K;
+            if (commonTipView != null) {
+                commonTipView.i();
+            }
+            this.Q.clear();
+            fm7 fm7Var = this.L;
+            if (fm7Var != null) {
+                fm7Var.o();
+            }
+            o0a o0aVar = this.b0;
+            if (o0aVar != null) {
+                o0aVar.e();
+            }
+            NavigationBarCoverTip navigationBarCoverTip = this.n0;
+            if (navigationBarCoverTip != null) {
+                navigationBarCoverTip.i();
+            }
+            FrsMultiDelBottomMenuView frsMultiDelBottomMenuView2 = this.l0;
+            if (frsMultiDelBottomMenuView2 != null) {
+                frsMultiDelBottomMenuView2.e();
+            }
+            mm7 mm7Var = this.w;
+            if (mm7Var != null) {
+                mm7Var.p();
+            }
+            mm7 mm7Var2 = this.w;
+            if (mm7Var2 != null) {
+                mm7Var2.r(null);
+            }
+        }
+    }
+
+    public void Z1() {
+        int headerViewsCount;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048640, this) == null) && o65.m().o("frs_video_activity_guide", 0L) == 0 && !this.y0 && this.a.getActivity() != null && this.a.getPageContext() != null) {
+            View view2 = null;
+            BdTypeRecyclerView bdTypeRecyclerView = this.u;
+            if (bdTypeRecyclerView != null && (headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount()) < this.u.getChildCount()) {
+                view2 = this.u.getChildAt(headerViewsCount);
+            }
+            if (view2 != null) {
+                Cif cif = new Cif();
+                cif.k(view2);
+                cif.c(0);
+                cif.j(true);
+                cif.i(false);
+                cif.d(true);
+                cif.a(new d(this));
+                cif.h(new e(this));
+                hf b2 = cif.b();
+                b2.k(false);
+                b2.m(this.a.getActivity());
+                sg.a().postDelayed(new f(this, b2), 4000L);
+                this.y0 = true;
+            }
+        }
+    }
+
+    public void b1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048645, this) != null) || a0() == null) {
+            return;
+        }
+        List<rn> f2 = a0().f();
+        if (ListUtils.isEmpty(f2)) {
+            return;
+        }
+        for (rn rnVar : f2) {
+            if (rnVar instanceof o15) {
+                o15 o15Var = (o15) rnVar;
+                if (o15Var.u != 0 && o15Var.t != null && this.a.U0() != null && this.a.U0().C0() != null) {
+                    int[] imageWidthAndHeight = o15Var.t.getImageWidthAndHeight();
+                    o15Var.u = imageWidthAndHeight[0];
+                    o15Var.v = imageWidthAndHeight[1];
+                }
+            }
+        }
+        sg.a().postDelayed(new g(this), 500L);
+    }
+
+    public final void e2() {
+        NavigationBar navigationBar;
+        float f2;
+        float f3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048655, this) != null) || (navigationBar = this.B) == null) {
+            return;
+        }
+        if (navigationBar.getBarBgView() != null) {
+            f2 = this.B.getBarBgView().getAlpha();
+        } else {
+            f2 = 0.0f;
+        }
+        if (f2 < 0.5f) {
+            f3 = 1.0f - (f2 * 2.0f);
+        } else {
+            f3 = (f2 * 2.0f) - 1.0f;
+        }
+        if (Float.compare(f3, 0.0f) < 0) {
+            f3 = 0.0f;
+        }
+        if (Float.compare(f3, 1.0f) > 0) {
+            f3 = 1.0f;
+        }
+        TextView textView = this.p0;
+        if (textView != null) {
+            textView.setAlpha(f2);
+        }
+        boolean z = true;
+        if (f3 >= 0.0f && f3 <= 1.0f) {
+            ImageView imageView = this.f;
+            if (imageView != null) {
+                imageView.setAlpha(f3);
+            }
+            ImageView imageView2 = this.g;
+            if (imageView2 != null) {
+                imageView2.setAlpha(f3);
+            }
+            FrsFragment frsFragment = this.a;
+            if (frsFragment != null && frsFragment.T3() != null && this.q0 == 1) {
+                this.a.T3().g0(f3);
+            }
+            MessageRedDotView messageRedDotView = this.h;
+            if (messageRedDotView != null) {
+                messageRedDotView.setAlpha(f3);
+            }
+            ImageView imageView3 = this.k;
+            if (imageView3 != null) {
+                imageView3.setAlpha(f3);
+            }
+            ImageView imageView4 = this.j;
+            if (imageView4 != null) {
+                imageView4.setAlpha(f3);
+            }
+            ImageView imageView5 = this.m;
+            if (imageView5 != null) {
+                imageView5.setAlpha(f3);
+            }
+        }
+        TextView textView2 = this.l;
+        if (textView2 != null) {
+            float f4 = 1.0f - (2.0f * f2);
+            textView2.setAlpha(f4);
+            TextView textView3 = this.l;
+            if (f4 <= 0.0f) {
+                z = false;
+            }
+            textView3.setClickable(z);
+        }
+        View view2 = this.U;
+        if (view2 != null) {
+            view2.setAlpha(f2);
+        }
+        View view3 = this.V;
+        if (view3 != null) {
+            view3.setAlpha(f2);
+        }
+        View view4 = this.D;
+        if (view4 != null) {
+            view4.setAlpha(f2);
+        }
+    }
+
+    public void g2(@Nullable TopbarEntrance topbarEntrance, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048660, this, topbarEntrance, z) == null) && this.m != null) {
+            if (topbarEntrance != null && !TextUtils.isEmpty(topbarEntrance.jump_url)) {
+                if (this.m.getVisibility() != 0) {
+                    kl7.b(this.a.w());
+                }
+                this.m.setVisibility(0);
+                if (z && il7.b(this.a.w())) {
+                    this.m.post(new a(this, topbarEntrance));
+                    return;
+                }
+                return;
+            }
+            this.m.setVisibility(8);
+        }
     }
 }

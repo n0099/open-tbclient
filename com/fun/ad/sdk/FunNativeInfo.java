@@ -3,7 +3,7 @@ package com.fun.ad.sdk;
 import android.view.View;
 import com.fun.ad.sdk.FunNativeAd;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface FunNativeInfo {
     ChannelNativeAds getChannelNativeAds();
 

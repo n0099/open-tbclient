@@ -23,12 +23,13 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m3b;
+import com.baidu.tieba.k5b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class AssistActivity extends Activity {
     public FrameLayout a;
     public WebView b;
@@ -39,7 +40,7 @@ public final class AssistActivity extends Activity {
     public WebChromeClient g = new d();
     public DownloadListener h = new e();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -51,7 +52,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -62,7 +63,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends WebViewClient {
         public c() {
         }
@@ -124,7 +125,7 @@ public final class AssistActivity extends Activity {
 
         @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            if (str.startsWith(m3b.g(false))) {
+            if (str.startsWith(k5b.g(false))) {
                 try {
                     Intent intent = new Intent();
                     String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -167,7 +168,7 @@ public final class AssistActivity extends Activity {
                     e.printStackTrace();
                     return true;
                 }
-            } else if (!str.startsWith(m3b.g(true))) {
+            } else if (!str.startsWith(k5b.g(true))) {
                 return false;
             } else {
                 try {
@@ -229,7 +230,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class d extends WebChromeClient {
         public d() {
         }
@@ -241,7 +242,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class e implements DownloadListener {
         public e() {
         }
@@ -249,14 +250,14 @@ public final class AssistActivity extends Activity {
         @Override // android.webkit.DownloadListener
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             try {
-                AssistActivity.this.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                AssistActivity.this.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class f extends View {
         public int a;
         public Paint b;
@@ -294,7 +295,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class g {
         public g() {
         }

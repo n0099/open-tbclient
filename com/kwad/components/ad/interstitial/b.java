@@ -9,7 +9,7 @@ import com.kwad.sdk.api.KsVideoPlayConfig;
 import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements com.kwad.components.core.internal.api.a, KsInterstitialAd {
     public KsScene fn;
     public KsInterstitialAd.AdInteractionListener fo;

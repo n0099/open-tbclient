@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ca {
     public static final Object a = new Object();
 
@@ -24,13 +24,13 @@ public class ca {
         String a2 = com.xiaomi.push.o.a(context).a("mipush", "td_key", "");
         if (TextUtils.isEmpty(a2)) {
             a2 = com.xiaomi.push.bo.a(20);
-            com.xiaomi.push.o.a(context).m642a("mipush", "td_key", a2);
+            com.xiaomi.push.o.a(context).m661a("mipush", "td_key", a2);
         }
         return a(a2);
     }
 
     public static byte[] a(String str) {
-        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bl.m217a(str), 16);
+        byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bl.m236a(str), 16);
         copyOf[0] = 68;
         copyOf[15] = 84;
         return copyOf;
@@ -56,7 +56,7 @@ public class ca {
                 if (b != null && b.length >= 1) {
                     if (b.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hlVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m101a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m120a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
@@ -95,7 +95,7 @@ public class ca {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hlVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m101a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m120a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {

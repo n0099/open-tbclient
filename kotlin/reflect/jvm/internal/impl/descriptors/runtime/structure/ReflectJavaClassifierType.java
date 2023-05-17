@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClassifier;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClassifierType;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaType;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaClassifierType extends ReflectJavaType implements JavaClassifierType {
     public final JavaClassifier classifier;
     public final Type reflectType;

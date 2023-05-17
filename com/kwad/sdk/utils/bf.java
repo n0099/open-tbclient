@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bf {
     public View apj;
     public Point api = new Point();

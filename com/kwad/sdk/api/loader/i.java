@@ -11,7 +11,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public static void a(Closeable closeable) {
         if (closeable != null) {

@@ -1,167 +1,130 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.callback.OneKeyLoginCallback;
-import com.baidu.sapi2.result.OneKeyLoginResult;
-import com.baidu.sapi2.views.logindialog.view.AgreementView;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class au8 extends xt8 {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+/* loaded from: classes4.dex */
+public class au8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public class a extends OneKeyLoginCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ au8 a;
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onGuideProcess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oneKeyLoginResult) == null) {
-            }
-        }
-
-        public a(au8 au8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {au8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    if (c(file)) {
+                        cn cnVar = sb.a.b().get(str);
+                        if (cnVar != null) {
+                            bitmap = cnVar.p();
+                        }
+                    } else {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(str, options);
+                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
+                    }
                 }
+            } catch (OutOfMemoryError unused) {
             }
-            this.a = au8Var;
+            return bitmap;
         }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onSuccess(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oneKeyLoginResult) == null) {
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
-                this.a.f();
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.OneKeyLoginCallback
-        public void onFail(OneKeyLoginResult oneKeyLoginResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, oneKeyLoginResult) == null) {
-                this.a.b.closeLoadingDialog();
-                BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f0de5), Integer.valueOf(oneKeyLoginResult.getResultCode()), oneKeyLoginResult.getResultMsg()));
-            }
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au8(TbPageContext tbPageContext, yt8 yt8Var) {
-        super(tbPageContext, yt8Var, DialogLoginHelper.FULL_SCREEN_TYPE_ONE_KEY);
+    public static boolean c(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, yt8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (yt8) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xt8
-    public void j(zt8 zt8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zt8Var) == null) {
-            this.e = zt8Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.xt8
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f0915be) {
-                s();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0918e5) {
-                t();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f09016b) {
-                r();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091c20) {
-                u();
-            }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BaseActivity baseActivity = this.b;
-            pt4.v(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ddc), "https://passport.baidu.com/static/passpc-account/html/protocal.html", false);
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l();
-            PassportSDK passportSDK = PassportSDK.getInstance();
-            BaseActivity baseActivity = this.b;
-            passportSDK.loadOneKeyLogin(baseActivity, fu8.j(baseActivity, this.e.c), new a(this));
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            BaseActivity baseActivity = this.b;
-            pt4.v(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0de0), "http://privacy.baidu.com/mdetail?id=288", false);
-        }
-    }
-
-    public final void t() {
-        zt8 zt8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (zt8Var = this.e) == null) {
-            return;
-        }
-        int a2 = zt8Var.a();
-        if (a2 != 1) {
-            if (a2 != 2) {
-                if (a2 == 3) {
-                    BaseActivity baseActivity = this.b;
-                    pt4.v(baseActivity, baseActivity.getResources().getString(R.string.obfuscated_res_0x7f0f0ddf), "https://wap.cmpassport.com/resources/html/contract.html", false);
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            boolean z = false;
+            try {
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (FileNotFoundException e) {
+                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
                 }
-                return;
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
-            BaseActivity baseActivity2 = this.b;
-            pt4.v(baseActivity2, baseActivity2.getResources().getString(R.string.obfuscated_res_0x7f0f0dde), "https://e.189.cn/sdk/agreement/detail.do?hidetop=true", false);
-            return;
+            try {
+                byte[] bArr = new byte[7];
+                if (fileInputStream.read(bArr, 0, 6) == 6) {
+                    z = ri.D(bArr);
+                }
+                fileInputStream.close();
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return z;
+            } catch (IOException e5) {
+                e = e5;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            if (0 != 0) {
+                fileInputStream2.close();
+            }
+            return z;
         }
-        BaseActivity baseActivity3 = this.b;
-        pt4.v(baseActivity3, baseActivity3.getResources().getString(R.string.obfuscated_res_0x7f0f0ddd), AgreementView.s, false);
+        return invokeL.booleanValue;
+    }
+
+    public static Bitmap b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Bitmap f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            wh5 wh5Var = new wh5();
+            cn c = wh5Var.c(imageFileInfo, true);
+            if (c != null) {
+                f = c.p();
+            } else {
+                f = wh5Var.f(imageFileInfo, true);
+            }
+            if (f == null) {
+                return a(imageFileInfo.getFilePath());
+            }
+            return f;
+        }
+        return (Bitmap) invokeL.objValue;
     }
 }

@@ -1,96 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.n5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
-public final class a7b<T> implements n5b.c<T> {
+/* loaded from: classes4.dex */
+public class a7b implements z6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j5b.a<T> a;
+    public final String a;
 
-    /* loaded from: classes3.dex */
-    public static final class a<T> extends p5b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final o5b<? super T> e;
-        public T f;
-        public int g;
-
-        public a(o5b<? super T> o5bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o5bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = o5bVar;
-        }
-
-        @Override // com.baidu.tieba.k5b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.g == 2) {
-                    s9b.j(th);
-                    return;
-                }
-                this.f = null;
-                this.e.b(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.k5b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.g = 1;
-                    this.f = t;
-                } else if (i == 1) {
-                    this.g = 2;
-                    this.e.b(new IndexOutOfBoundsException("The upstream produced more than one value"));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.k5b
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.g;
-                if (i == 0) {
-                    this.e.b(new NoSuchElementException());
-                } else if (i == 1) {
-                    this.g = 2;
-                    T t = this.f;
-                    this.f = null;
-                    this.e.c(t);
-                }
-            }
-        }
-    }
-
-    public a7b(j5b.a<T> aVar) {
+    public a7b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -100,20 +27,79 @@ public final class a7b<T> implements n5b.c<T> {
                 return;
             }
         }
-        this.a = aVar;
-    }
-
-    public void call(o5b<? super T> o5bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o5bVar) == null) {
-            a aVar = new a(o5bVar);
-            o5bVar.a(aVar);
-            this.a.call(aVar);
+        if (str != null) {
+            this.a = str;
+            return;
         }
+        throw new IllegalArgumentException();
     }
 
-    @Override // com.baidu.tieba.n5b.c, com.baidu.tieba.x5b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((o5b) ((o5b) obj));
+    @Override // com.baidu.tieba.z6b
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            for (String str2 : str.replaceAll(" ", "").split(",")) {
+                if (this.a.equals(str2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z6b
+    public z6b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a7b(c());
+        }
+        return (z6b) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z6b
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.z6b
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && a7b.class == obj.getClass()) {
+                return this.a.equals(((a7b) obj).a);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

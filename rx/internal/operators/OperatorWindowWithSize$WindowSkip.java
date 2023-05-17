@@ -1,41 +1,41 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.dab;
-import com.baidu.tieba.e6b;
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.l5b;
-import com.baidu.tieba.p5b;
-import com.baidu.tieba.w5b;
+import com.baidu.tieba.c8b;
+import com.baidu.tieba.ccb;
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.j7b;
+import com.baidu.tieba.n7b;
+import com.baidu.tieba.u7b;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.subjects.UnicastSubject;
-/* loaded from: classes9.dex */
-public final class OperatorWindowWithSize$WindowSkip<T> extends p5b<T> implements w5b {
-    public final p5b<? super j5b<T>> e;
+/* loaded from: classes10.dex */
+public final class OperatorWindowWithSize$WindowSkip<T> extends n7b<T> implements u7b {
+    public final n7b<? super h7b<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
     public int i;
-    public dab<T, T> j;
+    public ccb<T, T> j;
 
-    /* loaded from: classes9.dex */
-    public final class WindowSkipProducer extends AtomicBoolean implements l5b {
+    /* loaded from: classes10.dex */
+    public final class WindowSkipProducer extends AtomicBoolean implements j7b {
         public static final long serialVersionUID = 4625807964358024108L;
 
         public WindowSkipProducer() {
         }
 
-        @Override // com.baidu.tieba.l5b
+        @Override // com.baidu.tieba.j7b
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
                     OperatorWindowWithSize$WindowSkip operatorWindowWithSize$WindowSkip = OperatorWindowWithSize$WindowSkip.this;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowSkip.e(e6b.c(j, operatorWindowWithSize$WindowSkip.g));
+                        operatorWindowWithSize$WindowSkip.e(c8b.c(j, operatorWindowWithSize$WindowSkip.g));
                         return;
                     } else {
-                        operatorWindowWithSize$WindowSkip.e(e6b.a(e6b.c(j, operatorWindowWithSize$WindowSkip.f), e6b.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
+                        operatorWindowWithSize$WindowSkip.e(c8b.a(c8b.c(j, operatorWindowWithSize$WindowSkip.f), c8b.c(operatorWindowWithSize$WindowSkip.g - operatorWindowWithSize$WindowSkip.f, j - 1)));
                         return;
                     }
                 }
@@ -45,40 +45,40 @@ public final class OperatorWindowWithSize$WindowSkip<T> extends p5b<T> implement
         }
     }
 
-    @Override // com.baidu.tieba.w5b
+    @Override // com.baidu.tieba.u7b
     public void call() {
         if (this.h.decrementAndGet() == 0) {
             unsubscribe();
         }
     }
 
-    @Override // com.baidu.tieba.k5b
+    @Override // com.baidu.tieba.i7b
     public void onCompleted() {
-        dab<T, T> dabVar = this.j;
-        if (dabVar != null) {
+        ccb<T, T> ccbVar = this.j;
+        if (ccbVar != null) {
             this.j = null;
-            dabVar.onCompleted();
+            ccbVar.onCompleted();
         }
         this.e.onCompleted();
     }
 
-    @Override // com.baidu.tieba.k5b
+    @Override // com.baidu.tieba.i7b
     public void onError(Throwable th) {
-        dab<T, T> dabVar = this.j;
-        if (dabVar != null) {
+        ccb<T, T> ccbVar = this.j;
+        if (ccbVar != null) {
             this.j = null;
-            dabVar.onError(th);
+            ccbVar.onError(th);
         }
         this.e.onError(th);
     }
 
-    @Override // com.baidu.tieba.k5b
+    @Override // com.baidu.tieba.i7b
     public void onNext(T t) {
         int i = this.i;
         UnicastSubject unicastSubject = this.j;
         if (i == 0) {
             this.h.getAndIncrement();
-            unicastSubject = UnicastSubject.F(this.f, this);
+            unicastSubject = UnicastSubject.H(this.f, this);
             this.j = unicastSubject;
             this.e.onNext(unicastSubject);
         }

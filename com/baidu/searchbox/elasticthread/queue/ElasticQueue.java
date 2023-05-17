@@ -6,7 +6,7 @@ import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import com.baidu.searchbox.elasticthread.task.ElasticTaskBuilder;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ElasticQueue implements Recordable {
     public static final boolean DEBUG = false;
     public static final String TAG = "ElasticQueue";

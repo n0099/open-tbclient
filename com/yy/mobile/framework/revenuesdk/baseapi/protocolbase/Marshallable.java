@@ -6,10 +6,10 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.UShort;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Marshallable extends PacketBase {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum ELenType {
         E_INT16,
         E_INT32,

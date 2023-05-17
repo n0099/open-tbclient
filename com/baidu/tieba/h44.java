@@ -1,284 +1,146 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.util.Log;
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.widget.Toast;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.tieba.cs2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public final class h44 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class h44 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static j44[] b;
-    public static Point c;
-    public static float d;
-    public static float e;
-    public static boolean f;
-    public static int g;
-    public static long h;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773729, "Lcom/baidu/tieba/h44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public class a implements cs2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h44 a;
+
+        @Override // com.baidu.tieba.cs2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947773729, "Lcom/baidu/tieba/h44;");
+        }
+
+        public a(h44 h44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h44Var;
+        }
+
+        @Override // com.baidu.tieba.cs2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.l(R.string.obfuscated_res_0x7f0f0191);
+            }
+        }
+
+        @Override // com.baidu.tieba.cs2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File c = i44.c();
+                File b = i44.b();
+                if (!c.exists() || !kp4.U(c.getPath(), b.getPath())) {
+                    this.a.l(R.string.obfuscated_res_0x7f0f0191);
+                } else {
+                    this.a.l(R.string.obfuscated_res_0x7f0f0192);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h44(da3 da3Var) {
+        super(da3Var, "/swanAPI/debug/dashboardConnect");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
-        c = new Point();
-        d = 1.0f;
-        e = 1.0f;
-        f = false;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h;
-        }
-        return invokeV.longValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return g;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            g = 0;
-        }
-    }
-
-    public static float d(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, motionEvent, i)) == null) {
-            return na4.b(motionEvent.getX(i) * d);
-        }
-        return invokeLI.floatValue;
-    }
-
-    public static float e(MotionEvent motionEvent, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, motionEvent, i)) == null) {
-            return na4.b(motionEvent.getY(i) * e);
-        }
-        return invokeLI.floatValue;
-    }
-
-    public static void l(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
-            Point point = c;
-            point.x = i;
-            point.y = i2;
-        }
-    }
-
-    public static boolean f(EventTarget eventTarget) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, eventTarget)) == null) {
-            if (eventTarget == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (!db3.b) {
                 return false;
             }
-            return eventTarget.hasEventListener("touchstart", "touchmove", "touchcancel", "touchend");
+            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                l(R.string.obfuscated_res_0x7f0f015d);
+                return false;
+            }
+            String optString = a2.optString("meterUrl");
+            if (TextUtils.isEmpty(optString)) {
+                l(R.string.obfuscated_res_0x7f0f015e);
+                return false;
+            }
+            i44.a();
+            cs2.d dVar = new cs2.d();
+            dVar.a = k(context, optString);
+            new ng2().e(dVar, i44.c().getPath(), new a(this));
+            return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static void g(boolean z) {
+    public final String k(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            String i = ns2.h0().i(context);
+            String str2 = new String(x54.g().a("BASE64", (i + "\u0000\u0000").getBytes()));
+            String str3 = "?";
+            if (str.contains("?")) {
+                str3 = "&";
+            }
+            return str + str3 + "cuid=" + str2;
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static void h(MotionEvent motionEvent, i44 i44Var, boolean z) {
+    public final void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65544, null, motionEvent, i44Var, z) == null) {
-            try {
-                if (!z) {
-                    int actionIndex = motionEvent.getActionIndex();
-                    i44Var.changedTouches = r1;
-                    j44[] j44VarArr = {new j44()};
-                    i44Var.changedTouches[0].identifier = motionEvent.getPointerId(actionIndex);
-                    i44Var.changedTouches[0].clientX = d(motionEvent, actionIndex);
-                    i44Var.changedTouches[0].clientY = e(motionEvent, actionIndex);
-                    return;
-                }
-                int pointerCount = motionEvent.getPointerCount();
-                if (b == null || b.length != pointerCount) {
-                    b = new j44[pointerCount];
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < pointerCount; i++) {
-                    j44 j44Var = new j44();
-                    j44Var.identifier = motionEvent.getPointerId(i);
-                    j44Var.clientX = d(motionEvent, i);
-                    j44Var.clientY = e(motionEvent, i);
-                    if (!j44Var.equals(b[i])) {
-                        arrayList.add(j44Var);
-                    }
-                    b[i] = j44Var;
-                }
-                if (arrayList.size() != 0) {
-                    j44[] j44VarArr2 = new j44[arrayList.size()];
-                    i44Var.changedTouches = j44VarArr2;
-                    arrayList.toArray(j44VarArr2);
-                }
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0026, code lost:
-        if (r8.getActionIndex() != r3) goto L23;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void i(MotionEvent motionEvent, i44 i44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, motionEvent, i44Var) == null) {
-            try {
-                int pointerCount = motionEvent.getPointerCount();
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                while (i < pointerCount) {
-                    int actionMasked = motionEvent.getActionMasked();
-                    boolean z = true;
-                    if (actionMasked != 6 && actionMasked != 1 && actionMasked != 3) {
-                        z = false;
-                    }
-                    int pointerId = motionEvent.getPointerId(i);
-                    j44 j44Var = new j44();
-                    j44Var.identifier = pointerId;
-                    j44Var.clientX = d(motionEvent, i);
-                    j44Var.clientY = e(motionEvent, i);
-                    arrayList.add(j44Var);
-                    i++;
-                }
-                i44Var.touches = new j44[arrayList.size()];
-                if (!arrayList.isEmpty()) {
-                    arrayList.toArray(i44Var.touches);
-                }
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static JSEvent j(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, motionEvent)) == null) {
-            i44 i44Var = new i44();
-            int actionMasked = motionEvent.getActionMasked();
-            String str = "touchend";
-            if (actionMasked != 0) {
-                if (actionMasked != 1) {
-                    if (actionMasked != 2) {
-                        if (actionMasked != 3) {
-                            if (actionMasked != 5) {
-                                if (actionMasked != 6) {
-                                    str = "toucherror";
-                                } else {
-                                    h(motionEvent, i44Var, false);
-                                }
-                            } else {
-                                h(motionEvent, i44Var, false);
-                            }
-                        } else {
-                            h(motionEvent, i44Var, false);
-                            str = "touchcancel";
-                        }
-                    } else {
-                        h(motionEvent, i44Var, true);
-                        str = "touchmove";
-                    }
-                } else {
-                    h(motionEvent, i44Var, false);
-                }
-                i44Var.timeStamp = motionEvent.getEventTime();
-                i(motionEvent, i44Var);
-                JSEvent jSEvent = new JSEvent(str);
-                jSEvent.data = i44Var;
-                if (!"touchmove".equals(str) && i44Var.changedTouches == null) {
-                    return null;
-                }
-            }
-            h(motionEvent, i44Var, false);
-            int i = g + 1;
-            g = i;
-            g = Math.min(i, 1000);
-            h = System.currentTimeMillis();
-            str = "touchstart";
-            i44Var.timeStamp = motionEvent.getEventTime();
-            i(motionEvent, i44Var);
-            JSEvent jSEvent2 = new JSEvent(str);
-            jSEvent2.data = i44Var;
-            return !"touchmove".equals(str) ? jSEvent2 : jSEvent2;
-        }
-        return (JSEvent) invokeL.objValue;
-    }
-
-    public static void m(int i, int i2) {
-        float f2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65549, null, i, i2) == null) {
-            float f3 = 1.0f;
-            if (i != 0 && (i4 = c.x) != 0) {
-                f2 = i4 / i;
-            } else {
-                f2 = 1.0f;
-            }
-            d = f2;
-            if (i2 != 0 && (i3 = c.y) != 0) {
-                f3 = i3 / i2;
-            }
-            e = f3;
-            if (a) {
-                Log.i("SwanGameTouchHelper", String.format("setSurfaceViewCurrentSize:%f,%f", Float.valueOf(d), Float.valueOf(e)));
-            }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            Toast.makeText(ns2.c(), i, 1).show();
         }
     }
 }

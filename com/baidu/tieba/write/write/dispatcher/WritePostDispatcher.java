@@ -5,10 +5,9 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eg9;
+import com.baidu.tieba.gi9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,9 +17,10 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class WritePostDispatcher implements eg9 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes8.dex */
+public class WritePostDispatcher implements gi9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String SEEK_HELP = "seek_help";
     public transient /* synthetic */ FieldHolder $fh;
 
     public WritePostDispatcher() {
@@ -58,21 +58,21 @@ public class WritePostDispatcher implements eg9 {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             if ("game_rank".equals(jSONObject.optString("h5_from"))) {
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(context);
-                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f1072));
+                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f1139));
                 StringBuilder sb = new StringBuilder();
                 sb.append("#");
-                sb.append(jSONObject.optString(IntentConfig.TOPIC_NAME));
+                sb.append(jSONObject.optString("topic_name"));
                 sb.append("#");
                 String optString = jSONObject.optString("rank_name");
                 String optString2 = jSONObject.optString("game_name");
-                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f1073), optString, optString2, jSONObject.optString("reward_name")));
+                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f113a), optString, optString2, jSONObject.optString("reward_name")));
                 newInstance.setContent(sb.toString());
                 newInstance.setXiuxiuOriginalContent(sb.toString());
                 newInstance.setGameRankImgUrl(jSONObject.optString(BigdayActivityConfig.IMG_URL));
@@ -116,6 +116,8 @@ public class WritePostDispatcher implements eg9 {
             String optString4 = jSONObject.optString("forum_id");
             if (!TextUtils.isEmpty(optString4)) {
                 newInstance2.setForumId(optString4);
+            } else {
+                newInstance2.setForumId("0");
             }
             String optString5 = jSONObject.optString("forum_name");
             if (!TextUtils.isEmpty(optString5)) {
@@ -132,7 +134,25 @@ public class WritePostDispatcher implements eg9 {
             if (1 == jSONObject.optInt("not_save_draft")) {
                 newInstance2.setIsSaveDraft(false);
             }
-            newInstance2.setType(9);
+            if (SEEK_HELP.equals(jSONObject.optString("write_post_type"))) {
+                newInstance2.setType(14);
+            } else {
+                newInstance2.setType(9);
+            }
+            String optString8 = jSONObject.optString(WriteActivityConfig.SHOW_NOT_SAVE_POPUP);
+            if (!TextUtils.isEmpty(optString8)) {
+                newInstance2.setShowNotSavePopup(optString8);
+            }
+            if (1 == jSONObject.optInt(WriteActivityConfig.KEY_PUT_STORAGE_TID)) {
+                newInstance2.setPutStorageTid(true);
+            }
+            if (1 == jSONObject.optInt(WriteActivityConfig.KEY_NOT_USE_DRAFT)) {
+                newInstance2.setNotUseDraft(true);
+            }
+            String optString9 = jSONObject.optString(WriteActivityConfig.NO_SUCCESS_TOAST);
+            if (!TextUtils.isEmpty(optString9)) {
+                newInstance2.setNoSuccessToast(optString9);
+            }
             newInstance2.send();
         }
     }

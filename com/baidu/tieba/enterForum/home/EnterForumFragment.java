@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jr6;
-import com.baidu.tieba.rn9;
-import com.baidu.tieba.tn5;
-import com.baidu.tieba.vr6;
-import com.baidu.tieba.xr6;
+import com.baidu.tieba.cp5;
+import com.baidu.tieba.it6;
+import com.baidu.tieba.kt6;
+import com.baidu.tieba.tp9;
+import com.baidu.tieba.ws6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,26 +30,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EnterForumFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vr6 a;
-    public xr6 b;
+    public it6 a;
+    public kt6 b;
     public RelativeLayout c;
     public ObservedChangeLinearLayout d;
     public RelativeLayout e;
     public CustomMessageListener f;
     public CustomMessageListener g;
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fm5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.on5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "a025" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class EnterForumFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +144,7 @@ public class EnterForumFragment extends BaseFragment {
         new ArrayList();
     }
 
-    public RelativeLayout H1() {
+    public RelativeLayout I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -153,7 +153,7 @@ public class EnterForumFragment extends BaseFragment {
         return (RelativeLayout) invokeV.objValue;
     }
 
-    public ObservedChangeLinearLayout I1() {
+    public ObservedChangeLinearLayout J1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -162,21 +162,21 @@ public class EnterForumFragment extends BaseFragment {
         return (ObservedChangeLinearLayout) invokeV.objValue;
     }
 
-    public xr6 J1() {
+    public kt6 K1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (xr6) invokeV.objValue;
+        return (kt6) invokeV.objValue;
     }
 
-    public boolean L1() {
+    public boolean M1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            vr6 vr6Var = this.a;
-            if (vr6Var != null && vr6Var.A() != null) {
+            it6 it6Var = this.a;
+            if (it6Var != null && it6Var.A() != null) {
                 return this.a.A().b0();
             }
             return true;
@@ -184,21 +184,21 @@ public class EnterForumFragment extends BaseFragment {
         return invokeV.booleanValue;
     }
 
-    public final void N1() {
-        vr6 vr6Var;
+    public final void O1() {
+        it6 it6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (vr6Var = this.a) != null) {
-            vr6Var.x(true);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (it6Var = this.a) != null) {
+            it6Var.x(true);
         }
     }
 
-    public void P1() {
+    public void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            N1();
-            vr6 vr6Var = this.a;
-            if (vr6Var != null) {
-                vr6Var.H();
+            O1();
+            it6 it6Var = this.a;
+            if (it6Var != null) {
+                it6Var.H();
             }
         }
     }
@@ -207,7 +207,7 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            rn9.g().k(getUniqueId());
+            tp9.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -217,9 +217,9 @@ public class EnterForumFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onPause();
-            vr6 vr6Var = this.a;
-            if (vr6Var != null) {
-                vr6Var.K();
+            it6 it6Var = this.a;
+            if (it6Var != null) {
+                it6Var.K();
             }
         }
     }
@@ -253,29 +253,29 @@ public class EnterForumFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            vr6 vr6Var = this.a;
-            if (vr6Var != null) {
-                vr6Var.J();
+            it6 it6Var = this.a;
+            if (it6Var != null) {
+                it6Var.J();
             }
             this.b = null;
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.g);
-            rn9.g().k(getUniqueId());
+            tp9.g().k(getUniqueId());
             super.onDestroy();
         }
     }
 
-    public void M1(jr6 jr6Var) {
+    public void N1(ws6 ws6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jr6Var) == null) {
-            this.b.e0(jr6Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, ws6Var) == null) {
+            this.b.e0(ws6Var);
         }
     }
 
-    public void O1(xr6 xr6Var) {
+    public void P1(kt6 kt6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, xr6Var) == null) {
-            this.b = xr6Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, kt6Var) == null) {
+            this.b = kt6Var;
         }
     }
 
@@ -286,12 +286,12 @@ public class EnterForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-            vr6 vr6Var = this.a;
-            if (vr6Var != null) {
-                vr6Var.I(i);
+            it6 it6Var = this.a;
+            if (it6Var != null) {
+                it6Var.I(i);
             }
             if (this.e != null) {
-                tn5.a(getPageContext(), this.e);
+                cp5.a(getPageContext(), this.e);
             }
         }
     }
@@ -303,21 +303,21 @@ public class EnterForumFragment extends BaseFragment {
             super.onCreate(bundle);
             registerListener(this.f);
             registerListener(this.g);
-            rn9.g().i(getUniqueId());
+            tp9.g().i(getUniqueId());
         }
     }
 
-    public final void K1(View view2) {
+    public final void L1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909cc);
-            this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092201);
-            vr6 vr6Var = new vr6(this);
-            this.a = vr6Var;
-            vr6Var.S(getUniqueId());
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909f4);
+            this.d = (ObservedChangeLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092264);
+            it6 it6Var = new it6(this);
+            this.a = it6Var;
+            it6Var.S(getUniqueId());
             this.c.addView(this.a.B(), 0);
             this.a.C();
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0909c1);
+            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0909e9);
             if (findViewById != null) {
                 this.c.removeView(findViewById);
                 this.c.addView(findViewById, 0);
@@ -333,10 +333,10 @@ public class EnterForumFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02f6, viewGroup, false);
-            K1(inflate);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d030d, viewGroup, false);
+            L1(inflate);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            rn9.g().i(getUniqueId());
+            tp9.g().i(getUniqueId());
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -348,19 +348,19 @@ public class EnterForumFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                P1();
-                vr6 vr6Var = this.a;
-                if (vr6Var != null) {
-                    refreshImage(vr6Var.B());
+                Q1();
+                it6 it6Var = this.a;
+                if (it6Var != null) {
+                    refreshImage(it6Var.B());
                 }
-                rn9.g().h(getUniqueId(), false);
+                tp9.g().h(getUniqueId(), false);
             }
-            vr6 vr6Var2 = this.a;
-            if (vr6Var2 != null) {
-                vr6Var2.L();
+            it6 it6Var2 = this.a;
+            if (it6Var2 != null) {
+                it6Var2.L();
             }
-            if (J1() != null) {
-                J1().c0();
+            if (K1() != null) {
+                K1().c0();
             }
         }
     }

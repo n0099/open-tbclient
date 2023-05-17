@@ -1,9 +1,9 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ah8;
-import com.baidu.tieba.dh8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.vi8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
-    public final List<ah8> iconList;
+    public final List<vi8> iconList;
     public final String pic;
     public final int tBgColor;
     public final int tBgColorN;
@@ -46,8 +46,8 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = dh8.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = dh8.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = yi8.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = yi8.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         if (optJSONArray == null) {
             length = 0;
@@ -58,12 +58,12 @@ public class OnePicInfoCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
-                ah8 ah8Var = new ah8();
-                ah8Var.c = optJSONObject.optInt("type");
-                ah8Var.a = optJSONObject.optString("url");
-                ah8Var.b = optJSONObject.optString("urlNight");
-                ah8Var.d = optJSONObject.optString("content", "");
-                this.iconList.add(ah8Var);
+                vi8 vi8Var = new vi8();
+                vi8Var.c = optJSONObject.optInt("type");
+                vi8Var.a = optJSONObject.optString("url");
+                vi8Var.b = optJSONObject.optString("urlNight");
+                vi8Var.d = optJSONObject.optString("content", "");
+                this.iconList.add(vi8Var);
             }
         }
     }
@@ -77,7 +77,7 @@ public class OnePicInfoCard extends BaseCardInfo {
         return (String) invokeV.objValue;
     }
 
-    public List<ah8> getIconList() {
+    public List<vi8> getIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

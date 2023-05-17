@@ -2,17 +2,17 @@ package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Internal {
     public static final byte[] EMPTY_BYTE_ARRAY;
     public static final ByteBuffer EMPTY_BYTE_BUFFER;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface EnumLite {
         int getNumber();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface EnumLiteMap<T extends EnumLite> {
         T findValueByNumber(int i);
     }

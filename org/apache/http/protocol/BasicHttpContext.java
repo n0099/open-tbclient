@@ -1,6 +1,6 @@
 package org.apache.http.protocol;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BasicHttpContext implements HttpContext {
     public BasicHttpContext() {
         throw new RuntimeException("Stub!");

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.hs4;
-import com.baidu.tieba.or5;
-import com.baidu.tieba.qr5;
+import com.baidu.tieba.qt4;
+import com.baidu.tieba.xs5;
+import com.baidu.tieba.zs5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.VideoFreeFlowConfigManager;
 import java.util.concurrent.TimeUnit;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final qr5<Integer> a;
-    public static final qr5<Integer> b;
+    public static final zs5<Integer> a;
+    public static final zs5<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class CardBtnType {
         public static final /* synthetic */ CardBtnType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -124,7 +124,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class LandingType {
         public static final /* synthetic */ LandingType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -225,7 +225,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                or5.b(landingType);
+                xs5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -242,7 +242,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Locate {
         public static final /* synthetic */ Locate[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -322,7 +322,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class RichTextType {
         public static final /* synthetic */ RichTextType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -415,7 +415,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class StatType {
         public static final /* synthetic */ StatType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -443,8 +443,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, hs4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, hs4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, qt4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, qt4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -496,7 +496,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class ThreadType {
         public static final /* synthetic */ ThreadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -583,7 +583,7 @@ public final class TiePlusStat {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class WechatDialogType {
         public static final /* synthetic */ WechatDialogType[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -665,8 +665,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new qr5<>(3000, TimeUnit.MILLISECONDS);
-        b = new qr5<>(3000, TimeUnit.MILLISECONDS);
+        a = new zs5<>(3000, TimeUnit.MILLISECONDS);
+        b = new zs5<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -716,7 +716,7 @@ public final class TiePlusStat {
             if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
                 return;
             }
-            hs4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+            qt4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
         }
     }
 

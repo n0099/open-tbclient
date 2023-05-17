@@ -1,364 +1,361 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.app.Activity;
+import android.media.AudioManager;
+import android.view.View;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.ui.VerticalVolumeBar;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.tieba.t41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class vu0 implements lz0 {
+/* loaded from: classes8.dex */
+public class vu0 extends mu0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final wu0 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<Object> a;
-    public String b;
-    public Object c;
-    public int d;
-    public int e;
-    public int f;
-    public StringBuilder g;
-    public int h;
+    public VerticalVolumeBar b;
+    public AudioManager c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public int g;
+    public final Runnable h;
 
-    @Override // com.baidu.tieba.lz0
-    public boolean verify(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vu0 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253144, "Lcom/baidu/tieba/vu0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(vu0 vu0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948253144, "Lcom/baidu/tieba/vu0;");
-                return;
+            this.a = vu0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A();
             }
         }
-        i = new wu0();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public vu0() {
-        this("");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                this((String) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = false;
+        this.f = false;
+        this.h = new a(this);
     }
 
+    public final void A() {
+        VerticalVolumeBar verticalVolumeBar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (verticalVolumeBar = this.b) != null && verticalVolumeBar.getVisibility() == 0) {
+            this.b.setVisibility(8);
+            e(bv0.w(LayerEvent.ACTION_HIDE_VOLUME_BAR));
+        }
+    }
+
+    @Override // com.baidu.tieba.nu0
     @NonNull
-    public String c() {
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gu0
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public Object k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            i.d(this);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.j();
+            A();
         }
     }
 
-    @Override // com.baidu.tieba.lz0
-    public void onInit() {
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.clear();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && r() != null && r().X()) {
+            r().Y(false);
         }
     }
 
-    @Override // com.baidu.tieba.lz0
-    public void onRelease() {
+    public final void C(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.b = "";
-            this.c = null;
-            this.e = -1;
-            this.d = -1;
-            this.f = 0;
-            this.h = 0;
-            this.a.clear();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            if (this.b == null) {
+                i();
+            }
+            this.b.setLayoutParams(y(z));
+            A();
         }
     }
 
-    public vu0(String str) {
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Activity activity = q().getActivity();
+            if (activity != null && activity.hasWindowFocus()) {
+                if ((!q().Y() && !q().W()) || this.e) {
+                    A();
+                    return;
+                }
+                VerticalVolumeBar verticalVolumeBar = this.b;
+                if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() != 0) {
+                    this.b.setVisibility(0);
+                    lv0 w = bv0.w(LayerEvent.ACTION_SHOW_VOLUME_BAR);
+                    e(w);
+                    o(w);
+                }
+                z();
+                if (this.c == null) {
+                    this.c = (AudioManager) getContext().getApplicationContext().getSystemService("audio");
+                }
+                int streamMaxVolume = this.c.getStreamMaxVolume(3);
+                int streamVolume = this.c.getStreamVolume(3);
+                VerticalVolumeBar verticalVolumeBar2 = this.b;
+                if (verticalVolumeBar2 != null) {
+                    if (!this.f) {
+                        verticalVolumeBar2.setMax(streamMaxVolume);
+                        this.b.setProgress(streamVolume);
+                    } else {
+                        verticalVolumeBar2.setMax(100);
+                        this.b.setProgress(this.g);
+                    }
+                }
+                r().y().removeCallbacks(this.h);
+                r().y().postDelayed(this.h, 1000L);
                 return;
             }
+            A();
         }
-        this.a = new SparseArray<>(3);
-        this.d = -1;
-        this.e = -1;
-        this.f = 0;
-        this.h = 0;
-        this.b = str;
     }
 
-    public static vu0 a(@NonNull vu0 vu0Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gu0
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, vu0Var)) == null) {
-            vu0 a = i.a();
-            a.v(vu0Var.d);
-            a.p(vu0Var.b);
-            a.t(vu0Var.c);
-            a.u(vu0Var.e);
-            a.s(vu0Var.f);
-            a.q(vu0Var.a);
-            a.r(vu0Var.h);
-            return a;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
+            this.b = verticalVolumeBar;
+            verticalVolumeBar.setLayoutParams(y(false));
+            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.nad_videoplayer_video_volume_bar_color));
+            this.b.setBackgroundResource(R.drawable.nad_videoplayer_video_volume_bar_shadow_bg);
+            int dimension = (int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_shadow_width);
+            int i = dimension / 2;
+            this.b.setPadding(i, dimension, i, dimension);
+            this.b.setVisibility(8);
         }
-        return (vu0) invokeL.objValue;
     }
 
-    public static vu0 m(@NonNull String str, int i2) {
-        InterceptResult invokeLI;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.baidu.tieba.gu0
+    public void k(@NonNull lv0 lv0Var) {
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
-            vu0 a = i.a();
-            a.v(i2);
-            a.p(str);
-            return a;
-        }
-        return (vu0) invokeLI.objValue;
-    }
-
-    public int h(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
-            Object obj = this.a.get(i2);
-            if (obj instanceof Integer) {
-                return ((Integer) obj).intValue();
+        if (interceptable == null || interceptable.invokeL(1048582, this, lv0Var) == null) {
+            String c2 = lv0Var.c();
+            switch (c2.hashCode()) {
+                case -915923721:
+                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552621273:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -552580917:
+                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -316059751:
+                    if (c2.equals(LayerEvent.ACTION_ADJUST_LIGHT)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -21461611:
+                    if (c2.equals(LayerEvent.ACTION_TOUCH_DOWN)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -14542718:
+                    if (c2.equals(LayerEvent.ACTION_HIDE_VOLUME_BAR)) {
+                        c = '\t';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 649538615:
+                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME_COMPLETE)) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1547354793:
+                    if (c2.equals(ControlEvent.ACTION_STOP)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1822725860:
+                    if (c2.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 2064424334:
+                    if (c2.equals(LayerEvent.ACTION_POSITION_SLIDE)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return i3;
-        }
-        return invokeII.intValue;
-    }
-
-    public void n(int i2, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i2, obj) == null) {
-            this.a.put(i2, obj);
-        }
-    }
-
-    public boolean b(@NonNull wv0 wv0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wv0Var)) == null) {
-            if (k() != wv0Var && (l() == -1 || l() == wv0Var.getType())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            return e(i2, false);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public Object f(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            return this.a.get(i2);
-        }
-        return invokeI.objValue;
-    }
-
-    public int g(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            return h(i2, 0);
-        }
-        return invokeI.intValue;
-    }
-
-    public void p(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void q(@NonNull SparseArray<Object> sparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, sparseArray) == null) {
-            for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-                this.a.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2));
+            switch (c) {
+                case 0:
+                    B();
+                    return;
+                case 1:
+                    if (!this.d) {
+                        A();
+                        return;
+                    }
+                    return;
+                case 2:
+                case 3:
+                case 4:
+                    A();
+                    return;
+                case 5:
+                    C(true);
+                    return;
+                case 6:
+                    C(false);
+                    return;
+                case 7:
+                    this.f = true;
+                    this.g = lv0Var.g(20);
+                    B();
+                    return;
+                case '\b':
+                    this.f = false;
+                    return;
+                case '\t':
+                    VerticalVolumeBar verticalVolumeBar = this.b;
+                    if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() == 0) {
+                        this.b.setVisibility(8);
+                        return;
+                    }
+                    return;
+                default:
+                    return;
             }
         }
     }
 
-    public void r(int i2) {
+    @Override // com.baidu.tieba.mu0
+    public void s(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.h = i2;
-        }
-    }
-
-    public void s(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.f = i2;
-        }
-    }
-
-    public void t(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, obj) == null) {
-            this.c = obj;
-        }
-    }
-
-    public void u(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.e = i2;
-        }
-    }
-
-    public void v(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.d = i2;
-        }
-    }
-
-    public boolean e(int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            Object obj = this.a.get(i2);
-            if (obj instanceof Boolean) {
-                return ((Boolean) obj).booleanValue();
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.d = z;
+            if (z) {
+                A();
             }
-            return z;
         }
-        return invokeCommon.booleanValue;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public FrameLayout.LayoutParams y(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        float dimension;
+        float dimension2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            StringBuilder sb = this.g;
-            if (sb == null) {
-                this.g = new StringBuilder();
-            } else if (sb.length() > 0) {
-                StringBuilder sb2 = this.g;
-                sb2.delete(0, sb2.length());
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            int dimension3 = (int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_shadow_width);
+            int min = Math.min(t41.c.e(getContext()), t41.c.c(getContext()));
+            if (!z) {
+                i = ((min / 16) * 9) / 2;
+            } else {
+                i = min / 2;
             }
-            StringBuilder sb3 = this.g;
-            sb3.append("Action :");
-            sb3.append(this.b);
-            sb3.append(", type :");
-            sb3.append(this.d);
-            sb3.append(", from :");
-            sb3.append(this.c);
-            sb3.append(", priority :");
-            sb3.append(this.f);
-            sb3.append(", targetType :");
-            sb3.append(this.e);
-            sb3.append(", bundle :");
-            sb3.append(this.a.toString());
-            sb3.append(", hash :");
-            sb3.append(hashCode());
-            return this.g.toString();
+            int i2 = i + dimension3;
+            int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_height));
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new FrameLayout.LayoutParams(i2, dimension4);
+            }
+            layoutParams.width = i2;
+            layoutParams.height = dimension4;
+            if (!z) {
+                dimension = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_leftmargin);
+            } else {
+                dimension = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_full_leftmargin);
+            }
+            layoutParams.leftMargin = ((int) dimension) - dimension3;
+            layoutParams.gravity = 80;
+            if (!z) {
+                dimension2 = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_bottomargin);
+            } else {
+                dimension2 = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_full_bottomargin);
+            }
+            layoutParams.bottomMargin = ((int) dimension2) - dimension3;
+            return layoutParams;
         }
-        return (String) invokeV.objValue;
+        return (FrameLayout.LayoutParams) invokeZ.objValue;
     }
 }

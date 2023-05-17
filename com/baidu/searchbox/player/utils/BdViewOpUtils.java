@@ -11,7 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BdViewOpUtils {
     public static final long DELAY_MILLIS = 300;
     public static final String KEY_DISPLAY_CUTOUT_MODE = "activity_layoutInDisplayCutoutMode";

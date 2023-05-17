@@ -6,13 +6,13 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ah8;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.dh8;
-import com.baidu.tieba.ii;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.yg8;
-import com.baidu.tieba.zg8;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ti8;
+import com.baidu.tieba.ui8;
+import com.baidu.tieba.vi8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard> {
+/* loaded from: classes6.dex */
+public class PlayPicInfoCard extends BaseCardInfo implements ti8<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -35,14 +35,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard
     public final double ratio;
     public final int showDot;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public ah8 c;
-        public zg8 d;
+        public vi8 c;
+        public ui8 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                ah8 ah8Var = new ah8();
-                this.c = ah8Var;
-                ah8Var.d = jSONObject.optString("rText");
+                vi8 vi8Var = new vi8();
+                this.c = vi8Var;
+                vi8Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    zg8 zg8Var = new zg8(optJSONObject);
-                    this.d = zg8Var;
-                    if (!zg8Var.j()) {
+                    ui8 ui8Var = new ui8(optJSONObject);
+                    this.d = ui8Var;
+                    if (!ui8Var.j()) {
                         this.d = null;
                     }
                 }
@@ -98,7 +98,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,8 +226,8 @@ public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard
                 bVar.b = optString;
                 bVar.c = optJSONObject.optString("scheme");
                 bVar.d = optJSONObject.optString("desc");
-                bVar.e = dh8.b(optJSONObject.optString("descColor", ""));
-                bVar.f = dh8.b(optJSONObject.optString("descColorNight", ""));
+                bVar.e = yi8.b(optJSONObject.optString("descColor", ""));
+                bVar.f = yi8.b(optJSONObject.optString("descColorNight", ""));
                 int optInt = optJSONObject.optInt("mLines");
                 bVar.h = optInt <= 1 ? 1 : optInt;
                 this.imageResList.add(bVar);
@@ -248,14 +248,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements yg8<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yg8
+    @Override // com.baidu.tieba.ti8
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {
-            int l = ii.l(TbadkCoreApplication.getInst());
+            int l = ri.l(TbadkCoreApplication.getInst());
             int i = (int) (l * playPicInfoCard.ratio);
             for (b bVar : this.imageResList) {
-                cg.h().k(bVar.b, 17, null, l, i, tbPageContext.getUniqueId(), new Object[0]);
+                lg.h().k(bVar.b, 17, null, l, i, tbPageContext.getUniqueId(), new Object[0]);
             }
         }
     }

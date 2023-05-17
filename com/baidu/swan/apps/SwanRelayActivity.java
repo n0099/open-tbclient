@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanRelayActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {

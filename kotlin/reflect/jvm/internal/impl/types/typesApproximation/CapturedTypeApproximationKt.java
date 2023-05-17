@@ -36,10 +36,10 @@ import kotlin.reflect.jvm.internal.impl.types.TypeWithEnhancementKt;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CapturedTypeApproximationKt {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;

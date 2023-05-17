@@ -3,7 +3,7 @@ package com.baidu.tieba.im.forum.broadcast.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.n18;
+import com.baidu.tieba.b38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n18 majorHistoryData;
+    public b38 majorHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpMajorHistoryMessage() {
@@ -34,7 +34,7 @@ public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
                 return;
             }
         }
-        this.majorHistoryData = new n18();
+        this.majorHistoryData = new b38();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -58,12 +58,12 @@ public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public n18 getData() {
+    public b38 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.majorHistoryData;
         }
-        return (n18) invokeV.objValue;
+        return (b38) invokeV.objValue;
     }
 }

@@ -16,7 +16,7 @@ import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class zzd extends Fragment implements LifecycleFragment {
     public static final WeakHashMap<FragmentActivity, WeakReference<zzd>> zza = new WeakHashMap<>();
     public final Map<String, LifecycleCallback> zzb = Collections.synchronizedMap(new ArrayMap());

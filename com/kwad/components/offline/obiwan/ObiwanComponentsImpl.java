@@ -8,7 +8,7 @@ import com.kwad.components.offline.api.obiwan.IObiwanLogcat;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompo;
 import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ObiwanComponentsImpl extends DefaultOfflineCompo implements ObiwanComponents {
     public final IObiwanOfflineCompo mOfflineCompo;
 

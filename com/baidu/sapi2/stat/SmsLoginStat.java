@@ -10,12 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmsLoginStat implements NoProguard {
     public static final String TAG = "SmsLoginStat";
     public static final String UBC_ID = "4922";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GetdpassStat implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -67,7 +67,7 @@ public class SmsLoginStat implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SmsClickLoginStat implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";

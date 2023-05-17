@@ -1,83 +1,77 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.searchbox.account.utils.SocialEncodeUtils;
+import com.baidu.searchbox.live.interfaces.data.UserAccount;
+import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hm8 implements RouterService {
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+/* loaded from: classes5.dex */
+public class hm8 implements AccountManagerService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AccountManagerService.AccountStatusChangedListener a;
+    public AccountManagerService.LoginResultListener b;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public boolean invokeSchemeWithCallBack(Context context, Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, uri, str, liveShowSchemeCallBack)) == null) {
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ hm8 c;
+        public final /* synthetic */ hm8 a;
 
-        public a(hm8 hm8Var, String str, Context context) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hm8 hm8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hm8Var, str, context};
+                Object[] objArr = {hm8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = hm8Var;
-            this.a = str;
-            this.b = context;
+            this.a = hm8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Activity b = w8.f().b();
-                if (b != null && (g9.a(b) instanceof TbPageContext)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{this.a}, true);
-                } else if (!this.a.startsWith(BdUniDispatchSchemeController.SCHEME)) {
-                    this.c.c(this.b, this.a);
-                } else {
-                    UtilHelper.dealOneScheme(this.b, this.a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                if (this.a.b != null) {
+                    if (this.a.isLogin(2)) {
+                        i = 0;
+                    } else {
+                        i = -2;
+                    }
+                    this.a.b.onResult(i);
+                }
+                if (this.a.a != null) {
+                    this.a.a.onAccountStatusChanged(this.a.isLogin(2));
                 }
             }
         }
@@ -93,155 +87,116 @@ public class hm8 implements RouterService {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        MessageManager.getInstance().registerListener(new a(this, 2005016));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public boolean invokeScheme(Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public String getUid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, uri, str, liveShowSchemeCallBack)) == null) {
-            openScheme(uri.toString());
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            UserAccount account = getAccount();
+            if (account != null) {
+                return account.getUid();
+            }
+            return "";
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean b(Context context, String str) {
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
+            this.a = accountStatusChangedListener;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public boolean isLogin(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return TbadkCoreApplication.isLogin();
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
+            this.a = null;
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public UserAccount getAccount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            UserAccount userAccount = new UserAccount();
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo != null) {
+                userAccount.setDisplayname(currentAccountInfo.getAccountNameShow());
+                userAccount.setBduss(currentAccountInfo.getBDUSS());
+                userAccount.setUid(currentAccountInfo.getID());
+                userAccount.setProtrait(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
+                userAccount.setNickName(currentAccountInfo.getAccountNameShow());
+                userAccount.setUk(getSocialEncryption(currentAccountInfo.getID(), "baiduuid_"));
+            }
+            return userAccount;
+        }
+        return (UserAccount) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public String getSocialDecrypt(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (StringUtils.isNull(str) || !str.contains("from=tieba")) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
             }
-            if (str.contains("com.baidu.tieba.unidispatch://pwStatisticalLog?")) {
-                e(Uri.parse(str));
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_MESSAGE_CENTER_PAGE)) {
-                UrlSchemaJumpHelper.jumpMessageCenterPage(context, str);
-                return true;
-            } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
-                UrlSchemaJumpHelper.jumpDispatchOrderPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
-                UrlSchemaJumpHelper.jumpUnPaidOrderPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_LIST_PAGE)) {
-                UrlSchemaJumpHelper.jumpUnPaidListPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                UrlSchemaJumpHelper.jumpPersonChat(context, str, true);
-                return true;
-            } else if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
-                UrlSchemaJumpHelper.jumpNativeH5Page(context, str);
-                return true;
-            } else {
-                if (str.startsWith(UrlSchemaHelper.SCHEME_POST_DETAIL_PAGE)) {
-                    UrlSchemaJumpHelper.jumpPostDetailPage(context, str);
-                }
-                return false;
+            try {
+                return SocialEncodeUtils.getSocialDecrypt(str, str2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
             }
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final boolean c(Context context, String str) {
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
+            this.b = loginResultListener;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
+    public String getSocialEncryption(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (context != null) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (UtilHelper.isIntentAvailable(context, intent)) {
-                    try {
-                        context.startActivity(intent);
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return false;
-                    }
-                }
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            String str3 = "";
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return "";
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) != null) || StringUtils.isNull(str) || b(context, str)) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(str);
-        if (str.indexOf("?") > 0) {
-            sb.append("&");
-        } else {
-            sb.append("?");
-        }
-        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
-        sb.append("=1");
-        sb.append("&page_from=live");
-        jg.a().post(new a(this, sb.toString(), context));
-    }
-
-    public final void e(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, uri) != null) || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("key");
-        if (TextUtils.isEmpty(queryParameter)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(queryParameter);
-        for (String str : uri.getQueryParameterNames()) {
-            if (!TextUtils.equals(str, "key")) {
-                statisticItem.addParam(str, uri.getQueryParameter(str));
+            try {
+                str3 = SocialEncodeUtils.getSocialEncryption(str, str2);
+                return URLEncoder.encode(str3, IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return str3;
             }
         }
-        TiebaStatic.log(statisticItem);
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public void openScheme(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && !StringUtils.isNull(str)) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (str.indexOf("?") > 0) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
-            sb.append("=1");
-            sb.append("&page_from=live");
-            Activity b = w8.f().b();
-            if (b != null) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{sb.toString()}, true);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public void invoke(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            d(context, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public void invokeScheme(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-            d(context, str);
-        }
+        return (String) invokeLL.objValue;
     }
 }

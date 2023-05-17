@@ -29,7 +29,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AvcConfigurationBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "avcC";
@@ -65,7 +65,7 @@ public final class AvcConfigurationBox extends AbstractBox {
     public transient /* synthetic */ FieldHolder $fh;
     public AVCDecoderConfigurationRecord avcDecoderConfigurationRecord;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class AVCDecoderConfigurationRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

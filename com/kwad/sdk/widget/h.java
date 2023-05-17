@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public Path ZA;
     public float[] arl;
@@ -25,7 +25,7 @@ public final class h {
     public float wm;
     public RectF zV;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public boolean aro = true;
         public boolean arp = true;
@@ -109,11 +109,11 @@ public final class h {
 
     public final void d(Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f0403c0, R.attr.obfuscated_res_0x7f0403a2};
+            int[] iArr = {R.attr.obfuscated_res_0x7f0403d9, R.attr.obfuscated_res_0x7f0403bb};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.wm = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403c0), 0);
-            this.arm = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403a2), true);
+            this.wm = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403d9), 0);
+            this.arm = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403bb), true);
             obtainStyledAttributes.recycle();
         }
         this.ZA = new Path();

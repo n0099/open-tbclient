@@ -1,280 +1,409 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.RelevanceItemSearchActivityConfig;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.write.view.AssociatedItemContainer;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-/* loaded from: classes6.dex */
-public class w7a extends p8a<y8a> implements r8a {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class w7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public AssociatedItemContainer g;
-    public final CustomMessageListener h;
+    public int a;
+    public final g9 b;
+    public WriteImagesInfo c;
+    public VideoFileInfo d;
+    public String e;
+    public ImageFileInfo f;
+    public List<ImageFileInfo> g;
+    public final List<au4> h;
 
-    @Override // com.baidu.tieba.r8a
-    public void onUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, obj) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w7a a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(w7a w7aVar, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w7aVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w7aVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
-                return;
-            }
-            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements AssociatedItemContainer.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w7a a;
-
-        public b(w7a w7aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w7aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = w7aVar;
-        }
-
-        @Override // com.baidu.tieba.write.view.AssociatedItemContainer.b
-        public void a(ItemData itemData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) {
-                if (this.a.e != null) {
-                    this.a.e.removeItemData(itemData);
-                }
-                if (ListUtils.isEmpty(this.a.g.getItemDataList())) {
-                    this.a.g.setVisibility(8);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w7a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, y8a.class);
+    public w7a(g9 g9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this, 2921516);
+        this.a = 9;
+        this.h = new ArrayList();
+        this.b = g9Var;
     }
 
-    public final void D(ItemData itemData) {
-        WriteData writeData;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, itemData) == null) && this.g != null && (writeData = this.e) != null) {
-            writeData.addItemData(itemData);
-            this.g.setVisibility(0);
-            this.g.a(itemData);
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) && !ListUtils.isEmpty(writeData.getItemDatas())) {
-            Iterator<ItemData> it = writeData.getItemDatas().iterator();
-            while (it.hasNext()) {
-                D(it.next());
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void c(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
-            G(writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) {
-            G(writeData);
-        }
-    }
-
-    @Override // com.baidu.tieba.p8a, com.baidu.tieba.u8a
-    public void j(@NonNull w8a w8aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, w8aVar) == null) {
-            super.j(w8aVar);
-            this.a.registerListener(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void onChangeSkinType(int i) {
-        AssociatedItemContainer associatedItemContainer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (associatedItemContainer = this.g) != null) {
-            associatedItemContainer.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.p8a, com.baidu.tieba.u8a
-    public void r(jd5 jd5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jd5Var) == null) {
-            super.r(jd5Var);
-            if (jd5Var.a == 61) {
-                F();
-            }
-        }
-    }
-
-    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, evaluateRelevanceItemSelectedMessage) == null) {
-            ItemData itemData = new ItemData();
-            itemData.itemId = gg.g(evaluateRelevanceItemSelectedMessage.item_id, 0L);
-            itemData.mTags = evaluateRelevanceItemSelectedMessage.tags;
-            itemData.mScore = evaluateRelevanceItemSelectedMessage.score;
-            itemData.mStar = evaluateRelevanceItemSelectedMessage.star;
-            itemData.mIconUrl = evaluateRelevanceItemSelectedMessage.icon_url;
-            itemData.mIconSize = evaluateRelevanceItemSelectedMessage.icon_size;
-            itemData.mTitle = evaluateRelevanceItemSelectedMessage.item_name;
-            D(itemData);
-        }
-    }
-
-    public final void G(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
-            writeData.getItemDatas().clear();
-            writeData.getItemDataIds().clear();
-            AssociatedItemContainer associatedItemContainer = this.g;
-            if (associatedItemContainer != null) {
-                for (ItemData itemData : associatedItemContainer.getItemDataList()) {
-                    writeData.addItemData(itemData);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public View s(@NonNull ViewGroup viewGroup) {
+    public List<MediaFileInfo> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04d0, viewGroup, false);
-            this.c = inflate;
-            AssociatedItemContainer associatedItemContainer = (AssociatedItemContainer) inflate.findViewById(R.id.obfuscated_res_0x7f0902cb);
-            this.g = associatedItemContainer;
-            if (associatedItemContainer != null) {
-                associatedItemContainer.setOnDeletedListener(new b(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (this.h != null && !StringUtils.isNull(str)) {
+                for (au4 au4Var : this.h) {
+                    if (au4Var != null && TextUtils.equals(str, au4Var.b())) {
+                        return au4Var.d();
+                    }
+                }
             }
-            return this.c;
+            return null;
         }
-        return (View) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public final void F() {
-        WriteData writeData;
+    public void A(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (writeData = this.e) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.c == null) {
+                this.c = new WriteImagesInfo(this.a);
+            }
+            this.c.setLastAlbumId(str);
         }
-        if (!writeData.canAddItem()) {
-            ii.P(this.a.getPageActivity(), R.string.obfuscated_res_0x7f0f1748);
-            return;
-        }
-        RelevanceItemSearchActivityConfig relevanceItemSearchActivityConfig = new RelevanceItemSearchActivityConfig(this.a.getPageActivity(), 0);
-        relevanceItemSearchActivityConfig.setSelectedIds(this.e.getItemDataIds());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, relevanceItemSearchActivityConfig));
     }
 
-    @Override // com.baidu.tieba.p8a, com.baidu.tieba.u8a
-    public boolean t() {
+    public void B(boolean z) {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (writeImagesInfo = this.c) != null) {
+            writeImagesInfo.setOriginalImg(z);
+        }
+    }
+
+    public void C(WriteImagesInfo writeImagesInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeImagesInfo) == null) {
+            this.c = writeImagesInfo;
+        }
+    }
+
+    public void a(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, imageFileInfo) == null) {
+            if (this.c == null) {
+                this.c = new WriteImagesInfo(this.a);
+            }
+            this.c.addChooseFile(imageFileInfo);
+        }
+    }
+
+    public void c(ImageFileInfo imageFileInfo) {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, imageFileInfo) != null) || (writeImagesInfo = this.c) == null) {
+            return;
+        }
+        writeImagesInfo.delChooseFile(imageFileInfo);
+    }
+
+    public boolean n(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, imageFileInfo)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo == null) {
+                return false;
+            }
+            return writeImagesInfo.isAdded(imageFileInfo);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean q(VideoFileInfo videoFileInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, videoFileInfo)) == null) {
+            VideoFileInfo videoFileInfo2 = this.d;
+            if (videoFileInfo2 == null || videoFileInfo == null || videoFileInfo2.videoId != videoFileInfo.videoId) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void w(VideoFileInfo videoFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, videoFileInfo) == null) {
+            this.d = videoFileInfo;
+        }
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.e = str;
+            v(str);
+        }
+    }
+
+    public void y(ImageFileInfo imageFileInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, imageFileInfo) == null) {
+            this.f = imageFileInfo;
+        }
+    }
+
+    public int D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo == null) {
+                return 0;
+            }
+            return writeImagesInfo.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (writeImagesInfo = this.c) == null) {
+            return;
+        }
+        writeImagesInfo.clear();
+    }
+
+    public List<au4> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.h;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public VideoFileInfo f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.d;
+        }
+        return (VideoFileInfo) invokeV.objValue;
+    }
+
+    public List<ImageFileInfo> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.getChosedFiles();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<ImageFileInfo> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            AssociatedItemContainer associatedItemContainer = this.g;
-            if (associatedItemContainer != null && associatedItemContainer.getVisibility() == 0 && !ListUtils.isEmpty(this.g.getItemDataList())) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.getLastAlbumId();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.getMaxImagesAllowed();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public WriteImagesInfo m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.c;
+        }
+        return (WriteImagesInfo) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return !ListUtils.isEmpty(g());
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.d != null) {
                 return true;
             }
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return ListUtils.isEmpty(d(au4.f));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            WriteImagesInfo writeImagesInfo = this.c;
+            if (writeImagesInfo != null) {
+                return writeImagesInfo.isOriginalImg();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int j() {
+        InterceptResult invokeV;
+        List<ImageFileInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ImageFileInfo imageFileInfo = this.f;
+            if (imageFileInfo != null && !TextUtils.isEmpty(imageFileInfo.getFilePath()) && (list = this.g) != null && list.size() != 0) {
+                int size = this.g.size();
+                for (int i = 0; i < size; i++) {
+                    ImageFileInfo imageFileInfo2 = this.g.get(i);
+                    if (imageFileInfo2 != null && this.f.getFilePath().equals(imageFileInfo2.getFilePath())) {
+                        return i;
+                    }
+                }
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public au4 t(List<MediaFileInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, list)) == null) {
+            au4 au4Var = new au4();
+            au4Var.h(au4.f);
+            au4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f0280));
+            int count = ListUtils.getCount(list);
+            au4Var.j(list);
+            au4Var.i(String.valueOf(count));
+            MediaFileInfo mediaFileInfo = (MediaFileInfo) ListUtils.getItem(list, count - 1);
+            if (mediaFileInfo instanceof ImageFileInfo) {
+                au4Var.k((ImageFileInfo) mediaFileInfo);
+            } else if (mediaFileInfo instanceof VideoFileInfo) {
+                au4Var.k((VideoFileInfo) mediaFileInfo);
+            }
+            return au4Var;
+        }
+        return (au4) invokeL.objValue;
+    }
+
+    public au4 u(List<VideoFileInfo> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, list)) == null) {
+            au4 au4Var = new au4();
+            au4Var.h(au4.g);
+            au4Var.l(this.b.getString(R.string.obfuscated_res_0x7f0f0282));
+            int count = ListUtils.getCount(list);
+            au4Var.i(String.valueOf(count));
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(list)) {
+                arrayList.addAll(list);
+            }
+            au4Var.j(arrayList);
+            VideoFileInfo videoFileInfo = (VideoFileInfo) ListUtils.getItem(list, count - 1);
+            if (videoFileInfo != null) {
+                au4Var.k(videoFileInfo);
+            }
+            return au4Var;
+        }
+        return (au4) invokeL.objValue;
+    }
+
+    public void z(gu4 gu4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, gu4Var) != null) || gu4Var == null) {
+            return;
+        }
+        List<MediaFileInfo> list = gu4Var.b;
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(t(list));
+        if (!ListUtils.isEmpty(gu4Var.c)) {
+            arrayList.add(u(gu4Var.c));
+        }
+        if (!ListUtils.isEmpty(gu4Var.a)) {
+            arrayList.addAll(gu4Var.a);
+        }
+        this.h.clear();
+        this.h.addAll(arrayList);
+    }
+
+    public final void v(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048601, this, str) == null) && this.h != null && !StringUtils.isNull(str)) {
+            for (au4 au4Var : this.h) {
+                if (au4Var != null && TextUtils.equals(str, au4Var.b())) {
+                    ArrayList arrayList = new ArrayList();
+                    if (au4Var.d() != null) {
+                        for (MediaFileInfo mediaFileInfo : au4Var.d()) {
+                            if (mediaFileInfo instanceof ImageFileInfo) {
+                                arrayList.add((ImageFileInfo) mediaFileInfo);
+                            }
+                        }
+                    }
+                    this.g = arrayList;
+                }
+            }
+        }
     }
 }

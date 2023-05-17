@@ -6,7 +6,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class l implements BaseNotifyDataAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static int e;
@@ -67,7 +66,7 @@ public final class l implements BaseNotifyDataAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = str.split("\\.");
                 if (split != null && split.length > 0) {
                     str = split[0];
                 }

@@ -12,7 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PoolFactory {
     @Nullable
     public MemoryChunkPool mAshmemMemoryChunkPool;

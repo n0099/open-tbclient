@@ -9,8 +9,8 @@ import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.util.gson.JavaGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinGsonWidget;
 import com.baidu.tbadk.util.gson.KotlinReflectiveTypeAdapterFactory;
-import com.baidu.tieba.aw4;
-import com.baidu.tieba.vq5;
+import com.baidu.tieba.es5;
+import com.baidu.tieba.jx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,14 +37,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u00004\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\u001a#\u0010\u0002\u001a\u0002H\u0003\"\u0004\b\u0000\u0010\u0003*\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00030\u0006¢\u0006\u0002\u0010\u0007\u001a/\u0010\u0002\u001a\u0002H\u0003\"\u0004\b\u0000\u0010\u0003*\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\t0\b2\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00030\u0006¢\u0006\u0002\u0010\n\u001a$\u0010\u000b\u001a\b\u0012\u0004\u0012\u0002H\u00030\f\"\u0004\b\u0000\u0010\u0003*\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u0002H\u00030\u0006\u001a\n\u0010\r\u001a\u00020\u000e*\u00020\u000f\u001a\n\u0010\u0010\u001a\u00020\u0004*\u00020\u000f\u001a\n\u0010\u0010\u001a\u00020\u0004*\u00020\t\u001a\u0016\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\t0\b*\u00020\u000f\u001a\u0016\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\t0\b*\u00020\t\u001a\u0016\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\t0\b*\u00020\u0004\u001a\u001c\u0010\u0012\u001a\u0014\u0012\u0010\u0012\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\t0\b0\f*\u00020\u0004\"\u0010\u0010\u0000\u001a\u00020\u00018\u0006X\u0087\u0004¢\u0006\u0002\n\u0000¨\u0006\u0013"}, d2 = {"GSON", "Lcom/google/gson/Gson;", "toEntity", ExifInterface.GPS_DIRECTION_TRUE, "", Bundle.EXTRA_KEY_CLAZZ, "Ljava/lang/Class;", "(Ljava/lang/String;Ljava/lang/Class;)Ljava/lang/Object;", "", "", "(Ljava/util/Map;Ljava/lang/Class;)Ljava/lang/Object;", "toEntityList", "", "toJSONObject", "Lorg/json/JSONObject;", "Landroid/os/Bundle;", "toJson", "toMap", "toMapList", "tbadkcore_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
 @JvmName(name = "DataExt")
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DataExt {
     public static /* synthetic */ Interceptable $ic;
     @JvmField
     public static final Gson GSON;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements ExclusionStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,8 +79,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                vq5 vq5Var = (vq5) f.getAnnotation(vq5.class);
-                if (vq5Var != null && !vq5Var.serialize()) {
+                es5 es5Var = (es5) f.getAnnotation(es5.class);
+                if (es5Var != null && !es5Var.serialize()) {
                     return true;
                 }
                 return false;
@@ -89,7 +89,7 @@ public final class DataExt {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b implements ExclusionStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,8 +124,8 @@ public final class DataExt {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
                 Intrinsics.checkNotNullParameter(f, "f");
-                vq5 vq5Var = (vq5) f.getAnnotation(vq5.class);
-                if (vq5Var != null && !vq5Var.deserialize()) {
+                es5 es5Var = (es5) f.getAnnotation(es5.class);
+                if (es5Var != null && !es5Var.deserialize()) {
                     return true;
                 }
                 return false;
@@ -134,7 +134,7 @@ public final class DataExt {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class c implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public final class DataExt {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class d implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,7 +247,7 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         JavaGsonWidget.BadNumberFix.c(gsonBuilder);
-        Gson create = gsonBuilder.registerTypeAdapter(JavaGsonWidget.a, new JavaGsonWidget.MapDeserializerDoubleAsIntFix()).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(DataExt$GSON$1.INSTANCE)).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.b.a(!aw4.e())).addSerializationExclusionStrategy(new a()).addDeserializationExclusionStrategy(new b()).create();
+        Gson create = gsonBuilder.registerTypeAdapter(JavaGsonWidget.a, new JavaGsonWidget.MapDeserializerDoubleAsIntFix()).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(DataExt$GSON$1.INSTANCE)).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.b.a(!jx4.e())).addSerializationExclusionStrategy(new a()).addDeserializationExclusionStrategy(new b()).create();
         Intrinsics.checkNotNullExpressionValue(create, "registerTypeAdapter(Gson…     })\n        .create()");
         GSON = create;
     }

@@ -3,7 +3,7 @@ package com.kwad.sdk.contentalliance.kwai.kwai;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public com.kwad.sdk.contentalliance.kwai.kwai.a Te;
     public AdTemplate adTemplate;
@@ -12,7 +12,7 @@ public final class b {
     public VideoPlayerStatus videoPlayerStatus;
     public String videoUrl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public com.kwad.sdk.contentalliance.kwai.kwai.a Te;
         public AdTemplate adTemplate;

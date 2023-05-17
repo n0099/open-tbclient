@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes5.dex */
+import android.content.Context;
+/* loaded from: classes6.dex */
 public interface kw3 {
-    void e(View view2);
+    void a(Context context);
 }

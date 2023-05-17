@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.CfgFileUtils;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.INoProGuard;
@@ -12,7 +13,7 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
     public static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
     public static final String LOG_TAG = "HttpDnsCache";
@@ -116,7 +117,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     public static void restoreLastCacheFromCfg() {
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1").equals("false")) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("http_dns_persist_v1").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
             Log.i(LOG_TAG, "restoreLastCacheFromCfg http_dns_persist false");
             return;
         }
@@ -150,7 +151,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     public static String transHttpsUrl(String str) {
         boolean z = true;
         try {
-            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals("false")) {
+            if (WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns") != null && WebSettingsGlobalBlink.GetCloudSettingsValue("https_dns").equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
                 z = false;
             }
             return z ? (str == null || !str.startsWith("https://")) ? str.replace("http://", "https://") : str : (str == null || !str.startsWith("http://")) ? str.replace("https://", "http://") : str;
@@ -161,7 +162,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     public static void tryToUpdateHttpDnsCache(Context context) {
         String str;
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
             str = "tryToUpdateHttpDnsCache http_dns false";
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             str = "tryToUpdateHttpDnsCache festival return";
@@ -189,7 +190,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
 
     public static void tryToUpdateHttpDnsCacheStaticIP(Context context) {
         String str;
-        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals("false")) {
+        if (WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE) != null && WebSettingsGlobalBlink.GetCloudSettingsValue(ETAG.KEY_HTTP_DNS_ENABLE).equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
             str = "tryToUpdateHttpDnsCacheStaticIP http_dns false";
         } else if (WebSettingsGlobalBlink.isSFSwitchEnabled()) {
             str = "tryToUpdateHttpDnsCacheStaticIP festival return";

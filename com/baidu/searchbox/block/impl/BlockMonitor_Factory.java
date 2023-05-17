@@ -1,5 +1,5 @@
 package com.baidu.searchbox.block.impl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BlockMonitor_Factory {
     public static volatile BlockMonitor instance;
 

@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.utils.SmartList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRootImpl implements FunctionDescriptor {
     public ReceiverParameterDescriptor dispatchReceiverParameter;
     public ReceiverParameterDescriptor extensionReceiverParameter;
@@ -218,7 +219,7 @@ public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRoo
                 objArr[1] = "newCopyBuilder";
                 break;
             case 24:
-                objArr[1] = "copy";
+                objArr[1] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
                 break;
             case 25:
                 objArr[1] = "getSourceToUseForCopy";
@@ -301,7 +302,7 @@ public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRoo
 
     public abstract FunctionDescriptorImpl createSubstitutedCopy(DeclarationDescriptor declarationDescriptor, FunctionDescriptor functionDescriptor, CallableMemberDescriptor.Kind kind, Name name, Annotations annotations, SourceElement sourceElement);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class CopyConfiguration implements FunctionDescriptor.CopyBuilder<FunctionDescriptor> {
         public Annotations additionalAnnotations;
         public boolean copyOverrides;

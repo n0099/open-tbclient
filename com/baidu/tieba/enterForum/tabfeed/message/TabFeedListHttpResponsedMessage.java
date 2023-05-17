@@ -3,9 +3,9 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ft6;
-import com.baidu.tieba.in;
-import com.baidu.tieba.xk5;
+import com.baidu.tieba.gm5;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.su6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +15,11 @@ import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
-/* loaded from: classes4.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements xk5 {
+/* loaded from: classes5.dex */
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements gm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ft6 enterForumTabFeedData;
+    public su6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -48,7 +48,7 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
         return invokeV.objValue;
     }
 
-    public ArrayList<in> getThreadList() {
+    public ArrayList<rn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -76,9 +76,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             if (getError() != 0 || tabfeedlistResIdl.data == null) {
                 return;
             }
-            ft6 ft6Var = new ft6();
-            this.enterForumTabFeedData = ft6Var;
-            ft6Var.g(tabfeedlistResIdl.data);
+            su6 su6Var = new su6();
+            this.enterForumTabFeedData = su6Var;
+            su6Var.g(tabfeedlistResIdl.data);
         }
     }
 }

@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ns5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = null;
+    public static String c = null;
+    public static String d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,75 +35,25 @@ public class ns5 {
         }
     }
 
-    public static void a(int i, int i2) {
-        boolean z;
+    public static void a(String str, String str2, String str3, int i, g9 g9Var, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65537, null, i, i2) == null) {
-            int i3 = 1;
-            if (ProfileVirtualImageInfo.getInstance().isDisplayVirtual() && ProfileVirtualImageInfo.getInstance().getIsSetVirtualImage() == 1) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), g9Var, baijiahaoData}) == null) {
+            b = str;
+            c = str2;
+            a = str3;
+            if (!StringUtils.isNull(str3) && g9Var != null && g9Var.getPageActivity() != null) {
+                if (d.equals(a)) {
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(g9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
+                    createSubPbActivityConfig.setKeyPageStartFrom(8);
+                    createSubPbActivityConfig.setBjhData(baijiahaoData);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                    return;
+                }
+                PbActivityConfig createNormalCfg = new PbActivityConfig(g9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
+                createNormalCfg.setStartFrom(8);
+                createNormalCfg.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
             }
-            StatisticItem statisticItem = new StatisticItem("c10605");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!z) {
-                i3 = 2;
-            }
-            statisticItem.param("obj_id", i3);
-            if (z) {
-                statisticItem.param("obj_locate", i);
-            } else {
-                statisticItem.param("obj_param1", i2);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
-            int i = 1;
-            a = true;
-            StatisticItem statisticItem = new StatisticItem("c14994");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!ProfileVirtualImageInfo.getInstance().isDisplayVirtual() || (TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getVirtualImageUrl()) && TextUtils.isEmpty(ProfileVirtualImageInfo.getInstance().getDynamicVirtualImageUrl()))) {
-                i = 2;
-            }
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 1);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14998");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_source", 2);
-            statisticItem.param("obj_locate", 1);
-            TiebaStatic.log(statisticItem);
         }
     }
 }

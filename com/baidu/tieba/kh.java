@@ -5,37 +5,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class kh extends xg {
+import java.util.Comparator;
+/* loaded from: classes6.dex */
+public class kh implements Comparator<jh> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xg
-    public String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "mon" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kh(th thVar) {
-        super(thVar);
+    public kh() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((th) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.s = true;
-        this.o = "alert";
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(jh jhVar, jh jhVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jhVar, jhVar2)) == null) {
+            int i = (jhVar.c > jhVar2.c ? 1 : (jhVar.c == jhVar2.c ? 0 : -1));
+            if (i > 0) {
+                return 1;
+            }
+            if (i == 0) {
+                return 0;
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
     }
 }

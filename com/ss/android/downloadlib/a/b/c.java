@@ -10,20 +10,20 @@ import android.text.TextUtils;
 import com.ss.android.downloadlib.a.b.d;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface c extends IInterface {
     void a(b bVar, d dVar) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a extends Binder implements c {
         public static String a = "";
 
         /* renamed from: com.ss.android.downloadlib.a.b.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0684a implements c {
+        /* loaded from: classes9.dex */
+        public static class C0698a implements c {
             public IBinder a;
 
-            public C0684a(IBinder iBinder) {
+            public C0698a(IBinder iBinder) {
                 if (TextUtils.isEmpty(a.a)) {
                     JSONObject i = j.i();
                     String unused = a.a = com.ss.android.socialbase.appdownloader.f.c.a(i.optString("r"), i.optString("s"));
@@ -72,7 +72,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0684a(iBinder);
+            return new C0698a(iBinder);
         }
 
         @Override // android.os.Binder

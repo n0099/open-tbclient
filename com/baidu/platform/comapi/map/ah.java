@@ -3,7 +3,7 @@ package com.baidu.platform.comapi.map;
 import android.graphics.Bitmap;
 import android.view.SurfaceHolder;
 import com.baidu.platform.comapi.map.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ah extends SurfaceHolder.Callback2 {
     Bitmap a(int i, int i2, int i3, int i4, Object obj, Bitmap.Config config);
 

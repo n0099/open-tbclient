@@ -1,133 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.themeCenter.background.BackgroundSetRequestMessage;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qv9 {
+/* loaded from: classes7.dex */
+public class qv9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
-    public BdUniqueId c;
-    public int d;
+    public final MainTabActivity a;
+    public final iu9 b;
 
-    public qv9(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qv9(MainTabActivity mainTabActivity, iu9 iu9Var) {
+        super(2010045);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {mainTabActivity, iu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.d = -1;
-        this.a = tbPageContext;
-        this.c = bdUniqueId;
+        this.a = mainTabActivity;
+        this.b = iu9Var;
+        setTag(mainTabActivity.getUniqueId());
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && this.b != null && TbadkCoreApplication.getInst().getCurrentActivity() == this.a) {
+            boolean z = false;
+            this.b.t = pg.b(customResponsedMessage.getData().toString(), false);
+            iu9 iu9Var = this.b;
+            this.b.D((iu9Var.t || iu9Var.u) ? true : true);
         }
-        return invokeV.intValue;
-    }
-
-    public void b(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) != null) || dressItemData == null || dressItemData.getPropsId() == 0) {
-            return;
-        }
-        PersonalBackgroundPreviewActivityConfig personalBackgroundPreviewActivityConfig = new PersonalBackgroundPreviewActivityConfig(this.a.getPageActivity(), dressItemData.getPropsId(), dressItemData.getInUse() ? 1 : 0);
-        personalBackgroundPreviewActivityConfig.setFrom(this.d);
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalBackgroundPreviewActivityConfig));
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void d(int i, String str, DressItemData dressItemData, boolean z) {
-        int i2;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                i2 = 9;
-            } else {
-                i2 = 0;
-            }
-            if (!StringUtils.isNull(str)) {
-                int i3 = 4;
-                int i4 = 2;
-                if (i == iv9.a) {
-                    int i5 = this.d;
-                    if (i5 == 1) {
-                        str2 = MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND_TRY;
-                    } else if (i5 == 0) {
-                        str2 = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND_TRY;
-                    } else {
-                        str2 = "";
-                    }
-                    String str3 = str2;
-                    TbPageContext<?> tbPageContext = this.a;
-                    if (z) {
-                        i4 = 4;
-                    }
-                    hv9.d(tbPageContext, i4, str, i2, str3, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-                } else if (i == iv9.b) {
-                    TbPageContext<?> tbPageContext2 = this.a;
-                    if (!z) {
-                        i3 = 2;
-                    }
-                    hv9.c(tbPageContext2, i3, str, i2);
-                }
-            }
-        }
-    }
-
-    public void e(DressItemData dressItemData, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048580, this, dressItemData, z) != null) || dressItemData == null) {
-            return;
-        }
-        if (!TbadkCoreApplication.isLogin()) {
-            ViewHelper.skipToLoginActivity(this.a.getPageActivity());
-            return;
-        }
-        this.b = dressItemData.getPropsId();
-        BackgroundSetRequestMessage backgroundSetRequestMessage = new BackgroundSetRequestMessage();
-        backgroundSetRequestMessage.setFromDetail(z);
-        backgroundSetRequestMessage.setRequestUniqueId(this.c);
-        backgroundSetRequestMessage.setPropId(this.b);
-        MessageManager.getInstance().sendMessage(backgroundSetRequestMessage);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921004));
     }
 }

@@ -1,189 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import android.database.Cursor;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
-public class qv3 implements yv3 {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class qv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public AdElementInfo c;
-    public DownloadState d;
-    public ow3 e;
-    public b f;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.yv3
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yv3
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.yv3
-    public String e() {
+    public static HashMap<String, PMSAppInfo> a() {
         InterceptResult invokeV;
+        HashMap<String, PMSAppInfo> hashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yv3
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qv3 this$0;
-        public long time;
-
-        public b(qv3 qv3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qv3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Cursor query = wh4.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
+            HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
+            if (query != null && query.moveToFirst()) {
+                int columnIndex = query.getColumnIndex("app_id");
+                int columnIndex2 = query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
+                int columnIndex3 = query.getColumnIndex("app_sign");
+                int columnIndex4 = query.getColumnIndex("version_code");
+                int columnIndex5 = query.getColumnIndex("version_name");
+                int columnIndex6 = query.getColumnIndex("description");
+                int columnIndex7 = query.getColumnIndex("app_status");
+                int columnIndex8 = query.getColumnIndex("status_detail");
+                int columnIndex9 = query.getColumnIndex("status_desc");
+                int columnIndex10 = query.getColumnIndex("resume_date");
+                int columnIndex11 = query.getColumnIndex("icon_url");
+                int columnIndex12 = query.getColumnIndex("app_name");
+                int columnIndex13 = query.getColumnIndex("service_category");
+                int columnIndex14 = query.getColumnIndex("subject_info");
+                HashMap<String, PMSAppInfo> hashMap3 = hashMap2;
+                int columnIndex15 = query.getColumnIndex("type");
+                int columnIndex16 = query.getColumnIndex("pkg_size");
+                int columnIndex17 = query.getColumnIndex("pending_err_code");
+                int columnIndex18 = query.getColumnIndex("app_category");
+                int columnIndex19 = query.getColumnIndex("orientation");
+                int columnIndex20 = query.getColumnIndex("max_age");
+                int columnIndex21 = query.getColumnIndex("create_time");
+                int columnIndex22 = query.getColumnIndex("webview_domains");
+                int columnIndex23 = query.getColumnIndex("web_action");
+                int columnIndex24 = query.getColumnIndex("domains");
+                int columnIndex25 = query.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
+                int columnIndex26 = query.getColumnIndex("server_ext");
+                int columnIndex27 = query.getColumnIndex("pay_protected");
+                while (true) {
+                    PMSAppInfo pMSAppInfo = new PMSAppInfo();
+                    int i = columnIndex14;
+                    pMSAppInfo.appId = query.getString(columnIndex);
+                    pMSAppInfo.appKey = query.getString(columnIndex2);
+                    int i2 = columnIndex;
+                    int i3 = columnIndex2;
+                    pMSAppInfo.appSign = query.getLong(columnIndex3);
+                    pMSAppInfo.versionCode = query.getInt(columnIndex4);
+                    pMSAppInfo.versionName = query.getString(columnIndex5);
+                    pMSAppInfo.description = query.getString(columnIndex6);
+                    pMSAppInfo.appStatus = query.getInt(columnIndex7);
+                    pMSAppInfo.statusDetail = query.getString(columnIndex8);
+                    pMSAppInfo.statusDesc = query.getString(columnIndex9);
+                    pMSAppInfo.resumeDate = query.getString(columnIndex10);
+                    pMSAppInfo.iconUrl = query.getString(columnIndex11);
+                    pMSAppInfo.appName = query.getString(columnIndex12);
+                    pMSAppInfo.serviceCategory = query.getString(columnIndex13);
+                    pMSAppInfo.subjectInfo = query.getString(i);
+                    int i4 = columnIndex15;
+                    pMSAppInfo.type = query.getInt(i4);
+                    int i5 = columnIndex3;
+                    int i6 = columnIndex16;
+                    pMSAppInfo.pkgSize = query.getLong(i6);
+                    int i7 = columnIndex17;
+                    pMSAppInfo.pendingErrCode = query.getInt(i7);
+                    int i8 = columnIndex18;
+                    pMSAppInfo.appCategory = query.getInt(i8);
+                    int i9 = columnIndex19;
+                    pMSAppInfo.setOrientation(query.getInt(i9));
+                    int i10 = columnIndex4;
+                    int i11 = columnIndex20;
+                    pMSAppInfo.maxAge = query.getLong(i11);
+                    int i12 = columnIndex21;
+                    pMSAppInfo.createTime = query.getLong(i12);
+                    pMSAppInfo.webViewDomains = query.getString(columnIndex22);
+                    pMSAppInfo.webAction = query.getString(columnIndex23);
+                    pMSAppInfo.domains = query.getString(columnIndex24);
+                    pMSAppInfo.bearInfo = query.getString(columnIndex25);
+                    pMSAppInfo.serverExt = query.getString(columnIndex26);
+                    pMSAppInfo.payProtected = query.getInt(columnIndex27);
+                    hashMap = hashMap3;
+                    hashMap.put(pMSAppInfo.appId, pMSAppInfo);
+                    if (!query.moveToNext()) {
+                        break;
+                    }
+                    hashMap3 = hashMap;
+                    columnIndex = i2;
+                    columnIndex14 = i;
+                    columnIndex2 = i3;
+                    columnIndex21 = i12;
+                    columnIndex3 = i5;
+                    columnIndex15 = i4;
+                    columnIndex16 = i6;
+                    columnIndex17 = i7;
+                    columnIndex18 = i8;
+                    columnIndex20 = i11;
+                    columnIndex19 = i9;
+                    columnIndex4 = i10;
                 }
+            } else {
+                hashMap = hashMap2;
             }
-            this.this$0 = qv3Var;
-            this.time = 0L;
+            kp4.d(query);
+            return hashMap;
         }
-
-        public /* synthetic */ b(qv3 qv3Var, a aVar) {
-            this(qv3Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent != null && intent.getData() != null && PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction())) {
-                if (!TextUtils.equals(this.this$0.c.getPackageName(), intent.getData().getSchemeSpecificPart()) || System.currentTimeMillis() - this.time < TimeUnit.SECONDS.toMillis(10L)) {
-                    return;
-                }
-                this.time = System.currentTimeMillis();
-                this.this$0.j("3");
-            }
-        }
-    }
-
-    public qv3(Context context, AdElementInfo adElementInfo, ow3 ow3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, ow3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = DownloadState.NOT_START;
-        this.a = context;
-        this.c = adElementInfo;
-        this.e = ow3Var;
-    }
-
-    @Override // com.baidu.tieba.yv3
-    public void c(DownloadState downloadState, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) != null) || this.d == downloadState) {
-            return;
-        }
-        if (downloadState == DownloadState.DOWNLOADED) {
-            j("2");
-            h();
-        }
-        this.d = downloadState;
-    }
-
-    @Override // com.baidu.tieba.yv3
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.f == null) {
-            this.f = new b(this, null);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-            intentFilter.addDataScheme("package");
-            this.a.registerReceiver(this.f, intentFilter);
-        }
-    }
-
-    public void i() {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (bVar = this.f) != null) {
-            this.a.unregisterReceiver(bVar);
-            this.f = null;
-        }
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            fx3 fx3Var = new fx3();
-            fx3Var.s = this.b;
-            fx3Var.r = str;
-            ix3.e(fx3Var, this.c, this.e);
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.b = str;
-            j("1");
-        }
+        return (HashMap) invokeV.objValue;
     }
 }

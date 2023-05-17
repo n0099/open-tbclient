@@ -9,22 +9,22 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ca8;
+import com.baidu.tieba.xb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class BaseTagItemViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ca8 a;
+    public xb8 a;
     public CustomMessageListener b;
 
-    public void f(ca8 ca8Var, Context context, int i) {
+    public void f(xb8 xb8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, ca8Var, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, xb8Var, context, i) == null) {
         }
     }
 
@@ -40,7 +40,7 @@ public class BaseTagItemViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class BaseTagItemViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnAttachStateChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,40 +153,40 @@ public class BaseTagItemViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-    public final void b(ca8 ca8Var, Context context, int i) {
+    public final void b(xb8 xb8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, ca8Var, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, xb8Var, context, i) == null) {
             if (this.a != null) {
-                j(ca8Var, context, i);
+                j(xb8Var, context, i);
             } else {
-                c(ca8Var, context, i);
+                c(xb8Var, context, i);
             }
         }
     }
 
-    public final void c(ca8 ca8Var, Context context, int i) {
+    public final void c(xb8 xb8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ca8Var, context, i) == null) {
-            this.a = ca8Var;
-            f(ca8Var, context, i);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xb8Var, context, i) == null) {
+            this.a = xb8Var;
+            f(xb8Var, context, i);
         }
     }
 
-    public void j(ca8 ca8Var, Context context, int i) {
+    public void j(xb8 xb8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, ca8Var, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, xb8Var, context, i) == null) {
             k();
-            c(ca8Var, context, i);
+            c(xb8Var, context, i);
         }
     }
 
-    public ca8 d() {
+    public xb8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
-        return (ca8) invokeV.objValue;
+        return (xb8) invokeV.objValue;
     }
 
     public final void k() {

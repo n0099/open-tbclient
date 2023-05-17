@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class pa4 {
+/* loaded from: classes6.dex */
+public class pa4 extends p34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String uuap_p_token;
+    public long currentSize;
     @V8JavascriptField
-    public String uuap_p_token_offline;
+    public String[] keys;
     @V8JavascriptField
-    public String uuap_s_token;
+    public long limitSize;
 
     public pa4() {
         Interceptable interceptable = $ic;

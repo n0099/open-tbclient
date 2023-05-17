@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommandDatabaseHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "com.baidu.searchbox.cloudcommand";
     public static final int DB_VERSION = 1;

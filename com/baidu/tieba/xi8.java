@@ -1,127 +1,139 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetSuggestionByAddrName.DataRes;
-import tbclient.Lbs;
-/* loaded from: classes7.dex */
+import java.util.Map;
+/* loaded from: classes8.dex */
 public class xi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+    public static boolean h(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static <T> void a(List<T> list, T t) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, list, t) != null) || h(list)) {
+            return;
+        }
+        try {
+            list.add(t);
+        } catch (Exception e) {
+            BdLog.e(e);
+            j(e);
+        }
+    }
+
+    public static <T> T d(List<T> list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, list, i)) == null) {
+            if (e(list) || !g(list, i)) {
+                return null;
+            }
+            try {
+                return list.get(i);
+            } catch (Exception e) {
+                BdLog.e(e);
+                j(e);
+                return null;
+            }
+        }
+        return (T) invokeLI.objValue;
+    }
+
+    public static boolean g(List list, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
+            if (h(list) || i < 0 || i >= list.size()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static <T> void b(List<T> list, T t, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, list, t, i) == null) && !h(list) && i >= 0 && i <= list.size()) {
+            try {
+                list.add(i, t);
+            } catch (Exception e) {
+                BdLog.e(e);
+                j(e);
+            }
+        }
+    }
+
+    public static void c(List list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || e(list)) {
+            return;
+        }
+        try {
+            list.clear();
+        } catch (Exception e) {
+            BdLog.e(e);
+            j(e);
+        }
+    }
+
+    public static boolean e(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (!h(list) && !list.isEmpty()) {
+                return false;
+            }
+            BdLog.e("list is empty");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (!h(map) && !map.isEmpty()) {
+                return false;
+            }
+            BdLog.e("map is empty");
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int i(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, list)) == null) {
+            if (!h(list) && !list.isEmpty()) {
+                try {
+                    return list.size();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    j(e);
                 }
             }
+            return 0;
         }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public void c(Lbs lbs) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) != null) || lbs == null) {
-                return;
-            }
-            this.a = lbs.name;
-            String str = lbs.lat;
-            String str2 = lbs.lng;
-            this.b = lbs.sn;
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.a = str;
-            }
-        }
-
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.b = str;
-            }
-        }
+        return invokeL.intValue;
     }
 
-    public xi8() {
+    public static void j(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        List<Lbs> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) && (list = dataRes.poi_info) != null && !list.isEmpty()) {
-            for (Lbs lbs : list) {
-                a aVar = new a();
-                aVar.c(lbs);
-                this.a.add(aVar);
-            }
-        }
-    }
-
-    public void c(ArrayList<a> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
+        if ((interceptable == null || interceptable.invokeL(65545, null, exc) == null) && BdBaseApplication.getInst().isDebugMode() && (exc instanceof RuntimeException)) {
+            throw ((RuntimeException) exc);
         }
     }
 }

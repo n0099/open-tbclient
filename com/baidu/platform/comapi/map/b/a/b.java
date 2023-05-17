@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.C0124a a;
-    public a.C0124a b;
-    public a.C0124a c;
+    public a.C0128a a;
+    public a.C0128a b;
+    public a.C0128a c;
     public MotionEvent d;
     public f e;
     public a f;
     public boolean g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         boolean a(b bVar);
 
@@ -117,12 +117,12 @@ public class b {
     private void c(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent) == null) {
-            a.C0124a a2 = a.C0124a.a(motionEvent);
-            a.C0124a c0124a = this.c;
-            if (c0124a == null) {
-                c0124a = a2;
+            a.C0128a a2 = a.C0128a.a(motionEvent);
+            a.C0128a c0128a = this.c;
+            if (c0128a == null) {
+                c0128a = a2;
             }
-            this.b = c0124a;
+            this.b = c0128a;
             this.c = a2;
             if (this.a == null) {
                 this.a = a2;

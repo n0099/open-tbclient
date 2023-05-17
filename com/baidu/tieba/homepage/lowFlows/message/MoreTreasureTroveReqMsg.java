@@ -4,8 +4,8 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.kf9;
+import com.baidu.tieba.gh9;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.MoreTreasureTrove.DataReq;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MoreTreasureTroveReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class MoreTreasureTroveReqMsg extends NetMessage {
                 builder.tab_code = this.tabCode;
                 builder.lf_user = this.lfUser;
                 builder.lf_user_taskid = this.taskId;
-                builder.app_pos = kf9.e().a();
+                builder.app_pos = gh9.e().a();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    jr5.c(builder, true, true, false);
+                    ss5.c(builder, true, true, false);
                 }
                 MoreTreasureTroveReqIdl.Builder builder2 = new MoreTreasureTroveReqIdl.Builder();
                 builder2.data = builder.build(false);

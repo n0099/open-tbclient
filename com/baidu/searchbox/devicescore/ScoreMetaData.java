@@ -1,7 +1,7 @@
 package com.baidu.searchbox.devicescore;
 
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScoreMetaData {
     public Map<String, Object> params;
     public String type;

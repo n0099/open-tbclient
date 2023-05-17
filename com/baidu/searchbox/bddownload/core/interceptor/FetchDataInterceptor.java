@@ -10,7 +10,7 @@ import com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream;
 import com.baidu.searchbox.bddownload.core.interceptor.Interceptor;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FetchDataInterceptor implements Interceptor.Fetch {
     public final int blockIndex;
     public final CallbackDispatcher dispatcher = BdDownload.with().callbackDispatcher();

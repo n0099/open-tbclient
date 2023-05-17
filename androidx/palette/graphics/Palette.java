@@ -85,7 +85,7 @@ public final class Palette {
         public final List<Swatch> mSwatches;
         public final List<Target> mTargets = new ArrayList();
         public int mMaxColors = 16;
-        public int mResizeArea = Palette.DEFAULT_RESIZE_BITMAP_AREA;
+        public int mResizeArea = 12544;
         public int mResizeMaxDimension = -1;
         public final List<Filter> mFilters = new ArrayList();
 
@@ -180,7 +180,7 @@ public final class Palette {
                         try {
                             return Builder.this.generate();
                         } catch (Exception e) {
-                            Log.e(Palette.LOG_TAG, "Exception thrown during async generate", e);
+                            Log.e("Palette", "Exception thrown during async generate", e);
                             return null;
                         }
                     }

@@ -1,110 +1,46 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class yz2 {
+/* loaded from: classes8.dex */
+public class yz2 extends xz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap e;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements uz2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
-        public final /* synthetic */ String b;
-
-        public a(Function1 function1, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {function1, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = function1;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.uz2
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray a = yz2.a();
-                if (a != null && a.length() != 0) {
-                    int length = a.length();
-                    for (int i = 0; i < length; i++) {
-                        if (Intrinsics.areEqual(this.b, a.get(i))) {
-                            Function1 function1 = this.a;
-                            if (function1 != null) {
-                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    Function1 function12 = this.a;
-                    if (function12 != null) {
-                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
-                        return;
-                    }
-                    return;
-                }
-                Function1 function13 = this.a;
-                if (function13 != null) {
-                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
-                }
-            }
-        }
-    }
-
-    public static final /* synthetic */ JSONArray a() {
-        return c();
-    }
-
-    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yz2(String str, Bitmap bitmap, boolean z) {
+        super(5, str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
-            tz2.g().z(new a(function1, str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bitmap, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.e = bitmap;
+        this.d = z;
     }
 
-    public static final JSONArray c() {
+    public Bitmap e() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return null;
-            }
-            String q = b0.e0().q("note_data_pay_check_list", "");
-            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return null;
-            }
-            return new JSONObject(q).optJSONArray("pay_keys");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (JSONArray) invokeV.objValue;
+        return (Bitmap) invokeV.objValue;
     }
 }

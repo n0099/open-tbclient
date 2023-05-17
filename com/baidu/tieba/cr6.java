@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class cr6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile br6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static synchronized br6 a() {
+        InterceptResult invokeV;
+        br6 br6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (f55.m().i("like_forum_sort_level", false)) {
-                return 2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (cr6.class) {
+                if (a == null) {
+                    a = new br6();
+                }
+                br6Var = a;
             }
-            return 1;
+            return br6Var;
         }
-        return invokeI.intValue;
-    }
-
-    public static void b(TbPageContext<?> tbPageContext, String str) {
-        ForumSquareActivityConfig forumSquareActivityConfig;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, tbPageContext, str) != null) || tbPageContext == null) {
-            return;
-        }
-        if (!StringUtils.isNull(str)) {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
-        } else {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
-        }
-        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+        return (br6) invokeV.objValue;
     }
 }

@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.extractor.DummyTrackOutput;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.source.SampleQueue;
 import com.google.android.exoplayer2.source.chunk.ChunkExtractorWrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class BaseMediaChunkOutput implements ChunkExtractorWrapper.TrackOutputProvider {
     public static final String TAG = "BaseMediaChunkOutput";
     public final SampleQueue[] sampleQueues;

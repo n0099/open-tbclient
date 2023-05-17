@@ -1,47 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActiveCenter;
-/* loaded from: classes7.dex */
-public class wt7 extends qi6 implements ej6 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId T;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
+public class wt7 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static HashMap<String, Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public ActiveCenterData S;
-
-    @Override // com.baidu.tieba.ej6
-    public void O(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ej6
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -56,49 +28,49 @@ public class wt7 extends qi6 implements ej6 {
                 return;
             }
         }
-        T = BdUniqueId.gen();
+        b = new HashMap<>();
     }
 
-    public wt7() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            b.clear();
         }
     }
 
-    @Override // com.baidu.tieba.ej6
-    public int getPosition() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.R;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.size();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return T;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void J(ActiveCenter activeCenter) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, activeCenter) == null) && activeCenter != null) {
-            ActiveCenterData activeCenterData = new ActiveCenterData();
-            this.S = activeCenterData;
-            activeCenterData.parseProto(activeCenter);
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        b.put(str, 0);
+    }
+
+    public static void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
+            a = z;
+            if (!z) {
+                b.clear();
+            }
         }
     }
 }

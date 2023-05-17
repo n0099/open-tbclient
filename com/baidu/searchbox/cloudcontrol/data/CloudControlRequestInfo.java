@@ -2,7 +2,7 @@ package com.baidu.searchbox.cloudcontrol.data;
 
 import com.baidu.searchbox.cloudcontrol.processor.IProcessorDataInterceptor;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlRequestInfo {
     public Object mCheckInfo;
     public IProcessorDataInterceptor mDataInterceptor;

@@ -11,19 +11,19 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.g u0;
+    public AgreeView.g v0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AgreeView.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.u0 = new a(this);
+        this.v0 = new a(this);
     }
 
     public final void V(boolean z) {
@@ -85,7 +85,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 W(0, -1, 0, 1.0f, true, this.e.I());
                 return;
             }
-            W(-2, -1, ii.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
+            W(-2, -1, ri.g(getContext(), R.dimen.tbds78), 0.0f, false, this.e.I());
         }
     }
 
@@ -157,7 +157,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.u0 = new a(this);
+        this.v0 = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,7 +179,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
                 return;
             }
         }
-        this.u0 = new a(this);
+        this.v0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -214,7 +214,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.D != null) {
+            if (this.E != null) {
                 return true;
             }
             return false;
@@ -227,7 +227,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.K();
-            this.e.setVisibilityListener(this.u0);
+            this.e.setVisibilityListener(this.v0);
             boolean Z = Z();
             if (Y(Z) || X(Z)) {
                 this.e.A(Z);
@@ -259,7 +259,7 @@ public class ThreadCardBottomOpSegmentLayout extends ThreadCommentAndPraiseInfoL
             } else if (f2 != 0.0f || i != -2) {
                 layoutParams.width = -2;
                 layoutParams.weight = 0.0f;
-                layoutParams.leftMargin = ii.g(this.E, R.dimen.tbds50);
+                layoutParams.leftMargin = ri.g(this.F, R.dimen.tbds50);
                 layoutParams.rightMargin = 0;
                 this.e.setLayoutParams(layoutParams);
             }

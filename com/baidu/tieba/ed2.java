@@ -1,146 +1,49 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public final class ed2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public interface ed2 {
+    public static final ed2 a = new a();
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int a = -1;
-        public static int b = -1;
+    boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle);
+
+    /* loaded from: classes5.dex */
+    public static class a implements ed2 {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-836824551, "Lcom/baidu/tieba/ed2$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-836824551, "Lcom/baidu/tieba/ed2$a;");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
 
-        public static String a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ed2
+        public boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle) {
+            InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b == -1) {
-                    er2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
-                    b = 0;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, prefetchEvent, pMSAppInfo, bundle)) == null) {
+                if (pMSAppInfo != null && pMSAppInfo.appCategory == 0) {
+                    return true;
                 }
-                if (b != 1) {
-                    return false;
-                }
-                return true;
+                return false;
             }
-            return invokeV.booleanValue;
-        }
-
-        public static boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (ed2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
-                    String a2 = a();
-                    char c = 65535;
-                    int hashCode = a2.hashCode();
-                    if (hashCode != 251117829) {
-                        if (hashCode != 547804557) {
-                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
-                                c = 1;
-                            }
-                        } else if (a2.equals("debug_ab")) {
-                            c = 2;
-                        }
-                    } else if (a2.equals("debug_on_app_launch")) {
-                        c = 0;
-                    }
-                    if (c == 0) {
-                        return true;
-                    }
-                    if (c == 1) {
-                        return false;
-                    }
-                }
-                if (a < 0) {
-                    er2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
-                    a = 0;
-                }
-                if (ed2.a) {
-                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
-                }
-                if (a != 1) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947730422, "Lcom/baidu/tieba/ed2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947730422, "Lcom/baidu/tieba/ed2;");
-                return;
-            }
-        }
-        a = ho1.a;
-    }
-
-    public static void b(w43 w43Var, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, w43Var, bundle) == null) {
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
-            }
-            Bundle bundle2 = new Bundle();
-            bundle2.putBundle("swan_app_on_launch_event", bundle);
-            p43 p43Var = new p43(122, bundle2);
-            if (!w43Var.T() && a.c()) {
-                w43Var.f0(p43Var.h());
-            } else {
-                n43 e = n43.e();
-                p43Var.b(w43Var.b);
-                p43Var.p(true);
-                e.h(p43Var);
-            }
-            if (a) {
-                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
-            }
+            return invokeLLL.booleanValue;
         }
     }
 }

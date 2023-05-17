@@ -1,5 +1,5 @@
 package com.huawei.hms.framework.network.grs;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IQueryUrlCallBack {
     void onCallBackFail(int i);
 

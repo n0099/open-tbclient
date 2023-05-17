@@ -10,21 +10,21 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gl3;
-import com.baidu.tieba.mz3;
-import com.baidu.tieba.rl3;
-import com.baidu.tieba.wz3;
-import com.baidu.tieba.xk3;
-import com.baidu.tieba.yz3;
+import com.baidu.tieba.an3;
+import com.baidu.tieba.f14;
+import com.baidu.tieba.gm3;
+import com.baidu.tieba.h14;
+import com.baidu.tieba.pm3;
+import com.baidu.tieba.v04;
 import org.json.JSONObject;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InstallAntiBlockingActivity extends Activity {
     public String a;
     public JSONObject b;
     public String c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -37,52 +37,52 @@ public class InstallAntiBlockingActivity extends Activity {
             } else {
                 str = "continueClick";
             }
-            yz3.a(InstallAntiBlockingActivity.this.a, str, "success", null, new wz3(InstallAntiBlockingActivity.this.b));
+            h14.a(InstallAntiBlockingActivity.this.a, str, "success", null, new f14(InstallAntiBlockingActivity.this.b));
             InstallAntiBlockingActivity.this.finish();
         }
     }
 
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
-        int c0 = rl3.c0(this);
+        int c0 = an3.c0(this);
         super.onCreate(bundle);
-        rl3.g(this, c0);
-        mz3.t();
-        setContentView(R.layout.obfuscated_res_0x7f0d00b4);
+        an3.g(this, c0);
+        v04.t();
+        setContentView(R.layout.obfuscated_res_0x7f0d00b6);
         Intent intent = getIntent();
         if (intent != null) {
             this.c = intent.getStringExtra("type");
             this.a = intent.getStringExtra("packageName");
-            this.b = xk3.d(intent.getStringExtra("ubc_params"));
+            this.b = gm3.d(intent.getStringExtra("ubc_params"));
         }
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ba);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0910bc);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910f5);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0910f7);
         if (TextUtils.equals(this.c, "authorize")) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014d));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070154));
             layoutParams.gravity = 80;
             imageView.setLayoutParams(layoutParams);
-            findViewById(R.id.obfuscated_res_0x7f0910bb).setVisibility(0);
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080180);
-            findViewById(R.id.obfuscated_res_0x7f0910b8).setBackgroundResource(R.color.obfuscated_res_0x7f06031b);
-            mz3.o();
+            findViewById(R.id.obfuscated_res_0x7f0910f6).setVisibility(0);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080198);
+            findViewById(R.id.obfuscated_res_0x7f0910f3).setBackgroundResource(R.color.obfuscated_res_0x7f060430);
+            v04.o();
         } else {
-            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014c));
+            FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070153));
             layoutParams2.gravity = 80;
             imageView.setLayoutParams(layoutParams2);
-            findViewById(R.id.obfuscated_res_0x7f0910bb).setVisibility(8);
-            if (gl3.m()) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-            } else if (gl3.n()) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
-            } else if (gl3.r()) {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080181);
+            findViewById(R.id.obfuscated_res_0x7f0910f6).setVisibility(8);
+            if (pm3.m()) {
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080196);
+            } else if (pm3.n()) {
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080197);
+            } else if (pm3.r()) {
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080199);
             } else {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080195);
             }
-            findViewById(R.id.obfuscated_res_0x7f0910b8).setBackgroundResource(R.color.obfuscated_res_0x7f0602ea);
-            mz3.p();
+            findViewById(R.id.obfuscated_res_0x7f0910f3).setBackgroundResource(R.color.obfuscated_res_0x7f0603fe);
+            v04.p();
         }
         findViewById.setOnClickListener(new a());
-        yz3.a(this.a, this.c, "success", null, new wz3(this.b));
+        h14.a(this.a, this.c, "success", null, new f14(this.b));
     }
 }

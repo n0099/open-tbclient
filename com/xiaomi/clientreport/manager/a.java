@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static final int a;
 
@@ -48,7 +48,7 @@ public class a {
     public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> b = new HashMap<>();
 
     static {
-        a = j.m631a() ? 30 : 10;
+        a = j.m650a() ? 30 : 10;
     }
 
     public a(Context context) {
@@ -108,13 +108,13 @@ public class a {
     public void b(EventClientReport eventClientReport) {
         IEventProcessor iEventProcessor = this.f22a;
         if (iEventProcessor != null) {
-            iEventProcessor.mo109a(eventClientReport);
+            iEventProcessor.mo128a(eventClientReport);
             if (a() < 10) {
                 a(new d(this), a);
                 return;
             }
             d();
-            aj.a(this.f20a).m181a("100888");
+            aj.a(this.f20a).m200a("100888");
         }
     }
 
@@ -122,13 +122,13 @@ public class a {
     public void b(PerfClientReport perfClientReport) {
         IPerfProcessor iPerfProcessor = this.f23a;
         if (iPerfProcessor != null) {
-            iPerfProcessor.mo109a(perfClientReport);
+            iPerfProcessor.mo128a(perfClientReport);
             if (b() < 10) {
                 a(new f(this), a);
                 return;
             }
             e();
-            aj.a(this.f20a).m181a("100889");
+            aj.a(this.f20a).m200a("100889");
         }
     }
 
@@ -151,9 +151,9 @@ public class a {
     }
 
     private void f() {
-        if (a(this.f20a).m106a().isEventUploadSwitchOpen()) {
+        if (a(this.f20a).m125a().isEventUploadSwitchOpen()) {
             bp bpVar = new bp(this.f20a);
-            int eventUploadFrequency = (int) a(this.f20a).m106a().getEventUploadFrequency();
+            int eventUploadFrequency = (int) a(this.f20a).m125a().getEventUploadFrequency();
             if (eventUploadFrequency < 1800) {
                 eventUploadFrequency = 1800;
             }
@@ -162,7 +162,7 @@ public class a {
             }
             synchronized (a.class) {
                 if (!aj.a(this.f20a).a((aj.a) bpVar, eventUploadFrequency)) {
-                    aj.a(this.f20a).m181a("100886");
+                    aj.a(this.f20a).m200a("100886");
                     aj.a(this.f20a).a((aj.a) bpVar, eventUploadFrequency);
                 }
             }
@@ -170,9 +170,9 @@ public class a {
     }
 
     private void g() {
-        if (a(this.f20a).m106a().isPerfUploadSwitchOpen()) {
+        if (a(this.f20a).m125a().isPerfUploadSwitchOpen()) {
             bq bqVar = new bq(this.f20a);
-            int perfUploadFrequency = (int) a(this.f20a).m106a().getPerfUploadFrequency();
+            int perfUploadFrequency = (int) a(this.f20a).m125a().getPerfUploadFrequency();
             if (perfUploadFrequency < 1800) {
                 perfUploadFrequency = 1800;
             }
@@ -181,7 +181,7 @@ public class a {
             }
             synchronized (a.class) {
                 if (!aj.a(this.f20a).a((aj.a) bqVar, perfUploadFrequency)) {
-                    aj.a(this.f20a).m181a("100887");
+                    aj.a(this.f20a).m200a("100887");
                     aj.a(this.f20a).a((aj.a) bqVar, perfUploadFrequency);
                 }
             }
@@ -189,7 +189,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Config m106a() {
+    public synchronized Config m125a() {
         if (this.f21a == null) {
             this.f21a = Config.defaultConfig(this.f20a);
         }
@@ -211,7 +211,7 @@ public class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m107a() {
+    public void m126a() {
         a(this.f20a).f();
         a(this.f20a).g();
     }
@@ -225,13 +225,13 @@ public class a {
     }
 
     public void a(EventClientReport eventClientReport) {
-        if (m106a().isEventUploadSwitchOpen()) {
+        if (m125a().isEventUploadSwitchOpen()) {
             this.f26a.execute(new b(this, eventClientReport));
         }
     }
 
     public void a(PerfClientReport perfClientReport) {
-        if (m106a().isPerfUploadSwitchOpen()) {
+        if (m125a().isPerfUploadSwitchOpen()) {
             this.f26a.execute(new c(this, perfClientReport));
         }
     }
@@ -251,13 +251,13 @@ public class a {
             Config build = Config.getBuilder().setAESKey(bs.a(this.f20a)).setEventEncrypted(this.f21a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f20a);
             this.f21a = build;
             if (!build.isEventUploadSwitchOpen()) {
-                aj.a(this.f20a).m181a("100886");
+                aj.a(this.f20a).m200a("100886");
             } else if (eventUploadFrequency != build.getEventUploadFrequency()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f20a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
                 f();
             }
             if (!this.f21a.isPerfUploadSwitchOpen()) {
-                aj.a(this.f20a).m181a("100887");
+                aj.a(this.f20a).m200a("100887");
             } else if (perfUploadFrequency != build.getPerfUploadFrequency()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.f20a.getPackageName() + " reset perf job " + build.getPerfUploadFrequency());
                 g();
@@ -266,8 +266,8 @@ public class a {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m108b() {
-        if (m106a().isEventUploadSwitchOpen()) {
+    public void m127b() {
+        if (m125a().isEventUploadSwitchOpen()) {
             br brVar = new br();
             brVar.a(this.f20a);
             brVar.a(this.f22a);
@@ -276,7 +276,7 @@ public class a {
     }
 
     public void c() {
-        if (m106a().isPerfUploadSwitchOpen()) {
+        if (m125a().isPerfUploadSwitchOpen()) {
             br brVar = new br();
             brVar.a(this.f23a);
             brVar.a(this.f20a);

@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
 import com.baidu.pass.face.platform.model.FaceExtInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String a = "a";
     public FaceStatusNewEnum b;

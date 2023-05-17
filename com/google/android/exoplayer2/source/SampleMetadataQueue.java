@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SampleMetadataQueue {
     public static final int SAMPLE_CAPACITY_INCREMENT = 1000;
     public int absoluteStartIndex;
@@ -28,7 +28,7 @@ public final class SampleMetadataQueue {
     public boolean upstreamFormatRequired = true;
     public boolean upstreamKeyframeRequired = true;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SampleExtrasHolder {
         public TrackOutput.CryptoData cryptoData;
         public long offset;

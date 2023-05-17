@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,159 +12,138 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ay8 extends xv5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static double O = 0.5d;
+/* loaded from: classes4.dex */
+public class ay8 implements rn {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public boolean c;
+    public ThreadData d;
+    public AntiData e;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947631625, "Lcom/baidu/tieba/ay8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947631625, "Lcom/baidu/tieba/ay8;");
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements TbImageView.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ay8 a;
-
-        @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void a(TbImageView tbImageView, Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
-            }
-        }
-
-        public a(ay8 ay8Var) {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947631625, "Lcom/baidu/tieba/ay8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ay8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ay8Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void b(TbImageView tbImageView, Canvas canvas) {
-            int i;
-            int i2;
-            float f;
-            float f2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                Matrix imageMatrix = tbImageView.getImageMatrix();
-                if (this.a.u) {
-                    i = 17;
-                } else {
-                    i = 18;
-                }
-                tm A = TbImageMemoryCache.v().A(cg.h().g(tbImageView.getUrl(), i));
-                int i3 = 0;
-                if (A != null) {
-                    i3 = A.r();
-                    i2 = A.m();
-                } else {
-                    i2 = 0;
-                }
-                if (i3 != 0 && i2 != 0) {
-                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
-                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
-                    if (i3 * height > width * i2) {
-                        f = height;
-                        f2 = i2;
-                    } else {
-                        f = width;
-                        f2 = i3;
-                    }
-                    float f3 = f / f2;
-                    imageMatrix.setScale(f3, f3);
-                    imageMatrix.postTranslate(0.0f, 0.0f);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947631625, "Lcom/baidu/tieba/ay8;");
+                return;
             }
         }
+        f = BdUniqueId.gen();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ay8(xv5 xv5Var) {
-        super(xv5Var);
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ThreadData threadData = this.d;
+            if (threadData != null) {
+                return threadData.getAgreeType();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public AntiData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (AntiData) invokeV.objValue;
+    }
+
+    public ThreadData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ThreadData threadData = this.d;
+            if (threadData == null || threadData.getHasAgree() != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return f;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public ay8(ThreadData threadData, AntiData antiData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xv5Var};
+            Object[] objArr = {threadData, antiData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((xv5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        l(true);
-        v();
-        p(TbConfig.getPostLineSpace(), 1.0f);
-        A(0);
-        m(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
-        n(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
-        j(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        t(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        k(ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        this.J = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
-        this.K = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        this.M = new a(this);
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.d = threadData;
+        this.e = antiData;
     }
 
-    @Override // com.baidu.tieba.xv5
-    public int[] f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
-            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
-                if (this.v) {
-                    float f = xv5.N;
-                    if (f > 1.0f) {
-                        float f2 = i;
-                        if (f2 * f <= i3 * O) {
-                            i3 = (int) (f2 * f);
-                        }
-                        i2 = (i2 * i3) / i;
-                        if (i2 > 4096) {
-                            this.s = ImageView.ScaleType.MATRIX;
-                            i = i3;
-                            i2 = 4096;
-                        } else {
-                            this.s = ImageView.ScaleType.CENTER_CROP;
-                            i = i3;
-                        }
-                    }
-                }
-                return new int[]{i, i2};
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
         }
-        return (int[]) invokeIIII.objValue;
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c = z;
+        }
     }
 }

@@ -1,93 +1,35 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.tieba.dt1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class gr1 implements xt1 {
+/* loaded from: classes5.dex */
+public class gr1 implements dt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Boolean a;
 
-    @Override // com.baidu.tieba.xt1
-    public void a(@NonNull Object obj, String str, String str2) {
+    @Override // com.baidu.tieba.dt1
+    public void c(up1 up1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, obj, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, up1Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.xt1
-    public void b(@NonNull Object obj) {
+    @Override // com.baidu.tieba.dt1
+    public void j(sp1 sp1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public Object beginFlow(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public void c(@NonNull Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public void d(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, map) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public void f(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public void g(@NonNull Object obj, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, str, str2, Long.valueOf(j)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public void h(@NonNull Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.xt1
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, sp1Var) == null) {
         }
     }
 
@@ -102,6 +44,98 @@ public class gr1 implements xt1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public void a(dt1.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && aVar != null) {
+            aVar.onFinish();
+        }
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public String d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            return rw1.a.a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            boolean g = SwanAppAllianceLoginHelper.d.g();
+            this.a = Boolean.TRUE;
+            return g;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+            return sp4.b(context).a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public void g(dt1.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) && cVar != null) {
+            cVar.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            return uw1.b.a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public String i(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            return sp4.b(context).a();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            if (this.a == null) {
+                e(context);
+            }
+            Boolean bool = this.a;
+            if (bool == null) {
+                return false;
+            }
+            return bool.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dt1
+    public void b(Activity activity, Bundle bundle, sp1 sp1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, sp1Var) == null) {
+            SwanAppAllianceLoginHelper.d.i(sp1Var);
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.google.gson.stream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class JsonScope {
     public static final int CLOSED = 8;
     public static final int DANGLING_NAME = 4;

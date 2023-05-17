@@ -28,7 +28,7 @@ import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

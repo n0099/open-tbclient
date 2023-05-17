@@ -1,26 +1,39 @@
 package com.baidu.tieba;
 
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
-/* loaded from: classes4.dex */
-public interface i4b {
-    i4b a();
+import android.graphics.Path;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public final class i4b {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Path a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947804946, "Lcom/baidu/tieba/i4b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947804946, "Lcom/baidu/tieba/i4b;");
+                return;
+            }
+        }
+        a = new Path();
+    }
 
-    void c(Framedata framedata);
-
-    String d();
-
-    boolean e(String str);
-
-    void f(Framedata framedata) throws InvalidDataException;
-
-    String g();
-
-    void h(Framedata framedata) throws InvalidDataException;
-
-    void reset();
-
-    String toString();
+    public static final Path a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
+        }
+        return (Path) invokeV.objValue;
+    }
 }

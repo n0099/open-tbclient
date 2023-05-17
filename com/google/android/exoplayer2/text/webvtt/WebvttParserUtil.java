@@ -1,11 +1,10 @@
 package com.google.android.exoplayer2.text.webvtt;
 
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.google.android.exoplayer2.text.SubtitleDecoderException;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WebvttParserUtil {
     public static final Pattern COMMENT = Pattern.compile("^NOTE(( |\t).*)?$");
     public static final Pattern HEADER = Pattern.compile("^\ufeff?WEBVTT(( |\t).*)?$");
@@ -49,7 +48,7 @@ public final class WebvttParserUtil {
     }
 
     public static long parseTimestampUs(String str) throws NumberFormatException {
-        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 2);
+        String[] split = str.split("\\.", 2);
         long j = 0;
         for (String str2 : split[0].split(":")) {
             j = (j * 60) + Long.parseLong(str2);

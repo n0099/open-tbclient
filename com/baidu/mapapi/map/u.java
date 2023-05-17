@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.view.View;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class u implements Runnable {
     public final /* synthetic */ View a;
     public final /* synthetic */ MapView b;

@@ -1,63 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public final class c37 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class c37 implements w27 {
     public static /* synthetic */ Interceptable $ic;
-    public static final c37 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public xj1<w27> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947623906, "Lcom/baidu/tieba/c37;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947623906, "Lcom/baidu/tieba/c37;");
-                return;
-            }
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            vj1 b = vj1.b();
+            this.a = b;
+            b.a(new x27());
         }
-        a = new c37();
     }
 
     public c37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b();
     }
 
-    public final int a(String resName) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w27
+    @NonNull
+    public List<e37<?, ?>> a() {
+        InterceptResult invokeV;
+        List<w27> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
-            Intrinsics.checkNotNullParameter(resName, "resName");
-            try {
-                return pw6.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, pw6.a.getPackageName());
-            } catch (Exception e) {
-                BdLog.e(e);
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            xj1<w27> xj1Var = this.a;
+            if (xj1Var == null) {
+                list = null;
+            } else {
+                list = xj1Var.getList();
             }
+            if (list != null) {
+                for (w27 w27Var : list) {
+                    arrayList.addAll(w27Var.a());
+                }
+            }
+            return arrayList;
         }
-        return invokeL.intValue;
+        return (List) invokeV.objValue;
     }
 }

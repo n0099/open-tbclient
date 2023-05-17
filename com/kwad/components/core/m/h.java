@@ -1,7 +1,7 @@
 package com.kwad.components.core.m;
 
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public static String a(long j, boolean z) {
         String[] strArr = {" B", " KB", " MB", " GB", " TB", " PB", " EB", " ZB", " YB"};

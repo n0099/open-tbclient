@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bu {
     public static volatile bu b;
     public static OnAppBackgroundListener k;

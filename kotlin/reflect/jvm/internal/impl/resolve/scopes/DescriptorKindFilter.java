@@ -12,7 +12,7 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DescriptorKindFilter {
     @JvmField
     public static final DescriptorKindFilter ALL;
@@ -51,10 +51,10 @@ public final class DescriptorKindFilter {
     public final List<DescriptorKindExclude> excludes;
     public final int kindMask;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class MaskToName {
             public final int mask;
             public final String name;

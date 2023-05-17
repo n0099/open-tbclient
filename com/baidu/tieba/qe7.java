@@ -1,86 +1,239 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.view.View;
+import android.os.Handler;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.ViewParent;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.frs.itemtab.holder.FrsItemAcceleratorHolder;
-import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qe7 extends vm<ef7, FrsItemAcceleratorHolder> {
+/* loaded from: classes7.dex */
+public class qe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
+    public Context a;
+    public TextView b;
+    public Handler c;
+    public ValueAnimator d;
+    public Runnable e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qe7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes7.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qe7 a;
+
+        public a(qe7 qe7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qe7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qe7Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.a.b != null && valueAnimator != null) {
+                this.a.b.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qe7 a;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
+        public b(qe7 qe7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qe7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qe7Var;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.b != null) {
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qe7 a;
+
+        public c(qe7 qe7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qe7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qe7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null && this.a.b.getParent() != null && this.a.d != null) {
+                this.a.d.start();
+            }
+        }
+    }
+
+    public qe7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.e = new c(this);
+        this.a = context;
+        this.c = new Handler();
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public FrsItemAcceleratorHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsItemAcceleratorHolder(new FrsItemAcceleratorView(viewGroup.getContext()), this.a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = new TextView(this.a);
+            this.b = textView;
+            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b3));
+            SkinManager.setBackgroundResource(this.b, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
+            this.b.setGravity(17);
+            this.b.setVisibility(0);
+            ValueAnimator valueAnimator = new ValueAnimator();
+            this.d = valueAnimator;
+            valueAnimator.setFloatValues(1.0f, 0.0f);
+            this.d.setDuration(400L);
+            this.d.addUpdateListener(new a(this));
+            this.d.addListener(new b(this));
         }
-        return (FrsItemAcceleratorHolder) invokeL.objValue;
     }
 
-    public void u(BdUniqueId bdUniqueId) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.removeCallbacks(this.e);
+            this.c.postDelayed(this.e, 2000L);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ef7 ef7Var, FrsItemAcceleratorHolder frsItemAcceleratorHolder) {
-        InterceptResult invokeCommon;
+    public TextView e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ef7Var, frsItemAcceleratorHolder})) == null) {
-            frsItemAcceleratorHolder.b(ef7Var);
-            frsItemAcceleratorHolder.e();
-            if (TbSingleton.getInstance().isItemTabVisible) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(17)));
-                if (ef7Var.a() == TbSingleton.getInstance().acceleratorItemId) {
-                    frsItemAcceleratorHolder.c();
-                    return null;
-                }
-                frsItemAcceleratorHolder.d();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TextView textView = this.b;
+            if (textView != null && textView.getVisibility() == 0) {
+                return true;
             }
-            return null;
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            Handler handler = this.c;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            ValueAnimator valueAnimator = this.d;
+            if (valueAnimator != null) {
+                valueAnimator.cancel();
+            }
+            TextView textView = this.b;
+            if (textView != null) {
+                ViewParent parent = textView.getParent();
+                if (parent != null && (parent instanceof ViewGroup)) {
+                    ((ViewGroup) parent).removeView(this.b);
+                }
+                this.b.setVisibility(8);
+                this.b = null;
+            }
+        }
     }
 }

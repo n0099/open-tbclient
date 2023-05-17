@@ -1,22 +1,23 @@
 package org.apache.commons.codec.language;
 
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DoubleMetaphone implements StringEncoder {
     public static final String VOWELS = "AEIOUY";
     public int maxCodeLen = 4;
     public static final String[] SILENT_START = {"GN", "KN", "PN", "WR", "PS"};
-    public static final String[] L_R_N_M_B_H_F_V_W_SPACE = {"L", "R", "N", "M", "B", "H", "F", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, " "};
+    public static final String[] L_R_N_M_B_H_F_V_W_SPACE = {"L", "R", "N", "M", "B", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "F", ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ExifInterface.LONGITUDE_WEST, " "};
     public static final String[] ES_EP_EB_EL_EY_IB_IL_IN_IE_EI_ER = {"ES", "EP", "EB", "EL", "EY", "IB", "IL", "IN", "IE", "EI", "ER"};
     public static final String[] L_T_K_S_N_M_B_Z = {"L", ExifInterface.GPS_DIRECTION_TRUE, "K", ExifInterface.LATITUDE_SOUTH, "N", "M", "B", "Z"};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class DoubleMetaphoneResult {
         public final StringBuffer alternate;
         public final int maxLength;
@@ -311,7 +312,7 @@ public class DoubleMetaphone implements StringEncoder {
 
     private int handleCC(String str, DoubleMetaphoneResult doubleMetaphoneResult, int i) {
         int i2 = i + 2;
-        if (contains(str, i2, 1, "I", ExifInterface.LONGITUDE_EAST, "H") && !contains(str, i2, 2, "HU")) {
+        if (contains(str, i2, 1, "I", ExifInterface.LONGITUDE_EAST, IEruptionStrategyGroup.STRATEGY_MODIFIER_H) && !contains(str, i2, 2, "HU")) {
             if ((i == 1 && charAt(str, i - 1) == 'A') || contains(str, i - 1, 5, "UCCEE", "UCCES")) {
                 doubleMetaphoneResult.append(GlobalSetting.KS_SDK_WRAPPER);
             } else {
@@ -487,7 +488,7 @@ public class DoubleMetaphone implements StringEncoder {
             }
             doubleMetaphoneResult.append('K');
             return i2;
-        } else if ((i <= 1 || !contains(str, i - 2, 1, "B", "H", "D")) && ((i <= 2 || !contains(str, i - 3, 1, "B", "H", "D")) && (i <= 3 || !contains(str, i - 4, 1, "B", "H")))) {
+        } else if ((i <= 1 || !contains(str, i - 2, 1, "B", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "D")) && ((i <= 2 || !contains(str, i - 3, 1, "B", IEruptionStrategyGroup.STRATEGY_MODIFIER_H, "D")) && (i <= 3 || !contains(str, i - 4, 1, "B", IEruptionStrategyGroup.STRATEGY_MODIFIER_H)))) {
             if (i > 2 && charAt(str, i - 1) == 'U' && contains(str, i - 3, 1, "C", "G", "L", "R", ExifInterface.GPS_DIRECTION_TRUE)) {
                 doubleMetaphoneResult.append('F');
             } else if (i > 0 && charAt(str, i - 1) != 'I') {

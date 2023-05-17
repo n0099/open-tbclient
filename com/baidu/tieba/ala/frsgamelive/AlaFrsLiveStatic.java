@@ -20,11 +20,11 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.k86;
-import com.baidu.tieba.p77;
-import com.baidu.tieba.q77;
-import com.baidu.tieba.r86;
-import com.baidu.tieba.s86;
+import com.baidu.tieba.c97;
+import com.baidu.tieba.d97;
+import com.baidu.tieba.da6;
+import com.baidu.tieba.ea6;
+import com.baidu.tieba.w96;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,12 +32,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaFrsLiveStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,22 +70,22 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof q77)) {
+            if (!(data instanceof d97)) {
                 return;
             }
-            q77 q77Var = (q77) data;
-            k86 k86Var = new k86(true);
-            k86Var.b().e = 2;
-            k86Var.h(q77Var.c());
-            k86Var.i(q77Var.d());
-            k86Var.g(q77Var.b());
-            k86Var.j(1);
-            k86Var.k(false);
-            q77Var.a(k86Var);
+            d97 d97Var = (d97) data;
+            w96 w96Var = new w96(true);
+            w96Var.b().e = 2;
+            w96Var.h(d97Var.c());
+            w96Var.i(d97Var.d());
+            w96Var.g(d97Var.b());
+            w96Var.j(1);
+            w96Var.k(false);
+            d97Var.a(w96Var);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,24 +118,24 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof p77)) {
+            if (!(data instanceof c97)) {
                 return;
             }
-            p77 p77Var = (p77) data;
-            k86 k86Var = new k86(true);
-            k86Var.b().e = 9;
-            k86Var.h(p77Var.c());
-            k86Var.i(p77Var.d());
-            k86Var.g(p77Var.b());
-            k86Var.j(1);
-            k86Var.k(true);
-            if (p77Var.h(9)) {
-                p77Var.a(k86Var);
+            c97 c97Var = (c97) data;
+            w96 w96Var = new w96(true);
+            w96Var.b().e = 9;
+            w96Var.h(c97Var.c());
+            w96Var.i(c97Var.d());
+            w96Var.g(c97Var.b());
+            w96Var.j(1);
+            w96Var.k(true);
+            if (c97Var.h(9)) {
+                c97Var.a(w96Var);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,22 +168,22 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof q77)) {
+            if (!(data instanceof d97)) {
                 return;
             }
-            q77 q77Var = (q77) data;
-            k86 k86Var = new k86(false);
-            k86Var.b().e = 1;
-            k86Var.h(q77Var.c());
-            k86Var.i(q77Var.d());
-            k86Var.g(q77Var.b());
-            k86Var.j(2);
-            k86Var.k(false);
-            q77Var.a(k86Var);
+            d97 d97Var = (d97) data;
+            w96 w96Var = new w96(false);
+            w96Var.b().e = 1;
+            w96Var.h(d97Var.c());
+            w96Var.i(d97Var.d());
+            w96Var.g(d97Var.b());
+            w96Var.j(2);
+            w96Var.k(false);
+            d97Var.a(w96Var);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,20 +216,20 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof q77)) {
+            if (!(data instanceof d97)) {
                 return;
             }
-            q77 q77Var = (q77) data;
-            s86 s86Var = new s86();
-            s86Var.b().e = 3;
-            s86Var.g(q77Var.c());
-            s86Var.h(q77Var.d());
-            s86Var.i(false);
-            q77Var.a(s86Var);
+            d97 d97Var = (d97) data;
+            ea6 ea6Var = new ea6();
+            ea6Var.b().e = 3;
+            ea6Var.g(d97Var.c());
+            ea6Var.h(d97Var.d());
+            ea6Var.i(false);
+            d97Var.a(ea6Var);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,23 +262,23 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof p77)) {
+            if (!(data instanceof c97)) {
                 return;
             }
-            p77 p77Var = (p77) data;
-            s86 s86Var = new s86();
-            s86Var.b().e = 8;
-            s86Var.b().b = R.string.obfuscated_res_0x7f0f0253;
-            s86Var.g(p77Var.c());
-            s86Var.h(p77Var.d());
-            s86Var.i(true);
-            if (p77Var.h(8)) {
-                p77Var.a(s86Var);
+            c97 c97Var = (c97) data;
+            ea6 ea6Var = new ea6();
+            ea6Var.b().e = 8;
+            ea6Var.b().b = R.string.obfuscated_res_0x7f0f027d;
+            ea6Var.g(c97Var.c());
+            ea6Var.h(c97Var.d());
+            ea6Var.i(true);
+            if (c97Var.h(8)) {
+                c97Var.a(ea6Var);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -311,19 +311,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof p77)) {
+            if (!(data instanceof c97)) {
                 return;
             }
-            p77 p77Var = (p77) data;
-            r86 r86Var = new r86();
-            r86Var.i(p77Var.c());
-            r86Var.j(p77Var.d());
-            r86Var.h(p77Var.b());
-            r86Var.g(p77Var);
+            c97 c97Var = (c97) data;
+            da6 da6Var = new da6();
+            da6Var.i(c97Var.c());
+            da6Var.j(c97Var.d());
+            da6Var.h(c97Var.b());
+            da6Var.g(c97Var);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class g implements CustomMessageTask.CustomRunnable<AlaAllGameLiveEntryActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

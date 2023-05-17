@@ -7,8 +7,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
-import com.baidu.tieba.pi;
-import com.baidu.tieba.ri5;
+import com.baidu.tieba.ak5;
+import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UploadedImageInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MD5_EMOTION_FORMAT = "meme,%s,%d,%d,%s";
@@ -147,7 +147,7 @@ public class UploadedImageInfo implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             if (this.pic_id != null) {
                 if (!TextUtils.isEmpty(this.sharpText)) {
-                    return String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), pi.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), ri5.b.b(this.sharpText));
+                    return String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), yi.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), ak5.b.b(this.sharpText));
                 }
                 if (this.isBJH) {
                     return String.format(POST_BJH_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif));

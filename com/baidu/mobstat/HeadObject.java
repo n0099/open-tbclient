@@ -5,7 +5,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadObject {
     public String A;
     public int B;

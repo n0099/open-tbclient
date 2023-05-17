@@ -5,6 +5,8 @@ import com.baidu.searchbox.http.AbstractHttpManager;
 import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
+import com.baidu.searchbox.http.multipath.IMultiPath;
+import com.baidu.searchbox.http.multipath.MultiPathRuntime;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
@@ -15,11 +17,13 @@ import okhttp3.Dns;
 import okhttp3.Headers;
 import okhttp3.HttpUrl;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
     public int connectionTimeout;
     public CookieManager cookieManager;
     public Dns dns;
+    public boolean enableBindMobile;
+    public String enableBindMobilePolicy;
     public boolean enableBrotli;
     public boolean enableRetry;
     public JSONObject extraUserLog;
@@ -82,6 +86,15 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public T dns(Dns dns) {
         this.dns = dns;
+        return this;
+    }
+
+    public T enableBindMobile(String str) {
+        IMultiPath iMultiPath = MultiPathRuntime.sMultiPath;
+        if (iMultiPath != null && iMultiPath.isBindMobileEnabled() && isInBindMobileWhiteList()) {
+            this.enableBindMobile = true;
+            this.enableBindMobilePolicy = str;
+        }
         return this;
     }
 
@@ -171,6 +184,10 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return this;
     }
 
+    public void setBindMobilePolicy(String str) {
+        this.enableBindMobilePolicy = str;
+    }
+
     public T setRequestParamsHandler(IAsyncRequestParamsHandler iAsyncRequestParamsHandler) {
         this.paramsHandler = iAsyncRequestParamsHandler;
         return this;
@@ -240,6 +257,23 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         this.pingInterval = httpRequest.pingInterval;
     }
 
+    private boolean isInBindMobileWhiteList() {
+        int i = this.requestFrom;
+        if (i == 1 || i == 2) {
+            return true;
+        }
+        return false;
+    }
+
+    public T enableBrotli() {
+        this.enableBrotli = true;
+        return this;
+    }
+
+    public RequestCall makeRequestCall() {
+        return build().makeRequestCall();
+    }
+
     public T addHeader(String str, String str2) {
         this.headersBuilder.add(str, str2);
         return this;
@@ -290,15 +324,6 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
             this.httpUrl = newBuilder.build();
         }
         return this;
-    }
-
-    public T enableBrotli() {
-        this.enableBrotli = true;
-        return this;
-    }
-
-    public RequestCall makeRequestCall() {
-        return build().makeRequestCall();
     }
 
     public T url(String str) {

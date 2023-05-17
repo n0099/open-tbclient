@@ -1,72 +1,89 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Dialog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ugb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes4.dex */
-public final class heb {
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
+/* loaded from: classes5.dex */
+public class heb implements IYYPayResultView.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final heb a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public AbsViewEventHandler b;
+    public Dialog c;
+    public ldb d;
+    public IPayCallback<CurrencyChargeMessage> e;
+    public IYYPayResultView.c f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947822244, "Lcom/baidu/tieba/heb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947822244, "Lcom/baidu/tieba/heb;");
-                return;
-            }
-        }
-        a = new heb();
-    }
-
-    public heb() {
+    public heb(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler, Dialog dialog, ldb ldbVar, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayResultView.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, iYYPayResultView, absViewEventHandler, dialog, ldbVar, iPayCallback, cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        RLog.info("PayResultViewCallback", "create PayResultViewCallback payCallback:" + iPayCallback);
+        this.a = activity;
+        this.b = absViewEventHandler;
+        this.c = dialog;
+        this.d = ldbVar;
+        this.e = iPayCallback;
+        this.f = cVar;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public void a(dfb dfbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dfbVar) == null) {
+            IYYPayResultView.c cVar = this.f;
+            if (cVar != null && cVar.j != null) {
+                wfb.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+                ugb.b bVar = this.f.j;
+                bVar.c = dfbVar;
+                bVar.j = "2";
+                this.d.d(this.a, bVar, this.e);
+                return;
+            }
+            RLog.error("PayResultViewCallback", "toPayWayDialog error payResultViewParams:" + this.f, new Object[0]);
+            wfb.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
         }
     }
 
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
-                }
-            }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RLog.info("PayResultViewCallback", "onBtnConfirm");
+            wfb.b(this.c, PayDialogType.PAY_RESULT_DIALOG);
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // tv.athena.revenue.payui.view.IYYPayResultView.a
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.c(this.a, this.b);
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UriUtil {
     public static final String DATA_SCHEME = "data";
     public static final String HTTPS_SCHEME = "https";

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.views.logindialog.interf;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IPagerLoadCallback extends NoProguard {
     void onChange2LoginPage();
 

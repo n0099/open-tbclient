@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qh0 {
+/* loaded from: classes7.dex */
+public final class qh0 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
+    public static qh0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public final int[] b;
-    public int c;
-    public long d;
-    public long e;
-    public long f;
-    public long g;
-    public long h;
+    public rh0 a;
 
     public qh0() {
         Interceptable interceptable = $ic;
@@ -30,55 +28,91 @@ public class qh0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new int[]{0, 0};
-        this.b = new int[]{0, 0};
-        this.c = 0;
-        this.h = 0L;
-    }
-
-    public void a(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) {
-            int action = motionEvent.getAction();
-            if (action != 0) {
-                if (action != 1) {
-                    if (action == 2) {
-                        this.c++;
-                        return;
-                    }
-                    return;
-                }
-                this.c = 0;
-                this.e = System.currentTimeMillis();
-                this.b[0] = (int) motionEvent.getRawX();
-                this.b[1] = (int) motionEvent.getRawY();
-                if (Math.max(Math.abs(this.b[0] - this.a[0]), Math.abs(this.b[1] - this.a[1])) > 10) {
-                    this.g++;
-                    this.f += Math.max(0L, this.e - this.d);
-                    return;
-                }
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            this.d = currentTimeMillis;
-            if (this.h == 0) {
-                this.h = currentTimeMillis;
-            }
-            this.a[0] = (int) motionEvent.getRawX();
-            this.a[1] = (int) motionEvent.getRawY();
         }
     }
 
-    public int[] b() {
+    public static qh0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int[] iArr = this.b;
-            return new int[]{iArr[0], iArr[1]};
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (qh0.class) {
+                    if (b == null) {
+                        b = new qh0();
+                    }
+                }
+            }
+            return b;
         }
-        return (int[]) invokeV.objValue;
+        return (qh0) invokeV.objValue;
+    }
+
+    public void b(rh0 rh0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rh0Var) == null) {
+            synchronized (rh0.class) {
+                if (this.a != null) {
+                    return;
+                }
+                this.a = rh0Var;
+            }
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            this.a.onActivityDestroyed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            this.a.onActivityPaused(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+            this.a.onActivityResumed(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            this.a.onActivityStarted(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            this.a.onActivityStopped(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) {
+            this.a.onActivityCreated(activity, bundle);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) {
+            this.a.onActivitySaveInstanceState(activity, bundle);
+        }
     }
 }

@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdToastData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARSE_TOAST_DATA_KEY = "toast";
@@ -44,7 +44,7 @@ public class BdToastData implements Serializable {
     @SerializedName("url")
     public String url;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ContentBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

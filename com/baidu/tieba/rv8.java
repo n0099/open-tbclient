@@ -1,130 +1,218 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
-import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.widget.richText.TbRichTextData;
-import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import android.content.Intent;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
+import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class rv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public final BaseActivity<?> a;
+    @Nullable
+    public BdAsyncTask<?, ?, ?> b;
+    public final wx4.a c;
 
-    public static String a(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
-            if (tbRichTextData == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public class a implements wx4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rv8 a;
+
+        public a(rv8 rv8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            StringBuilder sb = new StringBuilder(150);
-            TbRichTextImageInfo d0 = tbRichTextData.d0();
-            if (d0 == null) {
-                return null;
-            }
-            if (!StringUtils.isNull(d0.V())) {
-                return d0.V();
-            }
-            if (d0.getHeight() * d0.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
-                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (d0.getHeight() * d0.getWidth()));
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (d0.getWidth() * sqrt)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) (d0.getHeight() * sqrt)));
-            } else {
-                double width = d0.getWidth() / d0.getHeight();
-                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
-                sb.append(BigImageLoaderProc.NCDN_PER);
-                sb.append(String.valueOf((int) (width * sqrt2)));
-                sb.append("&height=");
-                sb.append(String.valueOf((int) sqrt2));
-            }
-            sb.append("&src=");
-            sb.append(hi.getUrlEncode(d0.getSrc()));
-            return sb.toString();
+            this.a = rv8Var;
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.baidu.tieba.wx4.a
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
+                return;
+            }
+            this.a.j();
+        }
+
+        @Override // com.baidu.tieba.wx4.a
+        public void c(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
+                return;
+            }
+            this.a.e();
+            this.a.g(accountData);
+        }
+
+        @Override // com.baidu.tieba.wx4.a
+        public void a(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+                this.a.e();
+                if (this.a.a != null) {
+                    this.a.a.showToast(str2);
+                }
+            }
+        }
     }
 
-    public static void b(pp9 pp9Var, AbsPbActivity.e eVar) {
-        ImageUrlData imageUrlData;
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(rv8 rv8Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rv8Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ux4.g(this.a);
+                d65.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
+        }
+    }
+
+    public rv8(@Nullable BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, pp9Var, eVar) != null) || pp9Var == null || pp9Var.a0() == null || pp9Var.a0().X() == null || eVar == null || eVar.a == null || eVar.b == null || pp9Var.a0().X().size() == 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new a(this);
+        this.a = baseActivity;
+    }
+
+    public final void g(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            i(accountData);
+            d65.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            if (this.a != null) {
+                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
+            }
+            f(-1);
+            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
             return;
         }
-        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
-        if (StringUtils.isNull(str)) {
+        this.a.setResult(i, new Intent());
+        this.a.finish();
+    }
+
+    public final void e() {
+        BaseActivity<?> baseActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
             return;
         }
-        eVar.a = new ArrayList<>();
-        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
-        eVar.b = new ConcurrentHashMap<>();
-        Iterator<TbRichTextData> it = pp9Var.a0().X().iterator();
-        while (it.hasNext()) {
-            TbRichTextData next = it.next();
-            if (next != null && next.getType() == 8) {
-                String a = a(next);
-                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
-                    eVar.a.add(a);
-                    eVar.b.put(a, imageUrlData);
-                }
-            }
-        }
-        eVar.j = ListUtils.getPosition(eVar.a, str);
+        baseActivity.closeLoadingDialog();
     }
 
-    public static pp9 c(qv8 qv8Var, boolean z, int i) {
-        InterceptResult invokeCommon;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{qv8Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            if (z) {
-                if (qv8Var != null && qv8Var.F() != null && qv8Var.F().size() > 0) {
-                    pp9 pp9Var = qv8Var.F().get(0);
-                    if (pp9Var.D() != 1) {
-                        return d(qv8Var);
-                    }
-                    return pp9Var;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
                 }
-                return null;
+                this.b = wx4.b().a(session.username, session.bduss, "", null, this.c);
+                return;
             }
-            return d(qv8Var);
+            e();
+            f(0);
         }
-        return (pp9) invokeCommon.objValue;
     }
 
-    public static pp9 d(qv8 qv8Var) {
-        InterceptResult invokeL;
-        MetaData metaData;
+    public final void j() {
+        BaseActivity<?> baseActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qv8Var)) == null) {
-            if (qv8Var != null && qv8Var.M() != null && qv8Var.M().getAuthor() != null) {
-                pp9 pp9Var = new pp9();
-                MetaData author = qv8Var.M().getAuthor();
-                String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = qv8Var.M().getUserMap();
-                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
-                    author = metaData;
-                }
-                pp9Var.L0(1);
-                pp9Var.R0(qv8Var.M().getFirstPostId());
-                pp9Var.i1(qv8Var.M().getTitle());
-                pp9Var.h1(qv8Var.M().getCreateTime());
-                pp9Var.I0(author);
-                return pp9Var;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
+            return;
         }
-        return (pp9) invokeL.objValue;
+        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().c()) {
+            return;
+        }
+        BaseActivity<?> baseActivity2 = this.a;
+        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
+        if (this.a.getLoadingDialog() != null) {
+            this.a.getLoadingDialog().f(false);
+            this.a.getLoadingDialog().g(false);
+        }
+    }
+
+    public final void i(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
+            vg.a().c(new b(this, accountData));
+            d65.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null) {
+                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
+            }
+            yu4.j(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
+        }
     }
 }

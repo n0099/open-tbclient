@@ -1,85 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class s08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public List<r08> c;
 
-    public s08() {
+    public static SpannableString a(ArrayList<mx5> arrayList, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, arrayList, str)) == null) {
+            if (TbFaceManager.i().p(str)) {
+                SpannableString spannableString = new SpannableString(str + " ");
+                mx5 d = TbFaceManager.i().d(str);
+                if (arrayList != null) {
+                    arrayList.add(d);
+                }
+                sh5.a g = TbFaceManager.i().g(str);
+                if (g != null) {
+                    int a = (int) (g.a() * 0.5d);
+                    d.setBounds(new Rect(0, 0, a, a));
+                } else {
+                    d.setBounds(new Rect(0, 0, 0, 0));
+                }
+                spannableString.setSpan(new kw6(d, 1), 0, str.length(), 33);
+                return spannableString;
             }
+            return null;
         }
-        this.c = new ArrayList();
+        return (SpannableString) invokeLL.objValue;
     }
 
-    public List<r08> a() {
-        InterceptResult invokeV;
+    public static SpannableString b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == 1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
-            return false;
+            return UrlManager.findAllWebUrl(str);
         }
-        return invokeV.booleanValue;
+        return (SpannableString) invokeL.objValue;
     }
 
-    public void d(int i) {
+    public static ArrayList<TbRichTextData> c(String str, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            ArrayList<TbRichTextData> arrayList = new ArrayList<>();
+            if (TextUtils.isEmpty(str)) {
+                return arrayList;
+            }
+            TbRichTextData tbRichTextData = new TbRichTextData(1);
+            arrayList.add(tbRichTextData);
+            try {
+                int length = str.length();
+                int i3 = 0;
+                String str2 = "";
+                while (i3 < str.length()) {
+                    char charAt = str.charAt(i3);
+                    if (charAt == '#' && i3 < length - 1 && str.charAt(i3 + 1) == '(') {
+                        String str3 = SmallTailInfo.EMOTION_PREFIX;
+                        i3 += 2;
+                        while (i3 < length) {
+                            char charAt2 = str.charAt(i3);
+                            str3 = str3 + charAt2;
+                            if (charAt2 != ')' && ((i2 = i3 + 1) >= length || str.charAt(i2) != '#')) {
+                                i3 = i2;
+                            }
+                        }
+                        if (!TbFaceManager.i().p(str3)) {
+                            str2 = str2 + str3;
+                        } else {
+                            if (!TextUtils.isEmpty(str2)) {
+                                if (i == 1) {
+                                    tbRichTextData.V(str2);
+                                } else {
+                                    SpannableString b = b(str2);
+                                    if (b != null) {
+                                        tbRichTextData.V(b);
+                                    }
+                                }
+                                str2 = "";
+                            }
+                            SpannableString a = a(tbRichTextData.W(), str3);
+                            if (a != null) {
+                                tbRichTextData.V(a);
+                            }
+                        }
+                    } else {
+                        str2 = str2 + charAt;
+                    }
+                    i3++;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    if (i == 1) {
+                        tbRichTextData.V(str2);
+                    } else {
+                        SpannableString b2 = b(str2);
+                        if (b2 != null) {
+                            tbRichTextData.V(b2);
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return arrayList;
         }
-    }
-
-    public void e(List<r08> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.a = j;
-        }
+        return (ArrayList) invokeLI.objValue;
     }
 }

@@ -1,43 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-/* loaded from: classes4.dex */
+import java.io.File;
+/* loaded from: classes5.dex */
 public class i44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public j44[] changedTouches;
-    @V8JavascriptField
-    public long timeStamp;
-    @V8JavascriptField
-    public j44[] touches;
 
-    public i44() {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "meter.js" : (String) invokeV.objValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File b = b();
+            if (b.exists()) {
+                kp4.j(b);
             }
         }
     }
 
-    public String toString() {
+    public static File b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return w54.e("aigames_debug_dashboard");
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File b = b();
+            if (!b.exists()) {
+                b.mkdirs();
+            }
+            return new File(b, "debugDashboard.zip");
+        }
+        return (File) invokeV.objValue;
     }
 }

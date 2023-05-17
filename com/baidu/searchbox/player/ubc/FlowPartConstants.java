@@ -1,6 +1,6 @@
 package com.baidu.searchbox.player.ubc;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FlowPartConstants {
     public static final String PART_1_TO_PLAYDURATION = "V2_P1_PlayDuration";
     public static final String PART_2_TO_PLAYDURATION = "V2_P2_PlayDuration";

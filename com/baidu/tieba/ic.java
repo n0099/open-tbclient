@@ -1,92 +1,202 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.XmlDataSource;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ic implements lc {
+import com.squareup.wire.Message;
+import java.util.Map;
+import org.json.JSONObject;
+import org.w3c.dom.Element;
+/* loaded from: classes6.dex */
+public class ic implements jc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public char a;
 
-    public ic(char c) {
+    public void onFinishSourceToObject(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        }
+    }
+
+    public void onPreObjectToSource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    public ic() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Character.valueOf(c)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = c;
     }
 
-    @Override // com.baidu.tieba.lc
-    public Object a(ud udVar) {
+    private boolean fillByDataSource(cd cdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
-            return String.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cdVar)) == null) {
+            boolean a = ce.a(cdVar, this);
+            onFinishSourceToObject(a);
+            return a;
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lc
-    public Object b(ud udVar) {
+    private boolean fillInDataSource(cd cdVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, udVar)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, cdVar)) == null) {
+            onPreObjectToSource();
+            return be.a(this, cdVar);
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lc
-    public Object c(ud udVar) {
+    public boolean fillByBundle(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, udVar)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            return fillByDataSource(new BundleDataSource(bundle));
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lc
-    public Object d(ud udVar) {
+    public boolean fillByCursorObject(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, udVar)) == null) {
-            return Character.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
+            return fillByDataSource(new CursorDataSource(cursor));
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lc
-    public Object e(ud udVar) {
+    public boolean fillByIntent(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, udVar)) == null) {
-            return d(udVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
+            return fillByDataSource(new IntentDataSource(intent));
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lc
-    public Object f(ud udVar) {
+    public boolean fillByJsonObject(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, udVar)) == null) {
-            return String.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            return fillByDataSource(new JsonDataSource(jSONObject));
         }
-        return invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            return fillByDataSource(new MapDataSource(map));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByProtobufObject(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, message)) == null) {
+            return fillByDataSource(new ProtobufDataSource(message));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByXmlObject(Element element) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, element)) == null) {
+            return fillByDataSource(new XmlDataSource(element));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInBundle(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
+            return fillInDataSource(new BundleDataSource(bundle));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInCursorObject(ContentValues contentValues) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentValues)) == null) {
+            return fillInDataSource(new CursorDataSource(contentValues));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInIntent(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, intent)) == null) {
+            return fillInDataSource(new IntentDataSource(intent));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInJsonObject(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
+            return fillInDataSource(new JsonDataSource(jSONObject));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) {
+            return fillInDataSource(new MapDataSource(map));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInProtobufObject(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, message)) == null) {
+            return fillInDataSource(new ProtobufDataSource(message));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInXmlObject(Element element) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, element)) == null) {
+            return fillInDataSource(new XmlDataSource(element));
+        }
+        return invokeL.booleanValue;
     }
 }

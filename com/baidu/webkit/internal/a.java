@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static final String a = WebChromeClient.MSG_PROMPT_HEADER.toLowerCase();
     public HashMap<String, Object> b;

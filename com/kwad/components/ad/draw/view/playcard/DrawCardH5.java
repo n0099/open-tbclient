@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public KsLogoView bq;
     public ValueAnimator cm;
@@ -30,7 +30,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public Context mContext;
     public int mHeight;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void aC();
 
@@ -54,11 +54,11 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
 
     private void E(Context context) {
         this.mContext = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0458, this);
-        this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911f9);
-        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ef);
-        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fb);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091224);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0475, this);
+        this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f091234);
+        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f09122a);
+        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f091236);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09125f);
     }
 
     private void aL() {
@@ -103,7 +103,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 != this.cp) {
-            com.kwad.components.core.c.a.a.a(new a.C0596a(getContext()).L(this.mAdTemplate).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
+            com.kwad.components.core.c.a.a.a(new a.C0610a(getContext()).L(this.mAdTemplate).a(new a.b() { // from class: com.kwad.components.ad.draw.view.playcard.DrawCardH5.1
                 @Override // com.kwad.components.core.c.a.a.b
                 public final void onAdClicked() {
                     if (DrawCardH5.this.co != null) {

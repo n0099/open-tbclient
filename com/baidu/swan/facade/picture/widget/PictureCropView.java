@@ -16,17 +16,17 @@ import android.view.MotionEvent;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.qp1;
+/* loaded from: classes4.dex */
 public class PictureCropView extends PictureView {
-    public static final boolean o = ho1.a;
+    public static final boolean o = qp1.a;
     public Drawable j;
     public final Rect k;
     public int l;
     public Paint m;
     public boolean n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ZoomImageView.a {
         public final /* synthetic */ ZoomImageView a;
 
@@ -67,7 +67,7 @@ public class PictureCropView extends PictureView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements BdImageViewTouchBase.f {
         public final /* synthetic */ ZoomImageView a;
 
@@ -81,7 +81,7 @@ public class PictureCropView extends PictureView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements ZoomImageView.b {
         public RectF a = new RectF();
 
@@ -161,7 +161,7 @@ public class PictureCropView extends PictureView {
     private void g(Context context) {
         this.m.setColor(this.l);
         this.m.setStyle(Paint.Style.FILL);
-        this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081221);
+        this.j = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08138f);
         ZoomImageView zoomImageView = (ZoomImageView) getImageView();
         zoomImageView.setDoubleTapEnabled(true);
         zoomImageView.setCalcBaseMatrix(false);

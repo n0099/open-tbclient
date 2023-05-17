@@ -3,7 +3,7 @@ package com.baidu.mapapi.navi;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.navi.NaviParaOption;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TruckNaviOption extends NaviParaOption {
     public int g;
     public double h;

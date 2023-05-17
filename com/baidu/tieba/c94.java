@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class c94 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class c94 extends p34 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile b94 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized b94 a() {
-        InterceptResult invokeV;
-        b94 b94Var;
+    public c94(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (c94.class) {
-                if (a == null) {
-                    a = new b94();
-                }
-                b94Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return b94Var;
         }
-        return (b94) invokeV.objValue;
+        this.errMsg = str;
     }
 }

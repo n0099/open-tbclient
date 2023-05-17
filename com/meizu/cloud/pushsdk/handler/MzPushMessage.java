@@ -5,7 +5,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.d.f.e;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MzPushMessage implements Serializable {
     public static final String TAG = "MzPushMessage";
     public String content;

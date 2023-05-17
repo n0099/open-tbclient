@@ -1,17 +1,132 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
+import com.baidu.tieba.o92;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
+/* loaded from: classes5.dex */
 public class ea2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Timer a;
+    public final o92 b;
+
+    /* loaded from: classes5.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea2 a;
+
+        public a(ea2 ea2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ea2Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (ea2.c) {
+                    Log.d("SceneQueryPkgTips", ">> start collecting network status.");
+                }
+                this.a.d();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements o92.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea2 a;
+
+        public b(ea2 ea2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ea2Var;
+        }
+
+        @Override // com.baidu.tieba.o92.b
+        public void a(NetworkStatus networkStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                i92.g(SceneType.SCENE_PMS_TIMEOUT.getScene() + networkStatus.getDesc());
+                h92.c(SceneType.SCENE_PMS_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
+                if (ea2.c) {
+                    Log.d("SceneQueryPkgTips", ">> " + SceneType.SCENE_PMS_TIMEOUT.getScene() + networkStatus.getDesc());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-839595052, "Lcom/baidu/tieba/ea2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-839595052, "Lcom/baidu/tieba/ea2$c;");
+                    return;
+                }
+            }
+            int[] iArr = new int[NetworkStatus.values().length];
+            a = iArr;
+            try {
+                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,56 +141,70 @@ public class ea2 {
                 return;
             }
         }
-        a = ho1.a;
+        c = qp1.a;
     }
 
-    public static boolean a(v62 v62Var, String str) {
-        InterceptResult invokeLL;
-        x73 b0;
-        z92 a2;
+    public ea2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, v62Var, str)) == null) {
-            if (a) {
-                Log.d("MasterIsolationHelper", "JS CALL - " + str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            boolean z = false;
-            if (w33.D()) {
-                return false;
-            }
-            if (v62Var != null && !TextUtils.isEmpty(v62Var.getContainerId())) {
-                if (ma2.i().k(v62Var.getContainerId())) {
-                    return true;
-                }
-                if (!xb2.h()) {
-                    return false;
-                }
-                String containerId = v62Var.getContainerId();
-                if (!da2.a(containerId) || (b0 = x73.b0()) == null || !b(v62Var) || (a2 = ga2.b().a()) == null) {
-                    return false;
-                }
-                String h = a2.h();
-                if (TextUtils.isEmpty(h)) {
-                    return false;
-                }
-                z = (TextUtils.equals(a2.i().a(), v62Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
-                if (a && z) {
-                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
-                }
-            }
-            return z;
         }
-        return invokeLL.booleanValue;
+        this.b = new o92();
     }
 
-    public static boolean b(v62 v62Var) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v62Var)) == null) {
-            if ((v62Var instanceof ff2) && ((ff2) v62Var).getInvokeSourceType() == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.a(new b(this));
         }
-        return invokeL.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (ea2.class) {
+                if (this.a != null) {
+                    if (c) {
+                        Log.d("SceneQueryPkgTips", ">> stop collecting network status.");
+                    }
+                    this.a.cancel();
+                    this.a = null;
+                }
+            }
+        }
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
+            int i = c.a[networkStatus.ordinal()];
+            if (i != 1 && i != 2) {
+                g92.f(R.string.obfuscated_res_0x7f0f14ee);
+            } else {
+                g92.f(R.string.obfuscated_res_0x7f0f14e4);
+            }
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (ea2.class) {
+                if (c) {
+                    Log.d("SceneQueryPkgTips", ">> start to collect network status.");
+                }
+                Timer timer = new Timer();
+                this.a = timer;
+                timer.schedule(new a(this), 3000L);
+            }
+        }
     }
 }

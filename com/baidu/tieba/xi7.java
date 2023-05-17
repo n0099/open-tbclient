@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes7.dex */
-public class xi7 implements r25 {
+/* loaded from: classes8.dex */
+public final class xi7 implements yi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.r25
-    public String name() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yi7
+    public void a(@NonNull View view2, @NonNull View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_FRS_UPGRADE_STRATEGY" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, onClickListener) == null) {
+        }
     }
 
     public xi7() {
@@ -32,15 +30,5 @@ public class xi7 implements r25 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.r25
-    public p25 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new wi7();
-        }
-        return (p25) invokeV.objValue;
     }
 }

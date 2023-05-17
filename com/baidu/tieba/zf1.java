@@ -1,32 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.bg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-/* loaded from: classes7.dex */
-public class zf1 {
+import java.util.Map;
+/* loaded from: classes8.dex */
+public abstract class zf1<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bg1 a;
+    public Map<K, V> a;
 
-    public zf1(Context context) {
+    public zf1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,70 +26,47 @@ public class zf1 {
                 return;
             }
         }
-        File b = b(context, "bitmap");
-        if (!b.exists()) {
-            b.mkdirs();
+        this.a = ph1.c();
+    }
+
+    public Map<K, V> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        try {
-            this.a = bg1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
-        } catch (IOException e) {
-            e.printStackTrace();
+        return (Map) invokeV.objValue;
+    }
+
+    public Map<K, V> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public V a(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            return this.a.get(k);
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public void e(Map<K, V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            this.a = map;
         }
     }
 
-    public void a(String str) {
+    public void d(K k, V v) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
+            this.a.put(k, v);
         }
-        try {
-            bg1.c m = this.a.m(fg1.b(str));
-            if (m == null) {
-                return;
-            }
-            if (vf1.b(str, m.f(0))) {
-                m.e();
-            } else {
-                m.a();
-            }
-            this.a.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public File b(Context context, String str) {
-        InterceptResult invokeLL;
-        String path;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
-                path = context.getExternalCacheDir().getPath();
-            } else {
-                path = context.getCacheDir().getPath();
-            }
-            return new File(path + File.separator + str);
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public Bitmap c(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            bg1.e o = this.a.o(fg1.b(str));
-            if (o == null) {
-                return null;
-            }
-            FileInputStream fileInputStream = (FileInputStream) o.a(0);
-            if (i > 0 && i2 > 0) {
-                return eg1.b(fileInputStream.getFD(), i, i2);
-            }
-            return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
-        }
-        return (Bitmap) invokeLII.objValue;
     }
 }

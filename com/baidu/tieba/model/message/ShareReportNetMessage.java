@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ShareReportNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class ShareReportNetMessage extends NetMessage {
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jr5.a(builder, true);
+                ss5.a(builder, true);
             }
             ShareReqIdl.Builder builder2 = new ShareReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -14,7 +14,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HardwareInfoUtils {
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
     public static final int INVALID_VALUE = -1;

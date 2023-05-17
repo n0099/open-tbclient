@@ -1,7 +1,7 @@
 package com.baidu.live.feed.search.model.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveSearchSuggestion {
     public String type = "";
     public String question = "";

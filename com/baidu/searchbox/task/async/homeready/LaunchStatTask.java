@@ -6,7 +6,7 @@ import com.baidu.searchbox.launch.stats.SpeedStatsManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LaunchStatTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

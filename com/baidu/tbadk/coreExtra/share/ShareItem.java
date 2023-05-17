@@ -19,9 +19,10 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.hi;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.pp9;
+import com.baidu.tieba.im.data.ShareIMCommonCardData;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,10 +40,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
-    public static final String O0;
+    public static final String Q0;
     public transient /* synthetic */ FieldHolder $fh;
     public String A;
     public String A0;
@@ -73,7 +74,9 @@ public class ShareItem {
     public String N;
     public int N0;
     public String O;
+    public String O0;
     public String P;
+    public ShareIMCommonCardData P0;
     public String Q;
     public int R;
     public String S;
@@ -140,7 +143,7 @@ public class ShareItem {
     public Uri z;
     public String z0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,10 +216,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, pp9 pp9Var) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, rr9 rr9Var) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, pp9Var)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, rr9Var)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -238,8 +241,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (pp9Var != null && pp9Var.a0() != null) {
-                            str = pp9Var.a0().toString();
+                        if (rr9Var != null && rr9Var.a0() != null) {
+                            str = rr9Var.a0().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -252,10 +255,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && pp9Var != null && hi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && pp9Var.p() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = pp9Var.p().getName_show();
+                    if (i == 1 && rr9Var != null && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && rr9Var.p() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = rr9Var.p().getName_show();
                     }
-                    if (i == 2 && hi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && qi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
@@ -331,7 +334,7 @@ public class ShareItem {
                 return;
             }
         }
-        O0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
+        Q0 = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/share/SHARED_IMAGE";
     }
 
     public ShareItem() {
@@ -396,17 +399,18 @@ public class ShareItem {
         this.D = null;
         this.C = 0;
         this.L0 = null;
+        this.P0 = null;
         this.M0 = false;
     }
 
-    public void h() {
+    public void m() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.l0 != null) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.l0 != null) {
             FileOutputStream fileOutputStream = null;
             try {
                 try {
                     if (FileHelper.checkSD()) {
-                        File file = new File(O0);
+                        File file = new File(Q0);
                         if (file.exists()) {
                             file.delete();
                         }
@@ -499,6 +503,7 @@ public class ShareItem {
                 }
             }
             shareItem.L0 = GroupInfoData.fromJsonH5(jSONObject);
+            shareItem.P0 = ShareIMCommonCardData.fromJsonH5(jSONObject);
             return shareItem;
         }
         return (ShareItem) invokeLZ.objValue;
@@ -536,24 +541,77 @@ public class ShareItem {
         return invokeV.booleanValue;
     }
 
-    public Bundle f() {
+    @Nullable
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.O0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Bundle g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.m0;
         }
         return (Bundle) invokeV.objValue;
     }
 
-    public boolean g() {
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = this.R;
-            if (i != 7 && i != 8 && i != 5 && i != 6 && i != 11) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if ((j() || i() || k()) && !this.q) {
+                return true;
             }
-            return true;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return ShareIMCommonCardData.isValidAlbum(this.P0);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            GroupInfoData groupInfoData = this.L0;
+            if (groupInfoData != null && groupInfoData.getGroupId() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return ShareIMCommonCardData.isValidTopic(this.P0);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i = this.R;
+            if (i != 7 && i != 8 && i != 5 && i != 6 && i != 11 && !h()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -580,30 +638,37 @@ public class ShareItem {
         return (byte[]) invokeV.objValue;
     }
 
-    public void i(List<Integer> list) {
+    public void n(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
             this.H0 = list;
         }
     }
 
-    public void j(Bitmap bitmap) {
+    public void o(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bitmap) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, bitmap) == null) {
             this.l0 = new WeakReference<>(bitmap);
         }
     }
 
-    public void k(boolean z) {
+    public void p(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.O0 = str;
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.n0 = z;
         }
     }
 
-    public void l(Bundle bundle) {
+    public void r(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             this.m0 = bundle;
         }
     }

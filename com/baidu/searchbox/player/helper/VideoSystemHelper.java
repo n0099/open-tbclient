@@ -10,7 +10,7 @@ import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.player.BDPlayerConfig;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoSystemHelper {
     public static final String TAG = "VideoSystemHelper";
 

@@ -4,7 +4,7 @@ import com.facebook.imageformat.ImageFormat;
 import com.facebook.imagepipeline.core.NativeCodeSetup;
 import com.facebook.imagepipeline.nativecode.NativeImageTranscoderFactory;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MultiImageTranscoderFactory implements ImageTranscoderFactory {
     public final boolean mEnsureTranscoderLibraryLoaded;
     @Nullable

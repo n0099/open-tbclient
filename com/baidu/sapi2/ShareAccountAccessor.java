@@ -1,7 +1,7 @@
 package com.baidu.sapi2;
 
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class ShareAccountAccessor {
     public static ShareAccountAccessor accessor;
 

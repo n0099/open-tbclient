@@ -3,15 +3,15 @@ package com.baidu.nadcore.video.videoplayer.ui.loading;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.o51;
-import com.baidu.tieba.q51;
-import com.baidu.tieba.r51;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.e61;
+import com.baidu.tieba.g61;
+import com.baidu.tieba.h61;
+/* loaded from: classes3.dex */
 public class BdVideoLoadingView extends ImageView {
-    public o51 a;
+    public e61 a;
     public a b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -24,17 +24,17 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public final void a(Context context) {
-        setLoadingRenderer(new r51(context));
+        setLoadingRenderer(new h61(context));
     }
 
     public void setLoadingAnimListener(a aVar) {
         this.b = aVar;
     }
 
-    public void setLoadingRenderer(q51 q51Var) {
-        o51 o51Var = new o51(q51Var);
-        this.a = o51Var;
-        setImageDrawable(o51Var);
+    public void setLoadingRenderer(g61 g61Var) {
+        e61 e61Var = new e61(g61Var);
+        this.a = e61Var;
+        setImageDrawable(e61Var);
     }
 
     public BdVideoLoadingView(Context context, AttributeSet attributeSet) {
@@ -47,9 +47,9 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void c() {
-        o51 o51Var = this.a;
-        if (o51Var != null) {
-            o51Var.start();
+        e61 e61Var = this.a;
+        if (e61Var != null) {
+            e61Var.start();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.a();
@@ -58,9 +58,9 @@ public class BdVideoLoadingView extends ImageView {
     }
 
     public void d() {
-        o51 o51Var = this.a;
-        if (o51Var != null) {
-            o51Var.stop();
+        e61 e61Var = this.a;
+        if (e61Var != null) {
+            e61Var.stop();
             a aVar = this.b;
             if (aVar != null) {
                 aVar.b();

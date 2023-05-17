@@ -14,7 +14,7 @@ import com.baidu.ubc.UBCManager;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DurationStatPlugin extends AbsPlugin {
     public static final int DURATION_SLOT_DIFF_MIN = 500;
     public static final UBCManager UBC_MANAGER = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);

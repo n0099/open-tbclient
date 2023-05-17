@@ -1,5 +1,5 @@
 package com.baidu.searchbox.ai.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseMatrix {
     public int height;
     public int width;

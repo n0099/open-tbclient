@@ -6,19 +6,19 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e implements com.kwad.sdk.core.webview.kwai.a {
     public List<AdTemplate> Lj;
     public b mf;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public long creativeId = -1;
         public int adStyle = -1;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void b(AdTemplate adTemplate, long j);
     }

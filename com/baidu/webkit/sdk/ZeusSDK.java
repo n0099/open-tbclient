@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk;
 import android.content.Context;
 import android.os.Looper;
 import android.os.Process;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ZeusSDK {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TAG = "ZeusSDK";
@@ -12,7 +12,7 @@ public final class ZeusSDK {
     public static volatile boolean mHasInited;
     public static long mTimeInit;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Client {
         public void onInitFinished(boolean z) {
         }
@@ -25,7 +25,7 @@ public final class ZeusSDK {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Configuration {
         public String mAPPIDString;
         public String mCUIDString;

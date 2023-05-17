@@ -1,119 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class q77 {
+/* loaded from: classes7.dex */
+public class q77 extends wi6<l77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<oh5> a;
-    public Context b;
-    public String c;
-    public String d;
-    public String e;
+    public NoDataView i;
+    public int j;
 
-    public q77(Context context) {
+    @Override // com.baidu.tieba.wi6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02ff : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q77(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = context;
+        this.j = 3;
+        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), h(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070369)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f127b), null);
+        this.i = a;
+        a.setVisibility(0);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void a(oh5 oh5Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wi6
+    /* renamed from: r */
+    public void i(l77 l77Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, oh5Var) == null) && oh5Var != null && oh5Var.b() != null) {
-            for (oh5 oh5Var2 : this.a) {
-                if (oh5Var2 != null && oh5Var2.b() != null && oh5Var2.b().e == oh5Var.b().e) {
-                    return;
-                }
-            }
-            this.a.add(oh5Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, l77Var) == null) {
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wi6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.j == i) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        NoDataView noDataView = this.i;
+        if (noDataView != null) {
+            noDataView.f(this.b, i);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<oh5> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.d = str;
-        }
+        this.j = i;
     }
 }

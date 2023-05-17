@@ -1,5 +1,5 @@
 package com.google.zxing.oned.rss;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Pair extends DataCharacter {
     public int count;
     public final FinderPattern finderPattern;

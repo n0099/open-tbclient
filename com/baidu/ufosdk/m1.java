@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class m1 {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, SoftReference<Bitmap>> a;
@@ -26,7 +26,7 @@ public class m1 {
     public static ExecutorService c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

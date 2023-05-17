@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewCallback, View.OnClickListener {
     public static final String C = "IdCardOcrCameraActivity";
     public static final int D = 2001;
@@ -74,7 +74,7 @@ public class IdCardOcrCameraActivity extends Activity implements Camera.PreviewC
     public int z = 300;
     public int A = 80;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CameraSize {
         public int a;
         public int b;

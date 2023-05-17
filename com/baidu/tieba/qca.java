@@ -1,41 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.util.SoLoadUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qca {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class qca extends jca {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface d {
-        void onSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends DefaultDownloadCallback {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
+        public final /* synthetic */ qca a;
 
-        public a(d dVar) {
+        public a(qca qcaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
+                Object[] objArr = {qcaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,114 +38,101 @@ public class qca {
                     return;
                 }
             }
-            this.a = dVar;
+            this.a = qcaVar;
         }
 
-        @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
-        public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
-                qca.b(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements bm {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.o0()) {
+                    this.a.e.U0(9, false);
+                    this.a.p0(1);
                     return;
                 }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.bm
-        public void onSoFileLoaded(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qca.b(this.a);
+                qca qcaVar = this.a;
+                qcaVar.e.c(qcaVar.a.getString(R.string.obfuscated_res_0x7f0f05d6));
+                this.a.p0(0);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public c(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    System.loadLibrary(SwanKV.LIB_CPP_SHARED);
-                    if (this.a != null) {
-                        this.a.onSuccess();
-                    }
-                } catch (Throwable unused) {
-                    BdLog.e("FetchLog libc++_shared.so 加载失败,重新加载");
-                    BdBaseApplication.getInst().getResHashMap().remove("libc++_shared.so");
-                    SoLoadUtils.checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
-                }
-            }
-        }
-    }
-
-    public static void b(d dVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qca(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull vaa vaaVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, vaaVar, z);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
-            jg.a().post(new c(dVar));
-        }
-    }
-
-    public static void c(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
-            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libc++_shared.so"))) {
-                a aVar = new a(dVar);
-                b bVar = new b(dVar);
-                RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(wl.a);
-                requestParams.setRunNode("aps");
-                requestParams.addChannel(new vl("com.baidu.tieba.soloader.libcshared", aVar, bVar));
-                PmsManager.getInstance().execute(requestParams);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, vaaVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (vaa) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            b(dVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.jca, com.baidu.tieba.kca
+    public void M(@NonNull List<waa<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            eaa f = zba.f(this.a);
+            list.add(f);
+            faa g = zba.g(this.a);
+            f.w(g);
+            list.add(g);
+            list.add(zba.o(this.a));
+            maa n = zba.n(this.a, this, this.s, this.J);
+            this.D = n;
+            list.add(n);
+            laa m = zba.m(this.a, this, this.d, this.C, this.s, this.J);
+            this.F = m;
+            f.w(m);
+            list.add(this.F);
+        }
+    }
+
+    @Override // com.baidu.tieba.jca, com.baidu.tieba.kca
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(3);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setMoreVipIcon(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            bca.h(this.a, editorTools, this);
+            bca.d(editorTools, this);
+            bca.a(this.a, editorTools, this);
+            bca.b(this.a, editorTools, this);
+            bca.i(this.a, editorTools);
+            bca.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.jca, com.baidu.tieba.kca
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            if (this.q) {
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f11cc));
+                r0(0, 0);
+                s0(R.drawable.obfuscated_res_0x7f080b5f, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                this.j.setOnClickListener(new a(this));
+                return;
+            }
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1085));
         }
     }
 }

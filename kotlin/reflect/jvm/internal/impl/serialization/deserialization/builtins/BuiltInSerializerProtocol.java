@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.protobuf.ExtensionRegistryLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.GeneratedMessageLite;
 import kotlin.reflect.jvm.internal.impl.serialization.SerializerExtensionProtocol;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuiltInSerializerProtocol extends SerializerExtensionProtocol {
     public static final BuiltInSerializerProtocol INSTANCE = new BuiltInSerializerProtocol();
 

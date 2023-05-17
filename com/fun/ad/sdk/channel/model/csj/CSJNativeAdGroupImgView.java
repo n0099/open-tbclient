@@ -16,7 +16,7 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.module.csj.g0;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CSJNativeAdGroupImgView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,10 +117,10 @@ public final class CSJNativeAdGroupImgView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b2);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b3);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b4);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c2);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bf);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
         }
     }
 

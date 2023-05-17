@@ -23,7 +23,6 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.pass.view.CommonDialog;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.NoProguard;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.dto.WebRegDTO;
@@ -48,7 +47,7 @@ import com.baidu.sapi2.views.logindialog.view.NoScrollViewPager;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class QuickLoginDialog extends Dialog implements View.OnClickListener, IPagerLoadCallback, ISendSmsCallback, IQuickLoginDialogCallback {
     public static final int HEIGHT_HISTORY = 256;
     public static final int HEIGHT_ONEKEY = 238;
@@ -93,7 +92,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     public void setOnDismissListener(@Nullable DialogInterface.OnDismissListener onDismissListener) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder implements NoProguard {
         public final Activity a;
         public ColorType b = ColorType.LIGHT;
@@ -118,7 +117,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements DialogInterface.OnDismissListener {
         public a() {
         }
@@ -132,7 +131,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements ViewPager.OnPageChangeListener {
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrollStateChanged(int i) {
@@ -164,7 +163,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public final /* synthetic */ String a;
 
@@ -178,7 +177,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -188,7 +187,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends WebAuthListener {
         public e() {
         }
@@ -213,7 +212,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f extends WebAuthListener {
         public f() {
         }
@@ -238,7 +237,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class g {
         public static final /* synthetic */ int[] a;
 
@@ -298,7 +297,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     public QuickLoginDialog(@NonNull Context context, @NonNull Builder builder) {
-        this(context, R.style.obfuscated_res_0x7f1003ef, builder);
+        this(context, R.style.obfuscated_res_0x7f100402, builder);
     }
 
     @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback
@@ -431,7 +430,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
         } else {
             z = false;
         }
-        message.setDarkMode(z).setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new d()).setPositiveBtn("去注册", new c(str)).build().show();
+        message.setDarkMode(z).setNegativeButton("取消", new d()).setPositiveBtn("去注册", new c(str)).build().show();
     }
 
     private boolean a(Context context, MotionEvent motionEvent) {

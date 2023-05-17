@@ -9,7 +9,6 @@ import androidx.core.util.PatternsCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -389,31 +388,13 @@ public final class UrlUtils {
                 if (lowerCase.contains(".js")) {
                     return "application/x-javascript";
                 }
-                if (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
+                if (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(".png") || lowerCase.contains(".jpeg")) {
                     return BdUploadHandler.IMAGE_MIME_TYPE;
                 }
             }
             return SapiWebView.DATA_MIME_TYPE;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static String getParamValue(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            return getParamValue(str, str2, false);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String getParamValue(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, null, str, str2, z)) == null) {
-            return getUrlField(str, str2, z);
-        }
-        return (String) invokeLLZ.objValue;
     }
 
     @SuppressLint({"BDThrowableCheck"})
@@ -451,6 +432,24 @@ public final class UrlUtils {
             return hashMap;
         }
         return (Map) invokeL.objValue;
+    }
+
+    public static String getParamValue(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            return getParamValue(str, str2, false);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String getParamValue(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65549, null, str, str2, z)) == null) {
+            return getUrlField(str, str2, z);
+        }
+        return (String) invokeLLZ.objValue;
     }
 
     public static String getUrlField(String str, String str2, boolean z) {

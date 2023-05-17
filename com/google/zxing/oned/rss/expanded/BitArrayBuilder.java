@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded;
 
 import com.google.zxing.common.BitArray;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BitArrayBuilder {
     public static BitArray buildBitArray(List<ExpandedPair> list) {
         int size = (list.size() << 1) - 1;

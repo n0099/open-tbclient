@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface b extends IInterface {
     void a(IBinder iBinder) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,14 +28,14 @@ public interface b extends IInterface {
         }
 
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0107a implements b {
+        /* loaded from: classes3.dex */
+        public static class C0111a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0107a(IBinder iBinder) {
+            public C0111a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public interface b extends IInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                return C0107a.a;
+                return C0111a.a;
             }
             return (b) invokeV.objValue;
         }
@@ -121,7 +121,7 @@ public interface b extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                     return (b) queryLocalInterface;
                 }
-                return new C0107a(iBinder);
+                return new C0111a(iBinder);
             }
             return (b) invokeL.objValue;
         }

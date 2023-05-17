@@ -14,11 +14,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.google.protobuf.CodedInputStream;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiSystemBarTintManager {
     public static final int f = -1728053248;
     public static String g;
@@ -28,7 +29,7 @@ public class SapiSystemBarTintManager {
     public View d;
     public View e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SystemBarConfig {
         public static final String g = "status_bar_height";
         public static final String h = "navigation_bar_height";
@@ -146,7 +147,7 @@ public class SapiSystemBarTintManager {
     static {
         if (Build.VERSION.SDK_INT >= 19) {
             try {
-                Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod("get", String.class);
+                Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
                 declaredMethod.setAccessible(true);
                 g = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {

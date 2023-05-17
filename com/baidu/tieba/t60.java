@@ -1,115 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.MediaType;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.tieba.d60;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes6.dex */
-public final class t60 implements d60.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final List<d60> a;
-    public k60 b;
-    public final int c;
-    public final Request d;
-    public final Call e;
-    public int f;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public interface t60 extends Closeable {
+    void disconnect();
 
-    public t60(List<d60> list, k60 k60Var, int i, Request request, Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, k60Var, Integer.valueOf(i), request, call};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = list;
-        this.b = k60Var;
-        this.c = i;
-        this.d = request;
-        this.e = call;
-    }
+    int getCode() throws IOException;
 
-    @Override // com.baidu.tieba.d60.a
-    public Response a(Request request) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
-            return b(request, this.b);
-        }
-        return (Response) invokeL.objValue;
-    }
+    Map<String, List<String>> getHeaders() throws IOException;
 
-    public Response b(Request request, k60 k60Var) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, k60Var)) == null) {
-            if (this.c < this.a.size()) {
-                this.f++;
-                t60 t60Var = new t60(this.a, k60Var, this.c + 1, request, this.e);
-                d60 d60Var = this.a.get(this.c);
-                Response a = d60Var.a(t60Var);
-                if (a != null) {
-                    if (a.body() != null) {
-                        a.getStatRecord().responseLength = a.body().contentLength();
-                        a.getStatRecord().finishTs = System.currentTimeMillis();
-                        MediaType contentType = a.body().contentType();
-                        if (contentType != null) {
-                            a.getStatRecord().contentType = contentType.toString();
-                        }
-                        return a;
-                    }
-                    throw new IllegalStateException("interceptor " + d60Var + " returned a response with no body");
-                }
-                throw new NullPointerException("interceptor " + d60Var + " returned null");
-            }
-            throw new AssertionError();
-        }
-        return (Response) invokeLL.objValue;
-    }
+    InputStream getInputStream() throws IOException;
 
-    public Call call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Call) invokeV.objValue;
-    }
+    String getMessage() throws IOException;
 
-    @Override // com.baidu.tieba.d60.a
-    public k60 connection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (k60) invokeV.objValue;
-    }
+    InputStream q() throws IOException;
 
-    @Override // com.baidu.tieba.d60.a
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (Request) invokeV.objValue;
-    }
+    void t(int i);
+
+    int u();
 }

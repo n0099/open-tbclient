@@ -21,10 +21,10 @@ import com.baidu.tieba.R;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewUtility implements NoProguard {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
         public final /* synthetic */ float a;
 

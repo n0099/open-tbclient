@@ -10,7 +10,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.open.web.security.JniInterface;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QQToken {
     public static final int AUTH_QQ = 2;
     public static final int AUTH_QZONE = 3;

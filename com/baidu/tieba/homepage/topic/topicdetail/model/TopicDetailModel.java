@@ -6,8 +6,8 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ew7;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.homepage.BlessHttpResponseMessage;
 import com.baidu.tieba.homepage.BlessSocketResponseMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.RequestGetTopicDetailMessage;
@@ -16,23 +16,23 @@ import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicDe
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseHttpGetTopicThreadMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicDetailMessage;
 import com.baidu.tieba.homepage.topic.topicdetail.message.ResponseSocketGetTopicThreadMessage;
-import com.baidu.tieba.in;
-import com.baidu.tieba.iw7;
 import com.baidu.tieba.message.RequestBlessMessage;
-import com.baidu.tieba.za;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.sx7;
+import com.baidu.tieba.wx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ew7 a;
-    public iw7 b;
-    public za c;
+    public sx7 a;
+    public wx7 b;
+    public fb c;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -44,8 +44,8 @@ public class TopicDetailModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a extends za {
+    /* loaded from: classes5.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -72,7 +72,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             long j2;
@@ -101,8 +101,8 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends za {
+    /* loaded from: classes5.dex */
+    public class b extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -129,7 +129,7 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
@@ -145,8 +145,8 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends za {
+    /* loaded from: classes5.dex */
+    public class c extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetailModel a;
@@ -173,27 +173,27 @@ public class TopicDetailModel extends BdBaseModel {
             this.a = topicDetailModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
-            List<in> list = null;
+            List<rn> list = null;
             boolean z = false;
             if (responsedMessage instanceof ResponseHttpGetTopicThreadMessage) {
                 ResponseHttpGetTopicThreadMessage responseHttpGetTopicThreadMessage = (ResponseHttpGetTopicThreadMessage) responsedMessage;
-                List<in> dataList = responseHttpGetTopicThreadMessage.getDataList();
+                List<rn> dataList = responseHttpGetTopicThreadMessage.getDataList();
                 z = responseHttpGetTopicThreadMessage.getHasMore();
                 list = dataList;
             }
             if (responsedMessage instanceof ResponseSocketGetTopicThreadMessage) {
                 ResponseSocketGetTopicThreadMessage responseSocketGetTopicThreadMessage = (ResponseSocketGetTopicThreadMessage) responsedMessage;
-                List<in> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
+                List<rn> dataList2 = responseSocketGetTopicThreadMessage.getDataList();
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
-            this.a.a.K0(responsedMessage.getError(), z, list);
+            this.a.a.L0(responsedMessage.getError(), z, list);
         }
     }
 
@@ -209,7 +209,7 @@ public class TopicDetailModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -221,20 +221,20 @@ public class TopicDetailModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void c0(ew7 ew7Var) {
+    public void b0(sx7 sx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ew7Var) == null) {
-            this.a = ew7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sx7Var) == null) {
+            this.a = sx7Var;
         }
     }
 
-    public void a0(long j) {
+    public void Z(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                ew7 ew7Var = this.a;
-                if (ew7Var != null) {
-                    ew7Var.t(-1, null);
+                sx7 sx7Var = this.a;
+                if (sx7Var != null) {
+                    sx7Var.t(-1, null);
                     return;
                 }
                 return;
@@ -247,13 +247,13 @@ public class TopicDetailModel extends BdBaseModel {
         }
     }
 
-    public void b0(long j, long j2, long j3) {
+    public void a0(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                ew7 ew7Var = this.a;
-                if (ew7Var != null) {
-                    ew7Var.K0(-1, false, null);
+                sx7 sx7Var = this.a;
+                if (sx7Var != null) {
+                    sx7Var.L0(-1, false, null);
                     return;
                 }
                 return;

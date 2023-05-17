@@ -44,7 +44,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public static b d;
@@ -57,29 +57,29 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
     public com.baidu.sofire.c.a c;
 
     /* renamed from: com.baidu.sofire.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class RunnableC0163b implements Runnable {
+    /* loaded from: classes4.dex */
+    public class RunnableC0169b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ b b;
 
         /* renamed from: com.baidu.sofire.b.b$b$a */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
             public final /* synthetic */ ApkInfo b;
             public final /* synthetic */ File c;
-            public final /* synthetic */ RunnableC0163b d;
+            public final /* synthetic */ RunnableC0169b d;
 
-            public a(RunnableC0163b runnableC0163b, i iVar, ApkInfo apkInfo, File file) {
+            public a(RunnableC0169b runnableC0169b, i iVar, ApkInfo apkInfo, File file) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {runnableC0163b, iVar, apkInfo, file};
+                    Object[] objArr = {runnableC0169b, iVar, apkInfo, file};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -89,7 +89,7 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
                         return;
                     }
                 }
-                this.d = runnableC0163b;
+                this.d = runnableC0169b;
                 this.a = iVar;
                 this.b = apkInfo;
                 this.c = file;
@@ -102,8 +102,8 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b = this.a.b(this.d.a)) != null && (str = b.versionName) != null && str.equals(this.b.versionName)) {
                     this.a.d(this.d.a);
-                    RunnableC0163b runnableC0163b = this.d;
-                    runnableC0163b.b.c.a(runnableC0163b.a);
+                    RunnableC0169b runnableC0169b = this.d;
+                    runnableC0169b.b.c.a(runnableC0169b.a);
                     com.baidu.sofire.k.b.p(b.e);
                     File file = new File(this.b.pkgPath);
                     if (file.exists()) {
@@ -124,7 +124,7 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
             }
         }
 
-        public RunnableC0163b(b bVar, String str) {
+        public RunnableC0169b(b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -214,7 +214,7 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Comparator<ApkInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -546,7 +546,11 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
                         aVar3.getClass();
                         ContentValues contentValues = new ContentValues();
                         contentValues.put("n", (Integer) 0);
-                        aVar3.b.update("pgn", contentValues, "n=-1", null);
+                        try {
+                            aVar3.b.update("pgn", contentValues, "n=-1", null);
+                        } catch (Throwable unused3) {
+                            int i2 = com.baidu.sofire.a.b.a;
+                        }
                     }
                     u.a(e).b(new U(e, 1, false, n));
                 }
@@ -1361,7 +1365,7 @@ public class b implements SharedPreferences.OnSharedPreferenceChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             try {
-                u.a(e).a(new RunnableC0163b(this, str));
+                u.a(e).a(new RunnableC0169b(this, str));
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
             }

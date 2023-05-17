@@ -1,62 +1,34 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes4.dex */
 public class a5a {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final h0a b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public a5a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947567548, "Lcom/baidu/tieba/a5a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947567548, "Lcom/baidu/tieba/a5a;");
+                return;
             }
         }
-    }
-
-    public static a5a a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            return new a5a();
-        }
-        return (a5a) invokeCommon.objValue;
-    }
-
-    public static a5a b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
-                }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
-            }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-        }
-        return (a5a) invokeI.objValue;
+        a = TimeUnit.DAYS.toMillis(5L);
+        b = new h0a("camera_last_api", 0, "camera_last_api_stamp");
+        c = "Lenovo K520".equals(ti.g());
     }
 }

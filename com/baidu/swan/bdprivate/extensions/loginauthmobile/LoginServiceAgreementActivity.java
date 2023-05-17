@@ -7,12 +7,12 @@ import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.swan.bdprivate.activity.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rl3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.an3;
+/* loaded from: classes4.dex */
 public class LoginServiceAgreementActivity extends BaseActivity {
     public SwanAppActionBar b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -25,25 +25,25 @@ public class LoginServiceAgreementActivity extends BaseActivity {
 
     @Override // com.baidu.swan.bdprivate.activity.BaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        int c0 = rl3.c0(this);
+        int c0 = an3.c0(this);
         super.onCreate(bundle);
-        rl3.g(this, c0);
+        an3.g(this, c0);
         Intent intent = getIntent();
         if (intent == null) {
             finish();
             return;
         }
         Bundle extras = intent.getExtras();
-        setContentView(R.layout.obfuscated_res_0x7f0d0044);
-        NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901ae);
+        setContentView(R.layout.obfuscated_res_0x7f0d0046);
+        NgWebView ngWebView = (NgWebView) findViewById(R.id.obfuscated_res_0x7f0901bb);
         if (extras != null) {
             ngWebView.loadUrl(extras.getString("url"));
         }
-        SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f090182);
+        SwanAppActionBar swanAppActionBar = (SwanAppActionBar) findViewById(R.id.obfuscated_res_0x7f09018f);
         this.b = swanAppActionBar;
         swanAppActionBar.setLeftBackViewVisibility(true);
         this.b.setLeftBackViewClickListener(new a());
-        this.b.setTitle(R.string.obfuscated_res_0x7f0f13fe);
+        this.b.setTitle(R.string.obfuscated_res_0x7f0f14d0);
         this.b.setRightZoneVisibility(false);
     }
 }

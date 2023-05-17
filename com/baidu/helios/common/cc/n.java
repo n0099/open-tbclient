@@ -1,18 +1,18 @@
 package com.baidu.helios.common.cc;
 
-import com.baidu.tieba.y30;
+import com.baidu.tieba.h40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class n {
     public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new y30().a(bArr), "UTF-8") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? new String(new h40().a(bArr), "UTF-8") : (String) invokeL.objValue;
     }
 
     public static Method b(Class<?> cls, String str, Class<?>[] clsArr) {

@@ -20,7 +20,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.downloader.c;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DownloadTaskDeleteActivity extends Activity {
     public k a;
     public Intent b;

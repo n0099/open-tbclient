@@ -4,7 +4,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface c extends IInterface {
     boolean a(String str);
 
@@ -12,7 +12,7 @@ public interface c extends IInterface {
 
     int b(String str);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class a extends Binder implements c {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -20,12 +20,12 @@ public interface c extends IInterface {
         }
 
         /* renamed from: com.bytedance.pangle.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C0516a implements c {
+        /* loaded from: classes8.dex */
+        public static class C0530a implements c {
             public static c a;
             public IBinder b;
 
-            public C0516a(IBinder iBinder) {
+            public C0530a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -103,7 +103,7 @@ public interface c extends IInterface {
         }
 
         public static c a() {
-            return C0516a.a;
+            return C0530a.a;
         }
 
         public static c a(IBinder iBinder) {
@@ -114,7 +114,7 @@ public interface c extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof c)) {
                 return (c) queryLocalInterface;
             }
-            return new C0516a(iBinder);
+            return new C0530a(iBinder);
         }
 
         @Override // android.os.Binder

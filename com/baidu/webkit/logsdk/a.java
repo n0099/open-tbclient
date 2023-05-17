@@ -1,7 +1,7 @@
 package com.baidu.webkit.logsdk;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static boolean a;
     public static boolean b;

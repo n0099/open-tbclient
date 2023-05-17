@@ -3,16 +3,16 @@ package com.baidu.tbadk.core.dialog.yun;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.eg9;
-import com.baidu.tieba.r15;
+import com.baidu.tieba.a35;
+import com.baidu.tieba.gi9;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class YunDialogDispatcher implements eg9 {
+/* loaded from: classes4.dex */
+public class YunDialogDispatcher implements gi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,15 +30,15 @@ public class YunDialogDispatcher implements eg9 {
         }
     }
 
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             String optString = jSONObject.optString("dialogName");
-            dj8 yunDialogLog = YunDialogLog.getInstance();
+            yk8 yunDialogLog = YunDialogLog.getInstance();
             yunDialogLog.c("YunDialogManager", "准备展示通用路由云弹窗：" + optString);
             if (!TextUtils.isEmpty(optString)) {
-                r15.p(context, optString, jSONObject);
+                a35.p(context, optString, jSONObject);
             }
         }
     }

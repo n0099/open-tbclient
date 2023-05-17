@@ -1,378 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ForumBroadcastHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.frs.broadcast.ForumManagerRightsResMsg;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.u05;
-import com.baidu.tieba.view.ScreenTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class q97 {
+/* loaded from: classes7.dex */
+public class q97 extends ze {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public u05 f;
-    public CustomMessageListener g;
-    public DialogInterface.OnDismissListener h;
-    public HttpMessageListener i;
 
-    /* loaded from: classes6.dex */
-    public class c implements u05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ q97 b;
-
-        /* loaded from: classes6.dex */
-        public class a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("_forumId", this.a.b.c);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a.b.a.getPageActivity(), "ForumGradePage", hashMap)));
-                }
-            }
-        }
-
-        public c(q97 q97Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q97Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q97Var;
-            this.a = i;
-        }
-
-        @Override // com.baidu.tieba.u05.e
-        public void onClick(u05 u05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
-                f55.m().w("key_forum_broadcast_no_tip_again", this.b.f.isNoTipAgainChecked());
-                this.b.f.dismiss();
-                if (this.a == 0) {
-                    ScreenTopToast screenTopToast = new ScreenTopToast(this.b.a.getPageActivity());
-                    screenTopToast.m(this.b.a.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip));
-                    screenTopToast.k(this.b.a.getString(R.string.frs_recommend_fail_tip_btn));
-                    screenTopToast.j(new a(this));
-                    screenTopToast.n((ViewGroup) this.b.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f090be4));
-                    return;
-                }
-                ForumBroadcastHelper forumBroadcastHelper = new ForumBroadcastHelper(this.b.a.getPageActivity());
-                if (this.b.b == 1) {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "3");
-                } else if (this.b.b == 2) {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "4");
-                } else {
-                    forumBroadcastHelper.jumpFlutterEditGenear(this.b.c, this.b.d, "0");
-                }
-                forumBroadcastHelper.clipCopy(this.b.e);
-                forumBroadcastHelper.start();
-            }
+    @Override // com.baidu.tieba.ze
+    public void changeSettingByType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q97 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(q97 q97Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q97Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q97Var;
+    @Override // com.baidu.tieba.ze
+    /* renamed from: getCrashKeys */
+    public String[] mo74getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921745) {
-                this.a.l();
-            }
-        }
+        return (String[]) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q97 a;
-
-        public b(q97 q97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q97Var;
+    @Override // com.baidu.tieba.ze
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
         }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().unRegisterListener(this.a.g);
-            }
-        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements u05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q97 a;
-
-        public d(q97 q97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q97Var;
+    @Override // com.baidu.tieba.ze
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
         }
-
-        @Override // com.baidu.tieba.u05.e
-        public void onClick(u05 u05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
-                f55.m().w("key_call_fans_no_tip_again", false);
-                this.a.f.dismiss();
-            }
-        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class e extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q97 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(q97 q97Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q97Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q97Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof ForumManagerRightsResMsg)) {
-                ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) httpResponsedMessage;
-                boolean i = f55.m().i("key_forum_broadcast_no_tip_again", false);
-                int i2 = forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount;
-                if (i) {
-                    if (this.a.b == 1) {
-                        this.a.a.showToast(R.string.top_success);
-                        return;
-                    } else if (this.a.b == 2) {
-                        this.a.a.showToast(R.string.set_good_success);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                this.a.n(i2);
-            }
-        }
+    @Override // com.baidu.tieba.ze
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "official_thread_enable_delete_switch" : (String) invokeV.objValue;
     }
 
-    public q97(TbPageContext tbPageContext) {
+    @Override // com.baidu.tieba.ze
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public q97() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new a(this, 2921745);
-        this.h = new b(this);
-        this.i = new e(this, CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
-        this.a = tbPageContext;
-        m();
-        tbPageContext.registerListener(this.i);
     }
 
-    public final void k(String str) {
+    public static boolean isOn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam("forum_id", str);
-            this.a.sendMessage(httpMessage);
-        }
-    }
-
-    public void j(int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
-            this.b = i;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            k(str);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f != null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            this.a.getPageActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            WindowManager.LayoutParams attributes = this.f.getWindow().getAttributes();
-            attributes.width = displayMetrics.widthPixels - (this.f.getDialogMargin() * 2);
-            this.f.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS, TbConfig.SERVER_ADDRESS + "c/f/forum/getForumMangerRights");
-            tbHttpMessageTask.setResponsedClass(ForumManagerRightsResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            u05 u05Var = new u05(this.a.getPageActivity());
-            this.f = u05Var;
-            u05Var.setUseNoTipAgainStyle(true);
-            this.f.setNegativeTextColor(R.color.CAM_X0105);
-            int i2 = this.b;
-            if (i2 == 1) {
-                this.f.setTitle(R.string.top_success);
-            } else if (i2 == 2) {
-                this.f.setTitle(R.string.set_good_success);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (SwitchManager.getInstance().findType("official_thread_enable_delete_switch") == 1) {
+                return true;
             }
-            this.f.setMessage(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f06c7), Integer.valueOf(i)));
-            this.f.setContentViewSize(1);
-            this.f.setPositiveButton(this.a.getString(R.string.obfuscated_res_0x7f0f11fc), new c(this, i));
-            this.f.setNegativeButton(this.a.getString(R.string.next_time), new d(this));
-            this.f.setOnDismissListener(this.h);
-            this.f.create(this.a).show();
-            MessageManager.getInstance().registerListener(this.g);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

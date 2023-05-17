@@ -6,7 +6,7 @@ import com.baidu.platform.comapi.basestruct.MapBound;
 import com.baidu.platform.comapi.bmsdk.BmLayer;
 import com.baidu.platform.comapi.map.MapStatus;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface MapViewInterface {
     boolean addBmLayer(BmLayer bmLayer);
 

@@ -1,148 +1,182 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.me;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class ee<T> implements le<T> {
+import com.squareup.wire.Message;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class ee {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final fe b;
 
-    public abstract he<T> i(String str);
-
-    public abstract void j(he<T> heVar);
-
-    public abstract void l(String str);
-
-    public abstract void m(String str);
-
-    public ee(fe feVar, boolean z) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final kd a(Object obj) {
+        InterceptResult invokeL;
+        ObjectOutputStream objectOutputStream;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {feVar, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = feVar;
-        this.a = z;
-    }
-
-    @Override // com.baidu.tieba.le
-    public T a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            he<T> k = k(str, str2);
-            if (k == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+            ObjectOutputStream objectOutputStream2 = 0;
+            if (obj == null) {
                 return null;
             }
-            return k.b;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.le
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            l(h(str, str2));
-        }
-    }
-
-    @Override // com.baidu.tieba.le
-    public me.b<T> e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            he<T> k = k(str, str2);
-            if (k == null) {
-                return null;
+            if (obj instanceof Boolean) {
+                return new ed(((Boolean) obj).booleanValue());
             }
-            me.b<T> bVar = new me.b<>();
-            bVar.a = str2;
-            bVar.b = k.b;
-            long j = k.f;
-            bVar.c = k.d;
-            return bVar;
-        }
-        return (me.b) invokeLL.objValue;
-    }
-
-    public String h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (this.a) {
-                return str + "@" + str2;
+            if (obj instanceof Bundle) {
+                return new fd((Bundle) obj);
             }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.le
-    public fe c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (fe) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.le
-    public void f(String str, String str2, T t, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
-            he<T> heVar = new he<>();
-            heVar.a = h(str, str2);
-            heVar.c = str;
-            heVar.f = j;
-            heVar.b = t;
-            heVar.e = System.currentTimeMillis();
-            heVar.d = System.currentTimeMillis();
-            j(heVar);
-        }
-    }
-
-    public he<T> k(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            String h = h(str, str2);
-            he<T> i = i(h);
-            if (i == null) {
-                BdLog.isDebugMode();
-                return null;
-            } else if (i.f < System.currentTimeMillis()) {
-                m(h);
-                BdLog.isDebugMode();
-                return null;
-            } else {
-                if (this.b.a()) {
-                    i.e = System.currentTimeMillis();
-                    j(i);
+            if (obj instanceof Byte) {
+                return new gd(((Byte) obj).byteValue());
+            }
+            if (obj instanceof Character) {
+                return new hd(((Character) obj).charValue());
+            }
+            if (obj instanceof Double) {
+                return new id(((Double) obj).doubleValue());
+            }
+            if (obj instanceof Float) {
+                return new jd(((Float) obj).floatValue());
+            }
+            if (obj instanceof Integer) {
+                return new ld(((Integer) obj).intValue());
+            }
+            if (obj instanceof JSONArray) {
+                return new md((JSONArray) obj);
+            }
+            if (obj instanceof JSONObject) {
+                return new nd((JSONObject) obj);
+            }
+            if (obj instanceof Long) {
+                return new pd(((Long) obj).longValue());
+            }
+            if (obj instanceof Short) {
+                return new vd(((Short) obj).shortValue());
+            }
+            if (obj instanceof String) {
+                return new xd((String) obj);
+            }
+            if (obj instanceof SparseArray) {
+                return new wd((SparseArray) obj);
+            }
+            if (obj instanceof List) {
+                return new od((List) obj);
+            }
+            if (obj instanceof Queue) {
+                return new td((Queue) obj);
+            }
+            if (obj instanceof Set) {
+                return new ud((Set) obj);
+            }
+            if (obj instanceof Map) {
+                return new qd((Map) obj);
+            }
+            if (obj instanceof Message) {
+                return new sd((Message) obj);
+            }
+            if (obj.getClass().isArray()) {
+                return new dd(obj);
+            }
+            if (obj instanceof CharSequence) {
+                return new xd(((CharSequence) obj).toString());
+            }
+            if (obj instanceof Serializable) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    try {
+                        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                        try {
+                            objectOutputStream.writeObject(obj);
+                            objectOutputStream.flush();
+                            dd ddVar = new dd(byteArrayOutputStream.toByteArray());
+                            try {
+                                objectOutputStream.close();
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
+                            }
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                            return ddVar;
+                        } catch (Exception e4) {
+                            e = e4;
+                            e.printStackTrace();
+                            rd rdVar = new rd(obj);
+                            if (objectOutputStream != null) {
+                                try {
+                                    objectOutputStream.close();
+                                } catch (IOException e5) {
+                                    e5.printStackTrace();
+                                }
+                            }
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (IOException e6) {
+                                e6.printStackTrace();
+                            }
+                            return rdVar;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        objectOutputStream2 = interceptable;
+                        if (objectOutputStream2 != 0) {
+                            try {
+                                objectOutputStream2.close();
+                            } catch (IOException e7) {
+                                e7.printStackTrace();
+                            }
+                        }
+                        try {
+                            byteArrayOutputStream.close();
+                        } catch (IOException e8) {
+                            e8.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e9) {
+                    objectOutputStream = null;
+                    e = e9;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (objectOutputStream2 != 0) {
+                    }
+                    byteArrayOutputStream.close();
+                    throw th;
                 }
-                BdLog.isDebugMode();
-                return i;
+            } else if (obj instanceof IBinder) {
+                return new rd(obj);
+            } else {
+                if (obj instanceof Parcelable) {
+                    return new rd(obj);
+                }
+                return new rd(obj);
             }
+        } else {
+            return (kd) invokeL.objValue;
         }
-        return (he) invokeLL.objValue;
     }
 }

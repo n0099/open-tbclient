@@ -1,26 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class zwa extends BroadcastReceiver {
+import java.util.HashMap;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class zwa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ wwa a;
-    public final /* synthetic */ vwa b;
+    public lra a;
+    public final csa b;
+    public final HashMap<String, esa> c;
 
-    public zwa(vwa vwaVar, wwa wwaVar) {
+    /* loaded from: classes8.dex */
+    public interface a<E> {
+        void a(E e);
+
+        void b(E e);
+    }
+
+    public zwa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vwaVar, wwaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,33 +34,20 @@ public final class zwa extends BroadcastReceiver {
                 return;
             }
         }
-        this.b = vwaVar;
-        this.a = wwaVar;
+        this.b = new csa();
+        this.c = new HashMap<>();
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if (!"com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) || extras == null || !extras.containsKey("install.status")) {
-                return;
-            }
-            this.b.p();
-            int i = extras.getInt("install.status");
-            if (i != 1 && i != 2 && i != 3) {
-                if (i != 4) {
-                    if (i == 6) {
-                        this.a.a(com.google.ar.core.p.CANCELLED);
-                        return;
-                    }
-                    return;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
+            for (E e : set2) {
+                if (set == null || !set.contains(e)) {
+                    aVar.b(e);
+                } else {
+                    aVar.a(e);
                 }
-                this.a.a(com.google.ar.core.p.COMPLETED);
-                return;
             }
-            this.a.a(com.google.ar.core.p.ACCEPTED);
         }
     }
 }

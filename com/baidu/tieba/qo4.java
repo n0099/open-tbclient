@@ -1,95 +1,178 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qo4 implements lo4<String> {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class qo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public JSONObject e;
+    public long f;
+    public int g;
+    public String h;
+    public String i;
+    public boolean j;
+    public String k;
 
-    public qo4(Context context) {
+    public qo4(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str;
+        this.b = str;
+        this.c = -1;
+        this.d = str2;
+        this.g = i;
+        if ((i & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
     }
 
-    @Override // com.baidu.tieba.lo4
-    public boolean a() {
+    public qo4(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str2;
+        this.b = str;
+        this.c = i;
+        this.d = str3;
+        this.g = i2;
+        if ((i2 & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+        try {
+            this.e = new JSONObject(this.d);
+        } catch (JSONException unused) {
+        }
+    }
+
+    public qo4(String str, String str2, int i, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str2;
+        this.b = str;
+        this.c = i;
+        this.d = str3;
+        this.g = i2;
+        if ((i2 & 2) == 0) {
+            if (j > 0) {
+                this.f = j;
+            } else {
+                this.f = System.currentTimeMillis();
+            }
+        }
+        if (!TextUtils.isEmpty(this.d)) {
+            try {
+                this.e = new JSONObject(this.d);
+            } catch (JSONException unused) {
+            }
+        }
+    }
+
+    public qo4(String str, JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.j = false;
+        this.k = "";
+        this.a = str;
+        this.b = str;
+        this.c = -1;
+        this.e = jSONObject;
+        this.g = i;
+        if ((i & 2) == 0) {
+            this.f = System.currentTimeMillis();
+        }
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.isEmpty(get());
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lo4
-    /* renamed from: b */
-    public String get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
+            JSONObject jSONObject = this.e;
+            if (jSONObject != null) {
+                return jSONObject.optString("bizId");
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public void b() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!to4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-                return null;
-            }
-            try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lo4
-    /* renamed from: d */
-    public void put(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
-        }
-    }
-
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !to4.a(this.a, "android.permission.WRITE_SETTINGS")) {
-            return;
-        }
-        try {
-            Settings.System.putString(this.a.getContentResolver(), "com.baidu.uuid", str);
-        } catch (Exception unused) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (str = this.a) != null && str.equals(this.b) && lo4.g().a(this.a)) {
+            this.h = mo4.g().h();
         }
     }
 }

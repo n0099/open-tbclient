@@ -2,7 +2,7 @@ package com.bytedance.sdk.openadsdk.api.plugin;
 
 import com.bytedance.pangle.download.PluginDownloadBean;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends PluginDownloadBean {
     public String a = "";
     public File b = null;

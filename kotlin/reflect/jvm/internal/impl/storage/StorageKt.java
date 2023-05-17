@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.storage;
 
 import kotlin.reflect.KProperty;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StorageKt {
     public static final <T> T getValue(NotNullLazyValue<? extends T> notNullLazyValue, Object obj, KProperty<?> kProperty) {
         return notNullLazyValue.invoke();

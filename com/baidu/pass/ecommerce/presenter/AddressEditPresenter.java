@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressEditPresenter extends BasePresenter<IBaseView> {
     public static final int CREATE_ADDR_CODE = 1004;
     public static final int DEL_ADDR_CODE = 1002;

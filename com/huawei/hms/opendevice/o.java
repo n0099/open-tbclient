@@ -5,7 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.jza;
+import com.baidu.tieba.h1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.huawei.hms.push.HmsMessaging;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.Util;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            return jza.c(context).a("client/project_id");
+            return h1b.c(context).a("client/project_id");
         }
         return (String) invokeL.objValue;
     }

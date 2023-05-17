@@ -40,7 +40,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.Route;
 import okhttp3.internal.connection.PreConnectParams;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractHttpManager {
     public static final String HEADER_X_T5_AUTH = "X-T5-Auth";
     public static final String TAG = "HttpManager";

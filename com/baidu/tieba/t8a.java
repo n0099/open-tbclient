@@ -1,19 +1,22 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface t8a {
-    void C();
 
-    void N();
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class t8a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void R();
-
-    void U0(int i, boolean z);
-
-    void c(String str);
-
-    void d();
-
-    void finish();
-
-    void setResult(int i);
+    public static void a(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65536, null, tbPageContext) != null) || tbPageContext == null) {
+            return;
+        }
+        BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
+        UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{TbConfig.getFeedBackUrl()}, true);
+    }
 }

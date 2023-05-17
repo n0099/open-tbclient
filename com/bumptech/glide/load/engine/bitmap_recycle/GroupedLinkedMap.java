@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
     public final LinkedEntry<K, V> head = new LinkedEntry<>();
     public final Map<K, LinkedEntry<K, V>> keyToEntry = new HashMap();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class LinkedEntry<K, V> {
         public final K key;
         public LinkedEntry<K, V> next;

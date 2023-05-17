@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MaskView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +193,7 @@ public class MaskView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080207, null);
+            this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080245, null);
         }
     }
 
@@ -309,10 +309,10 @@ public class MaskView extends View {
             this.a = i;
             if (i != 1) {
                 if (i == 2) {
-                    this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080206, null);
+                    this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080244, null);
                 }
             } else {
-                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080207, null);
+                this.f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080245, null);
             }
             invalidate();
         }

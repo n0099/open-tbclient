@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class jl extends jn {
     public int a;
 
@@ -12,12 +12,12 @@ public class jl extends jn {
 
     @Override // com.xiaomi.push.jn
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m613a = this.f818a.m613a();
+        byte[] m632a = this.f818a.m632a();
         if (i2 > this.f818a.a() - this.a) {
             i2 = this.f818a.a() - this.a;
         }
         if (i2 > 0) {
-            System.arraycopy(m613a, this.a, bArr, i, i2);
+            System.arraycopy(m632a, this.a, bArr, i, i2);
             this.a += i2;
         }
         return i2;
@@ -25,7 +25,7 @@ public class jl extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a */
-    public void mo639a(byte[] bArr, int i, int i2) {
+    public void mo658a(byte[] bArr, int i, int i2) {
         this.f818a.write(bArr, i, i2);
     }
 

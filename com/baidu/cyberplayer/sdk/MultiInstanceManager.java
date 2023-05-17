@@ -1,6 +1,6 @@
 package com.baidu.cyberplayer.sdk;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MultiInstanceManager {
     public static MediaInstanceManagerProvider a;
 

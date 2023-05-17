@@ -1,7 +1,7 @@
 package com.baidu.pass.biometrics.base.utils;
 
 import android.content.res.Resources;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DensityUtil {
     public float a = Resources.getSystem().getDisplayMetrics().density;
 

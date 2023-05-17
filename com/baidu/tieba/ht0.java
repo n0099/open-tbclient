@@ -1,29 +1,36 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface ht0 {
-    void a(int i);
 
-    void onBufferEnd();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmName;
+@JvmName(name = "InteractiveABConfig")
+/* loaded from: classes5.dex */
+public final class ht0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onBufferStart();
+    public static final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (it0.a() != 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void onEnd(int i);
-
-    void onError(int i, int i2, String str);
-
-    void onInfo(int i, int i2);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (it0.a() != 0 && it0.a() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 }

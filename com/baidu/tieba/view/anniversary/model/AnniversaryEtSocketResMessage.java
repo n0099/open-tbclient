@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t2a;
+import com.baidu.tieba.v4a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.VideoTemplate.VideoTemplateResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t2a resultData;
+    public v4a resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtSocketResMessage() {
@@ -38,13 +38,13 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public t2a getResultData() {
+    public v4a getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.resultData;
         }
-        return (t2a) invokeV.objValue;
+        return (v4a) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class AnniversaryEtSocketResMessage extends SocketResponsedMessage {
                     setErrorString(videoTemplateResIdl.error.usermsg);
                 }
                 if (videoTemplateResIdl.data != null) {
-                    t2a t2aVar = new t2a();
-                    this.resultData = t2aVar;
-                    t2aVar.g(videoTemplateResIdl.data);
+                    v4a v4aVar = new v4a();
+                    this.resultData = v4aVar;
+                    v4aVar.g(videoTemplateResIdl.data);
                 }
             }
             return videoTemplateResIdl;

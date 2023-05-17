@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppInlineFullScreenContainer extends FrameLayout {
     @Override // android.view.View
     @SuppressLint({"ClickableViewAccessibility"})

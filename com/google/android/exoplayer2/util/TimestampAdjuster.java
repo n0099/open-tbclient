@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import com.baidu.sapi2.SapiWebView;
 import com.google.android.exoplayer2.C;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TimestampAdjuster {
     public static final long DO_NOT_OFFSET = Long.MAX_VALUE;
     public static final long MAX_PTS_PLUS_ONE = 8589934592L;

@@ -1,57 +1,23 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface tja {
+    boolean available();
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class tja {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
+    int availableBytes();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(byte[] bArr, double d) throws Exception;
-    }
+    void clearQueues();
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+    void close();
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void flush();
 
-    public tja(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-    }
+    int getBytes(byte[] bArr, int i);
+
+    void initVoiceChanger(int i, int i2, int i3, int i4);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    void setVoiceChangeType(int[] iArr);
+
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

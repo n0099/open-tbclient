@@ -1,237 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.SecureRandom;
-import java.security.spec.AlgorithmParameterSpec;
-import java.security.spec.MGF1ParameterSpec;
-import java.util.Locale;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.OAEPParameterSpec;
-import javax.crypto.spec.PSource;
-/* loaded from: classes3.dex */
-public final class b00 {
+import javax.crypto.ShortBufferException;
+/* loaded from: classes4.dex */
+public final class b00 implements c00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public String b;
-    public e00 c;
-    public byte[] d;
-    public int e;
-    public c00 f;
-    public String g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947591015, "Lcom/baidu/tieba/b00;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947591015, "Lcom/baidu/tieba/b00;");
-        }
-    }
-
-    public b00() {
+    public b00(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = "SHA-1";
-        this.b = "PKCS1Padding";
+        this.a = i;
     }
 
-    public void a(int i, c00 c00Var, SecureRandom secureRandom) {
+    @Override // com.baidu.tieba.c00
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, c00Var, secureRandom) == null) {
-            try {
-                b(i, c00Var, secureRandom, null);
-            } catch (InvalidAlgorithmParameterException e) {
-                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
-                invalidKeyException.initCause(e);
-                throw invalidKeyException;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i2 = this.a;
+            return i2 - (i % i2);
         }
+        return invokeI.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00c8  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(int i, c00 c00Var, SecureRandom secureRandom, AlgorithmParameterSpec algorithmParameterSpec) {
-        boolean z;
-        OAEPParameterSpec oAEPParameterSpec;
+    @Override // com.baidu.tieba.c00
+    public void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), c00Var, secureRandom, algorithmParameterSpec}) != null) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || bArr == null) {
             return;
         }
-        if (i != 1) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        throw new InvalidKeyException("Unknown mode: " + i);
-                    }
-                }
-            }
-            z = false;
-            if (c00Var instanceof c00) {
-                throw new InvalidKeyException("only support helios key");
-            }
-            this.a = z ? 1 : 4;
-            this.f = c00Var;
-            int a = a00.a(c00Var.a());
-            this.e = 0;
-            String str = this.b;
-            if (str == "NoPadding") {
-                if (algorithmParameterSpec != null) {
-                    throw new InvalidAlgorithmParameterException("Parameters not supported");
-                }
-                this.c = e00.b(3, a, secureRandom);
-                this.d = new byte[a];
-                return;
-            } else if (str == "PKCS1Padding") {
-                if (algorithmParameterSpec != null) {
-                    throw new InvalidAlgorithmParameterException("Parameters not supported");
-                }
-                e00 b = e00.b(this.a > 2 ? 1 : 2, a, secureRandom);
-                this.c = b;
-                if (z) {
-                    this.d = new byte[b.a()];
-                    return;
-                } else {
-                    this.d = new byte[a];
-                    return;
-                }
-            } else {
-                int i2 = this.a;
-                if (i2 == 3 || i2 == 4) {
-                    throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
-                }
-                if (algorithmParameterSpec == null) {
-                    oAEPParameterSpec = new OAEPParameterSpec(this.g, "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
-                } else if (!(algorithmParameterSpec instanceof OAEPParameterSpec)) {
-                    throw new InvalidAlgorithmParameterException("Wrong Parameters for OAEP Padding");
-                } else {
-                    oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
-                }
-                e00 c = e00.c(4, a, secureRandom, oAEPParameterSpec);
-                this.c = c;
-                if (z) {
-                    this.d = new byte[c.a()];
-                    return;
-                } else {
-                    this.d = new byte[a];
-                    return;
-                }
-            }
+        if (i + i2 > bArr.length) {
+            throw new ShortBufferException("Buffer too small to hold padding");
         }
-        z = true;
-        if (c00Var instanceof c00) {
+        byte b = (byte) (i2 & 255);
+        for (int i3 = 0; i3 < i2; i3++) {
+            bArr[i3 + i] = b;
         }
     }
 
-    public final byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.e;
-            byte[] bArr = this.d;
-            if (i > bArr.length) {
-                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
-            }
-            try {
-                int i2 = this.a;
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 == 4) {
-                                return this.c.h(a00.e(a00.d(bArr, 0, i), this.f));
-                            }
-                            throw new AssertionError("Internal error");
-                        }
-                        throw new UnsupportedOperationException("only verify supported");
-                    }
-                    throw new UnsupportedOperationException("only verify supported");
-                }
-                return a00.e(this.c.g(bArr, 0, i), this.f);
-            } finally {
-                this.e = 0;
-            }
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public byte[] d(byte[] bArr, int i, int i2) {
+    @Override // com.baidu.tieba.c00
+    public int b(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
-            f(bArr, i, i2);
-            return c();
-        }
-        return (byte[]) invokeLII.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            String str2 = "NoPadding";
-            if (!str.equalsIgnoreCase("NoPadding")) {
-                str2 = "PKCS1Padding";
-                if (!str.equalsIgnoreCase("PKCS1Padding")) {
-                    String lowerCase = str.toLowerCase(Locale.ENGLISH);
-                    if (lowerCase.equals("oaeppadding")) {
-                        this.b = "OAEP";
-                        return;
-                    } else if (!lowerCase.startsWith("oaepwith") || !lowerCase.endsWith("andmgf1padding")) {
-                        throw new NoSuchPaddingException("Padding " + str + " not supported");
-                    } else {
-                        this.b = "OAEP";
-                        this.g = str.substring(8, str.length() - 14);
-                        throw new NoSuchPaddingException("MessageDigest not available for " + str);
-                    }
-                }
-            }
-            this.b = str2;
-        }
-    }
-
-    public final void f(byte[] bArr, int i, int i2) {
         int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
-            return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
+            if (bArr == null || i2 == 0) {
+                return 0;
+            }
+            int i4 = i2 + i;
+            int i5 = bArr[i4 - 1];
+            int i6 = i5 & 255;
+            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
+                return -1;
+            }
+            for (int i7 = 0; i7 < i6; i7++) {
+                if (bArr[i3 + i7] != i5) {
+                    return -1;
+                }
+            }
+            return i3;
         }
-        int i4 = this.e;
-        int i5 = i4 + i2;
-        byte[] bArr2 = this.d;
-        if (i5 > bArr2.length) {
-            i3 = bArr2.length + 1;
-        } else {
-            System.arraycopy(bArr, i, bArr2, i4, i2);
-            i3 = this.e + i2;
-        }
-        this.e = i3;
+        return invokeLII.intValue;
     }
 }

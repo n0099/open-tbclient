@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PicManager {
     public static /* synthetic */ Interceptable $ic;
     public static PicManager instance;
     public static final BdUniqueId taskId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class SaveImgCacheAsyncTask extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,17 +135,17 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new tm(fixBitmap, z2));
+                addPicMemoryCache(str, new cn(fixBitmap, z2));
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public static void addPicMemoryCache(String str, tm tmVar) {
+    public static void addPicMemoryCache(String str, cn cnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, tmVar) == null) {
-            TbImageMemoryCache.v().m(str, tmVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cnVar) == null) {
+            TbImageMemoryCache.u().l(str, cnVar);
         }
     }
 
@@ -153,8 +153,8 @@ public class PicManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds408);
-            int g2 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds174);
+            int g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds408);
+            int g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds174);
             float f = (i * 1.0f) / i2;
             int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
             if (i3 == 0) {
@@ -311,7 +311,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    TbImageMemoryCache.v().t(imageSize);
+                    TbImageMemoryCache.u().s(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

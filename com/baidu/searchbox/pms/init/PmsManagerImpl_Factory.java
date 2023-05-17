@@ -1,5 +1,5 @@
 package com.baidu.searchbox.pms.init;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PmsManagerImpl_Factory {
     public static volatile PmsManagerImpl instance;
 

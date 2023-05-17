@@ -1,87 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.adapter.PbAppEmptyHolder;
+import android.content.ComponentName;
+import android.content.pm.PackageManager;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class he9 extends vm<op9, PbAppEmptyHolder> implements vd9 {
+/* loaded from: classes5.dex */
+public class he9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
 
-    @Override // com.baidu.tieba.vd9
-    public void setIsFromCDN(boolean z) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public he9(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
-        super(baseFragmentActivity.getPageContext().getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            if (StringUtils.isNull(systemProperty) || pg.e(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) < 9) {
+                return false;
             }
+            return true;
         }
-        this.a = baseFragmentActivity;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public PbAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View view2 = new View(this.a.getPageContext().getPageActivity());
-            view2.setVisibility(8);
-            return new PbAppEmptyHolder(view2);
-        }
-        return (PbAppEmptyHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, op9 op9Var, PbAppEmptyHolder pbAppEmptyHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, op9Var, pbAppEmptyHolder})) == null) {
-            AdvertAppInfo advertAppInfo = op9Var.getAdvertAppInfo();
-            if (advertAppInfo != null) {
-                fx4 fx4Var = advertAppInfo.i;
-                if (advertAppInfo.c == -1001) {
-                    z = true;
-                } else {
-                    z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
+            try {
+                try {
+                } catch (PackageManager.NameNotFoundException unused) {
+                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
+                        return true;
+                    }
                 }
-                fx4.g(fx4Var, op9Var.getPosition(), z);
+            } catch (PackageManager.NameNotFoundException unused2) {
             }
-            return pbAppEmptyHolder.getView();
+            if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null) {
+                return true;
+            }
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 }

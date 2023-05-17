@@ -1,5 +1,5 @@
 package com.baidu.sapi2.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface SapiEnv {
     public static final String APP_UC_PASS_LOGIN = "/v3/login/appuc2passlogin";
     public static final String CAPTCHA_URI = "/cgi-bin/genimage?";

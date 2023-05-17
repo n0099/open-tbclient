@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.impl.ClassConstructorDescrip
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorFactory;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JavaClassConstructorDescriptor extends ClassConstructorDescriptorImpl implements JavaCallableMemberDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public Boolean hasStableParameterNames;

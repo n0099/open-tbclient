@@ -11,7 +11,7 @@ import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.api.im.live.LiveSendMessageListener;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveIMManager implements LiveIM {
     public static final boolean DEBUG = false;
     public static final String TAG = "LiveIMController";

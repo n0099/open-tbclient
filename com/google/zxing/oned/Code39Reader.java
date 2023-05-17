@@ -3,7 +3,6 @@ package com.google.zxing.oned;
 import com.baidu.location.BDLocation;
 import com.baidu.pass.face.platform.utils.FileUtils;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.ChecksumException;
@@ -16,7 +15,7 @@ import com.google.zxing.common.BitArray;
 import com.google.zxing.maxicode.decoder.DecodedBitStreamParser;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Code39Reader extends OneDReader {
     public static final String ALPHABET_STRING = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%";
     public static final int ASTERISK_ENCODING;
@@ -28,7 +27,7 @@ public final class Code39Reader extends OneDReader {
     public final boolean usingCheckDigit;
 
     static {
-        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, 280, 88, 13, 268, 76, 28, ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, Cea708Decoder.COMMAND_SPC, 400, 208, 133, 388, 196, 148, 168, BDLocation.TypeServerDecryptError, 138, 42};
+        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, 280, 88, 13, 268, 76, 28, ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, 145, 400, 208, 133, 388, 196, 148, 168, BDLocation.TypeServerDecryptError, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }

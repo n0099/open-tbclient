@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KsToastView extends LinearLayout {
     public int countDown;
     public TextView wC;
@@ -52,8 +52,8 @@ public class KsToastView extends LinearLayout {
     }
 
     private void init(Context context) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0478, this);
-        this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f091388);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0495, this);
+        this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c3);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

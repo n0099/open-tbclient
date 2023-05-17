@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedToolInfo implements Parcelable {
     public static final Parcelable.Creator<LiveFeedToolInfo> CREATOR = new Parcelable.Creator<LiveFeedToolInfo>() { // from class: com.baidu.live.business.model.data.LiveFeedToolInfo.1
         /* JADX DEBUG: Method merged with bridge method */

@@ -17,7 +17,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static com.bytedance.pangle.util.d<Integer, byte[]> a(MappedByteBuffer mappedByteBuffer, int i, String str) {
         if (mappedByteBuffer.getInt(i) == 67324752) {

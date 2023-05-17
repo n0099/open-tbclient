@@ -3,7 +3,7 @@ package com.baidu.live.business.model.data;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedData {
     public LiveBannerWrapData bannerWrapData;
     public int errno;

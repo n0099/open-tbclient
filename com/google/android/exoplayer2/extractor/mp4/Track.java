@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.Format;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Track {
     public static final int TRANSFORMATION_CEA608_CDAT = 1;
     public static final int TRANSFORMATION_NONE = 0;
@@ -24,7 +24,7 @@ public final class Track {
     public final int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Transformation {
     }
 

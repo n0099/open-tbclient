@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launch.stats;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class AttachWindowSpeedStats extends AbstractSpeedStats {
     public static final String CONCERN_TAB_DURATION = "ConcernTabFragment";
     public static final String CUSTOM_VIEW_PAPER_INIT = "CustomViewPagerInit";

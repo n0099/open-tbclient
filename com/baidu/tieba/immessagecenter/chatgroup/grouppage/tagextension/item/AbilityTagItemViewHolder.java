@@ -11,41 +11,41 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a78;
-import com.baidu.tieba.ca8;
-import com.baidu.tieba.dh8;
-import com.baidu.tieba.f98;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.ab8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.v98;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qb8;
+import com.baidu.tieba.s88;
+import com.baidu.tieba.xb8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView c;
     public final TbImageView d;
     public final View e;
-    public f98 f;
+    public ab8 f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a78 a;
+        public final /* synthetic */ s88 a;
         public final /* synthetic */ AbilityTagItemViewHolder b;
 
-        public a(AbilityTagItemViewHolder abilityTagItemViewHolder, a78 a78Var) {
+        public a(AbilityTagItemViewHolder abilityTagItemViewHolder, s88 s88Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {abilityTagItemViewHolder, a78Var};
+                Object[] objArr = {abilityTagItemViewHolder, s88Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
                 }
             }
             this.b = abilityTagItemViewHolder;
-            this.a = a78Var;
+            this.a = s88Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -64,19 +64,19 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a != null && this.b.f != null) {
                 this.a.c(this.b.f.b(), this.b.f.c());
-                v98.c("c15210", 2, this.b.f.b(), this.b.f.c());
+                qb8.c("c15210", 2, this.b.f.b(), this.b.f.c());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbilityTagItemViewHolder(@NonNull View view2, @Nullable a78 a78Var) {
+    public AbilityTagItemViewHolder(@NonNull View view2, @Nullable s88 s88Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, a78Var};
+            Object[] objArr = {view2, s88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,7 +90,7 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f090025);
         this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090026);
         this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090027);
-        this.e.setOnClickListener(new a(this, a78Var));
+        this.e.setOnClickListener(new a(this, s88Var));
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
@@ -103,18 +103,18 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void f(@NonNull ca8 ca8Var, Context context, int i) {
+    public void f(@NonNull xb8 xb8Var, Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, ca8Var, context, i) == null) {
-            super.f(ca8Var, context, i);
-            if (ca8Var instanceof f98) {
-                f98 f98Var = (f98) ca8Var;
-                this.f = f98Var;
-                if (f98Var.b() != null && this.f.b().getStyleConf() != null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, xb8Var, context, i) == null) {
+            super.f(xb8Var, context, i);
+            if (xb8Var instanceof ab8) {
+                ab8 ab8Var = (ab8) xb8Var;
+                this.f = ab8Var;
+                if (ab8Var.b() != null && this.f.b().getStyleConf() != null) {
                     this.c.setText(this.f.b().getStyleConf().getContent());
                 }
                 n(TbadkCoreApplication.getInst().getSkinType());
-                v98.c("c15210", 1, this.f.b(), this.f.c());
+                qb8.c("c15210", 1, this.f.b(), this.f.c());
             }
         }
     }
@@ -132,11 +132,11 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
     }
 
     public final void n(int i) {
-        f98 f98Var;
+        ab8 ab8Var;
         AbilityItem.StyleConf styleConf;
         AbilityItem.Style m;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (f98Var = this.f) == null || f98Var.b() == null || this.f.b().getStyleConf() == null || (m = m((styleConf = this.f.b().getStyleConf()), i)) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (ab8Var = this.f) == null || ab8Var.b() == null || this.f.b().getStyleConf() == null || (m = m((styleConf = this.f.b().getStyleConf()), i)) == null) {
             return;
         }
         if (TextUtils.isEmpty(styleConf.getContent()) && !TextUtils.isEmpty(m.getIcon())) {
@@ -148,19 +148,19 @@ public class AbilityTagItemViewHolder extends BaseTagItemViewHolder {
         }
         this.d.setVisibility(8);
         this.c.setVisibility(0);
-        if (!dh8.a(dh8.b(m.getContentColor()))) {
-            this.c.setTextColor(dh8.b(m.getContentColor()));
+        if (!yi8.a(yi8.b(m.getContentColor()))) {
+            this.c.setTextColor(yi8.b(m.getContentColor()));
         } else {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0302);
         }
-        if (!dh8.a(dh8.b(m.getBackgroundColor()))) {
-            g35.d(this.e).g(m.getBackgroundColor());
+        if (!yi8.a(yi8.b(m.getBackgroundColor()))) {
+            p45.d(this.e).g(m.getBackgroundColor());
         } else {
-            g35.d(this.e).f(R.color.CAM_X0905);
+            p45.d(this.e).f(R.color.CAM_X0905);
         }
-        g35 d = g35.d(this.c);
+        p45 d = p45.d(this.c);
         d.B(R.dimen.T_X08);
         d.C(R.string.F_X01);
-        g35.d(this.e).o(R.string.deprecated_J_X19);
+        p45.d(this.e).o(R.string.deprecated_J_X19);
     }
 }

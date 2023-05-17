@@ -1,89 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class k07 extends LinkMovementMethod {
+/* loaded from: classes6.dex */
+public final class k07 {
     public static /* synthetic */ Interceptable $ic;
-    public static final k07 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859351, "Lcom/baidu/tieba/k07;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947859351, "Lcom/baidu/tieba/k07;");
-                return;
+            if (obj instanceof k07) {
+                k07 k07Var = (k07) obj;
+                return Intrinsics.areEqual(this.a, k07Var.a) && Intrinsics.areEqual(this.b, k07Var.b);
             }
+            return false;
         }
-        a = new k07();
+        return invokeL.booleanValue;
     }
 
-    public k07() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public k07(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView widget, Spannable buffer, MotionEvent event) {
-        InterceptResult invokeLLL;
-        boolean z;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, widget, buffer, event)) == null) {
-            Intrinsics.checkNotNullParameter(widget, "widget");
-            Intrinsics.checkNotNullParameter(buffer, "buffer");
-            Intrinsics.checkNotNullParameter(event, "event");
-            int action = event.getAction();
-            if (action == 0 || action == 1) {
-                int x = ((int) event.getX()) - widget.getTotalPaddingLeft();
-                int y = ((int) event.getY()) - widget.getTotalPaddingTop();
-                int scrollX = x + widget.getScrollX();
-                int scrollY = y + widget.getScrollY();
-                Layout layout = widget.getLayout();
-                int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                ClickableSpan[] links = (ClickableSpan[]) buffer.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-                Intrinsics.checkNotNullExpressionValue(links, "links");
-                if (links.length == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    ClickableSpan clickableSpan = links[0];
-                    if (action == 1 && clickableSpan != null) {
-                        clickableSpan.onClick(widget);
-                    }
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

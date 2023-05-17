@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.c.c.j;
 import com.meizu.cloud.pushsdk.c.g.f;
 import com.meizu.cloud.pushsdk.c.g.l;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends j {
     public final j a;
     public com.meizu.cloud.pushsdk.c.g.c b;

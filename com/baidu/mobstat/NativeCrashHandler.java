@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class NativeCrashHandler {
     public static boolean a;
     public static Context b;

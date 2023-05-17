@@ -1,49 +1,111 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class hn6 implements Comparator<y> {
+/* loaded from: classes5.dex */
+public final class hn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public final Object b;
+    public Object c;
 
-    public hn6() {
+    public hn6(BdUniqueId id, Object tag) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {id, tag};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(id, "id");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        this.a = id;
+        this.b = tag;
+    }
+
+    public hn6(TbPageContext<?> pageContext, Object tag) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pageContext, tag};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        BdUniqueId uniqueId = pageContext.getUniqueId();
+        Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
+        this.a = uniqueId;
+        this.b = tag;
+    }
+
+    public final void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.c = obj;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(y entity1, y entity2) {
-        InterceptResult invokeLL;
-        ym6 a;
-        kn6 b;
-        ym6 a2;
+    public final BdUniqueId b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
-            Intrinsics.checkNotNullParameter(entity1, "entity1");
-            Intrinsics.checkNotNullParameter(entity2, "entity2");
-            kn6 b2 = io6.b(entity2);
-            if (b2 == null || (a = b2.a()) == null || (b = io6.b(entity1)) == null || (a2 = b.a()) == null) {
-                return 0;
-            }
-            return a2.compareTo(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeLL.intValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Object obj = this.c;
+            if (obj != null) {
+                i = obj.hashCode();
+            } else {
+                i = 0;
+            }
+            return (this.a.hashCode() * 31) + this.b.hashCode() + (i * 17);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj == null || !(obj instanceof hn6)) {
+                return false;
+            }
+            hn6 hn6Var = (hn6) obj;
+            if (!Intrinsics.areEqual(this.a, hn6Var.a) || !Intrinsics.areEqual(hn6Var.b, this.b) || !Intrinsics.areEqual(hn6Var.c, this.c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

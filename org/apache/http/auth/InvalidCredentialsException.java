@@ -1,6 +1,6 @@
 package org.apache.http.auth;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InvalidCredentialsException extends AuthenticationException {
     public InvalidCredentialsException() {
         throw new RuntimeException("Stub!");

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e41);
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902c9);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902ca);
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902c8);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e9d);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902d6);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902d7);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902d5);
     }
 }

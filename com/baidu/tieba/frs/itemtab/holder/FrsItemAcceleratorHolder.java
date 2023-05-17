@@ -7,22 +7,22 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ef7;
+import com.baidu.tieba.ea7;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
-import com.baidu.tieba.m65;
-import com.baidu.tieba.r87;
+import com.baidu.tieba.rg7;
+import com.baidu.tieba.v75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsItemAcceleratorView a;
     public BdUniqueId b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,11 +53,11 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 return;
             }
             this.a.f(2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(19)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(19)));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
                 return;
             }
             this.a.f(1);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(18)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new v75(18)));
         }
     }
 
@@ -116,11 +116,11 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void b(ef7 ef7Var) {
+    public void b(rg7 rg7Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ef7Var) == null) && (frsItemAcceleratorView = this.a) != null) {
-            frsItemAcceleratorView.setBtnColor(ef7Var.b());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, rg7Var) == null) && (frsItemAcceleratorView = this.a) != null) {
+            frsItemAcceleratorView.setBtnColor(rg7Var.b());
             this.a.setBtnImgClickListener(new a(this));
             this.a.setBtnDescClickListener(new b(this));
         }
@@ -129,7 +129,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new r87(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ea7(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

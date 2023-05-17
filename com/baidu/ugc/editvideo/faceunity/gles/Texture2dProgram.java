@@ -3,11 +3,12 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.hla;
+import com.baidu.tieba.fna;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Texture2dProgram {
     public static final String FRAGMENT_SHADER_2D = "precision mediump float;\nvarying vec2 vTextureCoord;\nuniform sampler2D sTexture;\nuniform float alpha;\nvoid main() {\n    vec4 color = texture2D(sTexture, vTextureCoord);\n    gl_FragColor = color * alpha;\n}\n";
     public static final String FRAGMENT_SHADER_2D_BLEND = "precision mediump float;\nvarying vec2 vTextureCoord;\nvarying vec2 vTextureCoord2;\nuniform sampler2D sTexture;\nuniform sampler2D sTexture2;\nuniform float thresholdSensitivity;\nuniform float smoothing;\nuniform vec3 colorToReplace;\nconst highp vec3 W = vec3(0.2125, 0.7154, 0.0721);void main() {\n    vec4 textureColor =texture2D(sTexture, vTextureCoord);\n    vec4 textureColor2 =texture2D(sTexture2, vTextureCoord2);\n    float maskY = 0.2989 * colorToReplace.r + 0.5866 * colorToReplace.g + 0.1145 * colorToReplace.b;\n    float maskCr = 0.7132 * (colorToReplace.r - maskY);\n    float maskCb = 0.5647 * (colorToReplace.b - maskY);\n    float Y = 0.2989 * textureColor.r + 0.5866 * textureColor.g + 0.1145 * textureColor.b;\n    float Cr = 0.7132 * (textureColor.r - Y);\n    float Cb = 0.5647 * (textureColor.b - Y);\n    float L = dot(textureColor.rgb, W);\n    float maskL = dot(colorToReplace.rgb, W);\n    float blendValue = 1.0 - smoothstep(thresholdSensitivity, thresholdSensitivity + smoothing, distance(vec3(Cr, Cb, L), vec3(maskCr, maskCb, maskL)));\n    gl_FragColor = mix(textureColor, textureColor2, blendValue);\n}\n";
@@ -52,7 +53,7 @@ public class Texture2dProgram {
     public float mDx = 0.01f;
     public float mDy = 0.01f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ProgramType {
         TEXTURE_2D,
         TEXTURE_EXT,
@@ -74,7 +75,7 @@ public class Texture2dProgram {
     }
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Texture2dProgram$ProgramType;
 
@@ -195,7 +196,7 @@ public class Texture2dProgram {
                 throw new RuntimeException("Unhandled type " + programType);
         }
         if (this.mProgramHandle != 0) {
-            hla.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
+            fna.c("Grafika", "Created program " + this.mProgramHandle + " (" + programType + SmallTailInfo.EMOTION_SUFFIX);
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -391,7 +392,7 @@ public class Texture2dProgram {
     }
 
     public void release() {
-        hla.c("Grafika", "deleting program " + this.mProgramHandle);
+        fna.c("Grafika", "deleting program " + this.mProgramHandle);
         GLES20.glDeleteProgram(this.mProgramHandle);
         this.mProgramHandle = -1;
     }
@@ -431,7 +432,7 @@ public class Texture2dProgram {
             GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "distance"), this.mDistance);
         }
         if (this.mProgramType == ProgramType.TEXTURE_2D_FOLLOW) {
-            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dx"), this.mDx);
+            GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, LoginConstants.DX_ONE_KEY_LOGIN), this.mDx);
             GLES20.glUniform1f(GLES20.glGetUniformLocation(this.mProgramHandle, "dy"), this.mDy);
         }
     }

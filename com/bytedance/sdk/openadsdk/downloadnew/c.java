@@ -1,7 +1,6 @@
 package com.bytedance.sdk.openadsdk.downloadnew;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -11,10 +10,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public InputStream a;
         public Map<String, String> b;
@@ -63,7 +62,7 @@ public class c {
         }
         try {
             httpURLConnection.setInstanceFollowRedirects(false);
-            httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+            httpURLConnection.setRequestProperty("accept", "*/*");
             httpURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
             if (map != null && !map.isEmpty()) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {

@@ -1,164 +1,188 @@
 package com.baidu.tieba;
 
-import android.graphics.Point;
-import android.view.MotionEvent;
-import android.view.View;
-import android.widget.ListView;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
-import com.baidu.tieba.kt5;
+import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
+import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class os8 {
     public static /* synthetic */ Interceptable $ic;
+    public static os8 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleDragSortListView a;
-    public final a b;
-    public final kt5 c;
+    public long a;
+    @SuppressLint({"HandlerLeak"})
+    public final Handler b;
+    public final hb c;
 
-    /* loaded from: classes5.dex */
-    public static class a extends lt5 {
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int F;
-        public int G;
-        public ListView H;
+        public final /* synthetic */ os8 a;
 
-        @Override // com.baidu.tieba.ot5, com.baidu.tieba.kt5.j
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(kt5 kt5Var, ListView listView) {
-            super(kt5Var, listView, 0, 2, 0);
+        public a(os8 os8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kt5Var, listView};
+                Object[] objArr = {os8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((kt5) objArr2[0], (ListView) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.F = 0;
-            this.G = Integer.MAX_VALUE;
-            r(false);
-            this.H = listView;
+            this.a = os8Var;
         }
 
-        @Override // com.baidu.tieba.lt5, com.baidu.tieba.kt5.j
-        public void c(View view2, Point point, Point point2) {
-            View view3;
-            int top;
-            int top2;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, point, point2) == null) {
-                int firstVisiblePosition = this.H.getFirstVisiblePosition();
-                int dividerHeight = this.H.getDividerHeight();
-                int headerViewsCount = (this.F - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int headerViewsCount2 = (this.G - firstVisiblePosition) + this.H.getHeaderViewsCount();
-                int childCount = this.H.getChildCount();
-                View view4 = null;
-                if (headerViewsCount >= 0 && headerViewsCount < childCount) {
-                    view3 = this.H.getChildAt(headerViewsCount);
-                } else {
-                    view3 = null;
-                }
-                if (headerViewsCount2 >= 0 && headerViewsCount2 < childCount) {
-                    view4 = this.H.getChildAt(headerViewsCount2);
-                }
-                if (view3 != null && point.y < (top2 = view3.getTop())) {
-                    point.y = top2;
-                }
-                if (view4 != null && point.y > (top = (view4.getTop() - dividerHeight) - view2.getHeight())) {
-                    point.y = top;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.lt5
-        public int w(MotionEvent motionEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-                int n = super.n(motionEvent);
-                int headerViewsCount = n - this.H.getHeaderViewsCount();
-                if (headerViewsCount >= this.F && headerViewsCount < this.G) {
-                    return n;
-                }
-                return -1;
-            }
-            return invokeL.intValue;
-        }
-
-        public void z(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-                this.F = i;
-                this.G = i2;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                this.a.a = System.currentTimeMillis();
+                MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
+                this.a.b.sendMessageDelayed(this.a.b.obtainMessage(1), 1800000L);
             }
         }
     }
 
-    public os8(SimpleDragSortListView simpleDragSortListView) {
+    /* loaded from: classes6.dex */
+    public class b extends hb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(os8 os8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {os8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
+                nb5.h0().a0(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948042933, "Lcom/baidu/tieba/os8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948042933, "Lcom/baidu/tieba/os8;");
+                return;
+            }
+        }
+        zq9.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
+        d = null;
+    }
+
+    public static synchronized os8 d() {
+        InterceptResult invokeV;
+        os8 os8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (os8.class) {
+                if (d == null) {
+                    d = new os8();
+                }
+                os8Var = d;
+            }
+            return os8Var;
+        }
+        return (os8) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.removeMessages(1);
+            this.b.removeMessages(2);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = 0L;
+            c();
+            f();
+        }
+    }
+
+    public os8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {simpleDragSortListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = simpleDragSortListView;
-        kt5 kt5Var = new kt5(simpleDragSortListView, simpleDragSortListView.getViewSuperMethods());
-        this.c = kt5Var;
-        simpleDragSortListView.setDragSortViewEventDelegate(kt5Var);
-        a aVar = new a(this.c, simpleDragSortListView);
-        this.b = aVar;
-        aVar.d(-1);
-        this.c.s0(this.b);
-        this.c.u0(this.b);
-        simpleDragSortListView.setOnTouchListener(this.b);
+        this.a = 0L;
+        this.b = new a(this);
+        this.c = new b(this, 303005);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public void a(boolean z) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.c.o0(z);
-        }
-    }
-
-    public void c(kt5.i iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iVar) == null) {
-            this.c.t0(iVar);
-        }
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.b.z(i, i2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            if (currentTimeMillis <= 0) {
+                currentTimeMillis = 0;
+            }
+            if (currentTimeMillis >= 1800000) {
+                Handler handler = this.b;
+                handler.sendMessageDelayed(handler.obtainMessage(1), 10000L);
+            } else {
+                long j = 1800000 - currentTimeMillis;
+                Handler handler2 = this.b;
+                handler2.sendMessageDelayed(handler2.obtainMessage(1), j);
+            }
+            this.a = System.currentTimeMillis();
         }
     }
 }

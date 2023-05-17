@@ -1,12 +1,16 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.StartupCountStatsController;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.GrowthStatsUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.as4;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.cm;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.jt4;
+/* loaded from: classes4.dex */
 public class InitSDKTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -37,7 +41,18 @@ public class InitSDKTask extends LaunchTask {
 
     private void initTBTaskSDK() {
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            as4.f().g(TbadkCoreApplication.getInst());
+            jt4.f().g(TbadkCoreApplication.getInst());
+        }
+    }
+
+    private void initTurbonet() {
+        try {
+            String a = jm.a("libturbonet.so");
+            if (FileUtils.exists(a)) {
+                cm.d(TbadkCoreApplication.getInst().getClassLoader(), a);
+            }
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 
@@ -47,5 +62,6 @@ public class InitSDKTask extends LaunchTask {
         initCountStats();
         initGrowthSdk();
         initTBTaskSDK();
+        initTurbonet();
     }
 }

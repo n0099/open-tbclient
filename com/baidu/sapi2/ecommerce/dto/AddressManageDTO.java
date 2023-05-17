@@ -8,7 +8,7 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.ecommerce.callback.MapStatusAndLocateCallback;
 import com.baidu.sapi2.ecommerce.enums.PassAddrColorLocation;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressManageDTO extends SapiWebDTO implements NoProguard {
     public static final String ADDRESS_EDIT = "1";
     public static final String ADDRESS_LIST = "0";

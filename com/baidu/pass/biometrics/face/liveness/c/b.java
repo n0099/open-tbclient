@@ -7,7 +7,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import com.baidu.pass.biometrics.base.debug.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static final String g = "b";
     public static long h = 1000;
@@ -19,17 +19,17 @@ public class b {
     public float f = 2.1474836E9f;
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0120b {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0124b {
         void a(float f);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements SensorEventListener {
-        public final /* synthetic */ InterfaceC0120b a;
+        public final /* synthetic */ InterfaceC0124b a;
 
-        public a(InterfaceC0120b interfaceC0120b) {
-            this.a = interfaceC0120b;
+        public a(InterfaceC0124b interfaceC0124b) {
+            this.a = interfaceC0124b;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -49,9 +49,9 @@ public class b {
                 Log.w(str2, "onSensorChanged() event.values[0]:" + b.this.f);
             }
             b.this.e = System.currentTimeMillis();
-            InterfaceC0120b interfaceC0120b = this.a;
-            if (interfaceC0120b != null) {
-                interfaceC0120b.a(b.this.a());
+            InterfaceC0124b interfaceC0124b = this.a;
+            if (interfaceC0124b != null) {
+                interfaceC0124b.a(b.this.a());
             }
         }
     }
@@ -77,7 +77,7 @@ public class b {
     }
 
     @TargetApi(3)
-    public void a(InterfaceC0120b interfaceC0120b) {
+    public void a(InterfaceC0124b interfaceC0124b) {
         SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
         this.b = sensorManager;
         if (sensorManager == null) {
@@ -89,7 +89,7 @@ public class b {
         if (defaultSensor == null) {
             return;
         }
-        a aVar = new a(interfaceC0120b);
+        a aVar = new a(interfaceC0124b);
         this.d = aVar;
         this.b.registerListener(aVar, this.c, 3);
     }

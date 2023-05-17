@@ -1,24 +1,57 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class to4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
+public interface to4 {
+    String a();
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || context.checkSelfPermission(str) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    String b();
+
+    boolean c(String str);
+
+    ExecutorService d();
+
+    void e(String str, int i, JSONArray jSONArray);
+
+    void f(String str, int i);
+
+    void g(String str, String str2, int i, String str3, int i2);
+
+    String getAppId();
+
+    String getAppVersion();
+
+    String getDeviceId(Context context);
+
+    String getScene();
+
+    String h();
+
+    void i(String str, int i, String str2);
+
+    boolean j();
+
+    int k();
+
+    uo4 l();
+
+    String m();
+
+    void n(String str, String str2, int i, String str3, long j, int i2);
+
+    String o(Context context);
+
+    boolean p();
+
+    boolean q();
+
+    boolean r();
+
+    String s();
+
+    String t();
+
+    String u(Context context);
 }

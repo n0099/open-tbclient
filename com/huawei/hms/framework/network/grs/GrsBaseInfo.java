@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.common.Logger;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GrsBaseInfo implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -29,7 +29,7 @@ public class GrsBaseInfo implements Cloneable {
     public String uid;
     public String versionName;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface CountryCodeSource {
         public static final String APP = "APP";
         public static final String LOCALE_INFO = "LOCALE_INFO";
@@ -155,7 +155,7 @@ public class GrsBaseInfo implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public GrsBaseInfo m92clone() {
+    public GrsBaseInfo m111clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (GrsBaseInfo) super.clone() : (GrsBaseInfo) invokeV.objValue;

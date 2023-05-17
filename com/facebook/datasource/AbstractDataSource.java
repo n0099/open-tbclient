@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     @Nullable
     public static volatile DataSourceInstrumenter sDataSourceInstrumenter;
@@ -27,12 +27,12 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public DataSourceStatus mDataSourceStatus = DataSourceStatus.IN_PROGRESS;
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers = new ConcurrentLinkedQueue<>();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface DataSourceInstrumenter {
         Runnable decorateRunnable(Runnable runnable, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum DataSourceStatus {
         IN_PROGRESS,
         SUCCESS,

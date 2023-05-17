@@ -3,7 +3,7 @@ package org.aspectj.runtime.internal.cflowstack;
 import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Stack;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ThreadStackImpl11 implements ThreadStack {
     public static final int COLLECT_AT = 20000;
     public static final int MIN_COLLECT_AT = 100;

@@ -3,7 +3,7 @@ package tv.athena.revenue.api.pay.params;
 import androidx.annotation.Keep;
 import java.util.Map;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class AppCustomExpand {
     public Map<String, String> appClientExpand;
     public Map<String, String> appServerExpand;

@@ -7,9 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.Looper;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.yy.hiidostatis.inner.util.Counter;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlushManager {
     public static final Object OBJ_KEY = new Object();
     public static Handler mHandler = new Handler(Looper.getMainLooper());
@@ -17,12 +18,12 @@ public class FlushManager {
     public ConnectionChangeReceiver mReceiver;
     public ReportTimer mReportTimer = new ReportTimer();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface FlushListener {
         void fluch(Context context);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class ConnectionChangeReceiver extends BroadcastReceiver {
         public ConnectionChangeReceiver() {
         }
@@ -30,7 +31,7 @@ public class FlushManager {
         public void registerReceiver(Context context) {
             try {
                 L.debug(this, "ConnectionChangeReceiver registerReceiver", new Object[0]);
-                context.registerReceiver(this, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+                context.registerReceiver(this, new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION));
             } catch (Throwable unused) {
                 L.debug(this, "ConnectionChangeReceiver registerReceiver failure", new Object[0]);
             }
@@ -47,14 +48,14 @@ public class FlushManager {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE") && FlushManager.this.l != null) {
+            if (intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION) && FlushManager.this.l != null) {
                 L.verbose(this, "ConnectionChangeReceiver onReceive .flush cache", new Object[0]);
                 FlushManager.this.l.fluch(context);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class ReportTimer {
         public static final long DEFAULT_INTERVAL = 1800000;
         public static final long MAX_INTERVAL = 3600000;

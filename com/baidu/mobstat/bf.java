@@ -10,7 +10,7 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bf {
     public static volatile boolean a;
     public static volatile boolean b;

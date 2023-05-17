@@ -7,12 +7,12 @@ import kotlin.Triple;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NameResolverImpl implements NameResolver {
     public final ProtoBuf.QualifiedNameTable qualifiedNames;
     public final ProtoBuf.StringTable strings;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.load.kotlin;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface JvmTypeFactory<T> {
     T boxType(T t);
 

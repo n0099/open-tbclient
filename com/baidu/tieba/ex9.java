@@ -1,74 +1,187 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ex9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+/* loaded from: classes5.dex */
+public final class ex9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final dv9 a;
+    public boolean b;
+    public boolean c;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749859, "Lcom/baidu/tieba/ex9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(list.get(i));
-                sb.append("\n");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947749859, "Lcom/baidu/tieba/ex9;");
+                return;
             }
-            return sb.toString().getBytes();
         }
-        return (byte[]) invokeL.objValue;
+        d = new a(null);
     }
 
-    public static byte[] b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return jSONObject.toString().getBytes();
-        }
-        return (byte[]) invokeL.objValue;
+    public /* synthetic */ ex9(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
     }
 
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    @JvmStatic
+    public static final ex9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            kf kfVar = new kf();
-            kfVar.b().s(str);
-            kfVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            kfVar.b().c("", bArr);
-            new hf(kfVar).m(3, -1, -1);
-            int i = kfVar.c().b;
-            byte[] bArr2 = kfVar.c().i;
-            if (bArr2 == null || i != 200) {
-                return false;
-            }
-            try {
-                if (new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") != 0) {
-                    return false;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? d.a() : (ex9) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
             }
         }
-        return invokeLL.booleanValue;
+
+        @JvmStatic
+        public final ex9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (ex9) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final ex9 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-818145563, "Lcom/baidu/tieba/ex9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-818145563, "Lcom/baidu/tieba/ex9$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new ex9(null);
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final ex9 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (ex9) invokeV.objValue;
+        }
+    }
+
+    public ex9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new dv9();
+    }
+
+    public final dv9 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (dv9) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
+        }
     }
 }

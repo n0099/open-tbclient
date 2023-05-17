@@ -1,40 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class wp0 extends AdBaseModel {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes8.dex */
+public final class wp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public g91 a;
+    public qa1 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wp0(@NonNull rp0 rp0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(rp0Var, jSONObject);
+    public wp0(vp0 vp0Var, Context context) {
+        Integer num;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rp0Var, jSONObject};
+            Object[] objArr = {vp0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((rp0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (rp0Var.k.size() >= 3) {
-            return;
+        Intrinsics.checkNotNullParameter(context, "context");
+        if (vp0Var != null) {
+            num = Integer.valueOf(vp0Var.b());
+        } else {
+            num = null;
         }
-        throw ParseError.contentError(3, rp0Var.a.value);
+        if (num != null && num.intValue() == 1) {
+            this.a = new g91(context);
+        } else if (num != null && num.intValue() == 0) {
+            this.b = new qa1(context);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            qa1 qa1Var = this.b;
+            if (qa1Var != null) {
+                qa1Var.i();
+            }
+            g91 g91Var = this.a;
+            if (g91Var != null) {
+                g91Var.h();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qa1 qa1Var = this.b;
+            if (qa1Var != null) {
+                qa1Var.l();
+            }
+            g91 g91Var = this.a;
+            if (g91Var != null) {
+                g91Var.k();
+            }
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            qa1 qa1Var = this.b;
+            if (qa1Var != null) {
+                qa1Var.o(z);
+            }
+            g91 g91Var = this.a;
+            if (g91Var != null) {
+                g91Var.n(z);
+            }
+        }
     }
 }

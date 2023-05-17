@@ -4,7 +4,7 @@ import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.FilterInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i extends FilterInputStream implements DataInput {
     public static int a(byte b, byte b2, byte b3, byte b4) {
         return (b << 24) | ((b2 & 255) << 16) | ((b3 & 255) << 8) | (b4 & 255);

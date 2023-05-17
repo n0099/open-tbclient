@@ -3,8 +3,8 @@ package com.baidu.swan.apps.swancore.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.ml3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.vm3;
+/* loaded from: classes4.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR = new a();
     public static final int TYPE_DEBUG = 2;
@@ -28,10 +28,10 @@ public class SwanCoreVersion extends SwanAppIPCData {
     }
 
     public boolean isAvailable() {
-        return ml3.e(this.swanCorePath);
+        return vm3.e(this.swanCorePath);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanCoreVersion> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

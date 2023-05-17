@@ -1,64 +1,164 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yg5 extends ug5 {
+import com.bumptech.glide.Glide;
+/* loaded from: classes8.dex */
+public class yg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
 
-    @Override // com.baidu.tieba.ug5
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
+    /* loaded from: classes8.dex */
+    public interface c {
+        void a();
     }
 
-    public yg5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ TBAlertBuilder b;
+
+        public a(c cVar, TBAlertBuilder tBAlertBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, tBAlertBuilder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+            this.b = tBAlertBuilder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                c cVar = this.a;
+                if (cVar != null) {
+                    cVar.a();
+                }
+                this.b.dismiss();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ug5
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
-            if (bitmap == null) {
-                return null;
+    /* loaded from: classes8.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBAlertBuilder a;
+
+        public b(TBAlertBuilder tBAlertBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tBAlertBuilder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (this.a <= 0.0f) {
-                return bitmap;
-            }
-            TbImageMemoryCache.v().t(BitmapHelper.getBitmapSize(bitmap) * 2);
-            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
+            this.a = tBAlertBuilder;
         }
-        return (Bitmap) invokeLZ.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yg5.b();
+                this.a.dismiss();
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.ug5
-    public void d(String str) {
+    public static void b() {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                    str = "&skin=dark";
+                } else {
+                    str = "";
+                }
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity instanceof TbPageContextSupport) {
+                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.VIRTUAL_IMAGE_MAIN_URL + str});
+                }
+            } catch (Exception e) {
+                BdLog.e("openPageByUrl fail:" + e.toString());
+            }
+        }
+    }
+
+    public static void c(c cVar) {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, cVar) != null) || (context = TbadkCoreApplication.getInst().getContext()) == null) {
             return;
         }
-        this.a = gg.d(str, 0.0f);
+        TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
+        View inflate = LayoutInflater.from(context).inflate(R.layout.pb_virtual_image_setting_post, (ViewGroup) null);
+        p45 d = p45.d(inflate.findViewById(R.id.virtual_image_setting_layout));
+        d.o(R.string.J_X06);
+        d.f(R.color.CAM_X0201);
+        TextView textView = (TextView) inflate.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
+        p45 d2 = p45.d(textView);
+        d2.C(R.string.F_X01);
+        d2.B(R.dimen.T_X07);
+        d2.w(R.color.CAM_X0105);
+        d2.o(R.string.J_X07);
+        d2.m(R.dimen.L_X02);
+        d2.l(R.color.CAM_X0105);
+        d2.k(R.string.A_X07);
+        textView.setOnClickListener(new a(cVar, tBAlertBuilder));
+        TextView textView2 = (TextView) inflate.findViewById(R.id.virtual_image_setting_confirm_btn);
+        p45 d3 = p45.d(textView2);
+        d3.C(R.string.F_X01);
+        d3.B(R.dimen.T_X07);
+        d3.w(R.color.CAM_X0304);
+        d3.o(R.string.J_X07);
+        d3.m(R.dimen.L_X02);
+        d3.l(R.color.CAM_X0304);
+        d3.k(R.string.A_X07);
+        textView2.setOnClickListener(new b(tBAlertBuilder));
+        tBAlertBuilder.r(true);
+        tBAlertBuilder.k(inflate);
+        tBAlertBuilder.z();
+        View findViewById = inflate.findViewById(R.id.pb_virtual_image_setting_guide_img);
+        if (findViewById instanceof ImageView) {
+            Glide.with(findViewById).load(rn6.b("icon_mask_post_virtual_image_pb.webp", "icon_mask_post_virtual_image_pb")).into((ImageView) findViewById);
+        }
     }
 }

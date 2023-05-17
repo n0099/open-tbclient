@@ -6,12 +6,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.ext.widget.dialog.BoxScrollView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.qp1;
+/* loaded from: classes4.dex */
 public class SwanAppScrollView extends ScrollView {
-    public static final boolean b = ho1.a;
+    public static final boolean b = qp1.a;
     public int a;
 
     public SwanAppScrollView(Context context) {
@@ -38,15 +39,15 @@ public class SwanAppScrollView extends ScrollView {
         if (2 == getContext().getResources().getConfiguration().orientation) {
             i = getContext().getResources().getDisplayMetrics().widthPixels;
         }
-        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070127);
-        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012b)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070123);
+        int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012e);
+        return ((i - (dimensionPixelSize * 2)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070132)) - getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         super.onLayout(z, i, i2, i3, i4);
         if (b) {
-            Log.d("BoxScrollView", "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
+            Log.d(BoxScrollView.TAG, "onLayout( " + z + StringUtil.ARRAY_ELEMENT_SEPARATOR + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i4 + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -54,7 +55,7 @@ public class SwanAppScrollView extends ScrollView {
     public void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
         if (b) {
-            Log.d("BoxScrollView", "onMeasure( " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + SmallTailInfo.EMOTION_SUFFIX);
+            Log.d(BoxScrollView.TAG, "onMeasure( " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + SmallTailInfo.EMOTION_SUFFIX);
         }
         int size = View.MeasureSpec.getSize(i2);
         int size2 = View.MeasureSpec.getSize(i);

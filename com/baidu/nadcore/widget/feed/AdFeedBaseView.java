@@ -15,33 +15,33 @@ import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac1;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.bc1;
-import com.baidu.tieba.bq0;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.gc1;
-import com.baidu.tieba.ip0;
-import com.baidu.tieba.jp0;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.nk0;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.oh0;
-import com.baidu.tieba.rk0;
-import com.baidu.tieba.t31;
-import com.baidu.tieba.uh0;
-import com.baidu.tieba.v31;
-import com.baidu.tieba.za1;
-import com.baidu.tieba.zb1;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.dl0;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.ei0;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.j41;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.l41;
+import com.baidu.tieba.pb1;
+import com.baidu.tieba.pc1;
+import com.baidu.tieba.qc1;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.rc1;
+import com.baidu.tieba.rq0;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.wc1;
+import com.baidu.tieba.yp0;
+import com.baidu.tieba.zp0;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AdFeedBaseView extends FrameLayout implements Object<View> {
-    public static final int h = d41.c.a(li0.b(), 15.0f);
-    public ac1 a;
-    public bc1 b;
-    public zb1 c;
-    public gc1 d;
-    public nk0 e;
+    public static final int h = t41.c.a(bj0.b(), 15.0f);
+    public qc1 a;
+    public rc1 b;
+    public pc1 c;
+    public wc1 d;
+    public dl0 e;
     public GestureDetector f;
     public boolean g;
 
@@ -49,7 +49,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         return this;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -60,13 +60,13 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b implements gc1.d {
+    /* loaded from: classes3.dex */
+    public class b implements wc1.d {
         public b() {
         }
 
-        @Override // com.baidu.tieba.gc1.d
-        public void a(List<ip0.a> list) {
+        @Override // com.baidu.tieba.wc1.d
+        public void a(List<yp0.a> list) {
             Toast.makeText(AdFeedBaseView.this.getContext(), (int) R.string.nad_dislike_reduce_recommend, 0).show();
             AdFeedBaseView.this.setVisibility(8);
             AdFeedBaseView adFeedBaseView = AdFeedBaseView.this;
@@ -77,17 +77,17 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements rk0 {
+    /* loaded from: classes3.dex */
+    public class c implements hl0 {
         public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ ak0 b;
+        public final /* synthetic */ qk0 b;
 
-        public c(AdBaseModel adBaseModel, ak0 ak0Var) {
+        public c(AdBaseModel adBaseModel, qk0 qk0Var) {
             this.a = adBaseModel;
-            this.b = ak0Var;
+            this.b = qk0Var;
         }
 
-        @Override // com.baidu.tieba.rk0
+        @Override // com.baidu.tieba.hl0
         public void a(AdDownloadStatus adDownloadStatus) {
             int i = d.a[adDownloadStatus.ordinal()];
             if (i != 1) {
@@ -123,7 +123,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
             }
         }
 
-        @Override // com.baidu.tieba.rk0
+        @Override // com.baidu.tieba.hl0
         public void b(AdDownloadCode adDownloadCode) {
             boolean z;
             boolean z2 = true;
@@ -141,7 +141,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class d {
         public static final /* synthetic */ int[] a;
 
@@ -167,7 +167,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends GestureDetector.SimpleOnGestureListener {
         public e() {
         }
@@ -196,9 +196,9 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     public void c() {
-        nk0 nk0Var = this.e;
-        if (nk0Var != null) {
-            nk0Var.k();
+        dl0 dl0Var = this.e;
+        if (dl0Var != null) {
+            dl0Var.k();
             this.e = null;
         }
     }
@@ -206,7 +206,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     public final void d() {
         View findViewById = findViewById(R.id.nad_base_delete_id);
         if (findViewById != null) {
-            za1.a(this, findViewById, h);
+            pb1.a(this, findViewById, h);
             findViewById.setOnClickListener(new a());
         }
     }
@@ -229,21 +229,21 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     public final boolean e(AdBaseModel adBaseModel) {
-        jp0 jp0Var;
-        if (adBaseModel == null || (jp0Var = adBaseModel.l) == null) {
+        zp0 zp0Var;
+        if (adBaseModel == null || (zp0Var = adBaseModel.l) == null) {
             return false;
         }
-        return jp0Var.e;
+        return zp0Var.e;
     }
 
     public final void h(@NonNull AdBaseModel adBaseModel) {
-        jp0 jp0Var = adBaseModel.l;
-        if (jp0Var != null && jp0Var.e) {
-            ak0 c2 = ak0.c(adBaseModel);
-            this.e = new nk0(c2);
-            zb1 zb1Var = this.c;
-            if (zb1Var != null) {
-                zb1Var.c(adBaseModel);
+        zp0 zp0Var = adBaseModel.l;
+        if (zp0Var != null && zp0Var.e) {
+            qk0 c2 = qk0.c(adBaseModel);
+            this.e = new dl0(c2);
+            pc1 pc1Var = this.c;
+            if (pc1Var != null) {
+                pc1Var.c(adBaseModel);
             }
             this.e.o(new c(adBaseModel, c2));
         }
@@ -265,21 +265,21 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         }
     }
 
-    public void setVideoMediaListener(bc1 bc1Var) {
-        this.b = bc1Var;
+    public void setVideoMediaListener(rc1 rc1Var) {
+        this.b = rc1Var;
     }
 
-    public void setViewDownloadListener(zb1 zb1Var) {
-        this.c = zb1Var;
+    public void setViewDownloadListener(pc1 pc1Var) {
+        this.c = pc1Var;
     }
 
-    public void setViewStatChangeListener(ac1 ac1Var) {
-        this.a = ac1Var;
+    public void setViewStatChangeListener(qc1 qc1Var) {
+        this.a = qc1Var;
     }
 
     public void update(@NonNull AdBaseModel adBaseModel) {
         setTag(adBaseModel);
-        this.d = new gc1(getContext(), adBaseModel);
+        this.d = new wc1(getContext(), adBaseModel);
         h(adBaseModel);
         if (getVisibility() != 0) {
             setVisibility(0);
@@ -302,7 +302,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         this(context, attributeSet, i, null);
     }
 
-    public AdFeedBaseView(Context context, AttributeSet attributeSet, int i, bq0 bq0Var) {
+    public AdFeedBaseView(Context context, AttributeSet attributeSet, int i, rq0 rq0Var) {
         super(context, attributeSet, i);
         this.g = true;
         setOnClickListener(this);
@@ -317,33 +317,33 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         if (adBaseModel.a) {
             return;
         }
-        ac1 ac1Var = this.a;
-        if (ac1Var != null) {
-            ac1Var.c(adBaseModel);
+        qc1 qc1Var = this.a;
+        if (qc1Var != null) {
+            qc1Var.c(adBaseModel);
         }
-        o11.b(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
+        e21.b(new ClogBuilder().y(ClogBuilder.LogType.SHOW).p(adBaseModel.f.d));
         adBaseModel.a = true;
     }
 
     public void g() {
         AdBaseModel adBaseModel;
-        bq0 bq0Var;
-        if ((getTag() instanceof AdBaseModel) && (bq0Var = (adBaseModel = (AdBaseModel) getTag()).p) != null && !bq0Var.m) {
-            ac1 ac1Var = this.a;
-            if (ac1Var != null) {
-                ac1Var.a(adBaseModel);
+        rq0 rq0Var;
+        if ((getTag() instanceof AdBaseModel) && (rq0Var = (adBaseModel = (AdBaseModel) getTag()).p) != null && !rq0Var.m) {
+            qc1 qc1Var = this.a;
+            if (qc1Var != null) {
+                qc1Var.a(adBaseModel);
             }
-            o11.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d));
+            e21.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(adBaseModel.f.d));
             return;
         }
         if (this.d == null) {
             if (!(getTag() instanceof AdBaseModel)) {
                 return;
             }
-            this.d = new gc1(getContext(), (AdBaseModel) getTag());
+            this.d = new wc1(getContext(), (AdBaseModel) getTag());
         }
         this.d.h(new b());
-        v31.b(this.d);
+        l41.b(this.d);
     }
 
     public void onClick(View view2) {
@@ -354,17 +354,17 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         if (TextUtils.isEmpty(adBaseModel.f.c)) {
             return;
         }
-        t31.e(adBaseModel);
-        uh0.c(t31.b(adBaseModel, adBaseModel.f.c), getContext());
+        j41.e(adBaseModel);
+        ki0.c(j41.b(adBaseModel, adBaseModel.f.c), getContext());
         ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.CLICK).i(ClogBuilder.Area.HOTAREA).p(adBaseModel.f.d);
-        oh0 oh0Var = adBaseModel.q;
-        if (oh0Var != null) {
-            p.m(oh0Var.a());
+        ei0 ei0Var = adBaseModel.q;
+        if (ei0Var != null) {
+            p.m(ei0Var.a());
         }
-        o11.b(p);
-        ac1 ac1Var = this.a;
-        if (ac1Var != null) {
-            ac1Var.b(adBaseModel);
+        e21.b(p);
+        qc1 qc1Var = this.a;
+        if (qc1Var != null) {
+            qc1Var.b(adBaseModel);
         }
         adBaseModel.b = true;
     }

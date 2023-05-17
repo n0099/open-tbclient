@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.mapapi.http.HttpClient;
 import com.baidu.mapsdkplatform.comapi.c;
 import com.baidu.mapsdkplatform.comapi.util.PermissionCheck;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SDKInitializer {
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
     public static final String SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR = "permission check error";

@@ -10,7 +10,7 @@ import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKConfig;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceDetect {
     public static final String TAG = "FaceDetect";
     public BDFaceInstance bdFaceInstance;

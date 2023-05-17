@@ -3,7 +3,7 @@ package com.kwad.components.ad.reward.presenter.platdetail.actionbar;
 import android.content.Context;
 import com.kwad.components.ad.reward.k;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     public AdTemplate mAdTemplate;
     public Context mContext;

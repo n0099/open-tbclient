@@ -1,157 +1,227 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapController;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.wh3;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.util.KVStorageUtils;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xh3 extends u93 {
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class xh3 extends mp1 implements ip4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements wh3.c {
+    /* loaded from: classes8.dex */
+    public static class a implements SwanKV.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ py1 c;
-        public final /* synthetic */ xh3 d;
 
-        public a(xh3 xh3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, py1 py1Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xh3Var, unitedSchemeEntity, callbackHandler, py1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.d = xh3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = py1Var;
         }
 
-        @Override // com.baidu.tieba.wh3.c
-        public void a(float f, int i) {
+        @Override // com.baidu.storage.swankv.SwanKV.b
+        public void loadLibrary(@NonNull String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-                x42.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
-                this.d.k(this.a, this.b, this.c, f, i);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (!an3.G() && SwanKV.LIB_CPP_SHARED.equals(str)) {
+                    jf2.g(AppRuntime.getAppContext(), xh3.a);
+                    jf2.h(SwanKV.LIB_CPP_SHARED, xh3.a, false);
+                    return;
+                }
+                SoLoader.load(ns2.c(), str);
             }
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948300326, "Lcom/baidu/tieba/xh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948300326, "Lcom/baidu/tieba/xh3;");
+                return;
+            }
+        }
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        e();
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xh3(u83 u83Var) {
-        super(u83Var, "/swanAPI/startCompass");
+    public xh3(@Nullable Context context, @NonNull String str) {
+        super(context, str, 2, d());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xh3(@Nullable Context context, @NonNull String str, int i) {
+        super(context, str, i, d());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                x42.c(MapController.COMPASS_LAYER_TAG, "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (u93.b) {
-                    Log.d("SwanAppAction", "startCompass --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                x42.c(MapController.COMPASS_LAYER_TAG, "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (u93.b) {
-                    Log.d("SwanAppAction", "startCompass --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (u93.b) {
-                        Log.d("SwanAppAction", "startCompass --- params is empty");
-                    }
-                    x42.c(MapController.COMPASS_LAYER_TAG, "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (u93.b) {
-                        Log.d("SwanAppAction", "startCompass --- cb is empty");
-                    }
-                    x42.c(MapController.COMPASS_LAYER_TAG, "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                x42.i(MapController.COMPASS_LAYER_TAG, "init");
-                py1 py1Var = new py1("compassChange", optParamsAsJo, optString);
-                wh3 i = wh3.i();
-                i.l(context);
-                i.o(new a(this, unitedSchemeEntity, callbackHandler, py1Var));
-                x42.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
-                i.p();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                py1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, py1 py1Var, float f, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xh3(@NonNull String str) {
+        super(AppRuntime.getAppContext(), str, 2, d());
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, py1Var, Float.valueOf(f), Integer.valueOf(i)}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
-                jSONObject.put("accuracy", wh3.h(i));
-                if (u93.b) {
-                    Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
-                }
-                py1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                x42.c(MapController.COMPASS_LAYER_TAG, "handle compass,json error，" + e.toString());
-                py1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xh3(@NonNull String str, int i, @Nullable String str2) {
+        super(AppRuntime.getAppContext(), str, i, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
+            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + KVStorageUtils.PREFS_SEGMENT;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            try {
+                SwanKV.initialize(ns2.c(), new a(), false);
+            } catch (NoClassDefFoundError e) {
+                g62.d("SwanKVImpl", "initializeSwanKV", e);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ip4
+    public Set<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new HashSet(Arrays.asList(super.getAllKeys()));
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ip4
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (super.getMode() == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ip4
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.contentSize();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.storage.swankv.SwanKV, com.baidu.tieba.ip4
+    @NonNull
+    public File getFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.getFile();
+        }
+        return (File) invokeV.objValue;
     }
 }

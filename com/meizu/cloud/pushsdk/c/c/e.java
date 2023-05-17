@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e implements a {
     public static l a(final HttpURLConnection httpURLConnection) throws IOException {
         if (httpURLConnection.getDoInput()) {

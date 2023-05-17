@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HOME_OPERATE_JUMP_URL = "home_operate_jump_url";

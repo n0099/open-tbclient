@@ -8,12 +8,12 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,15 +43,15 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925c1);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09105f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09262c);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091097);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g35.d(this.b).w(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080ae0, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            p45.d(this.b).w(R.color.CAM_X0304);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c07, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -61,17 +61,17 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.b.setText(R.string.obfuscated_res_0x7f0f0b1a);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0b98);
                         this.c.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                this.b.setText(R.string.obfuscated_res_0x7f0f0b1c);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0b9a);
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f1076);
+            this.b.setText(R.string.obfuscated_res_0x7f0f113d);
             this.c.setVisibility(0);
         }
     }

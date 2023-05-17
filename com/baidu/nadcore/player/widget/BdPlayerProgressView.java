@@ -8,9 +8,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.b01;
-import com.baidu.tieba.cb1;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.r01;
+import com.baidu.tieba.sb1;
+/* loaded from: classes3.dex */
 public class BdPlayerProgressView extends View {
     public float a;
     public int b;
@@ -132,11 +132,11 @@ public class BdPlayerProgressView extends View {
         this.c = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         this.h = 0;
         this.i = 0;
-        this.h = b01.a(this, 120.0f);
-        this.i = b01.a(this, 15.0f);
+        this.h = r01.a(this, 120.0f);
+        this.i = r01.a(this, 15.0f);
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, cb1.nad_bdvideoplayer_bdPlayerProgressView);
+            typedArray = context.obtainStyledAttributes(attributeSet, sb1.nad_bdvideoplayer_bdPlayerProgressView);
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

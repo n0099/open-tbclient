@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.builtins.KotlinBuiltIns;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
@@ -8,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.renderer.DescriptorRendererOptions;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.model.DynamicTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DynamicType extends FlexibleType implements DynamicTypeMarker {
     public final Annotations annotations;
 
@@ -31,7 +32,7 @@ public final class DynamicType extends FlexibleType implements DynamicTypeMarker
 
     @Override // kotlin.reflect.jvm.internal.impl.types.FlexibleType
     public String render(DescriptorRenderer descriptorRenderer, DescriptorRendererOptions descriptorRendererOptions) {
-        return "dynamic";
+        return PraiseUBCHelper.SOURCE_DYNAMIC;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */

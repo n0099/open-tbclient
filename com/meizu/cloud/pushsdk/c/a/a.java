@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.c.a;
 
 import com.meizu.cloud.pushinternal.DebugLogger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static boolean a = false;
     public static String b = "AndroidNetworking";

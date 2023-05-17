@@ -1,48 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.io.File;
+/* loaded from: classes8.dex */
 public class wl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public final Class<?> b;
-    public final int c;
-    public final ul0<?> d;
 
-    public wl0(int i, Object obj, Class<?> cls, ul0<?> ul0Var) {
+    public static File a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj, cls, ul0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            File externalCacheDir = context.getExternalCacheDir();
+            if (externalCacheDir == null) {
+                return context.getCacheDir();
             }
+            return externalCacheDir;
         }
-        this.c = i;
-        this.a = obj;
-        this.b = cls;
-        this.d = ul0Var;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubscribeInfo:{\n    threadMode:" + this.c + "\n    tag:" + this.a + "\n    eventClass:" + this.b + "\n    subscriber:" + this.d + "\n}";
-        }
-        return (String) invokeV.objValue;
+        return (File) invokeL.objValue;
     }
 }

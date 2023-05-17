@@ -1,70 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsNativeAd;
-/* loaded from: classes5.dex */
-public class mua extends sua {
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes6.dex */
+public class mua implements GdtHelper.GdtNativeContainerCreator {
     public static /* synthetic */ Interceptable $ic;
+    public static final mua b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsNativeAd c;
-    public final /* synthetic */ lua d;
+    public final Set<WeakReference<NativeAdContainer>> a;
 
-    public mua(lua luaVar, KsNativeAd ksNativeAd) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986544, "Lcom/baidu/tieba/mua;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947986544, "Lcom/baidu/tieba/mua;");
+                return;
+            }
+        }
+        b = new mua();
+    }
+
+    public mua() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {luaVar, ksNativeAd};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = luaVar;
-        this.c = ksNativeAd;
+        this.a = new HashSet();
     }
 
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(ksNativeAd, this.b, new String[0]);
-            this.b = true;
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
-    public void onAdShow(KsNativeAd ksNativeAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-        }
+        return (ViewGroup) invokeL.objValue;
     }
 }

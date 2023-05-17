@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Observer;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetRequestParam implements IHeaderMap {
     public static final byte DATA_TYPE_JSON = 1;
     public static final byte DATA_TYPE_STRING = 0;
@@ -48,7 +48,7 @@ public class NetRequestParam implements IHeaderMap {
 
     private native void nativeSetUrl(long j, String str);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public NetRequestParam mNetRequestParam = new NetRequestParam(0);
 
@@ -94,7 +94,7 @@ public class NetRequestParam implements IHeaderMap {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class HeaderMap implements IHeaderMap {
         public Map<String, String> mMap = new HashMap();
         public long mNativePtr;

@@ -15,7 +15,7 @@ import androidx.appcompat.graphics.drawable.DrawableWrapper;
 import androidx.core.content.ContextCompat;
 import com.baidu.tieba.R;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static final double COS_45 = Math.cos(Math.toRadians(45.0d));
     public static final float SHADOW_BOTTOM_SCALE = 1.0f;
@@ -74,9 +74,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         this.dirty = true;
         this.addPaddingForCorners = true;
         this.printedShadowClipWarning = false;
-        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605c0);
-        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605bf);
-        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605be);
+        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060708);
+        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060707);
+        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060706);
         Paint paint = new Paint(5);
         this.cornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);

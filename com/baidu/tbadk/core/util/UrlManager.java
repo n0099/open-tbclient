@@ -17,12 +17,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.aw4;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.jx4;
+import com.baidu.tieba.ox5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UrlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PARAM = "default_param";
@@ -58,22 +58,22 @@ public class UrlManager {
     public final List<UrlDealListener> mListeners;
     public UrlWebDealListener mWebListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface UrlDealListener {
         int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface UrlSchemaHandler {
         void deal(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface UrlWebDealListener {
         void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2, Bundle bundle);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface UrlWebDialogCancelListener {
         void onCancel();
     }
@@ -176,10 +176,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (ii.E()) {
+            if (ri.E()) {
                 addListenerInner(urlDealListener);
             } else {
-                jg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                sg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;
@@ -290,7 +290,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new cw5(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new ox5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -547,7 +547,7 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            dj8 activityLog = ActivityLog.getInstance();
+            yk8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithDialog:" + str2);
             if (str2.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
@@ -562,7 +562,7 @@ public class UrlManager {
                         }
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (aw4.c().contains("-Flutter") && findTask == null) {
+                    if (jx4.c().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }
@@ -639,7 +639,7 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            dj8 activityLog = ActivityLog.getInstance();
+            yk8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {

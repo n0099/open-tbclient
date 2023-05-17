@@ -18,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EglSurfaceBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";

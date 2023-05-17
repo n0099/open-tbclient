@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.BitSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class id implements is<id, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
@@ -60,11 +60,11 @@ public class id implements is<id, Object>, Serializable, Cloneable {
         int a8;
         int a9;
         if (id.class.equals(idVar.getClass())) {
-            int compareTo = Boolean.valueOf(m549a()).compareTo(Boolean.valueOf(idVar.m549a()));
+            int compareTo = Boolean.valueOf(m568a()).compareTo(Boolean.valueOf(idVar.m568a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m549a() || (a9 = it.a(this.f631a, idVar.f631a)) == 0) {
+            if (!m568a() || (a9 = it.a(this.f631a, idVar.f631a)) == 0) {
                 int compareTo2 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(idVar.c()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -126,7 +126,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hu m545a() {
+    public hu m564a() {
         return this.f632a;
     }
 
@@ -157,17 +157,17 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     public id a(boolean z) {
         this.f637a = z;
-        m548a(true);
+        m567a(true);
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m546a() {
+    public String m565a() {
         return this.f634a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m547a() {
+    public void m566a() {
         if (this.f631a == null) {
             throw new je("Required field 'action' was not present! Struct: " + toString());
         } else if (this.f635a == null) {
@@ -180,62 +180,62 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo621a();
+        jdVar.mo640a();
         while (true) {
-            ja mo617a = jdVar.mo617a();
-            byte b2 = mo617a.a;
+            ja mo636a = jdVar.mo636a();
+            byte b2 = mo636a.a;
             if (b2 == 0) {
                 jdVar.f();
                 if (!c()) {
                     throw new je("Required field 'encryptAction' was not found in serialized data! Struct: " + toString());
                 } else if (d()) {
-                    m547a();
+                    m566a();
                     return;
                 } else {
                     throw new je("Required field 'isRequest' was not found in serialized data! Struct: " + toString());
                 }
             }
-            switch (mo617a.f813a) {
+            switch (mo636a.f813a) {
                 case 1:
                     if (b2 == 8) {
-                        this.f631a = hh.a(jdVar.mo615a());
+                        this.f631a = hh.a(jdVar.mo634a());
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 2:
                     if (b2 == 2) {
-                        this.f637a = jdVar.mo627a();
-                        m548a(true);
+                        this.f637a = jdVar.mo646a();
+                        m567a(true);
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 3:
                     if (b2 == 2) {
-                        this.f639b = jdVar.mo627a();
-                        m552b(true);
+                        this.f639b = jdVar.mo646a();
+                        m571b(true);
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f635a = jdVar.mo623a();
+                        this.f635a = jdVar.mo642a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f634a = jdVar.mo622a();
+                        this.f634a = jdVar.mo641a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f638b = jdVar.mo622a();
+                        this.f638b = jdVar.mo641a();
                         continue;
                         jdVar.g();
                     }
@@ -265,23 +265,23 @@ public class id implements is<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m548a(boolean z) {
+    public void m567a(boolean z) {
         this.f636a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m549a() {
+    public boolean m568a() {
         return this.f631a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m550a(id idVar) {
+    public boolean m569a(id idVar) {
         if (idVar == null) {
             return false;
         }
-        boolean m549a = m549a();
-        boolean m549a2 = idVar.m549a();
-        if (((!m549a && !m549a2) || (m549a && m549a2 && this.f631a.equals(idVar.f631a))) && this.f637a == idVar.f637a && this.f639b == idVar.f639b) {
+        boolean m568a = m568a();
+        boolean m568a2 = idVar.m568a();
+        if (((!m568a && !m568a2) || (m568a && m568a2 && this.f631a.equals(idVar.f631a))) && this.f637a == idVar.f637a && this.f639b == idVar.f639b) {
             boolean e2 = e();
             boolean e3 = idVar.e();
             if ((e2 || e3) && !(e2 && e3 && this.f635a.equals(idVar.f635a))) {
@@ -299,13 +299,13 @@ public class id implements is<id, Object>, Serializable, Cloneable {
             }
             boolean h2 = h();
             boolean h3 = idVar.h();
-            if ((h2 || h3) && !(h2 && h3 && this.f633a.m517a(idVar.f633a))) {
+            if ((h2 || h3) && !(h2 && h3 && this.f633a.m536a(idVar.f633a))) {
                 return false;
             }
             boolean i = i();
             boolean i2 = idVar.i();
             if (i || i2) {
-                return i && i2 && this.f632a.m509a(idVar.f632a);
+                return i && i2 && this.f632a.m528a(idVar.f632a);
             }
             return true;
         }
@@ -313,7 +313,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m551a() {
+    public byte[] m570a() {
         a(it.a(this.f635a));
         return this.f635a.array();
     }
@@ -325,7 +325,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     public id b(boolean z) {
         this.f639b = z;
-        m552b(true);
+        m571b(true);
         return this;
     }
 
@@ -335,11 +335,11 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m547a();
+        m566a();
         jdVar.a(f630a);
         if (this.f631a != null) {
             jdVar.a(a);
-            jdVar.mo626a(this.f631a.a());
+            jdVar.mo645a(this.f631a.a());
             jdVar.b();
         }
         jdVar.a(b);
@@ -374,16 +374,16 @@ public class id implements is<id, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo625a();
+        jdVar.mo644a();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m552b(boolean z) {
+    public void m571b(boolean z) {
         this.f636a.set(1, z);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m553b() {
+    public boolean m572b() {
         return this.f637a;
     }
 
@@ -401,7 +401,7 @@ public class id implements is<id, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof id)) {
-            return m550a((id) obj);
+            return m569a((id) obj);
         }
         return false;
     }

@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLProtocolException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExceptionCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL = 10000100;

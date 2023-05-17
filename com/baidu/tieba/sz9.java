@@ -1,57 +1,43 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.view.Window;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class sz9 {
+import java.lang.reflect.Field;
+/* loaded from: classes7.dex */
+public class sz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(byte[] bArr, double d) throws Exception;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public sz9(String str) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                return 2038;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static void b(int i, WindowManager.LayoutParams layoutParams, Window window) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(65537, null, i, layoutParams, window) == null) && layoutParams != null && window != null) {
+            try {
+                Field declaredField = layoutParams.getClass().getDeclaredField("layoutInDisplayCutoutMode");
+                if (declaredField != null) {
+                    declaredField.set(layoutParams, Integer.valueOf(i));
+                    window.setAttributes(layoutParams);
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
+                e2.printStackTrace();
             }
         }
-        this.a = str;
     }
 }

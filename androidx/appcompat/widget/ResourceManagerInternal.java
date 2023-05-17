@@ -280,7 +280,7 @@ public final class ResourceManagerInternal {
             return;
         }
         this.mHasCheckedVectorDrawableSetup = true;
-        Drawable drawable = getDrawable(context, R.drawable.obfuscated_res_0x7f0800b4);
+        Drawable drawable = getDrawable(context, R.drawable.obfuscated_res_0x7f0800b5);
         if (drawable != null && isVectorDrawable(drawable)) {
             return;
         }

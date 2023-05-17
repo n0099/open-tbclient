@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import android.os.IBinder;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface dfa {
-    IBinder a(String str);
+    void a(long j);
 
-    void b();
+    void b(Exception exc, long j);
+
+    void onComplete(long j);
 }

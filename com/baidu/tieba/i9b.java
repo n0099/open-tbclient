@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k7b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,119 +9,75 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
-public final class i9b {
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
+public final class i9b extends k7b {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final i9b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a {
+    /* loaded from: classes5.dex */
+    public final class a extends k7b.a implements o7b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final dcb a;
+        public final /* synthetic */ i9b b;
 
-        public int a(Class cls) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public int b(Class cls) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
-                return 0;
-            }
-            return invokeL.intValue;
-        }
-
-        public boolean c(Object obj, long j, long j2, long j3) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        public long d(Object obj, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, obj, j)) == null) {
-                return 0L;
-            }
-            return invokeLJ.longValue;
-        }
-
-        public Object e(Object obj, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, obj, j)) == null) {
-                return null;
-            }
-            return invokeLJ.objValue;
-        }
-
-        public Object f(Object obj, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, obj, j)) == null) {
-                return null;
-            }
-            return invokeLJ.objValue;
-        }
-
-        public long g(Field field) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, field)) == null) {
-                return 0L;
-            }
-            return invokeL.longValue;
-        }
-
-        public void h(Object obj, long j, Object obj2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{obj, Long.valueOf(j), obj2}) == null) {
-            }
-        }
-
-        public void i(Object obj, long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        public void j(Object obj, long j, Object obj2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{obj, Long.valueOf(j), obj2}) == null) {
-            }
-        }
-
-        public a() {
+        public a(i9b i9bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i9bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.b = i9bVar;
+            this.a = new dcb();
+        }
+
+        @Override // com.baidu.tieba.k7b.a
+        public o7b b(u7b u7bVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u7bVar)) == null) {
+                u7bVar.call();
+                return hcb.c();
+            }
+            return (o7b) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.k7b.a
+        public o7b c(u7b u7bVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{u7bVar, Long.valueOf(j), timeUnit})) == null) {
+                return b(new m9b(u7bVar, this, this.b.now() + timeUnit.toMillis(j)));
+            }
+            return (o7b) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.o7b
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.a.isUnsubscribed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.o7b
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.unsubscribe();
             }
         }
     }
@@ -139,29 +95,30 @@ public final class i9b {
                 return;
             }
         }
-        System.getProperty("rx.unsafe-disable");
-        a aVar = null;
-        try {
-            Field declaredField = a.class.getDeclaredField("theUnsafe");
-            declaredField.setAccessible(true);
-            aVar = (a) declaredField.get(null);
-        } catch (Throwable unused) {
-        }
-        a = aVar;
+        a = new i9b();
     }
 
-    public static long a(Class<?> cls, String str) {
-        InterceptResult invokeLL;
+    public i9b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
-            try {
-                return a.g(cls.getDeclaredField(str));
-            } catch (NoSuchFieldException e) {
-                InternalError internalError = new InternalError();
-                internalError.initCause(e);
-                throw internalError;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return invokeLL.longValue;
+    }
+
+    @Override // com.baidu.tieba.k7b
+    public k7b.a createWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (k7b.a) invokeV.objValue;
     }
 }

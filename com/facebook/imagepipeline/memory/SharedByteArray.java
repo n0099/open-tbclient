@@ -12,7 +12,7 @@ import com.facebook.common.references.ResourceReleaser;
 import java.util.concurrent.Semaphore;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SharedByteArray implements MemoryTrimmable {
     @VisibleForTesting
     public final OOMSoftReference<byte[]> mByteArraySoftRef;

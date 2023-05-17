@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ForumBroadcastMajorResidueData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
 
-    public void Y(int i) {
+    public void X(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
@@ -34,7 +34,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         }
     }
 
-    public int V() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,7 +43,7 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int W() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,14 +52,14 @@ public class ForumBroadcastMajorResidueData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void X(int i) {
+    public void W(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.b = i;
         }
     }
 
-    public void Z(int i) {
+    public void Y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.a = i;

@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.o65;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+/* loaded from: classes4.dex */
 public class NightPluginTask extends LaunchTask {
     public BdUniqueId tag = BdUniqueId.gen();
     public final CustomMessageListener mNightInstallListener = new CustomMessageListener(2921608) { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.1
@@ -24,7 +24,7 @@ public class NightPluginTask extends LaunchTask {
             if (loadInt == 1) {
                 TbadkCoreApplication.getInst().setSkinTypeValue(4);
                 TbadkCoreApplication.getInst().SendSkinTypeBroadcast(4);
-            } else if (f55.m().i("key_is_follow_system_mode", false)) {
+            } else if (o65.m().i("key_is_follow_system_mode", false)) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(false, true);
             } else {
                 TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
@@ -50,8 +50,8 @@ public class NightPluginTask extends LaunchTask {
         MessageManager.getInstance().registerListener(this.mNightInstallListener);
         if (PermissionUtil.isBrowseMode()) {
             MessageManager.getInstance().runTask(2001281, String.class);
-        } else if (FixNpsAnrSwitch.getIsOn() && ii.q() > 1) {
-            jg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
+        } else if (FixNpsAnrSwitch.getIsOn() && ri.q() > 1) {
+            sg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
                 @Override // java.lang.Runnable
                 public void run() {
                     MessageManager.getInstance().runTask(2001281, String.class);

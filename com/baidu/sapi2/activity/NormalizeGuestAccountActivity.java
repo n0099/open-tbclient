@@ -18,7 +18,7 @@ import com.baidu.sapi2.utils.PtokenStat;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NormalizeGuestAccountActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public NormalizeGuestAccountResult t = new NormalizeGuestAccountResult() { // from class: com.baidu.sapi2.activity.NormalizeGuestAccountActivity.1

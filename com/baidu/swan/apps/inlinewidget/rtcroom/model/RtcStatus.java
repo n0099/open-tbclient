@@ -3,7 +3,7 @@ package com.baidu.swan.apps.inlinewidget.rtcroom.model;
 import androidx.media2.session.SessionCommand;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.sapi2.share.ShareCallPacking;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum RtcStatus {
     UNKNOWN(-1, "UNKNOWN"),
     LOCAL_JOIN(1001, "LOCAL_JOIN"),
@@ -22,9 +22,9 @@ public enum RtcStatus {
     DEVICE_IS_NOT_SUPPORTED(20003, "DEVICE_IS_NOT_SUPPORTED"),
     ROOM_CONNECTION_LOST(SessionCommand.COMMAND_CODE_VOLUME_ADJUST_VOLUME, "ROOM_CONNECTION_LOST"),
     MEDIA_CONNECTION_LOST(30002, "MEDIA_CONNECTION_LOST"),
-    INIT_CAPTURE_FAIL(SessionCommand.COMMAND_CODE_SESSION_REWIND, "OPEN_CAMERA_FAIL"),
-    SET_REMOTE_SURFACE_ERROR(SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, "REMOTE_ITEM_ALREADY_PLAYING"),
-    PUBLISH_FAILED(SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, "PUBLISH_FAIL"),
+    INIT_CAPTURE_FAIL(40001, "OPEN_CAMERA_FAIL"),
+    SET_REMOTE_SURFACE_ERROR(40002, "REMOTE_ITEM_ALREADY_PLAYING"),
+    PUBLISH_FAILED(40003, "PUBLISH_FAIL"),
     AUTHORIZE_ERR_INTERNAL_ERROR(10001, "internal error"),
     AUTHORIZE_ERR_NETWORK_ERROR(10002, SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR),
     AUTHORIZE_ERR_USER_DENY(10003, "user deny"),

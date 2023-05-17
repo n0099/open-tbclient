@@ -1,176 +1,218 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
-import com.baidu.tieba.g72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.pm.PackageInfo;
+import android.content.pm.Signature;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xo1 implements nw3 {
+import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
+import java.security.PublicKey;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
+/* loaded from: classes8.dex */
+public final class xo1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ViewGroup.LayoutParams c;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public f72 a;
-    public FrameLayout b;
 
-    @Override // com.baidu.tieba.nw3
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nw3
-    public boolean c(View view2) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+            } catch (Throwable th) {
+                po1.d(th);
+            }
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
+            if (packageInfo == null) {
+                return "";
+            }
+            a = b(packageInfo, packageInfo.applicationInfo.sourceDir);
+            return a;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.nw3
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.nw3
-    public boolean f(View view2, hv3 hv3Var) {
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0020  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b(PackageInfo packageInfo, String str) {
         InterceptResult invokeLL;
+        PublicKey publicKey;
+        byte[] encoded;
+        Signature[] signatureArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, hv3Var)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306991, "Lcom/baidu/tieba/xo1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948306991, "Lcom/baidu/tieba/xo1;");
-                return;
-            }
-        }
-        c = new FrameLayout.LayoutParams(-1, -1);
-    }
-
-    public xo1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nw3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            g72 V = kt2.U().V();
-            Context appContext = AppRuntime.getAppContext();
-            if (V == null) {
-                if (appContext != null) {
-                    p73.f(appContext, R.string.obfuscated_res_0x7f0f01a6).G();
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, packageInfo, str)) == null) {
+            if (packageInfo != null && (signatureArr = packageInfo.signatures) != null && signatureArr.length > 0 && signatureArr[0] != null) {
+                try {
+                    publicKey = c(signatureArr[0]);
+                } catch (Throwable th) {
+                    po1.d(th);
                 }
-                return;
+                if (publicKey == null) {
+                    publicKey = d(str);
+                }
+                if (publicKey == null && (encoded = publicKey.getEncoded()) != null) {
+                    return uo1.b(Base64.encodeToString(encoded, 0).replace("\n", "").replace("\r", ""));
+                }
             }
-            xx2 d = xx2.d(str, str);
-            d.h(jSONObject.toString());
-            g72.b i = V.i("adLanding");
-            i.n(g72.g, g72.i);
-            i.k("adLanding", d).b();
+            publicKey = null;
+            if (publicKey == null) {
+            }
+            return publicKey == null ? "" : "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static PublicKey c(Signature signature) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signature)) == null) {
+            CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(signature.toByteArray());
+            Certificate generateCertificate = certificateFactory.generateCertificate(byteArrayInputStream);
+            try {
+                byteArrayInputStream.close();
+            } catch (Throwable th) {
+                po1.d(th);
+            }
+            return generateCertificate.getPublicKey();
+        }
+        return (PublicKey) invokeL.objValue;
+    }
+
+    public static PublicKey d(String str) {
+        InterceptResult invokeL;
+        JarFile jarFile;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                byte[] bArr = new byte[8192];
+                try {
+                    jarFile = new JarFile(str);
+                    try {
+                        Enumeration<JarEntry> entries = jarFile.entries();
+                        Certificate[] certificateArr = null;
+                        while (entries.hasMoreElements()) {
+                            JarEntry nextElement = entries.nextElement();
+                            if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
+                                Certificate[] e = e(jarFile, nextElement, bArr);
+                                if (e != null && e.length > 0) {
+                                    if (certificateArr == null) {
+                                        certificateArr = e;
+                                    } else {
+                                        for (int i = 0; i < certificateArr.length; i++) {
+                                            int i2 = 0;
+                                            while (true) {
+                                                if (i2 < e.length) {
+                                                    if (certificateArr[i] != null && certificateArr[i].equals(e[i2])) {
+                                                        z = true;
+                                                        break;
+                                                    }
+                                                    i2++;
+                                                } else {
+                                                    z = false;
+                                                    break;
+                                                }
+                                            }
+                                            if (z && certificateArr.length == e.length) {
+                                            }
+                                            jarFile.close();
+                                            jarFile.close();
+                                            return null;
+                                        }
+                                        continue;
+                                    }
+                                }
+                                jarFile.close();
+                                jarFile.close();
+                                return null;
+                            }
+                        }
+                        jarFile.close();
+                        if (certificateArr == null || certificateArr.length <= 0) {
+                            return null;
+                        }
+                        return certificateArr[0].getPublicKey();
+                    } catch (Throwable th) {
+                        th = th;
+                        if (jarFile != null) {
+                            jarFile.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    jarFile = null;
+                }
+            } catch (Throwable th3) {
+                po1.d(th3);
+                return null;
+            }
+        } else {
+            return (PublicKey) invokeL.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.nw3
-    public boolean d(View view2, hv3 hv3Var) {
-        InterceptResult invokeLL;
-        g72 V;
+    public static Certificate[] e(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        InterceptResult invokeLLL;
+        BufferedInputStream bufferedInputStream;
+        Certificate[] certificateArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, hv3Var)) == null) {
-            kt2 U = kt2.U();
-            SwanAppActivity activity = U.getActivity();
-            if (activity == null || activity.isFinishing() || (V = U.V()) == null) {
-                return false;
-            }
-            f72 o = V.o();
-            this.a = o;
-            if (o.J3()) {
-                int t = ol3.t();
-                if (view2 instanceof ViewGroup) {
-                    ViewGroup viewGroup = (ViewGroup) view2;
-                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
-                        View childAt = viewGroup.getChildAt(i);
-                        if (childAt.getTop() < t) {
-                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) childAt.getLayoutParams();
-                            layoutParams.topMargin = childAt.getTop() + t;
-                            childAt.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jarFile, jarEntry, bArr)) == null) {
+            try {
+                bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+                while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                    try {
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            po1.d(th);
+                            return new Certificate[0];
+                        } finally {
+                            if (bufferedInputStream != null) {
+                                try {
+                                    bufferedInputStream.close();
+                                } catch (Throwable th2) {
+                                    po1.d(th2);
+                                }
+                            }
                         }
                     }
                 }
+                if (jarEntry != null) {
+                    certificateArr = jarEntry.getCertificates();
+                } else {
+                    certificateArr = new Certificate[0];
+                }
+                try {
+                    bufferedInputStream.close();
+                } catch (Throwable th3) {
+                    po1.d(th3);
+                }
+                return certificateArr;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedInputStream = null;
             }
-            SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
-            this.b = swanAppInlineFullScreenContainer;
-            swanAppInlineFullScreenContainer.addView(view2, c);
-            e73 d = o.d();
-            if (d == null) {
-                return false;
-            }
-            d.m(true);
-            ol3.b(activity);
-            d.n(this.b);
-            return true;
+        } else {
+            return (Certificate[]) invokeLLL.objValue;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nw3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        e73 d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            this.b.removeAllViews();
-            f72 f72Var = this.a;
-            if (f72Var == null || (d = f72Var.d()) == null) {
-                return false;
-            }
-            d.m(false);
-            d.g();
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

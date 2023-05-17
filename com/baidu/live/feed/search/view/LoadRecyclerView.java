@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadRecyclerView extends RecyclerView {
     public b a;
     public float b;
@@ -24,7 +24,7 @@ public class LoadRecyclerView extends RecyclerView {
     public boolean k;
     public RecyclerView.OnScrollListener l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(boolean z);
 
@@ -34,7 +34,7 @@ public class LoadRecyclerView extends RecyclerView {
     public final void init() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.OnScrollListener {
         public boolean a = false;
 

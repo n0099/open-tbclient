@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static String a = "DES/ECB/NoPadding";
     public static String b = "DESede/ECB/NoPadding";

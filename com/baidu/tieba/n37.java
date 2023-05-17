@@ -1,29 +1,98 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface n37 {
-    void setRadius(float f);
 
-    void setRadius(float f, float f2, float f3, float f4);
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m37;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class n37 extends m37 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final m37 c;
 
-    void setRadiusBottom(float f);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n37(Context context, m37 m37Var) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, m37Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = m37Var;
+    }
 
-    void setRadiusBottomLeft(float f);
+    @Override // com.baidu.tieba.m37
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.a();
+        }
+    }
 
-    void setRadiusBottomRight(float f);
+    @Override // com.baidu.tieba.m37
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.b();
+        }
+        return invokeV.booleanValue;
+    }
 
-    void setRadiusLeft(float f);
+    @Override // com.baidu.tieba.m37
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.d();
+        }
+    }
 
-    void setRadiusRight(float f);
+    @Override // com.baidu.tieba.m37
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.e();
+        }
+    }
 
-    void setRadiusTop(float f);
+    @Override // com.baidu.tieba.m37
+    public void c(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            this.c.c(obj);
+        }
+    }
 
-    void setRadiusTopLeft(float f);
+    @Override // com.baidu.tieba.m37
+    public void f(m37.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            this.c.f(aVar);
+        }
+    }
 
-    void setRadiusTopRight(float f);
-
-    void setStrokeColor(int i);
-
-    void setStrokeWidth(float f);
-
-    void setStrokeWidthColor(float f, int i);
+    @Override // com.baidu.tieba.m37
+    public boolean g(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return this.c.g(str);
+        }
+        return invokeL.booleanValue;
+    }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,61 +9,55 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class qa2 extends aw1 {
+/* loaded from: classes7.dex */
+public class qa2 extends ha2<JSONObject, g12> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qa2(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public qa2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public xz1 x(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.la2
+    @NonNull
+    /* renamed from: c */
+    public g12 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#preloadStatus", false);
-            if (x73.b0() == null) {
-                return new xz1(1001, "SwanApp is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (b()) {
+                if (ha2.a) {
+                    g62.b("Api-HandleException", "has triggered fmp before remove skeleton");
+                }
+                return new g12(0);
+            } else if (jSONObject == null) {
+                return new g12(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new g12(202, "data is required");
+                }
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new g12(202, "path is required");
+                }
+                fa2 fa2Var = new fa2();
+                fa2Var.g(optString);
+                fa2Var.e();
+                return new g12(0);
             }
-            Pair<xz1, JSONObject> s = s(str);
-            xz1 xz1Var = (xz1) s.first;
-            if (!xz1Var.isSuccess()) {
-                return xz1Var;
-            }
-            na2.c().j((JSONObject) s.second);
-            return xz1.f();
         }
-        return (xz1) invokeL.objValue;
+        return (g12) invokeL.objValue;
     }
 }

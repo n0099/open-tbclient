@@ -1,23 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class u31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public p31 a;
+    public BaseExecutorCell b;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public u31() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && str.contains(str3)) {
-                return str.replace(str3, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return str;
         }
-        return (String) invokeLLL.objValue;
+        this.a = new p31();
+        this.b = BaseExecutorCell.b(1, BaseExecutorCell.ExecutorType.SERIAL);
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ((k31) this.b).j();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ElasticTask b = this.a.b();
+            if (b == null || !this.b.c(b)) {
+                return false;
+            }
+            this.a.e(b);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(Runnable runnable, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
+            this.a.c(runnable, str, i);
+        }
     }
 }

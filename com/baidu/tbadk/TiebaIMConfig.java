@@ -4,8 +4,8 @@ import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.tieba.ai;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ji;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TiebaIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";
@@ -86,7 +86,7 @@ public class TiebaIMConfig {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return ai.d(PUBLIC_KEY_BASE64);
+            return ji.d(PUBLIC_KEY_BASE64);
         }
         return (byte[]) invokeV.objValue;
     }
@@ -95,7 +95,7 @@ public class TiebaIMConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return ii.d(context, 300.0f);
+            return ri.d(context, 300.0f);
         }
         return invokeL.intValue;
     }

@@ -30,18 +30,18 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.mq6;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.uq5;
+import com.baidu.tieba.ds5;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.n75;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.wp9;
+import com.baidu.tieba.yk8;
+import com.baidu.tieba.zr6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,8 +57,8 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000h\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0016\u0018\u0000 12\u00020\u00012\u00020\u0002:\u0006012345B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\u0006\u0010%\u001a\u00020 J\u0006\u0010&\u001a\u00020\u0016J\u0006\u0010'\u001a\u00020\u0010J\u0006\u0010(\u001a\u00020\u0010J\u000e\u0010)\u001a\u00020 2\u0006\u0010*\u001a\u00020\u0018J\u0010\u0010+\u001a\u00020 2\u0006\u0010,\u001a\u00020\u0018H\u0016J\u0010\u0010-\u001a\u00020 2\u0006\u0010.\u001a\u00020\u001aH\u0002J\b\u0010/\u001a\u00020 H\u0002R\u0012\u0010\b\u001a\u00060\tR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u0001X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u0010X\u0082\u000e¢\u0006\u0002\n\u0000R7\u0010\u001c\u001a\u001f\u0012\u0013\u0012\u00110\u000b¢\u0006\f\b\u001e\u0012\b\b\u001f\u0012\u0004\b\b(\n\u0012\u0004\u0012\u00020 \u0018\u00010\u001dX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\"\"\u0004\b#\u0010$¨\u00066"}, d2 = {"Lcom/baidu/tieba/core/widget/SpriteBottomTipView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/edgefloat/IChangeSkinType;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "animationHandler", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView$ShowAnimationHandler;", "isVisibility", "", "mBtn", "Lcom/baidu/tbadk/core/view/commonBtn/TBSpecificationBtn;", "mContentContainer", "mDesc", "Landroid/widget/TextView;", "mIconClose", "Landroid/widget/ImageView;", "mIconImg", "Lcom/baidu/tbadk/widget/image/TbImage;", "mRoot", "Landroid/view/View;", "mSkinType", "", "mTipVieParams", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView$TipViewParams;", "mTitle", "onVisibilityChangedListener", "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "", "getOnVisibilityChangedListener", "()Lkotlin/jvm/functions/Function1;", "setOnVisibilityChangedListener", "(Lkotlin/jvm/functions/Function1;)V", "dismiss", "getContentView", "getDescView", "getTitleView", "onChangeSkin", WriteMulitImageActivityConfig.SKIN_TYPE, "onChangeSkinType", "type", "setData", "params", "show", "Builder", "Companion", "OnClickCallback", "OnDismissCallback", "ShowAnimationHandler", "TipViewParams", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
-public final class SpriteBottomTipView extends LinearLayout implements mq6 {
+/* loaded from: classes5.dex */
+public final class SpriteBottomTipView extends LinearLayout implements zr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -74,16 +74,16 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
     public boolean k;
     public int l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
 
-        void b();
+        void onBtnClick();
 
         void onClick();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         void onDismiss();
     }
@@ -126,7 +126,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public final class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,7 +336,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -389,7 +389,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             UtilHelper.getDimenPixelSize(R.dimen.T_X08);
             this.l = R.dimen.T_X08;
             this.m = R.color.CAM_X0101;
-            this.o = un9.f("#CC7F47");
+            this.o = wp9.f("#CC7F47");
             this.s = R.drawable.pic_use_header_28_n;
         }
 
@@ -712,8 +712,8 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static final class f extends bg<tm> {
+    /* loaded from: classes5.dex */
+    public static final class f extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpriteBottomTipView a;
@@ -737,13 +737,13 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String key, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String key, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, key, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, key, i) == null) {
                 Intrinsics.checkNotNullParameter(key, "key");
-                if (tmVar != null) {
-                    this.a.a.setBackgroundDrawable(new NinePatchDrawable(this.a.getResources(), tmVar.p(), tmVar.p().getNinePatchChunk(), tmVar.o(), null));
+                if (cnVar != null) {
+                    this.a.a.setBackgroundDrawable(new NinePatchDrawable(this.a.getResources(), cnVar.p(), cnVar.p().getNinePatchChunk(), cnVar.o(), null));
                     return;
                 }
                 e eVar = this.a.h;
@@ -792,7 +792,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         Intrinsics.checkNotNullParameter(context, "context");
         this.l = 3;
         LayoutInflater.from(context).inflate(R.layout.funny_sprite_bottom_tip_layout, this);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f091e30);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f091e8c);
         Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.root)");
         this.a = findViewById;
         View findViewById2 = findViewById(R.id.tip_icon);
@@ -813,11 +813,11 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         View findViewById7 = findViewById(R.id.tip_close);
         Intrinsics.checkNotNullExpressionValue(findViewById7, "findViewById(R.id.tip_close)");
         this.f = (ImageView) findViewById7;
-        this.e.setBorder(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0602));
+        this.e.setBorder(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1), SkinManager.getColor(R.color.CAM_X0602));
         this.e.setRadiusById(R.string.J_X06);
         this.e.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.i = new d(this, this);
-        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.om6
+        this.d.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ao6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -829,7 +829,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
                 }
             }
         });
-        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mm6
+        this.f.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yn6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -841,7 +841,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
                 }
             }
         });
-        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nm6
+        setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zn6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -870,7 +870,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             }
             b q = eVar.q();
             if (q != null) {
-                q.a();
+                q.onBtnClick();
             }
         }
     }
@@ -886,7 +886,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             }
             b q = eVar.q();
             if (q != null) {
-                q.b();
+                q.a();
             }
         }
     }
@@ -895,7 +895,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            if (uq5.a()) {
+            if (ds5.a()) {
                 return;
             }
             e eVar = this$0.h;
@@ -910,7 +910,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         }
     }
 
-    @Override // com.baidu.tieba.mq6
+    @Override // com.baidu.tieba.zr6
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
@@ -942,7 +942,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             eVar = null;
         }
         int i4 = 0;
-        if (!hi.isEmpty(eVar.x())) {
+        if (!qi.isEmpty(eVar.x())) {
             i = 0;
         } else {
             i = 8;
@@ -954,7 +954,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar3 = null;
         }
-        if (!hi.isEmpty(eVar3.m())) {
+        if (!qi.isEmpty(eVar3.m())) {
             i2 = 0;
         } else {
             i2 = 8;
@@ -966,7 +966,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar4 = null;
         }
-        if (!hi.isEmpty(eVar4.i())) {
+        if (!qi.isEmpty(eVar4.i())) {
             i3 = 0;
         } else {
             i3 = 8;
@@ -1021,7 +1021,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             dVar.sendEmptyMessageDelayed(2, eVar10.t());
         }
         i(TbadkCoreApplication.getInst().getSkinType());
-        dj8 defaultLog = DefaultLog.getInstance();
+        yk8 defaultLog = DefaultLog.getInstance();
         StringBuilder sb = new StringBuilder();
         sb.append("showTip:");
         e eVar11 = this.h;
@@ -1177,14 +1177,14 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar7 = null;
         }
-        if (!hi.isEmpty(eVar7.d())) {
+        if (!qi.isEmpty(eVar7.d())) {
             TbPageContext currentPageContext = TbadkApplication.getInst().getCurrentPageContext(getContext());
             if (currentPageContext != null) {
                 bdUniqueId = currentPageContext.getUniqueId();
             } else {
                 bdUniqueId = null;
             }
-            cg h = cg.h();
+            lg h = lg.h();
             e eVar8 = this.h;
             if (eVar8 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
@@ -1242,14 +1242,14 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             }
         }
         this.f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.funny_sprite_tip_close, WebPManager.ResourceStateType.NORMAL));
-        g35 d2 = g35.d(this.d);
+        p45 d2 = p45.d(this.d);
         e eVar15 = this.h;
         if (eVar15 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
             eVar15 = null;
         }
         d2.B(eVar15.h());
-        e65 e65Var = new e65();
+        n75 n75Var = new n75();
         e eVar16 = this.h;
         if (eVar16 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
@@ -1269,7 +1269,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
             }
             Integer g = eVar18.g();
             Intrinsics.checkNotNull(g);
-            e65Var.r(e2, g.intValue());
+            n75Var.r(e2, g.intValue());
         } else {
             e eVar19 = this.h;
             if (eVar19 == null) {
@@ -1282,10 +1282,10 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
                 Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
                 eVar20 = null;
             }
-            e65Var.q(f2, SkinManager.getColor(eVar20.e()));
+            n75Var.q(f2, SkinManager.getColor(eVar20.e()));
         }
-        this.d.setConfig(e65Var);
-        g35 d3 = g35.d(this.b);
+        this.d.setConfig(n75Var);
+        p45 d3 = p45.d(this.b);
         e eVar21 = this.h;
         if (eVar21 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");
@@ -1313,7 +1313,7 @@ public final class SpriteBottomTipView extends LinearLayout implements mq6 {
         if (u != null) {
             this.b.setTextColor(u.intValue());
         }
-        g35 d4 = g35.d(this.c);
+        p45 d4 = p45.d(this.c);
         e eVar25 = this.h;
         if (eVar25 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("mTipVieParams");

@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.metadata.scte35;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PrivateCommand extends SpliceCommand {
     public static final Parcelable.Creator<PrivateCommand> CREATOR = new Parcelable.Creator<PrivateCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.PrivateCommand.1
         /* JADX DEBUG: Method merged with bridge method */

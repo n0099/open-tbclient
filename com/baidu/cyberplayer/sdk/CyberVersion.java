@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk;
 import android.text.TextUtils;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberVersion {
     public static String getCoreVersion() {
         String coreVersionInternal = getCoreVersionInternal();

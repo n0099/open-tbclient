@@ -10,7 +10,7 @@ import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.searchbox.player.event.StateEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.message.IMessenger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class VideoSession {
     public StringBuilder mDesc;
     @Nullable

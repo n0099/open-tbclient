@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-/* loaded from: classes4.dex */
-public interface g78<ChildItemData extends BaseMsg> {
-    boolean a(@NonNull View view2, @NonNull ChildItemData childitemdata, int i);
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
+/* loaded from: classes5.dex */
+public interface g78 {
+    @Nullable
+    BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i);
 }

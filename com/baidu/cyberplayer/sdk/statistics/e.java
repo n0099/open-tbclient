@@ -1,5 +1,5 @@
 package com.baidu.cyberplayer.sdk.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public int a;
     public String b;

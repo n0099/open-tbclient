@@ -34,7 +34,7 @@ import kotlin.reflect.jvm.internal.impl.storage.MemoizedFunctionToNotNull;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefinerKt;
 import kotlin.reflect.jvm.internal.impl.types.checker.Ref;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ModuleDescriptorImpl extends DeclarationDescriptorImpl implements ModuleDescriptor {
     public final KotlinBuiltIns builtIns;
     public final Map<ModuleDescriptor.Capability<?>, Object> capabilities;

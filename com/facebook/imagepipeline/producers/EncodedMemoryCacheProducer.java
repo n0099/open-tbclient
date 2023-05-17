@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.memory.PooledByteBuffer;
@@ -11,7 +12,7 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";
     public static final String PRODUCER_NAME = "EncodedMemoryCacheProducer";
@@ -19,7 +20,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final MemoryCache<CacheKey, PooledByteBuffer> mMemoryCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class EncodedMemoryCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final boolean mEncodedCacheEnabled;
         public final boolean mIsMemoryCacheEnabled;
@@ -116,7 +117,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
                 CloseableReference.closeSafely(closeableReference);
             } else if (producerContext.getLowestPermittedRequestLevel().getValue() >= ImageRequest.RequestLevel.ENCODED_MEMORY_CACHE.getValue()) {
                 if (producerListener.requiresExtraMap(producerContext, PRODUCER_NAME)) {
-                    map = ImmutableMap.of("cached_value_found", "false");
+                    map = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
                 } else {
                     map = null;
                 }
@@ -131,7 +132,7 @@ public class EncodedMemoryCacheProducer implements Producer<EncodedImage> {
             } else {
                 EncodedMemoryCacheConsumer encodedMemoryCacheConsumer = new EncodedMemoryCacheConsumer(consumer, this.mMemoryCache, encodedCacheKey, producerContext.getImageRequest().isMemoryCacheEnabled(), producerContext.getImagePipelineConfig().getExperiments().isEncodedCacheEnabled());
                 if (producerListener.requiresExtraMap(producerContext, PRODUCER_NAME)) {
-                    map2 = ImmutableMap.of("cached_value_found", "false");
+                    map2 = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
                 }
                 producerListener.onProducerFinishWithSuccess(producerContext, PRODUCER_NAME, map2);
                 this.mInputProducer.produceResults(encodedMemoryCacheConsumer, producerContext);

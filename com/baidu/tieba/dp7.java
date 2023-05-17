@@ -1,50 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.gp7;
-import com.baidu.tieba.qg9;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.DiscoverHotForum;
-import tbclient.DiscoverTabCard;
-import tbclient.RecommendForumInfo;
-/* loaded from: classes4.dex */
-public class dp7 extends ax4 {
+import tbclient.ActivityPage.ActivityPageResIdl;
+import tbclient.ActivityPage.DataRes;
+import tbclient.ActivityPage.HotTopic;
+import tbclient.ActivityPage.RecommendForumList;
+import tbclient.ActivityPage.RecommendUserList;
+import tbclient.ActivityPage.SpecialColumnList;
+import tbclient.BannerImage;
+import tbclient.Error;
+/* loaded from: classes5.dex */
+public class dp7 extends jq5<ActivityPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<in> b;
-
-    @Override // com.baidu.tieba.ax4
-    public yy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (yy4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ax4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
+    public gq5 c;
+    public List<ThreadData> d;
+    public List<jy4> e;
+    public xy4 f;
+    public wz4 g;
 
     public dp7() {
         Interceptable interceptable = $ic;
@@ -59,160 +45,152 @@ public class dp7 extends ax4 {
                 return;
             }
         }
-        this.a = false;
+        this.c = new gq5();
     }
 
-    public List<in> d() {
+    @Override // com.baidu.tieba.jq5
+    public List<jy4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
         return (List) invokeV.objValue;
     }
 
-    public boolean e() {
+    @Override // com.baidu.tieba.jq5
+    public List<ThreadData> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.jq5, com.baidu.tieba.mq5
+    public gq5 getPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return yi6.z0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (gq5) invokeV.objValue;
     }
 
-    public static dp7 c(qg9 qg9Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qg9Var)) == null) {
-            if (qg9Var != null && !ListUtils.isEmpty(qg9Var.b)) {
-                dp7 dp7Var = new dp7();
-                ArrayList arrayList = new ArrayList();
-                dp7Var.g(arrayList);
-                for (qg9.b bVar : qg9Var.b) {
-                    if (!ListUtils.isEmpty(bVar.b)) {
-                        gp7 gp7Var = new gp7();
-                        if (!StringUtils.isNull(bVar.a) && !dp7Var.a) {
-                            z = false;
-                        } else {
-                            z = true;
-                        }
-                        dp7Var.a = z;
-                        gp7Var.a = bVar.a;
-                        for (int i = 0; i < bVar.b.size() && i < 3; i++) {
-                            gp7Var.d[i] = new gp7.a();
-                            gp7.a aVar = gp7Var.d[i];
-                            aVar.o(bVar.b.get(i).b);
-                            aVar.n(bVar.b.get(i).e);
-                            aVar.u(bVar.b.get(i).f);
-                            aVar.m(bVar.b.get(i).c);
-                            aVar.p(bVar.b.get(i).d);
-                            aVar.q(Long.valueOf(bVar.b.get(i).a));
-                        }
-                        arrayList.add(gp7Var);
-                        if (arrayList.size() >= 6) {
-                            break;
-                        }
-                    }
-                }
-                return dp7Var;
-            }
-            return null;
-        }
-        return (dp7) invokeL.objValue;
-    }
-
-    public boolean f(List<DiscoverTabCard> list) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean booleanValue;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            List<in> arrayList = new ArrayList<>();
-            g(arrayList);
-            for (int i = 0; i < list.size(); i++) {
-                DiscoverTabCard discoverTabCard = list.get(i);
-                List<RecommendForumInfo> list2 = discoverTabCard.forum_list;
-                if (list2 != null && list2.size() >= 3) {
-                    gp7 gp7Var = new gp7();
-                    if (!StringUtils.isNull(discoverTabCard.name) && !this.a) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    this.a = z;
-                    gp7Var.a = discoverTabCard.name;
-                    Boolean bool = discoverTabCard.is_show_order_number;
-                    if (bool == null) {
-                        booleanValue = false;
-                    } else {
-                        booleanValue = bool.booleanValue();
-                    }
-                    gp7Var.b = booleanValue;
-                    gp7Var.c = discoverTabCard.jump_name;
-                    for (int i2 = 0; i2 < discoverTabCard.forum_list.size() && i2 < 3; i2++) {
-                        gp7Var.d[i2] = new gp7.a();
-                        gp7.a aVar = gp7Var.d[i2];
-                        aVar.o(discoverTabCard.forum_list.get(i2).forum_name);
-                        aVar.n(discoverTabCard.forum_list.get(i2).avatar);
-                        aVar.r(discoverTabCard.forum_list.get(i2).hot_text);
-                        aVar.u(discoverTabCard.forum_list.get(i2).slogan);
-                        aVar.m(discoverTabCard.forum_list.get(i2).member_count.intValue());
-                        aVar.p(discoverTabCard.forum_list.get(i2).thread_count.intValue());
-                        if (discoverTabCard.forum_list.get(i2).is_like.intValue() == 1) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        aVar.k(z2);
-                        aVar.q(discoverTabCard.forum_list.get(i2).forum_id);
-                        aVar.t(discoverTabCard.forum_list.get(i2).hot_thread_id.longValue());
-                    }
-                    arrayList.add(gp7Var);
-                    if (arrayList.size() >= 6) {
-                        break;
-                    }
-                }
-            }
-            if (arrayList.size() <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(DiscoverHotForum discoverHotForum, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.mq5
+    public final void a(int i, byte[] bArr) throws Exception {
+        DataRes dataRes;
+        String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, discoverHotForum, i)) == null) {
-            if (TbadkCoreApplication.isLogin() && UbsABTestHelper.needShowRecommendBarCard() && discoverHotForum != null && (num = discoverHotForum.floor) != null && ((i < 0 || i == num.intValue() - 1) && !ListUtils.isEmpty(discoverHotForum.tab_list))) {
-                return true;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
+            ActivityPageResIdl activityPageResIdl = (ActivityPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ActivityPageResIdl.class);
+            Error error = activityPageResIdl.error;
+            if (error != null && (num = error.errorno) != null) {
+                b(num.intValue());
+                c(activityPageResIdl.error.errmsg);
             }
-            return false;
+            Error error2 = activityPageResIdl.error;
+            if (error2 != null && (str = error2.usermsg) != null && str.length() > 0) {
+                b(activityPageResIdl.error.errorno.intValue());
+                c(activityPageResIdl.error.errmsg);
+            }
+            if (getErrorCode() != 0 || (dataRes = activityPageResIdl.data) == null) {
+                return;
+            }
+            j(dataRes);
         }
-        return invokeLI.booleanValue;
     }
 
-    public void g(List<in> list) {
+    @Override // com.baidu.tieba.jq5
+    public List<rn> i(List<? extends rn> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            return cr5.a(list);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void j(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, dataRes) == null) {
+            m(dataRes);
+            n(dataRes);
+            l(dataRes);
+            k(dataRes);
+        }
+    }
+
+    public final void m(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) == null) {
+            this.c.a(dataRes.page_info);
+        }
+    }
+
+    public final void n(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, dataRes) == null) {
+            this.d = cr5.c(dataRes.thread_list);
+        }
+    }
+
+    public final void k(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
+            ArrayList arrayList = new ArrayList();
+            RecommendForumList recommendForumList = dataRes.recommend_forum;
+            if (recommendForumList != null && ListUtils.getCount(recommendForumList.forum_list) >= 5) {
+                z05 z05Var = new z05();
+                z05Var.f(recommendForumList.forum_list);
+                z05Var.f = recommendForumList.class_name;
+                z05Var.floorPosition = recommendForumList.floor_position.intValue();
+                z05Var.d = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1159);
+                z05Var.e = R.color.CAM_X0108;
+                arrayList.add(z05Var);
+            }
+            RecommendUserList recommendUserList = dataRes.recommend_user;
+            if (recommendUserList != null && ListUtils.getCount(recommendUserList.user_list) >= 4) {
+                d15 d15Var = new d15();
+                d15Var.d(recommendUserList.user_list);
+                d15Var.floorPosition = recommendUserList.floor_position.intValue();
+                d15Var.a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1170);
+                d15Var.b = R.color.CAM_X0108;
+                arrayList.add(d15Var);
+            }
+            HotTopic hotTopic = dataRes.hot_topic;
+            if (hotTopic != null && ListUtils.getCount(hotTopic.topic_list) >= 4) {
+                ix7 ix7Var = new ix7();
+                ix7Var.e(hotTopic);
+                arrayList.add(ix7Var);
+            }
+            SpecialColumnList specialColumnList = dataRes.special_column;
+            if (specialColumnList != null && ListUtils.getCount(specialColumnList.item_list) >= 3) {
+                SpecialColumnListData specialColumnListData = new SpecialColumnListData();
+                specialColumnListData.parserProtobuf(specialColumnList);
+                arrayList.add(specialColumnListData);
+            }
+            this.e = arrayList;
+        }
+    }
+
+    public final void l(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
+            List<BannerImage> list = dataRes.banner_image;
+            if (!ListUtils.isEmpty(list)) {
+                xy4 xy4Var = new xy4();
+                this.f = xy4Var;
+                xy4Var.parserProtobuf(list);
+            }
+            List<BannerImage> list2 = dataRes.grid;
+            if (ListUtils.getCount(list2) >= 4) {
+                wz4 wz4Var = new wz4();
+                this.g = wz4Var;
+                wz4Var.parserProtobuf(list2);
+            }
         }
     }
 }

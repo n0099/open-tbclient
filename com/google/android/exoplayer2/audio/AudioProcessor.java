@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.audio;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface AudioProcessor {
     public static final ByteBuffer EMPTY_BUFFER = ByteBuffer.allocateDirect(0).order(ByteOrder.nativeOrder());
 
@@ -28,7 +28,7 @@ public interface AudioProcessor {
 
     void reset();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UnhandledFormatException extends Exception {
         public UnhandledFormatException(int i, int i2, int i3) {
             super("Unhandled format: " + i + " Hz, " + i2 + " channels in encoding " + i3);

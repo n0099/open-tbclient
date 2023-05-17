@@ -1,178 +1,109 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class sy2 extends ry2 {
+/* loaded from: classes7.dex */
+public class sy2 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ry2 c;
+    public vy2 d;
+    public uy2 e;
 
-    public sy2(double d) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sy2(da3 da3Var) {
+        super(da3Var, "/swanAPI/vrvideo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d)};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d;
     }
 
-    @Override // com.baidu.tieba.ry2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (ry2.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return false;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            } else {
-                rect2 = rect;
-            }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            int i4 = height / i3;
-            int ceil = (int) Math.ceil(i4 * 3 * this.a);
-            int i5 = 0;
-            int i6 = 0;
-            while (i6 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i6 * i3) + 1 + i7;
-                if (i6 == 2) {
-                    i = width + 1;
-                } else {
-                    i = ((i6 + 1) * i3) + i7;
-                }
-                int i9 = i;
-                int i10 = i5;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
-                    } else {
-                        i2 = ((i11 + 1) * i3) + i12;
-                    }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        int i15 = i10 + 1;
-                        if (i15 >= ceil) {
-                            return true;
-                        }
-                        i10 = i15;
-                    }
-                    i11 = i14 + 1;
-                }
-                i6++;
-                i5 = i10;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            g62.b("VrVideoPlayerAction", "handle entity: ", unitedSchemeEntity);
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public double d(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        Rect rect2;
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.db3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, g93 g93Var) {
+        InterceptResult invokeLLLLL;
+        char c;
+        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
-            if (ry2.c) {
-                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
-            }
-            if (bitmap == null) {
-                return 0.0d;
-            }
-            if (!b(bitmap, rect)) {
-                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            } else {
-                rect2 = rect;
-            }
-            int width = rect2.width() - 2;
-            int height = rect2.height() - 2;
-            int i3 = width / 3;
-            if (i3 == 0) {
-                return 0.0d;
-            }
-            int i4 = height / i3;
-            int i5 = 0;
-            int i6 = 0;
-            while (i5 < 3) {
-                int i7 = rect2.left;
-                int i8 = (i5 * i3) + 1 + i7;
-                if (i5 == 2) {
-                    i = width + 1;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, g93Var)) == null) {
+            g62.b("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", db3.a(unitedSchemeEntity, "params"));
+            int hashCode = str.hashCode();
+            if (hashCode != 533456719) {
+                if (hashCode != 1626770505) {
+                    if (hashCode == 1722535054 && str.equals("/swanAPI/vrvideo/update")) {
+                        c = 1;
+                    }
+                    c = 65535;
                 } else {
-                    i = ((i5 + 1) * i3) + i7;
+                    if (str.equals("/swanAPI/vrvideo/remove")) {
+                        c = 2;
+                    }
+                    c = 65535;
                 }
-                int i9 = i;
-                int i10 = i6;
-                int i11 = 0;
-                while (i11 < i4) {
-                    int i12 = rect2.top;
-                    int i13 = (i11 * i3) + 1 + i12;
-                    if (i11 == i4 - 1) {
-                        i2 = height + 1;
+            } else {
+                if (str.equals("/swanAPI/vrvideo/open")) {
+                    c = 0;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        c2 = false;
                     } else {
-                        i2 = ((i11 + 1) * i3) + i12;
+                        if (this.e == null) {
+                            this.e = new uy2("/swanAPI/vrvideo/remove");
+                        }
+                        c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, g93Var);
                     }
-                    int i14 = i11;
-                    if (e(bitmap, i8, i13, i9, i2)) {
-                        i10++;
+                } else {
+                    if (this.d == null) {
+                        this.d = new vy2("/swanAPI/vrvideo/update");
                     }
-                    i11 = i14 + 1;
+                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, g93Var);
                 }
-                i5++;
-                i6 = i10;
+            } else {
+                if (this.c == null) {
+                    this.c = new ry2("/swanAPI/vrvideo/open");
+                }
+                c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, g93Var);
             }
-            return i6 / (i4 * 3);
-        }
-        return invokeLL.doubleValue;
-    }
-
-    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
+            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, g93Var)) {
                 return false;
-            }
-            int pixel = bitmap.getPixel(i, i2);
-            while (i <= i3) {
-                for (int i5 = i2; i5 <= i4; i5++) {
-                    if (pixel != bitmap.getPixel(i, i5)) {
-                        return false;
-                    }
-                }
-                i++;
             }
             return true;
         }
-        return invokeCommon.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

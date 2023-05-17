@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,126 +16,73 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class rj8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public Context c;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public List<pj8> a;
+    public Context b;
+    public int c;
+    public int d;
+    public final int e;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public View b;
-        public TextView c;
-        public View d;
-
-        public b(rj8 rj8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rj8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-        }
-
-        public /* synthetic */ b(rj8 rj8Var, a aVar) {
-            this(rj8Var);
-        }
-    }
-
-    public rj8(Context context, ArrayList<String> arrayList) {
+    public rj8(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = context;
-        this.b = arrayList;
+        this.a = new ArrayList();
+        this.c = 0;
+        this.d = 0;
+        this.b = context;
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5);
+        this.d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701be);
+        this.e = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: a */
-    public String getItem(int i) {
+    public pj8 getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int count = getCount();
-            if (count > 0 && i < count) {
-                return this.b.get(i);
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
             return null;
         }
-        return (String) invokeI.objValue;
+        return (pj8) invokeI.objValue;
     }
 
-    public void c(List<String> list) {
+    public void b(List<pj8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a.clear();
+            if (list != null && list.size() > 0) {
+                this.a.addAll(list);
             }
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        this.a = str.trim();
-    }
-
-    public void b(TextView textView, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-            String lowerCase = str.toLowerCase();
-            String lowerCase2 = this.a.toLowerCase();
-            if (!lowerCase.contains(lowerCase2)) {
-                textView.setText(str);
-                return;
-            }
-            int indexOf = lowerCase.indexOf(lowerCase2);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.a.length() + indexOf, 33);
-            textView.setText(spannableStringBuilder);
+            notifyDataSetChanged();
         }
     }
 
@@ -147,12 +90,8 @@ public class rj8 extends BaseAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<String> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.size();
         }
         return invokeV.intValue;
     }
@@ -160,32 +99,30 @@ public class rj8 extends BaseAdapter {
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        b bVar;
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d080c, (ViewGroup) null);
-                bVar = new b(this, null);
-                bVar.b = view2.findViewById(R.id.obfuscated_res_0x7f091e47);
-                bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9f);
-                bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091f9e);
-                view2.setTag(bVar);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                textView = (TextView) view2;
             } else {
-                bVar = (b) view2.getTag();
+                textView = new TextView(this.b);
+                textView.setGravity(17);
+                textView.setTextSize(0, this.c);
+                int i2 = this.d;
+                textView.setPadding(0, i2, 0, i2);
             }
-            String item = getItem(i);
-            if (StringUtils.isNull(item)) {
-                return view2;
+            pj8 pj8Var = (pj8) ListUtils.getItem(this.a, i);
+            if (pj8Var == null) {
+                return null;
             }
-            b(bVar.c, item);
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (skinType != bVar.a) {
-                bVar.a = skinType;
-                SkinManager.setBackgroundResource(bVar.b, R.drawable.addresslist_item_bg);
-                SkinManager.setViewTextColor(bVar.c, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
+            textView.setText(StringHelper.cutChineseAndEnglishWithSuffix(pj8Var.c, 8, (String) null));
+            SkinManager.setViewTextColor(textView, R.color.CAM_X0106, 1);
+            if (i == this.e) {
+                SkinManager.setBackgroundResource(textView, R.drawable.btn_label_white_s);
+            } else {
+                SkinManager.setBackgroundResource(textView, R.drawable.lego_btn_more_item);
             }
-            return view2;
+            return textView;
         }
         return (View) invokeILL.objValue;
     }

@@ -2,14 +2,14 @@ package com.facebook.imageformat;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageFormat {
     public static final ImageFormat UNKNOWN = new ImageFormat("UNKNOWN", null);
     @Nullable
     public final String mFileExtension;
     public final String mName;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface FormatChecker {
         @Nullable
         ImageFormat determineFormat(@Nonnull byte[] bArr, int i);

@@ -1,106 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Intent;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class n04 extends d04 {
+/* loaded from: classes6.dex */
+public class n04 extends m14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948631, "Lcom/baidu/tieba/n04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948631, "Lcom/baidu/tieba/n04;");
-                return;
-            }
-        }
-        c = ho1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n04() {
-        super("GetSwanGameDuration");
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public static boolean b(Long l, Long l2) {
+    @Override // com.baidu.tieba.m14
+    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
         InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.d04
-    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
-            if (jSONObject == null) {
-                bl2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("swanGameId");
-            if (TextUtils.isEmpty(optString)) {
-                bl2Var.onFail(202, "params may be error");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
+            if (pm3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (pm3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (pm3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (pm3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
             } else {
-                fg3 a = lg3.a();
-                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                    fg3 a2 = lg3.a();
-                    a2.putLong(optString + "_Duration", 0L);
-                }
-                fg3 a3 = lg3.a();
-                long j = a3.getLong(optString + "_Duration", 0L);
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
-                try {
-                    jSONObject3.put("swanGameDuration", j);
-                    jSONObject2.put("data", jSONObject3);
-                } catch (JSONException e) {
-                    if (c) {
-                        e.printStackTrace();
-                    }
-                }
-                bl2Var.a(jSONObject2);
+                z = false;
             }
+            if (!z) {
+                Toast.makeText(ns2.c(), (int) R.string.obfuscated_res_0x7f0f01ba, 0).show();
+            }
+            km2Var.onSuccess(null);
             return null;
         }
-        return (xz1) invokeLL.objValue;
+        return (g12) invokeLL.objValue;
+    }
+
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return pl3.i(ns2.c(), intent, true, false);
+        }
+        return invokeLL.booleanValue;
     }
 }

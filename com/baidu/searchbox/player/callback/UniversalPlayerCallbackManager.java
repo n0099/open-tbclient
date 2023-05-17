@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.callback;
 
 import android.view.MotionEvent;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UniversalPlayerCallbackManager extends VideoPlayerCallbackBaseManager {
     public IUniversalPlayerCallback mUniversalCallback;
 

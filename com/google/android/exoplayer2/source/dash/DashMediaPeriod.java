@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<DashChunkSource>> {
     public final Allocator allocator;
     public MediaPeriod.Callback callback;
@@ -49,7 +49,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
         return C.TIME_UNSET;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class TrackGroupInfo {
         public final int[] adaptationSetIndices;
         public final boolean hasEmbeddedCea608Track;

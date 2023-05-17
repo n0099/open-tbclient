@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class SearchSuggestCommonViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091e47);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fd4);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fa3);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091fd5);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f091ea3);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092030);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092000);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f092031);
     }
 }

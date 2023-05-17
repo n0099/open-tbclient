@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.util.schemeaction.SchemeActionName;
 import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCallback;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.sn9;
-import com.baidu.tieba.vt4;
+import com.baidu.tieba.ev4;
+import com.baidu.tieba.up9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DeepLinkAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUNDLE_NEED_BLACKLIST = "need_scheme_blacklist";
@@ -115,7 +115,7 @@ public class DeepLinkAction {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
                 return false;
             }
-            TbPageContext<?> a = sn9.a(context);
+            TbPageContext<?> a = up9.a(context);
             if (a != null) {
                 int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str});
                 SchemeActionHelper.printLog("inner tryOpenInnerLink-->" + str + ",retType=" + dealOneLinkWithOutJumpWebView);
@@ -259,9 +259,9 @@ public class DeepLinkAction {
         TbPageContext<?> a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, bundle)) == null) {
-            String[] strArr = {vt4.k(str)};
+            String[] strArr = {ev4.k(str)};
             UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (a = sn9.a(context)) == null) {
+            if (urlManager == null || (a = up9.a(context)) == null) {
                 return false;
             }
             if (urlManager.UrlValidated(str)) {

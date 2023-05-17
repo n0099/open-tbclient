@@ -1,11 +1,11 @@
 package com.baidu.searchbox.logsystem.util;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppExtraUtil {
     public static volatile AppExtraCall sAppExtraCall;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AppExtraCall {
         JSONObject getAppExtraInfo();
     }

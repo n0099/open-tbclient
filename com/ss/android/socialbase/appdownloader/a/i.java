@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.fun.ad.sdk.FunAdSdk;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i extends a {
     public String d;
     public String e;

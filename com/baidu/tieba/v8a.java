@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import android.widget.EditText;
-/* loaded from: classes6.dex */
+import android.webkit.WebView;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+/* loaded from: classes7.dex */
 public interface v8a {
-    void b(boolean z);
+    void a(boolean z);
 
-    int f();
+    boolean b(WebView webView, String str);
 
-    void l();
+    void c(NewWriteModel.d dVar);
 
-    void n();
+    void d();
 
-    EditText p();
+    void e(boolean z, String str);
+
+    void onDestroy();
+
+    void onPageFinished(WebView webView, String str);
 }

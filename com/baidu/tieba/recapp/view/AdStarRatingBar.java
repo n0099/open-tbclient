@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AdStarRatingBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class AdStarRatingBar extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0072, this);
-            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900f1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f2);
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080aed).getIntrinsicHeight();
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0074, this);
+            this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900fe);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900ff);
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080c14).getIntrinsicHeight();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;

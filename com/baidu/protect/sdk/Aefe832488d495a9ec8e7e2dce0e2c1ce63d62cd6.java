@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Aefe832488d495a9ec8e7e2dce0e2c1ce63d62cd6 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String libName = "baiduprotect_sdk-efe832488d495a9ec8e7e2dce0e2c1ce63d62cd6";

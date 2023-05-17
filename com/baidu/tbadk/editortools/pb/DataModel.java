@@ -5,18 +5,18 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.g9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public int W() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -24,6 +24,8 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         }
         return invokeV.intValue;
     }
+
+    public abstract String W();
 
     public abstract String X();
 
@@ -33,33 +35,31 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
 
     public abstract String a0();
 
-    public abstract String b0();
+    public abstract WriteData b0(String str);
 
-    public abstract WriteData c0(String str);
+    public abstract boolean d0();
 
     public abstract boolean e0();
 
     public abstract boolean f0();
-
-    public abstract boolean g0();
 
     public abstract String getForumId();
 
     public abstract String getFromForumId();
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataModel(a9<T> a9Var) {
-        super(a9Var);
+    public DataModel(g9<T> g9Var) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,7 +68,7 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
     }
 
     @Nullable
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -77,11 +77,11 @@ public abstract class DataModel<T> extends BdBaseModel<T> {
         return (String) invokeV.objValue;
     }
 
-    public boolean d0() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!e0() && !f0()) {
+            if (!d0() && !e0()) {
                 return false;
             }
             return true;

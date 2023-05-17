@@ -2,12 +2,12 @@ package com.baidu.tbadk.browser;
 
 import android.os.Bundle;
 import android.widget.ImageView;
-import com.baidu.tieba.xt4;
+import com.baidu.tieba.gv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ShareWebActivity extends TBWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public class ShareWebActivity extends TBWebViewActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            xt4 xt4Var = this.mView;
-            if (xt4Var != null && (imageView = xt4Var.j) != null) {
+            gv4 gv4Var = this.mView;
+            if (gv4Var != null && (imageView = gv4Var.j) != null) {
                 imageView.setVisibility(8);
             }
         }

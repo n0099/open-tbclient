@@ -35,6 +35,7 @@ import com.baidu.down.utils.DownPrefUtils;
 import com.baidu.down.utils.PatternConfig;
 import com.baidu.down.utils.URLRegUtils;
 import com.baidu.down.utils.network.NetWorkDetector;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BinaryTaskMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -161,7 +162,7 @@ public class BinaryTaskMng {
         this.mClient = new AsyncHttpClient(this.mContext, jArr);
         startTaskMng();
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
         try {
             if (this.mConnectivityReceiver != null) {
                 context.registerReceiver(this.mConnectivityReceiver, intentFilter);
@@ -192,7 +193,7 @@ public class BinaryTaskMng {
                     @Override // android.content.BroadcastReceiver
                     public void onReceive(Context context2, Intent intent) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) && intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                        if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) && intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
                             if (this.this$0.mHandler != null) {
                                 this.this$0.mHandler.removeMessages(2);
                                 this.this$0.mHandler.sendMessageDelayed(this.this$0.mHandler.obtainMessage(2), TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);

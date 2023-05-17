@@ -1,5 +1,5 @@
 package org.apache.commons.codec.binary4util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuildConfig {
     public static final String BUILD_TYPE = "release";
     public static final boolean DEBUG = false;

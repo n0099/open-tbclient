@@ -2,7 +2,7 @@ package com.kwad.sdk.widget;
 
 import android.animation.ArgbEvaluator;
 import android.animation.TypeEvaluator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements TypeEvaluator {
     public static final ArgbEvaluator aqY = new ArgbEvaluator();
 

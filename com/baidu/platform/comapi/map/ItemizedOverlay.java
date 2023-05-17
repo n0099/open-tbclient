@@ -10,6 +10,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.platform.comapi.map.OverlayItem;
 import com.baidu.platform.comjni.tools.ParcelItem;
+import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implements Comparator<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +205,7 @@ public class ItemizedOverlay<Item extends OverlayItem> extends Overlay implement
                     bundle2.putInt("iconlayer", 1);
                     bundle2.putFloat(FunAdSdk.PLATFORM_AX, overlayItem.getAnchorX());
                     bundle2.putFloat("ay", overlayItem.getAnchorY());
-                    bundle2.putInt("bound", overlayItem.getBound());
+                    bundle2.putInt(IResourceProvider.PraiseLevelConfig.JSON_KEY_BOUND, overlayItem.getBound());
                     bundle2.putInt("level", overlayItem.getLevel());
                     bundle2.putInt("mask", overlayItem.getMask());
                     bundle2.putString("popname", "" + overlayItem.getId());

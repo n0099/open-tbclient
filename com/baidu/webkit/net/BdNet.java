@@ -25,7 +25,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BdNet implements INoProGuard, BdNetEngine.b {
     public static final int CORE_POOL_SIZE = 2;
     public static final boolean DEBUG = false;
@@ -45,7 +45,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public int mPriority = 1;
     public int mPoolSize = 2;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum HttpMethod implements INoProGuard {
         METHOD_GET,
         METHOD_POST,
@@ -53,7 +53,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         METHOD_HEAD
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum NetError implements INoProGuard {
         ERROR_RUN_START,
         ERROR_RUN_EXCEPTION,
@@ -66,7 +66,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         ERROR_UNKNOWN
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum NetState implements INoProGuard {
         STATE_CONNECT_START,
         STATE_CONNECT_SETUP,
@@ -74,7 +74,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         STATE_UNKNOWN
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements X509TrustManager {
         public X509TrustManager a;
         public X509TrustManager b;

@@ -1,162 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.content.Context;
+import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import tbclient.ThemeElement;
+/* loaded from: classes8.dex */
 public class wp9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
-    public og a;
-    public String b;
-    public boolean c;
 
-    public wp9(String str) {
+    public static int a(int i, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
+    }
+
+    public static boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278409, "Lcom/baidu/tieba/wp9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948278409, "Lcom/baidu/tieba/wp9;");
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        e(str, false);
+        ThemeElement.Builder builder = new ThemeElement.Builder();
+        builder.common_color = "#FF614EC2";
+        builder.dark_color = "#FF614EC2";
+        builder.light_color = "#FF614EC2";
+        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
+        builder.font_color = "#FFFFFFFF";
+        a = builder.build(false);
     }
 
-    public void a() {
-        zp9 c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long e = this.a.e();
-            if (e > 3000) {
-                yp9 yp9Var = c.f;
-                yp9Var.a += e;
-                yp9Var.b++;
-                xp9.b(c, 10);
-            }
-        }
-    }
-
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        zp9 c;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
-            return;
-        }
-        if (z) {
-            yp9 yp9Var = c.d;
-            if (yp9Var == null) {
-                return;
-            }
-            yp9Var.b++;
-            if (z2) {
-                yp9Var.a += j2;
-                yp9Var.d += j;
-            } else {
-                yp9Var.c++;
-            }
-        } else {
-            yp9 yp9Var2 = c.e;
-            if (yp9Var2 == null) {
-                return;
-            }
-            yp9Var2.b++;
-            if (z2) {
-                yp9Var2.a += j3;
-                yp9Var2.d += j;
-            } else {
-                yp9Var2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            xp9.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                og ogVar = new og("dbg");
-                ogVar.b("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
-                }
-                ogVar.b("result", str2);
-                if (z) {
-                    str3 = "1";
-                }
-                ogVar.b("isHttp", str3);
-                ogVar.b("timeCost", String.valueOf(j2));
-                ogVar.b(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                ogVar.b(StatConstants.KEY_EXT_ERR_MSG, str);
-                ogVar.b("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", ogVar);
-            }
-        }
-    }
-
-    public final zp9 c() {
+    @NonNull
+    public static ThemeElement b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return xp9.e(this.b, d(), this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (zp9) invokeV.objValue;
+        return (ThemeElement) invokeV.objValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            float[] fArr = new float[3];
+            Color.colorToHSV(i, fArr);
+            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
+                fArr[0] = fArr[0] + 15.0f;
+            } else {
+                fArr[0] = fArr[0] - 15.0f;
             }
-            if (netType == 1) {
-                return "WIFI";
-            }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
+            return Color.HSVToColor(fArr);
         }
-        return (String) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public void f() {
+    public static int d(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.g();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context != null && context.getResources() != null) {
+                return context.getResources().getIdentifier(str, "color", context.getPackageName());
+            }
+            return 0;
         }
+        return invokeLL.intValue;
     }
 
-    public void e(String str, boolean z) {
+    public static int f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new og("dbg");
-            xp9.c(str, d(), z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str == null) {
+                return Integer.MAX_VALUE;
+            }
+            if (str.length() != 0) {
+                try {
+                    if (!str.startsWith("#")) {
+                        str = "#" + str;
+                    }
+                } catch (Exception unused) {
+                    return Integer.MAX_VALUE;
+                }
+            }
+            return Color.parseColor(str);
         }
+        return invokeL.intValue;
     }
 }

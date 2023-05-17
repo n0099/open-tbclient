@@ -3,7 +3,7 @@ package com.baidu.searchbox.elasticthread.executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DredgeNormalExecutorCell extends BaseDredgeExecutorCell {
     @Override // com.baidu.searchbox.elasticthread.executor.BaseExecutorCell
     public String getTag() {

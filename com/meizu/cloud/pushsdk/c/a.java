@@ -1,14 +1,14 @@
 package com.meizu.cloud.pushsdk.c;
 
 import com.meizu.cloud.pushsdk.c.a.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static b.a a(String str, String str2, String str3) {
         return new b.a(str, str2, str3);
     }
 
-    public static b.C0666b a(String str) {
-        return new b.C0666b(str);
+    public static b.C0680b a(String str) {
+        return new b.C0680b(str);
     }
 
     public static void a() {

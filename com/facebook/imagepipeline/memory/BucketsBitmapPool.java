@@ -8,7 +8,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     @Override // com.facebook.imagepipeline.memory.BasePool
     public int getBucketedSize(int i) {

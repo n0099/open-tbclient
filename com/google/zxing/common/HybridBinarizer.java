@@ -4,7 +4,7 @@ import com.google.zxing.Binarizer;
 import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
 import java.lang.reflect.Array;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HybridBinarizer extends GlobalHistogramBinarizer {
     public static final int BLOCK_SIZE = 8;
     public static final int BLOCK_SIZE_MASK = 7;

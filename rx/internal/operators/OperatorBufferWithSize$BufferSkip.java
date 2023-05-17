@@ -1,32 +1,32 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.e6b;
-import com.baidu.tieba.l5b;
-import com.baidu.tieba.p5b;
+import com.baidu.tieba.c8b;
+import com.baidu.tieba.j7b;
+import com.baidu.tieba.n7b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
-public final class OperatorBufferWithSize$BufferSkip<T> extends p5b<T> {
+/* loaded from: classes10.dex */
+public final class OperatorBufferWithSize$BufferSkip<T> extends n7b<T> {
     public final int e;
     public final int f;
 
-    /* loaded from: classes9.dex */
-    public final class BufferSkipProducer extends AtomicBoolean implements l5b {
+    /* loaded from: classes10.dex */
+    public final class BufferSkipProducer extends AtomicBoolean implements j7b {
         public static final long serialVersionUID = 3428177408082367154L;
 
         public BufferSkipProducer() {
         }
 
-        @Override // com.baidu.tieba.l5b
+        @Override // com.baidu.tieba.j7b
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0) {
                     OperatorBufferWithSize$BufferSkip operatorBufferWithSize$BufferSkip = OperatorBufferWithSize$BufferSkip.this;
                     if (get() || !compareAndSet(false, true)) {
-                        operatorBufferWithSize$BufferSkip.e(e6b.c(j, operatorBufferWithSize$BufferSkip.f));
+                        operatorBufferWithSize$BufferSkip.e(c8b.c(j, operatorBufferWithSize$BufferSkip.f));
                         return;
                     } else {
-                        operatorBufferWithSize$BufferSkip.e(e6b.a(e6b.c(j, operatorBufferWithSize$BufferSkip.e), e6b.c(operatorBufferWithSize$BufferSkip.f - operatorBufferWithSize$BufferSkip.e, j - 1)));
+                        operatorBufferWithSize$BufferSkip.e(c8b.a(c8b.c(j, operatorBufferWithSize$BufferSkip.e), c8b.c(operatorBufferWithSize$BufferSkip.f - operatorBufferWithSize$BufferSkip.e, j - 1)));
                         return;
                     }
                 }

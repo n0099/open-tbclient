@@ -1,36 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedEntrybarComponent;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class uz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
 
-    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<s17<? extends Object>> mutableList, lz6 lz6Var) {
+    public uz6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, lz6Var) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            mutableList.add(b(feedEntrybarComponent, lz6Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = new LinkedHashMap();
     }
 
-    public static final nx6 b(FeedEntrybarComponent feedEntrybarComponent, lz6 lz6Var) {
-        InterceptResult invokeLL;
+    public final Map<String, String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedEntrybarComponent, lz6Var)) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            String text = feedEntrybarComponent.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            String schema = feedEntrybarComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            return new nx6(text, schema, null, lz6Var, 4, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (nx6) invokeLL.objValue;
+        return (Map) invokeV.objValue;
+    }
+
+    public final void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import com.baidu.mobstat.cw;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cx implements cv {
     public static byte[] b = new byte[0];
     public ByteBuffer a;

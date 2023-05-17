@@ -1,64 +1,37 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.BaseTextColor;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
-/* loaded from: classes6.dex */
-public final class tz6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class tz6 extends r07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public int p;
+    public long q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public int w;
 
-    public static final oy6 a(BaseTextColor baseTextColor) {
-        InterceptResult invokeL;
+    public tz6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
-            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
-            Integer type = baseTextColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new oy6(type.intValue(), baseTextColor.day, baseTextColor.night);
-        }
-        return (oy6) invokeL.objValue;
-    }
-
-    public static final oy6 b(FeedContentColor feedContentColor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
-            Integer type = feedContentColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new oy6(type.intValue(), feedContentColor.day, feedContentColor.night);
-        }
-        return (oy6) invokeL.objValue;
-    }
-
-    public static final mz6 c(FeedContentText feedContentText) {
-        InterceptResult invokeL;
-        oy6 oy6Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
-            String str = feedContentText.text;
-            if (str == null) {
-                str = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            FeedContentColor feedContentColor = feedContentText.color;
-            oy6 oy6Var2 = null;
-            if (feedContentColor != null) {
-                oy6Var = b(feedContentColor);
-            } else {
-                oy6Var = null;
-            }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                oy6Var2 = b(feedContentColor2);
-            }
-            return new mz6(str, oy6Var, oy6Var2);
         }
-        return (mz6) invokeL.objValue;
     }
 }

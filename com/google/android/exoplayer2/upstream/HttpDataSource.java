@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface HttpDataSource extends DataSource {
     public static final Predicate<String> REJECT_PAYWALL_TYPES = new Predicate<String>() { // from class: com.google.android.exoplayer2.upstream.HttpDataSource.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public interface HttpDataSource extends DataSource {
         }
     };
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Factory extends DataSource.Factory {
         @Deprecated
         void clearAllDefaultRequestProperties();
@@ -60,7 +60,7 @@ public interface HttpDataSource extends DataSource {
 
     void setRequestProperty(String str, String str2);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BaseFactory implements Factory {
         public final RequestProperties defaultRequestProperties = new RequestProperties();
 
@@ -96,7 +96,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HttpDataSourceException extends IOException {
         public static final int TYPE_CLOSE = 3;
         public static final int TYPE_OPEN = 1;
@@ -105,7 +105,7 @@ public interface HttpDataSource extends DataSource {
         public final int type;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public @interface Type {
         }
 
@@ -133,7 +133,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InvalidContentTypeException extends HttpDataSourceException {
         public final String contentType;
 
@@ -143,7 +143,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InvalidResponseCodeException extends HttpDataSourceException {
         public final Map<String, List<String>> headerFields;
         public final int responseCode;
@@ -155,7 +155,7 @@ public interface HttpDataSource extends DataSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class RequestProperties {
         public final Map<String, String> requestProperties = new HashMap();
         public Map<String, String> requestPropertiesSnapshot;

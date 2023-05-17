@@ -3,7 +3,7 @@ package com.googlecode.mp4parser.authoring;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Movie {
     public Matrix matrix;
     public List<Track> tracks;

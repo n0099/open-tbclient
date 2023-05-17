@@ -16,7 +16,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.vivo.push.util.ag;
 import com.vivo.push.util.u;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class LinkProxyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

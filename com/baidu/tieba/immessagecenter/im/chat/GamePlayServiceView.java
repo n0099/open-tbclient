@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GamePlayServiceView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final View.OnClickListener b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
-        void e(int i);
+        void h(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class GamePlayServiceView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.e(0);
+                this.a.a.h(0);
             }
         }
     }
@@ -134,10 +134,10 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0790, (ViewGroup) this, true);
-            findViewById(R.id.obfuscated_res_0x7f09155d).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
-            findViewById(R.id.obfuscated_res_0x7f091577).setOnClickListener(this.b);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f0925a7)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ba, (ViewGroup) this, true);
+            findViewById(R.id.obfuscated_res_0x7f091599).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
+            findViewById(R.id.obfuscated_res_0x7f0915b3).setOnClickListener(this.b);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f092612)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 }

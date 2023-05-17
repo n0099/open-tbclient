@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.exifinterface.media.ExifInterface;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class NalUnitUtil {
     public static final int EXTENDED_SAR = 255;
     public static final int H264_NAL_UNIT_TYPE_SEI = 6;
@@ -16,7 +16,7 @@ public final class NalUnitUtil {
     public static final Object scratchEscapePositionsLock = new Object();
     public static int[] scratchEscapePositions = new int[10];
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class PpsData {
         public final boolean bottomFieldPicOrderInFramePresentFlag;
         public final int picParameterSetId;
@@ -29,7 +29,7 @@ public final class NalUnitUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SpsData {
         public final boolean deltaPicOrderAlwaysZeroFlag;
         public final boolean frameMbsOnlyFlag;

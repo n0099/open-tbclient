@@ -12,7 +12,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StartupCountStats extends SimpleActivityLifeCycle implements NoProGuard {
     public static final String TAG = "StartupCountStats";
     public static Flow sFlow;
@@ -32,7 +32,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static PerfSampleManager sPerfSampleManager = new PerfSampleManager();
     public static UBCManager ubc = null;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ExtDataCallBack {
         @Nullable
         public JSONObject addData() {
@@ -40,7 +40,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StatsRule {
         @Nullable
         public boolean shouldStats(Activity activity) {

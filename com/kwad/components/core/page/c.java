@@ -33,7 +33,7 @@ import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements x.b {
     public int FH;
     public LinearLayout FI;
@@ -66,56 +66,56 @@ public final class c implements x.b {
     public boolean FT = false;
     public int FO = com.kwad.sdk.core.config.d.sf();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onBackBtnClicked(View view2);
 
         void onCloseBtnClicked(View view2);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public final String FC;
         public final String FD;
         public final boolean FY;
         public final boolean FZ;
 
-        public b(C0604c c0604c) {
-            this.FY = c0604c.FY;
-            this.FZ = c0604c.FZ;
-            this.FD = c0604c.FD;
-            this.FC = c0604c.FC;
+        public b(C0618c c0618c) {
+            this.FY = c0618c.FY;
+            this.FZ = c0618c.FZ;
+            this.FD = c0618c.FD;
+            this.FC = c0618c.FC;
         }
 
-        public /* synthetic */ b(C0604c c0604c, byte b) {
-            this(c0604c);
+        public /* synthetic */ b(C0618c c0618c, byte b) {
+            this(c0618c);
         }
     }
 
     /* renamed from: com.kwad.components.core.page.c$c  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0604c {
+    /* loaded from: classes9.dex */
+    public static class C0618c {
         public String FC;
         public String FD;
         public boolean FY = true;
         public boolean FZ = true;
 
-        public final C0604c aq(String str) {
+        public final C0618c aq(String str) {
             this.FC = str;
             return this;
         }
 
-        public final C0604c ar(String str) {
+        public final C0618c ar(String str) {
             this.FD = str;
             return this;
         }
 
-        public final C0604c as(boolean z) {
+        public final C0618c as(boolean z) {
             this.FY = true;
             return this;
         }
 
-        public final C0604c at(boolean z) {
+        public final C0618c at(boolean z) {
             this.FZ = false;
             return this;
         }
@@ -131,7 +131,7 @@ public final class c implements x.b {
         this.mAdTemplate = adTemplate;
         this.FH = i;
         this.FS = z;
-        this.zO = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d043e, (ViewGroup) null);
+        this.zO = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d045b, (ViewGroup) null);
     }
 
     public static void a(WebView webView) {
@@ -201,8 +201,8 @@ public final class c implements x.b {
         com.kwad.components.core.kwai.a aVar = new com.kwad.components.core.kwai.a(this.zO);
         this.mTitleBarHelper = aVar;
         aVar.a(new com.kwad.components.core.kwai.b(bl));
-        this.mTitleBarHelper.a(new a.InterfaceC0602a() { // from class: com.kwad.components.core.page.c.5
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0602a
+        this.mTitleBarHelper.a(new a.InterfaceC0616a() { // from class: com.kwad.components.core.page.c.5
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0616a
             public final void r(View view2) {
                 if (c.this.mAdWebView == null || !c.this.mAdWebView.canGoBack()) {
                     if (c.this.FP != null) {
@@ -217,7 +217,7 @@ public final class c implements x.b {
                 }
             }
 
-            @Override // com.kwad.components.core.kwai.a.InterfaceC0602a
+            @Override // com.kwad.components.core.kwai.a.InterfaceC0616a
             public final void s(View view2) {
                 if (c.this.mAdWebView == null || !c.this.mAdWebView.canGoBack()) {
                     if (c.this.FP != null) {
@@ -293,14 +293,14 @@ public final class c implements x.b {
     }
 
     private void initTipBarView() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913bd);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f8);
         this.mWebTipBarLayout = linearLayout;
         if (this.mNormalMode) {
             linearLayout.setVisibility(8);
             return;
         }
-        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0913be);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913bf);
+        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f9);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913fa);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.c.6
             @Override // android.view.View.OnClickListener
@@ -450,13 +450,13 @@ public final class c implements x.b {
         }
         this.FW = bVar.FD;
         this.mNormalMode = (TextUtils.isEmpty(bVar.FC) || TextUtils.isEmpty(bVar.FD)) ? false : true;
-        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913b4);
-        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091267);
-        this.FI = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091305);
-        this.FJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091302);
-        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f091303);
-        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f091301);
-        this.FM = (TextView) findViewById(R.id.obfuscated_res_0x7f091304);
+        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913ef);
+        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912a2);
+        this.FI = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091340);
+        this.FJ = (TextView) findViewById(R.id.obfuscated_res_0x7f09133d);
+        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f09133e);
+        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f09133c);
+        this.FM = (TextView) findViewById(R.id.obfuscated_res_0x7f09133f);
         initTipBarView();
         c(bVar);
         nA();

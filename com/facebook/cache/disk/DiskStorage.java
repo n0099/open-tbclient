@@ -8,16 +8,16 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface DiskStorage {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DiskDumpInfo {
         public List<DiskDumpInfoEntry> entries = new ArrayList();
         public Map<String, Integer> typeCounts = new HashMap();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Entry {
         String getId();
 
@@ -28,7 +28,7 @@ public interface DiskStorage {
         long getTimestamp();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Inserter {
         boolean cleanUp();
 
@@ -63,7 +63,7 @@ public interface DiskStorage {
 
     boolean touch(String str, Object obj) throws IOException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DiskDumpInfoEntry {
         public final String firstBits;
         public final String id;

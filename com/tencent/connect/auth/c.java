@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
@@ -16,7 +17,7 @@ import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public AuthAgent a;
     public QQToken b;
@@ -148,7 +149,7 @@ public class c {
         if (this.b.isSessionValid()) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         sb.append(str);
         SLog.i("openSDK_LOG.QQAuth", sb.toString());

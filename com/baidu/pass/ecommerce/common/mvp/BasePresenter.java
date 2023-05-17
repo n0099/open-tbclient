@@ -2,7 +2,7 @@ package com.baidu.pass.ecommerce.common.mvp;
 
 import com.baidu.pass.ecommerce.common.mvp.IBaseView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BasePresenter<V extends IBaseView> implements IPresenter<V> {
     public WeakReference<V> wrf;
 

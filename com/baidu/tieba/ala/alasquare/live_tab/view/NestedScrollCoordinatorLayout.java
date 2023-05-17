@@ -19,14 +19,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NestedScrollingChildHelper a;
     public a b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a<DummyView extends View> extends CoordinatorLayout.Behavior<DummyView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

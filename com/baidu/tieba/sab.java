@@ -6,99 +6,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.RevenueConfig;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-/* loaded from: classes6.dex */
-public final class sab implements IMiddleRevenue {
+/* loaded from: classes7.dex */
+public abstract class sab<E> extends qab<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final rab b;
-    public final IRevenue c;
+    public volatile long h;
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayEventStatistics getPayEventStatistic() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (IPayEventStatistics) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayServiceStatistics getPayServiceStatistics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (IPayServiceStatistics) invokeV.objValue;
-    }
-
-    public sab(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sab(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig, iRevenue};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = iRevenue;
-        this.a = "MiddleRevenue";
-        IAppPayService appPayService = this.c.getAppPayService();
-        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.b = new rab(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IAppPayService getAppPayService() {
+    public final long l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.h;
         }
-        return (IAppPayService) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    @Override // tv.athena.revenue.api.IMiddleRevenue
-    public IMiddlePayService getMiddlePayService() {
-        InterceptResult invokeV;
+    public final void m(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (IMiddlePayService) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + hashCode() + " :{revenue:" + this.c + '}';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public void updateConfig(RevenueConfig revenueConfig) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, revenueConfig) == null) {
-            this.c.updateConfig(revenueConfig);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.h = j;
         }
     }
 }

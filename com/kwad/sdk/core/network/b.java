@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class b implements g {
     public final Map<String, String> mHeader = new HashMap();
     public final JSONObject mBodyParams = new JSONObject();

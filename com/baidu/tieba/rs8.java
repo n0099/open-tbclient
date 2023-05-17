@@ -1,69 +1,52 @@
 package com.baidu.tieba;
 
-import android.widget.ListAdapter;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class rs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SingleThreadEmotionHorizontalAdater a;
-    public BdListView b;
-    public xs8 c;
-    public List<EmotionPackageData> d;
+    public List<vd5> a;
+    public boolean b;
 
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public rs8(TbPageContext<?> tbPageContext, BdListView bdListView) {
+    public rs8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = bdListView;
-        xs8 xs8Var = new xs8(tbPageContext);
-        this.c = xs8Var;
-        xs8Var.c(TbadkCoreApplication.getInst().getSkinType());
-        this.b.addHeaderView(this.c.b());
-        this.d = new ArrayList();
-        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
-        this.a = singleThreadEmotionHorizontalAdater;
-        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
-    public void update(List<EmotionPackageData> list) {
-        xs8 xs8Var;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (xs8Var = this.c) != null && this.a != null) {
-            xs8Var.update(Integer.valueOf(list.size()));
-            this.d.clear();
-            if (list != null) {
-                this.d.addAll(list);
-            }
-            this.a.notifyDataSetChanged();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
+        boolean z = false;
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.a = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                vd5 vd5Var = new vd5();
+                vd5Var.a(optJSONArray.optJSONObject(i));
+                this.a.add(vd5Var);
+            }
+        }
+        if (jSONObject.optInt("has_more", 0) == 1) {
+            z = true;
+        }
+        this.b = z;
     }
 }

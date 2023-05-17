@@ -1,44 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class t19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements dv5 {
+    /* loaded from: classes7.dex */
+    public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ DetailInfoAndReplyFragment b;
+        public String a;
+        public byte[] b;
+        public final /* synthetic */ t19 c;
 
-        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+        public a(t19 t19Var, String str, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
+                Object[] objArr = {t19Var, str, bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,133 +38,80 @@ public class t19 {
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = detailInfoAndReplyFragment;
+            this.c = t19Var;
+            this.a = null;
+            this.b = null;
+            this.a = str;
+            this.b = bArr;
         }
 
-        @Override // com.baidu.tieba.dv5
-        public void a() {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.r2(false);
+                super.cancel(true);
             }
         }
 
-        @Override // com.baidu.tieba.dv5
-        public void b(List<String> list) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.z1() == null) {
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onCancelled();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+                int saveImageFileByUser = FileHelper.saveImageFileByUser(this.a, this.b, this.c.a.getPageActivity());
+                if (saveImageFileByUser != -2) {
+                    if (saveImageFileByUser != 0) {
+                        return this.c.a.getString(R.string.save_fail);
+                    }
+                    return this.c.a.getString(R.string.save_image_to_album);
+                }
+                return FileHelper.getSdErrorString();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                super.onPostExecute((a) str);
+                this.c.a.showToast(str);
+            }
+        }
+    }
+
+    public t19(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList<pp9> F = this.a.z1().F();
-            if (!ListUtils.isEmpty(F) && !ListUtils.isEmpty(list)) {
-                Iterator<pp9> it = F.iterator();
-                while (it.hasNext()) {
-                    pp9 next = it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals(list.get(i), next.N())) {
-                            it.remove();
-                            if (this.a.z1().M() != null) {
-                                this.a.z1().M().setReply_num(this.a.z1().M().getReply_num() - 1);
-                            }
-                        } else {
-                            i++;
-                        }
-                    }
-                }
-                this.b.d2();
-            }
         }
+        this.a = tbPageContext;
     }
 
-    public static void a() {
+    public void b(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            cv5.b().a();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bArr) == null) {
+            new a(this, str, bArr).execute(new String[0]);
         }
-    }
-
-    public static fv5 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
-            if (detailInfoAndReplyFragment != null && pbModel != null) {
-                fv5 fv5Var = new fv5();
-                if (pbModel.z1() != null && pbModel.z1().k() != null) {
-                    if (pbModel.z1().k().getDeletedReasonInfo() != null) {
-                        fv5Var.p(pbModel.z1().k().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        fv5Var.o(pbModel.z1().k().getDeletedReasonInfo().is_boomgrow.intValue());
-                    }
-                    fv5Var.l(pbModel.z1().k().getId());
-                    fv5Var.m(pbModel.z1().k().getName());
-                    fv5Var.k(pbModel.z1().k().getImage_url());
-                    fv5Var.t(pbModel.z1().k().getUser_level());
-                }
-                if (pbModel.z1() != null && pbModel.z1().n() != null) {
-                    fv5Var.n(pbModel.z1().n().has_forum_rule.intValue());
-                }
-                if (pbModel.z1() != null && pbModel.z1().T() != null) {
-                    fv5Var.s(pbModel.z1().T());
-                }
-                fv5Var.q(new a(pbModel, detailInfoAndReplyFragment));
-                if (pbModel.z1() != null) {
-                    AntiData c = pbModel.z1().c();
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    if (c != null && c.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
-                        }
-                    }
-                    fv5Var.r(sparseArray);
-                }
-                return fv5Var;
-            }
-            return null;
-        }
-        return (fv5) invokeLL.objValue;
-    }
-
-    public static boolean c(qv8 qv8Var, pp9 pp9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, qv8Var, pp9Var)) == null) {
-            if (qv8Var != null && pp9Var != null) {
-                hv5 hv5Var = new hv5();
-                hv5Var.d(pp9Var.J() + "");
-                if (qv8Var.M() != null) {
-                    hv5Var.f(qv8Var.M().getId());
-                }
-                hv5Var.e(pp9Var.N());
-                return cv5.b().c(hv5Var);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) && tbPageContext != null && pbModel != null && detailInfoAndReplyFragment != null && detailInfoAndReplyFragment.getView() != null) {
-            cv5.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
-            cv5.b().d(2);
-        }
-    }
-
-    public static boolean e(pp9 pp9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pp9Var)) == null) {
-            if (pp9Var == null) {
-                return false;
-            }
-            return cv5.b().f(pp9Var.N());
-        }
-        return invokeL.booleanValue;
     }
 }

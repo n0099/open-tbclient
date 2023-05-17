@@ -5,16 +5,16 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class e implements Handler.Callback {
     public volatile Handler a = new Handler(a.a, this);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         long a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static final Looper a;
 

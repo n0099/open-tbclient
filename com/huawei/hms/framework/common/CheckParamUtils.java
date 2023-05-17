@@ -1,7 +1,6 @@
 package com.huawei.hms.framework.common;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CheckParamUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static Pattern IPV6_PATTERN = null;
@@ -103,7 +102,7 @@ public class CheckParamUtils {
             if (str == null || str.isEmpty() || str.length() > 15 || !str.replace(".", "").matches("[0-9]+")) {
                 return false;
             }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             if (split.length != 4) {
                 return false;
             }

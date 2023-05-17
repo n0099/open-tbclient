@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LatLngBounds implements Parcelable {
     public static final Parcelable.Creator<LatLngBounds> CREATOR = new b();
     public final LatLng northeast;
@@ -26,7 +26,7 @@ public final class LatLngBounds implements Parcelable {
         return new LatLng(d3, ((d4 - d5) / 2.0d) + d5);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public double a;
         public double b;

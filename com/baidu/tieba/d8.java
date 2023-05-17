@@ -1,123 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
+import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
-/* loaded from: classes4.dex */
-public final class d8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+/* loaded from: classes5.dex */
+public class d8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Future<T> a;
 
-    public static Class a(String str) throws ReflectionException {
-        InterceptResult invokeL;
+    public d8(Future<T> future) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {future};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = future;
+    }
+
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                return Class.forName(str);
-            } catch (ClassNotFoundException e) {
-                throw new ReflectionException("Class not found: " + str, e);
+                return this.a.get();
+            } catch (InterruptedException unused) {
+                return null;
+            } catch (ExecutionException e) {
+                throw new GdxRuntimeException(e.getCause());
             }
         }
-        return (Class) invokeL.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public static f8[] d(Class cls) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            Field[] declaredFields = cls.getDeclaredFields();
-            f8[] f8VarArr = new f8[declaredFields.length];
-            int length = declaredFields.length;
-            for (int i = 0; i < length; i++) {
-                f8VarArr[i] = new f8(declaredFields[i]);
-            }
-            return f8VarArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isDone();
         }
-        return (f8[]) invokeL.objValue;
-    }
-
-    public static String e(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls)) == null) {
-            return cls.getSimpleName();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean g(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, cls)) == null) {
-            return cls.isMemberClass();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            return Modifier.isStatic(cls.getModifiers());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static e8 b(Class cls, Class... clsArr) throws ReflectionException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, clsArr)) == null) {
-            try {
-                return new e8(cls.getConstructor(clsArr));
-            } catch (NoSuchMethodException e) {
-                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
-            } catch (SecurityException e2) {
-                throw new ReflectionException("Security violation occurred while getting constructor for class: '" + cls.getName() + "'.", e2);
-            }
-        }
-        return (e8) invokeLL.objValue;
-    }
-
-    public static e8 c(Class cls, Class... clsArr) throws ReflectionException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            try {
-                return new e8(cls.getDeclaredConstructor(clsArr));
-            } catch (NoSuchMethodException e) {
-                throw new ReflectionException("Constructor not found for class: " + cls.getName(), e);
-            } catch (SecurityException e2) {
-                throw new ReflectionException("Security violation while getting constructor for class: " + cls.getName(), e2);
-            }
-        }
-        return (e8) invokeLL.objValue;
-    }
-
-    public static boolean f(Class cls, Class cls2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cls, cls2)) == null) {
-            return cls.isAssignableFrom(cls2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <T> T i(Class<T> cls) throws ReflectionException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, cls)) == null) {
-            try {
-                return cls.newInstance();
-            } catch (IllegalAccessException e) {
-                throw new ReflectionException("Could not instantiate instance of class: " + cls.getName(), e);
-            } catch (InstantiationException e2) {
-                throw new ReflectionException("Could not instantiate instance of class: " + cls.getName(), e2);
-            }
-        }
-        return (T) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

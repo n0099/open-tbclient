@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IPCCallback extends IInterface {
     public static final String DESCRIPTOR = "com.vivo.vms.IPCCallback";
 
     void call(Bundle bundle) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IPCCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRANSACTION_call = 1;
@@ -31,7 +31,7 @@ public interface IPCCallback extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public static class Proxy implements IPCCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IPCCallback sDefaultImpl;
@@ -177,7 +177,7 @@ public interface IPCCallback extends IInterface {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Default implements IPCCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

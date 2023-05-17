@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OverlayItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALIGN_BOTTON = 2;
@@ -42,7 +42,7 @@ public class OverlayItem {
     public int s;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AnimEffect {
         public static final /* synthetic */ AnimEffect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,7 +128,7 @@ public class OverlayItem {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class AnimationSubType {
         public static final /* synthetic */ AnimationSubType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -194,7 +194,7 @@ public class OverlayItem {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CoordType {
         public static final /* synthetic */ CoordType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

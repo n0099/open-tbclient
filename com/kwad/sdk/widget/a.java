@@ -1,7 +1,7 @@
 package com.kwad.sdk.widget;
 
 import android.animation.ValueAnimator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static ValueAnimator ofArgb(int... iArr) {
         ValueAnimator valueAnimator = new ValueAnimator();

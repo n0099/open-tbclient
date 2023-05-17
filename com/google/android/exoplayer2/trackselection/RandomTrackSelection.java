@@ -4,7 +4,7 @@ import android.os.SystemClock;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class RandomTrackSelection extends BaseTrackSelection {
     public final Random random;
     public int selectedIndex;
@@ -19,7 +19,7 @@ public final class RandomTrackSelection extends BaseTrackSelection {
         return 3;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements TrackSelection.Factory {
         public final Random random;
 

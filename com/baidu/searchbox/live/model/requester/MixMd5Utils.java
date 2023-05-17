@@ -2,7 +2,7 @@ package com.baidu.searchbox.live.model.requester;
 
 import java.security.MessageDigest;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MixMd5Utils {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         StringBuilder sb = new StringBuilder();

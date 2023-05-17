@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.faceunity.gles;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OffscreenSurface extends EglSurfaceBase {
     public OffscreenSurface(EglCore eglCore, int i, int i2) {
         super(eglCore);

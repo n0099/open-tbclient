@@ -19,7 +19,7 @@ import com.baidu.livesdk.api.share.Share;
 import com.baidu.livesdk.api.widget.LikeView;
 import com.baidu.livesdk.api.widget.LoadingView;
 import com.baidu.livesdk.api.widget.UniversalToast;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveSDK {
     public static volatile LiveSDK mSDK;
     public Account mAccount;

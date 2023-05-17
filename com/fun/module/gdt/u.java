@@ -17,7 +17,7 @@ import com.qq.e.ads.nativ.NativeUnifiedADData;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class u extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -120,27 +120,27 @@ public abstract class u extends NativeAdContainer {
                 int appStatus = nativeUnifiedADData.getAppStatus();
                 if (appStatus == 0) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f07e3;
+                    i = R.string.obfuscated_res_0x7f0f0851;
                 } else if (appStatus == 1) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f07ea;
+                    i = R.string.obfuscated_res_0x7f0f0858;
                 } else if (appStatus == 2) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f07ee;
+                    i = R.string.obfuscated_res_0x7f0f085c;
                 } else if (appStatus == 4) {
                     this.c.setText(String.format("%s/100", Integer.valueOf(nativeUnifiedADData.getProgress())));
                     return;
                 } else if (appStatus == 8) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f07e6;
+                    i = R.string.obfuscated_res_0x7f0f0854;
                 } else if (appStatus == 16) {
                     button = this.c;
-                    i = R.string.obfuscated_res_0x7f0f07e8;
+                    i = R.string.obfuscated_res_0x7f0f0856;
                 }
                 button.setText(i);
             }
             button = this.c;
-            i = R.string.obfuscated_res_0x7f0f07ef;
+            i = R.string.obfuscated_res_0x7f0f085d;
             button.setText(i);
         }
     }
@@ -150,9 +150,9 @@ public abstract class u extends NativeAdContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090106);
-            this.c = (Button) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090113);
+            this.c = (Button) findViewById(R.id.obfuscated_res_0x7f0900ae);
         }
     }
 }

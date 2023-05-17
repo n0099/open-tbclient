@@ -1,215 +1,186 @@
 package com.baidu.tieba;
 
-import android.animation.ValueAnimator;
-import android.content.Intent;
-import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ay9 {
+import java.util.List;
+/* loaded from: classes4.dex */
+public class ay9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<Object> a;
+    public TbPageContext<?> b;
+    public zx9 c;
 
-    /* loaded from: classes3.dex */
-    public static class a implements ValueAnimator.AnimatorUpdateListener {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
+        public TextView a;
+        public BubbleItemView b;
+        public BubbleItemView c;
+        public View d;
 
-        public a(View view2, int i, int i2, int i3, int i4) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int i = this.b;
-                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
-                int i2 = this.d;
-                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
-                this.a.requestLayout();
-            }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ int e;
+    public ay9(TbPageContext<?> tbPageContext, zx9 zx9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, zx9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = tbPageContext;
+        this.c = zx9Var;
+    }
 
-        public b(View view2, int i, int i2, int i3, int i4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public void a(List<Object> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<Object> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
+            }
+            return -1L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return getItem(i) instanceof List ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<Object> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            Object item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else if (getItemViewType(i) == 0) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0135, viewGroup, false);
+                aVar = new a();
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e82);
+                view2.setTag(aVar);
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0182, viewGroup, false);
+                aVar = new a();
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903dc);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903dd);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0908e3);
+                view2.setTag(aVar);
+            }
+            if (item != null) {
+                if (getItemViewType(i) == 0) {
+                    aVar.a.setText(item.toString());
+                } else {
+                    List list = (List) item;
+                    aVar.b.d((DressItemData) list.get(0));
+                    aVar.b.setController(this.c);
+                    aVar.b.setFromBubbleGroup(true);
+                    if (list.size() > 1) {
+                        aVar.c.d((DressItemData) list.get(1));
+                        aVar.c.setController(this.c);
+                        aVar.c.setFromBubbleGroup(true);
+                    } else {
+                        aVar.c.e();
+                    }
+                    if (getItem(i + 1) instanceof List) {
+                        aVar.d.setVisibility(8);
+                    } else {
+                        aVar.d.setVisibility(0);
+                    }
                 }
             }
-            this.a = view2;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-            this.e = i4;
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                int i = this.b;
-                layoutParams.width = i - ((int) ((i - this.c) * animatedFraction));
-                int i2 = this.d;
-                layoutParams.height = i2 - ((int) ((i2 - this.e) * animatedFraction));
-                this.a.requestLayout();
-            }
-        }
-    }
-
-    public static Bundle a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            Bundle bundle = new Bundle();
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            bundle.putInt("enter_anim_values_top", iArr[1]);
-            bundle.putInt("enter_anim_values_width", view2.getWidth());
-            bundle.putInt("enter_anim_values_height", view2.getHeight());
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public static float b(Bundle bundle, Bundle bundle2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundle, bundle2)) == null) {
-            return e(bundle) - e(bundle2);
-        }
-        return invokeLL.floatValue;
-    }
-
-    public static void c(Intent intent, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, intent, view2) == null) {
-            Bundle d = d(intent);
-            Bundle a2 = a(view2);
-            int g = g(d);
-            int g2 = g(a2);
-            int e = e(d);
-            int e2 = e(a2);
-            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
-            view2.animate().setDuration(300L).translationY(f(a2)).setUpdateListener(new b(view2, g, g2, e, e2)).start();
-        }
-    }
-
-    public static void h(Intent intent, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, intent, view2) == null) {
-            view2.setVisibility(4);
-            Bundle d = d(intent);
-            Bundle a2 = a(view2);
-            int g = g(d);
-            int g2 = g(a2);
-            int e = e(d);
-            int e2 = e(a2);
-            view2.setTranslationY(b(d, a2) - UtilHelper.getStatusBarHeight());
-            view2.setVisibility(0);
-            view2.animate().setDuration(350L).translationY(f(a2)).setUpdateListener(new a(view2, g, g2, e, e2)).start();
-        }
-    }
-
-    public static Bundle d(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, intent)) == null) {
-            if (intent == null) {
-                return null;
-            }
-            return intent.getBundleExtra("enter_anim_values");
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public static int e(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
-            }
-            return bundle.getInt("enter_anim_values_height");
-        }
-        return invokeL.intValue;
-    }
-
-    public static int f(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
-            }
-            return bundle.getInt("enter_anim_values_top");
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bundle)) == null) {
-            if (bundle == null) {
-                return 0;
-            }
-            return bundle.getInt("enter_anim_values_width");
-        }
-        return invokeL.intValue;
+        return (View) invokeILL.objValue;
     }
 }

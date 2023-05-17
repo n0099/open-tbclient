@@ -1,121 +1,78 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Rect;
+import android.util.TypedValue;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class e6a extends ud5 {
+@SuppressLint({"ViewConstructor"})
+/* loaded from: classes5.dex */
+public class e6a extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context t;
+    public final int a;
+    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e6a(Context context, String str) {
-        super(context, (String) null, 15);
+    public e6a(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = false;
-        this.t = context;
-        this.n = 3;
-        this.m = new EditorInfoContainer(context, str);
-        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57, 65};
+        this.a = (int) TypedValue.applyDimension(1, 15.0f, context.getResources().getDisplayMetrics());
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0814bc);
     }
 
-    public void g() {
+    public boolean a(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).l();
-            }
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            Rect rect = new Rect();
+            getHitRect(rect);
+            int i3 = rect.left;
+            int i4 = this.a;
+            rect.left = i3 - i4;
+            rect.right += i4;
+            rect.top -= i4;
+            rect.bottom += i4;
+            return rect.contains(i, i2);
         }
+        return invokeII.booleanValue;
     }
 
-    public void h() {
+    @Override // android.view.View
+    public boolean isPressed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).m();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return invokeV.booleanValue;
     }
 
-    public void i() {
+    @Override // android.view.View
+    public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).n();
-            }
-        }
-    }
-
-    public void j(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).s(str, i);
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).t(i);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).v(z);
-            }
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).setFrom(str);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            vd5 vd5Var = this.m;
-            if (vd5Var instanceof EditorInfoContainer) {
-                ((EditorInfoContainer) vd5Var).z(z);
-            }
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
         }
     }
 }

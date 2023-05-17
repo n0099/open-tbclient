@@ -1,57 +1,45 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.JavascriptInterface;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserModel;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.n44;
-import com.baidu.tieba.sj3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
-@Singleton
-@Service
-/* loaded from: classes3.dex */
-public class b94 implements mp1 {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+/* loaded from: classes4.dex */
+public class b94 extends g94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public File b;
+    public int e;
+    public String f;
+    public boolean g;
+    public ArrayList<j94> h;
+    public List<String> i;
+    public List<String> j;
 
-    public long s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements sj3.a<Long> {
+    /* loaded from: classes4.dex */
+    public class a implements k94 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b94 a;
+        public final /* synthetic */ n12 a;
+        public final /* synthetic */ b94 b;
 
-        public a(b94 b94Var) {
+        public a(b94 b94Var, n12 n12Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {b94Var};
+                Object[] objArr = {b94Var, n12Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -61,282 +49,280 @@ public class b94 implements mp1 {
                     return;
                 }
             }
-            this.a = b94Var;
+            this.b = b94Var;
+            this.a = n12Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.sj3.a
-        public Long update() throws IllegalStateException {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.k94
+        public void a(l94 l94Var, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Long.valueOf(this.a.m());
-            }
-            return (Long) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947599788, "Lcom/baidu/tieba/b94;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947599788, "Lcom/baidu/tieba/b94;");
-                return;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, l94Var, str) == null) {
+                this.b.B(this.a, str);
             }
         }
-        c = ho1.a;
     }
 
-    @NonNull
-    public static File q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, vx9.b);
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public gg2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new z84();
-        }
-        return (gg2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            hk2.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public File[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return q().listFiles();
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return hk2.p();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String J = bo4.J(n44.d());
-            String J2 = bo4.J(n44.d.g());
-            g();
-            c();
-            bo4.k(J);
-            bo4.k(J2);
-        }
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            l("aigame_storage_");
-        }
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ek2.c();
-        }
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (r() && this.a.edit().clear().commit()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            File file = this.b;
-            if (file != null) {
-                return file.length();
-            }
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    public String[] n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (!r()) {
-                return new String[0];
-            }
-            Set<String> keySet = this.a.getAll().keySet();
-            String[] strArr = new String[keySet.size()];
-            keySet.toArray(strArr);
-            return strArr;
-        }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Nullable
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            String g0 = x73.g0();
-            if (TextUtils.isEmpty(g0)) {
-                return null;
-            }
-            return String.format("aigame_storage_%s_anonymous", g0);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public b94() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b94(qg2 qg2Var) {
+        super(qg2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qg2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String o = o();
-        if (c) {
-            Log.i("SwanGameStorageManager", "preferencesName:" + o);
-        }
-        if (o != null) {
-            this.a = er2.c().getSharedPreferences(o, 0);
-            File q = q();
-            this.b = new File(q, o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
-        }
-        tj3.h.b(new a(this));
+        this.g = false;
+        this.h = new ArrayList<>();
+        this.i = new ArrayList(3);
+        this.j = new ArrayList(3);
     }
 
-    public static void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            l(String.format("aigame_storage_%s_anonymous", str, ""));
-        }
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public String a(String str) {
+    public final boolean F(GameRecorderController.RecorderState... recorderStateArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return hk2.Y(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mp1
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return hk2.Z(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            if (r() && this.a.edit().remove(str).commit()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, recorderStateArr)) == null) {
+            GameRecorderController.RecorderState l = h94.a().b().l();
+            if (g94.d) {
+                Log.d("GameRecorderApi", "RecorderState:" + l);
+            }
+            if (recorderStateArr == null) {
                 return true;
             }
-            return false;
+            for (GameRecorderController.RecorderState recorderState : recorderStateArr) {
+                if (l == recorderState) {
+                    return false;
+                }
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static void l(String str) {
-        File[] listFiles;
+    public final void B(n12 n12Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || str == null || !str.startsWith("aigame_storage_") || (listFiles = q().listFiles()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, n12Var, str) == null) {
+            if (g94.d) {
+                Log.d("GameRecorderApi", "callFailureCallback: errMsg=" + str);
+            }
+            sb4.call(n12Var, false, new c94(str));
         }
-        for (File file : listFiles) {
-            if (file.getName().startsWith(str)) {
-                bo4.L(file);
+    }
+
+    @NonNull
+    public final String C(String str, @NonNull List<String> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, i)) == null) {
+            if (list.size() >= i) {
+                String remove = list.remove(0);
+                kp4.k(ql2.N(remove));
+                if (g94.d) {
+                    Log.d("GameRecorderApi", "deleteFile: " + remove);
+                }
+            }
+            String format = String.format(Locale.CHINA, str, Long.valueOf(System.currentTimeMillis()));
+            list.add(format);
+            return format;
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (g94.d) {
+                Log.d("GameRecorderApi", "doStartRecorder:" + this.e + "," + this.f);
+            }
+            this.h.clear();
+            this.g = false;
+            h94.a().b().t(this.e, this.f);
+        }
+    }
+
+    public final boolean E(double[] dArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dArr)) == null) {
+            if (dArr == null || dArr.length < 2) {
+                return false;
+            }
+            long j = (long) (dArr[0] * 1000.0d);
+            long j2 = (long) (dArr[1] * 1000.0d);
+            if (j < 0 || j2 < 0 || j + j2 <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public final n12 G(JsObject jsObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) {
+            n12 F = n12.F(jsObject);
+            if (F == null) {
+                return new n12();
+            }
+            return F;
+        }
+        return (n12) invokeL.objValue;
+    }
+
+    public final void H(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) && jsObject != null) {
+            jsObject.release();
+        }
+    }
+
+    @JavascriptInterface
+    public void clipVideo(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+            n12 G = G(jsObject);
+            String B = G.B("path");
+            if (g94.d) {
+                Log.d("GameRecorderApi", "clipPath:" + B + "，hasExecutedClip：" + this.g);
+            }
+            if (this.g) {
+                return;
+            }
+            if (F(GameRecorderController.RecorderState.STOP)) {
+                B(G, "clipVideo can only called after onStop");
+            } else if (this.h.isEmpty()) {
+                B(G, "range is illegal");
+            } else {
+                new m94(this.h, ql2.B(B), ql2.N(C("bdfile://tmp/SwanVideoRecorder/videoClip_%d.mp4", this.j, 3))).c(new a(this, G));
+                this.h.clear();
+                this.g = true;
+                ig3 ig3Var = new ig3();
+                ig3Var.b = "clipVideo";
+                zf3.h(ig3Var);
             }
         }
     }
 
-    public String p(String str, String str2) {
-        InterceptResult invokeLL;
+    @JavascriptInterface
+    public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-            if (r()) {
-                return this.a.getString(str, str2);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (g94.d) {
+                Log.d("GameRecorderApi", "pause");
             }
-            return null;
+            if (F(GameRecorderController.RecorderState.RECORDING)) {
+                return;
+            }
+            h94.a().b().o();
         }
-        return (String) invokeLL.objValue;
     }
 
-    @SuppressLint({"ApplySharedPref"})
-    public boolean t(String str, String str2) {
-        InterceptResult invokeLL;
+    @JavascriptInterface
+    public void resume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) {
-            if (r() && this.a.edit().putString(str, str2).commit()) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (g94.d) {
+                Log.d("GameRecorderApi", "resume");
             }
-            return false;
+            if (!F(GameRecorderController.RecorderState.PAUSE) && !h94.a().c()) {
+                h94.a().b().q();
+            }
         }
-        return invokeLL.booleanValue;
+    }
+
+    @JavascriptInterface
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (g94.d) {
+                Log.d("GameRecorderApi", "stop");
+            }
+            if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
+                return;
+            }
+            h94.a().b().u();
+        }
+    }
+
+    @JavascriptInterface
+    public void recordClip(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jsObject) == null) {
+            n12 G = G(jsObject);
+            if (F(GameRecorderController.RecorderState.RECORDING, GameRecorderController.RecorderState.PAUSE)) {
+                return;
+            }
+            double[] o = G.o("timeRange");
+            H(jsObject);
+            if (!E(o)) {
+                o = new double[]{3.0d, 3.0d};
+            }
+            j94 b = j94.b(h94.a().b().k(), o[0], o[1]);
+            if (g94.d) {
+                Log.d("GameRecorderApi", "recordClip:" + b.toString());
+            }
+            this.h.add(b);
+            ig3 ig3Var = new ig3();
+            ig3Var.b = "recordClip";
+            zf3.h(ig3Var);
+        }
+    }
+
+    @JavascriptInterface
+    public void start(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
+            if (g94.d) {
+                Log.d("GameRecorderApi", "start");
+            }
+            if (!F(GameRecorderController.RecorderState.IDLE, GameRecorderController.RecorderState.STOP) && !h94.a().c()) {
+                n12 G = G(jsObject);
+                int r = G.r("duration", 10);
+                this.e = r;
+                if (r <= 0) {
+                    this.e = 10;
+                }
+                if (this.e > 120) {
+                    this.e = 120;
+                }
+                if (this.i.size() == 0) {
+                    kp4.k(ql2.N("bdfile://tmp/SwanVideoRecorder/"));
+                }
+                String C = C("bdfile://tmp/SwanVideoRecorder/video_%d.mp4", this.i, 3);
+                z(C);
+                String N = ql2.N(C);
+                this.f = N;
+                if (N == null) {
+                    if (g94.d) {
+                        Log.e("GameRecorderApi", "recordPath == null.");
+                        return;
+                    }
+                    return;
+                }
+                if (G.m("microphoneEnabled", false)) {
+                    y(2);
+                }
+                D();
+                s94.l();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            start(null);
+        }
     }
 }

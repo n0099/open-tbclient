@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.ContentValues;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class x21 {
+/* loaded from: classes8.dex */
+public abstract class x21 {
     public static /* synthetic */ Interceptable $ic;
-    public static x21 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public y21 a;
+
+    public abstract w21 b();
 
     public x21() {
         Interceptable interceptable = $ic;
@@ -24,38 +25,38 @@ public class x21 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new v21();
-        if (!o21.a()) {
-            this.a = new w21();
         }
     }
 
-    public static x21 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (x21.class) {
-                    if (b == null) {
-                        b = new x21();
-                    }
-                }
-            }
-            return b;
-        }
-        return (x21) invokeV.objValue;
-    }
-
-    @NonNull
-    public y21 a() {
+    public ContentValues a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return u21.b(b().c());
         }
-        return (y21) invokeV.objValue;
+        return (ContentValues) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Column[] c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(getClass().getName());
+            sb.append("\n");
+            for (Column column : b().c()) {
+                sb.append("|");
+                sb.append(column.field.e);
+                sb.append("| ");
+                sb.append(column.isAssignedValue ? 1 : 0);
+                sb.append(" | ");
+                sb.append(column.stringValue());
+                sb.append("\n");
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

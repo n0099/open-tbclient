@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qx4;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.SocialConstants;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class AlaBroadcastGiftToastData extends qx4 implements Parcelable {
+/* loaded from: classes4.dex */
+public class AlaBroadcastGiftToastData extends zy4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AlaBroadcastGiftToastData> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class AlaBroadcastGiftToastData extends qx4 implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AlaBroadcastGiftToastData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class AlaBroadcastGiftToastData extends qx4 implements Parcelable {
         this.thumbnail_url = parcel.readString();
     }
 
-    @Override // com.baidu.tieba.qx4
+    @Override // com.baidu.tieba.zy4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {

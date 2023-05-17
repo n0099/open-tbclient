@@ -1,14 +1,15 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.annotations;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import kotlin.TypeCastException;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum AnnotationUseSiteTarget {
     FIELD(null, 1, null),
     FILE(null, 1, null),
     PROPERTY(null, 1, null),
-    PROPERTY_GETTER("get"),
+    PROPERTY_GETTER(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE),
     PROPERTY_SETTER("set"),
     RECEIVER(null, 1, null),
     CONSTRUCTOR_PARAMETER("param"),

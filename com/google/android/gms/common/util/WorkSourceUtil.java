@@ -7,6 +7,7 @@ import android.os.Process;
 import android.os.WorkSource;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.common.wrappers.Wrappers;
@@ -14,7 +15,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WorkSourceUtil {
     public static final int zza = Process.myUid();
     public static final Method zzb;
@@ -58,7 +59,7 @@ public class WorkSourceUtil {
             zzc = method2;
             Method method7 = WorkSource.class.getMethod("size", new Class[0]);
             zzd = method7;
-            Method method8 = WorkSource.class.getMethod("get", Integer.TYPE);
+            Method method8 = WorkSource.class.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, Integer.TYPE);
             zze = method8;
             if (PlatformVersion.isAtLeastJellyBeanMR2()) {
                 try {
@@ -123,7 +124,7 @@ public class WorkSourceUtil {
         zzc = method2;
         Method method72 = WorkSource.class.getMethod("size", new Class[0]);
         zzd = method72;
-        Method method82 = WorkSource.class.getMethod("get", Integer.TYPE);
+        Method method82 = WorkSource.class.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, Integer.TYPE);
         zze = method82;
         if (PlatformVersion.isAtLeastJellyBeanMR2()) {
         }

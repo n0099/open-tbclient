@@ -8,7 +8,6 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.android.pushservice.util.Utility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -82,7 +81,7 @@ public class f extends d {
                     jSONObject.put("connect_version", 2);
                 }
                 jSONObject.put("app_alone_conn", com.baidu.android.pushservice.l.d.s(this.a) ? 1 : 0);
-                jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, this.a.getPackageName());
+                jSONObject.put("pkg_name", this.a.getPackageName());
                 jSONObject.put("source", i);
                 jSONObject.put("proc_source", com.baidu.android.pushservice.t.a.a(this.a).b());
                 long a3 = com.baidu.android.pushservice.a0.i.a(this.a, "last_time", System.currentTimeMillis() / 1000);

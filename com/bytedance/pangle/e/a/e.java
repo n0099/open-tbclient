@@ -1,5 +1,5 @@
 package com.bytedance.pangle.e.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public String a;
     public int b;

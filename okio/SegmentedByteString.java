@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SegmentedByteString extends ByteString {
     public final transient int[] directory;
     public final transient byte[][] segments;

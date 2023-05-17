@@ -11,8 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import com.baidu.sapi2.SapiWebView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ah {
     public static View a(ViewGroup viewGroup) {
         Object tag;
@@ -41,7 +40,7 @@ public class ah {
                 al.a().d();
             }
         });
-        builder.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ah.4
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ah.4
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();

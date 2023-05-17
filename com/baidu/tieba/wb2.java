@@ -2,11 +2,10 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.tb2;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,29 +13,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
-public final class wb2 {
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class wb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean c;
+    public static volatile wb2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb2 a;
-    public ub2 b;
-    public ConcurrentHashMap<String, PrefetchEvent> c;
+    public final Set<a> a;
+    public final Set<a> b;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes8.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PrefetchEvent a;
-        public final /* synthetic */ wb2 b;
+        public final String a;
+        public final String b;
 
-        public a(wb2 wb2Var, PrefetchEvent prefetchEvent) {
+        public a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wb2Var, prefetchEvent};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,75 +49,93 @@ public final class wb2 {
                     return;
                 }
             }
-            this.b = wb2Var;
-            this.a = prefetchEvent;
+            this.a = str;
+            this.b = String.valueOf(j);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            if (jSONObject == null) {
+                this.b = null;
+                this.a = null;
                 return;
             }
-            this.b.e(this.a);
+            this.a = jSONObject.optString("appKey");
+            this.b = jSONObject.optString("version");
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public class b implements tb2.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PrefetchEvent a;
-        public final /* synthetic */ wb2 b;
-
-        public b(wb2 wb2Var, PrefetchEvent prefetchEvent) {
+        public boolean a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wb2Var, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                    return true;
                 }
+                return false;
             }
-            this.b = wb2Var;
-            this.a = prefetchEvent;
+            return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.tb2.e
-        public void a(w43 w43Var, PMSAppInfo pMSAppInfo) {
+        public int hashCode() {
+            InterceptResult invokeV;
+            int hashCode;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, w43Var, pMSAppInfo) == null) {
-                this.b.b.b(this.a, w43Var, pMSAppInfo);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                String str = this.a;
+                int i = 0;
+                if (str == null) {
+                    hashCode = 0;
+                } else {
+                    hashCode = str.hashCode();
+                }
+                String str2 = this.b;
+                if (str2 != null) {
+                    i = str2.hashCode();
+                }
+                return (hashCode * 31) + i;
             }
+            return invokeV.intValue;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final wb2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-323346813, "Lcom/baidu/tieba/wb2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public boolean equals(@Nullable Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                if (obj == this) {
+                    return true;
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-323346813, "Lcom/baidu/tieba/wb2$c;");
-                    return;
+                if (!(obj instanceof a)) {
+                    return false;
                 }
+                a aVar = (a) obj;
+                if (TextUtils.equals(this.a, aVar.a) && TextUtils.equals(this.b, aVar.b)) {
+                    return true;
+                }
+                return false;
             }
-            a = new wb2(null);
+            return invokeL.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "Item{appKey='" + this.a + "', version='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -131,23 +152,42 @@ public final class wb2 {
                 return;
             }
         }
-        d = ho1.a;
+        c = qp1.a;
     }
 
-    public static wb2 g() {
+    public static wb2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (wb2.class) {
+                    if (d == null) {
+                        d = new wb2();
+                    }
+                }
+            }
+            return d;
         }
         return (wb2) invokeV.objValue;
     }
 
-    public void d() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.clear();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(true);
         }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public wb2() {
@@ -163,55 +203,148 @@ public final class wb2 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap<>();
-        this.a = new tb2();
-        this.b = new ub2();
+        this.a = kn3.a(new a[0]);
+        this.b = kn3.a(new a[0]);
     }
 
-    public /* synthetic */ wb2(a aVar) {
-        this();
-    }
-
-    public void c(PrefetchEvent prefetchEvent) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, prefetchEvent) != null) || prefetchEvent == null) {
-            return;
-        }
-        this.c.put(zz1.a(prefetchEvent.appId), prefetchEvent);
-    }
-
-    public final void e(PrefetchEvent prefetchEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent) == null) {
-            this.a.g(prefetchEvent, new b(this, prefetchEvent));
-        }
-    }
-
-    public final boolean h(PrefetchEvent prefetchEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, prefetchEvent)) == null) {
-            if (!xb2.h() || prefetchEvent == null || !prefetchEvent.isValid() || !TextUtils.equals(prefetchEvent.state, "show")) {
-                return true;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (c) {
+                Log.d("PreloadAppsRecorder", "clear all");
             }
-            return false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (z) {
+                k();
+            }
+        }
+    }
+
+    public boolean f(a aVar) {
+        InterceptResult invokeL;
+        boolean contains;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) {
+            synchronized (this.a) {
+                contains = this.a.contains(aVar);
+            }
+            return contains;
         }
         return invokeL.booleanValue;
     }
 
-    public void f(PrefetchEvent prefetchEvent) {
+    public boolean g(a aVar) {
+        InterceptResult invokeL;
+        boolean contains;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, prefetchEvent) == null) {
-            if (d) {
-                Log.d("SwanAppPrefetchManager", "fire preloadEvent abSwitch: " + xb2.h());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            synchronized (this.a) {
+                contains = this.b.contains(aVar);
             }
-            if (h(prefetchEvent)) {
-                return;
+            return contains;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public Set<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashSet a2 = kn3.a(new String[0]);
+            synchronized (this.a) {
+                for (a aVar : this.a) {
+                    a2.add(aVar.a);
+                }
+                for (a aVar2 : this.b) {
+                    a2.add(aVar2.a);
+                }
             }
-            if (d) {
-                Log.d("SwanAppPrefetchManager", "firePrefetchEvent event: " + prefetchEvent);
+            return a2;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            r53 w = s53.Q("swan_multi_preload_on_server").A("swan_multi_preload_app_ids", (String[]) d().toArray(new String[0])).w("swan_multi_preload_app_process_index", SwanAppProcessInfo.current().index);
+            w.K(true);
+            w.call();
+            if (c) {
+                Log.d("PreloadAppsRecorder", "send all prefetch records to server");
             }
-            ExecutorUtilsExt.postOnSerial(new a(this, prefetchEvent), "prefetch-event-thread");
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && c) {
+            Log.d(str, "all apps in recorder :");
+            synchronized (this.a) {
+                Iterator<a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    Log.d(str, "loaded:" + it.next());
+                }
+                Iterator<a> it2 = this.b.iterator();
+                while (it2.hasNext()) {
+                    Log.d(str, "loading:" + it2.next());
+                }
+            }
+        }
+    }
+
+    public void j(JSONObject jSONObject) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) && jSONObject != null && jSONObject.length() > 0) {
+            if (c) {
+                Log.d("PreloadAppsRecorder", "get multi preload status - " + jSONObject);
+            }
+            synchronized (this.a) {
+                b(false);
+                JSONArray optJSONArray = jSONObject.optJSONArray("loaded");
+                if (optJSONArray != null && (length = optJSONArray.length()) > 0) {
+                    for (int i = 0; i < length; i++) {
+                        i(new a(optJSONArray.optJSONObject(i)), true);
+                    }
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("loading");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    i(new a(optJSONObject), false);
+                }
+            }
+            k();
+        }
+    }
+
+    public void i(a aVar, boolean z) {
+        Set<a> set;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048583, this, aVar, z) == null) && aVar != null && aVar.a()) {
+            if (c) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("record one app status - ");
+                if (z) {
+                    str = "loaded";
+                } else {
+                    str = "loading";
+                }
+                sb.append(str);
+                Log.d("PreloadAppsRecorder", sb.toString());
+                Log.d("PreloadAppsRecorder", "record one app - " + aVar);
+            }
+            synchronized (this.a) {
+                if (z) {
+                    set = this.a;
+                } else {
+                    set = this.b;
+                }
+                set.add(aVar);
+            }
         }
     }
 }

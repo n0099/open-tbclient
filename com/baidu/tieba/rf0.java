@@ -1,109 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.Rotation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tf0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class rf0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public abstract class rf0 implements tf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
-    public static final float[] c;
-    public static final float[] d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public tf0.a b;
 
-    public static float a(float f) {
-        InterceptResult invokeF;
+    public abstract void b();
+
+    public rf0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) ? f == 0.0f ? 1.0f : 0.0f : invokeF.floatValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-462858128, "Lcom/baidu/tieba/rf0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-462858128, "Lcom/baidu/tieba/rf0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Rotation.values().length];
-            a = iArr;
-            try {
-                iArr[Rotation.ROTATION_90.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Rotation.ROTATION_180.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Rotation.ROTATION_270.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Rotation.NORMAL.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948119565, "Lcom/baidu/tieba/rf0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948119565, "Lcom/baidu/tieba/rf0;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new float[]{0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f};
-        b = new float[]{1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f};
-        c = new float[]{1.0f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f};
-        d = new float[]{0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 1.0f};
+        this.a = 0;
     }
 
-    public static float[] b(Rotation rotation, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        float[] fArr;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i = a.a[rotation.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        fArr = a;
-                    } else {
-                        fArr = d;
-                    }
-                } else {
-                    fArr = c;
-                }
-            } else {
-                fArr = b;
-            }
-            if (z) {
-                fArr = new float[]{a(fArr[0]), fArr[1], a(fArr[2]), fArr[3], a(fArr[4]), fArr[5], a(fArr[6]), fArr[7]};
-            }
-            return z2 ? new float[]{fArr[0], a(fArr[1]), fArr[2], a(fArr[3]), fArr[4], a(fArr[5]), fArr[6], a(fArr[7])} : fArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (float[]) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public void c(tf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.b = aVar;
+            if (aVar != null) {
+                aVar.a(a(), this);
+            }
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        tf0.a aVar = this.b;
+        if (aVar != null) {
+            aVar.a(i, this);
+        }
+    }
+
+    public void e(tf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            int i = this.a;
+            if (i != 0 && 3 != i && 2 != i) {
+                c(aVar);
+                return;
+            }
+            d(1);
+            c(aVar);
+            try {
+                b();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                d(3);
+            }
+        }
     }
 }

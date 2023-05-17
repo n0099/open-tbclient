@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bz extends aj.a {
     public final /* synthetic */ bw a;
 
@@ -13,7 +13,7 @@ public class bz extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return "10053";
     }
 

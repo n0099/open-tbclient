@@ -10,7 +10,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.view.GroupAdapter;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import tbclient.FrsPage.FeedGroupInfo;
 @Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B\u0017\u0012\u0010\b\u0002\u0010\u0003\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004¢\u0006\u0002\u0010\u0006J\b\u0010\f\u001a\u00020\rH\u0016J\u0018\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00022\u0006\u0010\u0011\u001a\u00020\rH\u0016J\u0018\u0010\u0012\u001a\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\rH\u0016J\u0010\u0010\u0016\u001a\u00020\u000f2\b\u0010\u0017\u001a\u0004\u0018\u00010\bR\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\"\u0010\u0003\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\u0006¨\u0006\u0018"}, d2 = {"Lcom/baidu/tieba/frs/view/GroupAdapter;", "Landroidx/recyclerview/widget/RecyclerView$Adapter;", "Lcom/baidu/tieba/frs/view/GroupItemHolder;", "list", "", "Ltbclient/FrsPage/FeedGroupInfo;", "(Ljava/util/List;)V", TTDownloadField.TT_ITEM_CLICK_LISTENER, "Landroid/view/View$OnClickListener;", "getList", "()Ljava/util/List;", "setList", "getItemCount", "", "onBindViewHolder", "", "holder", CriusAttrConstants.POSITION, "onCreateViewHolder", "parent", "Landroid/view/ViewGroup;", "viewType", "setItemClickListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -137,19 +137,19 @@ public final class GroupAdapter extends RecyclerView.Adapter<GroupItemHolder> {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parent, i)) == null) {
             Intrinsics.checkNotNullParameter(parent, "parent");
             LinearLayout linearLayout = new LinearLayout(parent.getContext());
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, ii.g(parent.getContext(), R.dimen.tbds75));
-            marginLayoutParams.leftMargin = ii.g(parent.getContext(), R.dimen.M_W_X006);
+            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, ri.g(parent.getContext(), R.dimen.tbds75));
+            marginLayoutParams.leftMargin = ri.g(parent.getContext(), R.dimen.M_W_X006);
             linearLayout.setLayoutParams(marginLayoutParams);
-            linearLayout.setPadding(ii.g(parent.getContext(), R.dimen.M_W_X006), 0, ii.g(parent.getContext(), R.dimen.M_W_X004), 0);
+            linearLayout.setPadding(ri.g(parent.getContext(), R.dimen.M_W_X006), 0, ri.g(parent.getContext(), R.dimen.M_W_X004), 0);
             linearLayout.setGravity(16);
             TextView textView = new TextView(parent.getContext());
-            textView.setPadding(0, 0, 0, ii.g(parent.getContext(), R.dimen.tbds2));
+            textView.setPadding(0, 0, 0, ri.g(parent.getContext(), R.dimen.tbds2));
             linearLayout.addView(textView);
             ImageView imageView = new ImageView(parent.getContext());
-            imageView.setPadding(0, ii.g(parent.getContext(), R.dimen.tbds1), 0, 0);
+            imageView.setPadding(0, ri.g(parent.getContext(), R.dimen.tbds1), 0, 0);
             imageView.setAlpha(0.6f);
             linearLayout.addView(imageView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.fl7
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.sm7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

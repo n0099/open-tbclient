@@ -1,84 +1,56 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
-/* loaded from: classes5.dex */
-public abstract class jn1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class jn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
-    public static void a(InputStream inputStream, OutputStream outputStream) {
+    public jn1(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, inputStream, outputStream) == null) {
-            GZIPOutputStream gZIPOutputStream = new GZIPOutputStream(outputStream);
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = inputStream.read(bArr, 0, 2048);
-                if (read != -1) {
-                    gZIPOutputStream.write(bArr, 0, read);
-                } else {
-                    gZIPOutputStream.flush();
-                    gZIPOutputStream.finish();
-                    gZIPOutputStream.close();
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = str;
     }
 
-    public static void c(InputStream inputStream, OutputStream outputStream) {
+    public static jn1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
-            GZIPInputStream gZIPInputStream = new GZIPInputStream(inputStream);
-            byte[] bArr = new byte[2048];
-            while (true) {
-                int read = gZIPInputStream.read(bArr, 0, 2048);
-                if (read != -1) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    gZIPInputStream.close();
-                    return;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new jn1(3, 2020, -1, "No Authorized User Privacy Agreement");
         }
+        return (jn1) invokeV.objValue;
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.b + ", op='" + this.c + "', data='" + this.d + "'}";
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            c(byteArrayInputStream, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            byteArrayOutputStream.flush();
-            byteArrayOutputStream.close();
-            byteArrayInputStream.close();
-            return byteArray;
-        }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.NewErrorData;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.ActivityInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ix4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetWork a;
+    public NewErrorData b;
 
     public ix4() {
         Interceptable interceptable = $ic;
@@ -23,43 +25,72 @@ public class ix4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.a = new NetWork();
     }
 
-    public void a(JSONObject jSONObject) {
+    public void b() {
+        NetWork netWork;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optString("main_title");
-            jSONObject.optString("sub_title");
-            jSONObject.optInt("back_pic_width");
-            jSONObject.optInt("back_pic_height");
-            jSONObject.optString("back_pic");
-            jSONObject.optString("subpage_link");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
+            netWork.cancelNetConnect();
         }
     }
 
-    public void b(ActivityInfo activityInfo) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activityInfo) != null) || activityInfo == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getErrorString();
+            }
+            return null;
         }
-        try {
-            activityInfo.activity_id.longValue();
-            String str = activityInfo.main_title;
-            String str2 = activityInfo.sub_title;
-            activityInfo.back_pic_width.intValue();
-            activityInfo.back_pic_height.intValue();
-            String str3 = activityInfo.back_pic;
-            String str4 = activityInfo.subpage_link;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String postNetData = this.a.postNetData();
+            NewErrorData newErrorData = new NewErrorData();
+            this.b = newErrorData;
+            newErrorData.parserJson(postNetData);
+            return postNetData;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getResponse().isRequestSuccess();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.a.addPostData(str, str2);
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setUrl(str);
         }
     }
 }

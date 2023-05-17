@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.y60;
+import com.baidu.tieba.h70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -430,32 +430,31 @@ public class NewAckMessage extends Message {
 
     public static NewAckMessage parseBody(Context context, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
-        JSONArray optJSONArray;
-        NewAckMessage newAckMessage;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3)) == null) {
-            NewAckMessage newAckMessage2 = null;
+            NewAckMessage newAckMessage = null;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 long optLong = jSONObject.optLong(Constants.KEY_TRIGGER_ID, 0L);
                 long optLong2 = jSONObject.optLong("uk", 0L);
-                optJSONArray = jSONObject.optJSONArray("msgs");
-                newAckMessage = new NewAckMessage(context, optLong2, optLong);
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                newAckMessage.setUUID(str);
-                newAckMessage.setJsonArray(optJSONArray);
-                return newAckMessage;
+                JSONArray optJSONArray = jSONObject.optJSONArray("msgs");
+                NewAckMessage newAckMessage2 = new NewAckMessage(context, optLong2, optLong);
+                try {
+                    newAckMessage2.setUUID(str);
+                    newAckMessage2.setJsonArray(optJSONArray);
+                    return newAckMessage2;
+                } catch (Exception e) {
+                    e = e;
+                    newAckMessage = newAckMessage2;
+                    LogUtils.e(TAG, "parseBody :", e);
+                    return newAckMessage;
+                }
             } catch (Exception e2) {
                 e = e2;
-                newAckMessage2 = newAckMessage;
-                LogUtils.e(TAG, "parseBody :", e);
-                return newAckMessage2;
             }
+        } else {
+            return (NewAckMessage) invokeLLLL.objValue;
         }
-        return (NewAckMessage) invokeLLLL.objValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -511,7 +510,7 @@ public class NewAckMessage extends Message {
                 return;
             }
             try {
-                y60.d().f(this.mUbcData.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                h70.d().f(this.mUbcData.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             } catch (Throwable th) {
                 LogUtils.e(TAG, "upload ackMsg :", th);
             }

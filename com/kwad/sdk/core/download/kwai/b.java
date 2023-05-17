@@ -5,9 +5,10 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.text.TextUtils;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static int s(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -16,7 +17,7 @@ public class b {
         try {
             Uri parse = Uri.parse(str);
             Intent intent = new Intent();
-            intent.setAction("android.intent.action.VIEW");
+            intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(parse);
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);

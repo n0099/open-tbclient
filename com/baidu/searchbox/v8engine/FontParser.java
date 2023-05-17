@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FontParser {
     public static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
     public static final String DEFAULT_FONTS = "/system/fonts/DroidSans.ttf";
@@ -31,20 +31,20 @@ public class FontParser {
     public static final Pattern TAG_PATTERN = Pattern.compile("[\\x00-\\xFF]{4}");
     public static final Pattern STYLE_VALUE_PATTERN = Pattern.compile("-?(([0-9]+(\\.[0-9]+)?)|(\\.[0-9]+))");
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Alias {
         public String name;
         public String toName;
         public int weight;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Config {
         public List<Family> families = new ArrayList();
         public List<Alias> aliases = new ArrayList();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Axis {
         public final float styleValue;
         public final int tag;
@@ -55,7 +55,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Family {
         public List<Font> fonts;
         public String lang;
@@ -70,7 +70,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Font {
         public final List<Axis> axes;
         public String fontName;
@@ -196,27 +196,27 @@ public class FontParser {
         return config;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x008a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x008b, code lost:
         if (r2.equals("zh") != false) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0094, code lost:
         if (r2.equals("zh-Hant") != false) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x009c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x009d, code lost:
         if (r2.equals("zh-Hans") == false) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x009e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x009f, code lost:
         r5 = new java.lang.StringBuilder();
         r5.append(r2);
         r5.append("/");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ab, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x00ac, code lost:
         if (r4.isItalic == false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ae, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
         r6 = "normal";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00b0, code lost:
         r5.append(r6);
         r5.append("/");
         r5.append(r4.weight);

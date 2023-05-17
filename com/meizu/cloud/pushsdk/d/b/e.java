@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.d.b;
 
 import com.meizu.cloud.pushsdk.c.c.i;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     public final boolean a;
     public final i b;

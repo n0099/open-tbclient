@@ -8,7 +8,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpPostDataTransmitter<T> extends HttpDataTransmitter<T> {
     public static final String TAG = "HttpPostDataTransmitter";
 

@@ -9,7 +9,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GetUserAccountResponse implements IBaseJsonResponse {
     public Map<Integer, MyBalanceInfo.Account> accountList;
     public Map<Integer, MyBalanceInfo.AccountPeriod> accountPeriodList;

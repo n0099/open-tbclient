@@ -5,16 +5,15 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Keep;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.pd3;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.ye3;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class SoUtils {
     public static final String ARM64_V8A = "arm64-v8a";
     public static final String ARMEABI = "armeabi";
@@ -25,11 +24,11 @@ public final class SoUtils {
     public static final String SO_EVENT_ID_NEW_SO = "25";
     public static final String SO_EVENT_ID_V8_SO = "26";
     public static final String TAG = "SoUtils";
-    public static final boolean DEBUG = ho1.a;
-    public static a sUbcImpl = new pd3();
+    public static final boolean DEBUG = qp1.a;
+    public static a sUbcImpl = new ye3();
     public static String[] uris = {"lib/armeabi", "lib/arm64-v8a"};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onEvent(String str, String str2);
     }
@@ -97,7 +96,7 @@ public final class SoUtils {
     public static String getSimpleName(String str) {
         String str2;
         if (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so")) {
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             if (split != null && split.length == 2) {
                 str2 = split[0].substring(3);
             } else {

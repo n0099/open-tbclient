@@ -9,13 +9,13 @@ import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.util.Check;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ReturnsCheck implements Check {
     public final String description;
     public final String name;
     public final Function1<KotlinBuiltIns, KotlinType> type;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ReturnsBoolean extends ReturnsCheck {
         public static final ReturnsBoolean INSTANCE = new ReturnsBoolean();
 
@@ -32,7 +32,7 @@ public abstract class ReturnsCheck implements Check {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ReturnsInt extends ReturnsCheck {
         public static final ReturnsInt INSTANCE = new ReturnsInt();
 
@@ -49,7 +49,7 @@ public abstract class ReturnsCheck implements Check {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ReturnsUnit extends ReturnsCheck {
         public static final ReturnsUnit INSTANCE = new ReturnsUnit();
 

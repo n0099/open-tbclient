@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,11 +95,11 @@ public class PrivilegeItemView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0418, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0432, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c30);
-            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c35);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c2f);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c89);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c83);
         }
     }
 

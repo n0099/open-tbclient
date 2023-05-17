@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.TextureView;
 import android.view.View;
 import com.baidu.searchbox.player.utils.BdVideoLog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StretchTextureView extends TextureView {
     public static final int STYLE_DEFAULT = 0;
     public static final int STYLE_MATCH_HEIGHT = 1;

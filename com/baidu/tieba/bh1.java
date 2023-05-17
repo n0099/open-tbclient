@@ -1,69 +1,162 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import com.tencent.connect.common.Constants;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class bh1 {
+/* loaded from: classes5.dex */
+public final class bh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
-            return;
-        }
-        try {
-            String string = bundle.getString("zid");
-            if (!TextUtils.isEmpty(string)) {
-                bundle.remove("zid");
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("c", bundle.getString("cuid"));
-                jSONObject.put("z", string);
-                jSONObject.put("mac", rg1.c());
-                jSONObject.put("app", "android");
-                jSONObject.put("ver", sg1.a(context));
-                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947644862, "Lcom/baidu/tieba/bh1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        } catch (Exception e) {
-            yg1.b(e.getMessage());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947644862, "Lcom/baidu/tieba/bh1;");
+                return;
+            }
+        }
+        b = new JSONObject();
+    }
+
+    public static final void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
+            try {
+                if (b == null) {
+                    b = new JSONObject();
+                }
+                JSONObject jSONObject = b;
+                if (jSONObject != null) {
+                    jSONObject.put(str, j);
+                }
+            } catch (Exception unused) {
+                oh1.g("add panelShow json error");
+            }
         }
     }
 
-    public static Bundle b(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
+    public static final void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
-            if (bundle == null) {
-                return new Bundle();
-            }
-            pg1.a = bundle.getString("bduss");
-            pg1.b = bundle.getString("tpOrderId");
-            pg1.g = bundle.getString("nativeAppId");
-            pg1.h = bundle.getString("sceneSource");
-            pg1.c = bundle.getString("appKey");
-            pg1.d = bundle.getString("dealId");
-            bundle.putString("deviceType", "ANDROID");
-            bundle.putString("channel", "cashiersdk");
-            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            String[] stringArray = bundle.getStringArray("blockedPayChannels");
-            if (stringArray != null && stringArray.length > 0) {
-                bundle.remove("blockedPayChannels");
-                JSONArray jSONArray = new JSONArray();
-                for (String str : stringArray) {
-                    jSONArray.put(str);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 3);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("errno", str2);
                 }
-                bundle.putString("bannedChannels", jSONArray.toString());
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject.put("errmsg", str3);
+                }
+            } catch (Exception unused) {
             }
-            a(context, bundle);
-            return bundle;
+            ch1 ch1Var = new ch1(str);
+            ch1Var.c(jSONObject);
+            fh1.e(ch1Var);
         }
-        return (Bundle) invokeLL.objValue;
+    }
+
+    public static final void c(String str, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
+            if (hashMap != null) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+                ch1 ch1Var = new ch1(str);
+                ch1Var.c(jSONObject);
+                fh1.e(ch1Var);
+                return;
+            }
+            fh1.e(new ch1(str));
+        }
+    }
+
+    public static final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && a > 0) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("3", a);
+                jSONObject.put("4", System.currentTimeMillis());
+            } catch (Exception unused) {
+            }
+            ch1 ch1Var = new ch1(Constants.DEFAULT_UIN);
+            ch1Var.c(jSONObject);
+            fh1.e(ch1Var);
+            a = 0L;
+        }
+    }
+
+    public static final void e() {
+        JSONObject jSONObject;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (jSONObject = b) != null) {
+            if (jSONObject != null) {
+                i = jSONObject.length();
+            } else {
+                i = 0;
+            }
+            if (i > 0) {
+                a("2", System.currentTimeMillis());
+                ch1 ch1Var = new ch1(Constants.DEFAULT_UIN);
+                ch1Var.c(b);
+                fh1.e(ch1Var);
+                b = null;
+            }
+        }
+    }
+
+    public static final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            a = j;
+        }
+    }
+
+    public static final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 0);
+            } catch (Exception unused) {
+            }
+            ch1 ch1Var = new ch1(str);
+            ch1Var.c(jSONObject);
+            fh1.e(ch1Var);
+        }
+    }
+
+    public static final void g(int i, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exceptionType", i);
+            jSONObject.put("payChannel", str2);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
+            ch1 ch1Var = new ch1(str);
+            ch1Var.c(jSONObject);
+            fh1.e(ch1Var);
+        }
     }
 }

@@ -8,7 +8,7 @@ import android.graphics.PorterDuffXfermode;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class XferRoundFilter {
     public static boolean canUseXferRoundFilter() {
         if (Build.VERSION.SDK_INT >= 12) {

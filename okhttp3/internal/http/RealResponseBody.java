@@ -4,7 +4,7 @@ import javax.annotation.Nullable;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RealResponseBody extends ResponseBody {
     public final long contentLength;
     @Nullable

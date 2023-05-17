@@ -1,28 +1,52 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.davemorrissey.labs.subscaleview.ImageSource;
-/* loaded from: classes7.dex */
-public class zo2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes8.dex */
+public class zo2 extends an2<rp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str.startsWith(ImageSource.FILE_SCHEME)) {
-                str = str.substring(8);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setBackgroundMute" : (String) invokeV.objValue;
+    }
+
+    public zo2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            x73 M = x73.M();
-            if (ff3.E(str) && M != null) {
-                return ff3.H(str, M);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rp2Var) == null) {
+            String str = command.what;
+            d(rp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                rp2Var.M(((Boolean) obj).booleanValue());
+            }
+        }
     }
 }

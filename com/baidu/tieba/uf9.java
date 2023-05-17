@@ -1,122 +1,57 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class uf9 {
+/* loaded from: classes7.dex */
+public final class uf9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final uf9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public AdvertAppInfo c;
-    public wg8 d;
-    public TbPageContext e;
-    public AdCard f;
-    public View.OnClickListener g;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948209217, "Lcom/baidu/tieba/uf9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948209217, "Lcom/baidu/tieba/uf9;");
+                return;
+            }
         }
+        a = new uf9();
     }
 
-    public void c(ef9 ef9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ef9Var) == null) {
-        }
-    }
-
-    public void j(CountDownTextView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-        }
-    }
-
-    public uf9(View view2, String str) {
+    public uf9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = str;
-    }
-
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (T) this.b.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void f(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
-            this.c = advertAppInfo;
-            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null && (iLegoAdvert instanceof AdCard)) {
-                this.f = (AdCard) iLegoAdvert;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void g(wg8 wg8Var) {
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, wg8Var) == null) {
-            this.d = wg8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (n06.a().b("tieba_download_btn_upgrade", 0) != 1) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    public void h(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-            this.e = tbPageContext;
-        }
-    }
-
-    public void i(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.g = onClickListener;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setVisibility(0);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
-            o11.b(clogBuilder);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(8);
-        }
+        return invokeV.booleanValue;
     }
 }

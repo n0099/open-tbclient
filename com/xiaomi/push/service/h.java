@@ -1,7 +1,7 @@
 package com.xiaomi.push.service;
 
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class h extends ArrayList<String> {
     public final /* synthetic */ String a;
 

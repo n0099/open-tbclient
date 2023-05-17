@@ -15,7 +15,7 @@ import com.kwad.sdk.utils.aa;
 import com.kwad.sdk.widget.e;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdBaseFrameLayout extends FrameLayout implements e {
     public static final aa.a afd = new aa.a();
     public List<View.OnTouchListener> afc;

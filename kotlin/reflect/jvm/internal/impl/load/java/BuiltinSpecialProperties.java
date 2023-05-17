@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java;
 
 import androidx.lifecycle.SavedStateHandle;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -24,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.FqNameUnsafe;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuiltinSpecialProperties {
     public static final Map<Name, List<Name>> GETTER_JVM_NAME_TO_PROPERTIES_SHORT_NAME_MAP;
     public static final BuiltinSpecialProperties INSTANCE = new BuiltinSpecialProperties();
@@ -55,7 +54,7 @@ public final class BuiltinSpecialProperties {
         child2 = SpecialBuiltinMembers.child(fqName2, "size");
         FqNameUnsafe fqNameUnsafe3 = KotlinBuiltIns.FQ_NAMES.charSequence;
         Intrinsics.checkExpressionValueIsNotNull(fqNameUnsafe3, "BUILTIN_NAMES.charSequence");
-        childSafe3 = SpecialBuiltinMembers.childSafe(fqNameUnsafe3, CloudStabilityUBCUtils.KEY_LENGTH);
+        childSafe3 = SpecialBuiltinMembers.childSafe(fqNameUnsafe3, "length");
         FqName fqName3 = KotlinBuiltIns.FQ_NAMES.map;
         Intrinsics.checkExpressionValueIsNotNull(fqName3, "BUILTIN_NAMES.map");
         child3 = SpecialBuiltinMembers.child(fqName3, SavedStateHandle.KEYS);
@@ -65,7 +64,7 @@ public final class BuiltinSpecialProperties {
         FqName fqName5 = KotlinBuiltIns.FQ_NAMES.map;
         Intrinsics.checkExpressionValueIsNotNull(fqName5, "BUILTIN_NAMES.map");
         child5 = SpecialBuiltinMembers.child(fqName5, "entries");
-        Map<FqName, Name> mapOf = MapsKt__MapsKt.mapOf(TuplesKt.to(childSafe, Name.identifier("name")), TuplesKt.to(childSafe2, Name.identifier("ordinal")), TuplesKt.to(child, Name.identifier("size")), TuplesKt.to(child2, Name.identifier("size")), TuplesKt.to(childSafe3, Name.identifier(CloudStabilityUBCUtils.KEY_LENGTH)), TuplesKt.to(child3, Name.identifier("keySet")), TuplesKt.to(child4, Name.identifier(SavedStateHandle.VALUES)), TuplesKt.to(child5, Name.identifier("entrySet")));
+        Map<FqName, Name> mapOf = MapsKt__MapsKt.mapOf(TuplesKt.to(childSafe, Name.identifier("name")), TuplesKt.to(childSafe2, Name.identifier("ordinal")), TuplesKt.to(child, Name.identifier("size")), TuplesKt.to(child2, Name.identifier("size")), TuplesKt.to(childSafe3, Name.identifier("length")), TuplesKt.to(child3, Name.identifier("keySet")), TuplesKt.to(child4, Name.identifier(SavedStateHandle.VALUES)), TuplesKt.to(child5, Name.identifier("entrySet")));
         PROPERTY_FQ_NAME_TO_JVM_GETTER_NAME_MAP = mapOf;
         Set<Map.Entry<FqName, Name>> entrySet = mapOf.entrySet();
         ArrayList<Pair> arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(entrySet, 10));

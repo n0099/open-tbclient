@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static final String a = "d";
     public List<LivenessTypeEnum> b;
@@ -27,7 +27,7 @@ public class d {
     public long c = 0;
 
     /* renamed from: com.baidu.pass.face.platform.c.d$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 

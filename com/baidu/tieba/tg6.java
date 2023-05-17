@@ -1,63 +1,94 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.util.Pair;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.browser.core.webview.offline.message.OfflineResourceReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class tg6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes7.dex */
+public final class tg6 extends BdAsyncTask<Void, Void, Map<String, ug6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public tg6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            kg6.b("lt-log", "基础版本：" + str + ",当前版本：" + str2);
-            if (TextUtils.equals(str, str2)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    String[] split = str.split("[._]");
-                    String[] split2 = str2.split("[._]");
-                    int min = Math.min(split.length, split2.length);
-                    long j = 0;
-                    for (int i = 0; i < min; i++) {
-                        j = b(split2[i]).longValue() - b(split[i]).longValue();
-                        if (j != 0) {
-                            break;
-                        }
-                    }
-                    int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                    if (i2 == 0) {
-                        if (split2.length > split.length) {
-                            return true;
-                        }
-                        return false;
-                    } else if (i2 > 0) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static Long b(String str) {
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            tg6 tg6Var = new tg6();
+            tg6Var.setPriority(4);
+            tg6Var.execute(new Void[0]);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public Map<String, ug6> doInBackground(Void... voidArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return Long.valueOf(Long.parseLong(str));
-            } catch (NumberFormatException unused) {
-                return 0L;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            Set<String> o = lg6.l().o();
+            if (yh6.a(o)) {
+                ai6.b(lg6.l().k());
+                return null;
             }
+            HashMap hashMap = new HashMap();
+            for (String str : o) {
+                String n = lg6.l().n(str);
+                pg6 a = sg6.a(str, n);
+                if (a != null && a.c()) {
+                    hashMap.putAll(a.a());
+                    lg6.i(lg6.l().k(), n, str);
+                } else {
+                    lg6.l().g(str);
+                }
+            }
+            return hashMap;
         }
-        return (Long) invokeL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            OfflineResourceReqMsg offlineResourceReqMsg = new OfflineResourceReqMsg("0.0.0.0");
+            MessageManager.getInstance().sendMessage(offlineResourceReqMsg);
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK).param("obj_type", "request webCacheInfo").param("obj_locate", "start").param(TiebaStatic.Params.OBJ_PARAM2, bi6.a(Pair.create("offline_version", offlineResourceReqMsg.getWebViewVersion()))));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: e */
+    public void onPostExecute(Map<String, ug6> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            mg6.d().i(map);
+            d();
+        }
     }
 }

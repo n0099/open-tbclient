@@ -12,7 +12,7 @@ import com.ss.android.download.api.model.DeepLink;
 import com.ss.android.downloadad.api.download.AdDownloadModel;
 import com.ss.android.downloadlib.g.l;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static void a(@NonNull com.ss.android.downloadad.api.a.b bVar) {
         String f = bVar.f();

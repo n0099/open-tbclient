@@ -2,7 +2,7 @@ package com.baidu.sapi2.ecommerce.result;
 
 import com.baidu.sapi2.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressSelectedBean implements Serializable, NoProguard {
     public static String CITY_TYPE = "city";
     public static String COUNTRY_TYPE = "country";

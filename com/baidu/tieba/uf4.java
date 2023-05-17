@@ -1,75 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public abstract class uf4 {
+/* loaded from: classes7.dex */
+public class uf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uf4 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(wg4 wg4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract boolean b(wg4 wg4Var, List<xg4> list, ug4 ug4Var, sg4 sg4Var, PMSAppInfo pMSAppInfo);
-
-    public abstract void c(String str);
-
-    public abstract void d(String str, String str2);
-
-    public abstract <T extends vg4> boolean e(Class<T> cls, String str);
-
-    public abstract boolean f(yg4 yg4Var);
-
-    public abstract boolean g(List<yg4> list);
-
-    public abstract boolean h(String str);
-
-    @WorkerThread
-    public abstract int j(@NonNull String str);
-
-    @NonNull
-    @WorkerThread
-    public abstract List<xg4> k(@NonNull String str, int i);
-
-    public abstract boolean l(PMSAppInfo pMSAppInfo);
-
-    public abstract <T extends vg4> boolean m(T t);
-
-    public abstract boolean n(String str, String str2, String str3);
-
-    public abstract <T extends vg4> T o(Class<T> cls, String str);
-
-    public abstract Map<String, wg4> p();
-
-    public abstract yg4 q(String str, long j, long j2);
-
-    public abstract List<yg4> r(String str, String[] strArr);
-
-    public abstract List<yg4> s(String str, long j, long j2);
-
-    @Nullable
-    public abstract zg4 t(String str);
-
-    public abstract PMSAppInfo u(String str);
-
-    public abstract Map<String, PMSAppInfo> v();
-
-    public abstract List<yg4> w(String str);
-
-    public abstract boolean x(yg4 yg4Var);
-
-    public abstract boolean y(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean z(String str, int i);
+    public byte[] a;
+    public long b;
+    public long c;
 
     public uf4() {
         Interceptable interceptable = $ic;
@@ -83,21 +24,5 @@ public abstract class uf4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static uf4 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (uf4.class) {
-                    if (a == null) {
-                        a = new vf4();
-                    }
-                }
-            }
-            return a;
-        }
-        return (uf4) invokeV.objValue;
     }
 }

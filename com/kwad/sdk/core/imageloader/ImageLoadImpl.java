@@ -30,7 +30,7 @@ import com.kwad.sdk.service.kwai.d;
 import com.kwad.sdk.utils.as;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImageLoadImpl implements IImageLoader {
     private DisplayImageOptions adapter(DisplayImageOptionsCompat displayImageOptionsCompat) {
         BitmapDisplayer roundedBitmapDisplayer;

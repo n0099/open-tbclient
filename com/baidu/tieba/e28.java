@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class e28 extends xa {
+/* loaded from: classes5.dex */
+public class e28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e28() {
-        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -29,92 +26,105 @@ public class e28 extends xa {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void c(GroupMsgData groupMsgData) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ua
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
-            MessageSyncMessage messageSyncMessage = null;
-            if (!(socketResponsedMessage instanceof ResponsePullMessage)) {
-                return null;
-            }
-            if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
-            }
-            if (messageSyncMessage != null) {
-                u45.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-            }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
-            List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        c(groupMsgData);
-                    }
-                }
-            }
-            if (!e(responsePullMessage)) {
-                c28.n().p();
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.a = j;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
     }
 
-    public final boolean e(ResponsePullMessage responsePullMessage) {
-        InterceptResult invokeL;
-        Long l;
-        Long l2;
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
-            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
-                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                    return false;
-                }
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
-                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
-                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-                    LongSparseArray<Long> q = v18.n().q();
-                    boolean z = false;
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && w18.a(groupMsgData.getGroupInfo().getCustomType()) && (l = q.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
-                            if (l.longValue() > l2.longValue()) {
-                                z = true;
-                            }
-                            if (groupMsgData.hasMore()) {
-                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
-                            }
-                        }
-                    }
-                    if (z && longSparseArray.size() > 0) {
-                        c28.n().t(longSparseArray);
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f = i;
         }
-        return invokeL.booleanValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
+        }
     }
 }

@@ -1,79 +1,118 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dq8 extends Animation {
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTails.ColorInfo;
+import tbclient.GetTails.ResData;
+import tbclient.GetTails.TailInfo;
+/* loaded from: classes5.dex */
+public class dq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public int b;
-    public int c;
-    public FrameLayout.LayoutParams d;
+    public List<TailData> a;
+    public List<String> b;
+    public SmallTailThemeData c;
 
-    public dq8(View view2, int i, int i2) {
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public dq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (view2 == null) {
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+    }
+
+    public List<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public SmallTailThemeData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (SmallTailThemeData) invokeV.objValue;
+    }
+
+    public List<TailData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d(ResData resData) {
+        List<TailInfo> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, resData) != null) || resData == null || (list = resData.tailList) == null) {
             return;
         }
-        this.a = view2;
-        if (view2.getVisibility() == 8 && i2 > 0) {
-            this.b = i2;
-        } else {
-            this.b = this.a.getMeasuredHeight();
+        for (TailInfo tailInfo : list) {
+            if (f(tailInfo)) {
+                TailData tailData = new TailData();
+                tailData.setContent(tailInfo.tailContent);
+                tailData.setFontColor(tailInfo.fontColor);
+                tailData.setFontType(tailInfo.fontKeyName);
+                tailData.setId(tailInfo.tailId.intValue());
+                boolean z = true;
+                if (tailInfo.is_selected.intValue() != 1) {
+                    z = false;
+                }
+                tailData.setSelected(z);
+                c().add(tailData);
+            }
         }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-        this.d = layoutParams;
-        this.c = i;
-        if (i == 0) {
-            layoutParams.bottomMargin = -this.b;
+        e(resData.default_color);
+        for (ColorInfo colorInfo : resData.colorList) {
+            a().add(colorInfo.fontColor);
+        }
+        if (resData.tail_style != null) {
+            this.c = new SmallTailThemeData(resData.tail_style);
         } else {
-            layoutParams.bottomMargin = 0;
+            this.c = SmallTailThemeData.DEFAULT;
         }
     }
 
-    @Override // android.view.animation.Animation
-    public void applyTransformation(float f, Transformation transformation) {
+    public final boolean f(TailInfo tailInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-            super.applyTransformation(f, transformation);
-            if (f < 1.0f) {
-                if (this.c == 0) {
-                    FrameLayout.LayoutParams layoutParams = this.d;
-                    int i = this.b;
-                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
-                } else {
-                    this.d.bottomMargin = -((int) (this.b * f));
-                }
-                this.a.requestLayout();
-            } else if (this.c == 0) {
-                this.d.bottomMargin = 0;
-                this.a.requestLayout();
-                this.b = this.a.getMeasuredHeight();
-            } else {
-                this.d.bottomMargin = -this.b;
-                this.a.setVisibility(8);
-                this.a.requestLayout();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, tailInfo)) == null) {
+            Integer num = tailInfo.tailId;
+            if (num == null || num.intValue() == 0 || tailInfo.fontColor == null) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

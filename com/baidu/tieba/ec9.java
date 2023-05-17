@@ -1,159 +1,157 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.privacy.PrivacyParamType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.MediaController;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import java.util.HashMap;
-import kotlin.TuplesKt;
-import kotlin.collections.MapsKt__MapsKt;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Charsets;
-import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes4.dex */
-public final class ec9 {
+/* loaded from: classes5.dex */
+public class ec9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ec9 a;
-    public static final HashMap<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public MediaController.MediaPlayerControl c;
+    public b d;
+    public d e;
+    public c f;
+    public Handler g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729678, "Lcom/baidu/tieba/ec9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(int i, int i2);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ec9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ec9 ec9Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ec9Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947729678, "Lcom/baidu/tieba/ec9;");
-                return;
+            this.a = ec9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
+                int currentPosition = this.a.c.getCurrentPosition();
+                int duration = this.a.c.getDuration();
+                if (currentPosition < this.a.b) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                } else if (currentPosition == this.a.b && this.a.e != null) {
+                    this.a.e.a();
+                }
+                if (this.a.f != null) {
+                    this.a.f.a(duration, currentPosition);
+                }
+                this.a.b = currentPosition;
+                this.a.h();
             }
         }
-        a = new ec9();
-        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("mac", HttpRequest.MAC_REVERSAL));
     }
 
     public ec9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 1000;
+        this.b = 0;
+        this.g = new a(this, Looper.getMainLooper());
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    @JvmStatic
-    public static final boolean b() {
-        InterceptResult invokeV;
+    public void j(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (PrivacyParamType.e()) {
-                return true;
-            }
-            if (PrivacyParamType.c() != 1 && PrivacyParamType.c() != 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.f = cVar;
         }
-        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final String c() {
-        InterceptResult invokeV;
+    public void k(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (PrivacyParamType.e() || PrivacyParamType.c() != 1) {
-                return "0";
-            }
-            return "1";
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final String e() {
-        InterceptResult invokeV;
+    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return a(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
+            this.c = mediaPlayerControl;
         }
-        return (String) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final String a(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return "";
-            }
-            if (PrivacyParamType.e()) {
-                return str;
-            }
-            int c = PrivacyParamType.c();
-            if (c != 1) {
-                if (c == 2) {
-                    return "";
-                }
-                return str;
-            }
-            byte[] bytes = str.getBytes(Charsets.UTF_8);
-            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
-            byte[] B64Encode = Base64Encoder.B64Encode(bytes);
-            if (B64Encode == null) {
-                return "";
-            }
-            return new String(B64Encode, Charsets.UTF_8);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.removeMessages(1);
+            Handler handler = this.g;
+            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
         }
-        return (String) invokeL.objValue;
     }
 
-    @JvmStatic
-    public static final String d(String key) {
-        InterceptResult invokeL;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            if (PrivacyParamType.e()) {
-                return key;
-            }
-            int c = PrivacyParamType.c();
-            if (c != 1) {
-                if (c == 2) {
-                    return "";
-                }
-                return key;
-            }
-            String str = b.get(key);
-            if (str != null) {
-                return str;
-            }
-            return key;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            h();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.g.removeMessages(1);
+        }
     }
 }

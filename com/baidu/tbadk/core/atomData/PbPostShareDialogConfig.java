@@ -2,26 +2,26 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.cw8;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cw8 mPbPostData;
+    public xx8 mPbPostData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, cw8 cw8Var) {
+    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, xx8 xx8Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), cw8Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), xx8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class PbPostShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mPbPostData = cw8Var;
+        this.mPbPostData = xx8Var;
     }
 
-    public cw8 getPbPostData() {
+    public xx8 getPbPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPbPostData;
         }
-        return (cw8) invokeV.objValue;
+        return (xx8) invokeV.objValue;
     }
 }

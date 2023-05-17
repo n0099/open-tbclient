@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
+/* loaded from: classes6.dex */
 public class nz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
+    public jz4 c;
 
     public nz4() {
         Interceptable interceptable = $ic;
@@ -27,39 +26,48 @@ public class nz4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
     }
 
-    public void a(Intent intent) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
             return;
         }
-        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
-        this.b = intent.getStringExtra("recom_source");
-        this.c = intent.getStringExtra("recom_abtag");
-        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
-    }
-
-    public void b(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
-            return;
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new jz4();
+        ArrayList<mz4> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        String str4 = "";
+        if (str3 == null) {
+            str3 = "";
         }
-        this.a = threadData.mRecomWeight;
-        this.b = threadData.mRecomSource;
-        this.c = threadData.mRecomAbTag;
-        this.d = threadData.mRecomExtra;
-    }
-
-    public void c(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
-            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
-            intent.putExtra("recom_source", this.b);
-            intent.putExtra("recom_abtag", this.c);
-            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
+        String str5 = this.b;
+        if (str5 != null) {
+            str4 = str5;
         }
+        mz4 mz4Var = new mz4(str3, str4, null);
+        mz4Var.r(true);
+        arrayList.add(mz4Var);
+        this.c.g(arrayList);
     }
 }

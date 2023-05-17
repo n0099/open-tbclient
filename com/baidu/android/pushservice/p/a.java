@@ -32,12 +32,12 @@ public abstract class a extends com.baidu.android.pushservice.z.c {
 
     /* renamed from: com.baidu.android.pushservice.p.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0030a implements c.d {
+    public class C0033a implements c.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0030a(a aVar) {
+        public C0033a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -308,7 +308,7 @@ public abstract class a extends com.baidu.android.pushservice.z.c {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            com.baidu.android.pushservice.c.a(this.c).a(0, new C0030a(this));
+            com.baidu.android.pushservice.c.a(this.c).a(0, new C0033a(this));
         }
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.retrieve.file.util.Constants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimerCancel extends FetchBasicTimer {
     public static final String CANCEL_JOB_ID = "jobId";
 

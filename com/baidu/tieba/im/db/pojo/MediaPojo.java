@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.Media;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MediaPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class MediaPojo extends OrmObject {
         }
     }
 
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -68,7 +68,7 @@ public class MediaPojo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void W(Media media) {
+    public void V(Media media) {
         int intValue;
         int intValue2;
         int intValue3;

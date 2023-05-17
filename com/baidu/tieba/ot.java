@@ -1,72 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.ui.TaskUIData;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class ot extends jt<TaskGuideData> {
+import java.nio.charset.Charset;
+/* loaded from: classes6.dex */
+public class ot {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lt a;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot(lt ltVar) {
-        super(ltVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ltVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((lt) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = ltVar;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jt
-    /* renamed from: c */
-    public TaskGuideData a(String str) {
+    public static String a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-                jt a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData != null) {
-                    return new TaskGuideData(optInt, taskUIData);
-                }
-                return new TaskGuideData(0, null, 3, null);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new TaskGuideData(0, null, 3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr == null) {
+                return "";
             }
+            return new String(bArr, Charset.forName("UTF-8"));
         }
-        return (TaskGuideData) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
+            }
+            return str.getBytes(Charset.forName("UTF-8"));
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            if (bArr == null) {
+                return new byte[0];
+            }
+            return Base64.encode(bArr, 2);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                return Base64.decode(bArr, 2);
+            }
+            return new byte[0];
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

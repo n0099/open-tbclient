@@ -8,9 +8,12 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.spswitch.utils.UIUtils;
 import com.baidu.tieba.R;
@@ -19,15 +22,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+/* loaded from: classes4.dex */
 public class PopupEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int HEIGHT_DP = 85;
-    public static final int WIDTH_DP = 75;
+    public static final int IMG_BIG_SIZE_DP = 94;
+    public static final int TRIANGLE_OFFSET_DP = 20;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout mContentView;
     public Context mCtx;
-    public ImageView mIcon;
+    public SimpleDraweeView mIcon;
     public TextView mText;
+    public ImageView mTriangleView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PopupEmotionView(Context context) {
@@ -68,6 +78,19 @@ public class PopupEmotionView extends FrameLayout {
         return (String) invokeL.objValue;
     }
 
+    public void setTriangleViewTran(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 3) {
+                this.mTriangleView.setTranslationX(-UIUtils.dip2px(getContext(), 20.0f));
+            } else if (i == 5) {
+                this.mTriangleView.setTranslationX(UIUtils.dip2px(getContext(), 20.0f));
+            } else {
+                this.mTriangleView.setTranslationX(UIUtils.dip2px(getContext(), 0.0f));
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PopupEmotionView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -88,16 +111,6 @@ public class PopupEmotionView extends FrameLayout {
             }
         }
         init(context);
-    }
-
-    public void configView(String str, Bitmap bitmap) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) && this.mIcon != null && (textView = this.mText) != null) {
-            textView.setText(filter(str));
-            this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f060194));
-            this.mIcon.setImageBitmap(bitmap);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -122,16 +135,71 @@ public class PopupEmotionView extends FrameLayout {
         init(context);
     }
 
+    public void configView(String str, Bitmap bitmap, String str2) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, bitmap, str2) == null) && this.mIcon != null && (textView = this.mText) != null) {
+            textView.setText(filter(str));
+            this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.emotion_vertical_long_pressed_title));
+            if (bitmap != null) {
+                setCornersRadius(0);
+                this.mIcon.setImageBitmap(bitmap);
+                return;
+            }
+            setCornersRadius(9);
+            resetBigImgMargin();
+            this.mIcon.setImageURI(str2);
+            this.mIcon.setController(Fresco.newDraweeControllerBuilder().setUri(str2).setAutoPlayAnimations(true).build());
+        }
+    }
+
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mCtx = context;
-            setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
-            setBackground(this.mCtx.getResources().getDrawable(R.drawable.emotion_vertical_long_pressed_bg));
             setPadding(0, 0, 0, 0);
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f77);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
+            this.mIcon = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090fab);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f09236b);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.preview_content);
+            this.mContentView = relativeLayout;
+            relativeLayout.setBackground(ContextCompat.getDrawable(this.mCtx, R.drawable.emotion_preview_shape));
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925a1);
+            this.mTriangleView = imageView;
+            imageView.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.emotion_preview_triangle));
+        }
+    }
+
+    private void resetBigImgMargin() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            if (this.mIcon.getLayoutParams() != null) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mIcon.getLayoutParams();
+                layoutParams.width = UIUtils.dip2px(getContext(), 94.0f);
+                layoutParams.height = UIUtils.dip2px(getContext(), 94.0f);
+                layoutParams.leftMargin = UIUtils.dip2px(getContext(), 9.0f);
+                layoutParams.rightMargin = UIUtils.dip2px(getContext(), 9.0f);
+                this.mIcon.setLayoutParams(layoutParams);
+            }
+            if (this.mText.getLayoutParams() != null) {
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.mText.getLayoutParams();
+                layoutParams2.topMargin = UIUtils.dip2px(getContext(), 7.0f);
+                layoutParams2.bottomMargin = UIUtils.dip2px(getContext(), 8.0f);
+                this.mText.setLayoutParams(layoutParams2);
+            }
+        }
+    }
+
+    private void setCornersRadius(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+            GenericDraweeHierarchy build = new GenericDraweeHierarchyBuilder(getResources()).build();
+            RoundingParams roundingParams = new RoundingParams();
+            roundingParams.setOverlayColor(this.mCtx.getResources().getColor(R.color.emotion_preview_corner_color));
+            roundingParams.setCornersRadius(UIUtils.dip2px(getContext(), i));
+            build.setPlaceholderImage(ContextCompat.getDrawable(getContext(), R.drawable.emotion_preview_placeholder));
+            build.setRoundingParams(roundingParams);
+            this.mIcon.setHierarchy(build);
         }
     }
 }

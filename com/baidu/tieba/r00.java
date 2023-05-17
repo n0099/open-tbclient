@@ -1,72 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class r00 {
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes7.dex */
+public final class r00 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067671, "Lcom/baidu/tieba/r00;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948067671, "Lcom/baidu/tieba/r00;");
-                return;
-            }
-        }
-        a = new String[]{"REVEMEFGREIxQUQwQ0M0Q0E5NzRENUVCQTAxNjUxNDE=", "Qzc3RDVEMDREOTRGNUY1NkM4QTBBNkRDM0RCRjI0MEE="};
-        b = new String[]{"MDAwMDAwMDAwMDAwMDAwMA=="};
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : a) {
-                if (str.equalsIgnoreCase(c(str2))) {
-                    return false;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : b) {
-                if (TextUtils.equals(c(str2), str)) {
-                    return false;
+                if (hexString.length() == 1) {
+                    sb.append("0");
                 }
+                sb.append(hexString);
+                sb.append(str);
             }
-            return true;
+            return sb.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new String(h00.b(str.getBytes())) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 }

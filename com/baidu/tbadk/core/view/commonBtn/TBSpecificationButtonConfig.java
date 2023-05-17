@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class TBSpecificationButtonConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public abstract class TBSpecificationButtonConfig {
     public GradientDrawable.Orientation s;
     public a t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -55,7 +55,7 @@ public abstract class TBSpecificationButtonConfig {
     public abstract Drawable a(float f);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +123,7 @@ public abstract class TBSpecificationButtonConfig {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class WebpType {
         public static final /* synthetic */ WebpType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -205,13 +205,13 @@ public abstract class TBSpecificationButtonConfig {
         this.r = 0;
         this.s = GradientDrawable.Orientation.LEFT_RIGHT;
         this.e = new int[2];
-        this.j = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.k = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
-        this.l = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        this.m = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        this.n = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
-        this.o = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
-        this.g = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        this.j = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.k = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32);
+        this.l = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        this.m = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        this.n = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds176);
+        this.o = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds78);
+        this.g = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     public final Drawable b(int i) {

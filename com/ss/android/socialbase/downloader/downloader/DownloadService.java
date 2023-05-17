@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.IBinder;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DownloadService extends Service {
     public static final String b = DownloadService.class.getSimpleName();
     public o a;

@@ -3,7 +3,7 @@ package com.kwad.components.core.page.kwai;
 import android.app.Activity;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends c {
     public com.kwad.components.core.page.a.a mPlayModule;
     public g mVideoPlayStateListener = new h() { // from class: com.kwad.components.core.page.kwai.e.1

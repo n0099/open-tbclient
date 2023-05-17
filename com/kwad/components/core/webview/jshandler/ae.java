@@ -2,12 +2,12 @@ package com.kwad.components.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ae implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c Lb;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int MQ;
 

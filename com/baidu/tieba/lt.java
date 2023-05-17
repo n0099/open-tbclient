@@ -1,71 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.TypeCastException;
-/* loaded from: classes5.dex */
-public final class lt {
+/* loaded from: classes6.dex */
+public class lt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, jt<? extends ITaskModelData>> a;
 
-    public lt() {
+    public static byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            return b(bArr, 0, bArr.length);
         }
-        this.a = new HashMap();
-        st stVar = new st(this);
-        this.a.put(stVar.b(), stVar);
-        ot otVar = new ot(this);
-        this.a.put(otVar.b(), otVar);
-        tt ttVar = new tt(this);
-        this.a.put(ttVar.c(), ttVar);
-        qt qtVar = new qt(this);
-        this.a.put(qtVar.b(), qtVar);
-        pt ptVar = new pt(this);
-        this.a.put(ptVar.c(), ptVar);
-        rt rtVar = new rt(this);
-        this.a.put(rtVar.b(), rtVar);
-        kt ktVar = new kt(this);
-        this.a.put(ktVar.b(), ktVar);
-        it itVar = new it(this);
-        this.a.put(itVar.c(), itVar);
+        return (byte[]) invokeL.objValue;
     }
 
-    public final <T extends ITaskModelData> jt<? extends T> a(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public static byte[] b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a.get(str) != null) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
+            if (bArr != null && bArr.length != 0) {
+                byte[] bArr2 = new byte[i2];
+                System.arraycopy(bArr, i, bArr2, 0, i2);
+                return bArr2;
             }
-            if (z) {
-                jt<? extends ITaskModelData> jtVar = this.a.get(str);
-                if (jtVar != null) {
-                    return (jt<? extends T>) jtVar;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type com.baidu.bdtask.model.ITaskModelCreator<out T>");
-            }
-            throw new IllegalArgumentException(("can not find " + str + " model creator!").toString());
+            return new byte[0];
         }
-        return (jt) invokeL.objValue;
+        return (byte[]) invokeLII.objValue;
     }
 }

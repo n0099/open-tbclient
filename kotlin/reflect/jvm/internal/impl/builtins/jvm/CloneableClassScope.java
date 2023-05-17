@@ -19,12 +19,12 @@ import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.GivenFunctionsMemberScope;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CloneableClassScope extends GivenFunctionsMemberScope {
     public static final Name CLONE_NAME;
     public static final Companion Companion = new Companion(null);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

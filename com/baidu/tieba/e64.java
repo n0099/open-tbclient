@@ -1,31 +1,16 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.tieba.i83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Callback;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-@SuppressLint({"StaticFieldLeak"})
-/* loaded from: classes4.dex */
-public class e64 extends HttpManager {
+/* loaded from: classes5.dex */
+public class e64 implements v64 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e64 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public e64() {
-        super(er2.c());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,88 +18,25 @@ public class e64 extends HttpManager {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static e64 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v64
+    public void a(u94 u94Var, t94 t94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (e64.class) {
-                    if (a == null) {
-                        a = new e64();
-                    }
-                }
-            }
-            return a;
-        }
-        return (e64) invokeV.objValue;
-    }
-
-    public static e64 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            e64 e64Var = new e64();
-            e64Var.setHttpDnsEnable(a().getHttpDnsEnable());
-            return e64Var;
-        }
-        return (e64) invokeV.objValue;
-    }
-
-    public void call(Request request, List<Interceptor> list, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, request, list, callback) != null) || request == null) {
-            return;
-        }
-        OkHttpClient.Builder newBuilder = getOkHttpClient().newBuilder();
-        if (list != null && !list.isEmpty()) {
-            for (Interceptor interceptor : list) {
-                if (interceptor != null) {
-                    newBuilder.addInterceptor(interceptor);
-                }
-            }
-        }
-        newBuilder.build().newCall(request).enqueue(callback);
-    }
-
-    public void call(Request request, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, callback) == null) && request != null) {
-            getOkHttpClient().newCall(request).enqueue(callback);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, u94Var, t94Var) == null) && t94Var != null) {
+            t94Var.a(u94Var, "Method 'shareVideo' is not implemented.");
         }
     }
 
-    @Override // com.baidu.searchbox.http.AbstractHttpManager
-    public OkHttpClient initClient() {
-        InterceptResult invokeV;
-        i83.a aVar;
+    @Override // com.baidu.tieba.v64
+    public void b(l94 l94Var, k94 k94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (x73.M() == null) {
-                return super.initClient();
-            }
-            r74 r74Var = (r74) x73.M().T();
-            OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
-            int i = 60000;
-            if (r74Var != null && (aVar = r74Var.a) != null) {
-                i = aVar.a;
-                newBuilder.connectTimeout(aVar.b, TimeUnit.MILLISECONDS);
-                newBuilder.addNetworkInterceptor(new qz2());
-            }
-            long j = i;
-            newBuilder.readTimeout(j, TimeUnit.MILLISECONDS);
-            newBuilder.writeTimeout(j, TimeUnit.MILLISECONDS);
-            OkHttpClient build = newBuilder.build();
-            build.dispatcher().setMaxRequests(10);
-            return build;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l94Var, k94Var) == null) && k94Var != null) {
+            k94Var.a(l94Var, "Method 'clipVideo' is not implemented.");
         }
-        return (OkHttpClient) invokeV.objValue;
     }
 }

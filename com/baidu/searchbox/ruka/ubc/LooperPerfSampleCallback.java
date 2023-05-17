@@ -7,7 +7,7 @@ import com.baidu.searchbox.PerfSampleManager;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class LooperPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static String ACTIVE_UPLOAD_TYPE = "1";
     public static String PASSIVE_UPLOAD_TYPE = "0";

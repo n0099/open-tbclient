@@ -16,7 +16,7 @@ import com.baidu.sapi2.result.GetTplStokenResult;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountRealNameActivity extends BaseActivity {
     public static final String EXTRA_BDUSS = "EXTRA_BDUSS";
     public static final String EXTRA_CUSTOM_LINK = "EXTRA_CUSTOM_LINK";

@@ -90,7 +90,7 @@ public final class SessionCommand implements VersionedParcelable {
         sparseArray.put(1, Arrays.asList(30000, Integer.valueOf((int) COMMAND_CODE_VOLUME_ADJUST_VOLUME)));
         SparseArray<List<Integer>> sparseArray2 = new SparseArray<>();
         VERSION_SESSION_COMMANDS_MAP = sparseArray2;
-        sparseArray2.put(1, Arrays.asList(Integer.valueOf((int) COMMAND_CODE_SESSION_FAST_FORWARD), Integer.valueOf((int) COMMAND_CODE_SESSION_REWIND), Integer.valueOf((int) COMMAND_CODE_SESSION_SKIP_FORWARD), Integer.valueOf((int) COMMAND_CODE_SESSION_SKIP_BACKWARD), Integer.valueOf((int) COMMAND_CODE_SESSION_SET_RATING)));
+        sparseArray2.put(1, Arrays.asList(Integer.valueOf((int) COMMAND_CODE_SESSION_FAST_FORWARD), 40001, 40002, 40003, Integer.valueOf((int) COMMAND_CODE_SESSION_SET_RATING)));
         VERSION_SESSION_COMMANDS_MAP.put(2, Collections.singletonList(Integer.valueOf((int) COMMAND_CODE_SESSION_SET_MEDIA_URI)));
         SparseArray<List<Integer>> sparseArray3 = new SparseArray<>();
         VERSION_LIBRARY_COMMANDS_MAP = sparseArray3;

@@ -7,15 +7,16 @@ import android.net.Uri;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j45;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.pe9;
+import com.baidu.tieba.lg9;
+import com.baidu.tieba.s55;
+import com.baidu.tieba.u55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,11 +25,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.ss.android.download.api.constant.BaseConstants;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SpecialDownloadHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j45 mBridge;
+    public s55 mBridge;
     public String mFid;
 
     @Override // com.baidu.tbadk.core.hybrid.NamedBridgeHandler
@@ -39,28 +40,28 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpecialDownloadHandler(j45 j45Var, String str) {
-        super(j45Var);
+    public SpecialDownloadHandler(s55 s55Var, String str) {
+        super(s55Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {j45Var, str};
+            Object[] objArr = {s55Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j45) newInitContext.callArgs[0]);
+                super((s55) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mBridge = j45Var;
+        this.mBridge = s55Var;
         this.mFid = str;
     }
 
-    @l45(isAsync = false, value = "downloadGame")
+    @u55(isAsync = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         String str;
         Interceptable interceptable = $ic;
@@ -74,13 +75,13 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
             return;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0d30);
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0db6);
             return;
         }
         if (StringUtils.isNull(optString2)) {
             jumpAppMarket(optString);
         } else {
-            pe9.n().E(optString, optString2, optString, 0, pe9.o(optString).intValue(), null, true, false, true, optString3, null, null);
+            lg9.n().E(optString, optString2, optString, 0, lg9.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
         StatisticItem statisticItem = new StatisticItem("c12775");
         if (StringUtils.isNull(this.mFid)) {
@@ -94,7 +95,7 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
     private void jumpAppMarket(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(BaseConstants.MARKET_PREFIX + str));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(BaseConstants.MARKET_PREFIX + str));
             try {
                 if (!(this.mBridge.getContext() instanceof Activity)) {
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);

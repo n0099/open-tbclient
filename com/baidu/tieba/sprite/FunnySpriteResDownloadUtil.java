@@ -8,10 +8,10 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.n45;
-import com.baidu.tieba.vl;
-import com.baidu.tieba.wl;
+import com.baidu.tieba.em;
+import com.baidu.tieba.fm;
+import com.baidu.tieba.w55;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ import kotlin.jvm.internal.Ref;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u0000<\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0006\n\u0002\u0010\u0006\n\u0002\b\u0014\n\u0002\u0010!\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\u001a\u0010\u0010+\u001a\u00020$2\u0006\u0010,\u001a\u00020-H\u0002\u001a\u0006\u0010.\u001a\u00020$\u001a&\u0010/\u001a\u00020\u00012\u0006\u0010&\u001a\u00020\u00012\n\b\u0002\u00100\u001a\u0004\u0018\u00010\u00012\b\b\u0002\u00101\u001a\u00020 H\u0007\u001a\u001a\u00102\u001a\u00020 2\u0006\u00103\u001a\u00020\u00012\b\u00104\u001a\u0004\u0018\u00010\u0001H\u0002\"\u000e\u0010\u0000\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0002\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0003\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0004\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0005\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0006\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0007\u001a\u00020\bX\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\t\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\n\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\r\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000e\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u000f\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0010\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0011\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0012\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0013\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0014\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000\"\u000e\u0010\u0015\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0016\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0017\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0018\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u0019\u001a\u00020\u0001X\u0082T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001a\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u000e\u0010\u001b\u001a\u00020\u0001X\u0086T¢\u0006\u0002\n\u0000\"\u0014\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u00010\u001dX\u0082\u0004¢\u0006\u0002\n\u0000\"\u0017\u0010\u001e\u001a\b\u0012\u0004\u0012\u00020 0\u001f¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010!\"J\u0010\"\u001a>\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020$0\u001f¢\u0006\f\b%\u0012\b\b&\u0012\u0004\b\b('\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020$0\u001f¢\u0006\f\b%\u0012\b\b&\u0012\u0004\b\b((\u0012\u0004\u0012\u00020$0#X\u0082\u0004¢\u0006\u0002\n\u0000\"\u0014\u0010)\u001a\b\u0012\u0004\u0012\u00020\u00010\u001dX\u0082\u0004¢\u0006\u0002\n\u0000\"\u0014\u0010*\u001a\b\u0012\u0004\u0012\u00020\u00010\u001dX\u0082\u0004¢\u0006\u0002\n\u0000¨\u00065"}, d2 = {"APPEAR_DARK", "", "APPEAR_DAY", "DARK_NORMAL", "DARK_STAND", "DAY_NORMAL", "DAY_STAND", "DEFAULT_LOW_END_DEVICE_SCORE", "", "EXIT_DARK", "EXIT_DAY", "FUNNY_SPRITE_CHAT_BASEBOARD", "FUNNY_SPRITE_CHAT_LIGHT", "FUNNY_SPRITE_CHAT_STAGE", "FUNNY_SPRITE_CHAT_STATIC_RES", "FUNNY_SPRITE_CHAT_WALL", "FUNNY_SPRITE_RES_AFX", "FUNNY_SPRITE_RES_WEBP", "LOG_TAG", "MP4", "RES_FILE_PATH", "RUSH_RES", "SEE_RES", "SHOW_DARK", "SHOW_DAY", "TEMP_FOLDER", "WEBP", "ZIP", "chatStaticResList", "", "isAllResExist", "Lkotlin/Function0;", "", "()Lkotlin/jvm/functions/Function0;", "judgeDeviceScore", "Lkotlin/Function2;", "", "Lkotlin/ParameterName;", "name", "highEnd", "lowEnd", "notificationResList", "resList", "deleteFiles", "file", "Ljava/io/File;", "downloadRes", "getResPathByName", "notificationPath", "isNameNeedPrefix", "unzipResFile", "resFileName", "resZip", "tbadkcore_release"}, k = 2, mv = {1, 6, 0}, xi = 48)
 @JvmName(name = "FunnySpriteResDownloadUtil")
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class FunnySpriteResDownloadUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
@@ -46,7 +46,7 @@ public final class FunnySpriteResDownloadUtil {
     public static final Function2<Function0<Unit>, Function0<Unit>, Unit> f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends DefaultDownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public final class FunnySpriteResDownloadUtil {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
                 super.onDownloadError(packageInfo, errorInfo);
-                dj8 defaultLog = DefaultLog.getInstance();
+                yk8 defaultLog = DefaultLog.getInstance();
                 StringBuilder sb = new StringBuilder();
                 sb.append("Sprite Res Download Fail! Error Msg: ");
                 if (errorInfo != null) {
@@ -102,10 +102,10 @@ public final class FunnySpriteResDownloadUtil {
                     String resZip = packageInfo.name;
                     Intrinsics.checkNotNullExpressionValue(resZip, "resZip");
                     String replace$default = StringsKt__StringsJVMKt.replace$default(resZip, ".zip", "", false, 4, (Object) null);
-                    dj8 defaultLog = DefaultLog.getInstance();
+                    yk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c("SpriteResDownload", "Sprite Res Download Success! Res Name: " + resZip + ". Duration: " + (System.currentTimeMillis() - j));
                     boolean l = FunnySpriteResDownloadUtil.l(replace$default, resZip);
-                    dj8 defaultLog2 = DefaultLog.getInstance();
+                    yk8 defaultLog2 = DefaultLog.getInstance();
                     StringBuilder sb = new StringBuilder();
                     sb.append("Sprite Res UnZip ");
                     if (l) {
@@ -233,11 +233,11 @@ public final class FunnySpriteResDownloadUtil {
             });
             String str = "com.baidu.tieba.resloader." + ((String) objectRef.element) + ".zip";
             DefaultLog.getInstance().c("SpriteResDownload", "Sprite Res download start. Res : " + str);
-            vl vlVar = new vl(str, new a(System.currentTimeMillis()));
+            em emVar = new em(str, new a(System.currentTimeMillis()));
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(wl.a);
+            requestParams.setRunType(fm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(vlVar);
+            requestParams.addChannel(emVar);
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -406,7 +406,7 @@ public final class FunnySpriteResDownloadUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
             String str3 = a + File.separator + str;
-            boolean b2 = n45.b(a + File.separator + str2, str3 + "_temp");
+            boolean b2 = w55.b(a + File.separator + str2, str3 + "_temp");
             DefaultLog.getInstance().c("SpriteResDownload", "Sprite Res UnZip State in unzipResFile: " + b2);
             if (b2) {
                 File file = new File(str3);

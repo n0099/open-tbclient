@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SafeParcelWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIT16_MARK = 65535;

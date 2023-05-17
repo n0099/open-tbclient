@@ -3,10 +3,10 @@ package com.baidu.ugc.editvideo.subtitle;
 import android.util.Log;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.mla;
+import com.baidu.tieba.kna;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SubtitleLog {
     public static final boolean DEBUG = false;
     public static final String TAG = "subtitle";
@@ -37,7 +37,7 @@ public final class SubtitleLog {
     }
 
     public static <T extends RichStickerBaseUnit> void d(List<T> list) {
-        if (mla.e(list)) {
+        if (kna.e(list)) {
             d("list empty");
             return;
         }

@@ -19,7 +19,7 @@ import com.vivo.push.util.ag;
 import com.vivo.push.util.u;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class c extends a<com.vivo.push.d.a.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final List<Integer> b;

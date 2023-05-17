@@ -2,7 +2,7 @@ package com.baidu.sapi2.views.logindialog.utils;
 
 import android.content.Context;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewUtils implements NoProguard {
     public static int dp2px(Context context, float f) {
         return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);

@@ -3,8 +3,9 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class s {
     public static Context a;
 
@@ -24,7 +25,7 @@ public class s {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m643a() {
+    public static Context m662a() {
         return a;
     }
 
@@ -42,13 +43,13 @@ public class s {
         try {
             return Class.forName(str);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m101a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
+            com.xiaomi.channel.commonutils.logger.b.m120a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), th.getLocalizedMessage()));
             throw new ClassNotFoundException("loadClass fail ", th);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m644a() {
+    public static synchronized String m663a() {
         synchronized (s.class) {
             if (f831a != null) {
                 return f831a;
@@ -77,12 +78,12 @@ public class s {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m645a() {
-        return TextUtils.equals((String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, "get", "sys.boot_completed"), "1");
+    public static boolean m664a() {
+        return TextUtils.equals((String) bj.a(CountryCodeBean.ANDRIOD_SYSTEMPROP, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, "sys.boot_completed"), "1");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m646a(Context context) {
+    public static boolean m665a(Context context) {
         try {
             return (context.getApplicationInfo().flags & 2) != 0;
         } catch (Exception e) {
@@ -98,7 +99,7 @@ public class s {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m647b() {
+    public static boolean m666b() {
         try {
             return a(null, "miui.os.Build").getField("IS_GLOBAL_BUILD").getBoolean(Boolean.FALSE);
         } catch (ClassNotFoundException unused) {

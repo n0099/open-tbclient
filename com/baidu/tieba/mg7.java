@@ -1,69 +1,124 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.bj5;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.itemtab.card.CardItemDetailListItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class mg7 extends PriorityOrganizer.Task {
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
+public class mg7 extends ax<tg7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
-    public bj5.b o;
+    public View f;
+    public EMTextView g;
+    public ArrayList<yg7> h;
 
-    public mg7(FrsActivity frsActivity, FrsFragment frsFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = frsActivity;
-        this.m = frsFragment;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
+    @Override // com.baidu.tieba.ax
+    public View k() {
         InterceptResult invokeV;
-        bj5.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null) {
-                this.o = frsFragment.N3();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.f == null) {
+                View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d01bc, (ViewGroup) null, true);
+                this.f = inflate;
+                this.g = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091151);
             }
-            if (f55.m().i("key_chat_group_guide_show", false) || (bVar = this.o) == null || !bVar.n0()) {
-                return false;
-            }
-            return true;
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
+    @Override // com.baidu.tieba.ux
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bj5.b bVar = this.o;
-            if (bVar != null) {
-                bVar.V0();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            p45 d = p45.d(this.f);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            p45 d2 = p45.d(this.g);
+            d2.C(R.string.F_X02);
+            d2.w(R.color.CAM_X0105);
+            for (int i2 = 0; i2 < ((ViewGroup) this.f).getChildCount(); i2++) {
+                if (((ViewGroup) this.f).getChildAt(i2) instanceof CardItemDetailListItemLayout) {
+                    ((CardItemDetailListItemLayout) ((ViewGroup) this.f).getChildAt(i2)).d();
+                }
             }
-            t();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tx
+    /* renamed from: s */
+    public void a(tg7 tg7Var) {
+        boolean z;
+        View childAt;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, tg7Var) == null) && tg7Var != null && tg7Var.d()) {
+            ArrayList<yg7> c = tg7Var.c();
+            if (ListUtils.getCount(c) != ListUtils.getCount(this.h)) {
+                if (ListUtils.getCount(this.h) > 0) {
+                    ((ViewGroup) this.f).removeViews(1, ListUtils.getCount(this.h));
+                }
+                z = true;
+            } else {
+                z = false;
+            }
+            if (c != null) {
+                for (int i = 0; i < c.size(); i++) {
+                    if (z) {
+                        childAt = new CardItemDetailListItemLayout(this.b);
+                        ((ViewGroup) this.f).addView(childAt, -1, -2);
+                    } else {
+                        childAt = ((ViewGroup) this.f).getChildAt(i + 1);
+                    }
+                    if (childAt instanceof CardItemDetailListItemLayout) {
+                        ((CardItemDetailListItemLayout) childAt).setData(c.get(i));
+                    }
+                }
+            }
+            ViewGroup viewGroup = (ViewGroup) this.f;
+            int childCount = viewGroup.getChildCount() - 1;
+            while (true) {
+                if (childCount <= 0) {
+                    break;
+                }
+                if ((viewGroup.getChildAt(childCount) instanceof CardItemDetailListItemLayout) && viewGroup.getChildAt(childCount).getVisibility() == 0) {
+                    ((CardItemDetailListItemLayout) viewGroup.getChildAt(childCount)).setDividerVisible(false);
+                    break;
+                }
+                childCount--;
+            }
+            this.h = c;
         }
     }
 }

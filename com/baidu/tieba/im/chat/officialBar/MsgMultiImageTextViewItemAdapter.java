@@ -5,21 +5,21 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.i38;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.x48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMultiImageTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<MsgMultiImageTextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -81,7 +81,7 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.vm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -98,12 +98,12 @@ public class MsgMultiImageTextViewItemAdapter extends MsgCommonItemAdapter<MsgMu
             a2.U(i);
             a2.J(this.d);
             a2.Q(chatMessage.getCacheData().getLastMsgTime());
-            a2.l0(this.a, chatMessage, viewGroup);
+            a2.m0(this.a, chatMessage, viewGroup);
             this.a.getLayoutMode().l(false);
             this.a.getLayoutMode().k(view2);
-            i38.c().e(chatMessage, this.a.getPageActivity());
-            i38.c().f(chatMessage, this.a.getPageActivity());
-            i38.c().d(chatMessage);
+            x48.c().e(chatMessage, this.a.getPageActivity());
+            x48.c().f(chatMessage, this.a.getPageActivity());
+            x48.c().d(chatMessage);
             return view2;
         }
         return (View) invokeCommon.objValue;

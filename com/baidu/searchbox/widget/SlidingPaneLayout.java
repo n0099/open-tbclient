@@ -28,7 +28,7 @@ import com.baidu.searchbox.widget.ViewDragHelper;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     public static final int DEFAULT_FADE_COLOR = -858993460;
     public static final SlidingPanelLayoutImpl IMPL;
@@ -61,7 +61,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public double slideEdgeFactor;
     public double slideWidthFactor;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface PanelSlideListener {
         void onPanelClosed(View view2);
 
@@ -70,7 +70,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         void onPanelSlide(View view2, float f);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
         public void onPanelClosed(View view2) {
@@ -85,7 +85,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface SlidingPanelLayoutImpl {
         void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2);
     }
@@ -98,7 +98,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
 
     public abstract void forceActivityTransparent(boolean z);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public final Rect mTmpRect = new Rect();
 
@@ -167,7 +167,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class DisableLayerRunnable implements Runnable {
         public final View mChildView;
 
@@ -185,7 +185,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class DragHelperCallback extends ViewDragHelper.Callback {
         public final int OFFSET_X;
         public int currX;
@@ -284,7 +284,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static final int[] ATTRS = {16843137};
         public Paint dimPaint;
@@ -327,7 +327,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         public Method mGetDisplayList;
         public Field mRecreateDisplayList;
@@ -474,7 +474,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         openPane();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.baidu.searchbox.widget.SlidingPaneLayout.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -515,7 +515,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
         public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2) {
@@ -523,7 +523,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImplBase, com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
         public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2) {

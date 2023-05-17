@@ -1,204 +1,133 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.helios.common.cc.n;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.spec.AlgorithmParameterSpec;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes3.dex */
-public final class c40 {
+import java.lang.reflect.Method;
+/* loaded from: classes5.dex */
+public final class c40 extends b40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public e40 c;
-    public byte[] d;
-    public int e;
-    public a40 f;
+    public b d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947624650, "Lcom/baidu/tieba/c40;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Class<?> a;
+        public Method b;
+        public Method c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            d();
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947624650, "Lcom/baidu/tieba/c40;");
+
+        public final long b(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                try {
+                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
+                } catch (Exception unused) {
+                    throw new n.a("");
+                }
+            }
+            return invokeL.longValue;
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                try {
+                    this.a = Class.forName(com.baidu.helios.common.cc.n.a(f40.a()), true, Object.class.getClassLoader());
+                    this.b = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(f40.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                    this.c = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(f40.c()), null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public final void f(Object obj, byte[] bArr, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
+                try {
+                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
+                } catch (Exception unused) {
+                    throw new n.a("");
+                }
+            }
+        }
+
+        public final Object g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
         }
     }
 
-    public c40() {
+    public c40(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 2;
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
+        this.d = new b(null);
     }
 
-    private void update(byte[] bArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65538, this, bArr, i, i2) == null) && i2 != 0 && bArr != null) {
-            int i3 = this.e;
-            int i4 = i3 + i2;
-            byte[] bArr2 = this.d;
-            if (i4 > bArr2.length) {
-                this.e = bArr2.length + 1;
-                return;
-            }
-            System.arraycopy(bArr, i, bArr2, i3, i2);
-            this.e += i2;
-        }
-    }
-
-    public byte[] b(byte[] bArr, int i, int i2) throws BadPaddingException, IllegalBlockSizeException {
+    @Override // com.baidu.tieba.b40
+    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
+        long j;
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            update(bArr, i, i2);
-            return a();
-        }
-        return (byte[]) invokeLII.objValue;
-    }
-
-    public final byte[] a() throws BadPaddingException, IllegalBlockSizeException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.e;
-            byte[] bArr = this.d;
-            if (i <= bArr.length) {
-                try {
-                    int i2 = this.a;
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 == 4) {
-                                    return this.c.c(b40.e(b40.a(bArr, 0, i), this.f));
-                                }
-                                throw new AssertionError("Internal error");
-                            }
-                            throw new UnsupportedOperationException("only verify supported");
-                        }
-                        throw new UnsupportedOperationException("only verify supported");
-                    }
-                    throw new UnsupportedOperationException("only verify supported");
-                } finally {
-                    this.e = 0;
-                }
-            }
-            throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void c(int i, a40 a40Var) throws InvalidKeyException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, a40Var) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
             try {
-                e(i, a40Var, null);
-            } catch (InvalidAlgorithmParameterException e) {
-                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
-                invalidKeyException.initCause(e);
-                throw invalidKeyException;
+                Object g = this.d.g();
+                this.d.f(g, bArr, i, i2);
+                j = this.d.b(g);
+            } catch (Exception unused) {
+                j = 4294967295L;
             }
+            return com.baidu.helios.common.cc.a.a(new long[]{j});
         }
-    }
-
-    public void d(int i) throws NoSuchPaddingException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i == 1) {
-                this.b = 1;
-            } else if (i == 2) {
-                this.b = 2;
-            } else {
-                throw new NoSuchPaddingException("Padding " + i + " not supported");
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0088  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void e(int i, a40 a40Var, AlgorithmParameterSpec algorithmParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i, a40Var, algorithmParameterSpec) == null) {
-            int i2 = 4;
-            int i3 = 2;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            throw new InvalidKeyException("Unknown mode: " + i);
-                        }
-                    }
-                }
-                z = false;
-                if (!(a40Var instanceof a40)) {
-                    if (z) {
-                        i2 = 1;
-                    }
-                    this.a = i2;
-                    this.f = a40Var;
-                    int c = b40.c(a40Var.b());
-                    this.e = 0;
-                    int i4 = this.b;
-                    if (i4 == 1) {
-                        if (algorithmParameterSpec == null) {
-                            this.c = e40.a(3, c);
-                            this.d = new byte[c];
-                            return;
-                        }
-                        throw new InvalidAlgorithmParameterException("Parameters not supported");
-                    } else if (i4 == 2) {
-                        if (algorithmParameterSpec == null) {
-                            if (this.a > 2) {
-                                i3 = 1;
-                            }
-                            e40 a = e40.a(i3, c);
-                            this.c = a;
-                            if (z) {
-                                this.d = new byte[a.b()];
-                                return;
-                            } else {
-                                this.d = new byte[c];
-                                return;
-                            }
-                        }
-                        throw new InvalidAlgorithmParameterException("Parameters not supported");
-                    } else {
-                        throw new InvalidKeyException("PEAO not supported");
-                    }
-                }
-                throw new InvalidKeyException("only support helios key");
-            }
-            z = true;
-            if (!(a40Var instanceof a40)) {
-            }
-        }
+        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
     }
 }

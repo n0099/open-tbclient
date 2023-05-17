@@ -10,7 +10,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.resources.MaterialAttributes;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ElevationOverlayProvider {
     public static final float FORMULA_MULTIPLIER = 4.5f;
     public static final float FORMULA_OFFSET = 2.0f;
@@ -20,9 +20,9 @@ public class ElevationOverlayProvider {
     public final boolean elevationOverlayEnabled;
 
     public ElevationOverlayProvider(@NonNull Context context) {
-        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040287, false);
-        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040286, 0);
-        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040180, 0);
+        this.elevationOverlayEnabled = MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040298, false);
+        this.elevationOverlayColor = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040297, 0);
+        this.colorSurface = MaterialColors.getColor(context, (int) R.attr.obfuscated_res_0x7f040190, 0);
         this.displayDensity = context.getResources().getDisplayMetrics().density;
     }
 

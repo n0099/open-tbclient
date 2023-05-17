@@ -33,46 +33,47 @@ import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.nadcore.webarch.NadLongPressView;
 import com.baidu.nadcore.webviewx.BrowserStateView;
 import com.baidu.nadcore.webviewx.container.base.AbsContainer;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.di0;
-import com.baidu.tieba.ea1;
-import com.baidu.tieba.f41;
-import com.baidu.tieba.g61;
-import com.baidu.tieba.h31;
-import com.baidu.tieba.i41;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.ca1;
+import com.baidu.tieba.da1;
+import com.baidu.tieba.db1;
+import com.baidu.tieba.fa1;
+import com.baidu.tieba.ga1;
+import com.baidu.tieba.gb1;
+import com.baidu.tieba.hb1;
+import com.baidu.tieba.ia1;
 import com.baidu.tieba.ii0;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.m91;
-import com.baidu.tieba.n91;
-import com.baidu.tieba.na1;
-import com.baidu.tieba.p91;
-import com.baidu.tieba.q91;
-import com.baidu.tieba.qa1;
-import com.baidu.tieba.ra1;
-import com.baidu.tieba.s91;
-import com.baidu.tieba.sh0;
-import com.baidu.tieba.u91;
-import com.baidu.tieba.uh0;
+import com.baidu.tieba.ka1;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.o51;
+import com.baidu.tieba.o61;
+import com.baidu.tieba.p11;
+import com.baidu.tieba.qj0;
+import com.baidu.tieba.s61;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.ti0;
+import com.baidu.tieba.ua1;
+import com.baidu.tieba.v41;
+import com.baidu.tieba.w61;
+import com.baidu.tieba.x31;
 import com.baidu.tieba.y41;
-import com.baidu.tieba.y51;
-import com.baidu.tieba.z01;
+import com.baidu.tieba.yi0;
 import com.baidu.webkit.sdk.PermissionRequest;
 import java.lang.reflect.Method;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseNativeBrowserContainer extends AbsContainer {
-    public n91 d;
+    public da1 d;
     public FrameLayout e;
     public LinearLayout f;
     public WebView g;
     public String h;
     public String i;
-    public ea1 j;
+    public ua1 j;
     public String k;
     public RelativeLayout l;
     public BrowserStateView m;
@@ -90,19 +91,19 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements NadLongPressView.b {
         public a() {
         }
 
         @Override // com.baidu.nadcore.webarch.NadLongPressView.b
         public void a() {
-            y41 a = y41.a(BaseNativeBrowserContainer.this.getActivity());
+            o51 a = o51.a(BaseNativeBrowserContainer.this.getActivity());
             a.b("老架构，url = " + BaseNativeBrowserContainer.this.h);
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements DownloadListener {
         public b() {
         }
@@ -113,31 +114,31 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements di0 {
+    /* loaded from: classes3.dex */
+    public class c implements ti0 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.di0
+        @Override // com.baidu.tieba.ti0
         public void a(boolean z, @Nullable Map<String, String> map) {
-            String p = ii0.p(map);
+            String p = yi0.p(map);
             if (!TextUtils.isEmpty(p)) {
                 BaseNativeBrowserContainer.this.l(p);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class d extends ra1 {
-        public final /* synthetic */ di0 c;
+    /* loaded from: classes3.dex */
+    public class d extends hb1 {
+        public final /* synthetic */ ti0 c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(WebView webView, WebViewClient webViewClient, di0 di0Var, di0 di0Var2) {
-            super(webView, webViewClient, di0Var);
-            this.c = di0Var2;
+        public d(WebView webView, WebViewClient webViewClient, ti0 ti0Var, ti0 ti0Var2) {
+            super(webView, webViewClient, ti0Var);
+            this.c = ti0Var2;
         }
 
-        @Override // com.baidu.tieba.ra1, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.hb1, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             int intValue;
             super.onPageFinished(webView, str);
@@ -159,12 +160,12 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             BaseNativeBrowserContainer.this.j.w(str);
         }
 
-        @Override // com.baidu.tieba.ra1, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.hb1, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            String d = na1.d(str);
+            String d = db1.d(str);
             if (TextUtils.isEmpty(d) || (!d.startsWith("http://") && !d.startsWith("https://") && !d.startsWith("ftp://") && !d.startsWith("sftp://") && !d.startsWith("ftps://"))) {
                 BaseNativeBrowserContainer.this.o = true;
-                if (BaseNativeBrowserContainer.this.j.F(webView, BaseNativeBrowserContainer.this.O(), str) || sh0.b(BaseNativeBrowserContainer.this.getActivity(), str, false) || y51.b.a().a(BaseNativeBrowserContainer.this.getActivity(), str, webView.getUrl(), this.c) || uh0.c(str, BaseNativeBrowserContainer.this.getActivity())) {
+                if (BaseNativeBrowserContainer.this.j.F(webView, BaseNativeBrowserContainer.this.O(), str) || ii0.b(BaseNativeBrowserContainer.this.getActivity(), str, false) || o61.b.a().a(BaseNativeBrowserContainer.this.getActivity(), str, webView.getUrl(), this.c) || ki0.c(str, BaseNativeBrowserContainer.this.getActivity())) {
                     return true;
                 }
                 BaseNativeBrowserContainer.this.r0();
@@ -173,7 +174,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             return false;
         }
 
-        @Override // com.baidu.tieba.ra1, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.hb1, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
             if (BaseNativeBrowserContainer.this.o) {
@@ -195,8 +196,8 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class e extends qa1 {
+    /* loaded from: classes3.dex */
+    public class e extends gb1 {
         public e(Context context, BaseNativeBrowserContainer baseNativeBrowserContainer) {
             super(context, baseNativeBrowserContainer);
         }
@@ -209,7 +210,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         public final /* synthetic */ WebView a;
 
@@ -226,7 +227,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements Runnable {
         public final /* synthetic */ String a;
 
@@ -247,14 +248,14 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h implements View.OnClickListener {
         public h() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            if (!NetUtil.a(li0.b())) {
+            if (!NetUtil.a(bj0.b())) {
                 return;
             }
             BaseNativeBrowserContainer.this.j0();
@@ -262,13 +263,13 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         }
     }
 
-    public BaseNativeBrowserContainer(m91 m91Var, n91 n91Var) {
-        super(m91Var);
+    public BaseNativeBrowserContainer(ca1 ca1Var, da1 da1Var) {
+        super(ca1Var);
         this.n = true;
         this.o = false;
         this.p = true;
         this.q = new h();
-        this.d = n91Var;
+        this.d = da1Var;
         c0();
     }
 
@@ -282,7 +283,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
 
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (s91.b.a().a(i) || S(i, keyEvent)) {
+        if (ia1.b.a().a(i) || S(i, keyEvent)) {
             return true;
         }
         if (i == 4) {
@@ -324,7 +325,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
 
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
     public void l(String str) {
-        aj0.b(new g(str));
+        qj0.b(new g(str));
     }
 
     public final void l0(boolean z) {
@@ -394,7 +395,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
     public void w(View view2) {
         super.w(view2);
-        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e47);
+        this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091ea3);
         this.f = (LinearLayout) view2.findViewById(R.id.webview_container);
     }
 
@@ -467,7 +468,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (this.b) {
             a0();
         } else {
-            this.e.findViewById(R.id.obfuscated_res_0x7f092443).setVisibility(8);
+            this.e.findViewById(R.id.obfuscated_res_0x7f0924a7).setVisibility(8);
         }
     }
 
@@ -481,7 +482,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     public final void c0() {
-        this.j = new ea1(this);
+        this.j = new ua1(this);
     }
 
     public final void d0() {
@@ -502,22 +503,13 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         W();
     }
 
-    @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
-    public int g() {
-        WebView webView = this.g;
-        if (webView != null) {
-            return webView.getScrollY();
-        }
-        return 0;
-    }
-
     public void g0() {
-        n91 n91Var = this.d;
-        if (n91Var != null && n91Var.i()) {
+        da1 da1Var = this.d;
+        if (da1Var != null && da1Var.g()) {
             return;
         }
-        ea1 ea1Var = this.j;
-        if (ea1Var != null && ea1Var.l()) {
+        ua1 ua1Var = this.j;
+        if (ua1Var != null && ua1Var.l()) {
             return;
         }
         this.o = true;
@@ -525,6 +517,15 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (webView != null) {
             webView.loadUrl(this.h);
         }
+    }
+
+    @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
+    public int h() {
+        WebView webView = this.g;
+        if (webView != null) {
+            return webView.getScrollY();
+        }
+        return 0;
     }
 
     public void i0() {
@@ -551,7 +552,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
     public void o() {
         this.j.u();
-        g61.c().d(getActivity());
+        w61.c().d(getActivity());
         super.o();
         w(View.inflate(getActivity(), R.layout.nad_light_browser_activity, null));
         X();
@@ -568,7 +569,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
     public void p() {
         this.j.v();
-        g61.c().f(getActivity());
+        w61.c().f(getActivity());
         k0();
         super.p();
     }
@@ -577,7 +578,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void q() {
         this.j.y();
         this.g.onPause();
-        i41.a(d(), i().getDecorView().getWindowToken());
+        y41.a(d(), i().getDecorView().getWindowToken());
         super.q();
     }
 
@@ -599,11 +600,11 @@ public class BaseNativeBrowserContainer extends AbsContainer {
 
     @TargetApi(23)
     public void s0() {
-        if (!d41.b.d()) {
+        if (!t41.b.d()) {
             return;
         }
         if (getActivity().checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) != 0 || getActivity().checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
-            h31.a().a(getActivity(), R.string.input_file_no_permission_note_text);
+            x31.a().a(getActivity(), R.string.input_file_no_permission_note_text);
         }
     }
 
@@ -642,19 +643,19 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(K())) {
             stringExtra = K();
         }
-        String d2 = na1.d(stringExtra);
-        if (!TextUtils.isEmpty(d2) && na1.g(na1.b(d2))) {
+        String d2 = db1.d(stringExtra);
+        if (!TextUtils.isEmpty(d2) && db1.g(db1.b(d2))) {
             return d2;
         }
         return "";
     }
 
     public final void R(String str, String str2, String str3, String str4, long j) {
-        if (f41.b(f41.c(f41.e(str, str3, str4)), str4) == 3) {
-            JSONObject c2 = z01.c(this.k);
-            z01.f(c2, "url", str);
-            z01.e(c2, BreakpointSQLiteKey.CONTENT_LENGTH, j);
-            c61.a().b(getActivity(), this.l, c2.toString());
+        if (v41.b(v41.c(v41.e(str, str3, str4)), str4) == 3) {
+            JSONObject c2 = p11.c(this.k);
+            p11.f(c2, "url", str);
+            p11.e(c2, BreakpointSQLiteKey.CONTENT_LENGTH, j);
+            s61.a().b(getActivity(), this.l, c2.toString());
         }
     }
 
@@ -663,7 +664,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         BrowserStateView browserStateView = new BrowserStateView(getActivity());
         this.m = browserStateView;
         browserStateView.setErrorViewClickListener(this.q);
-        WebView a2 = p91.a().a(getActivity());
+        WebView a2 = fa1.a().a(getActivity());
         this.g = a2;
         frameLayout.addView(a2, new FrameLayout.LayoutParams(-1, -1));
         frameLayout.addView(this.m, new FrameLayout.LayoutParams(-1, -1));
@@ -677,8 +678,8 @@ public class BaseNativeBrowserContainer extends AbsContainer {
                 ((ViewGroup) this.g.getParent()).removeView(this.g);
             }
             WebView webView2 = this.g;
-            if (!d41.b.c()) {
-                new Handler().postDelayed(new f(webView2), 1500L);
+            if (!t41.b.c()) {
+                new Handler().postDelayed(new f(webView2), BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT);
             } else {
                 try {
                     webView2.destroy();
@@ -691,12 +692,12 @@ public class BaseNativeBrowserContainer extends AbsContainer {
 
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
     public void z() {
-        i41.a(d(), i().getDecorView().getWindowToken());
+        y41.a(d(), i().getDecorView().getWindowToken());
         if (this.g.canGoBack()) {
             this.g.goBack();
         } else if (G()) {
         } else {
-            u91.b.a().a(getActivity());
+            ka1.b.a().a(getActivity());
         }
     }
 
@@ -711,21 +712,21 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public final void a0() {
         int[] b2;
         int[] c2;
-        this.e.findViewById(R.id.obfuscated_res_0x7f092443).setVisibility(0);
+        this.e.findViewById(R.id.obfuscated_res_0x7f0924a7).setVisibility(0);
         LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.titlebar_left_layout);
-        for (int i : q91.h().b()) {
-            ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f10013d), null, R.style.obfuscated_res_0x7f10013d);
+        for (int i : ga1.h().b()) {
+            ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100141), null, R.style.obfuscated_res_0x7f100141);
             imageView.setImageResource(i);
             imageView.setTag(Integer.valueOf(i));
-            q91.h().a(imageView, this);
+            ga1.h().a(imageView, this);
             linearLayout.addView(imageView);
         }
         LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.titlebar_right_layout);
-        for (int i2 : q91.h().c()) {
-            NadLongPressView nadLongPressView = new NadLongPressView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f10013d), null, R.style.obfuscated_res_0x7f10013d);
+        for (int i2 : ga1.h().c()) {
+            NadLongPressView nadLongPressView = new NadLongPressView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100141), null, R.style.obfuscated_res_0x7f100141);
             nadLongPressView.setImageResource(i2);
             nadLongPressView.setTag(Integer.valueOf(i2));
-            q91.h().a(nadLongPressView, this);
+            ga1.h().a(nadLongPressView, this);
             nadLongPressView.setHandler(new a());
             linearLayout2.addView(nadLongPressView);
         }
@@ -788,7 +789,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         webView.setVerticalScrollBarEnabled(true);
         webView.setHorizontalScrollBarEnabled(false);
         webView.getSettings().setLightTouchEnabled(false);
-        webView.getSettings().setUserAgentString(li0.e());
+        webView.getSettings().setUserAgentString(bj0.e());
         webView.getSettings().setDefaultTextEncodingName("UTF-8");
         webView.getSettings().setSupportZoom(true);
         webView.getSettings().setJavaScriptEnabled(true);
@@ -818,7 +819,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
 
     @Override // com.baidu.nadcore.webviewx.container.base.AbsContainer
     public void m(int i, int i2, Intent intent) {
-        g61.c().g(getActivity(), i, i2, intent);
+        w61.c().g(getActivity(), i, i2, intent);
         super.m(i, i2, intent);
     }
 

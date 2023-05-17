@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonPostAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,12 +54,12 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
         this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.c.W1(personPostActivity);
+        this.c.X1(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
         this.b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
+        this.b.W1(personPostActivity);
         this.b.V1(personPostActivity);
-        this.b.U1(personPostActivity);
         this.a = new int[]{0, 1};
     }
 

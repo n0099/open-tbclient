@@ -8,17 +8,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NadRewardVolumeView extends AdImageView {
     public boolean d;
     public b e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }

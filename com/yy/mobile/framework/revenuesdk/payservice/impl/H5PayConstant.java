@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payservice.impl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class H5PayConstant {
     public static final int DxmH5LocalPageType = 5;
     public static final int DxmKjLocalPageType = 2;

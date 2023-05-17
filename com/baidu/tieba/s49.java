@@ -1,76 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.video.GodReplyMoreViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class s49 extends vm<o59, CardViewHolder<h69>> {
+/* loaded from: classes7.dex */
+public class s49 extends e09<t49, GodReplyMoreViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ji6<o59> b;
+    public View.OnClickListener g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s49(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public s49(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((v49) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardViewHolder<h69> onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.en
+    /* renamed from: u */
+    public GodReplyMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            h69 h69Var = new h69(this.a);
-            h69Var.k(this.b);
-            return new CardViewHolder<>(h69Var);
+            return new GodReplyMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0750, viewGroup, false));
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (GodReplyMoreViewHolder) invokeL.objValue;
     }
 
-    public void u(ji6<o59> ji6Var) {
+    public void y(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ji6Var) == null) {
-            this.b = ji6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, o59 o59Var, CardViewHolder<h69> cardViewHolder) {
+    @Override // com.baidu.tieba.e09, com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (t49) obj, (GodReplyMoreViewHolder) viewHolder);
+        return view2;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, t49 t49Var, GodReplyMoreViewHolder godReplyMoreViewHolder) {
         InterceptResult invokeCommon;
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, o59Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(o59Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t49Var, godReplyMoreViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) t49Var, (t49) godReplyMoreViewHolder);
+            if (godReplyMoreViewHolder != null && (textView = godReplyMoreViewHolder.a) != null) {
+                View.OnClickListener onClickListener = this.g;
+                if (onClickListener != null) {
+                    textView.setOnClickListener(onClickListener);
+                }
+                if (godReplyMoreViewHolder.c != TbadkCoreApplication.getInst().getSkinType()) {
+                    godReplyMoreViewHolder.c = TbadkCoreApplication.getInst().getSkinType();
+                    SkinManager.setViewTextColor(godReplyMoreViewHolder.a, (int) R.color.CAM_X0106);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.a, R.drawable.more_all);
+                    SkinManager.setBackgroundResource(godReplyMoreViewHolder.b, R.color.CAM_X0204);
+                }
+            }
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

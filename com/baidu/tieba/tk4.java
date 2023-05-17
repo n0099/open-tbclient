@@ -1,35 +1,76 @@
 package com.baidu.tieba;
 
 import androidx.annotation.Nullable;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
-public class tk4 extends fj4 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class tk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tk4() {
+    public static JSONObject a(@Nullable qk4<JSONArray> qk4Var, @Nullable qk4<JSONObject> qk4Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, qk4Var, qk4Var2)) == null) {
+            return b(Node.values(), qk4Var, qk4Var2);
         }
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.fj4, com.baidu.tieba.ij4
-    public void a(JSONArray jSONArray, sf4 sf4Var, @Nullable sf4 sf4Var2, @Nullable sf4 sf4Var3) {
+    public static JSONObject b(Node[] nodeArr, @Nullable qk4<JSONArray> qk4Var, @Nullable qk4<JSONObject> qk4Var2) {
+        InterceptResult invokeLLL;
+        sk4 provider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, sf4Var, sf4Var2, sf4Var3) == null) {
-            qk4.a().c(jSONArray, sf4Var, sf4Var2, sf4Var3);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, qk4Var, qk4Var2)) == null) {
+            if (nodeArr == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Node node : nodeArr) {
+                    if (node != null && (provider = Node.getProvider(node)) != null) {
+                        if (node.isDataArray()) {
+                            jSONObject.put(node.getName(), provider.b(qk4Var));
+                        } else {
+                            jSONObject.put(node.getName(), provider.a(qk4Var2));
+                        }
+                    }
+                }
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static void c(JSONObject jSONObject, bh4 bh4Var, @Nullable bh4 bh4Var2, @Nullable bh4 bh4Var3) {
+        pg4 b;
+        rk4 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLLL(65538, null, jSONObject, bh4Var, bh4Var2, bh4Var3) != null) || jSONObject == null) {
+            return;
+        }
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            Node nodeByConfigName = Node.getNodeByConfigName(next);
+            if (nodeByConfigName != null && (a = uk4.a(nodeByConfigName)) != null) {
+                if (nodeByConfigName.isDataArray()) {
+                    a.a(jSONObject.optJSONArray(next), bh4Var, bh4Var2, bh4Var3);
+                } else {
+                    a.b(jSONObject.optJSONObject(next), bh4Var, bh4Var2, bh4Var3);
+                }
+            }
+        }
+        if (ml4.a && (b = rg4.b()) != null) {
+            b.C();
         }
     }
 }

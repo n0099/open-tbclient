@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class SlicePersonalReplyBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,11 +51,11 @@ public final class SlicePersonalReplyBinding implements ViewBinding {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
             FrameLayout frameLayout = (FrameLayout) view2;
-            QuickReplyRecyclerView quickReplyRecyclerView = (QuickReplyRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091d87);
+            QuickReplyRecyclerView quickReplyRecyclerView = (QuickReplyRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091de1);
             if (quickReplyRecyclerView != null) {
                 return new SlicePersonalReplyBinding(frameLayout, frameLayout, quickReplyRecyclerView);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f091d87)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f091de1)));
         }
         return (SlicePersonalReplyBinding) invokeL.objValue;
     }
@@ -65,7 +65,7 @@ public final class SlicePersonalReplyBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0845, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0876, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

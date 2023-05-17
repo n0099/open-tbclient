@@ -3,7 +3,7 @@ package com.kwad.sdk.export.proxy;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.download.DownloadParams;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface AdDownloadProxy {
     void cancelDownload(Context context, String str, DownloadParams downloadParams);
 

@@ -12,11 +12,11 @@ import android.os.RemoteException;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GAIDClient {
     public static AdInfo mAdInfo;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AdInfo {
         public final String advertisingId;
         public final boolean limitAdTrackingEnabled;
@@ -35,7 +35,7 @@ public class GAIDClient {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AdvertisingConnection implements ServiceConnection {
         public final LinkedBlockingQueue<IBinder> queue;
         public boolean retrieved;
@@ -67,7 +67,7 @@ public class GAIDClient {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AdvertisingInterface implements IInterface {
         public IBinder binder;
 

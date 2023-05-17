@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.pt4;
-import com.baidu.tieba.v26;
+import com.baidu.tieba.h46;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SmartApp;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AppletsCellView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
     public String j;
     public String k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements TbImageView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,11 +184,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
             this.b.setIsRound(true);
             this.b.setIsPreDrawBorder(true);
             this.b.setDrawBorder(true);
-            this.b.setBorderWidth(ii.g(context, R.dimen.tbds1));
+            this.b.setBorderWidth(ri.g(context, R.dimen.tbds1));
             this.b.setDefaultResource(R.color.CAM_X0205);
-            this.b.setRadius(ii.g(context, R.dimen.obfuscated_res_0x7f070266));
+            this.b.setRadius(ri.g(context, R.dimen.obfuscated_res_0x7f070266));
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            layoutParams.height = ((ii.l(getContext()) - ii.g(getContext(), R.dimen.tbds130)) * 9) / 16;
+            layoutParams.height = ((ri.l(getContext()) - ri.g(getContext(), R.dimen.tbds130)) * 9) / 16;
             this.e.setLayoutParams(layoutParams);
             this.e.setConrers(15);
             setOnClickListener(this);
@@ -222,11 +222,11 @@ public class AppletsCellView extends LinearLayout implements View.OnClickListene
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || (smartApp = this.h) == null) {
             return;
         }
-        if (!v26.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
+        if (!h46.b(smartApp.id, smartApp.link, "1191003900000000", smartApp.is_game)) {
             if (StringUtils.isNull(this.h.h5_url)) {
                 return;
             }
-            pt4.s(getContext(), this.h.h5_url);
+            yu4.s(getContext(), this.h.h5_url);
         }
         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("fid", this.j).param("tid", this.k).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", this.h.name).param("obj_id", this.h.naws_app_id.longValue()).param("obj_source", this.i).param("obj_param1", this.h.is_game.intValue()));
     }

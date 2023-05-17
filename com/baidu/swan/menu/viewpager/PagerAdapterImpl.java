@@ -5,20 +5,16 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import com.baidu.tieba.ke4;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.tf4;
+/* loaded from: classes4.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
-    public ke4<View> a = new ke4<>(5);
+    public tf4<View> a = new tf4<>(5);
     public SparseArray<View> b = new SparseArray<>();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void recycle();
     }
-
-    public abstract void b(View view2, int i);
-
-    public abstract View c(ViewGroup viewGroup, int i);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
@@ -29,6 +25,10 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public boolean isViewFromObject(View view2, Object obj) {
         return view2 == obj;
     }
+
+    public abstract void onConfigItem(View view2, int i);
+
+    public abstract View onInstantiateItem(ViewGroup viewGroup, int i);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
@@ -45,11 +45,11 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         View a2 = this.a.a();
         if (a2 == null) {
-            a2 = c(viewGroup, i);
+            a2 = onInstantiateItem(viewGroup, i);
         }
         this.b.put(i, a2);
         viewGroup.addView(a2);
-        b(a2, i);
+        onConfigItem(a2, i);
         return a2;
     }
 

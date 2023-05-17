@@ -1,7 +1,6 @@
 package com.google.android.exoplayer2.text.webvtt;
 
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.exoplayer2.util.ColorParser;
 import com.google.android.exoplayer2.util.ParsableByteArray;
@@ -9,7 +8,7 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CssParser {
     public static final String BLOCK_END = "}";
     public static final String BLOCK_START = "{";
@@ -37,7 +36,7 @@ public final class CssParser {
             }
             str = str.substring(0, indexOf);
         }
-        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split = str.split("\\.");
         String str2 = split[0];
         int indexOf2 = str2.indexOf(35);
         if (indexOf2 != -1) {

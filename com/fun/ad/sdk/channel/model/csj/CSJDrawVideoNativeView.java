@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.module.csj.g0;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CSJDrawVideoNativeView extends g0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public final class CSJDrawVideoNativeView extends g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09010a);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090117);
         }
     }
 }

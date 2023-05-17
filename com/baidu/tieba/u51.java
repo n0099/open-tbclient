@@ -1,48 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class u51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public u51() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948161880, "Lcom/baidu/tieba/u51;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948161880, "Lcom/baidu/tieba/u51;");
         }
     }
 
-    @Nullable
-    public static u51 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static boolean a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return false;
             }
-            u51 u51Var = new u51();
-            u51Var.a = jSONObject.optString("icon");
-            u51Var.b = jSONObject.optString("text");
-            u51Var.c = jSONObject.optString("cmd");
-            return u51Var;
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = b21.a().b("nad_permission_sp").getBoolean(str, true);
+            b(context, str);
+            return z;
         }
-        return (u51) invokeL.objValue;
+        return invokeLI.booleanValue;
+    }
+
+    public static void b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, context, str) != null) || context == null) {
+            return;
+        }
+        b21.a().b("nad_permission_sp").e(str, false);
     }
 }

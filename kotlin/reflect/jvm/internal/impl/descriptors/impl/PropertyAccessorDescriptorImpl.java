@@ -19,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class PropertyAccessorDescriptorImpl extends DeclarationDescriptorNonRootImpl implements PropertyAccessorDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final PropertyDescriptor correspondingProperty;

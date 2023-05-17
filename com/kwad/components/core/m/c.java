@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static volatile c IR;
 

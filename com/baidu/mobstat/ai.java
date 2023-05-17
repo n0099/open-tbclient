@@ -9,13 +9,13 @@ import java.nio.channels.NotYetConnectedException;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ai {
     public static final ByteBuffer c = ByteBuffer.allocate(0);
     public a a;
     public b b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -26,7 +26,7 @@ public class ai {
         void b();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends ci {
         public b(URI uri, int i, Socket socket) throws InterruptedException {
             super(uri, new cl(), null, i);
@@ -128,7 +128,7 @@ public class ai {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends IOException {
         public c(Throwable th) {
             super(th.getMessage());

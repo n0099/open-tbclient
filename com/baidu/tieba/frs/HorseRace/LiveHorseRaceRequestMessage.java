@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.GetHorseRaceLampList.DataReq;
 import tbclient.GetHorseRaceLampList.GetHorseRaceLampListReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LiveHorseRaceRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class LiveHorseRaceRequestMessage extends NetMessage {
             builder.f1201common = this.f1044common;
             builder.forum_id = this.forum_id;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jr5.a(builder, true);
+                ss5.a(builder, true);
             }
             GetHorseRaceLampListReqIdl.Builder builder2 = new GetHorseRaceLampListReqIdl.Builder();
             builder2.data = builder.build(false);

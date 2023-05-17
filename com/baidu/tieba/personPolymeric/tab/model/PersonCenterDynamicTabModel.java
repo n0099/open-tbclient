@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.fb;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabHttpResMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabRequestMessage;
 import com.baidu.tieba.personPolymeric.tab.data.PersonCenterDynamicTabSocketResMessage;
-import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonCenterDynamicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public User f;
     public MetaData g;
     public BdUniqueId h;
-    public final za i;
+    public final fb i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(List<ThreadData> list, boolean z, boolean z2);
 
@@ -48,7 +48,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -64,8 +64,8 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    /* loaded from: classes7.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterDynamicTabModel a;
@@ -92,7 +92,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             this.a = personCenterDynamicTabModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             long j;
             boolean z;
@@ -118,7 +118,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
             }
             if (responsedMessage.getError() == 0) {
                 if (!ListUtils.isEmpty(list)) {
-                    this.a.g0(list);
+                    this.a.f0(list);
                     this.a.d.addAll(list);
                 }
                 this.a.b = z;
@@ -168,7 +168,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.i);
     }
 
-    public final void e0(long j) {
+    public final void d0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             PersonCenterDynamicTabRequestMessage personCenterDynamicTabRequestMessage = new PersonCenterDynamicTabRequestMessage(this.e, j, 10);
@@ -177,50 +177,50 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public void i0(MetaData metaData) {
+    public void h0(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, metaData) == null) {
             this.g = metaData;
         }
     }
 
-    public void j0(b bVar) {
+    public void i0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void k0(User user) {
+    public void j0(User user) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, user) == null) {
             this.f = user;
-            h0();
+            g0();
         }
     }
 
-    public boolean d0() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public void f0() {
+    public void e0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e0(this.a);
+            d0(this.a);
         }
     }
 
-    public void h0() {
+    public void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = 0L;
             this.d.clear();
-            e0(this.a);
+            d0(this.a);
         }
     }
 
@@ -236,7 +236,7 @@ public class PersonCenterDynamicTabModel extends BdBaseModel {
         }
     }
 
-    public final void g0(List<ThreadData> list) {
+    public final void f0(List<ThreadData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && this.f != null && !ListUtils.isEmpty(list)) {
             for (ThreadData threadData : list) {

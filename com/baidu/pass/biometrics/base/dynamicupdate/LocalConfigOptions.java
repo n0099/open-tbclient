@@ -10,7 +10,7 @@ import com.baidu.pass.common.SecurityUtil;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocalConfigOptions {
     public static final int DEFAULT_ILLUM_GRAY = -1;
     public static final int DEFAULT_ILLUM_VALUE = 8;

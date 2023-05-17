@@ -1,83 +1,50 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.io.FileDescriptor;
+/* loaded from: classes7.dex */
 public class ug1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payInfo", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
+                }
             }
-            return b.toString();
+            return i5;
         }
-        return (String) invokeLLL.objValue;
+        return invokeLII.intValue;
     }
 
-    public static String d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
-            JSONObject b = b(str3);
-            try {
-                b.put("orderId", str);
-                b.put("payUrl", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+            int a = a(options, i, i2);
+            options.inSampleSize = a;
+            options.inJustDecodeBounds = false;
+            if (a <= 1) {
+                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
             }
-            return b.toString();
+            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("returnData", a);
-                jSONObject.put("msg", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return b(str).toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
-            if (bundle != null) {
-                a = bundle.getString("returnData");
-            } else {
-                a = "";
-            }
-        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

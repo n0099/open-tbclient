@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class dm {
     public static volatile dm a;
 
@@ -18,7 +18,7 @@ public class dm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dl m284a() {
+    public dl m303a() {
         return this.f231a;
     }
 

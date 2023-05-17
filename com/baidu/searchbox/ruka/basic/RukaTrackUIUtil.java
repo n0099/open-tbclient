@@ -3,7 +3,7 @@ package com.baidu.searchbox.ruka.basic;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.track.ui.TrackUI;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RukaTrackUIUtil {
     public static final String SEPERATOR_ARROR = "->";
 

@@ -12,7 +12,7 @@ import com.huawei.hms.aaid.encrypt.PushEncrypter;
 import com.huawei.hms.aaid.utils.PushPreferences;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class i extends PushPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "i";

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.account.result;
 
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BoxAddressManageResult extends BoxSapiResult {
     public static final String KEY_ADDR_ID = "addrId";
     public static final String KEY_ADDR_INFO = "addrInfo";

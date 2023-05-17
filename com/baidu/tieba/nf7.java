@@ -1,88 +1,86 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.lego.LegoItemHolder;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.gametabs.NewSpecialFrsWebFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class nf7 extends p67<ICardInfo, LegoItemHolder> {
+/* loaded from: classes6.dex */
+public class nf7 extends xi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ICardInfo l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nf7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    @Override // com.baidu.tieba.xi5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public nf7(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: G */
-    public View getView(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
-            this.l = iCardInfo;
-            return super.getView(i, view2, viewGroup, iCardInfo);
+        yi5 yi5Var = this.a;
+        yi5Var.e = i;
+        NewSpecialFrsWebFragment newSpecialFrsWebFragment = (NewSpecialFrsWebFragment) yi5Var.a;
+        newSpecialFrsWebFragment.v2(i);
+        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
+            if (str.contains("&ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            } else if (str.contains("?ufanS=1")) {
+                str = str + "&_client_version=" + TbConfig.getVersion();
+            }
         }
-        return (View) invokeCommon.objValue;
+        newSpecialFrsWebFragment.O1(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: H */
-    public LegoItemHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.xi5
+    public yi5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            yi5 yi5Var = new yi5();
+            yi5Var.a = new NewSpecialFrsWebFragment();
+            yi5Var.e = 101;
+            yi5Var.i = yi5.k;
+            return yi5Var;
+        }
+        return (yi5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xi5
+    public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            lh8 a = qg8.h().a(this.c, this.l, 1);
-            if (a == null) {
-                return null;
-            }
-            a.g(this.mPageId);
-            return new LegoItemHolder(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
-        return (LegoItemHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p67, com.baidu.tieba.vm
-    /* renamed from: I */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) iCardInfo, (ICardInfo) legoItemHolder);
-            View view3 = legoItemHolder.getView();
-            if (view3 != null && iCardInfo != null) {
-                ((lh8) view3).update(iCardInfo);
-            }
-            return view3;
-        }
-        return (View) invokeCommon.objValue;
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

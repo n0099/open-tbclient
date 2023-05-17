@@ -9,7 +9,7 @@ import com.baidu.pass.main.facesdk.model.BDFaceSDKActionConfig;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceActionLive {
     public static final String TAG = "FaceActionLive";
     public BDFaceInstance bdFaceInstance;

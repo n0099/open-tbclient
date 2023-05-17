@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class PersonalChatMessage extends ChatMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class PersonalChatMessage extends ChatMessage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (getMsgType() != 33 && getMsgType() != 32 && getMsgType() != 37) {
+            if (getMsgType() != 33 && getMsgType() != 32 && getMsgType() != 38 && getMsgType() != 37) {
                 return getContent();
             }
             return getEncodeContent();

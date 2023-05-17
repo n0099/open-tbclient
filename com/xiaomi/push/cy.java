@@ -10,10 +10,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class cy {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends cx {
         public a() {
             super(1);
@@ -94,11 +94,11 @@ public abstract class cy {
             try {
                 ArrayList<String> arrayList = new ArrayList<>();
                 if (z) {
-                    cq m266a = cu.a().m266a(str);
-                    if (m266a != null) {
-                        arrayList = m266a.a(str);
+                    cq m285a = cu.a().m285a(str);
+                    if (m285a != null) {
+                        arrayList = m285a.a(str);
                     }
-                    cqVar = m266a;
+                    cqVar = m285a;
                 } else {
                     cqVar = null;
                 }
@@ -116,7 +116,7 @@ public abstract class cy {
                         iOException = e;
                         str2 = str4;
                     }
-                    if (!cxVar.m275a(context, next, (List<bh>) arrayList2)) {
+                    if (!cxVar.m294a(context, next, (List<bh>) arrayList2)) {
                         return str4;
                     }
                     String a2 = cxVar.a(context, next, (List<bh>) arrayList2);

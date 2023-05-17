@@ -5,11 +5,11 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.exoplayer2.PlaybackParameters;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface AudioSink {
     public static final long CURRENT_POSITION_NOT_SET = Long.MIN_VALUE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onAudioSessionId(int i);
 
@@ -58,7 +58,7 @@ public interface AudioSink {
 
     void setVolume(float f);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ConfigurationException extends Exception {
         public ConfigurationException(String str) {
             super(str);
@@ -69,7 +69,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InitializationException extends Exception {
         public final int audioTrackState;
 
@@ -79,7 +79,7 @@ public interface AudioSink {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class WriteException extends Exception {
         public final int errorCode;
 

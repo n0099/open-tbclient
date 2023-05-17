@@ -13,7 +13,7 @@ import com.baidu.ufosdk.hybrid.api.IBridgeApi;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, HashMap<String, Method>> a;

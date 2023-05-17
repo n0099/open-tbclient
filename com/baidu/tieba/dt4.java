@@ -1,228 +1,53 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.et4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class dt4 {
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class dt4 extends zs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static et4 a;
-    public static dt4 b;
-    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716069, "Lcom/baidu/tieba/dt4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947716069, "Lcom/baidu/tieba/dt4;");
-                return;
-            }
-        }
-        new ArrayList(5);
+    @Override // com.baidu.tieba.ys4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "i" : (String) invokeV.objValue;
     }
 
     public dt4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.ys4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                et4Var.d();
-                c = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/item");
+                sb.append("?item_id=");
+                sb.append(substring);
+                c(strArr, sb, map, 1);
+                return sb.toString();
             }
+            return null;
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                et4Var.c();
-                c = false;
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                et4Var.h();
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            b();
-            i();
-            m();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                et4Var.m();
-                c = true;
-            }
-        }
-    }
-
-    public static dt4 a(BaseFragmentActivity baseFragmentActivity) {
-        InterceptResult invokeL;
-        et4 et4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
-            if (b == null) {
-                synchronized (dt4.class) {
-                    if (b == null) {
-                        b = new dt4();
-                        a = et4.a(baseFragmentActivity);
-                    }
-                }
-            } else {
-                et4 et4Var2 = a;
-                if (et4Var2 != null) {
-                    et4Var2.j(baseFragmentActivity.getPageContext());
-                }
-            }
-            if (c && (et4Var = a) != null) {
-                et4Var.d();
-                a.c();
-                c = false;
-            }
-            return b;
-        }
-        return (dt4) invokeL.objValue;
-    }
-
-    public static void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                if (a != null) {
-                    if (b != null) {
-                        b.j();
-                    }
-                    a.e();
-                    a.i();
-                    a = null;
-                }
-                if (b != null) {
-                    b = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    public void e(boolean z, boolean z2, boolean z3, et4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
-            b();
-            if (z) {
-                c();
-            }
-            if (z2) {
-                d();
-            }
-            l(z3);
-            k(aVar);
-        }
-    }
-
-    public void f(et4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                if (et4Var.b()) {
-                    a.k(aVar);
-                }
-                a.f();
-            }
-        }
-    }
-
-    public void k(et4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                et4Var.k(aVar);
-            }
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                et4Var.l(z);
-            }
-        }
-    }
-
-    public void g(int i, et4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
-            b();
-            et4 et4Var = a;
-            if (et4Var != null) {
-                if (et4Var.b()) {
-                    a.k(aVar);
-                }
-                a.g(i);
-            }
-        }
+        return (String) invokeLL.objValue;
     }
 }

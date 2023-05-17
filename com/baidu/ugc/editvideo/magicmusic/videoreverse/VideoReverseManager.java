@@ -1,18 +1,18 @@
 package com.baidu.ugc.editvideo.magicmusic.videoreverse;
 
-import com.baidu.tieba.hla;
+import com.baidu.tieba.fna;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.utils.FileUtils;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoReverseManager {
     public static volatile VideoReverseManager mVideoReverseManager;
     public VideoReverseHelper mReverseHelper;
     public Map<String, ReverseTask> mTaskMap = new WeakHashMap();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ReverseTask {
         public static final int STATE_DONE = 2;
         public static final int STATE_FAILED = 3;
@@ -66,7 +66,7 @@ public class VideoReverseManager {
         WeakReference<OnTimeReverseListener> weakReference = new WeakReference<>(onTimeReverseListener);
         try {
         } catch (Exception e) {
-            hla.g(e);
+            fna.g(e);
             OnTimeReverseListener onTimeReverseListener2 = weakReference.get();
             if (onTimeReverseListener2 != null) {
                 String str2 = z ? "MediaCodec点击倒放失败" : "MediaCodec预倒放失败";

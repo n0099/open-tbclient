@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import com.xiaomi.push.ha;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TrafficProvider extends ContentProvider {
     public static final UriMatcher a;
 
@@ -69,7 +69,7 @@ public class TrafficProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-            ha.m467a(contentValues.getAsString(BaseStatisContent.IMSI));
+            ha.m486a(contentValues.getAsString(BaseStatisContent.IMSI));
             return 0;
         }
         return 0;

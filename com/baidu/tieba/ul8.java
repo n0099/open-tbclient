@@ -1,108 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.YYPayService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ul8 implements YYPayService {
+/* loaded from: classes7.dex */
+public class ul8 implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    /* loaded from: classes6.dex */
-    public class a implements om5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ YYPayService.YYPayResultCallback a;
-
-        public a(ul8 ul8Var, YYPayService.YYPayResultCallback yYPayResultCallback) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948214952, "Lcom/baidu/tieba/ul8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ul8Var, yYPayResultCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = yYPayResultCallback;
-        }
-
-        @Override // com.baidu.tieba.om5
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                this.a.onFail(i, str);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948214952, "Lcom/baidu/tieba/ul8;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.om5
-        public void onSuccess(um5 um5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, um5Var) == null) {
-                if (um5Var != null) {
-                    YYPayService.YYPayResultMessage yYPayResultMessage = new YYPayService.YYPayResultMessage();
-                    yYPayResultMessage.setStatus(um5Var.g);
-                    yYPayResultMessage.setAppid(um5Var.b);
-                    yYPayResultMessage.setUid(um5Var.h.longValue());
-                    yYPayResultMessage.setUsedChannel(um5Var.i);
-                    yYPayResultMessage.setCurrencyType(um5Var.d);
-                    yYPayResultMessage.setAmount(um5Var.a.longValue());
-                    yYPayResultMessage.setCurrencyAmount(um5Var.c.longValue());
-                    yYPayResultMessage.setOrderId(um5Var.f);
-                    yYPayResultMessage.setExpand(um5Var.e);
-                    this.a.onSuccess(yYPayResultMessage);
-                    return;
-                }
-                this.a.onSuccess(null);
-            }
-        }
+        c = BdUniqueId.gen();
     }
 
     public ul8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, YYPayService.YYPayResultCallback yYPayResultCallback) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, yYPayResultCallback) == null) {
-            startPayment(context, null, yYPayResultCallback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, String str, YYPayService.YYPayResultCallback yYPayResultCallback) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, yYPayResultCallback) == null) {
-            startPayment(context, str, 0L, yYPayResultCallback);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.YYPayService
-    public void startPayment(Context context, String str, Long l, YYPayService.YYPayResultCallback yYPayResultCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, l, yYPayResultCallback) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new tm5(context, 1, str, l, new a(this, yYPayResultCallback)));
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 }

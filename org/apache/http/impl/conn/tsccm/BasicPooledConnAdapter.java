@@ -4,7 +4,7 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.impl.conn.AbstractPoolEntry;
 import org.apache.http.impl.conn.AbstractPooledConnAdapter;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BasicPooledConnAdapter extends AbstractPooledConnAdapter {
     public BasicPooledConnAdapter(ThreadSafeClientConnManager threadSafeClientConnManager, AbstractPoolEntry abstractPoolEntry) {
         super(null, null);

@@ -1,27 +1,25 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface f6 {
-    float a();
 
-    void b(float f);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class f6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(float f);
-
-    void d(float f);
-
-    float e();
-
-    void f(float f);
-
-    float g();
-
-    void h(float f);
-
-    float i();
-
-    void j(float f);
-
-    float k();
-
-    float l();
+    public f6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

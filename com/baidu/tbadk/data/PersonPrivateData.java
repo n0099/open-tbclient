@@ -2,6 +2,7 @@ package com.baidu.tbadk.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PrivSets;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PersonPrivateData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class PersonPrivateData extends OrmObject {
         this.a = 1;
     }
 
-    public int V() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -40,7 +41,7 @@ public class PersonPrivateData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void W(PrivSets privSets) {
+    public void V(PrivSets privSets) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, privSets) != null) || privSets == null) {
             return;
@@ -65,7 +66,7 @@ public class PersonPrivateData extends OrmObject {
         jSONObject.optInt("location", 1);
         this.a = jSONObject.optInt("like", 1);
         jSONObject.optInt("group", 1);
-        jSONObject.optInt("post", 1);
+        jSONObject.optInt(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND, 1);
         jSONObject.optInt("friend", 1);
         jSONObject.optInt("live", 1);
     }

@@ -2,7 +2,7 @@ package com.kwad.components.offline.api.core.video.mdoel;
 
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.response.model.VideoPlayerStatus;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PlayVideoInfo {
     public final boolean isNoCache;
     public final KsPlayerLogParams ksplayerLogParams;
@@ -10,7 +10,7 @@ public class PlayVideoInfo {
     public final VideoPlayerStatus videoPlayerStatus;
     public final String videoUrl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public boolean isNoCache = false;
         public KsPlayerLogParams ksplayerLogParams;

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PreInitMainTabViewSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "pre_init_maintabview_12_255_1";
@@ -33,7 +33,7 @@ public class PreInitMainTabViewSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class PreInitMainTabViewSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = f55.m().n(KEY_SWITCH, 0);
+                type = o65.m().n(KEY_SWITCH, 0);
             }
             if (type != 1) {
                 return false;

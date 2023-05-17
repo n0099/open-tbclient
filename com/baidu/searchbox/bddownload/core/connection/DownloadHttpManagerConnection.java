@@ -15,7 +15,7 @@ import java.util.Map;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadHttpManagerConnection implements DownloadConnection, DownloadConnection.Connected {
     public static final String TAG = "DownloadHttpManagerConnection";
     public Request request;
@@ -56,7 +56,7 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Factory implements DownloadConnection.Factory {
         @Override // com.baidu.searchbox.bddownload.core.connection.DownloadConnection.Factory
         public DownloadConnection create(String str) throws IOException {

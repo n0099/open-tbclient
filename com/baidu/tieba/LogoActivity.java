@@ -20,14 +20,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"HandlerLeak"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ll6 a;
-    public py5 b;
+    public xm6 a;
+    public b06 b;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,9 +76,9 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            py5 py5Var = this.b;
-            if (py5Var != null) {
-                py5Var.f();
+            b06 b06Var = this.b;
+            if (b06Var != null) {
+                b06Var.f();
             }
         }
     }
@@ -91,9 +91,9 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3002);
             }
             super.onResume();
-            py5 py5Var = this.b;
-            if (py5Var != null) {
-                py5Var.g();
+            b06 b06Var = this.b;
+            if (b06Var != null) {
+                b06Var.g();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3003);
             }
         }
@@ -104,9 +104,9 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            py5 py5Var = this.b;
-            if (py5Var != null) {
-                py5Var.c(configuration);
+            b06 b06Var = this.b;
+            if (b06Var != null) {
+                b06Var.c(configuration);
             }
         }
     }
@@ -131,19 +131,19 @@ public class LogoActivity extends BaseFragmentActivity {
             if (Build.VERSION.SDK_INT > 16) {
                 getWindow().getDecorView().setSystemUiVisibility(1028);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d05b3);
+            setContentView(R.layout.obfuscated_res_0x7f0d05d3);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                py5 py5Var = new py5(this);
-                this.b = py5Var;
-                py5Var.d(bundle);
+                b06 b06Var = new b06(this);
+                this.b = b06Var;
+                b06Var.d(bundle);
                 return;
             }
             if (getIntent() != null) {
                 TbadkCoreApplication.setIntent((Intent) getIntent().getParcelableExtra(LogoActivityConfig.EXTRAINTENT));
             }
-            ll6 ll6Var = new ll6(this);
-            this.a = ll6Var;
-            ll6Var.k();
+            xm6 xm6Var = new xm6(this);
+            this.a = xm6Var;
+            xm6Var.k();
         }
     }
 
@@ -155,11 +155,11 @@ public class LogoActivity extends BaseFragmentActivity {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3004);
             }
             super.onDestroy();
-            py5 py5Var = this.b;
-            if (py5Var != null) {
-                py5Var.e();
+            b06 b06Var = this.b;
+            if (b06Var != null) {
+                b06Var.e();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-                u35.l();
+                d55.l();
             }
         }
     }

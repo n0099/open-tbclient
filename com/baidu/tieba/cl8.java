@@ -1,209 +1,239 @@
 package com.baidu.tieba;
 
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.style.ForegroundColorSpan;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.LiveConstants;
-import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tieba.mainentrance.ForumSuggestModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class cl8 implements EventDispatcherService {
+/* loaded from: classes5.dex */
+public class cl8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BaseActivity<?> a;
+    public final boolean b;
+    public ArrayList<ForumSuggestModel.Forum> c;
+    public String d;
 
-    public final void a(Map<String, ?> map) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public TextView b;
+        public BarImageView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+
+        public b(cl8 cl8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(cl8 cl8Var, a aVar) {
+            this(cl8Var);
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public cl8() {
+    public cl8(BaseActivity<?> baseActivity, ArrayList<ForumSuggestModel.Forum> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = baseActivity;
+        this.b = true;
+        this.c = arrayList;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ForumSuggestModel.Forum getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int count = getCount();
+            if (count > 0 && i < count) {
+                return this.c.get(i);
+            }
+            return null;
+        }
+        return (ForumSuggestModel.Forum) invokeI.objValue;
+    }
+
+    public void d(ArrayList<ForumSuggestModel.Forum> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.c = arrayList;
+            if (arrayList != null) {
+                notifyDataSetChanged();
             }
         }
     }
 
-    public static void f(ArrayList<String> arrayList) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public final void h(Map<String, ?> map) {
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            String str = (String) map.get("data");
-            if (!TextUtils.isEmpty(str) && str != null) {
-                try {
-                    ji8.o(new JSONObject(str));
-                } catch (JSONException unused) {
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 100000) {
+                return String.valueOf(i / 10000) + this.a.getPageContext().getString(R.string.member_count_unit);
             }
+            return String.valueOf(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void c(TextView textView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) && textView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.d)) {
+            String lowerCase = str.toLowerCase();
+            String lowerCase2 = this.d.toLowerCase();
+            if (!lowerCase.contains(lowerCase2)) {
+                textView.setText(str);
+                return;
+            }
+            int indexOf = lowerCase.indexOf(lowerCase2);
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301));
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, this.d.length() + indexOf, 33);
+            textView.setText(spannableStringBuilder);
         }
     }
 
-    public final void c(Map<String, ?> map) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("roomId", map.get("roomId"));
-                jSONObject.put("isClosed", map.get("isClosed"));
-                jSONObject.put("liveId", map.get("liveId"));
-                jSONObject.put("type", map.get("type"));
-                jSONObject.put("sid", map.get("sid"));
-                jSONObject.put(YyLiveRoomConfig.KEY_SSID, map.get(YyLiveRoomConfig.KEY_SSID));
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<ForumSuggestModel.Forum> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
+            return arrayList.size();
         }
+        return invokeV.intValue;
     }
 
-    public void d(String str, Map<String, String> map) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, map) != null) || hi.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, map.get(str2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            boolean z = false;
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d088f, (ViewGroup) null);
+                bVar = new b(this, null);
+                BarImageView barImageView = (BarImageView) view2.findViewById(R.id.forum_avatar);
+                bVar.c = barImageView;
+                barImageView.setGifIconSupport(false);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917fa);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bbb);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090be7);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09213d);
+                bVar.a = view2.findViewById(R.id.obfuscated_res_0x7f091904);
+                view2.setTag(bVar);
+            } else {
+                bVar = (b) view2.getTag();
             }
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    public void e(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, map) != null) || map == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        String obj = map.remove("key").toString();
-        for (String str : map.keySet()) {
-            hashMap.put(str, map.get(str).toString());
-        }
-        d(obj, hashMap);
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
-    public void onEvent(String str, Map<String, ?> map) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, map) == null) {
-            switch (str.hashCode()) {
-                case -2147386482:
-                    if (str.equals("sync_webview_cookie")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1369745389:
-                    if (str.equals("living_room_is_closed")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1326603888:
-                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -841542404:
-                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 152519529:
-                    if (str.equals("live_show_close")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1766660371:
-                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1785162541:
-                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+            ForumSuggestModel.Forum item = getItem(i);
+            if (item == null) {
+                return view2;
             }
-            switch (c) {
-                case 0:
-                    g();
-                    return;
-                case 1:
-                    b();
-                    return;
-                case 2:
-                    e(map);
-                    return;
-                case 3:
-                    f((ArrayList) map.get(str));
-                    return;
-                case 4:
-                    a(map);
-                    return;
-                case 5:
-                    h(map);
-                    return;
-                case 6:
-                    c(map);
-                    return;
-                default:
-                    return;
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            String str2 = item.avatar;
+            bVar.c.setTag(str2);
+            bVar.c.N(str2, 10, false);
+            bVar.c.invalidate();
+            if (this.b) {
+                str = this.a.getPageContext().getPageActivity().getString(R.string.chosen_pb_original_bar, new Object[]{item.forum_name});
+            } else {
+                str = item.forum_name;
             }
+            c(bVar.b, str);
+            bVar.c.setTag(item.avatar);
+            TextView textView = bVar.d;
+            textView.setText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02e1) + " " + b(item.member_num));
+            TextView textView2 = bVar.e;
+            textView2.setText(this.a.getPageContext().getString(R.string.text_post) + " " + b(item.thread_num));
+            if (!this.b && TextUtils.isEmpty(item.slogan)) {
+                bVar.f.setVisibility(8);
+            } else {
+                bVar.f.setVisibility(0);
+                bVar.f.setText(item.slogan);
+            }
+            if (item.is_offical == 1) {
+                bVar.a.setVisibility(0);
+                SkinManager.setBackgroundResource(bVar.a, R.drawable.icon_search_official);
+            } else {
+                bVar.a.setVisibility(8);
+            }
+            hx4 layoutMode = this.a.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            }
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(view2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

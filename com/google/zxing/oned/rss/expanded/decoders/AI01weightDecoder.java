@@ -3,7 +3,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.google.zxing.common.BitArray;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AI01weightDecoder extends AI01decoder {
     public abstract void addWeightCode(StringBuilder sb, int i);
 

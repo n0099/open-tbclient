@@ -2,7 +2,7 @@ package org.apache.http.client;
 
 import org.apache.http.ProtocolException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NonRepeatableRequestException extends ProtocolException {
     public NonRepeatableRequestException() {
         throw new RuntimeException("Stub!");

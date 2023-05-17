@@ -1,123 +1,215 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tieba.t25;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public final class bx9 {
+/* loaded from: classes5.dex */
+public class bx9 extends w25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VersionData a;
-    public final ClientUpdateInfo b;
-    public final String c;
-    public final boolean d;
+    public final MainTabActivity f;
+    public final iu9 g;
+    public LevePopData h;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bx9 a;
+
+        public a(bx9 bx9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bx9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (obj instanceof bx9) {
-                bx9 bx9Var = (bx9) obj;
-                return Intrinsics.areEqual(this.a, bx9Var.a) && Intrinsics.areEqual(this.b, bx9Var.b) && Intrinsics.areEqual(this.c, bx9Var.c) && this.d == bx9Var.d;
-            }
-            return false;
+            this.a = bx9Var;
         }
-        return invokeL.booleanValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.c();
+            }
+        }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            ClientUpdateInfo clientUpdateInfo = this.b;
-            int hashCode2 = (((hashCode + (clientUpdateInfo == null ? 0 : clientUpdateInfo.hashCode())) * 31) + this.c.hashCode()) * 31;
-            boolean z = this.d;
-            int i = z;
-            if (z != 0) {
-                i = 1;
+    /* loaded from: classes5.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LevePopData a;
+        public final /* synthetic */ bx9 b;
+
+        public b(bx9 bx9Var, LevePopData levePopData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bx9Var, levePopData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return hashCode2 + i;
+            this.b = bx9Var;
+            this.a = levePopData;
         }
-        return invokeV.intValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yu4.v(view2.getContext(), null, this.a.getBtn_scheme(), true);
+                this.b.c();
+            }
+        }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "LcUpdateDataWrapper(versionData=" + this.a + ", updateInfo=" + this.b + ", apkMd5Rsa=" + this.c + ", isUserUpdate=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bx9(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String apkMd5Rsa, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bx9(@NonNull MainTabActivity mainTabActivity, @NonNull iu9 iu9Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {versionData, clientUpdateInfo, apkMd5Rsa, Boolean.valueOf(z)};
+            Object[] objArr = {mainTabActivity, iu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(versionData, "versionData");
-        Intrinsics.checkNotNullParameter(apkMd5Rsa, "apkMd5Rsa");
-        this.a = versionData;
-        this.b = clientUpdateInfo;
-        this.c = apkMd5Rsa;
-        this.d = z;
+        this.f = mainTabActivity;
+        this.g = iu9Var;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.t25
+    public void d(t25.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (a35.j() && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            iu9 iu9Var = this.g;
+            if ((iu9Var == null || iu9Var.y() == null || (this.g.y().getCurrentTabType() != 2 && this.g.y().getCurrentTabType() != 1 && this.g.y().getCurrentTabType() != 3)) && aVar != null) {
+                aVar.a(false);
+                return;
+            }
+            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
+            this.h = levePopData;
+            if (!levePopData.isHadShow() && !StringUtils.isNull(this.h.getTitle()) && !StringUtils.isNull(this.h.getDesc()) && !StringUtils.isNull(this.h.getBtn_scheme()) && this.h.getLevel() > 0 && this.h.getLevel() <= 10 && this.f.J1() && this.f.D && this.h.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
+                aVar.a(true);
+            } else if (aVar != null) {
+                aVar.a(false);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public final ClientUpdateInfo b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w25
+    public void h(TBAlertBuilder tBAlertBuilder) {
+        String cancel_btn_text;
+        String btn_text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
+            if (this.h == null) {
+                this.h = TbSingleton.getInstance().getLevePopData();
+            }
+            LevePopData levePopData = this.h;
+            if (levePopData != null && levePopData.isHadShow()) {
+                c();
+                return;
+            }
+            RelativeLayout relativeLayout = new RelativeLayout(this.f);
+            View view2 = new View(this.f);
+            p45 d = p45.d(view2);
+            d.n(1);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
+            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
+            relativeLayout.addView(view2, layoutParams);
+            ImageView imageView = new ImageView(this.f);
+            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams2.addRule(14);
+            relativeLayout.addView(imageView, layoutParams2);
+            LevePopData levePopData2 = this.h;
+            tBAlertBuilder.x(levePopData2.getTitle());
+            tBAlertBuilder.q(this.h.getDesc());
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.l(relativeLayout);
+            TBAlertConfig.a[] aVarArr = new TBAlertConfig.a[2];
+            if (StringUtils.isNull(this.h.getCancel_btn_text())) {
+                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
+            } else {
+                cancel_btn_text = this.h.getCancel_btn_text();
+            }
+            aVarArr[0] = new TBAlertConfig.a(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new a(this));
+            if (StringUtils.isNull(this.h.getBtn_text())) {
+                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
+            } else {
+                btn_text = this.h.getBtn_text();
+            }
+            aVarArr[1] = new TBAlertConfig.a(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, levePopData2));
+            tBAlertBuilder.u(aVarArr);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.i();
+            tBAlertBuilder.z();
+            PollingModel.O0(this.h, true);
         }
-        return (ClientUpdateInfo) invokeV.objValue;
     }
 
-    public final VersionData c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w25
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a35.s("userGrowth");
         }
-        return (VersionData) invokeV.objValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w25
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a35.m("userGrowth");
         }
-        return invokeV.booleanValue;
     }
 }

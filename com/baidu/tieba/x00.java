@@ -1,143 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
-/* loaded from: classes7.dex */
-public class x00 {
+import java.io.CharArrayWriter;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+/* loaded from: classes8.dex */
+public final class x00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements j10 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.j10
-        public String a(String str, String... strArr) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? str : (String) invokeLL.objValue;
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
+            return (String) invokeL.objValue;
         }
-
-        @Override // com.baidu.tieba.j10
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.j10
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j10
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.j10
-        public String getSchemeHeader() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        FileReader fileReader2 = null;
+        try {
+            fileReader = new FileReader(file);
+            try {
+                try {
+                    char[] cArr = new char[8192];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        charArrayWriter.write(cArr, 0, read);
+                    }
+                    String charArrayWriter2 = charArrayWriter.toString();
+                    try {
+                        fileReader.close();
+                    } catch (Exception e) {
+                        c(e);
+                    }
+                    return charArrayWriter2;
+                } catch (Exception e2) {
+                    e = e2;
+                    c(e);
+                    if (fileReader != null) {
+                        try {
+                            fileReader.close();
+                        } catch (Exception e3) {
+                            c(e3);
+                        }
+                    }
+                    return null;
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends b10 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            } catch (Throwable th) {
+                th = th;
+                fileReader2 = fileReader;
+                if (fileReader2 != null) {
+                    try {
+                        fileReader2.close();
+                    } catch (Exception e4) {
+                        c(e4);
+                    }
                 }
+                throw th;
             }
+        } catch (Exception e5) {
+            e = e5;
+            fileReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            if (fileReader2 != null) {
+            }
+            throw th;
         }
     }
 
-    @Inject(force = false)
-    public static a10 a() {
-        InterceptResult invokeV;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return oi9.a();
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
         }
-        return (a10) invokeV.objValue;
+        try {
+            closeable.close();
+        } catch (IOException e) {
+            c(e);
+        }
     }
 
-    @Inject(force = false)
-    public static b10 b() {
-        InterceptResult invokeV;
+    public static void c(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new b();
+        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
         }
-        return (b10) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static c10 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return qi9.a();
-        }
-        return (c10) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static j10 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new a();
-        }
-        return (j10) invokeV.objValue;
     }
 }

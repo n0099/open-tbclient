@@ -11,16 +11,16 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn0;
-import com.baidu.tieba.kp0;
-import com.baidu.tieba.rg0;
-import com.baidu.tieba.sa1;
-import com.baidu.tieba.sg0;
-import com.baidu.tieba.uh0;
-import com.baidu.tieba.v41;
-import com.baidu.tieba.xm0;
-import com.baidu.tieba.y01;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.aq0;
+import com.baidu.tieba.hh0;
+import com.baidu.tieba.ib1;
+import com.baidu.tieba.ih0;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.l51;
+import com.baidu.tieba.nn0;
+import com.baidu.tieba.o11;
+import com.baidu.tieba.vn0;
+/* loaded from: classes3.dex */
 public class NadImageInsertingView extends NadInsertingBaseView {
     public AdImageView e;
     public TextView f;
@@ -31,7 +31,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
         return this;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -43,31 +43,31 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             }
             AdBaseModel adBaseModel = (AdBaseModel) NadImageInsertingView.this.getTag();
             NadImageInsertingView.this.d(adBaseModel, ClogBuilder.Area.IMAGE);
-            uh0.b(adBaseModel.f.c);
+            ki0.b(adBaseModel.f.c);
             NadImageInsertingView.this.a.c();
             NadImageInsertingView.this.j(2);
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b implements fn0 {
-        public final /* synthetic */ kp0 a;
-        public final /* synthetic */ sg0.c b;
+    /* loaded from: classes3.dex */
+    public class b implements vn0 {
+        public final /* synthetic */ aq0 a;
+        public final /* synthetic */ ih0.c b;
         public final /* synthetic */ AdBaseModel c;
 
-        public b(kp0 kp0Var, sg0.c cVar, AdBaseModel adBaseModel) {
-            this.a = kp0Var;
+        public b(aq0 aq0Var, ih0.c cVar, AdBaseModel adBaseModel) {
+            this.a = aq0Var;
             this.b = cVar;
             this.c = adBaseModel;
         }
 
-        @Override // com.baidu.tieba.fn0
+        @Override // com.baidu.tieba.vn0
         public void a() {
             NadImageInsertingView.this.c(this.c, "16", "16003");
             this.b.onFail();
         }
 
-        @Override // com.baidu.tieba.fn0
+        @Override // com.baidu.tieba.vn0
         public void b(Bitmap bitmap) {
             int i = this.a.b;
             if (i > 1794) {
@@ -83,53 +83,53 @@ public class NadImageInsertingView extends NadInsertingBaseView {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c extends v41.b {
+    /* loaded from: classes3.dex */
+    public class c extends l51.b {
         public c() {
         }
 
-        @Override // com.baidu.tieba.v41.b
+        @Override // com.baidu.tieba.l51.b
         public void b() {
             super.b();
             NadImageInsertingView.this.j(1);
         }
 
-        @Override // com.baidu.tieba.v41.b
+        @Override // com.baidu.tieba.l51.b
         public void c() {
             super.c();
             NadImageInsertingView.this.a.b();
         }
 
-        @Override // com.baidu.tieba.v41.b
+        @Override // com.baidu.tieba.l51.b
         public void d() {
             super.d();
             NadImageInsertingView.this.a.a();
         }
 
-        @Override // com.baidu.tieba.v41.b
+        @Override // com.baidu.tieba.l51.b
         public void e() {
             super.e();
         }
     }
 
-    public NadImageInsertingView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull rg0 rg0Var) {
-        super(context, viewGroup, rg0Var);
+    public NadImageInsertingView(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull hh0 hh0Var) {
+        super(context, viewGroup, hh0Var);
         this.g = new a();
     }
 
-    public final void m(@NonNull AdBaseModel adBaseModel, @NonNull sg0.c cVar) {
-        kp0 kp0Var = (kp0) y01.d(adBaseModel.f.k, 0);
-        if (kp0Var == null) {
+    public final void m(@NonNull AdBaseModel adBaseModel, @NonNull ih0.c cVar) {
+        aq0 aq0Var = (aq0) o11.d(adBaseModel.f.k, 0);
+        if (aq0Var == null) {
             setVisibility(8);
             c(adBaseModel, "16", "16001");
             cVar.onFail();
             return;
         }
-        sa1.a().e(kp0Var.a, new b(kp0Var, cVar, adBaseModel));
+        ib1.a().e(aq0Var.a, new b(aq0Var, cVar, adBaseModel));
     }
 
     @Override // com.baidu.nadcore.business.inserting.NadInsertingBaseView
-    public void setData(@NonNull AdBaseModel adBaseModel, @NonNull sg0.c cVar) {
+    public void setData(@NonNull AdBaseModel adBaseModel, @NonNull ih0.c cVar) {
         setTag(adBaseModel);
         setOnClickListener(this.g);
         l();
@@ -154,9 +154,9 @@ public class NadImageInsertingView extends NadInsertingBaseView {
     }
 
     public final void l() {
-        v41 v41Var = new v41(5000L, 1000L);
-        v41Var.d(new c());
-        this.c = v41Var;
+        l51 l51Var = new l51(5000L, 1000L);
+        l51Var.d(new c());
+        this.c = l51Var;
     }
 
     public final void j(int i) {
@@ -177,7 +177,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             e(adBaseModel, ClogBuilder.Area.CLOSE_BTN, currentTimeMillis);
         }
         this.a.d();
-        xm0.g(this.d);
+        nn0.g(this.d);
         this.c.a();
     }
 
@@ -187,7 +187,7 @@ public class NadImageInsertingView extends NadInsertingBaseView {
             this.b = System.currentTimeMillis();
             this.a.onShow();
             this.c.e();
-            xm0.f(this.d);
+            nn0.f(this.d);
             this.e.setVisibility(0);
             this.f.setVisibility(0);
         }

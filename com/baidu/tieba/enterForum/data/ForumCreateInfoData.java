@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumCreateInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumCreateInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class ForumCreateInfoData extends OrmObject {
         this.d = null;
     }
 
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -45,7 +45,7 @@ public class ForumCreateInfoData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int W() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -54,7 +54,7 @@ public class ForumCreateInfoData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public boolean X() {
+    public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -66,7 +66,7 @@ public class ForumCreateInfoData extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public boolean Y() {
+    public boolean X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -78,7 +78,7 @@ public class ForumCreateInfoData extends OrmObject {
         return invokeV.booleanValue;
     }
 
-    public void Z(ForumCreateInfo forumCreateInfo) {
+    public void Y(ForumCreateInfo forumCreateInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, forumCreateInfo) == null) && forumCreateInfo != null) {
             this.a = forumCreateInfo.is_show_create.intValue();

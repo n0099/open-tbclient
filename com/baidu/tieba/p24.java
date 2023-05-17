@@ -1,103 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class p24 extends u93 {
+/* loaded from: classes6.dex */
+public class p24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements qm3<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(p24 p24Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p24Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static JSONObject a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("isEnded", z);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                if (bool.booleanValue()) {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0139, 1).show();
-                } else {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f0138, 1).show();
-                }
-            }
-        }
+        return (JSONObject) invokeZ.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p24(u83 u83Var) {
-        super(u83Var, "/swanAPI/debugGameSconsole");
+    public static JSONObject b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", ty3.a(str));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-    }
-
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (!u93.b) {
-                return false;
-            }
-            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0133, 1).show();
-                return false;
-            }
-            String optString = a2.optString("downloadurl");
-            if (TextUtils.isEmpty(optString)) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0134, 1).show();
-                return false;
-            }
-            o24.m().c(optString, new a(this));
-            return false;
-        }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

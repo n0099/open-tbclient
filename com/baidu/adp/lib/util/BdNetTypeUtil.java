@@ -15,11 +15,12 @@ import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.ff;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ik;
-import com.baidu.tieba.ki;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.tieba.of;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.rk;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -132,7 +133,7 @@ public class BdNetTypeUtil {
                     networkState.mCurChangedTime = currentTimeMillis;
                     BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
-                    dj8 a = ik.a();
+                    yk8 a = rk.a();
                     a.c(Config.DEVICE_PART, "net status: " + networkState.toString());
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -192,7 +193,7 @@ public class BdNetTypeUtil {
             b bVar = new b(null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.setPriority(1000);
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
             BdBaseApplication.getInst().getApp().registerReceiver(bVar, intentFilter);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
@@ -233,8 +234,8 @@ public class BdNetTypeUtil {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            String j = ki.j();
-            if (j.length() < 4 || hi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
+            String j = ti.j();
+            if (j.length() < 4 || qi.isEmptyStringAfterTrim(j) || (substring = j.substring(0, 3)) == null || !substring.equals(NATION_CODE)) {
                 return 0;
             }
             try {
@@ -557,7 +558,7 @@ public class BdNetTypeUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            if (getInstance().isWifi || readNetworkOperatorType() == 1 || hi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
+            if (getInstance().isWifi || readNetworkOperatorType() == 1 || qi.isEmptyStringAfterTrim(Proxy.getDefaultHost())) {
                 return false;
             }
             return true;
@@ -803,7 +804,7 @@ public class BdNetTypeUtil {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
-            boolean netBdABTest = ((ff) ServiceManager.getService(ff.a)).netBdABTest();
+            boolean netBdABTest = ((of) ServiceManager.getService(of.a)).netBdABTest();
             switch (i) {
                 case 1:
                 case 2:

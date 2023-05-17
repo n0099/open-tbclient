@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.animation.Interpolator;
+import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,15 +11,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class tw2 extends zw2 {
+/* loaded from: classes7.dex */
+public class tw2 extends Scroller {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final Interpolator b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* loaded from: classes7.dex */
+    public static class a implements Interpolator {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.animation.TimeInterpolator
+        public float getInterpolation(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                float f2 = f - 1.0f;
+                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
+            }
+            return invokeF.floatValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -36,22 +62,23 @@ public class tw2 extends zw2 {
                 return;
             }
         }
-        b = ho1.a;
+        b = new a();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tw2(String str) {
-        super(str);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public tw2(Context context) {
+        this(context, b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (Interpolator) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -59,45 +86,43 @@ public class tw2 extends zw2 {
         }
     }
 
-    public final int d(HashMap<String, String> hashMap) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tw2(Context context, Interpolator interpolator) {
+        super(context, interpolator);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
-            String str = hashMap.get("params");
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            try {
-                return new JSONObject(str).optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, -1);
-            } catch (JSONException e) {
-                if (!b) {
-                    return -1;
-                }
-                e.printStackTrace();
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, interpolator};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (Interpolator) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.zw2
-    public boolean a(pw2 pw2Var, rw2 rw2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeCommon;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{pw2Var, rw2Var, context, unitedSchemeEntity, callbackHandler, x73Var})) == null) {
-            x42.i("video", "fullscreen, video id:" + rw2Var.j + " slave id: " + rw2Var.c);
-            e(pw2Var, rw2Var.s, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a = z;
         }
-        return invokeCommon.booleanValue;
     }
 
-    public final void e(pw2 pw2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        HashMap<String, String> params;
+    @Override // android.widget.Scroller
+    public void startScroll(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pw2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
-            pw2Var.u(z, d(params));
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (this.a) {
+                super.startScroll(i, i2, i3, i4, 0);
+            } else {
+                super.startScroll(i, i2, i3, i4, i5);
+            }
         }
     }
 }

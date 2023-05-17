@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.content.FileProvider;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -28,7 +28,7 @@ import com.tencent.tauth.Tencent;
 import com.tencent.tauth.UiError;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QQShare extends BaseApi {
     public static final int QQ_SHARE_SUMMARY_MAX_LENGTH = 512;
     public static final int QQ_SHARE_TITLE_MAX_LENGTH = 128;
@@ -296,9 +296,9 @@ public class QQShare extends BaseApi {
         stringBuffer.append("&third_sd=" + Base64.encodeToString(l.i(String.valueOf(c)), 2));
         SLog.v("openSDK_LOG.QQShare", "doShareToQQ -- url: " + stringBuffer.toString());
         com.tencent.connect.a.a.a(f.a(), this.c, "requireApi", "shareToNativeQQ");
-        Intent intent = new Intent("android.intent.action.VIEW");
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(Uri.parse(stringBuffer.toString()));
-        intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
+        intent.putExtra("pkg_name", activity.getPackageName());
         if (l.f(activity, "4.6.0")) {
             SLog.i("openSDK_LOG.QQShare", "doShareToQQ, qqver below 4.6.");
             if (a(intent)) {

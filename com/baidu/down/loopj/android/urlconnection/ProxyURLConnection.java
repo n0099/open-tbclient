@@ -10,6 +10,7 @@ import com.baidu.down.common.NameValuePair;
 import com.baidu.down.loopj.android.http.ConnectManager;
 import com.baidu.down.loopj.android.request.handler.HttpDns;
 import com.baidu.down.utils.DownPrefUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +33,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ProxyURLConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded; charset=UTF-8";
@@ -162,7 +163,7 @@ public class ProxyURLConnection {
     private void disableConnectionReuseIfNecessary() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && Integer.parseInt(Build.VERSION.SDK) < 8) {
-            System.setProperty("http.keepAlive", "false");
+            System.setProperty("http.keepAlive", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
         }
     }
 

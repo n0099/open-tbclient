@@ -6,7 +6,7 @@ import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class KVStorageControlImpl implements IKVStorageControl {
     public static final String TAG = "KVStorageControlImpl";
     public static String rootDir;

@@ -1,199 +1,137 @@
 package com.baidu.tieba;
 
-import android.content.ContentProvider;
-import android.content.ContentProviderOperation;
-import android.content.ContentProviderResult;
-import android.content.ContentValues;
 import android.content.Context;
-import android.content.OperationApplicationException;
-import android.content.UriMatcher;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.Configuration;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.Binder;
-import android.os.Bundle;
-import android.os.CancellationSignal;
-import android.os.ParcelFileDescriptor;
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public abstract class qj1 {
+import java.util.HashMap;
+/* loaded from: classes7.dex */
+public class qj1 extends nj1 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, String> a;
+    public static HashMap<String, nj1> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentProvider a;
-    public final int b;
-    public final int c;
 
-    public Bundle call(String str, String str2, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
-            return null;
-        }
-        return (Bundle) invokeLLL.objValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public boolean d(String str, String str2, Bundle bundle) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final qj1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-487763373, "Lcom/baidu/tieba/qj1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-487763373, "Lcom/baidu/tieba/qj1$b;");
+                    return;
+                }
+            }
+            a = new qj1(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948093649, "Lcom/baidu/tieba/qj1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948093649, "Lcom/baidu/tieba/qj1;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+        b = new HashMap<>();
+    }
+
+    public qj1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static qj1 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (qj1) invokeV.objValue;
+    }
+
+    public /* synthetic */ qj1(a aVar) {
+        this();
+    }
+
+    public void g(nj1 nj1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, nj1Var) == null) && nj1Var != null) {
+            nj1Var.a(a);
+        }
+    }
+
+    @Override // com.baidu.tieba.nj1
+    public boolean b(Context context, pj1 pj1Var, jj1 jj1Var) {
+        InterceptResult invokeLLL;
+        nj1 nj1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, pj1Var, jj1Var)) == null) {
+            String b2 = pj1Var.b();
+            if (a.get(b2) != null) {
+                pj1Var.f(b2, a.get(b2));
+            }
+            String d = pj1Var.d(true);
+            if (TextUtils.isEmpty(d) || (nj1Var = b.get(d)) == null) {
+                return false;
+            }
+            return nj1Var.b(context, pj1Var, jj1Var);
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nj1
+    public boolean c(Context context, pj1 pj1Var, jj1 jj1Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pj1Var, jj1Var)) == null) {
+            pj1Var.i = sj1.h(302);
             return false;
         }
         return invokeLLL.booleanValue;
     }
 
-    public abstract int delete(int i, Uri uri, String str, String[] strArr);
-
-    public abstract void f(UriMatcher uriMatcher, String str);
-
-    public abstract String getType(int i, Uri uri);
-
-    public void i(Configuration configuration) {
+    public void f(String str, nj1 nj1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, nj1Var) == null) && !TextUtils.isEmpty(str) && nj1Var != null) {
+            b.put(str, nj1Var);
         }
-    }
-
-    public abstract Uri insert(int i, Uri uri, ContentValues contentValues);
-
-    public abstract boolean j();
-
-    public abstract Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
-
-    public abstract int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
-
-    public qj1(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = i;
-        this.c = i2;
-    }
-
-    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            int size = arrayList.size();
-            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
-            for (int i = 0; i < size; i++) {
-                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
-            }
-            return contentProviderResultArr;
-        }
-        return (ContentProviderResult[]) invokeL.objValue;
-    }
-
-    public void b(ContentProvider contentProvider) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
-            this.a = contentProvider;
-        }
-    }
-
-    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
-            int length = contentValuesArr.length;
-            for (ContentValues contentValues : contentValuesArr) {
-                insert(i, uri, contentValues);
-            }
-            return length;
-        }
-        return invokeILL.intValue;
-    }
-
-    public AssetFileDescriptor k(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048591, this, i, uri, str)) == null) {
-            m(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeILL.objValue;
-    }
-
-    public ParcelFileDescriptor m(int i, Uri uri, String str) throws FileNotFoundException {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048593, this, i, uri, str)) == null) {
-            throw new FileNotFoundException("No files supported by provider at " + uri);
-        }
-        return (ParcelFileDescriptor) invokeILL.objValue;
-    }
-
-    public void e(Uri uri, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048582, this, uri, i) != null) || Binder.getCallingUid() == Process.myUid()) {
-            return;
-        }
-        throw new SecurityException();
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public AssetFileDescriptor l(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
-            k(i, uri, str);
-            throw null;
-        }
-        return (AssetFileDescriptor) invokeCommon.objValue;
-    }
-
-    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
-            return query(i, uri, strArr, str, strArr2, str2);
-        }
-        return (Cursor) invokeCommon.objValue;
     }
 }

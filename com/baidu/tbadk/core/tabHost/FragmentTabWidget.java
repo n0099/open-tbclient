@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.uh5;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.dj5;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.wp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FragmentTabWidget extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class FragmentTabWidget extends LinearLayout {
     public String B;
     public HashMap<Integer, View> C;
     public int D;
-    public uh5 E;
+    public dj5 E;
     public final Rect a;
     public final Rect b;
     public final Rect c;
@@ -66,17 +66,17 @@ public class FragmentTabWidget extends LinearLayout {
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void onTabSelectionChanged(int i, boolean z);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void onSizeChanged(int i, int i2, int i3, int i4);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,10 +262,10 @@ public class FragmentTabWidget extends LinearLayout {
         }
     }
 
-    public void setDynamicStyleData(uh5 uh5Var) {
+    public void setDynamicStyleData(dj5 dj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, uh5Var) == null) {
-            this.E = uh5Var;
+        if (interceptable == null || interceptable.invokeL(1048600, this, dj5Var) == null) {
+            this.E = dj5Var;
         }
     }
 
@@ -352,7 +352,7 @@ public class FragmentTabWidget extends LinearLayout {
             if (context instanceof Activity) {
                 int color = SkinManager.getColor(i);
                 String dynamicStyleNavBarColor = getDynamicStyleNavBarColor();
-                if (this.E != null && ((color = un9.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
+                if (this.E != null && ((color = wp9.f(dynamicStyleNavBarColor)) == 0 || color == Integer.MAX_VALUE)) {
                     color = SkinManager.getColor(R.color.CAM_X0205);
                 }
                 UtilHelper.setNavigationBarBg((Activity) context, color);
@@ -506,9 +506,9 @@ public class FragmentTabWidget extends LinearLayout {
             paint.setAntiAlias(true);
             this.j.setStyle(Paint.Style.FILL);
             this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
-            this.l = ii.d(getContext(), 1.0f);
-            this.m = ii.d(getContext(), 2.0f);
-            this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231);
+            this.l = ri.d(getContext(), 1.0f);
+            this.m = ri.d(getContext(), 2.0f);
+            this.x = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070348);
             setWillNotDraw(false);
             this.e = R.color.common_color_10274;
         }

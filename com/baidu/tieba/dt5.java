@@ -1,126 +1,101 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
-public class dt5 extends ImageSpan {
+import java.util.Date;
+import java.util.regex.Pattern;
+/* loaded from: classes5.dex */
+public class dt5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public WeakReference<Drawable> d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dt5(Drawable drawable) {
-        super(drawable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716100, "Lcom/baidu/tieba/dt5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716100, "Lcom/baidu/tieba/dt5;");
                 return;
             }
         }
-        this.a = 0;
+        a = Pattern.compile("http[s]?://tieba\\.baidu\\.com/f(.*)&jump_tieba_native=1(.*)");
+        b = Pattern.compile("http[s]?://tieba\\.baidu\\.com/p/([\\d]+)\\?pid=([\\d]+)&tid=([\\d]+)&threadtype=([\\d]+)&jump_type=(.*)&jump_tieba_native=1");
     }
 
-    public final Drawable a() {
+    public static boolean a() {
         InterceptResult invokeV;
-        Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.d;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!UbsABTestHelper.isSearchLoginTestA()) {
+                return false;
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.d = new WeakReference<>(drawable2);
-                return drawable2;
+            Date date = new Date(o65.m().o("show_login_dialog_strategy_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date2 = new Date(currentTimeMillis);
+            o65.m().A("show_login_dialog_strategy_key", currentTimeMillis);
+            return !TimeHelper.isSameDay(date, date2);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (qi.isEmpty(str)) {
+                return false;
             }
-            return drawable;
+            return a.matcher(str.toLowerCase()).find();
         }
-        return (Drawable) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void b(int i) {
+    public static boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
-            return;
-        }
-        canvas.save();
-        canvas.translate(f + this.b, ((((i5 - i3) - a.getBounds().bottom) / 2) + i3) - this.a);
-        a.draw(canvas);
-        canvas.restore();
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (qi.isEmpty(str)) {
+                return false;
             }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right + this.b + this.c;
+            return b.matcher(str.toLowerCase()).find();
         }
-        return invokeCommon.intValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (qi.isEmpty(str)) {
+                return false;
+            }
+            return "person".equalsIgnoreCase(Uri.parse(str).getAuthority());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!b(str) && !c(str) && !d(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

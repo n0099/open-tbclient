@@ -16,10 +16,10 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static final c a = new c();
     }

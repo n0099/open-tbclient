@@ -5,7 +5,7 @@ import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapapi.model.LatLngBounds;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements Overlay.a {
     public final /* synthetic */ BaiduMap a;
 

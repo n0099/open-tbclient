@@ -4,11 +4,11 @@ import android.util.Log;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PsshAtomUtil {
     public static final String TAG = "PsshAtomUtil";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PsshAtom {
         public final byte[] schemeData;
         public final UUID uuid;

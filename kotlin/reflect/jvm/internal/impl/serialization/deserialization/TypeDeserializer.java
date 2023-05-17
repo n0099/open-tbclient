@@ -47,7 +47,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
 import kotlin.text.Typography;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TypeDeserializer {
     public final DeserializationContext c;
     public final Function1<Integer, ClassDescriptor> classDescriptors;
@@ -237,9 +237,9 @@ public final class TypeDeserializer {
             return null;
         }
         Intrinsics.checkExpressionValueIsNotNull(type, "funType.getValueParamete…ll()?.type ?: return null");
-        ClassifierDescriptor mo2025getDeclarationDescriptor = type.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor != null) {
-            fqName = DescriptorUtilsKt.getFqNameSafe(mo2025getDeclarationDescriptor);
+        ClassifierDescriptor mo2044getDeclarationDescriptor = type.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor != null) {
+            fqName = DescriptorUtilsKt.getFqNameSafe(mo2044getDeclarationDescriptor);
         } else {
             fqName = null;
         }
@@ -338,7 +338,7 @@ public final class TypeDeserializer {
             return simpleType;
         }
         TypeConstructor typeConstructor = typeConstructor(type);
-        if (ErrorUtils.isError(typeConstructor.mo2025getDeclarationDescriptor())) {
+        if (ErrorUtils.isError(typeConstructor.mo2044getDeclarationDescriptor())) {
             SimpleType createErrorTypeWithCustomConstructor = ErrorUtils.createErrorTypeWithCustomConstructor(typeConstructor.toString(), typeConstructor);
             Intrinsics.checkExpressionValueIsNotNull(createErrorTypeWithCustomConstructor, "ErrorUtils.createErrorTy….toString(), constructor)");
             return createErrorTypeWithCustomConstructor;

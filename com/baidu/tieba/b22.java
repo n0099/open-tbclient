@@ -1,54 +1,47 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes3.dex */
-public class b22 extends d12 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class b22 extends w42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public b22() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b22(String str) {
+        super("camera", "cameraId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            g62.d("Camera", "parsing CameraModel occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.d12
-    public void a(e12 e12Var, Canvas canvas) {
-        int i;
+    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (i = this.a) > 0) {
-            e12Var.e.setTextSize(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.d12
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    this.a = ol3.g((float) jSONArray.optDouble(0));
-                }
-            } catch (Exception e) {
-                if (ho1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
         }
     }
 }

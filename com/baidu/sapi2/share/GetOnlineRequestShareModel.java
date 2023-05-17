@@ -3,7 +3,7 @@ package com.baidu.sapi2.share;
 import com.baidu.sapi2.share.ShareStorage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetOnlineRequestShareModel {
     public static final String FROM_INTER_FLOW_NO = "0";
     public static final String FROM_INTER_FLOW_YES = "1";

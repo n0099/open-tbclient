@@ -17,7 +17,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.TypeIntrinsics;
 import kotlin.jvm.internal.markers.KMutableIterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SmartSet<T> extends AbstractSet<T> {
     public static final Companion Companion = new Companion(null);
     public Object data;
@@ -28,7 +28,7 @@ public final class SmartSet<T> extends AbstractSet<T> {
         return Companion.create();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ArrayIterator<T> implements Iterator<T>, KMutableIterator {
         public final Iterator<T> arrayIterator;
 
@@ -53,7 +53,7 @@ public final class SmartSet<T> extends AbstractSet<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -75,7 +75,7 @@ public final class SmartSet<T> extends AbstractSet<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SingletonIterator<T> implements Iterator<T>, KMutableIterator {
         public final T element;
         public boolean hasNext = true;

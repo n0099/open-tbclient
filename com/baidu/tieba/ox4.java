@@ -1,76 +1,101 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BannerImage;
-/* loaded from: classes5.dex */
-public class ox4 extends BaseCardInfo implements in {
+/* loaded from: classes6.dex */
+public class ox4 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nx4> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047614, "Lcom/baidu/tieba/ox4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948047614, "Lcom/baidu/tieba/ox4;");
-                return;
-            }
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
         }
-        b = BdUniqueId.gen();
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
     }
 
     public ox4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void parserProtobuf(List<BannerImage> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
-            return;
-        }
-        for (BannerImage bannerImage : list) {
-            nx4 nx4Var = new nx4();
-            nx4Var.d(bannerImage);
-            this.a.add(nx4Var);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && !PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && !PermissionUtil.isBrowseMode()) {
+            if (activity.getIntent() != null && activity.getIntent().getBooleanExtra(ImageViewerConfig.KEY_IS_BROWSE_MODE, false)) {
+                PermissionUtil.doBrowseModeInit();
+                return;
+            }
+            Class<?> cls = null;
+            try {
+                cls = Class.forName(SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (cls != null) {
+                Intent intent = new Intent(activity, cls);
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, activity.getIntent());
+                activity.startActivity(intent);
+                activity.finish();
+            }
         }
     }
 }

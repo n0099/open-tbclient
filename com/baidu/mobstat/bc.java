@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bc extends az {
     public static bc b = new bc();
 

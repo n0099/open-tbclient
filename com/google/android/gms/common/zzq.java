@@ -7,7 +7,7 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import javax.annotation.Nullable;
 @SafeParcelable.Class(creator = "GoogleCertificatesLookupResponseCreator")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class zzq extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzq> CREATOR = new zzr();
     @SafeParcelable.Field(getter = "getResult", id = 1)

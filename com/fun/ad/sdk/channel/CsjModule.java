@@ -3,10 +3,10 @@ package com.fun.ad.sdk.channel;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cra;
-import com.baidu.tieba.dsa;
-import com.baidu.tieba.sqa;
-import com.baidu.tieba.tqa;
+import com.baidu.tieba.ata;
+import com.baidu.tieba.bua;
+import com.baidu.tieba.qsa;
+import com.baidu.tieba.rsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,12 +23,12 @@ import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.Calendar;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class CsjModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a implements TTAdSdk.InitCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class CsjModule implements Module {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class b implements PersonalRecommendObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class CsjModule implements Module {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 TTAdConfig.Builder builder = new TTAdConfig.Builder();
-                builder.data(cra.b(z));
+                builder.data(ata.b(z));
                 TTAdSdk.updateAdConfig(builder.build());
             }
         }
@@ -133,12 +133,12 @@ public class CsjModule implements Module {
             }
             if (obj instanceof ModuleConfigCsj) {
                 ModuleConfigCsj moduleConfigCsj = (ModuleConfigCsj) obj;
-                synchronized (tqa.class) {
-                    Handler handler = tqa.a;
+                synchronized (rsa.class) {
+                    Handler handler = rsa.a;
                     Calendar calendar = Calendar.getInstance();
                     int i = calendar.get(6);
                     int i2 = calendar.get(1);
-                    SharedPreferences sharedPreferences = dsa.a;
+                    SharedPreferences sharedPreferences = bua.a;
                     calendar.setTimeInMillis(sharedPreferences.getLong("req_id_update_time", 0L));
                     int i3 = calendar.get(6);
                     if (i2 == calendar.get(1) && i == i3) {
@@ -150,11 +150,11 @@ public class CsjModule implements Module {
                         sharedPreferences.edit().clear().apply();
                     }
                     sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
-                    tqa.a.sendEmptyMessageDelayed(101, tqa.a());
+                    rsa.a.sendEmptyMessageDelayed(101, rsa.a());
                 }
-                TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(moduleConfigCsj.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(funAdConfig.logEnabled).directDownloadNetworkType(4, 1).customController(moduleConfigCsj.ttCustomCtr).supportMultiProcess(moduleConfigCsj.ttSupportMultiProcess).data(cra.b(funAdConfig.runtimeAdConfig.personalRecommendStatus)).build(), new a(this, moduleConfigCsj));
+                TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(moduleConfigCsj.titleBarTheme).allowShowNotify(true).allowShowPageWhenScreenLock(true).debug(funAdConfig.logEnabled).directDownloadNetworkType(4, 1).customController(moduleConfigCsj.ttCustomCtr).supportMultiProcess(moduleConfigCsj.ttSupportMultiProcess).data(ata.b(funAdConfig.runtimeAdConfig.personalRecommendStatus)).build(), new a(this, moduleConfigCsj));
                 funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new b());
-                return new sqa();
+                return new qsa();
             }
             throw new RuntimeException("The csj config need ModuleConfigCsj!");
         }

@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.text.TextUtils;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ar {
     public static final ar e = new ar();
     public boolean a = false;

@@ -1,10 +1,10 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
-import com.baidu.tieba.hla;
-import com.baidu.tieba.mla;
+import com.baidu.tieba.fna;
+import com.baidu.tieba.kna;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseGlRenderer implements IGlRenderer {
     public FullFrameRect mFullScreen2D;
     public FullFrameRect mFullScreenEXT;
@@ -39,8 +39,8 @@ public class BaseGlRenderer implements IGlRenderer {
 
     public void runPendingOnProcessTasks() {
         try {
-            if (mla.b(this.runOnProcess) > 0) {
-                hla.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
+            if (kna.b(this.runOnProcess) > 0) {
+                fna.b("runPendingOnProcessTasks : " + this.runOnProcess.size());
             }
             while (!this.runOnProcess.isEmpty()) {
                 this.runOnProcess.removeFirst().run();

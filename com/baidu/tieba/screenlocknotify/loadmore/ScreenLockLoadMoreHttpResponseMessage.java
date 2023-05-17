@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.lg9;
+import com.baidu.tieba.ni9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,11 +13,11 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lg9 loadMoreData;
+    public ni9 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreHttpResponseMessage() {
@@ -37,13 +37,13 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public lg9 getData() {
+    public ni9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.loadMoreData;
         }
-        return (lg9) invokeV.objValue;
+        return (ni9) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,9 +61,9 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
         DataRes dataRes = getMoreMsgResIdl.data;
         if (dataRes != null && dataRes != null) {
-            lg9 lg9Var = new lg9();
-            this.loadMoreData = lg9Var;
-            lg9Var.c(getMoreMsgResIdl.data);
+            ni9 ni9Var = new ni9();
+            this.loadMoreData = ni9Var;
+            ni9Var.c(getMoreMsgResIdl.data);
         }
     }
 }

@@ -14,8 +14,8 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayMetricsStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayMetricsStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.ThreadPool;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.TraceIdUtil;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
@@ -42,8 +42,8 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReq
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.RequestParams;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.PayServiceStatisticsImpl;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.PayServiceStatisticsApiImpl;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayManager;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayParams;
 import com.yy.mobile.framework.revenuesdk.payservice.impl.IPayServiceCallback;
@@ -61,15 +61,15 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, IRevenueDataReceiver, IRevenueService.IRevenueServiceListener {
     public static final String TAG = "AppPayServiceImpl";
     public List<IAppPayServiceListener> listeners = new ArrayList();
     public int mAppId;
-    public IPayEventStatistics mPayEventStatistics;
+    public IPayEventStatisticsApi mPayEventStatistics;
     public PayOrderResultPoller mPayOrderResultPoller;
     public PayRespDispatcher mPayRespDispatcher;
-    public IPayServiceStatistics mPayServiceStatistics;
+    public IPayServiceStatisticsApi mPayServiceStatistics;
     public ProtocolType mProtocolType;
     public RevenueService mRevenueService;
     public int mUsedChannel;
@@ -78,17 +78,17 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         return (requestParams == null || iResult == null) ? false : true;
     }
 
-    public AppPayServiceImpl(int i, int i2, boolean z, IRevenueDataSender iRevenueDataSender, IPayMetricsStatistics iPayMetricsStatistics, IPayEventStatistics iPayEventStatistics, ProtocolType protocolType) {
+    public AppPayServiceImpl(int i, int i2, boolean z, IRevenueDataSender iRevenueDataSender, IPayMetricsStatisticsApi iPayMetricsStatisticsApi, IPayEventStatisticsApi iPayEventStatisticsApi, ProtocolType protocolType) {
         this.mAppId = i;
         this.mUsedChannel = i2;
-        this.mPayEventStatistics = iPayEventStatistics;
+        this.mPayEventStatistics = iPayEventStatisticsApi;
         this.mProtocolType = protocolType;
         this.mRevenueService = new RevenueService(i, i2, iRevenueDataSender, this, z, protocolType);
-        PayServiceStatisticsImpl payServiceStatisticsImpl = new PayServiceStatisticsImpl(iPayMetricsStatistics, this.mAppId, this.mUsedChannel);
-        this.mPayServiceStatistics = payServiceStatisticsImpl;
-        this.mPayRespDispatcher = new PayRespDispatcher(payServiceStatisticsImpl, this);
+        PayServiceStatisticsApiImpl payServiceStatisticsApiImpl = new PayServiceStatisticsApiImpl(iPayMetricsStatisticsApi, this.mAppId, this.mUsedChannel);
+        this.mPayServiceStatistics = payServiceStatisticsApiImpl;
+        this.mPayRespDispatcher = new PayRespDispatcher(payServiceStatisticsApiImpl, this);
         this.mPayOrderResultPoller = new PayOrderResultPoller(this, this, this.mPayEventStatistics);
-        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.36-bdpay appId:" + i + " usedChannel:" + i2);
+        RLog.info("AppPayServiceImpl", "create AppPayServiceImpl versionName:4.3.45-bdpay appId:" + i + " usedChannel:" + i2);
     }
 
     private void doOrderRequest(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i, int i2, int i3, IPayCallback iPayCallback) {
@@ -149,13 +149,13 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
         cReportResponse.mUid = chargeCurrencyReqParams.getUid();
         cReportResponse.mPayTraceId = chargeCurrencyReqParams.getTraceid();
-        IPayServiceStatistics iPayServiceStatistics = this.mPayServiceStatistics;
-        if (iPayServiceStatistics != null) {
+        IPayServiceStatisticsApi iPayServiceStatisticsApi = this.mPayServiceStatistics;
+        if (iPayServiceStatisticsApi != null) {
             cReportResponse.mEventId = "0";
             cReportResponse.mEventaliae = EventAlias.PayEventAlias.REQUUEST_PAY;
             cReportResponse.mErrCode = "1";
             cReportResponse.mErrMsg = "doOrderRequest";
-            iPayServiceStatistics.onRequestPay(cReportResponse);
+            iPayServiceStatisticsApi.onRequestPay(cReportResponse);
         }
     }
 
@@ -179,9 +179,9 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     }
 
     private void reportOrderProductSuccess(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, HiidoReport.CReportResponse cReportResponse) {
-        IPayEventStatistics iPayEventStatistics = this.mPayEventStatistics;
-        if (iPayEventStatistics != null) {
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payorder, iResponse.getResponseCode() + "", "order success!" + iResponse.getMessage(), payOrderResult.getOrderId(), "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+        IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventStatistics;
+        if (iPayEventStatisticsApi != null) {
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.payorder, iResponse.getResponseCode() + "", "order success!" + iResponse.getMessage(), payOrderResult.getOrderId(), "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
         }
         if (this.mPayServiceStatistics != null) {
             cReportResponse.mEventId = "1";
@@ -193,9 +193,9 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     }
 
     private void reportPayRequestEvent(String str, String str2, ChargeCurrencyReqParams chargeCurrencyReqParams) {
-        IPayEventStatistics iPayEventStatistics = this.mPayEventStatistics;
-        if (iPayEventStatistics != null) {
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrequest, "0", str2, str, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
+        IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventStatistics;
+        if (iPayEventStatisticsApi != null) {
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrequest, "0", str2, str, "" + chargeCurrencyReqParams.getRequestTime(), chargeCurrencyReqParams.getProductId(), chargeCurrencyReqParams.getPayType().getChannel(), chargeCurrencyReqParams.getTraceid());
         }
     }
 
@@ -224,16 +224,16 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
 
     private void reportSignPayFlowEvent(ChargeCurrencyReqParams chargeCurrencyReqParams, PayType payType, String str) {
         long currentTimeMillis = System.currentTimeMillis();
-        IPayEventStatistics iPayEventStatistics = this.mPayEventStatistics;
-        if (iPayEventStatistics != null) {
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, "0", "sign pay success!", str, "" + currentTimeMillis, chargeCurrencyReqParams.getProductId(), payType.getChannel(), chargeCurrencyReqParams.getTraceid());
+        IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventStatistics;
+        if (iPayEventStatisticsApi != null) {
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, "0", "sign pay success!", str, "" + currentTimeMillis, chargeCurrencyReqParams.getProductId(), payType.getChannel(), chargeCurrencyReqParams.getTraceid());
         }
         HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
         cReportResponse.mPaysource = chargeCurrencyReqParams.getFrom();
         cReportResponse.mUid = chargeCurrencyReqParams.getUid();
         cReportResponse.mOrderId = str;
         cReportResponse.mPayTraceId = chargeCurrencyReqParams.getTraceid();
-        IPayServiceStatistics payServiceStatistics = getPayServiceStatistics();
+        IPayServiceStatisticsApi payServiceStatistics = getPayServiceStatistics();
         if (payServiceStatistics != null) {
             cReportResponse.mEventId = "4";
             cReportResponse.mEventaliae = EventAlias.PayEventAlias.PAY_SUCCESS;
@@ -287,12 +287,6 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void registerPayServiceStatistics(IPayServiceStatistics iPayServiceStatistics) {
-        RLog.debug("AppPayServiceImpl", "registerPayReporter IPayServiceReporter = " + iPayServiceStatistics);
-        this.mPayServiceStatistics = iPayServiceStatistics;
-    }
-
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0013, code lost:
         r0.remove();
      */
@@ -318,7 +312,7 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public IPayServiceStatistics getPayServiceStatistics() {
+    public IPayServiceStatisticsApi getPayServiceStatistics() {
         return this.mPayServiceStatistics;
     }
 
@@ -510,9 +504,9 @@ public class AppPayServiceImpl implements IAppPayService, IPayServiceCallback, I
     public void payWithProductInfo(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i, int i2, int i3, IPayCallback<String> iPayCallback) {
         RLog.info("AppPayServiceImpl", "---payWithProductInfo---");
         doOrderRequest(activity, chargeCurrencyReqParams, productInfo, payType, i, i2, i3, iPayCallback);
-        IPayEventStatistics iPayEventStatistics = this.mPayEventStatistics;
-        if (iPayEventStatistics != null) {
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingstart, "0", "doOrderRequest", "", "" + chargeCurrencyReqParams.getRequestTime(), productInfo.productId, payType.getChannel(), chargeCurrencyReqParams.getTraceid());
+        IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventStatistics;
+        if (iPayEventStatisticsApi != null) {
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.payingstart, "0", "doOrderRequest", "", "" + chargeCurrencyReqParams.getRequestTime(), productInfo.productId, payType.getChannel(), chargeCurrencyReqParams.getTraceid());
         }
     }
 

@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.extractor.mp4;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultSampleValues {
     public final int duration;
     public final int flags;

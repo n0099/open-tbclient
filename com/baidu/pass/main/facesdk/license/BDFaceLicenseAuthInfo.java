@@ -1,5 +1,5 @@
 package com.baidu.pass.main.facesdk.license;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceLicenseAuthInfo {
     public int algorithmId;
     public String deviceId;

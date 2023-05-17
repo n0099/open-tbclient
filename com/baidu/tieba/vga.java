@@ -1,91 +1,110 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public final class vga {
+/* loaded from: classes7.dex */
+public class vga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends bha {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
+    }
 
-        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, aVar, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vga a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-345958213, "Lcom/baidu/tieba/vga$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-345958213, "Lcom/baidu/tieba/vga$b;");
                     return;
                 }
             }
-            this.a = map;
-            this.b = aVar;
-            this.c = str;
-            this.d = str2;
+            a = new vga(null);
         }
+    }
 
-        @Override // com.baidu.tieba.bha
-        public final void a() {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a != null) {
-                    StringBuffer stringBuffer = new StringBuffer();
-                    stringBuffer.append("{");
-                    for (Map.Entry entry : this.a.entrySet()) {
-                        stringBuffer.append("\"");
-                        stringBuffer.append(entry.getKey());
-                        stringBuffer.append("\":\"");
-                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
-                        stringBuffer.append("\",");
-                    }
-                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
-                    stringBuffer2.append("}");
-                    this.b.w(stringBuffer2.toString());
-                }
-                try {
-                    this.b.x(yga.e().I());
-                    this.b.u(String.valueOf(System.currentTimeMillis()));
-                    this.b.t(this.c);
-                    com.baidu.ubs.analytics.a.a aVar = this.b;
-                    if (this.d == null) {
-                        str = "";
-                    } else {
-                        str = this.d;
-                    }
-                    aVar.s(str);
-                    new zfa().c(this.b);
-                } catch (Exception e) {
-                    if (e.getMessage() != null) {
-                        zga.b(e.getMessage());
-                    }
-                }
+    public vga() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a(String str, String str2, String str3, Map<String, String> map) {
+    public static vga a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
-            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
-            aVar.v(str);
-            aha.c(new a(map, aVar, str2, str3));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (vga) invokeV.objValue;
+    }
+
+    public /* synthetic */ vga(a aVar) {
+        this();
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return mga.f(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return mga.g(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            mga.n(str, i);
+        }
+    }
+
+    public void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            mga.o(str, j);
+        }
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            mga.p(str, str2);
         }
     }
 }

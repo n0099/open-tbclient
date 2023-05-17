@@ -5,7 +5,7 @@ import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OneKeyLoginOptResult implements NoProguard {
     public static final String TAG = "OneKeyLoginOptResult";
     public int code;
@@ -14,7 +14,7 @@ public class OneKeyLoginOptResult implements NoProguard {
     public String securityPhone;
     public int subCode;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OptResultFields {
         public static final String CODE = "0";
         public static final String EXTRA = "3";

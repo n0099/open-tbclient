@@ -1,9 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import android.app.Activity;
+import android.os.Bundle;
+/* loaded from: classes6.dex */
 public interface nt1 {
-    String[] a();
-
-    boolean b();
-
-    String c();
+    void a(Activity activity, Bundle bundle, cx2 cx2Var);
 }

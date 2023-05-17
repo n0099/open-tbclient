@@ -3,18 +3,20 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class kj2 extends jj2<ej2> {
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class kj2 extends gj2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public kj2() {
-        super(new ej2());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,43 +24,27 @@ public class kj2 extends jj2<ej2> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((gj2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = "route";
     }
 
-    @Override // com.baidu.tieba.jj2
-    public boolean k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gj2
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (r(h().extensionCorePath) && !super.k()) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("fromId", this.c);
+            map.put("toId", this.d);
+            map.put("toTabIndex", this.g);
+            if (!TextUtils.isEmpty(this.e)) {
+                map.put("routeType", this.e);
             }
-            return true;
+            if (!TextUtils.isEmpty(this.f)) {
+                map.put("toPage", this.f);
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            x42.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
-            boolean z = false;
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str, "extension.js");
-            if (file.exists() && file.length() > 0) {
-                z = true;
-            }
-            x42.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
-            return z;
-        }
-        return invokeL.booleanValue;
     }
 }

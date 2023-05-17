@@ -1,5 +1,5 @@
 package okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Utf8 {
     public static long size(String str) {
         return size(str, 0, str.length());

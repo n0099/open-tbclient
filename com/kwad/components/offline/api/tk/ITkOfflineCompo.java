@@ -6,12 +6,12 @@ import com.kwad.components.offline.api.IOfflineCompo;
 import com.kwad.components.offline.api.tk.model.StyleTemplate;
 import com.kwad.sdk.api.SdkConfig;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ITkOfflineCompo extends IOfflineCompo {
     public static final String IMPL = "com.kwad.tachikoma.TkOfflineCompoImpl";
     public static final String PACKAGE_NAME = "com.kwad.components.tachikoma";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum TKState {
         READY,
         SO_FAIL

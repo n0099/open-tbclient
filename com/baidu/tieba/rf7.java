@@ -1,15 +1,9 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface rf7 {
+    boolean a(g9 g9Var, String str, int i, int i2);
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
-import com.baidu.tieba.tbadkCore.FrsViewData;
-/* loaded from: classes6.dex */
-public interface rf7 extends FrsLoadMoreModel.b {
-    FrsViewData a1();
+    void init();
 
-    a9 getPageContext();
-
-    BdUniqueId getUniqueId();
-
-    String v();
+    void release();
 }

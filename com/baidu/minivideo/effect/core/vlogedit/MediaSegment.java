@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tia;
+import com.baidu.tieba.rka;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.reflect.TypeToken;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaSegment implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MediaSegment> CREATOR;
@@ -52,7 +52,7 @@ public class MediaSegment implements Parcelable, Cloneable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<MediaSegment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class MediaSegment implements Parcelable, Cloneable {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends TypeToken<List<MediaSegment>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new tia().c(str, new b().getType());
+                return (List) new rka().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }

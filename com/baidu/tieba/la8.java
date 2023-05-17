@@ -1,28 +1,35 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class la8 implements ja8 {
+/* loaded from: classes6.dex */
+public class la8 extends xb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public final AbilityItem a;
 
-    public la8() {
+    @Override // com.baidu.tieba.xb8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public la8(AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abilityItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,45 +39,37 @@ public class la8 implements ja8 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(3);
-        this.a = hashMap;
-        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
-        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
-        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
+        this.a = abilityItem;
     }
 
-    @Override // com.baidu.tieba.ja8
-    public boolean a(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public AbilityItem b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            return this.a.containsKey(c(chatMessageArr));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return (AbilityItem) invokeV.objValue;
     }
 
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 0 && chatMessageArr[0] != null) {
-                return chatMessageArr[0].getContent();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AbilityItem abilityItem = this.a;
+            if (abilityItem == null || abilityItem.getStyleConf() == null) {
+                return "";
             }
-            return null;
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                if (this.a.getStyleConf().getDark() == null || this.a.getStyleConf().getDark().getIcon() == null) {
+                    return "";
+                }
+                return this.a.getStyleConf().getDark().getIcon();
+            } else if (this.a.getStyleConf().getDay() == null || this.a.getStyleConf().getDay().getIcon() == null) {
+                return "";
+            } else {
+                return this.a.getStyleConf().getDay().getIcon();
+            }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ja8
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
-            return;
-        }
-        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
-        if (chatMessageArr != null && chatMessageArr.length > 1) {
-            ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
-        }
+        return (String) invokeV.objValue;
     }
 }

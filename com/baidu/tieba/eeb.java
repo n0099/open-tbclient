@@ -1,85 +1,58 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jdb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.common.StringUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
-/* loaded from: classes4.dex */
-public class eeb {
+import tv.athena.revenue.payui.view.dialog.CancelType;
+/* loaded from: classes5.dex */
+public class eeb implements ehb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jdb.b a;
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
+    @Override // com.baidu.tieba.ehb
+    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.##").format(d);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
+            return false;
         }
-        return (String) invokeCommon.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String b(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public eeb(jdb.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.#").format(d);
         }
-        return (String) invokeCommon.objValue;
+        this.a = bVar;
     }
 
-    public static double c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ehb
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
-            }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
+            jdb.b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(cancelType);
             }
         }
-        return invokeL.doubleValue;
-    }
-
-    public static long d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0L;
-            }
-            try {
-                return Long.valueOf(str).longValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
-                return 0L;
-            }
-        }
-        return invokeL.longValue;
     }
 }

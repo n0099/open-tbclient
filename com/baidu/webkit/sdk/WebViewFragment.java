@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebViewFragment extends Fragment {
     public boolean mIsWebViewAvailable;
     public WebView mWebView;

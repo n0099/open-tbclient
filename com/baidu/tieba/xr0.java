@@ -1,68 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xr0 extends is0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public hx0 P;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.List;
+import okhttp3.Dns;
+/* loaded from: classes8.dex */
+public interface xr0 extends Dns {
+    public static final ServiceReference d = new ServiceReference("nad.core", "httpdns");
 
-    @Override // com.baidu.tieba.is0, com.baidu.tieba.cs0, com.baidu.tieba.bs0
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 23;
+    /* loaded from: classes8.dex */
+    public static class a implements xr0 {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xr0 a;
+        public static xr0 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280000970, "Lcom/baidu/tieba/xr0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-280000970, "Lcom/baidu/tieba/xr0$a;");
+                    return;
+                }
+            }
+            a = new a();
         }
-        return invokeV.intValue;
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xr0(@NonNull uv0 uv0Var, @Nullable Context context) {
-        super(uv0Var, context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uv0Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((uv0) objArr2[0], (Context) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-    }
 
-    @Override // com.baidu.tieba.is0, com.baidu.tieba.os0, com.baidu.tieba.bs0
-    public void G0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            super.G0(context);
-            b(new zx0());
-            I1("ad_video_tail_frame_layer");
+        public static xr0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                if (b == null) {
+                    synchronized (a.class) {
+                        if (b == null) {
+                            b = (xr0) ServiceManager.getService(xr0.d);
+                        }
+                        if (b == null) {
+                            b = a;
+                        }
+                    }
+                }
+                return b;
+            }
+            return (xr0) invokeV.objValue;
         }
-    }
 
-    public void I1(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            mx0 mx0Var = new mx0(str);
-            this.P = mx0Var;
-            b(mx0Var);
+        @Override // okhttp3.Dns
+        public List<InetAddress> lookup(String str) throws UnknownHostException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return Dns.SYSTEM.lookup(str);
+            }
+            return (List) invokeL.objValue;
         }
     }
 }

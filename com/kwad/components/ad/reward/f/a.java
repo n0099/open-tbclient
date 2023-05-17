@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.components.ad.reward.d.j;
 import com.kwad.sdk.utils.t;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements j {
     @Nullable
     public Context mContext;
@@ -18,7 +18,7 @@ public final class a implements j {
     public final boolean gv() {
         Context context = this.mContext;
         if (context != null) {
-            t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f0a93), 0L);
+            t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f0b0d), 0L);
             return true;
         }
         return true;

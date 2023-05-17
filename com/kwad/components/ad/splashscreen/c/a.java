@@ -20,7 +20,7 @@ import com.kwad.sdk.utils.h;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends com.kwad.components.ad.h.a implements b {
     public boolean km;
     public Bitmap mBitmap;

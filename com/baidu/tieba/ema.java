@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ema {
-    void a(int i, dma dmaVar);
+    void a();
+
+    void b(long j);
+
+    void c(int i);
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import protobuf.TogetherHi;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class TogetherHiPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class TogetherHiPojo extends OrmObject {
         }
     }
 
-    public static TogetherHiPojo V(TogetherHi togetherHi) {
+    public static TogetherHiPojo U(TogetherHi togetherHi) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, togetherHi)) == null) {
@@ -58,7 +58,7 @@ public class TogetherHiPojo extends OrmObject {
         return (TogetherHiPojo) invokeL.objValue;
     }
 
-    public static TogetherHiPojo W(tbclient.TogetherHi togetherHi) {
+    public static TogetherHiPojo V(tbclient.TogetherHi togetherHi) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, togetherHi)) == null) {

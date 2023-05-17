@@ -1,65 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes3.dex */
-public abstract class ap5<T> extends bp5<T> {
+/* loaded from: classes4.dex */
+public class ap5 extends wa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract List<ax4> e();
-
-    public abstract List<ThreadData> f();
-
-    public void g(zo5 zo5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zo5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dp5
-    public xo5 getPageInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (xo5) invokeV.objValue;
-    }
-
-    public void h(List<ThreadData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-        }
-    }
-
-    public abstract List<in> i(List<? extends in> list);
-
-    public ap5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ap5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final List<in> d(List<? extends in> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ab
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            return i(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001536) {
+                return httpResponsedMessage;
+            }
+            if (httpResponsedMessage instanceof JsonHttpResponsedMessage) {
+                HttpMessage httpMessage = (HttpMessage) httpResponsedMessage.getOrginalMessage();
+                ReloginManager g = ReloginManager.g();
+                if (((JsonHttpResponsedMessage) httpResponsedMessage).getError() == 1) {
+                    if (httpMessage.removeParam("reloin_key") == null) {
+                        httpMessage.addParam("reloin_key", "reloin_value");
+                        g.l((HttpMessage) httpResponsedMessage.getOrginalMessage());
+                    } else {
+                        g.f(null);
+                    }
+                    return null;
+                }
+            }
+            return httpResponsedMessage;
         }
-        return (List) invokeL.objValue;
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

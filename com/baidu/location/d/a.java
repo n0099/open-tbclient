@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends Service implements LLSInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static HandlerC0103a a;
+    public static HandlerC0107a a;
     public static long c;
     public static long g;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,14 +50,14 @@ public class a extends Service implements LLSInterface {
     public boolean i;
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class HandlerC0103a extends Handler {
+    /* loaded from: classes3.dex */
+    public static class HandlerC0107a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0103a(Looper looper, a aVar) {
+        public HandlerC0107a(Looper looper, a aVar) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -274,7 +274,7 @@ public class a extends Service implements LLSInterface {
             if (a2 != null) {
                 this.d = a2.getLooper();
             }
-            a = this.d == null ? new HandlerC0103a(Looper.getMainLooper(), this) : new HandlerC0103a(this.d, this);
+            a = this.d == null ? new HandlerC0107a(Looper.getMainLooper(), this) : new HandlerC0107a(this.d, this);
             c = System.currentTimeMillis();
             this.b = new Messenger(a);
             a.sendEmptyMessage(0);

@@ -6,7 +6,7 @@ import com.baidu.mapapi.map.BM3DModelOptions;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BM3DModel extends Overlay {
     public String a;
     public String b;

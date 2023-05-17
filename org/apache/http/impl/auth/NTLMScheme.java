@@ -7,7 +7,7 @@ import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NTLMScheme extends AuthSchemeBase {
     public NTLMScheme(NTLMEngine nTLMEngine) {
         throw new RuntimeException("Stub!");

@@ -31,7 +31,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.k70;
+import com.baidu.tieba.j80;
 import com.baidu.tieba.t70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -147,11 +147,11 @@ public class ConversationStudioManImpl {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    k70.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
+                    t70.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
                     if (RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
                         BIMManager.pingRequest();
                     }
-                    k70.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
+                    t70.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
                 }
             }
         };
@@ -208,7 +208,7 @@ public class ConversationStudioManImpl {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             clearReliableCastList();
             clearFetchRunnable();
-            Handler handler = k70.c;
+            Handler handler = t70.c;
             if (handler != null) {
                 handler.removeCallbacks(mPingRunnable);
             }
@@ -245,7 +245,7 @@ public class ConversationStudioManImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (t70.b() == 0) {
+            if (j80.b() == 0) {
                 return true;
             }
             return false;
@@ -459,7 +459,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
                 try {
-                    k70.e(mContext).d(mContext, createMcastMethodIntent);
+                    t70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -516,7 +516,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 try {
-                    k70.e(mContext).d(mContext, createMcastMethodIntent);
+                    t70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -739,11 +739,11 @@ public class ConversationStudioManImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (z) {
-                k70.c.removeCallbacks(mPingRunnable);
-                k70.c.postDelayed(mPingRunnable, j);
+                t70.c.removeCallbacks(mPingRunnable);
+                t70.c.postDelayed(mPingRunnable, j);
                 return;
             }
-            k70.c.removeCallbacks(mPingRunnable);
+            t70.c.removeCallbacks(mPingRunnable);
         }
     }
 
@@ -759,7 +759,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
                 try {
-                    k70.e(mContext).d(mContext, createMcastMethodIntent);
+                    t70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);

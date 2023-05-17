@@ -18,15 +18,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ViewUtils {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnApplyWindowInsetsListener {
         WindowInsetsCompat onApplyWindowInsets(View view2, WindowInsetsCompat windowInsetsCompat, RelativePadding relativePadding);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class RelativePadding {
         public int bottom;
         public int end;

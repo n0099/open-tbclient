@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class SimpleMessageListener implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +23,12 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     public CustomMessageListener a;
     public boolean b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b<T> {
         void call(@Nullable T t);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         this.a = new a(this, i, bVar);
     }
 
-    public static <T> void e(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
+    public static <T> void d(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65537, null, i, tbPageContext, t) == null) {
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i, t);
@@ -98,10 +98,10 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    public static <T> void g(int i, @Nullable T t) {
+    public static <T> void f(int i, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, t) == null) {
-            e(i, null, t);
+            d(i, null, t);
         }
     }
 

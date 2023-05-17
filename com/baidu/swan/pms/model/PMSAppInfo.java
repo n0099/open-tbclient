@@ -3,9 +3,9 @@ package com.baidu.swan.pms.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.baidu.tieba.wg4;
-import com.baidu.tieba.xg4;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.fi4;
+import com.baidu.tieba.gi4;
+/* loaded from: classes4.dex */
 public class PMSAppInfo implements Parcelable {
     public static final Parcelable.Creator<PMSAppInfo> CREATOR = new a();
     public static final long DEFAULT_SWAN_APP_PKG_MAX_AGE = 432000;
@@ -124,7 +124,7 @@ public class PMSAppInfo implements Parcelable {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<PMSAppInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -207,26 +207,26 @@ public class PMSAppInfo implements Parcelable {
         updateInstallSrc(pMSAppInfo.getInstallSrc());
     }
 
-    public void copyMainPkgInfo(wg4 wg4Var) {
-        if (wg4Var == null) {
+    public void copyMainPkgInfo(fi4 fi4Var) {
+        if (fi4Var == null) {
             return;
         }
-        this.appId = wg4Var.g;
-        this.versionCode = wg4Var.i;
-        this.versionName = wg4Var.j;
-        this.type = wg4Var.o;
-        this.pkgSize = wg4Var.k;
+        this.appId = fi4Var.g;
+        this.versionCode = fi4Var.i;
+        this.versionName = fi4Var.j;
+        this.type = fi4Var.o;
+        this.pkgSize = fi4Var.k;
     }
 
-    public void copySubPkgInfo(xg4 xg4Var) {
-        if (xg4Var == null) {
+    public void copySubPkgInfo(gi4 gi4Var) {
+        if (gi4Var == null) {
             return;
         }
-        this.appId = xg4Var.o;
-        this.versionCode = xg4Var.i;
-        this.versionName = xg4Var.j;
-        this.type = xg4Var.q;
-        this.pkgSize = xg4Var.k;
+        this.appId = gi4Var.o;
+        this.versionCode = gi4Var.i;
+        this.versionName = gi4Var.j;
+        this.type = gi4Var.q;
+        this.pkgSize = gi4Var.k;
     }
 
     public void countLaunch(long j) {

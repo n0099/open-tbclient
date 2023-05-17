@@ -33,7 +33,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultDashChunkSource implements DashChunkSource {
     public final int[] adaptationSetIndices;
     public final DataSource dataSource;
@@ -49,7 +49,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
     public final TrackSelection trackSelection;
     public final int trackType;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements DashChunkSource.Factory {
         public final DataSource.Factory dataSourceFactory;
         public final int maxSegmentsPerLoad;
@@ -69,7 +69,7 @@ public class DefaultDashChunkSource implements DashChunkSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class RepresentationHolder {
         public final ChunkExtractorWrapper extractorWrapper;
         public long periodDurationUs;

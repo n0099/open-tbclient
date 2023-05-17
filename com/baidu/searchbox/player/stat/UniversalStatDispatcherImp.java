@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.stat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UniversalStatDispatcherImp implements IUniversalPlayerStatDispatcher {
     public static final UniversalStatDispatcherImp EMPTY = new UniversalStatDispatcherImp() { // from class: com.baidu.searchbox.player.stat.UniversalStatDispatcherImp.1
     };

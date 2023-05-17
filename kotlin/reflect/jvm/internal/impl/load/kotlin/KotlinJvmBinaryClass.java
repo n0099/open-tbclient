@@ -5,10 +5,10 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.header.KotlinClassHeader;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ClassLiteralValue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface KotlinJvmBinaryClass {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AnnotationArgumentVisitor {
         void visit(Name name, Object obj);
 
@@ -23,7 +23,7 @@ public interface KotlinJvmBinaryClass {
         void visitEnum(Name name, ClassId classId, Name name2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AnnotationArrayArgumentVisitor {
         void visit(Object obj);
 
@@ -34,21 +34,21 @@ public interface KotlinJvmBinaryClass {
         void visitEnum(ClassId classId, Name name);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface AnnotationVisitor {
         AnnotationArgumentVisitor visitAnnotation(ClassId classId, SourceElement sourceElement);
 
         void visitEnd();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MemberVisitor {
         AnnotationVisitor visitField(Name name, String str, Object obj);
 
         MethodAnnotationVisitor visitMethod(Name name, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface MethodAnnotationVisitor extends AnnotationVisitor {
         AnnotationArgumentVisitor visitParameterAnnotation(int i, ClassId classId, SourceElement sourceElement);
     }

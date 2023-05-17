@@ -1,19 +1,19 @@
 package com.baidu.cesium.a;
 
-import com.baidu.tieba.nz;
-import com.baidu.tieba.rz;
+import com.baidu.tieba.a00;
+import com.baidu.tieba.wz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,8 +84,8 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] a2 = rz.a();
-            return new String(nz.d(a2, a2, bArr));
+            byte[] a2 = a00.a();
+            return new String(wz.d(a2, a2, bArr));
         }
         return (String) invokeL.objValue;
     }

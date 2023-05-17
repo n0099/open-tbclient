@@ -7,7 +7,7 @@ import com.baidu.searchbox.player.utils.BdVideoLog;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PrefetchPolicy {
     public static final String PRELINNK_TAG = "PreLink";
     public static final String TAG = "SmartPrefetchPolicy";

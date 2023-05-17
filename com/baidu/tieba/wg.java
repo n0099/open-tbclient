@@ -1,79 +1,103 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubc.UBCManager;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class wg {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(og ogVar) {
+    public wg() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, ogVar) == null) && d() && ogVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ogVar.h());
-                uBCManager.onEvent("3102", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(og ogVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ogVar) == null) && d() && ogVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ogVar.h());
-                uBCManager.onEvent("3052", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void c(og ogVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, ogVar) == null) && d() && ogVar != null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext", ogVar.h());
-                uBCManager.onEvent("3103", jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static boolean d() {
+    public static Handler a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return qg.isOn();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (wg.class) {
+                    if (b == null) {
+                        HandlerThread handlerThread = new HandlerThread("UiUtils-Background");
+                        handlerThread.start();
+                        b = new Handler(handlerThread.getLooper());
+                    }
+                }
+            }
+            return b;
         }
-        return invokeV.booleanValue;
+        return (Handler) invokeV.objValue;
     }
 
-    public static void e(xg xgVar, og ogVar) {
+    public static Handler b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xgVar, ogVar) == null) {
-            if (xgVar instanceof mh) {
-                c(ogVar);
-            } else if (xgVar instanceof lh) {
-                b(ogVar);
-            } else if (xgVar instanceof kh) {
-                a(ogVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (wg.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
             }
+            return a;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            b().post(runnable);
+        }
+    }
+
+    public static void d(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
+            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
+    }
+
+    public static void e(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                b().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
+    }
+
+    public static void f(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65542, null, runnable, j) == null) {
+            b().postDelayed(runnable, j);
         }
     }
 }

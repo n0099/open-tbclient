@@ -1,23 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.content.Context;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
-/* loaded from: classes6.dex */
-public class ta0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes7.dex */
+public interface ta0 {
+    void a(Context context, String str);
 
-    @Inject(force = false)
-    public static ua0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return aa0.a();
+    void b(Context context);
+
+    void c();
+
+    void d();
+
+    void e(Context context);
+
+    void f(Context context, int i);
+
+    void g(String str, String str2, RequestSearchData requestSearchData);
+
+    void h();
+
+    void i(String str);
+
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+
+    void onDetach();
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void a(ta0 ta0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 4) != 0) {
+                    requestSearchData = new RequestSearchData();
+                }
+                ta0Var.g(str, str2, requestSearchData);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
         }
-        return (ua0) invokeV.objValue;
     }
 }

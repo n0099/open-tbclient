@@ -1,7 +1,7 @@
 package org.aspectj.internal.lang.reflect;
 
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypePatternImpl implements TypePattern {
     public String typePattern;
 

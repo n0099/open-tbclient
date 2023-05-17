@@ -12,7 +12,7 @@ import com.huawei.hms.push.i;
 import com.huawei.hms.push.u;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.ResourceLoaderUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PushMsgReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

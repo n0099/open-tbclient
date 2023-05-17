@@ -8,7 +8,7 @@ import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ArtDecoder extends DefaultDecoder {
     public ArtDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
         super(bitmapPool, i, synchronizedPool);

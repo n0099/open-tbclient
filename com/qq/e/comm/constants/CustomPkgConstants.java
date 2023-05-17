@@ -16,7 +16,7 @@ import com.qq.e.ads.RewardvideoPortraitADActivity;
 import com.qq.e.comm.DownloadService;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CustomPkgConstants {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;

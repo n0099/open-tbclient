@@ -8,11 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class EmotionType {
     public static final /* synthetic */ EmotionType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
+    public static final EmotionType EMOTION_ASCII_TYPE;
     public static final EmotionType EMOTION_CLASSIC_TYPE;
+    public static final EmotionType EMOTION_DYNAMIC_TYPE;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,18 +30,11 @@ public final class EmotionType {
                 return;
             }
         }
-        EmotionType emotionType = new EmotionType("EMOTION_CLASSIC_TYPE", 0);
-        EMOTION_CLASSIC_TYPE = emotionType;
-        $VALUES = new EmotionType[]{emotionType};
-    }
-
-    public static EmotionType[] values() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return (EmotionType[]) $VALUES.clone();
-        }
-        return (EmotionType[]) invokeV.objValue;
+        EMOTION_CLASSIC_TYPE = new EmotionType("EMOTION_CLASSIC_TYPE", 0);
+        EMOTION_ASCII_TYPE = new EmotionType("EMOTION_ASCII_TYPE", 1);
+        EmotionType emotionType = new EmotionType("EMOTION_DYNAMIC_TYPE", 2);
+        EMOTION_DYNAMIC_TYPE = emotionType;
+        $VALUES = new EmotionType[]{EMOTION_CLASSIC_TYPE, EMOTION_ASCII_TYPE, emotionType};
     }
 
     public EmotionType(String str, int i) {
@@ -68,5 +63,14 @@ public final class EmotionType {
             return (EmotionType) Enum.valueOf(EmotionType.class, str);
         }
         return (EmotionType) invokeL.objValue;
+    }
+
+    public static EmotionType[] values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return (EmotionType[]) $VALUES.clone();
+        }
+        return (EmotionType[]) invokeV.objValue;
     }
 }

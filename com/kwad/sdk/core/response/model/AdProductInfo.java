@@ -6,7 +6,7 @@ import com.ksad.json.annotation.KsJson;
 import java.io.Serializable;
 import java.util.List;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -7038691521398433079L;
     public List<CouponInfo> couponList;
@@ -19,7 +19,7 @@ public class AdProductInfo extends com.kwad.sdk.core.response.kwai.a implements 
     public String volume;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SpikeInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = -4379476990559885495L;
         public long endTime;

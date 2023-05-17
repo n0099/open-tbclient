@@ -1,50 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class pq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948070833, "Lcom/baidu/tieba/pq9;")) == null) {
-            return;
+    public static boolean a(String str, Boolean bool) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
+            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
+                return false;
+            }
+            return bool.booleanValue();
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948070833, "Lcom/baidu/tieba/pq9;");
-        }
+        return invokeLL.booleanValue;
     }
 
-    public static String a(String str) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
-        String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
-                return null;
-            }
-            for (String str2 : split) {
-                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
-                    int indexOf = str2.indexOf("=") + 1;
-                    if (indexOf >= str2.length()) {
-                        return "";
+            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
+            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0730);
+            int length = stringArray.length;
+            for (int i = 0; i < length; i++) {
+                if (!stringArray[i].equals(str)) {
+                    if (str.equals(stringArray[i] + string)) {
+                        return true;
                     }
-                    return str2.substring(indexOf, str2.length());
+                } else {
+                    return true;
                 }
             }
-            return "";
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

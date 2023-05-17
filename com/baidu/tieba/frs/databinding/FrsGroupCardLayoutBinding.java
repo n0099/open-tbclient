@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FrsGroupCardLayoutBinding implements ViewBinding {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,29 +75,29 @@ public final class FrsGroupCardLayoutBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            int i = R.id.obfuscated_res_0x7f090e55;
-            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e55);
+            int i = R.id.obfuscated_res_0x7f090e85;
+            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090e85);
             if (recyclerView != null) {
-                i = R.id.obfuscated_res_0x7f090ea3;
-                BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea3);
+                i = R.id.obfuscated_res_0x7f090ed3;
+                BdRoundedImageView bdRoundedImageView = (BdRoundedImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed3);
                 if (bdRoundedImageView != null) {
-                    i = R.id.obfuscated_res_0x7f090ea9;
-                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ea9);
+                    i = R.id.obfuscated_res_0x7f090ed9;
+                    ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ed9);
                     if (imageView != null) {
-                        i = R.id.obfuscated_res_0x7f090eab;
-                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090eab);
+                        i = R.id.obfuscated_res_0x7f090edb;
+                        RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090edb);
                         if (relativeLayout != null) {
-                            i = R.id.obfuscated_res_0x7f090eb4;
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eb4);
+                            i = R.id.obfuscated_res_0x7f090ee4;
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ee4);
                             if (textView != null) {
-                                i = R.id.obfuscated_res_0x7f0916df;
-                                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0916df);
+                                i = R.id.obfuscated_res_0x7f091723;
+                                ImageView imageView2 = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091723);
                                 if (imageView2 != null) {
-                                    i = R.id.obfuscated_res_0x7f0916e0;
-                                    LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916e0);
+                                    i = R.id.obfuscated_res_0x7f091724;
+                                    LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091724);
                                     if (linearLayout != null) {
-                                        i = R.id.obfuscated_res_0x7f0916f3;
-                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916f3);
+                                        i = R.id.obfuscated_res_0x7f091737;
+                                        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091737);
                                         if (textView2 != null) {
                                             RelativeLayout relativeLayout2 = (RelativeLayout) view2;
                                             return new FrsGroupCardLayoutBinding(relativeLayout2, recyclerView, bdRoundedImageView, imageView, relativeLayout, textView, imageView2, linearLayout, textView2, relativeLayout2);
@@ -119,7 +119,7 @@ public final class FrsGroupCardLayoutBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0335, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d034c, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

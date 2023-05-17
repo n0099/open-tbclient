@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.kwad.sdk.utils.ax;
 import com.kwad.sdk.utils.o;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static synchronized boolean a(Context context, com.kwad.sdk.e.kwai.b bVar) {
         synchronized (b.class) {

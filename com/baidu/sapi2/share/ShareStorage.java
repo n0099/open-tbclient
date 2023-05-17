@@ -35,7 +35,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareStorage {
     public static final int CODE_APP_IS_NOT_ONLINE = -102;
     public static final int CODE_APP_SHARE_IS_DISABLED = -103;
@@ -67,12 +67,12 @@ public class ShareStorage {
     public boolean readSpFromChmodFile = false;
     public Context context = SapiAccountManager.getInstance().getConfignation().context;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CallBack {
         void call(StorageModel storageModel);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StorageModel {
         public String app;
         public String bduss;

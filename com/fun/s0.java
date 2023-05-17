@@ -1,27 +1,27 @@
 package com.fun;
 
-import com.baidu.tieba.kqa;
-import com.baidu.tieba.mva;
+import com.baidu.tieba.isa;
+import com.baidu.tieba.kxa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class s0 extends HashMap<String, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Object[] a;
     public final /* synthetic */ String b;
-    public final /* synthetic */ mva c;
+    public final /* synthetic */ kxa c;
 
-    public s0(mva mvaVar, Object[] objArr, String str) {
+    public s0(kxa kxaVar, Object[] objArr, String str) {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr2 = {mvaVar, objArr, str};
+            Object[] objArr2 = {kxaVar, objArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,7 +31,7 @@ public class s0 extends HashMap<String, Object> {
                 return;
             }
         }
-        this.c = mvaVar;
+        this.c = kxaVar;
         this.a = objArr;
         this.b = str;
         if (objArr != null && objArr.length > 0) {
@@ -51,7 +51,7 @@ public class s0 extends HashMap<String, Object> {
         put("st", this.b);
         put("sid", this.c.b);
         put("sidv", Integer.valueOf(this.c.c));
-        put("ldr_i", Integer.valueOf(kqa.a(this.c.b)));
+        put("ldr_i", Integer.valueOf(isa.a(this.c.b)));
         str2 = this.c.d;
         put("type", str2);
     }

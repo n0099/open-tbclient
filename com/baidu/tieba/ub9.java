@@ -1,48 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
-import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class ub9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class ub9 extends wi6<ra9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public View j;
+    public TbImageView k;
+    public TextView l;
 
-    public static void a() {
+    @Override // com.baidu.tieba.wi6
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            c();
-            b();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0444 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    public static void c() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ub9(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            xo9.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View h = h();
+        this.j = h;
+        this.i = tbPageContext;
+        h.setTag(this);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090e05);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090e03);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wi6
+    /* renamed from: r */
+    public void i(ra9 ra9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ra9Var) == null) {
+            if (ra9Var == null) {
+                this.j.setVisibility(8);
+                return;
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            this.k.N(ra9Var.a, 10, false);
+            this.j.setOnClickListener(this);
+            if (ra9Var.b > 0) {
+                this.l.setVisibility(0);
+                long j = ra9Var.b;
+                if (j > 99) {
+                    this.l.setText("99");
+                    return;
+                } else {
+                    this.l.setText(String.valueOf(j));
+                    return;
+                }
+            }
+            this.l.setVisibility(8);
         }
     }
 
-    public static void b() {
+    @Override // com.baidu.tieba.wi6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, xo9.a("c/u/feed/userpost", 303002));
-            tbHttpMessageTask.setIsNeedLogin(false);
-            tbHttpMessageTask.setIsNeedTbs(false);
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
-            tbHttpMessageTask.setResponsedClass(UserPostPageHttpResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.SET_PRIVATE_CMD, TbConfig.SERVER_ADDRESS + TbConfig.SET_PRIVATE);
-            tbHttpMessageTask2.setIsNeedLogin(true);
-            tbHttpMessageTask2.setResponsedClass(JsonHttpResponsedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
+            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
         }
     }
 }

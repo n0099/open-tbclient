@@ -8,6 +8,7 @@ import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.huawei.hms.support.log.HMSLog;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SystemUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +98,7 @@ public class SystemUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                return (String) cls.getDeclaredMethod("get", String.class, String.class).invoke(cls, str, str2);
+                return (String) cls.getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, str, str2);
             } catch (ClassCastException | ClassNotFoundException | IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
                 HMSLog.e("SystemUtils", "An exception occurred while reading: getSystemProperties:" + str);
                 return str2;

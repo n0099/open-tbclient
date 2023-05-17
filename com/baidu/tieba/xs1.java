@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-/* loaded from: classes7.dex */
+import androidx.annotation.NonNull;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface xs1 {
-    boolean a(Message message);
+    boolean a(@NonNull JSONObject jSONObject);
 }

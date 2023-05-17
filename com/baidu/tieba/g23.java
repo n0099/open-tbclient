@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class g23 implements qm3<HybridUbcFlow> {
+/* loaded from: classes5.dex */
+public class g23 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic = null;
-    public static boolean b = true;
-    public static int c = -1;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,107 +30,48 @@ public class g23 implements qm3<HybridUbcFlow> {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(g23 g23Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g23Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rl3.Y();
-            }
-        }
-    }
-
-    public g23(String str) {
+    public g23() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-    }
-
-    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
-        UbcFlowEvent g;
-        UbcFlowEvent a2;
-        UbcFlowEvent a3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
-            return;
-        }
-        ke2 ke2Var = (ke2) hybridUbcFlow.k("fmp_data_record");
-        if ("fmp_callback".equals(this.a)) {
-            String name = g23.class.getName();
-            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
-            if (ke2Var != null && (a3 = ke2Var.a()) != null) {
-                String name2 = g23.class.getName();
-                Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
-            }
-        } else if ("callback_on_submit".equals(this.a)) {
-            String name3 = g23.class.getName();
-            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
-            if (ke2Var != null && (a2 = ke2Var.a()) != null) {
-                String name4 = g23.class.getName();
-                Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qm3
-    /* renamed from: c */
-    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
-            synchronized (this) {
-                if (b) {
-                    if (c == -1) {
-                        er2.g0().getSwitch("swan_next_env_delay", 600);
-                        c = 600;
-                    }
-                    rl3.b0(new a(this), c);
-                }
-                if (ho1.a) {
-                    String name = getClass().getName();
-                    Log.d(name, "enable=" + b + ", delay=" + c);
-                }
-                if ("fmp_callback".equals(this.a)) {
-                    b = false;
-                } else if ("callback_on_submit".equals(this.a)) {
-                    b = true;
-                }
-                if (ho1.a && hybridUbcFlow != null) {
-                    b(hybridUbcFlow);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            long j = a;
+            long j2 = 0;
+            if (j >= 0) {
+                return j;
             }
+            Bundle b = t53.b(g23.class, null);
+            if (b != null) {
+                j2 = b.getLong("result", 0L);
+            }
+            a = j2;
+            return j2;
         }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putLong("result", ns2.o().E());
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

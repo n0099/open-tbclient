@@ -2,7 +2,7 @@ package com.facebook.common.memory;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface PooledByteBufferFactory {
     PooledByteBuffer newByteBuffer(int i);
 

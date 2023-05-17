@@ -2,7 +2,7 @@ package com.google.zxing.oned.rss.expanded.decoders;
 
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AI013x0xDecoder extends AI01weightDecoder {
     public static final int HEADER_SIZE = 5;
     public static final int WEIGHT_SIZE = 15;

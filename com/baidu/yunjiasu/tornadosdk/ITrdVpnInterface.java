@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface ITrdVpnInterface extends IInterface {
     String getRuntimeInfo(long j) throws RemoteException;
 
     void stop() throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements ITrdVpnInterface {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.yunjiasu.tornadosdk.ITrdVpnInterface";
@@ -32,7 +32,7 @@ public interface ITrdVpnInterface extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class Proxy implements ITrdVpnInterface {
             public static /* synthetic */ Interceptable $ic;
             public static ITrdVpnInterface sDefaultImpl;
@@ -199,7 +199,7 @@ public interface ITrdVpnInterface extends IInterface {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Default implements ITrdVpnInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -274,7 +274,7 @@ public class BusinessMessageDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x006b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x006d, code lost:
         if (r4.isClosed() == false) goto L23;
      */
     /*
@@ -1458,7 +1458,7 @@ public class BusinessMessageDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0264  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0265  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

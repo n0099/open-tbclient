@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkQuality {
     public static final int BAD_NETWORK_QUALITY = 2;
     public static final boolean DEBUG = false;
@@ -24,11 +24,19 @@ public class NetworkQuality {
     public static int sLastNetworkQualityQuality = 1;
     public static Map<String, List<Integer>> sLastSdtProbeErrorCodeMap = null;
     public static int sNetworkQuality = 1;
+    public static NetworkQualityListenerEventObserver sNetworkQualityListenerEventObserver;
     public static final List<NetworkQualityListener> sNetworkQualityListeners = new ArrayList(2);
     public static volatile int sNetworkQualityUpdateFrom = -1;
     public static WeakNetCheckConfig sWeakNetCheckConfig = new WeakNetCheckConfig();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
+    public interface NetworkQualityListenerEventObserver {
+        void onNetworkQualityListenerAdded(NetworkQualityListener networkQualityListener);
+
+        void onNetworkQualityListenerRemoved(NetworkQualityListener networkQualityListener);
+    }
+
+    /* loaded from: classes3.dex */
     public static abstract class NetworkQualityListener {
         public final Executor mExecutor;
 
@@ -48,7 +56,7 @@ public class NetworkQuality {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WeakNetCheckConfig {
         public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
         public static final long DEFAULT_TTFB_GOOD_THRESHOLD = 590;
@@ -128,6 +136,10 @@ public class NetworkQuality {
         return true;
     }
 
+    public static boolean isSdtEnable() {
+        return getWeakNetCheckConfig().enableSdt;
+    }
+
     public static boolean isWeakNet() {
         int i = sNetworkQuality;
         if (i != 2 && i != 3) {
@@ -140,6 +152,9 @@ public class NetworkQuality {
         synchronized (sNetworkQualityListeners) {
             if (!sNetworkQualityListeners.contains(networkQualityListener)) {
                 sNetworkQualityListeners.add(networkQualityListener);
+                if (sNetworkQualityListenerEventObserver != null) {
+                    sNetworkQualityListenerEventObserver.onNetworkQualityListenerAdded(networkQualityListener);
+                }
             }
         }
     }
@@ -163,7 +178,14 @@ public class NetworkQuality {
     public static void removeNetworkQualityListener(NetworkQualityListener networkQualityListener) {
         synchronized (sNetworkQualityListeners) {
             sNetworkQualityListeners.remove(networkQualityListener);
+            if (sNetworkQualityListenerEventObserver != null) {
+                sNetworkQualityListenerEventObserver.onNetworkQualityListenerRemoved(networkQualityListener);
+            }
         }
+    }
+
+    public static void setNetworkQualityListenerEventObserver(NetworkQualityListenerEventObserver networkQualityListenerEventObserver) {
+        sNetworkQualityListenerEventObserver = networkQualityListenerEventObserver;
     }
 
     public static void setWeakNetCheckConfig(WeakNetCheckConfig weakNetCheckConfig) {

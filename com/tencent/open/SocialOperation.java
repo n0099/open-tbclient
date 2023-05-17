@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
+import com.baidu.searchbox.IntentConstants;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.connect.common.Constants;
@@ -19,7 +20,7 @@ import com.tencent.tauth.DefaultUiListener;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class SocialOperation extends BaseApi {
     public static final String GAME_FRIEND_ADD_MESSAGE = "add_msg";
     public static final String GAME_FRIEND_LABEL = "friend_label";
@@ -96,7 +97,7 @@ public class SocialOperation extends BaseApi {
             stringBuffer.append("&sdk_version=" + Base64.encodeToString(l.i(Constants.SDK_VERSION), 2));
             SLog.v("openSDK_LOG.GameAppOperation", "-->bindQQGroup, url: " + stringBuffer.toString());
             Uri parse = Uri.parse(stringBuffer.toString());
-            final Intent intent = new Intent("android.intent.action.VIEW");
+            final Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(parse);
             if (a(intent) && i.c(activity, "8.1.0") >= 0) {
                 DefaultUiListener defaultUiListener = new DefaultUiListener() { // from class: com.tencent.open.SocialOperation.3
@@ -277,7 +278,7 @@ public class SocialOperation extends BaseApi {
             stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
         }
         SLog.v("openSDK_LOG.GameAppOperation", "-->make friend, url: " + stringBuffer.toString());
-        Intent intent = new Intent("android.intent.action.VIEW");
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(Uri.parse(stringBuffer.toString()));
         if (a(intent) && !l.f(activity, "5.1.0")) {
             SLog.i("openSDK_LOG.GameAppOperation", "-->makeFriend target activity found, qqver greater than 5.1.0");

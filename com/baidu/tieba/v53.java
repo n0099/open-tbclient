@@ -1,24 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.us2;
+import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class v53 extends ze3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class v53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bundle a;
 
-    public static void onEvent(@NonNull String str) {
+    public v53(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            us2.a W = w73.K().q().W();
-            af3 af3Var = new af3();
-            af3Var.b = str;
-            af3Var.a = qe3.n(W.G());
-            af3Var.f = W.H();
-            af3Var.c = W.T();
-            qe3.x("1088", af3Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bundle};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = bundle;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

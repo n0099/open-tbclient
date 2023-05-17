@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface RendererCapabilities {
     public static final int ADAPTIVE_NOT_SEAMLESS = 8;
     public static final int ADAPTIVE_NOT_SUPPORTED = 0;

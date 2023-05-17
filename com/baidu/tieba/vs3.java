@@ -1,385 +1,250 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.cpu.booster.utils.CpuType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.tieba.jg4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
-/* loaded from: classes6.dex */
-public class vs3 {
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+/* loaded from: classes8.dex */
+public class vs3<T> extends ws3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseArray<ns3> a;
-    public static CpuType b;
-    public static int c;
-    public static os3 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public ResponseCallback<T> f;
+    public int g;
+    public jg4.a h;
 
-    /* loaded from: classes6.dex */
-    public static class a implements FileFilter {
+    @Override // com.baidu.tieba.ws3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public T a;
+        public final /* synthetic */ vs3 b;
 
-        public a() {
+        public a(vs3 vs3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vs3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vs3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (cs3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
+                }
+                if (this.b.f != null) {
+                    this.b.f.onFail(exc);
                 }
             }
         }
 
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                String name = file.getName();
-                if (!name.startsWith("cpu")) {
-                    return false;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+                if (cs3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
                 }
-                int length = name.length();
-                for (int i = 3; i < length; i++) {
-                    if (!Character.isDigit(name.charAt(i))) {
-                        return false;
+                if (TextUtils.equals(str, "recovery")) {
+                    if (is3.l().m().b()) {
+                        is3.l().m().a();
+                        this.b.i(true);
+                        this.b.p();
+                        return;
                     }
+                    this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                    return;
                 }
-                return true;
+                is3.l().m().k();
+                vs3 vs3Var = this.b;
+                if (vs3Var.a) {
+                    if (vs3Var.b == 1) {
+                        hs3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        if (this.b.f != null) {
+                            this.b.f.onSuccess(this.a, i);
+                        }
+                        this.b.g = 0;
+                    } else if (vs3.m(vs3Var) >= 3) {
+                        ResponseCallback responseCallback = this.b.f;
+                        responseCallback.onFail(new IOException("request fail : " + this.a));
+                        this.b.g = 0;
+                    } else {
+                        vs3 vs3Var2 = this.b;
+                        vs3Var2.q(vs3Var2.d, this.b.e, this.b.f);
+                    }
+                } else if (vs3Var.f != null) {
+                    this.b.f.onSuccess(this.a, i);
+                    this.b.g = 0;
+                }
             }
-            return invokeL.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                Headers headers = response.headers();
+                String str = headers.get("Bdtls");
+                if (headers != null && TextUtils.equals(str, "recovery")) {
+                    is3.l().m().s(0);
+                    return "recovery";
+                }
+                vs3 vs3Var = this.b;
+                if (vs3Var.a) {
+                    ResponseBody body = response.body();
+                    String g = this.b.g(body.bytes());
+                    if (cs3.a) {
+                        Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                    }
+                    if (this.b.b == 1) {
+                        Buffer buffer = new Buffer();
+                        buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                        Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                        if (this.b.f != null) {
+                            this.a = (T) this.b.f.parseResponse(build, i);
+                        }
+                    }
+                    return g;
+                } else if (vs3Var.f != null) {
+                    this.a = (T) this.b.f.parseResponse(response, i);
+                    return "";
+                } else {
+                    return "";
+                }
+            }
+            return (String) invokeLI.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251315, "Lcom/baidu/tieba/vs3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251315, "Lcom/baidu/tieba/vs3;");
+    public vs3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new SparseArray<>();
-        c = -1;
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File[] listFiles = new File("/sys/devices/system/cpu").listFiles(new a());
-            if (listFiles != null && listFiles.length > 0) {
-                return listFiles.length;
-            }
-            return -1;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q(this.d, this.e, this.f);
         }
-        return invokeV.intValue;
     }
 
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String a2 = xs3.a("ro.board.platform");
-            if (TextUtils.isEmpty(a2)) {
-                a2 = Build.HARDWARE;
-            }
-            if (a2 != null) {
-                return a2.trim();
-            }
-            return a2;
-        }
-        return (String) invokeV.objValue;
+    public static /* synthetic */ int m(vs3 vs3Var) {
+        int i = vs3Var.g;
+        vs3Var.g = i + 1;
+        return i;
     }
 
-    public static CpuType h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ws3
+    public void e(IOException iOException) {
+        ResponseCallback<T> responseCallback;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            CpuType cpuType = b;
-            if (cpuType != null) {
-                return cpuType;
-            }
-            return i(g());
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) && (responseCallback = this.f) != null) {
+            responseCallback.onFail(iOException);
         }
-        return (CpuType) invokeV.objValue;
     }
 
-    public static ns3 a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.ws3
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ns3 ns3Var = a.get(i);
-            if (ns3Var != null) {
-                return ns3Var;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (cs3.a) {
+                Log.d("BDTLS", "onRequestError=" + i);
             }
-            try {
-                ns3 ns3Var2 = new ns3(i, k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_min_freq"), k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/cpuinfo_max_freq"));
-                a.put(i, ns3Var2);
-                return ns3Var2;
-            } catch (Exception unused) {
-                return new ns3(i, -1, -1);
+            ResponseCallback<T> responseCallback = this.f;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
             }
         }
-        return (ns3) invokeI.objValue;
     }
 
-    public static int c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ws3
+    public void h(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                FileInputStream fileInputStream = new FileInputStream(str);
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-                String readLine = bufferedReader.readLine();
-                bufferedReader.close();
-                int d2 = d(readLine);
-                fileInputStream.close();
-                return d2;
-            } catch (Exception unused) {
-                return -1;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.d;
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
             }
+            if (cs3.a) {
+                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
+            }
+            ie3 a2 = ns2.q().a();
+            PostByteRequest.PostByteRequestBuilder postByteRequest = kg4.g().postByteRequest();
+            jg4.a aVar = this.h;
+            if (aVar != null) {
+                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
+            }
+            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
-        return invokeL.intValue;
     }
 
-    public static int d(String str) {
-        InterceptResult invokeL;
+    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            int indexOf = str.indexOf(45);
-            if (indexOf == -1) {
-                if (!TextUtils.isDigitsOnly(str)) {
-                    return -1;
-                }
-                return m(str) + 1;
-            }
-            int m = m(str.substring(indexOf + 1));
-            if (m == -1) {
-                return -1;
-            }
-            return m + 1;
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, responseCallback) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeL.intValue;
-    }
-
-    public static int k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.canRead()) {
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                    String readLine = bufferedReader.readLine();
-                    bufferedReader.close();
-                    return m(l(readLine));
-                } catch (Exception unused) {
-                }
-            }
-            return -1;
+        this.d = str;
+        this.e = str2;
+        this.f = responseCallback;
+        if (cs3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
         }
-        return invokeL.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            int i = c;
-            if (i != -1) {
-                return i;
-            }
-            int c2 = c("/sys/devices/system/cpu/possible");
-            if (c2 != -1) {
-                c = c2;
-                return c2;
-            }
-            int c3 = c("/sys/devices/system/cpu/present");
-            if (c3 != -1) {
-                c = c3;
-                return c3;
-            }
-            int b2 = b();
-            if (b2 == -1) {
-                b2 = Math.max(Runtime.getRuntime().availableProcessors(), 1);
-            }
-            c = b2;
-            return b2;
-        }
-        return invokeV.intValue;
-    }
-
-    public static os3 f() {
-        InterceptResult invokeV;
-        boolean z;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            os3 os3Var = d;
-            if (os3Var != null) {
-                return os3Var;
-            }
-            int e = e();
-            if (e <= 0) {
-                return new os3();
-            }
-            if (e == 1) {
-                os3 os3Var2 = new os3();
-                os3Var2.h = false;
-                os3Var2.a = e;
-                os3Var2.l = a(0);
-                d = os3Var2;
-                return os3Var2;
-            }
-            ArrayList<ns3> arrayList = new ArrayList(e);
-            for (int i = 0; i < e; i++) {
-                arrayList.add(a(i));
-            }
-            SparseArray sparseArray = new SparseArray();
-            SparseIntArray sparseIntArray = new SparseIntArray();
-            ArrayList arrayList2 = new ArrayList();
-            for (ns3 ns3Var : arrayList) {
-                int i2 = ns3Var.c;
-                if (sparseArray.get(i2) != null) {
-                    sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
-                } else {
-                    sparseArray.put(i2, ns3Var);
-                    arrayList2.add(ns3Var);
-                    sparseIntArray.put(i2, 1);
-                }
-            }
-            Collections.sort(arrayList2);
-            os3 os3Var3 = new os3();
-            os3Var3.a = e;
-            if (arrayList2.size() > 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            os3Var3.h = z;
-            if (!z) {
-                if (arrayList2.size() <= 0) {
-                    obj = arrayList.get(0);
-                } else {
-                    obj = arrayList2.get(0);
-                }
-                os3Var3.l = (ns3) obj;
-                d = os3Var3;
-                return os3Var3;
-            }
-            os3Var3.j = (ns3) arrayList2.get(0);
-            os3Var3.c = ((ns3) arrayList2.get(0)).a;
-            os3Var3.b = sparseIntArray.get(os3Var3.j.c);
-            os3Var3.i = (ns3) arrayList2.get(1);
-            os3Var3.e = ((ns3) arrayList2.get(1)).a;
-            os3Var3.d = sparseIntArray.get(os3Var3.i.c);
-            if (arrayList2.size() > 2) {
-                os3Var3.k = (ns3) arrayList2.get(2);
-                os3Var3.g = ((ns3) arrayList2.get(2)).a;
-                os3Var3.f = sparseIntArray.get(os3Var3.k.c);
-            }
-            d = os3Var3;
-            return os3Var3;
-        }
-        return (os3) invokeV.objValue;
-    }
-
-    public static CpuType i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                CpuType cpuType = CpuType.Unknown;
-                b = cpuType;
-                return cpuType;
-            }
-            String lowerCase = str.toLowerCase();
-            if (!lowerCase.startsWith("kirin") && !lowerCase.startsWith("hi")) {
-                if (!lowerCase.startsWith("qcom") && !lowerCase.startsWith("kona") && !lowerCase.startsWith("lahaina") && !lowerCase.startsWith("msm") && !lowerCase.startsWith("sdm") && !lowerCase.startsWith("apq") && !lowerCase.startsWith("sm")) {
-                    if (lowerCase.startsWith("mt")) {
-                        CpuType cpuType2 = CpuType.Mtk;
-                        b = cpuType2;
-                        return cpuType2;
-                    }
-                    CpuType cpuType3 = CpuType.Unknown;
-                    b = cpuType3;
-                    return cpuType3;
-                }
-                CpuType cpuType4 = CpuType.QualComm;
-                b = cpuType4;
-                return cpuType4;
-            }
-            CpuType cpuType5 = CpuType.Hisilicon;
-            b = cpuType5;
-            return cpuType5;
-        }
-        return (CpuType) invokeL.objValue;
-    }
-
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            return k("/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq");
-        }
-        return invokeI.intValue;
-    }
-
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (str == null) {
-                return str;
-            }
-            int length = str.length();
-            int i = 0;
-            while (i < length && Character.isDigit(str.charAt(i))) {
-                i++;
-            }
-            return str.substring(0, i);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return -1;
-            }
-        }
-        return invokeL.intValue;
+        a(this.e);
     }
 }

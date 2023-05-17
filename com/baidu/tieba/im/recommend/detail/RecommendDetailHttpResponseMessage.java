@@ -2,8 +2,8 @@ package com.baidu.tieba.im.recommend.detail;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.me;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.c25;
+import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Bigvip.BigvipResIdl;
 import tbclient.Bigvip.UserInfoBigVip;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class RecommendDetailHttpResponseMessage extends HttpResponsedMessage {
         UserInfoBigVip userInfoBigVip;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            t05.d();
-            me<byte[]> b = t05.b("tb.im_recommend_detail");
+            c25.d();
+            se<byte[]> b = c25.b("tb.im_recommend_detail");
             if (b != null && bArr != null && (userInfoBigVip = this.mDetailInfo) != null && userInfoBigVip.user_id != null) {
                 b.g(this.mDetailInfo.user_id + "", bArr);
             }

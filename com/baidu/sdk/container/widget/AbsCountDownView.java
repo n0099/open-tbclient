@@ -6,8 +6,8 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cl1;
-import com.baidu.tieba.dl1;
+import com.baidu.tieba.sl1;
+import com.baidu.tieba.tl1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsCountDownView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public b b;
-    public cl1 c;
+    public sl1 c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
@@ -34,8 +34,8 @@ public abstract class AbsCountDownView extends TextView {
 
     public abstract void setTimeMillis(long j);
 
-    /* loaded from: classes2.dex */
-    public class a extends cl1 {
+    /* loaded from: classes3.dex */
+    public class a extends sl1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsCountDownView c;
@@ -58,7 +58,7 @@ public abstract class AbsCountDownView extends TextView {
             this.c = absCountDownView;
         }
 
-        @Override // com.baidu.tieba.cl1
+        @Override // com.baidu.tieba.sl1
         public Object b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public abstract class AbsCountDownView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = new a(this);
-            dl1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
+            tl1.a().d(this.c, 0L, getTaskPeriod(), TimeUnit.MILLISECONDS);
         }
     }
 
@@ -150,10 +150,10 @@ public abstract class AbsCountDownView extends TextView {
     }
 
     public void c() {
-        cl1 cl1Var;
+        sl1 sl1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cl1Var = this.c) != null) {
-            cl1Var.cancel();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (sl1Var = this.c) != null) {
+            sl1Var.cancel();
             this.c = null;
         }
     }

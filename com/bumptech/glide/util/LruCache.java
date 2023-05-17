@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class LruCache<T, Y> {
     public final Map<T, Entry<Y>> cache = new LinkedHashMap(100, 0.75f, true);
     public long currentSize;
@@ -19,7 +19,7 @@ public class LruCache<T, Y> {
     public void onItemEvicted(@NonNull T t, @Nullable Y y) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Entry<Y> {
         public final int size;
         public final Y value;

@@ -1,12 +1,14 @@
 package com.baidu.sapi2.utils.enums;
-/* loaded from: classes2.dex */
+
+import com.baidu.searchbox.account.dto.BoxWebBindWidgetDTOKt;
+/* loaded from: classes3.dex */
 public enum BindWidgetAction {
-    BIND_MOBILE("/wp/bindwidget-bindmobile", "绑定手机"),
-    BIND_EMAIL("/wp/bindwidget-bindemail", "绑定邮箱"),
-    REBIND_MOBILE("/wp/bindwidget-rebindmobile", "换绑手机"),
-    REBIND_EMAIL("/wp/bindwidget-rebindemail", "换绑邮箱"),
-    UNBIND_MOBILE("/wp/bindwidget-unbindmobile", "解绑手机"),
-    UNBIND_EMAIL("/wp/bindwidget-unbindemail", "解绑邮箱");
+    BIND_MOBILE(BoxWebBindWidgetDTOKt.BIND_MOBILE, "绑定手机"),
+    BIND_EMAIL(BoxWebBindWidgetDTOKt.BIND_EMAIL, "绑定邮箱"),
+    REBIND_MOBILE(BoxWebBindWidgetDTOKt.REBIND_MOBILE, "换绑手机"),
+    REBIND_EMAIL(BoxWebBindWidgetDTOKt.REBIND_EMAIL, "换绑邮箱"),
+    UNBIND_MOBILE(BoxWebBindWidgetDTOKt.UNBIND_MOBILE, "解绑手机"),
+    UNBIND_EMAIL(BoxWebBindWidgetDTOKt.UNBIND_EMAIL, "解绑邮箱");
     
     public String name;
     public String uri;

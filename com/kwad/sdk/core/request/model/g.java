@@ -3,7 +3,7 @@ package com.kwad.sdk.core.request.model;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.r;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g implements com.kwad.sdk.core.b {
     public String acX;
     public String acY;

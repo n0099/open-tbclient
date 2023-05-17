@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class z implements Runnable {
     public final /* synthetic */ Context a;
 

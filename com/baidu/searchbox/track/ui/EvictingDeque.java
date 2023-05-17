@@ -2,7 +2,7 @@ package com.baidu.searchbox.track.ui;
 
 import androidx.annotation.NonNull;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class EvictingDeque<E> {
     public int mCapacity;
     public final LinkedList<E> mDelegate = new LinkedList<>();

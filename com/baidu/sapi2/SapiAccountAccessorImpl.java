@@ -1,5 +1,5 @@
 package com.baidu.sapi2;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiAccountAccessorImpl extends ShareAccountAccessor {
     @Override // com.baidu.sapi2.ShareAccountAccessor
     public String getExtra(SapiAccount sapiAccount) {

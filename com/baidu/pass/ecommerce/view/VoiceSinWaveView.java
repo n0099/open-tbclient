@@ -23,7 +23,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public static final int CHANGE_PHASE = 4097;
     public static final int MAX_ALPHA_VALUE = 255;
@@ -69,14 +69,14 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     public float mVolume;
     public int mWidth;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface VoiceWaveCallBack {
         void fadeOut();
 
         void fadeToQuarter();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MainThreadHandler extends Handler {
         public WeakReference<VoiceSinWaveView> mWeakVoiceSinWaveView;
 
@@ -95,7 +95,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TimerThread extends Thread {
         public boolean isCancel = false;
         public WeakReference<VoiceSinWaveView> mWeakVoiceSinWaveView;
@@ -335,10 +335,10 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         int i = this.mHeight;
         if (i > 0 && this.mWidth > 0) {
             this.mMaxAmplitude = (i - 4.0f) * 0.5f;
-            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0608d1), getResources().getColor(R.color.obfuscated_res_0x7f0608d0), Shader.TileMode.MIRROR));
-            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0608d3), getResources().getColor(R.color.obfuscated_res_0x7f0608d2), Shader.TileMode.MIRROR));
-            int color = getResources().getColor(R.color.obfuscated_res_0x7f0608cf);
-            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f0608ce);
+            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f060a47), getResources().getColor(R.color.obfuscated_res_0x7f060a46), Shader.TileMode.MIRROR));
+            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f060a49), getResources().getColor(R.color.obfuscated_res_0x7f060a48), Shader.TileMode.MIRROR));
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f060a45);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060a44);
             float f = this.mHeight / 2;
             float f2 = this.mMaxAmplitude;
             this.mFillPaint.setShader(new LinearGradient(0.0f, f - f2, 0.0f, f + f2, color, color2, Shader.TileMode.MIRROR));

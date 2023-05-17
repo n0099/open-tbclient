@@ -15,31 +15,31 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.uba;
-import com.baidu.tieba.un9;
-import com.baidu.tieba.vn5;
+import com.baidu.tieba.ep5;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.wda;
+import com.baidu.tieba.wp9;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
 import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassSocketResMessage;
-import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class SelectTagActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout k;
     public SelectTagListView l;
-    public uba m;
+    public wda m;
     public List<String> n;
     public int o;
     public VideoCategoryClassData p;
     public boolean q;
-    public za r;
+    public fb r;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
     public void D1() {
@@ -48,20 +48,20 @@ public class SelectTagActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends za {
+    /* loaded from: classes8.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectTagActivity a;
 
         /* renamed from: com.baidu.tieba.write.write.work.selecttag.SelectTagActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0481a implements View.OnClickListener {
+        /* loaded from: classes8.dex */
+        public class View$OnClickListenerC0494a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0481a(a aVar) {
+            public View$OnClickListenerC0494a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class SelectTagActivity extends SuspendedActivity {
             this.a = selectTagActivity;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -122,7 +122,7 @@ public class SelectTagActivity extends SuspendedActivity {
             }
             if (responsedMessage.hasError()) {
                 SelectTagActivity selectTagActivity = this.a;
-                selectTagActivity.showNetRefreshView(selectTagActivity.k, null, this.a.getString(R.string.obfuscated_res_0x7f0f04c0), null, false, new View$OnClickListenerC0481a(this));
+                selectTagActivity.showNetRefreshView(selectTagActivity.k, null, this.a.getString(R.string.obfuscated_res_0x7f0f0510), null, false, new View$OnClickListenerC0494a(this));
                 return;
             }
             if (responsedMessage instanceof GetSelectClassHttpResMessage) {
@@ -136,7 +136,7 @@ public class SelectTagActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -229,9 +229,9 @@ public class SelectTagActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
             if (this.l.x()) {
-                g35.d(this.l.c).z(R.color.CAM_X0302);
+                p45.d(this.l.c).z(R.color.CAM_X0302);
             } else {
-                this.l.c.setTextColor(un9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.l.c.setTextColor(wp9.a(SkinManager.getColor(R.color.CAM_X0302), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
         }
     }
@@ -243,7 +243,7 @@ public class SelectTagActivity extends SuspendedActivity {
             super.onCreate(bundle);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.m = new uba(getUniqueId());
+            this.m = new wda(getUniqueId());
             this.l.d = findViewById(R.id.suspend_root_view);
             this.l.l();
             this.r.getHttpMessageListener().setSelfListener(true);
@@ -268,7 +268,7 @@ public class SelectTagActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public vn5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ep5 u1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, linearLayout, navigationBar)) == null) {
@@ -279,6 +279,6 @@ public class SelectTagActivity extends SuspendedActivity {
             this.l.c.setOnClickListener(new b(this));
             return this.l;
         }
-        return (vn5) invokeLL.objValue;
+        return (ep5) invokeLL.objValue;
     }
 }

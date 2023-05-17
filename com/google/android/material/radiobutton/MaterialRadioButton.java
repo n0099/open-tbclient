@@ -13,9 +13,9 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialRadioButton extends AppCompatRadioButton {
-    public static final int DEF_STYLE_RES = 2131755882;
+    public static final int DEF_STYLE_RES = 2131755893;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @Nullable
     public ColorStateList materialThemeColorsTintList;
@@ -35,7 +35,7 @@ public class MaterialRadioButton extends AppCompatRadioButton {
     }
 
     public MaterialRadioButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405b8);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405e5);
     }
 
     public MaterialRadioButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
@@ -51,9 +51,9 @@ public class MaterialRadioButton extends AppCompatRadioButton {
 
     private ColorStateList getMaterialThemeColorsTintList() {
         if (this.materialThemeColorsTintList == null) {
-            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040170);
-            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040179);
-            int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040180);
+            int color = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f04017b);
+            int color2 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040189);
+            int color3 = MaterialColors.getColor(this, R.attr.obfuscated_res_0x7f040190);
             int[] iArr = new int[ENABLED_CHECKED_STATES.length];
             iArr[0] = MaterialColors.layer(color3, color, 1.0f);
             iArr[1] = MaterialColors.layer(color3, color2, 0.54f);

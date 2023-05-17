@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import kotlin.reflect.jvm.internal.impl.builtins.CompanionObjectMapping;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
@@ -10,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
 import kotlin.reflect.jvm.internal.impl.util.capitalizeDecapitalize.CapitalizeDecapitalizeKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JvmAbi {
     public static final FqName JVM_FIELD_ANNOTATION_FQ_NAME = new FqName("kotlin.jvm.JvmField");
     public static final ClassId REFLECTION_FACTORY_IMPL = ClassId.topLevel(new FqName("kotlin.reflect.jvm.internal.ReflectionFactoryImpl"));
@@ -110,7 +111,7 @@ public final class JvmAbi {
             $$$reportNull$$$0(6);
         }
         if (!startsWithIsPrefix(str)) {
-            str = "get" + CapitalizeDecapitalizeKt.capitalizeAsciiOnly(str);
+            str = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE + CapitalizeDecapitalizeKt.capitalizeAsciiOnly(str);
         }
         if (str == null) {
             $$$reportNull$$$0(7);
@@ -143,7 +144,7 @@ public final class JvmAbi {
         if (str == null) {
             $$$reportNull$$$0(4);
         }
-        if (!str.startsWith("get") && !str.startsWith("is")) {
+        if (!str.startsWith(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE) && !str.startsWith("is")) {
             return false;
         }
         return true;

@@ -1,9 +1,10 @@
 package com.kwad.sdk.utils;
 
 import android.annotation.SuppressLint;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ay {
     public static Class<?> aou;
 
@@ -31,7 +32,7 @@ public final class ay {
     }
 
     public static String get(String str) {
-        Object f = f("get", str);
+        Object f = f(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, str);
         return f instanceof String ? (String) f : dV(str);
     }
 }

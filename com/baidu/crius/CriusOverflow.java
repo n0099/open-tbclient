@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CriusOverflow {
     public static final /* synthetic */ CriusOverflow[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GameAttr extends Message {
     public static final String DEFAULT_ISOPEN = "";
     public static final String DEFAULT_USERID = "";
@@ -13,7 +13,7 @@ public final class GameAttr extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String userId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<GameAttr> {
         public String isOpen;
         public SignatureInfo signatureInfo;

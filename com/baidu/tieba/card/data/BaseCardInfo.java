@@ -3,8 +3,8 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.co;
-import com.baidu.tieba.in;
+import com.baidu.tieba.lo;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-/* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements in {
+/* loaded from: classes5.dex */
+public abstract class BaseCardInfo implements rn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,9 +22,9 @@ public abstract class BaseCardInfo implements in {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public co trigger;
+    public lo trigger;
 
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public abstract class BaseCardInfo implements in {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -135,13 +135,13 @@ public abstract class BaseCardInfo implements in {
         this.mSupportType = SupportType.NONE;
     }
 
-    public co getTrigger() {
+    public lo getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.trigger;
         }
-        return (co) invokeV.objValue;
+        return (lo) invokeV.objValue;
     }
 
     public boolean isSupportBottom() {
@@ -223,10 +223,10 @@ public abstract class BaseCardInfo implements in {
         }
     }
 
-    public void setTrigger(co coVar) {
+    public void setTrigger(lo loVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, coVar) == null) {
-            this.trigger = coVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, loVar) == null) {
+            this.trigger = loVar;
         }
     }
 }

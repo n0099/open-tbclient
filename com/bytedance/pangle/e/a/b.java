@@ -3,7 +3,7 @@ package com.bytedance.pangle.e.a;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public InputStream a;
     public int b;

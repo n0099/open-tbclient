@@ -8,7 +8,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.java.Patterns;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -528,7 +527,7 @@ public class UrlUtil {
             if (lowerCase.contains(".js")) {
                 return "application/x-javascript";
             }
-            if (!lowerCase.contains(".jpg") && !lowerCase.contains(".gif") && !lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !lowerCase.contains(".jpeg")) {
+            if (!lowerCase.contains(".jpg") && !lowerCase.contains(".gif") && !lowerCase.contains(".png") && !lowerCase.contains(".jpeg")) {
                 return SapiWebView.DATA_MIME_TYPE;
             }
             return BdUploadHandler.IMAGE_MIME_TYPE;

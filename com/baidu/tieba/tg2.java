@@ -1,90 +1,142 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public class tg2 extends ProviderDelegation {
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+/* loaded from: classes7.dex */
+public final class tg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile tg2 c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948180170, "Lcom/baidu/tieba/tg2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948180170, "Lcom/baidu/tieba/tg2;");
-                return;
-            }
-        }
-        er2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
-    }
+    public final Lock a;
+    public ArrayList<xg2> b;
 
     public tg2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ReentrantLock();
+        this.b = new ArrayList<>();
+    }
+
+    public static tg2 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (tg2.class) {
+                    if (c == null) {
+                        c = new tg2();
+                    }
+                }
+            }
+            return c;
+        }
+        return (tg2) invokeV.objValue;
+    }
+
+    public final Object[] a() {
+        Object[] objArr;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.a.lock();
+                if (this.b.size() > 0) {
+                    objArr = this.b.toArray();
+                } else {
+                    objArr = null;
+                }
+                return objArr;
+            } finally {
+                this.a.unlock();
+            }
+        }
+        return (Object[]) invokeV.objValue;
+    }
+
+    public void b(og2 og2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).d(og2Var);
             }
         }
     }
 
-    public static void c(dh2 dh2Var) {
+    public void c(og2 og2Var) {
+        Object[] a;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, dh2Var) != null) || !a || dh2Var == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).b(og2Var);
+            }
         }
-        if (ProcessUtils.isMainProcess()) {
-            ug2.a(dh2Var).b();
-            ch2.b().a(dh2Var.a);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("recovery_level", dh2Var.a);
-        bundle.putStringArrayList("recovery_app_list", dh2Var.b);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), tg2.class, bundle);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public void d(og2 og2Var) {
+        Object[] a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (!a) {
-                return null;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).f(og2Var);
             }
-            int i = bundle.getInt("recovery_level", -1);
-            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-            dh2 dh2Var = new dh2();
-            dh2Var.a = i;
-            if (stringArrayList != null) {
-                dh2Var.b = stringArrayList;
-            }
-            ug2.a(dh2Var).b();
-            ch2.b().a(dh2Var.a);
-            return null;
         }
-        return (Bundle) invokeL.objValue;
+    }
+
+    public void e(og2 og2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).c(og2Var);
+            }
+        }
+    }
+
+    public void f(og2 og2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).g(og2Var);
+            }
+        }
+    }
+
+    public void g(og2 og2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).a(og2Var);
+            }
+        }
+    }
+
+    public void h(og2 og2Var) {
+        Object[] a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, og2Var) == null) && (a = a()) != null) {
+            for (Object obj : a) {
+                ((xg2) obj).e(og2Var);
+            }
+        }
     }
 }

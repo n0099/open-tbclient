@@ -17,11 +17,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw5;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ox5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ExpandableTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,16 +46,16 @@ public class ExpandableTextView extends RelativeLayout {
     public e l;
     public boolean m;
     public ViewTreeObserver.OnGlobalLayoutListener n;
-    public cw5 o;
-    public cw5 p;
+    public ox5 o;
+    public ox5 p;
     public View.OnClickListener q;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface e {
         void a(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,8 +160,8 @@ public class ExpandableTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends cw5 {
+    /* loaded from: classes7.dex */
+    public class b extends ox5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExpandableTextView j;
@@ -189,7 +188,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.j = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.cw5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.ox5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
@@ -199,8 +198,8 @@ public class ExpandableTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends cw5 {
+    /* loaded from: classes7.dex */
+    public class c extends ox5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExpandableTextView j;
@@ -227,7 +226,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.j = expandableTextView;
         }
 
-        @Override // com.baidu.tieba.cw5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.ox5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
@@ -237,7 +236,7 @@ public class ExpandableTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -391,26 +390,6 @@ public class ExpandableTextView extends RelativeLayout {
         s(context);
     }
 
-    public void setData(CharSequence charSequence, boolean z, WorksInfoData worksInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{charSequence, Boolean.valueOf(z), worksInfoData}) == null) {
-            if (charSequence == null) {
-                charSequence = "";
-            }
-            this.m = z;
-            this.b = new SpannableStringBuilder(charSequence);
-            if (worksInfoData != null && worksInfoData.isWorks) {
-                if (TextUtils.isEmpty(charSequence)) {
-                    this.b = new SpannableStringBuilder(" ");
-                }
-                ThreadCardUtils.setWorksPrefix(this.b);
-            }
-            this.g.setText(this.b);
-            this.g.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-            SkinManager.setViewTextColor(this.g, this.k, 1);
-        }
-    }
-
     public void setExpandType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -505,7 +484,7 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            g35.d(this.g).A(R.array.S_O_X001);
+            p45.d(this.g).A(R.array.S_O_X001);
         }
     }
 
@@ -521,9 +500,24 @@ public class ExpandableTextView extends RelativeLayout {
             TextView textView = (TextView) findViewById(R.id.expandable_view_title_up);
             this.h = textView;
             textView.setOnClickListener(this.q);
-            ii.g(context, R.dimen.tbfontsize42);
+            ri.g(context, R.dimen.tbfontsize42);
             this.k = R.color.CAM_X0101;
-            ii.g(context, R.dimen.tbds6);
+            ri.g(context, R.dimen.tbds6);
+        }
+    }
+
+    public void setData(CharSequence charSequence, boolean z, WorksInfoData worksInfoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{charSequence, Boolean.valueOf(z), worksInfoData}) == null) {
+            if (charSequence == null) {
+                charSequence = "";
+            }
+            this.m = z;
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(charSequence);
+            this.b = spannableStringBuilder;
+            this.g.setText(spannableStringBuilder);
+            this.g.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+            SkinManager.setViewTextColor(this.g, this.k, 1);
         }
     }
 

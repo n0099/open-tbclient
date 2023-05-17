@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import com.baidu.pass.face.platform.ConstPath;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.google.android.exoplayer2.text.webvtt.WebvttCue;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
@@ -27,7 +26,7 @@ import java.util.List;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WebvttCueParser {
     public static final char CHAR_AMPERSAND = '&';
     public static final char CHAR_GREATER_THAN = '>';
@@ -52,7 +51,7 @@ public final class WebvttCueParser {
     public static final String TAG_VOICE = "v";
     public final StringBuilder textBuilder = new StringBuilder();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class StartTag {
         public static final String[] NO_CLASSES = new String[0];
         public final String[] classes;
@@ -86,7 +85,7 @@ public final class WebvttCueParser {
                 trim = trim.substring(0, indexOf);
                 str2 = trim2;
             }
-            String[] split = trim.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = trim.split("\\.");
             String str3 = split[0];
             if (split.length > 1) {
                 strArr = (String[]) Arrays.copyOfRange(split, 1, split.length);
@@ -97,7 +96,7 @@ public final class WebvttCueParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class StyleMatch implements Comparable<StyleMatch> {
         public final int score;
         public final WebvttCssStyle style;
@@ -131,7 +130,7 @@ public final class WebvttCueParser {
                     c = 65535;
                 }
             } else {
-                if (str.equals(ENTITY_LESS_THAN)) {
+                if (str.equals("lt")) {
                     c = 0;
                 }
                 c = 65535;

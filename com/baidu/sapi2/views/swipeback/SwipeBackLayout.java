@@ -15,10 +15,10 @@ import androidx.annotation.Nullable;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.tieba.ne1;
+import com.baidu.tieba.df1;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwipeBackLayout extends ViewGroup {
     public static final String t = "SwipeBackLayout";
     public static final int u = 1;
@@ -46,18 +46,18 @@ public class SwipeBackLayout extends ViewGroup {
     public d s;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface b {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(View view2, float f, float f2);
 
         void a(View view2, boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements d {
         public a() {
         }
@@ -75,7 +75,7 @@ public class SwipeBackLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends ViewDragHelper.Callback {
         public c() {
         }
@@ -296,7 +296,7 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ne1.sapi_sdk_SwipeBackLayout);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, df1.sapi_sdk_SwipeBackLayout);
         setDirectionMode(obtainStyledAttributes.getInt(0, this.a));
         setSwipeBackFactor(obtainStyledAttributes.getFloat(3, this.h));
         setMaskAlpha(obtainStyledAttributes.getInteger(2, this.j));

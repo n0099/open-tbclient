@@ -1,150 +1,201 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.browser.UegTbJsBridge;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.novel.ReadRecordsData;
+import com.baidu.tbadk.switchs.OpenJsSdkSwitch;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class tv4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 604800000;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class tv4 implements jh6 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948194647, "Lcom/baidu/tieba/tv4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.jh6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        ih6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.jh6
+    public /* synthetic */ void onDestroy() {
+        ih6.b(this);
+    }
+
+    public tv4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948194647, "Lcom/baidu/tieba/tv4;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.tv4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0442a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public RunnableC0442a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    try {
-                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
-                        tv4.c(TbadkCoreApplication.getInst().getCacheDir());
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                long o = f55.m().o("key_clear_resource", 0L);
-                long currentTimeMillis = System.currentTimeMillis();
-                if (o == 0) {
-                    f55.m().A("key_clear_resource", currentTimeMillis);
-                    o = currentTimeMillis;
-                }
-                if (currentTimeMillis - o > tv4.a) {
-                    km6.a(new RunnableC0442a(this), "clearResource", 3);
-                    f55.m().A("key_clear_resource", currentTimeMillis);
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void d() {
+    @Override // com.baidu.tieba.jh6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            MessageManager.getInstance().registerListener(new a(2005016));
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (TextUtils.equals(CommonTbJsBridge.GET_APIS, str2)) {
+                jsPromptResult.confirm(d(webView));
+                return true;
+            } else if (UegTbJsBridge.METHOD_CALL_NATIVE_SMS.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    c(webView, jSONObject.optString("phoneNumber"), jSONObject.optString("content"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+                return true;
+            } else if (UegTbJsBridge.METHOD_RECORD_NOVEL_INFO.equals(str2)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(str3);
+                    g(webView, jSONObject2.optString("bookProgress"), jSONObject2.optString(TbEnum.ParamKey.GID), jSONObject2.optString("lastReadChapterId"), jSONObject2.optString("lastReadChapterIndex"), jSONObject2.optString("lastReadChapterName"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+                return true;
+            } else if (UegTbJsBridge.METHOD_NOVEL_PAY_RESULT_TO_CLIENT.equals(str2)) {
+                try {
+                    e(webView, new JSONObject(str3).optBoolean("isPaySuccess"));
+                    jsPromptResult.confirm("1");
+                } catch (JSONException e3) {
+                    BdLog.e(e3);
+                }
+                return true;
+            } else {
+                return false;
+            }
         }
+        return invokeLLLLL.booleanValue;
     }
 
-    public static void c(File file) {
+    public js9 c(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, file) != null) || file == null) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2)) == null) {
+            js9 js9Var = new js9();
+            Context a = yg6.a(webView.getContext());
+            if (a == null) {
+                a = webView.getContext();
+            }
+            UtilHelper.smsTo(a, str, str2);
+            return js9Var;
         }
-        try {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (int i = 0; i < listFiles.length; i++) {
-                        if (listFiles[i].isDirectory()) {
-                            c(listFiles[i]);
-                        } else {
-                            listFiles[i].delete();
+        return (js9) invokeLLL.objValue;
+    }
+
+    public final String d(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("status", 0);
+                jSONObject.put("message", webView.getContext().getString(R.string.scheme_action_status_ok));
+                if (OpenJsSdkSwitch.isOn()) {
+                    jSONObject.put("data", new JSONArray(DescriptionTableInfo.getDescriptionTable()));
+                } else {
+                    jSONObject.put("data", new JSONArray());
+                }
+                return jSONObject.toString();
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public js9 e(WebView webView, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, webView, z)) == null) {
+            js9 js9Var = new js9();
+            if (z) {
+                en5.d();
+            }
+            return js9Var;
+        }
+        return (js9) invokeLZ.objValue;
+    }
+
+    public js9 f(WebView webView, ArrayList<String> arrayList) {
+        InterceptResult invokeLL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<String> it = arrayList.iterator();
+                c = 65535;
+                while (it.hasNext()) {
+                    String a = ku5.a(it.next());
+                    if (a != null) {
+                        if (!ku5.d(webView.getContext(), a, null)) {
+                            c = 2;
                         }
+                    } else {
+                        c = 1;
                     }
-                    return;
                 }
-                return;
+            } else {
+                c = 65535;
             }
-            file.delete();
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            js9 js9Var = new js9();
+            if (c == 65535) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("resultCode", 0);
+                    js9Var.o(jSONObject.toString());
+                    return js9Var;
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
+            } else if (c == 1) {
+                js9Var.r("url不支持预热");
+            } else if (c == 2) {
+                js9Var.r("预热池已存在该url");
+            } else {
+                js9Var.r("其它错误");
+            }
+            return js9Var;
         }
+        return (js9) invokeLL.objValue;
+    }
+
+    public js9 g(WebView webView, String str, String str2, String str3, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{webView, str, str2, str3, str4, str5})) == null) {
+            js9 js9Var = new js9();
+            ReadRecordsData readRecordsData = new ReadRecordsData(str, str2, str3, str4, str5);
+            readRecordsData.W(true);
+            en5.e(str2, readRecordsData);
+            return js9Var;
+        }
+        return (js9) invokeCommon.objValue;
     }
 }

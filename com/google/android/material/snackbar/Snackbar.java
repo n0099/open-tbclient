@@ -24,17 +24,17 @@ import androidx.annotation.StringRes;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.baidu.tieba.R;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Snackbar extends BaseTransientBottomBar<Snackbar> {
-    public static final int[] SNACKBAR_BUTTON_STYLE_ATTR = {R.attr.obfuscated_res_0x7f040651};
-    public static final int[] SNACKBAR_CONTENT_STYLE_ATTRS = {R.attr.obfuscated_res_0x7f040651, R.attr.obfuscated_res_0x7f040653};
+    public static final int[] SNACKBAR_BUTTON_STYLE_ATTR = {R.attr.obfuscated_res_0x7f040690};
+    public static final int[] SNACKBAR_CONTENT_STYLE_ATTRS = {R.attr.obfuscated_res_0x7f040690, R.attr.obfuscated_res_0x7f040692};
     @Nullable
     public final AccessibilityManager accessibilityManager;
     @Nullable
     public BaseTransientBottomBar.BaseCallback<Snackbar> callback;
     public boolean hasAction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Callback extends BaseTransientBottomBar.BaseCallback<Snackbar> {
         public static final int DISMISS_EVENT_ACTION = 1;
         public static final int DISMISS_EVENT_CONSECUTIVE = 4;
@@ -54,7 +54,7 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SnackbarLayout extends BaseTransientBottomBar.SnackbarBaseLayout {
         public SnackbarLayout(Context context) {
             super(context);
@@ -259,9 +259,9 @@ public class Snackbar extends BaseTransientBottomBar<Snackbar> {
         if (findSuitableParent != null) {
             LayoutInflater from = LayoutInflater.from(findSuitableParent.getContext());
             if (hasSnackbarContentStyleAttrs(findSuitableParent.getContext())) {
-                i2 = R.layout.obfuscated_res_0x7f0d0605;
+                i2 = R.layout.obfuscated_res_0x7f0d0627;
             } else {
-                i2 = R.layout.obfuscated_res_0x7f0d022f;
+                i2 = R.layout.obfuscated_res_0x7f0d0242;
             }
             SnackbarContentLayout snackbarContentLayout = (SnackbarContentLayout) from.inflate(i2, findSuitableParent, false);
             Snackbar snackbar = new Snackbar(findSuitableParent, snackbarContentLayout, snackbarContentLayout);

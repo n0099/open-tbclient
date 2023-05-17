@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.videocache.b.a;
 import com.kwad.sdk.utils.o;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static boolean a(@Nullable AdTemplate adTemplate) {
         if (adTemplate == null) {
@@ -50,10 +50,10 @@ public final class a {
             r4 = ad != null ? ad.length() : 0L;
             adTemplate.mDownloadType = 2;
         } else if (sc > 0) {
-            a.C0638a c0638a = new a.C0638a();
+            a.C0652a c0652a = new a.C0652a();
             int i = sc * 1024;
-            boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0638a);
-            str = c0638a.Qd;
+            boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0652a);
+            str = c0652a.Qd;
             adTemplate.mDownloadType = 3;
             adTemplate.mDownloadSize = i;
             z2 = a2;

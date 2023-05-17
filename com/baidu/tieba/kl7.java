@@ -1,153 +1,141 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
-import com.baidu.tieba.horizonalList.widget.HListView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class kl7 extends lh6<d77> {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+/* loaded from: classes6.dex */
+public final class kl7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HListView t;
-    public ux7 u;
-    public FrsSchoolRecommendItemView v;
-    public List<vx7> w;
-    public View.OnClickListener x;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917011, "Lcom/baidu/tieba/kl7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947917011, "Lcom/baidu/tieba/kl7;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    @JvmStatic
+    public static final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a.b(str);
+        }
+    }
+
+    @JvmStatic
+    public static final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.c(str);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kl7 a;
 
-        public a(kl7 kl7Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kl7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = kl7Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public final void a(StatisticItem statisticItem, String str) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e() != null) {
-                this.a.e().a(view2, null);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kl7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.x = new a(this);
-        HListView hListView = new HListView(getContext());
-        this.t = hListView;
-        hListView.setHeaderDividersEnabled(false);
-        this.t.setFooterDividersEnabled(false);
-        this.t.setSelector(R.drawable.list_selector_transparent);
-        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d036b, (ViewGroup) null), tbPageContext, bdUniqueId);
-        ux7 ux7Var = new ux7(getContext(), R.layout.obfuscated_res_0x7f0d036b, this.v);
-        this.u = ux7Var;
-        ux7Var.d(this.x);
-        this.t.setAdapter((ListAdapter) this.u);
-        this.q.addView(this.t);
-        this.p.setVisibility(8);
-        this.j.setTextSize(0, ii.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
-    }
-
-    @Override // com.baidu.tieba.lh6, com.baidu.tieba.kh6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            super.j(tbPageContext, i);
-            if (this.t != null && this.u != null) {
-                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
-                this.u.b(i);
-            }
-        }
-    }
-
-    public final boolean u(List<vx7> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
-            }
-            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
-                return true;
-            }
-            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
-                vx7 vx7Var = (vx7) ListUtils.getItem(this.w, i);
-                vx7 vx7Var2 = (vx7) ListUtils.getItem(list, i);
-                if ((vx7Var instanceof j87) && (vx7Var2 instanceof j87) && !((j87) vx7Var).a.getUserId().equals(((j87) vx7Var2).a.getUserId())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lh6
-    /* renamed from: x */
-    public void t(d77 d77Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, d77Var) == null) {
-            super.i(d77Var);
-            if (d77Var != null && !ListUtils.isEmpty(d77Var.getDataList())) {
-                if (StringUtils.isNull(d77Var.mGroupTitle)) {
-                    this.j.setText(getContext().getResources().getString(R.string.school_recommend));
+            if (interceptable == null || interceptable.invokeLL(1048576, this, statisticItem, str) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
                 } else {
-                    this.j.setText(d77Var.mGroupTitle);
+                    z = true;
                 }
-                if (u(d77Var.getDataList())) {
-                    List<vx7> dataList = d77Var.getDataList();
-                    this.w = dataList;
-                    this.u.c(dataList);
-                    this.u.notifyDataSetChanged();
+                if (!z) {
+                    statisticItem.param("fid", str);
                 }
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            }
+        }
+
+        @JvmStatic
+        public final void d(String str, String str2) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15896");
+                if (str2 != null && str2.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    statisticItem.param("obj_param1", str2);
+                }
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15889");
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15888");
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+
+        @JvmStatic
+        public final void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                StatisticItem statisticItem = new StatisticItem("c15895");
+                a(statisticItem, str);
+                TiebaStatic.log(statisticItem);
             }
         }
     }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointStoreOnCache implements DownloadStore {
     public static final int FIRST_ID = 1;
     public final List<Integer> fileDirtyList;

@@ -1,84 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes5.dex */
-public class mg {
-    public static /* synthetic */ Interceptable $ic;
-    public static mg b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ThreadPoolExecutor a;
+import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
+/* loaded from: classes6.dex */
+public interface mg<T> {
+    BdAsyncTaskParallel getAsyncTaskParallel();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448311123, "Lcom/baidu/tieba/mg;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448311123, "Lcom/baidu/tieba/mg;");
-                return;
-            }
-        }
-        b = new mg();
-    }
+    int getAsyncTaskPriority();
 
-    public mg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ScheduledThreadPoolExecutor(1);
-    }
+    T getFromLocal(String str, String str2, int i, int i2, jg jgVar, Object... objArr);
 
-    public static mg a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (mg) invokeV.objValue;
-    }
+    T getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr);
 
-    public void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (this.a.getTaskCount() >= 1) {
-                new Thread(runnable).start();
-                return;
-            }
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable unused) {
-            }
-        }
-    }
+    T getFromRemote(String str, String str2, int i, int i2, jg jgVar, Object... objArr);
 
-    public void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable unused) {
-            }
-        }
-    }
+    boolean isNeedLoad();
+
+    void updateMemory(String str, Object obj, int i, int i2, Object... objArr);
 }

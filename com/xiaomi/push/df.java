@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.de;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class df extends de.b {
     public final /* synthetic */ int a;
 
@@ -56,7 +56,7 @@ public class df extends de.b {
 
     @Override // com.xiaomi.push.am.b
     /* renamed from: c */
-    public void mo280c() {
+    public void mo299c() {
         File file = this.f217a;
         if (file != null && file.exists()) {
             this.f216a.f210a.add(new de.c(this.f218a, this.b, this.f217a, this.f220a));

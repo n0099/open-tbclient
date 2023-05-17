@@ -25,17 +25,17 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.newFriends.RequestNewFriendActionLocalMessage;
 import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.ha8;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.cc8;
+import com.baidu.tieba.hb;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +53,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public String l;
     public String m;
 
-    /* loaded from: classes5.dex */
-    public class a extends bb {
+    /* loaded from: classes6.dex */
+    public class a extends hb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AddFriendActivity a;
@@ -90,7 +90,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new ha8(this.a.h, this.a.j)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new cc8(this.a.h, this.a.j)));
                     if (this.a.k) {
                         AddFriendActivity addFriendActivity = this.a;
                         addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
@@ -102,13 +102,13 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 } else if (AntiHelper.m(error, errorString)) {
                     AntiHelper.u(this.a.getPageContext().getPageActivity(), errorString);
                 } else {
-                    ii.Q(this.a.getPageContext().getPageActivity(), errorString);
+                    ri.Q(this.a.getPageContext().getPageActivity(), errorString);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,7 +175,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -214,7 +214,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -349,10 +349,10 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                             String stringExtra2 = intent.getStringExtra("from");
                             if (StringUtils.isNull(stringExtra2)) {
                                 EditText editText = this.d;
-                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2e) + TbadkCoreApplication.getCurrentAccountName());
+                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0cb4) + TbadkCoreApplication.getCurrentAccountName());
                             } else {
                                 EditText editText2 = this.d;
-                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f096e) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0289) + TbadkCoreApplication.getCurrentAccountName());
+                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f09e6) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f02b4) + TbadkCoreApplication.getCurrentAccountName());
                             }
                         }
                         this.d.requestFocus();
@@ -389,35 +389,35 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && !TextUtils.isEmpty(this.h) && !TextUtils.isEmpty(this.j) && !TextUtils.isEmpty(this.i)) {
             if (TextUtils.isEmpty(str)) {
-                str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0c2e) + TbadkCoreApplication.getCurrentAccountName();
+                str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0cb4) + TbadkCoreApplication.getCurrentAccountName();
             }
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(gg.g(this.h, 0L), this.j, this.i, str, this.l));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(pg.g(this.h, 0L), this.j, this.i, str, this.l));
         }
     }
 
     public final void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb6);
+            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f092012);
             this.b = findViewById;
             findViewById.setOnClickListener(new b(this));
-            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f09051b);
+            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f090532);
             this.g = imageView;
             imageView.setOnClickListener(new c(this));
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb5);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f092011);
             this.c = navigationBar;
-            navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f02a8));
+            navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f02d2));
             this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_msg));
             this.e = addTextButton;
             if (addTextButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
-                layoutParams.rightMargin = ii.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+                layoutParams.rightMargin = ri.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
                 this.e.setLayoutParams(layoutParams);
             }
             this.e.setOnClickListener(new d(this));
-            this.f = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb7);
-            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb4);
+            this.f = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f092013);
+            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f092010);
             this.d = editText;
             editText.setOnFocusChangeListener(new e(this));
             this.d.setOnTouchListener(new f(this));
@@ -442,7 +442,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0028);
+            setContentView(R.layout.obfuscated_res_0x7f0d0029);
             this.a = (InputMethodManager) getPageContext().getPageActivity().getSystemService("input_method");
             initViews();
             G1(bundle);

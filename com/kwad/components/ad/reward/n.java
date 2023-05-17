@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwad.components.core.page.DownloadLandPageActivity;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class n {
     public static void g(k kVar) {
         com.kwad.components.core.playable.a aVar;

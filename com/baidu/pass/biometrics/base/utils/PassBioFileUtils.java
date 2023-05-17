@@ -5,7 +5,7 @@ import com.baidu.pass.biometrics.base.debug.Log;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassBioFileUtils {
     public static final String TAG = "PassBioFileUtils";
 

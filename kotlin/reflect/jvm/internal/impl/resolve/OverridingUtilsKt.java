@@ -9,7 +9,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor;
 import kotlin.reflect.jvm.internal.impl.utils.SmartSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class OverridingUtilsKt {
     public static final <D extends CallableDescriptor> void retainMostSpecificInEachOverridableGroup(Collection<D> collection) {
         Collection<?> selectMostSpecificInEachOverridableGroup = selectMostSpecificInEachOverridableGroup(collection, new Function1<D, D>() { // from class: kotlin.reflect.jvm.internal.impl.resolve.OverridingUtilsKt$retainMostSpecificInEachOverridableGroup$newResult$1

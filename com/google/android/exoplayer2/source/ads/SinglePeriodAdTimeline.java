@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.ForwardingTimeline;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SinglePeriodAdTimeline extends ForwardingTimeline {
     public final int[] adCounts;
     public final long[][] adDurationsUs;

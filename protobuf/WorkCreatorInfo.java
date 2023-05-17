@@ -2,13 +2,13 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class WorkCreatorInfo extends Message {
     public static final String DEFAULT_AUTHDESC = "";
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String authDesc;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<WorkCreatorInfo> {
         public String authDesc;
 

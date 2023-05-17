@@ -2,46 +2,41 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter.a;
-import com.baidu.tieba.in;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class j75<T extends in, V extends BdBaseViewPagerAdapter.a> {
+/* loaded from: classes6.dex */
+public class j75 implements k75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a<T, V> b;
-    public BdUniqueId c;
+    public final ImageView a;
 
-    /* loaded from: classes5.dex */
-    public interface a<T extends in, V extends BdBaseViewPagerAdapter.a> {
-        void a(V v, T t);
-    }
-
-    public abstract V b(ViewGroup viewGroup);
-
-    public void c(V v, T t) {
+    @Override // com.baidu.tieba.k75
+    public void onDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v, t) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public abstract View d(ViewGroup viewGroup, V v, T t);
+    @Override // com.baidu.tieba.k75
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
-    public j75(Context context, BdUniqueId bdUniqueId) {
+    public j75(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -51,32 +46,35 @@ public abstract class j75<T extends in, V extends BdBaseViewPagerAdapter.a> {
                 return;
             }
         }
-        this.a = context;
-        this.c = bdUniqueId;
+        this.a = new ImageView(context);
     }
 
-    public a<T, V> a() {
+    @Override // com.baidu.tieba.k75
+    public void a(g75 g75Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, g75Var) == null) {
+            ImageView imageView = this.a;
+            int i = g75Var.c;
+            int i2 = -2;
+            if (i < 0) {
+                i = -2;
+            }
+            int i3 = g75Var.c;
+            if (i3 >= 0) {
+                i2 = i3;
+            }
+            imageView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            SkinManager.setImageResource(this.a, g75Var.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.k75
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (a) invokeV.objValue;
-    }
-
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(a<T, V> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.b = aVar;
-        }
+        return (View) invokeV.objValue;
     }
 }

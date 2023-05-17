@@ -9,7 +9,7 @@ import java.util.Random;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SdkConfigOptions {
     public static final String TAG = "SdkConfigOptions";
     public static final String a = "liveness_config_option";
@@ -35,7 +35,7 @@ public class SdkConfigOptions {
         return "SdkConfigOptions{livenessConfigOption=" + this.livenessConfigOption + '}';
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LivenessConfigOption {
         public static final String A = "recog_upload_portrait_count";
         public static final String B = "white_bg_illum_thr";

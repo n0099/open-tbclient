@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ha {
 
     /* renamed from: a  reason: collision with other field name */
@@ -33,7 +33,7 @@ public class ha {
     /* renamed from: a  reason: collision with other field name */
     public static com.xiaomi.push.providers.a f457a = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public int a;
 
@@ -97,7 +97,7 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m463a(Context context) {
+    public static com.xiaomi.push.providers.a m482a(Context context) {
         com.xiaomi.push.providers.a aVar = f457a;
         if (aVar != null) {
             return aVar;
@@ -108,7 +108,7 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m464a(Context context) {
+    public static synchronized String m483a(Context context) {
         synchronized (ha.class) {
             if (TextUtils.isEmpty(f459a)) {
                 return "";
@@ -118,7 +118,7 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m466a(Context context) {
+    public static void m485a(Context context) {
         a = b(context);
     }
 
@@ -130,7 +130,7 @@ public class ha {
         }
         synchronized (f458a) {
             isEmpty = f460a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m464a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m483a(context) : "", j));
         }
         if (isEmpty) {
             f456a.a(new hb(context), 5000L);
@@ -152,9 +152,9 @@ public class ha {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m467a(String str) {
+    public static synchronized void m486a(String str) {
         synchronized (ha.class) {
-            if (!j.m637d() && !TextUtils.isEmpty(str)) {
+            if (!j.m656d() && !TextUtils.isEmpty(str)) {
                 f459a = str;
             }
         }
@@ -179,7 +179,7 @@ public class ha {
     public static void b(Context context, List<a> list) {
         try {
             synchronized (com.xiaomi.push.providers.a.f829a) {
-                SQLiteDatabase writableDatabase = m463a(context).getWritableDatabase();
+                SQLiteDatabase writableDatabase = m482a(context).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 for (a aVar : list) {
                     ContentValues contentValues = new ContentValues();

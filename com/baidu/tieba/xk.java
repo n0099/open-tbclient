@@ -1,62 +1,32 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageDownloadCallback;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.callback.DownloadCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class xk implements DownloadCallback {
+/* loaded from: classes8.dex */
+public class xk extends cl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IPackageDownloadCallback a;
+    public Path v;
+    public boolean w;
+    public Rect x;
+    public final Paint y;
+    public final Paint z;
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onBulkDownloaded(List<PackageInfo> list, List<PackageInfo> list2, List<PackageInfo> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, list, list2, list3) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadCancel(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadPause(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, packageInfo) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadResume(PackageInfo packageInfo, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadStart(PackageInfo packageInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, packageInfo) == null) {
-        }
-    }
-
-    public xk(IPackageDownloadCallback iPackageDownloadCallback) {
+    public xk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iPackageDownloadCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,32 +36,56 @@ public class xk implements DownloadCallback {
                 return;
             }
         }
-        this.a = iPackageDownloadCallback;
+        this.y = new Paint();
+        this.z = new Paint();
+        this.y.setColor(-16777216);
+        this.y.setStyle(Paint.Style.FILL);
+        this.y.setAntiAlias(true);
+        this.z.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    @Override // com.baidu.tieba.sk
+    public void e(Canvas canvas, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
-            this.a.onPackageDownloadFail(packageInfo.packageName, errorInfo.code, errorInfo.errorMsg);
-            il.b(packageInfo.packageName, 1, packageInfo.version);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, drawable) == null) {
+            canvas.save();
+            t(drawable.getBounds());
+            try {
+                canvas.clipPath(this.v);
+            } catch (Exception unused) {
+            }
+            drawable.draw(canvas);
+            canvas.restore();
         }
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadSuccess(PackageInfo packageInfo, ErrorInfo errorInfo) {
+    public final void t(Rect rect) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, packageInfo, errorInfo) == null) {
-            this.a.onPackageDownloadSuccess(packageInfo.packageName, packageInfo.filePath);
-            il.b(packageInfo.packageName, 0, packageInfo.version);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect) != null) || rect == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DownloadCallback
-    public void onDownloadProgress(PackageInfo packageInfo, long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.a.onProgress(j, j2);
+        boolean z2 = true;
+        if (this.v != null && this.w == this.l.b) {
+            z = false;
+        } else {
+            z = true;
+        }
+        Rect rect2 = this.x;
+        if (rect2 != null && rect2.contains(rect)) {
+            z2 = z;
+        }
+        this.w = this.l.b;
+        if (z2) {
+            this.x = rect;
+            Path path = new Path();
+            this.v = path;
+            if (this.w) {
+                this.v.addCircle((rect.right + rect.left) / 2.0f, (rect.top + rect.bottom) / 2.0f, Math.min(rect.width(), rect.height()) / 2.0f, Path.Direction.CCW);
+            } else {
+                path.addRoundRect(new RectF(rect), this.l.a, Path.Direction.CW);
+            }
+            this.v.close();
         }
     }
 }

@@ -48,7 +48,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoginActivity extends BaseActivity {
     public static final String E = "LoginActivity";
     public static final String EXTRA_LOGIN_FINISH_AFTER_SUC = "extra_login_finish_after_suc";
@@ -426,7 +426,7 @@ public class LoginActivity extends BaseActivity {
         this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
         this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
         this.B = getIntent().getStringExtra("extraJson");
-        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091f6f);
+        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091fcc);
         this.sapiWebView = sapiWebView;
         sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback() { // from class: com.baidu.sapi2.activity.LoginActivity.4
             @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback

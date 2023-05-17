@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface lf1 {
-    void a(String str, if1 if1Var, hf1 hf1Var, gf1<String> gf1Var);
+    void a(JSONObject jSONObject);
 }

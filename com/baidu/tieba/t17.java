@@ -1,57 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class t17<T> extends d17<T> {
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Voice;
+/* loaded from: classes7.dex */
+public final class t17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T c;
-    public final String d;
 
-    public t17(@NonNull T t, @NonNull String str) {
+    public static final void a(Voice voice, List<f37<? extends Object>> mutableList) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {t, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, voice, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            mutableList.add(b(voice));
         }
-        this.c = t;
-        this.d = str;
     }
 
-    @Override // com.baidu.tieba.s17
-    @NonNull
-    public String a() {
-        InterceptResult invokeV;
+    public static final g37<VoiceData.VoiceModel> b(Voice voice) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voice)) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+            voiceModel.from = CommonStatisticKey.FRS_VOICE_PLAY;
+            voiceModel.setVoiceId(voice.voice_md5);
+            voiceModel.setDuration(voice.during_time.intValue() / 1000);
+            return new g37<>(voiceModel, "feed_voice");
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s17
-    @NonNull
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (T) invokeV.objValue;
+        return (g37) invokeL.objValue;
     }
 }

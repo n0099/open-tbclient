@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.lcp.sdk.pb.LcmPb$LcmNotify;
 import com.baidu.lcp.sdk.pb.LcmPb$LcmRequest;
 import com.baidu.lcp.sdk.pb.LcmPb$LcmResponse;
-import com.baidu.tieba.h80;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LcmPb$RpcData extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LCM_NOTIFY_FIELD_NUMBER = 3;
@@ -44,7 +44,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<LcmPb$RpcData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$RpcData, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                LcmPb$RpcData lcmPb$RpcData = new LcmPb$RpcData(this, (h80) null);
+                LcmPb$RpcData lcmPb$RpcData = new LcmPb$RpcData(this, (x80) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -697,7 +697,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         }
     }
 
-    public /* synthetic */ LcmPb$RpcData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, h80 h80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$RpcData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, x80 x80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -740,7 +740,7 @@ public final class LcmPb$RpcData extends GeneratedMessageLite implements Message
         }
     }
 
-    public /* synthetic */ LcmPb$RpcData(GeneratedMessageLite.Builder builder, h80 h80Var) {
+    public /* synthetic */ LcmPb$RpcData(GeneratedMessageLite.Builder builder, x80 x80Var) {
         this(builder);
     }
 

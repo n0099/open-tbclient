@@ -10,7 +10,8 @@ import com.baidu.android.imsdk.internal.IMSettings;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.k70;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.tieba.t70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,10 +39,10 @@ public class IMReceiver extends BroadcastReceiver {
     private void startService(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            Intent intent = new Intent(context, k70.class);
+            Intent intent = new Intent(context, t70.class);
             intent.setAction(Constants.ACTION_START);
             try {
-                k70.e(context).d(context, intent);
+                t70.e(context).d(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -55,9 +56,9 @@ public class IMReceiver extends BroadcastReceiver {
                 startService(context);
                 return;
             }
-            intent.setClass(context, k70.class);
+            intent.setClass(context, t70.class);
             try {
-                k70.e(context).d(context, intent);
+                t70.e(context).d(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -70,7 +71,7 @@ public class IMReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             IMSettings.setContext(context.getApplicationContext());
             String action = intent.getAction();
-            if (!"android.net.conn.CONNECTIVITY_CHANGE".equals(action) && !"android.intent.action.USER_PRESENT".equals(action) && !"android.intent.action.MEDIA_CHECKING".equals(action) && !"android.intent.action.MEDIA_EJECT".equals(action) && !"android.intent.action.MEDIA_UNMOUNTED".equals(action) && !"android.intent.action.MEDIA_REMOVED".equals(action) && !"android.intent.action.ACTION_POWER_CONNECTED".equals(action) && !"android.intent.action.ACTION_POWER_DISCONNECTED".equals(action) && !"android.bluetooth.adapter.action.STATE_CHANGED".equals(action) && !McastConfig.ACTION_NETWORK_STATE_CHANGED.equals(action) && !McastConfig.ACTION_WIFI_STATE_CHANGED.equals(action)) {
+            if (!NetworkMonitor.NET_CHANGE_ACTION.equals(action) && !"android.intent.action.USER_PRESENT".equals(action) && !"android.intent.action.MEDIA_CHECKING".equals(action) && !"android.intent.action.MEDIA_EJECT".equals(action) && !"android.intent.action.MEDIA_UNMOUNTED".equals(action) && !"android.intent.action.MEDIA_REMOVED".equals(action) && !"android.intent.action.ACTION_POWER_CONNECTED".equals(action) && !"android.intent.action.ACTION_POWER_DISCONNECTED".equals(action) && !"android.bluetooth.adapter.action.STATE_CHANGED".equals(action) && !McastConfig.ACTION_NETWORK_STATE_CHANGED.equals(action) && !McastConfig.ACTION_WIFI_STATE_CHANGED.equals(action)) {
                 if (Constants.ACTION_METHOD.equals(intent.getAction())) {
                     startService(context, intent);
                     return;
@@ -81,7 +82,7 @@ public class IMReceiver extends BroadcastReceiver {
             }
             LogUtils.i(TAG, " start IMSerevice for action:" + action);
             if (IMConfigInternal.getInstance().getIMConfig(context).getRootComplete() && !Utility.isInitiativeDisconnect(context.getApplicationContext())) {
-                if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action)) {
+                if (NetworkMonitor.NET_CHANGE_ACTION.equals(action)) {
                     if (!intent.getBooleanExtra("noConnectivity", false)) {
                         startService(context, new Intent(Constants.ACTION_START));
                         BindStateManager.activeUnBind(context);

@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.hh;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class aj {
     public static final /* synthetic */ int[] a;
 

@@ -1,7 +1,7 @@
 package com.xiaomi.clientreport.manager;
 
 import com.xiaomi.push.bq;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i implements Runnable {
     public final /* synthetic */ a a;
 

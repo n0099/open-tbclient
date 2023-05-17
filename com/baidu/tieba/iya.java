@@ -1,132 +1,111 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/iya<TTResult;>; */
-/* loaded from: classes5.dex */
-public final class iya<TResult> {
+/* loaded from: classes6.dex */
+public class iya {
     public static /* synthetic */ Interceptable $ic;
+    public static final iya e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public boolean b;
-    public TResult c;
-    public Exception d;
-    public List<wya<TResult>> e;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947871224, "Lcom/baidu/tieba/iya;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947871224, "Lcom/baidu/tieba/iya;");
+                return;
+            }
+        }
+        e = new iya();
+    }
 
     public iya() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Object();
-        this.e = new ArrayList();
+        this.a = 0.0f;
+        this.b = 0.0f;
+        this.c = 0.0f;
+        this.d = 1.0f;
+        b(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
-    public final Exception c() {
+    public final float a() {
         InterceptResult invokeV;
-        Exception exc;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final float c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                exc = this.d;
-            }
-            return exc;
+            return this.b;
         }
-        return (Exception) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    public final TResult d() {
+    public final float d() {
         InterceptResult invokeV;
-        TResult tresult;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                if (this.d == null) {
-                    tresult = this.c;
-                } else {
-                    throw new RuntimeException(this.d);
-                }
-            }
-            return tresult;
+            return this.c;
         }
-        return (TResult) invokeV.objValue;
+        return invokeV.floatValue;
     }
 
-    public final boolean e() {
+    public final float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-            }
-            return false;
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return invokeV.floatValue;
     }
 
-    public final boolean f() {
+    public final void b(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = f4;
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    e();
-                    if (this.d == null) {
-                        z = true;
-                    }
-                }
-                z = false;
-            }
-            return z;
+            return String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.b), Float.valueOf(this.c), Float.valueOf(this.d));
         }
-        return invokeV.booleanValue;
-    }
-
-    public final iya<TResult> a(wya<TResult> wyaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wyaVar)) == null) {
-            synchronized (this.a) {
-                if (!this.b) {
-                    this.e.add(wyaVar);
-                } else {
-                    wyaVar.a(this);
-                }
-            }
-            return this;
-        }
-        return (iya) invokeL.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                for (wya<TResult> wyaVar : this.e) {
-                    try {
-                        wyaVar.a(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.e = null;
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

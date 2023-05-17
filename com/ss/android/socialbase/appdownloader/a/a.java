@@ -2,7 +2,7 @@ package com.ss.android.socialbase.appdownloader.a;
 
 import android.content.Context;
 import android.util.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class a implements e {
     public final Context a;
     public final com.ss.android.socialbase.downloader.g.a b;

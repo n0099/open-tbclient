@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.mw7;
+import com.baidu.tieba.ay7;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public mw7 g;
+    public ay7 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -109,12 +109,12 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d1, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090607);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090608);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090609);
-            this.e = ii.g(context, R.dimen.tbds340);
-            this.f = ii.g(context, R.dimen.tbds230);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d8, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09061e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09061f);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090620);
+            this.e = ri.g(context, R.dimen.tbds340);
+            this.f = ri.g(context, R.dimen.tbds230);
             setOnClickListener(this);
             b();
         }
@@ -142,19 +142,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.g.b), "", "")));
     }
 
-    public void setData(mw7 mw7Var) {
+    public void setData(ay7 ay7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mw7Var) == null) {
-            if (mw7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, ay7Var) == null) {
+            if (ay7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = mw7Var;
-            this.c.setText(mw7Var.d);
-            this.d.setText(mw7Var.c);
-            if (StringUtils.isNull(mw7Var.e)) {
-                int i = mw7Var.f;
+            this.g = ay7Var;
+            this.c.setText(ay7Var.d);
+            this.d.setText(ay7Var.c);
+            if (StringUtils.isNull(ay7Var.e)) {
+                int i = ay7Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -167,11 +167,11 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0812fc);
-                gradientDrawable.setColor(Color.parseColor(mw7Var.e));
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081485);
+                gradientDrawable.setColor(Color.parseColor(ay7Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = mw7Var.f;
+                int i2 = ay7Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

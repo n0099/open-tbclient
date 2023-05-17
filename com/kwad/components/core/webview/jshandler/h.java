@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.commercial.model.WebViewCommercialMsg;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h implements com.kwad.sdk.core.webview.kwai.a {
     public static void a(@NonNull WebViewCommercialMsg webViewCommercialMsg) {
         com.kwad.sdk.core.e.b.d("WebCardLogHandler", "handleH5Log actionType actionType" + webViewCommercialMsg.category);

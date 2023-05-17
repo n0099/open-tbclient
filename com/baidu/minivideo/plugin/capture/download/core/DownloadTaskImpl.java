@@ -21,7 +21,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

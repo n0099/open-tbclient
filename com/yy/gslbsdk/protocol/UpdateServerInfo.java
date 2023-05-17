@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.protocol;
 
 import java.util.LinkedList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UpdateServerInfo {
     public LinkedList<String> ips = new LinkedList<>();
     public int isp;

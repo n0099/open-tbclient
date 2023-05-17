@@ -1,7 +1,9 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface x1 extends r0, v6 {
+    void d(j2 j2Var);
 
-import com.badlogic.gdx.Files;
-/* loaded from: classes7.dex */
-public interface x1 extends Files {
-    p2 c();
+    void pause();
+
+    void resume();
 }

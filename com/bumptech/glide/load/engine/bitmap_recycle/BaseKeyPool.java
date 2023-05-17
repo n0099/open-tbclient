@@ -3,7 +3,7 @@ package com.bumptech.glide.load.engine.bitmap_recycle;
 import com.bumptech.glide.load.engine.bitmap_recycle.Poolable;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseKeyPool<T extends Poolable> {
     public static final int MAX_SIZE = 20;
     public final Queue<T> keyPool = Util.createQueue(20);

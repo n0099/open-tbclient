@@ -5,9 +5,9 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
-import com.baidu.tieba.pdb;
-import com.baidu.tieba.vab;
-/* loaded from: classes9.dex */
+import com.baidu.tieba.rfb;
+import com.baidu.tieba.ucb;
+/* loaded from: classes2.dex */
 public class NoScrollGridView extends GridView {
     public int a;
 
@@ -20,11 +20,11 @@ public class NoScrollGridView extends GridView {
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vab.PayUi_NoScrollGridView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ucb.PayUi_NoScrollGridView);
         int integer = obtainStyledAttributes.getInteger(0, 536870911);
         this.a = integer;
         if (integer != 536870911) {
-            this.a = pdb.a(integer);
+            this.a = rfb.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

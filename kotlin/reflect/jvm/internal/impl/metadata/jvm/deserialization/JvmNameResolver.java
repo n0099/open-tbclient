@@ -19,7 +19,7 @@ import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.NameResolver;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JvmNameResolver implements NameResolver {
     public static final Companion Companion = new Companion(null);
     public static final List<String> PREDEFINED_STRINGS;
@@ -29,7 +29,7 @@ public final class JvmNameResolver implements NameResolver {
     public final String[] strings;
     public final JvmProtoBuf.StringTableTypes types;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -42,7 +42,7 @@ public final class JvmNameResolver implements NameResolver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

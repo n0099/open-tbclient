@@ -13,6 +13,6 @@ import kotlin.annotation.MustBeDocumented;
 @Documented
 @Retention(RetentionPolicy.CLASS)
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface ObsoleteCoroutinesApi {
 }

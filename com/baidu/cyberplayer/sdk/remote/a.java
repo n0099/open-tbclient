@@ -6,19 +6,19 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface a extends IInterface {
 
     /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractBinderC0090a extends Binder implements a {
+    /* loaded from: classes3.dex */
+    public static abstract class AbstractBinderC0093a extends Binder implements a {
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.a$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0091a implements a {
+        /* loaded from: classes3.dex */
+        public static class C0094a implements a {
             public IBinder a;
 
-            public C0091a(IBinder iBinder) {
+            public C0094a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -94,7 +94,7 @@ public interface a extends IInterface {
             }
         }
 
-        public AbstractBinderC0090a() {
+        public AbstractBinderC0093a() {
             attachInterface(this, "com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
         }
 
@@ -103,7 +103,7 @@ public interface a extends IInterface {
                 return null;
             }
             IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemoteExtractor");
-            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0091a(iBinder) : (a) queryLocalInterface;
+            return (queryLocalInterface == null || !(queryLocalInterface instanceof a)) ? new C0094a(iBinder) : (a) queryLocalInterface;
         }
 
         @Override // android.os.IInterface

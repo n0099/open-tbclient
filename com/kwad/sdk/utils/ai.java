@@ -12,11 +12,12 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import com.kwad.sdk.service.ServiceProvider;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ai {
     public static void R(String str, String str2) {
         String str3;
@@ -123,7 +124,7 @@ public final class ai {
         if (context != null && !TextUtils.isEmpty(str)) {
             try {
                 File file = new File(str);
-                Intent intent = new Intent("android.intent.action.VIEW");
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.addFlags(3);
                 Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);

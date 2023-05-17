@@ -9,14 +9,14 @@ import android.view.ViewParent;
 import androidx.annotation.DimenRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ViewCommonUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class ViewCommonUtil {
                     iArr[1] = iArr[1] - findViewById.getHeight();
                 }
             }
-            int[] s = ii.s(activity);
+            int[] s = ri.s(activity);
             if (iArr[0] == 0 || iArr[1] == 0) {
                 iArr[0] = s[0];
                 iArr[1] = s[1];
@@ -71,9 +71,9 @@ public class ViewCommonUtil {
             if (windowVisibility != 8) {
                 rect.top = 0;
             }
-            int u = ii.u(activity);
+            int u = ri.u(activity);
             if (MenuKeyUtils.hasSmartBar()) {
-                i = ii.d(activity, 48.0f);
+                i = ri.d(activity, 48.0f);
             } else {
                 i = 0;
             }

@@ -1,7 +1,7 @@
 package com.bytedance.pangle.util;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static <T> boolean a(@Nullable T[] tArr) {
         if (tArr != null && tArr.length != 0) {

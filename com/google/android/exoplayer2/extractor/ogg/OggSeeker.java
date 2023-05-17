@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor.ogg;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.extractor.SeekMap;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface OggSeeker {
     SeekMap createSeekMap();
 

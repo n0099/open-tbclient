@@ -9,7 +9,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.Base64;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static Bitmap a(Bitmap bitmap, float f) {
         if (bitmap == null) {

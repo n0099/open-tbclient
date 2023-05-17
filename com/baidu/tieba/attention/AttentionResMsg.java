@@ -5,7 +5,6 @@ import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.tbadk.core.data.ForumTagInfo;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.util.DataExt;
@@ -21,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.FrsTabInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AttentionResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +85,7 @@ public class AttentionResMsg extends JsonHttpResponsedMessage {
                             JSONObject optJSONObject4 = optJSONArray.optJSONObject(i2);
                             if (optJSONObject4 != null) {
                                 FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
-                                builder.tab_id = Integer.valueOf(optJSONObject4.optInt(TiebaStatic.Params.TAB_ID));
+                                builder.tab_id = Integer.valueOf(optJSONObject4.optInt("tab_id"));
                                 builder.tab_type = Integer.valueOf(optJSONObject4.optInt("tab_type"));
                                 builder.tab_name = optJSONObject4.optString("tab_name");
                                 builder.tab_url = optJSONObject4.optString("tab_url");

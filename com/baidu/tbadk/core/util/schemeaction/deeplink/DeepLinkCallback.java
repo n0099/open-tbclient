@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface DeepLinkCallback {
     void onFailed(int i, String str, DeepLinkResponse deepLinkResponse);
 
     void onSuccess(String str, DeepLinkResponse deepLinkResponse);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DeepLinkResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

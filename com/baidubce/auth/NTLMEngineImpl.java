@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NTLMEngineImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Charset DEFAULT_CHARSET;
@@ -70,7 +70,7 @@ public final class NTLMEngineImpl {
         return (interceptable == null || (invokeII = interceptable.invokeII(65581, null, i, i2)) == null) ? (i >>> (32 - i2)) | (i << i2) : invokeII.intValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CipherGen {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -448,7 +448,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HMACMD5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -526,7 +526,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class MD4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -747,7 +747,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NTLMEngineException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -794,7 +794,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -992,7 +992,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Type1Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1076,7 +1076,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Type2Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1172,7 +1172,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Type3Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

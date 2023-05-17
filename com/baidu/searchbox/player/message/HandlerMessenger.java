@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.searchbox.player.utils.MainThreadUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HandlerMessenger extends AbsMessenger {
     public static final int KEY_MESSAGE_EVENT = 153;
     public static final String TAG = "HandlerMessenger";
@@ -21,7 +21,7 @@ public class HandlerMessenger extends AbsMessenger {
         return TAG;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class PrivateHandler extends Handler {
         public PrivateHandler(Looper looper) {
             super(looper);

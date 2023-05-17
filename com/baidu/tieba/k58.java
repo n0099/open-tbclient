@@ -1,59 +1,89 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatBannerViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatNameViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.data.GroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class k58 implements o58 {
+/* loaded from: classes6.dex */
+public class k58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q58 a;
 
-    public k58(q58 q58Var) {
+    public static void a(GroupInfoData groupInfoData, MetaData metaData, int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q58Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeLLI(65536, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        this.a = q58Var;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        if (metaData != null) {
+            str = metaData.getUserId();
+        } else {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        }
+        statisticItem.addParam("obj_type", i);
+        statisticItem.addParam("obj_source", 100);
+        TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.baidu.tieba.o58
-    @Nullable
-    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public static void c(GroupInfoData groupInfoData, MetaData metaData, int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == 2) {
-                return new ChatItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ab, viewGroup, false), this.a);
-            }
-            if (i == 1) {
-                return new ChatNameViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ac, viewGroup, false));
-            }
-            if (i == 3) {
-                return new ChatBannerViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a9, viewGroup, false));
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeLLI(65538, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
         }
-        return (BaseItemViewHolder) invokeLI.objValue;
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_SUCCESS);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        if (metaData != null) {
+            str = metaData.getUserId();
+        } else {
+            str = null;
+        }
+        if (!TextUtils.isEmpty(str)) {
+            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        }
+        statisticItem.addParam("obj_type", i);
+        statisticItem.addParam("obj_source", 1);
+        TiebaStatic.log(statisticItem);
+    }
+
+    public static void b(GroupInfoData groupInfoData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, groupInfoData) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_PANEL_SHOW);
+        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+        statisticItem.addParam("room_id", groupInfoData.getGroupId());
+        statisticItem.addParam("fid", groupInfoData.getForumId());
+        statisticItem.addParam("fname", groupInfoData.getForumName());
+        statisticItem.addParam("obj_source", 1);
+        TiebaStatic.log(statisticItem);
+    }
+
+    public static void d(@NonNull String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("obj_source", i2);
+            TiebaStatic.log(statisticItem);
+        }
     }
 }

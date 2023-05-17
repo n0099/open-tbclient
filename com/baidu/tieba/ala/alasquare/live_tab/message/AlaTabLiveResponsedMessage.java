@@ -3,26 +3,26 @@ package com.baidu.tieba.ala.alasquare.live_tab.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.e56;
-import com.baidu.tieba.g56;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.j56;
-import com.baidu.tieba.k56;
-import com.baidu.tieba.l56;
+import com.baidu.tieba.q66;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.s66;
+import com.baidu.tieba.v66;
+import com.baidu.tieba.w66;
+import com.baidu.tieba.x66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e56 hotLiveInfo;
-    public g56 officialRecommendLiveInfo;
-    public j56 stageLiveInfo;
-    public k56 superEntranceInfo;
-    public l56 tabAllLiveInfo;
+    public q66 hotLiveInfo;
+    public s66 officialRecommendLiveInfo;
+    public v66 stageLiveInfo;
+    public w66 superEntranceInfo;
+    public x66 tabAllLiveInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaTabLiveResponsedMessage() {
@@ -57,36 +57,36 @@ public class AlaTabLiveResponsedMessage extends JsonHttpResponsedMessage {
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("goldspace");
             if (optJSONObject2 != null) {
-                k56 k56Var = new k56();
-                this.superEntranceInfo = k56Var;
-                k56Var.a(optJSONObject2);
+                w66 w66Var = new w66();
+                this.superEntranceInfo = w66Var;
+                w66Var.a(optJSONObject2);
             }
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("stage_live");
             if (optJSONObject3 != null) {
-                j56 j56Var = new j56();
-                this.stageLiveInfo = j56Var;
-                j56Var.a(optJSONObject3, string);
+                v66 v66Var = new v66();
+                this.stageLiveInfo = v66Var;
+                v66Var.a(optJSONObject3, string);
             }
             JSONObject optJSONObject4 = optJSONObject.optJSONObject("hot_live");
             if (optJSONObject4 != null) {
-                e56 e56Var = new e56();
-                this.hotLiveInfo = e56Var;
-                e56Var.a(optJSONObject4, string);
+                q66 q66Var = new q66();
+                this.hotLiveInfo = q66Var;
+                q66Var.a(optJSONObject4, string);
             }
             JSONObject optJSONObject5 = optJSONObject.optJSONObject("official_recommend");
             if (optJSONObject5 != null) {
-                g56 g56Var = new g56();
-                this.officialRecommendLiveInfo = g56Var;
-                g56Var.a(optJSONObject5, string);
+                s66 s66Var = new s66();
+                this.officialRecommendLiveInfo = s66Var;
+                s66Var.a(optJSONObject5, string);
             }
             JSONObject optJSONObject6 = optJSONObject.optJSONObject("all_lives");
             if (optJSONObject6 != null) {
-                l56 l56Var = new l56();
-                this.tabAllLiveInfo = l56Var;
-                l56Var.a(optJSONObject6, string);
+                x66 x66Var = new x66();
+                this.tabAllLiveInfo = x66Var;
+                x66Var.a(optJSONObject6, string);
             }
             String optString = optJSONObject.optString("show_switch", null);
-            if (!hi.isEmpty(optString)) {
+            if (!qi.isEmpty(optString)) {
                 TbSingleton.getInstance().setYyCloudSwitch(optString);
             }
         }

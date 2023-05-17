@@ -12,7 +12,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static String a;
     public static List<String> b = new CopyOnWriteArrayList();

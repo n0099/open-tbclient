@@ -1,256 +1,130 @@
 package com.baidu.tieba;
 
-import android.text.InputFilter;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class q6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948045165, "Lcom/baidu/tieba/q6a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948045165, "Lcom/baidu/tieba/q6a;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements InputFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c a;
-        public int b;
-        public String c;
-
-        public a(int i, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
             }
-            this.c = "[^a-zA-Z0-9一-龥]";
-            this.b = i;
-            this.a = cVar;
-        }
-
-        public final String a(String str, String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-                return str2.replaceAll(str, "");
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null) {
-                    String a = a(this.c, charSequence.toString());
-                    int c = cs5.c(spanned.toString()) - (i4 - i3);
-                    int c2 = cs5.c(a);
-                    int i5 = this.b;
-                    int i6 = i5 - c;
-                    if (c + c2 > i5) {
-                        c cVar = this.a;
-                        if (cVar != null) {
-                            cVar.a();
-                        }
-                        return StringHelper.cutChineseAndEnglishWithSuffix(a, i6, "");
-                    }
-                    return a;
-                }
-                return charSequence;
-            }
-            return (CharSequence) invokeCommon.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements InputFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c a;
-        public EditText b;
-        public int c;
-
-        public b(EditText editText, int i, c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {editText, Integer.valueOf(i), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = editText;
-            this.c = i;
-            this.a = cVar;
-        }
-
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (spanned != null && charSequence != null) {
-                    if (" ".equals(charSequence)) {
-                        return charSequence;
-                    }
-                    int d = cs5.d(spanned.toString()) - (i4 - i3);
-                    int d2 = cs5.d(charSequence.toString());
-                    if (d == 0 && d2 > this.c && TextUtils.isEmpty(this.b.getText())) {
-                        c cVar = this.a;
-                        if (cVar != null) {
-                            cVar.a();
-                        }
-                        return cs5.l(charSequence.toString(), this.c);
-                    } else if (!TextUtils.isEmpty(this.b.getText()) && (d + d2) - cs5.j(this.b.getText().toString()) > this.c) {
-                        c cVar2 = this.a;
-                        if (cVar2 != null) {
-                            cVar2.a();
-                        }
-                        if (d2 > this.c) {
-                            return spanned.toString().substring(i3, i4);
-                        }
-                        return "";
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
                     } else {
-                        return charSequence;
+                        fArr[i2] = i3 * f;
                     }
+                    i2 = i3;
                 }
-                return charSequence;
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
             }
-            return (CharSequence) invokeCommon.objValue;
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
+        return (long[]) invokeCommon.objValue;
     }
 
-    public static boolean a(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
+    public static t6a b(v6a v6aVar, l6a l6aVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
-                long fileSize = FileHelper.getFileSize(filePath);
-                if (fileSize < 5120) {
-                    e(1, "" + fileSize);
-                    return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, v6aVar, l6aVar)) == null) {
+            if (v6aVar == null || l6aVar == null || v6aVar.e == null) {
+                return null;
+            }
+            long[] a = a(v6aVar.b, v6aVar.a);
+            MultiMediaData multiMediaData = v6aVar.e;
+            t6a t6aVar = new t6a();
+            t6aVar.e = new ArrayList();
+            t6aVar.a = multiMediaData.path;
+            t6aVar.c = v6aVar.c;
+            t6aVar.d = v6aVar.d;
+            t6aVar.b = multiMediaData.rotation;
+            for (int i = 0; i < v6aVar.b; i++) {
+                long j = multiMediaData.start + a[i];
+                n6a n6aVar = new n6a();
+                n6aVar.a = g6a.b(multiMediaData.path, j, multiMediaData.type);
+                n6aVar.b = multiMediaData.path;
+                n6aVar.f = i;
+                n6aVar.g = multiMediaData.type;
+                n6aVar.h = v6aVar.c;
+                n6aVar.i = v6aVar.d;
+                n6aVar.j = l6aVar;
+                n6aVar.d = j;
+                n6aVar.c = multiMediaData.rotation;
+                t6aVar.e.add(n6aVar);
+            }
+            return t6aVar;
+        }
+        return (t6a) invokeLL.objValue;
+    }
+
+    public static List<t6a> c(u6a u6aVar, l6a l6aVar) {
+        InterceptResult invokeLL;
+        List<n6a> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, u6aVar, l6aVar)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (u6aVar == null || l6aVar == null || u6aVar.b <= 0 || kna.e(u6aVar.e) || kna.e(u6aVar.f)) {
+                return null;
+            }
+            long[] a = a(u6aVar.b, u6aVar.a);
+            ArrayList arrayList = new ArrayList();
+            t6a t6aVar = null;
+            for (int i = 0; i < u6aVar.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(u6aVar.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) kna.c(u6aVar.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        t6aVar = new t6a();
+                        t6aVar.e = new ArrayList();
+                        t6aVar.a = multiMediaData2.path;
+                        t6aVar.c = u6aVar.c;
+                        t6aVar.d = u6aVar.d;
+                        t6aVar.b = multiMediaData2.rotation;
+                        arrayList.add(t6aVar);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) kna.c(u6aVar.e, findInputIndexInSegments), j) * 1000;
+                    n6a n6aVar = new n6a();
+                    n6aVar.a = g6a.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    n6aVar.b = multiMediaData2.path;
+                    n6aVar.f = i;
+                    n6aVar.g = multiMediaData2.type;
+                    n6aVar.h = u6aVar.c;
+                    n6aVar.i = u6aVar.d;
+                    n6aVar.d = multiMediaDataSeekTime;
+                    n6aVar.j = l6aVar;
+                    n6aVar.c = multiMediaData2.rotation;
+                    if (t6aVar != null && (list = t6aVar.e) != null) {
+                        list.add(n6aVar);
+                    }
+                    multiMediaData = multiMediaData2;
                 }
-                int[] imageFileWH = FileHelper.getImageFileWH(filePath);
-                if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
-                    e(2, imageFileWH[0] + "*" + imageFileWH[1]);
-                    return true;
-                }
             }
-            return false;
+            return arrayList;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
-            int n = f55.m().n("key_upload_pic_max_width", 0);
-            int n2 = f55.m().n("key_upload_pic_max_height", 0);
-            if (n <= 0 || n2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
-                return false;
-            }
-            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
-            if (imageFileWH[0] < n && imageFileWH[1] < n2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        String filePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, imageFileInfo)) == null) {
-            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
-                long fileSize = FileHelper.getFileSize(filePath);
-                if (fileSize > 4194304) {
-                    e(1, "" + fileSize);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return f55.m().n("show_write_title_tip_count", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static void e(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
-            TiebaStatic.log(new StatisticItem("c14021").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i).param("obj_param1", str));
-        }
-    }
-
-    public static void f(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, writeData) == null) && writeData != null && !TextUtils.isEmpty(writeData.getTitle())) {
-            f55.m().z("show_write_title_tip_count", d() + 1);
-        }
+        return (List) invokeLL.objValue;
     }
 }

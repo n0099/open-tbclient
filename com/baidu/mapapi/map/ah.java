@@ -9,7 +9,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.baidu.platform.comapi.map.al;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ah implements al {
     public final /* synthetic */ WearMapView a;
 

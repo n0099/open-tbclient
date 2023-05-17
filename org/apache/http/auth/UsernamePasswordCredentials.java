@@ -2,7 +2,7 @@ package org.apache.http.auth;
 
 import java.security.Principal;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UsernamePasswordCredentials implements Credentials {
     public UsernamePasswordCredentials(String str) {
         throw new RuntimeException("Stub!");

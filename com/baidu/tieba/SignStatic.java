@@ -38,12 +38,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SignStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<ForumData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class SignStatic {
                                     signData.parserJson(postNetData);
                                     signData.forumId = id;
                                     signData.forumName = name;
-                                } else if (!hi.isEmpty(postNetData)) {
+                                } else if (!qi.isEmpty(postNetData)) {
                                     JSONObject jSONObject = new JSONObject(postNetData);
                                     signMessage.parserJson(netWork, jSONObject);
                                     if (AntiHelper.l(netWork.getServerErrorCode()) || "199901".equals(jSONObject.optString("error_code"))) {
@@ -133,7 +133,7 @@ public class SignStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -232,7 +232,7 @@ public class SignStatic {
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = cf.n().j(false)) != null) {
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = lf.n().j(false)) != null) {
                 locationLng = String.valueOf(j.getLongitude());
                 locationLat = String.valueOf(j.getLatitude());
             }

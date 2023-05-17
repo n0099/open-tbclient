@@ -10,8 +10,8 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.bc;
-import com.baidu.tieba.gr5;
+import com.baidu.tieba.hc;
+import com.baidu.tieba.ps5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,18 +20,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AppLaunchInfoFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
-        void onFinish(gr5 gr5Var);
+        void onFinish(ps5 ps5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -108,7 +108,7 @@ public class AppLaunchInfoFetcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, message)) == null) {
             if (message != null && (obj = message.obj) != null) {
-                Object d = bc.d(obj, "intent");
+                Object d = hc.d(obj, "intent");
                 if (d instanceof Intent) {
                     return (Intent) d;
                 }
@@ -119,7 +119,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static gr5 b(Context context) {
+    public static ps5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -127,14 +127,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new gr5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new ps5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (gr5) invokeL.objValue;
+        return (ps5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -160,11 +160,11 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static gr5 c() {
+    public static ps5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Object d = bc.d(Looper.myQueue(), "mMessages");
+            Object d = hc.d(Looper.myQueue(), "mMessages");
             if (d instanceof Message) {
                 Message message = (Message) d;
                 int i = 0;
@@ -173,12 +173,12 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new gr5(Type.ACTIVITY, a2);
+                        return new ps5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new gr5(d2, null);
+                        return new ps5(d2, null);
                     }
-                    Object d3 = bc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                    Object d3 = hc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     if (d3 instanceof Message) {
                         message = (Message) d3;
                     } else {
@@ -188,27 +188,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (gr5) invokeV.objValue;
+        return (ps5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        gr5 gr5Var;
+        ps5 ps5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    gr5Var = b(context);
+                    ps5Var = b(context);
                 } else {
-                    gr5Var = null;
+                    ps5Var = null;
                 }
-                if (gr5Var == null) {
-                    gr5Var = c();
+                if (ps5Var == null) {
+                    ps5Var = c();
                 }
-                if (gr5Var == null) {
-                    gr5Var = new gr5(Type.UNKNOWN, null);
+                if (ps5Var == null) {
+                    ps5Var = new ps5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(gr5Var);
+                    aVar.onFinish(ps5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

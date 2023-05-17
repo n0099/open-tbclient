@@ -28,7 +28,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapTextureView;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TextureMapView extends ViewGroup {
     public static String i;
     public static final SparseArray<Integer> q;

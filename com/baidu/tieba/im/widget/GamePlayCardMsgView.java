@@ -25,21 +25,21 @@ import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e65;
-import com.baidu.tieba.f65;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.i18;
-import com.baidu.tieba.ii;
 import com.baidu.tieba.im.data.GamePlayOrderMsgData;
 import com.baidu.tieba.im.model.FlutterCommonModel;
 import com.baidu.tieba.im.model.IFlutterCommonDataCallback;
+import com.baidu.tieba.n75;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.w28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class GamePlayCardMsgView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,20 +61,20 @@ public final class GamePlayCardMsgView extends LinearLayout {
     public CustomMessageListener p;
     public CustomMessageListener q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GamePlayCardMsgView a;
 
         /* renamed from: com.baidu.tieba.im.widget.GamePlayCardMsgView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0322a implements View.OnClickListener {
+        /* loaded from: classes6.dex */
+        public class View$OnClickListenerC0336a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0322a(a aVar) {
+            public View$OnClickListenerC0336a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -127,7 +127,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
                 tBAlertBuilder.w(R.string.game_back_tip);
                 tBAlertBuilder.m(R.string.game_play_confirm_order);
-                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0526, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f052e, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0322a(this)));
+                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f057a, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0584, TBAlertConfig.OperateBtnStyle.MAIN, new View$OnClickListenerC0336a(this)));
                 tBAlertBuilder.i();
                 tBAlertBuilder.j(false);
                 tBAlertBuilder.z();
@@ -135,13 +135,13 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GamePlayCardMsgView a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -200,7 +200,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkCoreApplication.getInst().getCurrentActivity());
                 tBAlertBuilder.w(R.string.game_back_tip);
                 tBAlertBuilder.m(R.string.game_play_confuse_order);
-                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0526, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f052e, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f057a, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0584, TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
                 tBAlertBuilder.i();
                 tBAlertBuilder.j(false);
                 tBAlertBuilder.z();
@@ -208,7 +208,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +242,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e implements IFlutterCommonDataCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,7 +343,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -377,7 +377,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class g extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -431,7 +431,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -465,7 +465,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -502,7 +502,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class j implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -536,7 +536,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class k extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -673,7 +673,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
     private void setStrokeWith(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, tbImageView) == null) {
-            tbImageView.setBorderWidth(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            tbImageView.setBorderWidth(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             tbImageView.setBorderSurroundContent(true);
             tbImageView.setDrawBorder(true);
@@ -815,7 +815,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            g35.d(this.a).w(R.color.CAM_X0105);
+            p45.d(this.a).w(R.color.CAM_X0105);
         }
     }
 
@@ -895,7 +895,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             if (this.n == null) {
                 return false;
             }
-            return i18.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
+            return w28.w().y(this.n.getGid(), this.n.getMid(), OrmObject.jsonStrWithObject(this.n));
         }
         return invokeV.booleanValue;
     }
@@ -916,7 +916,7 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.g = (EMTextView) findViewById(R.id.msg_card_inner_order_num);
             LinearLayout linearLayout = (LinearLayout) findViewById(R.id.msg_card_inner_ll);
             this.h = linearLayout;
-            g35 d2 = g35.d(linearLayout);
+            p45 d2 = p45.d(linearLayout);
             d2.o(R.string.J_X05);
             d2.f(R.color.CAM_X0204);
             this.l = (LinearLayout) findViewById(R.id.msg_card_bottom_ll);
@@ -924,14 +924,14 @@ public final class GamePlayCardMsgView extends LinearLayout {
             this.i = (LinearLayout) findViewById(R.id.msg_card_btn_ll);
             this.j = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_main);
             this.k = (TBSpecificationBtn) findViewById(R.id.msg_card_btn_second);
-            e65 e65Var = new e65();
-            e65Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-            this.j.setConfig(e65Var);
+            n75 n75Var = new n75();
+            n75Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+            this.j.setConfig(n75Var);
             this.j.setTextSize(R.dimen.T_X08);
             this.j.setEnabled(true);
-            f65 f65Var = new f65();
-            f65Var.s(R.color.CAM_X0105);
-            this.k.setConfig(f65Var);
+            o75 o75Var = new o75();
+            o75Var.s(R.color.CAM_X0105);
+            this.k.setConfig(o75Var);
             this.k.setTextSize(R.dimen.T_X08);
             this.k.setEnabled(true);
             l("");

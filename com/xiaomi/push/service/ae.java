@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.id;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ae extends XMPushService.j {
     public final /* synthetic */ id a;
 
@@ -26,13 +26,13 @@ public final class ae extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "send wrong message ack for message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         try {
             id a = y.a((Context) this.f883a, this.a);
             a.f632a.a("error", this.f884a);

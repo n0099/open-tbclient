@@ -10,7 +10,7 @@ import com.baidu.searchbox.aperf.bosuploader.UploadUrlListener;
 import java.io.File;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BOSFileUpload extends BaseFileUpload {
     public static final String BIZ_ANR = "performance-anr";
 

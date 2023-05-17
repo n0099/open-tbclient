@@ -20,7 +20,7 @@ import com.baidubce.services.sts.model.GetSessionTokenRequest;
 import com.baidubce.services.sts.model.GetSessionTokenResponse;
 import com.baidubce.util.CheckUtils;
 import com.baidubce.util.HttpUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StsClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SESSION_TOKEN_PATH = "sessionToken";

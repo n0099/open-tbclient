@@ -11,14 +11,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.core.atomData.SupplementSignActivityConfig;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import com.baidu.tieba.dq9;
+import com.baidu.tieba.fs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SupplementSignActivity extends TBWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class SupplementSignActivity extends TBWebViewActivity {
     public int c;
     public int d;
     public CustomMessageListener e;
-    public dq9 f;
+    public fs9 f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
         this.c = 0;
         this.d = 0;
         this.e = new a(this, 2001194);
-        this.f = new dq9(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.f = new fs9(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -106,7 +106,7 @@ public class SupplementSignActivity extends TBWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.dq9
+            @Override // com.baidu.tieba.fs9
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

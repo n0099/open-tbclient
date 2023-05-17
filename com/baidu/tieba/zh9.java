@@ -1,76 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tieba.runtime.task.DownloadRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class zh9 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public final class zh9 extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized String a(Context context) {
-        InterceptResult invokeL;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            synchronized (zh9.class) {
-                try {
-                    string = context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return string;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948360094, "Lcom/baidu/tieba/zh9;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948360094, "Lcom/baidu/tieba/zh9;");
+        }
     }
 
-    public static boolean startActivity(Context context, Intent intent) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, intent)) == null) {
-            try {
-                if (!(context instanceof Activity) && intent != null) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "downloadCallbackTask" : (String) invokeV.objValue;
     }
 
-    public static boolean startActivity(Context context, Class<?> cls) {
-        InterceptResult invokeLL;
+    public zh9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, cls)) == null) {
-            try {
-                Intent intent = new Intent(context, cls);
-                if (!(context instanceof Activity)) {
-                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                }
-                context.startActivity(intent);
-                return true;
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public void execute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            DownloadRuntime.a.c();
+        }
     }
 }

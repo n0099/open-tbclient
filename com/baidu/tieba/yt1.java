@@ -1,25 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-/* loaded from: classes7.dex */
+import com.baidu.swan.apps.SwanAppActivity;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public interface yt1 {
-    gu1 a(Context context);
+    void a();
 
-    cu1 b(Context context);
+    void b(String str, wx1 wx1Var);
 
-    gu1 c(Context context);
+    void c(SwanAppActivity swanAppActivity, String str, wx1 wx1Var);
 
-    s92 d();
-
-    du1 e(Context context, int i);
-
-    gu1 f(Context context);
-
-    gu1 g(Context context);
-
-    t92 h(Context context, int i);
-
-    gu1 i(Context context);
-
-    boolean j(int i);
+    void d(String str, String str2, JSONObject jSONObject, wx1 wx1Var);
 }

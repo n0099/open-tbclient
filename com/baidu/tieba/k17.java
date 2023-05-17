@@ -1,39 +1,29 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class k17 implements dj1 {
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedKV;
+/* loaded from: classes6.dex */
+public final class k17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public k17() {
+    public static final String a(List<FeedKV> list, String key) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            for (FeedKV feedKV : list) {
+                if (Intrinsics.areEqual(feedKV.key, key)) {
+                    return feedKV.value;
+                }
             }
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.dj1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new dk6());
-            return arrayList;
-        }
-        return invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

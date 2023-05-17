@@ -4,7 +4,7 @@ import android.net.Uri;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class PriorityDataSource implements DataSource {
     public final int priority;
     public final PriorityTaskManager priorityTaskManager;

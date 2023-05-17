@@ -1,11 +1,11 @@
 package com.baidu.mapapi.map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeatMapAnimation {
     public int a;
     public AnimationType b;
     public boolean c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum AnimationType {
         Linear,
         InQuad,

@@ -76,7 +76,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ApplicationTaskPool extends BaseTaskPool {
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> viewOnActivity() {

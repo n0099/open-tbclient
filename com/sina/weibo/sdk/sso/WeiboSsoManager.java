@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a3b;
-import com.baidu.tieba.b3b;
-import com.baidu.tieba.c3b;
+import com.baidu.tieba.a5b;
+import com.baidu.tieba.y4b;
+import com.baidu.tieba.z4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WeiboSsoManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WeiboSsoManager";
     public transient /* synthetic */ FieldHolder $fh;
     public String aid;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Instance {
         public static /* synthetic */ Interceptable $ic;
         public static final WeiboSsoManager instance;
@@ -91,7 +91,7 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                WeiboSsoSdk.i().m(new b3b(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
+                WeiboSsoSdk.i().m(new z4b(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WeiboSsoManager this$0;
@@ -114,7 +114,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.b3b
+                    @Override // com.baidu.tieba.z4b
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -137,7 +137,7 @@ public final class WeiboSsoManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return a3b.n(context);
+            return y4b.n(context);
         }
         return (String) invokeL.objValue;
     }
@@ -159,12 +159,12 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
-            c3b c3bVar = new c3b();
-            c3bVar.j(context);
-            c3bVar.i(str);
-            c3bVar.k("1478195010");
-            c3bVar.l("1000_0001");
-            WeiboSsoSdk.j(c3bVar);
+            a5b a5bVar = new a5b();
+            a5bVar.j(context);
+            a5bVar.i(str);
+            a5bVar.k("1478195010");
+            a5bVar.l("1000_0001");
+            WeiboSsoSdk.j(a5bVar);
             initAid();
         }
     }

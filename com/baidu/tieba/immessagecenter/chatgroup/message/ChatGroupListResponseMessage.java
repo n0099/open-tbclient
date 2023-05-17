@@ -4,11 +4,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.a68;
-import com.baidu.tieba.b68;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.s78;
+import com.baidu.tieba.t78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,15 +51,15 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = gg.e(jSONObject.optString("error_code"), -1);
+            int e = pg.e(jSONObject.optString("error_code"), -1);
             if (e == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        b68 b68Var = new b68();
-                        b68Var.f(optJSONObject2);
-                        this.mList.add(b68Var);
+                        t78 t78Var = new t78();
+                        t78Var.f(optJSONObject2);
+                        this.mList.add(t78Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -75,9 +75,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        a68 a68Var = new a68();
-                        a68Var.c(optJSONObject4);
-                        this.mList.add(a68Var);
+                        s78 s78Var = new s78();
+                        s78Var.c(optJSONObject4);
+                        this.mList.add(s78Var);
                         return;
                     }
                     return;

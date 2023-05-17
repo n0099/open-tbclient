@@ -23,7 +23,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialButtonHelper {
     public static final boolean IS_LOLLIPOP;
     @Nullable
@@ -75,7 +75,7 @@ public class MaterialButtonHelper {
             if (surfaceColorStrokeDrawable != null) {
                 float f = this.strokeWidth;
                 if (this.shouldDrawSurfaceColorStroke) {
-                    i = MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f040180);
+                    i = MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f040190);
                 } else {
                     i = 0;
                 }
@@ -172,7 +172,7 @@ public class MaterialButtonHelper {
         materialShapeDrawable2.setTint(0);
         float f = this.strokeWidth;
         if (this.shouldDrawSurfaceColorStroke) {
-            i = MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f040180);
+            i = MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f040190);
         } else {
             i = 0;
         }

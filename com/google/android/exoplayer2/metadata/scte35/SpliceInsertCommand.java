@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SpliceInsertCommand extends SpliceCommand {
     public static final Parcelable.Creator<SpliceInsertCommand> CREATOR = new Parcelable.Creator<SpliceInsertCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceInsertCommand.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -39,7 +39,7 @@ public final class SpliceInsertCommand extends SpliceCommand {
     public final boolean spliceImmediateFlag;
     public final int uniqueProgramId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ComponentSplice {
         public final long componentSplicePlaybackPositionUs;
         public final long componentSplicePts;

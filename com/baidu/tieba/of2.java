@@ -1,17 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface of2 {
-    void a(ff2 ff2Var);
 
-    void b(ff2 ff2Var);
-
-    void c(ff2 ff2Var);
-
-    void d(ff2 ff2Var);
-
-    void e(ff2 ff2Var);
-
-    void f(ff2 ff2Var);
-
-    void g(ff2 ff2Var);
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class of2 implements PullToRefreshBase.h<NgWebView> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

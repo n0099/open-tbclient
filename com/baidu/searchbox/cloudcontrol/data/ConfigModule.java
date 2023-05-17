@@ -1,7 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConfigModule {
     public List<ConfigAction> mConfigActions;
     public String mModule;

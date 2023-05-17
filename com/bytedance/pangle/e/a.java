@@ -3,7 +3,7 @@ package com.bytedance.pangle.e;
 import com.bytedance.pangle.c;
 import com.bytedance.pangle.plugin.PluginManager;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends c.a {
     public static volatile a a;
 

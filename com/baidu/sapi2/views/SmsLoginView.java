@@ -38,11 +38,11 @@ import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ne1;
+import com.baidu.tieba.df1;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmsLoginView extends FrameLayout implements NoProguard {
     public static final String q = "extrajson";
     public static final String r = "sdk_situation";
@@ -67,7 +67,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
     public PrivacyAgreementIntercept o;
     public SmsViewLoginCallback p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface PrivacyAgreementIntercept extends NoProguard {
         public static final int LOGIN = 2;
         public static final int SNED_SMS = 1;
@@ -75,7 +75,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         boolean across(int i);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         public static final String a = "pop_login";
         public static final String b = "show";
@@ -91,10 +91,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         public static final String l = "failure";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GetCheckCodeListener implements View.OnClickListener {
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a extends CountDownTimer {
             public a(long j, long j2) {
                 super(j, j2);
@@ -226,7 +226,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -241,7 +241,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends DynamicPwdLoginCallback {
         public b() {
         }
@@ -303,7 +303,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements TextWatcher {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
@@ -335,10 +335,10 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends Dialog {
         public d(Context context) {
-            super(context, R.style.obfuscated_res_0x7f1003f6);
+            super(context, R.style.obfuscated_res_0x7f100408);
             setCancelable(false);
             setCanceledOnTouchOutside(false);
             setContentView(new TextView(context));
@@ -346,7 +346,7 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements TextWatcher {
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
@@ -453,15 +453,15 @@ public class SmsLoginView extends FrameLayout implements NoProguard {
         this.m = true;
         this.a = context;
         this.b = LayoutInflater.from(context).inflate(R.layout.layout_sapi_sdk_sms_login_view, (ViewGroup) this, true);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ne1.sapi_sdk_sms_login_view, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, df1.sapi_sdk_sms_login_view, i, 0);
         boolean z2 = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         this.c = this.b.findViewById(R.id.code_container);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091b4c);
-        this.i = this.b.findViewById(R.id.loading_container);
+        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091b9e);
+        this.i = this.b.findViewById(R.id.obfuscated_res_0x7f0915d4);
         this.e = (EditText) this.b.findViewById(R.id.check_code);
         this.f = (TextView) this.b.findViewById(R.id.get_code);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c61);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091cb5);
         this.h = this.b.findViewById(R.id.separate_line);
         a(this.d, context.getString(R.string.sapi_sdk_sms_hint_input_phone));
         a(this.e, context.getString(R.string.sapi_sdk_sms_hint_input_check_code));

@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BaseActivity extends Activity {
     public boolean a = false;
 
@@ -14,9 +14,9 @@ public class BaseActivity extends Activity {
     public void finish() {
         super.finish();
         if (this.a) {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010024);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f01001d, R.anim.obfuscated_res_0x7f010025);
         } else {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010026);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f01001d, R.anim.obfuscated_res_0x7f010027);
         }
     }
 
@@ -28,9 +28,9 @@ public class BaseActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         if (this.a) {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010021, R.anim.obfuscated_res_0x7f01001c);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001d);
         } else {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f010023, R.anim.obfuscated_res_0x7f01001d);
         }
         super.onCreate(bundle);
     }
@@ -38,9 +38,9 @@ public class BaseActivity extends Activity {
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
         if (this.a) {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010021, R.anim.obfuscated_res_0x7f01001c);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001d);
         } else {
-            overridePendingTransition(R.anim.obfuscated_res_0x7f010022, R.anim.obfuscated_res_0x7f01001c);
+            overridePendingTransition(R.anim.obfuscated_res_0x7f010023, R.anim.obfuscated_res_0x7f01001d);
         }
         super.onNewIntent(intent);
     }

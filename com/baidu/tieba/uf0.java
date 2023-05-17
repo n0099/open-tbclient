@@ -1,60 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
+import com.google.zxing.client.result.ResultParser;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
+/* loaded from: classes7.dex */
 public class uf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static MediaOneAEffect a(long j) {
-        InterceptResult invokeJ;
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
-            mediaOneAEffect.start = 0L;
-            mediaOneAEffect.end = j;
-            ArrayList arrayList = new ArrayList();
-            mediaOneAEffect.aParams = arrayList;
-            arrayList.add(c());
-            return mediaOneAEffect;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return (MediaOneAEffect) invokeJ.objValue;
     }
 
-    public static MediaAEffect b(long j) {
-        InterceptResult invokeJ;
+    public static String b(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            MediaAEffect mediaAEffect = new MediaAEffect();
-            mediaAEffect.name = "defaultScene";
-            mediaAEffect.duration = j;
-            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
-            mediaAEffect.effectType = "scene";
-            mediaAEffect.shaderConfigKey = vf0.b;
-            ArrayList arrayList = new ArrayList();
-            mediaAEffect.mediaOneAEffects = arrayList;
-            arrayList.add(a(j));
-            return mediaAEffect;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, null);
         }
-        return (MediaAEffect) invokeJ.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static ShaderParams c() {
-        InterceptResult invokeV;
+    public static String c(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ShaderParams shaderParams = new ShaderParams();
-            shaderParams.name = "scale";
-            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
-            shaderParams.values = new float[]{1.0f, 1.2f};
-            return shaderParams;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream != null) {
+                if (TextUtils.isEmpty(str)) {
+                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
+                }
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+                StringWriter stringWriter = new StringWriter();
+                char[] cArr = new char[4096];
+                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
+                    stringWriter.write(cArr, 0, read);
+                }
+                String stringWriter2 = stringWriter.toString();
+                inputStreamReader.close();
+                stringWriter.close();
+                if (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                    return stringWriter2.substring(1);
+                }
+                return stringWriter2;
+            }
+            throw new IllegalArgumentException("stream may not be null.");
         }
-        return (ShaderParams) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

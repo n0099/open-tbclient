@@ -2,7 +2,7 @@ package com.kwad.components.ad.splashscreen.d;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.components.core.widget.kwai.b {
     public d(@NonNull View view2, int i) {
         super(view2, 70);

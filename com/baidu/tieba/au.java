@@ -1,55 +1,95 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.utils.UniqueId;
+import com.baidu.bdtask.model.response.NextActive;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public final class au implements zt {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public final class au extends st<TaskResponseData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ut a;
 
-    public au() {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "response" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public au(ut utVar) {
+        super(utVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {utVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ut) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = utVar;
     }
 
-    @Override // com.baidu.tieba.zt
-    public void a(String str) {
-        BDPTask t;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.st
+    /* renamed from: c */
+    public TaskResponseData a(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        int optInt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (t = BDPTask.m.t()) != null) {
-            t.C(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                jSONObject = new JSONObject(str);
+                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                st a = this.a.a(TaskUIData.key);
+                String optString = jSONObject.optString(TaskUIData.key);
+                Intrinsics.checkExpressionValueIsNotNull(optString, "responseObj.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData == null) {
+                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("progress");
+                if (optJSONObject == null) {
+                    optJSONObject = new JSONObject();
+                }
+                int optInt2 = optJSONObject.optInt("total");
+                int optInt3 = optJSONObject.optInt(TaskProcessData.keyComplete);
+                boolean optBoolean = optJSONObject.optBoolean("done");
+                JSONObject optJSONObject2 = jSONObject.optJSONObject(TaskResponseData.keyNextActive);
+                if (optJSONObject2 == null) {
+                    optJSONObject2 = new JSONObject();
+                }
+                long optLong = optJSONObject2.optLong(NextActive.keyUtil, 0L);
+                String taskInfo = optJSONObject2.optString(NextActive.keyTaskInfo, "");
+                TaskProcessData taskProcessData = new TaskProcessData(optInt2, optInt3, optBoolean);
+                Intrinsics.checkExpressionValueIsNotNull(taskInfo, "taskInfo");
+                return new TaskResponseData(optInt, taskProcessData, taskUIData, new NextActive(optLong, taskInfo));
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return new TaskResponseData(0, null, null, null, 15, null);
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.zt
-    public void b(String str, UniqueId uniqueId) {
-        BDPTask t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) && (t = BDPTask.m.t()) != null) {
-            t.G(str, uniqueId);
-        }
-    }
-
-    @Override // com.baidu.tieba.zt
-    public void c(String str, String str2) {
-        BDPTask t;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && (t = BDPTask.m.t()) != null) {
-            t.u0(str, str2);
-        }
+        return (TaskResponseData) invokeL.objValue;
     }
 }

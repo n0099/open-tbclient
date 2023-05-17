@@ -37,7 +37,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     public FaceDetector np;
     public FaceListener nq;
     public int[] nv;
-    public a.C0057a nz;
+    public a.C0060a nz;
     public List<String> nr = new ArrayList();
     public String ns = null;
     public String nt = null;
@@ -225,7 +225,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
         String str3 = bVar2.pZ;
         String str4 = TAG;
         com.baidu.ar.h.b.c(str4, "classification result：" + this.ny.qg);
-        a.C0057a a = this.nx.a(this.ny);
+        a.C0060a a = this.nx.a(this.ny);
         if (a != null) {
             this.nz = a;
             this.nw = c.a(a.pO, str, str2, str3);
@@ -291,7 +291,7 @@ public class FaceAR extends com.baidu.ar.c implements IFace {
     }
 
     /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v2, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r3v8 */
     private void w(boolean z) {
         com.baidu.ar.filter.a s = s();

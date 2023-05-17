@@ -17,6 +17,7 @@ import com.airbnb.lottie.L;
 import com.airbnb.lottie.animation.LPaint;
 import com.airbnb.lottie.animation.content.TrimPathContent;
 import com.airbnb.lottie.animation.keyframe.FloatKeyframeAnimation;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import java.io.Closeable;
 import java.io.InterruptedIOException;
 import java.net.ProtocolException;
@@ -207,7 +208,7 @@ public final class Utils {
         Canvas canvas = new Canvas(createBitmap);
         LPaint lPaint = new LPaint();
         lPaint.setAntiAlias(true);
-        lPaint.setColor(-16776961);
+        lPaint.setColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
         canvas.drawPath(path, lPaint);
         return createBitmap;
     }

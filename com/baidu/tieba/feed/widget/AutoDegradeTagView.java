@@ -11,16 +11,16 @@ import androidx.core.view.ViewGroupKt;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b37;
-import com.baidu.tieba.c37;
+import com.baidu.tieba.b07;
+import com.baidu.tieba.d07;
+import com.baidu.tieba.e07;
+import com.baidu.tieba.f07;
 import com.baidu.tieba.feed.widget.AutoDegradeTagView;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.l17;
-import com.baidu.tieba.oy6;
-import com.baidu.tieba.qy6;
-import com.baidu.tieba.ry6;
-import com.baidu.tieba.sy6;
+import com.baidu.tieba.l47;
+import com.baidu.tieba.o47;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.p47;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.y27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,20 +36,20 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010 \n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001&B\u001b\b\u0007\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\u0012\u001a\u00020\u0013H\u0002J\u0010\u0010\u0014\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0010\u0010\u0017\u001a\u00020\u00132\u0006\u0010\u0015\u001a\u00020\u0018H\u0002J\b\u0010\u0019\u001a\u00020\u0013H\u0016J(\u0010\u001a\u001a\u00020\u00132\u0006\u0010\u001b\u001a\u00020\f2\u0006\u0010\u001c\u001a\u00020\f2\u0006\u0010\u001d\u001a\u00020\f2\u0006\u0010\u001e\u001a\u00020\fH\u0014J\b\u0010\u001f\u001a\u00020\u0013H\u0002J\u0010\u0010 \u001a\u00020\u00132\b\u0010!\u001a\u0004\u0018\u00010\u000fJ&\u0010\"\u001a\u00020\u00132\u0006\u0010\u0011\u001a\u00020\f2\u0006\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u0010\u001a\u00020\fJ\u0016\u0010#\u001a\u00020\u00132\u000e\u0010$\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010%R\u0014\u0010\b\u001a\b\u0012\u0004\u0012\u00020\n0\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u0004\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006'"}, d2 = {"Lcom/baidu/tieba/feed/widget/AutoDegradeTagView;", "Landroid/widget/LinearLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "curDegradeDataList", "", "Lcom/baidu/tieba/feed/data/EnableDegradeData;", "iconHeight", "", "intervalWidth", "onTagClickListener", "Lcom/baidu/tieba/feed/widget/AutoDegradeTagView$OnTagClickListener;", "textColorResId", "textSize", "autoCompressData", "", "insertIcon", "data", "Lcom/baidu/tieba/feed/data/EnableDegradeIconData;", "insertText", "Lcom/baidu/tieba/feed/data/EnableDegradeTextData;", "onChangeSkin", "onSizeChanged", "w", "h", "oldw", "oldh", "refreshView", "setOnTagClickListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setTagConfig", "updateData", "list", "", "OnTagClickListener", "lib-components_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
-public final class AutoDegradeTagView extends LinearLayout implements l17 {
+/* loaded from: classes5.dex */
+public final class AutoDegradeTagView extends LinearLayout implements y27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
     public int d;
-    public final List<qy6> e;
+    public final List<d07> e;
     public a f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void a(qy6 qy6Var, View view2);
+        void a(d07 d07Var, View view2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -75,7 +75,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,9 +131,9 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = ii.g(context, R.dimen.T_X07);
-        this.b = ii.g(context, R.dimen.tbds39);
-        this.c = ii.g(context, R.dimen.M_W_X002);
+        this.a = ri.g(context, R.dimen.T_X07);
+        this.b = ri.g(context, R.dimen.tbds39);
+        this.c = ri.g(context, R.dimen.M_W_X002);
         this.d = R.color.CAM_X0105;
         this.e = new ArrayList();
         setOrientation(0);
@@ -175,7 +175,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         }
     }
 
-    public final void j(List<? extends qy6> list) {
+    public final void j(List<? extends d07> list) {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
@@ -199,7 +199,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         }
     }
 
-    public static final void e(AutoDegradeTagView this$0, ry6 data, View it) {
+    public static final void e(AutoDegradeTagView this$0, e07 data, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, data, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -212,7 +212,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         }
     }
 
-    public static final void g(AutoDegradeTagView this$0, sy6 data, View it) {
+    public static final void g(AutoDegradeTagView this$0, f07 data, View it) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, this$0, data, it) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -225,17 +225,17 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         }
     }
 
-    @Override // com.baidu.tieba.l17
+    @Override // com.baidu.tieba.y27
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (View view2 : ViewGroupKt.getChildren(this)) {
                 if (view2 instanceof TextView) {
-                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f0905f2);
-                    if (tag instanceof oy6) {
-                        ((TextView) view2).setTextColor(y27.a.a((oy6) tag));
+                    Object tag = view2.getTag(R.id.obfuscated_res_0x7f090609);
+                    if (tag instanceof b07) {
+                        ((TextView) view2).setTextColor(l47.a.a((b07) tag));
                     } else {
-                        g35.d(view2).w(this.d);
+                        p45.d(view2).w(this.d);
                     }
                 }
             }
@@ -249,14 +249,14 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         }
         c();
         removeAllViews();
-        for (qy6 qy6Var : this.e) {
-            if (qy6Var instanceof ry6) {
-                d((ry6) qy6Var);
-            } else if (qy6Var instanceof sy6) {
-                f((sy6) qy6Var);
+        for (d07 d07Var : this.e) {
+            if (d07Var instanceof e07) {
+                d((e07) d07Var);
+            } else if (d07Var instanceof f07) {
+                f((f07) d07Var);
             }
         }
-        post(new Runnable() { // from class: com.baidu.tieba.e37
+        post(new Runnable() { // from class: com.baidu.tieba.r47
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -275,15 +275,15 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.e.isEmpty()) {
             return;
         }
-        for (qy6 qy6Var : this.e) {
-            qy6Var.reset();
+        for (d07 d07Var : this.e) {
+            d07Var.reset();
         }
         PriorityQueue priorityQueue = new PriorityQueue(this.e);
         while (true) {
             int i = 0;
-            for (qy6 qy6Var2 : this.e) {
-                if (qy6Var2.E()) {
-                    i += qy6Var2.o(this.a, this.b) + this.c;
+            for (d07 d07Var2 : this.e) {
+                if (d07Var2.E()) {
+                    i += d07Var2.n(this.a, this.b) + this.c;
                 }
             }
             if (i - this.c <= getWidth() || priorityQueue.isEmpty()) {
@@ -291,52 +291,52 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
             }
             Object peek = priorityQueue.peek();
             Intrinsics.checkNotNull(peek);
-            qy6 qy6Var3 = (qy6) peek;
-            if (qy6Var3.D()) {
-                if (qy6Var3.R()) {
-                    priorityQueue.remove(qy6Var3);
-                    priorityQueue.add(qy6Var3);
+            d07 d07Var3 = (d07) peek;
+            if (d07Var3.D()) {
+                if (d07Var3.Q()) {
+                    priorityQueue.remove(d07Var3);
+                    priorityQueue.add(d07Var3);
                 }
             } else {
-                qy6Var3.hide();
-                priorityQueue.remove(qy6Var3);
+                d07Var3.hide();
+                priorityQueue.remove(d07Var3);
             }
         }
     }
 
-    public final void d(final ry6 ry6Var) {
+    public final void d(final e07 e07Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ry6Var) != null) || !ry6Var.c()) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e07Var) != null) || !e07Var.c()) {
             return;
         }
         TbImageView tbImageView = new TbImageView(getContext());
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.b);
         layoutParams.gravity = 16;
-        if (ry6Var.d()) {
-            if (ry6Var.b()) {
-                b37.a(tbImageView, ry6Var.i());
-                layoutParams.width = (int) ((this.b * ry6Var.j()) / ry6Var.h());
+        if (e07Var.d()) {
+            if (e07Var.b()) {
+                o47.a(tbImageView, e07Var.j());
+                layoutParams.width = (int) ((this.b * e07Var.k()) / e07Var.h());
             } else {
-                String f = ry6Var.f();
+                String f = e07Var.f();
                 if (f == null) {
                     f = "";
                 }
-                b37.a(tbImageView, f);
-                Integer g = ry6Var.g();
+                o47.a(tbImageView, f);
+                Integer g = e07Var.g();
                 Intrinsics.checkNotNull(g);
                 float intValue = this.b * g.intValue();
-                Integer e = ry6Var.e();
+                Integer e = e07Var.e();
                 Intrinsics.checkNotNull(e);
                 layoutParams.width = (int) (intValue / e.intValue());
             }
         } else {
-            b37.a(tbImageView, ry6Var.i());
-            layoutParams.width = (int) ((this.b * ry6Var.j()) / ry6Var.h());
+            o47.a(tbImageView, e07Var.j());
+            layoutParams.width = (int) ((this.b * e07Var.k()) / e07Var.h());
         }
         layoutParams.rightMargin = this.c;
-        String J = ry6Var.J();
-        if (J != null && J.length() != 0) {
+        String I = e07Var.I();
+        if (I != null && I.length() != 0) {
             z = false;
         } else {
             z = true;
@@ -346,7 +346,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
             tbImageView.setOnClickListener(null);
         } else {
             tbImageView.setClickable(true);
-            tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f37
+            tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.s47
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -354,7 +354,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        AutoDegradeTagView.e(AutoDegradeTagView.this, ry6Var, view2);
+                        AutoDegradeTagView.e(AutoDegradeTagView.this, e07Var, view2);
                     }
                 }
             });
@@ -362,34 +362,34 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
         addView(tbImageView, layoutParams);
     }
 
-    public final void f(final sy6 sy6Var) {
+    public final void f(final f07 f07Var) {
         Unit unit;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, sy6Var) != null) || !sy6Var.e()) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, f07Var) != null) || !f07Var.e()) {
             return;
         }
         TextView textView = new TextView(getContext());
-        g35 d = g35.d(textView);
+        p45 d = p45.d(textView);
         d.w(this.d);
         d.C(R.string.F_X01);
         textView.setTextSize(0, this.a);
         textView.setSingleLine();
         textView.setIncludeFontPadding(false);
-        textView.setText(sy6Var.f());
-        oy6 g = sy6Var.g();
+        textView.setText(f07Var.f());
+        b07 g = f07Var.g();
         if (g != null) {
-            textView.setTag(R.id.obfuscated_res_0x7f0905f2, g);
-            textView.setTextColor(y27.a.a(g));
+            textView.setTag(R.id.obfuscated_res_0x7f090609, g);
+            textView.setTextColor(l47.a.a(g));
             unit = Unit.INSTANCE;
         } else {
             unit = null;
         }
         if (unit == null) {
-            textView.setTag(R.id.obfuscated_res_0x7f0905f2, null);
+            textView.setTag(R.id.obfuscated_res_0x7f090609, null);
         }
-        String J = sy6Var.J();
-        if (J != null && J.length() != 0) {
+        String I = f07Var.I();
+        if (I != null && I.length() != 0) {
             z = false;
         } else {
             z = true;
@@ -399,7 +399,7 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
             textView.setOnClickListener(null);
         } else {
             textView.setClickable(true);
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.j37
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w47
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -407,22 +407,22 @@ public final class AutoDegradeTagView extends LinearLayout implements l17 {
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        AutoDegradeTagView.g(AutoDegradeTagView.this, sy6Var, view2);
+                        AutoDegradeTagView.g(AutoDegradeTagView.this, f07Var, view2);
                     }
                 }
             });
         }
-        String b2 = sy6Var.b();
+        String b2 = f07Var.b();
         if (b2 != null) {
-            d.e(c37.a.a(b2));
+            d.e(p47.a.a(b2));
         }
-        String d2 = sy6Var.d();
+        String d2 = f07Var.d();
         if (d2 != null) {
-            d.o(c37.a.a(d2));
+            d.o(p47.a.a(d2));
         }
-        oy6 c = sy6Var.c();
+        b07 c = f07Var.c();
         if (c != null) {
-            d.f(y27.a.a(c));
+            d.f(l47.a.a(c));
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.rightMargin = this.c;

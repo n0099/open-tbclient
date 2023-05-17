@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.t;
 import com.fun.openid.sdk.v;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class u implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,23 +38,23 @@ public class u implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        t c0535a;
+        t c0549a;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this) {
                 v vVar = this.a;
                 int i = t.a.a;
                 if (iBinder == null) {
-                    c0535a = null;
+                    c0549a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IDeviceidInterface.Stub.DESCRIPTOR);
                     if (queryLocalInterface != null && (queryLocalInterface instanceof t)) {
-                        c0535a = (t) queryLocalInterface;
+                        c0549a = (t) queryLocalInterface;
                     } else {
-                        c0535a = new t.a.C0535a(iBinder);
+                        c0549a = new t.a.C0549a(iBinder);
                     }
                 }
-                vVar.b = c0535a;
+                vVar.b = c0549a;
                 v vVar2 = this.a;
                 v.a aVar = vVar2.d;
                 if (aVar != null) {

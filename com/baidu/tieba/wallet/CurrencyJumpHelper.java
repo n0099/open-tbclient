@@ -4,14 +4,14 @@ import android.content.Context;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tieba.om5;
-import com.baidu.tieba.tm5;
+import com.baidu.tieba.co5;
+import com.baidu.tieba.xn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CurrencyJumpHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,10 +72,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void goYYPay(Context context, @Nullable om5 om5Var) {
+    public static void goYYPay(Context context, @Nullable xn5 xn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, om5Var) == null) {
-            MessageManager.getInstance().runTask(2921546, String.class, new tm5(context, 0, null, null, om5Var));
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, xn5Var) == null) {
+            MessageManager.getInstance().runTask(2921546, String.class, new co5(context, 0, null, null, xn5Var));
         }
     }
 
@@ -100,20 +100,20 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void buyGiftGotoBuyTBeanPage(Context context, om5 om5Var, String str, Long l, boolean z, int i) {
+    public static void buyGiftGotoBuyTBeanPage(Context context, xn5 xn5Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, om5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, om5Var, str, l, z, i);
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, xn5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, xn5Var, str, l, z, i);
         }
     }
 
-    public static void goYYPay(Context context, @Nullable om5 om5Var, String str, Long l, boolean z, int i) {
+    public static void goYYPay(Context context, @Nullable xn5 xn5Var, String str, Long l, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, om5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            tm5 tm5Var = new tm5(context, 0, str, l, om5Var);
-            tm5Var.g = z;
-            tm5Var.f = i;
-            MessageManager.getInstance().runTask(2921546, String.class, tm5Var);
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, xn5Var, str, l, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            co5 co5Var = new co5(context, 0, str, l, xn5Var);
+            co5Var.g = z;
+            co5Var.f = i;
+            MessageManager.getInstance().runTask(2921546, String.class, co5Var);
         }
     }
 
@@ -124,10 +124,10 @@ public class CurrencyJumpHelper {
         }
     }
 
-    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable om5 om5Var) {
+    public static void gotoBuyTBeanPage(Context context, float f, String str, String str2, @Nullable xn5 xn5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, om5Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
-            goYYPay(context, om5Var);
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Float.valueOf(f), str, str2, xn5Var}) == null) && CurrencySwitchUtil.isYyIsConvert()) {
+            goYYPay(context, xn5Var);
         }
     }
 }

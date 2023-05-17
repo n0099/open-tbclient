@@ -8,7 +8,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SessionReportProvider implements Provider<SessionReport> {
     public Map<String, SessionReport> report = new ConcurrentHashMap();
 

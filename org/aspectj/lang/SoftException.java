@@ -2,7 +2,7 @@ package org.aspectj.lang;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SoftException extends RuntimeException {
     public static final boolean HAVE_JAVA_14;
     public Throwable inner;

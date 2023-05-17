@@ -1,10 +1,10 @@
 package kotlin.reflect.jvm.internal.impl.serialization.deserialization;
 
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface LocalClassifierTypeSettings {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Default implements LocalClassifierTypeSettings {
         public static final Default INSTANCE = new Default();
 

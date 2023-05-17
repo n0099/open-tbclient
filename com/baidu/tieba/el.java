@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.pyramid.annotation.Service;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
-/* loaded from: classes4.dex */
-public class el implements IWebViewDataDirectoryManager {
+/* loaded from: classes5.dex */
+public class el extends bl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
-    public void setDataDirectorySuffix() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    public Rect x;
 
     public el() {
         Interceptable interceptable = $ic;
@@ -29,7 +25,36 @@ public class el implements IWebViewDataDirectoryManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.x = new Rect();
+    }
+
+    @Override // com.baidu.tieba.uk, com.baidu.tieba.sk
+    public void h(Canvas canvas, vk vkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, vkVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
+            }
+            canvas.save();
+            if (this.w) {
+                try {
+                    canvas.clipPath(this.t);
+                } catch (Error unused) {
+                }
+            }
+            if (vkVar.e()) {
+                Bitmap bitmap = vkVar.a.getBitmap();
+                this.x.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.x, this.g, this.c);
+            } else {
+                this.x.set(0, 0, vkVar.b(), vkVar.a());
+                vkVar.b.g(canvas, this.x, this.g, this.c);
+            }
+            canvas.restore();
         }
     }
 }

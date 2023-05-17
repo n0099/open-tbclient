@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.swan.gamecenter.network.models.ReservationGameInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,46 +13,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class z14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static volatile z14 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ArrayList<b>> a;
-    public final ExecutorService b;
-    public String c;
-    public Object d;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    /* loaded from: classes8.dex */
+    public class a implements t14<List<ReservationGameInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsArrayBuffer a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ z14 c;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ z14 b;
 
-        public a(z14 z14Var, JsArrayBuffer jsArrayBuffer, b bVar) {
+        @Override // com.baidu.tieba.t14
+        public void onFail(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
+        }
+
+        public a(z14 z14Var, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z14Var, jsArrayBuffer, bVar};
+                Object[] objArr = {z14Var, strArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,211 +53,171 @@ public class z14 {
                     return;
                 }
             }
-            this.c = z14Var;
-            this.a = jsArrayBuffer;
-            this.b = bVar;
+            this.b = z14Var;
+            this.a = strArr;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.t14
+        /* renamed from: a */
+        public void onSuccess(List<ReservationGameInfo> list) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
                 return;
             }
-            String g = this.c.g(this.a.buffer());
-            File file = new File(g);
-            if (file.exists()) {
-                if (!file.isDirectory()) {
-                    this.b.a(g);
-                } else {
-                    this.b.b();
-                }
-            } else if (this.c.e(g, this.b)) {
-            } else {
-                this.c.i(g, this.a.buffer());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948307084, "Lcom/baidu/tieba/z14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948307084, "Lcom/baidu/tieba/z14;");
-                return;
-            }
-        }
-        e = ho1.a;
-    }
-
-    public static z14 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f == null) {
-                synchronized (z14.class) {
-                    if (f == null) {
-                        f = new z14();
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(list);
+            ArrayList arrayList2 = new ArrayList(Arrays.asList(this.a));
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ReservationGameInfo reservationGameInfo = (ReservationGameInfo) it.next();
+                boolean z = reservationGameInfo.auto_download;
+                String str = reservationGameInfo.app_id;
+                if (z) {
+                    String str2 = reservationGameInfo.download_url;
+                    String str3 = reservationGameInfo.package_id;
+                    if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str)) {
+                        this.b.e(str2, str3, str);
+                        s14.b().c(str);
+                        if (arrayList2.remove(str)) {
+                            this.b.f(arrayList2);
+                        }
                     }
+                } else if (arrayList2.remove(str)) {
+                    this.b.f(arrayList2);
                 }
             }
-            return f;
         }
-        return (z14) invokeV.objValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final z14 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-282652338, "Lcom/baidu/tieba/z14$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-282652338, "Lcom/baidu/tieba/z14$b;");
+                    return;
+                }
+            }
+            a = new z14();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements z04 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.z04
+        public void a(b14 b14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, b14Var) == null) {
+            }
+        }
+
+        public c(z14 z14Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z14Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public z14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static final z14 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (z14) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !ns2.h0().e(ns2.c())) {
+            return;
+        }
+        String string = uh3.a().getString("reservation_apk_ids", "");
+        if (TextUtils.isEmpty(string)) {
+            return;
+        }
+        String[] split = string.split(",");
+        if (split.length == 0) {
+            return;
+        }
+        s14.b().d(new a(this, split));
+    }
+
+    public final void e(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                f04.n().H(str, str2, str3, new c(this));
                 return;
             }
-        }
-        this.a = new HashMap<>();
-        this.b = Executors.newCachedThreadPool();
-        this.d = new Object();
-        this.c = t14.g() + t14.f();
-    }
-
-    public final boolean e(String str, b bVar) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                z = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(str, arrayList);
-                    z = false;
-                }
-                arrayList.add(bVar);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.b.execute(new a(this, jsArrayBuffer, bVar));
-        }
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                if (arrayList == null) {
-                    return;
-                }
-                boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<b> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    b next = it.next();
-                    if (!isEmpty) {
-                        if (e) {
-                            Log.e("AudioBufferManager", "save success path: " + str);
-                        }
-                        next.a(str);
-                    } else {
-                        next.b();
-                    }
-                }
-                this.a.remove(str);
-            }
-        }
-    }
-
-    public final String g(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            String h = t14.h(bArr);
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.c);
-            sb.append(bArr.length);
-            if (TextUtils.isEmpty(h)) {
-                h = "";
-            }
-            sb.append(h);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void i(String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(str + ".bdsave");
-            Closeable closeable = null;
-            try {
+            b63 y = f93.K().y();
+            if (y != null) {
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        fileOutputStream.write(bArr);
-                        fileOutputStream.flush();
-                        File file3 = new File(str);
-                        if (file3.exists() && !file3.isDirectory()) {
-                            file3.delete();
-                        }
-                        if (file2.renameTo(file3)) {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
-                            }
-                            d(str);
-                        } else {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
-                            }
-                            file2.delete();
-                            d(null);
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (e) {
-                            e.printStackTrace();
-                        }
-                        if (file2.exists()) {
-                            file2.delete();
-                        }
-                        d(null);
-                        bo4.d(fileOutputStream);
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable = ".bdsave";
-                    bo4.d(closeable);
-                    throw th;
+                    jSONObject.put("url", str);
+                    jSONObject.put("packageName", str2);
+                    jSONObject.put("apkId", str3);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bo4.d(closeable);
-                throw th;
+                Bundle bundle = new Bundle();
+                bundle.putString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "startDownload");
+                bundle.putString("data", jSONObject.toString());
+                bundle.putString("ubc_params", new f14().a());
+                y.W(bundle, t04.class);
             }
-            bo4.d(fileOutputStream);
+        }
+    }
+
+    public final void f(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (int i = 0; i < arrayList.size(); i++) {
+                stringBuffer.append(arrayList.get(i));
+                if (i < arrayList.size() - 1) {
+                    stringBuffer.append(",");
+                }
+            }
+            uh3.a().putString("reservation_apk_ids", stringBuffer.toString());
         }
     }
 }

@@ -13,7 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpLoader {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0098 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00e2 */
@@ -42,7 +42,7 @@ public class HttpLoader {
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
                     httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
                     httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-                    httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "application/json");
+                    httpURLConnection.setRequestProperty("accept", "application/json");
                     if (str2 != 0 && !TextUtils.isEmpty(str2)) {
                         httpURLConnection.setRequestProperty("Content-Length", String.valueOf(str2.getBytes().length));
                         OutputStream outputStream = httpURLConnection.getOutputStream();

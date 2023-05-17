@@ -1,40 +1,108 @@
 package com.baidu.tieba;
 
+import android.location.Address;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.location.LocationCallback;
+import com.baidu.searchbox.live.interfaces.location.LocationInfo;
+import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.tieba.lf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipThemeItem;
-/* loaded from: classes5.dex */
-public class in8 {
+/* loaded from: classes6.dex */
+public class in8 implements LiveLocationService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public in8(VipThemeItem vipThemeItem) {
+    /* loaded from: classes6.dex */
+    public class a implements lf.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LocationCallback a;
+        public final /* synthetic */ in8 b;
+
+        public a(in8 in8Var, LocationCallback locationCallback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {in8Var, locationCallback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = in8Var;
+            this.a = locationCallback;
+        }
+
+        @Override // com.baidu.tieba.lf.c
+        public void a(int i, String str, Address address) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
+                try {
+                    if (this.a != null && address != null) {
+                        this.a.onReceiveLocation(this.b.b(address));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public in8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        String str = vipThemeItem.img_url;
-        String str2 = vipThemeItem.title;
-        vipThemeItem.props_id.intValue();
-        vipThemeItem.props_category.intValue();
-        String str3 = vipThemeItem.props_category_name;
-        String str4 = vipThemeItem.desc;
-        String str5 = vipThemeItem.link;
-        String str6 = vipThemeItem.tag_img_url;
-        String str7 = vipThemeItem.update_time;
-        vipThemeItem.id.intValue();
-        vipThemeItem.type.intValue();
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public LocationInfo getLocationInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b(lf.n().k(false, null));
+        }
+        return (LocationInfo) invokeV.objValue;
+    }
+
+    public final LocationInfo b(Address address) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
+            LocationInfo locationInfo = new LocationInfo();
+            if (address != null) {
+                locationInfo.setCity(address.getLocality());
+                locationInfo.setLatitude(address.getLatitude());
+                locationInfo.setLongitude(address.getLongitude());
+                locationInfo.setProvince(address.getAdminArea());
+                locationInfo.setCounty(address.getCountryName());
+            }
+            return locationInfo;
+        }
+        return (LocationInfo) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public void requestLocate(LocationCallback locationCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
+            lf.n().k(false, new a(this, locationCallback));
+        }
     }
 }

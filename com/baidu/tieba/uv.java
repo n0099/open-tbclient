@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.util.LongSparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.core.BdCore;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.DownloadConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-@SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+import com.bytedance.sdk.openadsdk.TTAdConstant;
+import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
+import java.util.ArrayList;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.CharsKt__CharJVMKt;
+/* loaded from: classes7.dex */
 public final class uv {
     public static /* synthetic */ Interceptable $ic;
-    public static uv b;
-    public static HashMap<String, hw<String, Integer>> c;
+    public static final int[] a;
+    public static byte[] b;
+    public static final uv c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +40,8 @@ public final class uv {
                 return;
             }
         }
-        c = new HashMap<>();
+        c = new uv();
+        a = new int[]{219, 74, DownloadConstants.STATUS_WAITING_FOR_NETWORK, 53, TTAdConstant.IMAGE_MODE_LIVE, 242, 116, 193, MatroskaExtractor.ID_TRACK_ENTRY, 134, 57, MatroskaExtractor.ID_PIXEL_WIDTH, 41, 16, 150, 94, 233, 21, 62, 77, 117, 76, 201, 232, 66, 209, 249, 34, 66, 113, 52, 203};
     }
 
     public uv() {
@@ -54,71 +54,59 @@ public final class uv {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        new LongSparseArray();
     }
 
-    public static synchronized uv b() {
-        InterceptResult invokeV;
-        uv uvVar;
+    public final String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (uv.class) {
-                if (b == null) {
-                    b = new uv();
-                }
-                uvVar = b;
-            }
-            return uvVar;
-        }
-        return (uv) invokeV.objValue;
-    }
-
-    private Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            if (this.a == null) {
-                this.a = BdCore.a().getContext();
-            }
-            Context context = this.a;
-            if (context != null) {
-                return context;
-            }
-            throw new RuntimeException("context is null!");
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @Deprecated
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            a(str2, str);
-            hw<String, Integer> hwVar = c.get(str);
-            if (hwVar == null) {
-                hwVar = new hw<>(100);
-                c.put(str, hwVar);
-            }
-            Integer c2 = hwVar.c(str2);
-            if (c2 == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.length() % 2 == 0) {
                 try {
-                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
-                    hwVar.d(str2, Integer.valueOf(identifier));
-                    return identifier;
-                } catch (Error e) {
-                    e.printStackTrace();
-                    return 0;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return 0;
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 1; i < str.length(); i += 2) {
+                        arrayList.add(Byte.valueOf((byte) Integer.parseInt("" + str.charAt(i - 1) + "" + str.charAt(i), CharsKt__CharJVMKt.checkRadix(16))));
+                    }
+                    if (arrayList.size() <= 16) {
+                        return "";
+                    }
+                    if (b == null) {
+                        b = new byte[a.length];
+                        int length = a.length;
+                        for (int i2 = 0; i2 < length; i2++) {
+                            byte[] bArr = b;
+                            if (bArr == null) {
+                                Intrinsics.throwNpe();
+                            }
+                            bArr[i2] = (byte) a[i2];
+                        }
+                    }
+                    byte[] byteArray = CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(0, 16));
+                    byte[] bArr2 = b;
+                    if (bArr2 == null) {
+                        Intrinsics.throwNpe();
+                    }
+                    String a2 = ot.a(b(byteArray, bArr2, CollectionsKt___CollectionsKt.toByteArray(arrayList.subList(16, arrayList.size()))));
+                    Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(decodeBytes)");
+                    return a2;
+                } catch (Exception unused) {
                 }
             }
-            return c2.intValue();
+            return "";
         }
-        return invokeLL.intValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final byte[] b(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, bArr3)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
+            Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+            cipher.init(2, secretKeySpec, new IvParameterSpec(bArr));
+            return cipher.doFinal(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
     }
 }

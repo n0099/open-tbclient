@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.text;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface Subtitle {
     List<Cue> getCues(long j);
 

@@ -6,7 +6,7 @@ import com.bumptech.glide.load.model.DataUrlLoader;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DataSchemeDataSource implements DataSource {
     public static final String SCHEME_DATA = "data";
     public int bytesRead;

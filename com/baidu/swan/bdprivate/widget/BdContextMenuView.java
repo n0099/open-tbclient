@@ -10,15 +10,15 @@ import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h73;
-import com.baidu.tieba.ho1;
-/* loaded from: classes3.dex */
-public class BdContextMenuView extends FrameLayout implements h73.g {
+import com.baidu.tieba.q83;
+import com.baidu.tieba.qp1;
+/* loaded from: classes4.dex */
+public class BdContextMenuView extends FrameLayout implements q83.g {
     public b a;
     public Context b;
     public ListView c;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BaseAdapter {
         public abstract void a(int i);
     }
@@ -26,7 +26,7 @@ public class BdContextMenuView extends FrameLayout implements h73.g {
     public void setLayoutInCenter(boolean z) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public a() {
         }
@@ -38,7 +38,7 @@ public class BdContextMenuView extends FrameLayout implements h73.g {
     }
 
     static {
-        boolean z = ho1.a;
+        boolean z = qp1.a;
     }
 
     public BdContextMenuView(Context context) {
@@ -62,11 +62,11 @@ public class BdContextMenuView extends FrameLayout implements h73.g {
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080139));
+        setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080151));
         ListView listView = new ListView(this.b);
         this.c = listView;
         listView.setCacheColorHint(0);
-        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f0602ef));
+        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060403));
         this.c.setDividerHeight(1);
         this.c.setSelector(new ColorDrawable(0));
         addView(this.c, new FrameLayout.LayoutParams(-1, -1));

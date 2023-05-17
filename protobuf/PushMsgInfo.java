@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PushMsgInfo extends Message {
     public static final String DEFAULT_ET = "";
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
@@ -22,7 +22,7 @@ public final class PushMsgInfo extends Message {
     public static final Integer DEFAULT_GROUPTYPE = 0;
     public static final Long DEFAULT_PUSHTIME = 0L;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<PushMsgInfo> {
         public String et;
         public Long groupId;

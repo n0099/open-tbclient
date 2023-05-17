@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.types.typesApproximation;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ApproximationBounds<T> {
     public final T lower;
     public final T upper;

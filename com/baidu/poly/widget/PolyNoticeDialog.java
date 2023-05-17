@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public TextView g;
     public a h;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -41,7 +41,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d079b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07c5 : invokeV.intValue;
     }
 
     public PolyNoticeDialog() {
@@ -62,7 +62,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.c.setVisibility(0);
-            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f0100a3));
+            this.c.startAnimation(AnimationUtils.loadAnimation(this.c.getContext(), R.anim.obfuscated_res_0x7f0100b2));
         }
     }
 
@@ -150,13 +150,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba3);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba2);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b9f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba1);
-            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091b9d);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b9e);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba0);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf5);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf4);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091bf1);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf3);
+            this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bef);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf0);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf2);
             this.d.setOnClickListener(this);
             this.f.setOnClickListener(this);
             this.g.setOnClickListener(this);

@@ -8,14 +8,14 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.mj1;
-import com.baidu.tieba.t70;
-import com.baidu.tieba.wna;
-import com.baidu.tieba.x00;
+import com.baidu.tieba.ck1;
+import com.baidu.tieba.g10;
+import com.baidu.tieba.j80;
+import com.baidu.tieba.upa;
+import com.baidu.tieba.yj1;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class YaLogInitManager {
     public static final int OPEN_TYPE = 1;
     public static volatile YaLogInitManager mInstance;
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            t70.a(this.mApp, str, x00.a().getDeviceId(), 1);
+            j80.a(this.mApp, str, g10.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        wna wnaVar;
-        if (z && (wnaVar = (wna) ServiceManager.getService(wna.a)) != null) {
-            wnaVar.retry();
+        upa upaVar;
+        if (z && (upaVar = (upa) ServiceManager.getService(upa.a)) != null) {
+            upaVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            mj1.b(application);
-            if (ij1.g()) {
+            ck1.b(application);
+            if (yj1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!ij1.g()) {
+        if (!yj1.g()) {
             return;
         }
         if (z) {

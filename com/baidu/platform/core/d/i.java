@@ -13,12 +13,13 @@ import com.baidu.mapapi.search.poi.PoiFilter;
 import com.baidu.mapapi.search.poi.PoiNearbySearchOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class i extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +120,7 @@ public class i extends com.baidu.platform.base.e {
         if (poiBoundSearchOption.isExtendAdcode()) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         aVar2.a("extensions_adcode", str);
         com.baidu.platform.util.a aVar3 = this.a;
@@ -150,7 +151,7 @@ public class i extends com.baidu.platform.base.e {
         if (poiCitySearchOption.isExtendAdcode()) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         aVar.a("extensions_adcode", str);
         com.baidu.platform.util.a aVar2 = this.a;
@@ -163,7 +164,7 @@ public class i extends com.baidu.platform.base.e {
         if (poiCitySearchOption.mIsCityLimit) {
             this.a.a("city_limit", "true");
         } else {
-            this.a.a("city_limit", "false");
+            this.a.a("city_limit", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
         }
         if (poiCitySearchOption.mScope == 2 && (poiFilter = poiCitySearchOption.mPoiFilter) != null && !TextUtils.isEmpty(poiFilter.toString())) {
             this.a.a("filter", poiCitySearchOption.mPoiFilter.toString());
@@ -199,7 +200,7 @@ public class i extends com.baidu.platform.base.e {
         if (poiNearbySearchOption.isExtendAdcode()) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         aVar3.a("extensions_adcode", str);
         com.baidu.platform.util.a aVar4 = this.a;
@@ -212,7 +213,7 @@ public class i extends com.baidu.platform.base.e {
         if (poiNearbySearchOption.mRadiusLimit) {
             this.a.a("radius_limit", "true");
         } else {
-            this.a.a("radius_limit", "false");
+            this.a.a("radius_limit", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
         }
         if (poiNearbySearchOption.mScope == 2 && (poiFilter = poiNearbySearchOption.mPoiFilter) != null && !TextUtils.isEmpty(poiFilter.toString())) {
             this.a.a("filter", poiNearbySearchOption.mPoiFilter.toString());

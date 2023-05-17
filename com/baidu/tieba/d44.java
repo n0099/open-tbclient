@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-import com.baidu.tieba.hh3;
+import com.baidu.tieba.w54;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,20 +13,137 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class d44 extends fb2 {
+import java.io.File;
+import java.util.Set;
+/* loaded from: classes5.dex */
+public class d44 extends kc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public v34 c;
+    @NonNull
+    public e44 d;
+    public xg4<hi4> e;
 
-    @Override // com.baidu.tieba.fb2
-    public int U() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+    /* loaded from: classes5.dex */
+    public class a extends ug4<hi4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d44 a;
+
+        public a(d44 d44Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d44Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d44Var;
         }
-        return invokeV.intValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xg4
+        /* renamed from: l */
+        public String d(hi4 hi4Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hi4Var)) == null) {
+                return w54.d.g().getPath();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
+        /* renamed from: r */
+        public void f(hi4 hi4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, hi4Var) == null) {
+                super.f(hi4Var);
+                if (d44.f) {
+                    Log.i("ConsoleJsDownload", "onDownloading: 其它地方正在下载此包");
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zg4
+        @NonNull
+        public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bundle, set)) == null) {
+                return this.a.m(bundle, set);
+            }
+            return (Bundle) invokeLL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
+        /* renamed from: o */
+        public void e(hi4 hi4Var, ai4 ai4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, hi4Var, ai4Var) == null) {
+                super.e(hi4Var, ai4Var);
+                if (d44.f) {
+                    Log.e("ConsoleJsDownload", "onDownloadError: " + ai4Var.toString());
+                }
+                this.a.c.a(false);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
+        /* renamed from: p */
+        public void i(hi4 hi4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hi4Var) == null) {
+                super.i(hi4Var);
+                if (d44.f) {
+                    Log.i("ConsoleJsDownload", "onDownloadFinish: " + hi4Var.toString());
+                }
+                if (!tm3.a(new File(hi4Var.a), hi4Var.m)) {
+                    if (d44.f) {
+                        Log.e("ConsoleJsDownload", "onDownloadFinish: 校验签名失败");
+                    }
+                    this.a.c.a(false);
+                    return;
+                }
+                File a = this.a.d.a();
+                if (a.exists()) {
+                    kp4.j(a);
+                } else {
+                    kp4.l(a);
+                }
+                boolean U = kp4.U(hi4Var.a, a.getAbsolutePath());
+                if (U) {
+                    this.a.d.b(hi4Var.j, hi4Var.i);
+                }
+                kp4.k(hi4Var.a);
+                this.a.c.a(U);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ug4, com.baidu.tieba.xg4
+        /* renamed from: q */
+        public void c(hi4 hi4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, hi4Var) == null) {
+                super.c(hi4Var);
+                if (d44.f) {
+                    Log.i("ConsoleJsDownload", "onDownloadStart: " + hi4Var.toString());
+                }
+            }
+        }
     }
 
     static {
@@ -41,130 +159,82 @@ public class d44 extends fb2 {
                 return;
             }
         }
-        k = ho1.a;
+        f = qp1.a;
     }
 
-    @Override // com.baidu.tieba.fb2
-    public PMSDownloadType V() {
+    @Override // com.baidu.tieba.bh4
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E();
+            if (f) {
+                Log.i("ConsoleJsDownload", "onFetchSuccess");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bh4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            if (f) {
+                Log.i("ConsoleJsDownload", "onNoPackage");
+            }
+            this.c.a(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.bh4
+    public xg4<hi4> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return PMSDownloadType.SWAN_GAME_UPDATE_CORE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
         }
-        return (PMSDownloadType) invokeV.objValue;
+        return (xg4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fb2
-    public String W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return pb2.f();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fb2
-    public String X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return pb2.e();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d44(qm3<Exception> qm3Var) {
-        super(qm3Var);
+    public d44(@NonNull e44 e44Var, @NonNull v34 v34Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qm3Var};
+            Object[] objArr = {e44Var, v34Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qm3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.e = new a(this);
+        this.c = v34Var;
+        this.d = e44Var;
     }
 
-    @Override // com.baidu.tieba.fb2
-    public qj3 b0(sg4 sg4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bh4
+    public void G(om4 om4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sg4Var)) == null) {
-            if (sg4Var == null) {
-                qj3 qj3Var = new qj3();
-                qj3Var.k(14L);
-                qj3Var.b(2908L);
-                qj3Var.d("小游戏Extension包 Extension null");
-                return qj3Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, om4Var) == null) {
+            super.G(om4Var);
+            if (f) {
+                Log.i("ConsoleJsDownload", "onPrepareDownload");
             }
-            dj2 dj2Var = new dj2();
-            dj2Var.b = sg4Var.i;
-            dj2Var.a = sg4Var.j;
-            dj2Var.c = sg4Var.a;
-            dj2Var.d = sg4Var.m;
-            boolean z = true;
-            if (gi2.b(1, dj2Var) != null) {
-                z = false;
-            }
-            if (z) {
-                if (k) {
-                    Log.i("SwanGameUpdateCore", "小游戏Extension包解压成功");
-                    return null;
-                }
-                return null;
-            }
-            qj3 qj3Var2 = new qj3();
-            qj3Var2.k(14L);
-            qj3Var2.b(2908L);
-            qj3Var2.d("小游戏Extension包更新失败");
-            return qj3Var2;
         }
-        return (qj3) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fb2
-    public qj3 c0(ug4 ug4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bh4
+    public void C(ai4 ai4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ug4Var)) == null) {
-            if (k) {
-                Log.d("SwanGameUpdateCore", "onFrameworkDownloadFinish framework = " + ug4Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, ai4Var) == null) {
+            super.C(ai4Var);
+            if (f) {
+                Log.e("ConsoleJsDownload", "onFetchError: " + ai4Var.toString());
             }
-            if (ug4Var == null) {
-                qj3 qj3Var = new qj3();
-                qj3Var.k(13L);
-                qj3Var.b(2907L);
-                qj3Var.d("小游戏GameCore包 Framework null");
-                return qj3Var;
-            }
-            hh3.b c = hh3.c(ug4Var, 1);
-            bo4.k(ug4Var.a);
-            if (c.c()) {
-                if (k) {
-                    Log.d("SwanGameUpdateCore", "小游戏GameCore解压成功");
-                }
-                long e = hh3.e(1);
-                if (e > 0) {
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(117, e);
-                    return null;
-                }
-                return null;
-            }
-            qj3 qj3Var2 = new qj3();
-            qj3Var2.k(13L);
-            qj3Var2.b(2907L);
-            qj3Var2.d("小游戏GameCore包更新失败");
-            return qj3Var2;
+            this.c.a(false);
         }
-        return (qj3) invokeL.objValue;
     }
 }

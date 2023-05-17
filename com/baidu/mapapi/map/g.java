@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g implements com.baidu.mapsdkplatform.comapi.map.ab {
     public final /* synthetic */ BaiduMap a;
 

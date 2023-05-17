@@ -1,64 +1,22 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class mx3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+/* loaded from: classes6.dex */
+public interface mx3<VIEW extends View> {
+    void a(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947988001, "Lcom/baidu/tieba/mx3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947988001, "Lcom/baidu/tieba/mx3;");
-                return;
-            }
-        }
-        a = new Handler(Looper.getMainLooper());
-    }
+    void b(DownloadState downloadState);
 
-    public static void a(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
-            a.postDelayed(runnable, j);
-        }
-    }
+    mx3 c(Context context, DownloadParams downloadParams, hx3 hx3Var);
 
-    public static void d(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a.postDelayed(runnable, j);
-            } else {
-                runnable.run();
-            }
-        }
-    }
+    void d(int i);
 
-    public static void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            a.removeCallbacks(runnable);
-        }
-    }
+    void e(Object obj);
 
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            d(runnable, 0L);
-        }
-    }
+    void f();
+
+    VIEW getRealView();
 }

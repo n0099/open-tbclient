@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TextInputEditText extends AppCompatEditText {
     public final Rect parentRect;
     public boolean textInputLayoutFocusedRectEnabled;
@@ -64,7 +64,7 @@ public class TextInputEditText extends AppCompatEditText {
     }
 
     public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040284);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040295);
     }
 
     @Override // android.view.View
@@ -81,7 +81,7 @@ public class TextInputEditText extends AppCompatEditText {
     public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         this.parentRect = new Rect();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, com.google.android.material.R.styleable.TextInputEditText, i, R.style.obfuscated_res_0x7f100340, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, com.google.android.material.R.styleable.TextInputEditText, i, R.style.obfuscated_res_0x7f10034b, new int[0]);
         setTextInputLayoutFocusedRectEnabled(obtainStyledAttributes.getBoolean(0, false));
         obtainStyledAttributes.recycle();
     }
@@ -184,7 +184,7 @@ public class TextInputEditText extends AppCompatEditText {
         boolean requestRectangleOnScreen = super.requestRectangleOnScreen(rect);
         TextInputLayout textInputLayout = getTextInputLayout();
         if (textInputLayout != null && this.textInputLayoutFocusedRectEnabled) {
-            this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07048b), textInputLayout.getWidth(), textInputLayout.getHeight());
+            this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0705dc), textInputLayout.getWidth(), textInputLayout.getHeight());
             textInputLayout.requestRectangleOnScreen(this.parentRect, true);
         }
         return requestRectangleOnScreen;

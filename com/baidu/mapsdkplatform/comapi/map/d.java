@@ -47,7 +47,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static int C = 0;
@@ -118,7 +118,7 @@ public class d implements com.baidu.mapsdkplatform.comjni.a.a.a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

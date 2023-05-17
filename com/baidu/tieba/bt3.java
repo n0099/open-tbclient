@@ -2,22 +2,41 @@ package com.baidu.tieba;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 @Autowired
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class bt3 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject(force = false)
-    public static at3 a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656456, "Lcom/baidu/tieba/bt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947656456, "Lcom/baidu/tieba/bt3;");
+                return;
+            }
+        }
+        a = getContext().isDebug();
+    }
+
+    @Inject
+    public static zs3 getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return zs3.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return zs2.a();
         }
-        return (at3) invokeV.objValue;
+        return (zs3) invokeV.objValue;
     }
 }

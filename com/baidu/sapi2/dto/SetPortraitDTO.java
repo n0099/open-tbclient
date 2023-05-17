@@ -1,7 +1,7 @@
 package com.baidu.sapi2.dto;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SetPortraitDTO extends SapiDTO implements NoProguard {
     public static final int PORTRAIT_TYPE_CARTOON = 2;
     public static final int PORTRAIT_TYPE_DEFAULT = 0;

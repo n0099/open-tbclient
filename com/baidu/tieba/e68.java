@@ -1,11 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes4.dex */
-public interface e68 extends View.OnClickListener {
-    String v();
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+/* loaded from: classes5.dex */
+public class e68 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    long w();
-
-    void z1();
+    public static void a(Context context, String str) {
+        String format;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", URLEncoder.encode(str, "UTF-8"));
+        } catch (UnsupportedEncodingException unused) {
+            format = String.format("http://graph.baidu.com/details?image=%s&carousel=0&tn=tieba&promotion_name=shitu", str);
+        }
+        yu4.s(context, format);
+    }
 }

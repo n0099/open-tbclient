@@ -5,7 +5,7 @@ import android.annotation.TargetApi;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import javax.annotation.Nullable;
 @TargetApi(11)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimatedDrawable2ValueAnimatorHelper {
     public static ValueAnimator.AnimatorUpdateListener createAnimatorUpdateListener(final AnimatedDrawable2 animatedDrawable2) {
         return new ValueAnimator.AnimatorUpdateListener() { // from class: com.facebook.fresco.animation.drawable.animator.AnimatedDrawable2ValueAnimatorHelper.1

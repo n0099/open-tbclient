@@ -3,7 +3,7 @@ package com.baidu.mapapi.search.share;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareUrlResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<ShareUrlResult> CREATOR = new a();
     public String a;

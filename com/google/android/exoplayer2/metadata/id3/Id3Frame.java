@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.metadata.id3;
 
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class Id3Frame implements Metadata.Entry {
     public final String id;
 

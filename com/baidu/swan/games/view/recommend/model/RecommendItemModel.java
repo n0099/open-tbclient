@@ -3,7 +3,7 @@ package com.baidu.swan.games.view.recommend.model;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecommendItemModel implements NoProGuard {
     @SerializedName(GameGuideConfigInfo.KEY_APP_KEY)
     public String appKey;

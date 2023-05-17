@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.util.Base64;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PackageUtil {
     public static final boolean DEBUG = AppConfig.isDebug();
 

@@ -5,17 +5,16 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.searchbox.account.contants.LoginConstants;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Enums {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FingerprintAuthType {
         public static final int LOGIN = 3;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NormalizeWay {
         public static final int NONE = 0;
         public static final int PWD = 3;
@@ -23,7 +22,7 @@ public class Enums {
         public static final int SMS_EXIST = 2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PreLoginType {
         public static final int CHINA_MOBILE_OAUTH = 12;
         public static final int CHOICE_SHARE = 8;
@@ -51,7 +50,7 @@ public class Enums {
         public static final int YY = 100;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LastLoginType {
         NONE("none", 0),
         PWD("pwd", 1),
@@ -77,7 +76,7 @@ public class Enums {
         QR("qr", 20),
         HISTORY("history", 21),
         IQIYI("iqiyi", 22),
-        OTHER(ImageViewerConfig.FROM_OTHER, -1);
+        OTHER("other", -1);
         
         public String key;
         public int value;

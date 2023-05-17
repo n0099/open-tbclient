@@ -3,7 +3,7 @@ package com.baidu.searchbox.crius.util;
 import android.view.View;
 import com.baidu.crius.CriusMeasureMode;
 import com.baidu.searchbox.config.AppConfig;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SizeSpec {
     public static final boolean DEBUG = AppConfig.isDebug();
 
@@ -12,7 +12,7 @@ public class SizeSpec {
     }
 
     /* renamed from: com.baidu.searchbox.crius.util.SizeSpec$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusMeasureMode;
 

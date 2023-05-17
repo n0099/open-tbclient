@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes5.dex */
-public class mr5<KEY> {
+/* loaded from: classes6.dex */
+public class mr5 {
     public static /* synthetic */ Interceptable $ic;
+    public static mr5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<KEY> a;
+    public i95 a;
+    public ABTestExtraData b;
 
     public mr5() {
         Interceptable interceptable = $ic;
@@ -25,55 +27,74 @@ public class mr5<KEY> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashSet();
     }
 
-    public static <T> mr5<T> c() {
+    public static mr5 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new mr5<>();
+            if (c == null) {
+                synchronized (mr5.class) {
+                    if (c == null) {
+                        c = new mr5();
+                    }
+                }
+            }
+            return c;
         }
         return (mr5) invokeV.objValue;
     }
 
-    public synchronized boolean a(@NonNull KEY key) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                if (this.a.contains(key)) {
-                    return false;
-                }
-                this.a.add(key);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
             }
+            return this.b.getABTestResult();
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public synchronized boolean b(@NonNull KEY key) {
-        InterceptResult invokeL;
+    public final void a(i95 i95Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key)) == null) {
-            synchronized (this) {
-                z = !this.a.contains(key);
+        if (interceptable == null || interceptable.invokeL(1048576, this, i95Var) == null) {
+            if (i95Var != null && this.a != null && i95Var.a() == this.a.a()) {
+                z = false;
+            } else {
+                z = true;
             }
-            return z;
+            this.a = i95Var;
+            if (z) {
+                b("zan_or_cai_smallflow");
+            }
         }
-        return invokeL.booleanValue;
     }
 
-    public synchronized void d(@NonNull KEY key) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key) == null) {
-            synchronized (this) {
-                this.a.remove(key);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        }
+    }
+
+    public void e(i95 i95Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, i95Var) == null) {
+            a(i95Var);
+        }
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.b = aBTestExtraData;
         }
     }
 }

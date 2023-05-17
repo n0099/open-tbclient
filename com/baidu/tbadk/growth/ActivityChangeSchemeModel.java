@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.ig5;
-import com.baidu.tieba.w8;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.j65;
+import com.baidu.tieba.rh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ActivityChangeSchemeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,17 +99,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    ig5.c(scheme);
+                    rh5.c(scheme);
                 } else if ("MainTabActivity".equalsIgnoreCase(simpleName)) {
-                    int a = a55.a();
+                    int a = j65.a();
                     if (a != 2) {
-                        this.a.Y(a);
+                        this.a.X(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    ig5.c(scheme);
+                    rh5.c(scheme);
                 } else {
-                    this.a.X();
+                    this.a.W();
                 }
             }
         }
@@ -130,22 +130,22 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
         this.a = new a(this, CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME);
         setUniqueId(BdUniqueId.gen());
-        Z();
+        Y();
         this.a.setTag(getUniqueId());
         this.a.setSelfListener(true);
         registerListener(this.a);
     }
 
-    public final void X() {
+    public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = null;
             try {
-                Object invoke = w8.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(w8.f().b(), new Object[0]);
+                Object invoke = c9.f().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(c9.f().b(), new Object[0]);
                 if (invoke != null) {
                     str = (String) invoke;
                 }
-                ig5.b(str);
+                rh5.b(str);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -156,7 +156,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public static void Z() {
+    public static void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SPLASH_CHANGE_SCHEME, TbConfig.SERVER_ADDRESS + TbConfig.URL_GET_DEEPLINK_SCHEME);
@@ -167,17 +167,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         }
     }
 
-    public final void Y(int i) {
+    public final void X(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                ig5.b("a025");
+                rh5.b("a025");
             } else if (i == 22) {
-                ig5.b("a088");
+                rh5.b("a088");
             } else if (i == 3) {
-                ig5.b("a079");
+                rh5.b("a079");
             } else if (i == 8) {
-                ig5.b("a011");
+                rh5.b("a011");
             }
         }
     }

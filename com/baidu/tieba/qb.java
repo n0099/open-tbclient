@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qb {
     public static /* synthetic */ Interceptable $ic;
-    public static qb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IdleTaskRegister a;
-    public boolean b;
-    public boolean c;
+    public rb a;
+    public int b;
 
     public qb() {
         Interceptable interceptable = $ic;
@@ -29,57 +26,25 @@ public class qb {
                 return;
             }
         }
-        this.a = new IdleTaskRegister();
-        this.b = false;
-        this.c = false;
+        this.a = null;
+        this.b = 1;
     }
 
-    public static qb b() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                d = new qb();
-            }
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (qb) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean c() {
+    public rb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-            this.a.scheduleIdleTask(true);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            this.c = true;
-            this.a.scheduleIdleTask(false);
-        }
-    }
-
-    public void a(String str, Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (!this.b) {
-                this.a.registerIdleTask(str, runnable);
-            } else {
-                runnable.run();
-            }
-        }
+        return (rb) invokeV.objValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.inner.util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class SharedTimerTask implements Runnable {
     public static final int CANCELLED = 3;
     public static final int EXECUTED = 2;

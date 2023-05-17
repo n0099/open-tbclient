@@ -1,16 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.io.FileUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,26 +23,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+import okhttp3.Response;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+@ModifyClass
+/* loaded from: classes6.dex */
 public class nr5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile nr5 e = null;
-    public static String f = "ad_download_center";
-    public static int g = 3;
-    public static int h = 4;
-    public static String i = "MYPAGE_TAB";
-    public static String j = "POINT_VISIBLE";
-    public static String k = "POINT_GONE";
+    public static /* synthetic */ Interceptable $ic;
+    public static nr5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public SharedPreferences.Editor b;
-    public String c;
-    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -55,273 +53,411 @@ public class nr5 {
         }
     }
 
+    @Modify(description = "广告-热启动是否开启debug模式", type = 33)
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static double i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public static String m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            if (i != -1) {
+                return i != 0 ? i != 1 ? i != 2 ? i != 3 ? "PLG_Other" : "PLG_CPC" : "PLG_OperateHighly" : "PLG_OperateNormal" : "PLG_GD";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
     public nr5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.d = false;
-        this.c = TbadkCoreApplication.getCurrentAccount();
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("person_download_apks", 0);
-        this.a = sharedPreferences;
-        this.b = sharedPreferences.edit();
     }
 
-    public static nr5 c() {
+    @Modify(description = "广告-禁止初始化穿山甲", type = 33)
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (nr5.class) {
-                    if (e == null) {
-                        e = new nr5();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (o65.m().n("key_fun_cjs_init", 1) == 0) {
+                return true;
             }
-            return e;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-禁止初始化广点通", type = 33)
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (o65.m().n("key_fun_gdt_init", 1) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-禁止初始化快手", type = 33)
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (o65.m().n("key_fun_ks_init", 1) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-FRS页面混排广告条数", type = 33)
+    public static int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return o65.m().n("key_mix_frs_ad_count", 5);
+        }
+        return invokeV.intValue;
+    }
+
+    public static synchronized nr5 j() {
+        InterceptResult invokeV;
+        nr5 nr5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            synchronized (nr5.class) {
+                if (a == null) {
+                    a = new nr5();
+                }
+                nr5Var = a;
+            }
+            return nr5Var;
         }
         return (nr5) invokeV.objValue;
     }
 
-    public void b() {
+    public static int k() {
+        InterceptResult invokeV;
+        int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.FALSE));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            int s = s();
+            int t = t();
+            if (s == t || (min = Math.min(s, t)) <= 0 || min >= 10000) {
+                return 1000;
+            }
+            return min;
         }
+        return invokeV.intValue;
     }
 
-    public boolean d() {
+    public static int l() {
+        InterceptResult invokeV;
+        int max;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            int s = s();
+            int t = t();
+            if (s == t || (max = Math.max(s, t)) <= 0 || max >= 10000) {
+                return 1400;
+            }
+            return max;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            if (w()) {
+                if (ej1.b() && u()) {
+                    return true;
+                }
+                return false;
+            }
+            return u();
         }
         return invokeV.booleanValue;
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && f()) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921744));
-            r(i, false);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921740, Boolean.TRUE));
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921741));
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921742));
-        }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        try {
-            if (file.exists()) {
-                file.delete();
-            }
-        } catch (Exception e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (str != null && !str.equals("")) {
-                try {
-                    if (new File(str).exists()) {
-                        return true;
-                    }
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (str != null && !"".equals(str)) {
-                try {
-                    if (TbadkCoreApplication.getInst().getPackageManager().getApplicationInfo(str, 0) != null) {
-                        return true;
-                    }
-                } catch (PackageManager.NameNotFoundException unused) {
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (z) {
-                n(true);
-                b();
-                g();
-                return;
-            }
-            n(false);
-            p();
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0 && e2.containsKey(str)) {
-                e2.remove(str);
-                m(e2);
-            }
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public HashMap<String, String> e() {
+    @Modify(description = "广告-开屏广告第一次超时时间(新)", type = 33)
+    public static int s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                JSONArray jSONArray = new JSONArray(this.a.getString(this.c, ""));
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
-                    JSONArray names = jSONObject.names();
-                    if (names != null) {
-                        for (int i3 = 0; i3 < names.length(); i3++) {
-                            String string = names.getString(i3);
-                            hashMap.put(string, jSONObject.getString(string));
-                        }
-                    }
-                }
-                return hashMap;
-            } catch (JSONException unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            return o65.m().n("key_splash_new_policy_first_timeout", 1000);
         }
-        return (HashMap) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean f() {
+    @Modify(description = "广告-开屏广告第二次超时时间(新)", type = 33)
+    public static int t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            HashMap<String, String> e2 = e();
-            if (e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (TextUtils.isEmpty(entry.getKey()) || TextUtils.isEmpty(entry.getValue())) {
-                        break;
-                    } else if (entry.getKey().equals(i) && entry.getValue().equals(j)) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            return o65.m().n("key_splash_new_policy_second_timeout", 1400);
+        }
+        return invokeV.intValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示小熊开关(新)", type = 33)
+    public static boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
+            if (o65.m().n("key_splash_new_policy_bear_enable", 0) != 1) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void h(String str) {
+    @Modify(description = "广告-开屏是否展示序章CPC开关(新)", type = 33)
+    public static boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && str != null && str.length() > 0 && i(str)) {
-            File file = new File(str);
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.setDataAndType(UtilHelper.getUriFromFile(file, intent, TbadkCoreApplication.getInst()), "application/vnd.android.package-archive");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                TbadkCoreApplication.getInst().startActivity(intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            if (o65.m().n("key_splash_new_policy_plg_cpc_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Modify(description = "广告-开屏是否展示序章开关(新)", type = 33)
+    public static boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
+            if (o65.m().n("key_splash_new_policy_plg_enable", 0) != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return TbadkSettings.getInst().loadString(SignAllForumAdvertActivityConfig.AD_URL, null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String h = h();
+            if (!TextUtils.isEmpty(h)) {
+                lg.h().k(h, 10, null, 0, 0, null, new Object[0]);
             }
         }
     }
 
-    public void m(HashMap<String, String> hashMap) {
+    public static String g(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return;
-                }
-                this.c = TbadkCoreApplication.getCurrentAccount();
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            List<ln7> j = mn7.m().j(str);
             JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                }
-            }
-            jSONArray.put(jSONObject);
-            this.b.putString(this.c, jSONArray.toString());
-            this.b.commit();
-        }
-    }
-
-    public void r(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048592, this, str, z) == null) {
-            HashMap<String, String> e2 = e();
-            if (!TextUtils.isEmpty(str) && e2 != null && e2.size() > 0) {
-                for (Map.Entry<String, String> entry : e2.entrySet()) {
-                    if (entry != null && e2.containsKey(str)) {
-                        if (z) {
-                            e2.put(str, j);
-                        } else {
-                            e2.put(str, k);
-                        }
-                        m(e2);
+            for (ln7 ln7Var : j) {
+                for (int i2 = 0; i2 < ln7Var.e && jSONArray.length() < i; i2++) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("id", ln7Var.d + i2);
+                        jSONObject.put("ecpm", String.valueOf(ln7Var.f));
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
+            return ji.j(jSONArray.toString().getBytes(StandardCharsets.UTF_8));
         }
+        return (String) invokeLI.objValue;
+    }
+
+    public long b(File file, String str) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+            long j = 0;
+            if (TextUtils.isEmpty(str) || file == null) {
+                return 0L;
+            }
+            InputStream inputStream = null;
+            try {
+                Response executeSync = HttpManager.getDefault(AppRuntime.getAppContext()).getRequest().url(str).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200) {
+                    InputStream byteStream = executeSync.body().byteStream();
+                    if (byteStream != null) {
+                        try {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                j = FileUtils.copyStream(byteStream, fileOutputStream);
+                            } catch (Exception e) {
+                                e = e;
+                                inputStream = byteStream;
+                                try {
+                                    TiebaStatic.log(e.toString());
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    return j;
+                                } catch (Throwable th) {
+                                    th = th;
+                                    Closeables.closeSafely(inputStream);
+                                    Closeables.closeSafely(fileOutputStream);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                inputStream = byteStream;
+                                Closeables.closeSafely(inputStream);
+                                Closeables.closeSafely(fileOutputStream);
+                                throw th;
+                            }
+                        } catch (Exception e2) {
+                            e = e2;
+                            fileOutputStream = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            fileOutputStream = null;
+                        }
+                    } else {
+                        fileOutputStream = null;
+                    }
+                    inputStream = byteStream;
+                } else {
+                    fileOutputStream = null;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = null;
+            } catch (Throwable th4) {
+                th = th4;
+                fileOutputStream = null;
+            }
+            Closeables.closeSafely(inputStream);
+            Closeables.closeSafely(fileOutputStream);
+            return j;
+        }
+        return invokeLL.longValue;
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (!UbsABTestHelper.isFrsFunAdSdkTest()) {
+                return false;
+            }
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z || o(str) <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean p(Object obj) {
+        InterceptResult invokeL;
+        pr9 pr9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, obj)) == null) {
+            if (obj instanceof zz4) {
+                return true;
+            }
+            if (obj instanceof o15) {
+                pr9Var = ((o15) obj).t.funAdData;
+            } else if (obj instanceof ThreadData) {
+                pr9Var = ((ThreadData) obj).funAdData;
+            } else if (obj instanceof rr9) {
+                pr9Var = ((rr9) obj).w0;
+            } else {
+                pr9Var = null;
+            }
+            if (pr9Var != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            int i = 0;
+            for (ln7 ln7Var : mn7.m().j(str)) {
+                i += ln7Var.e;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    @Modify(description = "广告-是否需要请求frs页面的小熊广告", type = 33)
+    public static boolean r() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
+            if (o65.m().n("splash_origin_ad_strategy_key", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z && !z2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

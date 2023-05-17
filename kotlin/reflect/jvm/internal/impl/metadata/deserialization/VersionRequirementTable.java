@@ -6,13 +6,13 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class VersionRequirementTable {
     public static final Companion Companion = new Companion(null);
     public static final VersionRequirementTable EMPTY = new VersionRequirementTable(CollectionsKt__CollectionsKt.emptyList());
     public final List<ProtoBuf.VersionRequirement> infos;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

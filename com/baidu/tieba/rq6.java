@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
 public final class rq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
-    public static Map<String, String> b;
-    public static Map<String, String> c;
+    public static final rq6 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<ko6> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,35 +35,70 @@ public final class rq6 {
                 return;
             }
         }
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
-        a.put("CAM_X0906", "CAM_X0906");
-        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
-        c.put("CAM_X0906", "testMethod");
+        a = new rq6();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public rq6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (b.containsKey(str)) {
-                try {
-                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    Object invoke = declaredMethod.invoke(null, new Object[0]);
-                    if (invoke instanceof Boolean) {
-                        if (((Boolean) invoke).booleanValue()) {
-                            return a.get(str);
-                        }
-                        return str;
-                    }
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return str;
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final PointF b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            if (acquire == null) {
+                return new PointF();
+            }
+            return acquire;
+        }
+        return (PointF) invokeV.objValue;
+    }
+
+    public final RectF c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            if (acquire == null) {
+                return new RectF();
+            }
+            return acquire;
+        }
+        return (RectF) invokeV.objValue;
+    }
+
+    public final ko6 a(lo6 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            ko6 acquire = d.acquire();
+            if (acquire != null) {
+                acquire.l(data);
+                acquire.q(player.m().w());
+            } else {
+                acquire = null;
+            }
+            if (acquire == null) {
+                return new ko6(data, player);
+            }
+            return acquire;
+        }
+        return (ko6) invokeLL.objValue;
     }
 }

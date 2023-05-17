@@ -1,19 +1,57 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.Files;
-import com.badlogic.gdx.Graphics;
+import com.badlogic.gdx.Input;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class o0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public abstract class o0 implements Input {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
-    public static Graphics b;
-    public static n0 c;
-    public static Files d;
-    public static w2 e;
-    public static w2 f;
-    public static x2 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean[] a;
+    public final boolean[] b;
+    public final b7 c;
+    public int d;
+    public boolean e;
+
+    public o0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new b7();
+        this.a = new boolean[256];
+        this.b = new boolean[256];
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.c.c(i);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void b(int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (!z) {
+                this.c.f(i);
+            } else {
+                this.c.a(i);
+            }
+        }
+    }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.bddownload.core.connection.DownloadConnection;
 import java.io.IOException;
 import java.net.ProtocolException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RedirectUtil {
     public static final int HTTP_PERMANENT_REDIRECT = 308;
     public static final int HTTP_TEMPORARY_REDIRECT = 307;

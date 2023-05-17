@@ -8,13 +8,13 @@ import android.view.ViewGroup;
 import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import com.baidu.tieba.pw3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.yx3;
+/* loaded from: classes4.dex */
 public class RewardWebView extends WebView {
     public boolean a;
     public Handler b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public final /* synthetic */ String a;
 
@@ -28,7 +28,7 @@ public class RewardWebView extends WebView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
@@ -50,7 +50,7 @@ public class RewardWebView extends WebView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public final /* synthetic */ String a;
         public final /* synthetic */ ValueCallback b;
@@ -139,7 +139,7 @@ public class RewardWebView extends WebView {
 
     public final void e() {
         WebSettings settings = getSettings();
-        settings.setUserAgentString(pw3.b().i(settings.getUserAgentString()));
+        settings.setUserAgentString(yx3.b().i(settings.getUserAgentString()));
     }
 
     @Override // android.webkit.WebView

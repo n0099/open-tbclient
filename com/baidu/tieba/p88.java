@@ -1,87 +1,65 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i88;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tbadk.net.FastRequest;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class p88 extends ea8 {
+/* loaded from: classes6.dex */
+public class p88 extends FastRequest.b<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public final String b;
+    @NonNull
+    public final ChatPage c;
 
-    public p88() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: g */
+    public void e(@NonNull Void r5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
+        }
+    }
+
+    public p88(@Nullable String str, @NonNull ChatPage chatPage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, chatPage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = str;
+        this.c = chatPage;
     }
 
-    @Override // com.baidu.tieba.da8
-    public boolean a(int i, boolean z, Object obj) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tbadk.net.FastRequest.b
+    /* renamed from: f */
+    public void b(int i, @NonNull String str, @Nullable Void r7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
-            i(i);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ea8
-    public void h(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (this.a.isEmpty()) {
-                g(list);
-            } else {
-                super.h(list);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
+            super.b(i, str, r7);
+            BdLog.d("error: " + i + " " + str);
+            String str2 = this.b;
+            if (str2 != null && !StringUtils.isNull(str2)) {
+                this.c.o1(this.b, false);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ea8
-    public List<ca8> j(List list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (Object obj : list) {
-                    if (obj instanceof AbilityItem) {
-                        arrayList.add(new q88((AbilityItem) obj));
-                    } else {
-                        boolean z = obj instanceof i88.b;
-                        if (z) {
-                            Object obj2 = ((i88.b) obj).a;
-                            if (obj2 instanceof AbilityItem) {
-                                arrayList.add(new q88((AbilityItem) obj2));
-                            }
-                        }
-                        if (z) {
-                            Object obj3 = ((i88.b) obj).a;
-                            if (obj3 instanceof q88) {
-                                arrayList.add((q88) obj3);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
     }
 }

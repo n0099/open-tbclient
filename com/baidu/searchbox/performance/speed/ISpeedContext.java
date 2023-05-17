@@ -2,7 +2,7 @@ package com.baidu.searchbox.performance.speed;
 
 import android.app.Activity;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISpeedContext {
     public static final ISpeedContext EMPTY = new ISpeedContext() { // from class: com.baidu.searchbox.performance.speed.ISpeedContext.1
         @Override // com.baidu.searchbox.performance.speed.ISpeedContext

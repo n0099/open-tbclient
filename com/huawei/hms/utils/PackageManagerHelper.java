@@ -20,14 +20,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PackageManagerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PackageManager a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class PackageStates {
         public static /* synthetic */ Interceptable $ic;
         public static final PackageStates DISABLED;

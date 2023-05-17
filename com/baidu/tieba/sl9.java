@@ -1,69 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class sl9 {
+import java.util.Random;
+/* loaded from: classes7.dex */
+public class sl9 implements ul9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdTypeRecyclerView b;
-    public tl9 c;
-    public qn d;
-    public List<vm> e;
+    public int a;
+    public int b;
 
-    public sl9(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public sl9(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new LinkedList();
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        a();
+        this.a = i;
+        this.b = i2;
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.ul9
+    public boolean a(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tl9 tl9Var = new tl9(this.a);
-            this.c = tl9Var;
-            this.e.add(tl9Var);
-            qn qnVar = new qn(this.a);
-            this.d = qnVar;
-            this.e.add(qnVar);
-            this.b.addAdapters(this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
+            if (networkStatRecord == null) {
+                return false;
+            }
+            if ((networkStatRecord.from == 3 && jx4.e()) || new Random().nextInt(this.b) >= this.a) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c(List<in> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setData(list);
-        }
+        return invokeL.booleanValue;
     }
 }

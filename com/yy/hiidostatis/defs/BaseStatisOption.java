@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.defs;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseStatisOption {
     public String appId;
     public String appkey;

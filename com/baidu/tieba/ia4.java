@@ -1,27 +1,36 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.w54;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class ia4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class ia4 extends nh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ha4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ha4 a() {
-        InterceptResult invokeV;
-        ha4 ha4Var;
+    public ia4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ia4.class) {
-                if (a == null) {
-                    a = new ha4();
-                }
-                ha4Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ha4Var;
         }
-        return (ha4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ph2
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            w54.d.d(str);
+            ql2.k(str);
+            ka4.k(str);
+        }
     }
 }

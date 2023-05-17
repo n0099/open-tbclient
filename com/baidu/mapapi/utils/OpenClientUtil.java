@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.IntentConstants;
+/* loaded from: classes3.dex */
 public class OpenClientUtil {
     public static int getBaiduMapVersion(Context context) {
         if (context == null) {
@@ -26,7 +27,7 @@ public class OpenClientUtil {
         }
         String b = b.b(context);
         Intent intent = new Intent();
-        intent.setAction("android.intent.action.VIEW");
+        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
         intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b + PreferencesUtil.RIGHT_MOUNT));
         context.startActivity(intent);
     }

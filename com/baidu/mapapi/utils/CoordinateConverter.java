@@ -3,12 +3,12 @@ package com.baidu.mapapi.utils;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CoordinateConverter {
     public LatLng a;
     public CoordType b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum CoordType {
         GPS,
         COMMON,

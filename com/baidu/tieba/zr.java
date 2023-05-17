@@ -1,101 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes7.dex */
-public final class zr {
+import java.nio.ByteBuffer;
+/* loaded from: classes8.dex */
+public class zr {
     public static /* synthetic */ Interceptable $ic;
-    public static final zr b;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public static final zr c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static ur a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (zr) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            ur urVar = null;
+            if (bArr == null) {
+                return null;
+            }
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                urVar = new ur();
+                wrap.get();
+                wrap.get();
+                urVar.a(wrap.get());
+                urVar.f(wrap.get());
+                int i = wrap.getShort();
+                urVar.c(i);
+                int i2 = wrap.getInt();
+                urVar.b(i2);
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                urVar.j(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    urVar.l(bArr3);
                 }
             }
+            return urVar;
         }
-
-        public final zr a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return zr.b;
-            }
-            return (zr) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
+        return (ur) invokeL.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448323957, "Lcom/baidu/tieba/zr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448323957, "Lcom/baidu/tieba/zr;");
-                return;
-            }
-        }
-        c = new a(null);
-        b = new zr("https://ug.baidu.com");
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
+    public static byte[] b(ur urVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public zr(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, urVar)) == null) {
+            if (urVar == null) {
+                return null;
             }
+            ByteBuffer allocate = ByteBuffer.allocate(urVar.m() + 12 + urVar.n());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (urVar.e() != null && urVar.e().length == 2) {
+                allocate.put(urVar.e()[0]);
+                allocate.put(urVar.e()[1]);
+                allocate.put(urVar.i());
+                allocate.put(urVar.k());
+                if (urVar.o() != null && urVar.o().length != 0) {
+                    int length = urVar.o().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (urVar.p() != null && urVar.p().length != 0) {
+                        allocate.putInt(urVar.p().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    if (urVar.o() != null) {
+                        allocate.put(urVar.o());
+                    }
+                    if (urVar.p() != null) {
+                        allocate.put(urVar.p());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
         }
-        this.a = str;
+        return (byte[]) invokeL.objValue;
     }
 }

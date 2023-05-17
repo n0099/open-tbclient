@@ -17,7 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PlayerPolicyImplement implements IPlayerPolicy {
     public static final int ADD_OBSERVER_WORK_MSG = 2;
     public static final int JELLY_BEAN_MR2 = 18;

@@ -6,10 +6,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.qk9;
+import com.baidu.tieba.sm9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +20,8 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001BC\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\u0006\u0010\b\u001a\u00020\t\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b\u0012\u0006\u0010\r\u001a\u00020\u000e¢\u0006\u0002\u0010\u000fJ\u0006\u0010\u001b\u001a\u00020\u001cJ\u0006\u0010\u001d\u001a\u00020\u001cJ\u0006\u0010\u001e\u001a\u00020\u001cR\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u0015\u001a\u0004\b\u0018\u0010\u0019¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/sprite/edgefloat/SpriteNotificationEdgeFloat;", "", "activity", "Landroid/app/Activity;", NotificationCompat.WearableExtender.KEY_GRAVITY, "", "startX", "startY", "canDrag", "", "pageSupportList", "", "", NativeConstants.TYPE_VIEW, "Landroid/view/View;", "(Landroid/app/Activity;IIIZLjava/util/List;Landroid/view/View;)V", "edgeFloat", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "getEdgeFloat", "()Lcom/baidu/tieba/edgefloat/EdgeFloat;", "edgeFloat$delegate", "Lkotlin/Lazy;", "tipContainer", "Landroid/widget/FrameLayout;", "getTipContainer", "()Landroid/widget/FrameLayout;", "tipContainer$delegate", "hide", "", "release", "show", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
+@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001BC\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\u0006\u0010\b\u001a\u00020\t\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b\u0012\u0006\u0010\r\u001a\u00020\u000e¢\u0006\u0002\u0010\u000fJ\u0006\u0010\u001b\u001a\u00020\u001cJ\u0006\u0010\u001d\u001a\u00020\u001cJ\u0006\u0010\u001e\u001a\u00020\u001cR\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u0015\u001a\u0004\b\u0018\u0010\u0019¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/sprite/edgefloat/SpriteNotificationEdgeFloat;", "", "activity", "Landroid/app/Activity;", NotificationCompat.WearableExtender.KEY_GRAVITY, "", "startX", "startY", "canDrag", "", "pageSupportList", "", "", "view", "Landroid/view/View;", "(Landroid/app/Activity;IIIZLjava/util/List;Landroid/view/View;)V", "edgeFloat", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "getEdgeFloat", "()Lcom/baidu/tieba/edgefloat/EdgeFloat;", "edgeFloat$delegate", "Lkotlin/Lazy;", "tipContainer", "Landroid/widget/FrameLayout;", "getTipContainer", "()Landroid/widget/FrameLayout;", "tipContainer$delegate", "hide", "", "release", "show", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes7.dex */
 public final class SpriteNotificationEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -140,15 +139,15 @@ public final class SpriteNotificationEdgeFloat {
                 }
                 c = this.this$0.c();
                 c.addView(this.$view);
-                qk9 qk9Var = new qk9(this.$activity);
+                sm9 sm9Var = new sm9(this.$activity);
                 c2 = this.this$0.c();
-                qk9Var.I(c2);
-                qk9Var.w(this.$gravity);
-                qk9Var.E(this.$startX);
-                qk9Var.F(this.$startY);
-                qk9Var.d(this.$canDrag);
-                qk9Var.B(this.$pageSupportList);
-                return qk9Var.c();
+                sm9Var.I(c2);
+                sm9Var.w(this.$gravity);
+                sm9Var.E(this.$startX);
+                sm9Var.F(this.$startY);
+                sm9Var.d(this.$canDrag);
+                sm9Var.B(this.$pageSupportList);
+                return sm9Var.c();
             }
         });
     }

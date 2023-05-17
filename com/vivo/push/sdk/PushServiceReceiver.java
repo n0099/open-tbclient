@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.HandlerThread;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +22,7 @@ import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.VivoPushException;
 import com.vivo.push.util.u;
 import com.vivo.push.util.x;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static HandlerThread a;
@@ -29,7 +30,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +126,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             Context context2 = ContextDelegate.getContext(context);
             String action = intent.getAction();
-            if ("android.net.conn.CONNECTIVITY_CHANGE".equals(action) || "android.intent.action.ACTION_POWER_CONNECTED".equals(action) || "android.intent.action.ACTION_POWER_DISCONNECTED".equals(action)) {
+            if (NetworkMonitor.NET_CHANGE_ACTION.equals(action) || "android.intent.action.ACTION_POWER_CONNECTED".equals(action) || "android.intent.action.ACTION_POWER_DISCONNECTED".equals(action)) {
                 if (a == null) {
                     HandlerThread handlerThread = new HandlerThread("PushServiceReceiver");
                     a = handlerThread;

@@ -3,7 +3,7 @@ package com.baidu.lcp.sdk.pb;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.tieba.h80;
+import com.baidu.tieba.x80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LcmPb$LcmRequest extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_FIELD_NUMBER = 5;
@@ -50,7 +50,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
     public long timestamp_;
     public Object token_;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<LcmPb$LcmRequest> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmRequest, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +309,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (h80) null);
+                LcmPb$LcmRequest lcmPb$LcmRequest = new LcmPb$LcmRequest(this, (x80) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -854,7 +854,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         }
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, h80 h80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmRequest(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, x80 x80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -880,7 +880,7 @@ public final class LcmPb$LcmRequest extends GeneratedMessageLite implements Mess
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, h80 h80Var) {
+    public /* synthetic */ LcmPb$LcmRequest(GeneratedMessageLite.Builder builder, x80 x80Var) {
         this(builder);
     }
 

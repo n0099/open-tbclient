@@ -8,11 +8,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomSheetDialogFragment extends AppCompatDialogFragment {
     public boolean waitingForDismissAllowingStateLoss;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class BottomSheetDismissCallback extends BottomSheetBehavior.BottomSheetCallback {
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
         public void onSlide(@NonNull View view2, float f) {

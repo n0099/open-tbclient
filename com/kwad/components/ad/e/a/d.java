@@ -3,7 +3,7 @@ package com.kwad.components.ad.e.a;
 import android.view.View;
 import com.baidu.tieba.R;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.components.ad.e.kwai.a {
     public View jV;
 
@@ -43,6 +43,6 @@ public final class d extends com.kwad.components.ad.e.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.jV = findViewById(R.id.obfuscated_res_0x7f0913a0);
+        this.jV = findViewById(R.id.obfuscated_res_0x7f0913db);
     }
 }

@@ -1,145 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.lego.LegoItemHolder;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
-/* loaded from: classes3.dex */
-public abstract class ah7 implements ch7 {
+/* loaded from: classes4.dex */
+public class ah7 extends c87<ICardInfo, LegoItemHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
+    public ICardInfo l;
 
-    @Override // com.baidu.tieba.ch7
-    @Nullable
-    @CallSuper
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ch7
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ih7
-    public void d(int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ch7
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ih7
-    public void i(long j, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ih7
-    public void j(@Nullable String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ih7
-    public void k(@NonNull LogicField logicField, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ch7
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
-            return 8;
-        }
-        return invokeL.intValue;
-    }
-
-    public abstract void m();
-
-    @Override // com.baidu.tieba.ih7
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    public ah7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ah7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        un9.b();
     }
 
-    @Override // com.baidu.tieba.ch7
-    @NonNull
-    public gh7 e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: G */
+    public View getView(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.w1().j0();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo})) == null) {
+            this.l = iCardInfo;
+            return super.getView(i, view2, viewGroup, iCardInfo);
         }
-        return (gh7) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.ih7
-    public void onDestory() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: H */
+    public LegoItemHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
-            this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            gj8 a = li8.h().a(this.c, this.l, 1);
+            if (a == null) {
+                return null;
+            }
+            a.f(this.mPageId);
+            return new LegoItemHolder(a);
         }
+        return (LegoItemHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ch7
-    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    /* renamed from: I */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ICardInfo iCardInfo, LegoItemHolder legoItemHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iCardInfo, legoItemHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) iCardInfo, (ICardInfo) legoItemHolder);
+            View view3 = legoItemHolder.getView();
+            if (view3 != null && iCardInfo != null) {
+                ((gj8) view3).update(iCardInfo);
+            }
+            return view3;
         }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        m();
+        return (View) invokeCommon.objValue;
     }
 }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class FocusCircleView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class FocusCircleView extends View {
     public boolean e;
     public Bitmap f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,8 +52,8 @@ public class FocusCircleView extends View {
         }
 
         /* renamed from: com.baidu.tieba.view.widget.FocusCircleView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0461a implements Animator.AnimatorListener {
+        /* loaded from: classes7.dex */
+        public class C0479a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -79,7 +79,7 @@ public class FocusCircleView extends View {
                 }
             }
 
-            public C0461a(a aVar) {
+            public C0479a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -141,7 +141,7 @@ public class FocusCircleView extends View {
                     FocusCircleView focusCircleView = this.a;
                     focusCircleView.d = ObjectAnimator.ofFloat(focusCircleView, Key.ALPHA, 1.0f, 0.0f);
                     this.a.d.setDuration(960L);
-                    this.a.d.addListener(new C0461a(this));
+                    this.a.d.addListener(new C0479a(this));
                 }
                 this.a.d.start();
             }
@@ -260,7 +260,7 @@ public class FocusCircleView extends View {
             this.a.setColor(Color.parseColor("#ffffffff"));
             this.a.setStrokeWidth(this.b);
             setAlpha(0.0f);
-            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080440), 180);
+            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080495), 180);
         }
     }
 }

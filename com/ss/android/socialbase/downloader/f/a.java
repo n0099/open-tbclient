@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public final byte[] a;
     public e b;

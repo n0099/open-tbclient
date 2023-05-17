@@ -6,7 +6,7 @@ import kotlin.LazyThreadSafetyMode;
 import kotlin.jvm.functions.Function0;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StarProjectionImpl extends TypeProjectionBase {
     public final Lazy _type$delegate = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.PUBLICATION, (Function0) new Function0<KotlinType>() { // from class: kotlin.reflect.jvm.internal.impl.types.StarProjectionImpl$_type$2
         {

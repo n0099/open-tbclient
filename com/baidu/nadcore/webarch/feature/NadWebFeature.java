@@ -2,11 +2,11 @@ package com.baidu.nadcore.webarch.feature;
 
 import android.content.Context;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NadWebFeature {
     public STATUS a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum STATUS {
         ENABLE,
         DISABLE

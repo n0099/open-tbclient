@@ -1,107 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SimpleUser;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class uz5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final uz5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View.OnClickListener a;
-    public BaseActivity b;
-    public LinearLayout c;
-    public LinearLayout d;
-    public TbSettingTextTipView e;
-    public TbSettingTextTipView f;
-    public TextView g;
+    public SparseArray<tz5> a;
 
-    public uz5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948228313, "Lcom/baidu/tieba/uz5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948228313, "Lcom/baidu/tieba/uz5;");
+                return;
+            }
+        }
+        b = new uz5();
+    }
+
+    public uz5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = baseActivity;
-        this.a = onClickListener;
-        b();
+        this.a = new SparseArray<>();
     }
 
-    public View a() {
+    public static uz5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (View) invokeV.objValue;
+        return (uz5) invokeV.objValue;
     }
 
-    public void c() {
+    public tz5 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.removeAllViews();
-            this.b = null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.get(i);
         }
+        return (tz5) invokeI.objValue;
     }
 
-    public final void b() {
+    public void c(int i, tz5 tz5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0025, (ViewGroup) null);
-            this.c = linearLayout;
-            this.d = (LinearLayout) linearLayout.findViewById(R.id.content_container);
-            this.e = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f09034a);
-            this.g = (TextView) this.c.findViewById(R.id.tv_title);
-            this.f = (TbSettingTextTipView) this.c.findViewById(R.id.obfuscated_res_0x7f09005b);
-            this.e.a();
-            this.f.a();
-            this.e.setOnClickListener(this.a);
-            this.f.setOnClickListener(this.a);
-        }
-    }
-
-    public void d(SimpleUser simpleUser) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, simpleUser) != null) || simpleUser == null) {
-            return;
-        }
-        this.f.setTip(simpleUser.block_msg);
-    }
-
-    public void e(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            yv4 layoutMode = this.b.getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(this.c);
-            g35 d = g35.d(this.g);
-            d.w(R.color.CAM_X0109);
-            d.f(R.color.CAM_X0204);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, tz5Var) == null) {
+            this.a.put(i, tz5Var);
         }
     }
 }

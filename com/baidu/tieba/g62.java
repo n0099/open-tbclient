@@ -1,180 +1,228 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.StatKey;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class g62 extends u93 {
+import com.bumptech.glide.load.engine.GlideException;
+import java.util.Date;
+/* loaded from: classes5.dex */
+public class g62 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g62(u83 u83Var) {
-        super(u83Var, "/swanAPI/setPhoneContact");
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947745798, "Lcom/baidu/tieba/g62;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947745798, "Lcom/baidu/tieba/g62;");
+        }
+    }
+
+    public static String a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            return PreferencesUtil.LEFT_MOUNT + str + "] " + str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void b(String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) && qp1.a && objArr != null) {
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
+                }
+            }
+            Log.d(str, sb.toString());
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            m("error", str, str2);
+            ns2.p0().e(str, str2);
+            if (qp1.a) {
+                Log.e(str, str2);
             }
         }
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    private void insert(Context context, f62 f62Var, CallbackHandler callbackHandler) {
+    public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, context, f62Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
-            intent.putExtra("name", f62Var.d());
-            intent.putExtra("email", f62Var.r);
-            intent.putParcelableArrayListExtra("data", k(f62Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    public final void j(Context context, f62 f62Var, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, f62Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
-            intent.setType("vnd.android.cursor.item/contact");
-            intent.putExtra("name", f62Var.d());
-            intent.putExtra("email", f62Var.r);
-            intent.putParcelableArrayListExtra("data", k(f62Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
-        }
-    }
-
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (context != null && callbackHandler != null && x73Var != null) {
-                if (x73Var.n0()) {
-                    if (u93.b) {
-                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (u93.b) {
-                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
-                }
-                String optString = optParamsAsJo.optString("action");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                f62 a = f62.a(optParamsAsJo);
-                if (!a.t()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                this.c = optParamsAsJo.optString("cb");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -1183792455) {
-                    if (hashCode == 3108362 && optString.equals(StatKey.EDITADDR_TAG_STAGE_EDIT)) {
-                        c = 1;
-                    }
-                } else if (optString.equals("insert")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                        return false;
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    j(context, a, callbackHandler);
-                    return true;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                insert(context, a, callbackHandler);
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            m("info", str, str2);
+            ns2.p0().i(str, str2);
+            if (qp1.a) {
+                Log.i(str, str2);
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final ArrayList<ContentValues> k(f62 f62Var) {
-        InterceptResult invokeL;
+    public static void k(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f62Var)) == null) {
-            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-            arrayList.add(f62Var.j());
-            arrayList.add(f62Var.h());
-            arrayList.add(f62Var.s());
-            arrayList.add(f62Var.i());
-            arrayList.add(f62Var.g());
-            arrayList.add(f62Var.r());
-            arrayList.add(f62Var.k());
-            arrayList.add(f62Var.o());
-            arrayList.add(f62Var.n());
-            arrayList.add(f62Var.m());
-            arrayList.add(f62Var.l());
-            arrayList.add(f62Var.b());
-            arrayList.add(f62Var.p());
-            arrayList.add(f62Var.e());
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
-            try {
-                context.startActivity(intent);
-                if (!TextUtils.isEmpty(this.c)) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, DnsModel.MSG_OK).toString());
-                }
-            } catch (Exception e) {
-                if (u93.b) {
-                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
-                }
-                if (!TextUtils.isEmpty(this.c)) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
-                }
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            ns2.p0().i(str, str2);
+            if (qp1.a) {
+                Log.i(str, str2);
             }
+        }
+    }
+
+    public static void o(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
+            m("warn", str, str2);
+            ns2.p0().w(str, str2);
+            if (qp1.a) {
+                Log.w(str, str2);
+            }
+        }
+    }
+
+    public static void d(String str, String str2, Throwable th) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
+            if (th != null) {
+                str3 = "Exception:" + th.getMessage() + "\n" + str2;
+            } else {
+                str3 = str2;
+            }
+            m("error", str, str3);
+            ns2.p0().e(str, str2, th);
+            if (qp1.a) {
+                Log.e(str, str2, th);
+            }
+        }
+    }
+
+    public static void e(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            ns2.p0().e(str, a2, th);
+            if (z) {
+                m("error", str, a2);
+            }
+        }
+    }
+
+    public static void p(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            ns2.p0().w(str, a2, th);
+            if (z) {
+                m("warn", str, a2);
+            }
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace != null && stackTrace.length > 5) {
+                return stackTrace[5].getLineNumber();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace != null && stackTrace.length > 5) {
+                return stackTrace[5].getFileName();
+            }
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0184);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            ns2.p0().i(str, a2);
+            if (z) {
+                m("info", str, a2);
+            }
+        }
+    }
+
+    public static void l(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
+            ns2.p0().e(str, str2, th);
+            if (qp1.a) {
+                Log.e(str, str2, th);
+            }
+        }
+    }
+
+    public static void m(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, str, str2, str3) == null) && a && !TextUtils.isEmpty(str3)) {
+            StringBuilder sb = new StringBuilder();
+            String b = ul3.b(new Date(), "yyyy-MM-dd HH:mm:ss");
+            String g = g();
+            int h = h();
+            sb.append(b);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+            sb.append(g);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+            sb.append("line:");
+            sb.append(h);
+            sb.append("\n");
+            sb.append("module:");
+            sb.append(str2);
+            sb.append("\n");
+            sb.append(str3);
+            tu2.U().q().g0(str, sb.toString());
+        }
+    }
+
+    public static void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            a = z;
         }
     }
 }

@@ -1,182 +1,220 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.tq2;
-import com.baidu.tieba.us2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes4.dex */
-public class he2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class he2 implements ie2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static Boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ke2> a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820756, "Lcom/baidu/tieba/he2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-750013577, "Lcom/baidu/tieba/he2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-750013577, "Lcom/baidu/tieba/he2$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947820756, "Lcom/baidu/tieba/he2;");
+            int[] iArr = new int[RecordType.values().length];
+            a = iArr;
+            try {
+                iArr[RecordType.APP_ID.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[RecordType.APP_VERSION.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    public he2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
-        er2.g0().getSwitch("swan_naview_slave_preload_type", 0);
-        c = 0;
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public void a(String str, UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Boolean bool = b;
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            Boolean valueOf = Boolean.valueOf(a());
-            b = valueOf;
-            return valueOf.booleanValue();
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
+            return;
         }
-        return invokeV.booleanValue;
+        l23.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public void d(String str, boolean z) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == 2) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
+            return;
         }
-        return invokeV.booleanValue;
+        HybridUbcFlow q = l23.q(PrefetchEvent.MODULE, str);
+        if (z) {
+            str2 = "success";
+        } else {
+            str2 = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+        }
+        q.E("value", str2);
     }
 
-    public static boolean f() {
-        InterceptResult invokeV;
+    public void e(String str, ke2 ke2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (c == 1) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, ke2Var) != null) || !b(str)) {
+            return;
         }
-        return invokeV.booleanValue;
+        c(l23.q(PrefetchEvent.MODULE, str), ke2Var);
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (c == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            boolean z = false;
-            if (!re2.U().r0()) {
-                Log.w("NASlaveConfig", "v8 is not enabled");
-                return false;
-            } else if (!er2.F0().j(1)) {
-                return false;
-            } else {
-                String c0 = re2.U().c0();
-                if (TextUtils.isEmpty(c0)) {
-                    Log.w("NASlaveConfig", "base path is not exists");
-                    return false;
-                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
-                    Log.w("NASlaveConfig", "talos-js file is not exists");
-                    return false;
-                } else if (a && w33.Y()) {
-                    return true;
-                } else {
-                    if (c != 0) {
-                        z = true;
-                    }
-                    if (a) {
-                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
-                    }
-                    return z;
-                }
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int b(@Nullable m83 m83Var) {
+    public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, m83Var)) == null) {
-            if (m83Var == null || !d()) {
-                return 0;
-            }
-            return "na".equals(m83Var.r) ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return 0;
-            }
-            if (str.contains("?")) {
-                str = str.substring(0, str.indexOf("?"));
-            }
-            int b2 = b(kt2.U().f(str));
-            if (a) {
-                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
-            }
-            return b2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean h(x73 x73Var) {
-        InterceptResult invokeL;
-        us2.a W;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, x73Var)) == null) {
-            if (x73Var == null || !x73Var.E()) {
-                return false;
-            }
-            if (w33.B(x73Var.W())) {
-                str = tq2.b.g().getPath() + File.separator;
-            } else {
-                str = tq2.e.i(W.H(), W.v1()).getPath() + File.separator;
-            }
-            if (a) {
-                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            kt2.U().K(str);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return !TextUtils.isEmpty(str);
         }
         return invokeL.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
+            return;
+        }
+        l23.s(PrefetchEvent.MODULE, str);
+        l23.q(PrefetchEvent.MODULE, str);
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
+            this.b = true;
+            HybridUbcFlow q = l23.q(PrefetchEvent.MODULE, str);
+            g(q);
+            q.A();
+            l23.s(PrefetchEvent.MODULE, str);
+        }
+    }
+
+    public final void c(HybridUbcFlow hybridUbcFlow, ke2 ke2Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, ke2Var) == null) && hybridUbcFlow != null && ke2Var != null) {
+            switch (a.a[ke2Var.a.ordinal()]) {
+                case 1:
+                    hybridUbcFlow.D("app_id", ke2Var.b);
+                    return;
+                case 2:
+                    hybridUbcFlow.D("app_version", ke2Var.b);
+                    return;
+                case 3:
+                    if (ke2Var.c) {
+                        str = "hot";
+                    } else {
+                        str = "cold";
+                    }
+                    hybridUbcFlow.E("type", str);
+                    return;
+                case 4:
+                    hybridUbcFlow.E("source", ke2Var.b);
+                    return;
+                case 5:
+                    hybridUbcFlow.D("msg", ke2Var.b);
+                    return;
+                case 6:
+                    synchronized (this.a) {
+                        this.a.add(ke2Var);
+                    }
+                    return;
+                default:
+                    return;
+            }
+        }
+    }
+
+    public final void g(HybridUbcFlow hybridUbcFlow) {
+        List<ke2> list;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (ke2 ke2Var : this.a) {
+                        String str2 = ke2Var.b;
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("url", str2);
+                        if (ke2Var.c) {
+                            str = "1";
+                        } else {
+                            str = "0";
+                        }
+                        jSONObject2.put("link", str);
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("links", jSONArray);
+                } catch (JSONException unused) {
+                }
+                this.a.clear();
+            }
+            if (jSONObject.length() > 0) {
+                hybridUbcFlow.D("prelink", jSONObject.toString());
+            }
+        }
     }
 }

@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.io.JSONUtils;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class gm3 {
+/* loaded from: classes5.dex */
+public final class gm3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,70 +33,114 @@ public class gm3 {
                 return;
             }
         }
-        a = ho1.a;
+        a = qp1.a;
     }
 
-    public static List<JSONObject> a(String str) {
-        InterceptResult invokeL;
+    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
-            ArrayList arrayList = new ArrayList();
-            try {
-                JSONObject jSONObject = new JSONObject(schemesDes);
-                arrayList.add(jSONObject);
-                int i = jSONObject.getInt("totalSlices");
-                for (int i2 = 1; i2 < i; i2++) {
-                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("SwanAppCompat", "getDescriptions", e);
-                    return null;
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Nullable
-    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<JSONObject> a2 = a(str);
-            if (a2 != null && !a2.isEmpty()) {
-                for (JSONObject jSONObject : a2) {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                            if (optJSONObject != null) {
-                                Iterator<ms2> it = ls2.b().iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        ms2 next = it.next();
-                                        String optString = optJSONObject.optString("name");
-                                        if (next.a(str, optString)) {
-                                            try {
-                                                optJSONArray.put(i, next.c(optString, optJSONObject));
-                                                break;
-                                            } catch (JSONException e) {
-                                                e.printStackTrace();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
+            T t = (T) jSONObject.opt(str);
+            if (cls.isInstance(t)) {
+                if (a) {
+                    String obj = t.toString();
+                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
+                        obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
+                    }
+                    if (a) {
+                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
                     }
                 }
-                return a2;
+                return t;
+            }
+            if (a) {
+                if (t == null) {
+                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
+                } else {
+                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
+                }
             }
             return null;
         }
-        return (List) invokeLL.objValue;
+        return (T) invokeLLL.objValue;
+    }
+
+    public static float b(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) {
+            if (jSONObject == null) {
+                return f;
+            }
+            return (float) jSONObject.optDouble(str, f);
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            try {
+                jSONObject.put(str, obj);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static JSONArray c(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) {
+            return (JSONArray) a(jSONObject, str, JSONArray.class);
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONArray e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONArray();
+            }
+            try {
+                return new JSONArray(str);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
+                }
+                return new JSONArray();
+            }
+        }
+        return (JSONArray) invokeL.objValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.fluency.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FpsSpUtil {
     public static final String KEY_FPS_FLOAT_VIEW_SWITCH = "key_fps_float_view_switch";
 

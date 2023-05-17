@@ -1,15 +1,21 @@
 package com.baidu.tieba;
 
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class ri6 {
+/* loaded from: classes7.dex */
+public class ri6 implements nh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract int sort();
+    @Override // com.baidu.tieba.nh6
+    public void c(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
+        }
+    }
 
     public ri6() {
         Interceptable interceptable = $ic;

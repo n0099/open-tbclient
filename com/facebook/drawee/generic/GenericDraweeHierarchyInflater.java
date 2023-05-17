@@ -11,7 +11,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GenericDraweeHierarchyInflater {
     @Nullable
     public static Drawable getDrawable(Context context, TypedArray typedArray, int i) {
@@ -76,7 +76,7 @@ public class GenericDraweeHierarchyInflater {
     /* JADX WARN: Removed duplicated region for block: B:151:0x022a  */
     /* JADX WARN: Type inference failed for: r4v0 */
     /* JADX WARN: Type inference failed for: r4v15 */
-    /* JADX WARN: Type inference failed for: r4v4, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r4v4, types: [int, boolean] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

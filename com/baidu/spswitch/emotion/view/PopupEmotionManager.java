@@ -5,11 +5,14 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.DeviceUtils;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.spswitch.utils.SoftInputUtil;
 import com.baidu.spswitch.utils.UIUtils;
 import com.baidu.tieba.R;
@@ -19,10 +22,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PopupEmotionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANCHOR_Y_OFFSET_DP = 2;
+    public static final int SAFE_DISTANCE_WITH_STATUS_BAR = 20;
+    public static final String TAG = "PopupEmotionManager";
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup mContainerView;
     public Context mCtx;
@@ -38,12 +43,12 @@ public class PopupEmotionManager {
     public int mXpos;
     public int mYpos;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface IShowListener {
         void show(int i, String str, int i2, int i3);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DelayedTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TASK_TYPE_DISMISS = 2;
@@ -74,7 +79,7 @@ public class PopupEmotionManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ShowParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +88,11 @@ public class PopupEmotionManager {
         public int anchorYpos;
         public boolean enableShowAnim;
         public Bitmap exprBitmap;
+        public String exprBitmapUrl;
         public int exprCol;
         public String exprName;
         public int exprRow;
+        public boolean isLastCol;
         public int sectionType;
 
         public ShowParam() {
@@ -106,10 +113,13 @@ public class PopupEmotionManager {
 
         public static boolean validate(ShowParam showParam) {
             InterceptResult invokeL;
-            Bitmap bitmap;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, showParam)) == null) {
-                if (showParam == null || TextUtils.isEmpty(showParam.exprName) || (bitmap = showParam.exprBitmap) == null || bitmap.isRecycled() || showParam.anchorWidth <= 0) {
+                if (showParam == null || TextUtils.isEmpty(showParam.exprName)) {
+                    return false;
+                }
+                Bitmap bitmap = showParam.exprBitmap;
+                if (((bitmap == null || bitmap.isRecycled()) && TextUtils.isEmpty(showParam.exprBitmapUrl)) || showParam.anchorWidth <= 0) {
                     return false;
                 }
                 return true;
@@ -161,9 +171,25 @@ public class PopupEmotionManager {
     private void calculatePos(ShowParam showParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, showParam) == null) {
+            int i = 0;
             this.mPopupEmotionView.measure(0, 0);
             this.mXpos = (showParam.anchorXpos - (this.mPopupEmotionView.getMeasuredWidth() / 2)) + (showParam.anchorWidth / 2);
-            this.mYpos = ((showParam.anchorYpos + ((int) UIUtils.dp2px(this.mCtx, 2.0f))) - this.mPopupEmotionView.getMeasuredHeight()) - UIUtils.getStatusBarHeightEx();
+            if (!TextUtils.isEmpty(showParam.exprBitmapUrl)) {
+                if (showParam.isLastCol) {
+                    this.mXpos = (showParam.anchorXpos - this.mPopupEmotionView.getMeasuredWidth()) + showParam.anchorWidth;
+                } else if (showParam.exprCol == 0) {
+                    this.mXpos = showParam.anchorXpos;
+                }
+            }
+            if (!DeviceUtils.ScreenInfo.isScreenLand()) {
+                i = UIUtils.getStatusBarHeightEx();
+            }
+            int dp2px = ((showParam.anchorYpos + ((int) UIUtils.dp2px(this.mCtx, 2.0f))) - this.mPopupEmotionView.getMeasuredHeight()) - i;
+            this.mYpos = dp2px;
+            int i2 = i + 20;
+            if (dp2px < i2) {
+                this.mYpos = i2;
+            }
         }
     }
 
@@ -261,14 +287,21 @@ public class PopupEmotionManager {
 
     public void dismiss() {
         PopupEmotionView popupEmotionView;
-        Animation animation;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (popupEmotionView = this.mPopupEmotionView) != null && (animation = this.mExitAnimation) != null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (popupEmotionView = this.mPopupEmotionView) == null) {
+            return;
+        }
+        if (popupEmotionView.getParent() == null) {
+            reset();
+            return;
+        }
+        Animation animation = this.mExitAnimation;
+        if (animation != null) {
             if (this.mIsPostRunning) {
                 this.mDelayedTaskQueue.add(new DelayedTask(2, null));
                 return;
             }
-            popupEmotionView.setAnimation(animation);
+            this.mPopupEmotionView.setAnimation(animation);
             this.mExitAnimation.setAnimationListener(new Animation.AnimationListener(this) { // from class: com.baidu.spswitch.emotion.view.PopupEmotionManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -341,7 +374,13 @@ public class PopupEmotionManager {
         }
         if (this.mIsPostRunning) {
             this.mDelayedTaskQueue.add(new DelayedTask(0, showParam));
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "isPostRunning " + this.mIsPostRunning + " isShowing " + isShowing());
+            }
         } else if (this.mIsShowing) {
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "isPostRunning " + this.mIsPostRunning + " isShowing " + isShowing());
+            }
             showParam.enableShowAnim = false;
             this.mDelayedTaskQueue.add(new DelayedTask(0, showParam));
             dismissWithoutAnim();
@@ -352,11 +391,19 @@ public class PopupEmotionManager {
                 this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.emotion_long_pressed_entry);
                 this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.emotion_long_pressed_exit);
             }
-            this.mPopupEmotionView.configView(showParam.exprName, showParam.exprBitmap);
+            this.mPopupEmotionView.configView(showParam.exprName, showParam.exprBitmap, showParam.exprBitmapUrl);
             calculatePos(showParam);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = this.mXpos;
             layoutParams.topMargin = this.mYpos;
+            this.mPopupEmotionView.setTriangleViewTran(17);
+            if (!TextUtils.isEmpty(showParam.exprBitmapUrl)) {
+                if (showParam.exprCol == 0) {
+                    this.mPopupEmotionView.setTriangleViewTran(3);
+                } else if (showParam.isLastCol) {
+                    this.mPopupEmotionView.setTriangleViewTran(5);
+                }
+            }
             this.mContainerView.addView(this.mPopupEmotionView, layoutParams);
             if (showParam.enableShowAnim) {
                 this.mPopupEmotionView.setAnimation(this.mEnterAnimation);

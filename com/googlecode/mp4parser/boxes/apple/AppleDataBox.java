@@ -13,7 +13,7 @@ import java.util.Locale;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AppleDataBox extends AbstractBox {
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_1 = null;
@@ -104,9 +104,9 @@ public abstract class AppleDataBox extends AbstractBox {
         language.put(PayUVEventType.PAY_WALLET_RIGHT_SET_BTN_CLICK, "Sanskrit");
         language.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW, "Marathi");
         language.put(PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_CLICK, "Bengali");
-        language.put("68", "Assamese");
-        language.put("69", "Gujarati");
-        language.put("70", "Punjabi");
+        language.put(PayUVEventType.PAY_AMOUNT_DIALOG_CHANNEL_CLICK, "Assamese");
+        language.put(PayUVEventType.PAY_AMOUNT_FULL_PAGE_CHANNEL_CLICK, "Gujarati");
+        language.put(PayUVEventType.PAY_AMOUNT_MORE_PAY_WAY_CLICK, "Punjabi");
         language.put("71", "Oriya");
         language.put("72", "Malayalam");
         language.put("73", "Kannada");

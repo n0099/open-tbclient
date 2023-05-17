@@ -3,7 +3,7 @@ package com.baidu.mapapi;
 import android.app.Application;
 import android.content.Context;
 import com.baidu.vi.VIContext;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JNIInitializer {
     public static Context a;
 

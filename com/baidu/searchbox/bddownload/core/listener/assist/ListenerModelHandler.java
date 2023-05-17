@@ -6,21 +6,21 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ListenerModel;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListenerModelHandler<T extends ListenerModel> implements ListenerAssist {
     public Boolean alwaysRecoverModel;
     public final ModelCreator<T> creator;
     public final SparseArray<T> modelList = new SparseArray<>();
     public volatile T singleTaskModel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ListenerModel {
         int getId();
 
         void onInfoValid(@NonNull BreakpointInfo breakpointInfo);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ModelCreator<T extends ListenerModel> {
         T create(int i);
     }

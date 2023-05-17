@@ -14,13 +14,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pe9;
+import com.baidu.tieba.lg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AppDownloadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class AppDownloadView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) {
-            return pe9.p(downloadData);
+            return lg9.p(downloadData);
         }
         return invokeL.intValue;
     }
@@ -197,7 +197,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_pause);
         }
-        int j = pe9.n().j(downloadData.getId(), downloadData.getName());
+        int j = lg9.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

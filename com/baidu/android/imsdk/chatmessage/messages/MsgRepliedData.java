@@ -432,7 +432,7 @@ public class MsgRepliedData implements Parcelable, NoProGuard {
                 }
                 if (fromUser > 0) {
                     jSONObject2.put("re_from_user", chatMsg.getFromUser());
-                    if ((Constants.PAFLAG & fromUser) != 0) {
+                    if ((17592186044416L & fromUser) != 0) {
                         jSONObject2.put("re_pa_uid", fromUser);
                     } else if (!TextUtils.isEmpty(chatMsg.getSenderUid())) {
                         String transBDUID = Utility.transBDUID(chatMsg.getSenderUid());

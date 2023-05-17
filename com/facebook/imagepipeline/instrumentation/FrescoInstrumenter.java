@@ -1,12 +1,12 @@
 package com.facebook.imagepipeline.instrumentation;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FrescoInstrumenter {
     @Nullable
     public static volatile Instrumenter sInstance;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Instrumenter {
         @Nullable
         Runnable decorateRunnable(Runnable runnable, String str);

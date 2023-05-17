@@ -12,7 +12,7 @@ import android.widget.FrameLayout;
 import com.baidu.cyberplayer.sdk.CyberVRRenderProvider;
 import com.baidu.cyberplayer.sdk.vrplayer.MovieView;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VrVideoView extends MovieView {
     public CyberVRRenderProvider a;
 

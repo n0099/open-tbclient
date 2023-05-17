@@ -1,15 +1,15 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.lwa;
+import com.baidu.tieba.jya;
 import com.google.ar.core.Session;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum ai extends Session.c {
     public ai(String str, int i, int i2, Class cls) {
         super(str, 5, 1095893253, cls, (byte) 0);
     }
 
     @Override // com.google.ar.core.Session.c
-    public final lwa a(long j, Session session) {
+    public final jya a(long j, Session session) {
         return session.c.a(j, session);
     }
 }

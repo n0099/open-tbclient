@@ -5,7 +5,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.common.LoginHistoryModel;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class LoginHistoryCallback implements NoProguard {
     public void onFailure() {
     }

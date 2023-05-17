@@ -17,7 +17,7 @@ import java.math.RoundingMode;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = "device_score", module = "performance")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceScoreConfigUpdateListener extends JSONObjectCommandListener {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String KEY_UPDATE_VERSION = "device_score_update_version";

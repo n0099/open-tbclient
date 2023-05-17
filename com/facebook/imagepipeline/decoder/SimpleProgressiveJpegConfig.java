@@ -5,18 +5,18 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     public final DynamicValueConfig mDynamicValueConfig;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface DynamicValueConfig {
         int getGoodEnoughScanNumber();
 
         List<Integer> getScansToDecode();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultDynamicValueConfig implements DynamicValueConfig {
         @Override // com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig.DynamicValueConfig
         public int getGoodEnoughScanNumber() {

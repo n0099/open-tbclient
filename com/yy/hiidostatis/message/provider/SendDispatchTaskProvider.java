@@ -12,7 +12,7 @@ import com.yy.hiidostatis.provider.GlobalProvider;
 import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.Provider;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SendDispatchTaskProvider implements Provider<Task> {
     public SendMsgDispatcher dispatcher;
 

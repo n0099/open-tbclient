@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadMoreRecyclerView extends RecyclerView {
     public LoadMoreRecyclerView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);

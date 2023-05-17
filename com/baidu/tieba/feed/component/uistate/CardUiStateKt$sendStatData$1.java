@@ -1,8 +1,8 @@
 package com.baidu.tieba.feed.component.uistate;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lz6;
-import com.baidu.tieba.w17;
+import com.baidu.tieba.j37;
+import com.baidu.tieba.y07;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,14 +12,14 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReferenceImpl;
 @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
-public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionReferenceImpl implements Function1<lz6, Unit> {
+/* loaded from: classes5.dex */
+public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionReferenceImpl implements Function1<y07, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardUiStateKt$sendStatData$1(Object obj) {
-        super(1, obj, w17.a.class, "log", "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
+        super(1, obj, j37.a.class, "log", "log(Lcom/baidu/tieba/feed/data/StatData;)V", 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,16 +41,16 @@ public /* synthetic */ class CardUiStateKt$sendStatData$1 extends FunctionRefere
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
-    public /* bridge */ /* synthetic */ Unit invoke(lz6 lz6Var) {
-        invoke2(lz6Var);
+    public /* bridge */ /* synthetic */ Unit invoke(y07 y07Var) {
+        invoke2(y07Var);
         return Unit.INSTANCE;
     }
 
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
-    public final void invoke2(lz6 lz6Var) {
+    public final void invoke2(y07 y07Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lz6Var) == null) {
-            ((w17.a) this.receiver).a(lz6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y07Var) == null) {
+            ((j37.a) this.receiver).a(y07Var);
         }
     }
 }

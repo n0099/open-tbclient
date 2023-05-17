@@ -6,7 +6,7 @@ import com.baidu.searchbox.aideviceperformance.device.IDevicePortraitManager;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
 import com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceWrapper;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DevicePortraitManager implements IDevicePortraitManager {
     public static final boolean DEBUG = Config.isDebug();
     public static float DEVICE_SCORE_CACHE = -1.0f;
@@ -20,7 +20,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
     public IDevicePortraitThresholdsConfig mThresholdsConfig;
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType;
 

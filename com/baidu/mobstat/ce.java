@@ -1,10 +1,10 @@
 package com.baidu.mobstat;
 
 import java.net.InetSocketAddress;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ce {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         NOT_YET_CONNECTED,
         CONNECTING,
@@ -13,7 +13,7 @@ public interface ce {
         CLOSED
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         CLIENT
     }

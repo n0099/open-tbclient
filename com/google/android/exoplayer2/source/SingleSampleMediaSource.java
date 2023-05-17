@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SingleSampleMediaSource implements MediaSource {
     public static final int DEFAULT_MIN_LOADABLE_RETRY_COUNT = 3;
     public final DataSource.Factory dataSourceFactory;
@@ -23,7 +23,7 @@ public final class SingleSampleMediaSource implements MediaSource {
     public final boolean treatLoadErrorsAsEndOfStream;
     public final Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface EventListener {
         void onLoadError(int i, IOException iOException);
     }

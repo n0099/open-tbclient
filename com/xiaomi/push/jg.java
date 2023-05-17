@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class jg {
     public static int a = Integer.MAX_VALUE;
 
@@ -14,13 +14,13 @@ public class jg {
         int i2 = 0;
         switch (b) {
             case 2:
-                jdVar.mo627a();
+                jdVar.mo646a();
                 return;
             case 3:
                 jdVar.a();
                 return;
             case 4:
-                jdVar.mo614a();
+                jdVar.mo633a();
                 return;
             case 5:
             case 7:
@@ -28,21 +28,21 @@ public class jg {
             default:
                 return;
             case 6:
-                jdVar.mo624a();
+                jdVar.mo643a();
                 return;
             case 8:
-                jdVar.mo615a();
+                jdVar.mo634a();
                 return;
             case 10:
-                jdVar.mo616a();
+                jdVar.mo635a();
                 return;
             case 11:
-                jdVar.mo623a();
+                jdVar.mo642a();
                 return;
             case 12:
-                jdVar.mo621a();
+                jdVar.mo640a();
                 while (true) {
-                    byte b2 = jdVar.mo617a().a;
+                    byte b2 = jdVar.mo636a().a;
                     if (b2 == 0) {
                         jdVar.f();
                         return;
@@ -52,27 +52,27 @@ public class jg {
                     }
                 }
             case 13:
-                jc mo619a = jdVar.mo619a();
-                while (i2 < mo619a.f815a) {
+                jc mo638a = jdVar.mo638a();
+                while (i2 < mo638a.f815a) {
                     int i3 = i - 1;
-                    a(jdVar, mo619a.a, i3);
-                    a(jdVar, mo619a.b, i3);
+                    a(jdVar, mo638a.a, i3);
+                    a(jdVar, mo638a.b, i3);
                     i2++;
                 }
                 jdVar.h();
                 return;
             case 14:
-                jh mo620a = jdVar.mo620a();
-                while (i2 < mo620a.f816a) {
-                    a(jdVar, mo620a.a, i - 1);
+                jh mo639a = jdVar.mo639a();
+                while (i2 < mo639a.f816a) {
+                    a(jdVar, mo639a.a, i - 1);
                     i2++;
                 }
                 jdVar.j();
                 return;
             case 15:
-                jb mo618a = jdVar.mo618a();
-                while (i2 < mo618a.f814a) {
-                    a(jdVar, mo618a.a, i - 1);
+                jb mo637a = jdVar.mo637a();
+                while (i2 < mo637a.f814a) {
+                    a(jdVar, mo637a.a, i - 1);
                     i2++;
                 }
                 jdVar.i();

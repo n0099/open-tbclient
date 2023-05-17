@@ -2,25 +2,25 @@ package com.baidu.tieba.ala.livecard.holder;
 
 import android.view.View;
 import com.baidu.card.AutoLiveViewHolder;
-import com.baidu.tieba.k96;
+import com.baidu.tieba.wa6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k96 b;
+    public wa6 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsPageAlaVideoHolder(k96 k96Var) {
-        super(k96Var.h());
+    public FrsPageAlaVideoHolder(wa6 wa6Var) {
+        super(wa6Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k96Var};
+            Object[] objArr = {wa6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,7 +31,7 @@ public class FrsPageAlaVideoHolder extends AutoLiveViewHolder {
                 return;
             }
         }
-        this.b = k96Var;
-        this.a = k96Var.Q();
+        this.b = wa6Var;
+        this.a = wa6Var.Q();
     }
 }

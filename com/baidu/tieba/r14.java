@@ -1,73 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.net.Uri;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tieba.du2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class r14 {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class r14 extends m14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public float d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public int h;
-    public float i;
-    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068756, "Lcom/baidu/tieba/r14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948068756, "Lcom/baidu/tieba/r14;");
-                return;
-            }
-        }
-        boolean z = ho1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r14() {
+        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = true;
-        this.h = 0;
-        this.i = 1.0f;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m14
+    public g12 a(JSONObject paramsJson, km2 callback) {
+        InterceptResult invokeLL;
+        boolean z;
+        Uri parse;
+        du2.a W;
+        String I;
+        du2.a W2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "url : " + this.c + "; AutoPlay : " + this.e + "; Volume :" + this.i + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
+            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            Application c = ns2.c();
+            if (c == null) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            String optString = paramsJson.optString("appKey");
+            boolean z2 = false;
+            if (optString != null && optString.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            g93 b0 = g93.b0();
+            String str = "";
+            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
+            g93 b02 = g93.b0();
+            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
+                str = I;
+            }
+            jSONObject.put("pre_appid", str);
+            paramsJson.put("ubc", jSONObject);
+            String d1 = eu2.d1(optString, 1, paramsJson);
+            if ((d1 == null || d1.length() == 0) ? true : true) {
+                parse = null;
+            } else {
+                parse = Uri.parse(d1);
+            }
+            if (parse == null) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                callback.onSuccess(null);
+            } else {
+                callback.onFail(202, "params may be error");
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (g12) invokeLL.objValue;
     }
 }

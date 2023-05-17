@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeaderInterceptor implements Interceptor.Connect {
     public static final String TAG = "HeaderInterceptor";
 

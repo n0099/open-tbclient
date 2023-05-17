@@ -10,10 +10,10 @@ import sdk.meizu.auth.MzAuthenticator;
 import sdk.meizu.auth.OAuthError;
 import sdk.meizu.auth.OAuthToken;
 import sdk.meizu.auth.callback.ImplictCallback;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MeizuSSOLoginActivity extends BaseSSOLoginActivity {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends ImplictCallback {
         public a() {
         }

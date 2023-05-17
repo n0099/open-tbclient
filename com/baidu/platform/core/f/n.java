@@ -2,13 +2,14 @@ package com.baidu.platform.core.f;
 
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.TransitRoutePlanOption;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class n extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +55,7 @@ public class n extends com.baidu.platform.base.e {
             this.a.a("rp_filter", "mobile");
             this.a.a("ic_info", "2");
             this.a.a("exptype", "depall");
-            this.a.a("sn", a(transitRoutePlanOption.mFrom));
+            this.a.a(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, a(transitRoutePlanOption.mFrom));
             this.a.a("en", a(transitRoutePlanOption.mTo));
             String str = transitRoutePlanOption.mCityName;
             if (str != null) {

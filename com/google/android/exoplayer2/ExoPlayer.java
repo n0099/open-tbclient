@@ -3,7 +3,7 @@ package com.google.android.exoplayer2;
 import android.os.Looper;
 import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.source.MediaSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface ExoPlayer extends Player {
     @Deprecated
     public static final int REPEAT_MODE_ALL = 2;
@@ -21,11 +21,11 @@ public interface ExoPlayer extends Player {
     public static final int STATE_READY = 3;
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface EventListener extends Player.EventListener {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ExoPlayerComponent {
         void handleMessage(int i, Object obj) throws ExoPlaybackException;
     }
@@ -40,7 +40,7 @@ public interface ExoPlayer extends Player {
 
     void sendMessages(ExoPlayerMessage... exoPlayerMessageArr);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ExoPlayerMessage {
         public final Object message;
         public final int messageType;

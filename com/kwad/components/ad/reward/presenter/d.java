@@ -7,7 +7,7 @@ import com.kwad.components.ad.reward.k.m;
 import com.kwad.components.core.webview.b.b.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends a {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
@@ -22,16 +22,16 @@ public final class d extends a {
         if (com.kwad.components.ad.reward.kwai.b.h(this.mAdInfo)) {
             final com.kwad.components.ad.reward.a.c cVar = new com.kwad.components.ad.reward.a.c();
             a(cVar);
-            ViewStub viewStub = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f091316);
-            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.e((ViewGroup) (viewStub != null ? viewStub.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f091329)), new m.a() { // from class: com.kwad.components.ad.reward.presenter.d.1
+            ViewStub viewStub = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f091351);
+            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.e((ViewGroup) (viewStub != null ? viewStub.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f091364)), new m.a() { // from class: com.kwad.components.ad.reward.presenter.d.1
                 @Override // com.kwad.components.ad.reward.k.m.a
                 public final void gV() {
                     cVar.showDialog();
                 }
             }));
         } else if (com.kwad.sdk.core.response.a.a.bF(adInfo)) {
-            ViewStub viewStub2 = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912e4);
-            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.d((ViewGroup) (viewStub2 != null ? viewStub2.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f0912fe))));
+            ViewStub viewStub2 = (ViewStub) viewGroup.findViewById(R.id.obfuscated_res_0x7f09131f);
+            a(new com.kwad.components.ad.reward.presenter.platdetail.actionbar.d((ViewGroup) (viewStub2 != null ? viewStub2.inflate() : viewGroup.findViewById(R.id.obfuscated_res_0x7f091339))));
         }
     }
 

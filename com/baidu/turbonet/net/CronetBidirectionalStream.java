@@ -2,8 +2,8 @@ package com.baidu.turbonet.net;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cda;
-import com.baidu.tieba.yca;
+import com.baidu.tieba.afa;
+import com.baidu.tieba.wea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.RejectedExecutionException;
 import javax.annotation.concurrent.GuardedBy;
 @JNINamespace
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CronetBidirectionalStream extends BidirectionalStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     private native boolean nativeWritevData(long j, ByteBuffer[] byteBufferArr, int[] iArr, int[] iArr2, boolean z);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -171,7 +171,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -222,7 +222,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,7 +265,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +309,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -340,13 +340,13 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 try {
                     this.a.c.a(this.a, this.a.o);
                 } catch (Exception e) {
-                    yca.c("ChromiumNetwork", "Exception in onCanceled method", e);
+                    wea.c("ChromiumNetwork", "Exception in onCanceled method", e);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -381,7 +381,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -443,7 +443,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -540,7 +540,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, exc) == null) {
             TurbonetException turbonetException = new TurbonetException("CalledByNative method has thrown an exception", exc);
-            yca.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
+            wea.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
             u(turbonetException);
         }
     }
@@ -669,7 +669,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
             try {
                 this.b.execute(runnable);
             } catch (RejectedExecutionException e2) {
-                yca.c("ChromiumNetwork", "Exception posting task to executor", e2);
+                wea.c("ChromiumNetwork", "Exception posting task to executor", e2);
                 synchronized (this.g) {
                     State state = State.ERROR;
                     this.n = state;
@@ -694,7 +694,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                 try {
                     this.c.b(this, this.o, turbonetException);
                 } catch (Exception e2) {
-                    yca.c("ChromiumNetwork", "Exception notifying of failed request", e2);
+                    wea.c("ChromiumNetwork", "Exception notifying of failed request", e2);
                 }
             }
         }
@@ -755,7 +755,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
                     try {
                         this.c.g(this, this.o);
                     } catch (Exception e2) {
-                        yca.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
+                        wea.c("ChromiumNetwork", "Exception in onSucceeded method", e2);
                     }
                 }
             }
@@ -767,8 +767,8 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) {
             synchronized (this.g) {
-                cda.b(byteBuffer);
-                cda.a(byteBuffer);
+                afa.b(byteBuffer);
+                afa.a(byteBuffer);
                 if (this.m == State.WAITING_FOR_READ) {
                     if (x()) {
                         return;
@@ -792,7 +792,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
     public final void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            yca.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
+            wea.h("ChromiumNetwork", "destroyNativeStreamLocked " + toString(), new Object[0]);
             long j = this.l;
             if (j == 0) {
                 return;
@@ -812,7 +812,7 @@ public class CronetBidirectionalStream extends BidirectionalStream {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048580, this, byteBuffer, z) == null) {
             synchronized (this.g) {
-                cda.a(byteBuffer);
+                afa.a(byteBuffer);
                 if (!byteBuffer.hasRemaining() && !z) {
                     throw new IllegalArgumentException("Empty buffer before end of stream.");
                 }

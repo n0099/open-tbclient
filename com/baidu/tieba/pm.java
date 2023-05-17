@@ -1,139 +1,301 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
-public class pm extends ImageSpan {
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class pm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public WeakReference<Drawable> c;
-    public int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm(Context context, int i) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface b<T> {
+        T a(int i, String str, InputStream inputStream) throws IOException;
+
+        void b(int i, String str, T t);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm(Context context, Bitmap bitmap, int i) {
-        super(context, bitmap, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bitmap, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Bitmap) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static abstract class a implements b<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pm(Drawable drawable, int i) {
-        super(drawable, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.c;
-            if (weakReference != null) {
-                drawable = weakReference.get();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pm.b
+        /* renamed from: c */
+        public JSONObject a(int i, String str, InputStream inputStream) throws IOException {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, inputStream)) == null) {
+                if (i == 200) {
+                    if (inputStream != null) {
+                        try {
+                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = inputStream.read(bArr);
+                                if (read != -1) {
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                } else {
+                                    JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
+                                    DefaultLog.getInstance().c(TitanDownloadService.TAG, jSONObject.toString());
+                                    return jSONObject;
+                                }
+                            }
+                        } catch (Exception e) {
+                            throw new IOException(e);
+                        }
+                    } else {
+                        throw new IOException("parse response error: input stream is null");
+                    }
+                } else {
+                    throw new IOException("parse response error: statuscode is " + i);
+                }
             } else {
-                drawable = null;
+                return (JSONObject) invokeILL.objValue;
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.c = new WeakReference<>(drawable2);
-                return drawable2;
+        }
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                yk8 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "getVersionName Exception:" + e);
+                return "0.8";
             }
-            return drawable;
         }
-        return (Drawable) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void b(int i) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        String sb;
+        String replace;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                    }
+                }
+                sb = sb2.toString();
+            }
+            String k = ti.k();
+            if (TextUtils.isEmpty(k)) {
+                replace = "0.0";
+            } else {
+                replace = k.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + a(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0123 A[Catch: all -> 0x0136, TRY_LEAVE, TryCatch #3 {all -> 0x0136, blocks: (B:64:0x0109, B:66:0x0123), top: B:80:0x0109 }] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x0132  */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0141  */
+    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static <T> void c(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
+        HttpURLConnection httpURLConnection;
+        InputStream inputStream;
+        OutputStream outputStream;
+        HttpURLConnection httpURLConnection2;
+        OutputStream outputStream2;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f + this.b, ((i5 - a.getBounds().bottom) - (((paint.getFontMetricsInt().bottom - paint.getFontMetricsInt().top) / 2) - ((a.getBounds().top + a.getBounds().bottom) / 2))) + this.d);
-            a.draw(canvas);
-            canvas.restore();
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
+            OutputStream outputStream3 = null;
+            try {
+                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                try {
+                    httpURLConnection.setConnectTimeout(30000);
+                    httpURLConnection.setReadTimeout(30000);
+                    httpURLConnection.setRequestProperty("User-Agent", b(context));
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                    httpURLConnection.setRequestMethod(str2);
+                    if (map != null) {
+                        for (Map.Entry<String, String> entry : map.entrySet()) {
+                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+                        }
+                    }
+                    if (TextUtils.equals(str2, "POST")) {
+                        if (bArr == null) {
+                            DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync body is null");
+                            if (bVar != null) {
+                                bVar.b(-1, "post requestSync body is null", null);
+                            }
+                            Closeables.closeSafely((Closeable) null);
+                            Closeables.closeSafely((Closeable) null);
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                                return;
+                            }
+                            return;
+                        }
+                        httpURLConnection.setDoOutput(true);
+                        if (map == null || !map.containsKey("Content-Type")) {
+                            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+                        }
+                        outputStream2 = httpURLConnection.getOutputStream();
+                        try {
+                            outputStream2.write(bArr);
+                        } catch (Exception e) {
+                            e = e;
+                            inputStream = null;
+                            outputStream = outputStream2;
+                            e = e;
+                            httpURLConnection2 = httpURLConnection;
+                            try {
+                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
+                                if (bVar != null) {
+                                }
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection2 == null) {
+                                }
+                            } catch (Throwable th) {
+                                th = th;
+                                outputStream3 = outputStream;
+                                httpURLConnection = httpURLConnection2;
+                                Closeables.closeSafely(outputStream3);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection != null) {
+                                    httpURLConnection.disconnect();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            inputStream = null;
+                            outputStream3 = outputStream2;
+                            th = th;
+                            Closeables.closeSafely(outputStream3);
+                            Closeables.closeSafely(inputStream);
+                            if (httpURLConnection != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        outputStream2 = null;
+                    }
+                    int responseCode = httpURLConnection.getResponseCode();
+                    DefaultLog.getInstance().c(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
+                    if (responseCode == 200) {
+                        inputStream = httpURLConnection.getInputStream();
+                        if (bVar != null) {
+                            try {
+                                t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
+                            } catch (Exception e2) {
+                                e = e2;
+                                outputStream = outputStream2;
+                                e = e;
+                                httpURLConnection2 = httpURLConnection;
+                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
+                                if (bVar != null) {
+                                    bVar.b(-1, e.getMessage(), null);
+                                }
+                                Closeables.closeSafely(outputStream);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection2 == null) {
+                                    httpURLConnection2.disconnect();
+                                    return;
+                                }
+                                return;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                outputStream3 = outputStream2;
+                                th = th;
+                                Closeables.closeSafely(outputStream3);
+                                Closeables.closeSafely(inputStream);
+                                if (httpURLConnection != null) {
+                                }
+                                throw th;
+                            }
+                        } else {
+                            t = null;
+                        }
+                    } else {
+                        inputStream = null;
+                        t = null;
+                    }
+                    if (bVar != null) {
+                        bVar.b(responseCode, httpURLConnection.getResponseMessage(), t);
+                    }
+                    Closeables.closeSafely(outputStream2);
+                    Closeables.closeSafely(inputStream);
+                    if (httpURLConnection != null) {
+                        httpURLConnection.disconnect();
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    httpURLConnection2 = httpURLConnection;
+                    outputStream = null;
+                    inputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    inputStream = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                outputStream = null;
+                httpURLConnection2 = null;
+                inputStream = null;
+            } catch (Throwable th5) {
+                th = th5;
+                httpURLConnection = null;
+                inputStream = null;
+            }
         }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            return super.getSize(paint, charSequence, i, i2, fontMetricsInt) + this.b + this.a;
-        }
-        return invokeCommon.intValue;
     }
 }

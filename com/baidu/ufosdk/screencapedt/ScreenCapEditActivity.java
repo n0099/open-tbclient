@@ -26,7 +26,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +50,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ScreenCapEditActivity extends Activity implements View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public static int Q;
@@ -100,7 +99,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
     public float y;
     public float z;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -658,7 +657,7 @@ public class ScreenCapEditActivity extends Activity implements View.OnTouchListe
             this.C.setBackgroundColor(-15066598);
             new RelativeLayout.LayoutParams(-1, -1);
             Button button = new Button(this);
-            button.setText(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL);
+            button.setText("取消");
             button.setTextSize(1, 16.0f);
             button.setTextColor(-1);
             button.setGravity(17);

@@ -7,10 +7,10 @@ import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.security.SecureRandom;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final SecureRandom aqs = new SecureRandom();
         public static final char[] aqt = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};

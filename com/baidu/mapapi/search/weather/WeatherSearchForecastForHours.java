@@ -2,7 +2,7 @@ package com.baidu.mapapi.search.weather;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WeatherSearchForecastForHours implements Parcelable {
     public static final Parcelable.Creator<WeatherSearchForecastForHours> CREATOR = new d();
     public int a;

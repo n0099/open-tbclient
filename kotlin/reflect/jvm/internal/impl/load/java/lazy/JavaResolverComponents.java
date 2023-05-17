@@ -19,7 +19,7 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.PackagePartProvider;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ErrorReporter;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewKotlinTypeChecker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaResolverComponents {
     public final AnnotationTypeQualifierResolver annotationTypeQualifierResolver;
     public final DeserializedDescriptorResolver deserializedDescriptorResolver;

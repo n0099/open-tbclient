@@ -2,7 +2,7 @@ package com.facebook.imageutils;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class StreamProcessor {
     public static int readPackedInt(InputStream inputStream, int i, boolean z) throws IOException {
         int i2;

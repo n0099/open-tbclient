@@ -1,19 +1,53 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface gt4 {
-    void a(int i);
 
-    void b(String str);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class gt4 extends zs4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(String str);
+    @Override // com.baidu.tieba.ys4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "u" : (String) invokeV.objValue;
+    }
 
-    void d(String str);
+    public gt4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void e(boolean z, boolean z2, int i, String str, String str2, String str3);
-
-    void f(String str, boolean z);
-
-    void g(boolean z, boolean z2, int i);
-
-    void onAdDismiss();
+    @Override // com.baidu.tieba.ys4
+    public String a(String[] strArr, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/usercenter");
+                sb.append("?portrait=");
+                sb.append(substring);
+                c(strArr, sb, map, 1);
+                return sb.toString();
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
 }

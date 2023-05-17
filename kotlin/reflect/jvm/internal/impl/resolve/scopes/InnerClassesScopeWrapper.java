@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeAliasDescriptor;
 import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class InnerClassesScopeWrapper extends MemberScopeImpl {
     public final MemberScope workerScope;
 
@@ -23,25 +23,25 @@ public final class InnerClassesScopeWrapper extends MemberScopeImpl {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
         ClassifierDescriptor classifierDescriptor;
-        ClassifierDescriptor mo2027getContributedClassifier = this.workerScope.mo2027getContributedClassifier(name, lookupLocation);
-        if (mo2027getContributedClassifier == null) {
+        ClassifierDescriptor mo2046getContributedClassifier = this.workerScope.mo2046getContributedClassifier(name, lookupLocation);
+        if (mo2046getContributedClassifier == null) {
             return null;
         }
-        if (!(mo2027getContributedClassifier instanceof ClassDescriptor)) {
+        if (!(mo2046getContributedClassifier instanceof ClassDescriptor)) {
             classifierDescriptor = null;
         } else {
-            classifierDescriptor = mo2027getContributedClassifier;
+            classifierDescriptor = mo2046getContributedClassifier;
         }
         ClassDescriptor classDescriptor = (ClassDescriptor) classifierDescriptor;
         if (classDescriptor != null) {
             return classDescriptor;
         }
-        if (!(mo2027getContributedClassifier instanceof TypeAliasDescriptor)) {
-            mo2027getContributedClassifier = null;
+        if (!(mo2046getContributedClassifier instanceof TypeAliasDescriptor)) {
+            mo2046getContributedClassifier = null;
         }
-        return (TypeAliasDescriptor) mo2027getContributedClassifier;
+        return (TypeAliasDescriptor) mo2046getContributedClassifier;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope

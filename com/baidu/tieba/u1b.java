@@ -1,190 +1,78 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.net.Uri;
+import android.content.Context;
+import android.content.res.Resources;
 import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.URLUtil;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.secure.android.common.util.LogsUtil;
-import java.net.MalformedURLException;
-import java.net.URL;
-/* loaded from: classes6.dex */
-public class u1b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes7.dex */
+public class u1b implements o1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final String b;
+
+    public u1b(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.b = str;
+    }
 
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                LogsUtil.f("UriUtil", "whiteListUrl is null");
-                return null;
-            } else if (!URLUtil.isNetworkUrl(str)) {
-                return str;
-            } else {
-                return b(str);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @TargetApi(9)
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                LogsUtil.f("UriUtil", "url is null");
-                return str;
-            }
             try {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    LogsUtil.d("UriUtil", "url don't starts with http or https");
-                    return "";
-                }
-                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
-            } catch (MalformedURLException e) {
-                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
+                return "agc_" + j1b.c(b(str.getBytes("UTF-8")));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
                 return "";
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static boolean c(String str, String[] strArr) {
-        InterceptResult invokeLL;
+    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (d(str, str2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
     }
 
-    public static boolean e(String str, String[] strArr) {
+    @Override // com.baidu.tieba.o1b
+    public String a(String str, String str2) {
         InterceptResult invokeLL;
+        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (f(str, str2)) {
-                        return true;
-                    }
-                }
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
+                return str2;
             }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return TextUtils.equals(b(str), a(str2));
+            try {
+                return this.a.getResources().getString(identifier);
+            } catch (Resources.NotFoundException unused) {
+                return str2;
             }
-            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (g(str, str2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
-                    if (!str2.equals(str)) {
-                        if (!str.startsWith(str2 + "?")) {
-                            if (!str.startsWith(str2 + "#")) {
-                                if (!str2.endsWith("/")) {
-                                    return false;
-                                }
-                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
-                                    return false;
-                                }
-                                return str.startsWith(str2);
-                            }
-                        }
-                    }
-                    return true;
-                }
-                Log.e("UriUtil", "url contains unsafe char");
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            String b = b(str);
-            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
-                String a = a(str2);
-                if (TextUtils.isEmpty(a)) {
-                    Log.e("UriUtil", "whitelist host is null");
-                    return false;
-                } else if (a.equals(b)) {
-                    return true;
-                } else {
-                    if (b.endsWith(a)) {
-                        try {
-                            String substring = b.substring(0, b.length() - a.length());
-                            if (!substring.endsWith(".")) {
-                                return false;
-                            }
-                            return substring.matches("^[A-Za-z0-9.-]+$");
-                        } catch (IndexOutOfBoundsException e) {
-                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
-                        } catch (Exception e2) {
-                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                }
-            }
-            LogsUtil.d("UriUtil", "url or whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 }

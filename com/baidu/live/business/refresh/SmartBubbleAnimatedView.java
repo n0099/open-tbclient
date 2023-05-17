@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmartBubbleAnimatedView extends View {
     public String a;
     public long b;
@@ -27,12 +27,12 @@ public class SmartBubbleAnimatedView extends View {
     public int k;
     public boolean l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         void a();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -40,7 +40,7 @@ public class SmartBubbleAnimatedView extends View {
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             ViewGroup.LayoutParams layoutParams = SmartBubbleAnimatedView.this.getLayoutParams();
-            layoutParams.height = SmartBubbleAnimatedView.this.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061a);
+            layoutParams.height = SmartBubbleAnimatedView.this.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076d);
             SmartBubbleAnimatedView.this.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             SmartBubbleAnimatedView.this.c = ((Float) valueAnimator.getAnimatedValue()).floatValue();
             if (SmartBubbleAnimatedView.this.l && (layoutParams instanceof LinearLayout.LayoutParams)) {
@@ -58,7 +58,7 @@ public class SmartBubbleAnimatedView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -69,7 +69,7 @@ public class SmartBubbleAnimatedView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public c() {
         }
@@ -84,7 +84,7 @@ public class SmartBubbleAnimatedView extends View {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements Animator.AnimatorListener {
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
@@ -159,8 +159,8 @@ public class SmartBubbleAnimatedView extends View {
     public final void d() {
         this.f.setColor(-16711681);
         this.g.setColor(-7829368);
-        this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061b));
-        this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07061a);
+        this.g.setTextSize(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076e));
+        this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076d);
     }
 
     public int getTipViewHeight() {

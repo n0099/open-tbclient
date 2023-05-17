@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SpliceInfoSectionReader implements SectionPayloadReader {
     public boolean formatDeclared;
     public TrackOutput output;

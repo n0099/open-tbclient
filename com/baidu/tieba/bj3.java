@@ -1,34 +1,40 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.zi3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class bj3 extends aj3 {
+/* loaded from: classes5.dex */
+public abstract class bj3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bj3(u83 u83Var) {
-        super(u83Var, "/swanAPI/closeTabBar");
+    public bj3(da3 da3Var, String str) {
+        super(da3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
+            Object[] objArr = {da3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -36,36 +42,49 @@ public class bj3 extends aj3 {
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public boolean j(Context context, g93 g93Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                x42.c("closeTabBar", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, g93Var, unitedSchemeEntity)) == null) {
+            if (g93Var == null) {
+                g62.c("battery", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (db3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
+                }
                 return false;
-            } else if (aj3.k()) {
-                x42.c("CloseTabBarAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+            } else if (context == null) {
+                g62.c("battery", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (db3.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
+                }
                 return false;
             } else {
-                jj3 j = aj3.j();
-                if (j == null) {
-                    x42.c("CloseTabBarAction", "tabBarViewController is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!j.j(optParamsAsJo.optBoolean("animation"))) {
-                    x42.c("closeTabBar", "close tab bar fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
-                }
+                return true;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
+    }
+
+    @Nullable
+    public JSONObject k(@NonNull zi3.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
+                }
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

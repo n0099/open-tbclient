@@ -5,7 +5,7 @@ import androidx.core.util.Pools;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class LockedResource<Z> implements Resource<Z>, FactoryPools.Poolable {
     public static final Pools.Pool<LockedResource<?>> POOL = FactoryPools.threadSafe(20, new FactoryPools.Factory<LockedResource<?>>() { // from class: com.bumptech.glide.load.engine.LockedResource.1
         /* JADX DEBUG: Method merged with bridge method */

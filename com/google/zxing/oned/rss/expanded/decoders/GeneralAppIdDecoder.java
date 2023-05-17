@@ -11,7 +11,7 @@ import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
 import org.apache.commons.codec.net.RFC1522Codec;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class GeneralAppIdDecoder {
     public final BitArray information;
     public final CurrentParsingState current = new CurrentParsingState();

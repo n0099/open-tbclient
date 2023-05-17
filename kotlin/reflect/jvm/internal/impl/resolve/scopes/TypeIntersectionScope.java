@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.OverridingUtilsKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TypeIntersectionScope extends AbstractScopeAdapter {
     public static final Companion Companion = new Companion(null);
     public final ChainedMemberScope workerScope;
@@ -28,7 +28,7 @@ public final class TypeIntersectionScope extends AbstractScopeAdapter {
         return Companion.create(str, collection);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

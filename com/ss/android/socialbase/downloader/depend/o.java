@@ -5,11 +5,11 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface o extends IInterface {
     void a() throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a extends Binder implements o {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -17,12 +17,12 @@ public interface o extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0713a implements o {
+        /* loaded from: classes10.dex */
+        public static class C0727a implements o {
             public static o a;
             public IBinder b;
 
-            public C0713a(IBinder iBinder) {
+            public C0727a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -54,7 +54,7 @@ public interface o extends IInterface {
         }
 
         public static o b() {
-            return C0713a.a;
+            return C0727a.a;
         }
 
         public static o a(IBinder iBinder) {
@@ -65,7 +65,7 @@ public interface o extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof o)) {
                 return (o) queryLocalInterface;
             }
-            return new C0713a(iBinder);
+            return new C0727a(iBinder);
         }
 
         @Override // android.os.Binder

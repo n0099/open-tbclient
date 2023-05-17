@@ -1,180 +1,275 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.opengl.GLES20;
-import android.opengl.GLUtils;
-import android.opengl.Matrix;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tieba.tf0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class pf0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.Objects;
+/* loaded from: classes7.dex */
+public class pf0 extends rf0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final float[] a;
-    public static final float[] b;
+    public static pf0 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+    public File d;
+    public Context e;
+    public Boolean f;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948059983, "Lcom/baidu/tieba/pf0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948059983, "Lcom/baidu/tieba/pf0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948059983, "Lcom/baidu/tieba/pf0;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pf0 a;
+
+        public a(pf0 pf0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pf0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948059983, "Lcom/baidu/tieba/pf0;");
+            this.a = pf0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pf0 pf0Var = this.a;
+                pf0Var.p(pf0Var.e);
+            }
+        }
+    }
+
+    public pf0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new float[]{-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
-        float[] fArr = new float[16];
-        b = fArr;
-        Matrix.setIdentityM(fArr, 0);
+        this.c = "arsource";
     }
 
-    public static void a(String str) {
+    public static synchronized void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            int glGetError = GLES20.glGetError();
-            if (glGetError == 1281) {
-                Log.d("zmy", "---> GL_INVALID_VALUE : glError 0x" + Integer.toHexString(glGetError));
-            } else if (glGetError != 0) {
-                String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
-            }
-        }
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameterf(3553, 10241, 9728.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(3553, i);
-            GLES20.glTexParameterf(3553, 10241, 9985.0f);
-            GLES20.glTexParameterf(3553, 10240, 9729.0f);
-            GLES20.glTexParameteri(3553, 10242, 33071);
-            GLES20.glTexParameteri(3553, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int[] iArr = new int[1];
-            GLES20.glGenTextures(1, iArr, 0);
-            int i = iArr[0];
-            GLES20.glBindTexture(36197, i);
-            GLES20.glTexParameterf(36197, 10241, 9728.0f);
-            GLES20.glTexParameterf(36197, 10240, 9729.0f);
-            GLES20.glTexParameteri(36197, 10242, 33071);
-            GLES20.glTexParameteri(36197, 10243, 33071);
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            int[] iArr = new int[1];
-            int f = f(str, 35633);
-            if (f != 0) {
-                int f2 = f(str2, 35632);
-                if (f2 != 0) {
-                    int glCreateProgram = GLES20.glCreateProgram();
-                    a("glCreateProgram");
-                    GLES20.glAttachShader(glCreateProgram, f);
-                    a("glAttachShader");
-                    GLES20.glAttachShader(glCreateProgram, f2);
-                    a("glAttachShader");
-                    GLES20.glLinkProgram(glCreateProgram);
-                    GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-                    if (iArr[0] > 0) {
-                        GLES20.glDeleteShader(f);
-                        GLES20.glDeleteShader(f2);
-                        return glCreateProgram;
-                    }
-                    GLES20.glDeleteProgram(glCreateProgram);
-                    throw new RuntimeException("gl Load Program Linking Failed");
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            synchronized (pf0.class) {
+                if (g == null) {
+                    g = new pf0();
                 }
-                throw new RuntimeException("gl Load Program Fragment Shader Failed");
             }
-            throw new RuntimeException("gl Load Program Vertex Shader Failed");
         }
-        return invokeLL.intValue;
     }
 
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
+    public static final pf0 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            int[] iArr = new int[1];
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i + " source : " + str + "\n");
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                Log.d("Load Shader Failed", "Compilation\n" + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (g == null) {
+                h();
             }
-            return glCreateShader;
+            return g;
         }
-        return invokeLI.intValue;
+        return (pf0) invokeV.objValue;
     }
 
-    public static int g(Bitmap bitmap, int i, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.rf0
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{bitmap, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int[] iArr = new int[1];
-            if (i == -1) {
-                GLES20.glGenTextures(1, iArr, 0);
-                GLES20.glBindTexture(3553, iArr[0]);
-                GLES20.glTexParameterf(3553, 10240, 9729.0f);
-                GLES20.glTexParameterf(3553, 10241, 9729.0f);
-                GLES20.glTexParameterf(3553, 10242, 33071.0f);
-                GLES20.glTexParameterf(3553, 10243, 33071.0f);
-                GLUtils.texImage2D(3553, 0, bitmap, 0);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ThreadPool.b().e(new a(this));
+        }
+    }
+
+    public final String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return te0.m();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            Log.d("DuAr_AssetsLoader", str);
+        }
+    }
+
+    public final boolean i(Context context, String str, File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, file)) == null) {
+            if (file.isDirectory()) {
+                sf0.b(file);
             } else {
-                GLES20.glBindTexture(3553, i);
-                GLUtils.texSubImage2D(3553, 0, 0, 0, bitmap);
-                iArr[0] = i;
+                sf0.d(file);
+            }
+            File file2 = new File(file + ".loading");
+            boolean a2 = new qf0(context).a(str, file2);
+            if (n()) {
+                q(a2 + " assetsToSD " + file2.getAbsolutePath());
+            }
+            if (a2) {
+                a2 = file2.renameTo(file);
+            }
+            if (n()) {
+                q(a2 + " renameTo " + file);
+            }
+            if (!a2) {
+                q("del temp ...");
+                sf0.b(file2);
+                if (file.exists()) {
+                    q("del " + file);
+                    sf0.b(file);
+                }
+            }
+            return a2;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final File l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.d == null && te0.g() != null && !TextUtils.isEmpty(ue0.a())) {
+                this.d = new File(ue0.a());
+            }
+            return this.d;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public void m(Context context, String str, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, str, file) == null) {
+            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+            this.c = (String) Objects.requireNonNull(str);
+            this.d = (File) Objects.requireNonNull(file);
+            if (n()) {
+                q("init " + str + " to " + file.getAbsolutePath());
+            }
+        }
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Boolean bool = this.f;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            String j = j();
+            File l = l();
+            boolean z = false;
+            if (n()) {
+                q(String.format("from %s to %s ", j, l));
+            }
+            String str2 = null;
+            if (l != null && l.exists() && l.isDirectory()) {
+                str = sf0.h(new File(l, "version"));
+            } else {
+                str = null;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                str2 = sf0.g(this.e, j + "/version");
+            }
+            if (n()) {
+                q("assets=" + str2 + ", sdcard=" + str);
+            }
+            z = (TextUtils.isEmpty(str) || !TextUtils.equals(str, str2)) ? true : true;
+            this.f = Boolean.valueOf(!z);
+            return !z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void p(Context context) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            if (!o()) {
+                z = i(context, j(), l());
+            } else {
+                z = true;
             }
             if (z) {
-                bitmap.recycle();
+                this.f = null;
+                d(2);
             }
-            return iArr[0];
+            if (n()) {
+                q("arVersion=" + te0.h() + ", arVersionName=" + te0.i());
+            }
         }
-        return invokeCommon.intValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public void r(Context context, String str, File file, tf0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, file, aVar) == null) {
+            this.e = ((Context) Objects.requireNonNull(context)).getApplicationContext();
+            this.c = (String) Objects.requireNonNull(str);
+            this.d = (File) Objects.requireNonNull(file);
+            if (n()) {
+                q("start " + str + " to " + file.getAbsolutePath());
+            }
+            super.e(aVar);
+        }
     }
 }

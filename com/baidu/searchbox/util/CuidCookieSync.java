@@ -9,12 +9,14 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.g10;
+import com.baidu.tieba.p10;
 import com.baidu.ubc.UBCManager;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CuidCookieSync {
+    public static final String BFE_COOKIE_KEY = "BAIDUCUID_BFESS";
+    public static final String BFE_COOKIE_OPTION = "SameSite=None;Secure";
     public static final boolean DEBUG = LibBLCConfig.GLOBAL_DEBUG;
     public static final String TAG = "CuidCookie";
 
@@ -57,12 +59,20 @@ public class CuidCookieSync {
         }
     }
 
+    private String getBFECookie(String str) {
+        return UrlUtil.getCookieStr(AppConfig.getCookieHost(), BFE_COOKIE_KEY, str, 31449600L) + BFE_COOKIE_OPTION;
+    }
+
     public void setCUIDCookie() {
         IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
         if (!new CT().isDefaultCtv()) {
-            String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", g10.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
+            String a = p10.a(BaiduIdentityManager.getInstance().getEnUid());
+            String bFECookie = getBFECookie(a);
+            baiduIdentityContext.setCookieManualNoBdussOperate("https://www.baidu.com", bFECookie, true);
+            String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", a, 31449600L);
             baiduIdentityContext.setCookieManualNoBdussOperate("www.baidu.com", cookieStr, true);
             if (baiduIdentityContext.isBlinkEnable()) {
+                setCUIDToSystemWebView("https://www.baidu.com", bFECookie);
                 setCUIDToSystemWebView("www.baidu.com", cookieStr);
             }
         }

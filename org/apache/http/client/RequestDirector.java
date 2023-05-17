@@ -7,7 +7,7 @@ import org.apache.http.HttpRequest;
 import org.apache.http.HttpResponse;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface RequestDirector {
     HttpResponse execute(HttpHost httpHost, HttpRequest httpRequest, HttpContext httpContext) throws HttpException, IOException;
 }

@@ -1,7 +1,7 @@
 package com.baidu.pass.main.facesdk.model;
 
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceGazeInfo {
     public float leftEyeConf;
     public BDFaceSDKCommon.BDFaceGazeDirection leftEyeGaze;

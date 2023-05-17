@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import kotlinx.coroutines.scheduling.CoroutineScheduler;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class c {
     public final int a;
 
@@ -15,7 +15,7 @@ public final class c {
     public final byte[] f160a;
     public int b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends IOException {
         public a() {
             super("CodedOutputStream was writing to a flat byte array and ran out of space.");
@@ -183,7 +183,7 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m230a() {
+    public void m249a() {
         if (this.f159a != null) {
             c();
         }
@@ -200,86 +200,86 @@ public final class c {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m231a(int i) {
+    public void m250a(int i) {
         if (i >= 0) {
-            m250d(i);
+            m269d(i);
         } else {
-            m249c(i);
+            m268c(i);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m232a(int i, int i2) {
+    public void m251a(int i, int i2) {
         c(i, 0);
-        m231a(i2);
+        m250a(i2);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m233a(int i, long j) {
+    public void m252a(int i, long j) {
         c(i, 0);
-        m238a(j);
+        m257a(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m234a(int i, com.xiaomi.push.a aVar) {
+    public void m253a(int i, com.xiaomi.push.a aVar) {
         c(i, 2);
-        m239a(aVar);
+        m258a(aVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m235a(int i, e eVar) {
+    public void m254a(int i, e eVar) {
         c(i, 2);
-        m240a(eVar);
+        m259a(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m236a(int i, String str) {
+    public void m255a(int i, String str) {
         c(i, 2);
-        m241a(str);
+        m260a(str);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m237a(int i, boolean z) {
+    public void m256a(int i, boolean z) {
         c(i, 0);
-        m242a(z);
+        m261a(z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m238a(long j) {
-        m249c(j);
+    public void m257a(long j) {
+        m268c(j);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m239a(com.xiaomi.push.a aVar) {
-        byte[] m174a = aVar.m174a();
-        m250d(m174a.length);
-        a(m174a);
+    public void m258a(com.xiaomi.push.a aVar) {
+        byte[] m193a = aVar.m193a();
+        m269d(m193a.length);
+        a(m193a);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m240a(e eVar) {
-        m250d(eVar.a());
+    public void m259a(e eVar) {
+        m269d(eVar.a());
         eVar.a(this);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m241a(String str) {
+    public void m260a(String str) {
         byte[] bytes = str.getBytes("UTF-8");
-        m250d(bytes.length);
+        m269d(bytes.length);
         a(bytes);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m242a(boolean z) {
-        m248c(z ? 1 : 0);
+    public void m261a(boolean z) {
+        m267c(z ? 1 : 0);
     }
 
     public void a(byte[] bArr) {
-        m243a(bArr, 0, bArr.length);
+        m262a(bArr, 0, bArr.length);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m243a(byte[] bArr, int i, int i2) {
+    public void m262a(byte[] bArr, int i, int i2) {
         int i3 = this.a;
         int i4 = this.b;
         if (i3 - i4 >= i2) {
@@ -308,51 +308,51 @@ public final class c {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m244b(int i) {
-        m250d(i);
+    public void m263b(int i) {
+        m269d(i);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m245b(int i, int i2) {
+    public void m264b(int i, int i2) {
         c(i, 0);
-        m244b(i2);
+        m263b(i2);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m246b(int i, long j) {
+    public void m265b(int i, long j) {
         c(i, 0);
-        m247b(j);
+        m266b(j);
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m247b(long j) {
-        m249c(j);
+    public void m266b(long j) {
+        m268c(j);
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m248c(int i) {
+    public void m267c(int i) {
         a((byte) i);
     }
 
     public void c(int i, int i2) {
-        m250d(f.a(i, i2));
+        m269d(f.a(i, i2));
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public void m249c(long j) {
+    public void m268c(long j) {
         while (((-128) & j) != 0) {
-            m248c((((int) j) & 127) | 128);
+            m267c((((int) j) & 127) | 128);
             j >>>= 7;
         }
-        m248c((int) j);
+        m267c((int) j);
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public void m250d(int i) {
+    public void m269d(int i) {
         while ((i & (-128)) != 0) {
-            m248c((i & 127) | 128);
+            m267c((i & 127) | 128);
             i >>>= 7;
         }
-        m248c(i);
+        m267c(i);
     }
 }

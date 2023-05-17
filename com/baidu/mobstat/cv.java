@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import com.baidu.mobstat.cw;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface cv extends cw {
     void a(cw.a aVar);
 

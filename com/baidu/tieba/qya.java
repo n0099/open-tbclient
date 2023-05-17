@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qya implements Handler.Callback {
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes7.dex */
+public final class qya implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ rya a;
+    public final /* synthetic */ InstallActivity a;
 
-    public qya(rya ryaVar) {
+    public qya(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ryaVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,20 +27,16 @@ public class qya implements Handler.Callback {
                 return;
             }
         }
-        this.a = ryaVar;
+        this.a = installActivity;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message != null && message.what == 1001) {
-                this.a.b(8002003);
-                return true;
-            }
-            return false;
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a.h();
+        this.a.n();
     }
 }

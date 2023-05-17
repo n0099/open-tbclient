@@ -10,7 +10,7 @@ import com.baidu.searchbox.elasticthread.statistic.RealTimeStatusPrinter;
 import com.baidu.searchbox.elasticthread.statistic.Recordable;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.searchbox.elasticthread.task.ElasticTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ElasticTaskScheduler {
     public static final boolean DEBUG = false;
     public static final int MSG_DREDGE_CONCURRENT = 3;
@@ -36,7 +36,7 @@ public class ElasticTaskScheduler {
     public void postPrintRealTimeData(long j) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TaskMsgInfo {
         public int priority;
         public Runnable runnable;

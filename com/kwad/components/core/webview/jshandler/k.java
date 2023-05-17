@@ -3,12 +3,12 @@ package com.kwad.components.core.webview.jshandler;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class k implements com.kwad.sdk.core.webview.kwai.a {
     public b LA;
     public final com.kwad.sdk.core.webview.b Lk;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements com.kwad.sdk.core.b {
         public int height;
         public int width;
@@ -26,7 +26,7 @@ public final class k implements com.kwad.sdk.core.webview.kwai.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(a aVar);
     }

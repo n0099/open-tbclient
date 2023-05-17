@@ -1,17 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface cr7 {
-    public static final BdUniqueId a;
-    public static final BdUniqueId b;
+    void b();
 
-    static {
-        BdUniqueId.gen();
-        BdUniqueId.gen();
-        a = BdUniqueId.gen();
-        b = BdUniqueId.gen();
-        BdUniqueId.gen();
-        BdUniqueId.gen();
-    }
+    void c(int i, qr5 qr5Var, int i2);
+
+    void d(int i, int i2, qr5 qr5Var, int i3);
 }

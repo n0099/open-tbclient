@@ -8,7 +8,7 @@ import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BinaryVersion {
     public static final Companion Companion = new Companion(null);
     public final int major;
@@ -17,7 +17,7 @@ public abstract class BinaryVersion {
     public final int patch;
     public final List<Integer> rest;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

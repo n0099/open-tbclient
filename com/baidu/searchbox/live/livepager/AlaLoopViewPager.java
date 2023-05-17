@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
     public static final boolean DEFAULT_BOUNDARY_CASHING = false;
     public AlaLoopPagerAdapterWrapper mAdapter;
@@ -15,7 +15,7 @@ public class AlaLoopViewPager extends AlaVerticalViewPagerNew {
     public IScrollControl scrollControl;
     public float startY;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface IScrollControl {
         boolean isEnableScrollDown(MotionEvent motionEvent);
 

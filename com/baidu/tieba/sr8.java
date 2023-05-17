@@ -1,8 +1,27 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface sr8 {
-    public static final BdUniqueId a = BdUniqueId.gen();
-    public static final BdUniqueId b = BdUniqueId.gen();
+    void a(long j, long j2, long j3);
+
+    void b(boolean z);
+
+    void c(boolean z, boolean z2);
+
+    boolean d(String str, String str2);
+
+    String e(String str, String str2);
+
+    void f();
+
+    void g(long j, int i);
+
+    void h(int i);
+
+    void i(int i);
+
+    void j();
+
+    void k(String str, String str2);
+
+    void l(int i);
 }

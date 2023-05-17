@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.producers;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BaseProducerContextCallbacks implements ProducerContextCallbacks {
     @Override // com.facebook.imagepipeline.producers.ProducerContextCallbacks
     public void onCancellationRequested() {

@@ -4,14 +4,14 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static final HashMap<String, Method> a = new HashMap<>();
     public final com.meizu.cloud.pushsdk.b.b.a b;
     public final String c;
     public Class<?>[] d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
     }
 

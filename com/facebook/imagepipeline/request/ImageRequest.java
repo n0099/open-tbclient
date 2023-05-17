@@ -17,7 +17,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImageRequest {
     public static final Fn<ImageRequest, Uri> REQUEST_TO_URI_FN = new Fn<ImageRequest, Uri>() { // from class: com.facebook.imagepipeline.request.ImageRequest.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +58,7 @@ public class ImageRequest {
     public final int mSourceUriType;
     public String mTag;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum CacheChoice {
         SMALL,
         DEFAULT
@@ -170,7 +170,7 @@ public class ImageRequest {
         return this.mDecodePrefetches;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum RequestLevel {
         FULL_FETCH(1),
         DISK_CACHE(2),

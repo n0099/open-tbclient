@@ -8,12 +8,12 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.api.model.KsExtraRewardType;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface RewardAdInteractionListener {
         @KsAdSdkApi
         @Keep

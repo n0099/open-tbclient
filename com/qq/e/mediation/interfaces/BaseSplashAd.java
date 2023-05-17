@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseSplashAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;

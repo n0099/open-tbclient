@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.source.hls;
 
 import android.util.SparseArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TimestampAdjusterProvider {
     public final SparseArray<TimestampAdjuster> timestampAdjusters = new SparseArray<>();
 

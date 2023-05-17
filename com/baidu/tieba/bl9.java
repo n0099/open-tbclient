@@ -1,13 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public final class bl9 extends on9 {
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class bl9 implements ILokiIdentityNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
+    public String getAppName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
+    }
 
     public bl9() {
         Interceptable interceptable = $ic;

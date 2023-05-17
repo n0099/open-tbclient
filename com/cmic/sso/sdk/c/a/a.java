@@ -25,7 +25,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public static com.cmic.sso.sdk.c.b a;

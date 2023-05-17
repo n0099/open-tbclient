@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.defs.interf;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IOnStatisListener {
     long getCurrentUid();
 }

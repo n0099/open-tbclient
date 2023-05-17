@@ -1,52 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.template.model.LoadType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class fq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fq5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public LoadType b;
+    public int c;
+    public Object d;
 
-    public fq5() {
+    public fq5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = z;
     }
 
-    public static fq5 a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (fq5.class) {
-                    if (a == null) {
-                        a = new fq5();
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (fq5) invokeV.objValue;
-    }
-
-    public void b(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null && intent.getData() != null && !StringUtils.isNull(intent.getData().getSchemeSpecificPart())) {
-            f55.m().H("key_ad_retarget_tips_app_count_" + intent.getData().getSchemeSpecificPart());
-        }
+        return invokeV.booleanValue;
     }
 }

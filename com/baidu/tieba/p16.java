@@ -1,18 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class p16 implements CustomMessageTask.CustomRunnable<Object> {
+import java.util.Map;
+@Service
+/* loaded from: classes6.dex */
+public class p16 extends li0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.li0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "commonVideo" : (String) invokeV.objValue;
+    }
 
     public p16() {
         Interceptable interceptable = $ic;
@@ -28,30 +38,14 @@ public class p16 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        boolean d;
+    @Override // com.baidu.tieba.li0
+    public boolean b(@NonNull Context context, @NonNull pi0 pi0Var, @Nullable Map<String, Object> map, @Nullable ti0 ti0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null) {
-                return null;
-            }
-            int cmd = customMessage.getCmd();
-            if (customMessage.getData() != null && (cmd == 2001179 || cmd == 2001180)) {
-                ra5 ra5Var = (ra5) customMessage.getData();
-                if (cmd == 2001179) {
-                    d = r16.f().a(ra5Var);
-                } else {
-                    d = r16.f().d(ra5Var.d());
-                }
-                if (!d) {
-                    f55 m = f55.m();
-                    m.w("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, pi0Var, map, ti0Var)) == null) {
+            super.b(context, pi0Var, map, ti0Var);
+            return xf9.d(context, pi0Var.d());
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

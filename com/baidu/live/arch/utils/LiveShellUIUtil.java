@@ -7,7 +7,7 @@ import android.content.res.TypedArray;
 import com.baidu.live.arch.runtime.MiniShellRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveShellUIUtil {
     public static Context sContext = MiniShellRuntime.INSTANCE.getAppContext();
 

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class VideoDesc extends Message {
     public static final String DEFAULT_VIDEOHEIGHT = "";
     public static final Integer DEFAULT_VIDEOID = 0;
@@ -20,7 +20,7 @@ public final class VideoDesc extends Message {
     @ProtoField(tag = 4, type = Message.Datatype.STRING)
     public final String videoWidth;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<VideoDesc> {
         public String videoHeight;
         public Integer videoId;

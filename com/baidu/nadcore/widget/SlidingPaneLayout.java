@@ -25,9 +25,9 @@ import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.baidu.tieba.fb1;
+import com.baidu.tieba.vb1;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     public static final f A;
     public int a;
@@ -47,7 +47,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public float o;
     public float p;
     public e q;
-    public final fb1 r;
+    public final vb1 r;
     public double s;
     public double t;
     public boolean u;
@@ -57,7 +57,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public final ArrayList<c> y;
     public boolean z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         void onPanelClosed(View view2);
 
@@ -66,7 +66,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         void onPanelSlide(View view2, float f);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface f {
         void a(SlidingPaneLayout slidingPaneLayout, View view2);
     }
@@ -79,7 +79,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
 
     public abstract void w(boolean z);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static final int[] e = {16843137};
         public float a;
@@ -111,7 +111,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends AccessibilityDelegateCompat {
         public final Rect a = new Rect();
 
@@ -180,7 +180,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public final View a;
 
@@ -198,19 +198,19 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class d extends fb1.c {
+    /* loaded from: classes3.dex */
+    public class d extends vb1.c {
         public int a;
 
         public d() {
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public int d(View view2) {
             return SlidingPaneLayout.this.k;
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public void g(int i, int i2) {
             if (!SlidingPaneLayout.this.f) {
                 SlidingPaneLayout.this.r();
@@ -218,12 +218,12 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             SlidingPaneLayout.this.r.c(SlidingPaneLayout.this.h, i2);
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public void j(View view2, int i) {
             SlidingPaneLayout.this.G();
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public boolean n(View view2, int i) {
             if (SlidingPaneLayout.this.l) {
                 return false;
@@ -234,18 +234,18 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return ((LayoutParams) view2.getLayoutParams()).b;
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public int a(View view2, int i, int i2) {
             int paddingLeft = SlidingPaneLayout.this.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) SlidingPaneLayout.this.h.getLayoutParams())).leftMargin;
             return Math.min(Math.max(i, paddingLeft), SlidingPaneLayout.this.k + paddingLeft);
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public boolean f() {
             return SlidingPaneLayout.this.f;
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public void k(int i) {
             if (SlidingPaneLayout.this.r.y() == 0) {
                 if (SlidingPaneLayout.this.i == 0.0f) {
@@ -262,14 +262,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public void l(View view2, int i, int i2, int i3, int i4) {
             this.a = i;
             SlidingPaneLayout.this.C(i);
             SlidingPaneLayout.this.invalidate();
         }
 
-        @Override // com.baidu.tieba.fb1.c
+        @Override // com.baidu.tieba.vb1.c
         public void m(View view2, float f, float f2) {
             int i;
             int paddingLeft = SlidingPaneLayout.this.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) view2.getLayoutParams())).leftMargin;
@@ -390,12 +390,12 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         return true;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
         public boolean isOpen;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
@@ -434,7 +434,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class g implements f {
         @Override // com.baidu.nadcore.widget.SlidingPaneLayout.f
         public void a(SlidingPaneLayout slidingPaneLayout, View view2) {
@@ -442,7 +442,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class h extends g {
         @Override // com.baidu.nadcore.widget.SlidingPaneLayout.g, com.baidu.nadcore.widget.SlidingPaneLayout.f
         public void a(SlidingPaneLayout slidingPaneLayout, View view2) {
@@ -621,7 +621,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         setWillNotDraw(false);
         ViewCompat.setAccessibilityDelegate(this, new b());
         ViewCompat.setImportantForAccessibility(this, 1);
-        fb1 m = fb1.m(this, 0.5f, new d());
+        vb1 m = vb1.m(this, 0.5f, new d());
         this.r = m;
         m.H(1);
         this.r.I(f2 * 400.0f);
@@ -694,9 +694,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return false;
         }
         int paddingLeft = (int) (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.h.getLayoutParams())).leftMargin + (f2 * this.k));
-        fb1 fb1Var = this.r;
+        vb1 vb1Var = this.r;
         View view2 = this.h;
-        if (!fb1Var.L(view2, paddingLeft, view2.getTop())) {
+        if (!vb1Var.L(view2, paddingLeft, view2.getTop())) {
             return false;
         }
         G();

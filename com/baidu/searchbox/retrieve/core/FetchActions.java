@@ -5,23 +5,23 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.retrieve.inter.IFetchJob;
 import com.baidu.searchbox.retrieve.inter.IFetchJob_FetchActions_ListProvider;
-import com.baidu.tieba.fj1;
-import com.baidu.tieba.hj1;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.xj1;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchActions {
     public static final boolean DEBUG = AppConfig.isDebug();
     @Inject
-    public hj1<IFetchJob> mFetchCommandList;
+    public xj1<IFetchJob> mFetchCommandList;
 
     public void initmFetchCommandList() {
-        fj1 b = fj1.b();
+        vj1 b = vj1.b();
         this.mFetchCommandList = b;
         b.a(new IFetchJob_FetchActions_ListProvider());
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Inner {
         public static final FetchActions sInstance = new FetchActions(null);
     }
@@ -40,8 +40,8 @@ public class FetchActions {
 
     public List<IFetchJob> getFetchCommandList() {
         List<IFetchJob> list;
-        hj1<IFetchJob> hj1Var = this.mFetchCommandList;
-        if (hj1Var == null || (list = hj1Var.getList()) == null || list.size() == 0) {
+        xj1<IFetchJob> xj1Var = this.mFetchCommandList;
+        if (xj1Var == null || (list = xj1Var.getList()) == null || list.size() == 0) {
             return null;
         }
         ArrayList arrayList = new ArrayList();

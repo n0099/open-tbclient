@@ -2,7 +2,7 @@ package com.baidu.searchbox.pms.bean;
 
 import android.text.TextUtils;
 import com.baidu.searchbox.pms.constants.ErrorConstant;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ErrorInfo {
     public int code;
     public String errorMsg;

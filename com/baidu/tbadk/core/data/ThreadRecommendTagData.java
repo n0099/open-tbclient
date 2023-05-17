@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.ThemeColorInfo;
 import tbclient.ThreadRecommendTag;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadRecommendTagData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,145 +1,99 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.entitiy.InstallmentEntity;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class qh1 extends BaseAdapter {
+/* loaded from: classes7.dex */
+public class qh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<InstallmentEntity> a;
-    public Context b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static NetworkInfo a() {
+        InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public View c;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = sh1.a();
+            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
+                return null;
             }
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f091a53);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a57);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a56);
+            return connectivityManager.getActiveNetworkInfo();
         }
+        return (NetworkInfo) invokeV.objValue;
     }
 
-    public qh1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = context;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public InstallmentEntity getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
-        }
-        return (InstallmentEntity) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<InstallmentEntity> list = this.a;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                return true;
             }
-            return list.size();
+            return false;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            InstallmentEntity item = getItem(i);
-            if (item == null) {
-                return view2;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "1";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "2";
+                case 13:
+                case 18:
+                case 19:
+                    break;
+                default:
+                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
+                        return "unknown";
+                    }
+                    break;
             }
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0751, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                aVar.a.setText(item.getTitle());
-                aVar.b.setText(item.getPayText());
-                if (item.isChecked()) {
-                    aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0607b4));
-                    aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0607b4));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fad));
-                } else {
-                    aVar.a.setTextSize(1, 14.0f);
-                    aVar.a.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0609ab));
-                    aVar.b.setTextSize(1, 10.0f);
-                    aVar.b.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0607b5));
-                    aVar.c.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080fac));
-                }
-            }
-            return view2;
+            return "3";
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeIL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                if (a.getType() == 1) {
+                    return "4";
+                }
+                if (a.getType() == 0) {
+                    return b(a.getSubtype(), a.getSubtypeName());
+                }
+                return "unknown";
+            }
+            return "0";
+        }
+        return (String) invokeV.objValue;
     }
 }

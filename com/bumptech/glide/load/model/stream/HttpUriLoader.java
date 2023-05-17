@@ -5,11 +5,11 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.load.model.UrlUriLoader;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpUriLoader extends UrlUriLoader<InputStream> {
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Factory extends UrlUriLoader.StreamFactory {
     }
 

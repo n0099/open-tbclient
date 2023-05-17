@@ -24,7 +24,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadContext {
     public static final Executor SERIAL_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Serial", false));
     public static final String TAG = "DownloadContext";
@@ -35,7 +35,7 @@ public class DownloadContext {
     public final DownloadTask[] tasks;
     public Handler uiHandler;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AlterContext {
         public final DownloadContext context;
 
@@ -54,7 +54,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public final ArrayList<DownloadTask> boundTaskList;
         public DownloadContextListener listener;
@@ -151,7 +151,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class QueueAttachTaskStartEndListener extends DownloadTaskStartEndListener {
         @NonNull
         public final DownloadContextListener contextListener;
@@ -180,7 +180,7 @@ public class DownloadContext {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class QueueSet {
         public Boolean autoCallbackToUIThread;
         public Integer flushBufferSize;

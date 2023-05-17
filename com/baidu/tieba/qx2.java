@@ -1,115 +1,204 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.BitmapRegionDecoder;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class qx2 extends dy1 {
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class qx2 implements ox2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public BitmapRegionDecoder a;
+    public final Object b;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qx2(@NonNull yv1 yv1Var) {
-        super(yv1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107134, "Lcom/baidu/tieba/qx2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948107134, "Lcom/baidu/tieba/qx2;");
                 return;
             }
         }
+        c = qp1.a;
     }
 
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
+    public qx2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    return 12;
-                }
-                return 20;
-            }
-            return 19;
         }
-        return invokeL.intValue;
+        this.b = new Object();
     }
 
-    public xz1 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ox2
+    public boolean isReady() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<xz1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((xz1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new xz1(202);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            BitmapRegionDecoder bitmapRegionDecoder = this.a;
+            if (bitmapRegionDecoder != null && !bitmapRegionDecoder.isRecycled()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ox2
+    public void recycle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.recycle();
+        }
+    }
+
+    @Override // com.baidu.tieba.ox2
+    public Point a(Context context, Bitmap bitmap) throws Exception {
+        InputStream inputStream;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bitmap)) == null) {
+            try {
+                inputStream = b(bitmap);
+                try {
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                    kp4.d(inputStream);
+                    return new Point(this.a.getWidth(), this.a.getHeight());
+                } catch (Throwable th) {
+                    th = th;
+                    kp4.d(inputStream);
+                    throw th;
                 }
-                int y = y(optString);
-                kt2 U = kt2.U();
-                if (U == null) {
-                    return new xz1(1001);
-                }
-                g72 V = U.V();
-                if (V == null) {
-                    return new xz1(1001);
-                }
-                d72 m = V.m();
-                if (m == null) {
-                    return new xz1(1001);
-                }
-                ee4 R1 = m.R1();
-                if (R1 == null) {
-                    if (m instanceof k72) {
-                        ((k72) m).m3(y);
-                        return xz1.f();
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+            }
+        } else {
+            return (Point) invokeLL.objValue;
+        }
+    }
+
+    @Override // com.baidu.tieba.ox2
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decodeRegion(Rect rect, int i) {
+        InterceptResult invokeLI;
+        Bitmap decodeRegion;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, rect, i)) == null) {
+            synchronized (this.b) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = i;
+                options.inPreferredConfig = Bitmap.Config.RGB_565;
+                decodeRegion = this.a.decodeRegion(rect, options);
+                if (decodeRegion == null) {
+                    if (!c) {
+                        g62.k("SkiaImageRegionDecoder", "bitmap is null");
+                    } else {
+                        throw new RuntimeException("Skia image decoder returned null bitmap - image format may not be supported");
                     }
-                    return new xz1(1001);
                 }
-                R1.e(y);
-                R1.y();
-                return xz1.f();
             }
-            return new xz1(202);
+            return decodeRegion;
         }
-        return (xz1) invokeL.objValue;
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public InputStream b(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
+            if (bitmap.hasAlpha()) {
+                compressFormat = Bitmap.CompressFormat.PNG;
+            }
+            bitmap.compress(compressFormat, 100, byteArrayOutputStream);
+            return new ByteArrayInputStream(byteArrayOutputStream.toByteArray());
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ox2
+    public Point init(Context context, Uri uri) throws Exception {
+        InterceptResult invokeLL;
+        Resources resourcesForApplication;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+                }
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else {
+                    if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                        try {
+                            i = Integer.parseInt(pathSegments.get(0));
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    i = 0;
+                }
+                this.a = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
+            } else if (uri2.startsWith("file:///android_asset/")) {
+                this.a = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
+            } else if (uri2.startsWith("file://")) {
+                this.a = BitmapRegionDecoder.newInstance(uri2.substring(7), false);
+            } else {
+                InputStream inputStream = null;
+                try {
+                    inputStream = context.getContentResolver().openInputStream(uri);
+                    this.a = BitmapRegionDecoder.newInstance(inputStream, false);
+                } finally {
+                    kp4.d(inputStream);
+                }
+            }
+            return new Point(this.a.getWidth(), this.a.getHeight());
+        }
+        return (Point) invokeLL.objValue;
     }
 }

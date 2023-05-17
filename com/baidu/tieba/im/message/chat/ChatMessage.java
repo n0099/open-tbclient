@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.ca;
+import com.baidu.tieba.d28;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.data.MsgLocalData;
-import com.baidu.tieba.in;
-import com.baidu.tieba.jz7;
-import com.baidu.tieba.p08;
-import com.baidu.tieba.w9;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.x08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public abstract class ChatMessage extends TbSocketMessage implements w9, in {
+/* loaded from: classes6.dex */
+public abstract class ChatMessage extends TbSocketMessage implements ca, rn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_ICE_BREAK;
@@ -52,10 +52,10 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
     public String groupId;
     public boolean hasRead;
     public int height;
-    public List<p08> iceBreakEmotions;
+    public List<d28> iceBreakEmotions;
     public int isFriend;
     public boolean isUploading;
-    public WeakReference<jz7> itemViewWeakReference;
+    public WeakReference<x08> itemViewWeakReference;
     public String link;
     public MsgLocalData localData;
     public long logTime;
@@ -126,7 +126,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = gg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = pg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -156,7 +156,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = gg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = pg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -281,7 +281,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
         return invokeV.intValue;
     }
 
-    public List<p08> getIceBreakEmotions() {
+    public List<d28> getIceBreakEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -309,17 +309,17 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
     }
 
     @Nullable
-    public jz7 getItemView() {
+    public x08 getItemView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            WeakReference<jz7> weakReference = this.itemViewWeakReference;
+            WeakReference<x08> weakReference = this.itemViewWeakReference;
             if (weakReference == null) {
                 return null;
             }
             return weakReference.get();
         }
-        return (jz7) invokeV.objValue;
+        return (x08) invokeV.objValue;
     }
 
     public String getLink() {
@@ -578,7 +578,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
         }
     }
 
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -619,7 +619,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w9
+    @Override // com.baidu.tieba.ca
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -636,24 +636,24 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
         return invokeL.booleanValue;
     }
 
-    public void setItemView(@Nullable jz7 jz7Var) {
-        WeakReference<jz7> weakReference;
+    public void setItemView(@Nullable x08 x08Var) {
+        WeakReference<x08> weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, jz7Var) == null) {
-            if (jz7Var == null && (weakReference = this.itemViewWeakReference) != null) {
+        if (interceptable == null || interceptable.invokeL(1048631, this, x08Var) == null) {
+            if (x08Var == null && (weakReference = this.itemViewWeakReference) != null) {
                 weakReference.clear();
                 this.itemViewWeakReference = null;
                 return;
             }
-            WeakReference<jz7> weakReference2 = this.itemViewWeakReference;
+            WeakReference<x08> weakReference2 = this.itemViewWeakReference;
             if (weakReference2 != null) {
-                if (weakReference2.get() == jz7Var) {
+                if (weakReference2.get() == x08Var) {
                     return;
                 }
                 this.itemViewWeakReference.clear();
                 this.itemViewWeakReference = null;
             }
-            this.itemViewWeakReference = new WeakReference<>(jz7Var);
+            this.itemViewWeakReference = new WeakReference<>(x08Var);
         }
     }
 
@@ -727,7 +727,7 @@ public abstract class ChatMessage extends TbSocketMessage implements w9, in {
         }
     }
 
-    public void setIceBreakEmotions(List<p08> list) {
+    public void setIceBreakEmotions(List<d28> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, list) == null) {
             this.iceBreakEmotions = list;

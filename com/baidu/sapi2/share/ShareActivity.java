@@ -17,7 +17,7 @@ import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareActivity extends Activity {
     public static String TAG = "sapi_new_share_activity";
     public String callType;

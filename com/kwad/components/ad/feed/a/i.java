@@ -14,7 +14,7 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.RatioFrameLayout;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i extends a implements View.OnClickListener {
     public KsLogoView bq;
     public TextView de;
@@ -27,11 +27,11 @@ public final class i extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204)).setRatio(0.56f);
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0911c3);
-        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911c9);
-        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911c5);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091230);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09123f)).setRatio(0.56f);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0911fe);
+        this.df = (ImageView) findViewById(R.id.obfuscated_res_0x7f091204);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091200);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09126b);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -54,7 +54,7 @@ public final class i extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0464;
+        return R.layout.obfuscated_res_0x7f0d0481;
     }
 
     @Override // android.view.View.OnClickListener
@@ -69,7 +69,7 @@ public final class i extends a implements View.OnClickListener {
         } else if (view2 == this.df) {
             i = 100;
         }
-        if (com.kwad.components.core.c.a.d.a(new a.C0596a(getContext()).L(this.mAdTemplate), 1) == 1) {
+        if (com.kwad.components.core.c.a.d.a(new a.C0610a(getContext()).L(this.mAdTemplate), 1) == 1) {
             aq(i);
             return;
         }

@@ -8,10 +8,10 @@ import android.os.Message;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.swan.apps.IAsyncProcessCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IProcessBridge extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Default implements IProcessBridge {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -38,7 +38,7 @@ public interface IProcessBridge extends IInterface {
 
     void send(Message message) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IProcessBridge {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IProcessBridge";
         public static final int TRANSACTION_callMainProcessAsync = 3;
@@ -50,7 +50,7 @@ public interface IProcessBridge extends IInterface {
             return this;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IProcessBridge {
             public static IProcessBridge sDefaultImpl;
             public IBinder mRemote;

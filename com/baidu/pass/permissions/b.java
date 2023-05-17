@@ -2,7 +2,7 @@ package com.baidu.pass.permissions;
 
 import android.view.View;
 import com.baidu.pass.common.SharedPreferencesUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements View.OnClickListener {
     public final /* synthetic */ PermissionsHelperActivity a;
 

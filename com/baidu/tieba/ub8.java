@@ -1,101 +1,138 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.res.Resources;
+import android.util.SparseIntArray;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ub8 extends vm<qb8, CardViewHolder<vb8>> {
+/* loaded from: classes7.dex */
+public class ub8 extends GridLayoutManager.SpanSizeLookup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ji6 b;
-    public String c;
+    public final RecyclerView a;
+    public final int b;
+    public final SparseIntArray c;
+    public final int d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ub8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getContext(), bdUniqueId);
+    public ub8(RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {recyclerView, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.c = new SparseIntArray();
+        this.a = recyclerView;
+        this.b = Math.max(1, d());
+        this.d = i;
+        setSpanIndexCacheEnabled(true);
     }
 
-    @Override // com.baidu.tieba.vm
-    public sn getOnAdapterItemClickListener() {
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Math.max(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
+        }
+        return invokeV.intValue;
+    }
+
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return super.getOnAdapterItemClickListener();
-        }
-        return (sn) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardViewHolder<vb8> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            vb8 vb8Var = new vb8(this.a, viewGroup);
-            ji6 ji6Var = this.b;
-            if (ji6Var != null) {
-                vb8Var.k(ji6Var);
+            int measuredWidth = this.a.getMeasuredWidth();
+            if (measuredWidth == 0) {
+                measuredWidth = this.a.getWidth();
             }
-            return new CardViewHolder<>(vb8Var);
+            return (measuredWidth - this.a.getPaddingLeft()) - this.a.getPaddingRight();
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public void u(String str) {
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public float c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (a() * 1.0f) / this.b;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
+    public void invalidateSpanIndexCache() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.clear();
+            super.invalidateSpanIndexCache();
         }
     }
 
-    public void x(ji6 ji6Var) {
+    public final int e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ji6Var) == null) {
-            this.b = ji6Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qb8 qb8Var, CardViewHolder<vb8> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qb8Var, cardViewHolder})) == null) {
-            if (qb8Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().z(this.c);
-                cardViewHolder.a().i(qb8Var);
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (a() <= 0) {
+                return 1;
             }
-            return null;
+            return ((int) Math.floor(f(i) / c())) + 1;
         }
-        return (View) invokeCommon.objValue;
+        return invokeI.intValue;
+    }
+
+    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
+    public int getSpanSize(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return Math.min(this.b, e(i));
+        }
+        return invokeI.intValue;
+    }
+
+    public final int f(int i) {
+        InterceptResult invokeI;
+        RecyclerView.ViewHolder createViewHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            RecyclerView.Adapter adapter = this.a.getAdapter();
+            int i2 = this.c.get(i, -1);
+            if (i2 != -1) {
+                return i2;
+            }
+            if (adapter == null || (createViewHolder = adapter.createViewHolder(this.a, adapter.getItemViewType(i))) == null) {
+                return 0;
+            }
+            adapter.onBindViewHolder(createViewHolder, i);
+            createViewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            int measuredWidth = createViewHolder.itemView.getMeasuredWidth() + this.d;
+            adapter.onViewRecycled(createViewHolder);
+            this.c.put(i, measuredWidth);
+            return measuredWidth;
+        }
+        return invokeI.intValue;
     }
 }

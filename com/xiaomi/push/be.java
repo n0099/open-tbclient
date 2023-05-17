@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.vivo.identifier.DataBaseOperation;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class be implements at {
     public static String a = "content://com.vivo.vms.IdProvider/IdentifierId/";
     public static String b = a + "OAID";
@@ -80,13 +80,13 @@ public class be implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo186a() {
+    public String mo205a() {
         return a(b);
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo187a() {
+    public boolean mo206a() {
         return "1".equals(r.a(f, "0"));
     }
 }

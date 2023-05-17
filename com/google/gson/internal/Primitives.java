@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Primitives {
     public static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER_TYPE;
     public static final Map<Class<?>, Class<?>> WRAPPER_TO_PRIMITIVE_TYPE;

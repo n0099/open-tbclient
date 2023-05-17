@@ -15,28 +15,28 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.a18;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
-import com.baidu.tieba.lz7;
-import com.baidu.tieba.mz7;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.z08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lz7 j;
+    public z08 j;
     public String k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 CommonMsgField commonMsgField = this.a.getCommonMsgField();
                 long roomId = commonMsgField.getRoomId();
                 long forumId = commonMsgField.getForumId();
-                this.b.j = new lz7(this.b.mContext, this.b.k, forumId, null, roomId, false);
+                this.b.j = new z08(this.b.mContext, this.b.k, forumId, null, roomId, false);
                 this.b.j.execute(new String[0]);
             }
         }
@@ -157,7 +157,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
             ChatImageWithTailView chatImageWithTailView = new ChatImageWithTailView(context);
             chatImageWithTailView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             chatImageWithTailView.e(false);
-            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090e25);
+            chatImageWithTailView.getImage().setId(R.id.obfuscated_res_0x7f090e52);
             return chatImageWithTailView;
         }
         return (ChatImageWithTailView) invokeL.objValue;
@@ -201,7 +201,7 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
                 } else {
                     chatImageWithTailView.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 }
-                baseImageMsg.setThumbSize(mz7.d(chatImageWithTailView, thumbUrl, d0.second, R.drawable.icon_pic_im_image_default));
+                baseImageMsg.setThumbSize(a18.d(chatImageWithTailView, thumbUrl, d0.second, R.drawable.icon_pic_im_image_default));
             }
         }
     }
@@ -215,8 +215,8 @@ public class ImageAdapter extends BaseChatAdapter<BaseImageMsg<?>, Holder> {
             }
             String[] split = str.split(",");
             if (split != null && split.length > 1) {
-                int d = (int) gg.d(split[0], 0.0f);
-                int d2 = (int) gg.d(split[1], 0.0f);
+                int d = (int) pg.d(split[0], 0.0f);
+                int d2 = (int) pg.d(split[1], 0.0f);
                 if (d > 0 && d2 > 0) {
                     return Pair.create(Boolean.FALSE, str);
                 }

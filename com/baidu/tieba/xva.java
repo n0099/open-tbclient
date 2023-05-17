@@ -1,206 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class xva implements zva {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Context sApplicationContext = null;
-    public static int sBlockThreshold = 2000;
-    public static xva sInstance;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes8.dex */
+public class xva implements PidLoaderCreator {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ModuleConfigKs a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948315206, "Lcom/baidu/tieba/xva;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948315206, "Lcom/baidu/tieba/xva;");
-        }
-    }
-
-    public List<String> concernPackages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean deleteFilesInWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract boolean displayNotification();
-
-    public boolean filterNonConcernStack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zva
-    public void onBlock(Context context, fwa fwaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, fwaVar) == null) {
-        }
-    }
-
-    public int provideMonitorDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public String provideNetworkType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String providePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
-    }
-
-    public String provideQualifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String provideUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
-    }
-
-    public boolean stopWhenDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean zip(File[] fileArr, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public xva() {
+    public xva(ModuleConfigKs moduleConfigKs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {moduleConfigKs};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = moduleConfigKs;
     }
 
-    public static xva get() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x0061, code lost:
+        if (r2.equals(com.fun.ad.sdk.FunAdType.KS_NATIVE_EXPRESS) == false) goto L45;
+     */
+    @Override // com.fun.ad.sdk.internal.api.PidLoaderCreator
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public PidLoader create(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            xva xvaVar = sInstance;
-            if (xvaVar != null) {
-                return xvaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            char c = 0;
+            try {
+                Long.parseLong(pid.pid);
+                String str = pid.type;
+                str.hashCode();
+                switch (str.hashCode()) {
+                    case -1377301807:
+                        break;
+                    case -1291455752:
+                        if (str.equals(FunAdType.KS_FULLSCREEN_VIDEO)) {
+                            c = 1;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1187931233:
+                        if (str.equals(FunAdType.KS_NATIVE)) {
+                            c = 2;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1106926588:
+                        if (str.equals(FunAdType.KS_REWARD_VIDEO)) {
+                            c = 3;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case -1031178769:
+                        if (str.equals(FunAdType.KS_SPLASH)) {
+                            c = 4;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 1860126748:
+                        if (str.equals(FunAdType.KS_INTERSTITIAL_EXPRESS)) {
+                            c = 5;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    case 2017609999:
+                        if (str.equals(FunAdType.KS_DRAW_VIDEO)) {
+                            c = 6;
+                            break;
+                        }
+                        c = 65535;
+                        break;
+                    default:
+                        c = 65535;
+                        break;
+                }
+                switch (c) {
+                    case 0:
+                        return new hwa(pid);
+                    case 1:
+                        return new dwa(pid, this.a);
+                    case 2:
+                        return new jwa(pid);
+                    case 3:
+                        return new mwa(pid, this.a);
+                    case 4:
+                        return new owa(pid);
+                    case 5:
+                        return new fwa(pid, this.a);
+                    case 6:
+                        return new awa(pid);
+                    default:
+                        return null;
+                }
+            } catch (NumberFormatException unused) {
+                LogPrinter.d("NumberFormatException for Pid:%s" + pid.pid, new Object[0]);
+                return null;
             }
-            throw new RuntimeException("BlockCanaryContext null");
         }
-        return (xva) invokeV.objValue;
-    }
-
-    public int provideBlockThreshold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return sBlockThreshold;
-        }
-        return invokeV.intValue;
-    }
-
-    public Context provideContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return sApplicationContext;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public int provideDumpInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return provideBlockThreshold();
-        }
-        return invokeV.intValue;
-    }
-
-    public List<String> provideWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add("org.chromium");
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static void init(Context context, xva xvaVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, xvaVar, i) == null) {
-            sApplicationContext = context;
-            sInstance = xvaVar;
-            sBlockThreshold = i;
-        }
-    }
-
-    public void upload(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
-            throw new UnsupportedOperationException();
-        }
+        return (PidLoader) invokeL.objValue;
     }
 }

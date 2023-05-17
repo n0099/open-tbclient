@@ -14,13 +14,13 @@ import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ez5;
+import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BannerDownloadProgressBar extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,19 +76,19 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ez5.ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q06.ad_progress);
             int parseColor = Color.parseColor("#666666");
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070616);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07075e);
             int parseColor2 = Color.parseColor("#2BBCFF");
             int parseColor3 = Color.parseColor("#2B87FF");
-            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070615);
+            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07075d);
             this.d = obtainStyledAttributes.getColor(1, parseColor2);
             this.e = obtainStyledAttributes.getColor(0, parseColor3);
             this.b = obtainStyledAttributes.getColor(7, parseColor);
             this.g = obtainStyledAttributes.getInteger(2, this.g);
             this.a = obtainStyledAttributes.getInteger(3, 0);
             this.f = obtainStyledAttributes.getString(5);
-            this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070614));
+            this.c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07075c));
             this.h = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
             obtainStyledAttributes.recycle();
             h();
@@ -151,7 +151,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             return;
         }
         this.a = i;
-        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f009d) + this.a + "%";
+        this.f = getResources().getString(R.string.obfuscated_res_0x7f0f00c7) + this.a + "%";
         if (this.a == this.g) {
             this.f = "";
         }

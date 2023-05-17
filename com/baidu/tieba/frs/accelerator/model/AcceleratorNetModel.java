@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AcceleratorNetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class AcceleratorNetModel extends BdBaseModel {
     public boolean b;
     public HttpMessageListener c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(AcceleratorData acceleratorData);
 
@@ -50,7 +50,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         }
     }
 
-    public void X(int i) {
+    public void W(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b) {
             return;
@@ -136,7 +136,7 @@ public class AcceleratorNetModel extends BdBaseModel {
         this.b = true;
     }
 
-    public void Y(b bVar) {
+    public void X(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;

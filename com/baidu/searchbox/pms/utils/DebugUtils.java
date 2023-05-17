@@ -5,7 +5,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.config.AppConfig;
 import com.google.gson.Gson;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DebugUtils {
     public static void log(boolean z, Object... objArr) {
         String str;

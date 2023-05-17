@@ -10,7 +10,7 @@ import com.kwad.sdk.core.videocache.b.a;
 import com.kwad.sdk.core.videocache.f;
 import com.kwad.sdk.utils.o;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     /* JADX WARN: Removed duplicated region for block: B:23:0x0075  */
     /*
@@ -42,10 +42,10 @@ public final class a {
             }
             return r5;
         } else {
-            a.C0638a c0638a = new a.C0638a();
+            a.C0652a c0652a = new a.C0652a();
             f bC = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext());
-            r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0638a);
-            str = c0638a.Qd;
+            r5 = bC.cC(A) ? true : bC.a(A, sc * 1024, c0652a);
+            str = c0652a.Qd;
             adTemplate.mDownloadSize = sc * 1024;
             i = 3;
         }

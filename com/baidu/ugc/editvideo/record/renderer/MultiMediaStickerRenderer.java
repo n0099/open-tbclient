@@ -6,8 +6,8 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.mla;
-import com.baidu.tieba.nf0;
+import com.baidu.tieba.dg0;
+import com.baidu.tieba.kna;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -18,7 +18,7 @@ import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     public long mCurrentPos;
     public MultiMediaDataTrack mMultiMediaDataTrack;
@@ -49,7 +49,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     private void releaseTempStickerItemList() {
-        if (mla.e(this.mTempStickerItemList)) {
+        if (kna.e(this.mTempStickerItemList)) {
             return;
         }
         for (a aVar : this.mTempStickerItemList) {
@@ -85,14 +85,14 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(nf0 nf0Var, int i, float[] fArr) {
+    public void onDrawFrame(dg0 dg0Var, int i, float[] fArr) {
         MediaTrack mediaTrack;
         MultiMediaDataTrack multiMediaDataTrack;
         List<MediaSegment> list;
-        if (nf0Var == null || (mediaTrack = this.mSubtitleAndStickerTrack) == null || (multiMediaDataTrack = this.mMultiMediaDataTrack) == null || (list = mediaTrack.mediaSegments) == null || multiMediaDataTrack.multiMediaDataList == null || this.mStickerItems == null || list.size() != this.mMultiMediaDataTrack.multiMediaDataList.size() || this.mStickerItems.size() == 0 || this.mStickerItems.size() != this.mMultiMediaDataTrack.multiMediaDataList.size()) {
+        if (dg0Var == null || (mediaTrack = this.mSubtitleAndStickerTrack) == null || (multiMediaDataTrack = this.mMultiMediaDataTrack) == null || (list = mediaTrack.mediaSegments) == null || multiMediaDataTrack.multiMediaDataList == null || this.mStickerItems == null || list.size() != this.mMultiMediaDataTrack.multiMediaDataList.size() || this.mStickerItems.size() == 0 || this.mStickerItems.size() != this.mMultiMediaDataTrack.multiMediaDataList.size()) {
             return;
         }
-        this.mCurrentPos = nf0Var.b();
+        this.mCurrentPos = dg0Var.b();
         releaseTempStickerItemList();
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
         float f = this.mScaleX;
@@ -111,9 +111,9 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             MultiMediaData multiMediaData = this.mMultiMediaDataTrack.multiMediaDataList.get(i8);
             if (mediaSegment != null && multiMediaData != null) {
                 long j = mediaSegment.start;
-                if (j == 0 || j <= nf0Var.b()) {
+                if (j == 0 || j <= dg0Var.b()) {
                     long j2 = mediaSegment.end;
-                    if ((j2 == 0 || j2 >= nf0Var.b()) && multiMediaData.textureId != 0) {
+                    if ((j2 == 0 || j2 >= dg0Var.b()) && multiMediaData.textureId != 0) {
                         a aVar = this.mStickerItems.get(i8);
                         if (checkForSubline()) {
                             MultiMediaData checkForInitBtn = checkForInitBtn(this.mSublineData, "video_dotted_line");
@@ -139,7 +139,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                             GLES20.glClear(16640);
                             aVar.a(this.mFullScreen2D, this.mFullScreenEXT);
                             GLES20.glBindFramebuffer(36160, 0);
-                            int i9 = nf0Var.i(mediaSegment, aVar.b[0], null);
+                            int i9 = dg0Var.i(mediaSegment, aVar.b[0], null);
                             GLES20.glViewport(i3, i5, i6, i7);
                             this.mFullScreen2D.drawFrame(i9, fArr);
                         }
@@ -177,7 +177,7 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
                 if (j == 0 || j <= this.mCurrentPos) {
                     long j2 = mediaSegment.end;
                     if ((j2 == 0 || j2 >= this.mCurrentPos) && multiMediaData.textureId != 0 && TextUtils.equals(this.mEditTrackType, mediaSegment.type)) {
-                        this.mVisibleStickerItems.add((a) mla.c(this.mStickerItems, i));
+                        this.mVisibleStickerItems.add((a) kna.c(this.mStickerItems, i));
                     }
                 }
             }
@@ -191,16 +191,16 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
         super.setCurrentItem(aVar);
         List<a> list = this.mStickerItems;
         int indexOf = list.indexOf(aVar);
-        mla.h(list, indexOf, list.size() - 1);
+        kna.h(list, indexOf, list.size() - 1);
         MultiMediaDataTrack multiMediaDataTrack = this.mMultiMediaDataTrack;
         if (multiMediaDataTrack != null) {
             List<MultiMediaData> list2 = multiMediaDataTrack.multiMediaDataList;
-            mla.h(list2, indexOf, list2.size() - 1);
+            kna.h(list2, indexOf, list2.size() - 1);
         }
         MediaTrack mediaTrack = this.mSubtitleAndStickerTrack;
         if (mediaTrack != null) {
             List<MediaSegment> list3 = mediaTrack.mediaSegments;
-            mla.h(list3, indexOf, list3.size() - 1);
+            kna.h(list3, indexOf, list3.size() - 1);
         }
         if (z) {
             notifyStickerDataChange(StickerDataChangeType.SWAP);
@@ -214,10 +214,10 @@ public class MultiMediaStickerRenderer extends MultiMediaEditBaseRenderer {
             return;
         }
         List<MediaSegment> stickerSegmentsDataByType = MultiDataSourceUtil.getStickerSegmentsDataByType(this.mSubtitleAndStickerTrack, str);
-        if (mla.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) mla.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
+        if (kna.e(stickerSegmentsDataByType) || (mediaSegment = (MediaSegment) kna.c(stickerSegmentsDataByType, i)) == null || (indexOf = this.mSubtitleAndStickerTrack.mediaSegments.indexOf(mediaSegment)) < 0) {
             return;
         }
-        a aVar = (a) mla.c(this.mStickerItems, indexOf);
+        a aVar = (a) kna.c(this.mStickerItems, indexOf);
         if (aVar != null) {
             setCurrentItem(aVar);
         }

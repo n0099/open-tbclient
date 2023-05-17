@@ -5,7 +5,7 @@ import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.searchbox.retrieve.upload.UploadHelper;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class UploadTask implements IUploadTask {
     public static final long ACTIVE_START_TIME_DEFAULT = 0;
     public static final long SIZE_LIMIT_DEFAULT = 20480;

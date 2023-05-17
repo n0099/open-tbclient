@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static final String INPUT_IMAGE_FORMAT = "Image format";
     @VisibleForTesting
@@ -38,7 +38,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final ImageTranscoderFactory mImageTranscoderFactory;
         public boolean mIsCancelled;

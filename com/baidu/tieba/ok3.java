@@ -1,115 +1,72 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class ok3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class ok3 extends jk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ok3(da3 da3Var) {
+        super(da3Var, "/swanAPI/openTabBarRedDot");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((da3) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                g62.c("openTabBarRedDot", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            String lowerCase = str.toLowerCase();
-            char c = 65535;
-            switch (lowerCase.hashCode()) {
-                case 99640:
-                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 110834:
-                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 111220:
-                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 118783:
-                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3088960:
-                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3447940:
-                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3682393:
-                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+            int optInt = optParamsAsJo.optInt("index");
+            if (jk3.k()) {
+                g62.c("OpenTabBarRedDotAction", "fail not TabBar page");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
+                return false;
             }
-            switch (c) {
-                case 0:
-                    str2 = DocumentOpenUtil.PDF_TYPE;
-                    break;
-                case 1:
-                    str2 = DocumentOpenUtil.WORD_TYPE;
-                    break;
-                case 2:
-                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                    break;
-                case 3:
-                    str2 = DocumentOpenUtil.EXCEL_TYPE;
-                    break;
-                case 4:
-                    str2 = DocumentOpenUtil.SHEET_TYPE;
-                    break;
-                case 5:
-                    str2 = DocumentOpenUtil.PPT_TYPE;
-                    break;
-                case 6:
-                    str2 = DocumentOpenUtil.PRESENT_TYPE;
-                    break;
-                default:
-                    str2 = "";
-                    break;
+            sk3 j = jk3.j();
+            if (j == null) {
+                g62.c("OpenTabBarRedDotAction", "tabBarViewController is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (!j.s(optInt)) {
+                g62.c("openTabBarRedDot", "open red dot fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
-            if (!a(str2)) {
-                return "";
-            }
-            return str2;
         }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

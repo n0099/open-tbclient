@@ -1,79 +1,104 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.MtjConfig;
-import com.baidu.mobstat.StatService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.fv9;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class nn7 implements fv9.a {
+import java.util.concurrent.atomic.AtomicReference;
+/* loaded from: classes6.dex */
+public class nn7 implements pn7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<pn7> a;
+    public static final pn7 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.pn7
+    public en<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (en) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pn7
+    public en<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (en) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pn7
+    public en<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            return null;
+        }
+        return (en) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pn7
+    public en<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            return null;
+        }
+        return (en) invokeLLL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008306, "Lcom/baidu/tieba/nn7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948008306, "Lcom/baidu/tieba/nn7;");
+                return;
+            }
+        }
+        a = new AtomicReference<>(null);
+        b = new nn7();
+    }
 
     public nn7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        String version = TbConfig.getVersion();
-        if (!TextUtils.isEmpty(version)) {
-            StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
-        }
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        if (!TextUtils.isEmpty(lastCachedOid)) {
-            StatService.setOaid(TbadkCoreApplication.getInst(), lastCachedOid);
-        }
     }
 
-    @Override // com.baidu.tieba.fv9.a
-    public void a(Application application) {
+    public static pn7 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            StatService.enableAppList(application, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            pn7 pn7Var = a.get();
+            if (pn7Var == null) {
+                return b;
+            }
+            return pn7Var;
         }
-    }
-
-    @Override // com.baidu.tieba.fv9.a
-    public void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
-            StatService.autoTrace(context);
-        }
-    }
-
-    @Override // com.baidu.tieba.fv9.a
-    public void c(Context context, WebView webView, WebChromeClient webChromeClient) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, webView, webChromeClient) == null) {
-            StatService.trackWebView(context, webView, webChromeClient);
-        }
-    }
-
-    @Override // com.baidu.tieba.fv9.a
-    public void d(Context context, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) {
-            StatService.setAppChannel(context, str, z);
-        }
+        return (pn7) invokeV.objValue;
     }
 }

@@ -9,7 +9,7 @@ import android.view.Surface;
 import com.baidu.searchbox.afx.recode.QueuedMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoTrackTranscoder {
     public static final int DRAIN_STATE_CONSUMED = 2;
     public static final int DRAIN_STATE_NONE = 0;

@@ -2,8 +2,8 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l80;
-import com.baidu.tieba.m80;
+import com.baidu.tieba.b90;
+import com.baidu.tieba.c90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import java.io.ObjectStreamException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 4;
@@ -51,7 +51,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public long methodId_;
     public long serviceId_;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcResponseMeta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (l80) null);
+                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (b90) null);
                 int i = this.a;
                 int i2 = 1;
                 if ((i & 1) != 1) {
@@ -532,7 +532,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         return (List) invokeV.objValue;
     }
 
-    public List<? extends m80> getEventListOrBuilderList() {
+    public List<? extends c90> getEventListOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -771,7 +771,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, l80 l80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b90 b90Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -797,7 +797,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         this.memoizedSerializedSize = -1;
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, l80 l80Var) {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, b90 b90Var) {
         this(builder);
     }
 
@@ -876,13 +876,13 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         return (RpcMetaPb$event_timestamp) invokeI.objValue;
     }
 
-    public m80 getEventListOrBuilder(int i) {
+    public c90 getEventListOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             return this.eventList_.get(i);
         }
-        return (m80) invokeI.objValue;
+        return (c90) invokeI.objValue;
     }
 
     public static RpcMetaPb$RpcResponseMeta parseFrom(CodedInputStream codedInputStream) throws IOException {

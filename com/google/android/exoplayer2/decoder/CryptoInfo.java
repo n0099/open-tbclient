@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.decoder;
 import android.annotation.TargetApi;
 import android.media.MediaCodec;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CryptoInfo {
     public int clearBlocks;
     public int encryptedBlocks;
@@ -17,7 +17,7 @@ public final class CryptoInfo {
     public final PatternHolderV24 patternHolder;
 
     @TargetApi(24)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class PatternHolderV24 {
         public final MediaCodec.CryptoInfo frameworkCryptoInfo;
         public final MediaCodec.CryptoInfo.Pattern pattern;

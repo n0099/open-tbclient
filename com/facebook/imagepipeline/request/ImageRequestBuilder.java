@@ -13,7 +13,7 @@ import com.facebook.imagepipeline.listener.RequestListener;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImageRequestBuilder {
     @Nullable
     public RequestListener mRequestListener;
@@ -42,7 +42,7 @@ public class ImageRequestBuilder {
     public String mTag = null;
     public String mLogTag = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class BuilderException extends RuntimeException {
         public BuilderException(String str) {
             super("Invalid request builder: " + str);

@@ -5,7 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class dk implements Application.ActivityLifecycleCallbacks {
     public Context a;
 

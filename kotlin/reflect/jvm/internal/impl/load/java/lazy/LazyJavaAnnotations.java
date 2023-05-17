@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.storage.MemoizedFunctionToNullable;
 import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class LazyJavaAnnotations implements Annotations {
     public final MemoizedFunctionToNullable<JavaAnnotation, AnnotationDescriptor> annotationDescriptors;
     public final JavaAnnotationOwner annotationOwner;
@@ -41,7 +41,7 @@ public final class LazyJavaAnnotations implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2020findAnnotation(FqName fqName) {
+    public AnnotationDescriptor mo2039findAnnotation(FqName fqName) {
         AnnotationDescriptor invoke;
         JavaAnnotation findAnnotation = this.annotationOwner.findAnnotation(fqName);
         if (findAnnotation == null || (invoke = this.annotationDescriptors.invoke(findAnnotation)) == null) {

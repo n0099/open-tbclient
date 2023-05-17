@@ -3,12 +3,11 @@ package com.baidu.live.business.model.data;
 import android.text.TextUtils;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.o90;
+import com.baidu.tieba.ea0;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedConfig {
     public static final String LIVE_FEED_PAGE_CONFIG_CACHE_KEY = "live_feed_page_config_cache_key";
     public AbSwitchConfig abSwitchConfig;
@@ -37,7 +36,7 @@ public class LiveFeedConfig {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AbSwitchConfig {
         public boolean newBanner;
         public boolean newTab;
@@ -61,7 +60,7 @@ public class LiveFeedConfig {
                     z2 = false;
                 }
                 abSwitchConfig.newTab = z2;
-                if (jSONObject.optInt(ImageViewerConfig.FROM_OTHER) == 1) {
+                if (jSONObject.optInt("other") == 1) {
                     z3 = true;
                 }
                 abSwitchConfig.otherNewStyle = z3;
@@ -71,7 +70,7 @@ public class LiveFeedConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class InterestInsert {
         public int duration;
         public int frequency;
@@ -89,7 +88,7 @@ public class LiveFeedConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PlayConfig {
         public boolean enable;
         public int maxPlayCount;
@@ -129,10 +128,10 @@ public class LiveFeedConfig {
                 this.minorUfoUrl = optJSONObject.optString("ufo_url");
             }
             if (z && z2) {
-                o90.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                ea0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
             }
         } else if (z && z2) {
-            String b = o90.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+            String b = ea0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
             if (!TextUtils.isEmpty(b)) {
                 try {
                     JSONObject jSONObject2 = new JSONObject(b);
@@ -150,7 +149,7 @@ public class LiveFeedConfig {
                         this.minorUfoUrl = optJSONObject2.optString("ufo_url");
                     }
                 } catch (JSONException unused) {
-                    o90.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                    ea0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                 }
             }
         }

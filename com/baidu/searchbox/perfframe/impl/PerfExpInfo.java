@@ -2,7 +2,7 @@ package com.baidu.searchbox.perfframe.impl;
 
 import com.baidu.searchbox.track.ui.TrackUI;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PerfExpInfo {
     public String mBusiness;
     public String mException;

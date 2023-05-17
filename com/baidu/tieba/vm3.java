@@ -1,75 +1,182 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class vm3 extends ImageSpan {
+import java.io.File;
+/* loaded from: classes7.dex */
+public class vm3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vm3(Context context, int i) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948245549, "Lcom/baidu/tieba/vm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948245549, "Lcom/baidu/tieba/vm3;");
                 return;
             }
         }
+        a = qp1.a;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable drawable = getDrawable();
-            canvas.save();
-            canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
-            drawable.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = getDrawable().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (b(str) > b(str2)) {
+                return true;
             }
-            return bounds.right;
+            return false;
         }
-        return invokeCommon.intValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j = 0;
+            for (int i = 0; i < g.length; i++) {
+                try {
+                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
+                } catch (NumberFormatException e) {
+                    g62.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
+                    return 0L;
+                }
+            }
+            g62.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
+            return j;
+        }
+        return invokeL.longValue;
+    }
+
+    public static long c(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String[] g = g(str);
+            if (g == null) {
+                return 0L;
+            }
+            long j2 = 0;
+            for (int i = 0; i < 3; i++) {
+                try {
+                    if (i < g.length) {
+                        j = Integer.parseInt(g[i]);
+                    } else {
+                        j = 0;
+                    }
+                    j2 = (j2 << 16) | j;
+                } catch (NumberFormatException e) {
+                    if (!a) {
+                        return 0L;
+                    }
+                    throw e;
+                }
+            }
+            if (a) {
+                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j2);
+            }
+            return j2;
+        }
+        return invokeL.longValue;
+    }
+
+    public static String d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
+            if (j < 0) {
+                g62.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
+                return "0";
+            }
+            StringBuilder sb = new StringBuilder();
+            long j2 = j;
+            for (int i = 2; i >= 0; i--) {
+                if (i > 0) {
+                    long pow = (long) Math.pow(1000.0d, i);
+                    sb.append(j2 / pow);
+                    sb.append(".");
+                    j2 %= pow;
+                } else {
+                    sb.append(j2);
+                }
+            }
+            String sb2 = sb.toString();
+            g62.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
+            return sb2;
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            long b = b(str);
+            SwanCoreVersion d0 = ag2.U().d0();
+            if (d0 != null) {
+                j = b(d0.swanCoreVersionName);
+            } else {
+                j = 0;
+            }
+            if (j < b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String[] split = str.split("\\.");
+            if (split.length != 3) {
+                return null;
+            }
+            return split;
+        }
+        return (String[]) invokeL.objValue;
     }
 }

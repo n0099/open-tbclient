@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.net.rr.Request;
 import java.net.HttpURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class S2SSRequest extends AbstractRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

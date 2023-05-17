@@ -15,7 +15,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadUrlConnection implements DownloadConnection, DownloadConnection.Connected {
     public static final String TAG = "DownloadUrlConnection";
     public Configuration configuration;
@@ -23,7 +23,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     public IRedirectHandler redirectHandler;
     public URL url;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Factory implements DownloadConnection.Factory {
         public final Configuration configuration;
 
@@ -46,7 +46,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class RedirectHandler implements IRedirectHandler {
         public String redirectLocation;
 
@@ -100,7 +100,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Configuration {
         public Integer connectTimeout;
         public Proxy proxy;

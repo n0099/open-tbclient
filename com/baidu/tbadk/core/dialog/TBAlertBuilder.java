@@ -29,15 +29,15 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.i15;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TBAlertBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +60,9 @@ public class TBAlertBuilder {
     public View.OnClickListener q;
     public boolean r;
     public LinearLayout s;
-    public i15 t;
+    public r25 t;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,46 +97,13 @@ public class TBAlertBuilder {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBAlertBuilder a;
 
         public b(TBAlertBuilder tBAlertBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tBAlertBuilder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBAlertBuilder;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
-                this.a.d.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-
-        public c(TBAlertBuilder tBAlertBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,6 +135,39 @@ public class TBAlertBuilder {
         }
     }
 
+    /* loaded from: classes4.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBAlertBuilder a;
+
+        public c(TBAlertBuilder tBAlertBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tBAlertBuilder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBAlertBuilder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.d != null) {
+                this.a.d.dismiss();
+            }
+        }
+    }
+
     public TBAlertBuilder(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -187,7 +187,7 @@ public class TBAlertBuilder {
         this.k = ScrollingMovementMethod.getInstance();
         this.b = activity;
         this.a = new AlertDialog.Builder(activity);
-        this.t = new i15();
+        this.t = new r25();
     }
 
     public static void e(@NonNull Dialog dialog) {
@@ -218,7 +218,7 @@ public class TBAlertBuilder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int i = context.getResources().getDisplayMetrics().widthPixels;
             int i2 = (i * 837) / 1076;
-            int g = ii.g(context, R.dimen.tbds756);
+            int g = ri.g(context, R.dimen.tbds756);
             if (i2 < g) {
                 return Math.min(i, g);
             }
@@ -385,7 +385,7 @@ public class TBAlertBuilder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-            g35 d = g35.d(view2);
+            p45 d = p45.d(view2);
             if (this.e == null) {
                 i = 0;
             } else {
@@ -516,7 +516,7 @@ public class TBAlertBuilder {
                 TextView b2 = this.t.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f090845);
+                b2.setId(R.id.obfuscated_res_0x7f090862);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -524,7 +524,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090845);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090862);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.s.addView(relativeLayout);
@@ -548,8 +548,8 @@ public class TBAlertBuilder {
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
                 imageView.setImageResource(R.drawable.icon_mask_pop_close);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
-                layoutParams2.setMargins(0, ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
+                layoutParams2.setMargins(0, ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));
                 linearLayout.addView(imageView, layoutParams2);
             }

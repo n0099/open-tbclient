@@ -10,7 +10,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.searchbox.videoplayer.framework.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BdPlayerProgressView extends View {
     public static final int CENTER = 0;
     public static final int DEFAULT_GRAVITY = 1;

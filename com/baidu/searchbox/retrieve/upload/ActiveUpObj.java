@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ActiveUpObj {
     public String mDataId;
     public String mFileID;

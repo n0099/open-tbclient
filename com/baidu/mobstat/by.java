@@ -7,7 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.text.TextUtils;
 import com.baidu.mobstat.cd;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class by {
     public static void a(Context context, final cb cbVar) {
         Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");

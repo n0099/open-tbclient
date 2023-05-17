@@ -16,7 +16,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static final String q = WXLoginActivity.class.getSimpleName();
     public static final String r = "from_wx_auth";
@@ -30,7 +30,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public String o;
     public int p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
@@ -41,7 +41,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public void setPageAnim(boolean z) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements b {
         public a() {
         }

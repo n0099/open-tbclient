@@ -1,6 +1,7 @@
 package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;
@@ -43,7 +44,7 @@ public class HttpUtils {
         }
         URI_UNRESERVED_CHARACTERS = new BitSet();
         PERCENT_ENCODED_STRINGS = new String[256];
-        HTTP_VERBOSE = Boolean.parseBoolean(System.getProperty("bce.sdk.http", "false"));
+        HTTP_VERBOSE = Boolean.parseBoolean(System.getProperty("bce.sdk.http", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE));
         for (int i = 97; i <= 122; i++) {
             URI_UNRESERVED_CHARACTERS.set(i);
         }

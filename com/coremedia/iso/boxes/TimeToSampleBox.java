@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.WeakHashMap;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TimeToSampleBox extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,7 +35,7 @@ public class TimeToSampleBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

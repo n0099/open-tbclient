@@ -1,9 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface ss8<E> {
-    void U0();
+/* loaded from: classes7.dex */
+public interface ss8 {
+    void b();
 
-    void onFail();
+    boolean hasMore();
 
-    void onSuccess(E e);
+    void refresh();
+
+    void reload();
 }

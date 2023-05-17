@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import android.util.Rational;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ImageMetadata {
     public final long a = 0;
 

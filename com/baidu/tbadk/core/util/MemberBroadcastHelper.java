@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberBroadcastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BROADCAST_TYPE_DAILY = 1;
@@ -23,7 +23,7 @@ public class MemberBroadcastHelper {
 
     @Target({ElementType.FIELD, ElementType.PARAMETER})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public @interface SpType {
     }
 
@@ -51,10 +51,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                f55.m().H(generatorSpNumKey);
+                o65.m().H(generatorSpNumKey);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                f55.m().H(generatorSpTimeKey);
+                o65.m().H(generatorSpTimeKey);
             }
         }
     }
@@ -64,10 +64,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             if (i == 1) {
-                return f55.q("key_daily_member_broadcast_show_num_");
+                return o65.q("key_daily_member_broadcast_show_num_");
             }
             if (i == 2) {
-                return f55.q("key_om_member_broadcast_show_num_");
+                return o65.q("key_om_member_broadcast_show_num_");
             }
             return null;
         }
@@ -79,10 +79,10 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             if (i == 1) {
-                return f55.q("key_daily_member_broadcast_show_time_");
+                return o65.q("key_daily_member_broadcast_show_time_");
             }
             if (i == 2) {
-                return f55.q("key_om_member_broadcast_show_time_");
+                return o65.q("key_om_member_broadcast_show_time_");
             }
             return null;
         }
@@ -94,11 +94,11 @@ public class MemberBroadcastHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
             String generatorSpNumKey = generatorSpNumKey(i);
-            if (!TimeHelper.isSameDay(f55.m().o(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
+            if (!TimeHelper.isSameDay(o65.m().o(generatorSpTimeKey(i), 0L), System.currentTimeMillis())) {
                 clearSaveInfo(i);
                 return 0;
             }
-            return f55.m().n(generatorSpNumKey, 0);
+            return o65.m().n(generatorSpNumKey, 0);
         }
         return invokeI.intValue;
     }
@@ -108,7 +108,7 @@ public class MemberBroadcastHelper {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
-            long o = f55.m().o(generatorSpTimeKey(i), 0L);
+            long o = o65.m().o(generatorSpTimeKey(i), 0L);
             if (i == 1) {
                 i2 = this.mMemberBroadcastData.getDailyMinStep();
             } else if (i == 2) {
@@ -130,10 +130,10 @@ public class MemberBroadcastHelper {
             String generatorSpNumKey = generatorSpNumKey(i);
             String generatorSpTimeKey = generatorSpTimeKey(i);
             if (!StringUtils.isNull(generatorSpNumKey)) {
-                f55.m().z(generatorSpNumKey, f55.m().n(generatorSpNumKey, 0) + 1);
+                o65.m().z(generatorSpNumKey, o65.m().n(generatorSpNumKey, 0) + 1);
             }
             if (!StringUtils.isNull(generatorSpTimeKey)) {
-                f55.m().A(generatorSpTimeKey, System.currentTimeMillis());
+                o65.m().A(generatorSpTimeKey, System.currentTimeMillis());
             }
         }
     }

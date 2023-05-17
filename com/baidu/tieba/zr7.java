@@ -1,21 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class zr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, String str3) {
+    public static boolean a(long j, String str) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_name", str2);
-            statisticItem.param("obj_type", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65536, null, j, str)) == null) {
+            if (StringUtils.isNull(str) || j == o65.m().o(str, 0L)) {
+                return false;
+            }
+            return true;
         }
+        return invokeJL.booleanValue;
+    }
+
+    public static void c(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65538, null, str, j) == null) {
+            o65.m().A(o65.q(str), j);
+        }
+    }
+
+    public static boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (System.currentTimeMillis() - o65.m().o(o65.q("key_new_hot_tip_dismiss_time"), 0L) >= j) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 }

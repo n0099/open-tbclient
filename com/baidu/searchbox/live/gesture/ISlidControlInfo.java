@@ -2,7 +2,7 @@ package com.baidu.searchbox.live.gesture;
 
 import android.content.Context;
 import com.baidu.searchbox.live.util.ListExtKt;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ISlidControlInfo {
     int getLeftDivision();
 
@@ -20,7 +20,7 @@ public interface ISlidControlInfo {
 
     boolean isSlideRecover();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SimpleControlInfo implements ISlidControlInfo {
         public final Context context;
 

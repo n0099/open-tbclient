@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.common;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScreenUtil {
     public static int dip2px(Context context, float f) {
         return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);

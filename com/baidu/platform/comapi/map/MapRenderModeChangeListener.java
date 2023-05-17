@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface MapRenderModeChangeListener {
     void onMapRenderModeChange(int i);
 

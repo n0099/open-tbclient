@@ -8,7 +8,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.Log;
 import com.google.protobuf.CodedInputStream;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InvoiceBuildExternalActivity extends InvoiceBuildActivity {
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";
     public static final String TAG = InvoiceBuildExternalActivity.class.getSimpleName();

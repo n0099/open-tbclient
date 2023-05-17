@@ -1,23 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
-public class nwa implements ArCoreApk.a {
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsRewardVideoAd;
+/* loaded from: classes6.dex */
+public class nwa extends swa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicReference a;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsRewardVideoAd c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ mwa e;
 
-    public nwa(AtomicReference atomicReference) {
+    public nwa(mwa mwaVar, KsRewardVideoAd ksRewardVideoAd, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atomicReference};
+            Object[] objArr = {mwaVar, ksRewardVideoAd, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,14 +32,63 @@ public class nwa implements ArCoreApk.a {
                 return;
             }
         }
-        this.a = atomicReference;
+        this.e = mwaVar;
+        this.c = ksRewardVideoAd;
+        this.d = str;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            this.a.set(availability);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClicked(this.c, this.b, this.d);
+            this.b = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onPageDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.e.onAdClose(this.c);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onRewardVerify() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.e.onRewardedVideo(this.c, this.d);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.d();
+            this.e.onAdError(this.c, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.e.onAdShow(this.c, this.a, this.d);
+            this.a = true;
         }
     }
 }

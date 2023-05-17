@@ -1,10 +1,10 @@
 package com.baidu.swan.bdtls;
 
 import androidx.annotation.Keep;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdtlsController {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void loadLibrary(String str);
     }

@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.x35;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MainTabDataSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAUNCH_UP_MAIN_TAB_DATA_ENABLE = "launch_up_main_tab_data_24";
@@ -25,7 +25,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
     public static int type;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -68,7 +68,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (type == 2 && x35.a().b) {
+            if (type == 2 && g55.a().b) {
                 return true;
             }
             return false;
@@ -104,7 +104,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = f55.m().n("key_launch_up_main_tab_data", 1);
+                type = o65.m().n("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;

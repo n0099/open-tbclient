@@ -1,122 +1,141 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.Drawable;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-/* loaded from: classes3.dex */
-public final class a2b extends Drawable {
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public final class a2b {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<Class<?>, w1b> b;
+    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public ImageView.ScaleType c;
-    public final f2b d;
-    public final SVGAVideoEntity e;
-    public final b2b f;
+    public Map<Class<?>, w1b> a;
 
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return -2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947564696, "Lcom/baidu/tieba/a2b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947564696, "Lcom/baidu/tieba/a2b;");
+                return;
+            }
         }
-        return invokeV.intValue;
+        b = new HashMap();
+        c = new HashMap();
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
-        }
-    }
-
-    public a2b(SVGAVideoEntity sVGAVideoEntity, b2b b2bVar) {
+    public a2b(List<w1b> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity, b2bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {list, context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = sVGAVideoEntity;
-        this.f = b2bVar;
-        this.a = true;
-        this.c = ImageView.ScaleType.MATRIX;
-        this.d = new f2b(sVGAVideoEntity, b2bVar);
+        this.a = new HashMap();
+        new HashMap();
+        c(list, context);
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public static Constructor a(Class cls, Class... clsArr) {
+        InterceptResult invokeLL;
+        Constructor<?>[] declaredConstructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
+            boolean z = false;
+            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
+                Class<?>[] parameterTypes = constructor.getParameterTypes();
+                if (parameterTypes.length == clsArr.length) {
+                    for (int i = 0; i < clsArr.length; i++) {
+                        z = parameterTypes[i] == clsArr[i];
+                    }
+                    if (z) {
+                        return constructor;
+                    }
+                }
+            }
+            return null;
         }
-        return invokeV.intValue;
+        return (Constructor) invokeLL.objValue;
     }
 
-    public final SVGAVideoEntity b() {
-        InterceptResult invokeV;
+    public final void b(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
+            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
+            StringBuilder sb = new StringBuilder();
+            sb.append("cause message:");
+            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
+            Log.e("ServiceRepository", sb.toString());
         }
-        return (SVGAVideoEntity) invokeV.objValue;
     }
 
-    public final void c(boolean z) {
+    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(List<w1b> list, Context context) {
+        Map<Class<?>, w1b> map;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == z) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
             return;
         }
-        this.a = z;
-        invalidateSelf();
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        invalidateSelf();
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && !this.a && canvas != null) {
-            this.d.a(canvas, this.b, this.c);
-        }
-    }
-
-    public final void e(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            this.c = scaleType;
+        for (w1b w1bVar : list) {
+            if (w1bVar.c()) {
+                if (!b.containsKey(w1bVar.a())) {
+                    map = b;
+                }
+                if (w1bVar.b() && w1bVar.getType() != null && !c.containsKey(w1bVar.a())) {
+                    try {
+                        Constructor a = a(w1bVar.getType(), Context.class);
+                        c.put(w1bVar.a(), a == null ? a.newInstance(context) : w1bVar.getType().newInstance());
+                    } catch (IllegalAccessException e) {
+                        e = e;
+                        str = "AccessException";
+                        b(str, e);
+                    } catch (InstantiationException e2) {
+                        e = e2;
+                        str = "InstantiationException";
+                        b(str, e);
+                    } catch (InvocationTargetException e3) {
+                        e = e3;
+                        str = "TargetException";
+                        b(str, e);
+                    }
+                }
+            } else {
+                map = this.a;
+            }
+            map.put(w1bVar.a(), w1bVar);
+            if (w1bVar.b()) {
+                Constructor a2 = a(w1bVar.getType(), Context.class);
+                c.put(w1bVar.a(), a2 == null ? a2.newInstance(context) : w1bVar.getType().newInstance());
+            }
         }
     }
 }

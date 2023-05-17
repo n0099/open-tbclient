@@ -2,7 +2,7 @@ package com.facebook.drawee.backends.pipeline.debug;
 
 import android.util.SparseIntArray;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DebugOverlayImageOriginColor {
     public static final SparseIntArray IMAGE_ORIGIN_COLOR_MAP;
 

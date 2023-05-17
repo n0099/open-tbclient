@@ -1,35 +1,24 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hq2 implements gq2 {
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes5.dex */
+public class hq2 extends an2<cq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gq2
-    public void a(String str, String str2) {
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.gq2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.gq2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showConfirmBar" : (String) invokeV.objValue;
     }
 
     public hq2() {
@@ -43,6 +32,19 @@ public class hq2 implements gq2 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull cq2 cq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, cq2Var) == null) {
+            int i = command.arg1;
+            String str = command.what;
+            d(cq2Var, str, "(keyboardHeight)" + i, false);
+            cq2Var.z0(i);
         }
     }
 }

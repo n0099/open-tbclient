@@ -1,155 +1,188 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISharePrefsWrapper;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.widget.uitemplate.SimpleFeedAdInfoView;
+import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
+import com.baidu.tieba.t41;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
-/* loaded from: classes3.dex */
-public class ad1 implements ISharePrefsWrapper {
+/* loaded from: classes4.dex */
+public class ad1 extends cd1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SimpleFeedAdInfoView j;
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, set)) == null) {
-            return null;
+    /* loaded from: classes4.dex */
+    public class a implements SimpleAdInfoView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ ad1 b;
+
+        public a(ad1 ad1Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad1Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ad1Var;
+            this.a = adBaseModel;
         }
-        return (Set) invokeLL.objValue;
-    }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putStringSet(String str, Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, set) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void remove(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-        }
-    }
-
-    public ad1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ad1 ad1Var = this.b;
+                ad1Var.q(ClogBuilder.LogType.FREE_CLICK.type, ad1Var.c, str, this.a.f.d);
             }
         }
     }
 
-    public final SharedPreferences a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ContextHolder.getApplicationContext().getSharedPreferences("nps_frame", 0);
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ ad1 b;
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            return a().getBoolean(str, z);
+        public b(ad1 ad1Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad1Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ad1Var;
+            this.a = adBaseModel;
         }
-        return invokeLZ.booleanValue;
-    }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) {
-            return a().getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            return a().getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) {
-            return a().getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            return a().getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putBoolean(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            a().edit().putBoolean(str, z).commit();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                qc1 qc1Var = this.b.d;
+                if (qc1Var != null) {
+                    qc1Var.a(this.a);
+                }
+                e21.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(this.a.f.d));
+            }
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putFloat(String str, float f) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947611227, "Lcom/baidu/tieba/ad1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947611227, "Lcom/baidu/tieba/ad1;");
+                return;
+            }
+        }
+        k = t41.c.a(bj0.b(), 15.0f);
+    }
+
+    private void m() {
+        SimpleFeedAdInfoView simpleFeedAdInfoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f) == null) {
-            a().edit().putFloat(str, f).commit();
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (simpleFeedAdInfoView = this.j) != null) {
+            simpleFeedAdInfoView.c();
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putInt(String str, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad1(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
-            a().edit().putInt(str, i).commit();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.feed_ad_operate_app_info_view);
+        m();
+    }
+
+    public final void q(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.z(str);
+            clogBuilder.v(str2);
+            clogBuilder.p(str4);
+            clogBuilder.j(str3);
+            e21.b(clogBuilder);
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putLong(String str, long j) {
+    public final void r(AdBaseModel adBaseModel) {
+        SimpleFeedAdInfoView simpleFeedAdInfoView;
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
-            a().edit().putLong(str, j).commit();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) != null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.nad_base_delete_id)) == null) {
+            return;
         }
+        pb1.a(this.j, findViewById, k);
+        findViewById.setOnClickListener(new b(this, adBaseModel));
     }
 
-    @Override // com.baidu.nps.interfa.ISharePrefsWrapper
-    public void putString(String str, String str2) {
+    @Override // com.baidu.tieba.cd1, com.baidu.tieba.yc1
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            a().edit().putString(str, str2).commit();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            m();
+            SimpleFeedAdInfoView simpleFeedAdInfoView = this.j;
+            if (simpleFeedAdInfoView != null) {
+                simpleFeedAdInfoView.update(adBaseModel);
+                rq0 rq0Var = adBaseModel.p;
+                if (rq0Var == null || rq0Var.k) {
+                    this.j.setBackground(getResources().getDrawable(R.drawable.nad_operate_download_bg));
+                }
+                this.j.setAfterListener(new a(this, adBaseModel));
+            }
+            r(adBaseModel);
         }
     }
 }

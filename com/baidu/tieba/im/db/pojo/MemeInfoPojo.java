@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.MemeInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MemeInfoPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class MemeInfoPojo extends OrmObject {
         }
     }
 
-    public static MemeInfoPojo V(MemeInfo memeInfo) {
+    public static MemeInfoPojo U(MemeInfo memeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, memeInfo)) == null) {
@@ -53,7 +53,7 @@ public class MemeInfoPojo extends OrmObject {
         return (MemeInfoPojo) invokeL.objValue;
     }
 
-    public static MemeInfoPojo W(tbclient.MemeInfo memeInfo) {
+    public static MemeInfoPojo V(tbclient.MemeInfo memeInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, memeInfo)) == null) {

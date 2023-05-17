@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.audio;
 import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ResamplingAudioProcessor implements AudioProcessor {
     public ByteBuffer buffer;
     public boolean inputEnded;

@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.in;
-import com.baidu.tieba.j86;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.v96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<in> liveList;
-    public List<in> recommandList;
+    public List<rn> liveList;
+    public List<rn> recommandList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveThreadsRespMessage() {
@@ -66,11 +66,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        j86 j86Var = new j86();
+                        v96 v96Var = new v96();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        j86Var.a = threadData;
-                        this.liveList.add(j86Var);
+                        v96Var.a = threadData;
+                        this.liveList.add(v96Var);
                     }
                 }
             }
@@ -80,11 +80,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        j86 j86Var2 = new j86();
+                        v96 v96Var2 = new v96();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        j86Var2.a = threadData2;
-                        this.recommandList.add(j86Var2);
+                        v96Var2.a = threadData2;
+                        this.recommandList.add(v96Var2);
                     }
                 }
             }
@@ -100,7 +100,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public List<in> getLiveList() {
+    public List<rn> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -109,7 +109,7 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public List<in> getRecommandList() {
+    public List<rn> getRecommandList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {

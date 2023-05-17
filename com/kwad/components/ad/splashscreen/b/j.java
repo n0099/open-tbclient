@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j extends e implements View.OnClickListener, com.kwad.components.ad.splashscreen.g, com.kwad.sdk.core.g.b, com.kwad.sdk.widget.c {
     public static long gO = 400;
     public com.kwad.sdk.core.g.d eN;
@@ -204,9 +204,9 @@ public final class j extends e implements View.OnClickListener, com.kwad.compone
         if (context != null) {
             this.eO = (Vibrator) context.getSystemService("vibrator");
         }
-        this.yX = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09135d)).inflate();
-        this.yZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091356);
-        KsShakeView ksShakeView = (KsShakeView) findViewById(R.id.obfuscated_res_0x7f091360);
+        this.yX = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f091398)).inflate();
+        this.yZ = (TextView) findViewById(R.id.obfuscated_res_0x7f091391);
+        KsShakeView ksShakeView = (KsShakeView) findViewById(R.id.obfuscated_res_0x7f09139b);
         this.yY = ksShakeView;
         ksShakeView.setOnClickListener(this);
     }

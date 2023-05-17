@@ -1,7 +1,7 @@
 package com.baidu.sapi2.ecommerce.result;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressBean {
     public boolean hasLeaf;
     public List<AddressBean> hotlists;

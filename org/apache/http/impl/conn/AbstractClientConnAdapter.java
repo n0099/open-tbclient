@@ -14,7 +14,7 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ManagedClientConnection;
 import org.apache.http.conn.OperatedClientConnection;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractClientConnAdapter implements ManagedClientConnection {
     public AbstractClientConnAdapter(ClientConnectionManager clientConnectionManager, OperatedClientConnection operatedClientConnection) {
         throw new RuntimeException("Stub!");

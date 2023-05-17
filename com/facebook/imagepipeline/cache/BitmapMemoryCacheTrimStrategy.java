@@ -4,12 +4,12 @@ import android.os.Build;
 import com.facebook.common.logging.FLog;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.imagepipeline.cache.MemoryCache;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BitmapMemoryCacheTrimStrategy implements MemoryCache.CacheTrimStrategy {
     public static final String TAG = "BitmapMemoryCacheTrimStrategy";
 
     /* renamed from: com.facebook.imagepipeline.cache.BitmapMemoryCacheTrimStrategy$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$common$memory$MemoryTrimType;
 

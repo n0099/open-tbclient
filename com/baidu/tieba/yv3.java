@@ -1,17 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-/* loaded from: classes7.dex */
-public interface yv3 {
-    void a(int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class yv3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
 
-    void b();
-
-    void c(DownloadState downloadState, int i);
-
-    void d(String str);
-
-    String e();
-
-    void f(boolean z);
+    public yv3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

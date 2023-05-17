@@ -7,7 +7,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RFC2109Spec extends CookieSpecBase {
     public RFC2109Spec() {
         throw new RuntimeException("Stub!");

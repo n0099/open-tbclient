@@ -1,209 +1,170 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.AES;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.le3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xq3 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class xq3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
+    /* loaded from: classes8.dex */
+    public class a implements zn3<je3<le3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ xq3 e;
+
+        public a(xq3 xq3Var, CallbackHandler callbackHandler, String str, Context context, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xq3Var, callbackHandler, str, context, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = xq3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(je3<le3.e> je3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
+                if (ee3.h(je3Var)) {
+                    this.e.k((Activity) this.c, this.d, this.a, this.b);
+                } else {
+                    ee3.q(je3Var, this.a, this.b);
+                }
+            }
+        }
     }
 
-    public xq3() {
+    /* loaded from: classes8.dex */
+    public class b implements zn3<se3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+
+        public b(xq3 xq3Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xq3Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(se3 se3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, se3Var) == null) {
+                g62.i("OpenData", "onOpenDataCallback:: " + se3Var.toString());
+                if (!se3Var.E()) {
+                    ee3.n(se3Var, this.a, this.b);
+                } else {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(se3Var.g, 0).toString());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xq3(da3 da3Var) {
+        super(da3Var, "/swanAPI/getRealNameInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static xq3 f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (xq3.class) {
-                    if (a == null) {
-                        a = new xq3();
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                return false;
             }
-            return a;
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is empty");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
+                return false;
+            } else if (!(context instanceof Activity)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
+                return false;
+            } else {
+                boolean j = ee3.j(optParamsAsJo);
+                g93Var.e0().h(context, "ppcert", j, new a(this, callbackHandler, optString, context, j));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
         }
-        return (xq3) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
+    public final void k(Activity activity, boolean z, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return 0;
-            }
-            int i = 0;
-            for (byte b : bArr) {
-                i = (i << 8) | (b & 255);
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, Boolean.valueOf(z), callbackHandler, str}) == null) {
+            se3.B(activity, "ppcert", null, z, "GetRealNameInfo", new b(this, callbackHandler, str));
         }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: char */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (bArr[i2] > 0) {
-                    i = bArr[i2];
-                } else {
-                    i = bArr[i2] & 255;
-                }
-                sb.append(i);
-                sb.append(",");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public byte[] b(ir3 ir3Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ir3Var, str)) == null) {
-            if (ir3Var == null) {
-                return null;
-            }
-            try {
-                gr3 a2 = gr3.j.a();
-                a2.r((byte) 23);
-                byte[] i = ir3Var.i();
-                if (i != null && i.length > 0 && i.length <= 32767) {
-                    a2.q((short) i.length);
-                    a2.o(i);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, ir3Var.c());
-                    a2.k(aesEncrypt.length);
-                    a2.j(aesEncrypt);
-                }
-                a2.l(mk4.e().d().longValue());
-                return kr3.b(a2);
-            } catch (Exception e) {
-                if (!tq3.a) {
-                    return null;
-                }
-                e.printStackTrace();
-                Log.d("BDTLS", "exception=" + e.getMessage());
-                return null;
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public hr3 c(ir3 ir3Var, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ir3Var, bArr)) == null) {
-            hr3 hr3Var = new hr3();
-            try {
-                gr3 a2 = kr3.a(bArr);
-                byte i = a2.i();
-                if (i != 21) {
-                    if (i == 23) {
-                        hr3Var.c(new String(AES.aesDecrypt(a2.a(), ir3Var.c())));
-                        hr3Var.d(1);
-                    }
-                } else {
-                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
-                    if (parseFrom != null) {
-                        String str = new String(parseFrom.getDescription().toByteArray());
-                        if (tq3.a) {
-                            Log.d("BDTLS", "bdtls ubc application alert : " + str);
-                        }
-                        yq3.b(ir3Var, parseFrom);
-                        if (1 == parseFrom.getLevel()) {
-                            hr3Var.d(-2);
-                        } else if (TextUtils.equals(str, "down grade")) {
-                            hr3Var.d(2);
-                        } else {
-                            hr3Var.d(-1);
-                        }
-                        if (tq3.a) {
-                            if (parseFrom.getDescription() != null) {
-                                if (tq3.a) {
-                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
-                                }
-                            } else if (tq3.a) {
-                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
-                            }
-                        }
-                    } else {
-                        hr3Var.d(-1);
-                    }
-                }
-            } catch (Exception e) {
-                if (tq3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                hr3Var.d(-1);
-            }
-            return hr3Var;
-        }
-        return (hr3) invokeLL.objValue;
-    }
-
-    public byte[] e(ir3 ir3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ir3Var)) == null) {
-            if (ir3Var == null) {
-                return null;
-            }
-            try {
-                byte[] b = jr3.b(ir3Var, new fr3());
-                if (b == null) {
-                    return null;
-                }
-                gr3 a2 = gr3.j.a();
-                a2.r((byte) 22);
-                a2.q((short) b.length);
-                a2.l(mk4.e().d().longValue());
-                a2.o(b);
-                return kr3.b(a2);
-            } catch (Exception e) {
-                if (tq3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
     }
 }

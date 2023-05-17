@@ -15,8 +15,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ek3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.nl3;
+/* loaded from: classes4.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static final Interpolator k = new LinearInterpolator();
     public RelativeLayout e;
@@ -28,7 +28,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void g() {
-        this.g.setText(R.string.obfuscated_res_0x7f0f01b2);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01dc);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -37,36 +37,36 @@ public class RotateLoadingLayout extends LoadingLayout {
         if (relativeLayout != null) {
             return relativeLayout.getHeight();
         }
-        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07015f);
+        return (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070166);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void h() {
         o();
         this.f.startAnimation(this.j);
-        this.g.setText(R.string.obfuscated_res_0x7f0f01b1);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01db);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void i() {
         super.i();
-        this.g.setText(R.string.obfuscated_res_0x7f0f01b0);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01da);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
-        this.g.setText(R.string.obfuscated_res_0x7f0f01b3);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01dd);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
         o();
-        this.g.setText(R.string.obfuscated_res_0x7f0f01b2);
+        this.g.setText(R.string.obfuscated_res_0x7f0f01dc);
     }
 
     public final void o() {
         this.f.clearAnimation();
-        if (ek3.c()) {
+        if (nl3.c()) {
             this.f.setRotation(0.0f);
         }
     }
@@ -78,7 +78,7 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void d(float f) {
-        if (ek3.c()) {
+        if (nl3.c()) {
             this.f.setRotation(f * 180.0f);
         }
     }
@@ -108,17 +108,17 @@ public class RotateLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c9, viewGroup, false);
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00cb, viewGroup, false);
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8e);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c8c);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091c8f);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c92);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c94);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ce2);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ce0);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce3);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce6);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce8);
         this.f.setScaleType(ImageView.ScaleType.CENTER);
-        this.f.setImageResource(R.drawable.obfuscated_res_0x7f080144);
+        this.f.setImageResource(R.drawable.obfuscated_res_0x7f08015c);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.j = rotateAnimation;
         rotateAnimation.setFillAfter(true);

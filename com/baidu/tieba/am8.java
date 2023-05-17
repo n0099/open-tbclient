@@ -1,71 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class am8 extends bm8 {
+import java.lang.reflect.Field;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public class am8 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bm8, com.baidu.searchbox.live.interfaces.player.LivePlayer
-    public void saveProgressToDb() {
+    public static Map<String, String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am8(String str) {
-        super(null, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (a == null) {
+                try {
+                    Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");
+                    declaredField.setAccessible(true);
+                    a = (Map) declaredField.get(null);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+            return a;
         }
+        return (Map) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onPrepared() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.onPrepared();
-            int i = this.mVideoTask.position;
-            if (i > 0) {
-                seekTo(i);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.bm8, com.baidu.tieba.zl8, com.baidu.searchbox.player.UniversalPlayer, com.baidu.searchbox.player.BDVideoPlayer
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.release();
-            saveProgressToDb();
-        }
-    }
-
-    @Override // com.baidu.tieba.zl8, com.baidu.searchbox.player.BDVideoPlayer, com.baidu.searchbox.player.IBVideoPlayer
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.stop();
-            saveProgressToDb();
         }
     }
 }

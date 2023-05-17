@@ -1,19 +1,19 @@
 package com.baidu.nadcore.thread.executor;
 
 import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.tieba.q21;
-import com.baidu.tieba.s21;
-import com.baidu.tieba.t21;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.g31;
+import com.baidu.tieba.i31;
+import com.baidu.tieba.j31;
+import com.baidu.tieba.k31;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseExecutorCell {
     public LinkedList<ElasticTask> a = new LinkedList<>();
     public int b;
     public ThreadPoolExecutor c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ExecutorType {
         ARTERY,
         DREDGE_NORMAL,
@@ -25,7 +25,7 @@ public abstract class BaseExecutorCell {
 
     public abstract String d();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ElasticTask.a {
         public final /* synthetic */ ElasticTask a;
 
@@ -44,7 +44,7 @@ public abstract class BaseExecutorCell {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class b {
         public static final /* synthetic */ int[] a;
 
@@ -100,15 +100,15 @@ public abstract class BaseExecutorCell {
             if (i2 != 2) {
                 if (i2 != 3) {
                     if (i2 != 4) {
-                        return new t21(i);
+                        return new j31(i);
                     }
-                    return new u21(i);
+                    return new k31(i);
                 }
-                return new s21(i);
+                return new i31(i);
             }
-            return new t21(i);
+            return new j31(i);
         }
-        return new q21(i);
+        return new g31(i);
     }
 
     public synchronized int e() {

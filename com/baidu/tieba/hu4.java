@@ -1,251 +1,213 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class hu4 implements xf6 {
+/* loaded from: classes5.dex */
+public class hu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static hu4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public CustomMessageListener a;
+    public boolean b;
+    public HttpMessageListener c;
 
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        wf6.a(this, webView, str, jSONObject);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947836194, "Lcom/baidu/tieba/hu4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947836194, "Lcom/baidu/tieba/hu4;");
+        }
     }
 
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void onDestroy() {
-        wf6.b(this);
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hu4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hu4 hu4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hu4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && ri.F() && BdNetTypeUtil.isMobileNet()) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hu4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(hu4 hu4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hu4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003392 || !(httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
+                return;
+            }
+            this.a.b = false;
+            CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
+            if (checkBaiduSimResponseMessage.isSuc) {
+                boolean z = checkBaiduSimResponseMessage.isBaiduSim;
+                o65 m = o65.m();
+                if (z) {
+                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free);
+                } else {
+                    str = "";
+                }
+                m.B("key_baidu_sim_card_writting_tip", str);
+                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+            }
+        }
     }
 
     public hu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new a(this, 2000994);
+        this.b = false;
+        this.c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
     }
 
-    @Override // com.baidu.tieba.xf6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public static hu4 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.COMPLETE_TASK.equals(str2)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str3);
-                    jsPromptResult.confirm(f(webView, jSONObject.optString("activityId"), jSONObject.optString("missionId")).a());
-                    return true;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                d = new hu4();
+            }
+            return d;
+        }
+        return (hu4) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int curOperatorType = BdNetTypeUtil.curOperatorType();
+            if (curOperatorType != 1) {
+                if (curOperatorType != 2) {
+                    if (curOperatorType != 3) {
+                        return "UNKNOWN";
+                    }
+                    return "TELECOM";
                 }
-            } else if (CommonTbJsBridge.FINISH_TEST_ANSWER.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(c(webView, new JSONObject(str3).optLong("testId")).a());
-                    return true;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            } else {
-                return false;
+                return "UNICOM";
             }
+            return "MOBILE";
         }
-        return invokeLLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public hq9 c(WebView webView, long j) {
-        InterceptResult invokeLJ;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, webView, j)) == null) {
-            hq9 hq9Var = new hq9();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
-            Activity a = mf6.a(webView.getContext());
-            if (a != null) {
-                a.finish();
-            }
-            hq9Var.o(CommonTbJsBridge.FINISH_TEST_ANSWER);
-            return hq9Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.a);
         }
-        return (hq9) invokeLJ.objValue;
     }
 
-    public hq9 e(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
-            hq9 hq9Var = new hq9();
-            if (hashMap == null) {
-                return hq9Var;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
+            this.b = true;
+            if (System.currentTimeMillis() >= o65.m().o("key_next_check_baidu_sim_time", 0L)) {
+                o65.m().A("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
+                tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
+                MessageManager.getInstance().registerTask(tbHttpMessageTask);
+                MessageManager.getInstance().registerListener(this.c);
+                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+                httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
+                httpMessage.addParam("network", e());
+                MessageManager.getInstance().sendMessage(httpMessage);
+                return;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("threadInfo", hashMap.get("threadInfo"));
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.CHANGE_POST_WALL, jSONObject);
-            hq9Var.o(jSONObject.toString());
-            return hq9Var;
+            this.b = false;
         }
-        return (hq9) invokeLL.objValue;
-    }
-
-    public hq9 d(WebView webView, String str) {
-        int i;
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            try {
-                i = Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                i = -1;
-            }
-            ev4.b(i);
-            return new hq9();
-        }
-        return (hq9) invokeLL.objValue;
-    }
-
-    public hq9 h(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            mg9.d().f(str);
-            return new hq9();
-        }
-        return (hq9) invokeLL.objValue;
-    }
-
-    public hq9 k(WebView webView, HashMap hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, webView, hashMap)) == null) {
-            return new hq9();
-        }
-        return (hq9) invokeLL.objValue;
-    }
-
-    public hq9 f(WebView webView, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, str2)) == null) {
-            hq9 hq9Var = new hq9();
-            int i = 0;
-            try {
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, str2);
-                    CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
-                    completeTaskReqMsg.completeId = jSONObject.toString();
-                    completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-                    MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-                    i = 1;
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("resultCode", i);
-                hq9Var.o(jSONObject2.toString());
-                return hq9Var;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-                return hq9Var;
-            }
-        }
-        return (hq9) invokeLLL.objValue;
-    }
-
-    public hq9 j(WebView webView, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, webView, str, str2)) == null) {
-            hq9 hq9Var = new hq9();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                lx5 lx5Var = new lx5();
-                try {
-                    lx5Var.a = URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
-                } catch (UnsupportedEncodingException e) {
-                    lx5Var.a = str;
-                    e.printStackTrace();
-                }
-                try {
-                    lx5Var.b = URLDecoder.decode(str2, IMAudioTransRequest.CHARSET);
-                } catch (UnsupportedEncodingException e2) {
-                    lx5Var.b = str2;
-                    e2.printStackTrace();
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921787, lx5Var));
-            }
-            return hq9Var;
-        }
-        return (hq9) invokeLLL.objValue;
-    }
-
-    public hq9 g(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
-            hq9 hq9Var = new hq9();
-            pw4.c().h();
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                hq9Var.o(jSONObject.toString());
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return hq9Var;
-        }
-        return (hq9) invokeL.objValue;
-    }
-
-    public hq9 i(WebView webView, int i, String str) {
-        InterceptResult invokeLIL;
-        SmallTailThemeData smallTailThemeData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, i, str)) == null) {
-            if (i == 1) {
-                smallTailThemeData = new SmallTailThemeData();
-                smallTailThemeData.setPropsId(str);
-            } else {
-                smallTailThemeData = null;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921748, smallTailThemeData));
-            return new hq9();
-        }
-        return (hq9) invokeLIL.objValue;
     }
 }

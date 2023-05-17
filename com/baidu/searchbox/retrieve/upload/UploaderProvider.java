@@ -3,7 +3,7 @@ package com.baidu.searchbox.retrieve.upload;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class UploaderProvider {
     public static final BaseContentUploader DEFAULT_CONTENT_UPLOADER = new DefaultContentUploader();
     public static final BaseFileUploader DEFAULT_FILE_UPLOADER = new DefaultFileUploader();

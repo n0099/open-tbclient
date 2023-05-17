@@ -1,27 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes5.dex */
-public interface pd9 {
-    void autoPlay(int i);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class pd9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final cd9 a;
+    public final String b;
 
-    boolean canPlay();
-
-    long getCurrentPosition();
-
-    int getPlayStatus();
-
-    String getPlayUrl();
-
-    View getVideoContainer();
-
-    boolean isPlayStarted();
-
-    boolean isPlaying();
-
-    void release();
-
-    void startPlay();
-
-    void stopPlay();
+    public pd9(cd9 cd9Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cd9Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = cd9Var;
+        this.b = str;
+    }
 }

@@ -1,132 +1,130 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import android.widget.TextView;
-import androidx.annotation.ColorInt;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tb1 extends rb1 {
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+/* loaded from: classes7.dex */
+public class tb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @ColorInt
-    public int p;
-    public CharSequence q;
-    public int r;
-    public float s;
 
-    @Override // com.baidu.tieba.rb1
-    public int e() {
-        InterceptResult invokeV;
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public static void a(Activity activity, rb1 rb1Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.nad_bubble_tip_d20 : invokeV.intValue;
-    }
-
-    public tb1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, activity, rb1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(activity, new Object[0]);
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
+                }
+                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new ub1(rb1Var));
+                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(activity, newProxyInstance, invoke);
+            } catch (Throwable unused) {
+                if (rb1Var != null) {
+                    rb1Var.onTranslucent(false);
+                }
             }
         }
-        this.p = -1;
-        this.r = -1;
-        this.s = -1.0f;
     }
 
-    public int B() {
-        InterceptResult invokeV;
+    public static void b(Activity activity, rb1 rb1Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.p;
-            if (i != -1) {
-                return i;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, rb1Var) == null) {
+            try {
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
+                    }
+                }
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, null);
+                if (rb1Var != null) {
+                    rb1Var.onTranslucent(true);
+                }
+            } catch (Throwable unused) {
+                if (rb1Var != null) {
+                    rb1Var.onTranslucent(false);
+                }
             }
-            return ta1.a().getResources().getColor(R.color.NAD_UC28);
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.rb1
-    public boolean h() {
-        InterceptResult invokeV;
+    public static Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!TextUtils.isEmpty(this.q) && super.h()) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rb1
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.n();
-            this.q = null;
-        }
-    }
-
-    public void C(CharSequence charSequence, int i, int i2, float f) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) != null) || (textView = this.e) == null) {
-            return;
-        }
-        if (charSequence != null) {
-            textView.setText(charSequence);
-        }
-        this.e.setTextColor(i);
-        if (i2 >= 0 && f > 0.0f) {
-            this.e.setTextSize(i2, f);
-        }
-    }
-
-    public void D(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            if (TextUtils.isEmpty(charSequence)) {
-                Log.d("BubbleTextManager", "str is empty !!!, will show nothing !!!");
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
             }
-            this.q = charSequence;
+            return new BitmapDrawable(context.getResources(), decodeFile);
         }
+        return (Drawable) invokeLL.objValue;
     }
 
-    public void E(@ColorInt int i, @ColorInt int i2) {
+    public static void c(Activity activity, rb1 rb1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.p = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.rb1
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!super.g()) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, rb1Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, new Object[0]);
+                if (rb1Var != null) {
+                    rb1Var.onTranslucent(false);
+                }
+            } catch (Throwable unused) {
+                if (rb1Var != null) {
+                    rb1Var.onTranslucent(true);
+                }
             }
-            int B = B();
-            TextView textView = (TextView) this.b.findViewById(R.id.bubble_text);
-            this.e = textView;
-            textView.setTextColor(B);
-            this.e.setVisibility(0);
-            return true;
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void d(Activity activity, rb1 rb1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, rb1Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    a(activity, rb1Var);
+                } else {
+                    b(activity, rb1Var);
+                }
+            } catch (Throwable unused) {
+                if (rb1Var != null) {
+                    rb1Var.onTranslucent(false);
+                }
+            }
+        }
     }
 }

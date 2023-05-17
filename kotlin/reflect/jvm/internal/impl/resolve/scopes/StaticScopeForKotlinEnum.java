@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.DescriptorFactory;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StaticScopeForKotlinEnum extends MemberScopeImpl {
     public static final /* synthetic */ KProperty[] $$delegatedProperties = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(StaticScopeForKotlinEnum.class), "functions", "getFunctions()Ljava/util/List;"))};
     public final ClassDescriptor containingClass;
@@ -68,7 +68,7 @@ public final class StaticScopeForKotlinEnum extends MemberScopeImpl {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public /* bridge */ /* synthetic */ ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return (ClassifierDescriptor) getContributedClassifier(name, lookupLocation);
     }
 

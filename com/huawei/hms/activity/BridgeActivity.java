@@ -29,7 +29,7 @@ import com.huawei.hms.ui.SafeIntent;
 import com.huawei.hms.utils.ResourceLoaderUtil;
 import com.huawei.hms.utils.UIUtil;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BridgeActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_DELEGATE_CLASS_NAME = "intent.extra.DELEGATE_CLASS_OBJECT";
@@ -41,7 +41,7 @@ public class BridgeActivity extends Activity {
     public transient /* synthetic */ FieldHolder $fh;
     public IBridgeActivityDelegate a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements View.OnApplyWindowInsetsListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

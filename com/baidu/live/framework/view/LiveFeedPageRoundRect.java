@@ -12,8 +12,8 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.y90;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.oa0;
+/* loaded from: classes3.dex */
 public class LiveFeedPageRoundRect extends FrameLayout {
     public Paint a;
     public Path b;
@@ -82,7 +82,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, y90.LiveFeedPageRoundRect);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, oa0.LiveFeedPageRoundRect);
         this.e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);

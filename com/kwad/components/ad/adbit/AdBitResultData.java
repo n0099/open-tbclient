@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdBitResultData extends AdResultData {
     public static final long serialVersionUID = -3932631606478587475L;
     public List<AdBid> adBidList;

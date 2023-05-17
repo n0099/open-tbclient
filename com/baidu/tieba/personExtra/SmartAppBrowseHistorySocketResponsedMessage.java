@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.m69;
+import com.baidu.tieba.i89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m69 mData;
+    public i89 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistorySocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
         }
     }
 
-    public m69 getData() {
+    public i89 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (m69) invokeV.objValue;
+        return (i89) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class SmartAppBrowseHistorySocketResponsedMessage extends SocketResponsed
                 setErrorString(historySwanResIdl.error.usermsg);
             }
             if (historySwanResIdl.data != null) {
-                m69 m69Var = new m69();
-                this.mData = m69Var;
-                m69Var.b(historySwanResIdl.data);
+                i89 i89Var = new i89();
+                this.mData = i89Var;
+                i89Var.b(historySwanResIdl.data);
             }
             return historySwanResIdl;
         }

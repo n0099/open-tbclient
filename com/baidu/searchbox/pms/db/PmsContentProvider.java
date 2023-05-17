@@ -7,7 +7,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PmsContentProvider extends ContentProvider {
     public static volatile PmsContentProviderImpl sProvider;
 

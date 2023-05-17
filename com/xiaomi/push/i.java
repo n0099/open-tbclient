@@ -24,7 +24,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static String a = null;
 
@@ -83,12 +83,12 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m527a() {
+    public static String m546a() {
         return a(b()) + "GB";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m528a(int i) {
+    public static String m547a(int i) {
         if (i > 0) {
             String[] strArr = f603a;
             if (i < strArr.length) {
@@ -106,18 +106,18 @@ public class i {
     public static String a(Context context, boolean z) {
         if (d == null) {
             String b2 = b(context);
-            String c2 = !j.m637d() ? z ? c(context) : j(context) : "";
+            String c2 = !j.m656d() ? z ? c(context) : j(context) : "";
             String a2 = a(context);
             int i = 1;
             if (!(Build.VERSION.SDK_INT < 26) && b(c2) && b(a2)) {
                 String b3 = az.a(context).b();
                 if (TextUtils.isEmpty(b3)) {
-                    String mo186a = az.a(context).mo186a();
-                    if (TextUtils.isEmpty(mo186a) || mo186a.startsWith("00000000-0000-0000-0000-000000000000")) {
+                    String mo205a = az.a(context).mo205a();
+                    if (TextUtils.isEmpty(mo205a) || mo205a.startsWith("00000000-0000-0000-0000-000000000000")) {
                         i = 5;
                     } else {
                         i = 4;
-                        b2 = mo186a;
+                        b2 = mo205a;
                     }
                 } else {
                     b2 = b3 + b2;
@@ -130,14 +130,14 @@ public class i {
             if (i == 3) {
                 d = b2;
             } else {
-                d = m528a(i) + bo.b(b2);
+                d = m547a(i) + bo.b(b2);
             }
         }
         return d;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m529a(Context context) {
+    public static boolean m548a(Context context) {
         Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         if (registerReceiver != null) {
             int intExtra = registerReceiver.getIntExtra("status", -1);
@@ -218,20 +218,20 @@ public class i {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m530b() {
+    public static String m549b() {
         double a2 = a(((a(Environment.getDataDirectory()) / 1024.0d) / 1024.0d) / 1024.0d);
         return a2 + "GB";
     }
 
     public static String b(Context context) {
         if (b == null && f602a) {
-            boolean m532c = m532c(context);
-            f602a = m532c;
-            if (m532c) {
+            boolean m551c = m551c(context);
+            f602a = m551c;
+            if (m551c) {
                 try {
                     b = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 } catch (Throwable th) {
-                    com.xiaomi.channel.commonutils.logger.b.m101a("failure to get androidId: " + th);
+                    com.xiaomi.channel.commonutils.logger.b.m120a("failure to get androidId: " + th);
                 }
                 return b;
             }
@@ -241,7 +241,7 @@ public class i {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m531b(Context context) {
+    public static boolean m550b(Context context) {
         PowerManager powerManager = (PowerManager) context.getSystemService("power");
         return powerManager == null || powerManager.isScreenOn();
     }
@@ -264,7 +264,7 @@ public class i {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static boolean m532c(Context context) {
+    public static boolean m551c(Context context) {
         if ("com.xiaomi.xmsf".equals(context.getPackageName())) {
             return true;
         }

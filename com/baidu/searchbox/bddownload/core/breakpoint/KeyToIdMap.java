@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.bddownload.DownloadTask;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KeyToIdMap {
     @NonNull
     public final SparseArray<String> idToKeyMap;

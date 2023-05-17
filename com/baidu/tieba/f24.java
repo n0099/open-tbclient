@@ -1,115 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.v8engine.JsFunction;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class f24 {
+/* loaded from: classes5.dex */
+public class f24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
 
-    public f24() {
+    public static boolean a(View view2, mz2 mz2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, mz2Var)) == null) {
+            xq1 W = tu2.U().W();
+            if (W != null && W.c(view2, mz2Var)) {
+                return true;
             }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void a() {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            JsFunction jsFunction = this.b;
-            if (jsFunction != null) {
-                jsFunction.call();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            xq1 W = tu2.U().W();
+            if (W == null || !W.b() || W.h()) {
+                return false;
             }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call();
-            }
-            f(this.a);
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            JsFunction jsFunction = this.a;
-            if (jsFunction != null) {
-                jsFunction.call();
-            }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call();
-            }
-            f(this.b);
-        }
-    }
-
-    public static f24 e(e02 e02Var) {
+    public static boolean c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e02Var)) == null) {
-            if (e02Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            xq1 W = tu2.U().W();
+            if (W != null && W.d(view2)) {
+                return true;
             }
-            f24 f24Var = new f24();
-            f24Var.a = e02Var.u("success");
-            f24Var.b = e02Var.u(com.baidu.pass.biometrics.face.liveness.b.a.g0);
-            f24Var.c = e02Var.u(TaskProcessData.keyComplete);
-            return f24Var;
+            return false;
         }
-        return (f24) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void b(Object obj) {
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            JsFunction jsFunction = this.b;
-            if (jsFunction != null) {
-                jsFunction.call(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            xq1 W = tu2.U().W();
+            if (W == null) {
+                return false;
             }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call(obj);
+            if (W.h()) {
+                SwanAppActivity activity = tu2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                W.g(false);
             }
-            f(this.a);
+            return W.removeView(view2);
         }
-    }
-
-    public void d(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            JsFunction jsFunction = this.a;
-            if (jsFunction != null) {
-                jsFunction.call(obj);
-            }
-            JsFunction jsFunction2 = this.c;
-            if (jsFunction2 != null) {
-                jsFunction2.call(obj);
-            }
-            f(this.b);
-        }
-    }
-
-    public final void f(JsFunction jsFunction) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, jsFunction) == null) && jsFunction != null) {
-            jsFunction.release();
-        }
+        return invokeL.booleanValue;
     }
 }

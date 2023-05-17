@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,11 +28,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AutoChangeLineView extends ViewGroup implements View.OnClickListener, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int D = 2131305030;
-    public static final int E = 2131305031;
+    public static final int D = 2131305130;
+    public static final int E = 2131305131;
     public transient /* synthetic */ FieldHolder $fh;
     public d A;
     public e B;
@@ -64,27 +64,27 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public int y;
     public c z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b<T> {
         CharSequence a(TextView textView, int i, T t);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(TextView textView, Object obj, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface d {
         boolean a(TextView textView, Object obj, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e {
         void a(TextView textView, Object obj, boolean z, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface f {
         boolean a(TextView textView, Object obj, boolean z, boolean z2, int i);
     }
@@ -105,7 +105,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class SelectType {
         public static final /* synthetic */ SelectType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -198,7 +198,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements b<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -645,7 +645,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) && attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.AutoChangeLineView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.AutoChangeLineView);
             this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
             this.o = obtainStyledAttributes.getInteger(16, 0);
             this.p = obtainStyledAttributes.getInteger(17, 0);

@@ -7,7 +7,7 @@ import com.google.gson.TypeAdapter;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import org.json.JSONException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbstractCommandListener<T> {
     public abstract void addPostData(Context context, String str, String str2, CommandPostData commandPostData) throws JSONException;
 

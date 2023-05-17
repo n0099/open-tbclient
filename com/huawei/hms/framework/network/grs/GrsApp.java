@@ -3,7 +3,6 @@ package com.huawei.hms.framework.network.grs;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.common.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GrsApp {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BRAND;
@@ -40,7 +39,7 @@ public class GrsApp {
         if ("com.huawei.hms.framework.network.grs".equals(name)) {
             str = "";
         } else {
-            String[] split = name.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = name.split("\\.");
             Logger.v(TAG, "current brand is:" + split[1]);
             str = split[1];
         }

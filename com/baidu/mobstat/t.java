@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class t {
     public static synchronized a a(Context context) {
         u uVar;

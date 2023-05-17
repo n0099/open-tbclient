@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+@Autowired
+/* loaded from: classes6.dex */
 public class jb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Runnable runnable) {
+    @Inject(force = false)
+    public static kb0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, runnable) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, "live-feedpage-" + lb0.a().b(), 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return qa0.a();
         }
-    }
-
-    public static void b(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, runnable, str, i) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, i);
-        }
+        return (kb0) invokeV.objValue;
     }
 }

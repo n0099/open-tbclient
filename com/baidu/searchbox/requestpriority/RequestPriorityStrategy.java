@@ -9,11 +9,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class RequestPriorityStrategy {
+    public static final int REQUEST_PRIORITY_DELAY_TIME_VALUE = 4000;
     public static final int REQUEST_PRIORITY_INITED = 1;
     public static final int REQUEST_PRIORITY_NOT_INITED = -1;
-    public static int sRequestPriorityDelayTime = -1;
     public static boolean sRequestPriorityEnabled = false;
     public static int sRequestPrioritySwitchValue = -1;
     public static String sRequestPriorityWhiteList;
@@ -26,6 +26,21 @@ public class RequestPriorityStrategy {
         int i = sCoreRequestNum;
         sCoreRequestNum = i - 1;
         return i;
+    }
+
+    public static boolean isRequestPriorityEnabled() {
+        RequestPriorityParams requestPriorityParams;
+        if (sRequestPrioritySwitchValue == -1) {
+            sRequestPrioritySwitchValue = 1;
+            IRequestPriorityManager requestPriorityManager = RequestPriorityRuntime.getRequestPriorityManager();
+            if (requestPriorityManager == null || (requestPriorityParams = requestPriorityManager.getRequestPriorityParams()) == null) {
+                return false;
+            }
+            String requestPriorityWhitelist = requestPriorityParams.getRequestPriorityWhitelist();
+            sRequestPriorityWhiteList = requestPriorityWhitelist;
+            sRequestPriorityEnabled = true ^ TextUtils.isEmpty(requestPriorityWhitelist);
+        }
+        return sRequestPriorityEnabled;
     }
 
     public static void promoteAndExecute() {
@@ -92,12 +107,14 @@ public class RequestPriorityStrategy {
                 if (!IRequestCall.this.isFinished()) {
                     synchronized (IRequestCall.class) {
                         RequestPriorityStrategy.sTimeoutRequestSet.add(Integer.valueOf(IRequestCall.this.hashCode()));
-                        RequestPriorityStrategy.access$110();
+                        if (RequestPriorityStrategy.sCoreRequestNum > 0) {
+                            RequestPriorityStrategy.access$110();
+                        }
                     }
                     RequestPriorityStrategy.promoteAndExecute();
                 }
             }
-        }, sRequestPriorityDelayTime, TimeUnit.MILLISECONDS);
+        }, 4000L, TimeUnit.MILLISECONDS);
     }
 
     public static void startPriorityControlled(final IRequestCall iRequestCall) {
@@ -110,7 +127,9 @@ public class RequestPriorityStrategy {
                 if (!IRequestCall.this.isFinished()) {
                     synchronized (IRequestCall.class) {
                         RequestPriorityStrategy.sTimeoutRequestSet.add(Integer.valueOf(IRequestCall.this.hashCode()));
-                        RequestPriorityStrategy.access$110();
+                        if (RequestPriorityStrategy.sCoreRequestNum > 0) {
+                            RequestPriorityStrategy.access$110();
+                        }
                     }
                     RequestPriorityStrategy.promoteAndExecute();
                 }
@@ -150,28 +169,12 @@ public class RequestPriorityStrategy {
         }
     }
 
-    public static boolean isRequestPriorityEnabled() {
-        RequestPriorityParams requestPriorityParams;
-        if (sRequestPrioritySwitchValue == -1) {
-            sRequestPrioritySwitchValue = 1;
-            IRequestPriorityManager requestPriorityManager = RequestPriorityRuntime.getRequestPriorityManager();
-            if (requestPriorityManager == null || (requestPriorityParams = requestPriorityManager.getRequestPriorityParams()) == null || !requestPriorityParams.isRequestPriorityEnabled() || requestPriorityParams.getRequestPriorityDelayTime() <= 0) {
-                return false;
-            }
-            sRequestPriorityDelayTime = requestPriorityParams.getRequestPriorityDelayTime();
-            String requestPriorityWhitelist = requestPriorityParams.getRequestPriorityWhitelist();
-            sRequestPriorityWhiteList = requestPriorityWhitelist;
-            sRequestPriorityEnabled = true ^ TextUtils.isEmpty(requestPriorityWhitelist);
-        }
-        return sRequestPriorityEnabled;
-    }
-
     public static void promoteAndExecuteIfNeeded(IRequestCall iRequestCall) {
         if (isRequestPriorityEnabled() && isCoreRequest(iRequestCall)) {
             synchronized (IRequestCall.class) {
                 if (sTimeoutRequestSet.contains(Integer.valueOf(iRequestCall.hashCode()))) {
                     sTimeoutRequestSet.remove(Integer.valueOf(iRequestCall.hashCode()));
-                } else {
+                } else if (sCoreRequestNum > 0) {
                     sCoreRequestNum--;
                 }
             }
@@ -185,7 +188,7 @@ public class RequestPriorityStrategy {
         synchronized (IRequestCall.class) {
             if (sTimeoutRequestSet.contains(Integer.valueOf(iRequestCall.hashCode()))) {
                 sTimeoutRequestSet.remove(Integer.valueOf(iRequestCall.hashCode()));
-            } else {
+            } else if (sCoreRequestNum > 0) {
                 sCoreRequestNum--;
             }
         }

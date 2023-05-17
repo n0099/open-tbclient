@@ -2,7 +2,6 @@ package com.baidu.webkit.sdk;
 
 import android.content.Context;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -10,7 +9,7 @@ import java.lang.annotation.Target;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class WebSettings implements Observer {
     public static final int LOAD_CACHE_ELSE_NETWORK = 1;
     public static final int LOAD_CACHE_ONLY = 3;
@@ -31,11 +30,11 @@ public abstract class WebSettings implements Observer {
     public String mWebviewFrameName;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface CacheMode {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CodeCacheSetting {
         public long diskCodeCacheSizeThreshold = 31457280;
         public String id;
@@ -44,14 +43,14 @@ public abstract class WebSettings implements Observer {
         public int sizeLimit;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum FlingAlgorithm {
         FAST,
         QUADRATIC,
         CUBIC
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ImgQuality {
         NO_COMPRESS,
         LOW_COMPRESS,
@@ -59,7 +58,7 @@ public abstract class WebSettings implements Observer {
         HIGHT_COMPRESS
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum LayoutAlgorithm {
         NORMAL,
         SINGLE_COLUMN,
@@ -69,18 +68,18 @@ public abstract class WebSettings implements Observer {
 
     @Target({ElementType.PARAMETER, ElementType.METHOD})
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface MenuItemFlags {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum PluginState {
         ON,
         ON_DEMAND,
         OFF
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ProxyType {
         NO_PROXY,
         SPDY_PROXY,
@@ -88,14 +87,14 @@ public abstract class WebSettings implements Observer {
         SPDYANDOVERSEAS_PROXY
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum RemoveAdLevel {
         DISABLE,
         LOW_LEVEL,
         HIGH_LEVEL
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum RenderPriority {
         NORMAL,
         HIGH,
@@ -103,14 +102,14 @@ public abstract class WebSettings implements Observer {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum TextSize {
         SMALLEST(50),
         SMALLER(75),
         NORMAL(100),
         LARGERLITTLE(125),
         LARGER(150),
-        LARGERMORE(HideBottomViewOnScrollBehavior.EXIT_ANIMATION_DURATION),
+        LARGERMORE(175),
         LARGEST(200);
         
         public int value;
@@ -120,7 +119,7 @@ public abstract class WebSettings implements Observer {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ZoomDensity {
         FAR(150),
         MEDIUM(100),

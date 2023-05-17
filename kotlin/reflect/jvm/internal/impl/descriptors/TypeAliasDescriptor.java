@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface TypeAliasDescriptor extends ClassifierDescriptorWithTypeParameters {
     ClassDescriptor getClassDescriptor();
 

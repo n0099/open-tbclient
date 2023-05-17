@@ -11,6 +11,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +22,7 @@ import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.NotifyArriveCallbackByUser;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class i extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +238,7 @@ public final class i extends b {
                                 }
                             }
                             if (!z) {
-                                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(skipContent3));
+                                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(skipContent3));
                                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                                 a(intent, insideNotificationItem.getParams());
                                 u.d("AndroidTwelveNotifyClickIntentParam", "sendFakeNoticeToClient url urlAddr ::".concat(String.valueOf(skipContent3)));

@@ -66,8 +66,8 @@ public class b {
                         b.this.a(cVar.mClassName, cVar.H, cVar.I, cVar.G, cVar.J, cVar.K);
                         break;
                     case 1002:
-                        C0052b c0052b = (C0052b) message.obj;
-                        b.this.a(c0052b.mClassName, c0052b.G);
+                        C0055b c0055b = (C0055b) message.obj;
+                        b.this.a(c0055b.mClassName, c0055b.G);
                         break;
                     case 1003:
                         d dVar = (d) message.obj;
@@ -83,11 +83,11 @@ public class b {
 
     /* renamed from: com.baidu.ar.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0052b {
+    public class C0055b {
         public HashMap<String, Object> G;
         public String mClassName;
 
-        public C0052b(String str, HashMap<String, Object> hashMap) {
+        public C0055b(String str, HashMap<String, Object> hashMap) {
             this.mClassName = str;
             this.G = hashMap;
         }
@@ -676,9 +676,9 @@ public class b {
     public boolean adjustAbility(String str, HashMap<String, Object> hashMap) {
         if (this.u.contains(str)) {
             if (this.c != null) {
-                C0052b c0052b = new C0052b(this.j.get(str), hashMap);
+                C0055b c0055b = new C0055b(this.j.get(str), hashMap);
                 a aVar = this.c;
-                aVar.sendMessage(aVar.obtainMessage(1002, c0052b));
+                aVar.sendMessage(aVar.obtainMessage(1002, c0055b));
                 return true;
             }
             return false;

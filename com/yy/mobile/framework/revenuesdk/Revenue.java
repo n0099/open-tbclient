@@ -7,23 +7,23 @@ import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.CloudLogUtil;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.PSCIMessageResponse;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayMetricsStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayMetricsStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.baseapi.utils.XorUtil;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import com.yy.mobile.framework.revenuesdk.payservice.AppPayServiceImpl;
-import com.yy.mobile.framework.revenuesdk.statistics.PayEventStatistics;
-import com.yy.mobile.framework.revenuesdk.statistics.PayMetricsStatistics;
+import com.yy.mobile.framework.revenuesdk.statistics.PayEventStatisticsApiImpl;
+import com.yy.mobile.framework.revenuesdk.statistics.PayMetricsStatisticsApiImpl;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSender {
     public static final String TAG = "Revenue";
-    public IAppPayService iAppPayService;
     public int mAppId;
-    public IPayEventStatistics mPayEventStatistics;
-    public IPayMetricsStatistics mPayMetricsStatistics;
+    public IAppPayService mAppPayService;
+    public IPayEventStatisticsApi mPayEventStatistics;
+    public IPayMetricsStatisticsApi mPayMetricsStatistics;
     public ProtocolType mProtocolType = ProtocolType.UNKNOW;
     public int mUsedChannel;
 
@@ -58,17 +58,17 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
     public IAppPayService getAppPayService() {
-        return this.iAppPayService;
+        return this.mAppPayService;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayEventStatistics getPayEventStatistic() {
+    public IPayEventStatisticsApi getPayEventStatisticApi() {
         return this.mPayEventStatistics;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayServiceStatistics getPayServiceStatistics() {
-        IAppPayService iAppPayService = this.iAppPayService;
+    public IPayServiceStatisticsApi getPayServiceStatisticsApi() {
+        IAppPayService iAppPayService = this.mAppPayService;
         if (iAppPayService == null) {
             RLog.error(TAG, "getPayServiceStatistics error iAppPayService null", new Object[0]);
             return null;
@@ -83,18 +83,18 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
     public void initConfig(RevenueConfig revenueConfig) {
         if (revenueConfig != null) {
             if (revenueConfig.getDataSender() != null) {
-                this.mPayEventStatistics = new PayEventStatistics(revenueConfig);
-                this.mPayMetricsStatistics = new PayMetricsStatistics(revenueConfig);
+                this.mPayEventStatistics = new PayEventStatisticsApiImpl(revenueConfig);
+                this.mPayMetricsStatistics = new PayMetricsStatisticsApiImpl(revenueConfig);
                 this.mProtocolType = revenueConfig.getProtoType();
                 RevenueConfigCenter.addConfig(this.mAppId, this.mUsedChannel, revenueConfig);
                 initLogConfig(revenueConfig);
-                RLog.info(TAG, "initConfig versionName:4.3.36-bdpay config:" + revenueConfig.toString());
-                this.iAppPayService = new AppPayServiceImpl(this.mAppId, this.mUsedChannel, false, this, this.mPayMetricsStatistics, this.mPayEventStatistics, this.mProtocolType);
+                RLog.info(TAG, "initConfig versionName:4.3.45-bdpay config:" + revenueConfig.toString());
+                this.mAppPayService = new AppPayServiceImpl(this.mAppId, this.mUsedChannel, false, this, this.mPayMetricsStatistics, this.mPayEventStatistics, this.mProtocolType);
                 return;
             }
             throw new IllegalArgumentException("Data Sender == null,Revenue init fail!");
         }
-        RLog.error(TAG, "initConfig versionName:4.3.36-bdpay config null", new Object[0]);
+        RLog.error(TAG, "initConfig versionName:4.3.45-bdpay config null", new Object[0]);
         throw new IllegalArgumentException("init Revenue config == null!");
     }
 
@@ -105,7 +105,7 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
         } else if (this.mUsedChannel != i2) {
             RLog.debug(TAG, "onRequestError userchannel not match! mUsedChannel:" + this.mUsedChannel + " userchannel:" + i2);
         } else {
-            IAppPayService iAppPayService = this.iAppPayService;
+            IAppPayService iAppPayService = this.mAppPayService;
             if (iAppPayService instanceof IRevenueDataReceiver) {
                 ((IRevenueDataReceiver) iAppPayService).onRequestError(i, i2, str, i3, i4, str2);
             }
@@ -119,7 +119,7 @@ public class Revenue implements IRevenue, IRevenueDataReceiver, IRevenueDataSend
         } else if (this.mUsedChannel != i2) {
             RLog.debug(TAG, "onResponseData userchannel not match! mUsedChannel:" + this.mUsedChannel + " userchannel:" + i2);
         } else {
-            IAppPayService iAppPayService = this.iAppPayService;
+            IAppPayService iAppPayService = this.mAppPayService;
             if (iAppPayService instanceof IRevenueDataReceiver) {
                 ((IRevenueDataReceiver) iAppPayService).onResponseData(i, i2, pSCIMessageResponse);
             }

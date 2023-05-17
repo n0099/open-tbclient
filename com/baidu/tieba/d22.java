@@ -1,55 +1,70 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes4.dex */
-public class d22 extends d12 {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public abstract class d22 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Cap a;
 
-    public d22() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d22(da3 da3Var, String str) {
+        super(da3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.d12
-    public void a(e12 e12Var, Canvas canvas) {
-        Paint.Cap cap;
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (cap = this.a) != null) {
-            e12Var.c.setStrokeCap(cap);
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
         }
     }
 
-    @Override // com.baidu.tieba.d12
-    public void b(JSONArray jSONArray) {
+    public d42 k(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            String optString = jSONArray.optString(0);
-            if (TextUtils.equals(optString, "butt")) {
-                this.a = Paint.Cap.BUTT;
-            } else if (TextUtils.equals(optString, "round")) {
-                this.a = Paint.Cap.ROUND;
-            } else if (TextUtils.equals(optString, "square")) {
-                this.a = Paint.Cap.SQUARE;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            return new d42(unitedSchemeEntity.getParams().get("params"));
         }
+        return (d42) invokeL.objValue;
+    }
+
+    public JSONObject l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return UnitedSchemeUtility.wrapCallbackParams(i);
+        }
+        return (JSONObject) invokeI.objValue;
     }
 }

@@ -1,43 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
-/* loaded from: classes4.dex */
-public class if4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.app.Activity;
+import android.content.Context;
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public interface if4 {
 
-    @Inject
-    public static ik4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return hr2.a();
-        }
-        return (ik4) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
     }
 
-    @Inject
-    public static gf4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return mr2.a();
-        }
-        return (gf4) invokeV.objValue;
-    }
+    boolean a();
 
-    @Inject
-    public static pg4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return or2.a();
-        }
-        return (pg4) invokeV.objValue;
-    }
+    void b(Activity activity, of4 of4Var);
+
+    void c(int i, List<of4> list);
+
+    void d(int i, List<of4> list);
+
+    void e(int i, List<of4> list);
+
+    void f(int i, List<of4> list, a aVar);
+
+    void g(Activity activity, of4 of4Var);
+
+    void h(Context context, JSONObject jSONObject);
+
+    void i(JSONObject jSONObject);
+
+    boolean j(of4 of4Var);
+
+    boolean k(boolean z, int i);
 }

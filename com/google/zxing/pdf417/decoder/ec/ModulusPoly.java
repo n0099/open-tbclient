@@ -1,5 +1,5 @@
 package com.google.zxing.pdf417.decoder.ec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ModulusPoly {
     public final int[] coefficients;
     public final ModulusGF field;

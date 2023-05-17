@@ -1,34 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
 public class wt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public TextView c;
-    public ImageView d;
-    public boolean e;
+    public Context a;
+    public final List<en> b;
+    public b c;
+    public vt6 d;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(zt6 zt6Var);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements bo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wt6 a;
@@ -51,31 +53,25 @@ public class wt6 {
             this.a = wt6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.bo
+        public void b(View view2, rn rnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                cr6.b(this.a.a, null);
-                StatisticItem statisticItem = new StatisticItem("c13645");
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                int i = 1;
-                statisticItem.param("obj_locate", 1);
-                if (this.a.e) {
-                    i = 5;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (rnVar instanceof zt6)) {
+                zt6 zt6Var = (zt6) rnVar;
+                if (this.a.c != null) {
+                    this.a.c.a(zt6Var);
+                    TiebaStatic.log(new StatisticItem("c14585").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fid", zt6Var.a()).param("obj_locate", 2));
                 }
-                statisticItem.param("obj_type", i);
-                statisticItem.param("obj_source", 2);
-                TiebaStatic.log(statisticItem);
             }
         }
     }
 
-    public wt6(TbPageContext<?> tbPageContext) {
+    public wt6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,40 +81,34 @@ public class wt6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d07dd, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.text_title);
-        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f81);
-        this.d = imageView;
-        imageView.setOnClickListener(new a(this));
+        this.b = new ArrayList();
+        this.a = context;
+        c();
     }
 
-    public void e(boolean z) {
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public void c(rz4 rz4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rz4Var) == null) {
-            String title = rz4Var.getTitle();
-            if (!TextUtils.isEmpty(title)) {
-                this.c.setText(title);
-            }
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        }
-    }
-
-    public View d() {
+    public List<en> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
-        return (View) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            vt6 vt6Var = new vt6(this.a, zt6.e);
+            this.d = vt6Var;
+            vt6Var.setOnAdapterItemClickListener(new a(this));
+            this.b.add(this.d);
+        }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Overlay {
     public String F = System.currentTimeMillis() + "_" + hashCode();
     public int G;
@@ -18,7 +18,7 @@ public abstract class Overlay {
     public a listener;
     public com.baidu.mapsdkplatform.comapi.map.i type;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         LatLngBounds a(Overlay overlay);
 

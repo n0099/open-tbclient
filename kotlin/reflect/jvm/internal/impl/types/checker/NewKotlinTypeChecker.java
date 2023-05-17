@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.types.checker;
 
 import kotlin.reflect.jvm.internal.impl.resolve.OverridingUtil;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface NewKotlinTypeChecker extends KotlinTypeChecker {
     public static final Companion Companion = Companion.$$INSTANCE;
 
@@ -10,7 +10,7 @@ public interface NewKotlinTypeChecker extends KotlinTypeChecker {
 
     OverridingUtil getOverridingUtil();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public static final /* synthetic */ Companion $$INSTANCE = new Companion();
         public static final NewKotlinTypeCheckerImpl Default = new NewKotlinTypeCheckerImpl(KotlinTypeRefiner.Default.INSTANCE);

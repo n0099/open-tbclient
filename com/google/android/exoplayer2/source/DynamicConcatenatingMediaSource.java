@@ -24,7 +24,7 @@ import java.util.IdentityHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPlayer.ExoPlayerComponent {
     public static final int MSG_ADD = 0;
     public static final int MSG_ADD_MULTIPLE = 1;
@@ -43,7 +43,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
     public ShuffleOrder shuffleOrder;
     public int windowCount;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
         public final SparseIntArray childIndexByUid;
         public final int[] firstPeriodInChildIndices;
@@ -124,7 +124,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DeferredMediaPeriod implements MediaPeriod, MediaPeriod.Callback {
         public final Allocator allocator;
         public MediaPeriod.Callback callback;
@@ -230,7 +230,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DeferredTimeline extends Timeline {
         public static final Object DUMMY_ID = new Object();
         public static final Timeline.Period period = new Timeline.Period();
@@ -333,7 +333,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class EventDispatcher {
         public final Handler eventHandler;
         public final Runnable runnable;
@@ -354,7 +354,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaSourceHolder implements Comparable<MediaSourceHolder> {
         public int firstPeriodIndexInChild;
         public int firstWindowIndexInChild;
@@ -378,7 +378,7 @@ public final class DynamicConcatenatingMediaSource implements MediaSource, ExoPl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MessageData<CustomType> {
         @Nullable
         public final EventDispatcher actionOnCompletion;

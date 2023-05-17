@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.List;
 import kotlin._Assertions;
 import kotlin.collections.CollectionsKt__CollectionsKt;
@@ -8,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.util.capitalizeDecapitalize.CapitalizeDecapitalizeKt;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PropertiesConventionUtilKt {
     public static final List<Name> getPropertyNamesCandidatesByAccessorName(Name name) {
         String asString = name.asString();
@@ -23,7 +24,7 @@ public final class PropertiesConventionUtilKt {
     }
 
     public static final Name propertyNameByGetMethodName(Name name) {
-        Name propertyNameFromAccessorMethodName$default = propertyNameFromAccessorMethodName$default(name, "get", false, null, 12, null);
+        Name propertyNameFromAccessorMethodName$default = propertyNameFromAccessorMethodName$default(name, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, false, null, 12, null);
         if (propertyNameFromAccessorMethodName$default == null) {
             return propertyNameFromAccessorMethodName$default(name, "is", false, null, 8, null);
         }

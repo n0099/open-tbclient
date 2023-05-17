@@ -2,7 +2,7 @@ package com.tencent.open.log;
 
 import com.tencent.connect.common.Constants;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int a = 60;
     public static int b = 60;

@@ -1,13 +1,20 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface mo6 {
-    void a(ym6 ym6Var, long j, yo6 yo6Var, sm6 sm6Var);
 
-    void b(ym6 ym6Var);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes6.dex */
+public class mo6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(int i, int i2);
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
 
-    void clear();
-
-    boolean d(ym6 ym6Var, long j, yo6 yo6Var, sm6 sm6Var);
+    public final void a(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            throw null;
+        }
+    }
 }

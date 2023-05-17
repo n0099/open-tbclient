@@ -12,7 +12,7 @@ import com.kwad.components.ad.splashscreen.f;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements com.kwad.sdk.widget.c {
     @NonNull
     public ViewGroup es;
@@ -60,8 +60,8 @@ public final class b implements com.kwad.sdk.widget.c {
         if (viewGroup == null) {
             return;
         }
-        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f091369);
-        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09136c);
+        this.zP = viewGroup.findViewById(R.id.obfuscated_res_0x7f0913a4);
+        this.zQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0913a7);
         this.zT = new com.kwad.sdk.widget.f(this.zP.getContext(), this.zP, this);
         this.zP.getContext();
         a(e.a(this.mAdTemplate, this.mAdInfo, this.mApkDownloadHelper, 4));
@@ -121,7 +121,7 @@ public final class b implements com.kwad.sdk.widget.c {
         }
         if (this.zO == null) {
             ViewStub viewStub = this.zM;
-            this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f09136a) : this.zM.inflate());
+            this.zO = (ViewGroup) ((viewStub == null || viewStub.getParent() == null) ? this.es.findViewById(R.id.obfuscated_res_0x7f0913a5) : this.zM.inflate());
             g(this.zO);
         }
         ViewGroup viewGroup = this.zO;

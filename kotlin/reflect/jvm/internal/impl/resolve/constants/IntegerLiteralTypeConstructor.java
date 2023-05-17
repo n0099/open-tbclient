@@ -28,7 +28,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutionKt;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IntegerLiteralTypeConstructor implements TypeConstructor {
     public static final Companion Companion = new Companion(null);
     public final ModuleDescriptor module;
@@ -43,7 +43,7 @@ public final class IntegerLiteralTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getDeclarationDescriptor */
-    public ClassifierDescriptor mo2025getDeclarationDescriptor() {
+    public ClassifierDescriptor mo2044getDeclarationDescriptor() {
         return null;
     }
 
@@ -57,16 +57,16 @@ public final class IntegerLiteralTypeConstructor implements TypeConstructor {
         return this;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public enum Mode {
             COMMON_SUPER_TYPE,
             INTERSECTION_TYPE
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public final /* synthetic */ class WhenMappings {
             public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -237,7 +237,7 @@ public final class IntegerLiteralTypeConstructor implements TypeConstructor {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
     /* renamed from: getSupertypes  reason: collision with other method in class */
-    public Collection<KotlinType> mo2026getSupertypes() {
+    public Collection<KotlinType> mo2045getSupertypes() {
         return getSupertypes();
     }
 

@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.crius.data.RenderData;
 import com.baidu.searchbox.crius.render.util.RenderUtils;
 import view.CriusTextView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SyncTextView extends CriusTextView {
     public SyncTextView(Context context) {
         super(context);

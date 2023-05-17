@@ -9,7 +9,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SchemeActionHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> NEED_MAIN_TAB_SCHEMA_LIST;
@@ -85,7 +85,7 @@ public class SchemeActionHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (hi.isEmpty(str) || !Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find()) {
+            if (qi.isEmpty(str) || !Pattern.compile("http[s]?://tieba.baidu.com/p").matcher(str).find()) {
                 return false;
             }
             return true;
@@ -97,7 +97,7 @@ public class SchemeActionHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (!hi.isEmpty(str) && str.startsWith("tiebaapp")) {
+            if (!qi.isEmpty(str) && str.startsWith("tiebaapp")) {
                 return true;
             }
             return false;
@@ -134,7 +134,7 @@ public class SchemeActionHelper {
                 return new JSONObject();
             }
             String queryParameter = uri.getQueryParameter(str);
-            if (hi.isEmpty(queryParameter)) {
+            if (qi.isEmpty(queryParameter)) {
                 return new JSONObject();
             }
             try {
@@ -176,11 +176,11 @@ public class SchemeActionHelper {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return false;
             }
             String parserSchemeAction = parserSchemeAction(str);
-            if (hi.isEmpty(parserSchemeAction)) {
+            if (qi.isEmpty(parserSchemeAction)) {
                 return false;
             }
             return str2.equalsIgnoreCase(parserSchemeAction);
@@ -194,7 +194,7 @@ public class SchemeActionHelper {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (hi.isEmpty(str) || (split = str.split("\\:\\/\\/")) == null || split.length == 0 || (str2 = split[0]) == null || str2.length() <= 0) {
+            if (qi.isEmpty(str) || (split = str.split("\\:\\/\\/")) == null || split.length == 0 || (str2 = split[0]) == null || str2.length() <= 0) {
                 return null;
             }
             return str2;
@@ -206,7 +206,7 @@ public class SchemeActionHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return null;
             }
             String[] split = str.split("\\?");
@@ -231,10 +231,10 @@ public class SchemeActionHelper {
                 String action = intent.getAction();
                 Set<String> categories = intent.getCategories();
                 String stringExtra = intent.getStringExtra(MainTabActivityConfig.TARGET_SCHEME_BAK);
-                if (hi.isEmpty(stringExtra)) {
+                if (qi.isEmpty(stringExtra)) {
                     stringExtra = intent.getStringExtra("target_scheme");
                 }
-                if ((!TextUtils.equals(action, "android.intent.action.MAIN") || categories == null || !categories.contains("android.intent.category.LAUNCHER")) && !hi.isEmpty(stringExtra)) {
+                if ((!TextUtils.equals(action, "android.intent.action.MAIN") || categories == null || !categories.contains("android.intent.category.LAUNCHER")) && !qi.isEmpty(stringExtra)) {
                     if (isPushPbUrl(stringExtra) || needMainTabActivity(stringExtra)) {
                         return false;
                     }

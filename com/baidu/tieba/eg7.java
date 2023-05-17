@@ -1,93 +1,81 @@
 package com.baidu.tieba;
 
-import android.os.MessageQueue;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tieba.frs.mc.FrsModelController;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.py;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
-public class eg7 implements MessageQueue.IdleHandler {
+/* loaded from: classes5.dex */
+public class eg7 extends c87<tg7, ThreadCardViewHolder<tg7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsModelController> a;
-    public MvcHttpResponsedMessage<eo9> b;
-    public MvcHttpMessage<FrsRequestData, eo9> c;
-    public MvcNetMessage<FrsRequestData, eo9> d;
-    public lo9 e;
 
-    public eg7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eg7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = tbPageContext;
+        this.mPageId = bdUniqueId2;
     }
 
-    @Override // android.os.MessageQueue.IdleHandler
-    public boolean queueIdle() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: G */
+    public ThreadCardViewHolder<tg7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            FrsModelController frsModelController = this.a.get();
-            if (frsModelController == null) {
-                return false;
-            }
-            frsModelController.Z0(this.b, this.c, this.d);
-            lo9 lo9Var = this.e;
-            if (lo9Var != null) {
-                lo9Var.b();
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            py.b bVar = new py.b(this.c.getPageActivity(), true);
+            bVar.n(new mg7(this.c.getPageActivity()));
+            bVar.l().b(0);
+            bVar.l().c(0);
+            bVar.l().g(0);
+            bVar.l().f(0);
+            bVar.l().j(0);
+            bVar.l().i(0);
+            ThreadCardViewHolder<tg7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
+            threadCardViewHolder.i(this.mPageId);
+            return threadCardViewHolder;
         }
-        return invokeV.booleanValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void a(FrsModelController frsModelController) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tg7 tg7Var, ThreadCardViewHolder<tg7> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, frsModelController) == null) {
-            this.a = new WeakReference<>(frsModelController);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tg7Var, threadCardViewHolder})) == null) {
+            threadCardViewHolder.a().r(i);
+            threadCardViewHolder.e(tg7Var);
+            threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+            return threadCardViewHolder.getView();
         }
-    }
-
-    public void b(lo9 lo9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lo9Var) == null) {
-            this.e = lo9Var;
-        }
-    }
-
-    public void c(MvcHttpMessage<FrsRequestData, eo9> mvcHttpMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mvcHttpMessage) == null) {
-            this.c = mvcHttpMessage;
-        }
-    }
-
-    public void d(MvcNetMessage<FrsRequestData, eo9> mvcNetMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mvcNetMessage) == null) {
-            this.d = mvcNetMessage;
-        }
-    }
-
-    public void e(MvcHttpResponsedMessage<eo9> mvcHttpResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mvcHttpResponsedMessage) == null) {
-            this.b = mvcHttpResponsedMessage;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

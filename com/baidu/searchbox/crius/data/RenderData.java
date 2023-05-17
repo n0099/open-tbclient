@@ -10,7 +10,7 @@ import com.baidu.searchbox.crius.parser.PrefixLabelAttrs;
 import com.baidu.searchbox.crius.parser.ScaleFocusPoint;
 import com.baidu.searchbox.crius.parser.SyncInfo;
 import com.baidu.searchbox.crius.util.ColorUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RenderData {
     public BackgroundData backgroundData;
     public String backgroundImage;
@@ -63,7 +63,7 @@ public class RenderData {
     public int placeHolderScaleType = 6;
     public int imageTemplateFlag = 1;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BackgroundData {
         public String backgroundColor;
         public String backgroundColorActive;
@@ -91,7 +91,7 @@ public class RenderData {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BackgroundImgData {
         public String backgroundImage;
         public String backgroundImageActive;
@@ -119,7 +119,7 @@ public class RenderData {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BorderData {
         public String borderColor;
         public String borderColorActive;
@@ -153,7 +153,7 @@ public class RenderData {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Opacities {
         public double opacity = -10000.0d;
         public double opacityActive = -10000.0d;
@@ -181,7 +181,7 @@ public class RenderData {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TextColor {
         public String color;
         public String colorActive;

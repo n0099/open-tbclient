@@ -7,11 +7,11 @@ import com.kwad.sdk.api.loader.Loader;
 import com.kwad.sdk.api.proxy.BaseProxyService;
 import com.kwad.sdk.api.proxy.IServiceProxy;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FileDownloadService {
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SeparateProcessService extends BaseProxyService {
         @Override // com.kwad.sdk.api.proxy.BaseProxyService
         @NonNull
@@ -21,7 +21,7 @@ public class FileDownloadService {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SharedMainProcessService extends BaseProxyService {
         @Override // com.kwad.sdk.api.proxy.BaseProxyService
         @NonNull

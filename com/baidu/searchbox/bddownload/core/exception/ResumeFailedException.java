@@ -2,7 +2,7 @@ package com.baidu.searchbox.bddownload.core.exception;
 
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ResumeFailedException extends IOException {
     public final ResumeFailedCause resumeFailedCause;
 

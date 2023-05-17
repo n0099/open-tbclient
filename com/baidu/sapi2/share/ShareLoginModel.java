@@ -35,7 +35,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareLoginModel {
     public static String AUTH_APP_PKG_NAME = "auth_app_pkg_name";
     public static String AUTH_PASS_SDK_VERSION = "auth_pass_sdk_version";

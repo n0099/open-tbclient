@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BrowserStateView extends FrameLayout {
     public View a;
     public View b;
@@ -18,13 +18,13 @@ public class BrowserStateView extends FrameLayout {
     public int e;
     public View.OnClickListener f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ViewState {
         LOADING,
         ERROR
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static final /* synthetic */ int[] a;
 

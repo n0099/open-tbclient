@@ -9,7 +9,7 @@ import com.facebook.imagepipeline.filter.IterativeBoxBlurFilter;
 import com.facebook.imagepipeline.filter.RenderScriptBlurFilter;
 import com.facebook.imagepipeline.request.BasePostprocessor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BlurPostProcessor extends BasePostprocessor {
     public static final int DEFAULT_ITERATIONS = 3;
     public static final boolean canUseRenderScript = RenderScriptBlurFilter.canUseRenderScript();

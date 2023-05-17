@@ -1,316 +1,335 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ng5 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Queue<b> a;
-    public volatile c b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
     }
 
-    /* loaded from: classes5.dex */
-    public class b {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948001517, "Lcom/baidu/tieba/ng5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948001517, "Lcom/baidu/tieba/ng5;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageFileInfo a;
-        public kg5 b;
-        public boolean c;
-        public tm d;
-        public boolean e;
+        public int a;
+        public final ViewGroup b;
+        public final ig5 c;
+        public final boolean d;
+        public final boolean e;
+        public final boolean f;
+        public final int g;
+        public boolean h;
+        public final b i;
+        public final int j;
+        public boolean k;
+        public int l;
 
-        public b(ng5 ng5Var) {
+        public a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, ig5 ig5Var, b bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ng5Var};
+                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), viewGroup, ig5Var, bVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(ng5 ng5Var, a aVar) {
-            this(ng5Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends BdAsyncTask<Void, b, b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<b> a;
-        public final /* synthetic */ ng5 b;
-
-        public c(ng5 ng5Var, Queue<b> queue) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ng5Var, queue};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = ng5Var;
-            this.a = queue;
-            super.setPriority(2);
+            this.a = 0;
+            this.k = false;
+            this.b = viewGroup;
+            this.c = ig5Var;
+            this.d = z;
+            this.e = z2;
+            this.f = z3;
+            this.g = og5.a(viewGroup.getContext());
+            this.i = bVar;
+            this.j = i;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public b doInBackground(Void... voidArr) {
-            int i;
-            InterceptResult invokeL;
+        private Context getContext() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, voidArr)) != null) {
-                return (b) invokeL.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+                return this.b.getContext();
             }
-            while (true) {
-                b poll = this.a.poll();
-                Bitmap bitmap = null;
-                if (poll == null) {
-                    return null;
+            return (Context) invokeV.objValue;
+        }
+
+        public final void a(int i) {
+            int abs;
+            int h;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a == 0) {
+                    this.a = i;
+                    this.c.refreshHeight(ng5.h(getContext()));
+                    return;
                 }
-                if (isCancelled()) {
-                    this.a.add(poll);
-                    return null;
-                }
-                tm A = TbImageMemoryCache.v().A(poll.a.toCachedKey(poll.c));
-                if (A != null) {
-                    poll.d = A;
-                    poll.e = true;
+                if (mg5.a(this.d, this.e, this.f)) {
+                    abs = ((View) this.b.getParent()).getHeight() - i;
                 } else {
-                    Bitmap f = this.b.f(poll.a, poll.c);
-                    if (f != null) {
-                        try {
-                            i = BitmapHelper.readPictureDegree(poll.a.getFilePath());
-                            if (i != 0) {
-                                try {
-                                    Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(f, i);
-                                    if (f != rotateBitmapBydegree) {
-                                        try {
-                                            f.recycle();
-                                            f = null;
-                                        } catch (Exception unused) {
-                                        }
-                                    }
-                                    bitmap = rotateBitmapBydegree;
-                                } catch (Exception unused2) {
-                                }
-                            }
-                        } catch (Exception unused3) {
-                            i = 0;
-                        }
-                        if (i != 0 && bitmap != null) {
-                            poll.d = new tm(bitmap, poll.a.isGif(), poll.a.getFilePath());
-                        } else {
-                            poll.d = new tm(f, poll.a.isGif(), poll.a.getFilePath());
-                        }
-                    }
+                    abs = Math.abs(i - this.a);
                 }
-                publishProgress(poll);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                super.onPostExecute(bVar);
-                this.b.b = null;
-                this.b.g();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onProgressUpdate(b... bVarArr) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVarArr) == null) && bVarArr != null) {
-                for (b bVar : bVarArr) {
-                    tm tmVar = bVar.d;
-                    if (tmVar != null && !bVar.e) {
-                        TbImageMemoryCache.v().m(bVar.a.toCachedKey(bVar.c), tmVar);
-                    }
-                    kg5 kg5Var = bVar.b;
-                    if (kg5Var != null) {
-                        kg5Var.a(tmVar, bVar.a.toCachedKey(bVar.c), bVar.e);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onCancelled() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onCancelled();
-                this.b.b = null;
-                while (true) {
-                    b poll = this.a.poll();
-                    if (poll == null) {
+                if (abs <= ng5.f(getContext())) {
+                    int height = ((View) this.b.getParent()).getHeight() - i;
+                    if (i < this.a) {
+                        abs = height - this.g;
+                    } else {
                         return;
                     }
-                    kg5 kg5Var = poll.b;
-                    if (kg5Var != null) {
-                        kg5Var.a(null, poll.a.toCachedKey(poll.c), false);
-                    }
+                }
+                if (abs != this.g && ng5.i(getContext(), abs) && this.c.getHeight() != (h = ng5.h(getContext()))) {
+                    this.c.refreshHeight(h);
                 }
             }
         }
-    }
 
-    public ng5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentLinkedQueue();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new ConcurrentLinkedQueue();
-            if (this.b != null) {
-                this.b.cancel(true);
-                this.b = null;
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b == null && !this.a.isEmpty()) {
-            this.b = new c(this, this.a);
-            this.b.execute(new Void[0]);
-        }
-    }
-
-    public tm c(ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageFileInfo, z)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            return TbImageMemoryCache.v().A(imageFileInfo.toCachedKey(z));
-        }
-        return (tm) invokeLZ.objValue;
-    }
-
-    public tm d(ImageFileInfo imageFileInfo, kg5 kg5Var, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, imageFileInfo, kg5Var, z)) == null) {
-            return e(imageFileInfo, kg5Var, z, false);
-        }
-        return (tm) invokeLLZ.objValue;
-    }
-
-    public tm e(ImageFileInfo imageFileInfo, kg5 kg5Var, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{imageFileInfo, kg5Var, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            tm c2 = c(imageFileInfo, z);
-            if (c2 != null) {
-                return c2;
-            }
-            if (z2) {
-                return null;
-            }
-            b bVar = new b(this, null);
-            bVar.b = kg5Var;
-            bVar.a = imageFileInfo;
-            bVar.c = z;
-            this.a.add(bVar);
-            g();
-            return null;
-        }
-        return (tm) invokeCommon.objValue;
-    }
-
-    public Bitmap f(ImageFileInfo imageFileInfo, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, imageFileInfo, z)) == null) {
-            if (imageFileInfo == null) {
-                return null;
-            }
-            LinkedList linkedList = new LinkedList();
-            if (z && imageFileInfo.getPersistActionsList() != null) {
-                linkedList.addAll(imageFileInfo.getPersistActionsList());
-            }
-            if (imageFileInfo.getPageActionsList() != null) {
-                linkedList.addAll(imageFileInfo.getPageActionsList());
-            }
-            if (imageFileInfo.getOrginalBitmap() != null) {
-                try {
-                    vg5 d = vg5.d();
-                    Bitmap orginalBitmap = imageFileInfo.getOrginalBitmap();
-                    if (!imageFileInfo.isOrginalBitmapShared()) {
-                        z2 = true;
+        public final void b(int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                View view2 = (View) this.b.getParent();
+                int height = view2.getHeight() - view2.getPaddingTop();
+                boolean z2 = true;
+                if (mg5.a(this.d, this.e, this.f)) {
+                    if (!this.e && height - i == this.g) {
+                        z = this.h;
                     } else {
-                        z2 = false;
+                        if (height <= i) {
+                            z2 = false;
+                        }
+                        z = z2;
                     }
-                    return d.b(orginalBitmap, z2, linkedList, imageFileInfo);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
+                } else {
+                    int i2 = this.b.getResources().getDisplayMetrics().heightPixels;
+                    int i3 = this.l;
+                    if (i3 == 0) {
+                        z = this.h;
+                    } else {
+                        if (i >= i3 - ng5.f(getContext())) {
+                            z2 = false;
+                        }
+                        z = z2;
+                    }
+                    this.l = Math.max(this.l, height);
                 }
-            } else if (imageFileInfo.hasActions(z)) {
-                try {
-                    return vg5.d().c(imageFileInfo.getFilePath(), linkedList, imageFileInfo);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return null;
+                if (this.h != z) {
+                    this.c.a(z);
+                    b bVar = this.i;
+                    if (bVar != null) {
+                        bVar.a(z);
+                    }
                 }
-            } else {
-                return BitmapHelper.loadBitmap(imageFileInfo.getFilePath());
+                this.h = z;
             }
         }
-        return (Bitmap) invokeLZ.objValue;
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        @TargetApi(13)
+        public void onGlobalLayout() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                boolean z = false;
+                View childAt = this.b.getChildAt(0);
+                View view2 = (View) this.b.getParent();
+                Rect rect = new Rect();
+                if (this.e) {
+                    view2.getWindowVisibleDisplayFrame(rect);
+                    i = rect.bottom - rect.top;
+                    if (!this.k) {
+                        if (i == this.j) {
+                            z = true;
+                        }
+                        this.k = z;
+                    }
+                    if (!this.k) {
+                        i += this.g;
+                    }
+                } else if (childAt != null) {
+                    childAt.getWindowVisibleDisplayFrame(rect);
+                    i = rect.bottom - rect.top;
+                } else {
+                    i = -1;
+                }
+                if (i == -1) {
+                    return;
+                }
+                a(i);
+                b(i);
+                this.a = i;
+            }
+        }
+    }
+
+    @TargetApi(16)
+    public static void c(Activity activity, ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, onGlobalLayoutListener) == null) {
+            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
+            if (Build.VERSION.SDK_INT >= 16) {
+                viewGroup.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
+            } else {
+                viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
+            }
+        }
+    }
+
+    public static boolean i(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) {
+            if (a == i || i <= 0) {
+                return false;
+            }
+            a = i;
+            TbadkCoreApplication.getInst().setKeyboardHeight(a);
+            o65.m().z("key_last_keyboard_height", i);
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    @TargetApi(13)
+    public static ViewTreeObserver.OnGlobalLayoutListener b(Activity activity, ig5 ig5Var, b bVar) {
+        InterceptResult invokeLLL;
+        int height;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, ig5Var, bVar)) == null) {
+            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
+            boolean b2 = pg5.b(activity);
+            boolean c2 = pg5.c(activity);
+            boolean a2 = pg5.a(activity);
+            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
+            if (Build.VERSION.SDK_INT >= 13) {
+                Point point = new Point();
+                defaultDisplay.getSize(point);
+                height = point.y;
+            } else {
+                height = defaultDisplay.getHeight();
+            }
+            a aVar = new a(b2, c2, a2, viewGroup, ig5Var, bVar, height);
+            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(aVar);
+            return aVar;
+        }
+        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLL.objValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (a == 0) {
+                int n = o65.m().n("key_last_keyboard_height", g(context.getResources()));
+                a = n;
+                if (n > 0) {
+                    TbadkCoreApplication.getInst().setKeyboardHeight(a);
+                }
+            }
+            return a;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, resources)) == null) {
+            if (b == 0) {
+                b = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
+            }
+            return b;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (d == 0) {
+                d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d1);
+            }
+            return d;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
+            if (c == 0) {
+                c = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d1);
+            }
+            return c;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return Math.min(e(context.getResources()), Math.max(g(context.getResources()), d(context)));
+        }
+        return invokeL.intValue;
+    }
+
+    public static void j(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, view2) == null) {
+            view2.requestFocus();
+            ((InputMethodManager) view2.getContext().getSystemService("input_method")).showSoftInput(view2, 0);
+        }
     }
 }

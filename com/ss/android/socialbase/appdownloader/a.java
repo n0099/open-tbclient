@@ -3,7 +3,7 @@ package com.ss.android.socialbase.appdownloader;
 import android.text.TextUtils;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public String a;
     public int b = -1;

@@ -23,7 +23,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
     public static y A;
@@ -57,7 +57,7 @@ public class y {
     public long a;
     public a z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.e.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

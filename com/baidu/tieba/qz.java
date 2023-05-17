@@ -1,23 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class qz {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public class qz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mz a;
-    public final int b;
-    public byte[] c;
+    public Map<String, pz> a;
 
-    public qz(mz mzVar) {
+    /* loaded from: classes7.dex */
+    public interface a {
+        List<pz> a();
+    }
+
+    public qz(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mzVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,33 +36,21 @@ public abstract class qz {
                 return;
             }
         }
-        this.a = mzVar;
-        this.b = mzVar.a();
-    }
-
-    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2);
-
-    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public abstract void c();
-
-    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public abstract void e();
-
-    public void f(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            b(bArr, i, i2, bArr2, i3);
+        this.a = new HashMap();
+        for (pz pzVar : aVar.a()) {
+            this.a.put(pzVar.c(), pzVar);
         }
     }
 
-    public abstract void g();
-
-    public void h(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+    public pz a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            d(bArr, i, i2, bArr2, i3);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (pz) invokeL.objValue;
+    }
+
+    public List<pz> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
     }
 }

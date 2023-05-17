@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.cache;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface ICache {
     void clear();
 

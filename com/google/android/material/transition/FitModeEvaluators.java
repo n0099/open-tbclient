@@ -1,7 +1,7 @@
 package com.google.android.material.transition;
 
 import android.graphics.RectF;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FitModeEvaluators {
     public static final FitModeEvaluator WIDTH = new FitModeEvaluator() { // from class: com.google.android.material.transition.FitModeEvaluators.1
         @Override // com.google.android.material.transition.FitModeEvaluator

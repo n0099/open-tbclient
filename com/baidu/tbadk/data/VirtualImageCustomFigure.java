@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.CustomFigure;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VirtualImageCustomFigure implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static String BACK_GROUND_TYPE_TONE = "tone";

@@ -10,12 +10,12 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.j63;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.ns2;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.s73;
+/* loaded from: classes4.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
-    public static final boolean v = ho1.a;
+    public static final boolean v = qp1.a;
     public HEADERTYPE a;
     public float b;
     public h<T> c;
@@ -36,9 +36,9 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public int r;
     public Scroller s;
     public int t;
-    public j63<T> u;
+    public s73<T> u;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum HEADERTYPE {
         STANDARD_HEADER,
         BIG_BG_HEADER,
@@ -47,7 +47,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         SWAN_APP_HEADER
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface h<V extends View> {
         void a(PullToRefreshBase<V> pullToRefreshBase);
 
@@ -78,10 +78,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public void y(ILoadingLayout$State iLoadingLayout$State, boolean z) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -103,7 +103,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public a() {
         }
@@ -115,7 +115,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -126,7 +126,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public final /* synthetic */ boolean a;
         public final /* synthetic */ Runnable b;
@@ -154,7 +154,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Runnable {
         public e() {
         }
@@ -165,7 +165,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         public f() {
         }
@@ -176,7 +176,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class g {
         public static final /* synthetic */ int[] a;
 
@@ -207,7 +207,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     private boolean getNgWebViewHeightSwitch() {
-        er2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+        ns2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
         return false;
     }
 
@@ -274,7 +274,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return this.d;
     }
 
-    public j63<T> getRefreshableFactory() {
+    public s73<T> getRefreshableFactory() {
         return this.u;
     }
 
@@ -535,7 +535,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    public PullToRefreshBase(Context context, j63<T> j63Var, HEADERTYPE headertype) {
+    public PullToRefreshBase(Context context, s73<T> s73Var, HEADERTYPE headertype) {
         super(context);
         this.a = HEADERTYPE.Common_STYLE_HEADER;
         this.b = -1.0f;
@@ -549,7 +549,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.o = iLoadingLayout$State;
         this.r = -1;
         this.t = -1;
-        this.u = j63Var;
+        this.u = s73Var;
         this.a = headertype;
         m(context, null);
     }

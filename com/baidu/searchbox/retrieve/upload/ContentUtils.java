@@ -3,7 +3,7 @@ package com.baidu.searchbox.retrieve.upload;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.aoa;
+import com.baidu.tieba.ypa;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ContentUtils {
     public static final boolean DEBUG = AppConfig.isDebug();
 
@@ -121,7 +121,7 @@ public class ContentUtils {
                 stringBuffer.append((String) entry.getValue());
             }
             stringBuffer.append(str);
-            return aoa.c(stringBuffer.toString().getBytes(), false);
+            return ypa.c(stringBuffer.toString().getBytes(), false);
         }
         return "";
     }

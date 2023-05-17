@@ -1,119 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
     public transient /* synthetic */ FieldHolder $fh;
+    public LruCache<String, Bitmap> a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements ThreadFactory {
+    /* loaded from: classes7.dex */
+    public class a extends LruCache<String, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qg1 qg1Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qg1Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = new AtomicInteger(1);
         }
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) {
+                return bitmap.getByteCount() / 1024;
             }
-            return (Thread) invokeL.objValue;
+            return invokeLL.intValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948090766, "Lcom/baidu/tieba/qg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948090766, "Lcom/baidu/tieba/qg1;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
     }
 
     public qg1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    }
+
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = vg1.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
             }
         }
     }
 
-    public static void a(Runnable runnable) {
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.get(str);
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public static synchronized Executor b() {
-        InterceptResult invokeV;
-        Executor executor;
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (qg1.class) {
-                if (a == null) {
-                    synchronized (qg1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
-                        }
-                    }
-                }
-                executor = a;
-            }
-            return executor;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(vg1.b(str));
         }
-        return (Executor) invokeV.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 }

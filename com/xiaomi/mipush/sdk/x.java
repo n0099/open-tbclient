@@ -1,7 +1,7 @@
 package com.xiaomi.mipush.sdk;
 
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class x {
     public int a = 0;
 

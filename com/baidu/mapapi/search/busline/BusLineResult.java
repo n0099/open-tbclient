@@ -7,7 +7,7 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BusLineResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BusLineResult> CREATOR = new a();
     public String a;
@@ -22,11 +22,11 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public float j;
     public String k;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BusStation extends RouteNode {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BusStep extends RouteStep {
     }
 

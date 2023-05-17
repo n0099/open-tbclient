@@ -1,72 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class eq3 extends ActivityDelegation {
+/* loaded from: classes5.dex */
+public class eq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements fq3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq3 a;
-
-        public a(eq3 eq3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eq3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eq3Var;
-        }
-
-        @Override // com.baidu.tieba.fq3
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.mResult.putInt("quick_login", i);
-                this.a.finish();
-            }
-        }
-    }
-
-    public eq3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public static synchronized dq3 a() {
         InterceptResult invokeV;
+        dq3 dq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gq3.d(getAgent(), wk3.f(this.mParams, "quick_login_mode", 0), new a(this));
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (eq3.class) {
+                if (a == null) {
+                    a = new dq3();
+                }
+                dq3Var = a;
+            }
+            return dq3Var;
         }
-        return invokeV.booleanValue;
+        return (dq3) invokeV.objValue;
     }
 }

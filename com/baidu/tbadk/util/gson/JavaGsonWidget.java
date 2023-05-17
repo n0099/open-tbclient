@@ -26,13 +26,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class JavaGsonWidget {
     public static /* synthetic */ Interceptable $ic;
     public static final Type a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class BadNumberFix implements JsonDeserializer<Number> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public final class JavaGsonWidget {
         public final List<String> a;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static final class NumberType {
             public static final /* synthetic */ NumberType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -212,7 +212,7 @@ public final class JavaGsonWidget {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class MapDeserializerDoubleAsIntFix implements JsonDeserializer<Map<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public final class JavaGsonWidget {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends TypeToken<Map<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,7 +264,7 @@ public final class JavaGsonWidget {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

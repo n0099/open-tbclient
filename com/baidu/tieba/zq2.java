@@ -1,47 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
-public class zq2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes8.dex */
+public class zq2 extends an2<rr2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final ThreadPoolExecutor c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948368526, "Lcom/baidu/tieba/zq2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948368526, "Lcom/baidu/tieba/zq2;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        a = availableProcessors;
-        b = (availableProcessors * 2) + 1;
-        int i = b;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 10000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        c = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
     }
 
-    public static void a(Runnable runnable) {
+    public zq2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            c.execute(runnable);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, rr2Var) == null) {
+            command.ret = rr2Var.prepareAsync() ? 1 : 0;
+            String str = command.what;
+            d(rr2Var, str, "isSupport: " + command.ret, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.an2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.ret = 1;
         }
     }
 }

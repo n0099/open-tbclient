@@ -1,178 +1,167 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.StatKey;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoListActivityConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qb9 implements up8 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class qb9 extends wi6<pa9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public sb9 b;
+    public long i;
+    public View j;
+    public TextView k;
+    public HTypeListView l;
+    public h99 m;
+    public View.OnClickListener n;
 
-    public qb9(String str) {
+    @Override // com.baidu.tieba.wi6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01c9 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qb9 a;
+
+        public a(qb9 qb9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qb9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qb9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.s();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qb9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = new sb9(str);
+        this.n = new a(this);
+        this.h = 4;
+        View h = h();
+        this.j = h;
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0905f9);
+        HTypeListView hTypeListView = (HTypeListView) this.j.findViewById(R.id.obfuscated_res_0x7f0905fa);
+        this.l = hTypeListView;
+        this.m = new h99(this.b, hTypeListView);
     }
 
-    @Override // com.baidu.tieba.up8
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !m(str)) {
-            return;
-        }
-        dx9.d().j(this.a, dx9.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
-    }
-
-    @Override // com.baidu.tieba.up8
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || !m(str)) {
-            return;
-        }
-        this.b.k();
-        this.b.j();
-        this.b.a(new hb9(401, "write", -4399, ""));
-    }
-
-    @Override // com.baidu.tieba.up8
-    public void b(String str, int i, int i2, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) || !m(str)) {
-            return;
-        }
-        this.b.f();
-        this.b.i();
-        this.b.k();
-        this.b.a(new hb9(i, "write", i2, str2));
-    }
-
-    @Override // com.baidu.tieba.up8
-    public void c(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) != null) || !m(str)) {
-            return;
-        }
-        this.b.f();
-        this.b.a(new hb9(i, StatKey.EDITADDR_TAG_STAGE_EDIT, i, str2));
-    }
-
-    @Override // com.baidu.tieba.up8
-    public void f(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048581, this, str, i, str2) != null) || !m(str)) {
-            return;
-        }
-        this.b.f();
-        this.b.a(new hb9(i, "record", i, str2));
-    }
-
-    @Override // com.baidu.tieba.up8
-    public boolean d(String str) {
+    public final List<rn> u(List<rn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!m(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
+            int count = ListUtils.getCount(list);
+            if (count <= 0) {
+                return list;
             }
-            return this.b.g();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.up8
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.b.h();
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.up8
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || !m(str)) {
-            return;
-        }
-        this.b.k();
-        this.b.a(new hb9(301, "write", -4399, ""));
-    }
-
-    public final boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (TextUtils.equals(this.a, str) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
-                return true;
+            List<rn> arrayList = new ArrayList<>(list);
+            int g = ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0703d7);
+            int g2 = ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
+            if (count > 3) {
+                arrayList = arrayList.subList(0, 3);
+                ka9 ka9Var = new ka9();
+                ka9Var.a = ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070353);
+                ka9Var.b = ri.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f0703c3);
+                ListUtils.add(arrayList, ka9Var);
             }
-            return false;
+            t59 t59Var = new t59(g2, g);
+            ListUtils.add(arrayList, 0, t59Var);
+            ListUtils.add(arrayList, t59Var);
+            return arrayList;
         }
-        return invokeL.booleanValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.up8
-    public void g(String str, int i, String str2) {
+    @Override // com.baidu.tieba.wi6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048582, this, str, i, str2) != null) || !m(str)) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || i == this.a) {
             return;
         }
-        this.b.f();
-        this.b.i();
-        this.b.k();
-        this.b.a(new hb9(402, "write", i, str2));
+        this.a = i;
+        SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
     }
 
-    @Override // com.baidu.tieba.up8
-    public void h(String str, String str2) {
+    public final void s() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !m(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VideoListActivityConfig(this.c).createNormalCfg(this.i, "personal")));
         }
-        this.b.a(new hb9(503, str2, -4399, ""));
     }
 
-    @Override // com.baidu.tieba.up8
-    public void i(String str, String str2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wi6
+    /* renamed from: t */
+    public void i(pa9 pa9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || !m(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, pa9Var) == null) {
+            if (pa9Var != null && !ListUtils.isEmpty(pa9Var.b)) {
+                this.i = pa9Var.a;
+                this.k.setText(R.string.video_title_str);
+                this.l.setData(u(pa9Var.b));
+                this.m.b(this.n);
+                return;
+            }
+            this.j.setVisibility(8);
         }
-        this.b.a(new hb9(501, str2, -4399, ""));
-    }
-
-    @Override // com.baidu.tieba.up8
-    public void l(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048587, this, str, i, str2) != null) || !m(str)) {
-            return;
-        }
-        if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
-            this.b.a(new hb9(i, str2, -4399, ""));
-            return;
-        }
-        this.b.f();
-        this.b.a(new hb9(i, str2, i, VideoPlatformStatic.g(i)));
     }
 }

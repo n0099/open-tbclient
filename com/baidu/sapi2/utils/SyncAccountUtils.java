@@ -6,7 +6,7 @@ import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SyncAccountUtils implements NoProguard {
     public static final String KEY_DISPLAYNAME = "displayname";
     public static final String KEY_DISPLAYNAME_TO_NA = "displayname_to_na";

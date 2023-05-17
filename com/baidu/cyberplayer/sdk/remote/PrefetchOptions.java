@@ -6,7 +6,7 @@ import com.baidu.cyberplayer.sdk.Keep;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PrefetchOptions implements Parcelable {
     public static final Parcelable.Creator<PrefetchOptions> CREATOR = new Parcelable.Creator<PrefetchOptions>() { // from class: com.baidu.cyberplayer.sdk.remote.PrefetchOptions.1
         /* JADX DEBUG: Method merged with bridge method */

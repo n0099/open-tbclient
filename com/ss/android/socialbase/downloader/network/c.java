@@ -4,18 +4,18 @@ import android.net.Uri;
 import android.os.Handler;
 import java.net.InetAddress;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public final com.ss.android.socialbase.downloader.i.h<String, b> a;
     public final Handler b;
     public final Handler c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(String str, List<InetAddress> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public List<InetAddress> a;
         public long b;
@@ -25,8 +25,8 @@ public class c {
     }
 
     /* renamed from: com.ss.android.socialbase.downloader.network.c$c  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0726c {
+    /* loaded from: classes10.dex */
+    public static class C0740c {
         public static final c a = new c();
     }
 
@@ -37,7 +37,7 @@ public class c {
     }
 
     public static c a() {
-        return C0726c.a;
+        return C0740c.a;
     }
 
     private void a(String str, List<InetAddress> list) {

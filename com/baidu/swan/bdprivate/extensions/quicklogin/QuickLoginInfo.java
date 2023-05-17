@@ -4,9 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.bq3;
-import com.baidu.tieba.ho1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.kr3;
+import com.baidu.tieba.qp1;
+/* loaded from: classes4.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public String agreeText;
     public String encryptPhoneNum;
@@ -14,7 +14,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public int loginMode;
     public String serviceAgreement;
     public boolean supportQuickLogin;
-    public static final boolean DEBUG = ho1.a;
+    public static final boolean DEBUG = qp1.a;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR = new a();
 
     @Override // android.os.Parcelable
@@ -25,7 +25,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public QuickLoginInfo() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<QuickLoginInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -72,17 +72,17 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(bq3 bq3Var) {
-        if (bq3Var == null) {
+    public static QuickLoginInfo parseQuickLoginInfo(kr3 kr3Var) {
+        if (kr3Var == null) {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = bq3Var.f();
-        quickLoginInfo.encryptPhoneNum = bq3Var.c();
-        quickLoginInfo.serviceAgreement = bq3Var.b();
-        quickLoginInfo.hasHistory = bq3Var.d();
-        quickLoginInfo.loginMode = bq3Var.e();
-        quickLoginInfo.agreeText = bq3Var.a();
+        quickLoginInfo.supportQuickLogin = kr3Var.f();
+        quickLoginInfo.encryptPhoneNum = kr3Var.c();
+        quickLoginInfo.serviceAgreement = kr3Var.b();
+        quickLoginInfo.hasHistory = kr3Var.d();
+        quickLoginInfo.loginMode = kr3Var.e();
+        quickLoginInfo.agreeText = kr3Var.a();
         return quickLoginInfo;
     }
 

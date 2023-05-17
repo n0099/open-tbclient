@@ -5,7 +5,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.pass.ecommerce.view.RotateYAnimation;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
     public boolean isDarkMode;
     public TextView mFootTv;
@@ -13,12 +13,12 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
 
     public CommonFootViewHolder(@NonNull View view2, boolean z) {
         super(view2);
-        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091f18);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f19);
+        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091f74);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f75);
         this.mFootTv = textView;
         this.isDarkMode = z;
         if (z) {
-            textView.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06086a));
+            textView.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0609e1));
         }
     }
 

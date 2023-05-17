@@ -1,16 +1,41 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.eu1;
-/* loaded from: classes4.dex */
-public interface hu1<T extends eu1> extends fu1<T> {
-    void H();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public interface hu1 {
+    boolean a();
 
-    boolean c();
+    /* loaded from: classes5.dex */
+    public static class a implements hu1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void g(boolean z);
+        @Override // com.baidu.tieba.hu1
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
-    void i(View.OnClickListener onClickListener);
-
-    void removeFromParent();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

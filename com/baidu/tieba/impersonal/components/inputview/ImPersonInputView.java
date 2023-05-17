@@ -11,13 +11,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ImPersonInputView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,21 +90,21 @@ public class ImPersonInputView extends RelativeLayout {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f2, (ViewGroup) this, true);
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090fd4);
-        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090927);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d040b, (ViewGroup) this, true);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f091008);
+        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090949);
         this.b = editText;
-        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f12c7));
+        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f1398));
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092608);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092674);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092609);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092675);
         this.d = textView;
-        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0360));
-        g35 d = g35.d(this.c);
+        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0396));
+        p45 d = p45.d(this.c);
         d.o(R.string.J_X01);
         d.f(R.color.CAM_X0920);
         a();
@@ -113,7 +113,7 @@ public class ImPersonInputView extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g35.d(this.d).w(R.color.CAM_X0100);
+            p45.d(this.d).w(R.color.CAM_X0100);
         }
     }
 

@@ -1,12 +1,12 @@
 package com.ss.android.socialbase.downloader.i;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public a a;
     public a b;
     public int c;
     public int d = 10;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public long a;
         public long b;

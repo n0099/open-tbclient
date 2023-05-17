@@ -1,96 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class sa0 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
+/* loaded from: classes7.dex */
+public interface sa0 {
+    void E0();
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void goBackOrForeground(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
+    void a1(List<String> list);
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    void h0();
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    void i0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onNetworkSpeedUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
+    void k(int i);
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
+    void l();
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onSeekEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
+    void q(ta0 ta0Var);
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
+    void showToast(String str);
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onUpdateProgress(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
-        }
-    }
+    void t(List<String> list);
 
-    public sa0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void u(SearchResultBean searchResultBean);
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
-    public Object onInfo(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
-            return Boolean.FALSE;
-        }
-        return invokeIIL.objValue;
-    }
+    void z0(List<? extends LiveRoomEntity> list);
 }

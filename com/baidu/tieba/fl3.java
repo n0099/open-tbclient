@@ -1,40 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class fl3 {
+/* loaded from: classes5.dex */
+public final class fl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SwanAppActivity swanAppActivity) {
-        Intent intent;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                a = gl3.c();
+            }
+            return a;
         }
-        if (w33.D()) {
-            i52.k().s();
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return String.format("%s %s", str, a());
         }
-        Bundle bundle = new Bundle();
-        bundle.putAll(intent.getExtras());
-        bundle.putBoolean("should_ignore_launch_time", true);
-        Bundle bundle2 = bundle.getBundle("mExtraData");
-        if (bundle2 == null) {
-            bundle2 = new Bundle();
-            bundle.putBundle("mExtraData", bundle2);
-        }
-        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-        w73.K().n(new String[0]);
-        bundle.remove("pms_db_info_onload");
-        bundle.remove("pms_db_info_updated");
-        bundle.remove("mPage");
-        bundle.putString("launch_id", SwanLauncher.h());
-        w73.K().l(bundle, "update_tag_by_activity_on_relaunch");
+        return (String) invokeL.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.sapi2.utils;
 
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class Log implements NoProguard {
     public static final String TAG = "SAPI";
     public static boolean enabled;

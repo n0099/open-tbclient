@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.cache.CountingMemoryCache;
 import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BitmapCountingMemoryCacheFactory {
     public static CountingMemoryCache<CacheKey, CloseableImage> get(Supplier<MemoryCacheParams> supplier, MemoryTrimmableRegistry memoryTrimmableRegistry, @Nullable CountingMemoryCache.EntryStateObserver<CacheKey> entryStateObserver) {
         return get(supplier, memoryTrimmableRegistry, new BitmapMemoryCacheTrimStrategy(), entryStateObserver);

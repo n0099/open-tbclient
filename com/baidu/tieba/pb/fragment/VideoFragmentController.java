@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.lx8;
+import com.baidu.tieba.my8;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.qv8;
-import com.baidu.tieba.rw8;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,7 +39,7 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 .2\u00020\u0001:\u0001.B\u0005¢\u0006\u0002\u0010\u0002J\u0012\u0010\u0019\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cH\u0002J\u0012\u0010\u001d\u001a\u0004\u0018\u00010\u001e2\b\u0010\u001f\u001a\u0004\u0018\u00010 J\u0010\u0010!\u001a\u00020\u001a2\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004J\u0010\u0010\"\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cJ\u000e\u0010#\u001a\u00020\u001a2\u0006\u0010$\u001a\u00020%J\u000e\u0010&\u001a\u00020\u001a2\u0006\u0010'\u001a\u00020(J\u0006\u0010)\u001a\u00020\u001aJ\u0012\u0010*\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cH\u0002J\u000e\u0010+\u001a\u00020\u001a2\u0006\u0010,\u001a\u00020-R\u001c\u0010\u0003\u001a\u0004\u0018\u00010\u0004X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0005\u0010\u0006\"\u0004\b\u0007\u0010\bR\u001b\u0010\t\u001a\u00020\n8FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u001c\u0010\u000f\u001a\u0004\u0018\u00010\u0010X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0011\u0010\u0012\"\u0004\b\u0013\u0010\u0014R\u0011\u0010\u0015\u001a\u00020\u0016¢\u0006\b\n\u0000\u001a\u0004\b\u0017\u0010\u0018¨\u0006/"}, d2 = {"Lcom/baidu/tieba/pb/fragment/VideoFragmentController;", "", "()V", "bdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "getBdUniqueId", "()Lcom/baidu/adp/BdUniqueId;", "setBdUniqueId", "(Lcom/baidu/adp/BdUniqueId;)V", NativeConstants.COMPONENT, "Lcom/baidu/tieba/pb/fragment/VideoFragmentComponent;", "getComponent", "()Lcom/baidu/tieba/pb/fragment/VideoFragmentComponent;", "component$delegate", "Lkotlin/Lazy;", "mBackImage", "Landroid/widget/ImageView;", "getMBackImage", "()Landroid/widget/ImageView;", "setMBackImage", "(Landroid/widget/ImageView;)V", "mSuspendedViewAnimationListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "getMSuspendedViewAnimationListener", "()Lcom/baidu/adp/framework/listener/CustomMessageListener;", "addVideoBackButton", "", "activity", "Landroid/app/Activity;", "getVideoFragmentArguments", "Landroid/os/Bundle;", "pbData", "Lcom/baidu/tieba/pb/data/PbData;", "initUniqueId", "makeVideoScene", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onConfigurationChanged", "newConfig", "Landroid/content/res/Configuration;", "postOnResumeDelay", "setVideoBackground", "setVideoFragmentUserVisibleHint", "isVisibleToUser", "", "Companion", "pb_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public final class VideoFragmentController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public final class VideoFragmentController {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,13 +155,13 @@ public final class VideoFragmentController {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final rw8 d() {
+    public final my8 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (rw8) this.a.getValue();
+            return (my8) this.a.getValue();
         }
-        return (rw8) invokeV.objValue;
+        return (my8) invokeV.objValue;
     }
 
     public final ImageView e() {
@@ -185,7 +185,7 @@ public final class VideoFragmentController {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.pw8
+            sg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.ky8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -278,7 +278,7 @@ public final class VideoFragmentController {
             WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             ImageView imageView2 = this.b;
             Intrinsics.checkNotNull(imageView2);
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qw8
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ly8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -297,14 +297,14 @@ public final class VideoFragmentController {
         }
     }
 
-    public final Bundle g(qv8 qv8Var) {
+    public final Bundle g(lx8 lx8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qv8Var)) == null) {
-            if (qv8Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, lx8Var)) == null) {
+            if (lx8Var == null) {
                 return null;
             }
-            ThreadData M = qv8Var.M();
+            ThreadData M = lx8Var.M();
             Intrinsics.checkNotNullExpressionValue(M, "pbData.thread");
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithThreadData(M);
@@ -321,11 +321,11 @@ public final class VideoFragmentController {
     public final void n(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && activity != null) {
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f090775);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f090792);
             if (findViewById != null) {
                 findViewById.setBackgroundResource(R.color.CAM_X0611);
             }
-            View findViewById2 = activity.findViewById(R.id.obfuscated_res_0x7f090785);
+            View findViewById2 = activity.findViewById(R.id.obfuscated_res_0x7f0907a2);
             if (findViewById2 != null) {
                 findViewById2.setBackgroundResource(R.color.CAM_X0611);
             }

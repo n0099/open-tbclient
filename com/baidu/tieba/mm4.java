@@ -1,74 +1,163 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class mm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final im4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements LayoutInflater.Factory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final pm4 a;
-
-        public a(pm4 pm4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947977461, "Lcom/baidu/tieba/mm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pm4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = pm4Var;
-        }
-
-        @Override // android.view.LayoutInflater.Factory
-        public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) {
-                return this.a.onCreateView(null, str, context, attributeSet);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947977461, "Lcom/baidu/tieba/mm4;");
+                return;
             }
-            return (View) invokeLLL.objValue;
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return getClass().getName() + "{" + this.a + "}";
-            }
-            return (String) invokeV.objValue;
-        }
+        a = im4.d();
     }
 
-    public static void a(LayoutInflater layoutInflater, pm4 pm4Var) {
-        a aVar;
+    public static String a(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, pm4Var) == null) {
-            if (pm4Var != null) {
-                aVar = new a(pm4Var);
-            } else {
-                aVar = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (strArr != null) {
+                try {
+                    if (strArr.length > 0 && strArr.length % 2 == 0) {
+                        for (int i = 0; i < strArr.length; i += 2) {
+                            String str = strArr[i];
+                            String str2 = strArr[i + 1];
+                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                                jSONObject.put(str, str2);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    rg4.b().G("PMSFileUtil", "#createErrorJson put异常", e);
+                }
             }
-            layoutInflater.setFactory(aVar);
+            return "errmsg:" + jSONObject.toString();
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Nullable
+    public static hi4 b(String str, long j, long j2, @Nullable List<hi4> list) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
+            List<hi4> s = dh4.i().s(str, j, j2);
+            if (s != null) {
+                while (!s.isEmpty()) {
+                    hi4 remove = s.remove(0);
+                    if (rg4.b().r(remove)) {
+                        return remove;
+                    }
+                    if (list != null) {
+                        list.add(remove);
+                    }
+                }
+                return null;
+            }
+            return null;
+        }
+        return (hi4) invokeCommon.objValue;
+    }
+
+    public static File c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
+                return null;
+            }
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                rg4.b().y("PMSFileUtil", "cannot mkdir in : " + file);
+                return null;
+            }
+            String e = e(str, str2);
+            String str3 = e;
+            for (int i = 0; i < 1000; i++) {
+                File file2 = new File(str3);
+                try {
+                    if (!file2.exists() && file2.createNewFile()) {
+                        return file2;
+                    }
+                } catch (IOException e2) {
+                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
+                }
+                str3 = e + "_" + i;
+            }
+            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
+            return null;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            File dir = context.getDir("pms_dir", 0);
+            if (!dir.exists()) {
+                dir.mkdir();
+            }
+            return dir;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            return f(str, str2, File.separator);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String f(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
+            }
+            if (TextUtils.isEmpty(str2)) {
+                return str;
+            }
+            if (str.endsWith(str3)) {
+                if (str2.startsWith(str3)) {
+                    return str.concat(str2.substring(str3.length()));
+                }
+                return str.concat(str2);
+            } else if (str2.startsWith(str3)) {
+                return str.concat(str2);
+            } else {
+                return str.concat(str3).concat(str2);
+            }
+        }
+        return (String) invokeLLL.objValue;
     }
 }

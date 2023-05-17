@@ -6,7 +6,7 @@ import com.baidu.live.business.model.data.LiveSearchResultInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SearchResultBean {
     public boolean hasmore = false;
     public LiveErrorInfo liveErrorInfo;

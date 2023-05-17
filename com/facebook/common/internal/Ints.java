@@ -2,7 +2,7 @@ package com.facebook.common.internal;
 
 import com.facebook.infer.annotation.Nullsafe;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Ints {
     public static int max(int... iArr) {
         boolean z;

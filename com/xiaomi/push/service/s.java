@@ -10,7 +10,7 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class s extends XMPushService.j {
     public final /* synthetic */ r a;
 
@@ -32,13 +32,13 @@ public class s extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "Send tiny data.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         String a;
         XMPushService xMPushService;
         a = this.a.a(this.f1003a);
@@ -53,12 +53,12 @@ public class s extends XMPushService.j {
             next.a("uploadWay", "longXMPushService");
             id a3 = ah.a(this.f1003a, a, next, hh.Notification);
             if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f1003a, this.b)) {
-                if (a3.m545a() == null) {
+                if (a3.m564a() == null) {
                     hu huVar = new hu();
                     huVar.a("-1");
                     a3.a(huVar);
                 }
-                a3.m545a().b("ext_traffic_source_pkg", this.b);
+                a3.m564a().b("ext_traffic_source_pkg", this.b);
             }
             byte[] a4 = ir.a(a3);
             xMPushService = this.a.a;

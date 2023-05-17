@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.core.util.Pools;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FactoryPools {
     public static final int DEFAULT_POOL_SIZE = 20;
     public static final Resetter<Object> EMPTY_RESETTER = new Resetter<Object>() { // from class: com.bumptech.glide.util.pool.FactoryPools.1
@@ -15,23 +15,23 @@ public final class FactoryPools {
     };
     public static final String TAG = "FactoryPools";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Factory<T> {
         T create();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Poolable {
         @NonNull
         StateVerifier getVerifier();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Resetter<T> {
         void reset(@NonNull T t);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class FactoryPool<T> implements Pools.Pool<T> {
         public final Factory<T> factory;
         public final Pools.Pool<T> pool;

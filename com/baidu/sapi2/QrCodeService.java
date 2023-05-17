@@ -28,13 +28,13 @@ import com.facebook.common.util.UriUtil;
 import java.util.ArrayList;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class QrCodeService extends AbstractService implements NoProguard {
     public static QrCodeService c;
     public HttpClientWrap a;
     public PassHttpClientRequest b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpHandlerWrap {
         public final /* synthetic */ SapiCallback a;
         public final /* synthetic */ GetQrCodeImageResult b;
@@ -99,7 +99,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpHandlerWrap {
         public final /* synthetic */ SapiCallback a;
         public final /* synthetic */ GetQrCodeImageResult b;
@@ -156,7 +156,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends HttpHandlerWrap {
         public final /* synthetic */ boolean a;
         public final /* synthetic */ QrLoginStatusCheckCallback b;
@@ -231,7 +231,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends HttpHandlerWrap {
         public final /* synthetic */ QrLoginStatusCheckCallback a;
         public final /* synthetic */ QrLoginStatusCheckResult b;
@@ -290,7 +290,7 @@ public class QrCodeService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends HttpHandlerWrap {
         public final /* synthetic */ SapiCallback a;
         public final /* synthetic */ QrAppLoginResult b;

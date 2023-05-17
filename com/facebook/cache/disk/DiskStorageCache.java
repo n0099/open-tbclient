@@ -28,7 +28,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static final int START_OF_VERSIONING = 1;
     public static final double TRIMMING_LOWER_BOUND = 0.02d;
@@ -57,7 +57,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
     public static final long FILECACHE_SIZE_UPDATE_PERIOD_MS = TimeUnit.MINUTES.toMillis(30);
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class CacheStats {
         public boolean mInitialized = false;
         public long mSize = -1;
@@ -95,7 +95,7 @@ public class DiskStorageCache implements FileCache, DiskTrimmable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Params {
         public final long mCacheSizeLimitMinimum;
         public final long mDefaultCacheSizeLimit;

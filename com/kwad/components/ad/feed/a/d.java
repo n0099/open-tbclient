@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends FrameLayout {
     public int count;
     public ImageView dA;
@@ -43,10 +43,10 @@ public final class d extends FrameLayout {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0488, this);
-        this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f09123c);
-        this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091287);
-        this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f091239);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04a5, this);
+        this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f091277);
+        this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912c2);
+        this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f091274);
     }
 
     private Animation a(final View view2, float f, int i) {

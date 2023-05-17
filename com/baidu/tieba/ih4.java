@@ -1,64 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.ContentValues;
+import android.database.Cursor;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class ih4 {
+/* loaded from: classes6.dex */
+public class ih4 extends gh4<bi4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull ri4 ri4Var, @Nullable List<xg4> list, @Nullable List<yg4> list2, @NonNull sf4 sf4Var) {
+    public ih4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, ri4Var, list, list2, sf4Var) == null) {
-            ci4 b = kh4.b(ri4Var, sf4Var);
-            if (list != null && !list.isEmpty()) {
-                kh4.a(b, bi4.h(list, sf4Var));
-            }
-            if (list2 != null && !list2.isEmpty()) {
-                kh4.a(b, bi4.e(list2, sf4Var));
-            }
-            b.e();
-        }
-    }
-
-    public static void b(si4 si4Var, sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, si4Var, sf4Var) == null) {
-            kh4.c(si4Var, sf4Var);
-        }
-    }
-
-    public static void c(ti4 ti4Var, sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, ti4Var, sf4Var) == null) {
-            kh4.d(ti4Var, sf4Var);
-        }
-    }
-
-    public static void d(ui4 ui4Var, sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, ui4Var, sf4Var) == null) {
-            kh4.e(ui4Var, sf4Var);
-        }
-    }
-
-    public static void e(pk4 pk4Var, sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pk4Var, sf4Var) == null) {
-            kh4.f(pk4Var, sf4Var);
-        }
-    }
-
-    public static synchronized void f(List<yg4> list, sf4 sf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, list, sf4Var) == null) {
-            synchronized (ih4.class) {
-                kh4.g(list, sf4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gh4
+    /* renamed from: f */
+    public ContentValues c(bi4 bi4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bi4Var)) == null) {
+            return a(bi4Var);
+        }
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gh4
+    /* renamed from: g */
+    public bi4 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                bi4 bi4Var = new bi4();
+                if (b(cursor, bi4Var)) {
+                    return bi4Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (bi4) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gh4
+    public List<bi4> e(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    bi4 bi4Var = new bi4();
+                    if (b(cursor, bi4Var)) {
+                        arrayList.add(bi4Var);
+                    }
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

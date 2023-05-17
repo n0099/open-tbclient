@@ -11,7 +11,7 @@ import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.touchid.FingerprintDialogInterface;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FingerprintDialog extends Dialog implements FingerprintDialogInterface, NoProguard {
     public LinearLayout a;
     public TextView b;
@@ -21,7 +21,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
     public ImageView f;
     public Context g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public final /* synthetic */ View.OnClickListener a;
 
@@ -39,7 +39,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public final /* synthetic */ View.OnClickListener a;
 
@@ -58,7 +58,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
     }
 
     public FingerprintDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10018d);
+        super(context, R.style.obfuscated_res_0x7f100197);
         this.g = context;
         setContentView(R.layout.layout_sapi_sdk_fingerprint_dialog);
         this.a = (LinearLayout) findViewById(R.id.bg_layout);
@@ -109,7 +109,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
 
     @Override // com.baidu.sapi2.touchid.FingerprintDialogInterface
     public FingerprintDialogInterface setIconInvisible() {
-        findViewById(R.id.obfuscated_res_0x7f090f77).setVisibility(8);
+        findViewById(R.id.obfuscated_res_0x7f090fab).setVisibility(8);
         return this;
     }
 

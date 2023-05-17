@@ -178,7 +178,7 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.n.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0028c extends com.baidu.android.pushservice.z.c {
+    public class C0031c extends com.baidu.android.pushservice.z.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
@@ -188,7 +188,7 @@ public class c {
         public final /* synthetic */ com.baidu.android.pushservice.n.a g;
         public final /* synthetic */ c h;
 
-        public C0028c(c cVar, Context context, String str, String str2, HashMap hashMap, com.baidu.android.pushservice.n.a aVar) {
+        public C0031c(c cVar, Context context, String str, String str2, HashMap hashMap, com.baidu.android.pushservice.n.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,8 +212,8 @@ public class c {
         }
 
         /* JADX WARN: Can't wrap try/catch for region: R(7:(2:9|10)|(1:12)(2:28|(7:30|31|32|14|15|16|(2:18|19)(2:21|(2:23|24)(1:25))))|13|14|15|16|(0)(0)) */
-        /* JADX WARN: Removed duplicated region for block: B:27:0x0087  */
-        /* JADX WARN: Removed duplicated region for block: B:28:0x008f  */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x0088  */
+        /* JADX WARN: Removed duplicated region for block: B:28:0x0090  */
         @Override // com.baidu.android.pushservice.z.c
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -568,7 +568,7 @@ public class c {
         }
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/json");
-        e.a().a(new C0028c(this, context, g.g + g.i, str, hashMap, aVar));
+        e.a().a(new C0031c(this, context, g.g + g.i, str, hashMap, aVar));
     }
 
     public final void b(Context context, HashMap<String, Object> hashMap) {

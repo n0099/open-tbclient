@@ -2,8 +2,9 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
-import com.baidu.tieba.qx4;
+import com.baidu.tieba.zy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +13,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PrivSets;
-/* loaded from: classes3.dex */
-public class PrivSetsData extends qx4 implements Serializable {
+/* loaded from: classes4.dex */
+public class PrivSetsData extends zy4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int bazhuShowInside;
@@ -58,7 +59,7 @@ public class PrivSetsData extends qx4 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qx4
+    @Override // com.baidu.tieba.zy4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
@@ -68,7 +69,7 @@ public class PrivSetsData extends qx4 implements Serializable {
             this.location = jSONObject.optInt("location", 0);
             this.like = jSONObject.optInt("like", 0);
             this.group = jSONObject.optInt("group", 0);
-            this.post = jSONObject.optInt("post", 0);
+            this.post = jSONObject.optInt(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND, 0);
             this.friend = jSONObject.optInt("friend", 0);
             this.live = jSONObject.optInt("live", 0);
             this.reply = jSONObject.optInt("reply", 0);

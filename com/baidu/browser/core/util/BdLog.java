@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes3.dex */
 public final class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
@@ -30,7 +30,7 @@ public final class BdLog {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -101,7 +101,7 @@ public final class BdLog {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

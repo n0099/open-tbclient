@@ -3,7 +3,7 @@ package okio;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Timeout {
     public static final Timeout NONE = new Timeout() { // from class: okio.Timeout.1
         @Override // okio.Timeout

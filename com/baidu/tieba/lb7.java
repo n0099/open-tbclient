@@ -1,5 +1,93 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface lb7 {
-    boolean a();
+
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes6.dex */
+public class lb7 implements wc7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.wc7
+    public boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public lb7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wc7
+    public void a(jm7 jm7Var, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jm7Var, frsViewData) == null) && jm7Var != null && frsViewData != null) {
+            ArrayList<rn> threadList = frsViewData.getThreadList();
+            if (ListUtils.isEmpty(threadList)) {
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            Iterator<rn> it = threadList.iterator();
+            while (it.hasNext()) {
+                rn next = it.next();
+                if (next.getType() == ThreadData.TYPE_TOP) {
+                    arrayList.add(next);
+                }
+            }
+            frsViewData.setTopThreadList(arrayList);
+        }
+    }
+
+    @Override // com.baidu.tieba.wc7
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.wc7
+    public void c(jm7 jm7Var, i87 i87Var, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jm7Var, i87Var, frsViewData) == null) && jm7Var != null && i87Var != null && frsViewData != null) {
+            jm7Var.K();
+            if (frsViewData != null && frsViewData.getForum() != null) {
+                i87Var.g1(frsViewData.getForum().getFrsBannerData());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.wc7
+    public int d(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
+            return xl7.e(i, frsRequestData);
+        }
+        return invokeIL.intValue;
+    }
 }

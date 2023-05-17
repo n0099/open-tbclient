@@ -16,7 +16,7 @@ import com.ss.android.downloadlib.addownload.compliance.d;
 import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.g.l;
 import com.ss.android.downloadlib.guide.install.ClipImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends Dialog {
     public TextView a;
     public TextView b;
@@ -39,14 +39,14 @@ public class a extends Dialog {
     }
 
     private void a() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09256a);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09256d);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092569);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092568);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09256b);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a9);
-        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f09116e);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091573);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d5);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d8);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d4);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d3);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0925d6);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f092614);
+        this.g = (ClipImageView) findViewById(R.id.obfuscated_res_0x7f0911a8);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0915af);
         this.a.setText(l.a(this.l.e, "--"));
         TextView textView = this.b;
         textView.setText("版本号：" + l.a(this.l.f, "--"));
@@ -111,10 +111,10 @@ public class a extends Dialog {
             return;
         }
         requestWindowFeature(1);
-        setContentView(R.layout.obfuscated_res_0x7f0d0922);
+        setContentView(R.layout.obfuscated_res_0x7f0d0956);
         Window window = getWindow();
         if (window != null) {
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081313);
+            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f08149d);
         }
         setCancelable(true);
         setCanceledOnTouchOutside(true);

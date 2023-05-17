@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BasicCertificateChainCleaner extends CertificateChainCleaner {
     public static final int MAX_SIGNERS = 9;
     public final TrustRootIndex trustRootIndex;

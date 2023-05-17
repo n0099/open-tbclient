@@ -1,30 +1,30 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.f6b;
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.p5b;
+import com.baidu.tieba.d8b;
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.n7b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
-public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements j5b.a<T> {
+/* loaded from: classes10.dex */
+public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements h7b.a<T> {
     public static final long serialVersionUID = -2817751667698696782L;
-    public final f6b<T> state;
+    public final d8b<T> state;
 
-    public CachedObservable$CachedSubscribe(f6b<T> f6bVar) {
-        this.state = f6bVar;
+    public CachedObservable$CachedSubscribe(d8b<T> d8bVar) {
+        this.state = d8bVar;
     }
 
-    public void call(p5b<? super T> p5bVar) {
-        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(p5bVar, this.state);
+    public void call(n7b<? super T> n7bVar) {
+        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(n7bVar, this.state);
         this.state.c(cachedObservable$ReplayProducer);
-        p5bVar.b(cachedObservable$ReplayProducer);
-        p5bVar.f(cachedObservable$ReplayProducer);
+        n7bVar.b(cachedObservable$ReplayProducer);
+        n7bVar.f(cachedObservable$ReplayProducer);
         if (!get() && compareAndSet(false, true)) {
             this.state.d();
         }
     }
 
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
+    @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((p5b) ((p5b) obj));
+        call((n7b) ((n7b) obj));
     }
 }

@@ -1,53 +1,183 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.tieba.cs2;
+import com.baidu.tieba.du2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.io.File;
+/* loaded from: classes7.dex */
 public class qf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public V8Engine a;
 
-    public qf2(V8Engine v8Engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v8Engine};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948089836, "Lcom/baidu/tieba/qf2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948089836, "Lcom/baidu/tieba/qf2;");
                 return;
             }
         }
-        this.a = v8Engine;
+        a = qp1.a;
+        ns2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    public void a(String str) {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(4, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
         }
+        return invokeV.booleanValue;
     }
 
-    public void b(String str) {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            c(1, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(int i, String str) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            this.a.onConsoleCallBack(i, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!ag2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (!ns2.F0().j(1)) {
+                return false;
+            } else {
+                String c0 = ag2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && f53.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(@Nullable v93 v93Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v93Var)) == null) {
+            if (v93Var == null || !d()) {
+                return 0;
+            }
+            return ComboPraiseManager.PRAISE_SOURCE_PREFIX_NA.equals(v93Var.r) ? 1 : 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(tu2.U().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(g93 g93Var) {
+        InterceptResult invokeL;
+        du2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, g93Var)) == null) {
+            if (g93Var == null || !g93Var.E()) {
+                return false;
+            }
+            if (f53.B(g93Var.W())) {
+                str = cs2.b.g().getPath() + File.separator;
+            } else {
+                str = cs2.e.i(W.H(), W.v1()).getPath() + File.separator;
+            }
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            tu2.U().K(str);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -2218,8 +2218,8 @@ public class MediaMessageDBManager extends DBBase implements IMessageDBOperation
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0034  */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0037  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0035  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0038  */
     @Override // com.baidu.android.imsdk.media.db.IMessageDBOperation
     /*
         Code decompiled incorrectly, please refer to instructions dump.

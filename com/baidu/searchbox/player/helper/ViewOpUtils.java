@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ViewOpUtils {
     public static final String TAG = "ViewOpUtils";
 

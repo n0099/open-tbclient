@@ -6,7 +6,7 @@ import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.Packer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InstallController {
     public IStatisAPI statisAPI;
 
@@ -29,7 +29,7 @@ public class InstallController {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class InstUtil {
         public static final String INVALID_VERSIONNAME = "";
         public static final int INVALID_VERSIONNO = -1;
@@ -40,7 +40,7 @@ public class InstallController {
         public static final int TYPE_UPDATE = 0;
         public static InstInfo instInfo;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class InstInfo {
             public boolean isReport;
             public int type;

@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.weather;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum WeatherDataType {
     WEATHER_DATA_TYPE_REAL_TIME,
     WEATHER_DATA_TYPE_FORECASTS_FOR_DAY,

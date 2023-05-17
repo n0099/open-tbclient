@@ -4,7 +4,8 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.DefaultPaySignMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayAliSignMethod;
-/* loaded from: classes9.dex */
+import com.yy.mobile.framework.revenuesdk.payapi.payservice.PaySignMethodProxyFactory;
+/* loaded from: classes10.dex */
 public enum PaySignMethodFactory {
     ALIPAY_PAY_SIGN("com.yy.mobile.framework.revenue.alipay.RevenueAlipaySignImpl");
     
@@ -12,7 +13,7 @@ public enum PaySignMethodFactory {
     public IPayAliSignMethod method;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PaySignMethodFactory$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
 
@@ -49,9 +50,14 @@ public enum PaySignMethodFactory {
     }
 
     public static IPayAliSignMethod valueOf(PayType payType) {
-        if (AnonymousClass1.$SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[payType.ordinal()] != 1) {
+        IPayAliSignMethod findProxyPayMethod = PaySignMethodProxyFactory.instance().findProxyPayMethod(payType);
+        if (findProxyPayMethod != null) {
+            RLog.info("AppPayServiceImpl", "use proxyPayMethod channel:" + payType.getChannel());
+            return findProxyPayMethod;
+        } else if (AnonymousClass1.$SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType[payType.ordinal()] != 1) {
             return new DefaultPaySignMethod();
+        } else {
+            return ALIPAY_PAY_SIGN.getPayMethodImpl();
         }
-        return ALIPAY_PAY_SIGN.getPayMethodImpl();
     }
 }

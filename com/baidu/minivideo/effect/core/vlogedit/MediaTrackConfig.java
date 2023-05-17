@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaTrackConfig implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AE_IMPORT_DRAFT = "draft";
@@ -52,7 +52,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<MediaTrackConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import android.util.SparseArray;
 import com.xiaomi.push.service.ay;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class f extends SparseArray<ay.a<String, String, String>> {
     public f(int i) {
         super(i);

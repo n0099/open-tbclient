@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LocalDnsPolicy {
     public static final String KEY_BACKUPIPLIST = "backup";
     public static final String KEY_LOCALDNSIPLIST = "local";

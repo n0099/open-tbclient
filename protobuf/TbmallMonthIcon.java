@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class TbmallMonthIcon extends Message {
     public static final String DEFAULT_ICON = "";
     public static final String DEFAULT_MON = "";
@@ -11,7 +11,7 @@ public final class TbmallMonthIcon extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String mon;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<TbmallMonthIcon> {
         public String icon;
         public String mon;

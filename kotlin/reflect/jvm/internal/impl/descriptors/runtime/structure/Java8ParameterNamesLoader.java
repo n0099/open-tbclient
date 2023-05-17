@@ -5,12 +5,12 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.TypeCastException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Java8ParameterNamesLoader {
     public static final Java8ParameterNamesLoader INSTANCE = new Java8ParameterNamesLoader();
     public static Cache cache;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Cache {
         public final Method getName;
         public final Method getParameters;

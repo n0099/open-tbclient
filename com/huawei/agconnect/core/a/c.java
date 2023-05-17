@@ -7,8 +7,8 @@ import android.content.pm.ServiceInfo;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yza;
-import com.baidu.tieba.zza;
+import com.baidu.tieba.w1b;
+import com.baidu.tieba.x1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Serializable, Comparator<Map.Entry<String, Integer>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class c {
         this.a = context;
     }
 
-    public final <T extends zza> T a(String str) {
+    public final <T extends x1b> T a(String str) {
         InterceptResult invokeL;
         StringBuilder sb;
         String localizedMessage;
@@ -94,7 +94,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
                 Class<?> cls = Class.forName(str);
-                if (zza.class.isAssignableFrom(cls)) {
+                if (x1b.class.isAssignableFrom(cls)) {
                     return (T) Class.forName(str).newInstance();
                 }
                 Log.e("ServiceRegistrarParser", cls + " must extends from ServiceRegistrar.");
@@ -124,7 +124,7 @@ public class c {
         return (T) invokeL.objValue;
     }
 
-    public List<yza> b() {
+    public List<w1b> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -132,10 +132,10 @@ public class c {
             List<String> c = c();
             ArrayList arrayList = new ArrayList();
             for (String str : c) {
-                zza a2 = a(str);
+                x1b a2 = a(str);
                 if (a2 != null) {
                     a2.a(this.a);
-                    List<yza> b2 = a2.b(this.a);
+                    List<w1b> b2 = a2.b(this.a);
                     if (b2 != null) {
                         arrayList.addAll(b2);
                     }

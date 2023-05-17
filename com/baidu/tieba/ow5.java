@@ -1,107 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.view.ViewGroup;
-import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ow5 {
     public static /* synthetic */ Interceptable $ic;
+    public static ow5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context A;
-    public String B;
-    public String C;
-    public String D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public float Q;
-    public boolean R;
-    public boolean S;
-    public boolean T;
-    public WheelView.DividerType U;
-    public uw5 a;
-    public tw5 b;
-    public pw5 c;
-    public boolean[] d;
-    public Calendar e;
-    public Calendar f;
-    public Calendar g;
-    public int h;
-    public int i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public ViewGroup y;
-    public int z;
+    public bx5 a;
 
-    public ow5(int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948046684, "Lcom/baidu/tieba/ow5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948046684, "Lcom/baidu/tieba/ow5;");
+        }
+    }
+
+    public ow5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = new boolean[]{true, true, true, false, false, false};
-        this.j = false;
-        this.k = false;
-        this.z = 17;
-        this.E = -16417281;
-        this.F = -16417281;
-        this.G = -16777216;
-        this.H = -1;
-        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
-        this.J = 17;
-        this.K = 18;
-        this.L = 18;
-        this.M = -5723992;
-        this.N = -14013910;
-        this.O = -2763307;
-        this.P = -1;
-        this.Q = 1.6f;
-        this.S = true;
-        this.T = false;
-        Typeface typeface = Typeface.MONOSPACE;
-        this.U = WheelView.DividerType.FILL;
-        if (i == 1) {
-            this.x = R.layout.pickerview_options;
-        } else {
-            this.x = R.layout.pickerview_time;
+    }
+
+    public static ow5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new ow5();
+            }
+            return b;
+        }
+        return (ow5) invokeV.objValue;
+    }
+
+    public void a() {
+        bx5 bx5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bx5Var = this.a) != null && bx5Var.b() != null) {
+            this.a.b().dismiss();
+        }
+    }
+
+    public boolean c(tw5 tw5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tw5Var)) == null) {
+            bx5 bx5Var = this.a;
+            if (bx5Var != null && bx5Var.b() != null) {
+                return this.a.b().c(tw5Var);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(int i) {
+        bx5 bx5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (bx5Var = this.a) != null && bx5Var.b() != null) {
+            this.a.b().b(i);
+        }
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            bx5 bx5Var = this.a;
+            if (bx5Var != null && bx5Var.b() != null) {
+                return this.a.b().a(str);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(TbPageContext tbPageContext, ViewGroup viewGroup, rw5 rw5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, viewGroup, rw5Var) == null) {
+            bx5 bx5Var = this.a;
+            if (bx5Var == null || !bx5Var.a) {
+                this.a = new cx5(tbPageContext, viewGroup, rw5Var);
+            }
+            if (this.a.b() != null) {
+                this.a.b().show();
+            }
         }
     }
 }

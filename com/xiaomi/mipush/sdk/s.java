@@ -7,7 +7,7 @@ import com.xiaomi.push.hr;
 import com.xiaomi.push.id;
 import com.xiaomi.push.ig;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class s {
     public static volatile s a;
 
@@ -38,13 +38,13 @@ public class s {
     }
 
     private void a(id idVar, int i, boolean z) {
-        if (com.xiaomi.push.j.m632a(this.f87a) || !com.xiaomi.push.j.m631a() || idVar == null || idVar.f631a != hh.SendMessage || idVar.m545a() == null || !z) {
+        if (com.xiaomi.push.j.m651a(this.f87a) || !com.xiaomi.push.j.m650a() || idVar == null || idVar.f631a != hh.SendMessage || idVar.m564a() == null || !z) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m101a("click to start activity result:" + String.valueOf(i));
-        ig igVar = new ig(idVar.m545a().m505a(), false);
+        com.xiaomi.channel.commonutils.logger.b.m120a("click to start activity result:" + String.valueOf(i));
+        ig igVar = new ig(idVar.m564a().m524a(), false);
         igVar.c(hr.SDK_START_ACTIVITY.f508a);
-        igVar.b(idVar.m546a());
+        igVar.b(idVar.m565a());
         igVar.d(idVar.f638b);
         HashMap hashMap = new HashMap();
         igVar.f650a = hashMap;
@@ -67,14 +67,14 @@ public class s {
     public static void e(Context context, id idVar, boolean z) {
         s a2;
         int i;
-        b m145a = b.m145a(context);
-        if (TextUtils.isEmpty(m145a.m153c()) || TextUtils.isEmpty(m145a.d())) {
+        b m164a = b.m164a(context);
+        if (TextUtils.isEmpty(m164a.m172c()) || TextUtils.isEmpty(m164a.d())) {
             a2 = a(context);
             i = 6;
         } else {
-            boolean m157f = m145a.m157f();
+            boolean m176f = m164a.m176f();
             a2 = a(context);
-            i = m157f ? 7 : 5;
+            i = m176f ? 7 : 5;
         }
         a2.a(idVar, i, z);
     }

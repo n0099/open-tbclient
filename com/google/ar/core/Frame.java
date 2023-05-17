@@ -2,7 +2,7 @@ package com.google.ar.core;
 
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Frame {
     public final Session a;
     public final LightEstimate b;

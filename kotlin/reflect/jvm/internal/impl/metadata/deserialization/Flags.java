@@ -1,9 +1,10 @@
 package kotlin.reflect.jvm.internal.impl.metadata.deserialization;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.protobuf.Internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Flags {
     public static final FlagField<ProtoBuf.Class.Kind> CLASS_KIND;
     public static final BooleanFlagField DECLARES_DEFAULT_VALUE;
@@ -100,10 +101,10 @@ public class Flags {
         throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", objArr));
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class BooleanFlagField extends FlagField<Boolean> {
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
-            throw new IllegalStateException(String.format("@NotNull method %s.%s must not return null", "kotlin/reflect/jvm/internal/impl/metadata/deserialization/Flags$BooleanFlagField", "get"));
+            throw new IllegalStateException(String.format("@NotNull method %s.%s must not return null", "kotlin/reflect/jvm/internal/impl/metadata/deserialization/Flags$BooleanFlagField", CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE));
         }
 
         public BooleanFlagField(int i) {
@@ -135,7 +136,7 @@ public class Flags {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class EnumLiteFlagField<E extends Internal.EnumLite> extends FlagField<E> {
         public final E[] values;
 
@@ -190,7 +191,7 @@ public class Flags {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class FlagField<E> {
         public final int bitWidth;
         public final int offset;

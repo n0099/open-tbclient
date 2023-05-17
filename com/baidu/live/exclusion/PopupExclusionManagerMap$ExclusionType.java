@@ -1,5 +1,5 @@
 package com.baidu.live.exclusion;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum PopupExclusionManagerMap$ExclusionType {
     LIVE_HOME_SWIPE_TO_VIEW_MORE,
     LIVE_HOME_PANEL,

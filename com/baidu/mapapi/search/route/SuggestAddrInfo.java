@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SuggestAddrInfo implements Parcelable {
     public static final Parcelable.Creator<SuggestAddrInfo> CREATOR = new n();
     public List<PoiInfo> a;

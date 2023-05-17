@@ -216,13 +216,13 @@ public final class d {
 
     /* renamed from: com.baidu.android.pushservice.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0023d extends com.baidu.android.pushservice.z.d {
+    public class C0026d extends com.baidu.android.pushservice.z.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0023d(d dVar, int i) {
+        public C0026d(d dVar, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -586,7 +586,7 @@ public final class d {
         this.f = false;
         this.r = Collections.synchronizedList(new ArrayList());
         this.s = false;
-        this.w = new C0023d(this, 0);
+        this.w = new C0026d(this, 0);
         this.x = new e(this);
         this.y = 0L;
         this.z = new int[]{180, 300, 360, HttpStatus.SC_METHOD_FAILURE, 540, 720, 900};

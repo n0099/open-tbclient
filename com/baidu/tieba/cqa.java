@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import com.fun.ad.sdk.internal.api.PidLoader;
-/* loaded from: classes4.dex */
-public interface cqa<R> {
-    R a(PidLoader pidLoader);
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public interface cqa {
+    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
 
-    boolean a(R r);
+    void a(JSONObject jSONObject);
+
+    void b(JSONObject jSONObject, boolean z);
 }

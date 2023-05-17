@@ -1,448 +1,163 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.PicManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
-import com.baidu.tbadk.gif.GifInfo;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.widget.richText.TbRichText;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.widget.ShareFromFrsView;
-import com.baidu.tieba.im.widget.ShareFromGameCenter;
-import com.baidu.tieba.im.widget.ShareFromPBView;
-import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
+/* loaded from: classes6.dex */
 public class mz7 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity<?> a;
+    public SparseArray<String> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947990047, "Lcom/baidu/tieba/mz7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ mz7 b;
+
+        public a(mz7 mz7Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mz7Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947990047, "Lcom/baidu/tieba/mz7;");
+            this.b = mz7Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                hi.a(this.a.x);
+                ri.Q(this.b.a.getActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    public mz7(BaseActivity<?> baseActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ar5.b();
+        this.b = null;
+        this.a = baseActivity;
     }
 
-    @NonNull
-    public static String a(@Nullable String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public final void b(ShareItem shareItem, String str, long j, String str2) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (split = str.split(",")) != null && split.length > 1) {
-                int d = (int) gg.d(split[0], 0.0f);
-                int d2 = (int) gg.d(split[1], 0.0f);
-                if (d > 0 && d2 > 0) {
-                    return str;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
+                if (str.length() > 20) {
+                    sb.append(str.substring(0, 20));
+                    sb.append(StringHelper.STRING_MORE);
+                } else {
+                    sb.append(str);
                 }
+                sb.append(StringUtils.lineSeparator);
             }
-            return "240.0,240.0";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(Context context, GifView gifView, ChatMessage chatMessage, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, gifView, chatMessage, Boolean.valueOf(z)}) == null) {
-            double d = context.getResources().getDisplayMetrics().density;
-            int i2 = 240;
-            int i3 = (d > 1.5d ? 1 : (d == 1.5d ? 0 : -1));
-            if (i3 > 0) {
-                i = 240;
+            if (j > 0) {
+                sb.append(this.a.getActivity().getString(R.string.topic_temperature));
+                sb.append(StringHelper.numFormatOver10000(j));
+            }
+            shareItem.J0 = sb.toString();
+            if (StringUtils.isNull(str2)) {
+                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
             } else {
-                i = 160;
+                parse = Uri.parse(str2);
             }
-            if (i3 <= 0) {
-                i2 = 160;
+            shareItem.K0 = parse;
+        }
+    }
+
+    public final SparseArray<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                SparseArray<String> sparseArray = new SparseArray<>(8);
+                this.b = sparseArray;
+                sparseArray.put(2, "topic_wx_timeline");
+                this.b.put(3, "topic_wx_friend");
+                this.b.put(4, "topic_qq_zone");
+                this.b.put(5, "topic_tencent_weibo");
+                this.b.put(6, "topic_sina_weibo");
             }
-            gifView.setVisibility(0);
-            GifInfo gifInfo = chatMessage.getGifInfo();
-            if (chatMessage.getGifInfo() != null) {
-                int i4 = gifInfo.mGifWidth;
-                if (i4 > 0) {
-                    i = i4;
-                }
-                gifInfo.mGifWidth = i;
-                int i5 = gifInfo.mGifHeight;
-                if (i5 > 0) {
-                    i2 = i5;
-                }
-                gifInfo.mGifHeight = i2;
-                gifView.setLayoutParams(new FrameLayout.LayoutParams(gifInfo.mGifWidth, gifInfo.mGifHeight));
-                gifView.l0(gifInfo);
-                gifView.setVisibility(0);
+            return this.b;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (TextUtils.isEmpty(str) && z) {
+                BaseActivity<?> baseActivity = this.a;
+                baseActivity.showToast(baseActivity.getActivity().getString(R.string.no_hot_topic_data));
                 return;
             }
-            gifView.setVisibility(8);
-        }
-    }
-
-    public static void g(Context context, ChatVoiceView chatVoiceView, ChatMessage chatMessage, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65543, null, context, chatVoiceView, chatMessage, str) == null) && chatMessage.getContent() != null && chatMessage.getContent().length() > 0) {
-            try {
-                MsgCacheData cacheData = chatMessage.getCacheData();
-                if (cacheData == null) {
-                    cacheData = new MsgCacheData();
-                    cacheData.setVoice_status(1);
-                    chatMessage.setCacheData(cacheData);
-                } else if (cacheData.getVoice_status() == 0) {
-                    cacheData.setVoice_status(1);
-                }
-                VoiceMsgData q = c48.q(chatMessage);
-                if (q != null && q.getDuring_time() != 0.0f && cacheData.getVoice_model() == null) {
-                    cacheData.setVoice_model(new VoiceData.VoiceModel());
-                    cacheData.getVoice_model().setVoiceId(q.getVoice_md5());
-                    cacheData.getVoice_model().setDuration(Math.round(q.getDuring_time()));
-                }
-                chatVoiceView.setTag(null);
-                chatVoiceView.setData(chatMessage);
-                chatVoiceView.setVisibility(0);
-            } catch (Exception unused) {
+            if (StringUtils.isNull(str3)) {
+                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
             }
-        }
-    }
-
-    public static void c(Context context, View view2, ShareFromPBView shareFromPBView, ShareFromFrsView shareFromFrsView, ShareFromGameCenter shareFromGameCenter, ChatMessage chatMessage, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, view2, shareFromPBView, shareFromFrsView, shareFromGameCenter, chatMessage, str}) == null) && chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
-            h48 h48Var = new h48();
-            int c = h48Var.c(chatMessage.getContent(), str);
-            ShareFromFrsMsgData shareFromFrsMsgData = null;
-            ShareFromPBMsgData shareFromPBMsgData = null;
-            ShareFromGameCenterMsgData shareFromGameCenterMsgData = null;
-            if (1 == h48Var.b()) {
-                if (h48Var.a() != null) {
-                    if (c == 0) {
-                        shareFromPBView.setVisibility(0);
-                        if (h48Var.a() instanceof ShareFromPBMsgData) {
-                            shareFromPBMsgData = (ShareFromPBMsgData) h48Var.a();
-                        }
-                        shareFromPBView.setData(shareFromPBMsgData);
-                    } else if (c == 1) {
-                        shareFromGameCenter.setVisibility(0);
-                        if (h48Var.a() instanceof ShareFromGameCenterMsgData) {
-                            shareFromGameCenterMsgData = (ShareFromGameCenterMsgData) h48Var.a();
-                        }
-                        if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
-                            shareFromGameCenter.setData(shareFromGameCenterMsgData, false);
-                        } else if (!TextUtils.isEmpty(str) && str.endsWith("MsgrightView")) {
-                            shareFromGameCenter.setData(shareFromGameCenterMsgData, true);
-                        }
-                    }
-                }
-            } else if (4 == h48Var.b()) {
-                shareFromFrsView.setVisibility(0);
-                if (h48Var.a() instanceof ShareFromFrsMsgData) {
-                    shareFromFrsMsgData = (ShareFromFrsMsgData) h48Var.a();
-                }
-                shareFromFrsView.setData(shareFromFrsMsgData);
+            if (StringUtils.isNull(str4)) {
+                parse = null;
+            } else {
+                parse = Uri.parse(str4);
             }
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = str2;
+            shareItem.w = str5;
+            shareItem.x = str3;
+            shareItem.b = true;
+            shareItem.u = str;
+            shareItem.z = parse;
+            shareItem.i = true;
+            b(shareItem, str5, j, str6);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setIsCopyLink(true);
+            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0088  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00ab A[Catch: Exception -> 0x00f0, TryCatch #0 {Exception -> 0x00f0, blocks: (B:5:0x0007, B:7:0x0010, B:9:0x0019, B:11:0x001d, B:13:0x0026, B:15:0x002e, B:41:0x008a, B:43:0x00ab, B:45:0x00d3, B:44:0x00c1), top: B:58:0x0007 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00c1 A[Catch: Exception -> 0x00f0, TryCatch #0 {Exception -> 0x00f0, blocks: (B:5:0x0007, B:7:0x0010, B:9:0x0019, B:11:0x001d, B:13:0x0026, B:15:0x002e, B:41:0x008a, B:43:0x00ab, B:45:0x00d3, B:44:0x00c1), top: B:58:0x0007 }] */
-    @SuppressLint({"ResourceAsColor"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String d(ChatImageWithTailView chatImageWithTailView, @NonNull String str, @NonNull String str2, int i) {
-        InterceptResult invokeLLLI;
-        int i2;
-        int i3;
-        tm A;
-        int i4;
-        tm tmVar;
-        int i5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, chatImageWithTailView, str, str2, i)) == null) {
-            try {
-                String[] split = str2.split(",");
-                if (split.length > 0) {
-                    i2 = (int) gg.d(split[0], 0.0f);
-                } else {
-                    i2 = 0;
-                }
-                if (split.length > 1) {
-                    i3 = (int) gg.d(split[1], 0.0f);
-                } else {
-                    i3 = 0;
-                }
-                if (str.startsWith("http")) {
-                    chatImageWithTailView.getImage().m0(str, 38);
-                } else {
-                    try {
-                        A = TbImageMemoryCache.v().A(str);
-                    } catch (Exception unused) {
-                    }
-                    if (A == null) {
-                        Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(bi.d().c(str));
-                        if (reSizeBitmap != null) {
-                            tmVar = new tm(reSizeBitmap, false);
-                            if (i2 < 1) {
-                                try {
-                                    i5 = tmVar.r();
-                                    try {
-                                        i4 = tmVar.m();
-                                    } catch (Exception unused2) {
-                                    }
-                                } catch (Exception unused3) {
-                                }
-                            } else {
-                                i5 = 0;
-                                i4 = 0;
-                            }
-                            try {
-                                TbImageMemoryCache.v().m(str, tmVar);
-                            } catch (Exception unused4) {
-                            }
-                            if (i5 >= 1) {
-                                i2 = i5;
-                                i3 = i4;
-                            }
-                            IMImageSize chatImageSize = PicManager.getInstance().getChatImageSize(i2, i3);
-                            ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
-                            layoutParams.height = chatImageSize.height;
-                            layoutParams.width = chatImageSize.width;
-                            chatImageWithTailView.getImage().setLayoutParams(layoutParams);
-                            if (tmVar == null) {
-                                chatImageWithTailView.getImage().H();
-                                chatImageWithTailView.getImage().b0();
-                                tmVar.h(chatImageWithTailView.getImage());
-                            } else {
-                                chatImageWithTailView.getImage().setDefaultResource(SkinManager.getResourceId(i));
-                                chatImageWithTailView.getImage().setTag(str);
-                            }
-                            chatImageWithTailView.getImage().setAutoChangeStyle(true);
-                            chatImageWithTailView.setVisibility(0);
-                            return i2 + "," + i3;
-                        }
-                    } else {
-                        if (i2 < 1) {
-                            try {
-                                int r = A.r();
-                                try {
-                                    i4 = A.m();
-                                } catch (Exception unused5) {
-                                    i4 = 0;
-                                }
-                                tmVar = A;
-                                i5 = r;
-                            } catch (Exception unused6) {
-                            }
-                            if (i5 >= 1) {
-                            }
-                            IMImageSize chatImageSize2 = PicManager.getInstance().getChatImageSize(i2, i3);
-                            ViewGroup.LayoutParams layoutParams2 = chatImageWithTailView.getImage().getLayoutParams();
-                            layoutParams2.height = chatImageSize2.height;
-                            layoutParams2.width = chatImageSize2.width;
-                            chatImageWithTailView.getImage().setLayoutParams(layoutParams2);
-                            if (tmVar == null) {
-                            }
-                            chatImageWithTailView.getImage().setAutoChangeStyle(true);
-                            chatImageWithTailView.setVisibility(0);
-                            return i2 + "," + i3;
-                        }
-                        tmVar = A;
-                        i5 = 0;
-                        i4 = 0;
-                        if (i5 >= 1) {
-                        }
-                        IMImageSize chatImageSize22 = PicManager.getInstance().getChatImageSize(i2, i3);
-                        ViewGroup.LayoutParams layoutParams22 = chatImageWithTailView.getImage().getLayoutParams();
-                        layoutParams22.height = chatImageSize22.height;
-                        layoutParams22.width = chatImageSize22.width;
-                        chatImageWithTailView.getImage().setLayoutParams(layoutParams22);
-                        if (tmVar == null) {
-                        }
-                        chatImageWithTailView.getImage().setAutoChangeStyle(true);
-                        chatImageWithTailView.setVisibility(0);
-                        return i2 + "," + i3;
-                    }
-                }
-                tmVar = null;
-                i5 = 0;
-                i4 = 0;
-                if (i5 >= 1) {
-                }
-                IMImageSize chatImageSize222 = PicManager.getInstance().getChatImageSize(i2, i3);
-                ViewGroup.LayoutParams layoutParams222 = chatImageWithTailView.getImage().getLayoutParams();
-                layoutParams222.height = chatImageSize222.height;
-                layoutParams222.width = chatImageSize222.width;
-                chatImageWithTailView.getImage().setLayoutParams(layoutParams222);
-                if (tmVar == null) {
-                }
-                chatImageWithTailView.getImage().setAutoChangeStyle(true);
-                chatImageWithTailView.setVisibility(0);
-                return i2 + "," + i3;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeLLLI.objValue;
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public static void e(Context context, View view2, ChatImageWithTailView chatImageWithTailView, ChatMessage chatMessage, long j, String str) {
-        String optString;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, view2, chatImageWithTailView, chatMessage, Long.valueOf(j), str}) == null) && chatMessage.getContent() != null && chatMessage.getContent().length() != 0) {
-            try {
-                JSONObject jSONObject = new JSONArray(chatMessage.getContent()).getJSONObject(0);
-                String k = c48.k(jSONObject, false);
-                String optString2 = jSONObject.optString("shareSourceIcon");
-                String optString3 = jSONObject.optString("shareSource");
-                String optString4 = jSONObject.optString("shareSourceUrl");
-                if (k == null) {
-                    return;
-                }
-                tm tmVar = null;
-                if (k.startsWith("http")) {
-                    chatImageWithTailView.getImage().m0(k, 38);
-                } else {
-                    try {
-                        tm A = TbImageMemoryCache.v().A(k);
-                        if (A == null) {
-                            Bitmap reSizeBitmap = PicManager.getInstance().getReSizeBitmap(bi.d().c(k));
-                            if (reSizeBitmap != null) {
-                                tm tmVar2 = new tm(reSizeBitmap, false);
-                                try {
-                                    if (chatMessage.getWidth() < 1) {
-                                        chatMessage.setWidth(tmVar2.r());
-                                        chatMessage.setHeight(tmVar2.m());
-                                    }
-                                    TbImageMemoryCache.v().m(k, tmVar2);
-                                } catch (Exception unused) {
-                                }
-                                tmVar = tmVar2;
-                            }
-                        } else {
-                            try {
-                                if (chatMessage.getWidth() < 1) {
-                                    chatMessage.setWidth(A.r());
-                                    chatMessage.setHeight(A.m());
-                                }
-                            } catch (Exception unused2) {
-                            }
-                            tmVar = A;
-                        }
-                    } catch (Exception unused3) {
-                    }
-                }
-                if (chatMessage.getWidth() < 1 && (optString = jSONObject.optString("bsize")) != null) {
-                    String[] split = optString.split(",");
-                    if (split.length > 0) {
-                        chatMessage.setWidth(gg.e(split[0], 0));
-                    }
-                    if (split.length > 1) {
-                        chatMessage.setHeight(gg.e(split[1], 0));
-                    }
-                }
-                IMImageSize chatImageSize = PicManager.getInstance().getChatImageSize(chatMessage.getWidth(), chatMessage.getHeight());
-                ViewGroup.LayoutParams layoutParams = chatImageWithTailView.getImage().getLayoutParams();
-                layoutParams.height = chatImageSize.height;
-                layoutParams.width = chatImageSize.width;
-                chatImageWithTailView.getImage().setLayoutParams(layoutParams);
-                if (tmVar != null) {
-                    chatImageWithTailView.getImage().H();
-                    chatImageWithTailView.getImage().b0();
-                    tmVar.h(chatImageWithTailView.getImage());
-                } else {
-                    chatImageWithTailView.getImage().setDefaultResource(SkinManager.getResourceId(R.drawable.icon_pic_im_image_default));
-                    chatImageWithTailView.getImage().setTag(k);
-                }
-                chatImageWithTailView.getImage().setAutoChangeStyle(true);
-                if (!TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString2)) {
-                    if (!TextUtils.isEmpty(str) && str.endsWith("MsgleftView")) {
-                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                        layoutParams2.setMargins(ii.g(context, R.dimen.obfuscated_res_0x7f0701b2), 0, 0, 0);
-                        layoutParams2.height = ii.g(context, R.dimen.obfuscated_res_0x7f0702cc);
-                        chatImageWithTailView.getTail().setLayoutParams(layoutParams2);
-                    }
-                    chatImageWithTailView.getIcon().setDefaultResource(R.drawable.tb_launcher_icon);
-                    chatImageWithTailView.getIcon().N(optString2, 10, false);
-                    chatImageWithTailView.getFromSource().setText(optString3);
-                    chatImageWithTailView.setVisibility(0);
-                    chatImageWithTailView.getTail().setVisibility(0);
-                    return;
-                }
-                chatImageWithTailView.setVisibility(0);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void f(TbRichTextView tbRichTextView, ChatMessage chatMessage, String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLI(65542, null, tbRichTextView, chatMessage, str, i) != null) || chatMessage == null) {
-            return;
-        }
-        MsgCacheData cacheData = chatMessage.getCacheData();
-        if (cacheData == null) {
-            cacheData = c48.l(chatMessage);
-            chatMessage.setCacheData(cacheData);
-        }
-        if (cacheData.getRich_content() == null) {
-            String content = chatMessage.getContent();
-            if (content == null) {
-                return;
-            }
-            TbRichText tbRichText = null;
-            if (StringUtils.isJSONArray(content)) {
-                try {
-                    tbRichText = TbRichTextView.Y(new JSONArray(chatMessage.getContent()), 7);
-                } catch (Exception unused) {
-                }
-            }
-            if (tbRichText == null) {
-                tbRichText = new TbRichText(ez7.c(chatMessage.getContent(), i));
-            }
-            cacheData.setRich_content(tbRichText);
-        }
-        tbRichTextView.setVisibility(0);
-        tbRichTextView.setText(cacheData.getRich_content());
     }
 }

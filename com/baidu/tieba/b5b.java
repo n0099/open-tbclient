@@ -1,11 +1,24 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface b5b {
-    b5b a();
 
-    boolean b(String str);
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
+public class b5b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String c();
-
-    String toString();
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                return c5b.c(context);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 }

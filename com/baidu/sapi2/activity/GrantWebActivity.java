@@ -18,11 +18,13 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.sapi2.utils.enums.AccountType;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.R;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GrantWebActivity extends BaseActivity {
     public static final String A = "/passport/grantweb";
     public static final String y = GrantWebActivity.class.getSimpleName();
@@ -122,7 +124,7 @@ public class GrantWebActivity extends BaseActivity {
         Uri data;
         Intent intent = getIntent();
         String scheme = intent.getScheme();
-        if ("android.intent.action.VIEW".equals(intent.getAction()) && (data = intent.getData()) != null) {
+        if (IntentConstants.ACTION_BOX_BROWSER.equals(intent.getAction()) && (data = intent.getData()) != null) {
             String host = data.getHost();
             String path = data.getPath();
             String packageName = SapiAccountManager.getInstance().getConfignation().getContext().getPackageName();
@@ -214,7 +216,7 @@ public class GrantWebActivity extends BaseActivity {
         }
         String str = SapiAccountManager.getInstance().getConfignation().environment.getWap() + "/passport/login";
         HashMap hashMap = new HashMap();
-        hashMap.put("client", "android");
+        hashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         hashMap.put("clientfrom", "native");
         hashMap.put("suppcheck", "1");
         hashMap.put("adapter", "3");
@@ -223,7 +225,7 @@ public class GrantWebActivity extends BaseActivity {
         hashMap.put("tpl", SapiAccountManager.getInstance().getConfignation().tpl);
         hashMap.put("u", this.u);
         if (z2 && !"true".equals(this.w)) {
-            hashMap.put(TTDownloadField.TT_FORCE, "false");
+            hashMap.put(TTDownloadField.TT_FORCE, CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
         } else {
             hashMap.put(TTDownloadField.TT_FORCE, "true");
         }

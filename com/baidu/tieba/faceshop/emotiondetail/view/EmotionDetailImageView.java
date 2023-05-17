@@ -12,11 +12,11 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbMemeImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EmotionDetailImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final float d;
@@ -33,8 +33,8 @@ public class EmotionDetailImageView extends FrameLayout {
     public ProgressBar b;
     public int c;
 
-    /* loaded from: classes4.dex */
-    public class a extends bg<tm> {
+    /* loaded from: classes5.dex */
+    public class a extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailData a;
@@ -59,7 +59,7 @@ public class EmotionDetailImageView extends FrameLayout {
             this.a = emotionDetailData;
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.kg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -68,14 +68,14 @@ public class EmotionDetailImageView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tmVar, str, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cnVar, str, i) == null) {
                 this.b.b.setVisibility(8);
-                if (tmVar != null) {
+                if (cnVar != null) {
                     this.b.a = new TbMemeImageView(this.b.getContext());
-                    ((TbMemeImageView) this.b.a).g(tmVar);
+                    ((TbMemeImageView) this.b.a).g(cnVar);
                     EmotionDetailImageView emotionDetailImageView = this.b;
                     ImageView imageView = emotionDetailImageView.a;
                     EmotionDetailData.PicInfo picInfo = this.a.pic_info;
@@ -100,7 +100,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
         }
-        d = ii.i(TbadkCoreApplication.getInst());
+        d = ri.i(TbadkCoreApplication.getInst());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -177,12 +177,12 @@ public class EmotionDetailImageView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             ProgressBar progressBar = new ProgressBar(getContext(), null, 16843399);
             this.b = progressBar;
-            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081086));
+            progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811df));
             layoutParams.gravity = 17;
             this.b.setLayoutParams(layoutParams);
             this.b.setIndeterminate(true);
             addView(this.b);
-            this.c = ii.l(getContext());
+            this.c = ri.l(getContext());
         }
     }
 
@@ -213,7 +213,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 return;
             }
             this.b.setVisibility(0);
-            cg.h().m(emotionDetailData.pic_info.pic_url, i, new a(this, emotionDetailData), null);
+            lg.h().m(emotionDetailData.pic_info.pic_url, i, new a(this, emotionDetailData), null);
         }
     }
 
@@ -226,7 +226,7 @@ public class EmotionDetailImageView extends FrameLayout {
                 i4 = (int) (i5 * 0.5f);
                 i3 = i5;
             }
-            int[] n = ii.n(i, i2, i3, i4);
+            int[] n = ri.n(i, i2, i3, i4);
             if (n == null) {
                 return false;
             }
@@ -239,7 +239,7 @@ public class EmotionDetailImageView extends FrameLayout {
                     float f2 = i6;
                     float f3 = i3;
                     if (f2 * f > f3) {
-                        i6 = i3 - (ii.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
+                        i6 = i3 - (ri.g(getContext(), R.dimen.obfuscated_res_0x7f07020f) * 2);
                     } else {
                         float f4 = f3 * 0.68f;
                         if (f2 * f > f4) {

@@ -1,27 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.VideoTemplateContent;
-/* loaded from: classes6.dex */
-public class s2a {
+/* loaded from: classes7.dex */
+public class s2a implements r2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public long e;
-    public long f;
-    public double g;
-    public double h;
-    public double i;
-    public double j;
-    public String k;
+    public VideoEasterEggData a;
 
     public s2a() {
         Interceptable interceptable = $ic;
@@ -37,29 +31,135 @@ public class s2a {
         }
     }
 
-    public void a(VideoTemplateContent videoTemplateContent) {
+    @Override // com.baidu.tieba.r2a
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, videoTemplateContent) == null) {
-            this.a = videoTemplateContent.content;
-            this.b = videoTemplateContent.type.intValue();
-            this.c = videoTemplateContent.pic_width.intValue();
-            this.d = videoTemplateContent.pic_height.intValue();
-            this.e = videoTemplateContent.start_time.longValue();
-            this.f = videoTemplateContent.end_time.longValue();
-            this.g = videoTemplateContent.position_x.doubleValue();
-            this.h = videoTemplateContent.position_y.doubleValue();
-            this.i = videoTemplateContent.position_type.doubleValue();
-            this.j = videoTemplateContent.text_size.doubleValue();
-            this.k = videoTemplateContent.text_color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getPopText();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getActivityID();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareTitle();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getPopImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String getVideoUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getVideoUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareContent();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r2a
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) != null) || intent == null) {
+            return;
+        }
+        intent.getStringExtra("from");
+        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
+            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r2a
+    public void e(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AnniversaryContentData{content='" + this.a + "', type=" + this.b + ", picWidth=" + this.c + ", picHeight=" + this.d + ", startTime=" + this.e + ", endTime=" + this.f + ", x=" + this.g + ", y=" + this.h + ", positionType=" + this.i + ", textSize=" + this.j + ", textColor='" + this.k + "'}";
+        if ((interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) && !qi.isEmpty(g())) {
+            lg.h().m(g(), 10, null, bdUniqueId);
         }
-        return (String) invokeV.objValue;
     }
 }

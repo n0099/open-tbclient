@@ -1,31 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.common.data.ApiException;
-/* loaded from: classes6.dex */
-public abstract class sya<TResult> {
+import com.google.ar.core.InstallActivity;
+/* loaded from: classes7.dex */
+public final class sya extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final IMessageEntity b;
-    public final cya c;
-    public RequestHeader d;
-    public aza<TResult> e;
+    public final /* synthetic */ InstallActivity a;
 
-    public abstract void a(ApiException apiException, Object obj);
-
-    public sya(String str, IMessageEntity iMessageEntity) {
+    public sya(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,20 +28,15 @@ public abstract class sya<TResult> {
                 return;
             }
         }
-        getClass().getSimpleName();
-        this.a = str;
-        this.b = iMessageEntity;
-        this.c = cya.b(str);
+        this.a = installActivity;
     }
 
-    public final void b(ApiException apiException, Object obj) {
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, apiException, obj) == null) {
-            if (this.e != null) {
-                a(apiException, obj);
-                return;
-            }
-            String str = "This Task has been canceled, uri:" + this.a;
+        if (interceptable != null && interceptable.invokeL(1048576, this, animator) != null) {
+            return;
         }
+        this.a.m();
     }
 }

@@ -3,41 +3,14 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class i40 {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public static r40 a(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(h40.c).modPow(new BigInteger(h40.d), new BigInteger(h40.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(h40.a).modPow(new BigInteger(h40.b), new BigInteger(h40.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
-        }
-        return (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, bArr2)) == null) ? new l40(bArr, bArr2) : (r40) invokeLL.objValue;
     }
 }

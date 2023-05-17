@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BitReaderBuffer {
     public ByteBuffer buffer;
     public int initialPos;

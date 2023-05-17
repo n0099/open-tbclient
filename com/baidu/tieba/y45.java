@@ -1,46 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.ViewGroup;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.logsys.LogFile;
-import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
-import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
-import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes7.dex */
-public class y45 extends ProcessEventSceneHandler {
+/* loaded from: classes8.dex */
+public class y45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    @Nullable
-    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
-            return null;
-        }
-        return (Set) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
+    public int a;
+    public int b;
 
     public y45() {
         Interceptable interceptable = $ic;
@@ -52,22 +24,32 @@ public class y45 extends ProcessEventSceneHandler {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = -2;
+        this.b = -1;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
-    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
-        InterceptResult invokeLL;
+    public void b(ViewPager viewPager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
-            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
-                HashSet hashSet = new HashSet(1);
-                hashSet.add(ProcessSnapshotType.PROCESS_MEMORY_STATUS);
-                return hashSet;
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager) != null) || viewPager == null) {
+            return;
         }
-        return (Set) invokeLL.objValue;
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new ViewGroup.LayoutParams(this.b, this.a);
+        } else {
+            layoutParams.height = this.a;
+            layoutParams.width = this.b;
+        }
+        viewPager.setLayoutParams(layoutParams);
     }
 }

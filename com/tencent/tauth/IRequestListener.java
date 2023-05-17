@@ -7,7 +7,7 @@ import java.net.SocketTimeoutException;
 import org.apache.http.conn.ConnectTimeoutException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface IRequestListener {
     void onComplete(JSONObject jSONObject);
 

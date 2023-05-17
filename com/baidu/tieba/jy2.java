@@ -1,103 +1,81 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.us2;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class jy2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class jy2 extends iy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(hy2 hy2Var, boolean z, Bitmap bitmap, boolean z2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947899558, "Lcom/baidu/tieba/jy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947899558, "Lcom/baidu/tieba/jy2;");
+                return;
+            }
+        }
+        boolean z = qp1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jy2(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.iy2
+    public boolean a(yx2 yx2Var, ay2 ay2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{hy2Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
-            JSONObject e = gy2.e();
-            if (hy2Var != null) {
-                try {
-                    e.put("page", hy2Var.b);
-                } catch (JSONException e2) {
-                    if (x73.v) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            e.put("firstPage", z2);
-            if (z && bitmap != null) {
-                e.put("image", gy2.c(bitmap));
-            }
-            return e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yx2Var, ay2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
+            g62.i("video", "remove, video id:" + ay2Var.j + " slave id: " + ay2Var.c);
+            d(yx2Var, ay2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (JSONObject) invokeCommon.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static JSONObject b(hy2 hy2Var) {
-        InterceptResult invokeL;
-        String str;
+    public final void d(yx2 yx2Var, ay2 ay2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hy2Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (hy2Var != null) {
-                try {
-                    if (hy2Var.g == 0) {
-                        str = "0";
-                    } else {
-                        str = "1";
-                    }
-                    jSONObject.put("isH5Componet", str);
-                } catch (JSONException e) {
-                    if (x73.v) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static void c(hy2 hy2Var, int i, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{hy2Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            d(hy2Var, i, false, null, z, i2);
-        }
-    }
-
-    public static void d(hy2 hy2Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
-        us2.a W;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{hy2Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
-            qj3 qj3Var = new qj3();
-            qj3Var.k(5L);
-            qj3Var.i(i);
-            if (!le3.d || z2) {
-                qj3Var.f(a(hy2Var, z, bitmap, z2).toString());
-            }
-            String valueOf = String.valueOf(i2);
-            ye3 ye3Var = new ye3();
-            ye3Var.p(qj3Var);
-            ye3Var.q(qe3.n(w73.K().k()));
-            ye3Var.m(w73.K().getAppId());
-            ye3Var.s = hy2Var.b;
-            ye3Var.n(false);
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                W = null;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yx2Var, ay2Var, unitedSchemeEntity, callbackHandler) == null) {
+            v42 a = t52.a(ay2Var);
+            if (a != null) {
+                a.B();
             } else {
-                W = b0.W();
+                z52.a("VideoPlayerAction", "remove with a null component");
             }
-            if (!le3.d || z2) {
-                ye3Var.s(valueOf);
-                ye3Var.r(W);
-                ye3Var.e(b(hy2Var));
-                ye3Var.e(xd3.d().e());
-                ye3Var.e(xd3.d().g());
-            }
-            qe3.R(ye3Var);
+            yx2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

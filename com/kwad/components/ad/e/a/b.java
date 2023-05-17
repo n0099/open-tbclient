@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.components.ad.e.kwai.a {
     public ImageView bd;
     public com.kwad.sdk.core.response.model.b be;
@@ -43,7 +43,7 @@ public final class b extends com.kwad.components.ad.e.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f09139d);
+        this.bd = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d8);
     }
 
     @Override // com.kwad.components.ad.e.kwai.a, com.kwad.sdk.mvp.Presenter

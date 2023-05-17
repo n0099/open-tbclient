@@ -8,7 +8,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.kuaishou.weapon.p0.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoProxy {
     public static final int DEFAULT_PHONE_TYPE = 0;
     public static volatile boolean hasInvokedImei;

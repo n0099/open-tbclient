@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CollectionUtils {
     @KeepForSdk
     public static boolean isEmpty(@Nullable Collection<?> collection) {

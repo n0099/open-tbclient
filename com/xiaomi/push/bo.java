@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bo {
     public static String a(int i) {
         Random random = new Random();
@@ -25,7 +25,7 @@ public class bo {
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.update(m220a(str));
+            messageDigest.update(m239a(str));
             return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
         } catch (NoSuchAlgorithmException unused) {
             return str;
@@ -138,7 +138,7 @@ public class bo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m219a(String str) {
+    public static boolean m238a(String str) {
         if (str != null) {
             for (int i = 0; i < str.length(); i++) {
                 char charAt = str.charAt(i);
@@ -152,7 +152,7 @@ public class bo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m220a(String str) {
+    public static byte[] m239a(String str) {
         try {
             return str.getBytes("UTF-8");
         } catch (UnsupportedEncodingException unused) {
@@ -164,7 +164,7 @@ public class bo {
         if (str != null) {
             try {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
-                messageDigest.update(m220a(str));
+                messageDigest.update(m239a(str));
                 return String.format("%1$032X", new BigInteger(1, messageDigest.digest()));
             } catch (NoSuchAlgorithmException unused) {
                 return str;

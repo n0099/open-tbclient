@@ -11,6 +11,7 @@ import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +28,7 @@ import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.WeiboCallbackManager;
 import com.sina.weibo.sdk.web.WeiboSdkWebActivity;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AuthWebViewClient extends BaseWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AuthWebViewClient";
@@ -107,7 +108,7 @@ public class AuthWebViewClient extends BaseWebViewClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, webView, str)) == null) {
             if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
                 try {
-                    Intent intent = new Intent("android.intent.action.VIEW");
+                    Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                     intent.putExtra("address", str.replace(UrlSchemaHelper.SCHEMA_TYPE_SMS, ""));
                     intent.setType("vnd.android-dir/mms-sms");
                     this.context.startActivity(intent);

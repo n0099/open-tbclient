@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DrawableUtils {
     @NonNull
     public static AttributeSet parseDrawableXml(@NonNull Context context, @XmlRes int i, @NonNull CharSequence charSequence) {

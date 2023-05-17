@@ -1,409 +1,245 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.FileUtils;
+import java.io.IOException;
+import java.util.List;
+@TargetApi(18)
+/* loaded from: classes6.dex */
 public class ola {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public String b;
+    public MediaMuxer c;
+    public int d;
+    public int e;
+    public MediaFormat f;
+    public MediaFormat g;
+    public ema h;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str);
-
-        void b();
-
-        void c(String str);
-
-        void d();
-
-        void e(boolean z);
-
-        void f(boolean z);
-
-        void g(int i);
-
-        void h();
-
-        void i();
-
-        void j(String str);
-
-        void k(int i);
-
-        void onRecordEnd();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948037477, "Lcom/baidu/tieba/ola;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948037477, "Lcom/baidu/tieba/ola;");
+    public ola(List<String> list, String str, ema emaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, emaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap<>();
+        fna.e("VideoComposer", list.size() + " composer to " + str);
+        this.a = list;
+        this.b = str;
+        this.h = emaVar;
     }
 
-    public static HashMap a() {
-        InterceptResult invokeV;
+    public final long a(long j, String str) throws IOException {
+        InterceptResult invokeJL;
+        boolean z;
+        int i;
+        int i2;
+        nla nlaVar;
+        int i3;
+        nla nlaVar2;
+        int i4;
+        nla nlaVar3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_clear");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "capture_timer_start");
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            HashMap hashMap = new HashMap();
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("sex_type", Integer.valueOf(i));
-            hashMap.put("event_name", "sex_event");
-            hashMap.put("event_data", hashMap2);
-            return hashMap;
-        }
-        return (HashMap) invokeI.objValue;
-    }
-
-    public static HashMap e(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("event_name", "audio_volume");
-            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
-            return hashMap;
-        }
-        return (HashMap) invokeCommon.objValue;
-    }
-
-    public static HashMap d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (a.get(str) != null) {
-                return a.get(str);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, str)) == null) {
+            String str3 = "VideoComposer";
+            fna.e("VideoComposer", j + " compose " + str);
+            nla nlaVar4 = new nla();
+            nlaVar4.m(str, FileUtils.VIDEO_FILE_START);
+            int d = nlaVar4.d();
+            nla nlaVar5 = null;
+            if (d < 0) {
+                nlaVar4.j();
+                nlaVar4 = null;
+            } else {
+                nlaVar4.l(this.e);
             }
-            HashMap hashMap = null;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1909077165:
-                    if (str.equals("startRecord")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1848594969:
-                    if (str.equals("pauseRecord")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -815530368:
-                    if (str.equals("resetRecord")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -793791417:
-                    if (str.equals("startOverRecord")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 473974106:
-                    if (str.equals("capture_timer_clear")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 488985455:
-                    if (str.equals("capture_timer_start")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
+            nla nlaVar6 = new nla();
+            nlaVar6.m(str, "audio/");
+            int d2 = nlaVar6.d();
+            if (d2 < 0) {
+                nlaVar6.j();
+            } else {
+                nlaVar6.l(this.d);
+                nlaVar5 = nlaVar6;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c == 5) {
-                                    hashMap = i();
-                                }
-                            } else {
-                                hashMap = b();
-                            }
-                        } else {
-                            hashMap = a();
-                        }
+            boolean z2 = false;
+            if (nlaVar4 == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (nlaVar5 == null) {
+                z2 = true;
+            }
+            long j2 = 0;
+            long j3 = 0;
+            while (true) {
+                if (z && z2) {
+                    break;
+                }
+                if (!z2 && (z || nlaVar5.e() - nlaVar4.e() <= 50000)) {
+                    i = this.d;
+                    i3 = d2;
+                    i2 = i3;
+                    nlaVar = nlaVar5;
+                } else {
+                    i = this.e;
+                    i2 = d2;
+                    nlaVar = nlaVar4;
+                    i3 = d;
+                }
+                MediaCodec.BufferInfo h = nlaVar.h();
+                if (h == null) {
+                    i4 = d;
+                    nla nlaVar7 = nlaVar;
+                    if (nlaVar7 == nlaVar4) {
+                        j2 = nlaVar4.e();
+                        d2 = i2;
+                        d = i4;
+                        z = true;
+                    } else if (nlaVar7 == nlaVar5) {
+                        j3 = nlaVar5.e();
+                        d2 = i2;
+                        d = i4;
+                        z2 = true;
                     } else {
-                        hashMap = g();
+                        nlaVar2 = nlaVar4;
+                        nlaVar3 = nlaVar5;
+                        str2 = str3;
                     }
                 } else {
-                    hashMap = f();
+                    nlaVar2 = nlaVar4;
+                    i4 = d;
+                    nla nlaVar8 = nlaVar;
+                    if (nlaVar8.f() != i3) {
+                        StringBuilder sb = new StringBuilder();
+                        nlaVar3 = nlaVar5;
+                        sb.append("WEIRD: got sample from track ");
+                        sb.append(nlaVar8.f());
+                        sb.append(", expected ");
+                        sb.append(i3);
+                        fna.e(str3, sb.toString());
+                    } else {
+                        nlaVar3 = nlaVar5;
+                    }
+                    str2 = str3;
+                    h.presentationTimeUs += j;
+                    this.c.writeSampleData(i, nlaVar8.c(), h);
+                    nlaVar8.a();
                 }
-            } else {
-                hashMap = h();
+                str3 = str2;
+                d2 = i2;
+                d = i4;
+                nlaVar4 = nlaVar2;
+                nlaVar5 = nlaVar3;
             }
-            if (hashMap != null) {
-                a.put(str, hashMap);
+            long max = j + Math.max(j2, j3) + 10000;
+            ema emaVar = this.h;
+            if (emaVar != null) {
+                emaVar.b(max);
             }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public static HashMap f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_pause");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_reset");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static HashMap i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("msg", "game_start_over");
-            HashMap hashMap2 = new HashMap();
-            hashMap2.put("event_name", "recorder_video");
-            hashMap2.put("event_data", hashMap);
-            return hashMap2;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public static void j(HashMap<String, Object> hashMap, a aVar) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) && !mla.f(hashMap) && aVar != null && (obj = hashMap.get("event_name")) != null && (obj instanceof String)) {
-            String str = (String) obj;
-            char c = 65535;
-            boolean z = true;
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1903331025:
-                    if (str.equals("show_text")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1768834290:
-                    if (str.equals("game_end")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case -1584838740:
-                    if (str.equals("filter_adjust_enable")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case -1272940549:
-                    if (str.equals("game_is_ready")) {
-                        c = '\n';
-                        break;
-                    }
-                    break;
-                case -708270859:
-                    if (str.equals("phone_shake")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -672934016:
-                    if (str.equals("case_reset")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -548493597:
-                    if (str.equals("need_volume")) {
-                        c = '\t';
-                        break;
-                    }
-                    break;
-                case 902635637:
-                    if (str.equals("child_status")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 967087977:
-                    if (str.equals("game_pause")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 969912325:
-                    if (str.equals("game_score")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1000807605:
-                    if (str.equals("game_http")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 1001154298:
-                    if (str.equals("game_time")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 1076032614:
-                    if (str.equals("need_face")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
+            fna.e(str3, "finish one file, ptsOffset " + max);
+            if (nlaVar4 != null) {
+                nlaVar4.j();
             }
-            switch (c) {
-                case 0:
-                    if (hashMap.get("text_content") instanceof String) {
-                        aVar.c((String) hashMap.get("text_content"));
-                        return;
-                    }
-                    return;
-                case 1:
-                    aVar.d();
-                    return;
-                case 2:
-                case 3:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                        return;
-                    }
-                    return;
-                case 4:
-                    if (hashMap.get("game_score") != null) {
-                        aVar.a(hashMap.get("game_score").toString());
-                    }
-                    aVar.onRecordEnd();
-                    return;
-                case 5:
-                    aVar.h();
-                    return;
-                case 6:
-                    aVar.b();
-                    return;
-                case 7:
-                    if (hashMap.get("text_content") instanceof Float) {
-                        try {
-                            i = ((Float) hashMap.get("text_content")).intValue();
-                        } catch (Exception e) {
-                            hla.g(e);
+            if (nlaVar5 != null) {
+                nlaVar5.j();
+            }
+            return max;
+        }
+        return invokeJL.longValue;
+    }
+
+    public boolean b(StringBuilder sb) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sb)) == null) {
+            boolean z = false;
+            boolean z2 = false;
+            for (String str : this.a) {
+                try {
+                    nla nlaVar = new nla();
+                    try {
+                        nlaVar.m(str, FileUtils.VIDEO_FILE_START);
+                        if (!z) {
+                            MediaFormat mediaFormat = nlaVar.g().a;
+                            this.g = mediaFormat;
+                            if (mediaFormat == null) {
+                                fna.e("VideoComposer", "No video track found in " + str);
+                            } else {
+                                z = true;
+                            }
                         }
-                        aVar.g(i);
-                        return;
-                    }
-                    return;
-                case '\b':
-                    if (hashMap.get("isDefaultChild") != null) {
-                        String obj2 = hashMap.get("isDefaultChild").toString();
-                        if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
-                            z = false;
+                        if (!z2) {
+                            MediaFormat mediaFormat2 = nlaVar.b().a;
+                            this.f = mediaFormat2;
+                            if (mediaFormat2 == null) {
+                                fna.e("VideoComposer", "No audio track found in " + str);
+                            } else {
+                                z2 = true;
+                            }
                         }
-                        aVar.f(z);
-                        return;
+                    } catch (Exception e) {
+                        fna.e("VideoComposer", e.getMessage());
+                        e.printStackTrace();
                     }
-                    return;
-                case '\t':
-                    if (hashMap.get("volume_ability") != null) {
-                        if (lla.a(hashMap.get("volume_ability").toString(), 0.0f) != 1.0f) {
-                            z = false;
-                        }
-                        aVar.e(z);
-                        return;
+                    nlaVar.j();
+                    if (z && z2) {
+                        break;
                     }
-                    return;
-                case '\n':
-                    aVar.i();
-                    return;
-                case 11:
-                    if (hashMap.get("globalBeautyMakeupFilter") != null && (hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
-                        aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
-                        return;
+                } catch (Exception e2) {
+                    if (sb != null) {
+                        sb.append("VideoSplicer codec 录制视频拼接过程中发生异常:" + e2.getMessage());
                     }
-                    return;
-                case '\f':
-                    if (hashMap.get("set_content") != null) {
-                        aVar.j(hashMap.get("set_content").toString());
-                        return;
-                    }
-                    return;
-                default:
-                    return;
+                    e2.printStackTrace();
+                    return false;
+                }
             }
+            MediaMuxer mediaMuxer = new MediaMuxer(this.b, 0);
+            this.c = mediaMuxer;
+            if (z) {
+                this.e = mediaMuxer.addTrack(this.g);
+            }
+            if (z2) {
+                this.d = this.c.addTrack(this.f);
+            }
+            this.c.start();
+            long j = 0;
+            for (String str2 : this.a) {
+                j = a(j, str2);
+            }
+            if (this.c != null) {
+                try {
+                    this.c.stop();
+                    this.c.release();
+                } catch (Exception unused) {
+                    fna.e("VideoComposer", "Muxer close error. No data was written");
+                }
+                this.c = null;
+            }
+            fna.j("VideoComposer", "video join finished");
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

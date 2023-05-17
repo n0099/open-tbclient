@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a77;
+import com.baidu.tieba.n87;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public static final int d;
@@ -75,19 +75,19 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0927d9);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092849);
         this.b = textView;
         int i3 = e;
         textView.setPadding(0, i3, 0, i3 - d);
         this.c = context;
     }
 
-    public void b(a77 a77Var) {
+    public void b(n87 n87Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a77Var) != null) || a77Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n87Var) != null) || n87Var == null) {
             return;
         }
-        this.b.setText(R.string.obfuscated_res_0x7f0f1075);
+        this.b.setText(R.string.obfuscated_res_0x7f0f113c);
         a();
     }
 }

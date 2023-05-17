@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SimpleCache implements Cache {
     public static final String TAG = "SimpleCache";
     public final File cacheDir;

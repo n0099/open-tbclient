@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static <T extends com.kwad.components.core.k.a> T a(com.kwad.sdk.d.b<T> bVar) {
         return bVar.get();
@@ -190,7 +190,7 @@ public final class c {
     }
 
     public static String getBidRequestToken(KsScene ksScene) {
-        final com.kwad.components.core.k.kwai.a oo = new a.C0601a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo();
+        final com.kwad.components.core.k.kwai.a oo = new a.C0615a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo();
         b bVar = (b) a(new com.kwad.sdk.d.b<b>() { // from class: com.kwad.components.ad.adbit.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
@@ -204,7 +204,7 @@ public final class c {
     }
 
     public static String getBidRequestTokenV2(KsScene ksScene) {
-        final com.kwad.components.core.k.kwai.a oo = new a.C0601a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo();
+        final com.kwad.components.core.k.kwai.a oo = new a.C0615a().c(new com.kwad.components.core.k.kwai.b(ksScene)).a(new com.kwad.components.core.k.c()).oo();
         com.kwad.components.ad.kwai.a aVar = (com.kwad.components.ad.kwai.a) a(new com.kwad.sdk.d.b<com.kwad.components.ad.kwai.a>() { // from class: com.kwad.components.ad.adbit.c.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */

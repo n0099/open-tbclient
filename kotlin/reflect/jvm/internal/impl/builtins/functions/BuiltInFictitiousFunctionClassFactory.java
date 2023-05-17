@@ -24,13 +24,13 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuiltInFictitiousFunctionClassFactory implements ClassDescriptorFactory {
     public static final Companion Companion = new Companion(null);
     public final ModuleDescriptor module;
     public final StorageManager storageManager;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -90,7 +90,7 @@ public final class BuiltInFictitiousFunctionClassFactory implements ClassDescrip
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class KindWithArity {
         public final int arity;
         public final FunctionClassDescriptor.Kind kind;

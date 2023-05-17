@@ -1,6 +1,7 @@
 package com.xiaomi.push;
 
 import android.text.TextUtils;
+import com.baidu.android.util.media.WebpUtils;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import java.io.BufferedInputStream;
@@ -20,9 +21,9 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class y {
-    public static final String[] a = {"jpg", "png", "bmp", NativeConstants.TYPE_GIF, "webp"};
+    public static final String[] a = {"jpg", "png", "bmp", NativeConstants.TYPE_GIF, WebpUtils.TYPE_IMG_WEBP};
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0062: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:22:0x0062 */
     public static String a(File file) {
@@ -97,7 +98,7 @@ public class y {
             } catch (IOException e) {
                 e = e;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m101a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m120a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -209,7 +210,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m764a(File file) {
+    public static boolean m783a(File file) {
         try {
             if (file.isDirectory()) {
                 return false;

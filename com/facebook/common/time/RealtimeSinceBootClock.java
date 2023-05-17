@@ -2,7 +2,7 @@ package com.facebook.common.time;
 
 import com.facebook.common.internal.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RealtimeSinceBootClock implements MonotonicClock {
     public static final RealtimeSinceBootClock INSTANCE = new RealtimeSinceBootClock();
 

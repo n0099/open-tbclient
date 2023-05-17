@@ -5,7 +5,7 @@ import android.os.Trace;
 import javax.annotation.Nullable;
 @DoNotOptimize
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Api18TraceUtils {
     public static final int MAX_SECTION_NAME_LENGTH = 127;
 

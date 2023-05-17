@@ -8,7 +8,7 @@ import com.baidu.searchbox.crius.factory.ComponentFactory;
 import com.baidu.searchbox.crius.factory.IComponentFactory;
 import com.baidu.searchbox.crius.factory.INativeRenderFactory;
 import com.baidu.searchbox.crius.factory.NativeRenderFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusLoader {
     public static final int STATUS_LOADING = 2;
     public static final int STATUS_LOAD_BASE_EXCEPTION = 4;

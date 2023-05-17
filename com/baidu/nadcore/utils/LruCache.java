@@ -2,7 +2,7 @@ package com.baidu.nadcore.utils;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LruCache<K, V> extends LinkedHashMap<K, V> {
     public static final int DEFAULT_CACHE_SIZE = 32;
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;

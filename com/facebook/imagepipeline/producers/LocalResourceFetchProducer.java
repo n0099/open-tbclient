@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.io.IOException;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LocalResourceFetchProducer extends LocalFetchProducer {
     public static final String PRODUCER_NAME = "LocalResourceFetchProducer";
     public final Resources mResources;

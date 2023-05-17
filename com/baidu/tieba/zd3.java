@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,31 +11,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class zd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<File> {
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ig3 a;
 
-        public a(zd3 zd3Var) {
+        public a(ig3 ig3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zd3Var};
+                Object[] objArr = {ig3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ig3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nf3.k("4178", this.a.f());
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b extends ig3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String k;
+        public String l;
+        public String m;
+        public String n;
+        public String o;
+        public String p;
+        public String q;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,24 +77,101 @@ public class zd3 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
+        public void o() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                long lastModified = file.lastModified();
-                long lastModified2 = file2.lastModified();
-                if (lastModified == lastModified2) {
-                    return 0;
-                }
-                if (lastModified - lastModified2 > 0) {
-                    return 1;
-                }
-                return -1;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                zd3.e();
+                g();
+                zd3.f(this);
             }
-            return invokeLL.intValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public b h(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.q = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.l = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b j(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+                this.p = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b k(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+                this.n = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b l(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+                this.o = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b m(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+                this.m = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b n(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+                this.k = String.valueOf(z);
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e = this.k;
+                a("isAuthorized", this.l);
+                a("isUserLogin", this.m);
+                a("isCompleteLogin", this.n);
+                a("isUserCertificated", this.o);
+                a("isAuthorizeBtnConfirm", this.q);
+                a("isCompleteCertificated", this.p);
+                zd3.c(this);
+            }
         }
     }
 
@@ -80,132 +188,50 @@ public class zd3 {
                 return;
             }
         }
-        b = ho1.a;
+        a = qp1.a;
     }
 
-    public zd3() {
-        String str;
+    public static synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (zd3.class) {
+                b = null;
             }
         }
-        try {
-            str = AppRuntime.getAppContext().getFilesDir().getPath();
-        } catch (Exception e) {
-            if (!b) {
-                str = "";
-            } else {
-                throw e;
-            }
-        }
-        if (!TextUtils.isEmpty(str)) {
-            this.a = str + File.separator + "aiapps_folder/stability";
-            return;
-        }
-        this.a = "";
     }
 
-    public final void a(int i) {
-        File[] c;
+    public static void c(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = c()) != null && c.length != 0) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(c, new a(this));
-            ArrayList<File> arrayList = new ArrayList(c.length);
-            int i2 = 0;
-            for (File file : c) {
-                if (i2 < i) {
-                    if (file.lastModified() - currentTimeMillis > 172800000) {
-                        arrayList.add(file);
-                    }
-                } else {
-                    arrayList.add(file);
-                }
-                i2++;
-            }
-            for (File file2 : arrayList) {
-                bo4.j(file2);
-            }
+        if (interceptable == null || interceptable.invokeL(65539, null, bVar) == null) {
+            bVar.a = zf3.n(f93.K().q().W().G());
+            bVar.b = "trigger";
+            bVar.g = "multiAuthorize";
         }
     }
 
-    public final File b(long j) {
-        InterceptResult invokeJ;
-        String g0;
+    public static void f(ig3 ig3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            if (x73.g0() == null) {
-                g0 = "";
-            } else {
-                g0 = x73.g0();
-            }
-            return new File(this.a + File.separator + g0 + "_" + j + "_swan_stability_traces.log");
+        if (interceptable == null || interceptable.invokeL(65542, null, ig3Var) == null) {
+            am3.j(new a(ig3Var), "SwanAppUBCOnEvent");
         }
-        return (File) invokeJ.objValue;
     }
 
-    public File[] c() {
+    public static synchronized b d() {
         InterceptResult invokeV;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            try {
-                return new File(this.a).listFiles();
-            } catch (Exception e) {
-                if (b) {
-                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (zd3.class) {
+                if (b == null) {
+                    b = new b(null);
+                    if (a) {
+                        Log.i("MultiAuthorizeStatisticManager", "MultiAuthorizeInfo-new instance.");
+                    }
                 }
-                return null;
+                bVar = b;
             }
+            return bVar;
         }
-        return (File[]) invokeV.objValue;
-    }
-
-    public File d(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        String g0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                a(9);
-                JSONObject jSONObject = new JSONObject();
-                if (x73.g0() == null) {
-                    g0 = "";
-                } else {
-                    g0 = x73.g0();
-                }
-                jSONObject.put("_app_id", g0);
-                jSONObject.put("_date", lk3.b(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
-                jSONArray.put(jSONObject);
-                File b2 = b(currentTimeMillis);
-                if (b2 == null) {
-                    return null;
-                }
-                if (!ar2.b(b2.getPath(), jSONArray.toString(), false)) {
-                    return null;
-                }
-                return b2;
-            } catch (Exception e) {
-                if (b) {
-                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
-                }
-                return null;
-            }
-        }
-        return (File) invokeL.objValue;
+        return (b) invokeV.objValue;
     }
 }

@@ -12,7 +12,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class OpusReader extends StreamReader {
     public static final int DEFAULT_SEEK_PRE_ROLL_SAMPLES = 3840;
     public static final int OPUS_CODE = Util.getIntegerCodeForString("Opus");

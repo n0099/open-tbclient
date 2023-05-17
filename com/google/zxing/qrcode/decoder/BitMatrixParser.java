@@ -2,7 +2,7 @@ package com.google.zxing.qrcode.decoder;
 
 import com.google.zxing.FormatException;
 import com.google.zxing.common.BitMatrix;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BitMatrixParser {
     public final BitMatrix bitMatrix;
     public boolean mirror;

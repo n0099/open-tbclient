@@ -1,11 +1,28 @@
 package com.baidu.tieba;
 
-import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes5.dex */
-public interface ke7 {
-    void a(int i, LiveFuseForumData liveFuseForumData);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class ke7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public Object c;
 
-    void b(int i, LiveFuseForumData liveFuseForumData, int i2);
-
-    void c(int i, LiveFuseForumData liveFuseForumData);
+    public ke7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

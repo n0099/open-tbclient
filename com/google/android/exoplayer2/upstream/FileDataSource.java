@@ -4,7 +4,7 @@ import android.net.Uri;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FileDataSource implements DataSource {
     public long bytesRemaining;
     public RandomAccessFile file;
@@ -12,7 +12,7 @@ public final class FileDataSource implements DataSource {
     public boolean opened;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class FileDataSourceException extends IOException {
         public FileDataSourceException(IOException iOException) {
             super(iOException);

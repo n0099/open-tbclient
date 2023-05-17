@@ -6,7 +6,7 @@ import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceInstance;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceMouthMask {
     public static final String TAG = "FaceMouthMask";
     public BDFaceInstance bdFaceInstance;

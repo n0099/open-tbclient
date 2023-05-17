@@ -3,7 +3,7 @@ package com.kwad.sdk.a;
 import android.content.Context;
 import com.kuaishou.weapon.p0.WeaponHI;
 import com.kwad.sdk.utils.bj;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static void init(Context context) {
         if (com.kwad.b.kwai.a.CK.booleanValue()) {

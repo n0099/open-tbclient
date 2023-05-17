@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o {
     public static volatile o a;
 
@@ -72,7 +72,7 @@ public class o {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m642a(String str, String str2, String str3) {
+    public synchronized void m661a(String str, String str2, String str3) {
         b(str, str2, str3);
         this.f824a.post(new p(this, str, str2, str3));
     }

@@ -1,35 +1,44 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class q88 extends ca8 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class q88 extends u88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AbilityItem a;
+    public final ChatPage b;
 
-    @Override // com.baidu.tieba.ca8
-    public int a() {
+    @Override // com.baidu.tieba.u88
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public q88(AbilityItem abilityItem) {
+    @Override // com.baidu.tieba.u88
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "un_support" : (String) invokeV.objValue;
+    }
+
+    public q88(ChatPage chatPage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {abilityItem};
+            Object[] objArr = {chatPage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,37 +48,16 @@ public class q88 extends ca8 {
                 return;
             }
         }
-        this.a = abilityItem;
+        Intrinsics.checkNotNullParameter(chatPage, "chatPage");
+        this.b = chatPage;
     }
 
-    public AbilityItem b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u88
+    public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            this.b.n1(R.string.obfuscated_res_0x7f0f08d8);
         }
-        return (AbilityItem) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AbilityItem abilityItem = this.a;
-            if (abilityItem == null || abilityItem.getStyleConf() == null) {
-                return "";
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                if (this.a.getStyleConf().getDark() == null || this.a.getStyleConf().getDark().getIcon() == null) {
-                    return "";
-                }
-                return this.a.getStyleConf().getDark().getIcon();
-            } else if (this.a.getStyleConf().getDay() == null || this.a.getStyleConf().getDay().getIcon() == null) {
-                return "";
-            } else {
-                return this.a.getStyleConf().getDay().getIcon();
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

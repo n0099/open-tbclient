@@ -22,14 +22,13 @@ import androidx.annotation.Nullable;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiContext;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.sapi2.utils.VibrateUtils;
 import com.baidu.sapi2.views.logindialog.interf.IQuickLoginDialogCallback;
 import com.baidu.sapi2.views.logindialog.utils.ViewUtils;
 import com.baidu.tieba.R;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AgreementView extends LinearLayout implements View.OnClickListener {
     public static final String j = "百度用户协议";
     public static final String k = "https://wappass.baidu.com/passport/agreement?adapter=3";
@@ -58,7 +57,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
     public void a() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends ClickableSpan {
         public a() {
         }
@@ -78,7 +77,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends ClickableSpan {
         public b() {
         }
@@ -98,7 +97,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends ClickableSpan {
         public c() {
         }
@@ -118,7 +117,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends ClickableSpan {
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
@@ -245,18 +244,18 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
         int hashCode = str.hashCode();
         if (hashCode != 2154) {
             if (hashCode != 2161) {
-                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
+                if (hashCode == 2162 && str.equals("CU")) {
                     c2 = 1;
                 }
                 c2 = 65535;
             } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
+                if (str.equals("CT")) {
                     c2 = 2;
                 }
                 c2 = 65535;
             }
         } else {
-            if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
+            if (str.equals("CM")) {
                 c2 = 0;
             }
             c2 = 65535;
@@ -287,7 +286,7 @@ public class AgreementView extends LinearLayout implements View.OnClickListener 
             } else {
                 str2 = "cucc_agreement";
                 str3 = r;
-                str5 = s;
+                str5 = "https://ms.zzx9.cn/html/oauth/protocol2.html";
             }
         } else {
             str2 = "cmcc_agreement";

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UIMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_MAP_PANO_DATA = 600;
@@ -88,12 +88,12 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_THROUGH = "您要找的途经点是:";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class NavMapMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class EventGesture {
             public static /* synthetic */ Interceptable $ic = null;
             public static final int EVENT_DOUBLE_FINGER_ROTATE = 521;
@@ -141,7 +141,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ErrorNo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
@@ -172,7 +172,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class KEvent {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MV_MAP_ADDLOGOBJ = 4108;
@@ -241,7 +241,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class KFunc {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FUN_ID_GBS = 13;
@@ -412,7 +412,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MsgDefine {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_APP_DATA_OK = 2000;
@@ -482,7 +482,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ResultType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADDR_LIST = 23;
@@ -536,7 +536,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UIGPSStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GPS_DEVICE_DISABLED = 0;
@@ -561,7 +561,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UIHttpType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int APP_SEARCH_REQ = 0;
@@ -589,7 +589,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class UIOffType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_DATARUN_EXCEPTION = -1;
@@ -629,7 +629,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class WalkNaviMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NL_UI_MESSAGE_TYPE_COMPASS_GUIDEINFO_UPDATE = 4106;

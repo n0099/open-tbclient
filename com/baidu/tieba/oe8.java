@@ -1,121 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
-import com.baidu.tieba.oc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes5.dex */
-public abstract class oe8<T, V extends View, M extends oc8<T>> implements r17<PersonalMsgContainer<T, V>, M> {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class oe8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public String a;
+    public String b;
+    public String c;
 
-    public abstract void d(V v, M m);
-
-    public void f(ViewGroup container) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
-            Intrinsics.checkNotNullParameter(container, "container");
-        }
-    }
-
-    public abstract V g(ViewGroup viewGroup);
-
-    public oe8(String name) {
+    public oe8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(name, "name");
-        this.a = name;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r17
-    /* renamed from: e */
-    public void b(PersonalMsgContainer<T, V> view2, M data) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(data, "data");
-            view2.h(data);
-            d(view2.getChild(), data);
-            f(view2.getChildContainer());
-        }
-    }
-
-    @Override // com.baidu.tieba.r17
-    public String c() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public final boolean i() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean j() {
+    public final String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.r17
-    /* renamed from: h */
-    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
-        InterceptResult invokeL;
+    public final void d(String contentExtra) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            if (i()) {
-                Context context = parent.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
-                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
-                personalMsgContainer.e(g(parent));
-                return personalMsgContainer;
-            } else if (j()) {
-                Context context2 = parent.getContext();
-                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
-                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
-                personalMsgContainer2.e(g(parent));
-                return personalMsgContainer2;
+        if (interceptable == null || interceptable.invokeL(1048579, this, contentExtra) == null) {
+            Intrinsics.checkNotNullParameter(contentExtra, "contentExtra");
+            if (contentExtra.length() == 0) {
+                z = true;
             } else {
-                throw new IllegalArgumentException("unknown template: " + c());
+                z = false;
+            }
+            if (z) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(contentExtra);
+                jSONObject.optString("big_size");
+                this.b = jSONObject.optString("thumb_size");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
-        return (PersonalMsgContainer) invokeL.objValue;
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
     }
 }

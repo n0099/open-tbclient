@@ -6,7 +6,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class WebViewDataDirectorySuffixTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

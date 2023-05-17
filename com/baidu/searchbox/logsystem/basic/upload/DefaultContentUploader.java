@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DefaultContentUploader extends BaseContentUploader {
     public static final int CONNECT_TIMEOUT = 30000;
     public static final boolean DEBUG = LLog.sDebug;

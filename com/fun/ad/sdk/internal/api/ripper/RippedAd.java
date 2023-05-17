@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RippedAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,12 +33,12 @@ public class RippedAd {
     public final String videoImageUrl;
     public final String videoUrl;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Acceptor<T> {
         String accept(T t);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

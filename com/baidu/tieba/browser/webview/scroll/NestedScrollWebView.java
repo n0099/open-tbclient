@@ -18,14 +18,14 @@ import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cg6;
-import com.baidu.tieba.jg6;
+import com.baidu.tieba.oh6;
+import com.baidu.tieba.vh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class NestedScrollWebView extends WebView implements NestedScrollingChild2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
     public OverScroller g;
     public int h;
     public NestedScrollingChildHelper i;
-    public jg6 j;
+    public vh6 j;
     public boolean k;
     public long l;
-    public cg6 m;
+    public oh6 m;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NestedScrollWebView(Context context) {
@@ -104,7 +104,7 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
             int abs = Math.abs(((int) motionEvent.getRawY()) - this.c);
             if (System.currentTimeMillis() - this.l < 250 && abs < 30) {
                 this.l = 0L;
-                this.m.i(view2, motionEvent);
+                this.m.g(view2, motionEvent);
                 return;
             }
             this.l = System.currentTimeMillis();
@@ -321,17 +321,17 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
         }
     }
 
-    public void setOnDoubleClickListener(cg6 cg6Var) {
+    public void setOnDoubleClickListener(oh6 oh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, cg6Var) == null) {
-            this.m = cg6Var;
+        if (interceptable == null || interceptable.invokeL(1048598, this, oh6Var) == null) {
+            this.m = oh6Var;
         }
     }
 
-    public void setOnScrollChangeListener(jg6 jg6Var) {
+    public void setOnScrollChangeListener(vh6 vh6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, jg6Var) == null) {
-            this.j = jg6Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, vh6Var) == null) {
+            this.j = vh6Var;
         }
     }
 
@@ -411,7 +411,7 @@ public abstract class NestedScrollWebView extends WebView implements NestedScrol
             super.onScrollChanged(i, i2, i3, i4);
             if (this.j != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.j.e(i, i2, i3, i4);
+                    this.j.d(i, i2, i3, i4);
                 } else if (getScrollY() == 0) {
                     this.j.b(i, i2, i3, i4);
                 } else {

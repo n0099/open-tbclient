@@ -1,149 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fw8 implements in {
+import java.util.List;
+/* loaded from: classes5.dex */
+public class fw8 implements g95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
+    public static fw8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public ThreadData d;
-    public AntiData e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778658, "Lcom/baidu/tieba/fw8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947778658, "Lcom/baidu/tieba/fw8;");
-                return;
-            }
-        }
-        f = BdUniqueId.gen();
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ThreadData threadData = this.d;
-            if (threadData != null) {
-                return threadData.getAgreeType();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public AntiData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return (AntiData) invokeV.objValue;
-    }
-
-    public ThreadData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ThreadData threadData = this.d;
-            if (threadData == null || threadData.getHasAgree() != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return f;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public fw8(ThreadData threadData, AntiData antiData) {
+    public fw8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData, antiData};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = threadData;
-        this.e = antiData;
     }
 
-    public void g(boolean z) {
+    public static synchronized fw8 d() {
+        InterceptResult invokeV;
+        fw8 fw8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (fw8.class) {
+                if (a == null) {
+                    a = new fw8();
+                }
+                fw8Var = a;
+            }
+            return fw8Var;
+        }
+        return (fw8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g95
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void h(boolean z) {
+    @Override // com.baidu.tieba.g95
+    public void b(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().validate(sapiAccount);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g95
+    public void c(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                SapiAccountManager.getInstance().logout();
+                return;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                        return;
+                    }
+                }
+            }
         }
     }
 }

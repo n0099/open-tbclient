@@ -3,7 +3,7 @@ package com.baidu.searchbox.pms.utils;
 import android.os.Build;
 import android.os.Process;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ABIUtils {
     public static final String ABI_32 = "1";
     public static final String ABI_32_64 = "3";

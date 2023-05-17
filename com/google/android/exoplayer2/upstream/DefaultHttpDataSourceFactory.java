@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.upstream;
 
 import com.google.android.exoplayer2.upstream.HttpDataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultHttpDataSourceFactory extends HttpDataSource.BaseFactory {
     public final boolean allowCrossProtocolRedirects;
     public final int connectTimeoutMillis;

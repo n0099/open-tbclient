@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.f.c;
 import com.sdk.l.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BaseConfig implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String apk = "com.cucc.sdk.api_key";

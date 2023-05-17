@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.ksad.json.annotation.KsJson;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class q implements com.kwad.sdk.core.webview.kwai.a {
     public final Handler Ll = new Handler(Looper.getMainLooper());
     @Nullable
@@ -16,13 +16,13 @@ public final class q implements com.kwad.sdk.core.webview.kwai.a {
     public b bL;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int Mh = -1;
         public int type;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         @MainThread
         void a(a aVar);

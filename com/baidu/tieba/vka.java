@@ -1,32 +1,31 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.MediaMuxerWrapper;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class vka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public int c;
-    public boolean d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
+    public int g;
+    public String h;
 
-    public vka(String str) throws IOException {
+    public vka() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,91 +35,95 @@ public class vka {
                 return;
             }
         }
-        this.b = 2;
-        this.c = 0;
-        this.d = false;
-        this.a = new MediaMuxer(str, 0);
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.f = "";
+        this.g = 0;
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b(String str) {
         InterceptResult invokeL;
-        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (this.d) {
-                    throw new IllegalStateException("muxer already started");
-                }
-                addTrack = this.a.addTrack(mediaFormat);
-                hla.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return addTrack;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c > 0) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.optString("name");
+                this.b = jSONObject.optString("id");
+                this.c = jSONObject.optString("image");
+                this.d = jSONObject.optString("url");
+                this.e = jSONObject.optInt("progress");
+                this.f = jSONObject.optString("downloadPerSize");
+                this.g = jSONObject.optInt("status");
+                this.h = jSONObject.optString("savePath");
+                return true;
+            } catch (JSONException unused) {
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 
-    public synchronized boolean c() {
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public JSONObject g() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                hla.k(MediaMuxerWrapper.TAG, "start:");
-                int i = this.c + 1;
-                this.c = i;
-                if (this.b > 0 && i == this.b) {
-                    this.a.start();
-                    this.d = true;
-                    notifyAll();
-                    hla.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
-                }
-                z = this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.a);
+                jSONObject.put("id", this.b);
+                jSONObject.put("image", this.c);
+                jSONObject.put("url", this.d);
+                jSONObject.put("progress", this.e);
+                jSONObject.put("downloadPerSize", this.f);
+                jSONObject.put("status", this.g);
+                jSONObject.put("savePath", this.h);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return z;
+            return jSONObject;
         }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                hla.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
-                int i = this.c + (-1);
-                this.c = i;
-                if (this.b > 0 && i <= 0) {
-                    if (this.d) {
-                        this.a.stop();
-                    }
-                    this.a.release();
-                    this.d = false;
-                    hla.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
-                }
-            }
-        }
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,19 +1,19 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.q5b;
-import com.baidu.tieba.s9b;
-import com.baidu.tieba.v5b;
-import com.baidu.tieba.z5b;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.rbb;
+import com.baidu.tieba.t7b;
+import com.baidu.tieba.x7b;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
-public final class CancellableSubscription extends AtomicReference<z5b> implements q5b {
+/* loaded from: classes10.dex */
+public final class CancellableSubscription extends AtomicReference<x7b> implements o7b {
     public static final long serialVersionUID = 5718521705281392066L;
 
-    public CancellableSubscription(z5b z5bVar) {
-        super(z5bVar);
+    public CancellableSubscription(x7b x7bVar) {
+        super(x7bVar);
     }
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public boolean isUnsubscribed() {
         if (get() == null) {
             return true;
@@ -21,15 +21,15 @@ public final class CancellableSubscription extends AtomicReference<z5b> implemen
         return false;
     }
 
-    @Override // com.baidu.tieba.q5b
+    @Override // com.baidu.tieba.o7b
     public void unsubscribe() {
-        z5b andSet;
+        x7b andSet;
         if (get() != null && (andSet = getAndSet(null)) != null) {
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                v5b.e(e);
-                s9b.j(e);
+                t7b.e(e);
+                rbb.j(e);
             }
         }
     }

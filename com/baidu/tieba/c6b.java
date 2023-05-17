@@ -1,5 +1,40 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface c6b<T1, T2, R> {
-    R call(T1 t1, T2 t2);
+
+import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
+/* loaded from: classes5.dex */
+public interface c6b {
+    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+
+    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+
+    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+
+    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+
+    void onWebsocketError(WebSocket webSocket, Exception exc);
+
+    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, q6b q6bVar, x6b x6bVar) throws InvalidDataException;
+
+    y6b onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, q6b q6bVar) throws InvalidDataException;
+
+    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, q6b q6bVar) throws InvalidDataException;
+
+    void onWebsocketMessage(WebSocket webSocket, String str);
+
+    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
+
+    void onWebsocketOpen(WebSocket webSocket, v6b v6bVar);
+
+    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
+
+    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
+
+    void onWriteDemand(WebSocket webSocket);
 }

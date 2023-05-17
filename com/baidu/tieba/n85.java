@@ -1,64 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import tbclient.UrlParser.DataRes;
+import tbclient.UrlParser.UrlParserResIdl;
+/* loaded from: classes6.dex */
 public class n85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public o85 b;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public boolean h;
+    public String i;
+    public CardLinkInfoData j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947956350, "Lcom/baidu/tieba/n85;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947956350, "Lcom/baidu/tieba/n85;");
+        }
+    }
 
     public n85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(UrlParserResIdl urlParserResIdl) {
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public o85 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (o85) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, urlParserResIdl) == null) && urlParserResIdl != null && (dataRes = urlParserResIdl.data) != null) {
+            this.a = dataRes.status.intValue();
+            this.b = urlParserResIdl.data.url_type.intValue();
+            DataRes dataRes2 = urlParserResIdl.data;
+            this.d = dataRes2.image;
+            this.e = dataRes2.title;
+            this.f = dataRes2.link_from;
+            this.g = dataRes2.price_txt;
+            boolean z = true;
+            if (dataRes2.is_recognize.intValue() != 1) {
+                z = false;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                o85 o85Var = new o85();
-                this.b = o85Var;
-                o85Var.f(optJSONObject2);
-            }
+            this.h = z;
+            this.i = urlParserResIdl.data.description;
+            CardLinkInfoData cardLinkInfoData = new CardLinkInfoData();
+            cardLinkInfoData.parse(urlParserResIdl.data.card_link_info);
+            this.j = cardLinkInfoData;
         }
     }
 }

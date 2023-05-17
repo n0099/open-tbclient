@@ -6,7 +6,7 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GradientLine extends Overlay {
     public List<LatLng> a;
     public int[] b;

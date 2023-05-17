@@ -4,7 +4,7 @@ import com.hiido.snappy.Snappy;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ZipProcessor implements MessageProcessor {
     @Override // com.yy.hiidostatis.message.MessageProcessor
     public Message process(Message message) {

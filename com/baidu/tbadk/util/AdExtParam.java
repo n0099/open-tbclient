@@ -2,7 +2,7 @@ package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iq5;
+import com.baidu.tieba.rr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import java.util.HashMap;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdExtParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD_CONTEXT_LIST = "ad_context_list";
@@ -24,7 +24,7 @@ public class AdExtParam {
     public static final String KEY_THREAD_COUNT = "pre_ad_thread_count";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class AdExtParam {
                 a aVar = new a();
                 HashMap hashMap = new HashMap();
                 aVar.a = hashMap;
-                hashMap.put(AdExtParam.KEY_IADEX, iq5.e());
+                hashMap.put(AdExtParam.KEY_IADEX, rr5.e());
                 aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.11.0.5");
                 return aVar;
             }

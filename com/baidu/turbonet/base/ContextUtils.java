@@ -2,7 +2,7 @@ package com.baidu.turbonet.base;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yca;
+import com.baidu.tieba.wea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.JNINamespace;
 @JNINamespace
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ContextUtils {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
@@ -58,7 +58,7 @@ public class ContextUtils {
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             Context context2 = a;
             if (context2 != null && context2 != context) {
-                yca.a("ContextUtils", "Multiple contexts detected, ignoring new application context.");
+                wea.a("ContextUtils", "Multiple contexts detected, ignoring new application context.");
             } else {
                 d(context);
             }

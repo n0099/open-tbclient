@@ -12,7 +12,7 @@ import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.retrieve.log.bean.FetchLogBean;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchLogJob extends IFetchJob {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchLogJob";

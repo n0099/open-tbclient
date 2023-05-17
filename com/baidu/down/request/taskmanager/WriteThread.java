@@ -10,6 +10,7 @@ import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.down.retry.HttpRetryStatistic;
 import com.baidu.down.utils.Utils;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WriteThread implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -100,7 +101,7 @@ public class WriteThread implements Runnable {
                 randomAccessFile.seek(byteArrayInfo.mFilePos);
                 randomAccessFile.write(byteArrayInfo.mByteArray, 0, byteArrayInfo.mByteArrayLength);
                 abstractTask.mProgressInfo.updateProgress(byteArrayInfo.mFilePos, byteArrayInfo.mByteArrayLength);
-                if (abstractTask.needWriteDb && System.currentTimeMillis() - abstractTask.mWriteFileLastTime > 1500) {
+                if (abstractTask.needWriteDb && System.currentTimeMillis() - abstractTask.mWriteFileLastTime > BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT) {
                     ContentValues contentValues = new ContentValues();
                     contentValues.put(DownloadDataConstants.Columns.COLUMN_CURRENT_BYTES, Long.valueOf(abstractTask.mProgressInfo.getCurrentLength()));
                     TaskFacade.getInstance(null).getBinaryTaskMng().getDatabaseMng().update(contentValues, "_id=?", new String[]{String.valueOf(abstractTask.mDownloadId)});

@@ -2,13 +2,13 @@ package com.baidu.pass.ecommerce.view.addressdialog;
 
 import com.baidu.sapi2.ecommerce.result.AddressBean;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ElementNode {
     public AddressEntity addressEntity;
     public ElementNode next;
     public ElementNode pre;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AddressEntity {
         public List<AddressBean> hotlists;
         public List<AddressBean> list;

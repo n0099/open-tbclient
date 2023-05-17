@@ -12,14 +12,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i87;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.v97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EntelechyPullUpRefreshView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             if (this.d == null) {
-                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010115);
+                this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01012d);
                 this.d.setInterpolator(new LinearInterpolator());
                 this.d.setFillAfter(true);
             }
@@ -127,7 +127,7 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             return;
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i87.EntelechyPullUpRefreshView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v97.EntelechyPullUpRefreshView);
             this.e = obtainStyledAttributes.getResourceId(1, R.drawable.icon_frs_reload);
             this.f = obtainStyledAttributes.getBoolean(0, false);
             obtainStyledAttributes.recycle();
@@ -142,9 +142,9 @@ public class EntelechyPullUpRefreshView extends LinearLayout {
             addView(this.a);
         }
         this.b = new TbImageView(context);
-        int g = ii.g(getContext(), R.dimen.obfuscated_res_0x7f0702cc);
+        int g = ri.g(getContext(), R.dimen.obfuscated_res_0x7f0703d4);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(g, g);
-        layoutParams.topMargin = ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        layoutParams.topMargin = ri.g(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.b.setLayoutParams(layoutParams);
         SkinManager.setImageResource(this.b, this.e);
         addView(this.b);

@@ -1,111 +1,173 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
+import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class za5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = -1;
+    public static /* synthetic */ Interceptable $ic;
+    public static final za5 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public List<String> h;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948353243, "Lcom/baidu/tieba/za5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948353243, "Lcom/baidu/tieba/za5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948353243, "Lcom/baidu/tieba/za5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        i = new za5(false);
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public za5(boolean z) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948353243, "Lcom/baidu/tieba/za5;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                return 3;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return f55.m().n("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
         }
-        return invokeV.intValue;
+        this.h = new ArrayList();
+        this.a = z;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public static za5 j(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
-                int a2 = a();
-                if (a2 != 2) {
-                    if (a2 == 3) {
-                        return R.drawable.icon_mask_share_wechat40_svg;
-                    }
-                    if (a2 != 4) {
-                        if (a2 != 6) {
-                            if (a2 != 8) {
-                                return R.drawable.icon_mask_share_wechat40_svg;
-                            }
-                            return R.drawable.icon_mask_share_qq40_svg;
-                        }
-                        return R.drawable.icon_mask_share_weibo40_svg;
-                    }
-                    return R.drawable.icon_mask_share_qqzone40_svg;
-                }
-                return R.drawable.icon_mask_share_circle40_svg;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return i;
             }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            long j = a;
-            if (j >= 0) {
-                return j;
+            JSONObject optJSONObject = jSONObject.optJSONObject("low_version_pop_config");
+            if (optJSONObject == null) {
+                o65.m().B(UpgradePopWindowHelper.SP_UPGRADE_POP_WINDOW_SHOW_DATE, "");
+                return i;
             }
-            if (!hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                a = f55.m().o("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            za5 za5Var = new za5(true);
+            za5Var.a(optJSONObject);
+            return za5Var;
+        }
+        return (za5) invokeL.objValue;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.b = jSONObject.optInt(FetchTimer.FREQUENCY);
+            this.c = jSONObject.optString("main_title");
+            this.d = jSONObject.optString("sub_title");
+            this.e = jSONObject.optString("jump_link");
+            this.f = jSONObject.optString("operation_1");
+            this.g = jSONObject.optString("operation_2");
+            JSONArray optJSONArray = jSONObject.optJSONArray("trigger_scene");
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                this.h.add(optJSONArray.optString(i2));
             }
-            return a;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            f55.m().z("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
-            f55.m().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
-            a = 0L;
-        }
-    }
-
-    public static void e(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            f55.m().A("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
-            a = j;
-        }
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            a = -1L;
         }
     }
 }

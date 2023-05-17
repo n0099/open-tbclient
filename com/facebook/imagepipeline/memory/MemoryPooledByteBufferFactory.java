@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
     public final MemoryChunkPool mPool;
     public final PooledByteStreams mPooledByteStreams;

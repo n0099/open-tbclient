@@ -1,127 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ItemTabLogUtil")
-/* loaded from: classes5.dex */
-public final class n65 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public class n65 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "com.baidu.tieba";
+    public static String b = "com.baidu.tieba:remote";
+    public static String c = "com.baidu.tieba:bdservice_v1";
+    public static String d = "com.baidu.tieba:pluginInstaller";
+    public static String e = "com.baidu.tieba:daemon";
+    public static String f = "com.baidu.tieba:cdnTachometer";
+    public static String g = "plugininstaller_settings";
+    public static String h = "daemon_settings";
+    public static String i = "cdnTachometer_settings";
+    public static String j = "download_product_info";
+    public static final String[] k;
+    public static final String[] l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            if (i != 1) {
-                return i != 2 ? -1 : 2;
-            } else if (i2 != 1) {
-                return i2 != 2 ? -1 : 3;
-            } else {
-                return 4;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947954428, "Lcom/baidu/tieba/n65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947954428, "Lcom/baidu/tieba/n65;");
+                return;
             }
         }
-        return invokeII.intValue;
-    }
-
-    public static final int b(String name) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, name)) == null) {
-            Intrinsics.checkNotNullParameter(name, "name");
-            if (Intrinsics.areEqual(ItemCardHelper.a, name)) {
-                return 1;
-            }
-            if (Intrinsics.areEqual(ItemCardHelper.b, name)) {
-                return 2;
-            }
-            return 9;
-        }
-        return invokeL.intValue;
-    }
-
-    public static final void c(m65 itemLogData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, itemLogData) == null) {
-            Intrinsics.checkNotNullParameter(itemLogData, "itemLogData");
-            StatisticItem statisticItem = new StatisticItem();
-            boolean z = false;
-            switch (itemLogData.getType()) {
-                case 1:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_ALBUM_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i());
-                    break;
-                case 2:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_TAG_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("fid", itemLogData.a());
-                    break;
-                case 3:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RECOMMEND_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
-                    break;
-                case 4:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_COMMENT_CLICK).param("obj_name", itemLogData.b()).param("obj_locate", itemLogData.c()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
-                    break;
-                case 5:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_SHOW).param("obj_name", itemLogData.b()).param("obj_source", itemLogData.f()).param("obj_locate", itemLogData.a());
-                    break;
-                case 6:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_TAB_RANKING).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a());
-                    break;
-                case 7:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_EXPORT).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i());
-                    break;
-                case 8:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ORDER_DOWNLOAD_CLICK).param("obj_name", itemLogData.b()).param("obj_type", itemLogData.g()).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_source", itemLogData.f());
-                    String d = itemLogData.d();
-                    if (!((d == null || d.length() == 0) ? true : true)) {
-                        statisticItem.param("obj_locate", itemLogData.d());
-                        break;
-                    }
-                    break;
-                case 9:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_SHOW).param("fid", itemLogData.a());
-                    break;
-                case 10:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_RECENT_UPDATE_CLICK).param("fid", itemLogData.a());
-                    break;
-                case 11:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_SHOW).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c());
-                    break;
-                case 12:
-                    statisticItem.key(CommonStatisticKey.KEY_ITEM_HOT_VIDEO_CLICK).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c());
-                    String h = itemLogData.h();
-                    if (!((h == null || h.length() == 0) ? true : true)) {
-                        statisticItem.param("post_id", itemLogData.h());
-                        break;
-                    }
-                    break;
-                case 13:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_SHOW).param("fid", itemLogData.a()).param("obj_id", itemLogData.b()).param("uid", itemLogData.i());
-                    break;
-                case 14:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_CLICK).param("fid", itemLogData.a()).param("obj_id", itemLogData.b()).param("uid", itemLogData.i());
-                    break;
-                case 15:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_SHOW).param("obj_id", itemLogData.b()).param("fid", itemLogData.a()).param("obj_locate", itemLogData.c()).param("uid", itemLogData.i());
-                    break;
-                case 16:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_GAME_CODE_FLOATING_LAYER_CLICK).param("obj_id", itemLogData.b()).param("fid", itemLogData.a()).param("obj_name", itemLogData.e()).param("obj_type", itemLogData.g());
-                    break;
-                case 17:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_SHOW).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
-                    break;
-                case 18:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
-                    break;
-                case 19:
-                    statisticItem.key(CommonStatisticKey.KEY_FRS_ITEM_ACCELERATOR_START_BTN_IMG_CLICK).param("fid", itemLogData.a()).param("uid", itemLogData.i()).param("obj_id", itemLogData.b());
-                    break;
-            }
-            TiebaStatic.log(statisticItem);
-        }
+        k = new String[]{"skin_", "from_id", "bd_loc_crash_count", "webview_crash_count", "bd_loc_switcher", "install_other_app_file_name", "cuid", "new_cuid", "framework_ver", "naws_game_ver", "new_cuid_galaxy2", "gpu_open", "client_id", "keepalive_wifi", "keepalive_nonwifi", "networkcore_type", "socket_reconn_strategy", "image_quality", "capable_of_webp_format", "webp_failure_count", "log_stat_upload_time ", "log_stat_debug_time", "log_stat_switch_data", "log_stat_error_time", "is_motu_forbidden", "cdn_iplist_cache_key_three", "report_user_info_time_key", "image_viewer_tip", "location_lat", "location_lng", "location_pos", "location_on", "xiaoying_crash_count", "plugin_patch_hook_failed_count", "page_stay_duration_switch", "page_stay_max_cost", "applist_intalled_apk_ids", "applist_intalled_apk_ids_timestamp", "KEY_UPLOAD_LOG_INTERVAL", "KEY_LOG_REAL_TIME_UPLOAD_SWITCH", "smart_app_tid", "smart_app_id", "smart_app_name", "key_ai_app_guide_display", "AD_SNIFF_RESULT_KEY", "key_baiduid_for_anti", "key_secret_is_show_new", "key_qq_share_h5_enable", "key_wechat_small_app_to_h5", "key_launch_up_speed", "fun_ad_big_image_floor", "fun_ad_big_image_density", "fun_ad_big_image_size", "fun_ad_big_image_switch", "key_post_thread_has_request_location", "key_sync_extra_field", "key_member_auto_ban_renewal_show", "key_server_picpage_bear_sid", "key_live_bubble_remind_show_count", "key_live_top_float_remind_show_count", "key_hot_event_tip_show_time", "switch_immersive_sticky_status", "key_live_bubble_icon_cache_key", "key_live_gif_load_library_key", "key_big_imagecache_optimize_scale", "key_big_image_pre_page_limit", "privacy_common_param_android", "privacy_cookie_param_android", "privacy_mac_param_android"};
+        l = new String[0];
     }
 }

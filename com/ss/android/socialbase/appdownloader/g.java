@@ -4,10 +4,10 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class g {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String a;
         public String b;

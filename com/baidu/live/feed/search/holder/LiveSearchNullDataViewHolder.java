@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveSearchNullDataViewHolder extends RecyclerView.ViewHolder {
     public View a;
     public TextView b;
@@ -12,6 +12,6 @@ public class LiveSearchNullDataViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchNullDataViewHolder(View view2) {
         super(view2);
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092098);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920fa);
     }
 }

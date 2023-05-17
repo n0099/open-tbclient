@@ -1,19 +1,19 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.p5b;
-/* loaded from: classes9.dex */
-public enum NeverObservableHolder implements j5b.a<Object> {
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.n7b;
+/* loaded from: classes10.dex */
+public enum NeverObservableHolder implements h7b.a<Object> {
     INSTANCE;
     
-    public static final j5b<Object> NEVER = j5b.a(INSTANCE);
+    public static final h7b<Object> NEVER = h7b.a(INSTANCE);
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
-    public void call(p5b<? super Object> p5bVar) {
+    @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
+    public void call(n7b<? super Object> n7bVar) {
     }
 
-    public static <T> j5b<T> instance() {
-        return (j5b<T>) NEVER;
+    public static <T> h7b<T> instance() {
+        return (h7b<T>) NEVER;
     }
 }

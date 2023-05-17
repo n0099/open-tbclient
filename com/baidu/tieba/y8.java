@@ -1,93 +1,120 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class y8<T> {
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes8.dex */
+public class y8 {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
+    public static y8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a9<T> mContext;
-    public InputMethodManager mInputManager;
 
-    public y8(a9<T> a9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448321198, "Lcom/baidu/tieba/y8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448321198, "Lcom/baidu/tieba/y8;");
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public y8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.mContext = null;
-        this.mInputManager = null;
-        this.mContext = a9Var;
-    }
-
-    public void HidenSoftKeyPad(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            try {
-                if (this.mInputManager == null) {
-                    getInputMethodManager();
-                }
-                if (this.mInputManager != null && view2 != null) {
-                    this.mInputManager.hideSoftInputFromWindow(view2.getWindowToken(), 2);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void ShowSoftKeyPad(View view2) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            try {
-                getInputMethodManager().showSoftInput(view2, 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.getString("abtest_sap_data", "");
         }
+        return (String) invokeV.objValue;
     }
 
-    public void setInputMethodManager(InputMethodManager inputMethodManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
-            this.mInputManager = inputMethodManager;
-        }
-    }
-
-    public InputMethodManager getInputMethodManager() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mInputManager == null) {
-                this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
-            }
-            return this.mInputManager;
+            return a.getString("abtest_sap_version", "");
         }
-        return (InputMethodManager) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public a9<T> getPageContext() {
+    public Set<String> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mContext;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
         }
-        return (a9) invokeV.objValue;
+        return (Set) invokeV.objValue;
+    }
+
+    public static y8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (y8.class) {
+                if (b == null) {
+                    b = new y8();
+                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
+                }
+            }
+            return b;
+        }
+        return (y8) invokeV.objValue;
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return sharedPreferences.getString("abtest_" + str, "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            SharedPreferences.Editor edit = a.edit();
+            edit.putString("abtest_client_sample_version", str);
+            edit.apply();
+        }
     }
 }

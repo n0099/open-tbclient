@@ -2,7 +2,7 @@ package com.facebook.fresco.animation.bitmap.cache;
 
 import android.net.Uri;
 import com.facebook.cache.common.CacheKey;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimationFrameCacheKey implements CacheKey {
     public static final String URI_PREFIX = "anim://";
     public final String mAnimationUriString;

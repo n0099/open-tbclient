@@ -3,13 +3,13 @@ package com.facebook.drawee.drawable;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InstrumentedDrawable extends ForwardingDrawable {
     public boolean mIsChecked;
     public final Listener mListener;
     public final String mScaleType;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Listener {
         void track(int i, int i2, int i3, int i4, int i5, int i6, String str);
     }

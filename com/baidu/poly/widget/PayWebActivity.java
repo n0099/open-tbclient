@@ -21,8 +21,9 @@ import android.widget.ImageView;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lg1;
+import com.baidu.tieba.bh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PayWebActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public class PayWebActivity extends Activity {
     public String d;
     public Bundle e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +75,7 @@ public class PayWebActivity extends Activity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +189,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            lg1.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
+            bh1.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -217,7 +218,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith("cashier://closewindow")) {
-                lg1.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
+                bh1.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -225,7 +226,7 @@ public class PayWebActivity extends Activity {
                 return false;
             } else {
                 this.c = str.contains("weixin://");
-                Intent intent = new Intent("android.intent.action.VIEW");
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
                 intent.setData(Uri.parse(str));
                 startActivity(intent);
                 return true;
@@ -238,10 +239,10 @@ public class PayWebActivity extends Activity {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091197);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911d1);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092873);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f0928e3);
             this.a = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.a.setHorizontalScrollBarEnabled(false);
@@ -258,7 +259,7 @@ public class PayWebActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d004a);
+            setContentView(R.layout.obfuscated_res_0x7f0d004c);
             this.c = false;
             c();
             d();

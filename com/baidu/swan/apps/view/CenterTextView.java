@@ -9,7 +9,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CenterTextView extends TextView {
     public StaticLayout a;
     public TextPaint b;

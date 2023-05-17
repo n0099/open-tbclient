@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PvThread extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,6 +20,7 @@ public class PvThread extends Thread {
     public String mObjTp;
     public String mParam;
     public String mType;
+    public String pageName;
 
     public PvThread(String str) {
         Interceptable interceptable = $ic;
@@ -170,6 +172,10 @@ public class PvThread extends Thread {
             if (str4 != null) {
                 netWork.addPostData("obj_tp", str4);
             }
+            String str5 = this.pageName;
+            if (str5 != null) {
+                netWork.addPostData("page_type", str5);
+            }
             String postNetData = netWork.postNetData();
             System.out.println("pv_test !!!");
             if (postNetData != null) {
@@ -187,6 +193,13 @@ public class PvThread extends Thread {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public void setPageName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.pageName = str;
         }
     }
 }

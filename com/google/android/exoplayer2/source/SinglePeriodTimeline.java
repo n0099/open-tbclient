@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SinglePeriodTimeline extends Timeline {
     public static final Object ID = new Object();
     public final boolean isDynamic;

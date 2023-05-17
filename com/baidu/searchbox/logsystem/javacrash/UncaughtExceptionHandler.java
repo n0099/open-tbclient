@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.baidu.searchbox.logsystem.util.LLog;
 import java.lang.Thread;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class UncaughtExceptionHandler implements Thread.UncaughtExceptionHandler {
     public static final String TAG = "loki-java-UncaughtExceptionHandler";
     public Thread.UncaughtExceptionHandler mPreHandler;

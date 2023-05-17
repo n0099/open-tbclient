@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class JobScheduler {
     public static final String QUEUE_TIME_KEY = "queueTime";
     public final Executor mExecutor;
@@ -43,13 +43,13 @@ public class JobScheduler {
     @GuardedBy("this")
     public long mJobStartTime = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface JobRunnable {
         void run(EncodedImage encodedImage, int i);
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum JobState {
         IDLE,
         QUEUED,
@@ -58,7 +58,7 @@ public class JobScheduler {
     }
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
 
@@ -85,7 +85,7 @@ public class JobScheduler {
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class JobStartExecutorSupplier {
         public static ScheduledExecutorService sJobStarterExecutor;
 

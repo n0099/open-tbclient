@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.d7;
+import com.baidu.tieba.h7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class Vector3 implements Serializable, e<Vector3> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return ((((d7.a(this.x) + 31) * 31) + d7.a(this.y)) * 31) + d7.a(this.z);
+            return ((((h7.a(this.x) + 31) * 31) + h7.a(this.y)) * 31) + h7.a(this.z);
         }
         return invokeV.intValue;
     }
@@ -913,7 +913,7 @@ public class Vector3 implements Serializable, e<Vector3> {
                 return false;
             }
             Vector3 vector3 = (Vector3) obj;
-            if (d7.a(this.x) == d7.a(vector3.x) && d7.a(this.y) == d7.a(vector3.y) && d7.a(this.z) == d7.a(vector3.z)) {
+            if (h7.a(this.x) == h7.a(vector3.x) && h7.a(this.y) == h7.a(vector3.y) && h7.a(this.z) == h7.a(vector3.z)) {
                 return true;
             }
             return false;

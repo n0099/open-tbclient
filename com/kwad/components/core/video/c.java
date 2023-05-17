@@ -12,7 +12,7 @@ import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends a implements bg.a {
     public View Kr;
     public final bg Ks;

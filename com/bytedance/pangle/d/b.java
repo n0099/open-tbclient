@@ -1,10 +1,10 @@
 package com.bytedance.pangle.d;
 
 import com.bytedance.pangle.util.MethodUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static int a = 0;
         public static int b = 1;

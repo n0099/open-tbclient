@@ -1,79 +1,124 @@
 package com.baidu.tieba;
 
+import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IAlertManager;
-import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class bd1 {
+/* loaded from: classes4.dex */
+public class bd1 extends yc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static bd1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public gj1<IAlertManager> a;
+    public final TextView f;
+    public final TextView g;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ej1 b2 = ej1.b();
-            this.a = b2;
-            b2.a(new IAlertManager_AlertManager_Provider());
-        }
-    }
+    /* loaded from: classes4.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdBaseModel a;
+        public final /* synthetic */ bd1 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641018, "Lcom/baidu/tieba/bd1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(bd1 bd1Var, AdBaseModel adBaseModel) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bd1Var, adBaseModel};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947641018, "Lcom/baidu/tieba/bd1;");
-                return;
+            this.b = bd1Var;
+            this.a = adBaseModel;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ki0.c(this.a.h.d, this.b.getContext());
+                e21.b(new ClogBuilder().y(ClogBuilder.LogType.CLICK).i(ClogBuilder.Area.BUTTON).p(this.a.f.d));
+                qc1 qc1Var = this.b.d;
+                if (qc1Var != null) {
+                    qc1Var.b(this.a);
+                }
             }
         }
-        b = new bd1();
     }
 
-    public bd1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd1(int i, View view2) {
+        super(i, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
+        this.g = (TextView) a(R.id.feed_ad_operate_command_app_name);
+        this.f = (TextView) a(R.id.nad_feed_ad_operate_command_button);
+        k();
     }
 
-    public static bd1 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yc1
+    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel, nadExpressNaBaseView) == null) {
+            super.update(adBaseModel, nadExpressNaBaseView);
+            yc1.d(adBaseModel);
+            k();
+            String str = adBaseModel.h.b.a;
+            if (!TextUtils.isEmpty(str)) {
+                this.g.setText(str);
+                this.g.setVisibility(0);
+            } else {
+                this.g.setVisibility(8);
+            }
+            this.f.setText(adBaseModel.h.c);
+            if (!TextUtils.isEmpty(adBaseModel.h.d)) {
+                this.f.setVisibility(0);
+                this.f.setOnClickListener(new a(this, adBaseModel));
+                return;
+            }
+            this.f.setVisibility(8);
         }
-        return (bd1) invokeV.objValue;
     }
 
-    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
-            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !(b() instanceof AdBaseModel)) {
+            return;
         }
+        this.g.setTextColor(getResources().getColor(R.color.NAD_FC1));
+        this.f.setTextColor(getResources().getColor(R.color.NAD_FC13));
+        if (this.f.getBackground() instanceof GradientDrawable) {
+            ((GradientDrawable) this.f.getBackground()).setColor(getResources().getColor(R.color.NAD_GC52));
+            ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.NAD_GC53));
+            return;
+        }
+        this.f.setBackground(getResources().getDrawable(R.drawable.nad_progress_button_bg));
     }
 }

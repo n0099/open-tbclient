@@ -1,7 +1,7 @@
 package com.facebook.drawee.backends.pipeline.info;
 
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForwardingImagePerfDataListener implements ImagePerfDataListener {
     public final Collection<ImagePerfDataListener> mListeners;
 

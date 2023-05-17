@@ -3,19 +3,19 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.e78;
+import com.baidu.tieba.g88;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.MsgContentMergerImpl;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.o68;
+import com.baidu.tieba.w88;
+import com.baidu.tieba.wg;
+import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,15 +35,15 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001:\u0002\u0018\u0019B\u0013\u0012\f\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003¢\u0006\u0002\u0010\u0005JG\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000e0\r2'\u0010\u000f\u001a#\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020\u000e0\r¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u0013\u0012\u0004\u0012\u00020\t0\u0010H\u0016J,\u0010\u0014\u001a\b\u0012\u0004\u0012\u00020\u000e0\r2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\u0015\u001a\u00020\u00162\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rH\u0002J\b\u0010\u0017\u001a\u00020\tH\u0016R\u0014\u0010\u0002\u001a\b\u0012\u0004\u0012\u00020\u00040\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001a"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/MsgContentMergerImpl;", "Lcom/baidu/tbadk/module/alalivesdk/interfaces/MsgContentMerger;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/TbPageContext;)V", "request", "Lcom/baidu/tbadk/net/FastRequest;", "doMerge", "", "roomId", "", "oriMsgList", "", "Lcom/baidu/android/imsdk/chatmessage/messages/ChatMsg;", WebChromeClient.KEY_ARG_CALLBACK, "Lkotlin/Function1;", "Lkotlin/ParameterName;", "name", "mergedMsgList", "mergeContent", "result", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/MsgContentMergerImpl$Result;", MissionEvent.MESSAGE_DESTROY, "ChatRoomInitInfo", "Result", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes5.dex */
-public final class MsgContentMergerImpl implements ni5 {
+/* loaded from: classes6.dex */
+public final class MsgContentMergerImpl implements wj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> a;
     public FastRequest b;
 
     @Metadata(d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u000e\n\u0002\b\n\u0018\u00002\u00020\u00012\u00020\u0002B\u0015\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007R\u001e\u0010\u0003\u001a\u00020\u00048\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u001e\u0010\u0005\u001a\u00020\u00068\u0006@\u0006X\u0087\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000f¨\u0006\u0010"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/MsgContentMergerImpl$ChatRoomInitInfo;", "Lcom/baidu/adp/lib/OrmObject/toolsystem/orm/object/OrmObject;", "Ljava/io/Serializable;", "msgId", "", "msgKey", "", "(JLjava/lang/String;)V", "getMsgId", "()J", "setMsgId", "(J)V", "getMsgKey", "()Ljava/lang/String;", "setMsgKey", "(Ljava/lang/String;)V", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class ChatRoomInitInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,8 +106,8 @@ public final class MsgContentMergerImpl implements ni5 {
         }
     }
 
-    @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\b\u0082\b\u0018\u00002\u00020\u0001B1\u0012\u0014\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003\u0012\u0014\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003¢\u0006\u0002\u0010\u0007J\u0017\u0010\u000b\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003HÆ\u0003J\u0017\u0010\f\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003HÆ\u0003J9\u0010\r\u001a\u00020\u00002\u0016\b\u0002\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u00032\u0016\b\u0002\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003HÆ\u0001J\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0005HÖ\u0003J\t\u0010\u0011\u001a\u00020\u0012HÖ\u0001J\t\u0010\u0013\u001a\u00020\u0004HÖ\u0001R$\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR$\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\t¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/MsgContentMergerImpl$Result;", "Ljava/io/Serializable;", "userInfo", "", "", "", "msgInfo", "(Ljava/util/Map;Ljava/util/Map;)V", "getMsgInfo", "()Ljava/util/Map;", "getUserInfo", "component1", "component2", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, TTDownloadField.TT_HASHCODE, "", "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes5.dex */
+    @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010$\n\u0002\u0010\u000e\n\u0002\u0010\u0000\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\b\u0082\b\u0018\u00002\u00020\u0001B1\u0012\u0014\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003\u0012\u0014\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003¢\u0006\u0002\u0010\u0007J\u0017\u0010\u000b\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003HÆ\u0003J\u0017\u0010\f\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003HÆ\u0003J9\u0010\r\u001a\u00020\u00002\u0016\b\u0002\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u00032\u0016\b\u0002\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u0003HÆ\u0001J\u0013\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0005HÖ\u0003J\t\u0010\u0011\u001a\u00020\u0012HÖ\u0001J\t\u0010\u0013\u001a\u00020\u0004HÖ\u0001R$\u0010\u0006\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR$\u0010\u0002\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\t¨\u0006\u0014"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/repo/MsgContentMergerImpl$Result;", "Ljava/io/Serializable;", "userInfo", "", "", "", "msgInfo", "(Ljava/util/Map;Ljava/util/Map;)V", "getMsgInfo", "()Ljava/util/Map;", "getUserInfo", "component1", "component2", CommandUBCHelper.COMMAND_UBC_TYPE_COPY, "equals", "", "other", TTDownloadField.TT_HASHCODE, "", "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    /* loaded from: classes6.dex */
     public static final class Result implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +221,7 @@ public final class MsgContentMergerImpl implements ni5 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a extends FastRequest.b<Result> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public final class MsgContentMergerImpl implements ni5 {
                 super.b(i, errMsg, result);
                 final Function1<List<? extends ChatMsg>, Unit> function1 = this.b;
                 final List<ChatMsg> list = this.e;
-                ng.d(new Runnable() { // from class: com.baidu.tieba.w88
+                wg.d(new Runnable() { // from class: com.baidu.tieba.ra8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -308,7 +308,7 @@ public final class MsgContentMergerImpl implements ni5 {
                 final MsgContentMergerImpl msgContentMergerImpl = this.c;
                 final long j = this.d;
                 final List<ChatMsg> list = this.e;
-                ng.d(new Runnable() { // from class: com.baidu.tieba.v88
+                wg.d(new Runnable() { // from class: com.baidu.tieba.qa8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -349,12 +349,12 @@ public final class MsgContentMergerImpl implements ni5 {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             FastRequest fastRequest = this$0.b;
             if (fastRequest != null) {
-                fastRequest.X();
+                fastRequest.W();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ni5
+    @Override // com.baidu.tieba.wj5
     public void a(long j, List<? extends ChatMsg> oriMsgList, Function1<? super List<? extends ChatMsg>, Unit> callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), oriMsgList, callback}) == null) {
@@ -367,7 +367,7 @@ public final class MsgContentMergerImpl implements ni5 {
             for (ChatMsg chatMsg : oriMsgList) {
                 String senderUid = chatMsg.getSenderUid();
                 Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                arrayList.add(e78.b(senderUid));
+                arrayList.add(w88.b(senderUid));
             }
             ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(oriMsgList, 10));
             for (ChatMsg chatMsg2 : oriMsgList) {
@@ -378,14 +378,14 @@ public final class MsgContentMergerImpl implements ni5 {
             }
             FastRequest fastRequest = this.b;
             Intrinsics.checkNotNull(fastRequest);
-            fastRequest.W("chatroom_id", String.valueOf(j));
-            fastRequest.W("uks", DataExt.toJson(arrayList));
-            fastRequest.W("msgs", DataExt.toJson(arrayList2));
+            fastRequest.V("chatroom_id", String.valueOf(j));
+            fastRequest.V("uks", DataExt.toJson(arrayList));
+            fastRequest.V("msgs", DataExt.toJson(arrayList2));
             fastRequest.c0(2000);
-            fastRequest.Z(2000);
+            fastRequest.Y(2000);
             fastRequest.d0(1);
-            fastRequest.Y(new a(callback, this, j, oriMsgList));
-            ng.e(new Runnable() { // from class: com.baidu.tieba.x88
+            fastRequest.X(new a(callback, this, j, oriMsgList));
+            wg.e(new Runnable() { // from class: com.baidu.tieba.sa8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -426,7 +426,7 @@ public final class MsgContentMergerImpl implements ni5 {
                     if (userInfo != null) {
                         String senderUid = chatMsg.getSenderUid();
                         Intrinsics.checkNotNullExpressionValue(senderUid, "it.senderUid");
-                        obj2 = userInfo.get(e78.b(senderUid));
+                        obj2 = userInfo.get(w88.b(senderUid));
                     } else {
                         obj2 = null;
                     }
@@ -436,7 +436,7 @@ public final class MsgContentMergerImpl implements ni5 {
                     }
                     chatRoomContentExt = chatMsg.getChatRoomContentExt();
                 } catch (Exception e) {
-                    o68.g("merge_msg_content_exception", j, e);
+                    g88.g("merge_msg_content_exception", j, e);
                 }
                 if (chatRoomContentExt != null && chatRoomContentExt.length() != 0) {
                     z = false;
@@ -472,7 +472,7 @@ public final class MsgContentMergerImpl implements ni5 {
         return (List) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.ni5
+    @Override // com.baidu.tieba.wj5
     public void onDestroy() {
         FastRequest fastRequest;
         Interceptable interceptable = $ic;

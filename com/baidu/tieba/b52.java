@@ -1,55 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.tq2;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes3.dex */
-public class b52 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public final class b52 extends u42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String t;
+    public boolean u;
+    public boolean v;
+    public String w;
 
-    public static tq2.g a(us2 us2Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b52() {
+        super("animateview", "sanId");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, us2Var)) == null) {
-            File file = new File(Environment.getExternalStorageDirectory() + "/" + c52.d());
-            tq2.M(file, b(), us2Var);
-            bo4.j(file);
-            tq2.g gVar = new tq2.g();
-            File file2 = new File(b(), "app.json");
-            SwanAppConfigData c = SwanAppConfigData.c(bo4.E(file2), b());
-            gVar.a = b().getPath() + File.separator;
-            gVar.b = c;
-            x42.k("ADBDebugBundleHelper", "configFile path: " + file2.getPath() + " exist: " + file2.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
-        }
-        return (tq2.g) invokeL.objValue;
-    }
-
-    public static File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_adb_debug");
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return file;
         }
-        return (File) invokeV.objValue;
+        this.u = false;
+        this.v = true;
+        this.w = null;
     }
 
-    public static String c() {
+    @Override // com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("path");
+        this.u = jSONObject.optBoolean("loop");
+        this.v = jSONObject.optBoolean("autoPlay");
+        this.w = jSONObject.optString("action");
+    }
+
+    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_adb_debug";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (isValid() && !TextUtils.isEmpty(this.t)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

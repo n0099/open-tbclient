@@ -7,7 +7,7 @@ import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class gj implements gn {
     public String a;
 
@@ -82,7 +82,7 @@ public class gj implements gn {
         }
         Parcelable[] parcelableArr = new Parcelable[gjVarArr.length];
         for (int i = 0; i < gjVarArr.length; i++) {
-            parcelableArr[i] = gjVarArr[i].m446a();
+            parcelableArr[i] = gjVarArr[i].m465a();
         }
         return parcelableArr;
     }
@@ -114,12 +114,12 @@ public class gj implements gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m446a() {
+    public Parcelable m465a() {
         return a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m447a() {
+    public String m466a() {
         return this.a;
     }
 
@@ -154,7 +154,7 @@ public class gj implements gn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m448a(String str) {
+    public void m467a(String str) {
         if (!TextUtils.isEmpty(str)) {
             str = gx.a(str);
         }

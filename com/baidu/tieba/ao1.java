@@ -1,82 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes3.dex */
-public class ao1 implements rn1 {
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+/* loaded from: classes4.dex */
+public final class ao1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zn1 a;
-    public String b;
-    public yn1 c;
 
-    public ao1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rn1
-    public String a() {
+    public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn1
-    public void a(Context context, sn1 sn1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sn1Var) == null) {
-            this.a = new zn1(context);
-            if (b()) {
-                this.c = new yn1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.c);
-            }
-            if (sn1Var != null) {
-                sn1Var.a();
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            char[] cArr = new char[32];
             try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
+                char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+                for (int i = 0; i < 32; i++) {
+                    int nextInt = new SecureRandom().nextInt(62);
+                    if (nextInt >= 0 && nextInt < charArray.length) {
+                        cArr[i] = charArray[nextInt];
+                    }
+                }
+            } catch (Throwable th) {
+                po1.d(th);
             }
-            if ("1".equals(str)) {
-                return true;
-            }
-            return false;
+            return new String(cArr).getBytes();
         }
-        return invokeV.booleanValue;
+        return (byte[]) invokeV.objValue;
+    }
+
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr != null) {
+                try {
+                    if (bArr.length == 32 && bArr2 != null && bArr2.length != 0) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                        byte[] bArr3 = new byte[16];
+                        System.arraycopy(bArr, 8, bArr3, 0, 16);
+                        cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                        byte[] bArr4 = new byte[bArr2.length - 16];
+                        System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
+                        return cipher.doFinal(bArr4);
+                    }
+                } catch (Throwable th) {
+                    po1.d(th);
+                    return null;
+                }
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static zn1 c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length != 0) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                        byte[] bArr3 = new byte[16];
+                        System.arraycopy(bArr, 8, bArr3, 0, 16);
+                        cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                        byte[] doFinal = cipher.doFinal(bArr2);
+                        byte[] e = uo1.e(bArr2);
+                        byte[] bArr4 = new byte[doFinal.length + e.length];
+                        System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                        System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
+                        return new zn1(bArr, bArr4);
+                    }
+                } catch (Throwable th) {
+                    po1.d(th);
+                }
+            }
+            return null;
+        }
+        return (zn1) invokeLL.objValue;
     }
 }

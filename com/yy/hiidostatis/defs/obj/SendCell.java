@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SendCell {
     public static final String AES_KEY = "*&Hjkfa{{07";
     public static final int RANDOM_LEN = 10000;

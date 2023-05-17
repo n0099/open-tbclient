@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class uz8 {
+/* loaded from: classes7.dex */
+public class uz8 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragmentActivity a;
-    public View b;
+    public final String a;
+    public final String b;
+    public final String c;
 
-    public abstract void b();
-
-    public uz8(BaseFragmentActivity baseFragmentActivity, View view2) {
+    public uz8(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,21 +29,21 @@ public abstract class uz8 {
                 return;
             }
         }
-        this.a = baseFragmentActivity;
-        this.b = view2;
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    public void a() {
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b != null) {
-            b();
-        }
-    }
-
-    public void c(View view2, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, onClickListener) == null) && view2 != null) {
-            view2.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.run();
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
+            netWork.addPostData("tid", this.a);
+            netWork.addPostData("phonenum", this.b);
+            netWork.addPostData("optype", this.c);
+            netWork.postNetData();
         }
     }
 }

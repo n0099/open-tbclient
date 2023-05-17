@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am;
-import com.baidu.tieba.e35;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.n45;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class NewUserRewardDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class NewUserRewardDialogView extends LinearLayout {
     public TextView g;
     public final CustomMessageListener h;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class NewUserRewardDialogView extends LinearLayout {
             this.g = (TextView) findViewById(R.id.new_user_dialog_share);
             this.a.setKeepLastFrame(true);
             MessageManager.getInstance().registerListener(this.h);
-            this.b.setRoundLayoutRadius(e35.B(R.string.J_X06));
+            this.b.setRoundLayoutRadius(n45.B(R.string.J_X06));
         }
     }
 
@@ -172,12 +172,12 @@ public class NewUserRewardDialogView extends LinearLayout {
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);
             SkinManager.setImageResource(this.e, R.drawable.icon_use_close_n);
-            g35 d = g35.d(this.f);
+            p45 d = p45.d(this.f);
             d.m(R.dimen.L_X01);
             d.l(R.color.CAM_X0902);
             d.o(R.string.J_X01);
             d.w(R.color.CAM_X0105);
-            g35 d2 = g35.d(this.g);
+            p45 d2 = p45.d(this.g);
             d2.m(R.dimen.L_X01);
             d2.l(R.color.CAM_X0304);
             d2.o(R.string.J_X01);
@@ -220,13 +220,13 @@ public class NewUserRewardDialogView extends LinearLayout {
         this.d.setText(iconStampData.stampText);
         int i = iconStampData.stampType;
         if (i == 1) {
-            this.a.setSourcePath(am.b("post_1_times.mp4"));
+            this.a.setSourcePath(jm.b("post_1_times.mp4"));
         } else if (i == 2) {
-            this.a.setSourcePath(am.b("reply_1_times.mp4"));
+            this.a.setSourcePath(jm.b("reply_1_times.mp4"));
         } else if (i == 3) {
-            this.a.setSourcePath(am.b("post_7_times.mp4"));
+            this.a.setSourcePath(jm.b("post_7_times.mp4"));
         } else {
-            this.a.setSourcePath(am.b("reply_7_times.mp4"));
+            this.a.setSourcePath(jm.b("reply_7_times.mp4"));
         }
         this.a.play();
     }

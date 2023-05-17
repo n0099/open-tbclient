@@ -2,12 +2,13 @@ package com.baidu.platform.core.d;
 
 import android.util.Log;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +57,7 @@ public class e extends com.baidu.platform.base.e {
             if (poiDetailSearchOption.isExtendAdcode()) {
                 str = "true";
             } else {
-                str = "false";
+                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
             }
             aVar.a("extensions_adcode", str);
             this.a.a("output", "json");

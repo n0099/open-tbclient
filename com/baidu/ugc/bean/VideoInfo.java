@@ -2,7 +2,7 @@ package com.baidu.ugc.bean;
 
 import android.media.MediaMetadataRetriever;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoInfo implements Serializable {
     public int bitRate;
     public long cutDuration;

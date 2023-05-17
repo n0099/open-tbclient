@@ -1,110 +1,119 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class k4a {
+/* loaded from: classes6.dex */
+public class k4a extends TimePickerDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public p4a b;
-    public f4a c;
+    public int a;
+    public int b;
+    public boolean c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public p4a d;
-        public f4a e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = true;
-            this.c = 0;
-            this.d = null;
-            this.e = null;
-        }
-
-        public k4a d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                e();
-                return new k4a(this, null);
-            }
-            return (k4a) invokeV.objValue;
-        }
-
-        public final void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (TextUtils.isEmpty(this.a)) {
-                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-                }
-                if (this.c <= 0) {
-                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
-                }
-                if (this.d == null) {
-                    this.d = new p4a(this.c);
-                }
-                if (this.e == null) {
-                    this.e = new f4a(this.a);
-                }
-            }
-        }
-    }
-
-    public k4a(b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k4a(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
+        super(context, onTimeSetListener, i, i2, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String unused = bVar.a;
-        this.a = bVar.b;
-        int unused2 = bVar.c;
-        this.b = bVar.d;
-        this.c = bVar.e;
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
+        this.a = i;
+        this.b = i2;
     }
 
-    public /* synthetic */ k4a(b bVar, a aVar) {
-        this(bVar);
+    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
+    public void onClick(DialogInterface dialogInterface, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+            if (i == -1) {
+                this.c = true;
+            } else {
+                int i3 = this.a;
+                if (i3 >= 0 && (i2 = this.b) >= 0) {
+                    updateTime(i3, i2);
+                }
+            }
+            super.onClick(dialogInterface, i);
+        }
+    }
+
+    @Override // android.app.TimePickerDialog
+    public void updateTime(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.updateTime(i, i2);
+            this.a = i;
+            this.b = i2;
+            this.c = false;
+        }
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public void onRestoreInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onRestoreInstanceState(bundle);
+            updateTime(0, 0);
+            this.a = bundle.getInt("hour_key");
+            int i = bundle.getInt("min_key");
+            this.b = i;
+            updateTime(this.a, i);
+        }
+    }
+
+    @Override // android.app.TimePickerDialog, android.app.Dialog
+    public Bundle onSaveInstanceState() {
+        Bundle bundle;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                bundle = super.onSaveInstanceState();
+            } catch (Exception unused) {
+                bundle = null;
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            bundle.putInt("hour_key", this.a);
+            bundle.putInt("min_key", this.b);
+            return bundle;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.c) {
+                updateTime(this.a, this.b);
+            }
+            super.onStop();
+        }
     }
 }

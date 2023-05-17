@@ -16,14 +16,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.g15;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkcore.databinding.LayoutHeadlinesFrameCardBinding;
 import com.baidu.tieba.view.SimpleCountDownView;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.xz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000S\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004*\u0001\b\u0018\u00002\u00020\u0001B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0010\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0011H\u0002J\u0010\u0010\u0017\u001a\u00020\u00152\u0006\u0010\u0018\u001a\u00020\u0019H\u0002J\u0010\u0010\u001a\u001a\u00020\u00152\u0006\u0010\u001b\u001a\u00020\u001cH\u0002J\u0010\u0010\u001d\u001a\u00020\u00152\u0006\u0010\u001b\u001a\u00020\u001cH\u0002J\u0006\u0010\u001e\u001a\u00020\u0015J\u0010\u0010\u001f\u001a\u00020\u00152\b\u0010\u0018\u001a\u0004\u0018\u00010\u0019R\u0010\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\tR\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001e\u0010\f\u001a\u0012\u0012\u0004\u0012\u00020\u000e0\rj\b\u0012\u0004\u0012\u00020\u000e`\u000fX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0011X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006 "}, d2 = {"Lcom/baidu/tieba/view/CustomFitFrameCard;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "adapter", "com/baidu/tieba/view/CustomFitFrameCard$adapter$1", "Lcom/baidu/tieba/view/CustomFitFrameCard$adapter$1;", "binding", "Lcom/baidu/tieba/tbadkcore/databinding/LayoutHeadlinesFrameCardBinding;", "headUrls", "Ljava/util/ArrayList;", "", "Lkotlin/collections/ArrayList;", "headViewPadding", "", "headViewSize", "headViewStroke", "changeAutoSwitchVisibility", "", RemoteMessageConst.Notification.VISIBILITY, "fillBackgroundCard", "data", "Lcom/baidu/tbadk/core/data/AbsThreadDataSupport;", "fillCountDownFinishView", "rewardCardData", "Lcom/baidu/tbadk/core/data/RewardCardData;", "fillHeadViews", "onChangeSkin", "setData", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class CustomFitFrameCard extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class a implements TbImageAutoSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,7 +150,7 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class b implements SimpleCountDownView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,9 +208,9 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         LayoutHeadlinesFrameCardBinding b2 = LayoutHeadlinesFrameCardBinding.b(LayoutInflater.from(context), this);
         Intrinsics.checkNotNullExpressionValue(b2, "inflate(LayoutInflater.from(context), this)");
         this.a = b2;
-        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
-        this.c = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.d = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds62);
+        this.c = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.d = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
         this.e = new ArrayList<>();
         this.f = new a(context, this);
         TbImageAutoSwitch tbImageAutoSwitch = this.a.c;
@@ -246,31 +246,31 @@ public final class CustomFitFrameCard extends ConstraintLayout {
             if (drawable != null) {
                 this.a.b.setPlaceHolderDrawable(drawable);
             }
-            g35.d(this.a.e).w(R.color.CAM_X0101);
-            g35.d(this.a.g).w(R.color.CAM_X0101);
+            p45.d(this.a.e).w(R.color.CAM_X0101);
+            p45.d(this.a.g).w(R.color.CAM_X0101);
             this.a.f.j();
         }
     }
 
-    public final void i(ax4 ax4Var) {
+    public final void i(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy4Var) == null) {
             ConstraintSet constraintSet = new ConstraintSet();
             constraintSet.clone(this);
-            constraintSet.setDimensionRatio(R.id.background_card, ax4Var.getThreadData().getTaskInfoData().a());
+            constraintSet.setDimensionRatio(R.id.background_card, jy4Var.getThreadData().getTaskInfoData().a());
             constraintSet.applyTo(this);
             TbImage tbImage = this.a.b;
-            String m = ax4Var.getThreadData().getTaskInfoData().m();
+            String m = jy4Var.getThreadData().getTaskInfoData().m();
             Intrinsics.checkNotNullExpressionValue(m, "data.threadData.taskInfoData.threadImgUrl");
             tbImage.k(m);
         }
     }
 
-    public final void j(xz4 xz4Var) {
+    public final void j(g15 g15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xz4Var) == null) {
-            this.a.g.setText(xz4Var.c());
-            long g = gg.g(xz4Var.d(), 0L) * 1000;
+        if (interceptable == null || interceptable.invokeL(1048579, this, g15Var) == null) {
+            this.a.g.setText(g15Var.c());
+            long g = pg.g(g15Var.d(), 0L) * 1000;
             if (g <= System.currentTimeMillis()) {
                 this.a.g.setVisibility(0);
                 this.a.f.setVisibility(8);
@@ -280,28 +280,28 @@ public final class CustomFitFrameCard extends ConstraintLayout {
         }
     }
 
-    public final void l(xz4 xz4Var) {
+    public final void l(g15 g15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xz4Var) == null) {
-            if (ListUtils.isEmpty(xz4Var.e())) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, g15Var) == null) {
+            if (ListUtils.isEmpty(g15Var.e())) {
                 h(8);
                 return;
             }
             this.e.clear();
-            this.e.addAll(xz4Var.e());
+            this.e.addAll(g15Var.e());
             h(0);
             this.a.c.p();
-            if (!TextUtils.isEmpty(xz4Var.m())) {
-                this.a.e.setText(xz4Var.m());
+            if (!TextUtils.isEmpty(g15Var.m())) {
+                this.a.e.setText(g15Var.m());
             }
         }
     }
 
-    public final void setData(ax4 ax4Var) {
+    public final void setData(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, ax4Var) == null) && ax4Var != null && ax4Var.getThreadData() != null && ax4Var.getThreadData().getTaskInfoData() != null && ax4Var.getThreadData().getTaskInfoData().f() != null) {
-            xz4 rewardCardData = ax4Var.getThreadData().getTaskInfoData().f();
-            i(ax4Var);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, jy4Var) == null) && jy4Var != null && jy4Var.getThreadData() != null && jy4Var.getThreadData().getTaskInfoData() != null && jy4Var.getThreadData().getTaskInfoData().f() != null) {
+            g15 rewardCardData = jy4Var.getThreadData().getTaskInfoData().f();
+            i(jy4Var);
             Intrinsics.checkNotNullExpressionValue(rewardCardData, "rewardCardData");
             l(rewardCardData);
             j(rewardCardData);

@@ -1,5 +1,5 @@
 package com.baidu.pass.face.platform.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageInfo {
     public String base64;
     public String secBase64;

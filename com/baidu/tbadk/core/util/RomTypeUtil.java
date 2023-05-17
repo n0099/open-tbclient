@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.ni;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RomTypeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
@@ -30,7 +30,7 @@ public class RomTypeUtil {
     public static final String ROM_SMARTISAN = "SMARTISAN";
     public static final String ROM_VIVO = "VIVO";
     public static final String TAG = "Rom";
-    public static ni permissionUtil;
+    public static wi permissionUtil;
     public static String sName;
     public static String sVersion;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class RomTypeUtil {
                                     sName = "FLYME";
                                 } else {
                                     sVersion = "unknown";
-                                    sName = ki.f().toUpperCase();
+                                    sName = ti.f().toUpperCase();
                                 }
                             }
                         }
@@ -211,10 +211,10 @@ public class RomTypeUtil {
         }
     }
 
-    public static void setPermissionUtil(ni niVar) {
+    public static void setPermissionUtil(wi wiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, niVar) == null) {
-            permissionUtil = niVar;
+        if (interceptable == null || interceptable.invokeL(65545, null, wiVar) == null) {
+            permissionUtil = wiVar;
         }
     }
 }

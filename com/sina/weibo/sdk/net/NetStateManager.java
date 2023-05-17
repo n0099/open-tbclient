@@ -11,6 +11,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetStateManager {
     public static /* synthetic */ Interceptable $ic;
     public static NetState CUR_NETSTATE;
@@ -27,7 +28,7 @@ public class NetStateManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NetState {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -94,7 +95,7 @@ public class NetStateManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class NetStateReceive extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +124,7 @@ public class NetStateManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 Context unused = NetStateManager.mContext = context;
-                if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
+                if (NetworkMonitor.NET_CHANGE_ACTION.equals(intent.getAction())) {
                     WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
                     if (!wifiManager.isWifiEnabled() || -1 == connectionInfo.getNetworkId()) {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ForumRecommend.HotSearch;
 import tbclient.ForumRecommend.SearchValue;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -48,7 +48,7 @@ public class HotSearchInfoData extends OrmObject {
         return invokeV.longValue;
     }
 
-    public void W(HotSearch hotSearch) {
+    public void V(HotSearch hotSearch) {
         SearchValue searchValue;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotSearch) == null) && hotSearch != null && (searchValue = hotSearch.search_value) != null) {
@@ -60,7 +60,7 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void X(String str) {
+    public void W(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.a = str;

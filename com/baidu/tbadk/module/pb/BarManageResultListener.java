@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BarManageResultListener extends SimpleMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class OptType {
         public static final /* synthetic */ OptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,10 +176,10 @@ public class BarManageResultListener extends SimpleMessageListener {
         }
     }
 
-    public static void i(@NonNull a aVar) {
+    public static void g(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, aVar) == null) {
-            SimpleMessageListener.g(2001458, aVar);
+            SimpleMessageListener.f(2001458, aVar);
         }
     }
 }

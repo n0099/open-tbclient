@@ -1,30 +1,90 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-/* loaded from: classes6.dex */
-public final class w40 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class w40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public w40() {
+        this(0L);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    public static byte[] b() {
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 100, 94, -104, -80, 110, -17, 90, -115, -74, ExifInterface.MARKER_SOF14, ExifInterface.MARKER_SOF9, -126, 108} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
     }
 
-    public static byte[] c() {
-        InterceptResult invokeV;
+    public w40(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 119, -83, -69, -18, 61, 26, -35, -20, -72, 122, -96, 104, -5, 85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -36, 87, ExifInterface.MARKER_SOF14, 15, 50, -93, 80, Byte.MIN_VALUE, 71, 110, 96, 98, 3, 58, -44, 100, 86, 115, 122, -21, -15, 126, 85, -98, -93, 117, -30, 94, ExifInterface.MARKER_SOF15, ExifInterface.MARKER_SOF11, -45, ExifInterface.MARKER_SOF9, -76, 78, 117, 71, -32, -29, -30, 104, 120, -121, -9, 54, 4, 26, -98, -73, -9, -67, 94} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = j;
+    }
+
+    public long a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return j & this.a;
+        }
+        return invokeJ.longValue;
+    }
+
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.a = j;
+        }
+    }
+
+    public boolean c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = this.a;
+            long j4 = (j & j2) | ((~j2) & j3);
+            this.a = j4;
+            if ((j4 ^ j3) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 }

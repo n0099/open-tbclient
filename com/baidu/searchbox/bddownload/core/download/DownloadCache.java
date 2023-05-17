@@ -11,7 +11,7 @@ import com.baidu.searchbox.bddownload.core.exception.ServerCanceledException;
 import com.baidu.searchbox.bddownload.core.file.MultiPointOutputStream;
 import java.io.IOException;
 import java.net.SocketException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadCache {
     public volatile boolean fileBusyAfterRun;
     public final MultiPointOutputStream outputStream;
@@ -23,7 +23,7 @@ public class DownloadCache {
     public volatile boolean unknownError;
     public volatile boolean userCanceled;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PreError extends DownloadCache {
         public PreError(IOException iOException) {
             super(null);

@@ -2,6 +2,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.jvm;
 
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.vivo.push.PushClientConstants;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -10,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import kotlin.reflect.jvm.internal.impl.builtins.PrimitiveType;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum JvmPrimitiveType {
     BOOLEAN(PrimitiveType.BOOLEAN, "boolean", "Z", "java.lang.Boolean"),
     CHAR(PrimitiveType.CHAR, "char", "C", "java.lang.Character"),
@@ -124,12 +125,12 @@ public enum JvmPrimitiveType {
                             break;
                     }
                 } else {
-                    objArr[1] = "get";
+                    objArr[1] = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
                 }
                 switch (i) {
                     case 1:
                     case 3:
-                        objArr[2] = "get";
+                        objArr[2] = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
                         break;
                     case 2:
                     case 4:
@@ -171,7 +172,7 @@ public enum JvmPrimitiveType {
             }
             if (i == 2) {
             }
-            objArr[1] = "get";
+            objArr[1] = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
             switch (i) {
             }
             String format2 = String.format(str, objArr);
@@ -190,7 +191,7 @@ public enum JvmPrimitiveType {
             }
             if (i == 2) {
             }
-            objArr[1] = "get";
+            objArr[1] = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
             switch (i) {
             }
             String format22 = String.format(str, objArr);
@@ -204,7 +205,7 @@ public enum JvmPrimitiveType {
         }
         if (i == 2) {
         }
-        objArr[1] = "get";
+        objArr[1] = CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE;
         switch (i) {
         }
         String format222 = String.format(str, objArr);

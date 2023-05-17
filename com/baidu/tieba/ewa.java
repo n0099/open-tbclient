@@ -1,115 +1,91 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-/* loaded from: classes4.dex */
-public class ewa extends wva {
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+/* loaded from: classes5.dex */
+public class ewa implements KsFullScreenVideoAd.FullScreenVideoAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedHashMap<Long, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int d;
-    public Thread e;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsFullScreenVideoAd c;
+    public final /* synthetic */ dwa d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947750138, "Lcom/baidu/tieba/ewa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947750138, "Lcom/baidu/tieba/ewa;");
-                return;
-            }
-        }
-        f = new LinkedHashMap<>();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ewa(Thread thread, int i, long j) {
-        super(j);
+    public ewa(dwa dwaVar, KsFullScreenVideoAd ksFullScreenVideoAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = 100;
-        this.e = thread;
-        this.d = i;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ewa(Thread thread, long j) {
-        this(thread, 100, j);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {dwaVar, ksFullScreenVideoAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = dwaVar;
+        this.c = ksFullScreenVideoAd;
     }
 
-    @Override // com.baidu.tieba.wva
-    public void b() {
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
-                sb.append(stackTraceElement.toString());
-                sb.append("\r\n");
-            }
-            synchronized (f) {
-                if (f.size() == this.d && this.d > 0) {
-                    f.remove(f.keySet().iterator().next());
-                }
-                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
-            }
+            LogPrinter.d();
+            this.d.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
         }
     }
 
-    public ArrayList<String> e(long j, long j2) {
-        InterceptResult invokeCommon;
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            synchronized (f) {
-                for (Long l : f.keySet()) {
-                    if (j < l.longValue() && l.longValue() < j2) {
-                        arrayList.add(fwa.x.format(l) + "\r\n\r\n" + f.get(l));
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
-        return (ArrayList) invokeCommon.objValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onSkippedVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.d.onAdError(this.c, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFullScreenVideoAd.FullScreenVideoAdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+        }
     }
 }

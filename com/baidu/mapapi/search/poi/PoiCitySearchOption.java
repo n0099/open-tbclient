@@ -1,7 +1,7 @@
 package com.baidu.mapapi.search.poi;
 
 import com.baidu.mapapi.search.base.LanguageType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PoiCitySearchOption {
     public String mCity = null;
     public String mKeyword = null;

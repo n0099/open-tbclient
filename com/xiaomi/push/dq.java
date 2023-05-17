@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.xiaomi.push.aj;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class dq {
     public static volatile dq a;
 
@@ -14,7 +14,7 @@ public class dq {
     /* renamed from: a  reason: collision with other field name */
     public a f234a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
@@ -44,7 +44,7 @@ public class dq {
             if (z) {
                 ajVar.a((aj.a) duVar, a(baVar.a(hm.UploadFrequency.a(), 86400)));
             } else {
-                ajVar.m180a((aj.a) duVar);
+                ajVar.m199a((aj.a) duVar);
             }
         }
     }
@@ -78,7 +78,7 @@ public class dq {
             int a4 = a(a3.a(hm.StorageCollectionFrequency.a(), 86400));
             a2.a(new dt(this.f233a, a4), a4, 0);
         }
-        if (j.m632a(this.f233a) && (aVar = this.f234a) != null) {
+        if (j.m651a(this.f233a) && (aVar = this.f234a) != null) {
             aVar.a();
         }
         if (a3.a(hm.ActivityTSSwitch.a(), false)) {
@@ -88,7 +88,7 @@ public class dq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m285a() {
+    public void m304a() {
         aj.a(this.f233a).a(new dr(this));
     }
 }

@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HlsChunkSource {
     public final DataSource encryptionDataSource;
     public byte[] encryptionIv;
@@ -45,7 +45,7 @@ public class HlsChunkSource {
     public TrackSelection trackSelection;
     public final HlsMasterPlaylist.HlsUrl[] variants;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class EncryptionKeyChunk extends DataChunk {
         public final String iv;
         public byte[] result;
@@ -65,7 +65,7 @@ public class HlsChunkSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class HlsChunkHolder {
         public Chunk chunk;
         public boolean endOfStream;
@@ -82,7 +82,7 @@ public class HlsChunkSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InitializationTrackSelection extends BaseTrackSelection {
         public int selectedIndex;
 

@@ -5,17 +5,17 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ig9;
+import com.baidu.tieba.ki9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScreenLockNotifyService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ig9 mLockReceiver;
+    public ki9 mLockReceiver;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
@@ -57,7 +57,7 @@ public class ScreenLockNotifyService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onCreate();
-            this.mLockReceiver = new ig9();
+            this.mLockReceiver = new ki9();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.SCREEN_ON");
             intentFilter.addAction("android.intent.action.SCREEN_OFF");

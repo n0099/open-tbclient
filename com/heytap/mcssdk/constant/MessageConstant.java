@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MessageConstant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface CommandId {
         public static final int COMMAND_APP_NOTIFICATION_CLOSE = 12317;
         public static final int COMMAND_APP_NOTIFICATION_GET = 12318;
@@ -38,7 +38,7 @@ public class MessageConstant {
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface MessageType {
         public static final int MESSAGE_ALARM = 4100;
         public static final int MESSAGE_APP = 4098;

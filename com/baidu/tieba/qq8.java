@@ -1,21 +1,31 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public View a;
+    public TailData b;
+    public TextView c;
+    public TextView d;
+    public Context e;
+    public String f;
 
     public qq8() {
         Interceptable interceptable = $ic;
@@ -27,52 +37,102 @@ public class qq8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = null;
     }
 
-    public int a() {
+    public TailData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return (TailData) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public void a(TbPageContext<?> tbPageContext) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            d(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            try {
-                this.a = jSONObject.optInt("errno");
-                this.b = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            hx4 layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
             }
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
+            d(this.f);
         }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+            this.c.setTextColor(er8.a(str));
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.e, fr8.a(str), null));
+        }
+    }
+
+    public void f(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void g(Boolean bool) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
+            TextView textView = this.d;
+            if (bool.booleanValue()) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
+            this.b = tailData;
+            e(tailData.getContent());
+            d(tailData.getFontColor());
+        }
+    }
+
+    public View b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090b, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092316);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092315);
+            this.d = textView;
+            textView.setTag(this);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
     }
 }

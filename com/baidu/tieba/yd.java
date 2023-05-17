@@ -1,182 +1,119 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Parcelable;
-import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.squareup.wire.Message;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class yd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0150 */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: java.io.ObjectOutputStream */
-    /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: java.io.ObjectOutputStream */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:144:0x0175 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final ed a(Object obj) {
-        InterceptResult invokeL;
-        ObjectOutputStream objectOutputStream;
-        Exception e;
+    public static final List<Object> a(ae aeVar, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
-            ObjectOutputStream objectOutputStream2 = 0;
-            if (obj == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, aeVar, i)) == null) {
+            Class<?> a = aeVar.a();
+            if (a != List.class && a != ArrayList.class) {
+                if (a == LinkedList.class) {
+                    return new LinkedList();
+                }
+                Object h = hc.h(a, i);
+                if (h == null) {
+                    h = hc.g(a);
+                }
+                if (h instanceof List) {
+                    return (List) h;
+                }
                 return null;
             }
-            if (obj instanceof Boolean) {
-                return new yc(((Boolean) obj).booleanValue());
-            }
-            if (obj instanceof Bundle) {
-                return new zc((Bundle) obj);
-            }
-            if (obj instanceof Byte) {
-                return new ad(((Byte) obj).byteValue());
-            }
-            if (obj instanceof Character) {
-                return new bd(((Character) obj).charValue());
-            }
-            if (obj instanceof Double) {
-                return new cd(((Double) obj).doubleValue());
-            }
-            if (obj instanceof Float) {
-                return new dd(((Float) obj).floatValue());
-            }
-            if (obj instanceof Integer) {
-                return new fd(((Integer) obj).intValue());
-            }
-            if (obj instanceof JSONArray) {
-                return new gd((JSONArray) obj);
-            }
-            if (obj instanceof JSONObject) {
-                return new hd((JSONObject) obj);
-            }
-            if (obj instanceof Long) {
-                return new jd(((Long) obj).longValue());
-            }
-            if (obj instanceof Short) {
-                return new pd(((Short) obj).shortValue());
-            }
-            if (obj instanceof String) {
-                return new rd((String) obj);
-            }
-            if (obj instanceof SparseArray) {
-                return new qd((SparseArray) obj);
-            }
-            if (obj instanceof List) {
-                return new id((List) obj);
-            }
-            if (obj instanceof Queue) {
-                return new nd((Queue) obj);
-            }
-            if (obj instanceof Set) {
-                return new od((Set) obj);
-            }
-            if (obj instanceof Map) {
-                return new kd((Map) obj);
-            }
-            if (obj instanceof Message) {
-                return new md((Message) obj);
-            }
-            if (obj.getClass().isArray()) {
-                return new xc(obj);
-            }
-            if (obj instanceof CharSequence) {
-                return new rd(((CharSequence) obj).toString());
-            }
-            if (obj instanceof Serializable) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                try {
-                    try {
-                        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                        try {
-                            objectOutputStream.writeObject(obj);
-                            objectOutputStream.flush();
-                            xc xcVar = new xc(byteArrayOutputStream.toByteArray());
-                            try {
-                                objectOutputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                            return xcVar;
-                        } catch (Exception e4) {
-                            e = e4;
-                            e.printStackTrace();
-                            ld ldVar = new ld(obj);
-                            if (objectOutputStream != null) {
-                                try {
-                                    objectOutputStream.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
-                                }
-                            }
-                            try {
-                                byteArrayOutputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
-                            }
-                            return ldVar;
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        objectOutputStream2 = interceptable;
-                        if (objectOutputStream2 != 0) {
-                            try {
-                                objectOutputStream2.close();
-                            } catch (IOException e7) {
-                                e7.printStackTrace();
-                            }
-                        }
-                        try {
-                            byteArrayOutputStream.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e9) {
-                    objectOutputStream = null;
-                    e = e9;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (objectOutputStream2 != 0) {
-                    }
-                    byteArrayOutputStream.close();
-                    throw th;
-                }
-            } else if (obj instanceof IBinder) {
-                return new ld(obj);
-            } else {
-                if (obj instanceof Parcelable) {
-                    return new ld(obj);
-                }
-                return new ld(obj);
-            }
-        } else {
-            return (ed) invokeL.objValue;
+            return new ArrayList(i);
         }
+        return (List) invokeLI.objValue;
+    }
+
+    public static final Queue<Object> c(ae aeVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, aeVar, i)) == null) {
+            Class<?> a = aeVar.a();
+            if (a == Queue.class) {
+                return new LinkedList();
+            }
+            Object h = hc.h(a, i);
+            if (h == null) {
+                h = hc.g(a);
+            }
+            if (h instanceof Queue) {
+                return (Queue) h;
+            }
+            return null;
+        }
+        return (Queue) invokeLI.objValue;
+    }
+
+    public static final Set<Object> d(ae aeVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aeVar, i)) == null) {
+            Class<?> a = aeVar.a();
+            if (a == Set.class) {
+                return new HashSet();
+            }
+            Object h = hc.h(a, i);
+            if (h == null) {
+                h = hc.g(a);
+            }
+            if (h instanceof Set) {
+                return (Set) h;
+            }
+            return null;
+        }
+        return (Set) invokeLI.objValue;
+    }
+
+    public static final Map<String, Object> b(ae aeVar, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, aeVar, i)) == null) {
+            Class<?> a = aeVar.a();
+            Type[] b = aeVar.b();
+            if (!hc.e(a, Map.class)) {
+                return null;
+            }
+            if (b != null && b.length >= 2 && b[0] == String.class) {
+                if (a == Map.class) {
+                    return new HashMap(i);
+                }
+                Object h = hc.h(a, i);
+                if (h == null) {
+                    h = hc.g(a);
+                }
+                if (!(h instanceof Map)) {
+                    return null;
+                }
+                return (Map) h;
+            } else if (a == Map.class) {
+                return new HashMap(i);
+            } else {
+                Object h2 = hc.h(a, i);
+                if (h2 == null) {
+                    h2 = hc.g(a);
+                }
+                if (!(h2 instanceof Map)) {
+                    return null;
+                }
+                return (Map) h2;
+            }
+        }
+        return (Map) invokeLI.objValue;
     }
 }

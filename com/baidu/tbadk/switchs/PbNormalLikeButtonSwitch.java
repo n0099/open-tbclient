@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbNormalLikeButtonSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public static final PbNormalLikeButtonSwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public final String SWITCH_NAME;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

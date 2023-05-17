@@ -1,7 +1,7 @@
 package com.baidu.live.business.model;
 
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestUtil {
     public static final int ORI_STATE = 1;
     public static final int REFRESH_TYPE_BIG = 0;

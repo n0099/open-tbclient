@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.kwad.components.ad.reward.l;
 import com.kwad.sdk.core.imageloader.KSImageLoader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class l extends d implements View.OnClickListener {
     public TextView eQ;
     public ImageView nC;
@@ -27,18 +27,18 @@ public final class l extends d implements View.OnClickListener {
     public l(DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
         this.vf = dialogFragment;
         this.nf = aVar;
-        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d047b, viewGroup, false);
+        this.nL = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0498, viewGroup, false);
         initView();
     }
 
     private void initView() {
-        this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f09126a);
-        this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09126f);
-        this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f09126e);
-        this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f09126d);
-        this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f09126b);
-        this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f09126c);
-        this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f091270);
+        this.vy = this.nL.findViewById(R.id.obfuscated_res_0x7f0912a5);
+        this.eQ = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912aa);
+        this.nC = (ImageView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912a9);
+        this.vz = (TextView) this.nL.findViewById(R.id.obfuscated_res_0x7f0912a8);
+        this.vj = this.nL.findViewById(R.id.obfuscated_res_0x7f0912a6);
+        this.vB = this.nL.findViewById(R.id.obfuscated_res_0x7f0912a7);
+        this.vA = this.nL.findViewById(R.id.obfuscated_res_0x7f0912ab);
         this.vy.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.vB.setOnClickListener(this);
@@ -46,11 +46,11 @@ public final class l extends d implements View.OnClickListener {
     }
 
     public final void a(l.c cVar) {
-        KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cb6));
+        KSImageLoader.loadCircleIcon(this.nC, cVar.eL(), this.nL.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de6));
         String title = cVar.getTitle();
         if (this.eQ != null && title != null) {
             SpannableString spannableString = new SpannableString(title);
-            int color = fR().getResources().getColor(R.color.obfuscated_res_0x7f060625);
+            int color = fR().getResources().getColor(R.color.obfuscated_res_0x7f06078d);
             spannableString.setSpan(new ForegroundColorSpan(color), 2, 4, 18);
             ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
             int length = title.length();

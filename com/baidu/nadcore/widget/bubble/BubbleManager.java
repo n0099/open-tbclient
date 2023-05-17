@@ -1,41 +1,41 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import com.baidu.tieba.lb1;
-import com.baidu.tieba.lj0;
-import com.baidu.tieba.mb1;
-import com.baidu.tieba.ob1;
-/* loaded from: classes2.dex */
-public class BubbleManager extends ob1 implements View.OnClickListener {
+import com.baidu.tieba.bc1;
+import com.baidu.tieba.bk0;
+import com.baidu.tieba.cc1;
+import com.baidu.tieba.ec1;
+/* loaded from: classes3.dex */
+public class BubbleManager extends ec1 implements View.OnClickListener {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BubbleStyle {
         TextOnly,
         TextWithJumpArrow
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a();
+        void onAnchorClick();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void a();
+        void onBubbleClick();
 
-        void b();
+        void onBubbleDismiss();
 
-        void c();
+        void onBubbleShow();
     }
 
     public static <T> T t(Class<T> cls) {
-        if (cls != mb1.class && cls != lb1.class) {
+        if (cls != cc1.class && cls != bc1.class) {
             return null;
         }
         try {
             return cls.newInstance();
         } catch (Exception e) {
-            lj0.b("BubbleManager", "", e);
+            bk0.b(com.baidu.searchbox.ui.bubble.BubbleManager.TAG, "", e);
             return null;
         }
     }

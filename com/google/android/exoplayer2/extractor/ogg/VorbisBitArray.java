@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.extractor.ogg;
 
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class VorbisBitArray {
     public int bitOffset;
     public final int byteLimit;

@@ -1,7 +1,7 @@
 package com.google.android.gms.common.config;
 
 import com.google.android.gms.common.internal.Preconditions;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class zzb extends GservicesValue<Long> {
     public zzb(String str, Long l) {
         super(str, l);

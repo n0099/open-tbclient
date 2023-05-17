@@ -4,7 +4,7 @@ import android.view.KeyEvent;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputConnectionWrapper;
 import com.tencent.open.log.SLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a extends InputConnectionWrapper {
     public static String a;
     public static boolean b;

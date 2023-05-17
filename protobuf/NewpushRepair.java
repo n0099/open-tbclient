@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NewpushRepair extends Message {
     public static final String DEFAULT_FOLLOWTYPE = "";
     public static final List<NewpushGroupRepair> DEFAULT_GROUPS = Collections.emptyList();
@@ -13,7 +13,7 @@ public final class NewpushRepair extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<NewpushGroupRepair> groups;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<NewpushRepair> {
         public String followType;
         public List<NewpushGroupRepair> groups;

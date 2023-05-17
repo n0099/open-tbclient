@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.dj8;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class YunDialogLog {
     public static final /* synthetic */ YunDialogLog[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final YunDialogLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dj8 instance;
+    public final yk8 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class YunDialogLog {
         $VALUES = new YunDialogLog[]{yunDialogLog};
     }
 
-    public static dj8 getInstance() {
+    public static yk8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (dj8) invokeV.objValue;
+        return (yk8) invokeV.objValue;
     }
 
     public static YunDialogLog[] values() {
@@ -72,7 +72,7 @@ public final class YunDialogLog {
                 return;
             }
         }
-        this.instance = new dj8("dialog");
+        this.instance = new yk8("dialog");
     }
 
     public static YunDialogLog valueOf(String str) {

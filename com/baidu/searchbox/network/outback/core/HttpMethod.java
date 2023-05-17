@@ -1,7 +1,7 @@
 package com.baidu.searchbox.network.outback.core;
 
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class HttpMethod {
     public static boolean permitsRequestBody(String str) {
         if (!str.equals("GET") && !str.equals("HEAD")) {

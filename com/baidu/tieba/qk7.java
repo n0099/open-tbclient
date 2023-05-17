@@ -1,41 +1,51 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.util.SparseArray;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.entelechy.view.EntelechyPullUpRefreshView;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.KeyEventDealContainerView;
+import com.baidu.tbadk.core.view.MorePopupWindow;
+import com.baidu.tieba.frs.tab.HorizontalTabView;
+import com.baidu.tieba.frs.tab.TabItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qk7 implements kb7, bj7 {
+/* loaded from: classes7.dex */
+public class qk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public NoPressedRelativeLayout b;
-    public TbImageView c;
-    public Animation d;
-    public Animation e;
-    public int f;
-    public boolean g;
-    public LinearLayout h;
-    public EntelechyPullUpRefreshView i;
-    public EntelechyPullUpRefreshView j;
-    public boolean k;
-    public View.OnClickListener l;
+    public LinearLayout a;
+    public ba7 b;
+    public MorePopupWindow c;
+    public View d;
+    public SparseArray<mk7> e;
+    public Context f;
+    public mk7 g;
+    public e h;
+    public d i;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
+    public interface d {
+        void a(TabItemView tabItemView);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(int i);
+    }
+
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,40 +72,31 @@ public class qk7 implements kb7, bj7 {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a == null) {
-                return;
-            }
-            if (view2 == this.a.i) {
-                TiebaStatic.eventStat(this.a.a.getPageContext().getPageActivity(), "frs_refresh", "frsclick", 1, new Object[0]);
-                if (!this.a.a.J3() && this.a.a.w1() != null) {
-                    TiebaStatic.log(new StatisticItem("c11752").param("fid", this.a.a.V()).param("obj_locate", "3"));
-                    this.a.a.w1().b2();
-                }
-            } else if (view2 == this.a.j && this.a.a.w1() != null && this.a.a.w1().g0() != null) {
-                this.a.a.w1().g0().smoothScrollToPosition(0);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ug.c(this.a.c);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements Animation.AnimationListener {
+    /* loaded from: classes7.dex */
+    public class b implements KeyEventDealContainerView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
+        public final /* synthetic */ qk7 a;
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
+        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        public b(View view2) {
+        public b(qk7 qk7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {qk7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,47 +106,31 @@ public class qk7 implements kb7, bj7 {
                     return;
                 }
             }
-            this.a = view2;
+            this.a = qk7Var;
         }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            View view2;
+        @Override // com.baidu.tbadk.core.view.KeyEventDealContainerView.a
+        public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && (view2 = this.a) != null && view2.getAnimation() == animation) {
-                this.a.clearAnimation();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) && (view2 = this.a) != null) {
-                view2.setVisibility(8);
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.c != null) {
+                ug.c(this.a.c);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c implements Animation.AnimationListener {
+    /* loaded from: classes7.dex */
+    public class c implements PopupWindow.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View a;
+        public final /* synthetic */ TabItemView a;
+        public final /* synthetic */ qk7 b;
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        public c(View view2) {
+        public c(qk7 qk7Var, TabItemView tabItemView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {qk7Var, tabItemView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -155,34 +140,49 @@ public class qk7 implements kb7, bj7 {
                     return;
                 }
             }
-            this.a = view2;
+            this.b = qk7Var;
+            this.a = tabItemView;
         }
 
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            View view2;
+        @Override // android.widget.PopupWindow.OnDismissListener
+        public void onDismiss() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animation) == null) && (view2 = this.a) != null && view2.getAnimation() == animation) {
-                this.a.clearAnimation();
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) && (view2 = this.a) != null) {
-                view2.setVisibility(0);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.i != null) {
+                this.b.i.a(this.a);
             }
         }
     }
 
-    public qk7(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
+    /* loaded from: classes7.dex */
+    public static class f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+        public View c;
+        public View d;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public qk7(Context context, e eVar, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment, noPressedRelativeLayout};
+            Object[] objArr = {context, eVar, dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -192,175 +192,90 @@ public class qk7 implements kb7, bj7 {
                 return;
             }
         }
-        this.c = null;
-        this.f = 3;
-        this.g = false;
-        this.h = null;
-        this.i = null;
-        this.j = null;
-        this.k = true;
-        this.l = new a(this);
-        this.a = frsFragment;
-        this.b = noPressedRelativeLayout;
-        i();
-        this.h = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090d12);
-        this.j = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090d11);
-        this.i = (EntelechyPullUpRefreshView) this.b.findViewById(R.id.obfuscated_res_0x7f090d13);
-        this.j.setOnClickListener(this.l);
-        this.i.setOnClickListener(this.l);
-        onChangeSkinType(this.f);
+        this.f = context;
+        this.h = eVar;
+        this.i = dVar;
+        this.e = new SparseArray<>();
+        LinearLayout linearLayout = new LinearLayout(context);
+        this.a = linearLayout;
+        linearLayout.setOrientation(1);
+        this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        View view2 = new View(context);
+        this.d = view2;
+        view2.setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.kb7
-    public void a(boolean z) {
+    public void c() {
+        MorePopupWindow morePopupWindow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.g = z;
-            if (this.i != null) {
-                if (z) {
-                    LinearLayout linearLayout = this.h;
-                    if (linearLayout != null && linearLayout.getVisibility() == 0) {
-                        l();
-                        return;
-                    }
-                    return;
-                }
-                m();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (morePopupWindow = this.c) != null) {
+            try {
+                morePopupWindow.dismiss();
+            } catch (Exception e2) {
+                BdLog.e(e2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.kb7
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048586, this, i) == null) && this.f != i) {
-            EntelechyPullUpRefreshView entelechyPullUpRefreshView = this.i;
-            if (entelechyPullUpRefreshView != null) {
-                entelechyPullUpRefreshView.b(i);
-            }
-            EntelechyPullUpRefreshView entelechyPullUpRefreshView2 = this.j;
-            if (entelechyPullUpRefreshView2 != null) {
-                entelechyPullUpRefreshView2.b(i);
-            }
-            this.f = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.kb7
-    public void b(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || this.g) {
-            return;
-        }
-        this.k = z;
-        if (z) {
-            if (z2) {
-                m();
-            } else {
-                this.h.setVisibility(0);
-            }
-        } else if (z2) {
-            l();
-        } else {
-            this.h.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.kb7
-    public boolean c() {
+    public e d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.i == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    public final void e(Activity activity, View view2, TabItemView tabItemView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, view2, tabItemView) == null) {
+            if (this.c == null) {
+                this.c = new MorePopupWindow(activity, this.a, view2, SkinManager.getDrawable(R.drawable.transparent_bg), new b(this));
             }
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bj7
-    public void d() {
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (tbImageView = this.c) == null) {
-            return;
-        }
-        tbImageView.clearAnimation();
-        this.c.setImageDrawable(null);
-        this.c.setVisibility(8);
-    }
-
-    public final void h() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (linearLayout = this.h) != null) {
-            linearLayout.clearAnimation();
+            this.c.setOnDismissListener(new c(this, tabItemView));
         }
     }
 
-    public final void l() {
+    public void f(Activity activity, View view2, TabItemView tabItemView, ba7 ba7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h();
-            if (this.d == null) {
-                j();
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, view2, tabItemView, ba7Var) == null) {
+            this.b = ba7Var;
+            mk7 mk7Var = this.e.get(ba7Var.a);
+            this.g = mk7Var;
+            if (mk7Var == null) {
+                mk7 a2 = tk7.a(this.b.a);
+                this.g = a2;
+                a2.a(this.f, this);
+                this.e.put(this.b.a, this.g);
             }
-            Animation animation = this.d;
-            if (animation == null) {
-                return;
+            this.g.setData(ba7Var.b);
+            if (view2 instanceof HorizontalTabView) {
+                HorizontalTabView horizontalTabView = (HorizontalTabView) view2;
+                if (horizontalTabView.getmShowMenuCallBack() != null) {
+                    int[] iArr = new int[2];
+                    horizontalTabView.getLocationInWindow(iArr);
+                    ri.A(horizontalTabView.getContext());
+                    int j = ri.j(horizontalTabView.getContext());
+                    int b2 = this.g.b();
+                    int measuredHeight = (j - iArr[1]) - horizontalTabView.getMeasuredHeight();
+                    if (measuredHeight < b2) {
+                        horizontalTabView.getmShowMenuCallBack().b(b2 - measuredHeight);
+                    }
+                }
             }
-            this.h.startAnimation(animation);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h();
-            if (this.e == null) {
-                k();
+            this.a.removeAllViews();
+            this.a.addView(this.g.getView());
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            SkinManager.setBackgroundResource(this.d, R.color.common_color_10050);
+            this.a.addView(this.d, layoutParams);
+            e(activity, view2, tabItemView);
+            MorePopupWindow morePopupWindow = this.c;
+            if (morePopupWindow != null) {
+                morePopupWindow.refresh();
+                this.c.setWidthAsWidthOfDeviceScreen(activity);
+                this.c.setHeight(-1);
+                this.c.showWindowInCustomPosition(0, 0);
             }
-            if (this.e == null) {
-                return;
-            }
-            this.h.setVisibility(0);
-            this.h.startAnimation(this.e);
         }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = new TbImageView(this.a.getPageContext().getPageActivity());
-            int g = ii.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070261);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
-            layoutParams.addRule(10);
-            layoutParams.addRule(14);
-            layoutParams.topMargin = g;
-            this.c.setLayoutParams(layoutParams);
-            this.b.addView(this.c);
-            this.c.setVisibility(8);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !this.a.isAdded()) {
-            return;
-        }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f01008e);
-        this.d = loadAnimation;
-        loadAnimation.setAnimationListener(new b(this.h));
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.a.isAdded()) {
-            return;
-        }
-        Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f01008d);
-        this.e = loadAnimation;
-        loadAnimation.setAnimationListener(new c(this.h));
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map.track;
 
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface TraceAnimationListener {
     void onTraceAnimationFinish();
 

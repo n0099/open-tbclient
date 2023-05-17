@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class di implements LoggerInterface {
     public static volatile di a;
 
@@ -65,7 +65,7 @@ public class di implements LoggerInterface {
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:85:0x017a -> B:108:0x017f). Please submit an issue!!! */
     /* renamed from: a  reason: collision with other method in class */
-    public void m282a() {
+    public void m301a() {
         RandomAccessFile randomAccessFile;
         FileLock fileLock;
         File file;

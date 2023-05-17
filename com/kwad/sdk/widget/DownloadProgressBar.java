@@ -15,7 +15,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.TooltipCompatHandler;
-/* loaded from: classes8.dex */
+import com.baidu.searchbox.account.BoxAccountManager;
+/* loaded from: classes9.dex */
 public class DownloadProgressBar extends View {
     public Path ZA;
     public String aqA;
@@ -82,7 +83,7 @@ public class DownloadProgressBar extends View {
         float f2 = 0.0f;
         if (f > 0.0f && f < 100.0f) {
             long elapsedRealtime = (SystemClock.elapsedRealtime() - this.mStartTime) % TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS;
-            int i = (elapsedRealtime > 1500L ? 1 : (elapsedRealtime == 1500L ? 0 : -1));
+            int i = (elapsedRealtime > BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT ? 1 : (elapsedRealtime == BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT ? 0 : -1));
             float f3 = i >= 0 ? 0.0f : ((float) elapsedRealtime) / 1500.0f;
             this.mMatrix.reset();
             this.mMatrix.setScale(1.0f, f3);

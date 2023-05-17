@@ -1,15 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-/* loaded from: classes7.dex */
-public interface zv3 {
-    void a(DownloadInfo downloadInfo);
-
-    void b();
-
-    DownloadInfo c(String str);
-
-    void close();
-
-    void delete(DownloadInfo downloadInfo);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
+public /* synthetic */ class zv3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

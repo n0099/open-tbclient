@@ -3,14 +3,14 @@ package com.baidu.tieba.edgefloat.foldclose;
 import android.content.Context;
 import android.view.View;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ds6;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat$foldCloseView$2;
-import com.baidu.tieba.qq6;
-import com.baidu.tieba.u3a;
-import com.baidu.tieba.v3a;
 import com.baidu.tieba.view.foldclose.FoldCloseView;
-import com.baidu.tieba.w3a;
+import com.baidu.tieba.w5a;
+import com.baidu.tieba.x5a;
+import com.baidu.tieba.y5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/view/foldclose/FoldCloseView;", "invoke"}, k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements Function0<FoldCloseView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,8 +48,8 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
         this.this$0 = foldCloseEdgeFloat;
     }
 
-    /* loaded from: classes4.dex */
-    public static final class a implements v3a {
+    /* loaded from: classes5.dex */
+    public static final class a implements x5a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -72,7 +72,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             this.a = foldCloseEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.v3a
+        @Override // com.baidu.tieba.x5a
         public void a(int i, int i2) {
             EdgeFloat c;
             EdgeFloat c2;
@@ -91,8 +91,8 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static final class b implements w3a {
+    /* loaded from: classes5.dex */
+    public static final class b implements y5a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCloseEdgeFloat a;
@@ -115,9 +115,9 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             this.a = foldCloseEdgeFloat;
         }
 
-        @Override // com.baidu.tieba.w3a
+        @Override // com.baidu.tieba.y5a
         public void a(boolean z) {
-            w3a f;
+            y5a f;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (f = this.a.f()) != null) {
                 f.a(z);
@@ -126,7 +126,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* renamed from: invoke$lambda-2$lambda-0  reason: not valid java name */
-    public static final void m57invoke$lambda2$lambda0(FoldCloseView this_apply, FoldCloseEdgeFloat this$0, View view2) {
+    public static final void m77invoke$lambda2$lambda0(FoldCloseView this_apply, FoldCloseEdgeFloat this$0, View view2) {
         EdgeFloat c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, this_apply, this$0, view2) == null) {
@@ -144,7 +144,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
     }
 
     /* renamed from: invoke$lambda-2$lambda-1  reason: not valid java name */
-    public static final void m58invoke$lambda2$lambda1(FoldCloseEdgeFloat this$0, View view2) {
+    public static final void m78invoke$lambda2$lambda1(FoldCloseEdgeFloat this$0, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -166,12 +166,12 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
             Intrinsics.checkNotNullExpressionValue(context, "getInst().context");
             final FoldCloseView foldCloseView = new FoldCloseView(context);
             final FoldCloseEdgeFloat foldCloseEdgeFloat = this.this$0;
-            u3a u3aVar = new u3a();
-            u3aVar.e(qq6.a.b());
-            u3aVar.g(qq6.a.d());
-            u3aVar.f(qq6.a.c());
-            foldCloseView.setData(u3aVar);
-            foldCloseView.setOnCloseClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pq6
+            w5a w5aVar = new w5a();
+            w5aVar.e(ds6.a.b());
+            w5aVar.g(ds6.a.d());
+            w5aVar.f(ds6.a.c());
+            foldCloseView.setData(w5aVar);
+            foldCloseView.setOnCloseClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cs6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -179,12 +179,12 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        FoldCloseEdgeFloat$foldCloseView$2.m57invoke$lambda2$lambda0(FoldCloseView.this, foldCloseEdgeFloat, view2);
+                        FoldCloseEdgeFloat$foldCloseView$2.m77invoke$lambda2$lambda0(FoldCloseView.this, foldCloseEdgeFloat, view2);
                     }
                 }
             });
             foldCloseView.setOnFoldCloseWidthChangeListener(new a(foldCloseEdgeFloat));
-            foldCloseView.setOnOtherClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oq6
+            foldCloseView.setOnOtherClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bs6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -192,7 +192,7 @@ public final class FoldCloseEdgeFloat$foldCloseView$2 extends Lambda implements 
                 public final void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        FoldCloseEdgeFloat$foldCloseView$2.m58invoke$lambda2$lambda1(FoldCloseEdgeFloat.this, view2);
+                        FoldCloseEdgeFloat$foldCloseView$2.m78invoke$lambda2$lambda1(FoldCloseEdgeFloat.this, view2);
                     }
                 }
             });

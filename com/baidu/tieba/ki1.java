@@ -1,53 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.sdk.container.interfaces.LoadState;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.g8;
+import com.baidu.platform.comapi.UIMsg;
+import com.baidu.poly.statistics.exception.ServerDataException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ki1 implements qk1 {
+/* loaded from: classes6.dex */
+public class ki1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static Bundle d;
+    public static long e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ok1 a;
-    public String b;
-    public final Context c;
-    public final fi1 d;
-    public g8.b e;
-    public int f;
-    public int g;
-    public pi1 h;
-    public int i;
-    public di1 j;
-    public final ei1 k;
 
-    /* loaded from: classes5.dex */
-    public class a implements ei1 {
+    /* loaded from: classes6.dex */
+    public static class a extends wf1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ki1 a;
+        public final /* synthetic */ wf1 a;
 
-        public a(ki1 ki1Var) {
+        public a(wf1 wf1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ki1Var};
+                Object[] objArr = {wf1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,265 +51,236 @@ public class ki1 implements qk1 {
                     return;
                 }
             }
-            this.a = ki1Var;
+            this.a = wf1Var;
         }
 
-        @Override // com.baidu.tieba.ei1
-        public void a(Throwable th) {
-            String message;
+        @Override // com.baidu.tieba.wf1
+        public void a(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                if (this.a.e != null) {
-                    this.a.e.onFailed();
-                } else if (this.a.d != null) {
-                    fi1 fi1Var = this.a.d;
-                    if (th == null) {
-                        message = "unKnow";
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wf1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        String unused = ki1.a = optJSONObject.optString("orderId");
+                        String unused2 = ki1.b = optJSONObject.optString("smsId");
+                        ki1.c = optJSONObject.optString("mobile");
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    wf1 wf1Var = this.a;
+                    wf1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused3) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends wf1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wf1 a;
+
+        public b(wf1 wf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wf1Var;
+        }
+
+        @Override // com.baidu.tieba.wf1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wf1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    wf1 wf1Var = this.a;
+                    wf1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends wf1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wf1 a;
+
+        public c(wf1 wf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wf1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wf1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                this.a.c(jSONObject);
+            }
+        }
+
+        @Override // com.baidu.tieba.wf1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return i(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeoE4C+X8ahP2/juzyb10hdQNIHR3a+m3+nV6sVaOiXpNw1sNnB/2ms9vV2yXCOTz2JFWMmgr8p5dA9yUfYzSVMWN8jyZdOzAwGzjh6oB32FsqlgFkXNTNJHkdIzJRq/H8Q9mlh67c2KrMN2QLU219M6EbLoTL0i+0oUbZ4W0IrwIDAQAB");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, wf1<JSONObject> wf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, wf1Var) == null) {
+            String[] split = str.split("&");
+            xf1 xf1Var = new xf1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        xf1Var.d(split2[0], URLDecoder.decode(split2[1]));
                     } else {
-                        message = th.getMessage();
+                        xf1Var.d(split2[0], split2[1]);
                     }
-                    fi1Var.b(message);
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.ei1
-        public void b(@NonNull pi1 pi1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pi1Var) != null) || g8.f().i()) {
-                return;
-            }
-            int f = ni1.f(pi1Var, this.a.i);
-            if (f == 0) {
-                this.a.h = pi1Var;
-                ok1 a = new wj1().a(this.a.c, li1.a(pi1Var));
-                if (a == null) {
-                    if (this.a.d != null) {
-                        this.a.d.b("创建 AdContainer 失败");
-                        return;
-                    }
-                    return;
-                } else if (!pi1Var.q()) {
-                    this.a.a = a;
-                    if (this.a.d != null) {
-                        gi1 gi1Var = new gi1(a, this.a.d.g(), pi1Var);
-                        gi1Var.m(this.a.d);
-                        a.c(gi1Var);
-                        a.a(gi1Var);
-                        gi1Var.l(this.a);
-                        this.a.k(!pi1Var.n());
-                        this.a.n(!pi1Var.l());
-                        this.a.d.e(this.a);
-                    }
-                    if (this.a.e != null) {
-                        this.a.e.onSuccess();
-                        return;
-                    }
-                    return;
-                } else {
-                    new BaseVM(this.a.h).c(null);
-                    if (this.a.d != null) {
-                        this.a.d.b("virtual order cannot show");
-                        return;
-                    }
-                    return;
-                }
-            }
-            if (this.a.e != null) {
-                this.a.e.onFailed();
-            } else if (this.a.d != null) {
-                fi1 fi1Var = this.a.d;
-                fi1Var.b("query 后物料效验失败: " + f);
-            }
-            BaseVM.h(f);
+            eg1.j().g(gg1.e(), xf1Var, new c(wf1Var));
         }
     }
 
-    public ki1(Context context, String str, yj1 yj1Var, fi1 fi1Var) {
+    public static void g(String str, yf1 yf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, yj1Var, fi1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, yf1Var) == null) {
+            String a2 = yf1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                yf1Var.d("Cookie", str2);
                 return;
             }
+            yf1Var.d("Cookie", a2 + "; " + str2);
         }
-        LoadState loadState = LoadState.INIT;
-        this.i = 0;
-        this.k = new a(this);
-        this.c = context;
-        this.b = str;
-        this.d = fi1Var;
-        if (yj1Var != null && yj1Var.a() != null && yj1Var.a().containsKey("launch_type")) {
+    }
+
+    public static String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
             try {
-                this.i = Integer.parseInt(yj1Var.a().get("launch_type"));
-            } catch (NumberFormatException unused) {
-                this.i = 0;
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 0)));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
             }
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void k(int i) {
+    public static void e(Bundle bundle, String str, String str2, long j, wf1<JSONObject> wf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bundle, str, str2, Long.valueOf(j), wf1Var}) == null) {
+            d = bundle;
+            e = j;
+            f = str2;
+            yf1 yf1Var = new yf1();
+            fg1.d(yf1Var);
+            f(bundle, yf1Var);
+            xf1 xf1Var = new xf1();
+            xf1Var.d("token", d("orderId=" + str + "&payChannel=" + str2 + "&timestamp=" + j));
+            new cg1().a(gg1.n(), yf1Var, xf1Var, new a(wf1Var));
         }
     }
 
-    public void l(ok1 ok1Var) {
+    public static void f(Bundle bundle, yf1 yf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ok1Var) == null) {
-            this.a = ok1Var;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.qk1
-    @Nullable
-    public pi1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
-        }
-        return (pi1) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            this.a = null;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!g8.f().h()) {
-                m(ni1.n(this.i));
+        if (interceptable == null || interceptable.invokeLL(65541, null, bundle, yf1Var) == null) {
+            String string = bundle.getString("bduss");
+            if (TextUtils.isEmpty(string)) {
                 return;
             }
-            di1 di1Var = new di1();
-            this.j = di1Var;
-            di1Var.j(this.b, this.k);
+            g(string, yf1Var);
         }
     }
 
-    @Override // com.baidu.tieba.qk1
-    public JSONObject b() {
-        InterceptResult invokeV;
+    public static void h(String str, wf1<JSONObject> wf1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (this.h != null) {
-                    jSONObject.put("source", this.h.E);
-                    jSONObject.put(QuickPersistConfigConst.KEY_SPLASH_SORT, this.h.F);
-                }
-                jSONObject.put(TiebaStatic.Params.AD_TYPE, this.f);
-                jSONObject.put("full_type", this.g);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public void m(pi1 pi1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pi1Var) == null) {
-            if (pi1Var != null) {
-                this.h = pi1Var;
-                xj1 a2 = li1.a(pi1Var);
-                ok1 a3 = new wj1().a(this.c, a2);
-                if (a3 == null) {
-                    if (yh1.a.get().a()) {
-                        Log.e("PrologueAd", "创建 AdContainer 失败，params: " + a2.a());
-                    }
-                    fi1 fi1Var = this.d;
-                    if (fi1Var != null) {
-                        fi1Var.b("创建 AdContainer 失败");
-                        return;
-                    }
-                    return;
-                } else if (pi1Var.q()) {
-                    new BaseVM(this.h).c(null);
-                    fi1 fi1Var2 = this.d;
-                    if (fi1Var2 != null) {
-                        fi1Var2.b("virtual order cannot show");
-                        return;
-                    }
-                    return;
-                } else {
-                    this.a = a3;
-                    fi1 fi1Var3 = this.d;
-                    if (fi1Var3 != null) {
-                        gi1 gi1Var = new gi1(a3, fi1Var3.g(), pi1Var);
-                        gi1Var.m(this.d);
-                        a3.c(gi1Var);
-                        a3.a(gi1Var);
-                        gi1Var.l(this);
-                        k(!pi1Var.n());
-                        n(!pi1Var.l());
-                        this.d.e(this);
-                    }
-                    g8.b bVar = this.e;
-                    if (bVar != null) {
-                        bVar.onSuccess();
-                        return;
-                    }
-                    return;
-                }
-            }
-            g8.b bVar2 = this.e;
-            if (bVar2 != null) {
-                bVar2.onFailed();
-                return;
-            }
-            fi1 fi1Var4 = this.d;
-            if (fi1Var4 != null) {
-                fi1Var4.b("本地物料null");
-            }
-        }
-    }
-
-    public void o(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
-            ok1 ok1Var = this.a;
-            if (viewGroup != null && ok1Var != null) {
-                ok1Var.load();
-                View adView = ok1Var.getAdView();
-                if (adView != null && adView.getParent() == null) {
-                    viewGroup.addView(adView);
-                    return;
-                }
-                i();
-                fi1 fi1Var = this.d;
-                if (fi1Var != null) {
-                    fi1Var.f();
-                    return;
-                }
-                return;
-            }
-            i();
-            fi1 fi1Var2 = this.d;
-            if (fi1Var2 != null) {
-                fi1Var2.f();
-            }
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, wf1Var) == null) {
+            yf1 yf1Var = new yf1();
+            fg1.d(yf1Var);
+            f(d, yf1Var);
+            xf1 xf1Var = new xf1();
+            xf1Var.d("token", d("orderId=" + a + "&payChannel=" + f + "&smsId=" + b + "&timestamp=" + e + "&verifyCode=" + str));
+            new cg1().a(gg1.g(), yf1Var, xf1Var, new b(wf1Var));
         }
     }
 }

@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source.chunk;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseMediaChunk extends MediaChunk {
     public int[] firstSampleIndices;
     public BaseMediaChunkOutput output;

@@ -12,7 +12,7 @@ import com.baidu.pass.ecommerce.ContactUtil;
 import com.baidu.pass.ecommerce.result.GetContactResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.ToastUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GetContactActivty extends Activity {
     public static final int REQUEST_CODE_CONTACT = 4002;
 

@@ -1,50 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class v84 extends y84 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String b;
-    public int c;
-    public int d;
+import com.baidu.searchbox.v8engine.JsObject;
+/* loaded from: classes7.dex */
+public interface v84 {
+    void a(JsObject jsObject);
 
-    public v84() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(JsObject jsObject);
 
-    @Override // com.baidu.tieba.y84
-    public JSONObject a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", this.b);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
-                jSONObject.put("net", this.d);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
+    void c(JsObject jsObject);
+
+    void d(JsObject jsObject);
+
+    void e(JsObject jsObject);
+
+    void f();
+
+    void g(JsObject jsObject);
+
+    void h(JsObject jsObject);
+
+    void i(JsObject jsObject);
+
+    void j();
+
+    void k(JsObject jsObject);
 }

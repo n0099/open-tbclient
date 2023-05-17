@@ -12,15 +12,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.IAudioListener;
 import com.baidu.swan.apps.IAudioService;
-import com.baidu.tieba.av2;
-import com.baidu.tieba.df3;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.ev2;
-import com.baidu.tieba.ho1;
+import com.baidu.tieba.jw2;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.ns2;
+import com.baidu.tieba.nw2;
+import com.baidu.tieba.qp1;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
-public final class SwanAppAudioService extends Service implements ev2 {
-    public static final boolean DEBUG = ho1.a;
+/* loaded from: classes4.dex */
+public final class SwanAppAudioService extends Service implements nw2 {
+    public static final boolean DEBUG = qp1.a;
     public static final int INVALID_DURATION = -1;
     public static final int INVALID_ERROR_CODE = -1;
     public static final String TAG = "SwanAppAudioService";
@@ -28,7 +28,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
     public Binder mBinder = new AudioServiceStub(this);
     public Handler mMainHandler = new Handler(Looper.getMainLooper());
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface u<E extends IAudioListener> {
         void a(E e) throws RemoteException;
     }
@@ -37,14 +37,14 @@ public final class SwanAppAudioService extends Service implements ev2 {
         return false;
     }
 
-    @Override // com.baidu.tieba.ev2
+    @Override // com.baidu.tieba.nw2
     public void onGetDuration(int i2) {
     }
 
     public void onPlayModeChange(int i2) {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AudioServiceStub extends IAudioService.Stub {
         public WeakReference<SwanAppAudioService> mAudioService;
 
@@ -126,7 +126,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements u {
         public a() {
         }
@@ -137,7 +137,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements u {
         public final /* synthetic */ String a;
 
@@ -151,7 +151,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements u {
         public c() {
         }
@@ -162,7 +162,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements u {
         public final /* synthetic */ int a;
 
@@ -176,7 +176,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements u {
         public final /* synthetic */ int a;
         public final /* synthetic */ int b;
@@ -192,7 +192,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements u {
         public final /* synthetic */ int a;
 
@@ -206,7 +206,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class g implements u {
         public g() {
         }
@@ -217,7 +217,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements u {
         public h() {
         }
@@ -228,7 +228,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class i implements u {
         public i() {
         }
@@ -239,7 +239,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j implements u {
         public j() {
         }
@@ -250,7 +250,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class k implements Runnable {
         public final /* synthetic */ long a;
         public final /* synthetic */ String b;
@@ -262,12 +262,12 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            av2.b(SwanAppAudioService.TAG, "post#setParams id=" + this.a + " params=" + this.b);
-            er2.f().a(this.b, SwanAppAudioService.this);
+            jw2.b(SwanAppAudioService.TAG, "post#setParams id=" + this.a + " params=" + this.b);
+            ns2.f().a(this.b, SwanAppAudioService.this);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class l {
         public static final /* synthetic */ int[] a;
 
@@ -309,7 +309,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class m implements Runnable {
         public final /* synthetic */ long a;
 
@@ -319,12 +319,12 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            av2.b(SwanAppAudioService.TAG, "post#play  id=" + this.a);
-            er2.f().play();
+            jw2.b(SwanAppAudioService.TAG, "post#play  id=" + this.a);
+            ns2.f().play();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class n implements Runnable {
         public final /* synthetic */ long a;
 
@@ -334,12 +334,12 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            av2.b(SwanAppAudioService.TAG, "post#pause  id=" + this.a);
-            er2.f().pause();
+            jw2.b(SwanAppAudioService.TAG, "post#pause  id=" + this.a);
+            ns2.f().pause();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class o implements Runnable {
         public final /* synthetic */ long a;
 
@@ -349,12 +349,12 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            av2.b(SwanAppAudioService.TAG, "post#stop id=" + this.a);
-            er2.f().stop();
+            jw2.b(SwanAppAudioService.TAG, "post#stop id=" + this.a);
+            ns2.f().stop();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class p implements Runnable {
         public final /* synthetic */ long a;
         public final /* synthetic */ int b;
@@ -366,12 +366,12 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            av2.b(SwanAppAudioService.TAG, "post#seek id=" + this.a + " position=" + this.b);
-            er2.f().seek(this.b);
+            jw2.b(SwanAppAudioService.TAG, "post#seek id=" + this.a + " position=" + this.b);
+            ns2.f().seek(this.b);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class q implements Runnable {
         public final /* synthetic */ long a;
 
@@ -381,14 +381,14 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
         @Override // java.lang.Runnable
         public void run() {
-            av2.b(SwanAppAudioService.TAG, "post#release id=" + this.a);
+            jw2.b(SwanAppAudioService.TAG, "post#release id=" + this.a);
             SwanAppAudioService.this.notifyEventOnStop();
             SwanAppAudioService.this.stopSelf();
-            er2.f().onRelease();
+            ns2.f().onRelease();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class r implements u {
         public r() {
         }
@@ -399,7 +399,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class s implements u {
         public s() {
         }
@@ -410,7 +410,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class t implements u {
         public t() {
         }
@@ -421,7 +421,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class v<E extends IAudioListener> extends RemoteCallbackList<IAudioListener> {
         public v() {
         }
@@ -430,7 +430,7 @@ public final class SwanAppAudioService extends Service implements ev2 {
         @Override // android.os.RemoteCallbackList
         /* renamed from: a */
         public void onCallbackDied(IAudioListener iAudioListener) {
-            av2.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
+            jw2.b(SwanAppAudioService.TAG, "AudioRemoteCallbackList#onCallbackDied");
             SwanAppAudioService.this.stop();
         }
 
@@ -461,31 +461,31 @@ public final class SwanAppAudioService extends Service implements ev2 {
     }
 
     public int getDuration() {
-        return er2.f().getDuration();
+        return ns2.f().getDuration();
     }
 
     public boolean isPlaying() {
-        return er2.f().isPlaying();
+        return ns2.f().isPlaying();
     }
 
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        av2.b(TAG, "#onCreate");
+        jw2.b(TAG, "#onCreate");
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        av2.b(TAG, "#onDestroy");
+        jw2.b(TAG, "#onDestroy");
         this.mCallback.kill();
         this.mMainHandler.removeCallbacksAndMessages(null);
         release();
         super.onDestroy();
     }
 
-    @Override // com.baidu.tieba.ev2
+    @Override // com.baidu.tieba.nw2
     public void onInvokeFailed() {
-        df3.b("audio", 2001, "invoke fail", -1, "");
+        mg3.b("audio", 2001, "invoke fail", -1, "");
         notifyEventOnError(-1);
     }
 
@@ -507,25 +507,25 @@ public final class SwanAppAudioService extends Service implements ev2 {
 
     public void pause() {
         long nanoTime = System.nanoTime();
-        av2.b(TAG, "#pause id=" + nanoTime);
+        jw2.b(TAG, "#pause id=" + nanoTime);
         this.mMainHandler.post(new n(nanoTime));
     }
 
     public void play() {
         long nanoTime = System.nanoTime();
-        av2.b(TAG, "#play id=" + nanoTime);
+        jw2.b(TAG, "#play id=" + nanoTime);
         this.mMainHandler.post(new m(nanoTime));
     }
 
     public void release() {
         long nanoTime = System.nanoTime();
-        av2.b(TAG, "#release id=" + nanoTime);
+        jw2.b(TAG, "#release id=" + nanoTime);
         this.mMainHandler.post(new q(nanoTime));
     }
 
     public void stop() {
         long nanoTime = System.nanoTime();
-        av2.b(TAG, "#stop id=" + nanoTime);
+        jw2.b(TAG, "#stop id=" + nanoTime);
         this.mMainHandler.post(new o(nanoTime));
     }
 
@@ -581,50 +581,50 @@ public final class SwanAppAudioService extends Service implements ev2 {
     @Override // android.app.Service
     @Nullable
     public IBinder onBind(Intent intent) {
-        av2.b(TAG, "#onBind");
+        jw2.b(TAG, "#onBind");
         return this.mBinder;
     }
 
     public void onError(int i2) {
-        df3.b("audio", 2008, "error code is" + i2, -1, "");
+        mg3.b("audio", 2008, "error code is" + i2, -1, "");
         notifyEventOnError(i2);
     }
 
-    @Override // com.baidu.tieba.ev2
+    @Override // com.baidu.tieba.nw2
     public void onGetCurrentSong(String str) {
         notifyOnChangeSrc(str);
     }
 
-    @Override // com.baidu.tieba.ev2
+    @Override // com.baidu.tieba.nw2
     public void onGetDownloadProgress(int i2) {
         handleAudioEvent(new f(i2));
     }
 
-    @Override // com.baidu.tieba.ev2
+    @Override // com.baidu.tieba.nw2
     public void onStateChanged(BgMusicPlayState bgMusicPlayState) {
-        av2.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
+        jw2.c(TAG, "#onStateChanged state=" + bgMusicPlayState, new Exception("stack"));
         handleStateChanged(bgMusicPlayState);
     }
 
     @Override // android.app.Service
     public boolean onUnbind(Intent intent) {
-        av2.b(TAG, "#onUnbind");
+        jw2.b(TAG, "#onUnbind");
         return false;
     }
 
     public void seek(int i2) {
         long nanoTime = System.nanoTime();
-        av2.b(TAG, "#seek id=" + nanoTime);
+        jw2.b(TAG, "#seek id=" + nanoTime);
         this.mMainHandler.post(new p(nanoTime, i2));
     }
 
     public void setParams(String str) {
         long nanoTime = System.nanoTime();
-        av2.b(TAG, "#setParams id=" + nanoTime);
+        jw2.b(TAG, "#setParams id=" + nanoTime);
         this.mMainHandler.post(new k(nanoTime, str));
     }
 
-    @Override // com.baidu.tieba.ev2
+    @Override // com.baidu.tieba.nw2
     public void onGetPosition(int i2, int i3) {
         handleAudioEvent(new e(i2, i3));
     }

@@ -1,6 +1,7 @@
 package com.facebook.cache.disk;
 
 import android.os.Environment;
+import com.baidu.android.util.media.WebpUtils;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
@@ -27,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
     public static final String DEFAULT_DISK_STORAGE_VERSION_PREFIX = "v2";
@@ -41,7 +42,7 @@ public class DefaultDiskStorage implements DiskStorage {
     public static final Class<?> TAG = DefaultDiskStorage.class;
     public static final long TEMP_FILE_LIFETIME_MS = TimeUnit.MINUTES.toMillis(30);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";
@@ -52,7 +53,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return true;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class EntriesCollector implements FileTreeVisitor {
         public final List<DiskStorage.Entry> result;
 
@@ -82,7 +83,7 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class EntryImpl implements DiskStorage.Entry {
         public final String id;
         public final FileBinaryResource resource;
@@ -125,7 +126,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FileInfo {
         public final String resourceId;
         @FileType
@@ -168,7 +169,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class IncompleteFileException extends IOException {
         public final long actual;
         public final long expected;
@@ -181,7 +182,7 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public final String mResourceId;
         @VisibleForTesting
@@ -255,7 +256,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PurgingVisitor implements FileTreeVisitor {
         public boolean insideBaseDirectory;
 
@@ -526,7 +527,7 @@ public class DefaultDiskStorage implements DiskStorage {
                 return "png";
             }
             if (bArr[0] == 82 && bArr[1] == 73) {
-                return "webp";
+                return WebpUtils.TYPE_IMG_WEBP;
             }
             if (bArr[0] == 71 && bArr[1] == 73) {
                 return NativeConstants.TYPE_GIF;

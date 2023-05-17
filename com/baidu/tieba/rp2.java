@@ -1,70 +1,79 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class rp2 extends rl2<iq2> {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "release";
-    public transient /* synthetic */ FieldHolder $fh;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public interface rp2 extends sp2 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948129237, "Lcom/baidu/tieba/rp2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948129237, "Lcom/baidu/tieba/rp2;");
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
     }
 
-    public rp2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void D(int i);
 
-    @Override // com.baidu.tieba.rl2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
+    void E();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) == null) {
-            iq2Var.release();
-            oy1.e().o(iq2Var);
-            d(iq2Var, command.what, null, false);
-        }
-    }
+    void F(long j);
+
+    void I(int i);
+
+    void J(int i);
+
+    void K(int i);
+
+    void M(boolean z);
+
+    void R();
+
+    void U(int i);
+
+    void X(int i);
+
+    void Y(@NonNull a aVar);
+
+    void Z();
+
+    void c0(boolean z);
+
+    void d();
+
+    void d0(long j, boolean z);
+
+    void e(int i);
+
+    void exitRoom();
+
+    void f();
+
+    void g(boolean z);
+
+    ArrayList<vp2> h();
+
+    void h0(String str);
+
+    void i(boolean z);
+
+    void j(long j);
+
+    void k0(long j);
+
+    void l0(boolean z);
+
+    void n();
+
+    void p(long j, boolean z);
+
+    void r(String str);
+
+    void setCameraFace(boolean z);
+
+    void t(boolean z);
+
+    void u(up2 up2Var);
+
+    ArrayList<tp2> v();
+
+    void x(boolean z);
+
+    void y(boolean z);
 }

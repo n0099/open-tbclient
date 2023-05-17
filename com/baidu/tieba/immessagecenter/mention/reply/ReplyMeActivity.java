@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c9;
 import com.baidu.tieba.immessagecenter.mention.ReplyMessageFragment;
-import com.baidu.tieba.w8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     public boolean e;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i d1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voiceModel)) == null) {
@@ -46,14 +46,14 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.on5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements SwipeBackLayout.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager y0() {
+    public VoiceManager x0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -236,9 +236,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             ReplyMessageFragment replyMessageFragment = this.a;
             if (replyMessageFragment != null && intent != null) {
                 replyMessageFragment.setArguments(intent.getExtras());
-                if (this.a.O1() != null) {
-                    this.a.c2();
-                    this.a.a2();
+                if (this.a.P1() != null) {
+                    this.a.d2();
+                    this.a.b2();
                 }
             }
         }
@@ -258,25 +258,25 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             boolean z = true;
-            z = (w8.f().h("YunPushProxyActivity") && w8.f().g() == 1) ? false : false;
+            z = (c9.f().h("YunPushProxyActivity") && c9.f().g() == 1) ? false : false;
             this.d = z;
             if (z) {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d004f);
+            setContentView(R.layout.obfuscated_res_0x7f0d0051);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10d4));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f119b));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
             this.a = replyMessageFragment;
             replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090775, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090792, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager y0 = y0();
-            this.c = y0;
-            y0.onCreate(getPageContext());
+            VoiceManager x0 = x0();
+            this.c = x0;
+            x0.onCreate(getPageContext());
             u1();
             v1();
         }

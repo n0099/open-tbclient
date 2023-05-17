@@ -21,7 +21,7 @@ import com.win.opensdk.f1;
 import java.io.File;
 import java.net.URI;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

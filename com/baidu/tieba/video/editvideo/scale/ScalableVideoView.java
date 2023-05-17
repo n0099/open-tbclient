@@ -13,9 +13,9 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ez5;
-import com.baidu.tieba.gz9;
-import com.baidu.tieba.hz9;
+import com.baidu.tieba.i1a;
+import com.baidu.tieba.j1a;
+import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScalableVideoView extends TextureView implements TextureView.SurfaceTextureListener, MediaPlayer.OnVideoSizeChangedListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
             }
         }
         this.b = ScalableType.NONE;
-        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ez5.videoScaleStyle, 0, 0)) == null) {
+        if (attributeSet == null || (obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q06.videoScaleStyle, 0, 0)) == null) {
             return;
         }
         int i4 = obtainStyledAttributes.getInt(0, ScalableType.NONE.ordinal());
@@ -355,7 +355,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new gz9(new hz9(getWidth(), getHeight()), new hz9(i, i2)).m(this.b)) != null) {
+        if ((interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) && i != 0 && i2 != 0 && (m = new i1a(new j1a(getWidth(), getHeight()), new j1a(i, i2)).m(this.b)) != null) {
             setTransform(m);
         }
     }

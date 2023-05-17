@@ -1,81 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class tk6 {
+/* loaded from: classes7.dex */
+public class tk6 extends wi6<sk6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public int j;
+    public int k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184138, "Lcom/baidu/tieba/tk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948184138, "Lcom/baidu/tieba/tk6;");
+    @Override // com.baidu.tieba.wi6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.card_divider_line : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tk6(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.j = R.color.CAM_X0204;
+        this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        h().setOnClickListener(this);
+        this.i = h().findViewById(R.id.card_divider);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.wi6
+    /* renamed from: r */
+    public void i(sk6 sk6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, sk6Var) != null) || sk6Var == null) {
+            return;
         }
+        this.i.setVisibility(0);
+        this.j = sk6Var.a;
+        this.k = sk6Var.b;
+        s();
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    @Override // com.baidu.tieba.wi6
+    public void j(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundColor(this.i, this.j);
             }
+            this.a = i;
         }
+    }
 
-        public final String a(hy6 businessInfo) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-                Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-                if (Intrinsics.areEqual(businessInfo.a().get("is_link_thread"), "1")) {
-                    return "4";
-                }
-                if (Intrinsics.areEqual(businessInfo.a().get(VideoPlayActivityConfig.IS_SHARE_THREAD), "1")) {
-                    return "5";
-                }
-                if (Intrinsics.areEqual(businessInfo.a().get("thread_type"), "0")) {
-                    return "1";
-                }
-                if (!Intrinsics.areEqual(businessInfo.a().get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK) && !Intrinsics.areEqual(businessInfo.a().get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
-                    return "1";
-                }
-                return "2";
+    public final void s() {
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (layoutParams = this.i.getLayoutParams()) != null) {
+            int i = layoutParams.height;
+            int i2 = this.k;
+            if (i != i2) {
+                layoutParams.height = i2;
+                this.i.setLayoutParams(layoutParams);
             }
-            return (String) invokeL.objValue;
         }
     }
 }

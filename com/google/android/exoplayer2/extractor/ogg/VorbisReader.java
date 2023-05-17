@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class VorbisReader extends StreamReader {
     public VorbisUtil.CommentHeader commentHeader;
     public int previousPacketBlockSize;
@@ -20,7 +20,7 @@ public final class VorbisReader extends StreamReader {
         return (b >> i2) & (255 >>> (8 - i));
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class VorbisSetup {
         public final VorbisUtil.CommentHeader commentHeader;
         public final int iLogModes;

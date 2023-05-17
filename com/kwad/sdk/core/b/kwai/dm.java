@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class dm implements com.kwad.sdk.core.d<AdInfo.MaterialSize> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.MaterialSize materialSize, JSONObject jSONObject) {

@@ -1,34 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class rq1 implements ct1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes7.dex */
+public interface rq1 {
+    JSONObject a();
 
-    public rq1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str);
 
-    @Override // com.baidu.tieba.ct1
-    public void b(x73 x73Var, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, x73Var, jSONObject) == null) {
-            g03.e().b(x73Var, jSONObject);
-        }
-    }
+    void c(CallbackHandler callbackHandler, String str);
+
+    void d(CallbackHandler callbackHandler, String str);
+
+    void e(String str);
+
+    void f(CallbackHandler callbackHandler, String str);
+
+    void g(CallbackHandler callbackHandler, String str);
 }

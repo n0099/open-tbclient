@@ -1,5 +1,5 @@
 package com.baidu.searchbox.videoplayer.core;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String AAR_VERSION = "5.19.32";
     public static final String BUILD_TYPE = "release";

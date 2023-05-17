@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.ClassifierDescriptorWithType
 import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StarProjectionImplKt {
     public static final KotlinType starProjectionType(TypeParameterDescriptor typeParameterDescriptor) {
         DeclarationDescriptor containingDeclaration = typeParameterDescriptor.getContainingDeclaration();
@@ -29,9 +29,9 @@ public final class StarProjectionImplKt {
                 @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructorSubstitution
                 public TypeProjection get(TypeConstructor typeConstructor2) {
                     if (arrayList.contains(typeConstructor2)) {
-                        ClassifierDescriptor mo2025getDeclarationDescriptor = typeConstructor2.mo2025getDeclarationDescriptor();
-                        if (mo2025getDeclarationDescriptor != null) {
-                            return TypeUtils.makeStarProjection((TypeParameterDescriptor) mo2025getDeclarationDescriptor);
+                        ClassifierDescriptor mo2044getDeclarationDescriptor = typeConstructor2.mo2044getDeclarationDescriptor();
+                        if (mo2044getDeclarationDescriptor != null) {
+                            return TypeUtils.makeStarProjection((TypeParameterDescriptor) mo2044getDeclarationDescriptor);
                         }
                         throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.TypeParameterDescriptor");
                     }

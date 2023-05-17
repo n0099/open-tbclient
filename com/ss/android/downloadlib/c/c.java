@@ -8,7 +8,7 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements m {
     private File a(String str, String str2) {
         File file = new File(str2);

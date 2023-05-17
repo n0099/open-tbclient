@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.ListIterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BindResolveClients {
     public static /* synthetic */ Interceptable $ic;
     public static final Object LOCK_INST;
@@ -18,13 +18,13 @@ public class BindResolveClients {
     public ArrayList<ResolveClientBean> mClientList;
 
     /* renamed from: com.huawei.hms.common.internal.BindResolveClients$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SingletonManager {
         public static /* synthetic */ Interceptable $ic;
         public static final BindResolveClients INSTANCE;

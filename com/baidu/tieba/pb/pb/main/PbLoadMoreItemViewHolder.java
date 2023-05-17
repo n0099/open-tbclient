@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public int h;
     public CustomMessageListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,9 +98,9 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         this.b = (LinearLayout) view2.findViewById(R.id.pb_more_view);
         this.c = (TextView) view2.findViewById(R.id.pb_more_text);
         this.e = (ImageView) this.a.findViewById(R.id.no_data_image);
-        this.h = ii.g(this.a.getContext(), R.dimen.tbds156);
+        this.h = ri.g(this.a.getContext(), R.dimen.tbds156);
         this.f = this.a.findViewById(R.id.empty_view);
-        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091c47);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091c9b);
         this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
@@ -132,7 +132,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0b17));
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0b95));
         }
     }
 

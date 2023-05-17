@@ -2,8 +2,10 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.card.view.CardUserInfoLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dx extends rw<ax4> {
+/* loaded from: classes5.dex */
+public class dx extends ax<jy4> implements f7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForumHeadLayout f;
-    public ax4 g;
+    public CardUserInfoLayout f;
+    public int g;
+    public jy4 h;
+    public b i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(jy4 jy4Var, View view2);
+    }
+
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,8 +54,13 @@ public class dx extends rw<ax4> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.g);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.i != null) {
+                    this.a.i.a(this.a.h, view2);
+                }
+                if (this.a.h() != null) {
+                    this.a.h().a(view2, this.a.h);
+                }
             }
         }
     }
@@ -69,43 +83,161 @@ public class dx extends rw<ax4> {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().e instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().e.getParent() == null) {
-            this.f = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().e;
+        this.g = 34053;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().c instanceof CardUserInfoLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().c.getParent() == null) {
+            this.f = (CardUserInfoLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().c;
         } else {
-            this.f = new CardForumHeadLayout(context);
+            this.f = new CardUserInfoLayout(context);
         }
-        this.f.setAfterClickListener(new a(this));
+        this.f.setShowFlag(this.g);
+        this.f.setUserAfterClickListener(new a(this));
+    }
+
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.f.setShowFlag(this.g);
+        }
+    }
+
+    public void B(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            this.f.setPageContext(tbPageContext);
+        }
+    }
+
+    public void C(boolean z) {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.getUserName() != null) {
+            this.f.getUserName().setClickable(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.ax
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            int i2 = i | this.g;
+            this.g = i2;
+            A(i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.ax
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            int i2 = (~i) & this.g;
+            this.g = i2;
+            A(i2);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kx
-    /* renamed from: t */
-    public void a(ax4 ax4Var) {
-        CardForumHeadLayout cardForumHeadLayout;
+    @Override // com.baidu.tieba.tx
+    /* renamed from: u */
+    public void a(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ax4Var) == null) && (cardForumHeadLayout = this.f) != null && ax4Var != null) {
-            this.g = ax4Var;
-            cardForumHeadLayout.setOnClickListener();
-            this.f.setData(ax4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048589, this, jy4Var) == null) {
+            this.h = jy4Var;
+            this.f.setData(jy4Var.getThreadData());
         }
     }
 
-    @Override // com.baidu.tieba.rw
+    public void x(boolean z) {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.getAvatar() != null) {
+            this.f.getAvatar().setClickable(z);
+        }
+    }
+
+    public void y(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void z(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) {
+            this.f.setPageUniqueId(bdUniqueId);
+        }
+    }
+
+    @Override // com.baidu.tieba.f7a
+    public void b() {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (cardUserInfoLayout = this.f) != null) {
+            cardUserInfoLayout.startVirtualAnimation();
+        }
+    }
+
+    @Override // com.baidu.tieba.f7a
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            jy4 jy4Var = this.h;
+            if (jy4Var != null && jy4Var.getThreadData() != null && this.h.getThreadData().getCustomFigure() != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.f7a
+    public void d() {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (cardUserInfoLayout = this.f) != null) {
+            cardUserInfoLayout.recoverVirtualAnimation();
+        }
+    }
+
+    @Override // com.baidu.tieba.f7a
+    public void e() {
+        CardUserInfoLayout cardUserInfoLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (cardUserInfoLayout = this.f) != null) {
+            if (cardUserInfoLayout.isHasPlayVirtualImage()) {
+                this.f.recoverVirtualImageAnimate();
+                this.f.setHasPlayVirtualImage(false);
+            }
+            this.f.recoverVirtualAnimation();
+        }
+    }
+
+    @Override // com.baidu.tieba.ax
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        CardForumHeadLayout cardForumHeadLayout;
+    @Override // com.baidu.tieba.f7a
+    public void play() {
+        CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (cardForumHeadLayout = this.f) != null) {
-            cardForumHeadLayout.f();
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (cardUserInfoLayout = this.f) != null && cardUserInfoLayout.isVirtualImage() && !this.f.isHasPlayVirtualImage()) {
+            this.f.setHasPlayVirtualImage(true);
+            this.f.startVirtualImageAnimate();
+        }
+    }
+
+    @Override // com.baidu.tieba.ux
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

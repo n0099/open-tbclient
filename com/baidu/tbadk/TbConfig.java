@@ -9,7 +9,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.common.others.url.UrlUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,8 +18,8 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbConfig {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -434,6 +433,7 @@ public class TbConfig {
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/ufosdk/postview/tSi1tVlylkKfcPzxh%2FBspQ%3D%3D/222251";
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
     public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
+    public static final String URL_FORUM_LEVEL_H5_PAGE = "https://tieba.baidu.com/mo/q/wise-bawu-core/forum-level?customfullscreen=1&nonavigationbar=1";
     public static final String URL_FORUM_MANAGER_APPLY = "https://tieba.baidu.com/mo/q/managerapply/newapplyelection?nomenu=1&fid=";
     public static final String URL_FORUM_RULES_COMMIT = "c/c/bawu/editForumRule";
     public static final String URL_FORUM_RULES_DRAFT = "c/f/forum/forumRuleDraft";
@@ -627,7 +627,7 @@ public class TbConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? BROADCAST_SIGN_ALERT : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -697,7 +697,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -1030,8 +1030,8 @@ public class TbConfig {
                 return false;
             }
             try {
-                String[] split = version.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = version.split("\\.");
+                String[] split2 = str.split("\\.");
                 for (int i = 0; i < 3; i++) {
                     int parseInt = Integer.parseInt(split[i]) - Integer.parseInt(split2[i]);
                     if (parseInt > 0) {
@@ -1055,7 +1055,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(ii.l(context) * ii.j(context));
+        int sqrt = (int) Math.sqrt(ri.l(context) * ri.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1070,7 +1070,7 @@ public class TbConfig {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             String version = getVersion();
             if (!StringUtils.isNull(version)) {
-                String[] split = version.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = version.split("\\.");
                 if (split.length > 1) {
                     return split[0] + "." + split[1];
                 }
@@ -1300,7 +1300,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return ii.g(TbadkCoreApplication.getInst().getContext(), i);
+            return ri.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1309,7 +1309,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = ii.d(context, 427.0f);
+            int d = ri.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1357,7 +1357,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.v().K(i);
+                TbImageMemoryCache.u().J(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1400,7 +1400,7 @@ public class TbConfig {
             if (!UbsABTestHelper.isImageCacheOptimize()) {
                 return f2;
             }
-            float d = gg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            float d = pg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
             if (d >= f3 && d <= f4) {
                 return d;
             }

@@ -1,5 +1,5 @@
 package com.google.zxing.qrcode.decoder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum ErrorCorrectionLevel {
     L(1),
     M(0),

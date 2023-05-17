@@ -11,12 +11,12 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     public TextView c;
     public TextView d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                pt4.F(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
+                yu4.F(true, this.a.getContext(), this.a.getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
             }
         }
     }
@@ -143,7 +143,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             RelativeLayout.inflate(getContext(), R.layout.mid_video_network_state_tip, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b82);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091bd4);
             TextView textView = (TextView) findViewById(R.id.free_flow);
             this.c = textView;
             textView.setOnClickListener(new a(this));

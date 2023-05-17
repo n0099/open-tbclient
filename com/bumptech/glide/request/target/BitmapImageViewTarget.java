@@ -2,7 +2,7 @@ package com.bumptech.glide.request.target;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BitmapImageViewTarget extends ImageViewTarget<Bitmap> {
     public BitmapImageViewTarget(ImageView imageView) {
         super(imageView);

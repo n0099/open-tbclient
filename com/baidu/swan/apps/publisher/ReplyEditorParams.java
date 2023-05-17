@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a53;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.ho1;
+import com.baidu.tieba.j63;
+import com.baidu.tieba.ns2;
+import com.baidu.tieba.qp1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ReplyEditorParams implements Parcelable {
     public static final String MODULE_EMOJI = "emoji";
     public static final String MODULE_PICTURE = "image";
@@ -58,7 +58,7 @@ public class ReplyEditorParams implements Parcelable {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<ReplyEditorParams> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -112,31 +112,31 @@ public class ReplyEditorParams implements Parcelable {
                 }
             }
         }
-        String c = a53.c(jSONObject, "sendText", "发表");
+        String c = j63.c(jSONObject, "sendText", "发表");
         if (c.length() > 2) {
             c = c.substring(0, 2);
         }
         String str = c;
         try {
-            i = SwanAppConfigData.t(a53.c(jSONObject, "sendTextColor", "#FFFFFF"));
+            i = SwanAppConfigData.t(j63.c(jSONObject, "sendTextColor", "#FFFFFF"));
         } catch (Exception e) {
-            if (ho1.a) {
+            if (qp1.a) {
                 e.printStackTrace();
             }
             i = -1;
         }
-        Application c2 = er2.c();
-        String c3 = a53.c(jSONObject, "sendBackgroundColor", "#3388FF");
-        int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f06096a);
+        Application c2 = ns2.c();
+        String c3 = j63.c(jSONObject, "sendBackgroundColor", "#3388FF");
+        int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060ae4);
         try {
             i2 = SwanAppConfigData.t(c3);
         } catch (Exception e2) {
-            if (ho1.a) {
+            if (qp1.a) {
                 e2.printStackTrace();
             }
             i2 = color;
         }
-        String d = a53.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f13f3)), 20, StringHelper.STRING_MORE);
+        String d = j63.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f14c5)), 20, StringHelper.STRING_MORE);
         String optString2 = jSONObject.optString("emojiPath");
         if (TextUtils.isEmpty(optString2)) {
             arrayList.remove("emoji");

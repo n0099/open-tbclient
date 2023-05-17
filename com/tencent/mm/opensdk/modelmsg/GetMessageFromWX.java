@@ -5,10 +5,10 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class GetMessageFromWX {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Req extends BaseReq {
         public String country;
         public String lang;
@@ -46,7 +46,7 @@ public final class GetMessageFromWX {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Resp extends BaseResp {
         public static final String TAG = "MicroMsg.SDK.GetMessageFromWX.Resp";
         public WXMediaMessage message;

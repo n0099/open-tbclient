@@ -1,15 +1,49 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes7.dex */
-public interface yg6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IWebViewFactoryService");
+import android.content.ContextWrapper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
+public final class yg6 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Application a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    android.webkit.WebView a(Context context, String str);
+    public static Activity a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
+            }
+            while (context instanceof ContextWrapper) {
+                if (context instanceof Activity) {
+                    return (Activity) context;
+                }
+                context = ((ContextWrapper) context).getBaseContext();
+            }
+            return null;
+        }
+        return (Activity) invokeL.objValue;
+    }
 
-    void b(String str, android.webkit.WebView webView);
+    public static void b(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            a = application;
+        }
+    }
+
+    public static Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
+    }
 }

@@ -5,12 +5,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.cy9;
+import com.baidu.tieba.ae5;
+import com.baidu.tieba.e0a;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ng;
-import com.baidu.tieba.rc5;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,19 +18,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rc5 bgUrlTheme;
+    public ae5 bgUrlTheme;
     public int needSend;
     public int scene;
     public String sendText;
     public String text;
-    public rc5 textColorTheme;
+    public ae5 textColorTheme;
     public String version;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cg.h().m(this.a, 19, null, null);
+                lg.h().m(this.a, 19, null, null);
             }
         }
     }
@@ -82,24 +82,24 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     }
 
     private void preLoadBgUrl() {
-        rc5 rc5Var;
+        ae5 ae5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (rc5Var = this.bgUrlTheme) == null) {
+        if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (ae5Var = this.bgUrlTheme) == null) {
             return;
         }
-        String g = cy9.g(rc5Var);
-        if (!hi.isEmpty(g)) {
-            ng.c(new a(this, g));
+        String g = e0a.g(ae5Var);
+        if (!qi.isEmpty(g)) {
+            wg.c(new a(this, g));
         }
     }
 
-    public rc5 getBgUrlTheme() {
+    public ae5 getBgUrlTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.bgUrlTheme;
         }
-        return (rc5) invokeV.objValue;
+        return (ae5) invokeV.objValue;
     }
 
     public boolean getNeedSend() {
@@ -141,13 +141,13 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         return (String) invokeV.objValue;
     }
 
-    public rc5 getTextColorTheme() {
+    public ae5 getTextColorTheme() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.textColorTheme;
         }
-        return (rc5) invokeV.objValue;
+        return (ae5) invokeV.objValue;
     }
 
     public String getVersion() {
@@ -176,8 +176,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.needSend = optJSONObject.optInt("need_send");
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
-                    this.textColorTheme = rc5.c(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = rc5.c(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = ae5.c(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = ae5.c(optJSONObject.optJSONObject("icon_url"));
                     preLoadBgUrl();
                 }
             }

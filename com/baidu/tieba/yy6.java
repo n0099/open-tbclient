@@ -1,114 +1,79 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class yy6 {
+/* loaded from: classes8.dex */
+public final class yy6 extends oz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final int d;
+    public final sz6 e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public yy6() {
-        this(null, null, 0, 0, 15, null);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948346547, "Lcom/baidu/tieba/yy6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue(), ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948346547, "Lcom/baidu/tieba/yy6;");
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof yy6) {
-                yy6 yy6Var = (yy6) obj;
-                return Intrinsics.areEqual(this.a, yy6Var.a) && Intrinsics.areEqual(this.b, yy6Var.b) && this.c == yy6Var.c && this.d == yy6Var.d;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c) * 31) + this.d : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "IconData(day=" + this.a + ", dark=" + this.b + ", width=" + this.c + ", height=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public yy6(String day, String dark, int i, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yy6(sz6 abstractData) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {day, dark, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {abstractData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(day, "day");
-        Intrinsics.checkNotNullParameter(dark, "dark");
-        this.a = day;
-        this.b = dark;
-        this.c = i;
-        this.d = i2;
+        Intrinsics.checkNotNullParameter(abstractData, "abstractData");
+        this.e = abstractData;
     }
 
-    public /* synthetic */ yy6(String str, String str2, int i, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? 0 : i, (i3 & 8) != 0 ? 0 : i2);
-    }
-
-    public final String a() {
+    public final sz6 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.e;
         }
-        return (String) invokeV.objValue;
+        return (sz6) invokeV.objValue;
     }
 
-    public final String b() {
+    public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            if (this.e.a().length() > 0) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

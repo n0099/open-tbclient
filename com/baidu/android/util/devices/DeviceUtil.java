@@ -841,7 +841,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isHwFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.huawei.hardware.sensor.posture")) {
                 return true;
             }
@@ -850,10 +850,24 @@ public class DeviceUtil implements IDevices {
         return invokeV.booleanValue;
     }
 
+    public static String getSamsungFeature(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.samsung.android.feature.SemFloatingFeature");
+                return (String) cls.getDeclaredMethod("getString", String.class).invoke(cls.getMethod("getInstance", new Class[0]).invoke(null, new Object[0]), str);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static boolean isHonorFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if ("HONOR".equalsIgnoreCase(Build.MANUFACTURER) && AppRuntime.getAppContext().getPackageManager().hasSystemFeature("com.hihonor.hardware.sensor.posture")) {
                 return true;
             }
@@ -865,7 +879,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isHonorSpecifiedDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if ("HONOR".equalsIgnoreCase(Build.MANUFACTURER) && "HNMGI".equalsIgnoreCase(Build.DEVICE) && ("DIA-AN00".equalsIgnoreCase(Build.MODEL) || "MGI-AN00".equalsIgnoreCase(Build.MODEL))) {
                 return true;
             }
@@ -877,7 +891,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isMateX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
             if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
                 for (int i = 0; i < 7; i++) {
@@ -894,7 +908,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isOppoFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             boolean hasSystemFeature = AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen");
             boolean hasSystemFeature2 = AppRuntime.getAppContext().getPackageManager().hasSystemFeature("oplus.feature.largescreen.land");
             if (!hasSystemFeature && !hasSystemFeature2) {
@@ -905,11 +919,23 @@ public class DeviceUtil implements IDevices {
         return invokeV.booleanValue;
     }
 
-    public static boolean isSupportFoldable() {
+    public static boolean isSamSungFoldDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (isMateX() || isHwFoldableDevice() || isSamSungFolded() || isHonorFoldableDevice() || isOppoFoldableDevice() || isVIVOFoldableDevice()) {
+            if (TextUtils.isEmpty(Build.MODEL) || !"SAMSUNG".equalsIgnoreCase(Build.MANUFACTURER)) {
+                return false;
+            }
+            return TextUtils.equals(getSamsungFeature("SEC_FLOATING_FEATURE_FRAMEWORK_SUPPORT_FOLDABLE_TYPE_FOLD"), "TRUE");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean isSupportFoldable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (isMateX() || isHwFoldableDevice() || isSamSungFoldDevice() || isHonorFoldableDevice() || isOppoFoldableDevice() || isVIVOFoldableDevice()) {
                 return true;
             }
             return false;
@@ -920,7 +946,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isVIVOFoldableDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             if (!"VIVO".equalsIgnoreCase(RomUtils.getManufacturer())) {
                 return false;
             }
@@ -936,7 +962,7 @@ public class DeviceUtil implements IDevices {
     public static boolean isInMagicWindow(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context == null) {
                 return false;
             }
@@ -947,28 +973,5 @@ public class DeviceUtil implements IDevices {
             return configuration.contains("hw-magic-windows");
         }
         return invokeL.booleanValue;
-    }
-
-    public static boolean isSamSungFolded() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (TextUtils.isEmpty(Build.MODEL)) {
-                return false;
-            }
-            String[] strArr = {"SM-F9000", "SM-F9160"};
-            if ("SAMSUNG".equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i = 0; i < 2; i++) {
-                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
-                        return true;
-                    }
-                }
-                if (Build.MODEL.startsWith("SM-F") || Build.MODEL.startsWith("SM-W")) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

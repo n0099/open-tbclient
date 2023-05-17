@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
 import com.google.android.material.shape.EdgeTreatment;
 import com.google.android.material.shape.ShapePath;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomAppBarTopEdgeTreatment extends EdgeTreatment implements Cloneable {
     public static final int ANGLE_LEFT = 180;
     public static final int ANGLE_UP = 270;

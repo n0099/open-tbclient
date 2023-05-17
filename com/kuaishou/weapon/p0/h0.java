@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Proxy;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String e = "YW5kcm9pZC5hcHAuQWN0aXZpdHlUaHJlYWQ=";
@@ -47,7 +48,7 @@ public class h0 {
         if (interceptable == null || interceptable.invokeLI(65537, this, jSONObject, i) == null) {
             try {
                 Object a2 = Build.VERSION.SDK_INT >= 26 ? h3.a(new String(d.a("YW5kcm9pZC5hcHAuQWN0aXZpdHlNYW5hZ2Vy".getBytes(), 2)), "IActivityManagerSingleton") : h3.a(new String(d.a("YW5kcm9pZC5hcHAuQWN0aXZpdHlNYW5hZ2VyTmF0aXZl".getBytes(), 2)), "gDefault");
-                if (a2 == null || (a = h3.a("android.util.Singleton", a2, "get", new Object[0])) == null) {
+                if (a2 == null || (a = h3.a("android.util.Singleton", a2, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Object[0])) == null) {
                     return;
                 }
                 a(a, jSONObject, i);
@@ -100,7 +101,7 @@ public class h0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65539, this, jSONObject, i) == null) {
             try {
-                if (Build.VERSION.SDK_INT < 29 || (a = h3.a(new String(d.a("YW5kcm9pZC5hcHAuQWN0aXZpdHlUYXNrTWFuYWdlcg==".getBytes(), 2)), new String(d.a("SUFjdGl2aXR5VGFza01hbmFnZXJTaW5nbGV0b24=".getBytes(), 2)))) == null || (a2 = h3.a("android.util.Singleton", a, "get", new Object[0])) == null) {
+                if (Build.VERSION.SDK_INT < 29 || (a = h3.a(new String(d.a("YW5kcm9pZC5hcHAuQWN0aXZpdHlUYXNrTWFuYWdlcg==".getBytes(), 2)), new String(d.a("SUFjdGl2aXR5VGFza01hbmFnZXJTaW5nbGV0b24=".getBytes(), 2)))) == null || (a2 = h3.a("android.util.Singleton", a, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Object[0])) == null) {
                     return;
                 }
                 a(a2, jSONObject, i);

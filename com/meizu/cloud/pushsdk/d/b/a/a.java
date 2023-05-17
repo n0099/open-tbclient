@@ -14,14 +14,14 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a extends com.meizu.cloud.pushsdk.d.b.a {
     public final String h;
     public d i;
     public int j;
 
-    public a(a.C0668a c0668a) {
-        super(c0668a);
+    public a(a.C0682a c0682a) {
+        super(c0682a);
         this.h = a.class.getSimpleName();
         com.meizu.cloud.pushsdk.d.d.a aVar = new com.meizu.cloud.pushsdk.d.d.a(this.a, this.e);
         this.i = aVar;

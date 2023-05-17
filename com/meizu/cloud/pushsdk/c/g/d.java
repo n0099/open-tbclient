@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.c.g;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface d extends m {
     InputStream d();
 

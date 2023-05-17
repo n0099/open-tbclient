@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor.flv;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class TagPayloadReader {
     public final TrackOutput output;
 
@@ -13,7 +13,7 @@ public abstract class TagPayloadReader {
 
     public abstract void seek();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UnsupportedFormatException extends ParserException {
         public UnsupportedFormatException(String str) {
             super(str);

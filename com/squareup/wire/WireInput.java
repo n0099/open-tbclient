@@ -11,7 +11,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class WireInput {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType = null;
     public static /* synthetic */ Interceptable $ic = null;

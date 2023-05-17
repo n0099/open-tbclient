@@ -1,5 +1,5 @@
 package com.baidu.ugc.download.exception;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DownloadException extends Exception {
     public int errorCode;
     public String errorMessage;

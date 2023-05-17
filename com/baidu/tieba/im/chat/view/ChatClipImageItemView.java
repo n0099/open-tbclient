@@ -13,35 +13,35 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bl;
+import com.baidu.tieba.cn;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.pk;
-import com.baidu.tieba.sk;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.vk;
+import com.baidu.tieba.el;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.yk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
-public class ChatClipImageItemView extends GifView implements sk.a {
+/* loaded from: classes6.dex */
+public class ChatClipImageItemView extends GifView implements bl.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean k1;
-    public sk l1;
+    public bl l1;
     public final Path m1;
     public boolean n1;
     public a o1;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Canvas canvas);
     }
 
-    @Override // com.baidu.tieba.sk.a
+    @Override // com.baidu.tieba.bl.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -128,7 +128,7 @@ public class ChatClipImageItemView extends GifView implements sk.a {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65539, this, context, attributeSet, i) == null) {
-            String trim = ki.g().trim();
+            String trim = ti.g().trim();
             if (trim != null) {
                 String[] strArr = {"M040", "M045"};
                 for (int i2 = 0; i2 < 2; i2++) {
@@ -150,19 +150,19 @@ public class ChatClipImageItemView extends GifView implements sk.a {
                 }
             }
             if (!z) {
-                this.l1 = new vk();
+                this.l1 = new el();
             } else {
-                this.l1 = new pk();
+                this.l1 = new yk();
             }
             this.d.n = true;
             this.l1.t(this);
-            sk skVar = this.l1;
-            this.e = skVar;
-            skVar.r(this.d);
+            bl blVar = this.l1;
+            this.e = blVar;
+            blVar.r(this.d);
         }
     }
 
-    @Override // com.baidu.tieba.sk.a
+    @Override // com.baidu.tieba.bl.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -216,13 +216,13 @@ public class ChatClipImageItemView extends GifView implements sk.a {
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public tm getBdImage() {
+    public cn getBdImage() {
         InterceptResult invokeV;
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            tm bdImage = super.getBdImage();
+            cn bdImage = super.getBdImage();
             boolean z3 = true;
             if (getDrawable() != null && (getDrawable() instanceof BitmapDrawable) && ((BitmapDrawable) getDrawable()).getBitmap() != null) {
                 z = true;
@@ -234,25 +234,25 @@ public class ChatClipImageItemView extends GifView implements sk.a {
             } else {
                 z2 = false;
             }
-            sk skVar = this.l1;
+            bl blVar = this.l1;
             if (!z2 && !z) {
                 z3 = false;
             }
-            skVar.u(z3);
+            blVar.u(z3);
             return bdImage;
         }
-        return (tm) invokeV.objValue;
+        return (cn) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public tm getDefaultBdImage() {
+    public cn getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             this.l1.u(false);
             return super.getDefaultBdImage();
         }
-        return (tm) invokeV.objValue;
+        return (cn) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, android.view.View
@@ -267,10 +267,10 @@ public class ChatClipImageItemView extends GifView implements sk.a {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            int d = ii.d(getContext(), 4.0f);
-            int d2 = ii.d(getContext(), 12.0f);
-            int d3 = ii.d(getContext(), 6.0f);
-            int d4 = ii.d(getContext(), 10.0f);
+            int d = ri.d(getContext(), 4.0f);
+            int d2 = ri.d(getContext(), 12.0f);
+            int d3 = ri.d(getContext(), 6.0f);
+            int d4 = ri.d(getContext(), 10.0f);
             float f4 = d3;
             float f5 = 2.0f * f3;
             float f6 = (f - f4) - f5;

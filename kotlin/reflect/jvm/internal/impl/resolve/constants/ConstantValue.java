@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.constants;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ConstantValue<T> {
     public final T value;
 

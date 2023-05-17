@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.view.menu.SwanAppMenuHeaderView;
-import com.baidu.swan.support.v4.app.FragmentActivity;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.InspectorNativeChannel;
+import com.baidu.searchbox.v8engine.InspectorNativeClient;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.h72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,20 +18,242 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URI;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class k72 extends l72 {
+import java.net.URISyntaxException;
+import java.util.concurrent.LinkedBlockingQueue;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class k72 implements h72.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean P0;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int N0;
-    public FrameLayout O0;
+    public final h72.b a;
+    public d6b b;
+    public InspectorNativeClient c;
+    public og2 d;
+    public LinkedBlockingQueue<String> e;
+    public String f;
 
-    /* loaded from: classes5.dex */
-    public class a extends i92 {
+    /* loaded from: classes6.dex */
+    public class b extends d6b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k72 c;
+        public final /* synthetic */ k72 a;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    String str = (String) this.a.a.e.poll();
+                    while (str != null) {
+                        this.a.a.c.dispatchProtocolMessage(str);
+                        this.a.c(str);
+                        this.a.d(str);
+                        str = (String) this.a.a.e.poll();
+                    }
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.k72$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0364b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public RunnableC0364b(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.a.onConnected();
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(k72 k72Var, URI uri) {
+            super(uri);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k72Var, uri};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((URI) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k72Var;
+        }
+
+        public final void c(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && this.a.a != null) {
+                try {
+                    if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
+                        f93 K = f93.K();
+                        SwanAppActivity w = K.w();
+                        if (K.E() && w != null) {
+                            w.runOnUiThread(new RunnableC0364b(this));
+                        }
+                    }
+                } catch (JSONException e) {
+                    if (k72.g) {
+                        Log.e("V8InspectorClient", "message is not a Json object", e);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.d6b
+        public void onOpen(x6b x6bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, x6bVar) == null) {
+                g62.i("V8InspectorClient", "V8 inspector opened");
+                cb2 W = ag2.U().W();
+                if (W instanceof gb2) {
+                    this.a.d = (og2) W.f();
+                }
+                if (this.a.d == null) {
+                    g62.i("V8InspectorClient", "inner error, V8 mEngine is null");
+                    close();
+                    return;
+                }
+                k72 k72Var = this.a;
+                k72Var.c = k72Var.d.r0(new a(this.a));
+            }
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:22:0x0046, code lost:
+            if (r2 == 1) goto L20;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0048, code lost:
+            com.baidu.tieba.g62.c("V8InspectorClient", "Undefined command");
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:24:0x004e, code lost:
+            com.baidu.tieba.g62.i("V8InspectorClient", "v8 inspector close");
+            com.baidu.tieba.b72.d();
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
+            return;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
+            return;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final void d(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("command");
+                if (TextUtils.isEmpty(optString)) {
+                    return;
+                }
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != -934641255) {
+                    if (hashCode == 94756344 && optString.equals("close")) {
+                        c = 1;
+                    }
+                } else if (optString.equals("reload")) {
+                    c = 0;
+                }
+                g62.i("V8InspectorClient", "v8 inspector reload");
+                String optString2 = jSONObject.optString("value");
+                if (!TextUtils.isEmpty(optString2) && TextUtils.equals(Uri.parse(optString2).getHost(), "swanAPI")) {
+                    SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
+                }
+            } catch (JSONException e) {
+                if (k72.g) {
+                    Log.e("V8InspectorClient", "message is not a json object", e);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.d6b
+        public void onClose(int i, String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
+                g62.i("V8InspectorClient", "V8 inspector closed");
+            }
+        }
+
+        @Override // com.baidu.tieba.d6b
+        public void onError(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+                g62.d("V8InspectorClient", "V8 inspector error", exc);
+            }
+        }
+
+        @Override // com.baidu.tieba.d6b
+        public void onMessage(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.a.e.offer(str);
+                this.a.d.postOnJSThread(new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends InspectorNativeChannel {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k72 a;
 
         public a(k72 k72Var) {
             Interceptable interceptable = $ic;
@@ -50,32 +270,44 @@ public class k72 extends l72 {
                     return;
                 }
             }
-            this.c = k72Var;
+            this.a = k72Var;
         }
 
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
-        public boolean a(String str) {
-            InterceptResult invokeL;
+        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
+        public void sendMessage(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return super.a(str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                try {
+                    if (this.a.b != null) {
+                        this.a.b.send(str);
+                    }
+                } catch (Exception unused) {
+                    if (k72.g) {
+                        Log.d("V8InspectorClient", "V8 send message fail, try to check if websocket has opened");
+                    }
+                }
             }
-            return invokeL.booleanValue;
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean a() {
+        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
+        public String awaitMessage() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return lg3.a().getBoolean("SP_SwanAppWebModeFragment_DEBUG", false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (k72.g) {
+                    Log.d("V8InspectorClient", "getInspectorMessage");
+                }
+                try {
+                    return (String) this.a.e.take();
+                } catch (InterruptedException e) {
+                    if (k72.g) {
+                        Log.e("V8InspectorClient", "awaitMessage on Debugger", e);
+                        return "";
+                    }
+                    return "";
+                }
             }
-            return invokeV.booleanValue;
+            return (String) invokeV.objValue;
         }
     }
 
@@ -92,13 +324,39 @@ public class k72 extends l72 {
                 return;
             }
         }
-        P0 = ho1.a;
+        g = qp1.a;
     }
 
-    public k72() {
+    @Override // com.baidu.tieba.h72.c
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                b bVar = new b(this, new URI(this.f));
+                this.b = bVar;
+                bVar.connect();
+            } catch (URISyntaxException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h72.c
+    public void stop() {
+        d6b d6bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (d6bVar = this.b) != null) {
+            d6bVar.close();
+            this.b = null;
+        }
+    }
+
+    public k72(String str, h72.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,210 +366,8 @@ public class k72 extends l72 {
                 return;
             }
         }
-        this.N0 = 20;
-    }
-
-    @Override // com.baidu.tieba.l72
-    public l92 c3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return new a(this);
-        }
-        return (l92) invokeV.objValue;
-    }
-
-    public URI j3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                return new URI(pn3.c().a().e());
-            } catch (Exception e) {
-                if (P0) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (URI) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l72
-    public gu1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return re2.U().f0().a(getContext());
-        }
-        return (gu1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d72
-    public void k2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.k2();
-            sn3.a().j();
-        }
-    }
-
-    public URI k3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return new URI(pn3.c().e());
-            } catch (Exception e) {
-                if (P0) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (URI) invokeV.objValue;
-    }
-
-    public final int l3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (g2()) {
-                return 19;
-            }
-            return this.N0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.d72
-    public void P2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.G0 == null) {
-                if (P0) {
-                    Log.e("SwanAppWebModeFragment", Log.getStackTraceString(new Exception("mCurWebViewManager is null.")));
-                    return;
-                }
-                return;
-            }
-            HashMap hashMap = new HashMap();
-            String a2 = this.G0.a();
-            hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, a2);
-            eu1 eu1Var = this.H0;
-            if (eu1Var != null) {
-                hashMap.put("webViewUrl", eu1Var.getUrl());
-            }
-            yh2 yh2Var = new yh2("sharebtn", hashMap);
-            kt2.U().m(a2, yh2Var);
-            x42.i("SwanAppWebModeFragment", "share msg: " + yh2Var.s().toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.l72, com.baidu.tieba.d72
-    public void X1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.X1(view2);
-            this.f0.setRightMenuStyle();
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f0.getLayoutParams();
-            layoutParams.topMargin = ol3.t();
-            this.f0.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void m3(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.N0 = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.l72
-    public void d3() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            FragmentActivity activity = getActivity();
-            if (this.h0 == null) {
-                this.h0 = new SwanAppMenuHeaderView(getContext());
-            }
-            if (activity != null && this.g0 == null) {
-                this.g0 = new ee4(activity, this.f0, l3(), er2.K(), new gn3());
-                new nx2(this.g0, this, this.h0).z();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.l72, com.baidu.tieba.d72
-    public void m2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            d3();
-            SwanAppMenuHeaderView swanAppMenuHeaderView = this.h0;
-            if (swanAppMenuHeaderView != null) {
-                swanAppMenuHeaderView.setAttentionBtnStates(ve2.n(w73.K().getAppId()));
-            }
-            this.g0.u(er2.M().a(), K1(), this.h0, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.d72, com.baidu.swan.support.v4.app.Fragment
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            super.onResume();
-            URI k3 = k3();
-            URI j3 = j3();
-            if (k3 != null && j3 != null) {
-                if (!TextUtils.equals(k3.getPath(), j3.getPath()) && !TextUtils.equals(k3.getQuery(), j3.getQuery())) {
-                    this.G0.loadUrl(j3.toString());
-                    if (P0) {
-                        Log.i("SwanAppWebModeFragment", "onResume: refresh url " + j3.toString());
-                    }
-                    pn3.c().m("3");
-                    sn3.b("3");
-                    sn3.a().m();
-                    if (P0) {
-                        Log.i("SwanAppWebModeFragment", "onResume: reset statistic for warm refresh.");
-                        return;
-                    }
-                    return;
-                }
-                he3.s(w73.K().q().W());
-                if (P0) {
-                    Log.i("SwanAppWebModeFragment", "onResume: warm without refresh.");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.eu1] */
-    @Override // com.baidu.tieba.l72, com.baidu.swan.support.v4.app.Fragment
-    public View z0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e0, viewGroup, false);
-            X1(inflate);
-            gu1 k = k();
-            this.G0 = k;
-            k.Y(c3());
-            this.H0 = this.G0.s();
-            sn3.a().i(this.I0);
-            pn3.c().m("0");
-            this.G0.loadUrl(this.I0);
-            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ae);
-            this.O0 = frameLayout;
-            this.G0.j(frameLayout, this.H0.covertToView());
-            Z2(this.O0);
-            if (W1()) {
-                inflate = Z1(inflate);
-                A1(0, true);
-            }
-            ol3.Q(getActivity());
-            pn3.c().p(this.G0.a());
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
+        this.e = new LinkedBlockingQueue<>();
+        this.f = str;
+        this.a = bVar;
     }
 }

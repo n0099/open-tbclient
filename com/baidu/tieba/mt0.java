@@ -1,108 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class mt0 extends nt0 {
+/* loaded from: classes6.dex */
+public final class mt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gt0 c;
+    public final int a;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    public mt0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void A() {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onVideoSwitchToHalf();
-        }
-    }
-
-    @Override // com.baidu.tieba.nt0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.r();
-            this.c = null;
-        }
-    }
-
-    public void t() {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onBeforeSwitchToFull();
-        }
-    }
-
-    public void u() {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onBeforeSwitchToHalf();
-        }
-    }
-
-    public void v() {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onGestureActionEnd();
-        }
-    }
-
-    public void w() {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onGestureActionStart();
-        }
-    }
-
-    public void z() {
-        gt0 gt0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onVideoSwitchToFull();
-        }
-    }
-
-    public boolean x(MotionEvent motionEvent) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            gt0 gt0Var = this.c;
-            if (gt0Var != null) {
-                return gt0Var.onGestureDoubleClick(motionEvent);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof mt0) {
+                    mt0 mt0Var = (mt0) obj;
+                    return this.a == mt0Var.a && this.b == mt0Var.b && this.c == mt0Var.c && this.d == mt0Var.d;
+                }
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void y(boolean z) {
-        gt0 gt0Var;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (gt0Var = this.c) != null) {
-            gt0Var.onPanelVisibilityChanged(z);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (((((this.a * 31) + this.b) * 31) + this.c) * 31) + this.d : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "AuthStrategyModel(uaCode=" + this.a + ", refererCode=" + this.b + ", tokenCode=" + this.c + ", modeCode=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public mt0(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
     }
 }

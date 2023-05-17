@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ej implements ef {
     private void a(Service service, Intent intent) {
         if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
@@ -69,7 +69,7 @@ public class ej implements ef {
     @Override // com.xiaomi.push.ef
     public void a(Context context, eb ebVar) {
         if (ebVar != null) {
-            a(context, ebVar.m368a(), ebVar.c(), ebVar.d());
+            a(context, ebVar.m387a(), ebVar.c(), ebVar.d());
         }
     }
 }

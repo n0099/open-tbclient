@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.SystemClock;
 import com.xiaomi.push.service.XMPushService;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class p {
     public static long a;
     public static long b;
@@ -16,7 +16,7 @@ public class p {
     /* renamed from: a  reason: collision with other field name */
     public final c f993a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public final c a;
 
@@ -36,7 +36,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b implements Runnable {
         public int a;
 
@@ -45,7 +45,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class c extends Thread {
 
         /* renamed from: b  reason: collision with other field name */
@@ -60,7 +60,7 @@ public class p {
         /* renamed from: a  reason: collision with other field name */
         public a f994a = new a();
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class a {
             public int a;
 
@@ -156,7 +156,7 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m752a() {
+            public void m771a() {
                 this.f997a = new d[this.a];
                 this.b = 0;
             }
@@ -182,7 +182,7 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public void m753a(d dVar) {
+            public void m772a(d dVar) {
                 d[] dVarArr = this.f997a;
                 int length = dVarArr.length;
                 int i = this.b;
@@ -200,12 +200,12 @@ public class p {
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m754a() {
+            public boolean m773a() {
                 return this.b == 0;
             }
 
             /* renamed from: a  reason: collision with other method in class */
-            public boolean m755a(int i) {
+            public boolean m774a(int i) {
                 for (int i2 = 0; i2 < this.b; i2++) {
                     if (this.f997a[i2].a == i) {
                         return true;
@@ -248,18 +248,18 @@ public class p {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void a(d dVar) {
-            this.f994a.m753a(dVar);
+            this.f994a.m772a(dVar);
             notify();
         }
 
         public synchronized void a() {
             this.f996b = true;
-            this.f994a.m752a();
+            this.f994a.m771a();
             notify();
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m751a() {
+        public boolean m770a() {
             return this.f995a && SystemClock.uptimeMillis() - this.a > 600000;
         }
 
@@ -292,7 +292,7 @@ public class p {
                     if (this.f996b) {
                         return;
                     }
-                    if (!this.f994a.m754a()) {
+                    if (!this.f994a.m773a()) {
                         long a2 = p.a();
                         d a3 = this.f994a.a();
                         synchronized (a3.f1000a) {
@@ -338,7 +338,7 @@ public class p {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d {
         public int a;
 
@@ -438,8 +438,8 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m746a() {
-        com.xiaomi.channel.commonutils.logger.b.m101a("quit. finalizer:" + this.f992a);
+    public void m765a() {
+        com.xiaomi.channel.commonutils.logger.b.m120a("quit. finalizer:" + this.f992a);
         this.f993a.a();
     }
 
@@ -473,23 +473,23 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m747a() {
-        return this.f993a.m751a();
+    public boolean m766a() {
+        return this.f993a.m770a();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m748a(int i) {
-        boolean m755a;
+    public boolean m767a(int i) {
+        boolean m774a;
         synchronized (this.f993a) {
-            m755a = this.f993a.f994a.m755a(i);
+            m774a = this.f993a.f994a.m774a(i);
         }
-        return m755a;
+        return m774a;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m749b() {
+    public void m768b() {
         synchronized (this.f993a) {
-            this.f993a.f994a.m752a();
+            this.f993a.f994a.m771a();
         }
     }
 }

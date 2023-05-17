@@ -9,28 +9,28 @@ import com.baidu.searchbox.websocket.WebSocketManager;
 import com.baidu.searchbox.websocket.WebSocketRequest;
 import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ff2;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.l44;
+import com.baidu.tieba.og2;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.u54;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanInspectorEndpoint {
-    public static final boolean t = ho1.a;
+    public static final boolean t = qp1.a;
     public static SwanInspectorEndpoint u = new SwanInspectorEndpoint();
     public String a;
     public String c;
     public String d;
-    public l44.a g;
+    public u54.a g;
     public Runnable i;
     public ConnectionState j;
     public ConnectionState k;
     public Throwable l;
-    public ff2 m;
+    public og2 m;
     public int n;
     public WebSocketTask o;
     public int p;
@@ -42,18 +42,18 @@ public class SwanInspectorEndpoint {
     public boolean f = false;
     public boolean h = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum ConnectionState {
         CLOSED,
         CONNECTING,
         OPEN
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements IWebSocketListener {
         public int a;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -69,7 +69,7 @@ public class SwanInspectorEndpoint {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class b implements Runnable {
             public final /* synthetic */ Runnable a;
 
@@ -159,7 +159,7 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public String a;
         public JSONObject b;
@@ -211,7 +211,7 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends InspectorNativeChannel {
         public c() {
         }
@@ -262,11 +262,11 @@ public class SwanInspectorEndpoint {
         p(false);
     }
 
-    public final void t(ff2 ff2Var) throws Exception {
+    public final void t(og2 og2Var) throws Exception {
         this.k = ConnectionState.CONNECTING;
-        if (this.n != ff2Var.hashCode()) {
-            this.m = ff2Var;
-            this.n = ff2Var.hashCode();
+        if (this.n != og2Var.hashCode()) {
+            this.m = og2Var;
+            this.n = og2Var.hashCode();
             c cVar = new c();
             this.s = cVar;
             this.r = this.m.r0(cVar);
@@ -276,7 +276,7 @@ public class SwanInspectorEndpoint {
         throw new Exception("Can not use the previous connected v8Engine.");
     }
 
-    public void w(l44.a aVar) {
+    public void w(u54.a aVar) {
         this.g = aVar;
     }
 
@@ -314,16 +314,16 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public void r(l44 l44Var, ff2 ff2Var, l44.a aVar, Runnable runnable) {
+    public void r(u54 u54Var, og2 og2Var, u54.a aVar, Runnable runnable) {
         p(false);
         w(aVar);
         try {
-            t(ff2Var);
-            if (l44Var.d()) {
+            t(og2Var);
+            if (u54Var.d()) {
                 this.i = runnable;
-                s(l44Var);
+                s(u54Var);
             } else {
-                s(l44Var);
+                s(u54Var);
                 runnable.run();
             }
         } catch (Exception e) {
@@ -334,11 +334,11 @@ public class SwanInspectorEndpoint {
         }
     }
 
-    public final void s(l44 l44Var) {
+    public final void s(u54 u54Var) {
         this.j = ConnectionState.CONNECTING;
-        this.c = l44Var.a();
-        this.f = l44Var.b();
-        this.e = l44Var.d();
+        this.c = u54Var.a();
+        this.f = u54Var.b();
+        this.e = u54Var.d();
         this.d = "ws://" + this.c + "/inspect/inspectorTarget/" + this.a;
         if (t) {
             Log.i("SwanInspector", "Starting inspector to " + this.d);
@@ -357,9 +357,9 @@ public class SwanInspectorEndpoint {
         String string3;
         StringBuilder sb = new StringBuilder();
         long currentTimeMillis = System.currentTimeMillis();
-        l44.a aVar = this.g;
+        u54.a aVar = this.g;
         if (aVar == null) {
-            aVar = l44.a.c();
+            aVar = u54.a.c();
         }
         sb.append(aVar.a());
         sb.append("\n");
@@ -369,43 +369,43 @@ public class SwanInspectorEndpoint {
         String str = null;
         ConnectionState connectionState = this.j;
         if (connectionState == ConnectionState.OPEN) {
-            string = resources.getString(R.string.obfuscated_res_0x7f0f0174);
+            string = resources.getString(R.string.obfuscated_res_0x7f0f019e);
         } else if (this.l == null && (connectionState != ConnectionState.CONNECTING || currentTimeMillis - this.q <= 5000)) {
             if (this.j == ConnectionState.CONNECTING) {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0172);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f019c);
             } else {
-                string = resources.getString(R.string.obfuscated_res_0x7f0f0171);
+                string = resources.getString(R.string.obfuscated_res_0x7f0f019b);
             }
         } else {
-            string = resources.getString(R.string.obfuscated_res_0x7f0f0173);
-            str = resources.getString(R.string.obfuscated_res_0x7f0f0170);
+            string = resources.getString(R.string.obfuscated_res_0x7f0f019d);
+            str = resources.getString(R.string.obfuscated_res_0x7f0f019a);
         }
-        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0177));
+        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a1));
         sb.append(string);
         sb.append("\n");
         if (str != null) {
             sb.append(str);
             sb.append("\n");
         }
-        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0176));
+        sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a0));
         sb.append(this.c);
         sb.append("\n");
         if (this.j == ConnectionState.OPEN) {
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0179));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a3));
             if (this.i != null) {
-                string2 = resources.getString(R.string.obfuscated_res_0x7f0f017b);
+                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a5);
             } else if (this.h) {
-                string2 = resources.getString(R.string.obfuscated_res_0x7f0f017a);
+                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a4);
             } else {
-                string2 = resources.getString(R.string.obfuscated_res_0x7f0f017c);
+                string2 = resources.getString(R.string.obfuscated_res_0x7f0f01a6);
             }
             sb.append(string2);
             sb.append("\n");
-            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f0178));
+            sb.append(resources.getString(R.string.obfuscated_res_0x7f0f01a2));
             if (this.e) {
-                string3 = resources.getString(R.string.obfuscated_res_0x7f0f017e);
+                string3 = resources.getString(R.string.obfuscated_res_0x7f0f01a8);
             } else {
-                string3 = resources.getString(R.string.obfuscated_res_0x7f0f017d);
+                string3 = resources.getString(R.string.obfuscated_res_0x7f0f01a7);
             }
             sb.append(string3);
             sb.append("\n");

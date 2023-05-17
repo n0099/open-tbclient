@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.INoProGuard;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UtilsBlink implements INoProGuard {
     public static final String DEX_FILE_SUBFIX = ".dex";
     public static final String TAG = "UtilsBlink";

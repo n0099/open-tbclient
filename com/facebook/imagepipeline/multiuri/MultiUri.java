@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.multiuri;
 
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MultiUri {
     @Nullable
     public ImageRequest mHighResImageRequest;
@@ -11,7 +11,7 @@ public class MultiUri {
     @Nullable
     public ImageRequest[] mMultiImageRequests;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         @Nullable
         public ImageRequest mHighResImageRequest;

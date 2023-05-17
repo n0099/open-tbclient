@@ -1,15 +1,15 @@
 package com.baidu.searchbox.download.center.clearcache;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseClearCache {
     public long mCacheSize = 0;
     public boolean mSelected = isDefaultSelected();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CacheClearCallback {
         void onClearCacheResult(boolean z);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CacheSizeCallback {
         void onCacheSizeResult(long j);
     }

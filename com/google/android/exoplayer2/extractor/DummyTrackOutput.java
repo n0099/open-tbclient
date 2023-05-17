@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DummyTrackOutput implements TrackOutput {
     @Override // com.google.android.exoplayer2.extractor.TrackOutput
     public void format(Format format) {

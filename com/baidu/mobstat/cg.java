@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cg implements ce {
     public static final List<cj> a;
     public static int b;

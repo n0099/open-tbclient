@@ -1,72 +1,91 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Build;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Paint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aj {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 0;
-    public static int b = 3;
-    public static final String[] c;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448299684, "Lcom/baidu/tieba/aj;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(float f, Paint paint, String str, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
+            if (f == 0.0f || i == 0 || str == null || str.isEmpty()) {
+                return 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448299684, "Lcom/baidu/tieba/aj;");
-                return;
+            if (!str.contains("\n")) {
+                return Math.min((int) Math.ceil(paint.measureText(str) / f), i);
             }
+            String[] split = str.split("\n");
+            if (split.length > i) {
+                return Math.min(split.length, i);
+            }
+            int i2 = 0;
+            for (int i3 = 0; i3 < i && split.length > i3; i3++) {
+                if (i3 < i - 1) {
+                    i2 += (int) Math.ceil(paint.measureText(split[i3]) / f);
+                } else {
+                    i2++;
+                }
+            }
+            return Math.min(i2, i);
         }
-        c = new String[]{"meizu"};
+        return invokeCommon.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static boolean b(float f, Paint paint, String str, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = Build.BRAND;
-            if (str == null) {
-                return false;
-            }
-            String lowerCase = str.toLowerCase();
-            int i = 0;
-            while (true) {
-                String[] strArr = c;
-                if (i >= strArr.length) {
-                    return false;
-                }
-                if (strArr[i].equals(lowerCase)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i)})) == null) {
+            return c(f, paint, str, i, 5);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean c(float f, Paint paint, String str, int i, int i2) {
+        InterceptResult invokeCommon;
+        float measureText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), paint, str, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            float f2 = 0.0f;
+            if (f != 0.0f && i != 0 && str != null && !str.isEmpty() && paint != null) {
+                if (!str.contains("\n")) {
+                    if (paint.measureText(str) < f * i) {
+                        return false;
+                    }
                     return true;
                 }
-                i++;
+                String[] split = str.split("\n");
+                if (split.length > i) {
+                    return true;
+                }
+                int i3 = 0;
+                for (int i4 = 0; i4 < i && split.length > i4; i4++) {
+                    if (i4 < i - 1) {
+                        measureText = paint.measureText(split[i4]);
+                        int ceil = (int) Math.ceil(measureText / f);
+                        i3 += ceil;
+                        if (i3 < i2) {
+                            measureText = ceil * f;
+                        }
+                    } else {
+                        measureText = paint.measureText(split[i4]);
+                        i3++;
+                    }
+                    f2 += measureText;
+                    if (i3 >= 5) {
+                        if (f2 < f * i) {
+                            return false;
+                        }
+                        return true;
+                    }
+                }
             }
-        } else {
-            return invokeV.booleanValue;
+            return false;
         }
-    }
-
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            Application app = BdBaseApplication.getInst().getApp();
-            if (app == null) {
-                return "";
-            }
-            return app.getString(i);
-        }
-        return (String) invokeI.objValue;
+        return invokeCommon.booleanValue;
     }
 }

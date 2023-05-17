@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConnectTrial {
     public static final String TAG = "ConnectTrial";
     public boolean acceptRange;

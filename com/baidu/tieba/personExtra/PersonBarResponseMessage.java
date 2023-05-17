@@ -2,18 +2,18 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.n69;
+import com.baidu.tieba.j89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n69 data;
+    public j89 data;
     public int errCode;
     public String resultString;
 
@@ -36,7 +36,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = 0;
-        this.data = new n69();
+        this.data = new j89();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -62,13 +62,13 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public n69 getPersonBarData() {
+    public j89 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.data;
         }
-        return (n69) invokeV.objValue;
+        return (j89) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -87,10 +87,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonBarData(n69 n69Var) {
+    public void setPersonBarData(j89 j89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, n69Var) == null) {
-            this.data = n69Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, j89Var) == null) {
+            this.data = j89Var;
         }
     }
 

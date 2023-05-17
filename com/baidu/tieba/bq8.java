@@ -6,10 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class bq8 implements aq8 {
+import tbclient.AddTail.ResData;
+/* loaded from: classes5.dex */
+public class bq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
     public bq8() {
         Interceptable interceptable = $ic;
@@ -25,23 +27,21 @@ public class bq8 implements aq8 {
         }
     }
 
-    @Override // com.baidu.tieba.aq8
-    public wp8 get() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return rb9.m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (wp8) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.aq8
-    public xp8 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public void b(ResData resData) {
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new yp8(str, str2, str3);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
+            return;
         }
-        return (xp8) invokeLLL.objValue;
+        this.a = l.intValue();
     }
 }

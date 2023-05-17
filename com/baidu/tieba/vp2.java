@@ -1,26 +1,22 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.content.FileProvider;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes6.dex */
-public class vp2 extends rl2<iq2> {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class vp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.rl2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
-    }
+    public long a;
+    public String b;
+    public String c;
+    public int d;
 
     public vp2() {
         Interceptable interceptable = $ic;
@@ -36,17 +32,21 @@ public class vp2 extends rl2<iq2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
-        Object obj;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) != null) || (obj = command.obj) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("userId", this.a);
+                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
+                jSONObject.put(Config.EVENT_ATTR, this.c);
+                jSONObject.put("role", this.d);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        iq2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(iq2Var, str, "Surface:" + command.obj.hashCode(), false);
+        return (JSONObject) invokeV.objValue;
     }
 }

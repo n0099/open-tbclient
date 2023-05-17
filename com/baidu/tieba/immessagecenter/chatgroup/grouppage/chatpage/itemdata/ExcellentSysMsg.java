@@ -13,7 +13,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ExcellentInfo;
-import com.baidu.tieba.ng;
+import com.baidu.tieba.wg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ExcellentSysMsg extends NoticeModifySysMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId ADAPTER_TYPE;
@@ -33,20 +33,20 @@ public class ExcellentSysMsg extends NoticeModifySysMsg {
     @SerializedName("top_bubble_info")
     public TopBubbleData topButtonInfo;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Action.a<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExcellentSysMsg a;
 
         /* renamed from: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ExcellentSysMsg$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0325a implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC0339a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0325a(a aVar) {
+            public RunnableC0339a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,7 +100,7 @@ public class ExcellentSysMsg extends NoticeModifySysMsg {
                 if (baseMsg != null) {
                     baseMsg.getCommonMsgField().setExcellentInfo(new ExcellentInfo(String.valueOf(this.a.excellentMsgOp)));
                 }
-                ng.e(new RunnableC0325a(this));
+                wg.e(new RunnableC0339a(this));
             }
         }
     }
@@ -145,7 +145,7 @@ public class ExcellentSysMsg extends NoticeModifySysMsg {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

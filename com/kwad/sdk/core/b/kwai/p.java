@@ -8,7 +8,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class p implements com.kwad.sdk.core.d<AdInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo adInfo, JSONObject jSONObject) {

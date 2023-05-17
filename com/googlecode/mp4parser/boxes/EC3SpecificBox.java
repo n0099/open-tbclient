@@ -10,7 +10,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class EC3SpecificBox extends AbstractBox {
     public static final String TYPE = "dec3";
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -66,7 +66,7 @@ public class EC3SpecificBox extends AbstractBox {
         return this.numIndSub;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public int acmod;
         public int bsid;

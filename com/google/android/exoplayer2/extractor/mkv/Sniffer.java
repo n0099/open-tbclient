@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor.mkv;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Sniffer {
     public static final int ID_EBML = 440786851;
     public static final int SEARCH_LENGTH = 1024;

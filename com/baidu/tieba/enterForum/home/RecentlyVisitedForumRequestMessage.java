@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.GetHistoryForum.DataReq;
 import tbclient.GetHistoryForum.GetHistoryForumReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class RecentlyVisitedForumRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,14 +56,14 @@ public class RecentlyVisitedForumRequestMessage extends NetMessage {
                     while (it.hasNext()) {
                         VisitedForumData next = it.next();
                         JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("forum_id", gg.g(next.getForumId(), 0L));
+                        jSONObject.put("forum_id", pg.g(next.getForumId(), 0L));
                         jSONObject.put("visit_time", next.getVisitedTime());
                         jSONArray.put(jSONObject);
                     }
                 }
                 builder.history = jSONArray.toString();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    jr5.a(builder, true);
+                    ss5.a(builder, true);
                 }
                 GetHistoryForumReqIdl.Builder builder2 = new GetHistoryForumReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -1,20 +1,20 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.b8b;
-import com.baidu.tieba.b9b;
-import com.baidu.tieba.e6b;
-import com.baidu.tieba.i9b;
-import com.baidu.tieba.l5b;
-import com.baidu.tieba.p5b;
-import com.baidu.tieba.v5b;
+import com.baidu.tieba.aab;
+import com.baidu.tieba.abb;
+import com.baidu.tieba.c8b;
+import com.baidu.tieba.hbb;
+import com.baidu.tieba.j7b;
+import com.baidu.tieba.n7b;
+import com.baidu.tieba.t7b;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements l5b {
+/* loaded from: classes10.dex */
+public final class QueuedValueProducer<T> extends AtomicLong implements j7b {
     public static final Object NULL_SENTINEL = new Object();
     public static final long serialVersionUID = 7277121710709137047L;
-    public final p5b<? super T> child;
+    public final n7b<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -22,13 +22,13 @@ public final class QueuedValueProducer<T> extends AtomicLong implements l5b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public QueuedValueProducer(p5b<? super T> p5bVar) {
-        this(p5bVar, r0);
-        Queue b8bVar;
-        if (i9b.b()) {
-            b8bVar = new b9b();
+    public QueuedValueProducer(n7b<? super T> n7bVar) {
+        this(n7bVar, r0);
+        Queue aabVar;
+        if (hbb.b()) {
+            aabVar = new abb();
         } else {
-            b8bVar = new b8b();
+            aabVar = new aab();
         }
     }
 
@@ -44,12 +44,12 @@ public final class QueuedValueProducer<T> extends AtomicLong implements l5b {
         return true;
     }
 
-    @Override // com.baidu.tieba.l5b
+    @Override // com.baidu.tieba.j7b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                e6b.b(this, j);
+                c8b.b(this, j);
                 drain();
                 return;
             }
@@ -58,8 +58,8 @@ public final class QueuedValueProducer<T> extends AtomicLong implements l5b {
         throw new IllegalArgumentException("n >= 0 required");
     }
 
-    public QueuedValueProducer(p5b<? super T> p5bVar, Queue<Object> queue) {
-        this.child = p5bVar;
+    public QueuedValueProducer(n7b<? super T> n7bVar, Queue<Object> queue) {
+        this.child = n7bVar;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }
@@ -67,20 +67,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements l5b {
     private void drain() {
         Object poll;
         if (this.wip.getAndIncrement() == 0) {
-            p5b<? super T> p5bVar = this.child;
+            n7b<? super T> n7bVar = this.child;
             Queue<Object> queue = this.queue;
-            while (!p5bVar.isUnsubscribed()) {
+            while (!n7bVar.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            p5bVar.onNext(null);
+                            n7bVar.onNext(null);
                         } else {
-                            p5bVar.onNext(poll);
+                            n7bVar.onNext(poll);
                         }
-                        if (p5bVar.isUnsubscribed()) {
+                        if (n7bVar.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -89,7 +89,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements l5b {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        v5b.g(th, p5bVar, poll);
+                        t7b.g(th, n7bVar, poll);
                         return;
                     }
                 }

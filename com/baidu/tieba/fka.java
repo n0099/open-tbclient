@@ -1,27 +1,131 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class fka extends MediaMetadataRetriever {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class fka implements nka {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public sja a;
+    public float b;
+    public boolean c;
 
-    public static long a(String str) {
-        InterceptResult invokeL;
+    public fka() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-            try {
-                mediaMetadataRetriever.setDataSource(str);
-                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.longValue;
+        this.b = 1.0f;
+        this.c = true;
+    }
+
+    @Override // com.baidu.tieba.nka
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            sja sjaVar = this.a;
+            if (sjaVar == null || !sjaVar.putBytes(bArr, i)) {
+                return 0;
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.nka
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nka
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (sja) vna.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+            }
+            sja sjaVar = this.a;
+            if (sjaVar != null) {
+                sjaVar.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nka
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            sja sjaVar = this.a;
+            return sjaVar != null ? sjaVar.getOutPutBytes() : new byte[0];
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            sja sjaVar = this.a;
+            if (sjaVar != null) {
+                sjaVar.setSpeed(f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nka
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nka
+    public void c() {
+        sja sjaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (sjaVar = this.a) == null) {
+            return;
+        }
+        sjaVar.flush();
+    }
+
+    @Override // com.baidu.tieba.nka
+    public void d() {
+        sja sjaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (sjaVar = this.a) == null) {
+            return;
+        }
+        sjaVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.nka
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 }

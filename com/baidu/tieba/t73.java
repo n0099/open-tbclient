@@ -1,32 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.ContextWrapper;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class t73 extends ContextWrapper implements a83 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class t73<T> implements v73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<T> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t73() {
-        super(AppRuntime.getApplication());
+    public t73(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = list;
+    }
+
+    @Override // com.baidu.tieba.v73
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return "";
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.v73
+    public int getItemsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 }

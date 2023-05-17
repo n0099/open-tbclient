@@ -12,7 +12,7 @@ import com.baidu.searchbox.retrieve.timer.bean.FetchTimerCancel;
 import com.baidu.searchbox.retrieve.timer.bean.FetchTimerCancelBean;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimerCancelJob extends IFetchJob {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchTimerCancelJob";

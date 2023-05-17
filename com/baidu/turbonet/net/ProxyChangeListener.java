@@ -25,7 +25,7 @@ import com.baidu.turbonet.base.annotations.NativeClassQualifiedName;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @JNINamespace
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ProxyChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean g = true;
@@ -37,12 +37,12 @@ public class ProxyChangeListener {
     public c e;
     public Delegate f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Delegate {
         void a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +69,13 @@ public class ProxyChangeListener {
     @NativeClassQualifiedName
     private native void nativeProxySettingsChangedTo(long j, String str, int i, String str2, String[] strArr);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ProxyChangeListener this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +206,7 @@ public class ProxyChangeListener {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

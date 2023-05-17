@@ -1,27 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
-import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class jk3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public abstract class jk3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@ColorInt int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jk3(da3 da3Var, String str) {
+        super(da3Var, str);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ((int) (((((double) ((16711680 & i) >> 16)) * 0.299d) + (((double) ((65280 & i) >> 8)) * 0.587d)) + (((double) (i & 255)) * 0.114d))) >= 220 : invokeI.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static sk3 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return V8Engine.toColorRGBA(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return gy1.z();
         }
-        return (String) invokeL.objValue;
+        return (sk3) invokeV.objValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return gy1.B();
+        }
+        return invokeV.booleanValue;
     }
 }

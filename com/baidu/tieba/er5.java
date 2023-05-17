@@ -1,58 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.lq5;
+import com.baidu.tieba.mq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class er5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b = null;
-    public static String c = null;
-    public static String d = "floor";
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public abstract class er5<Q extends lq5, P extends mq5> extends dr5 implements hr5<P> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947743969, "Lcom/baidu/tieba/er5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947743969, "Lcom/baidu/tieba/er5;");
-        }
-    }
+    public abstract void e();
 
-    public static void a(String str, String str2, String str3, int i, a9 a9Var, BaijiahaoData baijiahaoData) {
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h();
+
+    public abstract void i(BdUniqueId bdUniqueId);
+
+    public abstract void j(lp5 lp5Var);
+
+    public er5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), a9Var, baijiahaoData}) == null) {
-            b = str;
-            c = str2;
-            a = str3;
-            if (!StringUtils.isNull(str3) && a9Var != null && a9Var.getPageActivity() != null) {
-                if (d.equals(a)) {
-                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(a9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
-                    createSubPbActivityConfig.setKeyPageStartFrom(8);
-                    createSubPbActivityConfig.setBjhData(baijiahaoData);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
-                    return;
-                }
-                PbActivityConfig createNormalCfg = new PbActivityConfig(a9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
-                createNormalCfg.setStartFrom(8);
-                createNormalCfg.setBjhData(baijiahaoData);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.crius.parser;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.crius.util.CriusUtil;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PrefixLabelAttrs {
     public static final int HAS_PREFIX_VALUE = 1;
     public String bindingId;

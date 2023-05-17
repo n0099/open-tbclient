@@ -1,100 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.du2;
+import com.baidu.tieba.of3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class sf3 extends u93 {
+/* loaded from: classes7.dex */
+public class sf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sf3(u83 u83Var) {
-        super(u83Var, "/swanAPI/file/save");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948149449, "Lcom/baidu/tieba/sf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948149449, "Lcom/baidu/tieba/sf3;");
                 return;
             }
         }
+        a = qp1.a;
+        b = ns2.g0().u() * 1024;
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (context != null && callbackHandler != null && x73Var != null && x73Var.f0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    x42.c("saveFile", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String M = ff3.M(optParamsAsJo.optString("tempFilePath"), x73Var.getAppId());
-                if (u93.b) {
-                    Log.d("SaveFileAction", "——> handle: tempFileUrl " + optParamsAsJo.optString("tempFilePath"));
-                    Log.d("SaveFileAction", "——> handle: tempFilePath " + M);
-                }
-                if (TextUtils.isEmpty(M)) {
-                    x42.c("saveFile", "temp file path is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                int a = x73Var.f0().a(M);
-                if (u93.b) {
-                    Log.d("SaveFileAction", "——> handle: statusCode " + a);
-                }
-                if (a > 2000) {
-                    x42.c("saveFile", "file path status code : " + a);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, r83.a(a)));
-                    return false;
-                }
-                String o = x73Var.f0().o(M);
-                if (TextUtils.isEmpty(o)) {
-                    x42.c("saveFile", "save file path is null");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, r83.a(2003)));
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("savedFilePath", ff3.J(o, x73.g0()));
-                    if (u93.b) {
-                        Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + o + " update saveFilePath " + jSONObject.get("savedFilePath"));
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException unused) {
-                    x42.o("saveFile", "save file path to scheme fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b > 0) {
+                return true;
             }
-            x42.c("saveFile", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!c()) {
+                return false;
+            }
+            boolean a2 = a(str);
+            if (a2) {
+                d(str);
+            }
+            return a2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(@NonNull String str) {
+        g93 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (b0 = g93.b0()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            du2.a W = b0.W();
+            SwanCoreVersion M = tu2.U().M();
+            int k = b0.k();
+            jSONObject.putOpt("scheme", W.W());
+            jSONObject.putOpt("swanjs", li3.i(M, k));
+            if (str != null && str.length() > 1024) {
+                jSONObject.putOpt("params", str.substring(0, 1024));
+            }
+            of3.b bVar = new of3.b(10020);
+            bVar.j(an3.n().e());
+            bVar.i(jSONObject.toString());
+            bVar.h(b0.getAppId());
+            bVar.m();
+            g62.k("SwanAppParamChecker", "10020, params: " + str);
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
     }
 }

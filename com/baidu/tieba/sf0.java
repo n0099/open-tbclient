@@ -2,174 +2,203 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class sf0 implements nf0 {
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+/* loaded from: classes7.dex */
+public class sf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nf0 a;
 
-    public sf0() {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        this.a = new qf0();
     }
 
-    @Override // com.baidu.tieba.nf0
-    public long b() {
-        InterceptResult invokeV;
+    public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.b();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public List<MediaTrack> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a.l();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.release();
+        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
+            c(file, true);
         }
     }
 
-    @Override // com.baidu.tieba.nf0
-    public void a(Context context) {
+    public static boolean d(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a.a(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file == null || !file.exists()) {
+                return false;
+            }
+            return file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
+            if (file.isDirectory()) {
+                b(file);
+            } else {
+                d(file);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.nf0
-    public void n(List<MediaTrack> list) {
+    public static boolean f(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
-            this.a.n(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
+            if (file != null && file.exists() && file.isFile()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(File file, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) && file != null && file.isDirectory()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        c(file2, z);
+                    } else {
+                        file2.delete();
+                    }
+                }
+            }
+            if (z) {
+                file.delete();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.nf0
-    public void c(int i, int i2) {
+    public static String g(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStreamReader inputStreamReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c(i, i2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
+            try {
+                inputStreamReader = new InputStreamReader(context.getAssets().open(str));
+                try {
+                    try {
+                        BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                sb.append(readLine);
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                e.printStackTrace();
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                return sb.toString();
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                throw th;
+                            }
+                        }
+                        a(bufferedReader2);
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                inputStreamReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStreamReader = null;
+            }
+            a(inputStreamReader);
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.nf0
-    public void f(List<MediaTrack> list, Map<String, ShaderConfig> map) {
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    public static String h(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, list, map) == null) {
-            this.a.f(list, map);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            ?? f = f(file);
+            FileInputStream fileInputStream2 = null;
+            try {
+                if (f != 0) {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                        try {
+                            String b = uf0.b(fileInputStream);
+                            uf0.a(fileInputStream);
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return b;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            uf0.a(fileInputStream);
+                            if (fileInputStream != null) {
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
+                                }
+                            }
+                            return null;
+                        }
+                    } catch (IOException e4) {
+                        e = e4;
+                        fileInputStream = null;
+                    } catch (Throwable th) {
+                        th = th;
+                        uf0.a(fileInputStream2);
+                        if (fileInputStream2 != null) {
+                            try {
+                                fileInputStream2.close();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = f;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public void h(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            this.a.h(i, j);
-        }
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int d(int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, map)) == null) {
-            return this.a.d(i, i2, map);
-        }
-        return invokeIIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int e(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048580, this, mediaTrack, i, map)) == null) {
-            return this.a.e(mediaTrack, i, map);
-        }
-        return invokeLIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int i(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSegment, i, map)) == null) {
-            return this.a.i(mediaSegment, i, map);
-        }
-        return invokeLIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int j(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048585, this, mediaTrack, i, map)) == null) {
-            return this.a.j(mediaTrack, i, map);
-        }
-        return invokeLIL.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
-            return this.a.g(mediaTrack, i, i2, map);
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) {
-            return this.a.k(i, fArr, fArr2, i2, i3, f);
-        }
-        return invokeCommon.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf0
-    public int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) {
-            return this.a.m(i, fArr, fArr2, i2, i3, i4, map);
-        }
-        return invokeCommon.intValue;
     }
 }

@@ -8,10 +8,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetworkErrorView extends CommonEmptyView {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public Object a;
 
@@ -87,7 +87,7 @@ public class NetworkErrorView extends CommonEmptyView {
 
     public final void b() {
         this.e.setVisibility(0);
-        setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f1413));
-        setIcon(R.drawable.obfuscated_res_0x7f081264);
+        setTitle(getContext().getString(R.string.obfuscated_res_0x7f0f14e5));
+        setIcon(R.drawable.obfuscated_res_0x7f0813d3);
     }
 }

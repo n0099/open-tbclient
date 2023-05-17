@@ -33,7 +33,7 @@ import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountCenterActivity extends SlideActiviy {
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
     public static final String EXTRA_WEIIXIN_BIND_URL = "extra_weixin_bind_url";

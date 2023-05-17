@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import android.os.Looper;
 import android.text.TextUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Assertions {
     public static void checkMainThread() {
         if (Looper.myLooper() == Looper.getMainLooper()) {

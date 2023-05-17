@@ -5,7 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import com.baidu.android.common.util.DeviceId;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BaiduIdentityUtils {
     public static final int SYSTEM_APP = 1;
     public static final int SYSTEM_UPDATE_APP = 2;

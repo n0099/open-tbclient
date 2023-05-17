@@ -2,7 +2,7 @@ package com.baidu.searchbox;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NPSPatch {
     public static final String TAG = "NPSPatch";
     public String newMD5;

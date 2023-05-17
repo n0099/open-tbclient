@@ -1,76 +1,196 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gt2;
+import com.baidu.tieba.ky1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ly1 extends dy1 {
+/* loaded from: classes6.dex */
+public class ly1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ly1 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PhoneCallApi" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void b(ky1.c cVar, int i);
+
+        void f(ky1.c cVar, String str);
+
+        void g(ky1.c cVar, fc3 fc3Var);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ly1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public class a implements j43 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky1.c a;
+        public final /* synthetic */ ly1 b;
+
+        public a(ly1 ly1Var, ky1.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ly1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ly1Var;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.j43
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.b.c(this.a);
+            }
+        }
+
+        @Override // com.baidu.tieba.j43
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                g62.c("GetLocationHelper", str);
+                mg3.b("getLocation", 5002, "user no permission", 10005, str);
+                this.b.a.f(this.a, str);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements gt2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky1.c a;
+        public final /* synthetic */ ly1 b;
+
+        public b(ly1 ly1Var, ky1.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ly1Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ly1Var;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.gt2.a
+        public void a(fc3 fc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, fc3Var) == null) {
+                this.b.a.g(this.a, fc3Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.gt2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                mg3.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
+                this.b.a.b(this.a, i);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947959109, "Lcom/baidu/tieba/ly1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947959109, "Lcom/baidu/tieba/ly1;");
                 return;
             }
         }
+        boolean z = qp1.a;
     }
 
-    public xz1 x(String str) {
-        InterceptResult invokeL;
+    public ly1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#makePhoneCall", false);
-            if (n()) {
-                x42.c("PhoneCallApi", "PhoneCallApi does not supported when app is invisible.");
-                return new xz1(1001, "PhoneCallApi does not supported when app is invisible.");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            Intent intent = new Intent("android.intent.action.DIAL");
-            Pair<xz1, JSONObject> s = s(str);
-            xz1 xz1Var = (xz1) s.first;
-            if (!xz1Var.isSuccess()) {
-                return xz1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject != null) {
-                String optString = jSONObject.optString("phoneNumber");
-                if (!TextUtils.isEmpty(optString)) {
-                    intent.setData(Uri.fromParts("tel", optString, null));
+        }
+    }
+
+    public static ly1 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                synchronized (ly1.class) {
+                    if (b == null) {
+                        b = new ly1();
+                    }
                 }
             }
-            if (gk3.g(getContext(), intent)) {
-                return xz1.f();
-            }
-            return new xz1(1001);
+            return b;
         }
-        return (xz1) invokeL.objValue;
+        return (ly1) invokeV.objValue;
+    }
+
+    public final void c(ky1.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            String str = "gcj02";
+            if (!TextUtils.equals(cVar.a, "gcj02")) {
+                if (TextUtils.equals(cVar.a, "bd09ll")) {
+                    str = "bd09ll";
+                } else {
+                    str = "wgs84";
+                }
+            }
+            ns2.I().b(str, false, cVar.b, new b(this, cVar));
+        }
+    }
+
+    public void e(@NonNull ky1.c cVar, @NonNull c cVar2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
+            this.a = cVar2;
+            if (an3.M()) {
+                c(cVar);
+            } else if (z) {
+                mg3.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
+                this.a.f(cVar, "GetLocation does not supported when app is invisible");
+            } else {
+                i43.g(f93.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
+            }
+        }
     }
 }

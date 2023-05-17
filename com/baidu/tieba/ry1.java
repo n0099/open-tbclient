@@ -1,100 +1,108 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class ry1 implements ty1 {
+import java.util.Observable;
+import java.util.Observer;
+/* loaded from: classes7.dex */
+public class ry1 implements Observer {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract xz1 c(@NonNull d72 d72Var);
-
-    public abstract xz1 d(int i);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948137855, "Lcom/baidu/tieba/ry1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948137855, "Lcom/baidu/tieba/ry1;");
-                return;
-            }
-        }
-        a = x73.v;
-    }
 
     public ry1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ty1
-    public xz1 a() {
-        InterceptResult invokeV;
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (x73.b0() == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
-                }
-                return d(1001);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            Object obj = "";
+            if (i == 200) {
+                return "";
             }
-            g72 V = kt2.U().V();
-            if (V == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
-                }
-                return d(1001);
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            if (response == null) {
+                num = "";
+            } else {
+                num = Integer.valueOf(response.mCode);
             }
-            d72 m = V.m();
-            if (m == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
-                }
-                return d(1001);
+            sb.append(num);
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            if (base != null) {
+                obj = Integer.valueOf(base.mStatus);
             }
-            return c(m);
+            sb3.append(obj);
+            return sb3.toString();
         }
-        return (xz1) invokeV.objValue;
+        return (String) invokeLLI.objValue;
     }
 
-    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
-        InterceptResult invokeIIII;
+    @Override // java.util.Observer
+    @SuppressLint({"BDThrowableCheck"})
+    public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
-            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
-            jSONObject.putOpt("left", Integer.valueOf(i));
-            jSONObject.putOpt("right", Integer.valueOf(i3));
-            jSONObject.putOpt("top", Integer.valueOf(i2));
-            jSONObject.putOpt("bottom", Integer.valueOf(i4));
-            return jSONObject;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
+            return;
         }
-        return (JSONObject) invokeIIII.objValue;
+        NetRequestResult netRequestResult = (NetRequestResult) obj;
+        String url = netRequestResult.getUrl();
+        String valueOf = String.valueOf(netRequestResult.getId());
+        int statusCode = netRequestResult.getStatusCode();
+        if (statusCode != 3) {
+            if (statusCode != 4) {
+                if (statusCode != 5) {
+                    if (statusCode == 6) {
+                        qe2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+                    }
+                } else {
+                    qe2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
+                }
+            } else if (url != null) {
+                qe2.k().q(valueOf, url);
+            }
+        } else {
+            qe2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+        }
+        NetInfo netInfo = netRequestResult.getNetInfo();
+        int statusCode2 = netRequestResult.getStatusCode();
+        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
+            qe2.k().B(valueOf, url, netInfo);
+            long l = qe2.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = an3.n().e();
+            zf3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), zf3.l(), e, l, currentTimeMillis, valueOf);
+        } else if (netInfo != null) {
+            if (statusCode2 < 0 || statusCode2 >= 400) {
+                zf3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
+            }
+        }
     }
 }

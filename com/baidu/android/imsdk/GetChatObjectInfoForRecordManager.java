@@ -170,7 +170,7 @@ public class GetChatObjectInfoForRecordManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)})) == null) {
             if (i == 0) {
-                if ((j & Constants.PAFLAG) == 0) {
+                if ((j & 17592186044416L) == 0) {
                     return newInstance(context, i, 0);
                 }
                 return newInstance(context, i, 1);

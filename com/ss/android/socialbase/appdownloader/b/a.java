@@ -2,9 +2,10 @@ package com.ss.android.socialbase.appdownloader.b;
 
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.searchbox.privateapi.PrivateApiUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static final String a;
 
@@ -13,7 +14,7 @@ public class a {
         boolean z = true;
         boolean z2 = !TextUtils.isEmpty(Build.VERSION.RELEASE);
         boolean z3 = !TextUtils.isEmpty(Build.ID);
-        z = (!"REL".equals(Build.VERSION.CODENAME) || TextUtils.isEmpty(Build.MODEL)) ? false : false;
+        z = (!PrivateApiUtils.SDK_VERSION_NAME.equals(Build.VERSION.CODENAME) || TextUtils.isEmpty(Build.MODEL)) ? false : false;
         sb.append("AppDownloader");
         if (z2) {
             sb.append("/");

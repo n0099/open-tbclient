@@ -1,122 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoRequestMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.feed.widget.uistate.PersonAttentionUiStateKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLevelInfo.DataRes;
-/* loaded from: classes3.dex */
-public class b57<T> {
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function3;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes4.dex */
+public final class b57 extends d37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public BaseActivity<T> b;
-    public za c;
-    public CustomMessageListener d;
+    public final u07 c;
+    public final String d;
+    public Function1<? super y07, Unit> e;
+    public final Function2<b57, TbPageContext<?>, Unit> f;
+    public final Function3<b57, TbPageContext<?>, Object, Unit> g;
 
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a(DataRes dataRes, boolean z, int i, String str);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b57 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(b57 b57Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b57Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b57Var;
-        }
-
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (responsedMessage instanceof GetLevelInfoHttpResponsedMessage) {
-                    GetLevelInfoHttpResponsedMessage getLevelInfoHttpResponsedMessage = (GetLevelInfoHttpResponsedMessage) responsedMessage;
-                    this.a.a.a(getLevelInfoHttpResponsedMessage.getResult(), true, getLevelInfoHttpResponsedMessage.getError(), getLevelInfoHttpResponsedMessage.getErrorString());
-                } else if (responsedMessage instanceof GetLevelInfoSocketResponsedMessage) {
-                    GetLevelInfoSocketResponsedMessage getLevelInfoSocketResponsedMessage = (GetLevelInfoSocketResponsedMessage) responsedMessage;
-                    this.a.a.a(getLevelInfoSocketResponsedMessage.getmResult(), true, getLevelInfoSocketResponsedMessage.getError(), getLevelInfoSocketResponsedMessage.getErrorString());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b57 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(b57 b57Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b57Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b57Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof GetLevelInfoReadCacheResponsedMessage)) {
-                GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = (GetLevelInfoReadCacheResponsedMessage) customResponsedMessage;
-                this.a.a.a(getLevelInfoReadCacheResponsedMessage.getResult(), false, getLevelInfoReadCacheResponsedMessage.getError(), getLevelInfoReadCacheResponsedMessage.getErrorString());
-            }
-        }
-    }
-
-    public b57(c cVar, BaseActivity<T> baseActivity) {
+    @JvmOverloads
+    public b57(u07 personAttentionData, String str, Function1<? super y07, Unit> onStat, Function2<? super b57, ? super TbPageContext<?>, Unit> onAttentionClick, Function3<? super b57, ? super TbPageContext<?>, Object, Unit> registerAttentionListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, baseActivity};
+            Object[] objArr = {personAttentionData, str, onStat, onAttentionClick, registerAttentionListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -126,36 +41,64 @@ public class b57<T> {
                 return;
             }
         }
-        this.c = new a(this, CmdConfigHttp.CMD_GET_LEVLE_INFO, 301005);
-        this.d = new b(this, 2003007);
-        this.a = cVar;
-        this.b = baseActivity;
-        b();
+        Intrinsics.checkNotNullParameter(personAttentionData, "personAttentionData");
+        Intrinsics.checkNotNullParameter(onStat, "onStat");
+        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
+        Intrinsics.checkNotNullParameter(registerAttentionListener, "registerAttentionListener");
+        this.c = personAttentionData;
+        this.d = str;
+        this.e = onStat;
+        this.f = onAttentionClick;
+        this.g = registerAttentionListener;
     }
 
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            GetLevelInfoReadCacheRequestMessage getLevelInfoReadCacheRequestMessage = new GetLevelInfoReadCacheRequestMessage();
-            getLevelInfoReadCacheRequestMessage.setCacheKey("" + i);
-            this.b.sendMessage(getLevelInfoReadCacheRequestMessage);
-        }
+    public /* synthetic */ b57(u07 u07Var, String str, Function1 function1, Function2 function2, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(u07Var, str, (i & 4) != 0 ? PersonAttentionUiStateKt.c : function1, (i & 8) != 0 ? PersonAttentionUiStateKt.c() : function2, (i & 16) != 0 ? PersonAttentionUiStateKt.b : function3);
     }
 
-    public void d(int i) {
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            GetLevelInfoRequestMessage getLevelInfoRequestMessage = new GetLevelInfoRequestMessage();
-            getLevelInfoRequestMessage.setForumId(i);
-            this.b.sendMessage(getLevelInfoRequestMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void b() {
+    public final Function2<b57, TbPageContext<?>, Unit> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.registerListener(this.d);
-            this.b.registerListener(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (Function2) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tieba.y07, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tieba.y07, kotlin.Unit> */
+    public final Function1<y07, Unit> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (Function1) invokeV.objValue;
+    }
+
+    public final u07 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (u07) invokeV.objValue;
+    }
+
+    public final Function3<b57, TbPageContext<?>, Object, Unit> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (Function3) invokeV.objValue;
     }
 }

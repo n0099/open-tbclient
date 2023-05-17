@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.c;
 
 import androidx.annotation.Nullable;
 import com.kwad.sdk.api.KsInnerAd;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c {
     @Nullable
     public Object oR;

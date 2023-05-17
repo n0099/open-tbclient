@@ -11,9 +11,11 @@ import android.util.LruCache;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.spswitch.emotion.SpanStringUtils;
 import com.baidu.spswitch.utils.SPConfig;
+import com.baidu.tieba.u70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -36,7 +38,7 @@ public class EmotionLoader {
     public LruCache<String, Bitmap> mLruCache;
     public Handler mUIHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class SpannableBeanHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,24 +199,37 @@ public class EmotionLoader {
 
     public SpannableString parseEmotion(EmotionType emotionType, Context context, CharSequence charSequence, TextView textView, float f) {
         InterceptResult invokeCommon;
+        int i;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{emotionType, context, charSequence, textView, Float.valueOf(f)})) == null) {
-            EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
+            if (!u70.a()) {
+                EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
+            }
+            if (charSequence == null) {
+                charSequence = "";
+            }
             SpannableString spannableString = new SpannableString(charSequence);
             Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
             while (matcher.find()) {
+                if (u70.a()) {
+                    EmotionUtils.getInstance().waitForEmotionLoadedIfNeeded(350L);
+                }
                 String group = matcher.group();
                 int start = matcher.start();
-                int textSize = (int) (textView.getTextSize() * f);
+                if (textView != null) {
+                    i = (int) (textView.getTextSize() * f);
+                } else {
+                    i = 0;
+                }
                 Bitmap bitmapFromLruCache = getBitmapFromLruCache(group);
                 if (bitmapFromLruCache == null && (bitmapFromLruCache = EmotionUtils.getInstance().getEmotionBitmapByName(emotionType, group)) != null) {
                     addBitmapToLruCache(group, bitmapFromLruCache);
                 }
-                if (bitmapFromLruCache != null && ((bitmapFromLruCache.getHeight() != textSize || bitmapFromLruCache.getWidth() != textSize) && (bitmapFromLruCache = EmotionUtils.getInstance().getEmotionBitmapByName(emotionType, group)) != null)) {
+                if (bitmapFromLruCache != null && ((bitmapFromLruCache.getHeight() != i || bitmapFromLruCache.getWidth() != i) && (bitmapFromLruCache = EmotionUtils.getInstance().getEmotionBitmapByName(emotionType, group)) != null)) {
                     try {
-                        bitmap = Bitmap.createScaledBitmap(bitmapFromLruCache, textSize, textSize, true);
-                    } catch (Throwable unused) {
+                        bitmap = Bitmap.createScaledBitmap(bitmapFromLruCache, i, i, true);
+                    } catch (Exception unused) {
                         bitmap = null;
                     }
                     bitmapFromLruCache = bitmap;
@@ -223,7 +238,7 @@ public class EmotionLoader {
                     }
                 }
                 if (bitmapFromLruCache != null) {
-                    spannableString.setSpan(new SpanStringUtils.CenterImageSpan(context.getApplicationContext(), bitmapFromLruCache), start, group.length() + start, 33);
+                    spannableString.setSpan(new SpanStringUtils.CenterImageSpan(AppRuntime.getAppContext(), bitmapFromLruCache), start, group.length() + start, 33);
                 }
             }
             return spannableString;

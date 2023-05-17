@@ -1,102 +1,271 @@
 package com.baidu.tieba;
 
+import android.animation.Keyframe;
+import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.UiThread;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class nc4 extends jc4<ju2> {
+@UiThread
+/* loaded from: classes6.dex */
+public class nc4 implements oc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public vc4 b;
+    public b c;
+    public Handler d;
+    public ViewGroup e;
+    public int f;
+    public boolean g;
+    public ObjectAnimator h;
+    public qc4 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947997642, "Lcom/baidu/tieba/nc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947997642, "Lcom/baidu/tieba/nc4;");
-                return;
-            }
-        }
-        boolean z = ho1.a;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void b();
+
+        void o();
+
+        void u(int i);
     }
 
-    public nc4() {
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 5000;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nc4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(nc4 nc4Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nc4Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = nc4Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                int f = this.a.f();
+                if (f > 0 && this.a.g) {
+                    this.a.d.sendEmptyMessageDelayed(1, f);
+                }
+                this.a.k();
+            }
+        }
+    }
+
+    public nc4(@NonNull Context context, @NonNull qc4 qc4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, qc4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.i = qc4Var;
+        j(i());
+        h();
+        b();
+    }
+
+    @Override // com.baidu.tieba.oc4
+    public void d(vc4 vc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc4Var) == null) {
+            this.b = vc4Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.oc4
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.g) {
+            this.d.removeMessages(1);
+            if (z) {
+                this.d.sendEmptyMessage(1);
             }
         }
     }
 
-    public static nc4 d() {
+    @Override // com.baidu.tieba.oc4
+    public void t(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    @NonNull
+    public static nc4 c(int i, @NonNull Context context, @NonNull qc4 qc4Var) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, context, qc4Var)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    return new sc4(context, qc4Var);
+                }
+                return new uc4(context, qc4Var);
+            }
+            return new sc4(context, qc4Var);
+        }
+        return (nc4) invokeILL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.setVisibility(8);
+            ac4.a(this.e, g());
+        }
+    }
+
+    @Override // com.baidu.tieba.mc4
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = false;
+            this.d.removeCallbacksAndMessages(null);
+            ac4.d(this.e);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = e();
+            this.d = new a(this, Looper.getMainLooper());
+        }
+    }
+
+    @Override // com.baidu.tieba.mc4
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g = false;
+            this.d.removeMessages(1);
+            this.e.setVisibility(8);
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new nc4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e8, (ViewGroup) null);
         }
-        return (nc4) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jc4
-    public boolean b(Context context, ju2 ju2Var, gu2 gu2Var, x73 x73Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, ju2Var, gu2Var, x73Var, jSONObject)) == null) {
-            return e(context, ju2Var, gu2Var, x73Var, jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.h.start();
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, ju2 ju2Var, gu2 gu2Var, x73 x73Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.mc4
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ju2Var, gu2Var, x73Var, jSONObject)) == null) {
-            x42.i("map", "GetCenterLcationAction start");
-            fu1 A = kt2.U().A(ju2Var.c);
-            if (!(A instanceof du1)) {
-                x42.c("map", "WebViewManager is null");
-                return false;
-            }
-            hd4 d = gc4.b().c((du1) A).d(ju2Var.b);
-            if (d == null) {
-                x42.c("map", "can not find map by id " + ju2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            qu2 qu2Var = new qu2();
-            LatLng latLng = mapStatus.target;
-            double d2 = latLng.latitude;
-            qu2Var.a = d2;
-            qu2Var.b = latLng.longitude;
-            try {
-                jSONObject.put("latitude", d2);
-                jSONObject.put("longitude", qu2Var.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            x42.i("map", "GetCenterLocationAction end");
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.g = true;
+            this.e.setVisibility(0);
+            this.d.removeMessages(1);
+            this.d.sendEmptyMessage(1);
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.oc4
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            ac4.f(this.e, g());
+        }
+    }
+
+    public final ObjectAnimator e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
+            ofPropertyValuesHolder.setDuration(600L);
+            return ofPropertyValuesHolder;
+        }
+        return (ObjectAnimator) invokeV.objValue;
+    }
+
+    public final mz2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            mz2 mz2Var = new mz2();
+            mz2Var.l(wb4.a(this.i.left) - this.f);
+            mz2Var.m(wb4.a(this.i.top) - this.f);
+            mz2Var.n(-2);
+            mz2Var.j(-2);
+            return mz2Var;
+        }
+        return (mz2) invokeV.objValue;
+    }
+
+    public final void j(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.f = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070874);
+            this.e = new FrameLayout(this.a);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(wb4.a(this.i.width), wb4.a(this.i.height));
+            int i = this.f;
+            layoutParams.setMargins(i, i, i, i);
+            this.e.setBackgroundColor(0);
+            this.e.addView(view2, layoutParams);
+        }
     }
 }

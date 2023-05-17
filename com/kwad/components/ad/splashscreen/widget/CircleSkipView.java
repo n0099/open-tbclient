@@ -20,7 +20,7 @@ import com.kwad.components.ad.splashscreen.local.SplashSkipViewModel;
 import com.kwad.components.ad.splashscreen.widget.SkipView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CircleSkipView extends KSFrameLayout implements a {
     public boolean Aa;
     public SkipView.a Ab;
@@ -92,7 +92,7 @@ public class CircleSkipView extends KSFrameLayout implements a {
 
     public static TextView ad(Context context) {
         TextView textView = new TextView(context);
-        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0a97));
+        textView.setText(context.getString(R.string.obfuscated_res_0x7f0f0b11));
         textView.setTextColor(-1);
         textView.setTextSize(12.0f);
         return textView;

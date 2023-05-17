@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UserGrowthTaskListData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class UserGrowthTaskListData implements Serializable {
     @SerializedName("novice_task")
     public List<UserGrowthTaskData> noviceTask;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class UserGrowthTaskData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class UserGrowthTaskListData implements Serializable {
         public int week;
         public int weight;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class UserGrowthTaskProgressData implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

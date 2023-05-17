@@ -8,35 +8,37 @@ import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.platform.comapi.map.MapController;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
+import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.i31;
-import com.baidu.tieba.j31;
-import com.baidu.tieba.l31;
-import com.baidu.tieba.n31;
-import com.baidu.tieba.p31;
-import com.baidu.tieba.ri0;
-import com.baidu.tieba.t11;
-import com.baidu.tieba.u11;
-import com.baidu.tieba.z01;
+import com.baidu.tieba.b41;
+import com.baidu.tieba.d41;
+import com.baidu.tieba.f41;
+import com.baidu.tieba.hj0;
+import com.baidu.tieba.j21;
+import com.baidu.tieba.k21;
+import com.baidu.tieba.p11;
+import com.baidu.tieba.y31;
+import com.baidu.tieba.z31;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class ClogBuilder extends t11 {
-    public final JSONObject c = z01.c(null);
+/* loaded from: classes3.dex */
+public class ClogBuilder extends j21 {
+    public final JSONObject c = p11.c(null);
 
     public ClogBuilder() {
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.baidu.tieba.r11, com.baidu.tieba.u11
+    @Override // com.baidu.tieba.h21, com.baidu.tieba.k21
     public void a() {
-        ri0 ri0Var = (ri0) ServiceManager.getService(ri0.a);
-        if (ri0Var != null) {
-            A(ri0Var.a(this.c.optString("extra_param")));
+        hj0 hj0Var = (hj0) ServiceManager.getService(hj0.a);
+        if (hj0Var != null) {
+            A(hj0Var.a(this.c.optString("extra_param")));
         }
         g();
     }
@@ -46,7 +48,7 @@ public class ClogBuilder extends t11 {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.t11, com.baidu.tieba.u11
+    @Override // com.baidu.tieba.j21, com.baidu.tieba.k21
     public boolean isValid() {
         if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
             return super.isValid();
@@ -54,7 +56,7 @@ public class ClogBuilder extends t11 {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Area {
         ICON("icon"),
         NAME("name"),
@@ -106,7 +108,7 @@ public class ClogBuilder extends t11 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LogType {
         CLICK("2"),
         SHOW("3"),
@@ -119,7 +121,7 @@ public class ClogBuilder extends t11 {
         VIDEO_LP_PV("103"),
         VIDEO_LP_VIDEO_HIDE("131"),
         CHAN_MORE("22"),
-        DEEP_LINK("706"),
+        DEEP_LINK(PraiseUBCHelper.PRAISE_FLOW_ID),
         VISIBLE_SHOW("203"),
         VIDEO_LP_TAIL_CLICK(WorkPostNotifyFlutterData.FAIL_POST),
         DOWNLOAD_START("701"),
@@ -134,7 +136,7 @@ public class ClogBuilder extends t11 {
         MINI_PROGRAM("717"),
         OPEN_APP("713"),
         AD_CALL("777"),
-        VISIBLE_TWO_SEC("213"),
+        VISIBLE_TWO_SEC(CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_KEY_SETTINGS),
         TAIL_FRAME_SHOW_TIME(PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK),
         DURATION("331"),
         TRUE_VIEW("332"),
@@ -189,7 +191,7 @@ public class ClogBuilder extends t11 {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Page {
         AD_CALL("AD_CALL"),
         AD_NOTIFICATION("AD_NOTIFICATION"),
@@ -319,40 +321,40 @@ public class ClogBuilder extends t11 {
         return this;
     }
 
-    @Override // com.baidu.tieba.r11, com.baidu.tieba.u11
-    public <T extends u11> T b(String str, String str2) {
+    @Override // com.baidu.tieba.h21, com.baidu.tieba.k21
+    public <T extends k21> T b(String str, String str2) {
         d(str, str2);
         return this;
     }
 
-    @Override // com.baidu.tieba.r11
-    public <T extends u11> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.h21
+    public <T extends k21> T d(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return this;
         }
-        z01.f(this.c, str, obj);
+        p11.f(this.c, str, obj);
         return this;
     }
 
     public final void g() {
-        if (!j31.a) {
+        if (!z31.a) {
             return;
         }
-        p31 p31Var = (p31) i31.a().a(p31.class);
-        if (p31Var != null) {
-            p31Var.a(h());
+        f41 f41Var = (f41) y31.a().a(f41.class);
+        if (f41Var != null) {
+            f41Var.a(h());
         }
-        l31 l31Var = (l31) i31.a().a(l31.class);
-        if (l31Var != null) {
-            l31Var.a(h());
+        b41 b41Var = (b41) y31.a().a(b41.class);
+        if (b41Var != null) {
+            b41Var.a(h());
         }
-        n31 n31Var = (n31) i31.a().a(n31.class);
-        if (n31Var != null) {
-            n31Var.a(h());
+        d41 d41Var = (d41) y31.a().a(d41.class);
+        if (d41Var != null) {
+            d41Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.t11, com.baidu.tieba.r11, com.baidu.tieba.u11
+    @Override // com.baidu.tieba.j21, com.baidu.tieba.h21, com.baidu.tieba.k21
     @NonNull
     public String toString() {
         super.toString();

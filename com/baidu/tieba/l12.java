@@ -1,138 +1,151 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.RadialGradient;
-import android.graphics.Shader;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.gesture.GestureAR;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class l12 {
+/* loaded from: classes6.dex */
+public class l12 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public Shader c;
 
-    public l12(JSONArray jSONArray) {
+    /* loaded from: classes6.dex */
+    public class a implements zn3<Map<String, ge3>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ l12 c;
+
+        public a(l12 l12Var, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l12Var, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = l12Var;
+            this.a = callbackHandler;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(Map<String, ge3> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+                if (map != null) {
+                    this.c.l(this.b, this.a, map);
+                } else {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l12(da3 da3Var) {
+        super(da3Var, "/swanAPI/getLaunchAppInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        e(jSONArray);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public Shader b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Shader) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.equals(this.a, "linearGradient") && !TextUtils.equals(this.a, "circularGradient")) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
                 return false;
             }
+            String optString = gm3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            k(optString, callbackHandler);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void k(String str, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, callbackHandler) == null) {
+            e13.h(new a(this, callbackHandler, str));
         }
-        return invokeV.booleanValue;
     }
 
-    public void e(JSONArray jSONArray) {
-        float[] fArr;
-        int length;
+    public final void l(String str, CallbackHandler callbackHandler, Map<String, ge3> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) {
-            int i = 0;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, callbackHandler, map) == null) {
+            ge3 ge3Var = map.get("scope_open_app");
+            if (ge3Var == null) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                return;
+            }
+            boolean z = ge3Var.d;
+            int c = zm3.c();
+            long e = zm3.e();
+            List<String> list = ge3Var.i;
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
             try {
-                String optString = jSONArray.optString(0);
-                int i2 = 4;
-                int i3 = 1;
-                if (TextUtils.equals(optString, "normal")) {
-                    JSONArray optJSONArray = jSONArray.optJSONArray(1);
-                    if (optJSONArray.length() == 4) {
-                        this.b = Color.argb(optJSONArray.optInt(3), optJSONArray.optInt(0), optJSONArray.optInt(1), optJSONArray.optInt(2));
-                        this.a = "normal";
-                    }
-                } else if (TextUtils.equals(optString, "linearGradient") || TextUtils.equals(optString, "circularGradient")) {
-                    JSONArray optJSONArray2 = jSONArray.optJSONArray(1);
-                    int[] iArr = null;
-                    if (optJSONArray2 != null && (length = optJSONArray2.length()) > 0) {
-                        iArr = new int[length];
-                        fArr = new float[length];
-                        int i4 = 0;
-                        while (i4 < length) {
-                            JSONObject optJSONObject = optJSONArray2.optJSONObject(i4);
-                            JSONArray optJSONArray3 = optJSONObject.optJSONArray("color");
-                            if (optJSONArray3.length() == i2) {
-                                iArr[i4] = Color.argb(optJSONArray3.optInt(3), optJSONArray3.optInt(i), optJSONArray3.optInt(i3), optJSONArray3.optInt(2));
-                            }
-                            fArr[i4] = (float) optJSONObject.optDouble("stop");
-                            i4++;
-                            i = 0;
-                            i2 = 4;
-                            i3 = 1;
-                        }
-                    } else {
-                        fArr = null;
-                    }
-                    if (iArr != null && fArr != null && iArr.length >= 2 && iArr.length == fArr.length) {
-                        JSONObject optJSONObject2 = jSONArray.optJSONObject(2);
-                        if (TextUtils.equals(optString, "linearGradient")) {
-                            this.c = new LinearGradient(ol3.g(optJSONObject2.optInt("x0")), ol3.g(optJSONObject2.optInt("y0")), ol3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_X1)), ol3.g(optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_Y1)), iArr, fArr, Shader.TileMode.CLAMP);
-                            this.a = "linearGradient";
-                            return;
-                        }
-                        this.c = new RadialGradient(ol3.g(optJSONObject2.optInt("x")), ol3.g(optJSONObject2.optInt("y")), ol3.g(optJSONObject2.optInt("r")), iArr, fArr, Shader.TileMode.CLAMP);
-                        this.a = "circularGradient";
-                    }
+                for (String str2 : list) {
+                    jSONArray.put(str2);
                 }
-            } catch (Exception e) {
-                if (ho1.a) {
-                    e.printStackTrace();
+                jSONObject.put("launchCount", c);
+                jSONObject.put("visitDuration", e);
+                jSONObject.put("forbidden", z);
+                jSONObject.put("ext", jSONArray);
+                if (db3.b) {
+                    Log.i("GetBehaviorInfoAction", "launchCount:" + c + " visitDuration:" + e + " forbidden:" + z + " ext:" + jSONArray.toString());
                 }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            } catch (JSONException e2) {
+                if (db3.b) {
+                    e2.printStackTrace();
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }

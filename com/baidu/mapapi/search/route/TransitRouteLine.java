@@ -10,7 +10,7 @@ import com.baidu.mapapi.search.core.RouteStep;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.core.VehicleInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class TransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<TransitRouteLine> CREATOR = new o();
     public TaxiInfo b;
@@ -20,7 +20,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new p();
         public VehicleInfo d;
@@ -30,7 +30,7 @@ public final class TransitRouteLine extends RouteLine<TransitStep> implements Pa
         public String h;
         public String i;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public enum TransitRouteStepType {
             BUSLINE,
             SUBWAY,

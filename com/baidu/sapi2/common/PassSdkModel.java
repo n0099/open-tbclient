@@ -9,7 +9,7 @@ import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassSdkModel {
     public static String TAG = "sapi_pass_sdk_model";
     public static PassSdkModel instance;

@@ -9,7 +9,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bv {
     public static bv a = new bv();
 
@@ -25,7 +25,7 @@ public class bv {
     /* renamed from: a  reason: collision with other field name */
     public List<a> f955a = new ArrayList();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a {
         public void a(dv.a aVar) {
         }
@@ -39,15 +39,15 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m725a() {
+    public static synchronized String m744a() {
         String str;
         synchronized (bv.class) {
             if (f952a == null) {
-                SharedPreferences sharedPreferences = com.xiaomi.push.s.m643a().getSharedPreferences("XMPushServiceConfig", 0);
+                SharedPreferences sharedPreferences = com.xiaomi.push.s.m662a().getSharedPreferences("XMPushServiceConfig", 0);
                 String string = sharedPreferences.getString("DeviceUUID", null);
                 f952a = string;
                 if (string == null) {
-                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.s.m643a(), false);
+                    String a2 = com.xiaomi.push.i.a(com.xiaomi.push.s.m662a(), false);
                     f952a = a2;
                     if (a2 != null) {
                         sharedPreferences.edit().putString("DeviceUUID", f952a).commit();
@@ -85,13 +85,13 @@ public class bv {
         Exception e;
         try {
             try {
-                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.s.m643a().openFileInput("XMCloudCfg"));
+                bufferedInputStream = new BufferedInputStream(com.xiaomi.push.s.m662a().openFileInput("XMCloudCfg"));
                 try {
                     this.f954a = dv.a.b(com.xiaomi.push.b.a(bufferedInputStream));
                     bufferedInputStream.close();
                 } catch (Exception e2) {
                     e = e2;
-                    com.xiaomi.channel.commonutils.logger.b.m101a("load config failure: " + e.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m120a("load config failure: " + e.getMessage());
                     com.xiaomi.push.y.a(bufferedInputStream);
                     if (this.f954a != null) {
                     }
@@ -120,19 +120,19 @@ public class bv {
     public void e() {
         try {
             if (this.f954a != null) {
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.s.m643a().openFileOutput("XMCloudCfg", 0));
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(com.xiaomi.push.s.m662a().openFileOutput("XMCloudCfg", 0));
                 com.xiaomi.push.c a2 = com.xiaomi.push.c.a(bufferedOutputStream);
                 this.f954a.a(a2);
-                a2.m230a();
+                a2.m249a();
                 bufferedOutputStream.close();
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("save config failure: " + e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m120a("save config failure: " + e.getMessage());
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m728a() {
+    public int m747a() {
         b();
         dv.a aVar = this.f954a;
         if (aVar != null) {
@@ -142,19 +142,19 @@ public class bv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public dv.a m729a() {
+    public dv.a m748a() {
         b();
         return this.f954a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m730a() {
+    public synchronized void m749a() {
         this.f955a.clear();
     }
 
     public void a(dw.b bVar) {
         a[] aVarArr;
-        if (bVar.m313d() && bVar.d() > m728a()) {
+        if (bVar.m332d() && bVar.d() > m747a()) {
             c();
         }
         synchronized (this) {

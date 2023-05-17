@@ -2,7 +2,7 @@ package com.google.zxing.oned;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CodaBarWriter extends OneDimensionalCodeWriter {
     public static final char[] ALT_START_END_CHARS = {'T', 'N', '*', 'E'};
     public static final char[] CHARS_WHICH_ARE_TEN_LENGTH_EACH_AFTER_DECODED = {WebvttCueParser.CHAR_SLASH, ':', '+', IStringUtil.EXTENSION_SEPARATOR};

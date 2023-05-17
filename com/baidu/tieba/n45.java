@@ -1,315 +1,560 @@
 package com.baidu.tieba;
 
+import android.app.Application;
+import android.content.res.ColorStateList;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.text.TextUtils;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.Direction;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
-import java.util.zip.ZipOutputStream;
-/* loaded from: classes5.dex */
+import java.util.Arrays;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
 public class n45 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, HashMap<String, Integer>> a;
+    public static final HashMap<Integer, String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(File file, String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952506, "Lcom/baidu/tieba/n45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952506, "Lcom/baidu/tieba/n45;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+        b = new HashMap<>();
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            a.clear();
+            b.clear();
+        }
+    }
+
+    public static float A(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str.endsWith(IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+                return Float.parseFloat(str.substring(0, str.length() - 1));
+            }
+            return q(str);
+        }
+        return invokeL.floatValue;
+    }
+
+    public static String H(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            int idByABTest = EMABTest.getIdByABTest(i, EMABTest.TYPE_STRING);
+            if (idByABTest == 0) {
+                return "";
+            }
+            return TbadkCoreApplication.getInst().getResources().getString(idByABTest);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String[] I(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            return TbadkCoreApplication.getInst().getResources().getStringArray(EMABTest.getIdByABTest(i, "array"));
+        }
+        return (String[]) invokeI.objValue;
+    }
+
+    public static ColorStateList J(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            return SkinManager.createColorStateList(i);
+        }
+        return (ColorStateList) invokeI.objValue;
+    }
+
+    public static Typeface K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if ("bold".equals(str)) {
+                return Typeface.DEFAULT_BOLD;
+            }
+            return Typeface.DEFAULT;
+        }
+        return (Typeface) invokeL.objValue;
+    }
+
+    public static float[] L(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65548, null, f)) == null) {
+            float[] fArr = new float[8];
+            Arrays.fill(fArr, f);
+            return fArr;
+        }
+        return (float[]) invokeF.objValue;
+    }
+
+    public static float b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
+            return pg.d(H(i), 0.0f);
+        }
+        return invokeI.floatValue;
+    }
+
+    public static o45 d(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, drawable)) == null) {
+            if (drawable instanceof o45) {
+                return (o45) drawable;
+            }
+            return o45.y();
+        }
+        return (o45) invokeL.objValue;
+    }
+
+    public static o45 e(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, view2)) == null) {
+            Drawable background = view2.getBackground();
+            if (background instanceof o45) {
+                return (o45) background;
+            }
+            return o45.y();
+        }
+        return (o45) invokeL.objValue;
+    }
+
+    public static int i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
+            return SkinManager.getColor(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            return wp9.f(str);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            return i(v(str, "color"));
+        }
+        return invokeL.intValue;
+    }
+
+    public static int p(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65564, null, i)) == null) {
+            return UtilHelper.getDimenPixelSize(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+            return p(v("tbds" + str, EMABTest.TYPE_DIMEN));
+        }
+        return invokeL.intValue;
+    }
+
+    public static int[] t(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, iArr)) == null) {
+            int length = iArr.length;
+            for (int i = 0; i < length; i++) {
+                iArr[i] = i(iArr[i]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static int[] u(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, strArr)) == null) {
+            int length = strArr.length;
+            int[] iArr = new int[length];
+            for (int i = 0; i < length; i++) {
+                iArr[i] = m(strArr[i]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static float[] x(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[min];
+            for (int i = 0; i < min; i++) {
+                fArr[i] = pg.d(strArr[i], 0.0f);
+            }
+            return fArr;
+        }
+        return (float[]) invokeL.objValue;
+    }
+
+    public static float[] B(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return L(0.0f);
+            }
+            String[] split = app.getString(i).split(",");
+            int min = Math.min(split.length, 4);
+            float[] fArr = new float[8];
+            for (int i2 = 0; i2 < min; i2++) {
+                float A = A(split[i2]);
+                int i3 = i2 * 2;
+                fArr[i3] = A;
+                fArr[i3 + 1] = A;
+            }
+            return fArr;
+        }
+        return (float[]) invokeI.objValue;
+    }
+
+    public static float[] C(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[8];
+            for (int i = 0; i < min; i++) {
+                float A = A(strArr[i]);
+                int i2 = i * 2;
+                fArr[i2] = A;
+                fArr[i2 + 1] = A;
+            }
+            return fArr;
+        }
+        return (float[]) invokeL.objValue;
+    }
+
+    public static String r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i)) == null) {
+            try {
+                String str = b.get(Integer.valueOf(i));
+                if (str == null) {
+                    if (i == 0) {
+                        str = "";
+                    } else {
+                        str = TbadkCoreApplication.getInst().getResources().getResourceEntryName(i);
+                    }
+                    b.put(Integer.valueOf(i), str);
+                }
+                return str;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                fna.g(e);
+                return "";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static Drawable D(View view2, Drawable drawable, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, drawable, strArr)) == null) {
+            if (strArr != null && strArr.length == 3) {
+                String[] split = strArr[2].split(",");
+                if (split.length == 2) {
+                    o45 o45Var = (o45) d(drawable).clone();
+                    o45Var.L(m(strArr[0]));
+                    o45Var.M(q(strArr[1]));
+                    o45Var.I(q(split[0]));
+                    o45Var.J(q(split[1]));
+                    return o45Var.n(view2);
+                }
+                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
+            }
+            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public static float[] E(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            String[] I = I(i);
+            float[] fArr = new float[4];
+            if (I != null && I.length == 3) {
+                String[] split = I[2].split(",");
+                if (split.length == 2) {
+                    fArr[0] = m(I[0]);
+                    fArr[1] = q(I[1]);
+                    fArr[2] = q(split[0]);
+                    fArr[3] = q(split[1]);
+                    if (fArr[1] == 0.0f) {
+                        fArr[1] = 0.01f;
+                    }
+                    return fArr;
+                }
+                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
+            }
+            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
+        }
+        return (float[]) invokeI.objValue;
+    }
+
+    public static Drawable F(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, drawable, i, i2)) == null) {
+            o45 d = d(drawable);
+            d.z();
+            GradientDrawable l = d.l(i2);
+            l.setColor(i(i));
+            l.setStroke((int) d.t(), wp9.a(d.s(), d.r()));
+            GradientDrawable l2 = d.l(i2);
+            l2.setColor(wp9.a(i(i), SkinManager.RESOURCE_ALPHA_PRESS));
+            l2.setStroke((int) d.t(), wp9.a(d.s(), SkinManager.RESOURCE_ALPHA_PRESS * d.r()));
+            GradientDrawable l3 = d.l(i2);
+            l3.setColor(wp9.a(i(i), SkinManager.RESOURCE_ALPHA_DISABLE));
+            l3.setStroke((int) d.t(), wp9.a(d.s(), SkinManager.RESOURCE_ALPHA_DISABLE * d.r()));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
+            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
+            stateListDrawable.addState(new int[]{-16842910}, l3);
+            stateListDrawable.addState(new int[0], l);
+            return stateListDrawable;
+        }
+        return (Drawable) invokeLII.objValue;
+    }
+
+    public static Drawable G(Drawable drawable, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65543, null, drawable, i, i2, i3)) == null) {
+            o45 d = d(drawable);
+            d.z();
+            GradientDrawable l = d.l(i3);
+            l.setColor(i(i));
+            l.setStroke((int) d.t(), wp9.a(d.s(), d.r()));
+            GradientDrawable l2 = d.l(i3);
+            l2.setColor(i(i2));
+            l2.setStroke((int) d.t(), wp9.a(d.s(), SkinManager.RESOURCE_ALPHA_PRESS * d.r()));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
+            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
+            stateListDrawable.addState(new int[0], l);
+            return stateListDrawable;
+        }
+        return (Drawable) invokeLIII.objValue;
+    }
+
+    public static Drawable c(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.A(b(i));
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable f(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.D(b(i));
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable g(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.E(i(i));
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable h(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.F(p(i));
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable k(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.B(i(i));
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable l(Drawable drawable, String str) {
         InterceptResult invokeLL;
-        ZipFile zipFile;
-        FileOutputStream fileOutputStream;
-        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
-            File file2 = new File(str);
-            if (!file2.exists() && !file2.mkdirs()) {
-                return false;
-            }
-            boolean z = true;
-            ZipFile zipFile2 = null;
-            InputStream inputStream2 = null;
-            zipFile2 = null;
-            try {
-                try {
-                    zipFile = new ZipFile(file);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                Enumeration<? extends ZipEntry> entries = zipFile.entries();
-                while (entries.hasMoreElements()) {
-                    try {
-                        ZipEntry nextElement = entries.nextElement();
-                        String name = nextElement.getName();
-                        if (name == null || !name.contains("__MACOSX/")) {
-                            File file3 = new File(str, name);
-                            if (nextElement.isDirectory()) {
-                                file3.mkdirs();
-                            } else {
-                                inputStream = zipFile.getInputStream(nextElement);
-                                try {
-                                    fileOutputStream = new FileOutputStream(file3);
-                                    try {
-                                        try {
-                                            byte[] bArr = new byte[1024];
-                                            while (true) {
-                                                int read = inputStream.read(bArr);
-                                                if (read <= 0) {
-                                                    break;
-                                                }
-                                                fileOutputStream.write(bArr, 0, read);
-                                            }
-                                            fileOutputStream.flush();
-                                            if (inputStream != null) {
-                                                try {
-                                                    inputStream.close();
-                                                } catch (IOException e2) {
-                                                    e2.printStackTrace();
-                                                }
-                                            }
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (IOException e3) {
-                                                e3.printStackTrace();
-                                            }
-                                        } catch (Throwable th2) {
-                                            th = th2;
-                                            inputStream2 = inputStream;
-                                            if (inputStream2 != null) {
-                                                try {
-                                                    inputStream2.close();
-                                                } catch (IOException e4) {
-                                                    e4.printStackTrace();
-                                                }
-                                            }
-                                            if (fileOutputStream != null) {
-                                                try {
-                                                    fileOutputStream.close();
-                                                } catch (IOException e5) {
-                                                    e5.printStackTrace();
-                                                }
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e6) {
-                                        e = e6;
-                                        e.printStackTrace();
-                                        if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (IOException e7) {
-                                                e7.printStackTrace();
-                                            }
-                                        }
-                                        if (fileOutputStream != null) {
-                                            try {
-                                                fileOutputStream.close();
-                                            } catch (IOException e8) {
-                                                e8.printStackTrace();
-                                            }
-                                        }
-                                        z = false;
-                                    }
-                                } catch (Exception e9) {
-                                    e = e9;
-                                    fileOutputStream = null;
-                                } catch (Throwable th3) {
-                                    th = th3;
-                                    fileOutputStream = null;
-                                }
-                            }
-                        }
-                    } catch (Exception e10) {
-                        e = e10;
-                        inputStream = null;
-                        fileOutputStream = null;
-                    } catch (Throwable th4) {
-                        th = th4;
-                        fileOutputStream = null;
-                    }
-                }
-                try {
-                    zipFile.close();
-                } catch (IOException e11) {
-                    e11.printStackTrace();
-                }
-                return z;
-            } catch (Exception e12) {
-                e = e12;
-                zipFile2 = zipFile;
-                e.printStackTrace();
-                if (zipFile2 == null) {
-                    return false;
-                }
-                try {
-                    zipFile2.close();
-                    return false;
-                } catch (IOException e13) {
-                    e13.printStackTrace();
-                    return false;
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                zipFile2 = zipFile;
-                if (zipFile2 != null) {
-                    try {
-                        zipFile2.close();
-                    } catch (IOException e14) {
-                        e14.printStackTrace();
-                    }
-                }
-                throw th;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, drawable, str)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.B(j(str));
+            return o45Var;
         }
-        return invokeLL.booleanValue;
+        return (Drawable) invokeLL.objValue;
     }
 
-    public static boolean b(String str, String str2) {
+    public static Drawable n(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.P(C(H(i).split(",")));
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable o(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.G(i);
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable y(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65573, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.E(i);
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable z(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65574, null, drawable, i)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            o45Var.B(i);
+            return o45Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable s(Drawable drawable, Direction direction, int[] iArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, drawable, direction, iArr)) == null) {
+            o45 o45Var = (o45) d(drawable).clone();
+            t(iArr);
+            o45Var.C(iArr);
+            o45Var.H(direction);
+            return o45Var;
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public static int v(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return a(new File(str), str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, str, str2)) == null) {
+            HashMap<String, Integer> hashMap = a.get(str2);
+            if (hashMap == null) {
+                hashMap = new HashMap<>();
+                a.put(str2, hashMap);
+            }
+            Integer num = hashMap.get(str);
+            if (num == null) {
+                num = Integer.valueOf(TbadkCoreApplication.getInst().getResources().getIdentifier(str, str2, TbadkCoreApplication.getInst().getPackageName()));
+                hashMap.put(str, num);
+            }
+            return num.intValue();
         }
-        return invokeLL.booleanValue;
+        return invokeLL.intValue;
     }
 
-    public static void c(File file, String str) throws ZipException, IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
-            File file2 = new File(str);
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            ZipFile zipFile = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                String name = nextElement.getName();
-                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
-                    InputStream inputStream = zipFile.getInputStream(nextElement);
-                    File file3 = new File(str + File.separator + name);
-                    if (!file3.exists()) {
-                        File parentFile = file3.getParentFile();
-                        if (!parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        file3.createNewFile();
-                    }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
-                    byte[] bArr = new byte[10240];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    inputStream.close();
-                    fileOutputStream.close();
-                }
-            }
-        }
-    }
-
-    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
-            return;
-        }
-        File file = new File(str, str2);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isFile()) {
-            ZipEntry zipEntry = new ZipEntry(str2);
-            FileInputStream fileInputStream = new FileInputStream(file);
-            zipOutputStream.putNextEntry(zipEntry);
-            byte[] bArr = new byte[4096];
-            while (true) {
-                int read = fileInputStream.read(bArr);
-                if (read != -1) {
-                    zipOutputStream.write(bArr, 0, read);
-                } else {
-                    zipOutputStream.closeEntry();
-                    return;
-                }
-            }
-        } else if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list.length <= 0) {
-                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
-                zipOutputStream.closeEntry();
-            }
-            for (int i = 0; i < list.length; i++) {
-                d(str, str2 + File.separator + list[i], zipOutputStream);
-            }
-        }
-    }
-
-    public static boolean e(String str, String str2) {
+    public static Drawable w(Drawable drawable, String[] strArr) {
         InterceptResult invokeLL;
-        ZipOutputStream zipOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            ZipOutputStream zipOutputStream2 = null;
-            try {
-                try {
-                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
-                } catch (Throwable th) {
-                    th = th;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, drawable, strArr)) == null) {
+            if (strArr != null && strArr.length == 3) {
+                String[] split = strArr[0].split(",");
+                String[] split2 = strArr[1].split(",");
+                String str = strArr[2];
+                o45 o45Var = (o45) d(drawable).clone();
+                if (!TextUtils.isEmpty(str)) {
+                    o45Var.H(Direction.valueOf(str.toUpperCase()));
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Exception e3) {
-                e = e3;
+                o45Var.C(u(split));
+                o45Var.K(x(split2));
+                return o45Var;
             }
-            try {
-                File file = new File(str);
-                if (!file.exists()) {
-                    ji.f(zipOutputStream);
-                    return false;
-                }
-                d(file.getParent(), file.getName(), zipOutputStream);
-                zipOutputStream.finish();
-                zipOutputStream.close();
-                ji.f(zipOutputStream);
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                ji.f(zipOutputStream2);
-                return false;
-            } catch (IOException e5) {
-                e = e5;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                ji.f(zipOutputStream2);
-                return false;
-            } catch (Exception e6) {
-                e = e6;
-                zipOutputStream2 = zipOutputStream;
-                e.printStackTrace();
-                ji.f(zipOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                zipOutputStream2 = zipOutputStream;
-                ji.f(zipOutputStream2);
-                throw th;
-            }
+            throw new IndexOutOfBoundsException("Please check the number of mask resource!");
         }
-        return invokeLL.booleanValue;
+        return (Drawable) invokeLL.objValue;
     }
 }

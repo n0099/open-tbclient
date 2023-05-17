@@ -1,5 +1,5 @@
 package com.baidu.nadcore.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ParseError extends Exception {
     public String mExtraParam;
     public String mPid;

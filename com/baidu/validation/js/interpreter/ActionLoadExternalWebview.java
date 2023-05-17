@@ -1,6 +1,6 @@
 package com.baidu.validation.js.interpreter;
 
-import com.baidu.tieba.bna;
+import com.baidu.tieba.zoa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +10,7 @@ import com.baidu.validation.js.BaseInterpreter;
 import com.baidu.validation.result.LoadExternalWebViewResult;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ActionLoadExternalWebview extends BaseInterpreter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class ActionLoadExternalWebview extends BaseInterpreter {
     }
 
     @Override // com.baidu.validation.js.BaseInterpreter
-    public String interpret(bna bnaVar) {
+    public String interpret(zoa zoaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bnaVar)) == null) {
-            if (bnaVar != null && bnaVar.c() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zoaVar)) == null) {
+            if (zoaVar != null && zoaVar.c() != null) {
                 try {
-                    this.mInterpreterCallback.a(this.mName, LoadExternalWebViewResult.parseFromJson(new JSONObject(bnaVar.c().get(0))));
+                    this.mInterpreterCallback.a(this.mName, LoadExternalWebViewResult.parseFromJson(new JSONObject(zoaVar.c().get(0))));
                 } catch (JSONException unused) {
                 }
             }

@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FakeStartLiveButton extends FrameLayout {
     public FakeStartLiveButton(Context context) {
         this(context, null);
@@ -22,6 +22,6 @@ public class FakeStartLiveButton extends FrameLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0585, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a4, this);
     }
 }

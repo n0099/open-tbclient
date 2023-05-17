@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DefaultTrackSelector extends MappingTrackSelector {
     public static final float FRACTION_TO_CONSIDER_FULLSCREEN = 0.98f;
     public static final int[] NO_TRACKS = new int[0];
@@ -47,7 +47,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         return i2 == 4 || (z && i2 == 3);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class AudioConfigurationTuple {
         public final int channelCount;
         public final String mimeType;
@@ -86,7 +86,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class AudioTrackScore implements Comparable<AudioTrackScore> {
         public final int bitrate;
         public final int channelCount;
@@ -163,7 +163,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Parameters {
         public final boolean allowMixedMimeAdaptiveness;
         public final boolean allowNonSeamlessAdaptiveness;

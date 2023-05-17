@@ -10,7 +10,7 @@ import com.baidu.searchbox.aideviceperformance.data.DBTableConfig;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
     public static final boolean DEBUG = Config.isDebug();
     public static String TAG = "LaunchTimeSQLiteOpenHelper";

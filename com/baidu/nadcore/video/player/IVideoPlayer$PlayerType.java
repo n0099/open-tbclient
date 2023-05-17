@@ -1,5 +1,5 @@
 package com.baidu.nadcore.video.player;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum IVideoPlayer$PlayerType {
     PLAYER_TYPE_ONLINE,
     PLAYER_TYPE_OFFLINE,

@@ -1,5 +1,5 @@
 package com.baidu.mobstat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class cm extends RuntimeException {
     public int a;
 

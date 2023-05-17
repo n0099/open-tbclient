@@ -6,6 +6,7 @@ import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.FileUtils;
+import com.baidu.spswitch.emotion.EmotionUtils;
 import com.baidu.spswitch.utils.SPConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,23 +22,27 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionResourceProvider implements IResourceProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String EMOTION_CONFIG_NAME = "emotion_info.json";
-    public static final String EMOTION_RES_NAME_SUFFIX = ".png";
+    public static final String EMOTION_RES_NAME_PNG_SUFFIX = ".png";
+    public static final String EMOTION_RES_NAME_WEBP_SUFFIX = ".webp";
     public static final String EMOTION_SOUND_SUFFIX = ".mp3";
     public static final String TAG = "EmotionResourceProvider";
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public String mEmotionConfigInfo;
+    public String mEmotionEffectBasePath;
+    public String mEmotionEffectInfo;
     public Map<String, File> mEmotionIconFileMap;
     public File mEmotionSoundFile;
     public File mResourcePath;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_UNZIP_DIR_NAME = "emotion_unzip";
@@ -111,6 +116,12 @@ public class EmotionResourceProvider implements IResourceProvider {
                 if (this.mProcessedResPath != null) {
                     releaseProvider();
                     this.mProvider = new EmotionResourceProvider(this.mContext, this.mProcessedResPath);
+                    if (this.mZipInputPath != null) {
+                        if (EmotionResourceProvider.DEBUG) {
+                            Log.d(EmotionResourceProvider.TAG, "clear history zip:" + this.mZipInputPath.getPath());
+                        }
+                        FileUtils.deleteFile(this.mZipInputPath);
+                    }
                 } else {
                     File file = this.mZipInputPath;
                     if (file != null && this.mUnZipOutputPath != null) {
@@ -125,6 +136,10 @@ public class EmotionResourceProvider implements IResourceProvider {
                             }
                             return null;
                         }
+                        if (EmotionResourceProvider.DEBUG) {
+                            Log.d(EmotionResourceProvider.TAG, "clear cur download zip:" + this.mZipInputPath.getPath());
+                        }
+                        FileUtils.deleteFile(this.mZipInputPath);
                         releaseProvider();
                         this.mProvider = new EmotionResourceProvider(this.mContext, this.mUnZipOutputPath);
                     } else {
@@ -143,11 +158,12 @@ public class EmotionResourceProvider implements IResourceProvider {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                File file = new File(str);
-                this.mZipInputPath = file;
-                if (file.exists() && FileUtils.isZipFile(this.mZipInputPath)) {
+                this.mZipInputPath = new File(str);
+                String str2 = this.mZipInputPath.getParent() + File.separator + DEFAULT_UNZIP_DIR_NAME;
+                setProcessedResourcePath(str2);
+                if (this.mZipInputPath.exists() && FileUtils.isZipFile(this.mZipInputPath)) {
                     if (this.mUnZipOutputPath == null) {
-                        setUnZipOutputPath(this.mZipInputPath.getParent() + File.separator + DEFAULT_UNZIP_DIR_NAME);
+                        setUnZipOutputPath(str2);
                     }
                 } else {
                     this.mZipInputPath = null;
@@ -193,10 +209,30 @@ public class EmotionResourceProvider implements IResourceProvider {
     }
 
     @Override // com.baidu.spswitch.emotion.resource.IResourceProvider
-    public File getEmotionSoundFile() {
+    public String getEmotionEffectBasePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mEmotionEffectBasePath;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.spswitch.emotion.resource.IResourceProvider
+    public String getEmotionEffectInfoContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mEmotionEffectInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.spswitch.emotion.resource.IResourceProvider
+    public File getEmotionSoundFile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mEmotionSoundFile;
         }
         return (File) invokeV.objValue;
@@ -205,12 +241,13 @@ public class EmotionResourceProvider implements IResourceProvider {
     @Override // com.baidu.spswitch.emotion.resource.IResourceProvider
     public void loadResource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
                 clearAll();
                 searchEmotionConfig(this.mResourcePath);
                 searchEmotionIcon(this.mResourcePath);
                 searchEmotionSound(this.mResourcePath);
+                searchEffectEmotion(this.mResourcePath);
             }
         }
     }
@@ -218,7 +255,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     @Override // com.baidu.spswitch.emotion.resource.IResourceProvider
     public void releaseResource() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             clearAll();
         }
     }
@@ -239,15 +276,60 @@ public class EmotionResourceProvider implements IResourceProvider {
             }
         }
         this.mEmotionConfigInfo = "";
+        this.mEmotionEffectInfo = "";
+        this.mEmotionEffectBasePath = "";
         this.mEmotionIconFileMap = new HashMap();
         this.mResourcePath = file;
         this.mContext = context;
     }
 
+    private void searchEffectEmotion(File file) {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, this, file) == null) && file != null && file.exists() && (listFiles = file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ EmotionResourceProvider this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.io.FileFilter
+            public boolean accept(File file2) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
+                    if (file2.isDirectory() && this.this$0.isFilteredResDir(file2, "effect")) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
+            }
+        })) != null && listFiles.length > 0) {
+            getEmotionDynamicInfo(listFiles[0]);
+        }
+    }
+
     private void searchEmotionConfig(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, this, file) == null) && file != null && file.exists() && (listFiles = file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.2
+        if ((interceptable == null || interceptable.invokeL(65546, this, file) == null) && file != null && file.exists() && (listFiles = file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EmotionResourceProvider this$0;
@@ -289,8 +371,8 @@ public class EmotionResourceProvider implements IResourceProvider {
 
     private void searchEmotionIcon(File file) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, file) == null) && file != null && file.exists()) {
-            file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.3
+        if ((interceptable == null || interceptable.invokeL(65547, this, file) == null) && file != null && file.exists()) {
+            file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EmotionResourceProvider this$0;
@@ -318,9 +400,12 @@ public class EmotionResourceProvider implements IResourceProvider {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
-                        if (!file2.isDirectory() && this.this$0.isFilteredResDir(file2, EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX)) {
-                            this.this$0.mEmotionIconFileMap.put(file2.getName(), file2);
-                            return true;
+                        if (!file2.isDirectory()) {
+                            if (this.this$0.isFilteredResDir(file2, ".png") || this.this$0.isFilteredResDir(file2, ".webp")) {
+                                this.this$0.mEmotionIconFileMap.put(file2.getName(), file2);
+                                return true;
+                            }
+                            return false;
                         }
                         return false;
                     }
@@ -333,7 +418,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     private void searchEmotionSound(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, file) == null) && file != null && file.exists() && (listFiles = file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.1
+        if ((interceptable == null || interceptable.invokeL(65548, this, file) == null) && file != null && file.exists() && (listFiles = file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ EmotionResourceProvider this$0;
@@ -377,7 +462,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     public File getEmotionIconResFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             return this.mEmotionIconFileMap.get(str);
         }
         return (File) invokeL.objValue;
@@ -458,24 +543,157 @@ public class EmotionResourceProvider implements IResourceProvider {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0053, code lost:
+        if (com.baidu.spswitch.utils.SPConfig.isDebug() == false) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0055, code lost:
+        r0.printStackTrace();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0084, code lost:
+        if (com.baidu.spswitch.utils.SPConfig.isDebug() == false) goto L23;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00a0 A[Catch: IOException -> 0x009c, TRY_LEAVE, TryCatch #8 {IOException -> 0x009c, blocks: (B:54:0x0098, B:58:0x00a0), top: B:75:0x0098 }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x0098 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void getEmotionDynamicInfo(File file) {
+        File[] listFiles;
+        FileInputStream fileInputStream;
+        IOException e;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, this, file) == null) && file != null && file.exists() && (listFiles = file.listFiles(new FileFilter(this) { // from class: com.baidu.spswitch.emotion.resource.EmotionResourceProvider.4
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ EmotionResourceProvider this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // java.io.FileFilter
+            public boolean accept(File file2) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file2)) == null) {
+                    if (!file2.isDirectory() && this.this$0.isFilteredResDir(file2, EmotionUtils.EMOTION_EFFECT_INFO_FILE)) {
+                        return true;
+                    }
+                    return false;
+                }
+                return invokeL.booleanValue;
+            }
+        })) != null && listFiles.length > 0) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader2 = null;
+            try {
+                fileInputStream = new FileInputStream(listFiles[0]);
+            } catch (IOException e2) {
+                fileInputStream = null;
+                e = e2;
+                bufferedReader = null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream, IMAudioTransRequest.CHARSET));
+                try {
+                    try {
+                        for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                            sb.append(readLine);
+                        }
+                        try {
+                            bufferedReader.close();
+                            fileInputStream.close();
+                        } catch (IOException e3) {
+                            e = e3;
+                        }
+                    } catch (IOException e4) {
+                        e = e4;
+                        if (SPConfig.isDebug()) {
+                            e.printStackTrace();
+                        }
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e5) {
+                                e = e5;
+                            }
+                        }
+                        if (fileInputStream != null) {
+                            fileInputStream.close();
+                        }
+                        this.mEmotionEffectInfo = sb.toString();
+                        this.mEmotionEffectBasePath = file.getPath();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader2 = bufferedReader;
+                    if (bufferedReader2 != null) {
+                        try {
+                            bufferedReader2.close();
+                        } catch (IOException e6) {
+                            if (SPConfig.isDebug()) {
+                                e6.printStackTrace();
+                            }
+                            throw th;
+                        }
+                    }
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (IOException e7) {
+                e = e7;
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                if (bufferedReader2 != null) {
+                }
+                if (fileInputStream != null) {
+                }
+                throw th;
+            }
+            this.mEmotionEffectInfo = sb.toString();
+            this.mEmotionEffectBasePath = file.getPath();
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isFilteredResDir(File file, String... strArr) {
         InterceptResult invokeLL;
         String lowerCase;
         String lowerCase2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, file, strArr)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, file, strArr)) == null) {
             if (file != null && strArr != null) {
                 if (TextUtils.isEmpty(file.getName())) {
                     lowerCase = "";
                 } else {
-                    lowerCase = file.getName().toLowerCase();
+                    lowerCase = file.getName().toLowerCase(Locale.getDefault());
                 }
                 for (String str : strArr) {
                     if (TextUtils.isEmpty(str)) {
                         lowerCase2 = "";
                     } else {
-                        lowerCase2 = str.toLowerCase();
+                        lowerCase2 = str.toLowerCase(Locale.getDefault());
                     }
                     if (lowerCase.indexOf(lowerCase2) != -1) {
                         return true;

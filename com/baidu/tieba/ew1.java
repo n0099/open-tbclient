@@ -1,43 +1,47 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.adlanding.customer.WebViewContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ew1 extends cw1 {
+/* loaded from: classes5.dex */
+public class ew1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WebViewContainer a;
+    public Context b;
+    public boolean c;
+    public double d;
+    public ValueAnimator e;
+    public float f;
+    public yx2 g;
+    public int h;
+    public boolean i;
+    public WebViewContainer.b j;
+    public WebViewContainer.c k;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CheckSessionApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements qm3<ad3<JSONObject>> {
+    /* loaded from: classes5.dex */
+    public class a implements WebViewContainer.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ip1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ ew1 a;
 
-        public a(ew1 ew1Var, ip1 ip1Var, CallbackHandler callbackHandler, String str) {
+        public a(ew1 ew1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ew1Var, ip1Var, callbackHandler, str};
+                Object[] objArr = {ew1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,114 +51,345 @@ public class ew1 extends cw1 {
                     return;
                 }
             }
-            this.a = ip1Var;
-            this.b = callbackHandler;
-            this.c = str;
+            this.a = ew1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(ad3<JSONObject> ad3Var) {
-            JSONObject wrapCallbackParams;
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
-                if (ad3Var.c() && ew1.y(ad3Var.a)) {
-                    JSONObject optJSONObject = ad3Var.a.optJSONObject("data");
-                    if (optJSONObject != null && optJSONObject.optBoolean("result")) {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0);
-                        qe3.T("checkSession", "success");
-                    } else {
-                        wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "session key expired");
-                        qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "session key expired");
-                    }
-                } else {
-                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(ad3Var.b());
-                    this.a.g(this.b, wrapCallbackParams.toString());
-                    qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "result failed");
-                }
-                this.b.handleSchemeDispatchCallback(this.c, wrapCallbackParams.toString());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.j(false);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ew1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    /* loaded from: classes5.dex */
+    public class b implements WebViewContainer.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew1 a;
+
+        public b(ew1 ew1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ew1Var;
+        }
+
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.c
+        public void a(boolean z) {
+            double d;
+            boolean z2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.a == null) {
+                return;
+            }
+            if (z) {
+                d = 1.0d - this.a.d;
+            } else {
+                d = this.a.d;
+            }
+            if ((this.a.a.getTopMargin() * 1.0d) / (this.a.h * 1.0d) >= d) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.a.j(z2);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements WebViewContainer.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ew1 a;
+
+        public c(ew1 ew1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ew1Var;
+        }
+
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.a
+        public boolean a(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                if (z && this.a.a.getTopMargin() <= this.a.h) {
+                    this.a.j(false);
+                    return true;
+                } else if (!z && this.a.a.getTopMargin() >= this.a.a.getMinTopMargin()) {
+                    this.a.j(true);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return invokeZ.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public int b;
+        public int c;
+        public int d;
+        public float e;
+        public int f;
+        public final /* synthetic */ boolean g;
+        public final /* synthetic */ ew1 h;
+
+        public d(ew1 ew1Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew1Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = ew1Var;
+            this.g = z;
+            this.a = 0.0f;
+            this.b = this.h.h - this.h.a.getTopMargin();
+            int topMargin = this.h.a.getTopMargin() - this.h.a.getMinTopMargin();
+            this.c = topMargin;
+            topMargin = this.g ? this.b : topMargin;
+            this.d = topMargin;
+            this.e = topMargin * this.h.f;
+            this.f = this.h.a.getTopMargin();
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float f;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.h.a != null && valueAnimator != null) {
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                if (this.h.c) {
+                    f = this.d;
+                } else {
+                    f = this.e;
+                }
+                int i = (int) (f * (floatValue - this.a));
+                if (this.g) {
+                    i = 0 - i;
+                }
+                this.f -= i;
+                this.h.a.scrollBy(0, i);
+                this.h.a.setTopMargin(this.f);
+                this.a = floatValue;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ ew1 b;
+
+        public e(ew1 ew1Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ew1Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ew1Var;
+            this.a = z;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.b.a != null) {
+                this.b.i(this.a);
+            }
+        }
+    }
+
+    public ew1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = true;
+        this.d = 0.25d;
+        this.i = true;
+        this.j = new a(this);
+        this.k = new b(this);
+        this.b = context;
     }
 
-    public static boolean y(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null && TextUtils.equals(jSONObject.optString("errno"), "0")) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.h > 0 && this.a != null && this.g != null) {
+            n(z);
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void p(yx2 yx2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yx2Var) == null) {
+            this.g = yx2Var;
+        }
+    }
+
+    public final void h() {
+        ValueAnimator valueAnimator;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.e) != null) {
+            valueAnimator.cancel();
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ValueAnimator valueAnimator = this.e;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public xz1 x(String str) {
-        InterceptResult invokeL;
+    public final void i(boolean z) {
+        WebViewContainer webViewContainer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#checkSession", false);
-            qe3.T("checkSession", "create");
-            ip1 j = fr2.j();
-            CallbackHandler f = a().f();
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(1001, "swan app is null").toString());
-                qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty swanApp");
-                return new xz1(1001, "swan app is null");
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (webViewContainer = this.a) != null && this.g != null) {
+            if (z) {
+                if (this.c) {
+                    webViewContainer.scrollBy(0, -(this.h - webViewContainer.getTopMargin()));
+                    this.a.setTopMargin(this.h);
+                }
+                if (!this.g.n() && !this.g.m()) {
+                    this.g.s();
+                }
+                this.i = true;
+                return;
             }
-            String O = b0.O();
-            if (TextUtils.isEmpty(O)) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(1001, "empty app key").toString());
-                qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty app key");
-                return new xz1(1001, "empty app key");
+            if (this.c) {
+                webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.a.getMinTopMargin());
+                WebViewContainer webViewContainer2 = this.a;
+                webViewContainer2.setTopMargin(webViewContainer2.getMinTopMargin());
             }
-            JSONObject r = aw1.r(str);
-            if (r == null) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-                qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty joParams");
-                return new xz1(201, "empty joParams");
+            if (this.g.n()) {
+                this.g.p();
             }
-            String optString = r.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(201, "cb is empty").toString());
-                qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "empty cb");
-                return new xz1(201, "cb is empty");
-            }
-            Context context = getContext();
-            if (!b0.N().e(context)) {
-                j.g(f, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-                qe3.U("checkSession", com.baidu.pass.biometrics.face.liveness.b.a.g0, "account not login");
-                return new xz1(10004, "user not logged in");
-            }
-            qe3.T("checkSession", "checkSession");
-            dd3 g = w73.K().x().a().b().g(context, O);
-            g.q("checkSession");
-            g.o(new a(this, j, f, optString));
-            g.call();
-            return new xz1(0);
+            this.i = false;
         }
-        return (xz1) invokeL.objValue;
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || this.a == null || m()) {
+            return;
+        }
+        h();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.e = ofFloat;
+        ofFloat.setDuration(100L);
+        this.e.setInterpolator(new AccelerateDecelerateInterpolator());
+        if (this.a.getYVelocity() >= 0.0f) {
+            this.f = this.a.getYVelocity() / 4000.0f;
+        } else {
+            this.f = (-this.a.getYVelocity()) / 4000.0f;
+        }
+        this.f = Math.min(this.f, 1.0f);
+        this.e.addUpdateListener(new d(this, z));
+        this.e.addListener(new e(this, z));
+        this.e.start();
+    }
+
+    public WebViewContainer k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WebViewContainer webViewContainer = new WebViewContainer(this.b);
+            this.a = webViewContainer;
+            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+            this.a.setClipChildren(false);
+            this.a.setLayerType(2, null);
+            this.a.setTopLimit(this.h);
+            this.a.setTopMargin(this.h);
+            this.a.setAutoScroll2TopListener(this.j);
+            this.a.setOnUpListener(this.k);
+            this.a.setMinFlingVelocity(1000);
+            this.a.setUpYVelocityRatio(3.5f);
+            this.a.setInterceptFlingListener(new c(this));
+            return this.a;
+        }
+        return (WebViewContainer) invokeV.objValue;
     }
 }

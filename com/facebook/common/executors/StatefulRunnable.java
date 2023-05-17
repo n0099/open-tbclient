@@ -1,7 +1,7 @@
 package com.facebook.common.executors;
 
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class StatefulRunnable<T> implements Runnable {
     public static final int STATE_CANCELLED = 2;
     public static final int STATE_CREATED = 0;

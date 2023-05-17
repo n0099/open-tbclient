@@ -9,7 +9,7 @@ import com.baidu.smallgame.sdk.Log;
 import com.huawei.hms.framework.common.ExceptionCode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NetInfo {
     public static final String TAG = "NetInfo";
     public Base mBase;
@@ -20,11 +20,11 @@ public class NetInfo {
     public SwanExtra mSwanExtra;
     public Timing mTiming;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Quic {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Base {
         public JSONObject mJSONObject;
         public int mNetType;
@@ -47,15 +47,15 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Dns {
         public JSONObject mJSONObject;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Config {
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Result {
         }
 
@@ -64,7 +64,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Response {
         public boolean mBackupJob;
         public boolean mCached;
@@ -111,13 +111,13 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Socket {
         public JSONObject mJSONObject;
         public boolean mQuic;
         public boolean mReused;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Attempts {
         }
 
@@ -134,7 +134,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Ssl {
         public boolean mClientCertSent;
         public int mConnectionStatus;
@@ -159,11 +159,11 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SwanExtra {
         public Timing mTiming = new Timing();
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Timing {
             public long mConnectTime = -1;
         }
@@ -173,7 +173,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Timing {
         public long mConnect;
         public long mDns;
@@ -215,7 +215,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class JSONObjectUtils {
         public static boolean getBoolean(JSONObject jSONObject, String str) {
             if (jSONObject == null) {

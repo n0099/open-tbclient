@@ -9,7 +9,7 @@ import com.baidu.searchbox.player.constants.PlayerStatus;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.VideoEvent;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class KernelErrorElement extends AbsElement {
     public LinearLayout mRootView;
     public TextView mTextNetError;
@@ -31,24 +31,24 @@ public class KernelErrorElement extends AbsElement {
 
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
-        LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0165, null);
+        LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0168, null);
         this.mRootView = linearLayout;
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b8a);
+        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bdc);
         this.mTextNetError = textView;
         textView.setOnClickListener(this.mParent);
     }
 
     private void onSwitchFullStyle() {
         Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070192));
-        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a1), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a1));
+        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701bf));
+        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701cb), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701cb));
         this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
     }
 
     private void onSwitchHalfStyle() {
         Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070190));
-        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a0), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a0));
+        this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701bc));
+        compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701ca), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701ca));
         this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
     }
 

@@ -2,11 +2,11 @@ package com.baidu.mapapi.animation;
 
 import android.view.animation.Interpolator;
 import com.baidu.mapsdkplatform.comapi.a.c;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class Animation {
     public c bdAnimation;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface AnimationListener {
         void onAnimationCancel();
 
@@ -17,7 +17,7 @@ public abstract class Animation {
         void onAnimationStart();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum RepeatMode {
         RESTART,
         REVERSE

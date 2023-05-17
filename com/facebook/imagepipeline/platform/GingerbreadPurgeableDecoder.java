@@ -21,7 +21,7 @@ import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     public static Method sGetFileDescriptorMethod;
     @Nullable

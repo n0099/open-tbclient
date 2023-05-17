@@ -9,7 +9,7 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ModelManager {
     public static long defaultModelsVersion = 1;
     public static HashMap<ModelInfoDataProvider.DevicePerformanceModelInfoType, IDevicePerformanceModelInfoProvider> mModelInfoProviderHashMap = new HashMap<>();

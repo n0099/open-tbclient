@@ -1,214 +1,133 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.sgb;
+import com.baidu.tieba.tgb;
+import com.baidu.tieba.ugb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import kotlin.TypeCastException;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-/* loaded from: classes6.dex */
-public final class seb extends qeb<BannerConfigItem.BannerInfo> {
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPayAmountView;
+import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
+import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
+import tv.athena.revenue.payui.view.impl.YYPayGiftView;
+import tv.athena.revenue.payui.view.impl.YYPayResultView;
+import tv.athena.revenue.payui.view.impl.YYPaySignView;
+import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
+import tv.athena.revenue.payui.view.impl.YYPayWayView;
+/* loaded from: classes7.dex */
+public class seb implements mdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageLoaderSupplier c;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948149945, "Lcom/baidu/tieba/seb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948149945, "Lcom/baidu/tieba/seb;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public final /* synthetic */ seb b;
-
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(seb sebVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sebVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sebVar;
-        }
-
-        public final void c(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.a = imageView;
-            }
-        }
-
-        public final ImageView a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-
-        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
-            ImageView imageView;
-            ImageLoaderSupplier e;
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) && (imageView = this.a) != null && (e = this.b.e()) != null) {
-                if (bannerInfo != null) {
-                    str = bannerInfo.imageUrl;
-                } else {
-                    str = null;
-                }
-                ImageLoaderSupplier.ImageParam imageParam = new ImageLoaderSupplier.ImageParam(str, -1, -1);
-                if (context instanceof ContextThemeWrapper) {
-                    ContextThemeWrapper contextThemeWrapper = (ContextThemeWrapper) context;
-                    if (heb.a.a(contextThemeWrapper.getBaseContext())) {
-                        RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context.baseContext:" + contextThemeWrapper.getBaseContext());
-                        Context baseContext = contextThemeWrapper.getBaseContext();
-                        Intrinsics.checkExpressionValueIsNotNull(baseContext, "context.baseContext");
-                        e.onLoad(baseContext, imageView, imageParam);
-                        return;
-                    }
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context.baseContext null", new Object[0]);
-                } else if (heb.a.a(context)) {
-                    RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context:" + context);
-                    e.onLoad(context, imageView, imageParam);
-                } else {
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context null", new Object[0]);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public seb(Context context) {
-        super(context);
+    public seb(int i, int i2, PayUIKitConfig payUIKitConfig) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.debug("PluginCenterBannerAdapter", "constructor");
+        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
     }
 
-    @NonNull
-    public final a d(View view2) {
+    @Override // com.baidu.tieba.mdb
+    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, jdb jdbVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, jdbVar)) == null) {
+            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, jdbVar);
+        }
+        return (IYYPayAmountView) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mdb
+    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, jdb jdbVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, jdbVar)) == null) {
+            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, jdbVar);
+        }
+        return (IYYPayResultView) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mdb
+    public sgb f(Activity activity, sgb.b bVar, PayUIKitConfig payUIKitConfig) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
+            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
+        }
+        return (sgb) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mdb
+    public ugb g(Activity activity, ugb.b bVar, odb odbVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, odbVar)) == null) {
+            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, odbVar);
+        }
+        return (ugb) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.mdb
+    public qgb b(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.top_banner_image));
-            ImageView a2 = aVar.a();
-            if (a2 == null) {
-                Intrinsics.throwNpe();
-            }
-            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view2.setTag(aVar);
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+            return new YYPayConfirmView(activity, this.a, this.b, this.c);
         }
-        return (a) invokeL.objValue;
+        return (qgb) invokeL.objValue;
     }
 
-    public final ImageLoaderSupplier e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mdb
+    public pgb c(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            return new YYPayCampaignView(activity, this.a, this.b, this.c);
         }
-        return (ImageLoaderSupplier) invokeV.objValue;
+        return (pgb) invokeL.objValue;
     }
 
-    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
+    @Override // com.baidu.tieba.mdb
+    public rgb d(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) && bannerInfo != null) {
-            Context mContext = this.b;
-            Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
-            aVar.b(bannerInfo, i, mContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            return new YYPayGiftView(activity, this.a, this.b, this.c);
         }
+        return (rgb) invokeL.objValue;
     }
 
-    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
+    @Override // com.baidu.tieba.mdb
+    public tgb h(Activity activity, PayUIKitConfig payUIKitConfig, tgb.b bVar, odb odbVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.c = imageLoaderSupplier;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, odbVar)) == null) {
+            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, odbVar);
         }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            Object obj = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
-                if (view2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-                aVar = d(view2);
-            } else {
-                if (view2 != null) {
-                    obj = view2.getTag();
-                }
-                if (obj != null) {
-                    aVar = (a) obj;
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
-                }
-            }
-            BannerConfigItem.BannerInfo item = getItem(i);
-            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
-            f(item, aVar, i);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (tgb) invokeLLLL.objValue;
     }
 }

@@ -31,7 +31,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CollapsingTextHelper {
     public static final boolean DEBUG_DRAW = false;
     @NonNull

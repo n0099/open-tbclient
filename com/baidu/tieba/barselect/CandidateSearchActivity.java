@@ -27,15 +27,15 @@ import com.baidu.tbadk.data.CommitVoteResMsg;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
-import com.baidu.tieba.cc6;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.rb6;
+import com.baidu.tieba.dd6;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.od6;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.uq9;
-import com.baidu.tieba.za;
+import com.baidu.tieba.ws9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,14 +43,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CandidateSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
     public BdRecyclerView b;
     public CandidateSearchAdapter c;
-    public cc6 d;
+    public od6 d;
     public String e;
     public View f;
     public View g;
@@ -58,15 +58,15 @@ public class CandidateSearchActivity extends BaseActivity {
     public EditText i;
     public ImageView j;
     public TextView k;
-    public List<rb6> l;
+    public List<dd6> l;
     public View.OnClickListener m;
-    public za n;
+    public fb n;
     public TextView.OnEditorActionListener o;
     public HttpMessageListener p;
     public TextWatcher q;
     public Runnable r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,8 +106,8 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends za {
+    /* loaded from: classes4.dex */
+    public class b extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CandidateSearchActivity a;
@@ -134,30 +134,30 @@ public class CandidateSearchActivity extends BaseActivity {
             this.a = candidateSearchActivity;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
-            rb6 rb6Var = null;
+            dd6 dd6Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                rb6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                dd6Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                rb6Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                dd6Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() == 0 && rb6Var != null) {
+            if (responsedMessage.getError() == 0 && dd6Var != null) {
                 this.a.b.setVisibility(0);
                 this.a.f.setVisibility(8);
                 if (this.a.i.getText() != null) {
-                    rb6Var.j = this.a.i.getText().toString();
+                    dd6Var.j = this.a.i.getText().toString();
                 }
                 if (this.a.l == null) {
                     this.a.l = new ArrayList();
                 } else {
                     this.a.l.clear();
                 }
-                this.a.l.add(rb6Var);
+                this.a.l.add(dd6Var);
                 this.a.c.setData(this.a.l);
                 return;
             }
@@ -166,7 +166,7 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +199,7 @@ public class CandidateSearchActivity extends BaseActivity {
                     return false;
                 }
                 if (this.a.i.getText() != null && !TextUtils.isEmpty(this.a.i.getText().toString()) && !TextUtils.isEmpty(this.a.e)) {
-                    this.a.d.a(gg.e(this.a.i.getText().toString(), 0), gg.g(this.a.e, 0L));
+                    this.a.d.a(pg.e(this.a.i.getText().toString(), 0), pg.g(this.a.e, 0L));
                 }
                 return true;
             }
@@ -207,7 +207,7 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,37 +244,37 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             int error = httpResponsedMessage.getError();
             if (error == 0) {
-                ii.P(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
+                ri.P(TbadkCoreApplication.getInst(), R.string.bar_manager_vote_success);
                 if (this.a.l != null) {
-                    for (rb6 rb6Var : this.a.l) {
-                        rb6Var.k = true;
+                    for (dd6 dd6Var : this.a.l) {
+                        dd6Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                uq9.b(error, "", null);
+                ws9.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    uq9.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    ws9.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
-                ii.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
+                ri.Q(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
             } else {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
-                if (hi.isEmpty(httpResponsedMessage.getErrorString())) {
+                if (qi.isEmpty(httpResponsedMessage.getErrorString())) {
                     errorString = TbadkCoreApplication.getInst().getString(R.string.block_user_tip);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }
                 blockPopInfoData.block_info = errorString;
                 blockPopInfoData.ahead_info = TbadkCoreApplication.getInst().getString(R.string.block_user_feed);
-                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0a77);
+                blockPopInfoData.ok_info = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1);
                 blockPopInfoData.ahead_url = AntiHelper.a;
                 AntiHelper.s(this.a, blockPopInfoData);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +321,7 @@ public class CandidateSearchActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +353,7 @@ public class CandidateSearchActivity extends BaseActivity {
             }
             this.a.i.requestFocus();
             CandidateSearchActivity candidateSearchActivity = this.a;
-            ii.O(candidateSearchActivity, candidateSearchActivity.i);
+            ri.O(candidateSearchActivity, candidateSearchActivity.i);
         }
     }
 
@@ -398,16 +398,16 @@ public class CandidateSearchActivity extends BaseActivity {
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.showBottomLine();
-            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0187, (View.OnClickListener) null);
+            View addCustomView = this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d018e, (View.OnClickListener) null);
             this.g = addCustomView;
-            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f091fa3);
-            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090efb);
-            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090eeb);
+            this.h = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f092000);
+            this.i = (EditText) this.g.findViewById(R.id.obfuscated_res_0x7f090f2e);
+            ImageView imageView = (ImageView) this.g.findViewById(R.id.obfuscated_res_0x7f090f1e);
             this.j = imageView;
             imageView.setOnClickListener(this.m);
-            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090eea);
+            this.k = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f090f1d);
             K1(false);
-            this.k.setText(getString(R.string.obfuscated_res_0x7f0f038b));
+            this.k.setText(getString(R.string.obfuscated_res_0x7f0f03c3));
             this.k.setOnClickListener(this.m);
             this.i.setOnEditorActionListener(this.o);
             this.i.addTextChangedListener(this.q);
@@ -434,7 +434,7 @@ public class CandidateSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d002e);
+            setContentView(R.layout.obfuscated_res_0x7f0d002f);
             if (getIntent() != null) {
                 this.e = getIntent().getStringExtra("forum_id");
             }
@@ -442,14 +442,14 @@ public class CandidateSearchActivity extends BaseActivity {
             BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.recycler_view);
             this.b = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f092330);
+            this.f = findViewById(R.id.obfuscated_res_0x7f092394);
             CandidateSearchAdapter candidateSearchAdapter = new CandidateSearchAdapter();
             this.c = candidateSearchAdapter;
             this.b.setAdapter(candidateSearchAdapter);
             registerListener(this.n);
             registerListener(this.p);
-            this.d = new cc6(getPageContext());
-            jg.a().postDelayed(this.r, 100L);
+            this.d = new od6(getPageContext());
+            sg.a().postDelayed(this.r, 100L);
         }
     }
 
@@ -458,7 +458,7 @@ public class CandidateSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            jg.a().removeCallbacks(this.r);
+            sg.a().removeCallbacks(this.r);
         }
     }
 }

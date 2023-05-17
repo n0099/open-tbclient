@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface ls {
-    void a();
-
-    void b();
+    void a(String str, ks ksVar);
 }

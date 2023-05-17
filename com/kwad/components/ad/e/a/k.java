@@ -2,7 +2,7 @@ package com.kwad.components.ad.e.a;
 
 import android.widget.ProgressBar;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class k extends com.kwad.components.ad.e.kwai.a {
     public ProgressBar kk;
 
@@ -51,6 +51,6 @@ public final class k extends com.kwad.components.ad.e.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0913a6);
+        this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0913e1);
     }
 }

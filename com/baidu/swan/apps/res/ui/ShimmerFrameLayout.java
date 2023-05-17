@@ -17,8 +17,8 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
-import com.baidu.tieba.go1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.pp1;
+/* loaded from: classes4.dex */
 public class ShimmerFrameLayout extends FrameLayout {
     public static final PorterDuffXfermode r = new PorterDuffXfermode(PorterDuff.Mode.DST_IN);
     public Paint a;
@@ -39,7 +39,7 @@ public class ShimmerFrameLayout extends FrameLayout {
     public ValueAnimator p;
     public Bitmap q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum MaskAngle {
         CW_0,
         CW_90,
@@ -47,14 +47,14 @@ public class ShimmerFrameLayout extends FrameLayout {
         CW_270
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum MaskShape {
         LINEAR,
         RADIAL,
         WHITE_LINEAR
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public a() {
         }
@@ -69,7 +69,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public b() {
         }
@@ -85,7 +85,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class c {
         public static final /* synthetic */ int[] a;
         public static final /* synthetic */ int[] b;
@@ -126,7 +126,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d {
         public MaskAngle a;
         public float b;
@@ -177,7 +177,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e {
         public int a;
         public int b;
@@ -506,7 +506,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.b.setXfermode(r);
         t();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, go1.ShimmerFrameLayout, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp1.ShimmerFrameLayout, 0, 0);
             try {
                 if (obtainStyledAttributes.hasValue(1)) {
                     setAutoStart(obtainStyledAttributes.getBoolean(1, false));
@@ -542,8 +542,8 @@ public class ShimmerFrameLayout extends FrameLayout {
                         this.c.a = MaskAngle.CW_90;
                     }
                 }
-                if (obtainStyledAttributes.hasValue(13)) {
-                    if (obtainStyledAttributes.getInt(13, 0) != 1) {
+                if (obtainStyledAttributes.hasValue(14)) {
+                    if (obtainStyledAttributes.getInt(14, 0) != 1) {
                         this.c.i = MaskShape.LINEAR;
                     } else {
                         this.c.i = MaskShape.RADIAL;
@@ -567,8 +567,8 @@ public class ShimmerFrameLayout extends FrameLayout {
                 if (obtainStyledAttributes.hasValue(8)) {
                     this.c.h = obtainStyledAttributes.getFloat(8, 0.0f);
                 }
-                if (obtainStyledAttributes.hasValue(14)) {
-                    this.c.b = obtainStyledAttributes.getFloat(14, 0.0f);
+                if (obtainStyledAttributes.hasValue(15)) {
+                    this.c.b = obtainStyledAttributes.getFloat(15, 0.0f);
                 }
             } finally {
                 obtainStyledAttributes.recycle();
@@ -677,7 +677,7 @@ public class ShimmerFrameLayout extends FrameLayout {
                 sb.append(stackTraceElement.toString());
                 sb.append("\n");
             }
-            Log.d("ShimmerFrameLayout", sb.toString());
+            Log.d(com.baidu.searchbox.ui.ShimmerFrameLayout.TAG, sb.toString());
             return null;
         }
     }

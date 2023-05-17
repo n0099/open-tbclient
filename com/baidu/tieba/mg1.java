@@ -1,108 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class mg1 {
+/* loaded from: classes6.dex */
+public class mg1 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    public String d;
-    public JSONObject e;
 
-    public mg1(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg1() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new JSONObject();
-        this.a = str;
-        this.b = System.currentTimeMillis();
-        this.c = ah1.c();
     }
 
-    public mg1 a(String str, Object obj) {
-        InterceptResult invokeLL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-            try {
-                this.e.put(str, obj);
-            } catch (JSONException unused) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            ng1 ng1Var = (ng1) message.obj;
+            ImageView imageView = ng1Var.a;
+            if (((String) imageView.getTag()).equals(ng1Var.b)) {
+                imageView.setImageBitmap(ng1Var.c);
+            } else {
+                oh1.g("不是最新数据");
             }
-            return this;
         }
-        return (mg1) invokeLL.objValue;
-    }
-
-    public mg1 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.d = str;
-            return this;
-        }
-        return (mg1) invokeL.objValue;
-    }
-
-    public mg1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            this.e = jSONObject;
-            return this;
-        }
-        return (mg1) invokeL.objValue;
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                yg1.d("statistics action can not null");
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("a", this.a);
-                jSONObject.put("t", this.b);
-                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
-                if (this.e != null) {
-                    jSONObject.put("cn", this.e);
-                } else if (!TextUtils.isEmpty(this.d)) {
-                    try {
-                        jSONObject.put("cn", new JSONObject(this.d));
-                    } catch (JSONException unused) {
-                        jSONObject.put("cn", this.d);
-                    }
-                }
-            } catch (JSONException e) {
-                if (yg1.d) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

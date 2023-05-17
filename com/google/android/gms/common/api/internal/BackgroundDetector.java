@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.concurrent.GuardedBy;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BackgroundDetector implements Application.ActivityLifecycleCallbacks, ComponentCallbacks2 {
     public static final BackgroundDetector zza = new BackgroundDetector();
     public final AtomicBoolean zzb = new AtomicBoolean();
@@ -27,7 +27,7 @@ public final class BackgroundDetector implements Application.ActivityLifecycleCa
     public boolean zze = false;
 
     @KeepForSdk
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BackgroundStateChangeListener {
         @KeepForSdk
         void onBackgroundStateChanged(boolean z);

@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DtsReader implements ElementaryStreamReader {
     public static final int HEADER_SIZE = 15;
     public static final int STATE_FINDING_SYNC = 0;

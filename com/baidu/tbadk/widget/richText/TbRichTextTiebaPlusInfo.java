@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PluginUser;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbRichTextTiebaPlusInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         this.b = i;
     }
 
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -107,7 +107,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String W() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -116,7 +116,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public TiebaPlusInfo X() {
+    public TiebaPlusInfo W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -152,7 +152,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void Y(TiebaPlusInfo tiebaPlusInfo) {
+    public void X(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tiebaPlusInfo) == null) {
             this.a = tiebaPlusInfo;

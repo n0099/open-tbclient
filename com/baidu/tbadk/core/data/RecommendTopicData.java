@@ -6,11 +6,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bj6;
-import com.baidu.tieba.cj6;
+import com.baidu.tieba.nk6;
+import com.baidu.tieba.ok6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,14 +23,14 @@ import java.util.List;
 import org.json.JSONObject;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RecommendTopicData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public List<RecommendTopicListData> b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<RecommendTopicListData> CREATOR;
@@ -55,7 +54,7 @@ public class RecommendTopicData {
             return invokeV.intValue;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -129,18 +128,18 @@ public class RecommendTopicData {
             }
         }
 
-        public bj6 getConvertedCardData() {
+        public nk6 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                bj6 bj6Var = new bj6();
-                bj6Var.c = this.tag;
-                bj6Var.a = this.topicId;
-                bj6Var.b = this.topicName;
-                bj6Var.b(this.isVideoTopicInt);
-                return bj6Var;
+                nk6 nk6Var = new nk6();
+                nk6Var.c = this.tag;
+                nk6Var.a = this.topicId;
+                nk6Var.b = this.topicName;
+                nk6Var.b(this.isVideoTopicInt);
+                return nk6Var;
             }
-            return (bj6) invokeV.objValue;
+            return (nk6) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -245,7 +244,7 @@ public class RecommendTopicData {
                 return;
             }
             this.topicId = jSONObject.optLong("topic_id");
-            this.topicName = jSONObject.optString(IntentConfig.TOPIC_NAME);
+            this.topicName = jSONObject.optString("topic_name");
             this.type = jSONObject.optInt("type");
             this.discussNum = jSONObject.optLong("discuss_num");
             this.tag = jSONObject.optInt("tag");
@@ -319,13 +318,13 @@ public class RecommendTopicData {
         return (String) invokeV.objValue;
     }
 
-    public cj6 a() {
+    public ok6 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            cj6 cj6Var = new cj6();
-            cj6Var.c = b();
+            ok6 ok6Var = new ok6();
+            ok6Var.c = b();
             if (this.b != null) {
                 arrayList = new ArrayList();
                 for (RecommendTopicListData recommendTopicListData : this.b) {
@@ -336,10 +335,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            cj6Var.d = arrayList;
-            return cj6Var;
+            ok6Var.d = arrayList;
+            return ok6Var;
         }
-        return (cj6) invokeV.objValue;
+        return (ok6) invokeV.objValue;
     }
 
     public final boolean c(RecommendTopicListData recommendTopicListData) {

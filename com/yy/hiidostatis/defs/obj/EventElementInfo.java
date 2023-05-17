@@ -5,7 +5,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EventElementInfo extends ParamableElem implements Elem {
     public static final transient int CTYPE_CLICK_TIMES_REPORT = 1;
     public static final transient int CTYPE_CUSTOM_REPORT = 0;

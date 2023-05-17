@@ -5,7 +5,7 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.ss.android.downloadlib.addownload.j;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static String a() {
         return b(j.getContext());

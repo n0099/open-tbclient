@@ -1,209 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.du2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public class h14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface d {
-        void onFail(String str);
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        /* loaded from: classes4.dex */
-        public class a implements d {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.baidu.tieba.h14.d
-            public void onFail(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.a.a.onFail(str);
-                }
-            }
-
-            @Override // com.baidu.tieba.h14.d
-            public void onSuccess() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    this.a.a.onSuccess();
-                }
-            }
-        }
-
-        public c(d dVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770846, "Lcom/baidu/tieba/h14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.h14.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onFail(str);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770846, "Lcom/baidu/tieba/h14;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.h14.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                h14.b(new a(this));
-            }
-        }
+        a = qp1.a;
     }
 
-    /* loaded from: classes4.dex */
-    public static class a implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.h14.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onFail(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.h14.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.onSuccess();
-                l14.f();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements jo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.tieba.jo1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.a.onSuccess();
-                } else {
-                    this.a.onFail("login error");
-                }
-            }
-        }
-    }
-
-    public static void a(x73 x73Var, d dVar) {
+    public static void a(String str, String str2, String str3, String str4, f14 f14Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, x73Var, dVar) == null) {
-            if (x73Var.N().e(x73Var.w())) {
-                dVar.onSuccess();
-            } else {
-                x73Var.N().f(x73Var.w(), null, new b(dVar));
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, f14Var) == null) {
+            String l = g14.l(str2);
+            if (TextUtils.isEmpty(l)) {
+                return;
             }
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            g14 g14Var = new g14();
+            g14Var.m(f14Var);
+            g14Var.b = l;
+            g14Var.e = str3;
+            g14Var.v = str;
+            g14Var.l = an3.D();
+            if (g93.b0() != null) {
+                du2.a W = g93.b0().W();
+                g14Var.a = zf3.n(W.G());
+                g14Var.f = W.H();
+                g14Var.c = W.T();
+            }
+            g14Var.t = str4;
+            zf3.x("1245", g14Var);
         }
     }
 
-    public static void b(d dVar) {
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, dVar) == null) {
-            o44.a().b(new a(dVar));
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
         }
     }
 
-    public static void c(d dVar) {
+    public static void c(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, dVar) == null) {
-            x73 b0 = x73.b0();
-            if (b0 != null && b0.w() != null) {
-                a(b0, new c(dVar));
-            } else {
-                dVar.onFail("SwanApp is null or SwanActivity is null");
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = g14.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            g14 g14Var = new g14();
+            g14Var.b = l;
+            g14Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            g14Var.a("packageName", str3);
+            zf3.x("1245", g14Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = x54.b().d();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cuid", ns2.h0().i(ns2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", ns2.n().a());
+                jSONObject.put("version", an3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) kg4.h(ns2.c()).postRequest().cookieManager(ns2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
             }
         }
     }

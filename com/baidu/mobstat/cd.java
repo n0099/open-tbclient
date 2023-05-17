@@ -5,21 +5,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface cd extends IInterface {
     String a() throws RemoteException;
 
     boolean b() throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements cd {
 
         /* renamed from: com.baidu.mobstat.cd$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0115a implements cd {
+        /* loaded from: classes3.dex */
+        public static class C0119a implements cd {
             public IBinder a;
 
-            public C0115a(IBinder iBinder) {
+            public C0119a(IBinder iBinder) {
                 this.a = iBinder;
             }
 
@@ -71,7 +71,7 @@ public interface cd extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof cd)) {
                 return (cd) queryLocalInterface;
             }
-            return new C0115a(iBinder);
+            return new C0119a(iBinder);
         }
 
         @Override // android.os.Binder

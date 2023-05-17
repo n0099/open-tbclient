@@ -13,7 +13,7 @@ import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.bytedance.pangle.provider.ContentProviderManager;
 import com.bytedance.pangle.util.MethodUtils;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ZeusProviderTransform {
     public static Bundle call(Object obj, Uri uri, String str, String str2, Bundle bundle, String str3) {
         if (obj instanceof ContentResolver) {

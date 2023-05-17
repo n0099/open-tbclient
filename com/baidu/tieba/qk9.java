@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class qk9 extends EdgeFloat.a {
+/* loaded from: classes7.dex */
+public class qk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pk9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qk9(Activity activity) {
-        super(activity);
+    public static synchronized pk9 a() {
+        InterceptResult invokeV;
+        pk9 pk9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (qk9.class) {
+                if (a == null) {
+                    a = new pk9();
+                }
+                pk9Var = a;
             }
+            return pk9Var;
         }
-        int l = ii.l(activity);
-        int j = ii.j(activity);
-        int u = ii.u(activity);
-        C(j);
-        D(l);
-        G(u);
+        return (pk9) invokeV.objValue;
     }
 }

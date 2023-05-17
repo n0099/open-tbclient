@@ -16,11 +16,10 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.m06;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.y16;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,9 +37,9 @@ import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001JB'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00101\u001a\u0002022\u0006\u00103\u001a\u000204H\u0016J\u0018\u00105\u001a\u0002022\b\u00106\u001a\u0004\u0018\u0001072\u0006\u00108\u001a\u000209J\u0012\u0010:\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0002J\u0012\u0010;\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0002J\b\u0010<\u001a\u00020\u0001H\u0016J\b\u0010=\u001a\u00020\u0001H\u0016J\b\u0010>\u001a\u000202H\u0002J\u0010\u0010?\u001a\u0002022\u0006\u00108\u001a\u00020\bH\u0016J\u0012\u0010@\u001a\u00020A2\b\u0010B\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010C\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0014J\u0012\u0010D\u001a\u0002022\b\u0010E\u001a\u0004\u0018\u00010\rH\u0016J\u001a\u0010F\u001a\u0002022\b\u0010G\u001a\u0004\u0018\u00010\u000b2\u0006\u0010H\u001a\u00020IH\u0016R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001c\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0015\u001a\u0004\b\u001e\u0010\u001fR\u001b\u0010!\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010\u0015\u001a\u0004\b\"\u0010\u0013R\u0010\u0010$\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020'X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010*\u001a\u00020+8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u0015\u001a\u0004\b,\u0010-R\u0010\u0010/\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006K"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadLongProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "", "iconPaint", "Landroid/graphics/Paint;", "getIconPaint", "()Landroid/graphics/Paint;", "iconPaint$delegate", "Lkotlin/Lazy;", "iconShader", "Landroid/graphics/Shader;", "iconSize", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "bind", "", "p0", "Landroid/view/ViewGroup;", "drawIcon", "canvas", "Landroid/graphics/Canvas;", "type", "Lcom/baidu/tieba/recapp/widget/NadLongProgressButton$IconType;", "drawProgress", "drawText", "getActionBar", "getRealView", "initPaint", "onChangeSkinType", "onClickIntercept", "", NativeConstants.TYPE_VIEW, "onDraw", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "IconType", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
-public final class NadLongProgressButton extends View implements m06 {
+@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002:\u0001JB'\b\u0007\u0012\b\u0010\u0003\u001a\u0004\u0018\u00010\u0004\u0012\n\b\u0002\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\b\b\u0002\u0010\u0007\u001a\u00020\b¢\u0006\u0002\u0010\tJ\u0010\u00101\u001a\u0002022\u0006\u00103\u001a\u000204H\u0016J\u0018\u00105\u001a\u0002022\b\u00106\u001a\u0004\u0018\u0001072\u0006\u00108\u001a\u000209J\u0012\u0010:\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0002J\u0012\u0010;\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0002J\b\u0010<\u001a\u00020\u0001H\u0016J\b\u0010=\u001a\u00020\u0001H\u0016J\b\u0010>\u001a\u000202H\u0002J\u0010\u0010?\u001a\u0002022\u0006\u00108\u001a\u00020\bH\u0016J\u0012\u0010@\u001a\u00020A2\b\u0010B\u001a\u0004\u0018\u00010\u0001H\u0016J\u0012\u0010C\u001a\u0002022\b\u00106\u001a\u0004\u0018\u000107H\u0014J\u0012\u0010D\u001a\u0002022\b\u0010E\u001a\u0004\u0018\u00010\rH\u0016J\u001a\u0010F\u001a\u0002022\b\u0010G\u001a\u0004\u0018\u00010\u000b2\u0006\u0010H\u001a\u00020IH\u0016R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\f\u001a\u0004\u0018\u00010\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u0010\u0010\u0016\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010\u001c\u001a\u00020\u001d8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b \u0010\u0015\u001a\u0004\b\u001e\u0010\u001fR\u001b\u0010!\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b#\u0010\u0015\u001a\u0004\b\"\u0010\u0013R\u0010\u0010$\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020'X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010*\u001a\u00020+8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u0015\u001a\u0004\b,\u0010-R\u0010\u0010/\u001a\u0004\u0018\u00010\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u00100\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006K"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadLongProgressButton;", "Landroid/view/View;", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "buttonText", "", "clickInterceptListener", "Lcom/baidu/tieba/ad/download/mvp/IDownloadView$OnClickInterceptListener;", "horizontalDistance", "", "iconPaint", "Landroid/graphics/Paint;", "getIconPaint", "()Landroid/graphics/Paint;", "iconPaint$delegate", "Lkotlin/Lazy;", "iconShader", "Landroid/graphics/Shader;", "iconSize", "progress", "progressBgColor", "progressBgColorRes", "progressOval", "Landroid/graphics/RectF;", "getProgressOval", "()Landroid/graphics/RectF;", "progressOval$delegate", "progressPaint", "getProgressPaint", "progressPaint$delegate", "progressShader", "radius", "status", "Lcom/baidu/nadcore/download/consts/AdDownloadStatus;", "textColorInProgress", "textColorInProgressRes", "textPaint", "Landroid/text/TextPaint;", "getTextPaint", "()Landroid/text/TextPaint;", "textPaint$delegate", "textShader", "textSize", "bind", "", "p0", "Landroid/view/ViewGroup;", "drawIcon", "canvas", "Landroid/graphics/Canvas;", "type", "Lcom/baidu/tieba/recapp/widget/NadLongProgressButton$IconType;", "drawProgress", "drawText", "getActionBar", "getRealView", "initPaint", "onChangeSkinType", "onClickIntercept", "", "view", "onDraw", "setOnClickInterceptListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, StickerDataChangeType.UPDATE, "text", "adDownloadBean", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "IconType", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes7.dex */
+public final class NadLongProgressButton extends View implements y16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -53,7 +52,7 @@ public final class NadLongProgressButton extends View implements m06 {
     public float h;
     public float i;
     public float j;
-    public m06.a k;
+    public y16.a k;
     public int l;
     public final Lazy m;
     public final Lazy n;
@@ -63,7 +62,7 @@ public final class NadLongProgressButton extends View implements m06 {
     public Shader r;
     public Shader s;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public /* synthetic */ class a {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;
@@ -143,7 +142,7 @@ public final class NadLongProgressButton extends View implements m06 {
         }
     }
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     public void b(ViewGroup p0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
@@ -157,7 +156,7 @@ public final class NadLongProgressButton extends View implements m06 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tk0
+    @Override // com.baidu.tieba.jl0
     public View getRealView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -166,7 +165,7 @@ public final class NadLongProgressButton extends View implements m06 {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0005\b\u0086\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004j\u0002\b\u0005¨\u0006\u0006"}, d2 = {"Lcom/baidu/tieba/recapp/widget/NadLongProgressButton$IconType;", "", "(Ljava/lang/String;I)V", "LEFT", "RIGHT", "FINISH_DOWNLOAD", "recApp_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class IconType {
         public static final /* synthetic */ IconType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -317,12 +316,12 @@ public final class NadLongProgressButton extends View implements m06 {
         }
     }
 
-    @Override // com.baidu.tieba.m06
+    @Override // com.baidu.tieba.y16
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            m06.a aVar = this.k;
+            y16.a aVar = this.k;
             if (aVar != null) {
                 return aVar.a(view2);
             }
@@ -331,7 +330,7 @@ public final class NadLongProgressButton extends View implements m06 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m06
+    @Override // com.baidu.tieba.y16
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
@@ -341,8 +340,8 @@ public final class NadLongProgressButton extends View implements m06 {
         }
     }
 
-    @Override // com.baidu.tieba.m06
-    public void setOnClickInterceptListener(m06.a aVar) {
+    @Override // com.baidu.tieba.y16
+    public void setOnClickInterceptListener(y16.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
             this.k = aVar;
@@ -552,8 +551,8 @@ public final class NadLongProgressButton extends View implements m06 {
         }
     }
 
-    @Override // com.baidu.tieba.tk0
-    public void update(String str, ak0 adDownloadBean) {
+    @Override // com.baidu.tieba.jl0
+    public void update(String str, qk0 adDownloadBean) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, adDownloadBean) == null) {
             Intrinsics.checkNotNullParameter(adDownloadBean, "adDownloadBean");

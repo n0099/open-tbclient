@@ -42,7 +42,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class TypeAdapters {
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
     public static final TypeAdapterFactory ATOMIC_BOOLEAN_FACTORY;
@@ -98,7 +98,7 @@ public final class TypeAdapters {
     public static final TypeAdapterFactory UUID_FACTORY;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
 
@@ -148,7 +148,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public final Map<String, T> nameToConstant = new HashMap();
         public final Map<T, String> constantToName = new HashMap();

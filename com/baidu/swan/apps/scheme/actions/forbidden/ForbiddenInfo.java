@@ -2,9 +2,9 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tieba.qj3;
-import com.baidu.tieba.us2;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.du2;
+import com.baidu.tieba.zk3;
+/* loaded from: classes4.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new a();
     public static final int ENABLE_SLIDING_DEFAULT_FLAG = 0;
@@ -12,7 +12,7 @@ public class ForbiddenInfo implements Parcelable {
     public String appKey;
     public String appTitle;
     public int enableSlidingFlag;
-    public qj3 errCode;
+    public zk3 errCode;
     public String forbiddenDetail;
     public String forbiddenInformation;
     public String forbiddenReason;
@@ -35,7 +35,7 @@ public class ForbiddenInfo implements Parcelable {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<ForbiddenInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -80,22 +80,22 @@ public class ForbiddenInfo implements Parcelable {
         parcel.writeInt(this.enableSlidingFlag);
     }
 
-    public ForbiddenInfo(us2 us2Var, String str, String str2) {
+    public ForbiddenInfo(du2 du2Var, String str, String str2) {
         this.enableSlidingFlag = 0;
-        convertToForbiddenModel(us2Var);
+        convertToForbiddenModel(du2Var);
         this.forbiddenReason = str;
         this.forbiddenDetail = str2;
     }
 
-    private void convertToForbiddenModel(us2 us2Var) {
-        if (us2Var == null) {
+    private void convertToForbiddenModel(du2 du2Var) {
+        if (du2Var == null) {
             return;
         }
-        this.appId = us2Var.H();
-        this.appKey = us2Var.I();
-        this.appTitle = us2Var.K();
-        this.launchPath = us2Var.e0();
-        this.launchSource = us2Var.T();
+        this.appId = du2Var.H();
+        this.appKey = du2Var.I();
+        this.appTitle = du2Var.K();
+        this.launchPath = du2Var.e0();
+        this.launchSource = du2Var.T();
     }
 
     public String toString() {

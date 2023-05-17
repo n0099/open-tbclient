@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class CommonImageLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public static float[] h;
@@ -54,7 +54,7 @@ public class CommonImageLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class CommonImageLayout extends ViewGroup {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                pt4.s(this.b.g, this.a.getVideoUrl());
+                yu4.s(this.b.g, this.a.getVideoUrl());
             }
         }
     }
@@ -113,7 +113,7 @@ public class CommonImageLayout extends ViewGroup {
     public final void b() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && m < 0.0f) {
-            m = ii.l(this.g) / 320.0f;
+            m = ri.l(this.g) / 320.0f;
             int i2 = 0;
             while (true) {
                 float[] fArr = h;

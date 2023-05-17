@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.backUser;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.er4;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public er4 mData;
+    public ns4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -36,13 +36,13 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public er4 getData() {
+    public ns4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (er4) invokeV.objValue;
+        return (ns4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -59,9 +59,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
                     setErrorString(backUserResIdl.error.usermsg);
                 }
                 if (backUserResIdl.data != null) {
-                    er4 er4Var = new er4();
-                    this.mData = er4Var;
-                    er4Var.a(backUserResIdl.data);
+                    ns4 ns4Var = new ns4();
+                    this.mData = ns4Var;
+                    ns4Var.a(backUserResIdl.data);
                 }
             }
             return backUserResIdl;

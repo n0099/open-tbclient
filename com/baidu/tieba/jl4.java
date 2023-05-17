@@ -1,35 +1,80 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class jl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final Set<String> b;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void validateRequestPermissionsRequestCode(int i);
-    }
-
-    public static boolean a(Activity activity, String str) {
-        InterceptResult invokeLL;
+    public jl4(String str, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            return activity.shouldShowRequestPermissionRationale(str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (activity instanceof a) {
-                ((a) activity).validateRequestPermissionsRequestCode(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, set};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            activity.requestPermissions(strArr, i);
         }
+        this.a = str;
+        this.b = set;
+    }
+
+    public static jl4 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
+                return null;
+            }
+            String optString = jSONObject.optString("version");
+            HashSet hashSet = new HashSet();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                String optString2 = optJSONArray.optString(i);
+                if (!TextUtils.isEmpty(optString2)) {
+                    hashSet.add(optString2);
+                }
+            }
+            return new jl4(optString, hashSet);
+        }
+        return (jl4) invokeL.objValue;
+    }
+
+    public Set<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

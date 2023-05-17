@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddrViewPager extends ViewPager {
     public float mBeforeX;
     public int mRealPagerNum;

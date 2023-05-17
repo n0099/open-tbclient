@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ci {
     public static volatile ci a;
 
@@ -34,7 +34,7 @@ public class ci {
     /* renamed from: a  reason: collision with other field name */
     public final ArrayList<a> f167a = new ArrayList<>();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with other field name */
@@ -63,19 +63,19 @@ public class ci {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public Object mo252a() {
+        public Object mo271a() {
             return null;
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public String m253a() {
+        public String m272a() {
             return this.f172a;
         }
 
         public void a(Context context) {
             a aVar = this.f171a;
             if (aVar != null) {
-                aVar.a(context, mo252a());
+                aVar.a(context, mo271a());
             }
             b(context);
         }
@@ -97,7 +97,7 @@ public class ci {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m254a() {
+        public boolean m273a() {
             return this.f170a == null || TextUtils.isEmpty(this.b) || this.f173a == null;
         }
 
@@ -116,7 +116,7 @@ public class ci {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b<T> extends a {
         public int a;
 
@@ -181,7 +181,7 @@ public class ci {
         public abstract void a(Context context, List<T> list);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c extends a {
         public ArrayList<a> a;
 
@@ -216,7 +216,7 @@ public class ci {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d extends a {
         public String a;
 
@@ -235,7 +235,7 @@ public class ci {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class e extends a {
         public ContentValues a;
 
@@ -283,7 +283,7 @@ public class ci {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m251a(String str) {
+    public String m270a(String str) {
         return a(str).a();
     }
 
@@ -295,12 +295,12 @@ public class ci {
         if (this.f166a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m253a = aVar.m253a();
+        String m272a = aVar.m272a();
         synchronized (this.f168a) {
-            cgVar = this.f168a.get(m253a);
+            cgVar = this.f168a.get(m272a);
             if (cgVar == null) {
-                cgVar = this.f166a.a(this.f165a, m253a);
-                this.f168a.put(m253a, cgVar);
+                cgVar = this.f166a.a(this.f165a, m272a);
+                this.f168a.put(m272a, cgVar);
             }
         }
         if (this.f169a.isShutdown()) {
@@ -331,13 +331,13 @@ public class ci {
         Iterator<a> it = arrayList.iterator();
         while (it.hasNext()) {
             a next = it.next();
-            if (next.m254a()) {
-                next.a(a(next.m253a()), this.f165a);
+            if (next.m273a()) {
+                next.a(a(next.m272a()), this.f165a);
             }
-            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m253a());
+            ArrayList arrayList2 = (ArrayList) hashMap.get(next.m272a());
             if (arrayList2 == null) {
                 arrayList2 = new ArrayList();
-                hashMap.put(next.m253a(), arrayList2);
+                hashMap.put(next.m272a(), arrayList2);
             }
             arrayList2.add(next);
         }
@@ -359,12 +359,12 @@ public class ci {
         if (this.f166a == null) {
             throw new IllegalStateException("should exec init method first!");
         }
-        String m253a = aVar.m253a();
+        String m272a = aVar.m272a();
         synchronized (this.f168a) {
-            cgVar = this.f168a.get(m253a);
+            cgVar = this.f168a.get(m272a);
             if (cgVar == null) {
-                cgVar = this.f166a.a(this.f165a, m253a);
-                this.f168a.put(m253a, cgVar);
+                cgVar = this.f166a.a(this.f165a, m272a);
+                this.f168a.put(m272a, cgVar);
             }
         }
         if (this.f169a.isShutdown()) {

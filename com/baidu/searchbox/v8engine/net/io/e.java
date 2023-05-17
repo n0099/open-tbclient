@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.net.io;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e {
     public final byte[] a;
     public int b;

@@ -4,11 +4,11 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Process;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AbiUtil {
     public static Abi amH;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Abi {
         UNKNOWN,
         ARMEABI_V7A,

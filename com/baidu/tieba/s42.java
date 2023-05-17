@@ -1,93 +1,103 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.CRC32;
-/* loaded from: classes6.dex */
-public class s42 {
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class s42 extends u42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public final Map<String, String> d;
+    public String A;
+    public String B;
+    public String C;
+    public String t;
+    public int u;
+    public boolean v;
+    public double w;
+    public int x;
+    public int y;
+    public String z;
 
-    public s42(long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s42(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new HashMap();
-        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.c = Long.toHexString(a(this.a + "#" + this.b));
-        this.d.put("timestamp", Long.toString(this.a));
-        this.d.put("delta", Long.toString(this.b));
-        this.d.put("rasign", this.c);
+        this.t = "";
+        this.v = false;
+        this.z = "";
+        this.A = "";
+        this.B = "";
+        this.C = "";
     }
 
-    public static s42 b() {
-        InterceptResult invokeV;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new s42(0L);
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            try {
+                this.u = Color.parseColor(jSONObject.optString("color"));
+                this.v = true;
+            } catch (Exception unused) {
+                g62.o("Component-Model-TextView", "text color occurs exception");
+                this.v = false;
+            }
+            this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
+            this.x = xm3.g((float) this.j.optDouble("lineHeight", 0.0d));
+            this.y = xm3.g((float) this.j.optDouble("lineSpace", 0.0d));
+            this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+            this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+            this.B = this.j.optString("whiteSpace");
+            this.C = this.j.optString("lineBreak");
         }
-        return (s42) invokeV.objValue;
     }
 
-    public final long a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u42, com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            CRC32 crc32 = new CRC32();
-            crc32.reset();
-            crc32.update(str.getBytes());
-            return crc32.getValue();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeL.longValue;
+        super.a(jSONObject);
+        this.t = jSONObject.optString("text");
+        i();
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.u42, com.baidu.tieba.w42
+    public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return Long.toHexString(a(j + "#smartapp_formid"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.t = jSONObject.optString("text", this.t);
+            i();
         }
-        return (String) invokeJ.objValue;
     }
 
-    public String d(long j) {
-        InterceptResult invokeJ;
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            return Long.toHexString(a(j + "#payid"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.t = str;
         }
-        return (String) invokeJ.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
-        }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.live.asynctask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum BdAsyncTaskParallelType {
     SERIAL,
     TWO_PARALLEL,

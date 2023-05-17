@@ -1,42 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.ViewParent;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.funad.view.FunAdAgreeView;
+import com.baidu.tieba.pb.ejection.EjectionAnimationView;
+import com.baidu.tieba.view.WaterRippleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zn7 extends vm<xi6, CardViewHolder<th6>> implements qz5 {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class zn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public th6 c;
-    public String d;
-    public ji6 e;
+    public final Activity a;
+    public int b;
+    public FrameLayout c;
+    public WaterRippleView d;
+    public EjectionAnimationView e;
+    public PopupWindow f;
 
-    /* loaded from: classes7.dex */
-    public class a extends ji6<xi6> {
+    /* loaded from: classes8.dex */
+    public class a implements jy8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zn7 b;
+        public final /* synthetic */ zn7 a;
+
+        @Override // com.baidu.tieba.jy8
+        public /* synthetic */ void onStart() {
+            iy8.a(this);
+        }
 
         public a(zn7 zn7Var) {
             Interceptable interceptable = $ic;
@@ -53,167 +61,151 @@ public class zn7 extends vm<xi6, CardViewHolder<th6>> implements qz5 {
                     return;
                 }
             }
-            this.b = zn7Var;
+            this.a = zn7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ji6
-        /* renamed from: d */
-        public void a(View view2, xi6 xi6Var) {
-            boolean z;
+        @Override // com.baidu.tieba.jy8
+        public void onStop() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, xi6Var) == null) && view2 != null && this.b.c != null && this.b.c.h() != null && xi6Var != null && xi6Var.getThreadData() != null && !StringUtils.isNull(xi6Var.getThreadData().getTid())) {
-                int i = 1;
-                if (view2 == this.b.c.M()) {
-                    z = true;
-                } else {
-                    z = false;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.e.setVisibility(8);
+                if (this.a.f != null && this.a.f.isShowing()) {
+                    ug.d(this.a.f, this.a.a);
                 }
-                if (!z) {
-                    i = 2;
-                }
-                vn7.b(view2, xi6Var, i);
-                if (view2 != this.b.c.l.getCommentContainer() && view2 != this.b.c.m.getCommentContainer()) {
-                    if (this.b.c.M() != null && view2.getId() == this.b.c.M().getId() && xi6Var.getThreadData() != null && xi6Var.getThreadData().getThreadAlaInfo() != null && xi6Var.getThreadData().getThreadAlaInfo().isLegalYYLiveData()) {
-                        ThreadData threadData = xi6Var.getThreadData();
-                        AlaInfoData threadAlaInfo = threadData.getThreadAlaInfo();
-                        int calculateLiveType = YYLiveUtil.calculateLiveType(xi6Var.getThreadData().getThreadAlaInfo());
-                        String str = null;
-                        if (!StringUtils.isNull(xi6Var.getThreadData().getThreadAlaInfo().appId)) {
-                            str = xi6Var.getThreadData().getThreadAlaInfo().appId;
-                        }
-                        if (xi6Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                            str = TiebaStatic.YYValues.YY_LIVE;
-                        }
-                        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_CLICK);
-                        statisticItem.param("fid", threadData.getFid());
-                        statisticItem.param("fname", threadData.getForum_name());
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param("tid", threadData.getTid());
-                        statisticItem.param("obj_type", threadData.getYYStaticticType());
-                        statisticItem.param("obj_param1", calculateLiveType);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-                        TiebaStaticHelper.addYYParam(statisticItem, threadAlaInfo.mYyExtData);
-                        TiebaStatic.log(statisticItem);
-                        return;
-                    }
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c12942");
-                statisticItem2.param("obj_locate", 7);
-                statisticItem2.param("obj_type", 5);
-                statisticItem2.param("tid", xi6Var.getThreadData().getTid());
-                statisticItem2.param("nid", xi6Var.getThreadData().getNid());
-                zl5 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
-                if (findPageExtraByView != null) {
-                    statisticItem2.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
-                }
-                if (TbPageExtraHelper.getPrePageKey() != null) {
-                    statisticItem2.param(TiebaStatic.Params.OBJ_PRE_PAGE, TbPageExtraHelper.getPrePageKey());
-                }
-                TiebaStatic.log(statisticItem2);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zn7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public zn7(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.b = tbPageContext;
+        this.b = 0;
+        this.a = activity;
+        e();
+        f();
     }
 
-    @Override // com.baidu.tieba.qz5
-    public void g(String str) {
+    public void h(FunAdAgreeView funAdAgreeView) {
+        WaterRippleView waterRippleView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, funAdAgreeView) != null) || funAdAgreeView == null || (waterRippleView = this.d) == null) {
+            return;
+        }
+        ViewParent parent = waterRippleView.getParent();
+        if (parent instanceof ViewGroup) {
+            ((ViewGroup) parent).removeView(this.d);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public CardViewHolder<th6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void i(boolean z) {
+        PopupWindow popupWindow;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            th6 th6Var = new th6(this.b, this.a);
-            this.c = th6Var;
-            th6Var.a0(true);
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                this.c.Z(bdUniqueId);
-            }
-            return new CardViewHolder<>(this.c);
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (popupWindow = this.f) != null) {
+            popupWindow.setClippingEnabled(z);
         }
-        return (CardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xi6 xi6Var, CardViewHolder<th6> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xi6Var, cardViewHolder})) == null) {
-            String str = null;
-            if (xi6Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
-                return null;
-            }
-            xi6Var.B(i + 1);
-            int i2 = 0;
-            StatisticItem Z = xi6Var.Z("c12351");
-            if (xi6Var.getThreadData() != null && xi6Var.getThreadData().getThreadAlaInfo() != null) {
-                i2 = YYLiveUtil.calculateLiveType(xi6Var.getThreadData().getThreadAlaInfo());
-                if (xi6Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(Z, xi6Var.getThreadData().getThreadAlaInfo().mYyExtData);
-                }
-                Z.param(TiebaStatic.Params.OBJ_PARAM3, i2);
-            }
-            ci6.b().a(Z);
-            if (cardViewHolder.a() instanceof pz5) {
-                cardViewHolder.a().b(this.d);
-            }
-            cardViewHolder.a().i(xi6Var);
-            cardViewHolder.a().k(this.e);
-            if (xi6Var.getThreadData() != null) {
-                StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_SHOW);
-                statisticItem.param("fid", xi6Var.getThreadData().getFid());
-                statisticItem.param("fname", xi6Var.getThreadData().getForum_name());
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("tid", xi6Var.getThreadData().getTid());
-                if (xi6Var.getThreadData().getThreadAlaInfo() != null) {
-                    if (!StringUtils.isNull(xi6Var.getThreadData().getThreadAlaInfo().appId)) {
-                        str = xi6Var.getThreadData().getThreadAlaInfo().appId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return UtilHelper.getImmersiveStickyBarHeight() + UtilHelper.getScreenHeight(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.l();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new FrameLayout(this.a);
+            this.e = new EjectionAnimationView(this.a);
+            this.c.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            this.e.setEjectionAnimationViewCallback(new a(this));
+            this.c.addView(this.e);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            PopupWindow popupWindow = new PopupWindow();
+            this.f = popupWindow;
+            popupWindow.setContentView(this.c);
+            this.f.setHeight(d());
+            this.f.setWidth(-1);
+            this.f.setOutsideTouchable(false);
+            this.f.setFocusable(false);
+            this.f.setTouchable(false);
+            GreyUtil.grey(this.f);
+        }
+    }
+
+    public final void g(View view2, Rect rect) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, view2, rect) == null) && ug.m(this.f, view2, this.b, 0, 0)) {
+            this.e.setAnchorPosition((rect.right + rect.left) / 2, (rect.bottom + rect.top) / 2);
+            this.e.k();
+        }
+    }
+
+    public void j(View view2, List<Bitmap> list, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, view2, list, rect) == null) {
+            this.e.setVisibility(0);
+            this.e.setBitmaps(list);
+            g(view2, rect);
+        }
+    }
+
+    public void k(LinearLayout linearLayout, FunAdAgreeView funAdAgreeView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, linearLayout, funAdAgreeView) == null) && linearLayout != null && funAdAgreeView != null) {
+            if (funAdAgreeView.getWidth() != 0 && funAdAgreeView.getHeight() != 0) {
+                WaterRippleView waterRippleView = this.d;
+                if (waterRippleView == null) {
+                    this.d = new WaterRippleView(this.a);
+                } else {
+                    ViewParent parent = waterRippleView.getParent();
+                    if (parent instanceof ViewGroup) {
+                        ((ViewGroup) parent).removeView(this.d);
                     }
-                    if (xi6Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                        str = TiebaStatic.YYValues.YY_LIVE;
-                    }
-                    statisticItem.param("obj_param1", i2);
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-                    TiebaStaticHelper.addYYParam(statisticItem, xi6Var.getThreadData().getThreadAlaInfo().mYyExtData);
                 }
-                TiebaStatic.log(statisticItem);
+                linearLayout.getGlobalVisibleRect(new Rect());
+                Rect rect = new Rect();
+                funAdAgreeView.getImgAgree().getGlobalVisibleRect(rect);
+                int centerX = rect.centerX();
+                int centerY = rect.centerY();
+                int g = ri.g(this.a, R.dimen.tbds166);
+                int i = centerX - g;
+                int i2 = centerY - g;
+                int i3 = g * 2;
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i3, i3);
+                layoutParams.addRule(13, -1);
+                layoutParams.setMargins(i, i2, 0, 0);
+                this.c.addView(this.d, layoutParams);
+                return;
             }
-            return cardViewHolder.getView();
+            BdLog.e("FunAdAgreeView not measured");
         }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -5,10 +5,10 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface SupertypeLoopChecker {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class EMPTY implements SupertypeLoopChecker {
         public static final EMPTY INSTANCE = new EMPTY();
 

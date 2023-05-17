@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.model.msg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.jt8;
+import com.baidu.tieba.ev8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jt8> interestSelectionInfoList;
+    public List<ev8> interestSelectionInfoList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetInterestClassListResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class GetInterestClassListResponseMessage extends JsonHttpResponsedMessag
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (jSONArray = jSONObject.getJSONArray("class_list")) != null && jSONArray.length() > 0) {
                 for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    jt8 jt8Var = new jt8();
-                    jt8Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
-                    jt8Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                    jt8Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
-                    jt8Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
-                    jt8Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
-                    this.interestSelectionInfoList.add(jt8Var);
+                    ev8 ev8Var = new ev8();
+                    ev8Var.i(jSONArray.getJSONObject(i2).optInt("class_id"));
+                    ev8Var.g(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    ev8Var.k(jSONArray.getJSONObject(i2).optString(ForumSquareActivityConfig.FORUM_CLASS_NAME));
+                    ev8Var.f(jSONArray.getJSONObject(i2).optString("class_icon"));
+                    ev8Var.h(jSONArray.getJSONObject(i2).optString("class_pic"));
+                    this.interestSelectionInfoList.add(ev8Var);
                 }
             }
         }
     }
 
-    public List<jt8> getInterestSelectionInfoList() {
+    public List<ev8> getInterestSelectionInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

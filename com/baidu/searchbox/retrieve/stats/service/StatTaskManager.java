@@ -8,7 +8,7 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StatTaskManager {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchStatManager";

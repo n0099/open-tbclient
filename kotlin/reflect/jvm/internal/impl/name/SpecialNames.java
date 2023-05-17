@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SpecialNames {
     public static final Name NO_NAME_PROVIDED = Name.special("<no name provided>");
     public static final Name ROOT_PACKAGE = Name.special("<root package>");

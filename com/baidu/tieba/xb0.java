@@ -1,37 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public abstract class xb0 {
+/* loaded from: classes8.dex */
+public class xb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static INetWork a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    public abstract int a(Context context, String str, String str2);
-
-    public xb0() {
+    public static INetWork a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
+        return (INetWork) invokeV.objValue;
     }
 
-    public void b(String str) {
+    public static void b(INetWork iNetWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
+            a = iNetWork;
         }
     }
 }

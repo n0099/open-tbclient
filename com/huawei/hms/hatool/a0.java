@@ -2,8 +2,8 @@ package com.huawei.hms.hatool;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.d1b;
-import com.baidu.tieba.h1b;
+import com.baidu.tieba.b3b;
+import com.baidu.tieba.f3b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,12 +25,12 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,40 +347,40 @@ public abstract class a0 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, httpURLConnection) == null) && (httpURLConnection instanceof HttpsURLConnection)) {
             HttpsURLConnection httpsURLConnection = (HttpsURLConnection) httpURLConnection;
-            d1b d1bVar = null;
+            b3b b3bVar = null;
             try {
-                d1bVar = d1b.b(b.i());
+                b3bVar = b3b.b(b.i());
             } catch (IOException unused) {
                 str = "getSocketFactory(): IO Exception!";
                 y.f("hmsSdk", str);
-                if (d1bVar != null) {
+                if (b3bVar != null) {
                 }
             } catch (IllegalAccessException unused2) {
                 str = "getSocketFactory(): Illegal Access Exception ";
                 y.f("hmsSdk", str);
-                if (d1bVar != null) {
+                if (b3bVar != null) {
                 }
             } catch (KeyStoreException unused3) {
                 str = "getSocketFactory(): Key Store exception";
                 y.f("hmsSdk", str);
-                if (d1bVar != null) {
+                if (b3bVar != null) {
                 }
             } catch (NoSuchAlgorithmException unused4) {
                 str = "getSocketFactory(): Algorithm Exception!";
                 y.f("hmsSdk", str);
-                if (d1bVar != null) {
+                if (b3bVar != null) {
                 }
             } catch (GeneralSecurityException unused5) {
                 str = "getSocketFactory(): General Security Exception";
                 y.f("hmsSdk", str);
-                if (d1bVar != null) {
+                if (b3bVar != null) {
                 }
             }
-            if (d1bVar != null) {
+            if (b3bVar != null) {
                 throw new a("No ssl socket factory set");
             }
-            httpsURLConnection.setSSLSocketFactory(d1bVar);
-            httpsURLConnection.setHostnameVerifier(new h1b());
+            httpsURLConnection.setSSLSocketFactory(b3bVar);
+            httpsURLConnection.setHostnameVerifier(new f3b());
         }
     }
 

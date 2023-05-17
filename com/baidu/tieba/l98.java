@@ -1,213 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.orderlist.OrderLinkList;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class l98 implements n98 {
+/* loaded from: classes6.dex */
+public class l98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ChatRoomDetail a;
-    @NonNull
-    public final OrderLinkList<z88> b;
-    @NonNull
-    public final GroupInputViewController c;
 
-    public l98(@NonNull GroupInputViewController groupInputViewController) {
+    public static void a(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {groupInputViewController};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = groupInputViewController;
-        this.b = new OrderLinkList<>();
-    }
-
-    @Override // com.baidu.tieba.n98
-    public void d(@NonNull List<z88> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list.size() > 0) {
-            for (z88 z88Var : list) {
-                z88Var.b(i(z88Var.d()));
-                z88Var.h(false);
-                this.b.insert(z88Var);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_CLICK);
+            statisticItem.param("uid", j);
+            statisticItem.param("obj_locate", j2);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.baidu.tieba.n98
-    public void a(int i) {
+    public static void b(long j, long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.c(i(i));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_EXPLORE);
+            statisticItem.param("uid", j);
+            statisticItem.param("obj_locate", j2);
+            statisticItem.param("obj_type", str);
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    @Override // com.baidu.tieba.n98
-    public void b(@NonNull z88 z88Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z88Var) == null) {
-            z88Var.b(i(z88Var.d()));
-            z88Var.h(false);
-            this.b.insert(z88Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.n98
-    public void g(@NonNull ChatRoomDetail chatRoomDetail) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, chatRoomDetail) == null) {
-            this.a = chatRoomDetail;
-        }
-    }
-
-    @Override // com.baidu.tieba.n98
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            z88 f = f();
-            if (f == null) {
-                return false;
-            }
-            this.c.q1(f.c());
-            this.c.F1(false);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.n98
-    @Nullable
-    public z88 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.b();
-        }
-        return (z88) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.n98
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            int i2 = i(i);
-            z88 a = this.b.a(i2);
-            if (i == 7011 && a != null && a.e()) {
-                a.f(h(i));
-            }
-            if (a == null) {
-                z88 z88Var = new z88();
-                z88Var.g(i);
-                z88Var.b(i2);
-                z88Var.f(h(i));
-                z88Var.h(true);
-                this.b.insert(z88Var);
-            }
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @SuppressLint({"StringFormatMatches"})
-    public final String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i != 102) {
-                if (i != 7003) {
-                    if (i != 7005) {
-                        if (i != 7007) {
-                            switch (i) {
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                    ChatRoomDetail chatRoomDetail = this.a;
-                                    if (chatRoomDetail != null) {
-                                        return String.format(m98.g, Integer.valueOf(chatRoomDetail.getExtraInfo().getTalkThresholdLevel()));
-                                    }
-                                    break;
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                    return m98.b;
-                                case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                    return m98.e;
-                            }
-                            return "";
-                        }
-                        return m98.c;
-                    }
-                    return m98.d;
-                }
-                return m98.f;
-            }
-            return m98.a;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public final int i(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (i != 102) {
-                switch (i) {
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE /* 7003 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE /* 7004 */:
-                        i2 = 5;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_MUZZLE_ALL /* 7005 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL /* 7006 */:
-                        i2 = 7;
-                        break;
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_FROZEN /* 7007 */:
-                    case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN /* 7008 */:
-                        i2 = 8;
-                        break;
-                    default:
-                        switch (i) {
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST /* 7011 */:
-                                i2 = 4;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW /* 7012 */:
-                                i2 = 9;
-                                break;
-                            case TbEnum.MsgContentType.MSG_CONTENT_TYPE_SYSTEM_ONLY_MANAGER_CAN_TALK /* 7013 */:
-                                i2 = 6;
-                                break;
-                            default:
-                                i2 = 0;
-                                break;
-                        }
-                }
-            } else {
-                i2 = 10;
-            }
-            if (i2 != 0) {
-                return i2;
-            }
-            throw new IllegalArgumentException("The type of the banned msg is unknown!");
-        }
-        return invokeI.intValue;
     }
 }

@@ -8,7 +8,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static String b = "ResponseHandler";
     public long A;

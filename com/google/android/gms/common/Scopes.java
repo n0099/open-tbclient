@@ -2,7 +2,7 @@ package com.google.android.gms.common;
 
 import androidx.annotation.NonNull;
 import com.google.android.gms.common.annotation.KeepForSdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Scopes {
     @NonNull
     public static final String APP_STATE = "https://www.googleapis.com/auth/appstate";

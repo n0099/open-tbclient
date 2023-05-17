@@ -2,7 +2,7 @@ package com.baidu.pass.main.facesdk.utils;
 
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class IOUtil {
     public static void close(Closeable... closeableArr) {
         if (closeableArr != null) {

@@ -1,129 +1,84 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.nadcore.net.util.NetUtil;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class pk0 extends Handler {
+/* loaded from: classes7.dex */
+public class pk0 {
     public static /* synthetic */ Interceptable $ic;
+    public static nk0 a;
+    public static ol0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ak0 a;
-    public float b;
-    public final float c;
-    public final float d;
-    public final float e;
-    public boolean f;
 
-    public pk0(@NonNull ak0 ak0Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948064788, "Lcom/baidu/tieba/pk0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948064788, "Lcom/baidu/tieba/pk0;");
+        }
+    }
+
+    public pk0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ak0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = -1.0f;
-        this.f = false;
-        this.c = (float) fm0.b().a().b("nad_fake_progress", 0.5950000286102295d);
-        this.b = (float) fm0.b().a().b("nad_fake_max_progress_time", 0.0d);
-        this.d = (float) fm0.b().a().b("nad_fake_speed", 768000.0d);
-        this.e = (float) fm0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
-        this.a = ak0Var;
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
-            super.handleMessage(message);
-            if (message.what != 1) {
-                d();
-            } else if (this.a.q.g == 1) {
-                this.f = false;
-            } else if (!NetUtil.a(li0.b())) {
-                d();
-            } else {
-                ak0 ak0Var = this.a;
-                if (ak0Var.c != AdDownloadStatus.DOWNLOADING) {
-                    d();
-                    return;
-                }
-                float f = ak0Var.j;
-                if (f >= this.c) {
-                    d();
-                    return;
-                }
-                this.f = true;
-                ak0Var.j = Math.max(ak0Var.i, f) + this.e;
-                nj0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
-                c();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void a() {
+    public static ol0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b(false);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            removeMessages(1);
-            this.f = false;
-        }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.f && !z) {
-                return;
-            }
-            d();
-            long j = this.a.q.e;
-            if (j > 0) {
-                float f = this.d;
-                if (f > 0.0f) {
-                    this.b = (((float) j) * this.c) / f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (pk0.class) {
+                    if (b == null) {
+                        b = (ol0) ServiceManager.getService(ol0.a);
+                    }
+                    if (b == null) {
+                        b = ol0.b;
+                    }
                 }
             }
-            if (this.b <= 0.0f) {
-                this.f = false;
-            } else if (this.e <= 0.0f) {
-                this.f = false;
-            } else {
-                this.f = true;
-                Message obtain = Message.obtain();
-                obtain.what = 1;
-                sendMessage(obtain);
-            }
+            return b;
         }
+        return (ol0) invokeV.objValue;
+    }
+
+    public static nk0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (pk0.class) {
+                    if (a == null) {
+                        a = (nk0) ServiceManager.getService(nk0.a);
+                    }
+                    if (a == null) {
+                        a = nk0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (nk0) invokeV.objValue;
     }
 }

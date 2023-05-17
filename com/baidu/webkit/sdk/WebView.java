@@ -44,6 +44,7 @@ import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.spswitch.emotion.Emoticons;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.webkit.internal.Statistics;
@@ -65,7 +66,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WebView extends AbsoluteLayout implements View.OnLongClickListener, ViewGroup.OnHierarchyChangeListener, ViewTreeObserver.OnGlobalFocusChangeListener {
     public static final String DATA_REDUCTION_PROXY_SETTING_CHANGED = "com.baidu.webkit.sdk.DATA_REDUCTION_PROXY_SETTING_CHANGED";
     public static final String JAVASCTIPT_URL = "javascript:";
@@ -97,7 +98,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     public WebViewDelegate mViewDelegate;
     public final Looper mWebViewThread;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class DelegateAdapter implements WebViewProvider.ScrollDelegate, WebViewProvider.ViewDelegate {
         public final WebViewImpl mChildView;
 
@@ -383,12 +384,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface FindListener {
         void onFindResultReceived(int i, int i2, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FindListenerDistributor implements FindListener {
         public FindListener mFindDialogFindListener;
         public FindListener mUserFindListener;
@@ -409,7 +410,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HitTestResult {
         @Deprecated
         public static final int ANCHOR_TYPE = 1;
@@ -563,12 +564,12 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface IVirtualMemoryListener {
         void onVirtualMemoryPressure(int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class JSInterfaceStatistics implements Statistics.Record {
         public HashMap<String, String> mJSInfo;
 
@@ -609,32 +610,32 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface MainResourcePrefetchListener {
         void onPrefetchFinished(String str, long j, boolean z, String str2, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnDragListener {
         boolean onDrag(View view2, DragEvent dragEvent);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnGenericMotionListener {
         boolean onGenericMotion(View view2, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnHoverListener {
         boolean onHover(View view2, MotionEvent motionEvent);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnSystemUiVisibilityChangeListener {
         void onSystemUiVisibilityChange(int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PageInfo {
         public PageInfo() {
         }
@@ -661,13 +662,13 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface PictureListener {
         @Deprecated
         void onNewPicture(WebView webView, Picture picture);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum PrerenderStatus {
         STARTED,
         FAILED,
@@ -675,7 +676,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         FINISHED
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class PrivateAccess {
         public PrivateAccess() {
         }
@@ -789,23 +790,23 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface RendererPriority {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum SaveAsType {
         SAVE_AS_WEB_ARCHIVE,
         SAVE_AS_HTML_FOLDER,
         SAVE_AS_HTML_ONLY
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class VisualStateCallback {
         public abstract void onComplete(long j);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class WebPageInfoList {
         public WebPageInfoList() {
         }
@@ -815,14 +816,14 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum WebViewState {
         NORMAL_WEBVIEW_STATE,
         SINGLE_WEBVIEW_STATE,
         MULTIPLE_WEBVIEW_STATE
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class WebViewTransport {
         public final Object lockObject = new Object();
         public WebView mWebview;
@@ -845,7 +846,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum WebViewType {
         NORMAL,
         BIGPLUGIN
@@ -856,7 +857,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public WebView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
+        this(context, attributeSet, Resources.getSystem().getIdentifier("webViewStyle", Emoticons.KEY_ATTR, "android"));
     }
 
     public WebView(Context context, AttributeSet attributeSet, int i) {
@@ -884,7 +885,7 @@ public class WebView extends AbsoluteLayout implements View.OnLongClickListener,
     }
 
     public WebView(Context context, boolean z) {
-        super(context, null, Resources.getSystem().getIdentifier("webViewStyle", "attr", "android"));
+        super(context, null, Resources.getSystem().getIdentifier("webViewStyle", Emoticons.KEY_ATTR, "android"));
         this.mSetOverScrollModeBeforeProviderReady = -1;
         this.mOnViewHierarchy = true;
         this.mSoftInputMode = 0;

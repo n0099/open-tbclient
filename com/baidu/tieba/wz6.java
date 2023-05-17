@@ -1,144 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.frame.PageInfo;
-import com.baidu.tieba.z07;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedItem;
-import tbclient.FeedKV;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class wz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final xz6 a;
+    public final List<d07> b;
+    public final List<d07> c;
+    public final y07 d;
+    public final y07 e;
 
-    public static final mx6 a(FeedItem item, String apkDetailStr, long j, String tid, String forumName, String pageFrom) {
-        InterceptResult invokeCommon;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{item, apkDetailStr, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(apkDetailStr, "apkDetailStr");
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(forumName, "forumName");
-            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
-            JSONObject jSONObject = new JSONObject(apkDetailStr);
-            gy6 gy6Var = new gy6();
-            gy6Var.l = jSONObject.optString("appid");
-            gy6Var.m = item.name;
-            gy6Var.b = item.icon_url;
-            Double d = item.icon_ratio;
-            if (d != null) {
-                d.doubleValue();
-                gy6Var.c = (float) item.icon_ratio.doubleValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            gy6Var.n = jSONObject.optString("apk_name");
-            gy6Var.o = jSONObject.optString("version");
-            gy6Var.p = jSONObject.optInt("version_code");
-            gy6Var.q = jSONObject.optLong("size");
-            gy6Var.r = item.button_link;
-            gy6Var.e = 1;
-            Double d2 = item.score;
-            if (d2 != null) {
-                d2.doubleValue();
-                gy6Var.f = (float) item.score.doubleValue();
+            if (obj instanceof wz6) {
+                wz6 wz6Var = (wz6) obj;
+                return Intrinsics.areEqual(this.a, wz6Var.a) && Intrinsics.areEqual(this.b, wz6Var.b) && Intrinsics.areEqual(this.c, wz6Var.c) && Intrinsics.areEqual(this.d, wz6Var.d) && Intrinsics.areEqual(this.e, wz6Var.e);
             }
-            gy6Var.g = item.tags;
-            gy6Var.s = jSONObject.optString("developer");
-            gy6Var.t = jSONObject.optString("publisher");
-            gy6Var.u = jSONObject.optString("authority_url");
-            gy6Var.v = jSONObject.optString("privacy_url");
-            gy6Var.w = jSONObject.optInt("pkg_source");
-            gy6Var.h = item.button_name;
-            gy6Var.a = j;
-            gy6Var.k = forumName;
-            t07 t07Var = new t07();
-            t07Var.a = tid;
-            t07Var.b = pageFrom;
-            return new mx6(gy6Var, t07Var, false, 4, null);
+            return false;
         }
-        return (mx6) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static final qx6 b(FeedItem item, long j, String tid, String forumName, String pageFrom) {
-        InterceptResult invokeCommon;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{item, Long.valueOf(j), tid, forumName, pageFrom})) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(tid, "tid");
-            Intrinsics.checkNotNullParameter(forumName, "forumName");
-            Intrinsics.checkNotNullParameter(pageFrom, "pageFrom");
-            ez6 ez6Var = new ez6();
-            ez6Var.a = j;
-            ez6Var.b = item.icon_url;
-            Double d = item.icon_ratio;
-            if (d != null) {
-                d.doubleValue();
-                ez6Var.c = (float) item.icon_ratio.doubleValue();
-            }
-            ez6Var.d = item.name;
-            ez6Var.e = 1;
-            Double d2 = item.score;
-            if (d2 != null) {
-                d2.doubleValue();
-                ez6Var.f = (float) item.score.doubleValue();
-            }
-            ez6Var.g = item.tags;
-            ez6Var.h = item.button_name;
-            ez6Var.i = item.button_link;
-            ez6Var.k = forumName;
-            u07 u07Var = new u07();
-            u07Var.a = tid;
-            u07Var.b = pageFrom;
-            return new qx6(ez6Var, u07Var, false, 4, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            y07 y07Var = this.d;
+            int hashCode2 = (hashCode + (y07Var == null ? 0 : y07Var.hashCode())) * 31;
+            y07 y07Var2 = this.e;
+            return hashCode2 + (y07Var2 != null ? y07Var2.hashCode() : 0);
         }
-        return (qx6) invokeCommon.objValue;
+        return invokeV.intValue;
     }
 
-    public static final void c(FeedItem feedItem, List<s17<?>> dataList, uy6 feedExtraData) {
-        String str;
-        String str2;
-        String str3;
-        Map<String, String> a;
-        String str4;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, feedItem, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedItem, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            z07.a aVar = z07.a;
-            List<FeedKV> business_info = feedItem.business_info;
-            Intrinsics.checkNotNullExpressionValue(business_info, "business_info");
-            HashMap<String, String> a2 = aVar.a(business_info);
-            String str5 = a2.get("apk_detail");
-            String str6 = feedExtraData.a().a().get("thread_id");
-            if (str6 == null) {
-                str = "";
-            } else {
-                str = str6;
-            }
-            long g = gg.g(a2.get("item_id"), 0L);
-            String str7 = a2.get("forum_name");
-            if (str7 == null) {
-                str2 = "";
-            } else {
-                str2 = str7;
-            }
-            v17 v17Var = feedExtraData.d().get(PageInfo.KEY);
-            if (v17Var == null || (a = v17Var.a(new hy6())) == null || (str4 = a.get("page_from")) == null) {
-                str3 = "";
-            } else {
-                str3 = str4;
-            }
-            if (str5 == null) {
-                dataList.add(new t17(b(feedItem, g, str, str2, str3), "mount"));
-            } else {
-                dataList.add(new t17(a(feedItem, str5, g, str, str2, str3), "mount_app"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "CardHeadData(imageData=" + this.a + ", mainData=" + this.b + ", extraData=" + this.c + ", statData=" + this.d + ", statData2=" + this.e + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public wz6(xz6 imageData, List<? extends d07> mainData, List<? extends d07> extraData, y07 y07Var, y07 y07Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageData, mainData, extraData, y07Var, y07Var2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(imageData, "imageData");
+        Intrinsics.checkNotNullParameter(mainData, "mainData");
+        Intrinsics.checkNotNullParameter(extraData, "extraData");
+        this.a = imageData;
+        this.b = mainData;
+        this.c = extraData;
+        this.d = y07Var;
+        this.e = y07Var2;
+    }
+
+    public final List<d07> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final xz6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (xz6) invokeV.objValue;
+    }
+
+    public final List<d07> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final y07 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (y07) invokeV.objValue;
+    }
+
+    public final y07 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (y07) invokeV.objValue;
     }
 }

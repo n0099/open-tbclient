@@ -1,17 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
-/* loaded from: classes4.dex */
-public interface ev2 {
-    void onGetCurrentSong(String str);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+/* loaded from: classes5.dex */
+public final class ev2 implements dv2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final ev2 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ dv2 a;
 
-    void onGetDownloadProgress(int i);
+    @Override // com.baidu.tieba.dv2
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
+    }
 
-    void onGetDuration(int i);
+    @Override // com.baidu.tieba.dv2
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
+    }
 
-    void onGetPosition(int i, int i2);
+    @Override // com.baidu.tieba.dv2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
+    }
 
-    void onInvokeFailed();
+    @Override // com.baidu.tieba.dv2
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
+    }
 
-    void onStateChanged(BgMusicPlayState bgMusicPlayState);
+    @Override // com.baidu.tieba.dv2
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747720, "Lcom/baidu/tieba/ev2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947747720, "Lcom/baidu/tieba/ev2;");
+                return;
+            }
+        }
+        b = new ev2();
+    }
+
+    public ev2() {
+        dv2 cv2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (QuotaSaver.l.c()) {
+            cv2Var = QuotaSaver.l.e();
+        } else {
+            cv2Var = new cv2();
+        }
+        g62.i("OptSwitcher", "by " + cv2Var);
+        Unit unit = Unit.INSTANCE;
+        this.a = cv2Var;
+    }
 }

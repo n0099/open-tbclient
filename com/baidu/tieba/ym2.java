@@ -1,52 +1,68 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes7.dex */
-public class ym2 extends rl2<io2> {
+import java.io.File;
+/* loaded from: classes8.dex */
+public class ym2 {
     public static /* synthetic */ Interceptable $ic;
+    public static File a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rl2
-    @NonNull
-    public String b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334891, "Lcom/baidu/tieba/ym2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334891, "Lcom/baidu/tieba/ym2;");
+                return;
+            }
+        }
+        a = cs2.g();
+        b = "swan_core";
+        c = "extension_core";
+        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        e = "cloneFolder_";
+        f = d + File.separator + e;
+        g = "clone_pkg_folder";
+        h = "clone_core_folder";
+        i = "clone_dynamic_lib_folder";
+        j = "clone_sp_folder";
+        k = "clone_db_folder";
+        l = "cloneZip.zip";
+        m = "clone_zipFiles";
+    }
+
+    public static File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableAgc" : (String) invokeV.objValue;
-    }
-
-    public ym2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(og3.w());
+            if (!kp4.l(file)) {
+                return null;
             }
+            return file;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull io2 io2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, io2Var) == null) {
-            String str = command.what;
-            d(io2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                io2Var.l0(((Boolean) obj).booleanValue());
-            }
-        }
+        return (File) invokeV.objValue;
     }
 }

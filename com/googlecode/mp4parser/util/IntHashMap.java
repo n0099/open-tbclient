@@ -1,12 +1,12 @@
 package com.googlecode.mp4parser.util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IntHashMap {
     public transient int count;
     public float loadFactor;
     public transient Entry[] table;
     public int threshold;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public int hash;
         public int key;

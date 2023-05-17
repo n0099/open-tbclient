@@ -1,26 +1,18 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ev9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ev9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public boolean b;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(Application application);
-    }
+    public String a;
+    public int b;
+    public int c;
+    public String d;
 
     public ev9() {
         Interceptable interceptable = $ic;
@@ -32,60 +24,16 @@ public class ev9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = false;
-        this.a = c();
     }
 
-    public static ev9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ev9.class) {
-                    if (c == null) {
-                        c = new ev9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (ev9) invokeV.objValue;
-    }
-
-    public final boolean a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (f55.m().n("pref_key_jpush_sdk_enable", 0) != 1) {
-                return false;
-            }
-            return true;
+            return "index:" + this.b + " tabName:" + this.a + " type:" + this.c + " tabCode:" + this.d;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
-                return (a) runTask.getData();
-            }
-            return null;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public void d(Application application) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
-            aVar.a(application);
-            this.b = true;
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendUpdateUiMsg;
-import com.baidu.tieba.az7;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.m16;
-import com.baidu.tieba.n16;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.p16;
-import com.baidu.tieba.ra5;
-import com.baidu.tieba.t16;
-import com.baidu.tieba.u16;
+import com.baidu.tieba.a36;
+import com.baidu.tieba.ac5;
+import com.baidu.tieba.b36;
+import com.baidu.tieba.f36;
+import com.baidu.tieba.g36;
+import com.baidu.tieba.hb;
+import com.baidu.tieba.o08;
+import com.baidu.tieba.o65;
+import com.baidu.tieba.y26;
+import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RelationshipStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a extends bb {
+    /* loaded from: classes4.dex */
+    public static class a extends hb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -64,15 +64,15 @@ public class RelationshipStatic {
             if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || socketResponsedMessage == null || socketResponsedMessage.getCmd() != 1001 || socketResponsedMessage.hasError() || !(socketResponsedMessage instanceof ResponseOnlineMessage) || TbadkCoreApplication.getCurrentAccount() == null || TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            f55 m = f55.m();
+            o65 m = o65.m();
             if (m.i("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true)) {
                 MessageManager.getInstance().sendMessage(new RequestGetAddressListMessage(304001));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b extends bb {
+    /* loaded from: classes4.dex */
+    public static class b extends hb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,15 +102,15 @@ public class RelationshipStatic {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                m16 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                f55 m = f55.m();
+                y26 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                o65 m = o65.m();
                 m.w("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), false);
-                new u16(addressListData).execute(new Void[0]);
+                new g36(addressListData).execute(new Void[0]);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,23 +142,23 @@ public class RelationshipStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001174 && (customResponsedMessage instanceof ResponseNewFriendUpdateUiMsg)) {
                 ResponseNewFriendUpdateUiMsg responseNewFriendUpdateUiMsg = (ResponseNewFriendUpdateUiMsg) customResponsedMessage;
                 if (responseNewFriendUpdateUiMsg.getAction() == 0) {
-                    ra5 ra5Var = new ra5();
-                    ra5Var.j(responseNewFriendUpdateUiMsg.getKey());
-                    ra5Var.l(responseNewFriendUpdateUiMsg.getQuanping());
-                    ra5Var.m(responseNewFriendUpdateUiMsg.getFriendId());
-                    ra5Var.n(responseNewFriendUpdateUiMsg.getName());
-                    ra5Var.p(responseNewFriendUpdateUiMsg.getPortrait());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2001179, ra5Var));
+                    ac5 ac5Var = new ac5();
+                    ac5Var.j(responseNewFriendUpdateUiMsg.getKey());
+                    ac5Var.l(responseNewFriendUpdateUiMsg.getQuanping());
+                    ac5Var.m(responseNewFriendUpdateUiMsg.getFriendId());
+                    ac5Var.n(responseNewFriendUpdateUiMsg.getName());
+                    ac5Var.p(responseNewFriendUpdateUiMsg.getPortrait());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2001179, ac5Var));
                 } else if (responseNewFriendUpdateUiMsg.getAction() == 1) {
-                    ra5 ra5Var2 = new ra5();
-                    ra5Var2.m(responseNewFriendUpdateUiMsg.getFriendId());
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2001180, ra5Var2));
+                    ac5 ac5Var2 = new ac5();
+                    ac5Var2.m(responseNewFriendUpdateUiMsg.getFriendId());
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2001180, ac5Var2));
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +188,7 @@ public class RelationshipStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2002014) {
-                t16.a();
+                f36.a();
             }
         }
     }
@@ -207,10 +207,10 @@ public class RelationshipStatic {
             }
         }
         b(304001, ResponseGetAddressListMessage.class, false);
-        a(2001178, n16.class);
-        a(2001184, o16.class);
-        a(2001179, p16.class);
-        a(2001180, p16.class);
+        a(2001178, z26.class);
+        a(2001184, a36.class);
+        a(2001179, b36.class);
+        a(2001180, b36.class);
         MessageManager.getInstance().registerListener(new a(1001));
         MessageManager.getInstance().registerListener(new b(304001));
         MessageManager.getInstance().registerListener(new c(2001174));
@@ -234,14 +234,14 @@ public class RelationshipStatic {
     public static void a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, cls) == null) {
-            az7.a(i, cls);
+            o08.a(i, cls);
         }
     }
 
     public static void b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)}) == null) {
-            az7.b(i, cls, z);
+            o08.b(i, cls, z);
         }
     }
 }

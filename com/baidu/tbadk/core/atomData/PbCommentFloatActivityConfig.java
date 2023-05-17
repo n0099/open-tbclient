@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PbCommentFloatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -395,11 +395,11 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(nz4 nz4Var) {
+    public void setRecomData(w05 w05Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, nz4Var) == null) && (intent = getIntent()) != null && nz4Var != null) {
-            nz4Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048620, this, w05Var) == null) && (intent = getIntent()) != null && w05Var != null) {
+            w05Var.c(intent);
         }
     }
 
@@ -589,8 +589,8 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().N())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().N());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().O())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().O());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());

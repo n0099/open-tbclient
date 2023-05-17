@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb;
-import com.baidu.tieba.f18;
+import com.baidu.tieba.et5;
+import com.baidu.tieba.hb;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.ResponseQueryUserInfoMessage;
 import com.baidu.tieba.im.model.BlackListModel;
@@ -29,13 +29,13 @@ import com.baidu.tieba.im.model.IMUserListHttpResponseMsg;
 import com.baidu.tieba.im.model.IMUserListModel;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.tieba.immessagecenter.RequestQueryUserInfoMessage;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.kv4;
+import com.baidu.tieba.is5;
+import com.baidu.tieba.it5;
+import com.baidu.tieba.k48;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.t28;
+import com.baidu.tieba.tw4;
 import com.baidu.tieba.userblock.UserBlockInfoModel;
-import com.baidu.tieba.vr5;
-import com.baidu.tieba.w28;
-import com.baidu.tieba.zq5;
-import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,11 +44,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import protobuf.QueryUserInfos.DataRes;
 import tbclient.PermissionList;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PersonalTalkSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ja5 a;
+    public sb5 a;
     public DataRes b;
     public boolean c;
     public boolean d;
@@ -62,11 +62,11 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     public ImMessageCenterPojo l;
     public PersonalTalkSettingActivity m;
     public g n;
-    public bb o;
+    public hb o;
     public CustomMessageListener p;
     public HttpMessageListener q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface g {
         void M();
     }
@@ -75,14 +75,14 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends vr5<PersonalSettingItemData> {
+    /* loaded from: classes6.dex */
+    public class a extends et5<PersonalSettingItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -106,20 +106,20 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vr5
+        @Override // com.baidu.tieba.et5
         /* renamed from: a */
         public PersonalSettingItemData doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return w28.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a));
+                return k48.j().a(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a));
             }
             return (PersonalSettingItemData) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements zq5<PersonalSettingItemData> {
+    /* loaded from: classes6.dex */
+    public class b implements is5<PersonalSettingItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -147,7 +147,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zq5
+        @Override // com.baidu.tieba.is5
         /* renamed from: a */
         public void onReturnDataInUI(PersonalSettingItemData personalSettingItemData) {
             Interceptable interceptable = $ic;
@@ -162,8 +162,8 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements kv4 {
+    /* loaded from: classes6.dex */
+    public class c implements tw4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingModel a;
@@ -186,7 +186,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             this.a = personalTalkSettingModel;
         }
 
-        @Override // com.baidu.tieba.kv4
+        @Override // com.baidu.tieba.tw4
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (obj instanceof tbclient.GetUserBlackInfo.DataRes)) {
@@ -197,7 +197,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             }
         }
 
-        @Override // com.baidu.tieba.kv4
+        @Override // com.baidu.tieba.tw4
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && this.a.m != null) {
@@ -206,8 +206,8 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d extends bb {
+    /* loaded from: classes6.dex */
+    public class d extends hb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalTalkSettingModel a;
@@ -305,7 +305,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,7 +357,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -394,7 +394,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
             IMUserListHttpResponseMsg iMUserListHttpResponseMsg = (IMUserListHttpResponseMsg) httpResponsedMessage;
             if (!ListUtils.isEmpty(iMUserListHttpResponseMsg.getUserDataResultList())) {
                 this.a.k = iMUserListHttpResponseMsg.getUserDataResultList().get(0);
-                this.a.l = f18.f().g(String.valueOf(this.a.getUid()), 2);
+                this.a.l = t28.f().g(String.valueOf(this.a.getUid()), 2);
                 if (this.a.n != null) {
                     this.a.n.M();
                 }
@@ -425,17 +425,17 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         this.q = new f(this, CmdConfigHttp.CMD_GET_USER_LIST);
         this.m = personalTalkSettingActivity;
         this.n = gVar;
-        this.a = new ja5(personalTalkSettingActivity.getPageContext());
+        this.a = new sb5(personalTalkSettingActivity.getPageContext());
         this.g = new BlackListModel(personalTalkSettingActivity.getPageContext());
         personalTalkSettingActivity.showProgressBar();
+        j0();
         k0();
-        l0();
-        this.i.b0(j);
+        this.i.a0(j);
         this.j = new IMUserListModel(personalTalkSettingActivity.getPageContext(), getUniqueId());
         ArrayList arrayList = new ArrayList();
         arrayList.add(String.valueOf(j));
         this.j.request(false, arrayList);
-        zr5.c(new a(this, j), new b(this, j, personalTalkSettingActivity));
+        it5.c(new a(this, j), new b(this, j, personalTalkSettingActivity));
     }
 
     public void setNotify(boolean z) {
@@ -456,7 +456,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public DataRes g0() {
+    public DataRes f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -465,10 +465,19 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         return (DataRes) invokeV.objValue;
     }
 
-    public String getNameShow() {
+    public PermissionList g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return (PermissionList) invokeV.objValue;
+    }
+
+    public String getNameShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ImMessageCenterPojo imMessageCenterPojo = this.l;
             if (imMessageCenterPojo != null) {
                 return imMessageCenterPojo.getNameShow();
@@ -489,7 +498,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
     public long getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             DataRes dataRes = this.b;
             if (dataRes != null) {
                 return dataRes.id.longValue();
@@ -499,16 +508,7 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         return invokeV.longValue;
     }
 
-    public PermissionList h0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return (PermissionList) invokeV.objValue;
-    }
-
-    public UserData i0() {
+    public UserData h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -517,21 +517,12 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         return (UserData) invokeV.objValue;
     }
 
-    public boolean isNotify() {
-        InterceptResult invokeV;
+    public void i0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ja5 ja5Var = this.a;
-            if (ja5Var != null) {
-                ja5Var.e();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            sb5 sb5Var = this.a;
+            if (sb5Var != null) {
+                sb5Var.e();
             }
             BlackListModel blackListModel = this.g;
             if (blackListModel != null) {
@@ -541,7 +532,16 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    public final void k0() {
+    public boolean isNotify() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             registerListener(205003, this.o);
@@ -551,18 +551,18 @@ public class PersonalTalkSettingModel extends BdBaseModel {
         }
     }
 
-    public void l0() {
+    public void k0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             UserBlockInfoModel userBlockInfoModel = new UserBlockInfoModel(this.m.getPageContext(), getUniqueId());
             this.i = userBlockInfoModel;
-            userBlockInfoModel.c0(new c(this));
+            userBlockInfoModel.b0(new c(this));
         }
     }
 
-    public void m0(boolean z) {
+    public void l0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setMaskType(9);
             requestUpdateMaskInfoMessage.setList(String.valueOf(getUid()));

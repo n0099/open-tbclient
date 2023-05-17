@@ -18,7 +18,7 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DetailVideoView extends KSFrameLayout implements View.OnClickListener {
     public com.kwad.components.core.page.widget.b Kb;
     public b Kc;
@@ -33,7 +33,7 @@ public class DetailVideoView extends KSFrameLayout implements View.OnClickListen
     public final RectF Kl;
     public Matrix mMatrix;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void onClickRootView();
 

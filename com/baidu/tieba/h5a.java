@@ -1,151 +1,99 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
-import com.baidu.tbadk.data.TbMusicData;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.filter.FilterValue;
-/* loaded from: classes4.dex */
-public class h5a {
+/* loaded from: classes5.dex */
+public class h5a implements i5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbMultiMediaData a;
-    public FilterValue b;
-    public MediaTrackConfig c;
-    public float d;
-    public TbMusicData e;
-    public int f;
-    public int g;
+    public final CloudMusicModel a;
+    public final j5a b;
 
-    public h5a() {
+    /* loaded from: classes5.dex */
+    public class a implements p5a<CloudMusicData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h5a a;
+
+        public a(h5a h5aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h5aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h5aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.p5a
+        /* renamed from: b */
+        public void a(CloudMusicData cloudMusicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
+                this.a.b.H0(false);
+                if (cloudMusicData != null) {
+                    this.a.b.n(false);
+                    if (cloudMusicData.tag_list.isEmpty()) {
+                        this.a.b.n(true);
+                        return;
+                    } else {
+                        this.a.b.a0(cloudMusicData);
+                        return;
+                    }
+                }
+                this.a.b.n(true);
+            }
+        }
+    }
+
+    public h5a(CloudMusicModel cloudMusicModel, j5a j5aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cloudMusicModel, j5aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = cloudMusicModel;
+        this.b = j5aVar;
+        j5aVar.f1(this);
     }
 
-    public FilterValue a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i5a
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (FilterValue) invokeV.objValue;
-    }
-
-    public MediaTrackConfig b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (MediaTrackConfig) invokeV.objValue;
-    }
-
-    public TbMultiMediaData c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (TbMultiMediaData) invokeV.objValue;
-    }
-
-    public TbMusicData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (TbMusicData) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public void h(FilterValue filterValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, filterValue) == null) {
-            this.b = filterValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
         }
     }
 
-    public void i(MediaTrackConfig mediaTrackConfig) {
+    @Override // com.baidu.tieba.i5a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaTrackConfig) == null) {
-            this.c = mediaTrackConfig;
-        }
-    }
-
-    public void j(TbMultiMediaData tbMultiMediaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tbMultiMediaData) == null) {
-            this.a = tbMultiMediaData;
-        }
-    }
-
-    public void k(TbMusicData tbMusicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tbMusicData) == null) {
-            this.e = tbMusicData;
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void n(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
-            this.d = f;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.H0(true);
+            this.a.V(new a(this));
         }
     }
 }

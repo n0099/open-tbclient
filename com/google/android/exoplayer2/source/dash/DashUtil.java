@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.upstream.ParsingLoadable;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DashUtil {
     public static Representation getFirstRepresentation(Period period, int i) {
         int adaptationSetIndex = period.getAdaptationSetIndex(i);

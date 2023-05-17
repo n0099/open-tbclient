@@ -1,5 +1,5 @@
 package com.google.android.material.expandable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ExpandableWidget {
     boolean isExpanded();
 

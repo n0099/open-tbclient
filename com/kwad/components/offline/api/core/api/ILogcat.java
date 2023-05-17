@@ -1,5 +1,5 @@
 package com.kwad.components.offline.api.core.api;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ILogcat {
     void d(String str, String str2);
 

@@ -5,7 +5,7 @@ import kotlin.jvm.internal.FunctionReference;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class TypeDeserializer$typeConstructor$1$classNestingLevel$1 extends FunctionReference implements Function1<ClassId, ClassId> {
     public static final TypeDeserializer$typeConstructor$1$classNestingLevel$1 INSTANCE = new TypeDeserializer$typeConstructor$1$classNestingLevel$1();
 

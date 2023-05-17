@@ -1,252 +1,239 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.util.Base64;
+import android.os.Process;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-/* loaded from: classes4.dex */
-public class ila {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+/* loaded from: classes6.dex */
+public class ila implements cla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final cla.a b;
+    public volatile int c;
+    public volatile long d;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public ila(String str, cla.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (bma.a(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] decode = Base64.decode(str, 0);
-            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
         }
-        return (Bitmap) invokeL.objValue;
+        this.a = str;
+        this.b = aVar;
     }
 
-    public static Bitmap f(String str) {
-        FileInputStream fileInputStream;
-        InterceptResult invokeL;
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!isCanceled()) {
+                if (!isPaused()) {
+                    return;
+                }
+                throw new DownloadException(106, "Connection Paused!");
+            }
+            throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    @Override // com.baidu.tieba.cla
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 107;
+        }
+    }
+
+    @Override // com.baidu.tieba.cla
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c == 107) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cla
+    public boolean isPaused() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.c == 106) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.cla
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.c = 102;
+            this.b.onConnecting();
             try {
-                fileInputStream = new FileInputStream(str);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-                fileInputStream = null;
+                b();
+            } catch (DownloadException e) {
+                c(e);
             }
-            return BitmapFactory.decodeStream(fileInputStream);
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public static int b(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            int i5 = 1;
-            if (i3 > i2 || i4 > i) {
-                int i6 = i3 / 2;
-                int i7 = i4 / 2;
-                while (i6 / i5 > i2 && i7 / i5 > i) {
-                    i5 *= 2;
-                }
-            }
-            return i5;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
-            if (bitmap == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(compressFormat, i, byteArrayOutputStream);
-            byte[] byteArray = byteArrayOutputStream.toByteArray();
-            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        }
-        return (Bitmap) invokeLLI.objValue;
-    }
-
-    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
-            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
-                bitmap.recycle();
-            }
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap e(String str, int i, int i2, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
-            if (!FileUtils.isExists(str)) {
-                return null;
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = b(options, i, i2);
-            options.inJustDecodeBounds = false;
-            Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
-            if (f % 360.0f == 0.0f) {
-                return decodeFile;
-            }
-            if (decodeFile == null) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postRotate(f);
-            Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
-            decodeFile.recycle();
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i > 0 && i2 > 0 && bitmap != null && !bitmap.isRecycled()) {
-                boolean z3 = true;
-                if (bitmap.getWidth() > bitmap.getHeight()) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (i <= i2) {
-                    z3 = false;
-                }
-                if (z2 != z3) {
-                    i2 = i;
-                    i = i2;
-                }
-                if (i != bitmap.getWidth() || i2 != bitmap.getHeight()) {
-                    return i(bitmap, i, i2, z);
-                }
-                return bitmap;
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                Matrix matrix = new Matrix();
-                matrix.postScale(i / width, i2 / height);
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                    bitmap.recycle();
-                }
-                return createBitmap;
-            }
-            return null;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
-    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
+    public final void b() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bitmap != null && !bitmap.isRecycled()) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                if (width == 0 || height == 0 || i == 0 || i2 == 0) {
-                    return bitmap;
-                }
-                float f = width;
-                float f2 = height;
-                float f3 = (f * 1.0f) / f2;
-                float f4 = i * 1.0f;
-                float f5 = i2;
-                float f6 = f4 / f5;
-                if (Math.abs(f3 - f6) < 0.01d) {
-                    i4 = width;
-                } else if (f3 > f6) {
-                    i4 = (i * height) / i2;
-                } else {
-                    i3 = (i2 * width) / i;
-                    i4 = width;
-                    if (width <= i4) {
-                        i5 = (width - i4) / 2;
-                    } else {
-                        i5 = 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = System.currentTimeMillis();
+            try {
+                URL url = new URL(this.a);
+                ?? r2 = 0;
+                try {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == 200) {
+                                d(httpURLConnection, false);
+                            } else if (responseCode == 206) {
+                                d(httpURLConnection, true);
+                            } else {
+                                throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
                     }
-                    if (height <= i3) {
-                        i6 = (height - i3) / 2;
-                    } else {
-                        i6 = 0;
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
                     }
-                    Matrix matrix = new Matrix();
-                    matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
-                    Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
-                    if (z && bitmap != null && !bitmap.equals(createBitmap)) {
-                        bitmap.recycle();
-                    }
-                    return createBitmap;
+                    throw th;
                 }
-                i3 = height;
-                if (width <= i4) {
-                }
-                if (height <= i3) {
-                }
-                Matrix matrix2 = new Matrix();
-                matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
-                Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
-                if (z) {
-                    bitmap.recycle();
-                }
-                return createBitmap2;
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
             }
-            return null;
         }
-        return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    public final void c(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return kha.c().getContext();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.b) {
+                        this.c = 106;
+                        this.b.onConnectPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.b) {
+                        this.c = 107;
+                        this.b.onConnectCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.b) {
+                        this.c = 108;
+                        this.b.b(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
         }
-        return (Context) invokeV.objValue;
+    }
+
+    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
+        long contentLength;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
+            String headerField = httpURLConnection.getHeaderField("Content-Length");
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
+            }
+            if (contentLength <= 0) {
+                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
+                } else {
+                    contentLength = httpURLConnection.getContentLength();
+                }
+                if (contentLength <= 0) {
+                    throw new DownloadException(108, "length <= 0");
+                }
+            }
+            a();
+            this.c = 103;
+            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
+        }
     }
 }

@@ -8,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class vm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static wm0 a;
+    public static an0 a;
+    public static ym0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,22 +44,41 @@ public class vm0 {
         }
     }
 
-    public static wm0 a() {
+    public static ym0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (vm0.class) {
+                    if (b == null) {
+                        b = (ym0) ServiceManager.getService(ym0.a);
+                    }
+                    if (b == null) {
+                        b = ym0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (ym0) invokeV.objValue;
+    }
+
+    public static an0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (a == null) {
                 synchronized (vm0.class) {
                     if (a == null) {
-                        a = (wm0) ServiceManager.getService(wm0.a);
+                        a = (an0) ServiceManager.getService(an0.a);
                     }
                     if (a == null) {
-                        a = wm0.b;
+                        a = an0.b;
                     }
                 }
             }
             return a;
         }
-        return (wm0) invokeV.objValue;
+        return (an0) invokeV.objValue;
     }
 }

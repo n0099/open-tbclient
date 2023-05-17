@@ -3,7 +3,6 @@ package com.baidu.android.pushservice.p;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.text.TextUtils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +52,7 @@ public class i {
             this.c = pendingIntent.getTargetPackage();
         }
         if (TextUtils.isEmpty(this.c)) {
-            this.c = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+            this.c = intent.getStringExtra("pkg_name");
         }
         this.b = intent.getStringExtra("access_token");
         this.f = intent.getStringExtra("secret_key");

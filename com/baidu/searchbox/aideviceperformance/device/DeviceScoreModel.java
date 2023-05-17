@@ -13,7 +13,7 @@ import com.baidu.searchbox.aideviceperformance.model.ModelManager;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceScoreModel {
     public static final boolean DEBUG = Config.isDebug();
     public static final float DEFAULT_CPU_FREQUENCY = 1.7859616f;

@@ -11,23 +11,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.og5;
-import com.baidu.tieba.vt4;
+import com.baidu.tieba.ev4;
+import com.baidu.tieba.xh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetEmotionPidModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(og5 og5Var);
+        void a(xh5 xh5Var);
 
         void onFail(int i, String str);
     }
@@ -42,7 +42,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class GetEmotionPidModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void W(String str, b bVar) {
+    public void V(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) {
             this.a = bVar;
@@ -118,7 +118,7 @@ public class GetEmotionPidModel extends BdBaseModel {
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_EMOTION_PID);
-            httpMessage.addParam("pic_url", vt4.t(str));
+            httpMessage.addParam("pic_url", ev4.t(str));
             sendMessage(httpMessage);
         }
     }

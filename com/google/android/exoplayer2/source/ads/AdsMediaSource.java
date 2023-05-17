@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AdsMediaSource implements MediaSource {
     public static final String TAG = "AdsMediaSource";
     public long[][] adDurationsUs;
@@ -45,7 +45,7 @@ public final class AdsMediaSource implements MediaSource {
     public Handler playerHandler;
     public volatile boolean released;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface AdsListener {
         void onAdClicked();
 
@@ -54,7 +54,7 @@ public final class AdsMediaSource implements MediaSource {
         void onAdTapped();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class ComponentListener implements AdsLoader.EventListener, ExtractorMediaSource.EventListener {
         public ComponentListener() {
         }

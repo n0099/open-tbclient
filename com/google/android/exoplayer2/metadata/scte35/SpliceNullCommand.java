@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.metadata.scte35;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SpliceNullCommand extends SpliceCommand {
     public static final Parcelable.Creator<SpliceNullCommand> CREATOR = new Parcelable.Creator<SpliceNullCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceNullCommand.1
         /* JADX DEBUG: Method merged with bridge method */

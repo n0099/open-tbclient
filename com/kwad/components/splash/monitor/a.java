@@ -11,7 +11,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static volatile a QH;
     public static double QI;

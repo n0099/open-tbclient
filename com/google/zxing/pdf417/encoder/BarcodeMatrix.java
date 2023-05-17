@@ -1,7 +1,7 @@
 package com.google.zxing.pdf417.encoder;
 
 import java.lang.reflect.Array;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BarcodeMatrix {
     public int currentRow;
     public final int height;

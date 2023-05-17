@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bh implements bg.b.a {
     public final /* synthetic */ bg.b a;
 

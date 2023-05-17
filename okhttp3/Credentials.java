@@ -3,7 +3,7 @@ package okhttp3;
 import java.nio.charset.Charset;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Credentials {
     public static String basic(String str, String str2) {
         return basic(str, str2, Util.ISO_8859_1);

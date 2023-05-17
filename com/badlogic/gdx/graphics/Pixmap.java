@@ -4,9 +4,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.graphics.g2d.Gdx2DPixmap;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r6;
-import com.baidu.tieba.t2;
-import com.baidu.tieba.u2;
+import com.baidu.tieba.v6;
+import com.baidu.tieba.x2;
+import com.baidu.tieba.y2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Pixmap implements r6 {
+public class Pixmap implements v6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Gdx2DPixmap a;
@@ -326,12 +326,12 @@ public class Pixmap implements r6 {
         g();
     }
 
-    public Pixmap(t2 t2Var) {
+    public Pixmap(x2 x2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t2Var};
+            Object[] objArr = {x2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -345,10 +345,10 @@ public class Pixmap implements r6 {
         Filter filter = Filter.BiLinear;
         this.b = 0;
         try {
-            byte[] n = t2Var.n();
+            byte[] n = x2Var.n();
             this.a = new Gdx2DPixmap(n, 0, n.length, 0);
         } catch (Exception e) {
-            throw new GdxRuntimeException("Couldn't load file: " + t2Var, e);
+            throw new GdxRuntimeException("Couldn't load file: " + x2Var, e);
         }
     }
 
@@ -359,7 +359,7 @@ public class Pixmap implements r6 {
         }
     }
 
-    @Override // com.baidu.tieba.r6
+    @Override // com.baidu.tieba.v6
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -469,7 +469,7 @@ public class Pixmap implements r6 {
     public void p(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.b = u2.b(f, f2, f3, f4);
+            this.b = y2.b(f, f2, f3, f4);
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,20 +25,20 @@ public class a implements Cloneable {
     public int l;
 
     /* renamed from: com.cmic.sso.sdk.a.a$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.cmic.sso.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0529a {
+    /* loaded from: classes8.dex */
+    public static class C0543a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final a a;
 
-        public C0529a() {
+        public C0543a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,121 +63,121 @@ public class a implements Cloneable {
             return (a) invokeV.objValue;
         }
 
-        public C0529a a(int i) {
+        public C0543a a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeI = interceptable.invokeI(1048576, this, i)) != null) {
-                return (C0529a) invokeI.objValue;
+                return (C0543a) invokeI.objValue;
             }
             this.a.k = i;
             return this;
         }
 
-        public C0529a b(int i) {
+        public C0543a b(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeI = interceptable.invokeI(1048580, this, i)) != null) {
-                return (C0529a) invokeI.objValue;
+                return (C0543a) invokeI.objValue;
             }
             this.a.l = i;
             return this;
         }
 
-        public C0529a c(String str) {
+        public C0543a c(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048583, this, str)) != null) {
-                return (C0529a) invokeL.objValue;
+                return (C0543a) invokeL.objValue;
             }
             this.a.c = str;
             return this;
         }
 
-        public C0529a d(String str) {
+        public C0543a d(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048585, this, str)) != null) {
-                return (C0529a) invokeL.objValue;
+                return (C0543a) invokeL.objValue;
             }
             this.a.d = str;
             return this;
         }
 
-        public C0529a e(boolean z) {
+        public C0543a e(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048587, this, z)) != null) {
-                return (C0529a) invokeZ.objValue;
+                return (C0543a) invokeZ.objValue;
             }
             this.a.i = z;
             return this;
         }
 
-        public C0529a f(boolean z) {
+        public C0543a f(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048588, this, z)) != null) {
-                return (C0529a) invokeZ.objValue;
+                return (C0543a) invokeZ.objValue;
             }
             this.a.j = z;
             return this;
         }
 
-        public C0529a a(String str) {
+        public C0543a a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-                return (C0529a) invokeL.objValue;
+                return (C0543a) invokeL.objValue;
             }
             this.a.a = str;
             return this;
         }
 
-        public C0529a b(String str) {
+        public C0543a b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, str)) != null) {
-                return (C0529a) invokeL.objValue;
+                return (C0543a) invokeL.objValue;
             }
             this.a.b = str;
             return this;
         }
 
-        public C0529a c(boolean z) {
+        public C0543a c(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) != null) {
-                return (C0529a) invokeZ.objValue;
+                return (C0543a) invokeZ.objValue;
             }
             this.a.g = z;
             return this;
         }
 
-        public C0529a d(boolean z) {
+        public C0543a d(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048586, this, z)) != null) {
-                return (C0529a) invokeZ.objValue;
+                return (C0543a) invokeZ.objValue;
             }
             this.a.h = z;
             return this;
         }
 
-        public C0529a a(boolean z) {
+        public C0543a a(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) != null) {
-                return (C0529a) invokeZ.objValue;
+                return (C0543a) invokeZ.objValue;
             }
             this.a.e = z;
             return this;
         }
 
-        public C0529a b(boolean z) {
+        public C0543a b(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeZ = interceptable.invokeZ(1048582, this, z)) != null) {
-                return (C0529a) invokeZ.objValue;
+                return (C0543a) invokeZ.objValue;
             }
             this.a.f = z;
             return this;

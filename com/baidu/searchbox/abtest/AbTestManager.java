@@ -4,19 +4,19 @@ import android.util.Log;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.ABTestConfig;
-import com.baidu.tieba.j8;
-import com.baidu.tieba.k8;
-import com.baidu.tieba.q8;
-import com.baidu.tieba.s8;
+import com.baidu.tieba.n8;
+import com.baidu.tieba.o8;
+import com.baidu.tieba.v8;
+import com.baidu.tieba.x8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AbTestManager {
     public static final boolean DEBUG = ABTestConfig.isDebug();
     public static final String TAG = "AbTestManager";
     public static AbTestManager mAbTestManager;
-    public k8 mExperimentManager = k8.n(AppRuntime.getAppContext());
+    public o8 mExperimentManager = o8.n(AppRuntime.getAppContext());
 
     @Deprecated
     public void addEvent(String str) {
@@ -35,14 +35,14 @@ public class AbTestManager {
 
     public void forceReloadConfig() {
         this.mExperimentManager.h();
-        BdEventBus.Companion.getDefault().post(new s8());
+        BdEventBus.Companion.getDefault().post(new x8());
     }
 
     public String getExpInfos() {
         return this.mExperimentManager.m();
     }
 
-    public ArrayList<j8> getExperimentInfoList() {
+    public ArrayList<n8> getExperimentInfoList() {
         return this.mExperimentManager.l();
     }
 
@@ -50,8 +50,8 @@ public class AbTestManager {
         return this.mExperimentManager.q();
     }
 
-    public void addLocalExpInfo(q8 q8Var) {
-        this.mExperimentManager.g(q8Var);
+    public void addLocalExpInfo(v8 v8Var) {
+        this.mExperimentManager.g(v8Var);
     }
 
     @Deprecated
@@ -64,37 +64,37 @@ public class AbTestManager {
     }
 
     public Object getSwitch(String str) {
-        Object t = this.mExperimentManager.t(str);
+        Object u = this.mExperimentManager.u(str);
         if (DEBUG) {
-            Log.d(TAG, " get switch key: " + str + " switch value: " + t);
+            Log.d(TAG, " get switch key: " + str + " switch value: " + u);
         }
-        return t;
+        return u;
     }
 
     public boolean has(String str) {
-        boolean v = this.mExperimentManager.v(str);
+        boolean w = this.mExperimentManager.w(str);
         if (DEBUG) {
-            Log.d(TAG, " get switch key: " + str + " has key: " + v);
+            Log.d(TAG, " get switch key: " + str + " has key: " + w);
         }
-        return v;
+        return w;
     }
 
     public boolean isInExperiment(int i) {
-        return this.mExperimentManager.x(i);
+        return this.mExperimentManager.z(i);
     }
 
     public ArrayList<String> getSidsFromTids(ArrayList<Integer> arrayList) {
         ArrayList<String> arrayList2 = new ArrayList<>();
-        ArrayList<j8> l = this.mExperimentManager.l();
+        ArrayList<n8> l = this.mExperimentManager.l();
         if (l == null) {
             return arrayList2;
         }
         for (int i = 0; i < l.size(); i++) {
-            j8 j8Var = l.get(i);
-            if (j8Var != null) {
+            n8 n8Var = l.get(i);
+            if (n8Var != null) {
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    if (arrayList.get(i2).intValue() == j8Var.c()) {
-                        arrayList2.add(j8Var.c() + "_" + j8Var.b());
+                    if (arrayList.get(i2).intValue() == n8Var.c()) {
+                        arrayList2.add(n8Var.c() + "_" + n8Var.b());
                     }
                 }
             }
@@ -112,7 +112,7 @@ public class AbTestManager {
 
     @Deprecated
     public int getValueFromOldABCache(String str, int i) {
-        return this.mExperimentManager.u(str, i);
+        return this.mExperimentManager.v(str, i);
     }
 
     public int getSwitch(String str, int i) {
@@ -132,11 +132,11 @@ public class AbTestManager {
     }
 
     public String getSwitch(String str, String str2) {
-        String r = this.mExperimentManager.r(str, str2);
+        String s = this.mExperimentManager.s(str, str2);
         if (DEBUG) {
-            Log.d(TAG, " get switch key: " + str + " switch value: " + r + " default value :" + str2);
+            Log.d(TAG, " get switch key: " + str + " switch value: " + s + " default value :" + str2);
         }
-        return r;
+        return s;
     }
 
     public boolean getSwitch(String str, boolean z) {

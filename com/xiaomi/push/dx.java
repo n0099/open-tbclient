@@ -8,14 +8,14 @@ import com.baidu.ar.pose.PoseAR;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class dx {
     public static Uri a(String str, String str2) {
         return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(bo.m220a(str), 2);
+        return Base64.encodeToString(bo.m239a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {

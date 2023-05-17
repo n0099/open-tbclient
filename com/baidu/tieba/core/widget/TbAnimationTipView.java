@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.core.image.dynamic.DynamicAnimView;
 import com.baidu.tieba.core.widget.TbAnimationTipView;
-import com.baidu.tieba.em6;
+import com.baidu.tieba.qn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B%\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\b\u0002\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ.\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u00192\u000e\u0010\u001b\u001a\n\u0012\u0004\u0012\u00020\u0015\u0018\u00010\u001cJ\b\u0010\u001d\u001a\u00020\u0015H\u0002J\b\u0010\u001e\u001a\u00020\u0015H\u0002J\b\u0010\u001f\u001a\u00020\u0015H\u0002J\u0014\u0010 \u001a\u00020\u00152\f\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00150\u001cJ\u0010\u0010\"\u001a\u00020\u00152\b\u0010#\u001a\u0004\u0018\u00010$J&\u0010%\u001a\u00020\u00152\u0006\u0010&\u001a\u00020\u00072\u0006\u0010'\u001a\u00020\u00072\u0006\u0010(\u001a\u00020\u00072\u0006\u0010)\u001a\u00020\u0007J\u0016\u0010*\u001a\u00020\u00152\u0006\u0010+\u001a\u00020\u00072\u0006\u0010,\u001a\u00020\u0007J\u000e\u0010-\u001a\u00020\u00152\u0006\u0010.\u001a\u00020\u0007J\u0006\u0010/\u001a\u00020\u0015J\u000e\u00100\u001a\u00020\u00152\u0006\u0010.\u001a\u00020\u0007J\u000e\u00101\u001a\u00020\u00152\u0006\u00102\u001a\u000203J\u000e\u00104\u001a\u00020\u00152\u0006\u00105\u001a\u000206R\u001a\u0010\t\u001a\u00020\u0007X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\u0007X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u000b\"\u0004\b\u0010\u0010\rR\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0001X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00067"}, d2 = {"Lcom/baidu/tieba/core/widget/TbAnimationTipView;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "dynamicAnimViewHeight", "getDynamicAnimViewHeight", "()I", "setDynamicAnimViewHeight", "(I)V", "dynamicAnimViewWidth", "getDynamicAnimViewWidth", "setDynamicAnimViewWidth", "dynamicView", "Lcom/baidu/tieba/core/image/dynamic/DynamicAnimView;", "tipContainer", "fadeAlpha", "", "duration", "", "oldAlpha", "", "newAlpha", "onEnd", "Lkotlin/Function0;", "initDynamicView", "initRoot", "initTipContainer", "setAnimationListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setDynamicViewCLickListener", "onClickListener", "Landroid/view/View$OnClickListener;", "setDynamicViewMargin", "left", "top", "right", "bottom", "setDynamicViewSize", "width", "height", "setDynamicViewVisibility", RemoteMessageConst.Notification.VISIBILITY, "setLastAnimationCurFrameToPlaceHolder", "setTipViewVisibility", "showAnimation", "data", "Lcom/baidu/tieba/core/image/dynamic/DynamicAnimData;", "showTip", "tipView", "Landroid/view/View;", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class TbAnimationTipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class TbAnimationTipView extends LinearLayout {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public final class TbAnimationTipView extends LinearLayout {
             ValueAnimator alphaAnim = ValueAnimator.ofFloat(f, f2);
             alphaAnim.setDuration(j);
             alphaAnim.setInterpolator(new AccelerateInterpolator());
-            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.lm6
+            alphaAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.xn6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -270,7 +270,7 @@ public final class TbAnimationTipView extends LinearLayout {
         }
     }
 
-    public final void f(em6 data) {
+    public final void f(qn6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");

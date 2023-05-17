@@ -15,11 +15,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.net.URISyntaxException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b extends g {
     public final String[] a = {"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
 
@@ -52,7 +53,7 @@ public final class b extends g {
                 if (context.getPackageManager().resolveActivity(parseUri, 0) == null) {
                     String str2 = parseUri.getPackage();
                     if (str2 != null) {
-                        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse("market://search?q=pname:".concat(String.valueOf(str2))));
+                        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("market://search?q=pname:".concat(String.valueOf(str2))));
                         intent.addCategory("android.intent.category.BROWSABLE");
                         g.a(context, intent);
                         return true;
@@ -121,7 +122,7 @@ public final class b extends g {
             return true;
         }
         if (a(str)) {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
             intent.addCategory("android.intent.category.BROWSABLE");
             return g.a(context, intent);
         }

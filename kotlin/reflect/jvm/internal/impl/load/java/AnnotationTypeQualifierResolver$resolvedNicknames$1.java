@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.AnnotationDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class AnnotationTypeQualifierResolver$resolvedNicknames$1 extends FunctionReference implements Function1<ClassDescriptor, AnnotationDescriptor> {
     public AnnotationTypeQualifierResolver$resolvedNicknames$1(AnnotationTypeQualifierResolver annotationTypeQualifierResolver) {
         super(1, annotationTypeQualifierResolver);

@@ -6,7 +6,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SwitchController {
     public static final int HTTPS_LEVEL_CLOSE_SWITCH = -1;
     public static final int HTTPS_LEVEL_OPEN_SWITCH = 1;

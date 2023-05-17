@@ -7,12 +7,12 @@ import com.facebook.common.logging.FLog;
 import com.facebook.soloader.DoNotOptimize;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HeifExifUtil {
     public static final String TAG = "HeifExifUtil";
 
     @DoNotOptimize
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HeifExifUtilAndroidN {
         @RequiresApi(api = 24)
         public static int getOrientation(InputStream inputStream) {

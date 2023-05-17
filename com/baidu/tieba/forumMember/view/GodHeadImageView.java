@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ez5;
+import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GodHeadImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
@@ -35,7 +35,7 @@ public class GodHeadImageView extends FrameLayout {
     public int g;
     public int h;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HeadImageView {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class GodHeadImageView extends FrameLayout {
                 return;
             }
         }
-        i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702e7);
+        i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ef);
         j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198);
         k = 7;
     }
@@ -214,7 +214,7 @@ public class GodHeadImageView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ez5.GodHeadImageView);
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, q06.GodHeadImageView);
                 this.g = obtainStyledAttributes.getDimensionPixelSize(0, i);
                 this.f = obtainStyledAttributes.getInteger(2, this.e);
                 this.d = obtainStyledAttributes.getInteger(3, this.c);

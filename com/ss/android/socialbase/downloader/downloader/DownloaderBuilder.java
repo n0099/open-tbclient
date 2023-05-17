@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.network.IDownloadHttpService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DownloaderBuilder {
     public g chunkAdjustCalculator;
     public h chunkCntCalculator;

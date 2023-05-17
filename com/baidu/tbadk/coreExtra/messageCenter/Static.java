@@ -6,8 +6,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.nb5;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,23 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<AccountData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0198a implements Runnable {
+        /* loaded from: classes4.dex */
+        public class RunnableC0210a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0198a(a aVar) {
+            public RunnableC0210a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class Static {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ea5.h0().g();
+                    nb5.h0().g();
                 }
             }
         }
@@ -75,11 +75,11 @@ public class Static {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (ii.E()) {
-                    ea5.h0().g();
+                if (ri.E()) {
+                    nb5.h0().g();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new RunnableC0198a(this));
+                    TbadkCoreApplication.getInst().handler.post(new RunnableC0210a(this));
                     return null;
                 } else {
                     return null;
@@ -102,7 +102,7 @@ public class Static {
                 return;
             }
         }
-        ea5.h0();
+        nb5.h0();
         CustomMessageTask customMessageTask = new CustomMessageTask(2005006, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

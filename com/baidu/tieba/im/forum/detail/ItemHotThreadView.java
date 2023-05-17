@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.yv4;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.SimpleThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ItemHotThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class ItemHotThreadView extends LinearLayout {
     public HashMap<String, View> b;
     public List<SimpleThreadInfo> c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class ItemHotThreadView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class ItemHotThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c8, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02df, (ViewGroup) this, true);
             setVisibility(8);
         }
     }
@@ -177,13 +177,13 @@ public class ItemHotThreadView extends LinearLayout {
             return;
         }
         if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) this, false);
+            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02e0, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923a1);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f69);
-            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
-            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f68);
-            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f66);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092405);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f9d);
+            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f9b);
+            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f9c);
+            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f9a);
             view2.setTag(bVar);
             this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
             addView(view2);
@@ -202,7 +202,7 @@ public class ItemHotThreadView extends LinearLayout {
                 }
             }
         }
-        if (!hi.isEmpty(sb.toString().trim())) {
+        if (!qi.isEmpty(sb.toString().trim())) {
             bVar.c.setText(sb.toString());
             bVar.c.setVisibility(0);
         } else {
@@ -229,7 +229,7 @@ public class ItemHotThreadView extends LinearLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i) == null) {
-            yv4 layoutMode = forumDetailActivity.getLayoutMode();
+            hx4 layoutMode = forumDetailActivity.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

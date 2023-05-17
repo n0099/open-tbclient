@@ -4,7 +4,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ErrorResponse implements IBaseJsonResponse {
     public int appid;
     public int cmd;

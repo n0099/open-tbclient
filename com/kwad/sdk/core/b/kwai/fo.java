@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.yy.hiidostatis.inner.GeneralConfigTool;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fo implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.f> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.core.request.model.f fVar, JSONObject jSONObject) {

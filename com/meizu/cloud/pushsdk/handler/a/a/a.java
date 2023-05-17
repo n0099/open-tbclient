@@ -8,7 +8,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSettingEx;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public Context a;
     public com.meizu.cloud.pushsdk.b.a.a b;

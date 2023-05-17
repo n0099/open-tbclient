@@ -1,5 +1,5 @@
 package com.baidu.live.feed.search.model.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestSearchData {
     public String refreshIndex = "1";
     public String refreshType = "0";

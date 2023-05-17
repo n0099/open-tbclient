@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NullabilityQualifierWithMigrationStatus {
     public final boolean isForWarningOnly;
     public final NullabilityQualifier qualifier;

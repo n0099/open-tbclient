@@ -24,30 +24,31 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.txt.UnifyTextView;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
+import com.baidu.searchbox.common.security.PermissionStorage;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak0;
-import com.baidu.tieba.cq0;
-import com.baidu.tieba.d41;
+import com.baidu.tieba.c71;
+import com.baidu.tieba.dh0;
 import com.baidu.tieba.dq0;
-import com.baidu.tieba.eq0;
-import com.baidu.tieba.gh0;
-import com.baidu.tieba.ih0;
-import com.baidu.tieba.ii0;
-import com.baidu.tieba.jp0;
-import com.baidu.tieba.m61;
-import com.baidu.tieba.ng0;
-import com.baidu.tieba.np0;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.ql0;
-import com.baidu.tieba.rp0;
-import com.baidu.tieba.s61;
-import com.baidu.tieba.t61;
-import com.baidu.tieba.uh0;
-import com.baidu.tieba.ul0;
-import com.baidu.tieba.vp0;
-import com.baidu.tieba.z31;
-import com.baidu.tieba.zh0;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.gm0;
+import com.baidu.tieba.hq0;
+import com.baidu.tieba.i71;
+import com.baidu.tieba.j71;
+import com.baidu.tieba.ki0;
+import com.baidu.tieba.km0;
+import com.baidu.tieba.lq0;
+import com.baidu.tieba.p41;
+import com.baidu.tieba.pi0;
+import com.baidu.tieba.qk0;
+import com.baidu.tieba.sq0;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.tq0;
+import com.baidu.tieba.uq0;
+import com.baidu.tieba.wh0;
+import com.baidu.tieba.yh0;
+import com.baidu.tieba.yi0;
+import com.baidu.tieba.zp0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.List;
 import kotlin.Lazy;
@@ -60,8 +61,8 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¸\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\u0018\u00002\u00020\u0001B/\b\u0007\u0012\b\u0010\u008a\u0001\u001a\u00030\u0089\u0001\u0012\f\b\u0002\u0010\u008c\u0001\u001a\u0005\u0018\u00010\u008b\u0001\u0012\n\b\u0002\u0010\u008e\u0001\u001a\u00030\u008d\u0001¢\u0006\u0006\b\u008f\u0001\u0010\u0090\u0001J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ)\u0010\r\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n2\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\fH\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u000f\u0010\u0011\u001a\u00020\fH\u0003¢\u0006\u0004\b\u0011\u0010\u0010J3\u0010\u0014\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n2\b\b\u0002\u0010\u0012\u001a\u00020\u00022\b\b\u0002\u0010\u0013\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\fH\u0002¢\u0006\u0004\b\u001a\u0010\u0010J\r\u0010\u001b\u001a\u00020\f¢\u0006\u0004\b\u001b\u0010\u0010J\u0019\u0010\u001e\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0019\u0010 \u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b \u0010\u001fJ\u001b\u0010#\u001a\u00020\f2\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\f0!¢\u0006\u0004\b#\u0010$J!\u0010&\u001a\u00020\f2\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\f0%¢\u0006\u0004\b&\u0010'J\u0019\u0010(\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b(\u0010\u001fJ\u0019\u0010)\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b)\u0010\u001fJ\u001b\u0010*\u001a\u00020\f2\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\f0!¢\u0006\u0004\b*\u0010$J\u0017\u0010+\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001c¢\u0006\u0004\b+\u0010\u001fJ\u0019\u0010,\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b,\u0010\u001fJ\u0019\u0010-\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b-\u0010\u001fJ\u001b\u0010.\u001a\u00020\f2\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\f0!¢\u0006\u0004\b.\u0010$J!\u0010/\u001a\u00020\f2\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\f0%¢\u0006\u0004\b/\u0010'J\u0019\u00100\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b0\u0010\u001fJ\u0015\u00102\u001a\u00020\f2\u0006\u00101\u001a\u00020\u0004¢\u0006\u0004\b2\u00103J\u0015\u00105\u001a\u00020\f2\u0006\u00104\u001a\u00020\u0004¢\u0006\u0004\b5\u00103R\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u00106R\u001d\u0010<\u001a\u0002078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b8\u00109\u001a\u0004\b:\u0010;R\u001d\u0010A\u001a\u00020=8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b>\u00109\u001a\u0004\b?\u0010@R\u001d\u0010F\u001a\u00020B8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bC\u00109\u001a\u0004\bD\u0010ER\u001e\u0010G\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR\u001d\u0010M\u001a\u00020I8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bJ\u00109\u001a\u0004\bK\u0010LR$\u0010N\u001a\u0010\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\f\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u0010OR\u001d\u0010T\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bQ\u00109\u001a\u0004\bR\u0010SR\u0016\u0010U\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bU\u0010VR\u001e\u0010W\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bW\u0010HR\u001d\u0010\\\u001a\u00020X8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bY\u00109\u001a\u0004\bZ\u0010[R\u001d\u0010a\u001a\u00020]8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b^\u00109\u001a\u0004\b_\u0010`R\u001d\u0010d\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bb\u00109\u001a\u0004\bc\u0010SR\u001d\u0010i\u001a\u00020e8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bf\u00109\u001a\u0004\bg\u0010hR\u0018\u0010k\u001a\u0004\u0018\u00010j8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bk\u0010lR\u0016\u0010n\u001a\u00020m8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bn\u0010oR\u0018\u0010q\u001a\u0004\u0018\u00010p8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bq\u0010rR\u001e\u0010s\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bs\u0010HR\u001d\u0010v\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bt\u00109\u001a\u0004\bu\u0010SR\u001d\u0010y\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bw\u00109\u001a\u0004\bx\u0010SR\u0016\u0010z\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bz\u0010{R\u0016\u0010}\u001a\u00020|8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b}\u0010~R$\u0010\u007f\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\f\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u007f\u0010OR \u0010\u0082\u0001\u001a\u0002078B@\u0002X\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0080\u0001\u00109\u001a\u0005\b\u0081\u0001\u0010;R \u0010\u0085\u0001\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0083\u0001\u00109\u001a\u0005\b\u0084\u0001\u0010SR \u0010\u0088\u0001\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0086\u0001\u00109\u001a\u0005\b\u0087\u0001\u0010S¨\u0006\u0091\u0001"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadRewardBigCardView;", "Landroid/widget/FrameLayout;", "", "scheme", "", "checkRewardPanelPop", "(Ljava/lang/String;)Z", "getLogTime", "()Ljava/lang/String;", DnsModel.AREA_KEY, "Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;", "logType", "", "handleClick", "(Ljava/lang/String;Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;Ljava/lang/String;)V", "initArrow", "()V", "initSwipeUp", "ext1", "ext2", "logAndCharge", "(Ljava/lang/String;Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;Ljava/lang/String;Ljava/lang/String;)V", "", "showProgress", "onProgressChanged", "(F)V", "registerRewardTaskEvent", "release", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setAppInfo", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "setAvatar", "Lkotlin/Function0;", WebChromeClient.KEY_ARG_CALLBACK, "setBackBtnCallback", "(Lkotlin/Function0;)V", "Lkotlin/Function1;", "setBigCardShowProgress", "(Lkotlin/Function1;)V", "setBrandName", "setButton", "setCloseClickCallback", "setData", "setDetailButton", "setDownloadButton", "setPanelPopDismissCallback", "setShowPanelPopCallback", "setTitle", "isVisible", "setVisibility", "(Z)V", "autoPopup", "showPanelPop", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "Landroid/widget/LinearLayout;", "appInfoView$delegate", "Lkotlin/Lazy;", "getAppInfoView", "()Landroid/widget/LinearLayout;", "appInfoView", "Lcom/baidu/nadcore/widget/uiwidget/ExpandIconView;", "arrow$delegate", "getArrow", "()Lcom/baidu/nadcore/widget/uiwidget/ExpandIconView;", "arrow", "Lcom/baidu/nadcore/widget/AdImageView;", "avatar$delegate", "getAvatar", "()Lcom/baidu/nadcore/widget/AdImageView;", "avatar", "backBtnCallback", "Lkotlin/Function0;", "Landroid/animation/ValueAnimator;", "bigCardPopupAnimator$delegate", "getBigCardPopupAnimator", "()Landroid/animation/ValueAnimator;", "bigCardPopupAnimator", "bigCardShowProgress", "Lkotlin/Function1;", "Lcom/baidu/nadcore/widget/txt/UnifyTextView;", "brandName$delegate", "getBrandName", "()Lcom/baidu/nadcore/widget/txt/UnifyTextView;", "brandName", "chargeMode", "Ljava/lang/String;", "closeIconCallback", "Landroid/view/View;", "detailBtn$delegate", "getDetailBtn", "()Landroid/view/View;", "detailBtn", "Landroid/widget/TextView;", "detailBtnText$delegate", "getDetailBtnText", "()Landroid/widget/TextView;", "detailBtnText", "developerName$delegate", "getDeveloperName", "developerName", "Lcom/baidu/nadcore/business/uitemplate/NadMiniVideoDownloadView;", "downloadButton$delegate", "getDownloadButton", "()Lcom/baidu/nadcore/business/uitemplate/NadMiniVideoDownloadView;", "downloadButton", "Lcom/baidu/nadcore/business/presenter/NadRewardDownloadPresenter;", "downloadPresenter", "Lcom/baidu/nadcore/business/presenter/NadRewardDownloadPresenter;", "", "loadStartTime", "J", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "panelPop", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "panelPopDismissCallback", "permissionView$delegate", "getPermissionView", "permissionView", "privacyView$delegate", "getPrivacyView", "privacyView", "shouldCharge", "Z", "Ljava/lang/Runnable;", "shouldChargeTask", "Ljava/lang/Runnable;", "showPanelPopCallback", "tagContainer$delegate", "getTagContainer", "tagContainer", "title$delegate", "getTitle", "title", "version$delegate", WebChromeClient.MSG_METHOD_GETVERSION, "version", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000¸\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0010\u0007\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\u0018\u00002\u00020\u0001B/\b\u0007\u0012\b\u0010\u008a\u0001\u001a\u00030\u0089\u0001\u0012\f\b\u0002\u0010\u008c\u0001\u001a\u0005\u0018\u00010\u008b\u0001\u0012\n\b\u0002\u0010\u008e\u0001\u001a\u00030\u008d\u0001¢\u0006\u0006\b\u008f\u0001\u0010\u0090\u0001J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u000f\u0010\u0007\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ)\u0010\r\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n2\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0002¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\fH\u0002¢\u0006\u0004\b\u000f\u0010\u0010J\u000f\u0010\u0011\u001a\u00020\fH\u0003¢\u0006\u0004\b\u0011\u0010\u0010J3\u0010\u0014\u001a\u00020\f2\u0006\u0010\t\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n2\b\b\u0002\u0010\u0012\u001a\u00020\u00022\b\b\u0002\u0010\u0013\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\f2\u0006\u0010\u0017\u001a\u00020\u0016H\u0002¢\u0006\u0004\b\u0018\u0010\u0019J\u000f\u0010\u001a\u001a\u00020\fH\u0002¢\u0006\u0004\b\u001a\u0010\u0010J\r\u0010\u001b\u001a\u00020\f¢\u0006\u0004\b\u001b\u0010\u0010J\u0019\u0010\u001e\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b\u001e\u0010\u001fJ\u0019\u0010 \u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b \u0010\u001fJ\u001b\u0010#\u001a\u00020\f2\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\f0!¢\u0006\u0004\b#\u0010$J!\u0010&\u001a\u00020\f2\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\f0%¢\u0006\u0004\b&\u0010'J\u0019\u0010(\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b(\u0010\u001fJ\u0019\u0010)\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b)\u0010\u001fJ\u001b\u0010*\u001a\u00020\f2\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\f0!¢\u0006\u0004\b*\u0010$J\u0017\u0010+\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001c¢\u0006\u0004\b+\u0010\u001fJ\u0019\u0010,\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b,\u0010\u001fJ\u0019\u0010-\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b-\u0010\u001fJ\u001b\u0010.\u001a\u00020\f2\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\f0!¢\u0006\u0004\b.\u0010$J!\u0010/\u001a\u00020\f2\u0012\u0010\"\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\f0%¢\u0006\u0004\b/\u0010'J\u0019\u00100\u001a\u00020\f2\b\u0010\u001d\u001a\u0004\u0018\u00010\u001cH\u0002¢\u0006\u0004\b0\u0010\u001fJ\u0015\u00102\u001a\u00020\f2\u0006\u00101\u001a\u00020\u0004¢\u0006\u0004\b2\u00103J\u0015\u00105\u001a\u00020\f2\u0006\u00104\u001a\u00020\u0004¢\u0006\u0004\b5\u00103R\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u00106R\u001d\u0010<\u001a\u0002078B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b8\u00109\u001a\u0004\b:\u0010;R\u001d\u0010A\u001a\u00020=8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b>\u00109\u001a\u0004\b?\u0010@R\u001d\u0010F\u001a\u00020B8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bC\u00109\u001a\u0004\bD\u0010ER\u001e\u0010G\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bG\u0010HR\u001d\u0010M\u001a\u00020I8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bJ\u00109\u001a\u0004\bK\u0010LR$\u0010N\u001a\u0010\u0012\u0004\u0012\u00020\u0016\u0012\u0004\u0012\u00020\f\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bN\u0010OR\u001d\u0010T\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bQ\u00109\u001a\u0004\bR\u0010SR\u0016\u0010U\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bU\u0010VR\u001e\u0010W\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bW\u0010HR\u001d\u0010\\\u001a\u00020X8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bY\u00109\u001a\u0004\bZ\u0010[R\u001d\u0010a\u001a\u00020]8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b^\u00109\u001a\u0004\b_\u0010`R\u001d\u0010d\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bb\u00109\u001a\u0004\bc\u0010SR\u001d\u0010i\u001a\u00020e8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bf\u00109\u001a\u0004\bg\u0010hR\u0018\u0010k\u001a\u0004\u0018\u00010j8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bk\u0010lR\u0016\u0010n\u001a\u00020m8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bn\u0010oR\u0018\u0010q\u001a\u0004\u0018\u00010p8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bq\u0010rR\u001e\u0010s\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010!8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bs\u0010HR\u001d\u0010v\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bt\u00109\u001a\u0004\bu\u0010SR\u001d\u0010y\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\bw\u00109\u001a\u0004\bx\u0010SR\u0016\u0010z\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bz\u0010{R\u0016\u0010}\u001a\u00020|8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b}\u0010~R$\u0010\u007f\u001a\u0010\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00020\f\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u007f\u0010OR \u0010\u0082\u0001\u001a\u0002078B@\u0002X\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0080\u0001\u00109\u001a\u0005\b\u0081\u0001\u0010;R \u0010\u0085\u0001\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0083\u0001\u00109\u001a\u0005\b\u0084\u0001\u0010SR \u0010\u0088\u0001\u001a\u00020P8B@\u0002X\u0082\u0084\u0002¢\u0006\u000e\n\u0005\b\u0086\u0001\u00109\u001a\u0005\b\u0087\u0001\u0010S¨\u0006\u0091\u0001"}, d2 = {"Lcom/baidu/nadcore/lp/reward/view/NadRewardBigCardView;", "Landroid/widget/FrameLayout;", "", "scheme", "", "checkRewardPanelPop", "(Ljava/lang/String;)Z", "getLogTime", "()Ljava/lang/String;", DnsModel.AREA_KEY, "Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;", "logType", "", "handleClick", "(Ljava/lang/String;Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;Ljava/lang/String;)V", "initArrow", "()V", "initSwipeUp", PermissionStorage.PermissionItem.ITEM_EXT_1, PermissionStorage.PermissionItem.ITEM_EXT_2, "logAndCharge", "(Ljava/lang/String;Lcom/baidu/nadcore/stats/request/ClogBuilder$LogType;Ljava/lang/String;Ljava/lang/String;)V", "", "showProgress", "onProgressChanged", "(F)V", "registerRewardTaskEvent", "release", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "adModel", "setAppInfo", "(Lcom/baidu/nadcore/model/AdRewardVideoLpModel;)V", "setAvatar", "Lkotlin/Function0;", WebChromeClient.KEY_ARG_CALLBACK, "setBackBtnCallback", "(Lkotlin/Function0;)V", "Lkotlin/Function1;", "setBigCardShowProgress", "(Lkotlin/Function1;)V", "setBrandName", "setButton", "setCloseClickCallback", "setData", "setDetailButton", "setDownloadButton", "setPanelPopDismissCallback", "setShowPanelPopCallback", "setTitle", "isVisible", "setVisibility", "(Z)V", "autoPopup", "showPanelPop", "Lcom/baidu/nadcore/model/AdRewardVideoLpModel;", "Landroid/widget/LinearLayout;", "appInfoView$delegate", "Lkotlin/Lazy;", "getAppInfoView", "()Landroid/widget/LinearLayout;", "appInfoView", "Lcom/baidu/nadcore/widget/uiwidget/ExpandIconView;", "arrow$delegate", "getArrow", "()Lcom/baidu/nadcore/widget/uiwidget/ExpandIconView;", "arrow", "Lcom/baidu/nadcore/widget/AdImageView;", "avatar$delegate", "getAvatar", "()Lcom/baidu/nadcore/widget/AdImageView;", "avatar", "backBtnCallback", "Lkotlin/Function0;", "Landroid/animation/ValueAnimator;", "bigCardPopupAnimator$delegate", "getBigCardPopupAnimator", "()Landroid/animation/ValueAnimator;", "bigCardPopupAnimator", "bigCardShowProgress", "Lkotlin/Function1;", "Lcom/baidu/nadcore/widget/txt/UnifyTextView;", "brandName$delegate", "getBrandName", "()Lcom/baidu/nadcore/widget/txt/UnifyTextView;", "brandName", "chargeMode", "Ljava/lang/String;", "closeIconCallback", "Landroid/view/View;", "detailBtn$delegate", "getDetailBtn", "()Landroid/view/View;", "detailBtn", "Landroid/widget/TextView;", "detailBtnText$delegate", "getDetailBtnText", "()Landroid/widget/TextView;", "detailBtnText", "developerName$delegate", "getDeveloperName", "developerName", "Lcom/baidu/nadcore/business/uitemplate/NadMiniVideoDownloadView;", "downloadButton$delegate", "getDownloadButton", "()Lcom/baidu/nadcore/business/uitemplate/NadMiniVideoDownloadView;", "downloadButton", "Lcom/baidu/nadcore/business/presenter/NadRewardDownloadPresenter;", "downloadPresenter", "Lcom/baidu/nadcore/business/presenter/NadRewardDownloadPresenter;", "", "loadStartTime", "J", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "panelPop", "Lcom/baidu/nadcore/webpanel/PanelPopupWindow;", "panelPopDismissCallback", "permissionView$delegate", "getPermissionView", "permissionView", "privacyView$delegate", "getPrivacyView", "privacyView", "shouldCharge", "Z", "Ljava/lang/Runnable;", "shouldChargeTask", "Ljava/lang/Runnable;", "showPanelPopCallback", "tagContainer$delegate", "getTagContainer", "tagContainer", "title$delegate", "getTitle", "title", "version$delegate", WebChromeClient.MSG_METHOD_GETVERSION, "version", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes3.dex */
 public final class NadRewardBigCardView extends FrameLayout {
     public final Lazy a;
     public final Lazy b;
@@ -76,9 +77,9 @@ public final class NadRewardBigCardView extends FrameLayout {
     public final Lazy k;
     public final Lazy l;
     public final Lazy m;
-    public m61 n;
-    public vp0 o;
-    public gh0 p;
+    public c71 n;
+    public lq0 o;
+    public wh0 p;
     public String q;
     public boolean r;
     public Runnable s;
@@ -158,7 +159,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         return (UnifyTextView) this.j.getValue();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a implements View.OnClickListener {
         public a() {
         }
@@ -166,13 +167,13 @@ public final class NadRewardBigCardView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            dq0 b;
+            tq0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.ARROW.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.ARROW.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            vp0 vp0Var = NadRewardBigCardView.this.o;
-            if (vp0Var != null && (b = vp0Var.b()) != null) {
+            lq0 lq0Var = NadRewardBigCardView.this.o;
+            if (lq0Var != null && (b = lq0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -181,7 +182,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b implements View.OnTouchListener {
         public float a;
         public float b;
@@ -193,9 +194,9 @@ public final class NadRewardBigCardView extends FrameLayout {
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View v, MotionEvent event) {
             boolean z;
-            np0 np0Var;
+            dq0 dq0Var;
             String str;
-            dq0 b;
+            tq0 b;
             Intrinsics.checkNotNullParameter(v, "v");
             Intrinsics.checkNotNullParameter(event, "event");
             int action = event.getAction();
@@ -209,17 +210,17 @@ public final class NadRewardBigCardView extends FrameLayout {
                         z = false;
                     }
                     if (rawY - this.a < -60 && z) {
-                        vp0 vp0Var = NadRewardBigCardView.this.o;
-                        if (vp0Var == null || (np0Var = vp0Var.m) == null || !np0Var.g) {
+                        lq0 lq0Var = NadRewardBigCardView.this.o;
+                        if (lq0Var == null || (dq0Var = lq0Var.m) == null || !dq0Var.g) {
                             NadRewardBigCardView.this.y(false);
                         } else {
-                            vp0 vp0Var2 = NadRewardBigCardView.this.o;
-                            if (vp0Var2 != null && (b = vp0Var2.b()) != null) {
+                            lq0 lq0Var2 = NadRewardBigCardView.this.o;
+                            if (lq0Var2 != null && (b = lq0Var2.b()) != null) {
                                 str = b.d();
                             } else {
                                 str = null;
                             }
-                            uh0.c(str, NadRewardBigCardView.this.getContext());
+                            ki0.c(str, NadRewardBigCardView.this.getContext());
                         }
                         NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
                         String str2 = ClogBuilder.Area.SWIPE_UP.type;
@@ -236,21 +237,21 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static final class c extends ul0<ng0> {
+    /* loaded from: classes3.dex */
+    public static final class c extends km0<dh0> {
         public c(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ul0
-        public void onEvent(ng0 event) {
+        @Override // com.baidu.tieba.km0
+        public void onEvent(dh0 event) {
             Intrinsics.checkNotNullParameter(event, "event");
             if (!Intrinsics.areEqual(event.a, "4")) {
                 return;
             }
-            vp0 vp0Var = NadRewardBigCardView.this.o;
-            if (vp0Var == null || vp0Var.l()) {
+            lq0 lq0Var = NadRewardBigCardView.this.o;
+            if (lq0Var == null || lq0Var.l()) {
                 if (!event.h) {
                     String str = event.g;
                     if (str != null) {
@@ -261,7 +262,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                         if (background != null) {
                             GradientDrawable gradientDrawable = (GradientDrawable) background;
                             gradientDrawable.setOrientation(GradientDrawable.Orientation.LEFT_RIGHT);
-                            gradientDrawable.setColors(new int[]{z31.a(event.d, R.color.nad_reward_big_card_btn_color), z31.a(event.e, R.color.nad_reward_big_card_btn_color)});
+                            gradientDrawable.setColors(new int[]{p41.a(event.d, R.color.nad_reward_big_card_btn_color), p41.a(event.e, R.color.nad_reward_big_card_btn_color)});
                             NadRewardBigCardView.this.getDetailBtn().setBackground(gradientDrawable);
                         } else {
                             throw new NullPointerException("null cannot be cast to non-null type android.graphics.drawable.GradientDrawable");
@@ -276,33 +277,33 @@ public final class NadRewardBigCardView extends FrameLayout {
                     nadRewardBigCardView.t("", logType, "4", str2);
                     return;
                 }
-                vp0 vp0Var2 = NadRewardBigCardView.this.o;
-                if (vp0Var2 == null) {
+                lq0 lq0Var2 = NadRewardBigCardView.this.o;
+                if (lq0Var2 == null) {
                     return;
                 }
-                NadRewardBigCardView.this.setDetailButton(vp0Var2);
+                NadRewardBigCardView.this.setDetailButton(lq0Var2);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class d implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
-        public final /* synthetic */ vp0 b;
+        public final /* synthetic */ lq0 b;
 
-        public d(UnifyTextView unifyTextView, vp0 vp0Var) {
+        public d(UnifyTextView unifyTextView, lq0 lq0Var) {
             this.a = unifyTextView;
-            this.b = vp0Var;
+            this.b = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            cq0 cq0Var;
+            sq0 sq0Var;
             Context context = this.a.getContext();
-            vp0 vp0Var = this.b;
-            if (vp0Var != null && (cq0Var = vp0Var.i) != null) {
-                str = cq0Var.f;
+            lq0 lq0Var = this.b;
+            if (lq0Var != null && (sq0Var = lq0Var.i) != null) {
+                str = sq0Var.f;
             } else {
                 str = null;
             }
@@ -310,24 +311,24 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class e implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
-        public final /* synthetic */ vp0 b;
+        public final /* synthetic */ lq0 b;
 
-        public e(UnifyTextView unifyTextView, vp0 vp0Var) {
+        public e(UnifyTextView unifyTextView, lq0 lq0Var) {
             this.a = unifyTextView;
-            this.b = vp0Var;
+            this.b = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            cq0 cq0Var;
+            sq0 sq0Var;
             Context context = this.a.getContext();
-            vp0 vp0Var = this.b;
-            if (vp0Var != null && (cq0Var = vp0Var.i) != null) {
-                str = cq0Var.d;
+            lq0 lq0Var = this.b;
+            if (lq0Var != null && (sq0Var = lq0Var.i) != null) {
+                str = sq0Var.d;
             } else {
                 str = null;
             }
@@ -335,29 +336,29 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class f implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
         public final /* synthetic */ NadRewardBigCardView b;
-        public final /* synthetic */ vp0 c;
+        public final /* synthetic */ lq0 c;
 
-        public f(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, vp0 vp0Var) {
+        public f(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, lq0 lq0Var) {
             this.a = unifyTextView;
             this.b = nadRewardBigCardView;
-            this.c = vp0Var;
+            this.c = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            cq0 cq0Var;
-            cq0.b bVar;
+            sq0 sq0Var;
+            sq0.b bVar;
             NadRewardBigCardView nadRewardBigCardView = this.b;
             String str2 = ClogBuilder.Area.APP_PRIVACY.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.APP_PRIVACY.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            vp0 vp0Var = this.c;
-            if (vp0Var != null && (cq0Var = vp0Var.i) != null && (bVar = cq0Var.g) != null) {
+            lq0 lq0Var = this.c;
+            if (lq0Var != null && (sq0Var = lq0Var.i) != null && (bVar = sq0Var.g) != null) {
                 str = bVar.b;
             } else {
                 str = null;
@@ -366,29 +367,29 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class g implements View.OnClickListener {
         public final /* synthetic */ UnifyTextView a;
         public final /* synthetic */ NadRewardBigCardView b;
-        public final /* synthetic */ vp0 c;
+        public final /* synthetic */ lq0 c;
 
-        public g(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, vp0 vp0Var) {
+        public g(UnifyTextView unifyTextView, NadRewardBigCardView nadRewardBigCardView, lq0 lq0Var) {
             this.a = unifyTextView;
             this.b = nadRewardBigCardView;
-            this.c = vp0Var;
+            this.c = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            cq0 cq0Var;
-            cq0.a aVar;
+            sq0 sq0Var;
+            sq0.a aVar;
             NadRewardBigCardView nadRewardBigCardView = this.b;
             String str2 = ClogBuilder.Area.APP_PERMISSION.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.APP_PERMISSION.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.FREE_CLICK;
-            vp0 vp0Var = this.c;
-            if (vp0Var != null && (cq0Var = vp0Var.i) != null && (aVar = cq0Var.h) != null) {
+            lq0 lq0Var = this.c;
+            if (lq0Var != null && (sq0Var = lq0Var.i) != null && (aVar = sq0Var.h) != null) {
                 str = aVar.b;
             } else {
                 str = null;
@@ -397,24 +398,24 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class h implements View.OnClickListener {
-        public final /* synthetic */ vp0 b;
+        public final /* synthetic */ lq0 b;
 
-        public h(vp0 vp0Var) {
-            this.b = vp0Var;
+        public h(lq0 lq0Var) {
+            this.b = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            dq0 b;
+            tq0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.AVATAR.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AVATAR.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            vp0 vp0Var = this.b;
-            if (vp0Var != null && (b = vp0Var.b()) != null) {
+            lq0 lq0Var = this.b;
+            if (lq0Var != null && (b = lq0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -423,24 +424,24 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class i implements View.OnClickListener {
-        public final /* synthetic */ vp0 b;
+        public final /* synthetic */ lq0 b;
 
-        public i(vp0 vp0Var) {
-            this.b = vp0Var;
+        public i(lq0 lq0Var) {
+            this.b = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            dq0 b;
+            tq0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.NAME.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.NAME.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            vp0 vp0Var = this.b;
-            if (vp0Var != null && (b = vp0Var.b()) != null) {
+            lq0 lq0Var = this.b;
+            if (lq0Var != null && (b = lq0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -449,24 +450,24 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class j implements View.OnClickListener {
-        public final /* synthetic */ vp0 b;
+        public final /* synthetic */ lq0 b;
 
-        public j(vp0 vp0Var) {
-            this.b = vp0Var;
+        public j(lq0 lq0Var) {
+            this.b = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            dq0 b;
+            tq0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.AD_BTN_DETAIL.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.AD_BTN_DETAIL.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            vp0 vp0Var = this.b;
-            if (vp0Var != null && (b = vp0Var.b()) != null) {
+            lq0 lq0Var = this.b;
+            if (lq0Var != null && (b = lq0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -475,38 +476,38 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class k implements View.OnClickListener {
-        public k(vp0 vp0Var) {
+        public k(lq0 lq0Var) {
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
-            gh0 gh0Var = NadRewardBigCardView.this.p;
-            if (gh0Var != null) {
-                gh0Var.m();
+            wh0 wh0Var = NadRewardBigCardView.this.p;
+            if (wh0Var != null) {
+                wh0Var.m();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class l implements View.OnClickListener {
-        public final /* synthetic */ vp0 b;
+        public final /* synthetic */ lq0 b;
 
-        public l(vp0 vp0Var) {
-            this.b = vp0Var;
+        public l(lq0 lq0Var) {
+            this.b = lq0Var;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view2) {
             String str;
-            dq0 b;
+            tq0 b;
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str2 = ClogBuilder.Area.TITTLE.type;
             Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.Area.TITTLE.type");
             ClogBuilder.LogType logType = ClogBuilder.LogType.CLICK;
-            vp0 vp0Var = this.b;
-            if (vp0Var != null && (b = vp0Var.b()) != null) {
+            lq0 lq0Var = this.b;
+            if (lq0Var != null && (b = lq0Var.b()) != null) {
                 str = b.d();
             } else {
                 str = null;
@@ -515,7 +516,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class m implements Runnable {
         public m() {
         }
@@ -526,15 +527,15 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static final class n implements s61 {
+    /* loaded from: classes3.dex */
+    public static final class n implements i71 {
         public final /* synthetic */ boolean b;
 
         public n(boolean z) {
             this.b = z;
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void a() {
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str = ClogBuilder.Area.DOWN_ARROW.type;
@@ -542,7 +543,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             NadRewardBigCardView.u(nadRewardBigCardView, str, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void b() {
             Function0 function0 = NadRewardBigCardView.this.x;
             if (function0 != null) {
@@ -550,7 +551,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void d() {
             Function0 function0 = NadRewardBigCardView.this.w;
             if (function0 != null) {
@@ -558,7 +559,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void dismiss() {
             Function0 function0 = NadRewardBigCardView.this.v;
             if (function0 != null) {
@@ -566,7 +567,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void f() {
             NadRewardBigCardView nadRewardBigCardView = NadRewardBigCardView.this;
             String str = ClogBuilder.Area.AD_BLANK.type;
@@ -574,7 +575,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             NadRewardBigCardView.u(nadRewardBigCardView, str, ClogBuilder.LogType.FREE_CLICK, null, null, 12, null);
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void c() {
             if (!this.b) {
                 return;
@@ -594,7 +595,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.s61
+        @Override // com.baidu.tieba.i71
         public void e() {
             if (!this.b) {
                 return;
@@ -628,7 +629,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final AdImageView invoke() {
-                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f09030a);
+                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f090317);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.avatar)");
                 return (AdImageView) findViewById;
             }
@@ -656,7 +657,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
             public final UnifyTextView invoke() {
-                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f09240b);
+                View findViewById = NadRewardBigCardView.this.findViewById(R.id.obfuscated_res_0x7f09246f);
                 Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.title)");
                 return (UnifyTextView) findViewById;
             }
@@ -808,7 +809,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                 super(0);
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class a implements ValueAnimator.AnimatorUpdateListener {
                 public a() {
                 }
@@ -845,23 +846,23 @@ public final class NadRewardBigCardView extends FrameLayout {
         this(context, (i3 & 2) != 0 ? null : attributeSet, (i3 & 4) != 0 ? 0 : i2);
     }
 
-    private final void setAvatar(vp0 vp0Var) {
+    private final void setAvatar(lq0 lq0Var) {
         String str;
-        dq0 b2;
+        tq0 b2;
         AdImageView avatar = getAvatar();
         avatar.setBorder(1.0f, avatar.getResources().getColor(R.color.nad_reward_big_card_avatar_stroke));
-        if (vp0Var != null && (b2 = vp0Var.b()) != null) {
+        if (lq0Var != null && (b2 = lq0Var.b()) != null) {
             str = b2.a();
         } else {
             str = null;
         }
         avatar.o(str);
-        avatar.setOnClickListener(new h(vp0Var));
+        avatar.setOnClickListener(new h(lq0Var));
     }
 
-    private final void setButton(vp0 vp0Var) {
-        setDetailButton(vp0Var);
-        setDownloadButton(vp0Var);
+    private final void setButton(lq0 lq0Var) {
+        setDetailButton(lq0Var);
+        setDownloadButton(lq0Var);
     }
 
     public final boolean p(String str) {
@@ -871,10 +872,10 @@ public final class NadRewardBigCardView extends FrameLayout {
         } else {
             z = true;
         }
-        if (z || !ii0.o(str)) {
+        if (z || !yi0.o(str)) {
             return false;
         }
-        return Intrinsics.areEqual(new zh0(str).a(), "rewardWebPanel");
+        return Intrinsics.areEqual(new pi0(str).a(), "rewardWebPanel");
     }
 
     public final void setBackBtnCallback(Function0<Unit> callback) {
@@ -892,13 +893,13 @@ public final class NadRewardBigCardView extends FrameLayout {
         this.x = callback;
     }
 
-    public final void setData(vp0 vp0Var) {
-        this.o = vp0Var;
-        setAvatar(vp0Var);
-        setBrandName(vp0Var);
-        setTitle(vp0Var);
-        setButton(vp0Var);
-        setAppInfo(vp0Var);
+    public final void setData(lq0 lq0Var) {
+        this.o = lq0Var;
+        setAvatar(lq0Var);
+        setBrandName(lq0Var);
+        setTitle(lq0Var);
+        setButton(lq0Var);
+        setAppInfo(lq0Var);
         w();
         r();
         s();
@@ -927,9 +928,9 @@ public final class NadRewardBigCardView extends FrameLayout {
             getBigCardPopupAnimator().start();
             return;
         }
-        m61 m61Var = this.n;
-        if (m61Var != null) {
-            m61Var.e();
+        c71 c71Var = this.n;
+        if (c71Var != null) {
+            c71Var.e();
         }
     }
 
@@ -952,7 +953,7 @@ public final class NadRewardBigCardView extends FrameLayout {
     }
 
     public final void w() {
-        ql0.a().b(this, new c(ng0.class));
+        gm0.a().b(this, new c(dh0.class));
     }
 
     public final void x() {
@@ -971,8 +972,8 @@ public final class NadRewardBigCardView extends FrameLayout {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private final void setAppInfo(vp0 vp0Var) {
-        cq0 cq0Var;
+    private final void setAppInfo(lq0 lq0Var) {
+        sq0 sq0Var;
         String str;
         boolean z;
         UnifyTextView unifyTextView;
@@ -986,44 +987,44 @@ public final class NadRewardBigCardView extends FrameLayout {
         String str4;
         boolean z5;
         UnifyTextView unifyTextView4;
-        cq0 cq0Var2;
-        cq0.a aVar;
+        sq0 sq0Var2;
+        sq0.a aVar;
         String str5;
         boolean z6;
-        cq0 cq0Var3;
-        cq0.a aVar2;
-        cq0 cq0Var4;
-        cq0.a aVar3;
+        sq0 sq0Var3;
+        sq0.a aVar2;
+        sq0 sq0Var4;
+        sq0.a aVar3;
         String str6;
-        cq0 cq0Var5;
-        cq0.b bVar;
+        sq0 sq0Var5;
+        sq0.b bVar;
         String str7;
         boolean z7;
-        cq0 cq0Var6;
-        cq0.b bVar2;
-        cq0 cq0Var7;
-        cq0.b bVar3;
+        sq0 sq0Var6;
+        sq0.b bVar2;
+        sq0 sq0Var7;
+        sq0.b bVar3;
         String str8;
-        cq0 cq0Var8;
-        cq0 cq0Var9;
+        sq0 sq0Var8;
+        sq0 sq0Var9;
         String str9;
-        cq0 cq0Var10;
-        cq0 cq0Var11;
+        sq0 sq0Var10;
+        sq0 sq0Var11;
         LinearLayout appInfoView = getAppInfoView();
         String str10 = null;
-        if (vp0Var != null) {
-            cq0Var = vp0Var.i;
+        if (lq0Var != null) {
+            sq0Var = lq0Var.i;
         } else {
-            cq0Var = null;
+            sq0Var = null;
         }
-        if (ih0.a(cq0Var)) {
+        if (yh0.a(sq0Var)) {
             appInfoView.setVisibility(0);
         } else {
             appInfoView.setVisibility(8);
         }
         UnifyTextView version = getVersion();
-        if (vp0Var != null && (cq0Var11 = vp0Var.i) != null) {
-            str = cq0Var11.f;
+        if (lq0Var != null && (sq0Var11 = lq0Var.i) != null) {
+            str = sq0Var11.f;
         } else {
             str = null;
         }
@@ -1041,17 +1042,17 @@ public final class NadRewardBigCardView extends FrameLayout {
             unifyTextView = null;
         }
         if (unifyTextView != null) {
-            if (vp0Var != null && (cq0Var10 = vp0Var.i) != null) {
-                str9 = cq0Var10.f;
+            if (lq0Var != null && (sq0Var10 = lq0Var.i) != null) {
+                str9 = sq0Var10.f;
             } else {
                 str9 = null;
             }
             version.setTextWithUnifiedPadding(str9, TextView.BufferType.NORMAL);
-            version.setOnClickListener(new d(version, vp0Var));
+            version.setOnClickListener(new d(version, lq0Var));
         }
         UnifyTextView developerName = getDeveloperName();
-        if (vp0Var != null && (cq0Var9 = vp0Var.i) != null) {
-            str2 = cq0Var9.d;
+        if (lq0Var != null && (sq0Var9 = lq0Var.i) != null) {
+            str2 = sq0Var9.d;
         } else {
             str2 = null;
         }
@@ -1068,16 +1069,16 @@ public final class NadRewardBigCardView extends FrameLayout {
             unifyTextView2 = null;
         }
         if (unifyTextView2 != null) {
-            if (vp0Var != null && (cq0Var8 = vp0Var.i) != null) {
-                str8 = cq0Var8.d;
+            if (lq0Var != null && (sq0Var8 = lq0Var.i) != null) {
+                str8 = sq0Var8.d;
             } else {
                 str8 = null;
             }
             developerName.setTextWithUnifiedPadding(str8, TextView.BufferType.NORMAL);
-            developerName.setOnClickListener(new e(developerName, vp0Var));
+            developerName.setOnClickListener(new e(developerName, lq0Var));
         }
         UnifyTextView privacyView = getPrivacyView();
-        if (vp0Var != null && (cq0Var7 = vp0Var.i) != null && (bVar3 = cq0Var7.g) != null) {
+        if (lq0Var != null && (sq0Var7 = lq0Var.i) != null && (bVar3 = sq0Var7.g) != null) {
             str3 = bVar3.a;
         } else {
             str3 = null;
@@ -1088,7 +1089,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             z3 = true;
         }
         if (z3) {
-            if (vp0Var != null && (cq0Var6 = vp0Var.i) != null && (bVar2 = cq0Var6.g) != null) {
+            if (lq0Var != null && (sq0Var6 = lq0Var.i) != null && (bVar2 = sq0Var6.g) != null) {
                 str7 = bVar2.b;
             } else {
                 str7 = null;
@@ -1108,16 +1109,16 @@ public final class NadRewardBigCardView extends FrameLayout {
                     unifyTextView3 = null;
                 }
                 if (unifyTextView3 != null) {
-                    if (vp0Var != null && (cq0Var5 = vp0Var.i) != null && (bVar = cq0Var5.g) != null) {
+                    if (lq0Var != null && (sq0Var5 = lq0Var.i) != null && (bVar = sq0Var5.g) != null) {
                         str6 = bVar.a;
                     } else {
                         str6 = null;
                     }
                     privacyView.setTextWithUnifiedPadding(str6, TextView.BufferType.NORMAL);
-                    privacyView.setOnClickListener(new f(privacyView, this, vp0Var));
+                    privacyView.setOnClickListener(new f(privacyView, this, lq0Var));
                 }
                 UnifyTextView permissionView = getPermissionView();
-                if (vp0Var == null && (cq0Var4 = vp0Var.i) != null && (aVar3 = cq0Var4.h) != null) {
+                if (lq0Var == null && (sq0Var4 = lq0Var.i) != null && (aVar3 = sq0Var4.h) != null) {
                     str4 = aVar3.a;
                 } else {
                     str4 = null;
@@ -1128,7 +1129,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                     z5 = true;
                 }
                 if (z5) {
-                    if (vp0Var != null && (cq0Var3 = vp0Var.i) != null && (aVar2 = cq0Var3.h) != null) {
+                    if (lq0Var != null && (sq0Var3 = lq0Var.i) != null && (aVar2 = sq0Var3.h) != null) {
                         str5 = aVar2.b;
                     } else {
                         str5 = null;
@@ -1150,11 +1151,11 @@ public final class NadRewardBigCardView extends FrameLayout {
                     unifyTextView4 = null;
                 }
                 if (unifyTextView4 == null) {
-                    if (vp0Var != null && (cq0Var2 = vp0Var.i) != null && (aVar = cq0Var2.h) != null) {
+                    if (lq0Var != null && (sq0Var2 = lq0Var.i) != null && (aVar = sq0Var2.h) != null) {
                         str10 = aVar.a;
                     }
                     permissionView.setTextWithUnifiedPadding(str10, TextView.BufferType.NORMAL);
-                    permissionView.setOnClickListener(new g(permissionView, this, vp0Var));
+                    permissionView.setOnClickListener(new g(permissionView, this, lq0Var));
                     return;
                 }
                 return;
@@ -1166,7 +1167,7 @@ public final class NadRewardBigCardView extends FrameLayout {
         if (unifyTextView3 != null) {
         }
         UnifyTextView permissionView2 = getPermissionView();
-        if (vp0Var == null) {
+        if (lq0Var == null) {
         }
         str4 = null;
         if (str4 == null) {
@@ -1180,14 +1181,14 @@ public final class NadRewardBigCardView extends FrameLayout {
         }
     }
 
-    private final void setBrandName(vp0 vp0Var) {
+    private final void setBrandName(lq0 lq0Var) {
         String str;
         boolean z;
-        dq0 b2;
-        dq0 b3;
+        tq0 b2;
+        tq0 b3;
         UnifyTextView brandName = getBrandName();
         String str2 = null;
-        if (vp0Var != null && (b3 = vp0Var.b()) != null) {
+        if (lq0Var != null && (b3 = lq0Var.b()) != null) {
             str = b3.b();
         } else {
             str = null;
@@ -1198,22 +1199,22 @@ public final class NadRewardBigCardView extends FrameLayout {
             z = true;
         }
         if (!z) {
-            if (vp0Var != null && (b2 = vp0Var.b()) != null) {
+            if (lq0Var != null && (b2 = lq0Var.b()) != null) {
                 str2 = b2.b();
             }
             brandName.setText(str2);
         }
-        brandName.setOnClickListener(new i(vp0Var));
+        brandName.setOnClickListener(new i(lq0Var));
     }
 
-    private final void setTitle(vp0 vp0Var) {
+    private final void setTitle(lq0 lq0Var) {
         String str;
         boolean z;
-        dq0 b2;
-        dq0 b3;
+        tq0 b2;
+        tq0 b3;
         UnifyTextView title = getTitle();
         String str2 = null;
-        if (vp0Var != null && (b3 = vp0Var.b()) != null) {
+        if (lq0Var != null && (b3 = lq0Var.b()) != null) {
             str = b3.g();
         } else {
             str = null;
@@ -1224,41 +1225,41 @@ public final class NadRewardBigCardView extends FrameLayout {
             z = true;
         }
         if (!z) {
-            if (vp0Var != null && (b2 = vp0Var.b()) != null) {
+            if (lq0Var != null && (b2 = lq0Var.b()) != null) {
                 str2 = b2.g();
             }
             title.setText(str2);
         }
-        title.setOnClickListener(new l(vp0Var));
+        title.setOnClickListener(new l(lq0Var));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void setDetailButton(vp0 vp0Var) {
+    public final void setDetailButton(lq0 lq0Var) {
         String str;
         boolean z;
         String str2;
         String str3;
-        dq0 b2;
-        dq0 b3;
-        np0 np0Var;
-        np0 np0Var2;
-        dq0 b4;
+        tq0 b2;
+        tq0 b3;
+        dq0 dq0Var;
+        dq0 dq0Var2;
+        tq0 b4;
         View detailBtn = getDetailBtn();
-        int a2 = d41.c.a(detailBtn.getContext(), 16.5f);
+        int a2 = t41.c.a(detailBtn.getContext(), 16.5f);
         GradientDrawable gradientDrawable = new GradientDrawable();
         String str4 = null;
-        if (vp0Var != null && (b4 = vp0Var.b()) != null) {
+        if (lq0Var != null && (b4 = lq0Var.b()) != null) {
             str = b4.c();
         } else {
             str = null;
         }
-        gradientDrawable.setColor(z31.a(str, R.color.nad_reward_big_card_btn_color));
+        gradientDrawable.setColor(p41.a(str, R.color.nad_reward_big_card_btn_color));
         gradientDrawable.setCornerRadius(a2);
         Unit unit = Unit.INSTANCE;
         detailBtn.setBackground(gradientDrawable);
         boolean z2 = true;
-        if (vp0Var != null) {
-            z = vp0Var.l();
+        if (lq0Var != null) {
+            z = lq0Var.l();
         } else {
             z = true;
         }
@@ -1267,17 +1268,17 @@ public final class NadRewardBigCardView extends FrameLayout {
         } else {
             detailBtn.setVisibility(8);
         }
-        detailBtn.setOnClickListener(new j(vp0Var));
+        detailBtn.setOnClickListener(new j(lq0Var));
         TextView detailBtnText = getDetailBtnText();
-        if (vp0Var != null && (np0Var2 = vp0Var.m) != null && np0Var2.g) {
+        if (lq0Var != null && (dq0Var2 = lq0Var.m) != null && dq0Var2.g) {
             String str5 = ClogBuilder.Area.OPEN_BUTTON.type;
             Intrinsics.checkNotNullExpressionValue(str5, "ClogBuilder.Area.OPEN_BUTTON.type");
             u(this, str5, ClogBuilder.LogType.FREE_SHOW, null, null, 12, null);
         }
-        if (vp0Var != null && (np0Var = vp0Var.m) != null && np0Var.g) {
+        if (lq0Var != null && (dq0Var = lq0Var.m) != null && dq0Var.g) {
             str3 = detailBtnText.getContext().getString(R.string.nad_reward_detail_btn_open_app);
         } else {
-            if (vp0Var != null && (b3 = vp0Var.b()) != null) {
+            if (lq0Var != null && (b3 = lq0Var.b()) != null) {
                 str2 = b3.e();
             } else {
                 str2 = null;
@@ -1286,7 +1287,7 @@ public final class NadRewardBigCardView extends FrameLayout {
                 z2 = false;
             }
             if (!z2) {
-                if (vp0Var != null && (b2 = vp0Var.b()) != null) {
+                if (lq0Var != null && (b2 = lq0Var.b()) != null) {
                     str4 = b2.e();
                 }
             } else {
@@ -1297,35 +1298,35 @@ public final class NadRewardBigCardView extends FrameLayout {
         detailBtnText.setText(str3);
     }
 
-    private final void setDownloadButton(vp0 vp0Var) {
+    private final void setDownloadButton(lq0 lq0Var) {
         String str;
         boolean z;
         boolean z2;
         Object obj;
-        jp0 jp0Var;
+        zp0 zp0Var;
         String str2;
-        np0 np0Var;
-        rp0 rp0Var;
-        np0 np0Var2;
-        np0 np0Var3;
-        jp0 jp0Var2;
-        eq0 c2;
-        dq0 b2;
-        gh0 gh0Var = this.p;
-        if (gh0Var != null) {
-            gh0Var.k();
+        dq0 dq0Var;
+        hq0 hq0Var;
+        dq0 dq0Var2;
+        dq0 dq0Var3;
+        zp0 zp0Var2;
+        uq0 c2;
+        tq0 b2;
+        wh0 wh0Var = this.p;
+        if (wh0Var != null) {
+            wh0Var.k();
         }
         String str3 = null;
         this.p = null;
         NadMiniVideoDownloadView downloadButton = getDownloadButton();
-        int a2 = d41.c.a(downloadButton.getContext(), 16.5f);
+        int a2 = t41.c.a(downloadButton.getContext(), 16.5f);
         GradientDrawable gradientDrawable = new GradientDrawable();
-        if (vp0Var != null && (b2 = vp0Var.b()) != null) {
+        if (lq0Var != null && (b2 = lq0Var.b()) != null) {
             str = b2.c();
         } else {
             str = null;
         }
-        gradientDrawable.setColor(z31.a(str, R.color.nad_reward_big_card_btn_color));
+        gradientDrawable.setColor(p41.a(str, R.color.nad_reward_big_card_btn_color));
         float f2 = a2;
         gradientDrawable.setCornerRadius(f2);
         Unit unit = Unit.INSTANCE;
@@ -1333,19 +1334,19 @@ public final class NadRewardBigCardView extends FrameLayout {
         downloadButton.setBorderRadius(f2);
         downloadButton.setTextSize(12.0f);
         downloadButton.setProgressColor(ContextCompat.getColor(downloadButton.getContext(), R.color.nad_reward_big_card_btn_download_progress));
-        if (vp0Var != null && (c2 = vp0Var.c()) != null) {
+        if (lq0Var != null && (c2 = lq0Var.c()) != null) {
             z = c2.f();
         } else {
             z = false;
         }
         downloadButton.setIconArrowSwitch(z);
-        if (vp0Var != null) {
-            z2 = vp0Var.m();
+        if (lq0Var != null) {
+            z2 = lq0Var.m();
         } else {
             z2 = false;
         }
         boolean z3 = true;
-        if ((!z2 || vp0Var == null || (np0Var3 = vp0Var.m) == null || (jp0Var2 = np0Var3.p) == null || !jp0Var2.e) ? false : false) {
+        if ((!z2 || lq0Var == null || (dq0Var3 = lq0Var.m) == null || (zp0Var2 = dq0Var3.p) == null || !zp0Var2.e) ? false : false) {
             downloadButton.setVisibility(0);
             obj = downloadButton;
         } else {
@@ -1353,28 +1354,28 @@ public final class NadRewardBigCardView extends FrameLayout {
             obj = null;
         }
         if (obj != null) {
-            if (vp0Var != null && (np0Var2 = vp0Var.m) != null) {
-                jp0Var = np0Var2.p;
+            if (lq0Var != null && (dq0Var2 = lq0Var.m) != null) {
+                zp0Var = dq0Var2.p;
             } else {
-                jp0Var = null;
+                zp0Var = null;
             }
-            if (vp0Var != null && (rp0Var = vp0Var.f) != null) {
-                str2 = rp0Var.d;
+            if (lq0Var != null && (hq0Var = lq0Var.f) != null) {
+                str2 = hq0Var.d;
             } else {
                 str2 = null;
             }
-            if (vp0Var != null && (np0Var = vp0Var.m) != null) {
-                str3 = np0Var.t;
+            if (lq0Var != null && (dq0Var = lq0Var.m) != null) {
+                str3 = dq0Var.t;
             }
-            ak0 d2 = ak0.d(jp0Var, str2, str3);
+            qk0 d2 = qk0.d(zp0Var, str2, str3);
             Intrinsics.checkNotNullExpressionValue(d2, "AdDownloadBean.from(adMo….enhanceModel?.btnScheme)");
             d2.q.a = ClogBuilder.Page.WELFAREBIGCARD.type;
-            gh0 gh0Var2 = new gh0(d2, getDownloadButton());
-            this.p = gh0Var2;
-            Intrinsics.checkNotNull(gh0Var2);
-            gh0Var2.A();
+            wh0 wh0Var2 = new wh0(d2, getDownloadButton());
+            this.p = wh0Var2;
+            Intrinsics.checkNotNull(wh0Var2);
+            wh0Var2.A();
         }
-        downloadButton.setOnClickListener(new k(vp0Var));
+        downloadButton.setOnClickListener(new k(lq0Var));
     }
 
     public final void y(boolean z) {
@@ -1383,16 +1384,16 @@ public final class NadRewardBigCardView extends FrameLayout {
         String str2;
         String str3;
         String str4;
-        rp0 rp0Var;
-        rp0 rp0Var2;
-        rp0 rp0Var3;
-        eq0 c2;
+        hq0 hq0Var;
+        hq0 hq0Var2;
+        hq0 hq0Var3;
+        uq0 c2;
         long j2;
-        eq0 c3;
-        vp0 vp0Var = this.o;
+        uq0 c3;
+        lq0 lq0Var = this.o;
         String str5 = null;
-        if (vp0Var != null) {
-            str = vp0Var.e();
+        if (lq0Var != null) {
+            str = lq0Var.e();
         } else {
             str = null;
         }
@@ -1412,8 +1413,8 @@ public final class NadRewardBigCardView extends FrameLayout {
             Handler handler = getHandler();
             if (handler != null) {
                 Runnable runnable = this.s;
-                vp0 vp0Var2 = this.o;
-                if (vp0Var2 != null && (c3 = vp0Var2.c()) != null) {
+                lq0 lq0Var2 = this.o;
+                if (lq0Var2 != null && (c3 = lq0Var2.c()) != null) {
                     j2 = c3.d();
                 } else {
                     j2 = 0;
@@ -1421,49 +1422,49 @@ public final class NadRewardBigCardView extends FrameLayout {
                 handler.postDelayed(runnable, j2);
             }
         }
-        m61 m61Var = new m61(getContext());
-        vp0 vp0Var3 = this.o;
-        this.q = (vp0Var3 == null || (c2 = vp0Var3.c()) == null || (r4 = c2.c()) == null) ? "0" : "0";
-        m61Var.i(new n(z));
-        double a2 = 1 - (d41.c.a(getContext(), 41.0f) / d41.c.c(getContext()));
-        vp0 vp0Var4 = this.o;
-        if (vp0Var4 != null) {
-            str2 = vp0Var4.e();
+        c71 c71Var = new c71(getContext());
+        lq0 lq0Var3 = this.o;
+        this.q = (lq0Var3 == null || (c2 = lq0Var3.c()) == null || (r4 = c2.c()) == null) ? "0" : "0";
+        c71Var.i(new n(z));
+        double a2 = 1 - (t41.c.a(getContext(), 41.0f) / t41.c.c(getContext()));
+        lq0 lq0Var4 = this.o;
+        if (lq0Var4 != null) {
+            str2 = lq0Var4.e();
         } else {
             str2 = null;
         }
-        vp0 vp0Var5 = this.o;
-        if (vp0Var5 != null && (rp0Var3 = vp0Var5.f) != null) {
-            str3 = rp0Var3.d;
+        lq0 lq0Var5 = this.o;
+        if (lq0Var5 != null && (hq0Var3 = lq0Var5.f) != null) {
+            str3 = hq0Var3.d;
         } else {
             str3 = null;
         }
-        t61 t61Var = new t61(str2, a2, 0, str3);
-        t61Var.A(false);
-        t61Var.C(true);
-        t61Var.B(!z);
-        t61Var.w(z);
-        t61Var.x(z);
-        t61Var.y(true);
-        vp0 vp0Var6 = this.o;
-        if (vp0Var6 != null && (rp0Var2 = vp0Var6.f) != null) {
-            str4 = rp0Var2.m;
+        j71 j71Var = new j71(str2, a2, 0, str3);
+        j71Var.A(false);
+        j71Var.C(true);
+        j71Var.B(!z);
+        j71Var.w(z);
+        j71Var.x(z);
+        j71Var.y(true);
+        lq0 lq0Var6 = this.o;
+        if (lq0Var6 != null && (hq0Var2 = lq0Var6.f) != null) {
+            str4 = hq0Var2.m;
         } else {
             str4 = null;
         }
         if (!TextUtils.isEmpty(str4)) {
-            vp0 vp0Var7 = this.o;
-            if (vp0Var7 != null && (rp0Var = vp0Var7.f) != null) {
-                str5 = rp0Var.l;
+            lq0 lq0Var7 = this.o;
+            if (lq0Var7 != null && (hq0Var = lq0Var7.f) != null) {
+                str5 = hq0Var.l;
             }
-            t61Var.v(str5);
+            j71Var.v(str5);
         }
         Unit unit = Unit.INSTANCE;
-        m61Var.h(t61Var);
-        m61Var.j();
+        c71Var.h(j71Var);
+        c71Var.j();
         this.t = System.currentTimeMillis();
         Unit unit2 = Unit.INSTANCE;
-        this.n = m61Var;
+        this.n = c71Var;
         Function1<? super Boolean, Unit> function1 = this.u;
         if (function1 != null) {
             function1.invoke(Boolean.valueOf(z));
@@ -1481,14 +1482,14 @@ public final class NadRewardBigCardView extends FrameLayout {
     }
 
     public final void q(String str, ClogBuilder.LogType logType, String str2) {
-        np0 np0Var;
+        dq0 dq0Var;
         String str3;
-        dq0 b2;
+        tq0 b2;
         u(this, str, logType, null, null, 12, null);
-        vp0 vp0Var = this.o;
+        lq0 lq0Var = this.o;
         boolean z = false;
-        if (vp0Var != null && (np0Var = vp0Var.m) != null && !np0Var.g) {
-            if (vp0Var != null && (b2 = vp0Var.b()) != null) {
+        if (lq0Var != null && (dq0Var = lq0Var.m) != null && !dq0Var.g) {
+            if (lq0Var != null && (b2 = lq0Var.b()) != null) {
                 str3 = b2.d();
             } else {
                 str3 = null;
@@ -1499,7 +1500,7 @@ public final class NadRewardBigCardView extends FrameLayout {
             }
         }
         if (!((str2 == null || str2.length() == 0) ? true : true)) {
-            uh0.c(str2, getContext());
+            ki0.c(str2, getContext());
         }
     }
 
@@ -1509,11 +1510,11 @@ public final class NadRewardBigCardView extends FrameLayout {
         ViewGroup.LayoutParams layoutParams = arrow.getLayoutParams();
         if (layoutParams != null) {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            vp0 vp0Var = this.o;
-            if (vp0Var != null && vp0Var.l()) {
-                a2 = d41.c.a(arrow.getContext(), 10.0f);
+            lq0 lq0Var = this.o;
+            if (lq0Var != null && lq0Var.l()) {
+                a2 = t41.c.a(arrow.getContext(), 10.0f);
             } else {
-                a2 = d41.c.a(arrow.getContext(), 25.0f);
+                a2 = t41.c.a(arrow.getContext(), 25.0f);
             }
             layoutParams2.bottomMargin = a2;
             arrow.setLayoutParams(layoutParams2);
@@ -1526,12 +1527,12 @@ public final class NadRewardBigCardView extends FrameLayout {
     public final void t(String str, ClogBuilder.LogType logType, String str2, String str3) {
         String str4;
         boolean z;
-        rp0 rp0Var;
+        hq0 hq0Var;
         ClogBuilder u = new ClogBuilder().j(str).y(logType).u(ClogBuilder.Page.WELFAREBIGCARD);
-        vp0 vp0Var = this.o;
+        lq0 lq0Var = this.o;
         List<MonitorUrl> list = null;
-        if (vp0Var != null && (rp0Var = vp0Var.f) != null) {
-            str4 = rp0Var.d;
+        if (lq0Var != null && (hq0Var = lq0Var.f) != null) {
+            str4 = hq0Var.d;
         } else {
             str4 = null;
         }
@@ -1551,13 +1552,13 @@ public final class NadRewardBigCardView extends FrameLayout {
         if (z2) {
             p.l(str3);
         }
-        o11.b(p);
+        e21.b(p);
         if (logType == ClogBuilder.LogType.CLICK) {
-            vp0 vp0Var2 = this.o;
-            if (vp0Var2 != null) {
-                list = vp0Var2.e;
+            lq0 lq0Var2 = this.o;
+            if (lq0Var2 != null) {
+                list = lq0Var2.e;
             }
-            ih0.b(list);
+            yh0.b(list);
         }
     }
 }

@@ -23,7 +23,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements MediaClock {
     public static final int REINITIALIZATION_STATE_NONE = 0;
     public static final int REINITIALIZATION_STATE_SIGNAL_END_OF_STREAM = 1;
@@ -70,7 +70,7 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
 
     public abstract int supportsFormatInternal(DrmSessionManager<ExoMediaCrypto> drmSessionManager, Format format);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
         public AudioSinkListener() {
         }

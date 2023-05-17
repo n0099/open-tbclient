@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.hf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,20 +10,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ms6 implements in {
+import java.util.Iterator;
+import java.util.LinkedList;
+/* loaded from: classes6.dex */
+public class ms6 extends hf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static ms6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public LinkedList<kf5> a;
 
-    public void g(String str) {
+    @Override // com.baidu.tieba.hf5
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.hf5
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
@@ -39,91 +49,89 @@ public class ms6 implements in {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        b = new ms6();
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public ms6(String str, String str2, String str3) {
+    public ms6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    public static ms6 e(JSONObject jSONObject) {
+    public static synchronized ms6 e() {
+        InterceptResult invokeV;
+        ms6 ms6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (ms6.class) {
+                ms6Var = b;
+            }
+            return ms6Var;
+        }
+        return (ms6) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<kf5> linkedList = this.a;
+            if (linkedList != null && linkedList.size() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hf5
+    public void b(hf5.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            LinkedList<kf5> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<kf5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    kf5 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
+                    }
+                }
+            } else if (TbFaceManager.i().m() > 0) {
+                this.a = new LinkedList<>();
+                ls6 ls6Var = new ls6();
+                this.a.add(ls6Var);
+                if (aVar != null) {
+                    aVar.a(ls6Var);
+                }
+            }
+        }
+    }
+
+    public boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            LinkedList<kf5> linkedList = this.a;
+            if (linkedList != null) {
+                Iterator<kf5> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().m(str)) {
+                        return true;
+                    }
+                }
+                return false;
             }
-            return new ms6(jSONObject.optString("tid"), jSONObject.optString("title"), jSONObject.optString("pic"));
+            return false;
         }
-        return (ms6) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
-        }
+        return invokeL.booleanValue;
     }
 }

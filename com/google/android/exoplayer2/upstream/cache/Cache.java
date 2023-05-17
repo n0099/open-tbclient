@@ -5,10 +5,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.NavigableSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface Cache {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onSpanAdded(Cache cache, CacheSpan cacheSpan);
 
@@ -49,7 +49,7 @@ public interface Cache {
     @Nullable
     CacheSpan startReadWriteNonBlocking(String str, long j) throws CacheException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class CacheException extends IOException {
         public CacheException(String str) {
             super(str);

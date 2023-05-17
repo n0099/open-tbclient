@@ -31,10 +31,11 @@ import com.baidu.sapi2.views.logindialog.view.OneKeyLoginView;
 import com.baidu.sapi2.views.logindialog.view.SendSmsView;
 import com.baidu.sapi2.views.logindialog.view.ShareLoginView;
 import com.baidu.sapi2.views.logindialog.view.ThirdPartyView;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.tieba.R;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoginPager extends LinearLayout implements ILoginConfirmCallback, ISendSmsUICallback {
     public Context a;
     public ColorType b;
@@ -51,7 +52,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     public int m;
     public final long n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ShareModelResultCallback {
         public a() {
         }
@@ -68,7 +69,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends OneKeyLoginCallback {
         public b() {
         }
@@ -86,7 +87,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class c {
         public static final /* synthetic */ int[] a;
 
@@ -230,7 +231,7 @@ public class LoginPager extends LinearLayout implements ILoginConfirmCallback, I
     }
 
     private void f() {
-        SapiAccountManager.getInstance().getShareModels(1500L, new a());
+        SapiAccountManager.getInstance().getShareModels(BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT, new a());
     }
 
     public void hideSendMsgErrorTip() {

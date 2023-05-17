@@ -8,11 +8,11 @@ import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.utils.enums.ShareDirectionType;
 import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.security.WarmTipsManager;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.uoa;
+import com.baidu.tieba.sqa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CSSParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,12 +38,12 @@ public class CSSParser {
     public Source b;
     public boolean c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         boolean a(m mVar, SVG.j0 j0Var);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c extends SVGParser.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class CSSParser {
             return invokeI.intValue;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class CSSParser {
         public final a D() throws CSSParseException {
             InterceptResult invokeV;
             int i;
-            uoa uoaVar;
+            sqa sqaVar;
             int d;
             a aVar;
             Interceptable interceptable = $ic;
@@ -143,16 +143,16 @@ public class CSSParser {
                         } else {
                             i = 1;
                         }
-                        uoa c = uoa.c(this.a, this.b, this.c, false);
+                        sqa c = sqa.c(this.a, this.b, this.c, false);
                         if (c != null) {
                             this.b = c.a();
                         }
                         if (!f('n') && !f('N')) {
-                            uoaVar = c;
+                            sqaVar = c;
                             c = null;
                         } else {
                             if (c == null) {
-                                c = new uoa(1L, this.b);
+                                c = new sqa(1L, this.b);
                             }
                             A();
                             boolean f = f('+');
@@ -161,15 +161,15 @@ public class CSSParser {
                             }
                             if (f) {
                                 A();
-                                uoaVar = uoa.c(this.a, this.b, this.c, false);
-                                if (uoaVar != null) {
-                                    this.b = uoaVar.a();
+                                sqaVar = sqa.c(this.a, this.b, this.c, false);
+                                if (sqaVar != null) {
+                                    this.b = sqaVar.a();
                                 } else {
                                     this.b = i2;
                                     return null;
                                 }
                             } else {
-                                uoaVar = null;
+                                sqaVar = null;
                             }
                             int i5 = i3;
                             i3 = i;
@@ -180,8 +180,8 @@ public class CSSParser {
                         } else {
                             d = i3 * c.d();
                         }
-                        if (uoaVar != null) {
-                            i4 = i * uoaVar.d();
+                        if (sqaVar != null) {
+                            i4 = i * sqaVar.d();
                         }
                         aVar = new a(d, i4);
                     }
@@ -534,7 +534,7 @@ public class CSSParser {
                             }
                             String H2 = H();
                             if (H2 != null) {
-                                pVar.a(DealIntentService.KEY_CLASS, AttribOp.EQUALS, H2);
+                                pVar.a("class", AttribOp.EQUALS, H2);
                                 oVar.b();
                             } else {
                                 throw new CSSParseException("Invalid \".class\" simpleSelectors");
@@ -732,7 +732,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class AttribOp {
         public static final /* synthetic */ AttribOp[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -802,7 +802,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Combinator {
         public static final /* synthetic */ Combinator[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -870,7 +870,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class MediaType {
         public static final /* synthetic */ MediaType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -910,7 +910,7 @@ public class CSSParser {
             print = new MediaType("print", 5);
             projection = new MediaType("projection", 6);
             screen = new MediaType("screen", 7);
-            speech = new MediaType("speech", 8);
+            speech = new MediaType(WarmTipsManager.WIDGET_SPEECH_EXT_VALUE, 8);
             tty = new MediaType("tty", 9);
             MediaType mediaType = new MediaType(Config.TARGET_SDK_VERSION, 10);
             f1065tv = mediaType;
@@ -956,7 +956,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class PseudoClassIdents {
         public static final /* synthetic */ PseudoClassIdents[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1089,7 +1089,7 @@ public class CSSParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Source {
         public static final /* synthetic */ Source[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1154,7 +1154,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -1289,7 +1289,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1318,7 +1318,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class e implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1425,7 +1425,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class f implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1468,7 +1468,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class g implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1533,7 +1533,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class h implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1577,7 +1577,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class i implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1649,7 +1649,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class j implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1692,7 +1692,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class k implements d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1735,7 +1735,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1775,7 +1775,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class m {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1809,7 +1809,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class n {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1927,7 +1927,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2039,7 +2039,7 @@ public class CSSParser {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2405,7 +2405,7 @@ public class CSSParser {
                     char c2 = 65535;
                     int hashCode = str2.hashCode();
                     if (hashCode != 3355) {
-                        if (hashCode == 94742904 && str2.equals(DealIntentService.KEY_CLASS)) {
+                        if (hashCode == 94742904 && str2.equals("class")) {
                             c2 = 1;
                         }
                     } else if (str2.equals("id")) {

@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cp {
     public int a;
 
@@ -41,7 +41,7 @@ public class cp {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m255a() {
+    public JSONObject m274a() {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("cost", this.f181a);
         jSONObject.put("size", this.c);

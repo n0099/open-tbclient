@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.text.TextOutput;
 import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SubtitleView extends View implements TextOutput {
     public static final int ABSOLUTE = 2;
     public static final float DEFAULT_BOTTOM_PADDING_FRACTION = 0.08f;

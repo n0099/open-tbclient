@@ -6,7 +6,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
     public SimpleDraweeView a;
     public TextView b;
@@ -15,9 +15,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
 
     public ListRecommendViewHolder(View view2) {
         super(view2);
-        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0921df);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e0);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921de);
-        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0921e1);
+        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f092242);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092243);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092241);
+        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f092244);
     }
 }

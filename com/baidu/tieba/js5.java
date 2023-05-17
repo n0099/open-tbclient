@@ -1,55 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class js5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(NewGodData newGodData) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            if (newGodData != null && newGodData.getType() == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return false;
             }
-            return c(z);
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf > 0 && indexOf < 20) {
+                return true;
+            }
+            int indexOf2 = str.indexOf("tiebapic");
+            if (indexOf2 <= 0 || indexOf2 >= 20) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static String b(NewGodInfo newGodInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return c(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c();
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!FileHelper.checkSD() || !ub.c()) {
+                return false;
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
+            return true;
         }
-        return (String) invokeZ.objValue;
+        return invokeV.booleanValue;
     }
 }

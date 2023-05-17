@@ -30,10 +30,10 @@ public class b {
         }
     }
 
-    public void b(a.InterfaceC0056a interfaceC0056a) {
+    public void b(a.InterfaceC0059a interfaceC0059a) {
         a aVar = this.we;
         if (aVar != null) {
-            aVar.a(interfaceC0056a);
+            aVar.a(interfaceC0059a);
             if (this.wf) {
                 return;
             }

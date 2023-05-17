@@ -1,113 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tbclient.PrivateForumInfo;
-/* loaded from: classes7.dex */
-public class yh7 implements p25 {
+/* loaded from: classes8.dex */
+public class yh7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment m;
+    public FrsActivity n;
+    public boolean o;
 
-    public yh7() {
+    public yh7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.n = frsActivity;
+        this.m = frsFragment;
+    }
+
+    public void F(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.o = z;
         }
     }
 
-    public static boolean c() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
         InterceptResult invokeV;
-        eo9 frsResponseData;
-        String str;
-        boolean z;
-        PrivateForumPopInfoData privateForumPopInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!LooperBlockSwitch.getIsOn() || (frsResponseData = TbSingleton.getInstance().getFrsResponseData()) == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.I3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
             }
-            FrsViewData frsViewData = new FrsViewData();
-            frsViewData.receiveData(frsResponseData);
-            String str2 = null;
-            if (frsViewData.getForum() != null) {
-                str2 = frsViewData.getForum().getName();
-                str = frsViewData.getForum().getId();
-            } else {
-                str = null;
-            }
-            if (StringUtils.isNull(str2) || StringUtils.isNull(str)) {
-                return false;
-            }
-            if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
-                return false;
-            }
-            PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
-            privateForumPopInfoData.a0(frsViewData.getPrivateForumTotalInfo().c());
-            PrivateForumInfo a = frsViewData.getPrivateForumTotalInfo().a();
-            if (a != null && a.private_forum_status.intValue() == 1 && (hi.isEmpty(privateForumPopInfoData.Y()) || privateForumPopInfoData.X() != gg.e(str, 0))) {
-                privateForumPopInfoData.d0("create_success");
-                privateForumPopInfoData.e0(String.format(kg7.t, str, str2));
-                privateForumPopInfoData.c0(gg.e(str, -1));
-                privateForumPopInfoData.setTitle(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1570));
-                privateForumPopInfoData.b0(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1571));
-                z = FrsPrivateCommonDialogView.b(privateForumPopInfoData, false);
-            } else if (privateForumPopInfoData.X() == gg.e(str, 0)) {
-                z = FrsPrivateCommonDialogView.b(privateForumPopInfoData, false);
-            } else {
-                z = false;
-            }
-            if (!z && (privateForumPopInfo = frsViewData.getPrivateForumPopInfo()) != null && privateForumPopInfo.X() == gg.e(str, 0)) {
-                return FrsPrivateCommonDialogView.b(privateForumPopInfo, true);
-            }
-            return z;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.p25
-    @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsExam");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (a35.j() || !this.o || !gl7.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
+                return false;
+            }
+            return true;
         }
-        return (Map) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.p25
-    public boolean b(@NonNull Map<String, Object> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            return c();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            t();
         }
-        return invokeL.booleanValue;
     }
 }

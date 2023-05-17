@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d41;
+import com.baidu.tieba.t41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDSplashActionView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class BDSplashActionView extends RelativeLayout {
     public boolean c;
     public int d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class BaseActionLayout extends RelativeLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class BDSplashActionView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.gravity = 16;
             linearLayout.addView(textView, layoutParams);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = d41.c.a(this.a, 10.0f);
+            layoutParams2.leftMargin = t41.c.a(this.a, 10.0f);
             layoutParams2.gravity = 16;
             linearLayout.addView(textView2, layoutParams2);
             return linearLayout;
@@ -246,9 +246,9 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             if (this.c) {
-                layoutParams.bottomMargin = d41.c.a(this.a, this.d);
+                layoutParams.bottomMargin = t41.c.a(this.a, this.d);
             } else {
-                layoutParams.bottomMargin = d41.c.a(this.a, this.d);
+                layoutParams.bottomMargin = t41.c.a(this.a, this.d);
             }
             baseActionLayout.addView(this, layoutParams);
         }

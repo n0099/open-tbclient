@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;
     @VisibleForTesting
@@ -38,7 +38,7 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
     @DoNotOptimize
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class Api24Utils {
         public Api24Utils() {
         }

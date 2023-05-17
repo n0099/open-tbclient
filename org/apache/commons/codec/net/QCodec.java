@@ -6,7 +6,7 @@ import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class QCodec extends RFC1522Codec implements StringEncoder, StringDecoder {
     public static final byte BLANK = 32;
     public static final BitSet PRINTABLE_CHARS;

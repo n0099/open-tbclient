@@ -27,10 +27,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public final X509Certificate[][] a;
         public final byte[] b;

@@ -4,7 +4,7 @@ import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Base64Processor implements MessageProcessor {
     @Override // com.yy.hiidostatis.message.MessageProcessor
     public Message process(Message message) {

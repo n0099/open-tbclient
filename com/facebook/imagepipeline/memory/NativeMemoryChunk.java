@@ -9,7 +9,7 @@ import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static final String TAG = "NativeMemoryChunk";
     public boolean mIsClosed;

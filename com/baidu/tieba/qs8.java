@@ -1,156 +1,92 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class qs8 {
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class qs8 implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public MyEmotionHorizontalAdater b;
-    public List<EmotionPackageData> c;
-    public final List<a> d;
-    public vs8 e;
-    public os8 f;
+    public boolean a;
+    public List<vd5> b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102515, "Lcom/baidu/tieba/qs8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948102515, "Lcom/baidu/tieba/qs8;");
+                return;
             }
         }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
-            }
-            return (String) invokeV.objValue;
-        }
+        d = BdUniqueId.gen();
     }
 
-    public qs8(TbPageContext<?> tbPageContext, BdListView bdListView, os8 os8Var) {
+    public qs8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdListView, os8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bdListView;
-        vs8 vs8Var = new vs8(tbPageContext);
-        this.e = vs8Var;
-        vs8Var.b(TbadkCoreApplication.getInst().getSkinType());
-        this.a.addHeaderView(this.e.a());
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
-        this.b = myEmotionHorizontalAdater;
-        this.f = os8Var;
-        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
-    }
-
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i < this.c.size() && i2 >= 0 && i2 < this.c.size()) {
-            List<EmotionPackageData> list = this.c;
-            list.add(i2, list.remove(i));
-            List<a> list2 = this.d;
-            list2.add(i2, list2.remove(i));
-            this.b.notifyDataSetChanged();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList(this.d);
-            this.d.clear();
-            for (EmotionPackageData emotionPackageData : this.c) {
-                a aVar = null;
-                Iterator it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    a aVar2 = (a) it.next();
-                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
-                        aVar = aVar2;
-                        break;
-                    }
-                }
-                if (aVar == null) {
-                    aVar = new a();
-                    aVar.a = emotionPackageData.id;
-                }
-                this.d.add(aVar);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void update() {
-        vs8 vs8Var;
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b != null && this.a != null && this.c != null && (vs8Var = this.e) != null && this.f != null) {
-            vs8Var.c();
-            this.f.b(0, this.b.b());
-            this.f.a(ns8.b().a());
-            this.b.notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return d;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void update(List<EmotionPackageData> list) {
+    public void a(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.a != null && this.b != null) {
-            this.c.clear();
-            this.c.addAll(list);
-            b();
-            this.b.d();
-            this.e.update(Integer.valueOf(this.b.b()));
-            this.f.b(0, this.b.b());
-            this.f.a(ns8.b().a());
-            this.b.notifyDataSetChanged();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        boolean z2 = false;
+        if (jSONObject.optInt("need_profile", 0) == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.a = z;
+        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.b = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                vd5 vd5Var = new vd5();
+                vd5Var.a(optJSONArray.optJSONObject(i));
+                this.b.add(vd5Var);
+            }
+        }
+        if (jSONObject.optInt("has_more", 0) == 1) {
+            z2 = true;
+        }
+        this.c = z2;
     }
 }

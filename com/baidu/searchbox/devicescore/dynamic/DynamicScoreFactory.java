@@ -4,7 +4,7 @@ import android.util.Log;
 import com.baidu.searchbox.devicescore.IDeviceScore;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DynamicScoreFactory {
     public static final String TAG = "DynamicScoreFactory";
     public static Map<String, IDynamicScoreManager> sDynamicManagerMap = new HashMap(1);

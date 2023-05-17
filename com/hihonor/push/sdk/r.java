@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.tieba.hya;
-import com.baidu.tieba.sya;
-import com.baidu.tieba.vya;
+import com.baidu.tieba.f0b;
+import com.baidu.tieba.q0b;
+import com.baidu.tieba.t0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,19 +18,19 @@ import com.hihonor.push.framework.aidl.MessageCodec;
 import com.hihonor.push.framework.aidl.entity.ResponseHeader;
 import com.hihonor.push.sdk.common.data.ApiException;
 import com.huawei.hms.api.IPCCallback;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r extends IPushCallback.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
-    public final vya b;
+    public final t0b b;
 
-    public r(Object obj, vya vyaVar) {
+    public r(Object obj, t0b t0bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, vyaVar};
+            Object[] objArr = {obj, t0bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public class r extends IPushCallback.Stub {
             }
         }
         this.a = obj;
-        this.b = vyaVar;
+        this.b = t0bVar;
     }
 
     @Override // com.hihonor.push.framework.aidl.IPushCallback
@@ -57,17 +57,17 @@ public class r extends IPushCallback.Stub {
             if (obj instanceof IMessageEntity) {
                 MessageCodec.parseMessageEntity(body, (IMessageEntity) obj);
             }
-            vya vyaVar = this.b;
+            t0b t0bVar = this.b;
             ApiException apiException = new ApiException(responseHeader.getStatusCode(), responseHeader.getStatusMessage());
             Object obj2 = this.a;
-            hya.b bVar = (hya.b) vyaVar;
+            f0b.b bVar = (f0b.b) t0bVar;
             bVar.getClass();
-            hya hyaVar = hya.c;
-            sya<?> syaVar = bVar.a;
-            hyaVar.getClass();
+            f0b f0bVar = f0b.c;
+            q0b<?> q0bVar = bVar.a;
+            f0bVar.getClass();
             Log.i("HonorApiManager", "sendResolveResult start");
-            Handler handler = hyaVar.a;
-            handler.sendMessage(handler.obtainMessage(2, syaVar));
+            Handler handler = f0bVar.a;
+            handler.sendMessage(handler.obtainMessage(2, q0bVar));
             bVar.a.b(apiException, obj2);
             Log.i(IPCCallback.TAG, "onResult parse end.");
         }

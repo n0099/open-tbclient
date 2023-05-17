@@ -3,7 +3,7 @@ package com.baidu.webkit.internal.resource;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IResouceNetTaskListener extends INoProGuard {
     void onNetDownloadComplete(BdNet bdNet);
 

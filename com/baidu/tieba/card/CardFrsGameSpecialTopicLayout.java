@@ -14,18 +14,18 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopicSubNode;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.gg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xf<CardFrsGameSpecialTopicItemView> a;
+    public gg<CardFrsGameSpecialTopicItemView> a;
     public int b;
     public int c;
     public int d;
@@ -37,7 +37,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,10 +162,10 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(xf<CardFrsGameSpecialTopicItemView> xfVar) {
+    public void setViewPool(gg<CardFrsGameSpecialTopicItemView> ggVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xfVar) == null) {
-            this.a = xfVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ggVar) == null) {
+            this.a = ggVar;
         }
     }
 
@@ -229,8 +229,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
         cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().N(featureCardTopicSubNode.image, 10, false);
         cardFrsGameSpecialTopicItemView.getSpecialTopicNameView().setText(featureCardTopicSubNode.title);
-        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0766, String.valueOf(featureCardTopicSubNode.article_num)));
-        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f0767, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f07d4, String.valueOf(featureCardTopicSubNode.article_num)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f07d5, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
         cardFrsGameSpecialTopicItemView.setTag(featureCardTopicSubNode.url);
         cardFrsGameSpecialTopicItemView.c(TbadkCoreApplication.getInst().getSkinType());
     }

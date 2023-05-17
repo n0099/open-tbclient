@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.da5;
-import com.baidu.tieba.ec9;
-import com.baidu.tieba.fc9;
-import com.baidu.tieba.ha5;
+import com.baidu.tieba.ae9;
+import com.baidu.tieba.be9;
+import com.baidu.tieba.mb5;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
+import com.baidu.tieba.qb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbadkStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<da5> {
+    /* loaded from: classes4.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<mb5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,17 +49,17 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<da5> run(CustomMessage<da5> customMessage) {
+        public CustomResponsedMessage<mb5> run(CustomMessage<mb5> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156675, new ha5());
+                return new CustomResponsedMessage<>(2156675, new qb5());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class TbadkStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String obj = customMessage.getData().toString();
                     if ("isKeepOriginalLogic".equals(obj)) {
-                        z = fc9.b();
+                        z = be9.b();
                     } else if (ComplianceParmasHelper.isNeedChange(obj)) {
                         z = true;
                     }
@@ -100,7 +100,7 @@ public class TbadkStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class c implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class TbadkStatic {
                 if (customMessage != null && customMessage.getData() != null) {
                     String obj = customMessage.getData().toString();
                     if ("isKeepOriginalLogic".equals(obj)) {
-                        z = ec9.b();
+                        z = ae9.b();
                     } else if (ComplianceParmasHelper.isNeedChange(obj)) {
                         z = true;
                     }
@@ -141,7 +141,7 @@ public class TbadkStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class d implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,22 +172,22 @@ public class TbadkStatic {
                         hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
                         hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
                     } else {
-                        hashMap.put(HttpRequest.NEED_DECRYPT, fc9.c());
-                        String g = fc9.g(HttpRequest.ANDROID_ID);
+                        hashMap.put(HttpRequest.NEED_DECRYPT, be9.c());
+                        String g = be9.g(HttpRequest.ANDROID_ID);
                         if (!TextUtils.isEmpty(g)) {
-                            hashMap.put(g, fc9.d());
+                            hashMap.put(g, be9.d());
                         }
-                        String g2 = fc9.g(HttpRequest.PHONE_IMEI);
+                        String g2 = be9.g(HttpRequest.PHONE_IMEI);
                         if (!TextUtils.isEmpty(g2)) {
-                            hashMap.put(g2, fc9.f());
+                            hashMap.put(g2, be9.f());
                         }
-                        String g3 = fc9.g("oaid");
+                        String g3 = be9.g("oaid");
                         if (!TextUtils.isEmpty(g3)) {
-                            hashMap.put(g3, fc9.i());
+                            hashMap.put(g3, be9.i());
                         }
-                        String g4 = fc9.g("model");
+                        String g4 = be9.g("model");
                         if (!TextUtils.isEmpty(g4)) {
-                            hashMap.put(g4, fc9.h());
+                            hashMap.put(g4, be9.h());
                         }
                     }
                 }
@@ -197,7 +197,7 @@ public class TbadkStatic {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e implements CustomMessageTask.CustomRunnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -227,10 +227,10 @@ public class TbadkStatic {
                         hashMap.remove("isKeepOriginalLogic");
                         hashMap.put(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                     } else {
-                        hashMap.put("need_cam_decrypt", ec9.c());
-                        String d = ec9.d("mac");
+                        hashMap.put("need_cam_decrypt", ae9.c());
+                        String d = ae9.d("mac");
                         if (!TextUtils.isEmpty(d)) {
-                            hashMap.put(d, ec9.e());
+                            hashMap.put(d, ae9.e());
                         }
                     }
                 }

@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.request;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseRepeatedPostProcessor extends BasePostprocessor implements RepeatedPostprocessor {
     public RepeatedPostprocessorRunner mCallback;
 

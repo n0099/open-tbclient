@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.mobstat.bs;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ap {
     public String a;
     public String b;

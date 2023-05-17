@@ -18,14 +18,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ScreenTopToast extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class ScreenTopToast extends LinearLayout {
     public boolean h;
     public c i;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a(ScreenTopToast screenTopToast);
     }
@@ -54,7 +54,7 @@ public class ScreenTopToast extends LinearLayout {
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class ScreenTopToast extends LinearLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class ScreenTopToast extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            jg.a().removeCallbacks(this.g);
+            sg.a().removeCallbacks(this.g);
             clearAnimation();
         }
     }
@@ -295,7 +295,7 @@ public class ScreenTopToast extends LinearLayout {
             this.b = (TextView) findViewById(R.id.screen_top_toast_title);
             this.c = (TextView) findViewById(R.id.screen_top_toast_content);
             this.d = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-            this.d.setConfig(new d65());
+            this.d.setConfig(new m75());
             f();
             h();
         }
@@ -305,7 +305,7 @@ public class ScreenTopToast extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ed);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100fe);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
             this.g = new b(this);
@@ -327,6 +327,6 @@ public class ScreenTopToast extends LinearLayout {
         viewGroup.addView(this, -1, -2);
         this.h = true;
         startAnimation(this.e);
-        jg.a().postDelayed(this.g, 5000L);
+        sg.a().postDelayed(this.g, 5000L);
     }
 }

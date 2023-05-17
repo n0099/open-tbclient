@@ -1,169 +1,102 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class a05 implements um9 {
+/* loaded from: classes4.dex */
+public class a05 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<a> b;
+    public boolean a;
+    public String b;
+    public ICardInfo c;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public String c;
-        public String d;
-        public int e;
-        public boolean f;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561379, "Lcom/baidu/tieba/a05;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return invokeV.intValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.e;
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.f;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void g(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947561379, "Lcom/baidu/tieba/a05;");
                 return;
             }
-            this.a = jSONObject.optString("icon_name");
-            this.b = jSONObject.optInt("icon_level");
-            this.c = jSONObject.optString("icon_small_pic");
-            this.d = jSONObject.optString("icon_pic");
-            this.e = jSONObject.optInt("light_up");
         }
-
-        public void h(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f = z;
-            }
-        }
+        d = BdUniqueId.gen();
     }
 
     public a05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public List<a> a() {
+    public ICardInfo c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (List) invokeV.objValue;
+        return (ICardInfo) invokeV.objValue;
     }
 
-    public int b() {
+    public void d() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ICardInfo i = li8.i(this.b);
+            this.c = i;
+            if (i != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.a = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return d;
         }
-        return invokeV.intValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
         }
-        this.a = jSONObject.optInt("levelup");
-        JSONArray optJSONArray = jSONObject.optJSONArray("icon_info");
-        if (optJSONArray != null) {
-            this.b = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (optJSONArray.optJSONObject(i) != null) {
-                    a aVar = new a();
-                    aVar.g(optJSONArray.optJSONObject(i));
-                    this.b.add(aVar);
-                }
-            }
+        return invokeV.booleanValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
         }
     }
 }

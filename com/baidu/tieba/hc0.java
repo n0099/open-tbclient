@@ -1,12 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.mario.audio.AudioParams;
-import java.nio.ByteBuffer;
-/* loaded from: classes4.dex */
-public interface hc0 {
-    void a(boolean z, AudioParams audioParams);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class hc0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j);
-
-    void onAudioStop(boolean z);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && str.trim().length() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

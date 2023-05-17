@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SpliceScheduleCommand extends SpliceCommand {
     public static final Parcelable.Creator<SpliceScheduleCommand> CREATOR = new Parcelable.Creator<SpliceScheduleCommand>() { // from class: com.google.android.exoplayer2.metadata.scte35.SpliceScheduleCommand.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -26,7 +26,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
     };
     public final List<Event> events;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ComponentSplice {
         public final int componentTag;
         public final long utcSpliceTime;
@@ -47,7 +47,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Event {
         public final boolean autoReturn;
         public final int availNum;

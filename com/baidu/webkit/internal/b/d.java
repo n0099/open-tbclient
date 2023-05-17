@@ -10,7 +10,7 @@ import android.text.TextUtils;
 import com.baidu.webkit.internal.utils.CommonUtils;
 import java.net.URISyntaxException;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d extends g {
     /* JADX WARN: Code restructure failed: missing block: B:32:0x006e, code lost:
         if (r4.versionCode < r6) goto L36;

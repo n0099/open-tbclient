@@ -3,11 +3,11 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.EncodedImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class RemoveImageTransformMetaDataProducer implements Producer<CloseableReference<PooledByteBuffer>> {
     public final Producer<EncodedImage> mInputProducer;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class RemoveImageTransformMetaDataConsumer extends DelegatingConsumer<EncodedImage, CloseableReference<PooledByteBuffer>> {
         public RemoveImageTransformMetaDataConsumer(Consumer<CloseableReference<PooledByteBuffer>> consumer) {
             super(consumer);

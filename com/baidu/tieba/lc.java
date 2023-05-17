@@ -1,15 +1,92 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface lc {
-    Object a(ud udVar);
 
-    Object b(ud udVar);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public class lc implements rc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    Object c(ud udVar);
+    public lc(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = z;
+    }
 
-    Object d(ud udVar);
+    @Override // com.baidu.tieba.rc
+    public Object a(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aeVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
 
-    Object e(ud udVar);
+    @Override // com.baidu.tieba.rc
+    public Object b(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aeVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
 
-    Object f(ud udVar);
+    @Override // com.baidu.tieba.rc
+    public Object c(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aeVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rc
+    public Object d(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aeVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rc
+    public Object e(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aeVar)) == null) {
+            return d(aeVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.rc
+    public Object f(ae aeVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aeVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
 }

@@ -13,7 +13,7 @@ import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MultipartBody extends RequestBody {
     public final ByteString boundary;
     public long contentLength = -1;
@@ -29,7 +29,7 @@ public final class MultipartBody extends RequestBody {
     public static final byte[] CRLF = {13, 10};
     public static final byte[] DASHDASH = {45, 45};
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public final ByteString boundary;
         public final List<Part> parts;
@@ -88,7 +88,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Part {
         public final RequestBody body;
         @Nullable

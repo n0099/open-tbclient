@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.Serializable;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d implements Serializable, Comparable<d> {
     public static final char[] a = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     public static final d b = a(new byte[0]);

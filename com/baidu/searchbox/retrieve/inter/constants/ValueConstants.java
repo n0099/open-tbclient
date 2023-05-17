@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.inter.constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ValueConstants {
     public static final String BUSSINESS_EXPIRED = "1";
     public static final String DATA_KEY_MISS = "1";

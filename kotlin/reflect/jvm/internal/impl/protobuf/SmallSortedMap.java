@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import kotlin.reflect.jvm.internal.impl.protobuf.FieldSet;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V> {
     public List<SmallSortedMap<K, V>.Entry> entryList;
     public boolean isImmutable;
@@ -21,7 +21,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
     public final int maxArraySize;
     public Map<K, V> overflowEntries;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class EmptySet {
         public static final Iterator<Object> ITERATOR = new Iterator<Object>() { // from class: kotlin.reflect.jvm.internal.impl.protobuf.SmallSortedMap.EmptySet.1
             @Override // java.util.Iterator
@@ -51,7 +51,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class Entry implements Comparable<SmallSortedMap<K, V>.Entry>, Map.Entry<K, V> {
         public final K key;
         public V value;
@@ -146,7 +146,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class EntryIterator implements Iterator<Map.Entry<K, V>> {
         public Iterator<Map.Entry<K, V>> lazyOverflowIterator;
         public boolean nextCalledBeforeRemove;
@@ -202,7 +202,7 @@ public class SmallSortedMap<K extends Comparable<K>, V> extends AbstractMap<K, V
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public EntrySet() {
         }

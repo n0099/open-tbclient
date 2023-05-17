@@ -7,16 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm0;
-import com.baidu.tieba.x81;
+import com.baidu.tieba.n91;
+import com.baidu.tieba.vm0;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u00012B\u001b\u0012\u0006\u0010-\u001a\u00020,\u0012\n\b\u0002\u0010/\u001a\u0004\u0018\u00010.¢\u0006\u0004\b0\u00101J\u0019\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00072\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\f\u0010\u000bJ\u0015\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0013\u001a\u00020\u00072\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014J!\u0010\u0016\u001a\u00020\u00072\b\u0010\u0015\u001a\u0004\u0018\u00010\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0016\u0010\u0017J\u001f\u0010\u0016\u001a\u00020\u00072\u0006\u0010\u0018\u001a\u00020\r2\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0016\u0010\u0019J\u0017\u0010\u001a\u001a\u00020\u00072\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u001a\u0010\tJ\u000f\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001e\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010 \u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010\u001fR\u0018\u0010!\u001a\u0004\u0018\u00010\u00118\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R\u0018\u0010#\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0018\u0010&\u001a\u0004\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0018\u0010+\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010$¨\u00063"}, d2 = {"Lcom/baidu/nadcore/webview/view/NadBrowserStateView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;", "state", "Landroid/view/View;", "getView", "(Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)Landroid/view/View;", "", "hideState", "(Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)V", "initErrorView", "()V", "initLoadingView", "", "newProgress", "onProgressChange", "(I)V", "Landroid/view/View$OnClickListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setErrorViewClickListener", "(Landroid/view/View$OnClickListener;)V", NativeConstants.TYPE_VIEW, "setViewForState", "(Landroid/view/View;Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)V", "layoutRes", "(ILcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)V", "showState", "", "useNaviLoadingView", "()Z", "mDefaultErrorResId", "I", "mDefaultLoadingResId", "mErrorClickListener", "Landroid/view/View$OnClickListener;", "mErrorView", "Landroid/view/View;", "Landroid/view/LayoutInflater;", "mInflater", "Landroid/view/LayoutInflater;", "Landroid/widget/ProgressBar;", "mLoadingBar", "Landroid/widget/ProgressBar;", "mLoadingView", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "ViewState", "lib-webview_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u00012B\u001b\u0012\u0006\u0010-\u001a\u00020,\u0012\n\b\u0002\u0010/\u001a\u0004\u0018\u00010.¢\u0006\u0004\b0\u00101J\u0019\u0010\u0005\u001a\u0004\u0018\u00010\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00072\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\b\u0010\tJ\u000f\u0010\n\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0007H\u0002¢\u0006\u0004\b\f\u0010\u000bJ\u0015\u0010\u000f\u001a\u00020\u00072\u0006\u0010\u000e\u001a\u00020\r¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0013\u001a\u00020\u00072\b\u0010\u0012\u001a\u0004\u0018\u00010\u0011¢\u0006\u0004\b\u0013\u0010\u0014J!\u0010\u0016\u001a\u00020\u00072\b\u0010\u0015\u001a\u0004\u0018\u00010\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0016\u0010\u0017J\u001f\u0010\u0016\u001a\u00020\u00072\u0006\u0010\u0018\u001a\u00020\r2\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u0016\u0010\u0019J\u0017\u0010\u001a\u001a\u00020\u00072\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002¢\u0006\u0004\b\u001a\u0010\tJ\u000f\u0010\u001c\u001a\u00020\u001bH\u0002¢\u0006\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001e\u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u0016\u0010 \u001a\u00020\r8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b \u0010\u001fR\u0018\u0010!\u001a\u0004\u0018\u00010\u00118\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R\u0018\u0010#\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b#\u0010$R\u0018\u0010&\u001a\u0004\u0018\u00010%8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0018\u0010+\u001a\u0004\u0018\u00010\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010$¨\u00063"}, d2 = {"Lcom/baidu/nadcore/webview/view/NadBrowserStateView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;", "state", "Landroid/view/View;", "getView", "(Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)Landroid/view/View;", "", "hideState", "(Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)V", "initErrorView", "()V", "initLoadingView", "", "newProgress", "onProgressChange", "(I)V", "Landroid/view/View$OnClickListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setErrorViewClickListener", "(Landroid/view/View$OnClickListener;)V", "view", "setViewForState", "(Landroid/view/View;Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)V", "layoutRes", "(ILcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;)V", "showState", "", "useNaviLoadingView", "()Z", "mDefaultErrorResId", "I", "mDefaultLoadingResId", "mErrorClickListener", "Landroid/view/View$OnClickListener;", "mErrorView", "Landroid/view/View;", "Landroid/view/LayoutInflater;", "mInflater", "Landroid/view/LayoutInflater;", "Landroid/widget/ProgressBar;", "mLoadingBar", "Landroid/widget/ProgressBar;", "mLoadingView", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "ViewState", "lib-webview_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes3.dex */
 public final class NadBrowserStateView extends FrameLayout {
     public View a;
     public View b;
@@ -27,7 +26,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public View.OnClickListener g;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0086\u0001\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003j\u0002\b\u0004j\u0002\b\u0005¨\u0006\u0006"}, d2 = {"Lcom/baidu/nadcore/webview/view/NadBrowserStateView$ViewState;", "Ljava/lang/Enum;", "<init>", "(Ljava/lang/String;I)V", "LOADING", "ERROR", "lib-webview_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ViewState {
         LOADING,
         ERROR
@@ -65,7 +64,7 @@ public final class NadBrowserStateView extends FrameLayout {
 
     public final View a(ViewState viewState) {
         if (viewState != null) {
-            int i = x81.$EnumSwitchMapping$0[viewState.ordinal()];
+            int i = n91.$EnumSwitchMapping$0[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2) {
                     return this.a;
@@ -80,7 +79,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void b(ViewState viewState) {
         View view2;
         if (viewState != null) {
-            int i = x81.$EnumSwitchMapping$3[viewState.ordinal()];
+            int i = n91.$EnumSwitchMapping$3[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2 && (view2 = this.a) != null) {
                     Intrinsics.checkNotNull(view2);
@@ -107,7 +106,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void f(ViewState viewState) {
         View view2;
         if (viewState != null) {
-            int i = x81.$EnumSwitchMapping$2[viewState.ordinal()];
+            int i = n91.$EnumSwitchMapping$2[viewState.ordinal()];
             if (i != 1) {
                 if (i == 2 && (view2 = this.a) != null) {
                     Intrinsics.checkNotNull(view2);
@@ -154,7 +153,7 @@ public final class NadBrowserStateView extends FrameLayout {
     }
 
     public final boolean g() {
-        if (fm0.b().a().a("nairobi_use_navi_loading_view", 1) == 1) {
+        if (vm0.b().a().a("nairobi_use_navi_loading_view", 1) == 1) {
             return true;
         }
         return false;
@@ -194,7 +193,7 @@ public final class NadBrowserStateView extends FrameLayout {
     public final void setViewForState(View view2, ViewState viewState) {
         if (view2 != null) {
             if (viewState != null) {
-                int i = x81.$EnumSwitchMapping$1[viewState.ordinal()];
+                int i = n91.$EnumSwitchMapping$1[viewState.ordinal()];
                 if (i != 1) {
                     if (i == 2) {
                         View view3 = this.a;

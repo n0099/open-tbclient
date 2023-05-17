@@ -1,13 +1,14 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e1 extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +50,7 @@ public class e1 extends n {
             jSONObject.put("uuid", this.f);
             jSONObject.put("upid", this.e);
             jSONObject.put("imei", this.b);
-            jSONObject.put("sn", this.c);
+            jSONObject.put(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, this.c);
             jSONObject.put("udid", this.d);
             return jSONObject;
         }

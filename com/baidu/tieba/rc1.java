@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-/* loaded from: classes6.dex */
-public interface rc1<View> {
-    void a();
+import com.baidu.nadcore.model.AdBaseModel;
+/* loaded from: classes7.dex */
+public interface rc1 {
+    void a(AdBaseModel adBaseModel);
 
-    View getRealView();
+    void b(AdBaseModel adBaseModel);
 
-    void setBtnIconNightModeEnable(boolean z);
+    void c(AdBaseModel adBaseModel);
 
-    void setBtnPlaceholder(View view2);
+    void d(AdBaseModel adBaseModel);
 
-    void setData(@NonNull np0 np0Var);
+    void e(AdBaseModel adBaseModel, String str);
 
-    void setEnhanceBtnListener(@NonNull pc1 pc1Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    void f(AdBaseModel adBaseModel);
 }

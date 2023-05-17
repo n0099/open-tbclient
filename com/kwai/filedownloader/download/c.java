@@ -13,7 +13,7 @@ import com.kwai.filedownloader.download.e;
 import com.kwai.filedownloader.exception.FileDownloadGiveUpRetryException;
 import java.io.IOException;
 import java.net.SocketException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public final class c implements Runnable {
     public final int avh;
     public volatile boolean hw;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

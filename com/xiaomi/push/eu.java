@@ -8,7 +8,7 @@ import android.os.Build;
 import android.os.SystemClock;
 import androidx.core.app.NotificationCompat;
 import com.xiaomi.push.et;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class eu implements et.a {
 
     /* renamed from: a  reason: collision with other field name */
@@ -69,7 +69,7 @@ public class eu implements et.a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(boolean z) {
-        long m740a = com.xiaomi.push.service.o.a(this.f332a).m740a();
+        long m759a = com.xiaomi.push.service.o.a(this.f332a).m759a();
         if (z || this.a != 0) {
             if (z) {
                 a();
@@ -77,14 +77,14 @@ public class eu implements et.a {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (!z && this.a != 0) {
                 if (this.a <= elapsedRealtime) {
-                    this.a += m740a;
+                    this.a += m759a;
                 }
                 Intent intent = new Intent(com.xiaomi.push.service.bk.p);
                 intent.setPackage(this.f332a.getPackageName());
                 a(intent, this.a);
             }
-            m740a -= elapsedRealtime % m740a;
-            this.a = elapsedRealtime + m740a;
+            m759a -= elapsedRealtime % m759a;
+            this.a = elapsedRealtime + m759a;
             Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
             intent2.setPackage(this.f332a.getPackageName());
             a(intent2, this.a);
@@ -93,7 +93,7 @@ public class eu implements et.a {
 
     @Override // com.xiaomi.push.et.a
     /* renamed from: a */
-    public boolean mo388a() {
+    public boolean mo407a() {
         return this.a != 0;
     }
 }

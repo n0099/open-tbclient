@@ -1,14 +1,14 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.reporter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HiidoReport {
     public static volatile HiidoReport sInstance;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class CReportParam {
         public static int REVENUE_SCODE = 50552;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class CReportResponse {
         public String mEventId = "";
         public String mErrCode = "0";

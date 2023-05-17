@@ -1,75 +1,84 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.to2;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class ro2 extends sl2<to2> {
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class ro2 extends an2<rp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final to2.f h;
 
-    /* loaded from: classes6.dex */
-    public class a implements to2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ro2 a;
-
-        public a(ro2 ro2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ro2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ro2Var;
-        }
-
-        @Override // com.baidu.tieba.to2.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onConfirmBtnClick", null);
-            }
-        }
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro2(@NonNull to2 to2Var) {
-        super(to2Var);
+    public ro2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {to2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ul2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        to2Var.D0(aVar);
-        this.a.a(new xo2());
-        this.a.a(new wo2());
-        this.a.a(new yo2());
-        this.a.a(new uo2());
-        this.a.a(new vo2());
+    }
+
+    @Override // com.baidu.tieba.an2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.obj = new JSONObject();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
+        JSONObject a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, rp2Var) == null) {
+            ArrayList<tp2> v = rp2Var.v();
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (v != null) {
+                Iterator<tp2> it = v.iterator();
+                while (it.hasNext()) {
+                    tp2 next = it.next();
+                    if (next == null) {
+                        a = null;
+                    } else {
+                        a = next.a();
+                    }
+                    if (a != null) {
+                        jSONArray.put(a);
+                    }
+                }
+            }
+            try {
+                jSONObject.put("audioLevels", jSONArray);
+            } catch (JSONException unused) {
+            }
+            command.obj = jSONObject;
+            String str = command.what;
+            d(rp2Var, str, "" + command.obj, true);
+        }
     }
 }

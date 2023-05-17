@@ -7,7 +7,7 @@ import java.net.SocketAddress;
 import java.net.URI;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NullProxySelector extends ProxySelector {
     @Override // java.net.ProxySelector
     public void connectFailed(URI uri, SocketAddress socketAddress, IOException iOException) {

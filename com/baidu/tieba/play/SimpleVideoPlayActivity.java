@@ -12,22 +12,22 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eb9;
+import com.baidu.tieba.ad9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public eb9 c;
+    public ad9 c;
     public FrameLayout d;
     public NavigationBar e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,9 +103,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            eb9 eb9Var = new eb9(this, frameLayout2);
-            this.c = eb9Var;
-            eb9Var.setStageType("2006");
+            ad9 ad9Var = new ad9(this, frameLayout2);
+            this.c = ad9Var;
+            ad9Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();

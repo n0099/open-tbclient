@@ -2,7 +2,7 @@ package com.baidu.searchbox.pms.bean;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ResultData {
     public List<PackageInfo> addList;
     public List<PackageInfo> configChangeList;

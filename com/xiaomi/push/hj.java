@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum hj {
     DeviceInfo(1),
     AppInstallList(2),

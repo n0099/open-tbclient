@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fs5;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ri6;
+import com.baidu.tieba.dk6;
+import com.baidu.tieba.ot5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MultiLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +64,8 @@ public class MultiLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds136);
-        ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds136);
+        ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -143,7 +143,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.g.setLongIconSupport(false);
         this.g.setConrers(15);
         this.g.setPlaceHolder(1);
-        this.g.setRadius(ii.g(getContext(), R.dimen.tbds10));
+        this.g.setRadius(ri.g(getContext(), R.dimen.tbds10));
         TbImageView tbImageView2 = (TbImageView) findViewById(R.id.iv_multi_link_second_icon);
         this.h = tbImageView2;
         tbImageView2.setDrawCorner(true);
@@ -151,7 +151,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.h.setLongIconSupport(false);
         this.h.setConrers(15);
         this.h.setPlaceHolder(1);
-        this.h.setRadius(ii.g(getContext(), R.dimen.tbds10));
+        this.h.setRadius(ri.g(getContext(), R.dimen.tbds10));
         TbImageView tbImageView3 = (TbImageView) findViewById(R.id.iv_multi_link_third_icon);
         this.i = tbImageView3;
         tbImageView3.setDrawCorner(true);
@@ -159,10 +159,10 @@ public class MultiLinkCardView extends RelativeLayout {
         this.i.setLongIconSupport(false);
         this.i.setPlaceHolder(1);
         this.i.setConrers(15);
-        this.i.setRadius(ii.g(getContext(), R.dimen.tbds10));
+        this.i.setRadius(ri.g(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.tv_multi_link_more_link_count);
         this.j = textView;
-        g35.d(textView).A(R.array.S_O_X001);
+        p45.d(textView).A(R.array.S_O_X001);
         this.k = (TextView) findViewById(R.id.tv_multi_link_count);
         this.l = (ImageView) findViewById(R.id.iv_multi_link_right_arrow);
         this.o = new ArrayList();
@@ -187,13 +187,13 @@ public class MultiLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            fs5 fs5Var = new fs5();
-            List<ri6> a = fs5Var.a(list, list2);
-            boolean c = fs5Var.c();
+            ot5 ot5Var = new ot5();
+            List<dk6> a = ot5Var.a(list, list2);
+            boolean c = ot5Var.c();
             if (ListUtils.isEmpty(a)) {
                 return;
             }
-            TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(ii.g(getContext(), R.dimen.tbds10)).into(this.j);
+            TBSelector.makeDrawableSelector().gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606).radius(ri.g(getContext(), R.dimen.tbds10)).into(this.j);
             this.d.setVisibility(8);
             this.e.setVisibility(8);
             this.f.setVisibility(8);

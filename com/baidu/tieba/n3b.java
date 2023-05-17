@@ -1,72 +1,55 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class n3b {
     public static /* synthetic */ Interceptable $ic;
-    public static n3b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public f3b a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947952940, "Lcom/baidu/tieba/n3b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947952940, "Lcom/baidu/tieba/n3b;");
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
         }
     }
 
-    public n3b() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return "SecurityComp10105310: " + str;
         }
-        this.a = null;
+        return (String) invokeL.objValue;
     }
 
-    public static n3b b() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new n3b();
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
+            Log.e(a(str), str2, th);
         }
-        return (n3b) invokeV.objValue;
     }
 
-    public void a(String str) {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            f3b f3bVar = this.a;
-            if (f3bVar != null) {
-                f3bVar.info("authsdk", str);
-            } else {
-                Log.i("authsdk", str);
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            Log.e(a(str), str2);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            Log.i(a(str), str2);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            Log.w(a(str), str2);
         }
     }
 }

@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberPlayerManager {
     public static final int ABR_MODE = -1;
     public static final int COMMAND_ADD_STAGE_INFO = 1001;
@@ -236,7 +236,7 @@ public class CyberPlayerManager {
     public static Map<String, String> p = new HashMap();
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface GetNetHandleListener {
         Long getKerNetHandle();
 
@@ -244,19 +244,19 @@ public class CyberPlayerManager {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface HttpDNS {
         List<String> getIpList(String str);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface HttpDNS2 {
         List<String> getIpList2(String str, boolean z);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface InstallListener {
         void onInstallError(int i, int i2, String str);
 
@@ -267,73 +267,73 @@ public class CyberPlayerManager {
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface InstallListener2 extends InstallListener {
         void onInstallInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnBufferingUpdateListener {
         void onBufferingUpdate(int i);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnCompletionListener {
         void onCompletion();
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnDeleteListener {
         void onDeleteComplete(int i, long j);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnErrorListener {
         boolean onError(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnInfoListener {
         boolean onInfo(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnMediaSourceChangedListener {
         boolean onMediaSourceChanged(int i, int i2, Object obj);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnPreparedListener {
         void onPrepared();
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnSeekCompleteListener {
         void onSeekComplete();
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnUpdateDiskQuotaComplete {
         void notifyCompletion();
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnVideoFlowListener {
         void onRecordFlow(HashMap<String, String> hashMap);
     }
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnVideoSizeChangedListener {
         void onVideoSizeChanged(int i, int i2, int i3, int i4);
     }

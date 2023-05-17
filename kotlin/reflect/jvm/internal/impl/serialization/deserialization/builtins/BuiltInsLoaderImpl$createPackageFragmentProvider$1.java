@@ -5,7 +5,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReference;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final /* synthetic */ class BuiltInsLoaderImpl$createPackageFragmentProvider$1 extends FunctionReference implements Function1<String, InputStream> {
     public BuiltInsLoaderImpl$createPackageFragmentProvider$1(BuiltInsResourceLoader builtInsResourceLoader) {
         super(1, builtInsResourceLoader);

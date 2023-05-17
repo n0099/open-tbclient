@@ -1,33 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yn5 extends CustomMessageTask {
+/* loaded from: classes8.dex */
+public class yn5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yn5(int i, CustomMessageTask.CustomRunnable<?> customRunnable) {
-        super(i, customRunnable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), customRunnable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (CustomMessageTask.CustomRunnable) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335945, "Lcom/baidu/tieba/yn5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948335945, "Lcom/baidu/tieba/yn5;");
                 return;
             }
         }
+        qi.getUrlEncode(TbConfig.TIEBA_ADDRESS + "mo/q/tbeanget?_client_return_page=close");
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/tbeantshow";
+        String str = TbConfig.TIEBA_ADDRESS + "mo/q/tbeanget?difference=%1$s&fr=0&return_type=1&return_url=%2$s";
     }
 }

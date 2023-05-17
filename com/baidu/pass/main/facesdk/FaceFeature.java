@@ -10,7 +10,7 @@ import com.baidu.pass.main.facesdk.model.Feature;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceFeature {
     public static final String TAG = "FaceFeature";
     public BDFaceInstance bdFaceInstance;

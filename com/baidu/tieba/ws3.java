@@ -1,57 +1,111 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class ws3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+/* loaded from: classes8.dex */
+public abstract class ws3 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
 
-    public static boolean a() {
+    public abstract void e(IOException iOException);
+
+    public abstract void f(int i);
+
+    public abstract void h(byte[] bArr);
+
+    public ws3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = 0;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "HUAWEI");
-            }
-            String upperCase = Build.BRAND.toUpperCase();
-            if (!TextUtils.equals("HUAWEI", upperCase) && !TextUtils.equals("HONOR", upperCase)) {
-                String upperCase2 = Build.MANUFACTURER.toUpperCase();
-                if (!upperCase2.contains("HUAWEI") && !upperCase2.contains("HONOR")) {
-                    return false;
-                }
-                a = "HUAWEI";
-                return true;
-            }
-            a = "HUAWEI";
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = a;
-            if (str != null) {
-                return TextUtils.equals(str, "OPPO");
-            }
-            if (TextUtils.equals("OPPO", Build.BRAND.toUpperCase())) {
-                a = "OPPO";
-                return true;
-            } else if (Build.MANUFACTURER.toUpperCase().contains("OPPO")) {
-                a = "OPPO";
-                return true;
-            } else {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = 0;
+            fs3.b().a(str, this);
         }
-        return invokeV.booleanValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final String g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            String str = new String(bArr);
+            if (cs3.a) {
+                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
+            }
+            if (this.a) {
+                qs3 c = gs3.f().c(is3.l().m(), bArr);
+                if (c != null) {
+                    if (!TextUtils.isEmpty(c.a())) {
+                        str = c.a();
+                    }
+                    this.b = c.b().intValue();
+                } else {
+                    this.b = -1;
+                }
+                is3.l().m().s(this.b);
+                if (this.b == -1) {
+                    fs3.b().f(false);
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

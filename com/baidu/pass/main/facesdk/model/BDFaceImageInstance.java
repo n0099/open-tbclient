@@ -3,7 +3,7 @@ package com.baidu.pass.main.facesdk.model;
 import android.content.Context;
 import android.graphics.Bitmap;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceImageInstance {
     public byte[] data;
     public int height;

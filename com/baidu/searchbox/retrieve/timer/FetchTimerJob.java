@@ -19,7 +19,7 @@ import com.baidu.searchbox.retrieve.timer.bean.FetchTimerBean;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimerJob extends IFetchJob {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "FetchTimerJob";
@@ -30,7 +30,7 @@ public class FetchTimerJob extends IFetchJob {
         return Constants.FetchType.FETCH_TIMER_TYPE;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class TimerJobRunnable implements Runnable {
         public final Handler mHandler;
         public final FetchTimerBean mTimerBean;

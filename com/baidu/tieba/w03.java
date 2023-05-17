@@ -1,24 +1,34 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class w03 {
+import java.io.IOException;
+import okhttp3.Interceptor;
+import okhttp3.Response;
+/* loaded from: classes8.dex */
+public class w03 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Map<String, HybridUbcFlow>> a;
-    public final Map<String, qm3<HybridUbcFlow>> b;
-    public final qm3<HybridUbcFlow> c;
+    public b a;
+    @SuppressLint({"BDThrowableCheck"})
+    public final m03 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements qm3<HybridUbcFlow> {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(long j);
+
+        void b(int i, long j, long j2);
+
+        void c(long j, long j2);
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements m03 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ w03 a;
@@ -41,13 +51,27 @@ public class w03 {
             this.a = w03Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qm3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
+        @Override // com.baidu.tieba.m03
+        public void a(long j, long j2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-                this.a.g(hybridUbcFlow.p);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+                if (this.a.a == null) {
+                    if (!qp1.a) {
+                        return;
+                    }
+                    throw new RuntimeException("DownloadProgressInterceptor.mIProgressCallback == null");
+                } else if (j2 == -1 && j != 0) {
+                    this.a.a.b(0, j, j2);
+                } else if (j2 > 52428800) {
+                    this.a.a.a(j2);
+                } else if (j2 > 0 && j <= j2 && j != 0) {
+                    int floor = (int) Math.floor((100 * j) / j2);
+                    if (floor <= 100) {
+                        this.a.a.b(floor, j, j2);
+                    }
+                } else {
+                    this.a.a.c(j, j2);
+                }
             }
         }
     }
@@ -65,125 +89,24 @@ public class w03 {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.c = new a(this);
+        this.b = new a(this);
     }
 
-    public final HybridUbcFlow a(String str) {
+    public void b(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.a = bVar;
+        }
+    }
+
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.H("callback_on_submit", this.c);
-            qm3<HybridUbcFlow> qm3Var = this.b.get(str);
-            if (qm3Var != null) {
-                qm3Var.a(hybridUbcFlow);
-            }
-            return hybridUbcFlow;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
+            Response proceed = chain.proceed(chain.request());
+            return proceed.newBuilder().body(new p03(proceed.body(), this.b)).build();
         }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public HybridUbcFlow b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, "default");
-        }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public synchronized HybridUbcFlow e(String str) {
-        InterceptResult invokeL;
-        HybridUbcFlow f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                f = f(str, "default");
-            }
-            return f;
-        }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public w03 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.a) {
-                this.a.remove(str);
-            }
-            return this;
-        }
-        return (w03) invokeL.objValue;
-    }
-
-    public HybridUbcFlow c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map == null) {
-                    return null;
-                }
-                return map.get(str2);
-            }
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public w03 d(String str, qm3<HybridUbcFlow> qm3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, qm3Var)) == null) {
-            synchronized (this.b) {
-                this.b.put(str, qm3Var);
-            }
-            return this;
-        }
-        return (w03) invokeLL.objValue;
-    }
-
-    public w03 h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map != null) {
-                    map.remove(str2);
-                }
-            }
-            return this;
-        }
-        return (w03) invokeLL.objValue;
-    }
-
-    public synchronized HybridUbcFlow f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            synchronized (this) {
-                synchronized (this.a) {
-                    Map<String, HybridUbcFlow> map = this.a.get(str);
-                    if (map == null) {
-                        HashMap hashMap = new HashMap();
-                        HybridUbcFlow a2 = a(str);
-                        hashMap.put(str2, a2);
-                        this.a.put(str, hashMap);
-                        return a2;
-                    }
-                    HybridUbcFlow hybridUbcFlow = map.get(str2);
-                    if (hybridUbcFlow == null) {
-                        hybridUbcFlow = a(str);
-                        map.put(str2, hybridUbcFlow);
-                    }
-                    return hybridUbcFlow;
-                }
-            }
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
+        return (Response) invokeL.objValue;
     }
 }

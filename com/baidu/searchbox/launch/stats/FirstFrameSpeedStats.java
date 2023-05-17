@@ -1,5 +1,5 @@
 package com.baidu.searchbox.launch.stats;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FirstFrameSpeedStats extends AbstractSpeedStats {
     public static final String ALA_LIVE_TAB_ON_CREATE_DURATION = "AlaLiveTabFragmentOnCreate";
     public static final String ALA_LIVE_TAB_ON_CREATE_VIEW_DURATION = "AlaLiveTabFragmentOnCreateView";

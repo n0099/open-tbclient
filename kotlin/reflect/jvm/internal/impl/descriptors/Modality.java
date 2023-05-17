@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum Modality {
     FINAL,
     SEALED,
@@ -10,7 +10,7 @@ public enum Modality {
     
     public static final Companion Companion = new Companion(null);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

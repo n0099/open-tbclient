@@ -1,10 +1,19 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.model.SwanAppBearInfo;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.du2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,30 +21,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes4.dex */
-public final class du2 {
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public abstract class du2<SelfT extends du2<SelfT>> extends gu2<SelfT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set<String> g;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final Object e;
+    public long d;
 
-    /* loaded from: classes4.dex */
-    public static class a {
+    /* loaded from: classes5.dex */
+    public static final class a extends du2<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
+
+        public a J1() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -51,130 +56,25 @@ public final class du2 {
             }
         }
 
-        public Exception d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f;
-            }
-            return (Exception) invokeV.objValue;
+        @Override // com.baidu.tieba.co3
+        public /* bridge */ /* synthetic */ co3 d() {
+            J1();
+            return this;
         }
 
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public du2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (!du2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (!du2.f) {
-                        return null;
-                    }
-                    throw this.f;
-                } else {
-                    synchronized (a.class) {
-                        if (du2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (!du2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else if (this.e == null) {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (!du2.f) {
-                                return null;
-                            }
-                            throw this.f;
-                        } else {
-                            du2.g.add(this.a);
-                            return new du2(this);
-                        }
-                    }
-                }
-            }
-            return (du2) invokeV.objValue;
+        @Override // com.baidu.tieba.du2, com.baidu.tieba.gu2
+        public /* bridge */ /* synthetic */ gu2 Q0(int i) {
+            return super.Q0(i);
         }
 
-        public a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
+        @Override // com.baidu.tieba.du2, com.baidu.tieba.ju2
+        public /* bridge */ /* synthetic */ ju2 update(Bundle bundle) {
+            return super.update(bundle);
         }
 
-        public a f(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!du2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a e(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!du2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!du2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
+        @Override // com.baidu.tieba.du2, com.baidu.tieba.gu2
+        public /* bridge */ /* synthetic */ gu2 v0(String str) {
+            return super.v0(str);
         }
     }
 
@@ -191,70 +91,631 @@ public final class du2 {
                 return;
             }
         }
-        f = ho1.a;
-        g = new HashSet();
+        e = qp1.a;
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.objValue;
-    }
-
-    public du2(a aVar) {
+    public du2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
     }
 
-    @NonNull
-    public String toString() {
+    @Override // com.baidu.tieba.ju2
+    public Bundle D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
+            Bundle D = super.D();
+            j62.g(D);
+            String H = H();
+            if (!TextUtils.isEmpty(H)) {
+                D.putString("mAppId", H);
             }
-            return super.toString();
+            return D;
+        }
+        return (Bundle) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public String H() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null && !TextUtils.isEmpty(f0.appId)) {
+                return f0.appId;
+            }
+            return super.H();
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public String I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null && !TextUtils.isEmpty(f0.appKey)) {
+                return f0.appKey;
+            }
+            return super.I();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null && !TextUtils.isEmpty(f0.appName)) {
+                return f0.appName;
+            }
+            return super.K();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public String Q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null && !TextUtils.isEmpty(f0.iconUrl)) {
+                return f0.iconUrl;
+            }
+            return super.Q();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int d0() {
+        InterceptResult invokeV;
+        int orientation;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                orientation = -1;
+            } else {
+                orientation = f0.getOrientation();
+            }
+            if (-1 >= orientation) {
+                return super.d0();
+            }
+            return orientation;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.description;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return 0;
+            }
+            return f0.appStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public String g1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.statusDetail;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gu2
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return 0;
+            }
+            return f0.type;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.statusDesc;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long i1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return 0L;
+            }
+            return f0.pkgSize;
+        }
+        return invokeV.longValue;
+    }
+
+    @SuppressLint({"KotlinPropertyAccess"})
+    public SwanAppBearInfo k1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return null;
+            }
+            String str = f0.bearInfo;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return new SwanAppBearInfo(str);
+        }
+        return (SwanAppBearInfo) invokeV.objValue;
+    }
+
+    public int p1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+            }
+            return f0.payProtected;
+        }
+        return invokeV.intValue;
+    }
+
+    public String q1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return null;
+            }
+            return f0.quickAppKey;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String r1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.resumeDate;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.serviceCategory;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String t1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.subjectInfo;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public String v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return String.valueOf(f0.versionCode);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String w1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 == null) {
+                return "";
+            }
+            return f0.versionName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static du2 d1(@NonNull Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
+            boolean z = e;
+            return new a().update(intent);
+        }
+        return (du2) invokeL.objValue;
+    }
+
+    public static String x1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith(File.separator)) {
+                return str.substring(1);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public SelfT A1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.appKey = str;
+            }
+            return (SelfT) super.w0(str);
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT B1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.appName = str;
+            }
+            return (SelfT) super.x0(str);
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT C1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            super.E0(str);
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.iconUrl = str;
+                return (SelfT) super.E0(str);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gu2
+    /* renamed from: D1 */
+    public SelfT Q0(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.setOrientation(i);
+                return (SelfT) super.Q0(i);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeI.objValue;
+    }
+
+    public SelfT E1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.serviceCategory = str;
+                return (SelfT) super.U0(str);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT F1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.subjectInfo = str;
+                return (SelfT) super.W0(str);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT G1(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            if (this.d < 1 && j > 0) {
+                this.d = j;
+                return (SelfT) super.Y0(j);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeJ.objValue;
+    }
+
+    public SelfT y1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.description = str;
+                return (SelfT) super.t0(str);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gu2
+    /* renamed from: z1 */
+    public SelfT v0(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
+            super.v0(str);
+            PMSAppInfo f0 = f0();
+            if (f0 != null) {
+                f0.appId = str;
+                return (SelfT) super.v0(str);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public static String l1(String str, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, swanAppConfigData)) == null) {
+            if (TextUtils.isEmpty(str) || swanAppConfigData == null) {
+                return null;
+            }
+            String f = ym3.f(str);
+            if (n43.k(f)) {
+                return ym3.i(str, hd3.b);
+            }
+            if (!swanAppConfigData.p(yc3.b(f))) {
+                return null;
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String m1(du2 du2Var, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, du2Var, swanAppConfigData)) == null) {
+            return l1(x1(du2Var.e0()), swanAppConfigData);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String n1(String str, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, swanAppConfigData)) == null) {
+            if (!TextUtils.isEmpty(str) && swanAppConfigData != null) {
+                return l1(x1(o1(str)), swanAppConfigData);
+            }
+            if (e) {
+                Log.d("SwanAppLaunchInfo", "getPageInfo ret null - " + str);
+                return null;
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String o1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Uri parse = Uri.parse(str);
+            String j = ym3.j(parse);
+            if (TextUtils.isEmpty(j)) {
+                if (e) {
+                    Log.d("SwanAppLaunchInfo", "getPageInfo appId is null");
+                }
+                return null;
+            }
+            String n = ym3.n(j, parse, true);
+            if (TextUtils.isEmpty(n)) {
+                if (e) {
+                    Log.d("SwanAppLaunchInfo", "getPageInfo no launchPath ");
+                }
+                return null;
+            }
+            String i = ym3.i(parse.getEncodedQuery(), hd3.b);
+            if (e) {
+                Log.d("SwanAppLaunchInfo", "query: " + i);
+            }
+            if (!TextUtils.isEmpty(i)) {
+                n = n + "?" + i;
+            }
+            if (e) {
+                Log.d("SwanAppLaunchInfo", "launch path - " + n);
+            }
+            return n;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public SelfT H1(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            PMSAppInfo f0 = f0();
+            if (!TextUtils.isEmpty(str) && f0 != null) {
+                try {
+                    f0.versionCode = Integer.parseInt(str);
+                    return (SelfT) super.b1(str);
+                } catch (NumberFormatException e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public SelfT update(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, intent)) == null) {
+            if (intent == null) {
+                return (SelfT) d();
+            }
+            update(intent.getExtras());
+            if (fu2.a(intent)) {
+                I0("1250000000000000");
+                x("box_cold_launch", -1L);
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public String I1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return "SwanAppLaunchInfo{mAppId='" + H() + "', mAppKey='" + I() + "', mAppTitle='" + K() + "', pmsAppInfo is null='" + l0() + "', launchFrom='" + T() + "', launchScheme='" + W() + "', page='" + e0() + "', mErrorCode=" + f1() + ", mErrorDetail='" + g1() + "', mErrorMsg='" + h1() + "', mResumeDate='" + r1() + "', maxSwanVersion='" + Z() + "', minSwanVersion='" + a0() + "', mVersion='" + v1() + "', mType=" + getType() + ", extraData=" + P() + ", isDebug=" + n0() + ", isLocalDebug=" + p0() + ", targetSwanVersion='" + k0() + "', swanCoreVersion=" + j0() + ", appFrameType=" + G() + ", consoleSwitch=" + m0() + ", orientation=" + d0() + ", versionCode='" + w1() + "', launchFlags=" + S() + ", swanAppStartTime=" + u1() + ", extStartTimestamp=" + N() + ", remoteDebug='" + g0() + "', extJSonObject=" + M() + ", launchId=" + V() + '}';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject j1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String W = W();
+            if (W != null) {
+                String queryParameter = Uri.parse(W).getQueryParameter("_swaninfo");
+                if (!TextUtils.isEmpty(queryParameter)) {
+                    try {
+                        return new JSONObject(queryParameter).optJSONObject("baidusearch");
+                    } catch (JSONException e2) {
+                        if (e) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+            }
+            return new JSONObject();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ju2
+    public SelfT update(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, bundle)) == null) {
+            if (bundle == null) {
+                return (SelfT) d();
+            }
+            j62.h(bundle);
+            n23.e().h(bundle);
+            super.update(bundle);
+            if (TextUtils.isEmpty(bundle.getString("mPage"))) {
+                B("mPage");
+            }
+            return (SelfT) d();
+        }
+        return (SelfT) invokeL.objValue;
     }
 }

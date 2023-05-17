@@ -8,7 +8,7 @@ import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.retrieve.file.util.fetch.FetchTaskManager;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseContentUploader {
     public static final String ACTIVE_UPLOAD_URL_PATH = "/fetchlog/activeupload";
     public static final boolean DEBUG = AppConfig.isDebug();

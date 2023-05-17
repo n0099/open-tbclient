@@ -14,7 +14,7 @@ import kotlin.jvm.internal.Ref;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@¢\u0006\u0004\b\u0003\u0010\u0004"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "com.baidu.searchbox.fluency.tracer.FpsTracer$FpsCollector$doReplayInner$1", f = "FpsTracer.kt", i = {0}, l = {278}, m = "invokeSuspend", n = {"$this$launch"}, s = {"L$0"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FpsTracer$FpsCollector$doReplayInner$1 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Ref.ObjectRef $item;
     public Object L$0;

@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class GroundOverlayOptions extends OverlayOptions {
     public int a;
     public Bundle c;

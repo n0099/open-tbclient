@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.VipCloseAd;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CloseAdData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
@@ -33,7 +33,7 @@ public class CloseAdData extends OrmObject {
         this.a = 1;
     }
 
-    public int V() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -42,7 +42,7 @@ public class CloseAdData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int W() {
+    public int V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -51,7 +51,7 @@ public class CloseAdData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void X(VipCloseAd vipCloseAd) {
+    public void W(VipCloseAd vipCloseAd) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vipCloseAd) != null) || vipCloseAd == null) {
             return;

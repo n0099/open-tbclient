@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsMediaChunk extends MediaChunk {
     public static final String PRIV_TIMESTAMP_FRAME_OWNER = "com.apple.streaming.transportStreamTimestamp";
     public static final AtomicInteger uidSource = new AtomicInteger();

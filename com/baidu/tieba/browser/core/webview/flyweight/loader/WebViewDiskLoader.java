@@ -5,13 +5,13 @@ import android.webkit.WebResourceResponse;
 import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tieba.af6;
-import com.baidu.tieba.he6;
-import com.baidu.tieba.ie6;
-import com.baidu.tieba.if6;
-import com.baidu.tieba.kg6;
-import com.baidu.tieba.re6;
-import com.baidu.tieba.rg6;
+import com.baidu.tieba.dg6;
+import com.baidu.tieba.di6;
+import com.baidu.tieba.mg6;
+import com.baidu.tieba.tf6;
+import com.baidu.tieba.uf6;
+import com.baidu.tieba.ug6;
+import com.baidu.tieba.wh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
-public class WebViewDiskLoader extends re6<WebResourceResponse> {
+/* loaded from: classes5.dex */
+public class WebViewDiskLoader extends dg6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final he6<String, Pair<InputStream, Long>> b;
+    public final tf6<String, Pair<InputStream, Long>> b;
 
-    @Override // com.baidu.tieba.re6
+    @Override // com.baidu.tieba.dg6
     public boolean e(String str, String str2, Map<String, String> map) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -49,14 +49,14 @@ public class WebViewDiskLoader extends re6<WebResourceResponse> {
                 return;
             }
         }
-        this.b = new ie6();
+        this.b = new uf6();
     }
 
     public final WebResourceResponse f(String str, InputStream inputStream) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, inputStream)) == null) {
-            WebResourceResponse webResourceResponse = new WebResourceResponse(rg6.b(str), "UTF-8", inputStream);
+            WebResourceResponse webResourceResponse = new WebResourceResponse(di6.b(str), "UTF-8", inputStream);
             webResourceResponse.setStatusCodeAndReasonPhrase(200, "OK");
             webResourceResponse.setResponseHeaders(new HashMap<String, String>(this) { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader.1
                 public static /* synthetic */ Interceptable $ic;
@@ -88,19 +88,19 @@ public class WebViewDiskLoader extends re6<WebResourceResponse> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.re6
+    @Override // com.baidu.tieba.dg6
     /* renamed from: g */
     public WebResourceResponse c(String str, String str2, Map<String, String> map) {
         InterceptResult invokeLLL;
-        if6 e;
+        ug6 e;
         String str3;
         Pair<InputStream, Long> a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
             try {
-                e = af6.d().e(str);
+                e = mg6.d().e(str);
                 if (e == null) {
-                    e = af6.d().e(rg6.c(str2));
+                    e = mg6.d().e(di6.c(str2));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -116,7 +116,7 @@ public class WebViewDiskLoader extends re6<WebResourceResponse> {
                 }
                 str3 = e.e + str5;
             } else {
-                String c = rg6.c(str2);
+                String c = di6.c(str2);
                 for (String str6 : e.f) {
                     if (c.endsWith(str6)) {
                         str4 = e.e + str6;
@@ -126,7 +126,7 @@ public class WebViewDiskLoader extends re6<WebResourceResponse> {
             }
             if (!TextUtils.isEmpty(str3) && (a = this.b.a(str3)) != null && a.first != null) {
                 WebResourceResponse f = f(str3, a.first);
-                kg6.c("lt-log", "hit disk cache:" + str3);
+                wh6.c("newHybrid", "hit disk cache:" + str3);
                 return f;
             }
             return null;

@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
-import com.baidu.tieba.pe7;
+import com.baidu.tieba.cg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemPage.ItemPageResIdl;
-/* loaded from: classes4.dex */
-public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<pe7, ItemPageResIdl> {
+/* loaded from: classes5.dex */
+public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessage<cg7, ItemPageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,9 +51,9 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
     public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            pe7 pe7Var = new pe7();
+            cg7 cg7Var = new cg7();
             ItemPageResIdl itemPageResIdl = (ItemPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemPageResIdl.class);
-            pe7Var.a(itemPageResIdl.data);
+            cg7Var.a(itemPageResIdl.data);
             Error error = itemPageResIdl.error;
             if (error != null) {
                 Integer num = error.errorno;
@@ -62,7 +62,7 @@ public class FrsItemTabHttpResponseMessage extends MvcProtobufHttpResponsedMessa
                 }
                 setErrorString(itemPageResIdl.error.usermsg);
             }
-            setData(pe7Var);
+            setData(cg7Var);
         }
     }
 }

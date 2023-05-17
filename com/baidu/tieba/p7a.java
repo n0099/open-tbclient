@@ -1,248 +1,171 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.o7a;
-import com.baidu.tieba.write.write.WriteImageGridView;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class p7a {
+import java.lang.reflect.Method;
+/* loaded from: classes6.dex */
+public class p7a extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public WriteImageGridView b;
-    public WriteImagesInfo c;
-    public o7a d;
-    public ng5 e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public PostPrefixData k;
-    public int l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public b p;
-    public o7a.f q;
+    public int a;
+    public a b;
+    public int c;
+    public LinearLayout d;
+    public Context e;
+    public int f;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-
-        void b();
+    /* loaded from: classes6.dex */
+    public interface a {
+        void S0(int i);
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements o7a.f {
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p7a a;
+        public int a;
+        public a b;
 
-        public a(p7a p7aVar) {
+        public b(int i, a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p7aVar};
+                Object[] objArr = {Integer.valueOf(i), aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = p7aVar;
+            this.a = i;
+            this.b = aVar;
         }
 
-        @Override // com.baidu.tieba.o7a.f
-        public void a() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.c == null) {
-                return;
-            }
-            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
-            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
-            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
-            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumFloatActivityConfig.setCanSelectVideo(false);
-            albumFloatActivityConfig.setCanSelectOnlyVideo(false);
-            albumFloatActivityConfig.setCanEditImage(false);
-            AntiData antiData = new AntiData();
-            antiData.voice_message = this.a.h;
-            antiData.setIfVoice(this.a.m);
-            albumFloatActivityConfig.setStatisticFrom(this.a.l);
-            albumFloatActivityConfig.setExtraData(antiData, this.a.k, this.a.i, this.a.j);
-            albumFloatActivityConfig.setFromWrite(3);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
-        }
-
-        @Override // com.baidu.tieba.o7a.f
-        public void b(int i) {
-            int count;
-            ImageFileInfo imageInfoAt;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.c != null && (count = ListUtils.getCount(this.a.c.getChosedFiles())) != 0 && i >= 0 && i < count && (imageInfoAt = this.a.c.getImageInfoAt(i)) != null && imageInfoAt.getImageType() != 1) {
-                this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
-            }
-        }
-
-        @Override // com.baidu.tieba.o7a.f
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.c != null && this.a.c.getChosedFiles() != null && i >= 0 && i < this.a.c.getChosedFiles().size()) {
-                ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
-                if (remove.isTempFile()) {
-                    ub.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
-                }
-                p7a p7aVar = this.a;
-                p7aVar.d.g(p7aVar.c);
-                this.a.d.notifyDataSetChanged();
-                if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
-                    if (this.a.p != null) {
-                        this.a.p.b();
-                    }
-                    if (!this.a.n) {
-                        this.a.b.setVisibility(8);
-                    }
-                }
-                if (this.a.p != null) {
-                    this.a.p.a();
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.b) != null) {
+                aVar.S0(this.a);
             }
         }
     }
 
-    public p7a(TbPageContext<?> tbPageContext, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p7a(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ng5();
-        this.f = "write";
-        this.g = "";
-        this.h = null;
-        this.n = false;
-        this.q = new a(this);
-        this.a = tbPageContext;
-        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f0928d7);
-        o7a o7aVar = new o7a(view2.getContext(), this.e, null, this.q);
-        this.d = o7aVar;
-        this.b.setAdapter((ListAdapter) o7aVar);
+        this.a = -1;
+        this.e = context;
+        b(context);
     }
 
-    public void p(boolean z) {
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.n = z;
-            this.d.f(z);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            view2.setOnClickListener(new b(this.c, this.b));
+            this.d.addView(view2);
+            this.c++;
         }
     }
 
-    public void r(b bVar) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.p = bVar;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d.h(z);
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d.i(z);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.b();
-        }
-    }
-
-    public GridView o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (GridView) invokeV.objValue;
-    }
-
-    public void q(String str, String str2, String str3, PostPrefixData postPrefixData, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, postPrefixData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.h = str;
-            this.i = str2;
-            this.j = str3;
-            this.k = postPrefixData;
-            this.l = i;
-            this.m = z;
-        }
-    }
-
-    public void u(WriteImagesInfo writeImagesInfo, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, writeImagesInfo, str, str2) == null) {
-            this.f = str;
-            this.g = str2;
-            this.c = writeImagesInfo;
-            this.d.g(writeImagesInfo);
-            this.d.notifyDataSetChanged();
-            v();
-        }
-    }
-
-    public final void v() {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.n) {
-                this.b.setVisibility(0);
-            } else if (!this.o && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
-                this.b.setVisibility(0);
-            } else {
-                this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = this.a;
+            if (i2 != -1) {
+                this.d.getChildAt(i2).setSelected(false);
             }
+            this.a = i;
+            this.d.getChildAt(i).setSelected(true);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            ScrollView scrollView = new ScrollView(context);
+            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            LinearLayout linearLayout = new LinearLayout(context);
+            this.d = linearLayout;
+            linearLayout.setOrientation(1);
+            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            scrollView.addView(this.d);
+            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            scrollView.setPadding(0, 0, ri.d(context, 1.0f), ri.d(context, 1.0f));
+            scrollView.setFadingEdgeLength(0);
+            scrollView.setScrollbarFadingEnabled(false);
+            try {
+                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(scrollView, 2);
+            } catch (Exception unused) {
+            }
+            setContentView(scrollView);
+            GreyUtil.grey(this);
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
+            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+            int measuredWidth = getContentView().getMeasuredWidth();
+            if (measuredWidth < view2.getWidth()) {
+                measuredWidth = view2.getWidth();
+            }
+            int measuredHeight = getContentView().getMeasuredHeight();
+            int i3 = this.f;
+            if (measuredHeight > i3) {
+                measuredHeight = i3;
+            }
+            setWidth(measuredWidth);
+            setHeight(measuredHeight);
+            super.showAsDropDown(view2, i, i2);
         }
     }
 }

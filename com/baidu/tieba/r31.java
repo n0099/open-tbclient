@@ -1,30 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.proxy.IAdDownloader;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public final class r31 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class r31 {
     public static /* synthetic */ Interceptable $ic;
-    public static final IAdDownloader a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public BaseExecutorCell a;
+    @NonNull
+    public BaseExecutorCell b;
+    @NonNull
+    public BaseExecutorCell c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070585, "Lcom/baidu/tieba/r31;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948070585, "Lcom/baidu/tieba/r31;");
+    public r31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new xk0();
+        this.a = BaseExecutorCell.b(e31.d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.b = BaseExecutorCell.b(e31.e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.c = BaseExecutorCell.b(e31.f, BaseExecutorCell.ExecutorType.ARTERY);
+    }
+
+    public boolean a(ElasticTask elasticTask) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
+            int b = elasticTask.b();
+            if (b != 0 && b != 1) {
+                if (b == 2) {
+                    if (this.b.c(elasticTask)) {
+                        return true;
+                    }
+                    return this.c.c(elasticTask);
+                } else if (b == 3) {
+                    return this.c.c(elasticTask);
+                } else {
+                    return false;
+                }
+            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
+                return true;
+            } else {
+                return this.c.c(elasticTask);
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

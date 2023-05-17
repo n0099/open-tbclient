@@ -1,106 +1,69 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.facade.init.SwanAppInitHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.tieba.pi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
-/* loaded from: classes6.dex */
-public final class su3 {
+import java.util.Map;
+import org.json.JSONObject;
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class su3 implements qj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        wk4 a();
-
-        void b(boolean z, zd2 zd2Var);
-
-        boolean c();
-
-        Bitmap d();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948163864, "Lcom/baidu/tieba/su3;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public su3() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948163864, "Lcom/baidu/tieba/su3;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements zd2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.zd2
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.zd2
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.pi4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, pi4.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && ProcessUtils.isMainProcess() && !er2.w0().d()) {
-            synchronized (SwanAppInitHelper.class) {
-                if (SwanAppInitHelper.isDelayInit()) {
-                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
-                }
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            if (PMSConstants.a(rg4.b())) {
+                ji4.b(str, map, map2, jSONObject, new js3(aVar));
+            } else {
+                ji4.b(str, map, map2, jSONObject, new qi4(aVar));
             }
-            be2 be2Var = new be2();
-            be2Var.a = "by_silent";
-            er2.w0().b(be2Var, new a());
         }
     }
 
-    @Inject(force = false)
-    public static b b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qj4
+    public cj4 c(String str, int i) throws Exception {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return i46.a();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return aj4.a(str, i);
         }
-        return (b) invokeV.objValue;
+        return (cj4) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.pi4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, pi4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, map, map2, aVar) == null) {
+            if (PMSConstants.a(rg4.b())) {
+                ji4.a(str, map, map2, new js3(aVar));
+            } else {
+                ji4.a(str, map, map2, new qi4(aVar));
+            }
+        }
     }
 }

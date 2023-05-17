@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitFHTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

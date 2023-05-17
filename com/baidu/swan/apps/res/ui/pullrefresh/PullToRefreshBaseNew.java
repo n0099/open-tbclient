@@ -9,11 +9,11 @@ import android.view.ViewConfiguration;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.j63;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.s73;
+/* loaded from: classes4.dex */
 public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
-    public static final boolean x = ho1.a;
+    public static final boolean x = qp1.a;
     public HEADERTYPE a;
     public float b;
     public float c;
@@ -36,16 +36,16 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public boolean t;
     public float u;
     public boolean v;
-    public j63<T> w;
+    public s73<T> w;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum HEADERTYPE {
         STANDARD_HEADER,
         BIG_BG_HEADER,
         ROTATE_HEADER
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface e<V extends View> {
         void a(PullToRefreshBaseNew<V> pullToRefreshBaseNew);
 
@@ -77,7 +77,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
     public void w() {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public a() {
         }
@@ -88,7 +88,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -99,7 +99,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements Runnable {
         public c() {
         }
@@ -110,7 +110,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class d {
         public static final /* synthetic */ int[] a;
 
@@ -132,7 +132,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public final class f implements Runnable {
         public final int b;
         public final int c;
@@ -209,7 +209,7 @@ public abstract class PullToRefreshBaseNew<T extends View> extends FrameLayout {
         return this.e;
     }
 
-    public j63<T> getRefreshableFactory() {
+    public s73<T> getRefreshableFactory() {
         return this.w;
     }
 

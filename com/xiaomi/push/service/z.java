@@ -3,7 +3,7 @@ package com.xiaomi.push.service;
 import com.xiaomi.push.gg;
 import com.xiaomi.push.id;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class z extends XMPushService.j {
     public final /* synthetic */ id a;
 
@@ -19,15 +19,15 @@ public final class z extends XMPushService.j {
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo676a() {
+    public String mo695a() {
         return "send app absent message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo393a() {
+    public void mo412a() {
         try {
-            ah.a(this.f1012a, ah.a(this.a.b(), this.a.m546a()));
+            ah.a(this.f1012a, ah.a(this.a.b(), this.a.m565a()));
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
             this.f1012a.a(10, e);

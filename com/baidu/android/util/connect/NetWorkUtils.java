@@ -6,11 +6,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +41,11 @@ public class NetWorkUtils {
     public static final int NETWORK_TYPE_LTE_CA = 19;
     public static final String NETWORK_TYPE_WIFI = "wifi";
     public static final long NOT_NEED_REFRESH = 0;
+    public static final int NOT_OPT_NETWORK = 0;
+    public static final int OPT_NETWORK_BY_BROADCAST = 1;
+    public static final int OPT_NETWORK_BY_NETWORKCALLBACK = 2;
     public static final String TAG = "NetWorkUtils";
+    public static volatile ConnectivityManager.NetworkCallback sNetworkCallback;
     public static volatile AtomicLong sNetworkChangedCounter;
     public static volatile NetworkInfo sNetworkInfo;
     public static volatile BroadcastReceiver sNetworkReceiver;
@@ -157,12 +167,71 @@ public class NetWorkUtils {
             if (context == null) {
                 return null;
             }
-            if (DoveRuntime.getIDoveIoc() != null && (DoveRuntime.getIDoveIoc() == null || DoveRuntime.getIDoveIoc().enableDoveOpt())) {
-                if (sNetworkReceiver == null) {
+            if (DoveRuntime.getIDoveIoc() != null && (DoveRuntime.getIDoveIoc() == null || DoveRuntime.getIDoveIoc().getNetworkOptType() != 0)) {
+                if (Build.VERSION.SDK_INT >= 24 && DoveRuntime.getIDoveIoc().getNetworkOptType() == 2) {
+                    if (sNetworkCallback == null) {
+                        synchronized (NetWorkUtils.class) {
+                            if (sNetworkCallback == null) {
+                                sNetworkInfo = getActiveNetworkInfoBySystemService(context);
+                                sNetworkCallback = new ConnectivityManager.NetworkCallback() { // from class: com.baidu.android.util.connect.NetWorkUtils.1
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            interceptable2.invokeUnInit(65536, newInitContext);
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable2.invokeInitBody(65536, newInitContext);
+                                            }
+                                        }
+                                    }
+
+                                    @Override // android.net.ConnectivityManager.NetworkCallback
+                                    public void onAvailable(Network network) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
+                                            NetWorkUtils.sNetworkChangedCounter.incrementAndGet();
+                                        }
+                                    }
+
+                                    @Override // android.net.ConnectivityManager.NetworkCallback
+                                    public void onLost(Network network) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeL(1048579, this, network) == null) {
+                                            NetWorkUtils.sNetworkChangedCounter.incrementAndGet();
+                                        }
+                                    }
+
+                                    @Override // android.net.ConnectivityManager.NetworkCallback
+                                    public void onCapabilitiesChanged(Network network, NetworkCapabilities networkCapabilities) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network, networkCapabilities) == null) {
+                                            NetWorkUtils.sNetworkChangedCounter.incrementAndGet();
+                                        }
+                                    }
+
+                                    @Override // android.net.ConnectivityManager.NetworkCallback
+                                    public void onLinkPropertiesChanged(Network network, LinkProperties linkProperties) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, network, linkProperties) == null) {
+                                            NetWorkUtils.sNetworkChangedCounter.incrementAndGet();
+                                        }
+                                    }
+                                };
+                                ((ConnectivityManager) context.getSystemService("connectivity")).registerDefaultNetworkCallback(sNetworkCallback);
+                            }
+                        }
+                    }
+                } else if (sNetworkReceiver == null) {
                     synchronized (NetWorkUtils.class) {
                         if (sNetworkReceiver == null) {
                             sNetworkInfo = getActiveNetworkInfoBySystemService(context);
-                            sNetworkReceiver = new BroadcastReceiver() { // from class: com.baidu.android.util.connect.NetWorkUtils.1
+                            sNetworkReceiver = new BroadcastReceiver() { // from class: com.baidu.android.util.connect.NetWorkUtils.2
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -183,12 +252,12 @@ public class NetWorkUtils {
                                 @Override // android.content.BroadcastReceiver
                                 public void onReceive(Context context2, Intent intent) {
                                     Interceptable interceptable2 = $ic;
-                                    if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) && intent.getAction().equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+                                    if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, intent) == null) && intent.getAction().equals(NetworkMonitor.NET_CHANGE_ACTION)) {
                                         NetWorkUtils.sNetworkChangedCounter.incrementAndGet();
                                     }
                                 }
                             };
-                            context.getApplicationContext().registerReceiver(sNetworkReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+                            context.getApplicationContext().registerReceiver(sNetworkReceiver, new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION));
                         }
                     }
                 }
@@ -196,12 +265,93 @@ public class NetWorkUtils {
                 if (j > 0) {
                     sNetworkInfo = getActiveNetworkInfoBySystemService(context);
                     sNetworkChangedCounter.compareAndSet(j, 0L);
+                } else {
+                    NetworkInfo networkInfo = sNetworkInfo;
+                    if (networkInfo == null || !networkInfo.isConnectedOrConnecting()) {
+                        sNetworkInfo = getActiveNetworkInfoBySystemService(context);
+                    }
                 }
                 return sNetworkInfo;
             }
             return getActiveNetworkInfoBySystemService(context);
         }
         return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static NetType getNetworkType(Context context) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            String networkTypeString = getNetworkTypeString(context);
+            int hashCode = networkTypeString.hashCode();
+            if (hashCode != -284840886) {
+                if (hashCode != 1653) {
+                    if (hashCode != 1684) {
+                        if (hashCode != 1715) {
+                            if (hashCode != 1746) {
+                                if (hashCode != 3521) {
+                                    if (hashCode == 3649301 && networkTypeString.equals("wifi")) {
+                                        c = 4;
+                                    }
+                                    c = 65535;
+                                } else {
+                                    if (networkTypeString.equals("no")) {
+                                        c = 5;
+                                    }
+                                    c = 65535;
+                                }
+                            } else {
+                                if (networkTypeString.equals("5g")) {
+                                    c = 3;
+                                }
+                                c = 65535;
+                            }
+                        } else {
+                            if (networkTypeString.equals("4g")) {
+                                c = 2;
+                            }
+                            c = 65535;
+                        }
+                    } else {
+                        if (networkTypeString.equals("3g")) {
+                            c = 1;
+                        }
+                        c = 65535;
+                    }
+                } else {
+                    if (networkTypeString.equals("2g")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (networkTypeString.equals("unknown")) {
+                    c = 6;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c != 5) {
+                                    return NetType.UNKOWN;
+                                }
+                                return NetType.NONE;
+                            }
+                            return NetType.WIFI;
+                        }
+                        return NetType._5G;
+                    }
+                    return NetType._4G;
+                }
+                return NetType._3G;
+            }
+            return NetType._2G;
+        }
+        return (NetType) invokeL.objValue;
     }
 
     public static NetworkInfo getActiveNetworkInfoBySystemService(Context context) {
@@ -397,82 +547,6 @@ public class NetWorkUtils {
             }
         }
         return (String) invokeIL.objValue;
-    }
-
-    public static NetType getNetworkType(Context context) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            String networkTypeString = getNetworkTypeString(context);
-            int hashCode = networkTypeString.hashCode();
-            if (hashCode != -284840886) {
-                if (hashCode != 1653) {
-                    if (hashCode != 1684) {
-                        if (hashCode != 1715) {
-                            if (hashCode != 1746) {
-                                if (hashCode != 3521) {
-                                    if (hashCode == 3649301 && networkTypeString.equals("wifi")) {
-                                        c = 4;
-                                    }
-                                    c = 65535;
-                                } else {
-                                    if (networkTypeString.equals("no")) {
-                                        c = 5;
-                                    }
-                                    c = 65535;
-                                }
-                            } else {
-                                if (networkTypeString.equals("5g")) {
-                                    c = 3;
-                                }
-                                c = 65535;
-                            }
-                        } else {
-                            if (networkTypeString.equals("4g")) {
-                                c = 2;
-                            }
-                            c = 65535;
-                        }
-                    } else {
-                        if (networkTypeString.equals("3g")) {
-                            c = 1;
-                        }
-                        c = 65535;
-                    }
-                } else {
-                    if (networkTypeString.equals("2g")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (networkTypeString.equals("unknown")) {
-                    c = 6;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c != 5) {
-                                    return NetType.UNKOWN;
-                                }
-                                return NetType.NONE;
-                            }
-                            return NetType.WIFI;
-                        }
-                        return NetType._5G;
-                    }
-                    return NetType._4G;
-                }
-                return NetType._3G;
-            }
-            return NetType._2G;
-        }
-        return (NetType) invokeL.objValue;
     }
 
     public static String getNetworkTypeString(Context context) {

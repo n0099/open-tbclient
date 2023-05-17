@@ -104,7 +104,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Glide implements ComponentCallbacks2 {
     public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
     public static final String TAG = "Glide";
@@ -127,7 +127,7 @@ public class Glide implements ComponentCallbacks2 {
     public final List<RequestManager> managers = new ArrayList();
     public MemoryCategory memoryCategory = MemoryCategory.NORMAL;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface RequestOptionsFactory {
         @NonNull
         RequestOptions build();

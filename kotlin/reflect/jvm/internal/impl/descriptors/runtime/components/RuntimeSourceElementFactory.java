@@ -6,11 +6,11 @@ import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectJav
 import kotlin.reflect.jvm.internal.impl.load.java.sources.JavaSourceElement;
 import kotlin.reflect.jvm.internal.impl.load.java.sources.JavaSourceElementFactory;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaElement;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class RuntimeSourceElementFactory implements JavaSourceElementFactory {
     public static final RuntimeSourceElementFactory INSTANCE = new RuntimeSourceElementFactory();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class RuntimeSourceElement implements JavaSourceElement {
         public final ReflectJavaElement javaElement;
 

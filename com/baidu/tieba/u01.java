@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.ScaleGestureDetector;
-import android.view.View;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class u01 extends ScaleGestureDetector.SimpleOnScaleGestureListener implements tv0 {
+import java.io.File;
+/* loaded from: classes7.dex */
+public class u01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final View a() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            throw null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return new File(str).exists();
         }
-        return (View) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

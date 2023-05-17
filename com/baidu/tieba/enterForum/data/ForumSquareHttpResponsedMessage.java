@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.data;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.qr6;
+import com.baidu.tieba.dt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qr6 mForumSquareRespData;
+    public dt6 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareHttpResponsedMessage() {
@@ -36,13 +36,13 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public qr6 getData() {
+    public dt6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mForumSquareRespData;
         }
-        return (qr6) invokeV.objValue;
+        return (dt6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,9 +64,9 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
             if (getError() != 0 || getForumSquareResIdl.data == null) {
                 return;
             }
-            qr6 qr6Var = new qr6();
-            this.mForumSquareRespData = qr6Var;
-            qr6Var.a(getForumSquareResIdl.data);
+            dt6 dt6Var = new dt6();
+            this.mForumSquareRespData = dt6Var;
+            dt6Var.a(getForumSquareResIdl.data);
         }
     }
 }

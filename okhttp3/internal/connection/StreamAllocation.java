@@ -35,7 +35,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class StreamAllocation {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TAG = "StreamAllocation";
@@ -77,7 +77,7 @@ public final class StreamAllocation {
     public int preConnectNum = 0;
     public int maxPreConnect = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class FallbackConnectTask extends TimerTask {
         public boolean canceled;
         public int connectTimeout;
@@ -145,7 +145,7 @@ public final class StreamAllocation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class MultipleConnectTask implements Runnable {
         public volatile boolean canceled;
         public int connectTimeout;
@@ -305,7 +305,7 @@ public final class StreamAllocation {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public final Object callStackTrace;
 

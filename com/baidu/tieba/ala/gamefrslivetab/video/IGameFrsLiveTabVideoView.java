@@ -6,21 +6,21 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IGameFrsLiveTabVideoView extends WebViewLifeCycle {
-    View L(LayoutInflater layoutInflater, ViewGroup viewGroup);
-
-    void c();
+    View K(LayoutInflater layoutInflater, ViewGroup viewGroup);
 
     String getUrl();
 
     void h();
 
+    void hideLoadingView();
+
     void loadUrl(String str);
 
-    NavigationBar n();
+    NavigationBar m();
 
     void onChangeSkinType(int i);
 
-    void y(BaseFragment baseFragment);
+    void x(BaseFragment baseFragment);
 }

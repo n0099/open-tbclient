@@ -4,7 +4,7 @@ import android.graphics.RectF;
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class RelativeCornerSize implements CornerSize {
     public final float percent;
 

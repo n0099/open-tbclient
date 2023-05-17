@@ -1,31 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
-/* loaded from: classes4.dex */
-public class dsa {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+/* loaded from: classes5.dex */
+public class dsa implements AdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716503, "Lcom/baidu/tieba/dsa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947716503, "Lcom/baidu/tieba/dsa;");
-                return;
+    public dsa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void destroy(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public RippedAd getRippedAd(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            return null;
+        }
+        return (RippedAd) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public RippedAd getRippedAd(Object obj, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, obj, z)) == null) {
+            return null;
+        }
+        return (RippedAd) invokeLZ.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void preParseRippedAd(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.ripper.AdRipper
+    public void report(Object obj, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+        }
     }
 }

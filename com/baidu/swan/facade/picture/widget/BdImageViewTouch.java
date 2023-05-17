@@ -8,7 +8,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.ViewConfiguration;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdImageViewTouch extends BdImageViewTouchBase {
     public GestureDetector A;
     public int B;
@@ -21,12 +21,12 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
     public c I;
     public ScaleGestureDetector z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a();
     }
@@ -43,7 +43,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         return true;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends GestureDetector.SimpleOnGestureListener {
         public a() {
         }
@@ -116,7 +116,7 @@ public class BdImageViewTouch extends BdImageViewTouchBase {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends ScaleGestureDetector.SimpleOnScaleGestureListener {
         public boolean a = false;
 

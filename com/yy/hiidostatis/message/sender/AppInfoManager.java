@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppInfoManager implements AppInfo {
     public String appkey;
     public Context context;

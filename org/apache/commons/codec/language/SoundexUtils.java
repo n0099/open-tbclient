@@ -3,7 +3,7 @@ package org.apache.commons.codec.language;
 import java.util.Locale;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SoundexUtils {
     public static String clean(String str) {
         if (str != null && str.length() != 0) {

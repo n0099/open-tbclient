@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.kx;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.tx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class RichTextLayout extends LinearLayout implements kx<ax4>, View.OnClickListener {
+/* loaded from: classes3.dex */
+public class RichTextLayout extends LinearLayout implements tx<jy4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -41,7 +41,7 @@ public class RichTextLayout extends LinearLayout implements kx<ax4>, View.OnClic
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class RichTextLayout extends LinearLayout implements kx<ax4>, View.OnClic
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class RichTextLayout extends LinearLayout implements kx<ax4>, View.OnClic
                 return;
             }
         }
-        this.a = ii.l(TbadkCoreApplication.getInst()) - ((ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = ri.l(TbadkCoreApplication.getInst()) - ((ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.e = false;
         this.g = false;
         this.d = context;
@@ -176,23 +176,23 @@ public class RichTextLayout extends LinearLayout implements kx<ax4>, View.OnClic
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kx
+    @Override // com.baidu.tieba.tx
     /* renamed from: d */
-    public void a(ax4 ax4Var) {
+    public void a(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) && ax4Var != null && ax4Var.getThreadData() != null) {
-            ThreadData threadData = ax4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy4Var) == null) && jy4Var != null && jy4Var.getThreadData() != null) {
+            ThreadData threadData = jy4Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
-                g35 d = g35.d(this.c);
+                p45 d = p45.d(this.c);
                 d.C(R.string.F_X01);
                 d.B(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !ax4Var.getThreadData().shouldShowBlockedState()) {
+                if (!originalThreadInfo.m && !jy4Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {
-                        TiePlusEventController.s(originalThreadInfo.h());
+                        TiePlusEventController.r(originalThreadInfo.h());
                     }
                 } else {
                     ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.origin_thread_deleted_title)), threadData, this.a, this.e, this.g);
@@ -203,7 +203,7 @@ public class RichTextLayout extends LinearLayout implements kx<ax4>, View.OnClic
                 SpannableString abstractText = threadData.getAbstractText();
                 ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.e, this.g);
                 if (abstractText != null) {
-                    TiePlusEventController.s(threadData.getTiePlusLinkOriginData());
+                    TiePlusEventController.r(threadData.getTiePlusLinkOriginData());
                 }
             }
             if (!this.e) {

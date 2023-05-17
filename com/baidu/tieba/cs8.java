@@ -1,31 +1,37 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class cs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public List<ds8> e;
 
-    public cs8() {
+    public static void a(String str, UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, userData) == null) && userData != null && userData.getUserId() != null && userData.getAlaUserData() != null && userData.getAlaInfo() != null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            AlaInfoData alaInfo = userData.getAlaInfo();
+            String str2 = null;
+            if (!StringUtils.isNull(alaInfo.appId)) {
+                str2 = alaInfo.appId;
             }
+            if (alaInfo.mYyExtData != null) {
+                str2 = TiebaStatic.YYValues.YY_LIVE;
+            }
+            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(alaInfo));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

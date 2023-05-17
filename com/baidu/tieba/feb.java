@@ -1,88 +1,109 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.ugb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
-/* loaded from: classes4.dex */
-public final class feb {
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+/* loaded from: classes5.dex */
+public class feb implements IPayCallback {
     public static /* synthetic */ Interceptable $ic;
-    public static final feb a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public IPayCallback<CurrencyChargeMessage> c;
+    public Activity d;
+    public Dialog e;
+    public ngb f;
+    public pdb g;
+    public hfb h;
+    public ugb.b i;
+    public ldb j;
+    public dfb k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762662, "Lcom/baidu/tieba/feb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947762662, "Lcom/baidu/tieba/feb;");
-                return;
-            }
-        }
-        a = new feb();
-    }
-
-    public feb() {
+    public feb(int i, int i2, IPayCallback<CurrencyChargeMessage> iPayCallback, Activity activity, Dialog dialog, ngb ngbVar, pdb pdbVar, hfb hfbVar, ugb.b bVar, ldb ldbVar, dfb dfbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r3;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iPayCallback, activity, dialog, ngbVar, pdbVar, hfbVar, bVar, ldbVar, dfbVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        RLog.info("PayInternalCallback", "create PayInternalCallback appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = iPayCallback;
+        this.d = activity;
+        this.e = dialog;
+        this.f = ngbVar;
+        this.g = pdbVar;
+        this.h = hfbVar;
+        this.i = bVar;
+        this.j = ldbVar;
+        this.k = dfbVar;
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+    public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onFail code:" + i + " failReason:" + str + " payCallBackBean:" + payCallBackBean);
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onFail(i, str, payCallBackBean);
+            }
+            this.j.e(i, str, payCallBackBean);
+            lfb.b(this.a, this.b, i, str);
+            this.g.i(i, str, this.d, this.e, this.f, this.i, this.k, this.h, payCallBackBean, this.c);
+        }
+    }
+
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+    public void onPayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onPayStart");
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStart();
             }
         }
     }
 
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
+    @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
+    public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig != null && (themeColorConfig = payUIKitConfig.themeColorConfig) != null && themeColorConfig.getThemeResId() != null) {
-                Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-                if (themeResId == null) {
-                    Intrinsics.throwNpe();
-                }
-                return themeResId.intValue();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, purchaseStatus, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onPayStatus code " + purchaseStatus.getCode() + " msg: " + purchaseStatus.getMessage());
+            this.g.f(this.d, this.e, this.f, purchaseStatus);
+            IPayCallback<CurrencyChargeMessage> iPayCallback = this.c;
+            if (iPayCallback != null) {
+                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
             }
-            return R.style.obfuscated_res_0x7f100155;
         }
-        return invokeL.intValue;
     }
 
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Integer num;
+    @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+    public void onSuccess(Object obj, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            if (themeColorConfig != null) {
-                num = themeColorConfig.getThemeResId();
-            } else {
-                num = null;
-            }
-            if (num != null && num.intValue() == R.style.obfuscated_res_0x7f100155) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, payCallBackBean) == null) {
+            RLog.info("PayInternalCallback", "requestPayInternal onSuccess");
+            this.g.o(this.d, this.h, this.e, this.f);
         }
-        return invokeL.booleanValue;
     }
 }

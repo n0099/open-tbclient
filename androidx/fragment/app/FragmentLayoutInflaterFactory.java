@@ -9,7 +9,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.R;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 /* loaded from: classes.dex */
 public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
     public static final String TAG = "FragmentManager";
@@ -30,7 +29,7 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
         if (!"fragment".equals(str)) {
             return null;
         }
-        String attributeValue = attributeSet.getAttributeValue(null, DealIntentService.KEY_CLASS);
+        String attributeValue = attributeSet.getAttributeValue(null, "class");
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.Fragment);
         int i2 = 0;
         if (attributeValue == null) {

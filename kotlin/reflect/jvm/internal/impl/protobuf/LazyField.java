@@ -2,11 +2,11 @@ package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LazyField extends LazyFieldLite {
     public final MessageLite defaultInstance;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LazyEntry<K> implements Map.Entry<K, Object> {
         public Map.Entry<K, LazyField> entry;
 
@@ -37,7 +37,7 @@ public class LazyField extends LazyFieldLite {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LazyIterator<K> implements Iterator<Map.Entry<K, Object>> {
         public Iterator<Map.Entry<K, Object>> iterator;
 

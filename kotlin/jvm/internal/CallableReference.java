@@ -13,7 +13,7 @@ import kotlin.reflect.KParameter;
 import kotlin.reflect.KType;
 import kotlin.reflect.KTypeParameter;
 import kotlin.reflect.KVisibility;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class CallableReference implements KCallable, Serializable {
     @SinceKotlin(version = "1.1")
     public static final Object NO_RECEIVER = NoReceiver.INSTANCE;
@@ -32,7 +32,7 @@ public abstract class CallableReference implements KCallable, Serializable {
     public abstract KCallable computeReflected();
 
     @SinceKotlin(version = "1.2")
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class NoReceiver implements Serializable {
         public static final NoReceiver INSTANCE = new NoReceiver();
 

@@ -1,44 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class oc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void a(int i) {
+    public static void a(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, str4) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", str3);
+            statisticItem.param("obj_locate", str4);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void b(String str) {
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", str3);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void c(int i) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            d(str, null);
         }
     }
 
-    public oc5() {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            if (!StringUtils.isNull(str2)) {
+                if ("card".equals(str2)) {
+                    str2 = "1";
+                } else if (String.valueOf(4).equals(str2)) {
+                    str2 = "2";
+                } else if (String.valueOf(26).equals(str2)) {
+                    str2 = "3";
+                }
+                statisticItem.param("obj_type", str2);
             }
+            TiebaStatic.log(statisticItem);
         }
     }
 }

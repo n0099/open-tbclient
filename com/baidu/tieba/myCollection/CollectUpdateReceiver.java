@@ -9,13 +9,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.jq8;
+import com.baidu.tieba.es8;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CollectUpdateReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_NAME = "com.baidu.tieba.broadcast.collectupdate";
@@ -41,17 +41,17 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !ACTION_NAME.equals(intent.getAction())) {
             return;
         }
-        jq8.b().g();
-        if (!f55.m().i("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
+        es8.b().g();
+        if (!o65.m().i("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
             return;
         }
         try {
             Intent intent2 = new Intent(context, DealIntentService.class);
-            intent2.putExtra(DealIntentService.KEY_CLASS, 33);
+            intent2.putExtra("class", 33);
             intent2.putExtra("is_notify", true);
             intent2.setFlags(603979776);
             PendingIntent service = PendingIntent.getService(context, 0, intent2, 134217728);
-            String string = context.getString(R.string.obfuscated_res_0x7f0f0434);
+            String string = context.getString(R.string.obfuscated_res_0x7f0f046f);
             NotificationHelper.showNotification(context, 28, context.getString(R.string.obfuscated_res_0x7f0f029e), string, string, service, false);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {

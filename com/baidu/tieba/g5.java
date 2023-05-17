@@ -1,92 +1,97 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.Application;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.badlogic.gdx.utils.BufferUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class g5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
+import java.nio.ShortBuffer;
+/* loaded from: classes5.dex */
+public class g5 implements h5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ShortBuffer a;
+    public final ByteBuffer b;
+    public final boolean c;
+    public int d;
+    public final boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448303807, "Lcom/baidu/tieba/g5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public g5(boolean z, int i) {
+        boolean z2;
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448303807, "Lcom/baidu/tieba/g5;");
-        }
-    }
-
-    public static void a(int i, Pixmap pixmap, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (!a) {
-                b(i, pixmap, i2, i3);
-            } else if (o0.a.getType() != Application.ApplicationType.Android && o0.a.getType() != Application.ApplicationType.WebGL && o0.a.getType() != Application.ApplicationType.iOS) {
-                c(i, pixmap, i2, i3);
-            } else {
-                d(i, pixmap);
-            }
-        }
-    }
-
-    public static void b(int i, Pixmap pixmap, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            o0.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            if (o0.f == null && i2 != i3) {
-                throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
-            }
-            int n = pixmap.n() / 2;
-            int l = pixmap.l() / 2;
-            int i4 = 1;
-            Pixmap pixmap2 = pixmap;
-            while (n > 0 && l > 0) {
-                Pixmap pixmap3 = new Pixmap(n, l, pixmap2.h());
-                pixmap3.o(Pixmap.Blending.None);
-                pixmap3.f(pixmap2, 0, 0, pixmap2.n(), pixmap2.l(), 0, 0, n, l);
-                if (i4 > 1) {
-                    pixmap2.dispose();
-                }
-                pixmap2 = pixmap3;
-                o0.e.q(i, i4, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
-                n = pixmap2.n() / 2;
-                l = pixmap2.l() / 2;
-                i4++;
-            }
-        }
-    }
-
-    public static void c(int i, Pixmap pixmap, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            if (!o0.b.a("GL_ARB_framebuffer_object") && !o0.b.a("GL_EXT_framebuffer_object") && o0.g == null) {
-                b(i, pixmap, i2, i3);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            o0.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            o0.f.F(i);
+        }
+        if (i == 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.e = z2;
+        ByteBuffer e = BufferUtils.e((z2 ? 1 : i) * 2);
+        this.b = e;
+        ShortBuffer asShortBuffer = e.asShortBuffer();
+        this.a = asShortBuffer;
+        this.c = true;
+        asShortBuffer.flip();
+        this.b.flip();
+        this.d = s0.f.n();
+    }
+
+    @Override // com.baidu.tieba.h5, com.baidu.tieba.v6
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s0.f.E(34963, 0);
+            s0.f.b(this.d);
+            this.d = 0;
+            if (this.c) {
+                BufferUtils.b(this.b);
+            }
         }
     }
 
-    public static void d(int i, Pixmap pixmap) {
+    @Override // com.baidu.tieba.h5
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, pixmap) == null) {
-            o0.e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            o0.f.F(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e) {
+                return 0;
+            }
+            return this.a.limit();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.h5
+    public ShortBuffer getBuffer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ShortBuffer) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h5
+    public void invalidate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = s0.f.n();
         }
     }
 }

@@ -1,77 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.m81;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.webpanel.model.AdData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class e71 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class e71 extends hm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static final int b = 0;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        boolean a(HashMap<String, String> hashMap, int i);
-
-        void b(Context context, int i);
-
-        AbsNadBrowserView c(Context context, o81 o81Var, int i);
-
-        void d(Context context, boolean z, int i, m81.b bVar);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947687146, "Lcom/baidu/tieba/e71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947687146, "Lcom/baidu/tieba/e71;");
-                return;
+    public e71(int i, AdData adData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), adData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a aVar = d71.b;
-        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
-        a = aVar;
-        c = 1;
-    }
-
-    public static final a a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
     }
 }

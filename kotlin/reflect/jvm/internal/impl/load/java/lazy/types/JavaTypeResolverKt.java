@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.types.StarProjectionImplKt;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjectionImpl;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaTypeResolverKt {
     public static final FqName JAVA_LANG_CLASS_FQ_NAME = new FqName("java.lang.Class");
 
@@ -34,29 +34,29 @@ public final class JavaTypeResolverKt {
         List<KotlinType> upperBounds = typeParameterDescriptor.getUpperBounds();
         Intrinsics.checkExpressionValueIsNotNull(upperBounds, "upperBounds");
         KotlinType firstUpperBound = (KotlinType) CollectionsKt___CollectionsKt.first((List<? extends Object>) upperBounds);
-        if (firstUpperBound.getConstructor().mo2025getDeclarationDescriptor() instanceof ClassDescriptor) {
+        if (firstUpperBound.getConstructor().mo2044getDeclarationDescriptor() instanceof ClassDescriptor) {
             Intrinsics.checkExpressionValueIsNotNull(firstUpperBound, "firstUpperBound");
             return TypeUtilsKt.replaceArgumentsWithStarProjections(firstUpperBound);
         }
         if (typeParameterDescriptor2 != null) {
             typeParameterDescriptor = typeParameterDescriptor2;
         }
-        ClassifierDescriptor mo2025getDeclarationDescriptor = firstUpperBound.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor == null) {
+        ClassifierDescriptor mo2044getDeclarationDescriptor = firstUpperBound.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor == null) {
             throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.TypeParameterDescriptor");
         }
         while (true) {
-            TypeParameterDescriptor typeParameterDescriptor3 = (TypeParameterDescriptor) mo2025getDeclarationDescriptor;
+            TypeParameterDescriptor typeParameterDescriptor3 = (TypeParameterDescriptor) mo2044getDeclarationDescriptor;
             if (!Intrinsics.areEqual(typeParameterDescriptor3, typeParameterDescriptor)) {
                 List<KotlinType> upperBounds2 = typeParameterDescriptor3.getUpperBounds();
                 Intrinsics.checkExpressionValueIsNotNull(upperBounds2, "current.upperBounds");
                 KotlinType nextUpperBound = (KotlinType) CollectionsKt___CollectionsKt.first((List<? extends Object>) upperBounds2);
-                if (nextUpperBound.getConstructor().mo2025getDeclarationDescriptor() instanceof ClassDescriptor) {
+                if (nextUpperBound.getConstructor().mo2044getDeclarationDescriptor() instanceof ClassDescriptor) {
                     Intrinsics.checkExpressionValueIsNotNull(nextUpperBound, "nextUpperBound");
                     return TypeUtilsKt.replaceArgumentsWithStarProjections(nextUpperBound);
                 }
-                mo2025getDeclarationDescriptor = nextUpperBound.getConstructor().mo2025getDeclarationDescriptor();
-                if (mo2025getDeclarationDescriptor == null) {
+                mo2044getDeclarationDescriptor = nextUpperBound.getConstructor().mo2044getDeclarationDescriptor();
+                if (mo2044getDeclarationDescriptor == null) {
                     throw new TypeCastException("null cannot be cast to non-null type org.jetbrains.kotlin.descriptors.TypeParameterDescriptor");
                 }
             } else {

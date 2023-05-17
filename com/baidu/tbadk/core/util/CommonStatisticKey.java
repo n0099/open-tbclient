@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -271,7 +271,7 @@ public class CommonStatisticKey {
     public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Page {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FRS = "frs";
@@ -294,7 +294,7 @@ public class CommonStatisticKey {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class TbMemberOfficialStatic {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MEMBER_MSG_CENTER_NOTIFY_CLICK = "c14939";
@@ -320,7 +320,7 @@ public class CommonStatisticKey {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";

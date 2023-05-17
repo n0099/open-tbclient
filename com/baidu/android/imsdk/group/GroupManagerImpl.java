@@ -53,6 +53,7 @@ import com.baidu.android.imsdk.utils.DataUtil;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -927,7 +928,7 @@ public class GroupManagerImpl {
                 }
                 return;
             }
-            bIMValueCallBack.onResult(0, "succeed", GroupMessageManagerImpl.getInstance(mContext).getGroupAdministrators(str));
+            bIMValueCallBack.onResult(0, CommandUBCHelper.COMMAND_UBC_VALUE_SUCCESS, GroupMessageManagerImpl.getInstance(mContext).getGroupAdministrators(str));
         }
     }
 
@@ -1034,7 +1035,7 @@ public class GroupManagerImpl {
                 bIMValueCallBack.onResult(1005, " groupId empty", null);
                 return;
             }
-            bIMValueCallBack.onResult(0, "succeed", GroupInfoDAOImpl.getGroupNormalRoleMembers(mContext, str));
+            bIMValueCallBack.onResult(0, CommandUBCHelper.COMMAND_UBC_VALUE_SUCCESS, GroupInfoDAOImpl.getGroupNormalRoleMembers(mContext, str));
         }
     }
 

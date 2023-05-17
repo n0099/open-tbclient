@@ -1,127 +1,78 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.tieba.b83;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class b83<SelfT extends b83<SelfT>> extends at2<SelfT> {
+import java.util.TimerTask;
+/* loaded from: classes4.dex */
+public final class b83 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
+    public int a;
+    public int b;
+    public int c;
+    public final WheelView3d d;
 
-    /* loaded from: classes3.dex */
-    public static final class a extends b83<a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a E() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Bundle bundle) {
-            super(str, bundle);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, bundle};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Bundle) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tm3
-        public /* bridge */ /* synthetic */ tm3 e() {
-            E();
-            return this;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public b83(String str) {
-        this(str, null);
+    public b83(WheelView3d wheelView3d, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {wheelView3d, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Bundle) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = wheelView3d;
+        this.c = i;
+        this.a = Integer.MAX_VALUE;
+        this.b = 0;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b83(String str, Bundle bundle) {
-        super(bundle);
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bundle};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Bundle) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == Integer.MAX_VALUE) {
+                this.a = this.c;
+            }
+            int i = this.a;
+            int i2 = (int) (i * 0.1f);
+            this.b = i2;
+            if (i2 == 0) {
+                if (i < 0) {
+                    this.b = -1;
+                } else {
+                    this.b = 1;
+                }
+            }
+            if (Math.abs(this.a) <= 1) {
+                this.d.b();
+                this.d.getHandler().sendEmptyMessage(3000);
                 return;
             }
+            WheelView3d wheelView3d = this.d;
+            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() + this.b);
+            if (!this.d.i()) {
+                float itemHeight = this.d.getItemHeight();
+                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
+                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
+                    WheelView3d wheelView3d2 = this.d;
+                    wheelView3d2.setTotalScrollY(wheelView3d2.getTotalScrollY() - this.b);
+                    this.d.b();
+                    this.d.getHandler().sendEmptyMessage(3000);
+                    return;
+                }
+            }
+            this.d.getHandler().sendEmptyMessage(1000);
+            this.a -= this.b;
         }
-        this.b = TextUtils.isEmpty(str) ? "" : str;
-    }
-
-    @Override // com.baidu.tieba.at2
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.format("Event(%s) Ext => %s", this.b, super.toString());
-        }
-        return (String) invokeV.objValue;
     }
 }

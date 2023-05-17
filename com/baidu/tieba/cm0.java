@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.lm0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,24 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
-public class cm0 implements lm0 {
+/* loaded from: classes5.dex */
+public class cm0 implements jm0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dm0 b;
-    public int c;
-    public long d;
-    public AtomicBoolean e;
+    public final ConcurrentLinkedQueue<lm0.b<?>> a;
+    public final AtomicBoolean b;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class b {
+    /* loaded from: classes5.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final cm0 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,17 +27,17 @@ public class cm0 implements lm0 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-885830715, "Lcom/baidu/tieba/cm0$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-885830746, "Lcom/baidu/tieba/cm0$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-885830715, "Lcom/baidu/tieba/cm0$b;");
+                    classClinitInterceptable.invokePostClinit(-885830746, "Lcom/baidu/tieba/cm0$a;");
                     return;
                 }
             }
-            a = new cm0(null);
+            a = new cm0();
         }
     }
 
@@ -60,69 +54,44 @@ public class cm0 implements lm0 {
                 return;
             }
         }
-        this.c = -1;
-        this.d = 0L;
-        this.e = new AtomicBoolean(false);
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
     }
 
-    public static cm0 c() {
+    public static jm0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (cm0) invokeV.objValue;
+        return (jm0) invokeV.objValue;
     }
 
-    public void b() {
-        dm0 dm0Var;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            if (i <= 2 && (dm0Var = this.b) != null) {
-                dm0Var.e();
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.set(false);
-        }
-    }
-
-    public /* synthetic */ cm0(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.lm0
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.e.get()) {
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
-        dm0 dm0Var = this.b;
-        if (dm0Var != null) {
-            dm0Var.d();
-            this.b = null;
-            this.c = -1;
-        }
-        if (z) {
-            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
+        while (true) {
+            lm0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
                 return;
             }
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new dm0(60, this.c + 1, true);
-            }
-        } else {
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new dm0(60, this.c + 1, false);
-            }
-            zl0.d().f();
         }
-        b();
-        this.d = System.currentTimeMillis();
+    }
+
+    @Override // com.baidu.tieba.jm0
+    public <T extends hm0> void a(mm0 mm0Var, km0<T> km0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, mm0Var, km0Var, t) == null) {
+            this.a.offer(new lm0.b<>(mm0Var, km0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                f31.c(this, "AsyncDeliver", 3);
+            }
+        }
     }
 }

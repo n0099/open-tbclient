@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.os.IBinder;
 import com.xiaomi.push.ba;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bc implements Runnable {
     public final /* synthetic */ IBinder a;
 
@@ -33,7 +33,7 @@ public class bc implements Runnable {
             ba.a aVar = new ba.a();
             aVar.b = ba.c.a(this.a, packageName, b, "OUID");
             ba.this.f136a = aVar;
-            ba.this.m207b();
+            ba.this.m226b();
             ba.this.f133a = 2;
             obj5 = ba.this.f137a;
             synchronized (obj5) {
@@ -44,7 +44,7 @@ public class bc implements Runnable {
                 }
             }
         } catch (Exception unused2) {
-            ba.this.m207b();
+            ba.this.m226b();
             ba.this.f133a = 2;
             obj3 = ba.this.f137a;
             synchronized (obj3) {
@@ -55,7 +55,7 @@ public class bc implements Runnable {
                 }
             }
         } catch (Throwable th) {
-            ba.this.m207b();
+            ba.this.m226b();
             ba.this.f133a = 2;
             obj = ba.this.f137a;
             synchronized (obj) {

@@ -2,7 +2,7 @@ package com.baidu.live.business.model.data;
 
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFollowEntity {
     public String audienceCount;
     public String cmd;

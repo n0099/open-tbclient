@@ -15,7 +15,7 @@ import com.google.gson.annotations.SerializedName;
 import org.json.JSONObject;
 import tbclient.ThemeBubble;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ThemeBubbleData {
     public static /* synthetic */ Interceptable $ic;
     public static final ThemeBubbleData DEFAULT;

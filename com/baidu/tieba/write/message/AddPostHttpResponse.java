@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.k5a;
+import com.baidu.tieba.m7a;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +25,7 @@ import tbclient.AddPost.AddPostResIdl;
 import tbclient.AddPost.DataRes;
 import tbclient.Toast;
 import tbclient.ToastConfig;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AddPostHttpResponse extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeL(65537, this, toast) != null) || toast == null) {
             return;
         }
-        BdToastHelper.toast(k5a.a(toast));
+        BdToastHelper.toast(m7a.a(toast));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +75,7 @@ public class AddPostHttpResponse extends HttpResponsedMessage {
             addPostHttpResponse.resultJSON = new JSONObject();
             DataRes dataRes = addPostResIdl.data;
             if (dataRes != null) {
-                BdToastData a = k5a.a(dataRes.toast);
+                BdToastData a = m7a.a(dataRes.toast);
                 if (a != null && (json = a.toJson()) != null) {
                     addPostHttpResponse.resultJSON.put("toast", json);
                 }

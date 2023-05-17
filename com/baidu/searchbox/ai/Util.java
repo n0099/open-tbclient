@@ -1,9 +1,9 @@
 package com.baidu.searchbox.ai;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Util {
 
     /* renamed from: com.baidu.searchbox.ai.Util$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$ai$DataType;
 

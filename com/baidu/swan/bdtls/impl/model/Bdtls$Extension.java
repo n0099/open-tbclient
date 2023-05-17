@@ -1,7 +1,7 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.br3;
-import com.baidu.tieba.cr3;
+import com.baidu.tieba.ks3;
+import com.baidu.tieba.ls3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -15,8 +15,8 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements cr3 {
+/* loaded from: classes4.dex */
+public final class Bdtls$Extension extends GeneratedMessageLite implements ls3 {
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = new a();
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -28,8 +28,8 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements cr3 {
     public int memoizedSerializedSize;
     public int type_;
 
-    /* loaded from: classes3.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements cr3 {
+    /* loaded from: classes4.dex */
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements ls3 {
         public int a;
         public int b;
         public ByteString c = ByteString.EMPTY;
@@ -89,7 +89,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements cr3 {
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$Extension buildPartial() {
-            Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (br3) null);
+            Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (ks3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -332,7 +332,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements cr3 {
         return super.writeReplace();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AbstractParser<Bdtls$Extension> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.Parser
@@ -377,7 +377,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements cr3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, br3 br3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -412,7 +412,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements cr3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, br3 br3Var) {
+    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
         this(builder);
     }
 

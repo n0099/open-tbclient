@@ -1,23 +1,55 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.executor.BaseExecutorCell;
-import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class c31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile r21 a;
-    public volatile r21 b;
-    public volatile r21 c;
-    public int d;
-    public long e;
+    public final List<a> a;
+    public final List<a31> b;
+    public String c;
+    public String d;
+    public y21 e;
+    public z21 f;
+    public b31 g;
+    public int h;
+    public int i;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final o21[] b;
+
+        public a(String str, o21[] o21VarArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, o21VarArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = o21VarArr;
+        }
+    }
 
     public c31() {
         Interceptable interceptable = $ic;
@@ -32,147 +64,120 @@ public class c31 {
                 return;
             }
         }
-        this.d = 0;
-        this.e = 0L;
+        this.a = new ArrayList(4);
+        this.b = new ArrayList(2);
+        this.h = -1;
+        this.i = -1;
     }
 
-    public r21 d() {
+    public static c31 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c == null) {
-                synchronized (this) {
-                    if (this.c == null) {
-                        this.c = (r21) BaseExecutorCell.b(o21.i, BaseExecutorCell.ExecutorType.DREDGE_DISASTER);
-                    }
-                }
-            }
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new c31();
         }
-        return (r21) invokeV.objValue;
+        return (c31) invokeV.objValue;
     }
 
-    public r21 e() {
+    public String[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            y21 y21Var = this.e;
+            if (y21Var == null) {
+                return null;
+            }
+            return y21Var.e();
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                synchronized (this) {
-                    if (this.a == null) {
-                        this.a = (r21) BaseExecutorCell.b(o21.g, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
-                    }
-                }
-            }
-            return this.a;
+            return d(null).toString();
         }
-        return (r21) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public r21 f() {
-        InterceptResult invokeV;
+    public c31 a(String str, o21... o21VarArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.b == null) {
-                synchronized (this) {
-                    if (this.b == null) {
-                        this.b = (r21) BaseExecutorCell.b(o21.h, BaseExecutorCell.ExecutorType.DREDGE_NORMAL);
-                    }
-                }
-            }
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, o21VarArr)) == null) {
+            this.a.add(new a(str, o21VarArr));
+            return this;
         }
-        return (r21) invokeV.objValue;
+        return (c31) invokeLL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        boolean z;
+    public c31 c(String str, x21 x21Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            double a = d31.f().g().a();
-            if (a >= o21.j && 3 != this.d) {
-                if (a >= o21.k) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z || SystemClock.elapsedRealtime() - this.e > o21.m) {
-                    g();
-                    this.e = SystemClock.elapsedRealtime();
-                    d31.f().j(o21.m + 10);
-                    return 1;
-                }
-            }
-            if (this.d == 0 || a >= o21.l || SystemClock.elapsedRealtime() - this.e <= o21.n) {
-                return 0;
-            }
-            b();
-            this.e = SystemClock.elapsedRealtime();
-            d31.f().j(o21.n + 10);
-            return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, x21Var)) == null) {
+            this.d = str;
+            this.c = x21Var.b().g();
+            return this;
         }
-        return invokeV.intValue;
+        return (c31) invokeLL.objValue;
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.d;
-            if (1 == i) {
-                e().j();
-                this.d = 0;
-            } else if (2 == i) {
-                f().j();
-                this.d = 1;
-            } else if (3 == i) {
-                d().j();
-                this.d = 2;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i = this.d;
-            if (i == 0) {
-                e().i();
-                this.d = 1;
-            } else if (1 == i) {
-                f().i();
-                this.d = 2;
-            } else if (2 == i) {
-                d().i();
-                this.d = 3;
-            }
-        }
-    }
-
-    public boolean c(ElasticTask elasticTask) {
+    public final StringBuilder d(StringBuilder sb) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask)) == null) {
-            int i = this.d;
-            if (i == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sb)) == null) {
+            if (sb == null) {
+                sb = new StringBuilder();
             }
-            if (i == 1) {
-                return e().c(elasticTask);
-            }
-            if (i == 2) {
-                if (e().c(elasticTask)) {
-                    return true;
+            sb.append("SELECT ");
+            int size = this.a.size();
+            String str = "";
+            for (int i = 0; i < size; i++) {
+                int i2 = 0;
+                while (i2 < this.a.get(i).b.length) {
+                    sb.append(str);
+                    String str2 = this.a.get(i).a;
+                    if (!TextUtils.isEmpty(str2)) {
+                        sb.append(str2);
+                        sb.append(".");
+                    }
+                    sb.append(this.a.get(i).b[i2].b);
+                    i2++;
+                    str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
                 }
-                return f().c(elasticTask);
-            } else if (i != 3) {
-                return false;
-            } else {
-                if (e().c(elasticTask) || f().c(elasticTask)) {
-                    return true;
-                }
-                return d().c(elasticTask);
             }
+            sb.append(" ");
+            sb.append("FROM ");
+            sb.append(this.c);
+            if (!TextUtils.isEmpty(this.d)) {
+                sb.append(" AS ");
+                sb.append(this.d);
+            }
+            for (a31 a31Var : this.b) {
+                sb.append(a31Var.c());
+            }
+            y21 y21Var = this.e;
+            if (y21Var != null) {
+                sb.append(y21Var.k());
+            }
+            z21 z21Var = this.f;
+            if (z21Var != null) {
+                sb.append(z21Var.a());
+            }
+            b31 b31Var = this.g;
+            if (b31Var != null) {
+                sb.append(b31Var.a());
+            }
+            if (this.h > -1) {
+                sb.append(" LIMIT ");
+                sb.append(this.h);
+            }
+            if (this.i > -1) {
+                sb.append(" OFFSET ");
+                sb.append(this.i);
+            }
+            return sb;
         }
-        return invokeL.booleanValue;
+        return (StringBuilder) invokeL.objValue;
     }
 }

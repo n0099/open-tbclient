@@ -9,7 +9,7 @@ import com.facebook.imagepipeline.drawable.DrawableFactory;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DraweeConfig {
     @Nullable
     public final ImmutableList<DrawableFactory> mCustomDrawableFactories;
@@ -19,7 +19,7 @@ public class DraweeConfig {
     @Nullable
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public List<DrawableFactory> mCustomDrawableFactories;
         public Supplier<Boolean> mDebugOverlayEnabledSupplier;

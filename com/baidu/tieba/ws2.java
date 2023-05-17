@@ -1,23 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public final class ws2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public class ws2 implements yh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Intent intent) {
+    public ws2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.yh4
+    public ip4 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
-            if ((intent.getFlags() & 1048576) == 1048576) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new xh3(str);
         }
-        return invokeL.booleanValue;
+        return (ip4) invokeL.objValue;
     }
 }

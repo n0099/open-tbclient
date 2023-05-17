@@ -1,29 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+/* loaded from: classes8.dex */
 public class zc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948355134, "Lcom/baidu/tieba/zc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948355134, "Lcom/baidu/tieba/zc4;");
-                return;
-            }
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new SimpleDateFormat("yyyy年MM月dd日", Locale.CHINESE).format(new Date(System.currentTimeMillis()));
         }
-        a = new Object();
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return uh3.a().getString(str, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            uh3.a().putString(str, str2);
+        }
     }
 }

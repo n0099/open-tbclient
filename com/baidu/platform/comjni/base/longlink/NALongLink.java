@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NALongLink extends JNIBaseApi {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, LinkedList<Object>> a;

@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PasswordToggleEndIconDelegate extends EndIconDelegate {
     public final TextInputLayout.OnEditTextAttachedListener onEditTextAttachedListener;
     public final TextInputLayout.OnEndIconChangedListener onEndIconChangedListener;
@@ -74,9 +74,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
 
     @Override // com.google.android.material.textfield.EndIconDelegate
     public void initialize() {
-        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f0804b1));
+        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080564));
         TextInputLayout textInputLayout = this.textInputLayout;
-        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0e5c));
+        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0eea));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

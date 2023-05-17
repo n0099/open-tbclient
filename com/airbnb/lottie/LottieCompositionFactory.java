@@ -13,7 +13,6 @@ import com.airbnb.lottie.network.NetworkFetcher;
 import com.airbnb.lottie.parser.LottieCompositionMoshiParser;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -343,7 +342,7 @@ public class LottieCompositionFactory {
                 } else if (nextEntry.getName().contains(".json")) {
                     lottieComposition = fromJsonReaderSyncInternal(JsonReader.of(Okio.buffer(Okio.source(zipInputStream))), null, false).getValue();
                 } else {
-                    if (!name.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !name.contains(".webp")) {
+                    if (!name.contains(".png") && !name.contains(".webp")) {
                         zipInputStream.closeEntry();
                     }
                     hashMap.put(name.split("/")[split.length - 1], BitmapFactory.decodeStream(zipInputStream));

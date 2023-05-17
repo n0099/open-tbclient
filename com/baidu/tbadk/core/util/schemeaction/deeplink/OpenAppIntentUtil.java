@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class OpenAppIntentUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class OpenAppIntentUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, Boolean.valueOf(z), openAppCallback})) == null) {
             try {
-                launchIntent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                launchIntent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
                 launchIntent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 int i = 0;
                 List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(launchIntent, 0);
@@ -167,7 +168,7 @@ public class OpenAppIntentUtil {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, uri)) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(uri);
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {

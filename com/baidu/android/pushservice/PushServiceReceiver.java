@@ -17,6 +17,7 @@ import com.baidu.android.pushservice.message.PublicMsg;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.x.k;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -431,7 +432,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
             try {
                 Intent intent = new Intent();
                 try {
-                    intent.setAction("android.intent.action.VIEW");
+                    intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
                     intent.setData(Uri.parse(str));
                     intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     return intent;

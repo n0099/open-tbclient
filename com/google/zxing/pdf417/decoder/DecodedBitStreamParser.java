@@ -9,7 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DecodedBitStreamParser {
     public static final int AL = 28;
     public static final int AS = 27;
@@ -36,7 +36,7 @@ public final class DecodedBitStreamParser {
     public static final char[] MIXED_CHARS = "0123456789&\r\t,:#-.$/+%*=^".toCharArray();
     public static final Charset DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Mode {
         ALPHA,
         LOWER,
@@ -47,7 +47,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
 

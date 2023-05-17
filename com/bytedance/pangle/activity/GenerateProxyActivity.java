@@ -58,7 +58,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class GenerateProxyActivity extends Activity implements b {
     public Plugin mPlugin;
     public GeneratePluginActivity mTargetActivity;

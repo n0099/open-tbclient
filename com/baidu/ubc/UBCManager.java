@@ -1,13 +1,12 @@
 package com.baidu.ubc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.tieba.fea;
-import com.baidu.tieba.jea;
-import com.baidu.tieba.zda;
+import com.baidu.tieba.dga;
+import com.baidu.tieba.hga;
+import com.baidu.tieba.xfa;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface UBCManager {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -16,7 +15,7 @@ public interface UBCManager {
     public static final String CONTENT_KEY_SOURCE = "source";
     public static final String CONTENT_KEY_TYPE = "type";
     public static final String CONTENT_KEY_VALUE = "value";
-    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, UBC.TAG);
+    public static final ServiceReference SERVICE_REFERENCE = new ServiceReference("ubc", UBC.TAG);
 
     Flow beginFlow(String str);
 
@@ -78,11 +77,11 @@ public interface UBCManager {
 
     void onEvent(String str, JSONObject jSONObject, int i);
 
-    void registerConfig(jea jeaVar);
+    void registerConfig(hga hgaVar);
 
-    void registerConfig(jea jeaVar, boolean z, fea feaVar);
+    void registerConfig(hga hgaVar, boolean z, dga dgaVar);
 
-    void setDefaultConfig(zda zdaVar);
+    void setDefaultConfig(xfa xfaVar);
 
     void setUBCDebug(boolean z);
 

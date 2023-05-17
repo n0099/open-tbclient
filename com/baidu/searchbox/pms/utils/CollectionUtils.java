@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class CollectionUtils {
     public static List<String> convertToPackageNameList(List<PackageParams> list) {
         ArrayList arrayList = new ArrayList(list.size());

@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.os.HandlerThread;
 import android.os.Looper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaDataSourceTimerManager {
     public static MultiMediaDataSourceTimerManager sInstance;
     public HandlerThread mHandlerThread;

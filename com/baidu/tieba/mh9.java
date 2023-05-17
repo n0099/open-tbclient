@@ -1,54 +1,39 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
-import com.baidu.tieba.setting.privacy.PrivacyMarkActivity;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class mh9 extends y8<PrivacyMarkActivity> {
+/* loaded from: classes6.dex */
+public class mh9 extends qh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a9<?> a;
-    public View b;
-    public NavigationBar c;
-    public TextView d;
-    public TextView e;
-    public BdSwitchView f;
-    public TextView g;
-    public TextView h;
-    public BdSwitchView i;
-    public boolean j;
-    public boolean k;
-    public BdSwitchView.b l;
+    public HeadImageView h;
+    public TextView i;
+    public TextView j;
 
-    /* loaded from: classes5.dex */
-    public class a implements BdSwitchView.b {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mh9 a;
+        public final /* synthetic */ ah9 a;
+        public final /* synthetic */ mh9 b;
 
-        public a(mh9 mh9Var) {
+        public a(mh9 mh9Var, ah9 ah9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mh9Var};
+                Object[] objArr = {mh9Var, ah9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,162 +43,93 @@ public class mh9 extends y8<PrivacyMarkActivity> {
                     return;
                 }
             }
-            this.a = mh9Var;
+            this.b = mh9Var;
+            this.a = ah9Var;
         }
 
-        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-        public void c0(View view2, BdSwitchView.SwitchState switchState) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
-                int i = 3;
-                boolean z = false;
-                int i2 = 1;
-                if (view2 == this.a.f) {
-                    mh9 mh9Var = this.a;
-                    if (switchState == BdSwitchView.SwitchState.ON) {
-                        z = true;
-                    }
-                    mh9Var.k = z;
-                    if (switchState == BdSwitchView.SwitchState.ON) {
-                        i = 1;
-                    }
-                    this.a.a.sendMessage(new PrivacySettingMessage(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE, i));
-                } else if (view2 == this.a.i) {
-                    mh9 mh9Var2 = this.a;
-                    if (switchState == BdSwitchView.SwitchState.ON) {
-                        z = true;
-                    }
-                    mh9Var2.j = z;
-                    if (switchState == BdSwitchView.SwitchState.ON) {
-                        i = 1;
-                    }
-                    this.a.a.sendMessage(new PrivacySettingMessage("bazhu_show_outside", i));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.b.b.getContext();
+                ah9 ah9Var = this.a;
+                String str2 = ah9Var.d;
+                String str3 = ah9Var.f;
+                AdvertAppInfo advertAppInfo = this.b.c;
+                if (advertAppInfo != null) {
+                    str = advertAppInfo.g;
+                } else {
+                    str = "";
                 }
-                StatisticItem param = new StatisticItem("c14003").param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (view2 != this.a.f) {
-                    i2 = 2;
+                xf9.a(context, str2, str3, str, this.a.j);
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
+                e21.b(clogBuilder);
+                mh9 mh9Var = this.b;
+                if (mh9Var.d != null) {
+                    si8.c(mh9Var.c);
                 }
-                TiebaStatic.log(param.param("obj_type", i2));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mh9(a9<PrivacyMarkActivity> a9Var, int i) {
-        super(a9Var);
+    public mh9(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var, Integer.valueOf(i)};
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((a9) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
-        this.a = a9Var;
-        C(a9Var.getPageActivity(), i);
-        a();
+        k();
     }
 
-    public View B() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qh9
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.b();
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f081439, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (View) invokeV.objValue;
     }
 
-    public void D() {
+    @Override // com.baidu.tieba.qh9
+    public void c(ah9 ah9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ah9Var) == null) {
+            super.c(ah9Var);
+            this.h.N(ah9Var.c, 10, false);
+            this.i.setText(ah9Var.b);
+            this.j.setText(ah9Var.e);
+            this.b.setOnClickListener(new a(this, ah9Var));
+            b();
+        }
+    }
+
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean z = !this.k;
-            this.k = z;
-            if (z) {
-                this.f.m();
-            } else {
-                this.f.j();
-            }
-        }
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            boolean z = !this.j;
-            this.j = z;
-            if (z) {
-                this.i.m();
-            } else {
-                this.i.j();
-            }
-        }
-    }
-
-    public final void C(Context context, int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ae, (ViewGroup) null);
-            this.b = inflate;
-            NavigationBar navigationBar = (NavigationBar) inflate.findViewById(R.id.navigation_bar);
-            this.c = navigationBar;
-            navigationBar.setCenterTextTitle(context.getString(R.string.obfuscated_res_0x7f0f0ff5));
-            this.c.showBottomLine();
-            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910b7);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0910b4);
-            this.f = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f0910b5);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091919);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091916);
-            this.i = (BdSwitchView) this.b.findViewById(R.id.obfuscated_res_0x7f091917);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0b76);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0b75);
-            this.g.setText(R.string.obfuscated_res_0x7f0f0b77);
-            this.h.setText(R.string.obfuscated_res_0x7f0f0b78);
-            int i2 = i & 3;
-            int i3 = (i >> 2) & 3;
-            if (i2 == 3) {
-                this.i.j();
-            } else {
-                this.i.m();
-            }
-            if (i3 == 3) {
-                this.f.j();
-            } else {
-                this.f.m();
-            }
-            boolean z2 = true;
-            if (i2 != 3) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.j = z;
-            if (i3 == 3) {
-                z2 = false;
-            }
-            this.k = z2;
-            this.f.setOnSwitchStateChangeListener(this.l);
-            this.i.setOnSwitchStateChangeListener(this.l);
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0109);
-            this.c.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092742);
+            this.h = headImageView;
+            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.i = (TextView) a(R.id.user_name);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f09006a);
         }
     }
 }

@@ -4,14 +4,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class JumpYYLiveHttpResponseMessage extends JsonHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             YyExtData yyExtData = this.mYyExtData;
-            if (yyExtData != null && !hi.isEmpty(yyExtData.mSid) && !hi.isEmpty(this.mYyExtData.mSsid)) {
+            if (yyExtData != null && !qi.isEmpty(yyExtData.mSid) && !qi.isEmpty(this.mYyExtData.mSsid)) {
                 return true;
             }
             return false;

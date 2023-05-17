@@ -21,19 +21,19 @@ import com.baidu.sapi2.result.SetPopularPortraitResult;
 import com.baidu.sapi2.result.SetPortraitResult;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PortraitService extends AbstractService implements NoProguard {
     public String d() {
         return "/v2/sapi/center/setportrait";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpHandlerWrap {
         public final /* synthetic */ SetPortraitCallback a;
         public final /* synthetic */ SetPortraitResult b;
@@ -96,7 +96,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpHandlerWrap {
         public final /* synthetic */ SetPopularPortraitResult a;
         public final /* synthetic */ SetPopularPortraitCallback b;
@@ -144,7 +144,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends HttpHandlerWrap {
         public final /* synthetic */ GetHistoryPortraitsResult a;
         public final /* synthetic */ GetHistoryPortraitsCallback b;
@@ -188,7 +188,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends HttpHandlerWrap {
         public final /* synthetic */ GetPopularPortraitsCallback a;
         public final /* synthetic */ GetPopularPortraitsInfoResult b;
@@ -277,7 +277,7 @@ public class PortraitService extends AbstractService implements NoProguard {
         if (i >= 0 && i <= 10) {
             GetHistoryPortraitsResult getHistoryPortraitsResult = new GetHistoryPortraitsResult();
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put(CloudStabilityUBCUtils.KEY_LENGTH, String.valueOf(getHistoryPortraitsDTO.maxNum));
+            httpHashMapWrap.put("length", String.valueOf(getHistoryPortraitsDTO.maxNum));
             httpHashMapWrap.put("bduss", getHistoryPortraitsDTO.bduss);
             new HttpClientWrap().post(a(), ReqPriority.HIGH, httpHashMapWrap, null, getUaInfo(), new c(Looper.getMainLooper(), getHistoryPortraitsResult, getHistoryPortraitsCallback));
             return;
@@ -312,7 +312,7 @@ public class PortraitService extends AbstractService implements NoProguard {
             multipartHashMapWrap.put("bduss", setPortraitDTO.bduss);
             multipartHashMapWrap.put("portrait_type", setPortraitDTO.portraitType + "");
             if (TextUtils.isEmpty(setPortraitDTO.contentType)) {
-                str = "image/jpeg";
+                str = WordCommandManager.IMAGE_JPEG;
             } else {
                 str = setPortraitDTO.contentType;
             }

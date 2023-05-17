@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bc7;
+import com.baidu.tieba.od7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bc7 mForumRuleDetailData;
+    public od7 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailScoketResMsg() {
@@ -36,13 +36,13 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public bc7 getmForumRuleDetailData() {
+    public od7 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mForumRuleDetailData;
         }
-        return (bc7) invokeV.objValue;
+        return (od7) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -62,9 +62,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
                     setErrorString(forumRuleDetailResIdl.error.usermsg);
                 }
                 if (forumRuleDetailResIdl.data != null) {
-                    bc7 bc7Var = new bc7();
-                    this.mForumRuleDetailData = bc7Var;
-                    bc7Var.n(forumRuleDetailResIdl.data);
+                    od7 od7Var = new od7();
+                    this.mForumRuleDetailData = od7Var;
+                    od7Var.n(forumRuleDetailResIdl.data);
                 }
             }
             return forumRuleDetailResIdl;

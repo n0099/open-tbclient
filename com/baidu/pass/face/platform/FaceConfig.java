@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceConfig implements Serializable {
     public static final String TAG = FaceConfig.class.getSimpleName();
     public Map<String, String> resPaths;

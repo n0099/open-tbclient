@@ -12,23 +12,23 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.is8;
-import com.baidu.tieba.ts8;
+import com.baidu.tieba.du8;
+import com.baidu.tieba.ou8;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CreateNewEmotionFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ts8 a;
+    public ou8 a;
     public CustomMessageListener b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         }
                     } else if (hashMap.get("upload_result") != null && (hashMap.get("upload_result") instanceof Boolean)) {
                         if (((Boolean) hashMap.get("upload_result")).booleanValue()) {
-                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0656)).o();
+                            BdToast.b(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f06bd)).o();
                             if (this.a.a != null) {
                                 this.a.a.i();
                             }
@@ -79,9 +79,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
                         } else if (this.a.a != null) {
                             String str = (String) hashMap.get("upload_msg");
                             if (!TextUtils.isEmpty(str)) {
-                                ii.N(this.a.getActivity(), str);
+                                ri.N(this.a.getActivity(), str);
                             } else {
-                                ii.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f059c));
+                                ri.N(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0600));
                             }
                             this.a.a.l();
                         }
@@ -111,7 +111,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         this.b = new a(this, 2921040);
     }
 
-    public final int H1() {
+    public final int I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -129,9 +129,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            ts8 ts8Var = this.a;
-            if (ts8Var != null) {
-                ts8Var.h();
+            ou8 ou8Var = this.a;
+            if (ou8Var != null) {
+                ou8Var.h();
             }
         }
     }
@@ -141,7 +141,7 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            G1();
+            H1();
         }
     }
 
@@ -150,24 +150,24 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ts8 ts8Var = this.a;
-            if (ts8Var != null) {
-                ts8Var.g(i);
+            ou8 ou8Var = this.a;
+            if (ou8Var != null) {
+                ou8Var.g(i);
             }
         }
     }
 
-    public final void G1() {
+    public final void H1() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
             return;
         }
-        if (is8.l().r()) {
+        if (du8.l().r()) {
             this.a.j();
-        } else if (is8.l().k() == null) {
+        } else if (du8.l().k() == null) {
             this.a.i();
         } else {
-            this.a.m(getString(R.string.obfuscated_res_0x7f0f0598));
+            this.a.m(getString(R.string.obfuscated_res_0x7f0f05fc));
         }
     }
 
@@ -177,9 +177,9 @@ public class CreateNewEmotionFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             registerListener(this.b);
-            ts8 ts8Var = new ts8(getPageContext(), H1());
-            this.a = ts8Var;
-            return ts8Var.f();
+            ou8 ou8Var = new ou8(getPageContext(), I1());
+            this.a = ou8Var;
+            return ou8Var.f();
         }
         return (View) invokeLLL.objValue;
     }

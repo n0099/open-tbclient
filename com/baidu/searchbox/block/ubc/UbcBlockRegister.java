@@ -21,7 +21,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UbcBlockRegister implements IBlockRegister {
     public static final String KEY_EXT = "ext";
     public static final String TAG = "UbcBlockRegister";

@@ -1,7 +1,7 @@
 package com.bumptech.glide.load.data.mediastore;
 
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FileService {
     public boolean exists(File file) {
         return file.exists();

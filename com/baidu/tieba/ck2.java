@@ -1,42 +1,38 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.le3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.concurrent.Semaphore;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
-public class ck2 {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class ck2 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile ck2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<bk2> a;
-    public ak2 b;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public class a implements zn3<je3<le3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Semaphore a;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        public a(ck2 ck2Var, Semaphore semaphore) {
+        public a(ck2 ck2Var, CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ck2Var, semaphore};
+                Object[] objArr = {ck2Var, callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,213 +42,74 @@ public class ck2 {
                     return;
                 }
             }
-            this.a = semaphore;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(je3<le3.e> je3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.release();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
+                if (!ee3.h(je3Var)) {
+                    ee3.q(je3Var, this.a, this.b);
+                } else {
+                    vj2.e(this.c, this.a, this.b);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677567, "Lcom/baidu/tieba/ck2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947677567, "Lcom/baidu/tieba/ck2;");
-                return;
-            }
-        }
-        c = ho1.a;
-    }
-
-    public ck2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ck2(da3 da3Var) {
+        super(da3Var, "/swanAPI/debug/replaceDependency");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ak2();
     }
 
-    public static ck2 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ck2.class) {
-                    if (d == null) {
-                        d = new ck2();
-                    }
-                }
-            }
-            return d;
-        }
-        return (ck2) invokeV.objValue;
-    }
-
-    public static synchronized void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (ck2.class) {
-                if (d != null) {
-                    d.f();
-                    d = null;
-                }
-            }
-        }
-    }
-
-    public final void a(@NonNull bk2 bk2Var, @NonNull ArrayList<bk2> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bk2Var, arrayList) == null) {
-            if (c) {
-                Log.i("FileSystemTaskManager", "addToWaitList: " + bk2Var + "," + arrayList.size() + "," + this.a.size());
-            }
-            Iterator<bk2> it = arrayList.iterator();
-            while (it.hasNext()) {
-                bk2 next = it.next();
-                next.i();
-                bk2Var.a(next);
-            }
-            this.a.add(bk2Var);
-        }
-    }
-
-    public final bk2 b(@NonNull Semaphore semaphore) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, semaphore)) == null) {
-            return new bk2(this, new a(this, semaphore), "JS_WAKE_UP_TASK", null);
-        }
-        return (bk2) invokeL.objValue;
-    }
-
-    public final boolean e(bk2 bk2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bk2Var)) == null) {
-            if (bk2Var != null && "JS_WAKE_UP_TASK".equals(bk2Var.c())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final synchronized boolean c(Semaphore semaphore, String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, semaphore, strArr)) == null) {
-            synchronized (this) {
-                ArrayList<bk2> c2 = this.b.c(strArr);
-                if (c2 != null && c2.size() != 0) {
-                    a(b(semaphore), c2);
-                    return true;
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                y83.f(context, R.string.obfuscated_res_0x7f0f0173).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
                 return false;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                this.b.b();
-                Iterator<bk2> it = this.a.iterator();
-                while (it.hasNext()) {
-                    bk2 next = it.next();
-                    if (e(next)) {
-                        next.h();
-                    }
-                }
-                this.a.clear();
+            String optString = a2.optString("url");
+            if (TextUtils.isEmpty(optString)) {
+                y83.f(context, R.string.obfuscated_res_0x7f0f0174).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib url is empty");
+                return false;
             }
-        }
-    }
-
-    public synchronized void g(bk2 bk2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bk2Var) == null) {
-            synchronized (this) {
-                if (bk2Var == null) {
-                    return;
-                }
-                this.b.d(bk2Var, bk2Var.b());
-                if (!bk2Var.e()) {
-                    return;
-                }
-                if (c) {
-                    Log.i("FileSystemTaskManager", "onTaskComplete: " + bk2Var + "," + this.a.size());
-                }
-                for (int size = this.a.size() - 1; size >= 0; size--) {
-                    bk2 bk2Var2 = this.a.get(size);
-                    bk2Var2.g(bk2Var);
-                    if (bk2Var2.d()) {
-                        this.a.remove(size);
-                        bk2Var2.f();
-                    }
-                }
+            String optString2 = a2.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                y83.f(context, R.string.obfuscated_res_0x7f0f0172).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'cb' is empty");
+                return false;
             }
+            g93Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-    }
-
-    public synchronized void h(@NonNull Runnable runnable, String str, String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, runnable, str, strArr) == null) {
-            synchronized (this) {
-                bk2 bk2Var = new bk2(this, runnable, str, strArr);
-                ArrayList<bk2> c2 = this.b.c(strArr);
-                this.b.a(bk2Var, strArr);
-                if (c2 != null && c2.size() != 0) {
-                    a(bk2Var, c2);
-                }
-                bk2Var.f();
-            }
-        }
-    }
-
-    public final void j(Semaphore semaphore) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, semaphore) == null) {
-            try {
-                semaphore.tryAcquire(10L, TimeUnit.SECONDS);
-            } catch (Exception e) {
-                if (c) {
-                    Log.e("FileSystemTaskManager", "semaphore.acquire: " + e);
-                }
-            }
-        }
-    }
-
-    public void k(String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr) == null) {
-            Semaphore semaphore = new Semaphore(0);
-            if (c(semaphore, strArr)) {
-                if (c) {
-                    Log.i("FileSystemTaskManager", "waitIfHasPathDependence: " + Arrays.toString(strArr));
-                }
-                j(semaphore);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.activity.IBridgeActivityDelegate;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DoNothingResolution implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

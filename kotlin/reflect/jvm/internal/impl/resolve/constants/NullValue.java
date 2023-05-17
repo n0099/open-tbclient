@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.constants;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NullValue extends ConstantValue<Void> {
     public NullValue() {
         super(null);

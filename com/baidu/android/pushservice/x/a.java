@@ -27,7 +27,7 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.x.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0037a extends com.baidu.android.pushservice.z.c {
+    public class C0040a extends com.baidu.android.pushservice.z.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context c;
@@ -36,7 +36,7 @@ public class a {
         public final /* synthetic */ PushMessageReceiver.PushCallBackExtra f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0037a(a aVar, String str, short s, Context context, String str2, int i, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
+        public C0040a(a aVar, String str, short s, Context context, String str2, int i, PushMessageReceiver.PushCallBackExtra pushCallBackExtra) {
             super(str, s);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -165,7 +165,7 @@ public class a {
             if (TextUtils.isEmpty(remove)) {
                 return;
             }
-            com.baidu.android.pushservice.z.e.a().a(new C0037a(this, "showAsyncNotify", (short) 99, context, remove, i, remove2));
+            com.baidu.android.pushservice.z.e.a().a(new C0040a(this, "showAsyncNotify", (short) 99, context, remove, i, remove2));
         }
     }
 }

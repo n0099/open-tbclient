@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ec {
     public static volatile ec a;
 
@@ -52,8 +52,8 @@ public final class ec {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m369a(Context context) {
-        return com.xiaomi.push.service.ak.m684a(context, context.getPackageName());
+    public static boolean m388a(Context context) {
+        return com.xiaomi.push.service.ak.m703a(context, context.getPackageName());
     }
 
     public int a() {
@@ -61,12 +61,12 @@ public final class ec {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public eg m370a() {
+    public eg m389a() {
         return this.f307a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m371a() {
+    public String m390a() {
         return this.f308a;
     }
 

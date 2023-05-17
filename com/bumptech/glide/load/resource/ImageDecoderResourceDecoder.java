@@ -19,7 +19,7 @@ import com.bumptech.glide.load.resource.bitmap.Downsampler;
 import com.bumptech.glide.load.resource.bitmap.HardwareConfigState;
 import java.io.IOException;
 @RequiresApi(api = 28)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ImageDecoderResourceDecoder<T> implements ResourceDecoder<ImageDecoder.Source, T> {
     public static final String TAG = "ImageDecoder";
     public final HardwareConfigState hardwareConfigState = HardwareConfigState.getInstance();

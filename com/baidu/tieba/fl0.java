@@ -1,89 +1,129 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
+import android.os.Handler;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.net.util.NetUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class fl0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class fl0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final qk0 a;
+    public float b;
+    public final float c;
+    public final float d;
+    public final float e;
+    public boolean f;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
+    public fl0(@NonNull qk0 qk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            z01.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qk0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            z01.e(jSONObject, "process", Math.round(d));
-            z01.f(jSONObject, "uri", str3);
-            z01.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
         }
-        return (String) invokeLLLL.objValue;
+        this.b = -1.0f;
+        this.f = false;
+        this.c = (float) vm0.b().a().b("nad_fake_progress", 0.5950000286102295d);
+        this.b = (float) vm0.b().a().b("nad_fake_max_progress_time", 0.0d);
+        this.d = (float) vm0.b().a().b("nad_fake_speed", 768000.0d);
+        this.e = (float) vm0.b().a().b("nad_fake_progress_step", 0.009999999776482582d);
+        this.a = qk0Var;
     }
 
-    public static void b(@Nullable di0 di0Var, boolean z, @Nullable Map<String, String> map) {
-        String str;
-        String str2;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{di0Var, Boolean.valueOf(z), map}) != null) || di0Var == null) {
-            return;
-        }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        if (z) {
-            str = "0";
-        } else {
-            str = "202";
-        }
-        a11.e(map, "status", str);
-        if (z) {
-            str2 = "调用成功";
-        } else {
-            str2 = "";
-        }
-        a11.e(map, "message", str2);
-        di0Var.a(z, map);
-    }
-
-    public static void c(@Nullable di0 di0Var, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, di0Var, str, str2, str3, str4) != null) || di0Var == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        z01.f(jSONObject, "uri", str2);
-        z01.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        z01.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(di0Var, true, hashMap);
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || interceptable.invokeL(1048580, this, message) == null) {
+            super.handleMessage(message);
+            if (message.what != 1) {
+                d();
+            } else if (this.a.q.g == 1) {
+                this.f = false;
+            } else if (!NetUtil.a(bj0.b())) {
+                d();
+            } else {
+                qk0 qk0Var = this.a;
+                if (qk0Var.c != AdDownloadStatus.DOWNLOADING) {
+                    d();
+                    return;
+                }
+                float f = qk0Var.j;
+                if (f >= this.c) {
+                    d();
+                    return;
+                }
+                this.f = true;
+                qk0Var.j = Math.max(qk0Var.i, f) + this.e;
+                dk0.b().f(AdDownloadAction.PROGRESS_UPDATE, this.a);
+                c();
             }
-            return z01.c(str).optString("bt_info");
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(false);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 1;
+            sendMessageDelayed(obtain, (this.b / (this.c / this.e)) * 1000.0f);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            removeMessages(1);
+            this.f = false;
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (this.f && !z) {
+                return;
+            }
+            d();
+            long j = this.a.q.e;
+            if (j > 0) {
+                float f = this.d;
+                if (f > 0.0f) {
+                    this.b = (((float) j) * this.c) / f;
+                }
+            }
+            if (this.b <= 0.0f) {
+                this.f = false;
+            } else if (this.e <= 0.0f) {
+                this.f = false;
+            } else {
+                this.f = true;
+                Message obtain = Message.obtain();
+                obtain.what = 1;
+                sendMessage(obtain);
+            }
+        }
     }
 }

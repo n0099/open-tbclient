@@ -1,188 +1,223 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.List;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
-/* loaded from: classes5.dex */
-public class nr0 implements CookieJar {
+/* loaded from: classes6.dex */
+public class nr0 {
     public static /* synthetic */ Interceptable $ic;
+    public static wr0 a;
+    public static wr0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public or0 a;
 
-    public nr0(or0 or0Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948011933, "Lcom/baidu/tieba/nr0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948011933, "Lcom/baidu/tieba/nr0;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ur0 a;
+        public ur0 b;
+
+        /* loaded from: classes6.dex */
+        public class a implements wr0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ur0 b;
+
+            public a(b bVar, ur0 ur0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, ur0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = ur0Var;
+            }
+
+            @Override // com.baidu.tieba.wr0
+            public ur0 a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.b;
+                }
+                return (ur0) invokeV.objValue;
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.nr0$b$b  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static class C0393b {
+            public static /* synthetic */ Interceptable $ic;
+            public static final b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1253784097, "Lcom/baidu/tieba/nr0$b$b;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1253784097, "Lcom/baidu/tieba/nr0$b$b;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+        }
+
+        public static b b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return C0393b.a;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public wr0 a(String str) {
+            InterceptResult invokeL;
+            char c;
+            ur0 ur0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -1015101340) {
+                    if (hashCode == 1544803905 && str.equals("default")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("okhttp")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+                if (c != 0) {
+                    if (c == 1) {
+                        if (this.b == null) {
+                            synchronized (nr0.class) {
+                                if (this.b == null) {
+                                    this.b = lr0.a.b(str);
+                                }
+                            }
+                        }
+                        ur0Var = this.b;
+                    } else {
+                        throw new IllegalStateException("Unexpected type:" + str);
+                    }
+                } else {
+                    if (this.a == null) {
+                        synchronized (nr0.class) {
+                            if (this.a == null) {
+                                this.a = lr0.a.b(str);
+                            }
+                        }
+                    }
+                    ur0Var = this.a;
+                }
+                return new a(this, ur0Var);
+            }
+            return (wr0) invokeL.objValue;
+        }
+    }
+
+    public nr0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {or0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = or0Var;
     }
 
-    public static int a(@NonNull String str, int i, int i2, char c) {
-        InterceptResult invokeCommon;
+    public static wr0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
-            while (i < i2) {
-                if (str.charAt(i) == c) {
-                    return i;
-                }
-                i++;
-            }
-            return i2;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int d(@NonNull String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
-            while (i < i2) {
-                char charAt = str.charAt(i);
-                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i;
-                }
-                i++;
-            }
-            return i2;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static String f(@NonNull String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
-            int d = d(str, i, i2);
-            return str.substring(d, e(str, d, i2));
-        }
-        return (String) invokeLII.objValue;
-    }
-
-    public static int e(@NonNull String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
-            for (int i3 = i2 - 1; i3 >= i; i3--) {
-                char charAt = str.charAt(i3);
-                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i3 + 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (nr0.class) {
+                    if (b == null) {
+                        if (a == null) {
+                            a = (wr0) ServiceManager.getService(wr0.a);
+                        }
+                        b = a;
+                    }
+                    if (b != null) {
+                        return b;
+                    }
+                    if (TextUtils.equals("okhttp", "mixed")) {
+                        b = b.b().a("okhttp");
+                    } else {
+                        b = lr0.a;
+                    }
                 }
             }
-            return i;
+            return b;
         }
-        return invokeLII.intValue;
-    }
-
-    public final String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final List<Cookie> c(@NonNull HttpUrl httpUrl, @NonNull String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int length = str.length();
-            int i = 0;
-            while (i < length) {
-                int a = a(str, i, length, WebvttCueParser.CHAR_SEMI_COLON);
-                int a2 = a(str, i, a, '=');
-                String f = f(str, i, a2);
-                if (a2 < a) {
-                    str2 = f(str, a2 + 1, a);
-                } else {
-                    str2 = "";
-                }
-                if (str2.startsWith("\"") && str2.endsWith("\"")) {
-                    str2 = str2.substring(1, str2.length() - 1);
-                }
-                String b = b(f);
-                String b2 = b(str2);
-                if (!TextUtils.isEmpty(b) && this.a.shouldSendCookie(httpUrl.toString(), b)) {
-                    arrayList.add(new Cookie.Builder().name(b).value(b2).domain(httpUrl.host()).build());
-                }
-                i = a + 1;
-            }
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.CookieJar
-    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
-        InterceptResult invokeL;
-        or0 or0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (httpUrl != null && (or0Var = this.a) != null) {
-                String cookie = or0Var.getCookie(httpUrl.toString());
-                if (!TextUtils.isEmpty(cookie)) {
-                    arrayList.addAll(c(httpUrl, cookie));
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // okhttp3.CookieJar
-    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, httpUrl, list) != null) || httpUrl == null || y01.g(list) || this.a == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        String httpUrl2 = httpUrl.toString();
-        for (Cookie cookie : list) {
-            if (cookie != null) {
-                String cookie2 = cookie.toString();
-                if (!TextUtils.isEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
-                    arrayList.add(cookie2);
-                }
-            }
-        }
-        this.a.storeCookie(httpUrl.toString(), arrayList);
+        return (wr0) invokeV.objValue;
     }
 }

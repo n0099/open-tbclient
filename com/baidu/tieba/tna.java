@@ -1,9 +1,33 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public interface tna {
-    String getBizType();
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class tna {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.MODEL;
+            if (zna.a(str)) {
+                return false;
+            }
+            return str.equalsIgnoreCase("OPPO R9sk");
+        }
+        return invokeV.booleanValue;
+    }
 }

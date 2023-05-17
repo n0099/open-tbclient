@@ -1,38 +1,61 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.e50;
+import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class b50 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+/* loaded from: classes4.dex */
+public final class b50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String[] b;
+    public int c;
+    public String d;
+    public long e;
+    public long f;
 
-    public static void a(Context context, e50.a aVar) {
-        String str;
+    public b50(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
-                if (query != null) {
-                    query.moveToFirst();
-                    int columnIndex = query.getColumnIndex("value");
-                    str = columnIndex > 0 ? query.getString(columnIndex) : null;
-                    query.close();
-                } else {
-                    str = null;
-                }
-                aVar.a(true, str);
-            } catch (Throwable unused) {
-                aVar.a(false, null);
-            }
         }
+        this.a = str;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            this.d = packageInfo.versionName;
+            this.c = packageInfo.versionCode;
+            this.e = packageInfo.firstInstallTime;
+            this.f = packageInfo.lastUpdateTime;
+            this.b = new String[packageInfo.signatures.length];
+            for (int i3 = 0; i3 < this.b.length; i3++) {
+                this.b[i3] = x40.c(packageInfo.signatures[i3].toByteArray());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

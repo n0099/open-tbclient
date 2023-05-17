@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class AcceleratorActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public class AcceleratorActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0026);
+            setContentView(R.layout.obfuscated_res_0x7f0d0027);
             UtilHelper.changeStatusBarIconAndTextColor(false, this);
             if (getIntent() != null) {
                 Intent intent = getIntent();
                 AcceleratorFragment acceleratorFragment = new AcceleratorFragment();
-                acceleratorFragment.m2(intent);
+                acceleratorFragment.n2(intent);
                 getSupportFragmentManager().beginTransaction().add(R.id.main_container, acceleratorFragment).commit();
                 return;
             }

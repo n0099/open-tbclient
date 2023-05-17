@@ -1,57 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class lk5 implements pj5<MissionEvent> {
+/* compiled from: GroupChatService.java */
+/* loaded from: classes6.dex */
+public final /* synthetic */ class lk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public lk5() {
+    public static mk5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (mk5) ServiceManager.getService(mk5.a);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pj5
-    /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return false;
-            }
-            int i = missionEvent.pageId;
-            int i2 = missionEvent.pageType;
-            long j = missionEvent.tid;
-            String str = missionEvent.actionType;
-            if ("onResume".equals(str)) {
-                dq4.w().L(i, j);
-                dq4.w().Q(i2, j);
-            } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                dq4.w().E();
-            } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                dq4.w().F();
-            } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                dq4.w().L(i, j);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (mk5) invokeV.objValue;
     }
 }

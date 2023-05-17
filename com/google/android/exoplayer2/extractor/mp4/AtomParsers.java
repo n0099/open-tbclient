@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AtomParsers {
     public static final String TAG = "AtomParsers";
     public static final int TYPE_vide = Util.getIntegerCodeForString("vide");
@@ -35,7 +35,7 @@ public final class AtomParsers {
     public static final int TYPE_cenc = Util.getIntegerCodeForString("cenc");
     public static final int TYPE_meta = Util.getIntegerCodeForString("meta");
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface SampleSizeBox {
         int getSampleCount();
 
@@ -44,7 +44,7 @@ public final class AtomParsers {
         int readNextSampleSize();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ChunkIterator {
         public final ParsableByteArray chunkOffsets;
         public final boolean chunkOffsetsAreLongs;
@@ -98,7 +98,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class StsdData {
         public static final int STSD_HEADER_SIZE = 8;
         public Format format;
@@ -111,7 +111,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class StszSampleSizeBox implements SampleSizeBox {
         public final ParsableByteArray data;
         public final int fixedSampleSize;
@@ -148,7 +148,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Stz2SampleSizeBox implements SampleSizeBox {
         public int currentByte;
         public final ParsableByteArray data;
@@ -194,7 +194,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class TkhdData {
         public final long duration;
         public final int id;

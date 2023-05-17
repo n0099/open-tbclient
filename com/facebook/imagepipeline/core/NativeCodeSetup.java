@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.core;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeCodeSetup {
     public static boolean sUseNativeCode = true;
 

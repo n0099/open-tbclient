@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.d7;
+import com.baidu.tieba.h7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -265,7 +265,7 @@ public class Rectangle implements Serializable {
                 return false;
             }
             Rectangle rectangle = (Rectangle) obj;
-            if (d7.b(this.height) == d7.b(rectangle.height) && d7.b(this.width) == d7.b(rectangle.width) && d7.b(this.x) == d7.b(rectangle.x) && d7.b(this.y) == d7.b(rectangle.y)) {
+            if (h7.b(this.height) == h7.b(rectangle.height) && h7.b(this.width) == h7.b(rectangle.width) && h7.b(this.x) == h7.b(rectangle.x) && h7.b(this.y) == h7.b(rectangle.y)) {
                 return true;
             }
             return false;
@@ -482,7 +482,7 @@ public class Rectangle implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return ((((((d7.b(this.height) + 31) * 31) + d7.b(this.width)) * 31) + d7.b(this.x)) * 31) + d7.b(this.y);
+            return ((((((h7.b(this.height) + 31) * 31) + h7.b(this.width)) * 31) + h7.b(this.x)) * 31) + h7.b(this.y);
         }
         return invokeV.intValue;
     }

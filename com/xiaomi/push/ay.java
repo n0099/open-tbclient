@@ -1,12 +1,12 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ay {
     public static int a;
 
     public static at a(Context context) {
-        if (j.m631a()) {
+        if (j.m650a()) {
             a = 1;
             return new ax(context);
         } else if (aq.a(context)) {

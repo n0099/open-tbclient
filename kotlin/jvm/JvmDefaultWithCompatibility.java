@@ -14,6 +14,6 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.CLASS})
 @Retention(RetentionPolicy.SOURCE)
 @kotlin.annotation.Retention(AnnotationRetention.SOURCE)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface JvmDefaultWithCompatibility {
 }

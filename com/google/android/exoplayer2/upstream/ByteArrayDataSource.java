@@ -4,7 +4,7 @@ import android.net.Uri;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ByteArrayDataSource implements DataSource {
     public int bytesRemaining;
     public final byte[] data;

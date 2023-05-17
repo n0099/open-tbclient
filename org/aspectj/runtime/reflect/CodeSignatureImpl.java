@@ -1,7 +1,7 @@
 package org.aspectj.runtime.reflect;
 
 import org.aspectj.lang.reflect.CodeSignature;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class CodeSignatureImpl extends MemberSignatureImpl implements CodeSignature {
     public Class[] exceptionTypes;
     public String[] parameterNames;

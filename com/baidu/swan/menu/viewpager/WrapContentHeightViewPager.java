@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WrapContentHeightViewPager extends ViewPager {
     public WrapContentHeightViewPager(Context context) {
         super(context);

@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static final void a(d dVar, int i) throws IOException {
         int b = dVar.b();

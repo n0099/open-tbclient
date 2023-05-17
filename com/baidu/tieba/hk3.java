@@ -1,121 +1,145 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class hk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+    public static WifiConfiguration a(ek3 ek3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ek3Var)) == null) {
+            int b = ik3.b(ek3Var);
+            if (!f(ek3Var.a)) {
+                return null;
+            }
+            WifiConfiguration wifiConfiguration = new WifiConfiguration();
+            wifiConfiguration.SSID = "\"" + ek3Var.a + "\"";
+            if (!TextUtils.isEmpty(ek3Var.b)) {
+                wifiConfiguration.BSSID = ek3Var.b;
+            }
+            if (b != 0) {
+                if (b != 1) {
+                    if (b != 2) {
+                        if (b == 3) {
+                            ik3.d(wifiConfiguration, 3);
+                            WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
+                            wifiEnterpriseConfig.setEapMethod(0);
+                            wifiEnterpriseConfig.setIdentity(ek3Var.c);
+                            wifiEnterpriseConfig.setPassword(ek3Var.d);
+                            wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
+                        }
+                    } else {
+                        ik3.d(wifiConfiguration, 2);
+                        wifiConfiguration.preSharedKey = "\"" + ek3Var.d + "\"";
+                    }
+                } else {
+                    ik3.d(wifiConfiguration, 1);
+                    String[] strArr = wifiConfiguration.wepKeys;
+                    strArr[0] = "\"" + ek3Var.d + "\"";
+                }
+            } else {
+                ik3.d(wifiConfiguration, 0);
+            }
+            return wifiConfiguration;
+        }
+        return (WifiConfiguration) invokeL.objValue;
+    }
 
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
+            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
+                        return wifiConfiguration;
+                    }
                 }
             }
-            this.a = view2;
+            return null;
         }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
+        return (WifiConfiguration) invokeLLL.objValue;
     }
 
-    public static void a(g72 g72Var, Context context) {
+    public static WifiConfiguration c(Context context, WifiManager wifiManager, ek3 ek3Var) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, g72Var, context) == null) {
-            b(g72Var, context, 2);
-        }
-    }
-
-    public static void b(g72 g72Var, Context context, int i) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, g72Var, context, i) == null) && g72Var != null && g72Var.k() >= i) {
-            d72 j = g72Var.j(g72Var.k() - i);
-            d72 m = g72Var.m();
-            if (m != null && m.E0) {
-                return;
-            }
-            float o = ol3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
-            }
-        }
-    }
-
-    public static void c(g72 g72Var, Context context) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, g72Var, context) == null) && g72Var != null && g72Var.k() >= 2) {
-            d72 j = g72Var.j(g72Var.k() - 2);
-            float o = ol3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(b0));
-            }
-        }
-    }
-
-    public static void d(@NonNull vl4 vl4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, vl4Var, str, i, i2) != null) || vl4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, ek3Var)) == null) {
+            if (ek3Var != null && f(ek3Var.a) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), ek3Var.a)) {
+                        return wifiConfiguration;
+                    }
                 }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
+            return null;
         }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                vl4Var.i(i, i2);
-                return;
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
+            if (wifiManager == null) {
+                return null;
             }
-            return;
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
+                    return null;
+                }
+                return wifiManager.getConfiguredNetworks();
+            } catch (Exception e) {
+                g62.b("SwanWifiUtils", Log.getStackTraceString(e));
+                return null;
+            }
         }
-        g72 V = kt2.U().V();
-        d72 j = V.j(V.k() - 1);
-        if (j != null && j.E0) {
-            return;
+        return (List) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (length = str.length()) > 1 && str.charAt(0) == '\"') {
+                int i = length - 1;
+                if (str.charAt(i) == '\"') {
+                    return str.substring(1, i);
+                }
+                return str;
+            }
+            return str;
         }
-        vl4Var.i(i, i2);
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.equals("<unknown ssid>")) {
+                return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.animation.AlphaAnimation;
 import com.baidu.pass.biometrics.R;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CircleProgressView extends View {
     public Paint a;
     public float b;
@@ -44,12 +44,12 @@ public class CircleProgressView extends View {
     public boolean w;
     public b x;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(float f, float f2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }

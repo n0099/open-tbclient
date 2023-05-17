@@ -1,84 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.view.animation.Interpolator;
+import android.content.Context;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class be4 implements Interpolator {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class be4 extends sd4<uv2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final PointF b;
-    public final PointF c;
 
-    public final double a(double d, double d2, double d3, double d4, double d5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
-            double d6 = 1.0d - d;
-            double d7 = d * d;
-            double d8 = d6 * d6;
-            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642072, "Lcom/baidu/tieba/be4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947642072, "Lcom/baidu/tieba/be4;");
+                return;
+            }
         }
-        return invokeCommon.doubleValue;
+        boolean z = qp1.a;
     }
 
-    public be4(float f, float f2, float f3, float f4) {
+    public be4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 0;
-        this.b = new PointF();
-        PointF pointF = new PointF();
-        this.c = pointF;
-        PointF pointF2 = this.b;
-        pointF2.x = f;
-        pointF2.y = f2;
-        pointF.x = f3;
-        pointF.y = f4;
     }
 
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    public static be4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-            int i = this.a;
-            float f2 = f;
-            while (true) {
-                if (i >= 4096) {
-                    break;
-                }
-                f2 = (i * 1.0f) / 4096.0f;
-                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
-                    this.a = i;
-                    break;
-                }
-                i++;
-            }
-            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
-            if (a > 0.999d) {
-                a = 1.0d;
-                this.a = 0;
-            }
-            return (float) a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new be4();
         }
-        return invokeF.floatValue;
+        return (be4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sd4
+    /* renamed from: d */
+    public boolean b(Context context, uv2 uv2Var, pv2 pv2Var, g93 g93Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, uv2Var, pv2Var, g93Var, jSONObject)) == null) {
+            return g(context, uv2Var, pv2Var, g93Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final Bundle f(uv2 uv2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uv2Var)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("slaveId", uv2Var.c);
+            bundle.putDouble("latitude", uv2Var.j.a);
+            bundle.putDouble("longitude", uv2Var.j.b);
+            bundle.putDouble("scale", uv2Var.k);
+            bundle.putString("name", uv2Var.z);
+            bundle.putString("address", uv2Var.A);
+            bundle.putStringArrayList("ignoredApps", uv2Var.B);
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    public final boolean g(Context context, uv2 uv2Var, pv2 pv2Var, g93 g93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, context, uv2Var, pv2Var, g93Var)) == null) {
+            g62.i("map", "OpenLocationAction start");
+            if (!uv2Var.isValid()) {
+                g62.c("map", "model is invalid");
+                return false;
+            }
+            ne4.u3(f(uv2Var)).y3();
+            g62.i("map", "OpenLocationAction end");
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ImageViewTarget<Z> extends ViewTarget<ImageView, Z> implements Transition.ViewAdapter {
     @Nullable
     public Animatable animatable;

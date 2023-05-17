@@ -1,454 +1,179 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.android.imsdk.upload.action.CommonUtils;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
+import com.baidu.android.imsdk.upload.action.track.Connection;
+import com.baidu.android.imsdk.upload.action.track.Request;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.ProbeTB;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes4.dex */
-public class g80 extends SQLiteOpenHelper {
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public final class g80 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g80 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ReentrantReadWriteLock a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g80(Context context) {
-        super(context, "blcp_track.db", (SQLiteDatabase.CursorFactory) null, 1);
+    public g80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ReentrantReadWriteLock(true);
-    }
-
-    public static void d(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
-            try {
-                if (!cursor.isClosed()) {
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
 
-    public static g80 j(Context context) {
+    public static IMPushPb.Action b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (b == null) {
-                synchronized (g80.class) {
-                    if (b == null) {
-                        b = new g80(context);
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWCONNECTION).setNewConnection(IMPushPb.NewConnection.newBuilder().setAliasId(601110L).setConnectErrorCode(jSONObject.optString("con_err_code", "")).setTokenBegin(jSONObject.optLong("token_begin", 0L)).setTokenEnd(jSONObject.optLong("token_end", 0L)).setDnsBegin(jSONObject.optLong("dns_begin", 0L)).setDnsEnd(jSONObject.optLong("dns_end", 0L)).setSocketBegin(jSONObject.optLong("socket_begin", 0L)).setSocketEnd(jSONObject.optLong("socket_end", 0L)).setLcpLoginBegin(jSONObject.optLong("login_begin", 0L)).setLcpLoginEnd(jSONObject.optLong("login_end", 0L)).setConnectSource(jSONObject.optString("source", "")).setConnectState(jSONObject.optLong("connect_state", -1L)).setEndTime(jSONObject.optLong("flow_end_time", 0L)).setStartTime(jSONObject.optLong("flow_start_time", 0L)).setRetry(jSONObject.optInt("retry_cout", 0)).setExt(jSONObject.toString()).setNetInfo(d(jSONObject)).build()).build();
         }
-        return (g80) invokeL.objValue;
+        return (IMPushPb.Action) invokeL.objValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public static IMPushPb.LcpNetInfo d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            return IMPushPb.LcpNetInfo.newBuilder().setDomain(jSONObject.optString("domain", "")).setIp(jSONObject.optString("ip", "")).setPort(jSONObject.optString(ClientCookie.PORT_ATTR, "")).setProtocol(jSONObject.optString(ProbeTB.PROTOCOL, "")).build();
+        }
+        return (IMPushPb.LcpNetInfo) invokeL.objValue;
+    }
+
+    public static IMPushPb.Action e(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build();
+        }
+        return (IMPushPb.Action) invokeCommon.objValue;
+    }
+
+    public static IMPushPb.Action h(long j, long j2, String str, long j3, long j4, String str2, long j5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), str2, Long.valueOf(j5)})) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(j).setStopTime(j2).setReason(str).setRetryTime(j3).setRetryCount(j4).setExt(str2).setAliasId(j5).build()).build();
+        }
+        return (IMPushPb.Action) invokeCommon.objValue;
+    }
+
+    public static IMPushPb.Action f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            return IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.NEWREQUEST).setNewRequest(IMPushPb.NewRequest.newBuilder().setAliasId(601111L).setRequestId(jSONObject.optLong(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID)).setServiceId(jSONObject.optString("service_id")).setMethodId(jSONObject.optString("method_id")).setErrorCode(jSONObject.optLong("error_code")).setErrorMsg(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG)).setRequestTime(jSONObject.optLong("request_time")).setResponseTime(jSONObject.optLong("response_time")).setExt(jSONObject.optString("ext")).setNetInfo(d(jSONObject)).build()).build();
+        }
+        return (IMPushPb.Action) invokeL.objValue;
+    }
+
+    public static IMPushPb.Action g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, jSONObject)) == null) {
+            int intValue = Integer.valueOf(str).intValue();
+            if (intValue == 601111) {
+                return f(jSONObject);
+            }
+            if (intValue == 601110) {
+                return b(jSONObject);
+            }
+            return b(jSONObject);
+        }
+        return (IMPushPb.Action) invokeLL.objValue;
+    }
+
+    public static void i(Context context, Connection connection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, connection) == null) {
             try {
-                sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle TEXT,begintime LONG,endtime LONG,detail TEXT,state INTEGER,ext TEXT );");
+                HashSet hashSet = new HashSet(h80.b(context));
+                hashSet.add(Base64.encodeToString(h(connection.startTime, connection.stopTime, connection.reason, connection.retryTime, connection.retryCount, connection.ext, connection.aliasId).toByteArray(), 0));
+                h80.k(context, hashSet);
             } catch (Exception e) {
-                e.printStackTrace();
+                k90.c("TrackPbGenerator", "putIMConnectionToActions :", e);
             }
         }
     }
 
-    public final boolean a(int i, int i2, SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeIIL;
+    public static void j(Context context, Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, sQLiteDatabase)) == null) {
-            this.a.writeLock().lock();
-            Cursor cursor = null;
-            boolean z = false;
+        if (interceptable == null || interceptable.invokeLL(65544, null, context, request) == null) {
             try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("SELECT flowid FROM flow WHERE flowid = " + i + " AND flowhandle = " + i2, null);
-                    if (cursor != null) {
-                        if (cursor.getCount() > 0) {
-                            z = true;
+                HashSet hashSet = new HashSet(h80.d(context));
+                hashSet.add(Base64.encodeToString(e(request.method, request.requestId, request.timestamp, request.responseTime, request.errorCode, request.ext, request.aliasId).toByteArray(), 0));
+                h80.o(context, hashSet);
+            } catch (Exception e) {
+                k90.c("TrackPbGenerator", "putIMRequestToActions :", e);
+            }
+        }
+    }
+
+    public final List<String> a(String str, List<i80> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (list != null && !TextUtils.isEmpty(str) && list.size() > 0) {
+                k90.a("TrackPbGenerator", "flow upload details list");
+                for (i80 i80Var : list) {
+                    if (i80Var != null) {
+                        String a = i80Var.a();
+                        if (!TextUtils.isEmpty(a) && a.length() > 0) {
+                            arrayList.add(a);
                         }
                     }
-                } catch (SQLException e) {
-                    e.printStackTrace();
                 }
-                d(cursor);
-                this.a.writeLock().unlock();
-                u80.a("TrackDBHelper", "flow checkFlowExist:" + z);
-                return z;
-            } catch (Throwable th) {
-                d(cursor);
-                this.a.writeLock().unlock();
-                throw th;
+                k90.a("TrackPbGenerator", "flow upload detal list:" + arrayList.toString());
             }
+            return arrayList;
         }
-        return invokeIIL.booleanValue;
+        return (List) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0073, code lost:
-        if (r1 == null) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0075, code lost:
-        r1.endTransaction();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0078, code lost:
-        r8.a.writeLock().unlock();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0081, code lost:
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x006a, code lost:
-        if (r1 != null) goto L13;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c() {
+    public byte[] c(Context context, String str, List<i80> list, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.writeLock().lock();
-            SQLiteDatabase sQLiteDatabase = null;
-            try {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, list, i)) == null) {
+            list.addAll(w80.j(context).g(str, i));
+            List<String> a = a(str, list);
+            if (a != null) {
                 try {
-                    sQLiteDatabase = getWritableDatabase();
-                    sQLiteDatabase.beginTransactionNonExclusive();
-                    int delete = sQLiteDatabase.delete("flow", "begintime < ? AND ? != ?", new String[]{String.valueOf(System.currentTimeMillis() - 604800000), "state", String.valueOf(1)});
-                    u80.a("TrackDBHelper", "clear expired flow cout:" + delete);
-                    if (delete > 0) {
-                        u80.a("TrackDBHelper", "删除过期数据count:" + delete);
-                    }
-                    sQLiteDatabase.setTransactionSuccessful();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Throwable th) {
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x009d, code lost:
-        if (r0 != null) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a6, code lost:
-        if (r0 == null) goto L19;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00a8, code lost:
-        r0.endTransaction();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ab, code lost:
-        r5.a.writeLock().unlock();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00b4, code lost:
-        return;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void e(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            this.a.writeLock().lock();
-            SQLiteDatabase sQLiteDatabase = null;
-            try {
-                try {
-                    sQLiteDatabase = getWritableDatabase();
-                    sQLiteDatabase.beginTransactionNonExclusive();
-                    int size = list.size();
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.add("?");
-                    }
-                    int delete = sQLiteDatabase.delete("flow", "flowid = " + str + " AND flowhandle IN (" + TextUtils.join(",", arrayList) + SmallTailInfo.EMOTION_SUFFIX, (String[]) list.toArray(new String[list.size()]));
-                    sQLiteDatabase.setTransactionSuccessful();
-                    if (delete > 0) {
-                        u80.a("TrackDBHelper", "flow 删除：" + list.toString() + " success");
+                    if (a.size() > 0) {
+                        CopyOnWriteArrayList copyOnWriteArrayList = new CopyOnWriteArrayList();
+                        if (a.size() > 0) {
+                            for (String str2 : a) {
+                                copyOnWriteArrayList.add(g(str, new JSONObject(str2)));
+                            }
+                        }
+                        return IMPushPb.PushImClient.newBuilder().setCommon(CommonUtils.getIMCommon(context, l90.e(context))).setSdkName("lcp").setSdkVersion(2310016L).addAllActions(copyOnWriteArrayList).build().toByteArray();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } catch (Throwable th) {
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
             }
+            return null;
         }
-    }
-
-    public List<s70> g(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList2;
-            }
-            String str2 = "SELECT * FROM flow WHERE flowid=\"" + str + "\" AND state = 1  limit " + i;
-            u80.a("TrackDBHelper", "flow getAllData querySql:" + str2);
-            this.a.readLock().lock();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = getReadableDatabase().rawQuery(str2, null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (cursor != null && cursor.getCount() > 0) {
-                    cursor.moveToFirst();
-                    int columnIndex = cursor.getColumnIndex("flowhandle");
-                    int columnIndex2 = cursor.getColumnIndex("detail");
-                    do {
-                        arrayList2.add(new s70(str, cursor.getString(columnIndex), cursor.getString(columnIndex2)));
-                        arrayList.add(cursor.getString(columnIndex2));
-                    } while (cursor.moveToNext());
-                    u80.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
-                    d(cursor);
-                    this.a.readLock().unlock();
-                    u80.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
-                    return arrayList2;
-                }
-                u80.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
-                d(cursor);
-                this.a.readLock().unlock();
-                u80.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
-                return arrayList2;
-            } catch (Throwable th) {
-                d(cursor);
-                this.a.readLock().unlock();
-                throw th;
-            }
-        }
-        return (List) invokeLI.objValue;
-    }
-
-    public void f(n70 n70Var) {
-        SQLiteDatabase writableDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n70Var) == null) {
-            if (n70Var == null) {
-                u80.a("TrackDBHelper", "flowData is null");
-                return;
-            }
-            this.a.writeLock().lock();
-            u80.a("TrackDBHelper", "flow insert to db:" + n70Var.g());
-            SQLiteDatabase sQLiteDatabase = null;
-            try {
-                try {
-                    writableDatabase = getWritableDatabase();
-                } catch (SQLException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                writableDatabase.beginTransactionNonExclusive();
-                if (a(n70Var.a, n70Var.b, writableDatabase)) {
-                    ContentValues h = h(n70Var);
-                    String str = "flowid = " + n70Var.a + " AND flowhandle = " + n70Var.b;
-                    u80.a("TrackDBHelper", "flow update where:" + str);
-                    u80.a("TrackDBHelper", "endFlow update count:" + writableDatabase.update("flow", h, str, null));
-                }
-                writableDatabase.setTransactionSuccessful();
-                if (writableDatabase != null) {
-                    writableDatabase.endTransaction();
-                }
-            } catch (SQLException e2) {
-                e = e2;
-                sQLiteDatabase = writableDatabase;
-                e.printStackTrace();
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-            } catch (Throwable th2) {
-                th = th2;
-                sQLiteDatabase = writableDatabase;
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
-            }
-            this.a.writeLock().unlock();
-        }
-    }
-
-    public final ContentValues h(n70 n70Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, n70Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            if (n70Var != null) {
-                contentValues.put("flowid", Integer.valueOf(n70Var.a));
-                contentValues.put("flowhandle", Integer.valueOf(n70Var.b));
-                contentValues.put("begintime", Long.valueOf(n70Var.c));
-                contentValues.put("endtime", Long.valueOf(n70Var.d));
-                contentValues.put("detail", n70Var.f());
-                if (n70Var.d == 0) {
-                    contentValues.put("state", (Integer) 0);
-                } else {
-                    contentValues.put("state", (Integer) 1);
-                }
-                contentValues.put("ext", "");
-            }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public int i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            String str2 = "SELECT COUNT(*) FROM flow WHERE flowid=\"" + str + "\" AND state = 1 ";
-            this.a.readLock().lock();
-            Cursor cursor = null;
-            int i = 0;
-            try {
-                try {
-                    cursor = getReadableDatabase().rawQuery(str2, null);
-                    if (cursor != null) {
-                        cursor.moveToFirst();
-                        i = cursor.getInt(0);
-                    }
-                    u80.a("TrackDBHelper", "flow getEndedFlowCount:" + i);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                return i;
-            } finally {
-                d(cursor);
-                this.a.readLock().unlock();
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public void k(n70 n70Var) {
-        ContentValues h;
-        SQLiteDatabase writableDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, n70Var) == null) {
-            if (n70Var == null) {
-                u80.a("TrackDBHelper", "flow must not be null");
-                return;
-            }
-            this.a.writeLock().lock();
-            SQLiteDatabase sQLiteDatabase = null;
-            SQLiteDatabase sQLiteDatabase2 = null;
-            SQLiteDatabase sQLiteDatabase3 = null;
-            try {
-                try {
-                    h = h(n70Var);
-                    writableDatabase = getWritableDatabase();
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                writableDatabase.beginTransactionNonExclusive();
-                if (!a(n70Var.a, n70Var.b, writableDatabase)) {
-                    long insert = writableDatabase.insert("flow", null, h);
-                    u80.a("TrackDBHelper", "flow saveFlow,rowId:" + insert);
-                    sQLiteDatabase2 = insert;
-                }
-                writableDatabase.setTransactionSuccessful();
-                sQLiteDatabase = sQLiteDatabase2;
-                if (writableDatabase != null) {
-                    writableDatabase.endTransaction();
-                    sQLiteDatabase = sQLiteDatabase2;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                sQLiteDatabase3 = writableDatabase;
-                e.printStackTrace();
-                sQLiteDatabase = sQLiteDatabase3;
-                if (sQLiteDatabase3 != null) {
-                    sQLiteDatabase3.endTransaction();
-                    sQLiteDatabase = sQLiteDatabase3;
-                }
-                this.a.writeLock().unlock();
-            } catch (Throwable th2) {
-                th = th2;
-                sQLiteDatabase = writableDatabase;
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
-            }
-            this.a.writeLock().unlock();
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                while (i < i2) {
-                    i++;
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-                if (sQLiteDatabase == null) {
-                }
-            } catch (Throwable th) {
-                try {
-                    th.printStackTrace();
-                } finally {
-                    if (sQLiteDatabase != null) {
-                        sQLiteDatabase.endTransaction();
-                    }
-                }
-            }
-        }
+        return (byte[]) invokeLLLI.objValue;
     }
 }

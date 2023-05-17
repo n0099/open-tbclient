@@ -13,7 +13,7 @@ import com.win.opensdk.bridge.JsBridge;
 import com.win.opensdk.bridge.JsInvokeJavaScope;
 import com.win.opensdk.bridge.core.JsBridgeWebChromeClient;
 import com.win.opensdk.core.Info;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g0 implements D2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

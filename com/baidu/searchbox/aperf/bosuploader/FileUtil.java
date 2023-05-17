@@ -12,7 +12,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileUtil {
     public static final String TAG = "FileUtil";
 

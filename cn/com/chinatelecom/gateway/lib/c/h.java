@@ -8,7 +8,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -127,7 +126,7 @@ public class h {
                     try {
                         URL url = new URL(str);
                         HttpsURLConnection httpsURLConnection = (HttpsURLConnection) ((network == null || Build.VERSION.SDK_INT < 21) ? url.openConnection() : network.openConnection(url));
-                        httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                        httpsURLConnection.setRequestProperty("accept", "*/*");
                         httpsURLConnection.setRequestMethod("POST");
                         httpsURLConnection.setDoOutput(true);
                         httpsURLConnection.setDoInput(true);
@@ -160,7 +159,7 @@ public class h {
                                     Class.forName("android.net.ConnectivityManager").getMethod("requestRouteToHost", Integer.TYPE, Integer.TYPE).invoke(connectivityManager, 5, Integer.valueOf(j.a(j.b(headerField))));
                                     URL url2 = new URL(headerField);
                                     httpsURLConnection = (HttpsURLConnection) ((network != null || Build.VERSION.SDK_INT < 21) ? url2.openConnection() : network.openConnection(url2));
-                                    httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                                    httpsURLConnection.setRequestProperty("accept", "*/*");
                                     httpsURLConnection.setRequestMethod("POST");
                                     httpsURLConnection.setDoOutput(true);
                                     httpsURLConnection.setDoInput(true);
@@ -174,7 +173,7 @@ public class h {
                             str6 = "Location";
                             URL url22 = new URL(headerField);
                             httpsURLConnection = (HttpsURLConnection) ((network != null || Build.VERSION.SDK_INT < 21) ? url22.openConnection() : network.openConnection(url22));
-                            httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                            httpsURLConnection.setRequestProperty("accept", "*/*");
                             httpsURLConnection.setRequestMethod("POST");
                             httpsURLConnection.setDoOutput(true);
                             httpsURLConnection.setDoInput(true);
@@ -187,7 +186,7 @@ public class h {
                         if (httpsURLConnection.getResponseCode() == 302) {
                             URL url3 = new URL(httpsURLConnection.getHeaderField(str6));
                             httpsURLConnection = (HttpsURLConnection) ((network == null || Build.VERSION.SDK_INT < 21) ? url3.openConnection() : network.openConnection(url3));
-                            httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                            httpsURLConnection.setRequestProperty("accept", "*/*");
                             httpsURLConnection.setRequestMethod("GET");
                             httpsURLConnection.setConnectTimeout(i);
                             httpsURLConnection.setReadTimeout(i2);
@@ -431,7 +430,7 @@ public class h {
                 try {
                     URL url = new URL(str);
                     HttpsURLConnection httpsURLConnection = (HttpsURLConnection) ((network == null || Build.VERSION.SDK_INT < 21) ? url.openConnection() : network.openConnection(url));
-                    httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                    httpsURLConnection.setRequestProperty("accept", "*/*");
                     httpsURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
                     httpsURLConnection.setRequestMethod("GET");
                     httpsURLConnection.setDoOutput(false);
@@ -444,7 +443,7 @@ public class h {
                     if (httpsURLConnection.getResponseCode() == 302) {
                         URL url2 = new URL(httpsURLConnection.getHeaderField("Location"));
                         httpsURLConnection = (HttpsURLConnection) ((network == null || Build.VERSION.SDK_INT < 21) ? url2.openConnection() : network.openConnection(url2));
-                        httpsURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                        httpsURLConnection.setRequestProperty("accept", "*/*");
                         httpsURLConnection.setRequestProperty("connection", HTTP.CONN_KEEP_ALIVE);
                         httpsURLConnection.setRequestMethod("GET");
                         httpsURLConnection.setDoOutput(false);

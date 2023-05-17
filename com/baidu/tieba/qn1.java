@@ -1,20 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qn1 implements rn1 {
+/* loaded from: classes7.dex */
+public class qn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static qn1 c;
+    public static volatile qn1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public rn1 a;
-    public boolean b;
+    public HandlerThread a;
+    public Handler b;
+
+    /* loaded from: classes7.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qn1 qn1Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qn1Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                nn1 nn1Var = new nn1();
+                nn1Var.a = message.arg2;
+                int i = message.arg1;
+                if (i == -1) {
+                    i = on1.m().a();
+                }
+                on1.m().d(message.what, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, i, "out time.", nn1Var, true);
+            }
+        }
+    }
 
     public qn1() {
         Interceptable interceptable = $ic;
@@ -29,11 +72,14 @@ public class qn1 implements rn1 {
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
+        HandlerThread handlerThread = new HandlerThread("callback-handler");
+        this.a = handlerThread;
+        this.b = null;
+        handlerThread.start();
+        this.b = new a(this, this.a.getLooper());
     }
 
-    public static qn1 b() {
+    public static qn1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
@@ -49,54 +95,17 @@ public class qn1 implements rn1 {
         return (qn1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rn1
-    public String a() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            rn1 rn1Var = this.a;
-            if (rn1Var == null) {
-                return null;
-            }
-            try {
-                return rn1Var.a();
-            } catch (Throwable unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.b.removeMessages(i);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.rn1
-    public void a(Context context, sn1 sn1Var) {
-        rn1 un1Var;
+    public void c(Message message, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sn1Var) == null) {
-            try {
-                if (this.b) {
-                    return;
-                }
-                this.b = true;
-                int ordinal = com.baidu.sso.u.a.a(Build.MANUFACTURER).ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        un1Var = new un1();
-                    } else if (ordinal == 2) {
-                        un1Var = new co1();
-                    } else if (ordinal == 3) {
-                        un1Var = new ao1();
-                    } else if (ordinal == 4) {
-                        un1Var = new wn1();
-                    }
-                    this.a = un1Var;
-                } else {
-                    this.a = null;
-                }
-                if (this.a != null) {
-                    this.a.a(context, sn1Var);
-                }
-            } catch (Throwable unused) {
-            }
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
+            this.b.sendMessageDelayed(message, j);
         }
     }
 }

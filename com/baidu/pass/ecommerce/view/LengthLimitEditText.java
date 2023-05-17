@@ -7,12 +7,12 @@ import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.annotation.Nullable;
 import com.baidu.sapi2.NoProguard;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LengthLimitEditText extends EditText implements NoProguard {
     public int mLengthLimit;
     public OnTextBeyondLengthLimitListener onTextBeyondLengthLimitListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnTextBeyondLengthLimitListener {
         void onBeyondLengthLimit();
     }

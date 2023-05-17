@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.depend;
 
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class b implements v {
     public boolean a = false;
 

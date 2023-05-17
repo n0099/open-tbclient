@@ -15,7 +15,7 @@ import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.NotifyArriveCallbackByUser;
 import java.security.PublicKey;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

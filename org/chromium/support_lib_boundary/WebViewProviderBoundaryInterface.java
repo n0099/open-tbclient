@@ -4,7 +4,7 @@ import android.net.Uri;
 import android.webkit.WebChromeClient;
 import android.webkit.WebViewClient;
 import java.lang.reflect.InvocationHandler;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface WebViewProviderBoundaryInterface {
     InvocationHandler[] createWebMessageChannel();
 

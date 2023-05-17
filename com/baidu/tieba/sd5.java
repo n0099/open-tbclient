@@ -1,74 +1,158 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.MoreDeskView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class sd5 extends ud5 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class sd5 implements mv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sd5(Context context, int i) {
-        super(context, null, 2, 0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sd5 a;
+
+        public a(sd5 sd5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sd5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sd5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                lg.h().m(this.a.b, 10, null, null);
+                lg.h().m(this.a.c, 10, null, null);
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.d = i == -1 ? R.drawable.icon_pure_post_more24 : i;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.i = false;
-        this.j = true;
-        this.m = new MoreDeskView(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sd5(Context context, boolean z) {
-        super(context, null, 2, 0);
+    public sd5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.more_function);
-        this.d = R.drawable.icon_pure_post_more24;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.i = false;
-        this.j = true;
-        this.m = new MoreDeskView(context, !z);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1};
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d && this.e) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
+            sg.a().post(new a(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mv5
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (!this.d) {
+            this.d = str.equals(this.b);
+        }
+        if (!this.e) {
+            this.e = str.equals(this.c);
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("fold_lottie");
+        jSONObject.optString("fold_name");
+        this.c = jSONObject.optString("unfold_lottie");
+        jSONObject.optString("unfold_name");
+        g();
     }
 }

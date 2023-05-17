@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.np9;
-import com.baidu.tieba.zl7;
+import com.baidu.tieba.mn7;
+import com.baidu.tieba.pr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract void e(BdUniqueId bdUniqueId);
 
-    public abstract void f(@NonNull np9 np9Var, @NonNull Activity activity);
+    public abstract void f(@NonNull pr9 pr9Var, @NonNull Activity activity);
 
     public abstract void g(Context context);
 
@@ -43,7 +43,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract int getLayoutId();
 
-    public abstract zl7.g getLogItem();
+    public abstract mn7.g getLogItem();
 
     public abstract String getPageType();
 

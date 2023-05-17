@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.zca;
+import com.baidu.tieba.xea;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @JNINamespace
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ApplicationStatus {
     public static /* synthetic */ Interceptable $ic;
     public static Object a;
@@ -27,28 +27,28 @@ public class ApplicationStatus {
     public static Activity c;
     public static f d;
     public static final Map<Activity, d> e;
-    public static final zca<e> f;
-    public static final zca<f> g;
+    public static final xea<e> f;
+    public static final xea<f> g;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface e {
         void a(Activity activity, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         void a(int i);
     }
 
     public static native void nativeOnApplicationStateChange(int i);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public class a implements f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements BaseChromiumApplication.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,12 +215,12 @@ public class ApplicationStatus {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public zca<e> b;
+        public xea<e> b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -236,16 +236,16 @@ public class ApplicationStatus {
                 }
             }
             this.a = 6;
-            this.b = new zca<>();
+            this.b = new xea<>();
         }
 
-        public zca<e> a() {
+        public xea<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return this.b;
             }
-            return (zca) invokeV.objValue;
+            return (xea) invokeV.objValue;
         }
 
         public int b() {
@@ -284,8 +284,8 @@ public class ApplicationStatus {
         }
         a = new Object();
         e = new ConcurrentHashMap();
-        f = new zca<>();
-        g = new zca<>();
+        f = new xea<>();
+        g = new xea<>();
     }
 
     public ApplicationStatus() {

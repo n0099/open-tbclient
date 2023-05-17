@@ -1,100 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Arrays;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class na5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
+    public static List<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int[] d;
 
-    public na5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947995751, "Lcom/baidu/tieba/na5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947995751, "Lcom/baidu/tieba/na5;");
+                return;
             }
         }
+        a = Arrays.asList(".baidu.com", ".nuomi.com", ".baifubao.com", ".hao123.com");
     }
 
-    public int[] a() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        String s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                f(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (qi.isEmpty(str)) {
+                return false;
             }
+            Uri parse = Uri.parse(str);
+            if (parse != null && "file".equals(parse.getScheme()) && parse.getPath() != null && parse.getPath().contains("bdtbNWCache")) {
+                return true;
+            }
+            if (b == null && (s = o65.m().s("js_host_white_list", null)) != null) {
+                b = b(s);
+            }
+            if (b == null) {
+                b = a;
+            }
+            if (parse != null) {
+                for (String str2 : b) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String host = parse.getHost();
+                        if (!TextUtils.isEmpty(host) && host.endsWith(str2)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void f(JSONObject jSONObject) {
+    public static List<String> b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optInt("conn_conf");
-        this.b = jSONObject.optInt("continuous_fail_count");
-        this.c = jSONObject.optInt("restart_time_interval");
-        JSONArray optJSONArray = jSONObject.optJSONArray("android_conn_black_list");
-        if (optJSONArray != null) {
-            this.d = new int[optJSONArray.length()];
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                this.d[i] = optJSONArray.optInt(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (qi.isEmpty(str)) {
+                return null;
             }
-            return;
+            return Arrays.asList(str.split(ParamableElem.DIVIDE_PARAM));
         }
-        this.d = new int[0];
+        return (List) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            if (str == null) {
+                o65.m().B("js_host_white_list", "");
+            } else {
+                o65.m().B("js_host_white_list", str);
+            }
+            b = b(str);
+        }
     }
 }

@@ -16,15 +16,15 @@ import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar5;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.yv4;
-import com.baidu.tieba.zu6;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.hx4;
+import com.baidu.tieba.js5;
+import com.baidu.tieba.mw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     public int o;
     public int p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +78,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,7 +145,7 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
         }
     }
@@ -153,18 +153,97 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0269);
-            A1(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d027d);
+            z1(bundle);
             B1();
         }
     }
 
-    public final void A1(Bundle bundle) {
+    public final void B1() {
+        FrameLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            this.a = navigationBar;
+            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f0603));
+            this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090e10);
+            if (this.l != 0 && this.m != 0) {
+                layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
+            } else {
+                layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
+            }
+            this.b.setLayoutParams(layoutParams);
+            boolean c = js5.c();
+            GifInfo gifInfo = new GifInfo();
+            gifInfo.mSharpText = this.k;
+            gifInfo.mGid = this.f;
+            gifInfo.mGifHeight = this.m;
+            gifInfo.mGifWidth = this.l;
+            if (c) {
+                gifInfo.mDynamicUrl = this.i;
+            } else {
+                gifInfo.mStaticUrl = this.j;
+            }
+            this.b.l0(gifInfo);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09098c);
+            if (!TextUtils.isEmpty(this.h)) {
+                this.c.N(this.h, 10, false);
+            } else {
+                Bitmap f = mw6.f(this.f, "panel.png");
+                if (f != null) {
+                    new cn(f, false).h(this.c);
+                }
+            }
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b0);
+            this.d = textView;
+            textView.setText(this.g);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09097c);
+            this.e = textView2;
+            textView2.setOnClickListener(new b(this));
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
+            hx4 layoutMode = getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.l(z);
+            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f09098d));
+            this.a.onChangeSkinType(getPageContext(), i);
+        }
+    }
+
+    @Override // android.app.Activity
+    public void onSaveInstanceState(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onSaveInstanceState(bundle);
+            bundle.putString("pid", this.f);
+            bundle.putString("panme", this.g);
+            bundle.putString("iconUrl", this.h);
+            bundle.putString("gifUrl", this.i);
+            bundle.putString("staticUrl", this.j);
+            bundle.putString("sharpText", this.k);
+            bundle.putInt("width", this.l);
+            bundle.putInt("height", this.m);
+        }
+    }
+
+    public final void z1(Bundle bundle) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             int i2 = 160;
             int i3 = (getResources().getDisplayMetrics().density > 1.5d ? 1 : (getResources().getDisplayMetrics().density == 1.5d ? 0 : -1));
             if (i3 < 0) {
@@ -198,85 +277,6 @@ public class EmotionImageActivity extends BaseActivity<EmotionImageActivity> {
                 this.m = intent.getIntExtra("height", this.o);
             }
             this.p = getIntent().getIntExtra("from", 0);
-        }
-    }
-
-    public final void B1() {
-        FrameLayout.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.a = navigationBar;
-            navigationBar.setTitleText(getString(R.string.obfuscated_res_0x7f0f059f));
-            this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b = (GifView) findViewById(R.id.obfuscated_res_0x7f090de3);
-            if (this.l != 0 && this.m != 0) {
-                layoutParams = new FrameLayout.LayoutParams(this.l, this.m, 17);
-            } else {
-                layoutParams = new FrameLayout.LayoutParams(this.n, this.o, 17);
-            }
-            this.b.setLayoutParams(layoutParams);
-            boolean c = ar5.c();
-            GifInfo gifInfo = new GifInfo();
-            gifInfo.mSharpText = this.k;
-            gifInfo.mGid = this.f;
-            gifInfo.mGifHeight = this.m;
-            gifInfo.mGifWidth = this.l;
-            if (c) {
-                gifInfo.mDynamicUrl = this.i;
-            } else {
-                gifInfo.mStaticUrl = this.j;
-            }
-            this.b.l0(gifInfo);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09096a);
-            if (!TextUtils.isEmpty(this.h)) {
-                this.c.N(this.h, 10, false);
-            } else {
-                Bitmap f = zu6.f(this.f, "panel.png");
-                if (f != null) {
-                    new tm(f, false).h(this.c);
-                }
-            }
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09098e);
-            this.d = textView;
-            textView.setText(this.g);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09095a);
-            this.e = textView2;
-            textView2.setOnClickListener(new b(this));
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            super.onChangeSkinType(i);
-            yv4 layoutMode = getLayoutMode();
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            getLayoutMode().k(findViewById(R.id.obfuscated_res_0x7f09096b));
-            this.a.onChangeSkinType(getPageContext(), i);
-        }
-    }
-
-    @Override // android.app.Activity
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            super.onSaveInstanceState(bundle);
-            bundle.putString("pid", this.f);
-            bundle.putString("panme", this.g);
-            bundle.putString("iconUrl", this.h);
-            bundle.putString("gifUrl", this.i);
-            bundle.putString("staticUrl", this.j);
-            bundle.putString("sharpText", this.k);
-            bundle.putInt("width", this.l);
-            bundle.putInt("height", this.m);
         }
     }
 }

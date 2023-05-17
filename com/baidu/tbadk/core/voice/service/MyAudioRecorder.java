@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.d95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes3.dex */
-public class MyAudioRecorder implements u75 {
+/* loaded from: classes4.dex */
+public class MyAudioRecorder implements d95 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] n;
     public static Object o;
@@ -45,7 +45,7 @@ public class MyAudioRecorder implements u75 {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,7 +116,7 @@ public class MyAudioRecorder implements u75 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +169,7 @@ public class MyAudioRecorder implements u75 {
         q = null;
     }
 
-    @Override // com.baidu.tieba.u75
+    @Override // com.baidu.tieba.d95
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -255,7 +255,7 @@ public class MyAudioRecorder implements u75 {
         }
     }
 
-    @Override // com.baidu.tieba.u75
+    @Override // com.baidu.tieba.d95
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -294,7 +294,7 @@ public class MyAudioRecorder implements u75 {
         return (MyAudioRecorder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.u75
+    @Override // com.baidu.tieba.d95
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -302,7 +302,7 @@ public class MyAudioRecorder implements u75 {
         }
     }
 
-    @Override // com.baidu.tieba.u75
+    @Override // com.baidu.tieba.d95
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

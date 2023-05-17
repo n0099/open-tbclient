@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Build;
+import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.manage.Download;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +14,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.io.File;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class p04 extends d04 {
+/* loaded from: classes6.dex */
+public class p04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public long d;
 
     static {
         InterceptResult invokeClinit;
@@ -33,12 +40,10 @@ public class p04 extends d04 {
                 return;
             }
         }
-        c = ho1.a;
+        e = qp1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p04() {
-        super("startPermissionsPage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,45 +51,141 @@ public class p04 extends d04 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
     }
 
-    @Override // com.baidu.tieba.d04
-    public xz1 a(JSONObject jSONObject, bl2 bl2Var) {
-        InterceptResult invokeLL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
-            x73 b0 = x73.b0();
-            if (b0 != null && b0.w() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
-                }
-                if (TextUtils.equals(str, "oppo")) {
-                    try {
-                        Intent intent = new Intent(b0.w().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        b0.w().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        bl3.f(b0.w());
-                    }
-                } else {
-                    bl3.g(b0.w());
-                }
-                bl2Var.a(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return (xz1) invokeLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public p04(@NonNull Download download) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.c = "";
+        this.d = System.currentTimeMillis();
+        this.a = download.getUrl();
+        this.b = download.getKeyByUser();
+        String fromParam = download.getFromParam();
+        if (!TextUtils.isEmpty(fromParam)) {
+            try {
+                JSONObject jSONObject = new JSONObject(fromParam);
+                this.c = jSONObject.optString("apk_id");
+                this.d = jSONObject.optLong("download_time", System.currentTimeMillis());
+            } catch (JSONException e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!Environment.getExternalStorageState().equals("mounted")) {
+                return null;
+            }
+            String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public p04 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (p04) invokeL.objValue;
+    }
+
+    public p04 f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.b = str;
+            return this;
+        }
+        return (p04) invokeL.objValue;
+    }
+
+    public p04 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (p04) invokeL.objValue;
+    }
+
+    public Download b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Download download = new Download();
+            download.setUrl(this.a);
+            download.setKeyByUser(this.b);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("apk_id", this.c);
+                jSONObject.put("download_time", this.d);
+            } catch (JSONException e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
+            }
+            download.setFromParam(jSONObject.toString());
+            download.setMimetype("application/vnd.android.package-archive");
+            download.setWifiOnly(false);
+            String d = d();
+            if (!TextUtils.isEmpty(d)) {
+                download.setSavedPathForUser(d);
+            }
+            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+            return download;
+        }
+        return (Download) invokeV.objValue;
     }
 }

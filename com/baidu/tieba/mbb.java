@@ -1,63 +1,192 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.WindowParams;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes5.dex */
-public interface mbb {
-    void a(Activity activity, edb edbVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorThrowable;
+import rx.internal.operators.NotificationLite;
+/* loaded from: classes6.dex */
+public class mbb<T> implements i7b<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final i7b<? super T> a;
+    public boolean b;
+    public volatile boolean c;
+    public a d;
 
-    void b(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Object[] a;
+        public int b;
 
-    void c(int i, String str, PayCallBackBean payCallBackBean);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void d(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
+        public void a(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                int i = this.b;
+                Object[] objArr = this.a;
+                if (objArr == null) {
+                    objArr = new Object[16];
+                    this.a = objArr;
+                } else if (i == objArr.length) {
+                    Object[] objArr2 = new Object[(i >> 2) + i];
+                    System.arraycopy(objArr, 0, objArr2, 0, i);
+                    this.a = objArr2;
+                    objArr = objArr2;
+                }
+                objArr[i] = obj;
+                this.b = i + 1;
+            }
+        }
+    }
 
-    pbb e();
+    public mbb(i7b<? super T> i7bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i7bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i7bVar;
+    }
 
-    void f(Activity activity, hdb hdbVar, edb edbVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
+    @Override // com.baidu.tieba.i7b
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.b());
+                return;
+            }
+            this.b = true;
+            this.a.onCompleted();
+        }
+    }
 
-    void g(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
+    @Override // com.baidu.tieba.i7b
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            t7b.e(th);
+            if (this.c) {
+                return;
+            }
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                if (this.b) {
+                    a aVar = this.d;
+                    if (aVar == null) {
+                        aVar = new a();
+                        this.d = aVar;
+                    }
+                    aVar.a(NotificationLite.c(th));
+                    return;
+                }
+                this.b = true;
+                this.a.onError(th);
+            }
+        }
+    }
 
-    void j(PayFinishInfo payFinishInfo);
-
-    void k(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
-
-    void l(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void m(Activity activity, edb edbVar, hdb hdbVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void n();
-
-    void o(Activity activity, String str);
-
-    boolean p(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler);
-
-    void q(ieb iebVar, Dialog dialog);
-
-    void refreshWindow(WindowParams windowParams);
-
-    void release();
-
-    boolean s(Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler);
-
-    void t(Activity activity, edb edbVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
-
-    void u(Activity activity);
-
-    PayDialogType v();
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
+        continue;
+     */
+    @Override // com.baidu.tieba.i7b
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onNext(T t) {
+        Object[] objArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.h(t));
+                return;
+            }
+            this.b = true;
+            try {
+                this.a.onNext(t);
+                while (true) {
+                    synchronized (this) {
+                        a aVar2 = this.d;
+                        if (aVar2 == null) {
+                            this.b = false;
+                            return;
+                        }
+                        this.d = null;
+                        for (Object obj : aVar2.a) {
+                            if (obj == null) {
+                                break;
+                            }
+                            try {
+                                if (NotificationLite.a(this.a, obj)) {
+                                    this.c = true;
+                                    return;
+                                }
+                            } catch (Throwable th) {
+                                this.c = true;
+                                t7b.e(th);
+                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                return;
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                this.c = true;
+                t7b.g(th2, this.a, t);
+            }
+        }
+    }
 }

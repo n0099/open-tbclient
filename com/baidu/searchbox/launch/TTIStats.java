@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TTIStats {
     public static final String TAG = "TTIStats";
     public static final String UBC_DEVICE_SCORE_KEY = "device_score";
@@ -36,7 +36,7 @@ public class TTIStats {
     public static long sAppCreateTimeStamp = -1;
     public static Map<String, TTIData> mRecordMap = new HashMap();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TTIData {
         public long duration;
         public long startTs;

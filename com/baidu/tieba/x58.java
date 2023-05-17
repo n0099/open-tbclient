@@ -1,73 +1,123 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class x58 extends l58 {
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class x58<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
+    public int a;
+    public T b;
 
-    @Override // com.baidu.tieba.l58
-    public int getViewType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    public x58(String str, String str2, long j) {
+    public x58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = j;
     }
 
-    public long a() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.longValue;
+        return (T) invokeV.objValue;
     }
 
-    public String b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
+    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    public int c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (str == null) {
+                return -1;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() == 3) {
+                    jSONArray.optString(0);
+                    this.a = jSONArray.optInt(1);
+                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
+                    if (1 == this.a) {
+                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
+                        String optString2 = optJSONObject.optString("shareSourceIcon");
+                        String optString3 = optJSONObject.optString("shareSource");
+                        String optString4 = optJSONObject.optString("shareUrl");
+                        String optString5 = optJSONObject.optString("shareSourceUrl");
+                        if (TextUtils.isEmpty(optString4)) {
+                            ?? r4 = (T) new ShareFromPBMsgData();
+                            r4.setContent(optJSONObject.optString("themeContent"));
+                            r4.setForumName(optJSONObject.optString("forumName"));
+                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                            r4.setPostId(optJSONObject.optString("postID"));
+                            r4.setThreadId(optJSONObject.optString("themeID"));
+                            r4.setTitle(optJSONObject.optString("themeTitle"));
+                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
+                            r4.setThreadType(optJSONObject.optInt("threadType"));
+                            this.b = r4;
+                            return 0;
+                        }
+                        ?? r1 = (T) new ShareFromGameCenterMsgData();
+                        r1.setContent(optJSONObject.optString("themeContent"));
+                        r1.setForumName(optJSONObject.optString("forumName"));
+                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r1.setPostId(optJSONObject.optString("postID"));
+                        r1.setThreadId(optJSONObject.optString("themeID"));
+                        r1.setTitle(optJSONObject.optString("themeTitle"));
+                        r1.setButton(optString);
+                        r1.setShareSource(optString3);
+                        r1.setShareSourceIcon(optString2);
+                        r1.setShareSourceUrl(optString5);
+                        r1.setShareUrl(optString4);
+                        this.b = r1;
+                        return 1;
+                    } else if (4 == this.a) {
+                        ?? r12 = (T) new ShareFromFrsMsgData();
+                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
+                        r12.setPostNum(optJSONObject.optInt("postNum"));
+                        this.b = r12;
+                        return 2;
+                    } else {
+                        return -1;
+                    }
+                }
+                return -1;
+            } catch (Exception unused) {
+                return -1;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeLL.intValue;
     }
 }

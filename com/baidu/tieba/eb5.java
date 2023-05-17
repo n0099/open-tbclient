@@ -1,69 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class eb5 {
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.ThreadInfo;
+import tbclient.VoiceRoom;
+/* loaded from: classes5.dex */
+public class eb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashSet<String> a;
-    public a b;
-    public int c;
-    public final bg<tm> d;
-    public final Runnable e;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a();
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b extends bg<tm> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eb5 a;
-
-        public b(eb5 eb5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eb5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String key, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, key, i) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (tmVar != null && !TextUtils.isEmpty(key)) {
-                    this.a.a.remove(key);
-                }
-                this.a.f();
-            }
-        }
-    }
+    public Long a;
+    public String b;
+    public List<VoiceRoom> c;
 
     public eb5() {
         Interceptable interceptable = $ic;
@@ -78,72 +35,52 @@ public final class eb5 {
                 return;
             }
         }
-        this.a = new HashSet<>();
-        this.c = 10;
-        this.d = new b(this);
-        this.e = new Runnable() { // from class: com.baidu.tieba.bb5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        this.c = new ArrayList();
+    }
 
-            @Override // java.lang.Runnable
-            public final void run() {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    eb5.e(eb5.this);
+    public List<VoiceRoom> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(DataRes dataRes) {
+        VoiceRoom voiceRoom;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        ForumInfo forumInfo = dataRes.forum;
+        if (forumInfo != null) {
+            this.a = forumInfo.id;
+            this.b = forumInfo.name;
+        }
+        if (!ListUtils.isEmpty(dataRes.voice_room_list)) {
+            for (ThreadInfo threadInfo : dataRes.voice_room_list) {
+                if (threadInfo != null && (voiceRoom = threadInfo.voice_room) != null && !StringUtils.isNull(voiceRoom.room_name) && voiceRoom.room_id.longValue() > 0) {
+                    this.c.add(voiceRoom);
                 }
-            }
-        };
-    }
-
-    public static final void e(eb5 this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            HashSet<String> hashSet = new HashSet<>();
-            hashSet.addAll(this$0.a);
-            this$0.d(hashSet);
-        }
-    }
-
-    @JvmOverloads
-    public final void c(List<String> list, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048576, this, list, aVar, i) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        HashSet<String> hashSet = new HashSet<>();
-        Intrinsics.checkNotNull(list);
-        hashSet.addAll(list);
-        this.b = aVar;
-        this.c = i;
-        d(hashSet);
-    }
-
-    public final void d(HashSet<String> hashSet) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashSet) != null) || hashSet.isEmpty()) {
-            return;
-        }
-        this.a.clear();
-        Iterator<String> it = hashSet.iterator();
-        while (it.hasNext()) {
-            String next = it.next();
-            if (!hi.isEmpty(next) && ((tm) cg.h().n(next, this.c, new Object[0])) == null) {
-                this.a.add(next);
-                cg.h().k(next, this.c, this.d, 0, 0, null, new Object[0]);
-            }
-        }
-        f();
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.isEmpty()) {
-            jg.a().removeCallbacks(this.e);
-            a aVar = this.b;
-            if (aVar != null) {
-                Intrinsics.checkNotNull(aVar);
-                aVar.a();
             }
         }
     }

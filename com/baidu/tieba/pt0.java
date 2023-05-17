@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,148 +9,123 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
-/* loaded from: classes5.dex */
-public class pt0 extends ix0 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class pt0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final pt0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
 
-    @Override // com.baidu.tieba.ix0, com.baidu.tieba.wv0
-    public void q(@NonNull vu0 vu0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vu0Var) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-507187136, "Lcom/baidu/tieba/pt0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-507187136, "Lcom/baidu/tieba/pt0$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073437, "Lcom/baidu/tieba/pt0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[PlayerStatus.values().length];
-            a = iArr;
-            try {
-                iArr[PlayerStatus.PLAYING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PlayerStatus.COMPLETE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948073437, "Lcom/baidu/tieba/pt0;");
+                return;
             }
         }
+        a = new pt0();
     }
 
     public pt0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final boolean M() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final int a(mt0 mt0Var, String str) {
+        InterceptResult invokeLL;
+        kt0 c;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return gv0.h().d(u().B(), u().L());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void N() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h.setBackgroundColor(-65536);
-        }
-    }
-
-    public final void O() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (M()) {
-                i = DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mt0Var, str)) == null) {
+            if (mt0Var != null || ((c = ot0.c(str)) != null && (mt0Var = c.a()) != null)) {
+                num = Integer.valueOf(mt0Var.a());
             } else {
-                i = -65536;
+                num = null;
             }
-            this.h.setBackgroundColor(i);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
         }
+        return invokeLL.intValue;
     }
 
-    @Override // com.baidu.tieba.vx0
-    public View getContentView() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final String c(mt0 mt0Var, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, mt0Var, str, str2)) == null) {
+            return a.b(a(mt0Var, str), str2);
         }
-        return (View) invokeV.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.wv0
-    @Nullable
-    public int[] getSubscribeEvent() {
-        InterceptResult invokeV;
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        boolean z;
+        String d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new int[]{4, 2, 5, 3};
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ix0
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.D();
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_layer_debug_info_layout, null);
-            this.e = linearLayout;
-            this.f = (TextView) linearLayout.findViewById(R.id.text_version_code);
-            this.g = (TextView) this.e.findViewById(R.id.text_status);
-            this.h = (TextView) this.e.findViewById(R.id.text_pcdn_status);
-            this.g.setText(PlayerStatus.IDLE.name());
-        }
-    }
-
-    @Override // com.baidu.tieba.ix0, com.baidu.tieba.wv0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            this.g.setText(playerStatus.name());
-            int i = a.a[playerStatus.ordinal()];
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                d = "https://sv.baidu.com";
+            } else {
+                d = d(str);
+            }
             if (i != 1) {
-                if (i == 2) {
-                    N();
-                    return;
-                }
-                return;
+                return "";
             }
-            O();
+            return d;
         }
+        return (String) invokeIL.objValue;
+    }
+
+    public final String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                Uri url = Uri.parse(str);
+                Intrinsics.checkNotNullExpressionValue(url, "url");
+                String scheme = url.getScheme();
+                if (scheme == null) {
+                    return "https://sv.baidu.com";
+                }
+                String str2 = scheme + "://";
+                if (str2 == null) {
+                    return "https://sv.baidu.com";
+                }
+                String str3 = str2 + url.getHost();
+                if (str3 == null) {
+                    return "https://sv.baidu.com";
+                }
+                return str3;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "https://sv.baidu.com";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -44,7 +44,7 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.utils.enums.BindInfoAction;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PassportSDK {
     public static synchronized PassportSDK getInstance() {
         PassportSDK passportSDK;

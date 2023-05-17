@@ -1,5 +1,5 @@
 package com.bytedance.pangle.util;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static int a(String str) {
         try {

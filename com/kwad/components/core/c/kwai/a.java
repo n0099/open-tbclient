@@ -11,30 +11,30 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends KSFrameLayout {
     @Nullable
     public final b DG;
-    public final b.C0598b DH;
+    public final b.C0612b DH;
     public d DI;
-    public InterfaceC0597a DJ;
+    public InterfaceC0611a DJ;
     public final AdTemplate mAdTemplate;
     public Presenter mPresenter;
     public final AdBaseFrameLayout mRootContainer;
 
     /* renamed from: com.kwad.components.core.c.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0597a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0611a {
         void mp();
     }
 
-    public a(@Nullable b bVar, b.C0598b c0598b) {
-        super(c0598b.context);
+    public a(@Nullable b bVar, b.C0612b c0612b) {
+        super(c0612b.context);
         this.DG = bVar;
-        this.DH = c0598b;
-        this.mAdTemplate = c0598b.adTemplate;
-        FrameLayout.inflate(c0598b.context, R.layout.obfuscated_res_0x7f0d0454, this);
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09134f);
+        this.DH = c0612b;
+        this.mAdTemplate = c0612b.adTemplate;
+        FrameLayout.inflate(c0612b.context, R.layout.obfuscated_res_0x7f0d0471, this);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09138a);
     }
 
     public static Presenter ap() {
@@ -82,13 +82,13 @@ public final class a extends KSFrameLayout {
     @Override // android.view.View
     public final void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        InterfaceC0597a interfaceC0597a = this.DJ;
-        if (interfaceC0597a != null) {
-            interfaceC0597a.mp();
+        InterfaceC0611a interfaceC0611a = this.DJ;
+        if (interfaceC0611a != null) {
+            interfaceC0611a.mp();
         }
     }
 
-    public final void setChangeListener(InterfaceC0597a interfaceC0597a) {
-        this.DJ = interfaceC0597a;
+    public final void setChangeListener(InterfaceC0611a interfaceC0611a) {
+        this.DJ = interfaceC0611a;
     }
 }

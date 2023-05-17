@@ -9,7 +9,7 @@ import com.baidu.mapapi.search.core.RouteNode;
 import com.baidu.mapapi.search.core.RouteStep;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelable {
     public static final Parcelable.Creator<DrivingRouteLine> CREATOR = new d();
     public boolean b;
@@ -23,7 +23,7 @@ public class DrivingRouteLine extends RouteLine<DrivingStep> implements Parcelab
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DrivingStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<DrivingStep> CREATOR = new e();
         public List<LatLng> d;

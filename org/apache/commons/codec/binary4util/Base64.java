@@ -9,7 +9,7 @@ import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 import org.apache.commons.codec.net.QCodec;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Base64 extends BaseNCodec {
     public static final int BITS_PER_ENCODED_BYTE = 6;
     public static final int BYTES_PER_ENCODED_BLOCK = 4;

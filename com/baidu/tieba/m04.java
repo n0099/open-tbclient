@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.AppOpsManager;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,12 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.List;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class m04 extends d04 {
+/* loaded from: classes6.dex */
+public class m04 extends m14 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,12 +31,12 @@ public class m04 extends d04 {
                 return;
             }
         }
-        c = ho1.a;
+        c = qp1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m04() {
-        super("GetAppUseDuration");
+        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,76 +52,34 @@ public class m04 extends d04 {
         }
     }
 
-    @Override // com.baidu.tieba.d04
-    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
+    @Override // com.baidu.tieba.m14
+    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
-            if (jSONObject == null) {
-                bl2Var.onFail(202, "params may be error");
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
             if (c) {
-                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
+                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
             }
             String optString = jSONObject.optString("packageName");
             if (TextUtils.isEmpty(optString)) {
-                bl2Var.onFail(202, "params may be error");
+                km2Var.onFail(31010, "package name is empty");
+                return null;
+            }
+            h14.a(optString, "openApp", null, null, null);
+            if (!v04.h(AppRuntime.getAppContext(), optString)) {
+                km2Var.onFail(31011, "app is not installed");
+                h14.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
+                return null;
+            }
+            if (v04.l(AppRuntime.getAppContext(), optString)) {
+                km2Var.onSuccess(null);
+                h14.a(optString, "openApp", "success", null, null);
             } else {
-                b(optString, bl2Var);
+                km2Var.onFail(31019, "open app fail");
+                h14.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
             }
             return null;
         }
-        return (xz1) invokeLL.objValue;
-    }
-
-    public final void b(String str, @NonNull bl2 bl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bl2Var) == null) {
-            try {
-                if (c()) {
-                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
-                    if (packageInfo != null) {
-                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
-                        if (queryUsageStats.size() == 0) {
-                            bl2Var.onFail(101, "noPermission");
-                            return;
-                        }
-                        for (UsageStats usageStats : queryUsageStats) {
-                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
-                                JSONObject jSONObject = new JSONObject();
-                                JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
-                                jSONObject.put("data", jSONObject2);
-                                bl2Var.a(jSONObject);
-                                return;
-                            }
-                        }
-                        bl2Var.onFail(31016, "no package info");
-                        return;
-                    }
-                    bl2Var.onFail(31016, "no package info");
-                    return;
-                }
-                bl2Var.onFail(101, "noPermission");
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                bl2Var.onFail(31011, "app is not installed");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (g12) invokeLL.objValue;
     }
 }

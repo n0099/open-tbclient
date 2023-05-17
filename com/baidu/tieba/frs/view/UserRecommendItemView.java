@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UserRecommendItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class UserRecommendItemView extends LinearLayout {
     public boolean e;
     public int f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,8 +126,8 @@ public class UserRecommendItemView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0379, (ViewGroup) this, true);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0926dc);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0390, (ViewGroup) this, true);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f092748);
             this.a = clickableHeaderImageView;
             clickableHeaderImageView.setAutoChangeStyle(true);
             this.a.setDefaultResource(17170445);
@@ -136,8 +136,8 @@ public class UserRecommendItemView extends LinearLayout {
             CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.user_recommend_like_btn);
             this.b = cardUserLikeButton;
             cardUserLikeButton.setGravity(17);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0926e0);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0926db);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09274c);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092747);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);

@@ -1,14 +1,30 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import java.io.UnsupportedEncodingException;
+/* loaded from: classes7.dex */
 public class tha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "process";
+            }
+            try {
+                return new String(Base64.encode(str.getBytes("UTF-8"), 0), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
 }

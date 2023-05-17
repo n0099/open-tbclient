@@ -1,20 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
 @Service
-/* loaded from: classes5.dex */
-public class p44 implements qw3 {
+/* loaded from: classes6.dex */
+public class p44 implements wg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static String a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                if (TextUtils.isEmpty(a)) {
+                    a = gl3.b();
+                }
+                return a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     public p44() {
         Interceptable interceptable = $ic;
@@ -30,137 +48,23 @@ public class p44 implements qw3 {
         }
     }
 
-    @Override // com.baidu.tieba.qw3
-    public long a() {
+    @Override // com.baidu.tieba.wg2
+    public String getUserAgent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ka4.A().n();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return ka4.A().C();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return ka4.A().B();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ka4.A().v();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a.a();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qw3
-    public long f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.wg2
+    public og2 a(String str, lh2 lh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ka4.A().o();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, lh2Var, v8ThreadDelegatePolicy)) == null) {
+            return new q44(str, lh2Var, v8ThreadDelegatePolicy);
         }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ka4.A().z();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return ka4.A().p();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public Long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return ka4.A().w();
-        }
-        return (Long) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return ka4.A().q();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return ka4.A().u();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return ka4.A().x();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return ka4.A().y();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qw3
-    public void b(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                str = "gdtvideo";
-            } else {
-                str = "video";
-            }
-            v04.b(str, null);
-        }
+        return (og2) invokeLLL.objValue;
     }
 }

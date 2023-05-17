@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<a.C0124a> a;
+    public LinkedList<a.C0128a> a;
     public f b;
     public MapController c;
     public boolean d;
@@ -69,7 +69,7 @@ public class b implements b.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             this.d = true;
-            Iterator<a.C0124a> it = this.a.iterator();
+            Iterator<a.C0128a> it = this.a.iterator();
             while (it.hasNext()) {
                 Double valueOf = Double.valueOf(a.d.a(com.baidu.platform.comapi.map.b.a.a.c(), it.next().c()));
                 if (Math.abs(valueOf.doubleValue()) > 45.0d && Math.abs(valueOf.doubleValue()) < 135.0d) {
@@ -84,16 +84,16 @@ public class b implements b.a {
             } else {
                 z = false;
             }
-            a.C0124a first = this.a.getFirst();
-            a.C0124a last = this.a.getLast();
-            a.C0124a c0124a = new a.C0124a(last.a, first.a);
-            a.C0124a c0124a2 = new a.C0124a(last.b, first.b);
+            a.C0128a first = this.a.getFirst();
+            a.C0128a last = this.a.getLast();
+            a.C0128a c0128a = new a.C0128a(last.a, first.a);
+            a.C0128a c0128a2 = new a.C0128a(last.b, first.b);
             if (dVar.b > 0.0d && dVar2.b > 0.0d) {
-                a = (int) a.d.a(c0124a.c(), com.baidu.platform.comapi.map.b.a.c.c());
-                a2 = a.d.a(c0124a2.c(), com.baidu.platform.comapi.map.b.a.c.c());
+                a = (int) a.d.a(c0128a.c(), com.baidu.platform.comapi.map.b.a.c.c());
+                a2 = a.d.a(c0128a2.c(), com.baidu.platform.comapi.map.b.a.c.c());
             } else {
-                a = (int) a.d.a(c0124a.c(), com.baidu.platform.comapi.map.b.a.b.c());
-                a2 = a.d.a(c0124a2.c(), com.baidu.platform.comapi.map.b.a.b.c());
+                a = (int) a.d.a(c0128a.c(), com.baidu.platform.comapi.map.b.a.b.c());
+                a2 = a.d.a(c0128a2.c(), com.baidu.platform.comapi.map.b.a.b.c());
             }
             int i = (int) a2;
             if (Math.abs(a) < 40 && Math.abs(i) < 40) {

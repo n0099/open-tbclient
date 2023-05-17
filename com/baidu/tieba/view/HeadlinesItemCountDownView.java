@@ -12,12 +12,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HeadlinesItemCountDownView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public CountDownTimer f;
     public b g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a();
+        void onFinished();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
     public void i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            g35.d(this.e).w(R.color.CAM_X0109);
+            p45.d(this.e).w(R.color.CAM_X0109);
         }
     }
 
@@ -174,7 +174,7 @@ public class HeadlinesItemCountDownView extends FrameLayout {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.g) != null) {
-            bVar.a();
+            bVar.onFinished();
         }
     }
 

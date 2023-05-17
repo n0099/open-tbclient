@@ -1,14 +1,14 @@
 package com.baidu.mapapi.map;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MapBaseIndoorMapInfo {
     public static final String d = "MapBaseIndoorMapInfo";
     public String a;
     public String b;
     public ArrayList<String> c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SwitchFloorError {
         SWITCH_OK,
         FLOOR_INFO_ERROR,

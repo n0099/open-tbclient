@@ -1,43 +1,178 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fq1 implements ks1 {
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class fq1 implements bq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public ny3 c;
+    public cq1 d;
+    public wx3 e;
+    public List<aq1> f;
+    public aq1 g;
+    public aq1 h;
+    public Map<String, String> i;
+    public my3 j;
 
-    @Override // com.baidu.tieba.ks1
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    /* loaded from: classes5.dex */
+    public class a implements my3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq1 a;
+
+        @Override // com.baidu.tieba.my3
+        public void onClick(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+
+        public a(fq1 fq1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fq1Var;
+        }
+
+        @Override // com.baidu.tieba.my3
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.a.d.c(eq1.b(str));
+                py3.k(this.a.i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.my3
+        public void a(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                if (z) {
+                    this.a.d.b();
+                    this.a.g.a(0);
+                    for (aq1 aq1Var : this.a.f) {
+                        aq1Var.a(0);
+                        if (this.a.f.contains(aq1Var)) {
+                            this.a.f.remove(aq1Var);
+                        }
+                    }
+                    return;
+                }
+                this.a.g.a(1001);
+                for (aq1 aq1Var2 : this.a.f) {
+                    aq1Var2.a(1001);
+                    if (this.a.f.contains(aq1Var2)) {
+                        this.a.f.remove(aq1Var2);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.my3
+        public void b(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+                if (z) {
+                    this.a.h.a(0);
+                } else {
+                    this.a.h.a(1001);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.my3
+        public void c(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                this.a.d.a(eq1.a(z));
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ks1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public fq1() {
+    public fq1(@NonNull JSONObject jSONObject, cq1 cq1Var, aq1 aq1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, cq1Var, aq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.i = new TreeMap();
+        this.j = new a(this);
+        if (jSONObject != null && !TextUtils.isEmpty(jSONObject.optString("adUnitId")) && !TextUtils.isEmpty(jSONObject.optString("appSid"))) {
+            this.a = jSONObject.optString("adUnitId");
+            String optString = jSONObject.optString("appSid");
+            this.b = optString;
+            this.i = py3.a("video", "app", optString, this.a, false);
+            this.e = new gq1();
+            ny3 ny3Var = new ny3(tu2.U().getActivity(), this.b, this.a, false, this.j, this.e);
+            this.c = ny3Var;
+            ny3Var.k0(this.i);
+            this.f = new CopyOnWriteArrayList();
+            b(jSONObject, aq1Var, cq1Var);
+            return;
+        }
+        aq1Var.a(202);
+    }
+
+    @Override // com.baidu.tieba.bq1
+    public synchronized void a(JSONObject jSONObject, aq1 aq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, aq1Var) == null) {
+            synchronized (this) {
+                if (this.c != null) {
+                    this.h = aq1Var;
+                    this.c.l0();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bq1
+    public synchronized void b(JSONObject jSONObject, aq1 aq1Var, cq1 cq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, aq1Var, cq1Var) == null) {
+            synchronized (this) {
+                this.d = cq1Var;
+                if (this.c != null) {
+                    this.g = aq1Var;
+                    if (aq1Var != null && !this.f.contains(aq1Var)) {
+                        this.f.add(aq1Var);
+                    }
+                    this.c.c0();
+                }
             }
         }
     }

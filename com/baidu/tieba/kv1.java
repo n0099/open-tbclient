@@ -1,125 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public final class kv1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Boolean a = null;
-    public static String b = "8893";
-    public static String c = "80";
-    public static String d = "81";
-    public static String e = "82";
-    public static String f = "show";
-    public static String g = "fail";
-    public static String h = "success";
-    public static String i = "login";
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public final class kv1 extends ju2<kv1> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947926435, "Lcom/baidu/tieba/kv1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public interface a {
+        public static final String a = ju2.r("SwanFileFetcher.Params", "file_url");
+        public static final String b = ju2.r("SwanFileFetcher.Params", "file_save_path");
+        public static final String c = ju2.r("SwanFileFetcher.Params", "file_head_map");
+        public static final String d = ju2.r("SwanFileFetcher.Params", "image_save_gallery");
+        public static final String e = ju2.r("SwanFileFetcher.Params", "file_cancel_tag");
+    }
+
+    public kv1 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (kv1) invokeV.objValue;
+    }
+
+    public kv1() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947926435, "Lcom/baidu/tieba/kv1;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return e;
-        }
-        return (String) invokeV.objValue;
+    @Override // com.baidu.tieba.co3
+    public /* bridge */ /* synthetic */ co3 d() {
+        J();
+        return this;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
+    public kv1 E(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return z(a.e, str);
         }
-        return (String) invokeV.objValue;
+        return (kv1) invokeL.objValue;
     }
 
-    public static final String c() {
-        InterceptResult invokeV;
+    public kv1 G(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return z(a.b, str);
         }
-        return (String) invokeV.objValue;
+        return (kv1) invokeL.objValue;
     }
 
-    public static final String d() {
-        InterceptResult invokeV;
+    public kv1 H(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return z(a.a, str);
         }
-        return (String) invokeV.objValue;
+        return (kv1) invokeL.objValue;
     }
 
-    public static final String e() {
-        InterceptResult invokeV;
+    public kv1 I(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            return t(a.d, z);
         }
-        return (String) invokeV.objValue;
+        return (kv1) invokeZ.objValue;
     }
 
-    public static final String f() {
-        InterceptResult invokeV;
+    public kv1 F(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return u(a.c, bundle);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final Boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return a;
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public static final void j(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, bool) == null) {
-            a = bool;
-        }
+        return (kv1) invokeL.objValue;
     }
 }

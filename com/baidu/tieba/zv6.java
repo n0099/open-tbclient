@@ -1,58 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zv6 implements in {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public EmotionPackageData a;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.yv6;
+/* loaded from: classes8.dex */
+public interface zv6 {
+    boolean a(QmFilterItem qmFilterItem);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373455, "Lcom/baidu/tieba/zv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948373455, "Lcom/baidu/tieba/zv6;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    QmFilterItem b();
 
-    public zv6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void c(QmFilterItem qmFilterItem);
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
+    void d(yv6.b bVar);
+
+    void e();
+
+    String f(String str);
+
+    void g();
+
+    void h();
+
+    void reset();
 }

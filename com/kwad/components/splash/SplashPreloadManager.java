@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SplashPreloadManager {
     public HashMap<String, PreLoadItem> QD;
     public List<String> QE;
@@ -32,7 +32,7 @@ public final class SplashPreloadManager {
     public final Object mLock;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class PreLoadItem extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public long cacheTime;
         public long expiredTime;
@@ -40,13 +40,13 @@ public final class SplashPreloadManager {
     }
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class PreLoadPara extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public int isValidReturned;
         public long spreadTime;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final SplashPreloadManager QG = new SplashPreloadManager((byte) 0);
     }

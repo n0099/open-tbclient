@@ -1,13 +1,13 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface q2a {
-    void E0(t2a t2aVar);
+    void C0(String str);
 
-    void N0(String str, String str2, String str3, String str4);
+    void F0(String str);
 
-    void c(int i);
+    void finishActivity();
 
-    void onError(int i, String str);
+    void q0(String str, String str2);
 
-    void onFinish();
+    void showErrorView();
 }

@@ -11,13 +11,12 @@ import com.baidu.searchbox.net.update.CommandPostData;
 import com.baidu.searchbox.net.update.v2.ActionData;
 import com.baidu.searchbox.net.update.v2.JSONObjectCommandListener;
 import com.baidu.searchbox.net.update.v2.UpdateAction;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeUsageStatisticsListener.STATISTIC_SWITCH_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static final String JSINTERFACE_SWITCH_LIST = "jsinterface_switch_list";
     public static final String SCHEME_SWITCH_LIST = "scheme_switch_list";
@@ -25,10 +24,10 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static final String STATISTIC_SWITCH_VERSION = "statistic_switch_v";
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = SchemeUsageStatisticsListener.class.getSimpleName();
-    public static ArrayList<String> schemeList = new ArrayList<>();
-    public static ArrayList<String> jsinterfaceList = new ArrayList<>();
+    public static CopyOnWriteArrayList<String> schemeList = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<String> jsinterfaceList = new CopyOnWriteArrayList<>();
 
-    public static ArrayList<String> getStatisticJsinterfaceList() {
+    public static CopyOnWriteArrayList<String> getStatisticJsinterfaceList() {
         if (jsinterfaceList.size() == 0) {
             String string = PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(JSINTERFACE_SWITCH_LIST, "");
             try {
@@ -45,7 +44,7 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
         return jsinterfaceList;
     }
 
-    public static ArrayList<String> getStatisticSchemeList() {
+    public static CopyOnWriteArrayList<String> getStatisticSchemeList() {
         if (schemeList.size() == 0) {
             String string = PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).getString(SCHEME_SWITCH_LIST, "");
             try {
@@ -78,10 +77,10 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
         }
     }
 
-    public static void setDataList(JSONArray jSONArray, List<String> list) {
+    public static void setDataList(JSONArray jSONArray, CopyOnWriteArrayList<String> copyOnWriteArrayList) {
         String str;
         if (jSONArray != null) {
-            list.clear();
+            copyOnWriteArrayList.clear();
             for (int i = 0; i < jSONArray.length(); i++) {
                 try {
                     str = jSONArray.get(i).toString();
@@ -89,7 +88,7 @@ public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
                     e.printStackTrace();
                     str = "";
                 }
-                list.add(str);
+                copyOnWriteArrayList.add(str);
             }
         }
     }

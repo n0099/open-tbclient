@@ -5,9 +5,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tieba.pdb;
+import com.baidu.tieba.rfb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
     public int b;
@@ -41,7 +41,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             rect.left = 0;
             rect.right = 0;
             if (z) {
-                i2 = pdb.a(2.0f);
+                i2 = rfb.a(2.0f);
             }
             rect.top = i2;
         } else if (childAdapterPosition < i4) {
@@ -59,7 +59,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             rect.left = (i3 * i9) / i8;
             rect.right = i9 - (((i3 + 1) * i9) / i8);
             if (z) {
-                i = pdb.a(2.0f);
+                i = rfb.a(2.0f);
             } else {
                 i = this.b;
             }

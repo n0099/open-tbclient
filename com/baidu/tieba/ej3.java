@@ -1,71 +1,166 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.content.res.Resources;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ej3 extends aj3 {
+/* loaded from: classes5.dex */
+public class ej3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ej3(u83 u83Var) {
-        super(u83Var, "/swanAPI/openTabBar");
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ej3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-831253603, "Lcom/baidu/tieba/ej3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-831253603, "Lcom/baidu/tieba/ej3$b;");
+                    return;
+                }
+            }
+            a = new ej3(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736219, "Lcom/baidu/tieba/ej3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947736219, "Lcom/baidu/tieba/ej3;");
+                return;
+            }
+        }
+        boolean z = qp1.a;
+    }
+
+    public ej3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                x42.c("openTabBar", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (aj3.k()) {
-                x42.c("OpenTabBarAction", "fail not TabBar page");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fail not TabBar page");
-                return false;
-            } else {
-                jj3 j = aj3.j();
-                if (j == null) {
-                    x42.c("OpenTabBarAction", "tabBarViewController is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!j.r(optParamsAsJo.optBoolean("animation"))) {
-                    x42.c("openTabBar", "open bottom bar fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                Resources system = Resources.getSystem();
+                int identifier = system.getIdentifier("config_screenBrightnessSettingMaximum", "integer", "android");
+                if (identifier != 0) {
+                    return system.getInteger(identifier);
                 }
+                return 255;
+            } catch (Exception unused) {
+                return 255;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static ej3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (ej3) invokeV.objValue;
+    }
+
+    public /* synthetic */ ej3(a aVar) {
+        this();
+    }
+
+    public static float d(Context context) {
+        int i;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            try {
+                i = Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                i = 0;
+            }
+            return i * (1.0f / b());
+        }
+        return invokeL.floatValue;
+    }
+
+    public float a(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    return d(activity);
+                }
+                return f;
+            }
+            return -1.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public void e(Activity activity, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, f) == null) && activity != null) {
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = f;
+            activity.getWindow().setAttributes(attributes);
+        }
+    }
+
+    public void f(Activity activity, boolean z) {
+        Window window;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, activity, z) != null) || activity == null || (window = activity.getWindow()) == null) {
+            return;
+        }
+        if (z) {
+            window.addFlags(128);
+        } else {
+            window.clearFlags(128);
+        }
     }
 }

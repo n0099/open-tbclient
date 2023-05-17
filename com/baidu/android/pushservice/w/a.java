@@ -16,7 +16,7 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.w.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0035a {
+    public static /* synthetic */ class C0038a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hVar)) == null) {
-            int i = C0035a.a[hVar.ordinal()];
+            int i = C0038a.a[hVar.ordinal()];
             if (i != 1) {
                 if (i == 2 || i == 3) {
                     return new l(this.a);

@@ -1,39 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.LayoutInflater;
+import com.baidu.tieba.wn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class xn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306123, "Lcom/baidu/tieba/xn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948306123, "Lcom/baidu/tieba/xn4;");
-                return;
-            }
-        }
-        a = vn4.f().getString("openstat_switch", "1");
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(LayoutInflater layoutInflater, yn4 yn4Var) {
+        wn4.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return TextUtils.equals(a, "1");
+        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, yn4Var) == null) {
+            if (yn4Var != null) {
+                aVar = new wn4.a(yn4Var);
+            } else {
+                aVar = null;
+            }
+            layoutInflater.setFactory2(aVar);
         }
-        return invokeV.booleanValue;
     }
 }

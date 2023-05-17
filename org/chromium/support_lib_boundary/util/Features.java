@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary.util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Features {
     public static final String CREATE_WEB_MESSAGE_CHANNEL = "CREATE_WEB_MESSAGE_CHANNEL";
     public static final String DEV_SUFFIX = ":dev";

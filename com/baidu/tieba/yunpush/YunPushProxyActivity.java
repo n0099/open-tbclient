@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tieba.aw4;
-import com.baidu.tieba.dj8;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.jx4;
 import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.u35;
-import com.baidu.tieba.y35;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,15 +115,15 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY);
-            u35.t(this);
+            d55.t(this);
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    dj8 yunPushLog = YunPushLog.getInstance();
+                    yk8 yunPushLog = YunPushLog.getInstance();
                     yunPushLog.c(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity onCreate path:" + uri);
-                    u35.r(uri, false);
+                    d55.r(uri, false);
                     if (uri.contains("tbyunpushnotifybody=")) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf("tbyunpushnotifybody=") + 20));
                         String str4 = "";
@@ -140,7 +140,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         if (!jSONObject.isNull("jump_scheme")) {
                             String string = jSONObject.getString("jump_scheme");
                             if (Uri.parse(string).isOpaque()) {
-                                if (aw4.e()) {
+                                if (jx4.e()) {
                                     throw new IllegalStateException(string + "：scheme 格式非法");
                                 }
                             } else {
@@ -247,7 +247,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                     }
                                     TiebaStatic.log(param);
                                     StatisticItem statisticItem = new StatisticItem("PushOptCount");
-                                    if (y35.a().d()) {
+                                    if (h55.a().d()) {
                                         i11 = 1;
                                     } else {
                                         i11 = 2;
@@ -257,11 +257,11 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                         try {
                                             str4 = Uri.parse(str4).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
                                         } catch (Exception e) {
-                                            dj8 yunPushLog2 = YunPushLog.getInstance();
+                                            yk8 yunPushLog2 = YunPushLog.getInstance();
                                             yunPushLog2.b(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity parse Exception:" + e);
                                         }
-                                        if (y35.a().d()) {
-                                            y35.a().i(2);
+                                        if (h55.a().d()) {
+                                            h55.a().i(2);
                                         }
                                         if (x1(str4)) {
                                             int i14 = -1;
@@ -276,7 +276,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                                     param2.param("pid", queryParameter3);
                                                     param2.param("tid", queryParameter2);
                                                 } catch (Exception e2) {
-                                                    dj8 yunPushLog3 = YunPushLog.getInstance();
+                                                    yk8 yunPushLog3 = YunPushLog.getInstance();
                                                     yunPushLog3.b(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity ToMainTab Exception:" + e2);
                                                 }
                                                 TiebaStatic.log(param2);
@@ -302,7 +302,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                                 param3.param("fid", queryParameter4);
                                                 param3.param("obj_type", queryParameter5);
                                             } catch (Exception e3) {
-                                                dj8 yunPushLog4 = YunPushLog.getInstance();
+                                                yk8 yunPushLog4 = YunPushLog.getInstance();
                                                 yunPushLog4.b(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity ForumGradePage Exception:" + e3);
                                             }
                                             TiebaStatic.log(param3);
@@ -357,14 +357,14 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 }
                                 TiebaStatic.log(param4);
                                 StatisticItem statisticItem3 = new StatisticItem("PushOptCount");
-                                if (y35.a().d()) {
+                                if (h55.a().d()) {
                                 }
                                 TiebaStatic.log(statisticItem3.param("obj_param1", i11));
                                 if (!TextUtils.isEmpty(str4)) {
                                 }
                             } catch (Exception e4) {
                                 e = e4;
-                                dj8 yunPushLog5 = YunPushLog.getInstance();
+                                yk8 yunPushLog5 = YunPushLog.getInstance();
                                 yunPushLog5.b(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity onCreate Exception:" + e);
                                 BaseVM.m(3);
                                 TbSingleton.getInstance().setPushOrSchemeLog(true);
@@ -403,7 +403,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         }
                         TiebaStatic.log(param42);
                         StatisticItem statisticItem32 = new StatisticItem("PushOptCount");
-                        if (y35.a().d()) {
+                        if (h55.a().d()) {
                         }
                         TiebaStatic.log(statisticItem32.param("obj_param1", i11));
                         if (!TextUtils.isEmpty(str4)) {
@@ -412,7 +412,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                 }
             } catch (Exception e5) {
                 e = e5;
-                dj8 yunPushLog52 = YunPushLog.getInstance();
+                yk8 yunPushLog52 = YunPushLog.getInstance();
                 yunPushLog52.b(BaiduYunPushMessageReceiver.TAG, "YunPushProxyActivity onCreate Exception:" + e);
                 BaseVM.m(3);
                 TbSingleton.getInstance().setPushOrSchemeLog(true);

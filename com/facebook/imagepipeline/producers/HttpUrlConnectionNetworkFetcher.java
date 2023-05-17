@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlConnectionNetworkFetchState> {
     public static final String FETCH_TIME = "fetch_time";
     public static final int HTTP_DEFAULT_TIMEOUT = 30000;
@@ -55,7 +55,7 @@ public class HttpUrlConnectionNetworkFetcher extends BaseNetworkFetcher<HttpUrlC
         return i >= 200 && i < 300;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class HttpUrlConnectionNetworkFetchState extends FetchState {
         public long fetchCompleteTime;
         public long responseTime;

@@ -8,7 +8,7 @@ import com.baidu.searchbox.player.interfaces.INeuron;
 import com.baidu.searchbox.player.pool.IPoolItem;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoEvent implements IPoolItem {
     public static final int LOG_LEVEL_HIGH = 0;
     public static final int LOG_LEVEL_LOW = 1;
@@ -34,17 +34,17 @@ public class VideoEvent implements IPoolItem {
     public int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface LogLevel {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface Priority {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public @interface Type {
     }
 

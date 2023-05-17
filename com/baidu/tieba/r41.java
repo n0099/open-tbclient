@@ -1,111 +1,110 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.provider.Settings;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class r41 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071546, "Lcom/baidu/tieba/r41;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final r41 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-509004356, "Lcom/baidu/tieba/r41$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-509004356, "Lcom/baidu/tieba/r41$b;");
+                    return;
+                }
+            }
+            a = new r41(null);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    public r41() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948071546, "Lcom/baidu/tieba/r41;");
-        }
-    }
-
-    public static int c(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
-            if (i < i2) {
-                i = i2;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i > i3 ? i3 : i;
         }
-        return invokeIII.intValue;
+        this.a = false;
+        this.b = "";
     }
 
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
-        int i;
+    @NonNull
+    public static r41 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity != null) {
-                float f = activity.getWindow().getAttributes().screenBrightness;
-                if (f < 0.0f) {
-                    i = b(activity);
-                } else {
-                    i = (int) (f * 255.0f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (r41) invokeV.objValue;
+    }
+
+    public /* synthetic */ r41(a aVar) {
+        this();
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.a) {
+                StringBuilder sb = new StringBuilder();
+                if (t41.b(bj0.b())) {
+                    sb.append("BDOS/1.0");
+                    sb.append(" ");
+                    sb.append("(");
+                    sb.append("HarmonyOS");
+                    sb.append(" ");
+                    String a2 = t41.a();
+                    if (TextUtils.isEmpty(a2)) {
+                        a2 = "0.0";
+                    }
+                    sb.append(a2);
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 }
-                int i2 = a;
-                if (i2 >= 0 && i <= 50) {
-                    return i2;
+                String sb2 = sb.toString();
+                this.b = sb2;
+                if (!TextUtils.isEmpty(sb2)) {
+                    this.b = m51.a(this.b);
                 }
-                return i;
+                this.a = true;
             }
-            return -1;
+            return this.b;
         }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static void f(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
-            e(activity, -1);
-        }
-    }
-
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
-            a = c(i, 0, 255);
-            int c = c(i, 50, 255);
-            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
-            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
-            activity.getWindow().setAttributes(attributes);
-        }
-    }
-
-    public static void e(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
-            Window window = activity.getWindow();
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = i;
-            window.setAttributes(attributes);
-        }
+        return (String) invokeV.objValue;
     }
 }

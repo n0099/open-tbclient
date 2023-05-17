@@ -1,24 +1,24 @@
 package rx.functions;
 
-import com.baidu.tieba.w5b;
-import com.baidu.tieba.x5b;
-import com.baidu.tieba.y5b;
+import com.baidu.tieba.u7b;
+import com.baidu.tieba.v7b;
+import com.baidu.tieba.w7b;
 import rx.exceptions.OnErrorNotImplementedException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Actions {
     public static final a a = new a();
 
-    /* loaded from: classes9.dex */
-    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements w5b, x5b<T0>, y5b<T0, T1> {
-        @Override // com.baidu.tieba.w5b
+    /* loaded from: classes10.dex */
+    public static final class a<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements u7b, v7b<T0>, w7b<T0, T1> {
+        @Override // com.baidu.tieba.u7b
         public void call() {
         }
 
-        @Override // com.baidu.tieba.x5b
+        @Override // com.baidu.tieba.v7b
         public void call(T0 t0) {
         }
 
-        @Override // com.baidu.tieba.y5b
+        @Override // com.baidu.tieba.w7b
         public void call(T0 t0, T1 t1) {
         }
 
@@ -51,16 +51,16 @@ public final class Actions {
         return a;
     }
 
-    public static x5b<Throwable> b() {
+    public static v7b<Throwable> b() {
         return NotImplemented.INSTANCE;
     }
 
-    /* loaded from: classes9.dex */
-    public enum NotImplemented implements x5b<Throwable> {
+    /* loaded from: classes10.dex */
+    public enum NotImplemented implements v7b<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.x5b
+        @Override // com.baidu.tieba.v7b
         public void call(Throwable th) {
             throw new OnErrorNotImplementedException(th);
         }

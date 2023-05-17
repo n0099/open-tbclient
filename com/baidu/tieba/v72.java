@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.w72;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class v72 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class v72 implements w72.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,16 +29,44 @@ public class v72 {
                 return;
             }
         }
-        a = "检测到白屏区域超过" + a(0.7d) + "；";
-        b = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
+        a = qp1.a;
     }
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
+    public v72() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            return ((int) (d * 100.0d)) + "%";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (String) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.w72.b
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
+            Log.d("SimplePreDownloadCallback", "pre download success");
+        }
+    }
+
+    @Override // com.baidu.tieba.w72.b
+    public void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
+        }
+    }
+
+    @Override // com.baidu.tieba.w72.b
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
+        }
     }
 }

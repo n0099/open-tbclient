@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.IdentityHashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ConcatenatingMediaSource implements MediaSource {
     public final boolean[] duplicateFlags;
     public final boolean isAtomic;
@@ -23,7 +23,7 @@ public final class ConcatenatingMediaSource implements MediaSource {
     public ConcatenatedTimeline timeline;
     public final Timeline[] timelines;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ConcatenatedTimeline extends AbstractConcatenatedTimeline {
         public final boolean isAtomic;
         public final int[] sourcePeriodOffsets;

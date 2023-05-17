@@ -8,7 +8,7 @@ import com.baidu.searchbox.bddownload.core.exception.InterruptException;
 import com.baidu.searchbox.bddownload.core.exception.RetryException;
 import com.baidu.searchbox.bddownload.core.interceptor.Interceptor;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RetryInterceptor implements Interceptor.Connect, Interceptor.Fetch {
     @Override // com.baidu.searchbox.bddownload.core.interceptor.Interceptor.Connect
     @NonNull

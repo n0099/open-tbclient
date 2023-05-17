@@ -18,7 +18,7 @@ import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -74,9 +74,9 @@ public class Utils {
         extMimeMap.put(".dv", "video/x-dv");
         extMimeMap.put(".gif", "image/gif");
         extMimeMap.put(".jp2", "image/jp2");
-        extMimeMap.put(".jpe", "image/jpeg");
-        extMimeMap.put(".jpeg", "image/jpeg");
-        extMimeMap.put(".jpg", "image/jpeg");
+        extMimeMap.put(".jpe", WordCommandManager.IMAGE_JPEG);
+        extMimeMap.put(".jpeg", WordCommandManager.IMAGE_JPEG);
+        extMimeMap.put(".jpg", WordCommandManager.IMAGE_JPEG);
         extMimeMap.put(".kar", "audio/midi");
         extMimeMap.put(".m3u", "audio/x-mpegurl");
         extMimeMap.put(".m4a", "audio/mp4a-latm");
@@ -100,7 +100,7 @@ public class Utils {
         extMimeMap.put(".pct", "image/pict");
         extMimeMap.put(".pic", "image/pict");
         extMimeMap.put(".pict", "image/pict");
-        extMimeMap.put(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, "image/png");
+        extMimeMap.put(".png", WordCommandManager.IMAGE_PNG);
         extMimeMap.put(".pnm", "image/x-portable-anymap");
         extMimeMap.put(".pnt", "image/x-macpaint");
         extMimeMap.put(".pntg", "image/x-macpaint");

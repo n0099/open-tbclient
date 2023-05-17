@@ -1,214 +1,188 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.telephony.TelephonyManager;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.fe3;
-import com.baidu.tieba.mq3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.le3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class oq3 {
+/* loaded from: classes6.dex */
+public class oq3 extends jx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040856, "Lcom/baidu/tieba/oq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(String str);
+    }
+
+    @Override // com.baidu.tieba.jx1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateBusiness" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jx1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetOpenBdussApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements zn3<je3<le3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ oq3 c;
+
+        public a(oq3 oq3Var, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oq3Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040856, "Lcom/baidu/tieba/oq3;");
+            this.c = oq3Var;
+            this.a = str;
+            this.b = jSONObject;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(je3<le3.e> je3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
+                if (!ee3.h(je3Var)) {
+                    int b = je3Var.b();
+                    ee3.f(b);
+                    this.c.d(this.a, new g12(b, ee3.f(b)));
+                    return;
+                }
+                JSONArray optJSONArray = this.b.optJSONArray("tpls");
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(optJSONArray.optString(i));
+                }
+                this.c.z(this.b.optString("clientId"), arrayList, this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ oq3 b;
+
+        public b(oq3 oq3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oq3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = oq3Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.oq3.c
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                try {
+                    this.b.d(this.a, new g12(0, new JSONObject(str)));
+                } catch (JSONException unused) {
+                    this.b.d(this.a, new g12(10001, "internal error"));
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oq3(@NonNull hx1 hx1Var) {
+        super(hx1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hx1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((hx1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
     }
 
-    @Nullable
-    public static String a(String str) {
+    @SuppressLint({"SwanBindApiNote"})
+    public g12 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                f(jSONObject.toString());
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getOpenBduss", false);
+            g93 b0 = g93.b0();
+            if (b0 == null) {
+                return new g12(1001, "null swan runtime");
             }
+            Pair<g12, JSONObject> s = s(str);
+            g12 g12Var = (g12) s.first;
+            if (!g12Var.isSuccess()) {
+                return g12Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new g12(201, "empty cb");
+            }
+            b0.e0().g(f93.K(), "scope_get_open_bduss", new a(this, optString, jSONObject));
+            return g12.f();
         }
-        return (String) invokeL.objValue;
+        return (g12) invokeL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void b(mq3 mq3Var, nq3 nq3Var) {
-        String str;
-        char c;
+    public final void z(String str, ArrayList<String> arrayList, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, mq3Var, nq3Var) == null) && mq3Var != null && nq3Var != null) {
-            if (TextUtils.isEmpty(nq3Var.a)) {
-                str = "unknown";
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, arrayList, str2) == null) {
+            if (!hp3.F(f93.K())) {
+                d(str2, new g12(202, "user is not logged in or the params are invalid"));
             } else {
-                str = nq3Var.a;
+                hp3.o(f93.K(), str, arrayList, new b(this, str2));
             }
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1395470197:
-                    if (str.equals("bd09ll")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3017163:
-                    if (str.equals("bd09")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 98175376:
-                    if (str.equals("gcj02")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 113079775:
-                    if (str.equals("wgs84")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            i = -1;
-                        } else {
-                            i = 3;
-                        }
-                    } else {
-                        i = 2;
-                    }
-                } else {
-                    i = 1;
-                }
-            }
-            mq3.c cVar = mq3Var.c;
-            cVar.a = i;
-            cVar.b = nq3Var.b;
-            cVar.c = nq3Var.c;
         }
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String e = SwanAppNetworkUtils.e();
-            if ("wifi".equals(e)) {
-                return 1;
-            }
-            if ("2g".equals(e)) {
-                return 2;
-            }
-            if ("3g".equals(e)) {
-                return 3;
-            }
-            if ("4g".equals(e)) {
-                return 4;
-            }
-            if ("5g".equals(e)) {
-                return 5;
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
-                if ("46001".equals(simOperator)) {
-                    return 3;
-                }
-                if (!"46003".equals(simOperator)) {
-                    return 0;
-                }
-                return 2;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (a) {
-            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
-        }
-        fe3.b bVar = new fe3.b(10003);
-        bVar.i(str);
-        bVar.h(x73.g0());
-        bVar.m();
-    }
-
-    public static boolean e(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if ((context.getResources().getConfiguration().screenLayout & 15) >= 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

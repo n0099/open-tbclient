@@ -1,137 +1,301 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatUserReplyView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-/* loaded from: classes4.dex */
-public abstract class ea8 implements da8 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes5.dex */
+public class ea8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int f = 2131167411;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ca8> a;
-    public ga8 b;
-    public da8 c;
-    public int d;
+    public GroupChatFragment a;
+    public GroupChatUserReplyView b;
+    public e c;
+    public RelativeLayout d;
+    public boolean e;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
+
+        void b(int i, int i2, long j, AnimatorListenerAdapter animatorListenerAdapter, boolean z);
+
+        void c();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947727725, "Lcom/baidu/tieba/ea8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947727725, "Lcom/baidu/tieba/ea8;");
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    /* loaded from: classes5.dex */
+    public class a implements GroupChatUserReplyView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea8 a;
+
+        public a(ea8 ea8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ea8Var;
+        }
+
+        @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.GroupChatUserReplyView.b
+        public void onCloseEvent() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null) {
+                this.a.c.c();
+            }
         }
     }
 
-    public abstract List<ca8> j(List list);
+    /* loaded from: classes5.dex */
+    public class b extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
 
-    public ea8() {
+        public b(ea8 ea8Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea8Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                d dVar = this.a;
+                if (dVar != null) {
+                    dVar.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ ea8 b;
+
+        public c(ea8 ea8Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea8Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ea8Var;
+            this.a = dVar;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                this.b.j(false);
+                this.b.a.z2(true);
+                d dVar = this.a;
+                if (dVar != null) {
+                    dVar.a();
+                }
+                if (this.b.a != null) {
+                    this.b.a.G2();
+                }
+            }
+        }
+    }
+
+    public ea8(GroupChatUserReplyView groupChatUserReplyView, GroupChatFragment groupChatFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {groupChatUserReplyView, groupChatFragment, relativeLayout};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = -1;
+        this.e = true;
+        this.a = groupChatFragment;
+        this.b = groupChatUserReplyView;
+        this.d = relativeLayout;
+        f();
     }
 
-    public int e() {
+    public final boolean c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str)) {
+                this.b.setData(str);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void i(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.c = eVar;
+        }
+    }
+
+    public void j(boolean z) {
+        GroupChatUserReplyView groupChatUserReplyView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || (groupChatUserReplyView = this.b) == null) {
+            return;
+        }
+        if (z) {
+            groupChatUserReplyView.setVisibility(0);
+        } else {
+            groupChatUserReplyView.setVisibility(8);
+        }
+    }
+
+    public void k(@Nullable d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) && e() && this.c != null) {
+            h(true);
+            this.c.b(d(), 0, 200L, new c(this, dVar), false);
+        }
+    }
+
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.size() > 0) {
-                return this.a.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            GroupChatFragment groupChatFragment = this.a;
+            if (groupChatFragment == null) {
+                return 0;
             }
-            return -1;
+            return ri.g(groupChatFragment.getContext(), f);
         }
         return invokeV.intValue;
     }
 
-    public List<ca8> f() {
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            GroupChatUserReplyView groupChatUserReplyView = this.b;
+            if (groupChatUserReplyView != null && groupChatUserReplyView.getVisibility() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        GroupChatUserReplyView groupChatUserReplyView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (groupChatUserReplyView = this.b) == null) {
+            return;
+        }
+        groupChatUserReplyView.setEventCallback(new a(this));
+    }
+
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return Collections.unmodifiableList(this.a);
+            return this.e;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ca8 d(int i) {
-        InterceptResult invokeI;
+    public void l(@Nullable d dVar, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0 && i < e()) {
-                return f().get(i);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, dVar, str) == null) && this.c != null && c(str) && !e()) {
+            if (this.d != null) {
+                this.d.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             }
-            return null;
-        }
-        return (ca8) invokeI.objValue;
-    }
-
-    public void i(int i) {
-        ga8 ga8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (ga8Var = this.b) != null) {
-            ga8Var.c(i, 1);
-        }
-    }
-
-    public void k(da8 da8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, da8Var) == null) {
-            this.c = da8Var;
-        }
-    }
-
-    public void l(ga8 ga8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ga8Var) == null) {
-            this.b = ga8Var;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void g(List list) {
-        List<ca8> j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
-            this.a.addAll(j);
-            ga8 ga8Var = this.b;
-            if (ga8Var != null) {
-                ga8Var.a(0, e());
-            }
-        }
-    }
-
-    public void h(List list) {
-        List<ca8> j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
-            int e = e();
-            this.a.clear();
-            this.b.b(0, e);
-            this.a.addAll(j);
-            this.b.c(0, e());
+            j(true);
+            this.a.z2(false);
+            h(false);
+            this.c.a(0, d(), 200L, new b(this, dVar), false);
         }
     }
 }

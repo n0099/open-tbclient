@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.util.Utility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -179,7 +178,7 @@ public final class g {
                 }
                 if (e.a == 0) {
                     String optString7 = jSONObject.optString("api_key");
-                    if (TextUtils.equals(jSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME), context.getPackageName()) && !TextUtils.isEmpty(optString7)) {
+                    if (TextUtils.equals(jSONObject.optString("pkg_name"), context.getPackageName()) && !TextUtils.isEmpty(optString7)) {
                         e.b = optString7;
                     }
                 }

@@ -1,119 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import android.content.Intent;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.switchs.StokenEnableSwitch;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.Map;
-/* loaded from: classes5.dex */
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class mw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mw4 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends GetTplStokenCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public a(mw4 mw4Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mw4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetTplStokenResult getTplStokenResult) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) && (bVar = this.a) != null) {
-                bVar.onFailed();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
-                if (getTplStokenResult == null) {
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.onFailed();
-                        return;
-                    }
-                    return;
-                }
-                Map<String, String> map = getTplStokenResult.tplStokenMap;
-                if (map != null && map.size() > 0) {
-                    String str = map.get(TbConfig.PassConfig.TPL);
-                    if (StringUtils.isNULL(str)) {
-                        b bVar2 = this.a;
-                        if (bVar2 != null) {
-                            bVar2.onFailed();
-                            return;
-                        }
-                        return;
-                    }
-                    b bVar3 = this.a;
-                    if (bVar3 != null) {
-                        bVar3.onSuccess(str);
-                        return;
-                    }
-                    return;
-                }
-                b bVar4 = this.a;
-                if (bVar4 != null) {
-                    bVar4.onFailed();
-                }
-            }
-        }
-    }
+    public HashMap<String, JSONObject> a;
 
     public mw4() {
         Interceptable interceptable = $ic;
@@ -125,43 +32,67 @@ public class mw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a(AccountData accountData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
-            if (accountData == null || !b()) {
-                return null;
-            }
-            return accountData.getStoken();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void c(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && !StringUtils.isNull(str)) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(TbConfig.PassConfig.TPL);
-            if (SapiAccountManager.getInstance().getAccountService() == null) {
                 return;
             }
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
+        }
+        this.a = new HashMap<>();
+    }
+
+    public static mw4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (mw4.class) {
+                    if (b == null) {
+                        b = new mw4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (mw4) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, String str3, String str4) {
+        HashMap<String, JSONObject> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) && StringUtils.isNotNull(str) && (hashMap = this.a) != null && hashMap.get(str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("apkName", str2);
+                jSONObject.put("source", str3 + "");
+                jSONObject.put("apkUrl", str4);
+                this.a.put(str, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void b(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
+            StatisticItem param = new StatisticItem(str).param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
+            if (StringUtils.isNotNull(str4)) {
+                param.param(TiebaStatic.Params.OBJ_URL, str4);
+            }
+            TiebaStatic.log(param);
+        }
+    }
+
+    public void d(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+            String g = ji5.g(intent);
+            HashMap<String, JSONObject> hashMap = this.a;
+            if (hashMap != null && hashMap.get(g) != null) {
+                JSONObject jSONObject = this.a.get(g);
+                if (jSONObject != null) {
+                    b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, jSONObject.optString("source"), jSONObject.optString("apkName"), jSONObject.optString("apkUrl"));
+                }
+                this.a.remove(g);
+            }
         }
     }
 }

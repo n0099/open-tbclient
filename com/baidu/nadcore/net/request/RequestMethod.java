@@ -5,7 +5,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum RequestMethod {
     GET("GET"),
     POST("POST"),
@@ -18,7 +18,7 @@ public enum RequestMethod {
     
     public final String value;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static final /* synthetic */ int[] a;
 

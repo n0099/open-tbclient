@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.load.Key;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaStoreSignature implements Key {
     public final long dateModified;
     @NonNull

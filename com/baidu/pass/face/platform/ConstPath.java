@@ -1,5 +1,5 @@
 package com.baidu.pass.face.platform;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConstPath {
     public static final String KEY_ALIGN = "align";
     public static final String KEY_BLUR = "blur";

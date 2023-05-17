@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.upstream.cache;
 
 import com.google.android.exoplayer2.upstream.DataSink;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CacheDataSinkFactory implements DataSink.Factory {
     public final int bufferSize;
     public final Cache cache;

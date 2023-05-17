@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.security.WarmTipsManager;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
@@ -13,7 +14,7 @@ import com.meizu.cloud.pushsdk.handler.a.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
     public com.meizu.cloud.pushsdk.handler.a a;
     public Context b;
@@ -186,7 +187,7 @@ public abstract class a<T> implements com.meizu.cloud.pushsdk.handler.c {
 
     public String b(String str) {
         try {
-            JSONObject jSONObject = new JSONObject(str).getJSONObject("launcher");
+            JSONObject jSONObject = new JSONObject(str).getJSONObject(WarmTipsManager.LAUNCHER_SOURCE_VALUE);
             return (!jSONObject.has("pkg") || TextUtils.isEmpty(jSONObject.getString("pkg"))) ? "" : jSONObject.getString("pkg");
         } catch (Exception unused) {
             DebugLogger.e("AbstractMessageHandler", "parse desk top json error");

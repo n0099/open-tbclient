@@ -1,82 +1,94 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class r43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public Object c;
+    public boolean d;
+    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948071608, "Lcom/baidu/tieba/r43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948071608, "Lcom/baidu/tieba/r43;");
+    public r43(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
+        this.d = false;
+        this.b = str;
     }
 
-    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends x33> cls) {
+    public static String a(q43 q43Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
-            Iterator<w43> it = y43.k().q().iterator();
-            while (it.hasNext()) {
-                w43 next = it.next();
-                if (next != null && next.T()) {
-                    b(next.b, bundle, cls, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, q43Var)) == null) {
+            if (q43Var == null) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("componentId", q43Var.f);
+                jSONObject.put("pluginProvider", q43Var.b);
+                jSONObject.put(WebChromeClient.KEY_ARG_ARRAY, q43Var.g);
+                jSONObject.put("slaveId", q43Var.e);
+            } catch (JSONException e) {
+                y43.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            mj2 mj2Var = new mj2();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "functionPageFinished");
+                jSONObject.put("componentId", this.b);
+                jSONObject.put("isSuccess", this.d);
+                jSONObject.put("data", this.e);
+                if (this.c != null) {
+                    jSONObject.put("error", this.c.toString());
                 }
+            } catch (JSONException e) {
+                y43.b(Log.getStackTraceString(e));
             }
+            mj2Var.c = jSONObject;
+            tu2.U().m(this.a, mj2Var);
+            y43.b("finish event, isSuccess = " + this.d);
         }
     }
 
-    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends x33> cls, @Nullable e43 e43Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, e43Var) == null) {
-            if (a) {
-                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
-            }
-            Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = y43.k().d;
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("ai_apps_delegation_name", cls.getName());
-            if (e43Var != null) {
-                bundle2.putString("ai_apps_observer_id", e43Var.b());
-                b43.b().e(e43Var);
-            }
-            if (bundle != null) {
-                bundle2.putBundle("ai_apps_data", bundle);
-            }
-            obtain.obj = bundle2;
-            n43 e = n43.e();
-            p43 p43Var = new p43(obtain);
-            p43Var.b(swanAppProcessInfo);
-            e.h(p43Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
         }
-    }
-
-    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends x33> cls, @Nullable e43 e43Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, e43Var) == null) {
-            s43.Q().X(bundle, cls, e43Var);
-        }
+        return (String) invokeV.objValue;
     }
 }

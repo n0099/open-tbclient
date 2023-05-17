@@ -3,7 +3,7 @@ package com.kwad.components.offline.api.core.api;
 import android.content.Context;
 import android.view.LayoutInflater;
 import androidx.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class IOfflineCompoWrapper {
     public String mOfflinePackageName;
 

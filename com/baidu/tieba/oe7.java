@@ -1,204 +1,229 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.mvc.message.MvcHttpMessage;
-import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
-import com.baidu.tbadk.mvc.message.MvcNetMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketMessage;
-import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
-import com.baidu.tieba.frs.itemtab.FrsItemTabHttpResponseMessage;
-import com.baidu.tieba.frs.itemtab.FrsItemTabNetModel;
-import com.baidu.tieba.frs.itemtab.FrsItemTabRequestData;
-import com.baidu.tieba.frs.itemtab.FrsItemTabSocketResponseMessage;
+import com.baidu.tbadk.core.atomData.ForumDetailActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.frs.game.strategy.FrsGameStrategyMainFragment;
+import com.baidu.tieba.frs.game.strategy.tab.ScrollLabelTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes5.dex */
-public class oe7 implements NetModel.k {
+import java.util.List;
+/* loaded from: classes6.dex */
+public class oe7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsItemTabFragment a;
-    public pe7 b;
-    public FrsItemTabNetModel c;
-    public int d;
-    public String e;
+    public FrsGameStrategyMainFragment a;
+    public View b;
+    public NavigationBar c;
+    public NoNetworkView d;
+    public ScrollLabelTabHost e;
+    public ImageView f;
+    public String g;
 
-    public oe7(FrsItemTabFragment frsItemTabFragment, int i) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oe7 a;
+
+        public a(oe7 oe7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oe7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oe7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || StringUtils.isNull(this.a.a.V())) {
+                return;
+            }
+            this.a.a.sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(this.a.a.getPageContext().getPageActivity(), this.a.a.V(), ForumDetailActivityConfig.FromType.FRS_GAME_STRATEGY)));
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oe7 a;
+
+        public b(oe7 oe7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oe7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oe7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if ("from_single_act".equals(this.a.g)) {
+                    this.a.a.getActivity().finish();
+                    return;
+                }
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921342);
+                customResponsedMessage.setmOrginalMessage(new CustomMessage(2001627, this.a.a.getPageContext().getUniqueId()));
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+            }
+        }
+    }
+
+    public oe7(FrsGameStrategyMainFragment frsGameStrategyMainFragment, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsItemTabFragment, Integer.valueOf(i)};
+            Object[] objArr = {frsGameStrategyMainFragment, view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (frsItemTabFragment == null) {
-            return;
+        this.a = frsGameStrategyMainFragment;
+        this.b = view2;
+        if (view2 != null) {
+            g();
         }
-        this.a = frsItemTabFragment;
-        FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
-        frsItemTabRequestData.itemId = i;
-        FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
-        this.c = frsItemTabNetModel;
-        frsItemTabNetModel.x0(this);
-        this.c.setUniqueId(frsItemTabFragment.getUniqueId());
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void A(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.g = str;
         }
-        pe7 pe7Var = null;
-        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof FrsItemTabSocketResponseMessage)) {
-            pe7Var = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
-        }
-        if (pe7Var != null && c(pe7Var)) {
-            return;
-        }
-        this.d = mvcSocketResponsedMessage.getError();
-        this.e = mvcSocketResponsedMessage.getErrorString();
-        b();
     }
 
-    @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void M(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+    public void k(ge7 ge7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ge7Var) == null) {
+            this.e.setDelegateFrsGameTabDataLoadListener(ge7Var);
         }
-        pe7 pe7Var = null;
-        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof FrsItemTabHttpResponseMessage)) {
-            pe7Var = (pe7) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
-        }
-        if (pe7Var != null && c(pe7Var)) {
-            return;
-        }
-        this.d = mvcHttpResponsedMessage.getError();
-        this.e = mvcHttpResponsedMessage.getErrorString();
-        b();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void c(int i, int i2, List<rn> list, List<ke7> list2, boolean z, boolean z2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            pe7 pe7Var = this.b;
-            if (pe7Var != null && pe7Var.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ErrorData errorData = new ErrorData();
-            errorData.setError_code(this.d);
-            errorData.setError_msg(this.e);
-            if (this.d != 0) {
-                this.a.g(errorData);
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) {
+            this.e.j(i, i2, list, list2, z, z2, i3);
         }
     }
 
     public void d() {
+        ScrollLabelTabHost scrollLabelTabHost;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.p0()) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (scrollLabelTabHost = this.e) != null) {
+            scrollLabelTabHost.k();
         }
-        this.c.loadData();
-        bm7.a();
     }
 
-    public final boolean c(pe7 pe7Var) {
-        InterceptResult invokeL;
+    public NavigationBar e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pe7Var)) == null) {
-            if (pe7Var == null) {
-                return false;
-            }
-            this.b = pe7Var;
-            pe7Var.c = e(pe7Var.c);
-            this.a.I1(this.b);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return (NavigationBar) invokeV.objValue;
     }
 
-    public final ArrayList<in> e(ArrayList<in> arrayList) {
-        InterceptResult invokeL;
+    public View f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, arrayList)) == null) {
-            ArrayList<in> arrayList2 = new ArrayList<>();
-            Iterator<in> it = arrayList.iterator();
-            int i = 0;
-            while (it.hasNext()) {
-                in next = it.next();
-                if (next instanceof ThreadData) {
-                    ThreadData threadData = (ThreadData) next;
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
-                    if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
-                        f05 f05Var = new f05();
-                        f05Var.t = threadData;
-                        f05Var.position = i;
-                        f05Var.a = true;
-                        f05Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(f05Var);
-                        f05 f05Var2 = new f05();
-                        f05Var2.t = threadData;
-                        f05Var2.position = i;
-                        if (threadData.picCount() == 1) {
-                            f05Var2.d = true;
-                            f05Var2.u = imageWidthAndHeight[0];
-                            f05Var2.v = imageWidthAndHeight[1];
-                        } else if (threadData.picCount() >= 2) {
-                            f05Var2.e = true;
-                        } else {
-                            f05Var2.b = true;
-                        }
-                        f05Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(f05Var2);
-                        f05 f05Var3 = new f05();
-                        f05Var3.g = true;
-                        f05Var3.t = threadData;
-                        f05Var3.position = i;
-                        f05Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                        arrayList2.add(f05Var3);
-                        i++;
-                    }
-                    threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                } else {
-                    if (next instanceof BaseCardInfo) {
-                        ((BaseCardInfo) next).position = i;
-                    }
-                    arrayList2.add(next);
-                    i++;
-                }
-            }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
-            return arrayList2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        return (ArrayList) invokeL.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e.n();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            layoutParams.setMargins(0, 0, ri.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701e8), 0);
+            ImageView imageView = (ImageView) this.c.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d09ce, (View.OnClickListener) null);
+            this.f = imageView;
+            imageView.setLayoutParams(layoutParams);
+            this.f.setOnClickListener(new a(this));
+            this.c.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new b(this));
+            this.d = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
+            ScrollLabelTabHost scrollLabelTabHost = (ScrollLabelTabHost) this.b.findViewById(R.id.obfuscated_res_0x7f090c6f);
+            this.e = scrollLabelTabHost;
+            scrollLabelTabHost.setPageId(this.a.getBaseFragmentActivity().getUniqueId());
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c.onChangeSkinType(this.a.getPageContext(), i);
+            this.d.d(this.a.getPageContext(), i);
+            this.e.m(i);
+            ImageView imageView = this.f;
+            if (imageView != null) {
+                SkinManager.setNavbarIconSrc(imageView, R.drawable.btn_more_selector_s, R.drawable.btn_more_selector);
+            }
+        }
+    }
+
+    public void l(List<ke7> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, list, z) == null) {
+            this.e.setTabData(list, z);
+        }
+    }
+
+    public void m(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048586, this, i, i2, str) == null) {
+            this.e.p(i, i2, str);
+        }
     }
 }

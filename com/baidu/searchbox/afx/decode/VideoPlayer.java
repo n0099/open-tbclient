@@ -23,7 +23,7 @@ import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class VideoPlayer {
     public static final boolean DEBUG = false;
     public static final int DEFAULT_FPS = 25;
@@ -49,7 +49,7 @@ public class VideoPlayer {
     public volatile long mStartFrameTimeUs = 0;
     public volatile int mPlayFrames = Integer.MAX_VALUE;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface FrameCallback {
         void loopReset();
 
@@ -58,12 +58,12 @@ public class VideoPlayer {
         void reset();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnInfoListener {
         boolean onInfo(VideoPlayer videoPlayer, int i, int i2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PlayTask implements Runnable {
         public static final int MSG_PLAY_ERROR = 1;
         public static final int MSG_PLAY_STOPPED = 0;
@@ -74,7 +74,7 @@ public class VideoPlayer {
         public boolean mStopped = false;
         public Thread mThread;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class LocalHandler extends Handler {
             public OnVideoEndedListener mOnEndedListener;
             public OnVideoErrorListener mOnErrorListener;
@@ -334,7 +334,7 @@ public class VideoPlayer {
     /* JADX WARN: Removed duplicated region for block: B:82:0x013d  */
     /* JADX WARN: Removed duplicated region for block: B:99:0x0168 A[SYNTHETIC] */
     /* JADX WARN: Type inference failed for: r10v0 */
-    /* JADX WARN: Type inference failed for: r10v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r10v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r10v2 */
     @SuppressLint({"BDThrowableCheck"})
     /*

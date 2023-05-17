@@ -1,43 +1,64 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
-import android.webkit.ValueCallback;
-import androidx.core.view.InputDeviceCompat;
+import android.content.res.Resources;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.component.AdImageVIew;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.swan.game.ad.jsbridge.CommandType;
-import com.baidu.swan.game.ad.view.RewardWebView;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class tw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hw3 a;
-    public RewardWebView b;
-    public Context c;
-    public String d;
+    public Context a;
+    public AdElementInfo b;
+    public View c;
+    public LinearLayout d;
+    public int e;
+    public int f;
+    public AdImageVIew g;
+    public AdImageVIew h;
+    public RelativeLayout i;
+    public RelativeLayout j;
+    public RelativeLayout k;
+    public TextView l;
+    public TextView m;
+    public Button n;
+    public ImageView o;
+    public boolean p;
+    public qx3 q;
+    public ux3 r;
+    public e s;
+    public boolean t;
+    public Runnable u;
+    public View.OnClickListener v;
+    public View.OnClickListener w;
 
-    /* loaded from: classes6.dex */
-    public class a implements ValueCallback<String> {
+    /* loaded from: classes7.dex */
+    public interface e {
+        void b();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
+        public final /* synthetic */ tw3 a;
 
         public a(tw3 tw3Var) {
             Interceptable interceptable = $ic;
@@ -51,15 +72,129 @@ public class tw3 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tw3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tw3 a;
+
+        public b(tw3 tw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tw3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                vy3.b(this.a.u);
+                if (this.a.s != null) {
+                    this.a.s.b();
                 }
             }
         }
     }
 
-    public tw3() {
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tw3 a;
+
+        public c(tw3 tw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tw3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.q != null) {
+                this.a.q.b(CommandType.BANNER_VIEW, null);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tw3 a;
+
+        public d(tw3 tw3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tw3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tw3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.r != null) {
+                this.a.r.f(view2);
+            }
+        }
+    }
+
+    public tw3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -69,135 +204,209 @@ public class tw3 {
                 return;
             }
         }
-        this.d = null;
+        this.u = new a(this);
+        this.v = new c(this);
+        this.w = new d(this);
+        this.a = context;
+        h();
+    }
+
+    public tw3(Context context, AdElementInfo adElementInfo, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adElementInfo, str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.u = new a(this);
+        this.v = new c(this);
+        this.w = new d(this);
+        this.a = context;
+        this.b = adElementInfo;
+        this.p = yx3.a().j();
+        this.t = z;
+        h();
+    }
+
+    public void i(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+            this.s = eVar;
+        }
+    }
+
+    public void j(qx3 qx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qx3Var) == null) {
+            this.q = qx3Var;
+        }
+    }
+
+    public void k(ux3 ux3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ux3Var) == null) {
+            this.r = ux3Var;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int a2 = zy3.a(i);
+            this.e = a2;
+            this.f = (int) (a2 / uw3.a);
+            this.c.setLayoutParams(new RelativeLayout.LayoutParams(this.e, this.f));
+            this.d.setLayoutParams(new RelativeLayout.LayoutParams(this.e, this.f));
+            int i2 = (int) (this.f * uw3.b);
+            this.j.setLayoutParams(new LinearLayout.LayoutParams(i2, this.f));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (i2 * uw3.m), (int) (this.f * uw3.n));
+            layoutParams.addRule(12);
+            layoutParams.addRule(9);
+            layoutParams.setMarginStart(0);
+            this.h.setLayoutParams(layoutParams);
+            int i3 = this.e - i2;
+            this.i.setLayoutParams(new LinearLayout.LayoutParams(i3, this.f));
+            int i4 = this.f;
+            float f = i3;
+            int i5 = (int) (uw3.h * f);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams2.addRule(9);
+            layoutParams2.topMargin = (int) (i4 * uw3.c);
+            layoutParams2.leftMargin = i5;
+            layoutParams2.rightMargin = i5;
+            this.l.setLayoutParams(layoutParams2);
+            this.l.setTextSize(0, (int) (i4 * uw3.e));
+            this.l.setLineSpacing((int) (i4 * uw3.d), 1.0f);
+            int i6 = this.f;
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, (int) (i6 * uw3.g));
+            layoutParams3.addRule(12);
+            layoutParams3.bottomMargin = (int) (i6 * uw3.f);
+            layoutParams3.leftMargin = i5;
+            layoutParams3.rightMargin = i5;
+            this.k.setLayoutParams(layoutParams3);
+            int i7 = (int) (this.f * uw3.k);
+            RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams((int) (f * uw3.i), -1);
+            layoutParams4.addRule(9);
+            float f2 = (int) (uw3.l * i7);
+            this.m.setTextSize(0, f2);
+            layoutParams4.addRule(15);
+            this.m.setLayoutParams(layoutParams4);
+            RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams((int) (uw3.j * f), i7);
+            layoutParams5.addRule(12);
+            layoutParams5.addRule(11);
+            this.n.setTextSize(0, f2);
+            this.n.setLayoutParams(layoutParams5);
+            if (this.o != null) {
+                int i8 = (int) (this.f * uw3.o);
+                RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(i8, i8);
+                layoutParams6.addRule(10);
+                layoutParams6.addRule(11);
+                this.o.setLayoutParams(layoutParams6);
+            }
+        }
+    }
+
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (View) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && h() && !TextUtils.isEmpty(this.d)) {
-            a(this.d);
-        }
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (Build.VERSION.SDK_INT < 24 && d(this.c) < 24) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View view2 = this.c;
+            if (view2 != null && view2.getVisibility() == 0) {
+                this.c.setVisibility(4);
             }
-            return true;
+            vy3.b(this.u);
         }
-        return invokeV.booleanValue;
     }
 
-    public void a(String str) {
+    @SuppressLint({"InflateParams"})
+    public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b != null) {
-            try {
-                if (!str.startsWith("javascript:")) {
-                    str = "javascript:" + str;
-                }
-                this.b.evaluateJavascript(str, new a(this));
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Resources resources = this.a.getResources();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06dc, (ViewGroup) null);
+            this.c = inflate;
+            this.d = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09033e);
+            this.j = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090330);
+            AdImageVIew adImageVIew = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f090340);
+            this.g = adImageVIew;
+            AdElementInfo adElementInfo = this.b;
+            if (adElementInfo != null) {
+                adImageVIew.setImageUrl(adElementInfo.getPictureUrl());
             }
-        }
-    }
-
-    public boolean e(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
-            if (uri == null) {
-                return false;
+            AdImageVIew adImageVIew2 = (AdImageVIew) this.c.findViewById(R.id.obfuscated_res_0x7f090112);
+            this.h = adImageVIew2;
+            adImageVIew2.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
+            this.i = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090331);
+            this.k = (RelativeLayout) this.c.findViewById(R.id.obfuscated_res_0x7f09033b);
+            this.l = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f09033c);
+            this.m = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090333);
+            AdElementInfo adElementInfo2 = this.b;
+            if (adElementInfo2 != null) {
+                this.l.setText(adElementInfo2.getTitle());
+                this.m.setText(this.b.getAppName());
             }
-            String scheme = uri.getScheme();
-            String host = uri.getHost();
-            CommandType fromJavascriptString = CommandType.fromJavascriptString(host);
-            try {
-                if ("mobadssdk".equals(scheme)) {
-                    if (this.a != null) {
-                        this.a.b(fromJavascriptString, uri);
-                    }
-                    try {
-                        c(host);
-                    } catch (Exception unused) {
-                    }
-                    return true;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th) {
-                try {
-                    c(host);
-                } catch (Exception unused3) {
-                }
-                throw th;
+            Button button = (Button) this.c.findViewById(R.id.obfuscated_res_0x7f09032f);
+            this.n = button;
+            button.setVisibility(8);
+            AdElementInfo adElementInfo3 = this.b;
+            if (adElementInfo3 != null && adElementInfo3.getActionType() == 1) {
+                this.n.setVisibility(0);
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f12a2));
             }
-            try {
-                c(host);
-            } catch (Exception unused4) {
-                return false;
+            AdElementInfo adElementInfo4 = this.b;
+            if (adElementInfo4 != null && adElementInfo4.getActionType() == 2) {
+                this.n.setVisibility(0);
+                this.n.setText(resources.getString(R.string.obfuscated_res_0x7f0f1451));
             }
-        } else {
-            return invokeL.booleanValue;
-        }
-    }
-
-    public void j(RewardWebView rewardWebView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, rewardWebView) != null) || rewardWebView == null) {
-            return;
-        }
-        this.b = rewardWebView;
-        this.c = rewardWebView.getContext().getApplicationContext();
-        this.b.loadUrl("javascript:(function(){})()");
-        f();
-        a(String.format("javascript:(function(){window.mobadssdkbridge.setPlacementType('%s');})()", "inline"));
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str)) {
-            a("window.mobadssdkbridge.fireAnonymousEvent('" + str + "', '" + str2 + "')");
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a("window.mobadssdkbridge && window.mobadssdkbridge.nativeCallComplete && window.mobadssdkbridge.nativeCallComplete(" + JSONObject.quote(str) + SmallTailInfo.EMOTION_SUFFIX);
-        }
-    }
-
-    public final int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            try {
-                return context.getApplicationContext().getApplicationInfo().targetSdkVersion;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return -1;
+            if (this.b == null) {
+                this.j.setVisibility(8);
+                this.i.setVisibility(8);
+                this.c.findViewById(R.id.obfuscated_res_0x7f0918ae).setVisibility(0);
+                return;
+            }
+            this.j.setVisibility(0);
+            this.i.setVisibility(0);
+            this.c.findViewById(R.id.obfuscated_res_0x7f0918ae).setVisibility(8);
+            if (this.t) {
+                this.n.setOnClickListener(this.w);
+                this.d.setOnClickListener(this.w);
+            } else {
+                this.n.setOnClickListener(this.v);
+                this.d.setOnClickListener(this.v);
+            }
+            this.c.setVisibility(4);
+            if (this.p) {
+                ImageView imageView = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090713);
+                this.o = imageView;
+                imageView.setVisibility(0);
+                this.o.setOnClickListener(new b(this));
             }
         }
-        return invokeL.intValue;
     }
 
-    public void i(hw3 hw3Var) {
+    public void l() {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hw3Var) == null) {
-            this.a = hw3Var;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = uw3.a + ";}());";
-            if (!h()) {
-                a("javascript:(function() {\n    window.baidu = {};\n    window.baidu.mobads = {};\n    window.baidu.mobads.Sdk = {\n        isIOS: false\n    };\n    window.mobadssdkbridge = window.mobadssdkbridge || {} \n    var Sdk = window.baidu.mobads.Sdk;\n    Sdk.isIOS = (/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase());\n    var mob = window.baidu.mobads;\n    mob.Act = {\n        LP: 1,\n        DL: 2,\n        MAP: 4,\n        SMS: 8,\n        MAIL: 16,\n        PHONE: 32,\n        VIDEO: 64,\n        RM: 128,\n        NA: 256,\n        APO: 512\n    };\n    var win = window;\n    win.MobadsSdk = win.MobadsSdk || {};\n    var MobadsSdk = win.MobadsSdk;\n    var send3rdLog = function(isShowLog, ad) {\n        if (!ad || !ad.mon) {\n            return;\n        }\n        var url;\n        for (var i = 0; i < ad.mon.length; ++i) {\n            url = isShowLog ? ad.mon[i].s: ad.mon[i].c;\n            if (!url) {\n                continue;\n            }\n            new Image().src = url;\n        }\n    };\n     function createUniqueId(n = 12) { // 生成n位长度的字符串\n         var str = 'abcdefghijklmnopqrstuvwxyz0123456789'; // 可以作为常量放到random外面 \n         let result = '';\n         for (let i = 0; i < n; i++) {\n             result += str[parseInt(Math.random() * str.length, 10)];\n         } \n         return result;\n     };\n     // 执行回调 \n     window.mobadssdkbridge.fireAnonymousEvent = function (token = '', res = '') { \n         var jssdkNamespace = window['__baidu_adserv'] || {};\n         var callback = jssdkNamespace['baidu_' + token];\n         if (callback) { \n             let callbackRes; \n             try {\n                 callbackRes = res && JSON.parse(res); \n             } catch (e) { \n                 callbackRes = res;\n             }\n             callback(callbackRes); \n             delete jssdkNamespace['baidu_' + token]; \n         }\n     };     Sdk.device = 'baidubox';\n     Sdk.isSupportPause = 'YES';\n    Sdk.setPrivacyActionUrl = function (jsonStr) {\n        var args = ['setPrivacyActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPrivacyActionUrl(JSON.stringify(args));\n    };\n    Sdk.setPermissionActionUrl = function (jsonStr) {\n        var args = ['setPermissionActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPermissionActionUrl(JSON.stringify(args));\n    };\n    Sdk.setActionUrl = function(url, inapp, act, title, close) {\n        var opt = {};\n        if (\"[object Object]\" === Object.prototype.toString.call(url)) {\n            opt = url;\n            url = opt.url;\n            inapp = opt.inapp;\n            act = opt.act;\n            title = opt.title;\n            close = opt.close;\n               if (opt.allParamsJson) {\n                   if (opt.allParamsJson.action) {\n                       opt.action = opt.allParamsJson.action;\n                       opt.v_video = opt.allParamsJson.v_video || \"\";\n                       opt.v_video_w = opt.allParamsJson.v_video_w || \"\";\n                       opt.v_video_h = opt.allParamsJson.v_video_h || \"\";\n                       opt.v_image = opt.allParamsJson.v_image || \"\";\n                       opt.v_url = opt.allParamsJson.v_url || \"\";\n                       opt.allParamsJson = null;\n                   }\n               }\n        }\n        opt.url = url || \"\";\n        opt.inapp = inapp || false;\n        opt.act = act || 1;\n        opt.title = title || \"\";\n        opt.close = close || false;\n        opt.logurl = opt.logurl || \"\";\n        opt.weibo = opt.weibo || \"\";\n        opt.map = opt.map || \"\";\n        opt.search = opt.search || \"\";\n        opt.sms = opt.sms || \"\";\n        opt.at = opt.at || 1;\n        opt.tid = opt.tid || \"\";\n        if (MobadsSdk.setActionUrl) {\n            var DUMP_PAR = opt.inapp;\n            MobadsSdk.setActionUrl(JSON.stringify(opt), DUMP_PAR)\n        }\n    };\n    Sdk.sendClickLog = function(logurl) {\n        new Image().src = logurl;\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            setTimeout(function() {\n                MobadsSdk.onAdPlayEnd();\n            },\n            300);\n        }\n    };\n    Sdk.open = function(url, options) {\n        var option = {\n            url: url,\n            inapp: true,\n            act: mob.Act.LP,\n            allParamsJson: options\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.startDownload = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || options.appname || \"应用\";\n        var mobadsJumpUrl = url;\n        if (/^itms-services:\\/\\//.test(url)) {\n            Sdk.setActionUrl(url, false, mob.Act.DL, ad.tit, true);\n            return;\n        }\n        if (Sdk.isIOS) {\n            var tid = options && options.pinfo && options.pinfo.tid;\n            if (tid) {\n                Sdk.sendClickLog(mobadsJumpUrl);\n            }\n            Sdk.setActionUrl({\n                url: url,\n                tid: tid || \"\",\n                inapp: true,\n                act: mob.Act.DL\n            });\n            return;\n        }\n        var mon = options && options.mon || [];\n        var id = options && options.id || 1;\n        var pk = options && options.pk || \"\";\n        var qk = options && options.qk || \"\";\n        var exp2 = options && options.exp2 || {};\n        var apoObj = options && options.apo || {};\n        var wi = options && options.wi ? true: false;\n        var title = ad.tit;\n        Sdk.setActionUrl({\n            url: mobadsJumpUrl,\n            act: mob.Act.DL,\n            apo: JSON.stringify(apoObj),\n            close: true,\n            adid: id,\n            originUrl: mobadsJumpUrl,\n            dlTunnel: 3,\n            autoOpen: true,\n            popNotif: true,\n            canCancel: true,\n            canDelete: 5,\n            mon: mon,\n            pk: pk,\n            qk: qk,\n            adid: id,\n            title: ad.tit,\n            action: options.action,\n            allParamsJson: options \n        });\n        send3rdLog(false, options);\n    };\n    Sdk.openScheme = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || \"应用\";\n        var pk = options && options.pk || \"\";\n        var option = {\n            url: url,\n            inapp: true,\n            act: ad.act,\n            title: ad.tit,\n            close: true,\n            pk: pk\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.handleClick = function(options) {\n        var ad = options || {};\n        var Act = mob.Act;\n        if (Act.LP === ad.act) {\n            Sdk.open(ad.curl, ad);\n        } else if (Act.DL === ad.act) {\n            Sdk.startDownload(ad.curl, ad);\n        } else if (Act.APO === ad.act) {\n            new Image().src = ad.curl;\n            Sdk.openScheme(ad.apo, ad);\n        }\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            MobadsSdk.onAdPlayEnd();\n        }\n    };\n    Sdk.needsAdIcon = function() {\n        return true;\n    };\n    Sdk.getAdViewState = function(callback) {\n        if (!MobadsSdk || !MobadsSdk.getAdViewState) {\n            callback('BaiduMobAdSpamOK');\n            return;\n        }\n        MobadsSdk.getAdViewState(MobadsSdk.addAnonymousEvent(function(state) {\n            var iState = parseInt(state);\n            var sState = 'BaiduMobAdSpamOK';\n            if (iState != 0) {\n                sState = 'BaiduMobAdSpamNotOK';\n            }\n            callback(sState);\n        }));\n    };\n     // 注册回调 \n    Sdk.natRegEv = function (callback) { \n         var mobadsSdk = window['MobadsSdk'] || {};\n         var jssdkNamespace = mobadsSdk.__anoymousEvents || {}\n         var token = createUniqueId(14); \n         jssdkNamespace[token] = callback || function () { \n         }\n         mobadsSdk.__anoymousEvents = jssdkNamespace\n         return token;\n     };\n     // 获取下载状态 \n    Sdk.getDownloadStatus = function (callback, pkg) { \n         if (MobadsSdk.getDownloadStatus) {\n             var token = Sdk.natRegEv(callback);\n             MobadsSdk.getDownloadStatus(token, pkg);\n         } \n     };\n     Sdk.pauseDownload = function (pkg) { \n         if (MobadsSdk.pauseDownload) { \n             MobadsSdk.pauseDownload(pkg); \n         } \n     };\n})();");
-                a(this.d);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (view2 = this.c) != null && view2.getVisibility() == 4) {
+            this.c.setAnimation(AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f0100f3));
+            this.c.setVisibility(0);
+            vy3.a(this.u, yx3.a().a());
         }
     }
 }

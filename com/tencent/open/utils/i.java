@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Environment;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
 import java.io.File;
@@ -20,7 +19,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static String a(int i) {
         if (i == 10103) {
@@ -82,8 +81,8 @@ public class i {
         if (str == null && str2 != null) {
             return -1;
         }
-        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-        String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split = str.split("\\.");
+        String[] split2 = str2.split("\\.");
         int i = 0;
         while (i < split.length && i < split2.length) {
             try {

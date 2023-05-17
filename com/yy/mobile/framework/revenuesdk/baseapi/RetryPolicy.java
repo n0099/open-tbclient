@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface RetryPolicy {
     void cancel();
 
@@ -7,7 +7,7 @@ public interface RetryPolicy {
 
     void retryCountExhaust();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Status {
         RETRY_COUNT_EXHAUST(-1001, "重试次数用完了"),
         RETRY_CANCEL(-1002, "取消重试"),

@@ -13,19 +13,19 @@ public class a {
     public long xj;
     public long xk;
     public long xl;
-    public BlockingQueue<C0059a> xm = new LinkedBlockingQueue();
+    public BlockingQueue<C0062a> xm = new LinkedBlockingQueue();
 
     /* renamed from: com.baidu.ar.statistic.performance.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0059a {
+    public static class C0062a {
         public int xn;
         public long xo;
         public long xp;
-        public BlockingQueue<C0060a> xq = new LinkedBlockingQueue();
+        public BlockingQueue<C0063a> xq = new LinkedBlockingQueue();
 
         /* renamed from: com.baidu.ar.statistic.performance.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static class C0060a {
+        public static class C0063a {
             public int count;
             public String name;
             public String xr;
@@ -42,20 +42,20 @@ public class a {
             jSONObject.put("mem_total", String.valueOf(this.xk));
             jSONObject.put("mem_used", String.valueOf(this.xl));
             JSONArray jSONArray = new JSONArray();
-            for (C0059a c0059a : this.xm) {
+            for (C0062a c0062a : this.xm) {
                 try {
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("frame_index", c0059a.xn);
-                    jSONObject2.put("frame_in", c0059a.xo);
-                    jSONObject2.put("frame_out", c0059a.xp);
+                    jSONObject2.put("frame_index", c0062a.xn);
+                    jSONObject2.put("frame_in", c0062a.xo);
+                    jSONObject2.put("frame_out", c0062a.xp);
                     JSONArray jSONArray2 = new JSONArray();
-                    for (C0059a.C0060a c0060a : c0059a.xq) {
+                    for (C0062a.C0063a c0063a : c0062a.xq) {
                         try {
                             JSONObject jSONObject3 = new JSONObject();
-                            jSONObject3.put("name", c0060a.name);
-                            jSONObject3.put(WebChromeClient.KEY_FUNCTION_NAME, c0060a.xr);
-                            jSONObject3.put("time_cost", c0060a.xs);
-                            jSONObject3.put("count", c0060a.count);
+                            jSONObject3.put("name", c0063a.name);
+                            jSONObject3.put(WebChromeClient.KEY_FUNCTION_NAME, c0063a.xr);
+                            jSONObject3.put("time_cost", c0063a.xs);
+                            jSONObject3.put("count", c0063a.count);
                             jSONArray2.put(jSONObject3);
                         } catch (JSONException e) {
                             e.printStackTrace();

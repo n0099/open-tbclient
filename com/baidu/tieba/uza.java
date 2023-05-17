@@ -1,49 +1,46 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class uza implements qza {
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.lang.ref.WeakReference;
+/* loaded from: classes7.dex */
+public class uza {
     public static /* synthetic */ Interceptable $ic;
+    public static final uza e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JSONObject a;
+    public WeakReference<Context> a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public wza d;
 
-    public uza(InputStream inputStream) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948229677, "Lcom/baidu/tieba/uza;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948229677, "Lcom/baidu/tieba/uza;");
                 return;
             }
         }
-        this.a = b(inputStream);
+        e = new uza();
     }
 
-    public uza(InputStream inputStream, String str) {
+    public uza() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,130 +50,98 @@ public class uza implements qza {
                 return;
             }
         }
-        this.a = b(inputStream);
-        c(str);
+        this.b = false;
+        this.c = false;
     }
 
-    @Override // com.baidu.tieba.qza
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (str.endsWith("/")) {
-                return str2;
-            }
-            String[] split = str.split("/");
-            try {
-                JSONObject jSONObject = this.a;
-                for (int i = 1; i < split.length; i++) {
-                    if (i == split.length - 1) {
-                        str = jSONObject.get(split[i]).toString();
-                        return str;
-                    }
-                    jSONObject = jSONObject.getJSONObject(split[i]);
-                }
-            } catch (JSONException unused) {
-                Log.w("InputStreamReader", "JSONException when reading 'path': " + str);
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final JSONObject b(InputStream inputStream) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
-            if (inputStream != null) {
-                try {
-                    return new JSONObject(mza.g(inputStream, "UTF-8"));
-                } catch (IOException unused) {
-                    str = "IOException when reading the 'Config' from InputStream.";
-                    Log.e("InputStreamReader", str);
-                    return new JSONObject();
-                } catch (JSONException unused2) {
-                    str = "JSONException when reading the 'Config' from InputStream.";
-                    Log.e("InputStreamReader", str);
-                    return new JSONObject();
-                }
-            }
-            return new JSONObject();
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            try {
-                JSONObject e = e(str);
-                if (e == null) {
-                    return;
-                }
-                String a = a("/configuration_version", "");
-                BigDecimal bigDecimal = new BigDecimal("0.0");
-                try {
-                    bigDecimal = BigDecimal.valueOf(Double.parseDouble(a));
-                } catch (NumberFormatException unused) {
-                    Log.d("InputStreamReader", "configuration_version to double error");
-                }
-                if (bigDecimal.compareTo(new BigDecimal("2.0")) == 0) {
-                    this.a.getJSONObject("client").put("app_id", e.getString("app_id"));
-                } else if (bigDecimal.compareTo(new BigDecimal("3.0")) >= 0) {
-                    Iterator<String> keys = e.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!"package_name".equals(next)) {
-                            d(next, e.get(next), this.a);
-                        }
-                    }
-                }
-            } catch (JSONException unused2) {
-                Log.d("InputStreamReader", "JSONException when reading the 'appInfos' from InputStream.");
-            }
-        }
-    }
-
-    public final void d(String str, Object obj, JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, jSONObject) == null) || str == null || obj == null || jSONObject == null) {
-            return;
-        }
-        if (!(obj instanceof JSONObject)) {
-            jSONObject.put(str, obj);
-            return;
-        }
-        JSONObject jSONObject2 = (JSONObject) obj;
-        Iterator<String> keys = jSONObject2.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            d(next, jSONObject2.get(next), jSONObject.getJSONObject(str));
-        }
-    }
-
-    public final JSONObject e(String str) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONArray jSONArray = this.a.getJSONArray("appInfos");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                if (jSONObject.getString("package_name").equals(str)) {
-                    return jSONObject;
-                }
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public String toString() {
+    public Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "InputStreamReader{config=" + this.a.toString().hashCode() + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void e(jza jzaVar, boolean z) {
+        this.d.d(jzaVar, z);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void g(Runnable runnable, jza jzaVar) {
+        if (this.b) {
+            runnable.run();
+        } else if (jzaVar != null) {
+            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_NOT_INITIALIZED;
+            jzaVar.onFailure(honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
+        }
+    }
+
+    public void b(final jza<String> jzaVar, final boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jzaVar, z) == null) {
+            d(new Runnable() { // from class: com.baidu.tieba.fza
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        uza.this.e(jzaVar, z);
+                    }
+                }
+            }, jzaVar);
+        }
+    }
+
+    public final void d(final Runnable runnable, final jza<?> jzaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, runnable, jzaVar) == null) {
+            h0b.b(new Runnable() { // from class: com.baidu.tieba.eza
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        uza.this.g(runnable, jzaVar);
+                    }
+                }
+            });
+        }
+    }
+
+    public void c(final yza yzaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yzaVar) == null) {
+            h0b.b(new Runnable() { // from class: com.baidu.tieba.dza
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        uza.this.f(yzaVar);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void f(yza yzaVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, yzaVar) == null) && !this.b) {
+            this.b = true;
+            this.a = new WeakReference<>(yzaVar.a);
+            this.c = yzaVar.b;
+            this.d = new wza(yzaVar.a);
+            if (this.c) {
+                b(null, true);
+            }
+        }
     }
 }

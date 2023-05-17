@@ -1,6 +1,5 @@
 package com.baidu.mobstat;
 
-import com.baidu.android.common.security.RSAUtil;
 import java.io.ByteArrayOutputStream;
 import java.security.Key;
 import java.security.KeyFactory;
@@ -10,7 +9,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class bv {
     public static String a(byte[] bArr) throws Exception {
         try {
@@ -21,7 +20,7 @@ public class bv {
     }
 
     public static RSAKey a(boolean z, byte[] bArr) throws Exception {
-        KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
+        KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         if (z) {
             return (RSAPrivateKey) keyFactory.generatePrivate(new PKCS8EncodedKeySpec(bArr));
         }

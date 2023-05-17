@@ -1,102 +1,117 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.media.AudioManager;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes7.dex */
-public class xp2 extends rl2<iq2> {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public abstract class xp2 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AudioManager b;
 
-    @Override // com.baidu.tieba.rl2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
-    }
+    public abstract boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull jq2 jq2Var, @NonNull List<String> list);
 
-    public xp2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp2(da3 da3Var, String str) {
+        super(da3Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) != null) || command.obj == null) {
-            return;
-        }
-        if (!iq2Var.P()) {
-            d(iq2Var, command.what, "Not Set!! Volume: " + command.obj, false);
-            return;
-        }
-        Object obj = command.obj;
-        if (obj instanceof Double) {
-            try {
-                double doubleValue = ((Double) obj).doubleValue();
-                d(iq2Var, command.what, "Volume: " + command.obj, false);
-                if (doubleValue > 1.0d) {
-                    doubleValue = 1.0d;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                g62.c("componentFullScreen", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (db3.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal swanApp");
                 }
-                if (doubleValue < 0.0d) {
-                    doubleValue = 0.0d;
+                return false;
+            } else if (context == null) {
+                g62.c("componentFullScreen", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (db3.b) {
+                    Log.e("SwanAppAction", "getAutoRotationSync --- illegal context");
                 }
-                f(doubleValue, iq2Var.getContext());
-            } catch (Exception unused) {
-                if (rl2.a) {
-                    Log.e(b(), "setVolume param type error");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    g62.c("componentFullScreen", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
+                String optString = optParamsAsJo.optString("slaveId");
+                JSONArray optJSONArray = optParamsAsJo.optJSONArray("componentId");
+                if (!TextUtils.isEmpty(optString) && optJSONArray != null && optJSONArray.length() != 0) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        String optString2 = optJSONArray.optString(i);
+                        if (!TextUtils.isEmpty(optString2)) {
+                            arrayList.add(optString2);
+                        }
+                    }
+                    if (arrayList.size() == 0) {
+                        g62.c("componentFullScreen", "empty component id list");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                        return false;
+                    }
+                    ov1 A = tu2.U().A(optString);
+                    if (!(A instanceof SwanAppWebViewManager)) {
+                        g62.c("componentFullScreen", "cant get WebView");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
+                    }
+                    jq2 F0 = ((SwanAppWebViewManager) A).F0();
+                    if (F0 == null) {
+                        g62.c("componentFullScreen", "cant get CustomViewHelper");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
+                    } else if (!j(unitedSchemeEntity, F0, arrayList)) {
+                        g62.c("componentFullScreen", "custom view handle fail");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                        return false;
+                    } else {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                        return true;
+                    }
+                }
+                g62.c("componentFullScreen", "param error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                return false;
             }
         }
-    }
-
-    public final void f(double d, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
-            if (this.b == null) {
-                this.b = (AudioManager) context.getSystemService("audio");
-            }
-            AudioManager audioManager = this.b;
-            if (audioManager == null) {
-                return;
-            }
-            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
-            if (round == this.b.getStreamVolume(3)) {
-                if (rl2.a) {
-                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
-                    return;
-                }
-                return;
-            }
-            if (d > 0.0d && round == 0) {
-                round = 1;
-            }
-            if (rl2.a) {
-                Log.d("【InlineCommand】", "setVolumeInt" + round);
-            }
-            this.b.setStreamVolume(3, round, 0);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

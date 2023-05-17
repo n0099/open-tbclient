@@ -1,165 +1,108 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public final class l3b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+/* loaded from: classes6.dex */
+public class l3b extends AsyncTask<Context, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (str == null && str2 == null) {
-                return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893358, "Lcom/baidu/tieba/l3b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (str != null && str2 == null) {
-                return 1;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947893358, "Lcom/baidu/tieba/l3b;");
+                return;
             }
-            if (str == null) {
-                return -1;
-            }
-            if (str.equals(str2)) {
-                return 0;
-            }
-            if (str.startsWith(str2)) {
-                return 1;
-            }
-            if (str2.startsWith(str)) {
-                return -1;
-            }
-            String[] split = str.split("\\.|-");
-            String[] split2 = str2.split("\\.|-");
-            if (split.length <= split2.length) {
-                length = split.length;
-            } else {
-                length = split2.length;
-            }
-            for (int i = 0; i < length; i++) {
-                try {
-                    int parseInt = Integer.parseInt(split[i]);
-                    int parseInt2 = Integer.parseInt(split2[i]);
-                    Integer.parseInt(split[i]);
-                    Integer.parseInt(split2[i]);
-                    if (parseInt > parseInt2) {
-                        return 1;
-                    }
-                    if (parseInt < parseInt2) {
-                        return -1;
-                    }
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (split.length > length) {
-                return 1;
-            }
-            if (split2.length > length) {
-                return -1;
-            }
-            return str.compareTo(str2);
         }
-        return invokeLL.intValue;
+        a = l3b.class.getSimpleName();
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
+    public l3b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
-                } catch (Exception unused) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return "";
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static boolean d(Context context, Class<? extends Activity> cls) {
-        InterceptResult invokeLL;
+    @Override // android.os.AsyncTask
+    public void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
-            if (context != null && cls != null) {
-                try {
-                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n3b.b(a, "onPreExecute");
         }
-        return invokeLL.booleanValue;
     }
 
-    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
-        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
-        	at java.base/java.util.BitSet.or(BitSet.java:943)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
-        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
-        */
-    public static boolean e(android.content.Context r4, android.content.Intent r5) {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.l3b.$ic
-            if (r0 != 0) goto L1a
-        L4:
-            r0 = 0
-            if (r4 == 0) goto L19
-            if (r5 != 0) goto La
-            goto L19
-        La:
-            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
-            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
-            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
-            if (r4 <= 0) goto L19
-            r0 = 1
-        L19:
-            return r0
-        L1a:
-            r1 = r0
-            r2 = 65540(0x10004, float:9.1841E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
-            if (r0 == 0) goto L4
-            boolean r1 = r0.booleanValue
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.l3b.e(android.content.Context, android.content.Intent):boolean");
-    }
-
-    public static String c(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: a */
+    public Boolean doInBackground(Context... contextArr) {
         InterceptResult invokeL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
             try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
-            } catch (Throwable unused) {
-                return "";
+                inputStream = i3b.m(contextArr[0]);
+            } catch (Exception e) {
+                String str = a;
+                n3b.d(str, "doInBackground: exception : " + e.getMessage());
+                inputStream = null;
+            }
+            String str2 = a;
+            n3b.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+            if (inputStream != null) {
+                m3b.b(inputStream);
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: b */
+    public void onPostExecute(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+            if (bool.booleanValue()) {
+                n3b.e(a, "onPostExecute: upate done");
+            } else {
+                n3b.d(a, "onPostExecute: upate failed");
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: c */
+    public void onProgressUpdate(Integer... numArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
+            n3b.e(a, "onProgressUpdate");
+        }
     }
 }

@@ -10,7 +10,7 @@ import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TypeToken<T> {
     public final int hashCode;
     public final Class<? super T> rawType;

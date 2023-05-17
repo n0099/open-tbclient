@@ -17,8 +17,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ff1;
-import com.baidu.tieba.yg1;
+import com.baidu.tieba.oh1;
+import com.baidu.tieba.vf1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean P;
@@ -75,12 +75,12 @@ public class PopupWindow {
     public int y;
     public int z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onDismiss();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewTreeObserver.OnScrollChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class PopupWindow {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class PopupWindow {
                 return;
             }
         }
-        P = yg1.d;
+        P = oh1.d;
         Q = new int[]{16842922};
     }
 
@@ -282,9 +282,9 @@ public class PopupWindow {
             if (i == -1) {
                 if (this.d) {
                     if (this.G) {
-                        return R.style.obfuscated_res_0x7f10016f;
+                        return R.style.obfuscated_res_0x7f100179;
                     }
-                    return R.style.obfuscated_res_0x7f10016e;
+                    return R.style.obfuscated_res_0x7f100178;
                 }
                 return 0;
             }
@@ -414,7 +414,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ff1.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vf1.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

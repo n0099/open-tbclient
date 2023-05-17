@@ -4,7 +4,7 @@ import java.util.AbstractList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LazyList<E> extends AbstractList<E> {
     public static final Logger LOG = Logger.getLogger(LazyList.class);
     public Iterator<E> elementSource;

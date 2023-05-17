@@ -9,7 +9,7 @@ import com.kwad.components.ad.reward.d.j;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.jshandler.k;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends a implements f {
     public FrameLayout fl;
     public e mPlayEndPageListener = new e() { // from class: com.kwad.components.ad.reward.presenter.c.d.1
@@ -83,7 +83,7 @@ public final class d extends a implements f {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09125f);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09129a);
         this.fl = frameLayout;
         frameLayout.setVisibility(0);
     }

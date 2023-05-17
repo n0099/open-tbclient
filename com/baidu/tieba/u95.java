@@ -1,91 +1,54 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class u95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final u95 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> a;
+    public final int b;
+    public final int c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165848, "Lcom/baidu/tieba/u95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948165848, "Lcom/baidu/tieba/u95;");
-                return;
-            }
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        a = new u95(false);
+        return invokeV.intValue;
     }
 
-    public u95(boolean z) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    @NonNull
-    public static u95 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            boolean z = false;
-            if (jSONObject != null) {
-                i = jSONObject.optInt("voice_room_config");
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null || this.b <= 0 || this.c <= 0) {
+                return false;
             }
-            if (i == 1) {
-                z = true;
-            }
-            return new u95(z);
+            return true;
         }
-        return (u95) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public static u95 b(@Nullable DataRes dataRes) {
-        InterceptResult invokeL;
-        int i;
+    public TbPageContext<?> getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            boolean z = false;
-            if (dataRes != null) {
-                i = dataRes.voice_room_config.intValue();
-            } else {
-                i = 0;
-            }
-            if (i == 1) {
-                z = true;
-            }
-            return new u95(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (u95) invokeL.objValue;
+        return (TbPageContext) invokeV.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.searchbox.elasticthread.task.ElasticTask;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseExecutorCell implements Recordable {
     public static final boolean DEBUG = false;
     public int completedTaskCountInRecordLifeCycle;
@@ -19,7 +19,7 @@ public abstract class BaseExecutorCell implements Recordable {
     public long recordEndTime = Long.MAX_VALUE;
     public Recordable.RecordStatus mRecordStatus = Recordable.RecordStatus.UNINITIATED;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ExecutorType {
         ARTERY,
         DREDGE_NORMAL,
@@ -32,7 +32,7 @@ public abstract class BaseExecutorCell implements Recordable {
     public abstract String getTag();
 
     /* renamed from: com.baidu.searchbox.elasticthread.executor.BaseExecutorCell$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType;
 

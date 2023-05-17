@@ -1,55 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes3.dex */
-public class bq0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public final class bq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final HashMap<AdBaseModel.STYLE, Integer> a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public b f;
-    public float g;
-    public boolean h;
-    public String i;
-    public a j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public int g;
-        public int h;
-        public int i;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static a a(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                a aVar = new a();
+                if (jSONObject != null) {
+                    jSONObject.optInt("count");
+                    jSONObject.optInt("type");
+                    jSONObject.optString("ext");
+                    jSONObject.optString("id");
+                }
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+    public bq0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public abstract int a(AdBaseModel.STYLE style);
-
-    public abstract int b(AdOperator.TYPE type);
+    public static bq0 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            bq0 bq0Var = new bq0();
+            a.a(jSONObject);
+            return bq0Var;
+        }
+        return (bq0) invokeL.objValue;
+    }
 }

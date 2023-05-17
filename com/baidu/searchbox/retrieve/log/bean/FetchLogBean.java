@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.log.bean;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchLogBean {
     public long mEndTime;
     public long mExpiredTime;

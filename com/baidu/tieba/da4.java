@@ -1,127 +1,122 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.du2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes4.dex */
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public class da4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReentrantLock c;
-    public static volatile da4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<fa4> a;
-    public ga4 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947697810, "Lcom/baidu/tieba/da4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947697810, "Lcom/baidu/tieba/da4;");
-                return;
-            }
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && f93.K().k() == 1 && !d()) {
+            l23.p("startup").F(new UbcFlowEvent(str));
         }
-        c = new ReentrantLock();
     }
 
-    public da4() {
+    public static void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList(3);
-    }
-
-    public static da4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (da4.class) {
-                    if (d == null) {
-                        d = new da4();
+        if ((interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) && jSONArray != null && jSONArray.length() != 0) {
+            HybridUbcFlow p = l23.p("startup");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    String optString = optJSONObject.optString("id");
+                    long optLong = optJSONObject.optLong("timestamp");
+                    if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
+                        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+                        ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
+                        ubcFlowEvent.h(optLong);
+                        p.F(ubcFlowEvent);
                     }
                 }
             }
-            return d;
-        }
-        return (da4) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.a.clear();
         }
     }
 
-    public final void c(fa4 fa4Var) {
+    public static long c() {
+        InterceptResult invokeV;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fa4Var) == null) {
-            c.lock();
-            try {
-                if (this.b != null) {
-                    this.b.a(fa4Var);
-                } else {
-                    this.a.add(fa4Var);
-                }
-            } finally {
-                c.unlock();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            g93 M = g93.M();
+            if (M == null || (w = M.w()) == null) {
+                return 0L;
             }
-        }
-    }
-
-    public void f(ga4 ga4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ga4Var) == null) {
-            this.b = ga4Var;
-            e();
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            x42.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
-            fa4 fa4Var = new fa4(str);
-            fa4Var.hasUpdate = z;
-            c(fa4Var);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.a.isEmpty() && this.b != null) {
-            c.lock();
-            try {
-                for (fa4 fa4Var : this.a) {
-                    this.b.a(fa4Var);
-                }
-                this.a.clear();
-            } finally {
-                c.unlock();
+            fm2 S = w.S();
+            if (!(S instanceof h54)) {
+                return 0L;
             }
+            return ((h54) S).f1();
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        SwanAppActivity w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            g93 M = g93.M();
+            if (M == null || (w = M.w()) == null) {
+                return false;
+            }
+            fm2 S = w.S();
+            if (!(S instanceof h54)) {
+                return false;
+            }
+            return ((h54) S).j1();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void e(String str, du2.a aVar) {
+        Bundle P;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) && aVar != null && !d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
+            long l = aVar.l("launch_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            jg3 jg3Var = new jg3();
+            jg3Var.a = zf3.n(aVar.G());
+            jg3Var.f = aVar.H();
+            jg3Var.c = aVar.T();
+            jg3Var.b = "launch";
+            jg3Var.e = "realcancel";
+            jg3Var.q = String.valueOf(currentTimeMillis - l);
+            jg3Var.a("reason", str);
+            jg3Var.a("errorList", x94.c().d());
+            jg3Var.d(P.getString("ubc"));
+            zf3.onEvent(jg3Var);
+            P.remove("page_display_flag_for_statistic");
+        }
+    }
+
+    public static void f(du2.a aVar) {
+        Bundle P;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, aVar) == null) && aVar != null && d() && (P = aVar.P()) != null && P.getLong("page_display_flag_for_statistic") > 0) {
+            long l = aVar.l("launch_time", 0L);
+            long currentTimeMillis = System.currentTimeMillis();
+            jg3 jg3Var = new jg3();
+            jg3Var.a = zf3.n(aVar.G());
+            jg3Var.f = aVar.H();
+            jg3Var.c = aVar.T();
+            jg3Var.b = "launch";
+            jg3Var.e = "realsuccess";
+            jg3Var.r = String.valueOf(currentTimeMillis - l);
+            jg3Var.d(P.getString("ubc"));
+            zf3.onEvent(jg3Var);
+            P.remove("page_display_flag_for_statistic");
         }
     }
 }

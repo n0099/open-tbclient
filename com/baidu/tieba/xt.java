@@ -1,37 +1,72 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public final class xt implements as {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public final class xt extends st<TaskGuideData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ut a;
 
-    @Override // com.baidu.tieba.as
-    public Map<String, String> a() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
     }
 
-    public xt() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xt(ut utVar) {
+        super(utVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {utVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ut) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = utVar;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.st
+    /* renamed from: c */
+    public TaskGuideData a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
+                st a = this.a.a(TaskUIData.key);
+                String optString = jSONObject.optString(TaskUIData.key);
+                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
+                TaskUIData taskUIData = (TaskUIData) a.a(optString);
+                if (taskUIData != null) {
+                    return new TaskGuideData(optInt, taskUIData);
+                }
+                return new TaskGuideData(0, null, 3, null);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new TaskGuideData(0, null, 3, null);
+            }
+        }
+        return (TaskGuideData) invokeL.objValue;
     }
 }

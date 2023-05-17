@@ -41,24 +41,24 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cf;
-import com.baidu.tieba.hf5;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.j55;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.jw4;
+import com.baidu.tieba.bb5;
+import com.baidu.tieba.gw6;
+import com.baidu.tieba.lf;
+import com.baidu.tieba.mw8;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.ru8;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.sr9;
+import com.baidu.tieba.qg5;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s65;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.sx4;
+import com.baidu.tieba.sy8;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.tr9;
-import com.baidu.tieba.tu6;
-import com.baidu.tieba.up9;
-import com.baidu.tieba.ur9;
-import com.baidu.tieba.vr9;
-import com.baidu.tieba.xw8;
+import com.baidu.tieba.ut9;
+import com.baidu.tieba.vt9;
+import com.baidu.tieba.wr9;
+import com.baidu.tieba.wt9;
+import com.baidu.tieba.xt9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,12 +84,12 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public RelativeLayout j;
     public TextView k;
     public NavigationBar l;
-    public up9 m;
+    public wr9 m;
     public final View.OnClickListener n;
     public final View.OnClickListener o;
 
-    /* loaded from: classes6.dex */
-    public class f extends BdAsyncTask<Integer, Integer, tr9> {
+    /* loaded from: classes8.dex */
+    public class f extends BdAsyncTask<Integer, Integer, vt9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WriteData a;
@@ -98,8 +98,8 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         public JSONObject d;
         public final /* synthetic */ VcodeActivity e;
 
-        /* loaded from: classes6.dex */
-        public class a implements up9.e {
+        /* loaded from: classes8.dex */
+        public class a implements wr9.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -122,17 +122,17 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 this.a = fVar;
             }
 
-            @Override // com.baidu.tieba.up9.e
-            public void a(tr9 tr9Var) {
+            @Override // com.baidu.tieba.wr9.e
+            public void a(vt9 vt9Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, tr9Var) == null) {
-                    this.a.onPostExecute(tr9Var);
+                if (interceptable == null || interceptable.invokeL(1048576, this, vt9Var) == null) {
+                    this.a.onPostExecute(vt9Var);
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
-        public class b implements up9.e {
+        /* loaded from: classes8.dex */
+        public class b implements wr9.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
@@ -155,16 +155,16 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 this.a = fVar;
             }
 
-            @Override // com.baidu.tieba.up9.e
-            public void a(tr9 tr9Var) {
+            @Override // com.baidu.tieba.wr9.e
+            public void a(vt9 vt9Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, tr9Var) == null) {
-                    this.a.onPostExecute(tr9Var);
+                if (interceptable == null || interceptable.invokeL(1048576, this, vt9Var) == null) {
+                    this.a.onPostExecute(vt9Var);
                 }
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes8.dex */
         public class c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    xw8.a(this.b.e.getPageContext(), this.a).show();
+                    sy8.a(this.b.e.getPageContext(), this.a).show();
                 }
             }
         }
@@ -222,28 +222,28 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             this.a = writeData;
         }
 
-        public final void b(up9.e eVar) {
+        public final void b(wr9.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
-                jw4.b("write", "postP");
+                sx4.b("write", "postP");
                 if (this.e.m != null && this.b != null) {
-                    jw4.b("write", "postR");
-                    up9 up9Var = this.e.m;
-                    up9Var.e(eVar);
-                    up9Var.b(this.b);
+                    sx4.b("write", "postR");
+                    wr9 wr9Var = this.e.m;
+                    wr9Var.e(eVar);
+                    wr9Var.b(this.b);
                 }
             }
         }
 
-        public final void c(up9.e eVar) {
+        public final void c(wr9.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) {
-                jw4.b("write", "threadP");
+                sx4.b("write", "threadP");
                 if (this.e.m != null && this.b != null) {
-                    jw4.b("write", "threadR");
-                    up9 up9Var = this.e.m;
-                    up9Var.e(eVar);
-                    up9Var.c(this.b);
+                    sx4.b("write", "threadR");
+                    wr9 wr9Var = this.e.m;
+                    wr9Var.e(eVar);
+                    wr9Var.c(this.b);
                 }
             }
         }
@@ -265,7 +265,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: d */
-        public tr9 doInBackground(Integer... numArr) {
+        public vt9 doInBackground(Integer... numArr) {
             InterceptResult invokeL;
             String str;
             String toServerContent;
@@ -275,7 +275,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             Address j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, numArr)) == null) {
-                jw4.b("write", "task");
+                sx4.b("write", "task");
                 if (this.a == null) {
                     return null;
                 }
@@ -324,8 +324,8 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                 } else {
                     str2 = toServerContent + imagesCodeForPost;
                 }
-                this.b.addPostData("content", tu6.c(str2));
-                ur9.a(this.b, this.a);
+                this.b.addPostData("content", gw6.c(str2));
+                wt9.a(this.b, this.a);
                 this.b.addPostData("vcode_md5", this.a.getVcodeMD5());
                 if (obj.length() > 0) {
                     this.b.addPostData("vcode", obj);
@@ -355,7 +355,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         str5 = "1";
                     }
                     netWork3.addPostData("is_ntitle", str5);
-                    if (TbadkCoreApplication.getInst().getIsLocationOn() && (j = cf.n().j(false)) != null) {
+                    if (TbadkCoreApplication.getInst().getIsLocationOn() && (j = lf.n().j(false)) != null) {
                         this.b.addPostData("lbs", j.getLatitude() + "," + j.getLongitude());
                     }
                     if (this.a.isShareThread()) {
@@ -377,7 +377,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     }
                     if (this.a.getTabId() > 0) {
                         this.b.addPostData("tab_name", this.a.getTabName());
-                        this.b.addPostData(TiebaStatic.Params.TAB_ID, String.valueOf(this.a.getTabId()));
+                        this.b.addPostData("tab_id", String.valueOf(this.a.getTabId()));
                         this.b.addPostData("is_general_tab", String.valueOf(this.a.getIsGeneralTab()));
                     }
                 } else {
@@ -415,7 +415,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } else if (this.a.getType() == 1) {
                         this.b.addPostData("is_barrage", "0");
                         this.b.addPostData("barrage_time", "0");
-                        if (hf5.a().b() == 1) {
+                        if (qg5.a().b() == 1) {
                             this.b.addPostData("ptype", "4");
                         }
                         this.b.addPostData("v_fid", this.a.getVForumId());
@@ -432,9 +432,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     b(new b(this));
                     return null;
                 } else {
-                    jw4.b("write", "json");
+                    sx4.b("write", "json");
                     this.c = this.b.postNetData();
-                    jw4.b("write", "jsonRES");
+                    sx4.b("write", "jsonRES");
                     try {
                         if (this.c != null) {
                             this.d = new JSONObject(this.c);
@@ -442,27 +442,27 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     } catch (JSONException e) {
                         BdLog.e(e);
                     }
-                    tr9 tr9Var = new tr9();
+                    vt9 vt9Var = new vt9();
                     NetWork netWork6 = this.b;
                     if (netWork6 != null) {
                         if (netWork6.getNetContext().getResponse().isRequestSuccess()) {
-                            tr9Var.i(false);
+                            vt9Var.i(false);
                             ErrorData errorData = new ErrorData();
                             errorData.parserJson(this.d);
-                            tr9Var.f(errorData.getError_code());
-                            tr9Var.h(errorData.getError_msg());
-                            tr9Var.g(errorData.getError_data());
+                            vt9Var.f(errorData.getError_code());
+                            vt9Var.h(errorData.getError_msg());
+                            vt9Var.g(errorData.getError_data());
                         } else {
-                            tr9Var.i(true);
-                            tr9Var.f(this.b.getServerErrorCode());
-                            tr9Var.h(this.b.getErrorString());
+                            vt9Var.i(true);
+                            vt9Var.f(this.b.getServerErrorCode());
+                            vt9Var.h(this.b.getErrorString());
                         }
                     }
-                    tr9Var.j(this.d);
-                    return tr9Var;
+                    vt9Var.j(this.d);
+                    return vt9Var;
                 }
             }
-            return (tr9) invokeL.objValue;
+            return (vt9) invokeL.objValue;
         }
 
         public final boolean f(WriteData writeData) {
@@ -507,7 +507,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onPostExecute(tr9 tr9Var) {
+        public void onPostExecute(vt9 vt9Var) {
             JSONArray jSONArray;
             String str;
             String str2;
@@ -521,18 +521,18 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
             JSONObject jSONObject;
             JSONObject optJSONObject;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, tr9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, vt9Var) == null) {
                 String str8 = "";
-                if (tr9Var == null) {
+                if (vt9Var == null) {
                     return;
                 }
-                jw4.b("write", "result*" + tr9Var.e());
+                sx4.b("write", "result*" + vt9Var.e());
                 this.e.closeLoadingDialog();
                 CustomDialogData customDialogData2 = null;
                 this.e.f = null;
-                this.d = tr9Var.d();
+                this.d = vt9Var.d();
                 int i = 0;
-                if (!tr9Var.e()) {
+                if (!vt9Var.e()) {
                     ErrorData errorData = new ErrorData();
                     errorData.parserJson(this.d);
                     if (errorData.error_code == 0) {
@@ -590,19 +590,19 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             intent.putExtras(bundle);
                                             this.e.setResult(-1, intent);
                                             if (this.a != null) {
-                                                sr9.l(this.a.getForumId());
-                                                sr9.m(this.a.getForumName());
-                                                if (!hi.isEmpty(postWriteCallBackData.getVideoid())) {
+                                                ut9.l(this.a.getForumId());
+                                                ut9.m(this.a.getForumName());
+                                                if (!qi.isEmpty(postWriteCallBackData.getVideoid())) {
                                                     postWriteCallBackData.writeDataForVideo = this.a;
                                                 }
                                                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, sr9.a()));
+                                                customResponsedMessage.setOrginalMessage(new CustomMessage(2001383, ut9.a()));
                                                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                                             }
                                             this.e.finish();
-                                            jw4.b("write", "code*" + tr9Var.a() + " " + tr9Var.c());
-                                            jw4.e("write");
-                                            super.onPostExecute(tr9Var);
+                                            sx4.b("write", "code*" + vt9Var.a() + " " + vt9Var.c());
+                                            sx4.e("write");
+                                            super.onPostExecute(vt9Var);
                                         }
                                         try {
                                             str6 = jSONObject.optString("video_id");
@@ -634,13 +634,13 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             if (this.a != null) {
                                             }
                                             this.e.finish();
-                                            jw4.b("write", "code*" + tr9Var.a() + " " + tr9Var.c());
-                                            jw4.e("write");
-                                            super.onPostExecute(tr9Var);
+                                            sx4.b("write", "code*" + vt9Var.a() + " " + vt9Var.c());
+                                            sx4.e("write");
+                                            super.onPostExecute(vt9Var);
                                         }
                                         try {
                                             str8 = jSONObject.optString("invitees_number");
-                                            customDialogData2 = ru8.a(jSONObject);
+                                            customDialogData2 = mw8.a(jSONObject);
                                             optJSONObject = jSONObject.optJSONObject("twzhibo_info");
                                             if (optJSONObject != null) {
                                             }
@@ -672,9 +672,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                             if (this.a != null) {
                                             }
                                             this.e.finish();
-                                            jw4.b("write", "code*" + tr9Var.a() + " " + tr9Var.c());
-                                            jw4.e("write");
-                                            super.onPostExecute(tr9Var);
+                                            sx4.b("write", "code*" + vt9Var.a() + " " + vt9Var.c());
+                                            sx4.e("write");
+                                            super.onPostExecute(vt9Var);
                                         }
                                         postWriteCallBackData.setThreadId(str9);
                                         postWriteCallBackData.setPostId(str4);
@@ -693,9 +693,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                         if (this.a != null) {
                                         }
                                         this.e.finish();
-                                        jw4.b("write", "code*" + tr9Var.a() + " " + tr9Var.c());
-                                        jw4.e("write");
-                                        super.onPostExecute(tr9Var);
+                                        sx4.b("write", "code*" + vt9Var.a() + " " + vt9Var.c());
+                                        sx4.e("write");
+                                        super.onPostExecute(vt9Var);
                                     }
                                 } else {
                                     str3 = null;
@@ -712,15 +712,15 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                         }
                         if (StringUtils.isNull(str)) {
                             str = TbadkCoreApplication.getInst().getString(R.string.send_success);
-                            vr9.a(this.e.a, this.a.getThreadId());
+                            xt9.a(this.e.a, this.a.getThreadId());
                         }
                         if (this.a.isAddThread()) {
-                            ur9.b(this.e.getActivity(), str, str2, str3);
+                            wt9.b(this.e.getActivity(), str, str2, str3);
                         }
                         this.a.deleteUploadedTempImages();
                     } else {
                         if (this.a.isHasImages()) {
-                            if (hi.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
+                            if (qi.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
                                 this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.img_upload_error));
                             }
                         }
@@ -735,7 +735,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             str5 = jSONObject.optString("msg");
                             str6 = jSONObject.optString("video_id");
                             str8 = jSONObject.optString("invitees_number");
-                            customDialogData2 = ru8.a(jSONObject);
+                            customDialogData2 = mw8.a(jSONObject);
                             optJSONObject = jSONObject.optJSONObject("twzhibo_info");
                             if (optJSONObject != null) {
                                 i = optJSONObject.optInt("is_copytwzhibo", 0);
@@ -767,42 +767,42 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                                 customDialogData2.type = 1;
                             }
                         }
-                        jg.a().postDelayed(new c(this, customDialogData2), 2000L);
+                        sg.a().postDelayed(new c(this, customDialogData2), 2000L);
                     }
                     Intent intent2222 = new Intent();
                     Bundle bundle2222 = new Bundle();
                     bundle2222.putSerializable("post_write_callback_data", postWriteCallBackData);
                     intent2222.putExtras(bundle2222);
                     this.e.setResult(-1, intent2222);
-                    if (this.a != null && sr9.a() != null) {
-                        sr9.l(this.a.getForumId());
-                        sr9.m(this.a.getForumName());
-                        if (!hi.isEmpty(postWriteCallBackData.getVideoid()) && this.a.getVideoInfo() != null) {
+                    if (this.a != null && ut9.a() != null) {
+                        ut9.l(this.a.getForumId());
+                        ut9.m(this.a.getForumName());
+                        if (!qi.isEmpty(postWriteCallBackData.getVideoid()) && this.a.getVideoInfo() != null) {
                             postWriteCallBackData.writeDataForVideo = this.a;
                         }
                         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001383, postWriteCallBackData);
-                        customResponsedMessage2.setOrginalMessage(new CustomMessage(2001383, sr9.a()));
+                        customResponsedMessage2.setOrginalMessage(new CustomMessage(2001383, ut9.a()));
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                     }
                     this.e.finish();
                 } else {
                     if (this.a.isHasImages()) {
-                        if (hi.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
+                        if (qi.isEmpty(this.a.getContent() + this.a.getImagesCodeForPost())) {
                             this.e.showToast(TbadkCoreApplication.getInst().getString(R.string.img_upload_error));
                         }
                     }
-                    if (tr9Var.a() != 5 && tr9Var.a() != 6) {
-                        if (this.a != null && tr9Var.a() == 227001) {
+                    if (vt9Var.a() != 5 && vt9Var.a() != 6) {
+                        if (this.a != null && vt9Var.a() == 227001) {
                             AccessState accessState = new AccessState();
                             accessState.parserJson(this.d);
-                            PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(tr9Var.a(), tr9Var.c(), null, null);
+                            PostWriteCallBackData postWriteCallBackData2 = new PostWriteCallBackData(vt9Var.a(), vt9Var.c(), null, null);
                             postWriteCallBackData2.setAccessState(accessState);
                             this.e.getActivity().setVisible(false);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.e.getActivity(), 12006, this.a, postWriteCallBackData2.getAccessState())));
-                        } else if (tr9Var.a() == 220009) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2016554, tr9Var.c()));
+                        } else if (vt9Var.a() == 220009) {
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2016554, vt9Var.c()));
                             this.e.finish();
-                        } else if (tr9Var.a() == 220015) {
+                        } else if (vt9Var.a() == 220015) {
                             PostWriteCallBackData postWriteCallBackData3 = new PostWriteCallBackData(NetWorkErr.ERROR_CONTENT_WITH_SENSITIVE_WORD, null, null, null);
                             JSONObject jSONObject3 = this.d;
                             if (jSONObject3 != null) {
@@ -831,28 +831,28 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                             this.e.finish();
                         }
                     } else {
-                        s95 s95Var = new s95();
-                        s95Var.f(this.d);
-                        if (s95Var.c() != null && this.e.a != null) {
-                            this.e.a.setVcodeMD5(s95Var.b());
-                            this.e.a.setVcodeUrl(s95Var.c());
+                        bb5 bb5Var = new bb5();
+                        bb5Var.f(this.d);
+                        if (bb5Var.c() != null && this.e.a != null) {
+                            this.e.a.setVcodeMD5(bb5Var.b());
+                            this.e.a.setVcodeUrl(bb5Var.c());
                             VcodeActivity vcodeActivity = this.e;
                             vcodeActivity.N1(vcodeActivity.a.getVcodeUrl());
                         }
                         this.e.d.setText((CharSequence) null);
                     }
-                    if (tr9Var.a() != 227001 && tr9Var.a() == 220015) {
-                        this.e.showToast(tr9Var.c());
+                    if (vt9Var.a() != 227001 && vt9Var.a() == 220015) {
+                        this.e.showToast(vt9Var.c());
                     }
                 }
-                jw4.b("write", "code*" + tr9Var.a() + " " + tr9Var.c());
-                jw4.e("write");
-                super.onPostExecute(tr9Var);
+                sx4.b("write", "code*" + vt9Var.a() + " " + vt9Var.c());
+                sx4.e("write");
+                super.onPostExecute(vt9Var);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -888,7 +888,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -921,7 +921,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -956,20 +956,20 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     this.a.f.cancel();
                 }
                 if (this.a.m == null) {
-                    this.a.m = new up9(this.a.getPageContext());
+                    this.a.m = new wr9(this.a.getPageContext());
                 }
                 VcodeActivity vcodeActivity2 = this.a;
                 VcodeActivity vcodeActivity3 = this.a;
                 vcodeActivity2.f = new f(vcodeActivity3, vcodeActivity3.a);
                 this.a.f.setPriority(3);
                 this.a.f.execute(0);
-                jw4.d("write");
-                jw4.b("write", "startvcode");
+                sx4.d("write");
+                sx4.b("write", "startvcode");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1003,12 +1003,12 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class e extends BdAsyncTask<String, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public volatile NetWork a;
-        public s95 b;
+        public bb5 b;
         public volatile boolean c;
         public final /* synthetic */ VcodeActivity d;
 
@@ -1061,9 +1061,9 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
                     if (!this.a.getNetContext().getResponse().isRequestSuccess()) {
                         return null;
                     }
-                    s95 s95Var = new s95();
-                    this.b = s95Var;
-                    s95Var.e(postNetData);
+                    bb5 bb5Var = new bb5();
+                    this.b = bb5Var;
+                    bb5Var.e(postNetData);
                     str = this.b.c();
                 }
                 if (this.c) {
@@ -1142,7 +1142,7 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0942);
+            setContentView(R.layout.obfuscated_res_0x7f0d0976);
             M1();
             L1(bundle);
             WriteData writeData = this.a;
@@ -1215,30 +1215,30 @@ public class VcodeActivity extends BaseActivity<VcodeActivity> {
     public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09192f);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09197e);
             this.l = (NavigationBar) findViewById(R.id.view_navigation_bar);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09109b);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d6);
             this.l.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.n);
-            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f11f7), this.o);
+            TextView addTextButton = this.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f12c3), this.o);
             this.b = addTextButton;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) addTextButton.getLayoutParams();
-            layoutParams.rightMargin = ii.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+            layoutParams.rightMargin = ri.g(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
             this.b.setLayoutParams(layoutParams);
-            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f0910a4);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09270f);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f0910df);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09277b);
             this.c = imageView;
             imageView.setImageDrawable(null);
             this.c.setOnClickListener(new d(this));
-            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c47);
+            this.e = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c9b);
         }
     }
 
     public final void O1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j55 j55Var = new j55(getPageContext());
-            this.mWaitingDialog = j55Var;
-            j55Var.i(R.string.obfuscated_res_0x7f0f120a);
+            s65 s65Var = new s65(getPageContext());
+            this.mWaitingDialog = s65Var;
+            s65Var.i(R.string.obfuscated_res_0x7f0f12d6);
             this.mWaitingDialog.e(this.i);
             this.mWaitingDialog.d(false);
             this.mWaitingDialog.g(false);

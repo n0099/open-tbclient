@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.graphics.Color;
-import android.os.Build;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.SpannableString;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.g73;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,131 +17,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
-/* loaded from: classes6.dex */
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class t63 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static final boolean b;
+    public static final boolean d;
+    public static t63 e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ym3 a;
-
-        public a(ym3 ym3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ym3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ym3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ym3 ym3Var;
-            View e;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ym3Var = this.a) != null && (e = ym3Var.e()) != null) {
-                e.setVisibility(0);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d72 a;
-        public final /* synthetic */ View b;
-
-        public b(d72 d72Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d72Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d72Var;
-            this.b = view2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            View e;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ym3 L1 = this.a.L1();
-                if (L1 != null && (e = L1.e()) != null) {
-                    e.setVisibility(8);
-                }
-                LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09017d);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
-                layoutParams.topMargin = 0;
-                linearLayout.setLayoutParams(layoutParams);
-                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09017e);
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
-                layoutParams2.topMargin = 0;
-                frameLayout.setLayoutParams(layoutParams2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ boolean b;
-
-        public c(Activity activity, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getWindow().clearFlags(2048);
-                t63.n(t63.e(this.a), this.b);
-            }
-        }
-    }
+    public Bitmap a;
+    public HashMap<String, u63> b;
+    public List<String> c;
 
     static {
         InterceptResult invokeClinit;
@@ -157,169 +49,172 @@ public class t63 {
                 return;
             }
         }
-        a = ho1.a;
-        Color.parseColor("#80000000");
-        b = j();
-        if (!TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            TextUtils.equals(Build.MANUFACTURER, "Meizu");
-        }
+        d = qp1.a;
     }
 
-    public static void n(View view2, boolean z) {
+    public t63() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65550, null, view2, z) == null) && view2 != null) {
-            if (z) {
-                view2.setSystemUiVisibility(gk3.c());
-            } else {
-                view2.setSystemUiVisibility(0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = new HashMap<>();
+        this.c = new ArrayList();
     }
 
-    public static View b() {
+    public static t63 c() {
         InterceptResult invokeV;
-        d72 d72Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            g72 V = kt2.U().V();
-            if (V != null) {
-                d72Var = V.m();
-            } else {
-                d72Var = null;
+            if (e == null) {
+                synchronized (t63.class) {
+                    if (e == null) {
+                        e = new t63();
+                    }
+                }
             }
-            return c(d72Var);
+            return e;
         }
-        return (View) invokeV.objValue;
+        return (t63) invokeV.objValue;
     }
 
-    public static LinearLayout d() {
+    public List<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            jj3 z = xw1.z();
-            if (z != null) {
-                return z.m();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (LinearLayout) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static void g() {
-        g72 V;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || (V = kt2.U().V()) == null) {
-            return;
-        }
-        h(V.m());
-    }
-
-    public static boolean j() {
+    public Bitmap d() {
         InterceptResult invokeV;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (a) {
-                return z & dl3.b("sp_key_immersion_switch", z);
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (Bitmap) invokeV.objValue;
     }
 
-    public static void o() {
-        g72 V;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65551, null) != null) || (V = kt2.U().V()) == null) {
-            return;
-        }
-        rl3.a0(new a(V.m().L1()));
-    }
-
-    public static View c(d72 d72Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, d72Var)) == null) {
-            if (d72Var != null) {
-                return d72Var.O1();
-            }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public static ViewGroup e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            if (activity != null) {
-                return (ViewGroup) activity.getWindow().getDecorView();
-            }
-            return null;
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    public static boolean f(Dialog dialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dialog)) == null) {
-            if (((dialog.getWindow().getDecorView().getSystemUiVisibility() | dialog.getWindow().getAttributes().systemUiVisibility) & 2) != 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> list = this.c;
+            if (list != null && list.size() > 0) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void h(d72 d72Var) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, d72Var) != null) || (b0 = d72Var.b0()) == null) {
-            return;
-        }
-        rl3.a0(new b(d72Var, b0));
-    }
-
-    public static boolean i(View view2) {
+    public Bitmap a(String str) {
         InterceptResult invokeL;
+        u63 u63Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) {
-            if (!b || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f09108f) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HashMap<String, u63> hashMap = this.b;
+            if (hashMap != null && (u63Var = hashMap.get(str)) != null) {
+                return u63Var.a();
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public static void m(boolean z) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            l(kt2.U().getActivity(), 100L, z);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (d) {
+                Log.d("EmojiInfoManager", "get emoji info from " + str);
+            }
+            File file = new File(str);
+            if (file.exists() && file.isDirectory()) {
+                String E = kp4.E(new File(str + File.separator + "emoji.json"));
+                if (TextUtils.isEmpty(E)) {
+                    if (d) {
+                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
+                        return;
+                    }
+                    return;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
+                    if (optJSONArray == null) {
+                        return;
+                    }
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
+                    if (optJSONObject == null) {
+                        return;
+                    }
+                    String optString = optJSONObject.optString("package_icon");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
+                    this.c.clear();
+                    this.b.clear();
+                    if (optJSONArray2 != null) {
+                        int length = optJSONArray2.length();
+                        for (int i = 0; i < length; i++) {
+                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
+                            String optString2 = jSONObject.optString("id");
+                            String optString3 = jSONObject.optString("text");
+                            String optString4 = jSONObject.optString("icon");
+                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
+                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
+                                this.c.add(optString3);
+                                this.b.put(optString3, new u63(optString2, optString3, decodeFile));
+                            }
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            } else if (d) {
+                Log.d("EmojiInfoManager", "文件路径错误");
+            }
         }
     }
 
-    public static void k(Dialog dialog) {
+    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
+        InterceptResult invokeLLL;
+        Object aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, dialog) == null) && Build.VERSION.SDK_INT >= 21) {
-            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602f8);
-            Window window = dialog.getWindow();
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.addFlags(Integer.MIN_VALUE);
-            window.setStatusBarColor(color);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
+            if (d) {
+                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
+            }
+            SpannableString spannableString = new SpannableString(charSequence);
+            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
+            while (matcher.find()) {
+                String group = matcher.group();
+                int start = matcher.start();
+                Bitmap a = c().a(group);
+                if (a == null) {
+                    break;
+                }
+                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
+                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
+                if (createScaledBitmap != null) {
+                    if (textView instanceof EditText) {
+                        aVar = new g73.b(context.getApplicationContext(), createScaledBitmap);
+                    } else {
+                        aVar = new g73.a(context.getApplicationContext(), createScaledBitmap);
+                    }
+                    spannableString.setSpan(aVar, start, group.length() + start, 33);
+                }
+            }
+            return spannableString;
         }
-    }
-
-    public static void l(Activity activity, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{activity, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            rl3.b0(new c(activity, z), j);
-        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

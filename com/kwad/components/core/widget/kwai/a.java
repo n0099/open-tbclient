@@ -11,7 +11,7 @@ import com.kwad.sdk.utils.bg;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a implements com.kwad.sdk.core.h.a, bg.a {
     public Set<com.kwad.sdk.core.h.b> PH;
     public final int PI;

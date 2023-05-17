@@ -2,7 +2,7 @@ package com.baidu.pass.view;
 
 import android.view.View;
 import com.baidu.pass.view.CommonDialog;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a implements View.OnClickListener {
     public final /* synthetic */ CommonDialog a;
     public final /* synthetic */ CommonDialog.Builder b;

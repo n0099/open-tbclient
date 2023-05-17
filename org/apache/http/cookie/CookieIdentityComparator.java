@@ -3,7 +3,7 @@ package org.apache.http.cookie;
 import java.io.Serializable;
 import java.util.Comparator;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CookieIdentityComparator implements Serializable, Comparator<Cookie> {
     public CookieIdentityComparator() {
         throw new RuntimeException("Stub!");

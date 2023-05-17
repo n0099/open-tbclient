@@ -1,10 +1,10 @@
 package com.baidu.searchbox.player.stat;
 
 import com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IUniversalPlayerStatDispatcher extends IPlayerStatisticsDispatcher {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class SimpleStatDispatcher implements IUniversalPlayerStatDispatcher {
         @Override // com.baidu.searchbox.player.ubc.IPlayerStatisticsDispatcher
         public void end(int i) {

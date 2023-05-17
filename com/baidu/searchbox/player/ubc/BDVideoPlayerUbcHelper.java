@@ -4,15 +4,14 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.player.helper.NetUtils;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDVideoPlayerUbcHelper {
     public static String getNetType() {
         String networkClass = NetUtils.getNetworkClass();
         if (networkClass.equals("no") || networkClass.equals("unknown")) {
-            return ImageViewerConfig.FROM_OTHER;
+            return "other";
         }
         return networkClass;
     }

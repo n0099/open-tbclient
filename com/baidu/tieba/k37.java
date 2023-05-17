@@ -1,29 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sw6;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.t27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class k37 {
+/* loaded from: classes6.dex */
+public final class k37 implements t27.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final sw6.d a;
-    public final View b;
+    public final i37 a;
 
-    public k37(Context context) {
+    public k37(i37 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,73 +30,35 @@ public final class k37 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        sw6.d a = sw6.a().a();
-        this.a = a;
-        View create = a.create(context);
-        Intrinsics.checkNotNullExpressionValue(create, "resolver.create(context)");
-        this.b = create;
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    public final void a(String protrait) {
+    @Override // com.baidu.tieba.t27.b
+    public void a(f37<?> data) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, protrait) == null) {
-            Intrinsics.checkNotNullParameter(protrait, "protrait");
-            this.a.h(this.b, protrait);
+        if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            q27 q27Var = (q27) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            uz6 uz6Var = new uz6();
+            uz6 uz6Var2 = q27Var.b;
+            if (uz6Var2 != null) {
+                uz6Var = uz6Var2;
+            }
+            if (q27Var.b != null) {
+                for (Map.Entry<String, String> entry : this.a.a(uz6Var).entrySet()) {
+                    statisticItem.param(entry.getKey(), entry.getValue());
+                }
+            }
+            q07 q07Var = q27Var.a;
+            if (q07Var != null && (a = q07Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            TiebaStatic.log(statisticItem);
         }
-    }
-
-    public final void b(String url) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url) == null) {
-            Intrinsics.checkNotNullParameter(url, "url");
-            this.a.e(this.b, url);
-        }
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a.c(this.b, i);
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a.f(this.b, i);
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a.a(this.b, i);
-        }
-    }
-
-    public final void f(ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
-            Intrinsics.checkNotNullParameter(scaleType, "scaleType");
-            this.a.g(this.b, scaleType);
-        }
-    }
-
-    public final void g(sw6.c config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, config) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            this.a.b(this.b, config);
-        }
-    }
-
-    public final View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
     }
 }

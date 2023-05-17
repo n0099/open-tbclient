@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.notification;
 import android.app.Notification;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class a {
     public Notification a;
     public int b;

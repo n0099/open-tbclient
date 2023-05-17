@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class CodedInputStream {
     public static final int BUFFER_SIZE = 4096;
     public static final int DEFAULT_RECURSION_LIMIT = 64;

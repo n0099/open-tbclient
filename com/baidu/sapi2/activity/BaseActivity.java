@@ -73,6 +73,7 @@ import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.FingerprintDialog;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.tieba.R;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
@@ -81,7 +82,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseActivity extends TitleActivity {
     public static final String EXTRA_PARAM_BUSINESS_FROM = "extra_params_business_from";
     public static final int EXTRA_PARAM_FROM_ACCOUNT_CENTER = 2003;
@@ -206,7 +207,7 @@ public class BaseActivity extends TitleActivity {
             SapiAccountManager.getGlobalCallback().onLoginStatusChange();
         }
         try {
-            ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e46)).removeView(this.sapiWebView);
+            ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ea2)).removeView(this.sapiWebView);
             this.sapiWebView.removeAllViews();
             this.sapiWebView.destroy();
             this.sapiWebView = null;
@@ -622,7 +623,7 @@ public class BaseActivity extends TitleActivity {
                     BaseActivity.this.j.onFailure(idcardOcrImageRusult);
                 }
             }
-        }).setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.29
+        }).setNegativeButton("取消", new View.OnClickListener() { // from class: com.baidu.sapi2.activity.BaseActivity.29
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 if (BaseActivity.this.j != null) {
@@ -822,14 +823,14 @@ public class BaseActivity extends TitleActivity {
             return;
         }
         try {
-            ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091f6f).getLayoutParams()).addRule(3, 0);
+            ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091fcc).getLayoutParams()).addRule(3, 0);
         } catch (Exception unused) {
             Log.e(k, "子activity重写了webview布局");
         }
         this.sapiWebView.setHadMakeBarHide(true);
-        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e46);
+        RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ea2);
         if (this.mTitleLayout == null) {
-            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091f6d);
+            this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091fca);
         }
         final ImageView imageView = null;
         RelativeLayout relativeLayout2 = this.mTitleLayout;
@@ -838,7 +839,7 @@ public class BaseActivity extends TitleActivity {
             this.mTitleLayout.setBackgroundColor(0);
             for (int i = 0; i < this.mTitleLayout.getChildCount(); i++) {
                 View childAt = this.mTitleLayout.getChildAt(i);
-                if (childAt.getId() == R.id.obfuscated_res_0x7f092431 && this.configuration.showBottomBack) {
+                if (childAt.getId() == R.id.obfuscated_res_0x7f092495 && this.configuration.showBottomBack) {
                     childAt.setVisibility(0);
                     imageView = (ImageView) childAt;
                 } else {
@@ -885,7 +886,7 @@ public class BaseActivity extends TitleActivity {
     public void setupViews() {
         boolean z;
         super.setupViews();
-        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091f6f);
+        SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091fcc);
         this.sapiWebView = sapiWebView;
         if (sapiWebView == null) {
             return;
@@ -1032,7 +1033,7 @@ public class BaseActivity extends TitleActivity {
             @Override // com.baidu.sapi2.SapiJsCallBacks.IdcardOcrImageCallBack
             public void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback) {
                 BaseActivity.this.j = idcardOcrImageCallback;
-                if (!"album".equals(str)) {
+                if (!CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER.equals(str)) {
                     if (!"camera".equals(str)) {
                         return;
                     }

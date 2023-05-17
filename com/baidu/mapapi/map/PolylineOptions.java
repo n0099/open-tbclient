@@ -5,7 +5,7 @@ import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PolylineOptions extends OverlayOptions {
     public int a;
     public Bundle c;
@@ -29,20 +29,20 @@ public final class PolylineOptions extends OverlayOptions {
     public boolean t = false;
     public LineDirectionCross180 u = LineDirectionCross180.NONE;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LineCapType {
         LineCapButt,
         LineCapRound
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LineDirectionCross180 {
         NONE,
         FROM_EAST_TO_WEST,
         FROM_WEST_TO_EAST
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum LineJoinType {
         LineJoinBevel,
         LineJoinMiter,

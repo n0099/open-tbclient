@@ -1,22 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.splashad.SplashAdView;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class ls9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ls9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<SplashAdView> a;
+    public String a;
+    public String b;
+    public JSONObject c;
+    public String d;
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
 
     public ls9() {
         Interceptable interceptable = $ic;
@@ -32,56 +37,79 @@ public class ls9 {
         }
     }
 
-    public static ls9 a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new ls9();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (qi.isEmpty(this.b)) {
+                return this.a;
             }
-            return b;
+            return this.b + "/" + this.a;
         }
-        return (ls9) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.a();
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public void d() {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.b();
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void b(Configuration configuration) {
-        WeakReference<SplashAdView> weakReference;
-        SplashAdView splashAdView;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) && (weakReference = this.a) != null && (splashAdView = weakReference.get()) != null) {
-            splashAdView.onConfigurationChanged(configuration);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void e(MainTabActivity mainTabActivity) {
+    public void j(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mainTabActivity) == null) && mainTabActivity != null) {
-            SplashAdView splashAdView = new SplashAdView(mainTabActivity, 2);
-            this.a = new WeakReference<>(splashAdView);
-            mainTabActivity.getWindow().setFlags(1024, 1024);
-            ViewGroup viewGroup = (ViewGroup) mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092107);
-            if (viewGroup != null) {
-                viewGroup.setVisibility(0);
-                viewGroup.addView(splashAdView);
-            }
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.c = jSONObject;
         }
     }
 }

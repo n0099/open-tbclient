@@ -1,50 +1,10 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
-import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
-public class ur0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.Nullable;
+/* loaded from: classes7.dex */
+public interface ur0 {
+    <T> void a(@NonNull js0 js0Var, @Nullable bs0<T> bs0Var);
 
-    public static Request.Builder a(@NonNull tr0 tr0Var) throws RequestError {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tr0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(tr0Var.a);
-                Object obj = tr0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
-                }
-                if (tr0Var.h) {
-                    builder.header("Content-Type", "application/x-www-form-urlencoded");
-                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
-                    builder.header(HTTP.CONN_DIRECTIVE, "close");
-                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
-                }
-                Headers.a aVar = tr0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.header(c.f(i), c.h(i));
-                    }
-                }
-                String str = tr0Var.b;
-                builder.method(str, qr0.g(str, tr0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + tr0Var.a, th);
-            }
-        }
-        return (Request.Builder) invokeL.objValue;
-    }
+    void b(@NonNull js0 js0Var, @Nullable as0 as0Var);
 }

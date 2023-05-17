@@ -7,7 +7,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdResponseInfo implements Parcelable {
     public static final Parcelable.Creator<AdResponseInfo> CREATOR = new a();
     public static final String TAG = "AdResponseInfo";
@@ -44,7 +44,7 @@ public class AdResponseInfo implements Parcelable {
         return this.mRequestId;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AdResponseInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

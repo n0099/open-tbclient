@@ -24,7 +24,7 @@ import java.io.Reader;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GsonTool implements ICommandStatistics<ActionData> {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String ERROR_NO = "errno";
@@ -50,7 +50,7 @@ public class GsonTool implements ICommandStatistics<ActionData> {
     public JSONArray mRawDyeInfo = new JSONArray();
 
     /* renamed from: com.baidu.searchbox.net.update.v2.GsonTool$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
 

@@ -3,7 +3,7 @@ package com.baidu.pass.main.facesdk.test;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.pass.main.facesdk.utils.FileUitls;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PaddleLiteTest {
     public Context context;
 

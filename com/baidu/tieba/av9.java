@@ -1,181 +1,97 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tieba.k15;
-import com.baidu.tieba.pm9;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class av9 extends k15 {
+/* loaded from: classes4.dex */
+public class av9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public final gs9 d;
-    public IconPopData e;
-    public v05 f;
+    public final MainTabActivity a;
+    public final iu9 b;
+    public final tu9 c;
 
-    /* loaded from: classes3.dex */
-    public class a implements pm9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av9 a;
-
-        public a(av9 av9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av9Var;
-        }
-
-        @Override // com.baidu.tieba.pm9.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.pm9.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.pm9.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ av9 a;
-
-        public b(av9 av9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = av9Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                r15.s("userIcon");
-                this.a.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public av9(MainTabActivity mainTabActivity, gs9 gs9Var) {
-        super(mainTabActivity);
+    public av9(MainTabActivity mainTabActivity, iu9 iu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, gs9Var};
+            Object[] objArr = {mainTabActivity, iu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mainTabActivity;
-        this.d = gs9Var;
+        this.a = mainTabActivity;
+        this.b = iu9Var;
+        this.c = mainTabActivity.e;
     }
 
-    @Override // com.baidu.tieba.k15
-    public void b() {
-        v05 v05Var;
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (v05Var = this.f) != null) {
-            v05Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.k15
-    public void d(k15.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (r15.j() && aVar != null) {
-                aVar.a(false);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            iu9 iu9Var = this.b;
+            if (iu9Var != null && iu9Var.x() != null && this.b.x().getAnimationView() != null && this.b.x().getAnimationView().getVisibility() != 0) {
+                this.b.x().setLottieView(false);
             }
-            gs9 gs9Var = this.d;
-            if ((gs9Var == null || gs9Var.y() == null || (this.d.y().getCurrentTabType() != 2 && this.d.y().getCurrentTabType() != 1 && this.d.y().getCurrentTabType() != 3)) && aVar != null) {
-                aVar.a(false);
-                return;
+            if (TbadkCoreApplication.getInst().getActivityPrizeData().isSwitchTurn()) {
+                if (!StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getInst().getActivityPrizeData().isUserSatisfy()) {
+                    String h5Url = TbadkCoreApplication.getInst().getActivityPrizeData().getH5Url();
+                    if (!StringUtils.isNull(h5Url)) {
+                        o65 m = o65.m();
+                        if (m.i("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), true)) {
+                            UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{h5Url}, true);
+                            o65 m2 = o65.m();
+                            m2.w("activity_prize_get_tip" + TbadkCoreApplication.getCurrentAccount(), false);
+                        }
+                    }
+                }
+                if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
+                    String myTabText = TbadkCoreApplication.getInst().getActivityPrizeData().getMyTabText();
+                    if (!StringUtils.isNull(myTabText)) {
+                        iu9 iu9Var2 = this.b;
+                        if (iu9Var2 != null) {
+                            iu9Var2.L(myTabText);
+                        }
+                    } else {
+                        iu9 iu9Var3 = this.b;
+                        if (iu9Var3 != null) {
+                            iu9Var3.L(null);
+                        }
+                    }
+                } else {
+                    iu9 iu9Var4 = this.b;
+                    if (iu9Var4 != null) {
+                        iu9Var4.L(null);
+                    }
+                }
+            } else {
+                iu9 iu9Var5 = this.b;
+                if (iu9Var5 != null) {
+                    iu9Var5.L(null);
+                }
             }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            this.e = iconPopData;
-            if (iconPopData != null && PollingModel.z0() && this.e.getPic160() != null && this.e.getTitle() != null && this.c.J1() && this.c.D && this.e.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
-                aVar.a(true);
-            } else if (aVar != null) {
-                aVar.a(false);
+            if (TbSingleton.getInstance().canShowPermDialog()) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921360, this.b));
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.k15
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.e == null) {
-                this.e = TbSingleton.getInstance().getIconPopData();
+            ey4.b().l("1", "");
+            tu9 tu9Var = this.c;
+            if (tu9Var != null && tu9Var.i() != null) {
+                this.c.i().a();
             }
-            if (!PollingModel.z0()) {
-                c();
-                return;
-            }
-            pm9 pm9Var = new pm9();
-            pm9Var.e(new a(this));
-            pm9Var.f(new b(this));
-            this.f = pm9Var.d(this.e);
-            r15.m("userIcon");
         }
     }
 }

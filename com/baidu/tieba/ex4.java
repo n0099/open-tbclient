@@ -1,94 +1,69 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.util.ArrayList;
+import java.util.Iterator;
+/* loaded from: classes5.dex */
 public class ex4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ex4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public boolean d;
+    public ArrayList<xi5> a;
+    public Context b;
 
-    public ex4() {
+    public ex4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = context;
     }
 
-    public static ex4 a() {
-        InterceptResult invokeV;
+    public void a(xi5 xi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (ex4.class) {
-                    if (e == null) {
-                        e = new ex4();
-                    }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, xi5Var) == null) && xi5Var != null && xi5Var.b() != null) {
+            Iterator<xi5> it = this.a.iterator();
+            while (it.hasNext()) {
+                xi5 next = it.next();
+                if (next != null && next.b() != null && next.b().e == xi5Var.b().e) {
+                    return;
                 }
             }
-            return e;
+            this.a.add(xi5Var);
         }
-        return (ex4) invokeV.objValue;
     }
 
-    public float b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float c() {
+    public ArrayList<xi5> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.a;
         }
-        return invokeV.floatValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public float d() {
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.b;
         }
-        return invokeV.floatValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float f, float f2, float f3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = z;
-        }
+        return (Context) invokeV.objValue;
     }
 }

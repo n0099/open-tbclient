@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoMiddleFragment extends AbsVideoChannelFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener x;
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public int O1() {
+    public int P1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -38,13 +38,13 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public void Y1() {
+    public void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements BdSwipeRefreshLayout.k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment Q1() {
+    public Fragment R1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -191,7 +191,7 @@ public class VideoMiddleFragment extends AbsVideoChannelFragment {
     }
 
     @Override // com.baidu.tieba.videoplay.fragment.AbsVideoChannelFragment
-    public Fragment R1() {
+    public Fragment S1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

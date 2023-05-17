@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.util.CheckResult;
 import kotlin.text.Regex;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Checks {
     public final Function1<FunctionDescriptor, String> additionalCheck;
     public final Check[] checks;

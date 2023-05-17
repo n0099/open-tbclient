@@ -1,67 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes8.dex */
 public class zt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
+    public AtomicBoolean a;
 
-    public zt8() {
+    public zt8(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bool};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicBoolean(bool.booleanValue());
     }
 
-    public int a() {
+    public boolean a() {
         InterceptResult invokeV;
-        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.b;
-            int hashCode = str.hashCode();
-            if (hashCode != 2154) {
-                if (hashCode != 2161) {
-                    if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                        c = 0;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c == 1) {
-                    return 2;
-                }
-                return 3;
-            }
-            return 1;
+            return this.a.get();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
+    }
+
+    public void setResult(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a.set(z);
+        }
     }
 }

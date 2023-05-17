@@ -21,7 +21,7 @@ import com.win.opensdk.s0;
 import com.win.opensdk.t0;
 import com.win.opensdk.u0;
 import com.win.opensdk.v0;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class GifImageView extends ImageView implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

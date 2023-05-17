@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface AdaptiveMediaSourceEventListener {
     void onDownstreamFormatChanged(int i, Format format, int i2, Object obj, long j);
 
@@ -20,7 +20,7 @@ public interface AdaptiveMediaSourceEventListener {
 
     void onUpstreamDiscarded(int i, long j, long j2);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class EventDispatcher {
         public final Handler handler;
         public final AdaptiveMediaSourceEventListener listener;

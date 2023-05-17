@@ -76,6 +76,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.framework.common.ExceptionCode;
@@ -83,7 +84,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiAccountService implements ISAccountService {
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";
     public static final String DISPLAY_TYPE_NATIVE = "native";
@@ -267,11 +268,11 @@ public final class SapiAccountService implements ISAccountService {
         SapiAccountResponse parseAccountXmlToResponse = SapiCoreUtil.parseAccountXmlToResponse("business_from_one_key_login", str);
         if (parseAccountXmlToResponse != null) {
             String operatorType = new OneKeyLoginSdkCall().getOperatorType();
-            if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
+            if ("CM".equals(operatorType)) {
                 SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CM.getName());
-            } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+            } else if ("CU".equals(operatorType)) {
                 SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CU.getName());
-            } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC.equals(operatorType)) {
+            } else if ("CT".equals(operatorType)) {
                 SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CT.getName());
             }
             SapiAccountManager.getInstance().validate(sapiAccountResponseToAccount(parseAccountXmlToResponse));
@@ -578,7 +579,7 @@ public final class SapiAccountService implements ISAccountService {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
         arrayList.add(new PassNameValuePair("clientfrom", "native"));
-        arrayList.add(new PassNameValuePair("client", "android"));
+        arrayList.add(new PassNameValuePair(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android"));
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair("skin", ""));
         arrayList.add(new PassNameValuePair("liveAbility", "1"));
@@ -605,7 +606,7 @@ public final class SapiAccountService implements ISAccountService {
             arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
         }
         arrayList.add(new PassNameValuePair("login_share_strategy", this.configuration.loginShareStrategy().getStrValue()));
-        arrayList.add(new PassNameValuePair("client", "android"));
+        arrayList.add(new PassNameValuePair(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android"));
         if (this.configuration.showBottomBack) {
             arrayList.add(new PassNameValuePair("adapter", "8"));
         } else {
@@ -646,7 +647,7 @@ public final class SapiAccountService implements ISAccountService {
         arrayList.add(new PassNameValuePair("clientfrom", "native"));
         arrayList.add(new PassNameValuePair("tpl", this.configuration.tpl));
         arrayList.add(new PassNameValuePair("login_share_strategy", this.configuration.loginShareStrategy().getStrValue()));
-        arrayList.add(new PassNameValuePair("client", "android"));
+        arrayList.add(new PassNameValuePair(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android"));
         if (this.configuration.showBottomBack) {
             arrayList.add(new PassNameValuePair("adapter", "8"));
         } else if (z) {
@@ -701,7 +702,7 @@ public final class SapiAccountService implements ISAccountService {
 
     public String getForgetPwdUrl() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new PassNameValuePair("client", "android"));
+        arrayList.add(new PassNameValuePair(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android"));
         arrayList.add(new PassNameValuePair("clientfrom", "native"));
         arrayList.add(new PassNameValuePair("adapter", "3"));
         arrayList.add(new PassNameValuePair(SpeedStatsUtils.UBC_VALUE_BANNER, "1"));

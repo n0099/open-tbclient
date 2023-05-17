@@ -3,7 +3,7 @@ package com.kwad.sdk.core.video;
 import android.content.Context;
 import android.view.TextureView;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends TextureView {
     public int videoHeight;
     public int videoWidth;

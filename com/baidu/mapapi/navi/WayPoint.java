@@ -1,7 +1,7 @@
 package com.baidu.mapapi.navi;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WayPoint {
     public List<WayPointInfo> a;
 

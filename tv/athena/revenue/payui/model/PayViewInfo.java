@@ -5,7 +5,7 @@ import androidx.annotation.Keep;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class PayViewInfo {
     public CancelType clickArea;
     public PayDialogType payDialogType;

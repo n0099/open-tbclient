@@ -7,12 +7,12 @@ import com.kwad.sdk.core.webview.request.WebCardGetDataResponse;
 import com.kwad.sdk.core.webview.request.b;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public c ago;
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b {
         public String method;
         public String params;

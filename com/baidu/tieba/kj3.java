@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface kj3 {
-    void a(String str, int i);
-
-    void b(String str, int i);
-
-    void c(String str);
+    void a(int i);
 }

@@ -1,89 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class cs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static cs4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-880170425, "Lcom/baidu/tieba/cs4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-880170425, "Lcom/baidu/tieba/cs4$b;");
-                    return;
-                }
-            }
-            a = new cs4(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685317, "Lcom/baidu/tieba/cs4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685317, "Lcom/baidu/tieba/cs4;");
-                return;
-            }
-        }
-        a = new AtomicReference<>(null);
-        a();
-    }
 
     public cs4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public static cs4 a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
+            if (be9.b()) {
+                httpMessage.addParam("brand", Build.BRAND);
+            } else {
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, be9.c());
+                String g = be9.g("brand");
+                if (!TextUtils.isEmpty(g)) {
+                    httpMessage.addParam(g, be9.e());
+                }
+            }
+            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            httpMessage.addParam("client_version", TbConfig.getVersion());
+            httpMessage.addParam("client_type", "Android");
+            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            httpMessage.addParam("ua", yt5.b());
+            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (cs4) invokeV.objValue;
-    }
-
-    public /* synthetic */ cs4(a aVar) {
-        this();
     }
 }

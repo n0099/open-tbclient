@@ -1,13 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes5.dex */
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
 public interface oj5 {
-    int getPid();
-
-    int getTag();
-
-    int getType();
-
-    void setTag(BdUniqueId bdUniqueId);
+    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
 }

@@ -44,21 +44,21 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractBinaryClassAnnotationAndConstantLoader<A, C> implements AnnotationAndConstantLoader<A, C> {
     public static final Companion Companion = new Companion(null);
     public static final Set<ClassId> SPECIAL_ANNOTATIONS;
     public final KotlinClassFinder kotlinClassFinder;
     public final MemoizedFunctionToNotNull<KotlinJvmBinaryClass, Storage<A, C>> storage;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum PropertyRelatedElement {
         PROPERTY,
         BACKING_FIELD,
         DELEGATE_FIELD
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -83,7 +83,7 @@ public abstract class AbstractBinaryClassAnnotationAndConstantLoader<A, C> imple
 
     public abstract C transformToUnsignedConstant(C c);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -93,7 +93,7 @@ public abstract class AbstractBinaryClassAnnotationAndConstantLoader<A, C> imple
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Storage<A, C> {
         public final Map<MemberSignature, List<A>> memberAnnotations;
         public final Map<MemberSignature, C> propertyConstants;
@@ -422,7 +422,7 @@ public abstract class AbstractBinaryClassAnnotationAndConstantLoader<A, C> imple
         final HashMap hashMap2 = new HashMap();
         kotlinJvmBinaryClass.visitMembers(new KotlinJvmBinaryClass.MemberVisitor() { // from class: kotlin.reflect.jvm.internal.impl.load.kotlin.AbstractBinaryClassAnnotationAndConstantLoader$loadAnnotationsAndInitializers$1
 
-            /* loaded from: classes9.dex */
+            /* loaded from: classes10.dex */
             public final class AnnotationVisitorForMethod extends MemberAnnotationVisitor implements KotlinJvmBinaryClass.MethodAnnotationVisitor {
                 public AnnotationVisitorForMethod(MemberSignature memberSignature) {
                     super(memberSignature);
@@ -442,7 +442,7 @@ public abstract class AbstractBinaryClassAnnotationAndConstantLoader<A, C> imple
                 }
             }
 
-            /* loaded from: classes9.dex */
+            /* loaded from: classes10.dex */
             public class MemberAnnotationVisitor implements KotlinJvmBinaryClass.AnnotationVisitor {
                 public final ArrayList<A> result = new ArrayList<>();
                 public final MemberSignature signature;

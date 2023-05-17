@@ -2,7 +2,7 @@ package com.baidu.ugc.audioedit;
 
 import java.io.Serializable;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DelayConfig implements Serializable {
     public static final int MODE_PART_SECTION = 2;
     public static final int MODE_WHOLE_SECTION = 1;

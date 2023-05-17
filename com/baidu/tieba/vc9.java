@@ -1,107 +1,199 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.content.Context;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SoLoadUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.EncodeHintType;
-import com.google.zxing.MultiFormatWriter;
-import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import java.util.EnumMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import com.baidu.turbonet.net.OkHttp3Interceptor;
+import com.baidu.turbonet.net.TurbonetConfig;
+import com.baidu.turbonet.net.TurbonetContext;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
+/* loaded from: classes7.dex */
 public class vc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<EncodeHintType, Object> a;
+    public static OkHttpClient a;
+    public static TurbonetContext b;
+    public static long c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236125, "Lcom/baidu/tieba/vc9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948236125, "Lcom/baidu/tieba/vc9;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948236125, "Lcom/baidu/tieba/vc9;")) == null) {
+            return;
         }
-        EnumMap enumMap = new EnumMap(EncodeHintType.class);
-        a = enumMap;
-        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) IMAudioTransRequest.CHARSET);
-        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
-        a.put(EncodeHintType.MARGIN, 0);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948236125, "Lcom/baidu/tieba/vc9;");
+        }
     }
 
-    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
-        InterceptResult invokeLL;
+    public static OkHttpClient a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
-            if (bitmap != null && bitmap2 != null) {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int width2 = bitmap2.getWidth();
-                int height2 = bitmap2.getHeight();
-                float f = ((width * 1.0f) / 5.0f) / width2;
-                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-                try {
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
-                    canvas.scale(f, f, width / 2, height / 2);
-                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
-                    canvas.save();
-                    canvas.restore();
-                    return createBitmap;
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            b = g();
+            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
+            return builder.build();
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static TurbonetContext g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
+            b = turbonetContext;
+            return turbonetContext;
+        }
+        return (TurbonetContext) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b() {
+        InterceptResult invokeV;
+        String path;
+        boolean equalsIgnoreCase;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            try {
+                String externalStorageState = Environment.getExternalStorageState();
+                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
+                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            } catch (Exception unused) {
+                File cacheDir = context.getCacheDir();
+                if (cacheDir == null) {
                     return null;
                 }
+                path = cacheDir.getPath();
             }
-            return bitmap;
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public static Bitmap b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            return c(str, i, -16777216, -1, null);
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
-            try {
-                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
-                int[] iArr = new int[i * i];
-                for (int i4 = 0; i4 < i; i4++) {
-                    for (int i5 = 0; i5 < i; i5++) {
-                        if (encode.get(i5, i4)) {
-                            iArr[(i4 * i) + i5] = i2;
-                        } else {
-                            iArr[(i4 * i) + i5] = i3;
-                        }
-                    }
+            if (!equalsIgnoreCase && !z) {
+                path = context.getCacheDir().getPath();
+                if (!path.endsWith(File.separator)) {
+                    return path.substring(0, path.length() - 1);
                 }
-                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
-                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
-                return a(createBitmap, bitmap);
-            } catch (Exception unused) {
-                return null;
+                return path;
             }
+            path = context.getExternalCacheDir().getPath();
+            if (!path.endsWith(File.separator)) {
+            }
+        } else {
+            return (String) invokeV.objValue;
         }
-        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static OkHttpClient c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = a();
+            }
+            return a;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            TurbonetContext turbonetContext = b;
+            if (turbonetContext != null && c == 0) {
+                c = turbonetContext.c();
+            }
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || d) {
+            return;
+        }
+        d = true;
+        try {
+            SoLoadUtils.checkDownloadSo("libturbonet.so", "com.baidu.tieba.soloader.libturbonet", "turbonet");
+            c();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public static TurbonetConfig d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TurbonetConfig turbonetConfig = new TurbonetConfig();
+            turbonetConfig.j(15);
+            turbonetConfig.c(true);
+            turbonetConfig.b(true);
+            turbonetConfig.e(true);
+            turbonetConfig.a("http://tb-video.bdstatic.com|2");
+            turbonetConfig.f(true);
+            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
+            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
+            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
+            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
+            File file = new File(b(), "turbonetcache");
+            if (file.exists()) {
+                if (file.isFile()) {
+                    file.delete();
+                    file.mkdirs();
+                }
+            } else {
+                file.mkdirs();
+            }
+            turbonetConfig.k(file.getAbsolutePath());
+            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
+            turbonetConfig.i("log", "lite_log_in_response_header", Boolean.TRUE);
+            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
+            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
+            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
+            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
+            turbonetConfig.i("nq", "weak_window_sec", 30);
+            turbonetConfig.i("nq", "weak_min_cnt", 10);
+            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
+            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
+            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
+            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
+            return turbonetConfig;
+        }
+        return (TurbonetConfig) invokeV.objValue;
     }
 }

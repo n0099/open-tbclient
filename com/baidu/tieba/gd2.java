@@ -1,12 +1,17 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.tieba.bd2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,81 +20,54 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes4.dex */
-public class gd2 {
+/* loaded from: classes5.dex */
+public final class gd2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final od2 b;
+    public static final boolean b;
+    public static final boolean c;
+    public static final boolean d;
+    public static final boolean e;
+    public static final boolean f;
+    public static final int g;
+    public static final Set<String> h;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public static class a extends ProviderDelegation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
 
-        public a(String str, boolean z, String str2) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            long j;
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (gd2.a) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                Set<String> m = hd2.k().m(this.a, true);
-                if (m != null && m.size() > 0) {
-                    if (gd2.a) {
-                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                    }
-                    for (String str : m) {
-                        boolean b = gd2.b(this.c, this.a, str);
-                        ad2 d = ad2.d();
-                        String str2 = this.c;
-                        bd2.b a = bd2.a();
-                        a.h(RecordType.PREFETCH_PRELINK);
-                        a.f(str);
-                        a.g(b);
-                        d.f(str2, a.e());
-                        if (b) {
-                            hd2.k().s(this.a, str);
-                            gd2.d(this.a, str);
-                        }
-                    }
-                    if (gd2.a) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
-                    }
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putBoolean("result", gd2.h());
+                return bundle2;
             }
+            return (Bundle) invokeL.objValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
+        boolean e2;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947790004, "Lcom/baidu/tieba/gd2;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -101,57 +79,325 @@ public class gd2 {
                 return;
             }
         }
-        a = ho1.a;
-        b = qd2.a();
+        a = qp1.a;
+        if (ProcessUtils.isMainProcess()) {
+            e2 = j("swan_prefetch_app_data", 1);
+        } else {
+            e2 = e();
+        }
+        b = e2;
+        c = j("swan_prefetch_slave_data", 0);
+        d = j("swan_prefetch_click", 0);
+        e = j("swan_prefetch_event_on", 1);
+        f = j("swan_prefetch_sub_pkg", 0);
+        g = d("swan_prefetch_app_data_multi", 0);
+        if (a) {
+            Log.i("PrefetchABSwitcher", "prefetch switch - " + b);
+            Log.i("PrefetchABSwitcher", "master prefetch switch -  " + e);
+            Log.i("PrefetchABSwitcher", "sub pkg prefetch switch -  " + f);
+            Log.i("PrefetchABSwitcher", "master multi preload switch -  " + g);
+        }
+        h = kn3.a("hZPrR8cXXYgGHX2eGYOASkdmRyPkKcyT", "3mHyKpYFH6SF5FTWTLVaVdgi3lDGrxYy");
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static void k() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
+        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
+            g62.k("PrefetchABSwitcher", "preload master is on = " + b);
+            g62.k("PrefetchABSwitcher", "preload slave is on = " + c);
+            g93 b0 = g93.b0();
+            if (b0 != null && m(b0.W().f0())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            g62.k("PrefetchABSwitcher", "prefetch master show is on = " + z);
+            g62.k("PrefetchABSwitcher", "prefetch master click is on = " + d);
+            g62.k("PrefetchABSwitcher", "sub pkg prefetch switch -  " + f);
+            ib2 a2 = pb2.b().a();
+            if (a2 != null) {
+                g62.k("PrefetchABSwitcher", "current running master id = " + a2.i().a());
+            }
+            g62.k("PrefetchABSwitcher", "master multi preload switch -  " + g);
+        }
+    }
+
+    public static boolean a(@Nullable PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
+            if (d && m(pMSAppInfo)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt(str, -1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && h.contains(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_event", -1);
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            boolean z = !vm3.f("3.290.0");
+            if (a && b("swan_prefetch_app_data_multi") > 0) {
+                return true;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return g;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            return c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
+            return f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int d(String str, int i) {
+        InterceptResult invokeLI;
+        int b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            if (a && (b2 = b(str)) != -1) {
+                return b2;
+            }
+            ns2.g0().getSwitch(str, i);
+            if (a) {
+                Log.d("PrefetchABSwitcher", str + " value from AB : " + i);
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (a) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            v53 c2 = t53.c(a.class, null);
+            boolean z = false;
+            if (c2.a() && c2.a.getBoolean("result", false)) {
+                z = true;
+            }
+            if (a) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.i("PrefetchABSwitcher", "get prefetch switch cross precess cost - " + (currentTimeMillis - j) + "ms");
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @SuppressLint({"LogConditional"})
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (!a) {
                 return false;
             }
-            return b.c(str, str2, str3);
+            int c2 = c();
+            Log.d("PrefetchABSwitcher", "prefetch switch in debug sp - " + c2);
+            if (c2 != 1) {
+                return false;
+            }
+            return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void e(String str, @NonNull String str2, boolean z) {
+    public static boolean j(String str, int i) {
+        InterceptResult invokeLI;
+        int b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i)) == null) {
+            if (a) {
+                if (f53.Y() || (b2 = b(str)) == 1) {
+                    return true;
                 }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
-            } else {
-                x73 q = w73.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
+                if (b2 == 0) {
+                    return false;
                 }
             }
+            if (d(str, i) != 1) {
+                return false;
+            }
+            return true;
         }
+        return invokeLI.booleanValue;
     }
 
-    public static void d(String str, String str2) {
+    public static boolean m(@Nullable PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        boolean z;
+        SwanAppConfigData Q;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
-            b.a().b(str, str2, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pMSAppInfo)) == null) {
+            if (!h()) {
+                return false;
+            }
+            if (a) {
+                int c2 = c();
+                if (c2 == 1) {
+                    return true;
+                }
+                if (c2 == 0) {
+                    return false;
+                }
+            }
+            if (pMSAppInfo != null && e) {
+                if (i12.b(pMSAppInfo.appId) != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                g93 b0 = g93.b0();
+                if (b0 == null) {
+                    Q = null;
+                } else {
+                    Q = b0.Q();
+                }
+                if (Q != null && !Q.u) {
+                    SwanAppConfigData.h hVar = Q.t;
+                    if (hVar != null && hVar.a) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z) {
+                        return z2;
+                    }
+                    if (!z2 && !g(pMSAppInfo.appKey)) {
+                        z3 = false;
+                    } else {
+                        z3 = true;
+                    }
+                    if (!z3 || !lz2.g().i(pMSAppInfo)) {
+                        return false;
+                    }
+                    return true;
+                } else if (a) {
+                    Log.d("PrefetchABSwitcher", "NA View not support prefetch");
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean n(@Nullable PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        SwanAppConfigData Q;
+        boolean z;
+        SwanAppConfigData.h hVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, pMSAppInfo)) == null) {
+            boolean z2 = false;
+            if (pMSAppInfo == null) {
+                return false;
+            }
+            boolean m = m(pMSAppInfo);
+            if (a) {
+                Log.d("PrefetchABSwitcher", "appId - " + pMSAppInfo.appKey + ", prefetch on - " + m);
+            }
+            if (!m) {
+                return false;
+            }
+            if (a) {
+                int c2 = c();
+                if (c2 == 1) {
+                    return true;
+                }
+                if (c2 == 0) {
+                    return false;
+                }
+            }
+            g93 b0 = g93.b0();
+            if (b0 == null) {
+                Q = null;
+            } else {
+                Q = b0.Q();
+            }
+            if (Q != null && (hVar = Q.t) != null && TextUtils.equals(hVar.b, "show")) {
+                z = true;
+            } else {
+                z = false;
+            }
+            z2 = (z || g(pMSAppInfo.appKey)) ? true : true;
+            if (a) {
+                Log.d("PrefetchABSwitcher", "appId - " + pMSAppInfo.appKey + ", show prefetch - " + z2);
+            }
+            return z2;
+        }
+        return invokeL.booleanValue;
     }
 }

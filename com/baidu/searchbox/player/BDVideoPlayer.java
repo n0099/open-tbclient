@@ -41,7 +41,7 @@ import com.baidu.searchbox.player.ubc.SimpleVideoStatisticsDispatcher;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public static final String TAG = "BDVideoPlayer";
     public static boolean sGlobalMute;
@@ -95,7 +95,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
     public void setupPlugin(@NonNull Context context) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AudioFocusChangedListener implements AudioManager.OnAudioFocusChangeListener {
         public AudioFocusChangedListener() {
         }
@@ -106,7 +106,7 @@ public abstract class BDVideoPlayer implements IBVideoPlayer, IKernelPlayer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class InternalPlayerDispatcher implements InternalEventDispatcher {
         @Override // com.baidu.searchbox.player.interfaces.InternalEventDispatcher
         public int getExpectOrder() {

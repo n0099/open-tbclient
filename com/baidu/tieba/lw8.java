@@ -1,76 +1,34 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.os.CountDownTimer;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
-/* loaded from: classes5.dex */
-public abstract class lw8 {
+/* loaded from: classes6.dex */
+public abstract class lw8<T> extends gg<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public float h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public float m;
-    public Direction n;
-    public Direction o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
-    public Paint u;
-    public LifeCycleState v;
-    public CountDownTimer w;
-    public Random x;
-    public int y;
 
-    public abstract void a();
+    public abstract T h(Object obj);
 
-    public abstract void b(Canvas canvas);
-
-    public lw8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw8(hg hgVar, int i, int i2) {
+        super(hgVar, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hgVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((hg) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 255;
-        this.h = 2.0f;
-        this.i = 0;
-        this.j = 0;
-        this.k = 90;
-        this.l = 0;
-        this.m = -0.4f;
-        this.n = Direction.TOP;
-        this.o = Direction.RIGHT;
-        this.t = 0;
-        this.v = LifeCycleState.ACTIVE;
-        this.u = new Paint(1);
-        this.x = new Random();
-        this.y = TbadkCoreApplication.getInst().getSkinType();
     }
 }

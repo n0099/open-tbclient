@@ -1,91 +1,50 @@
 package com.baidu.tieba;
 
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
-/* loaded from: classes5.dex */
-public class p84 implements ip1 {
+/* loaded from: classes6.dex */
+public class p84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public o84 a;
 
-    public p84() {
+    public p84(@NonNull og2 og2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {og2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new o84(og2Var);
     }
 
-    @Override // com.baidu.tieba.ip1
-    public JSONObject a() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void removeUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return o84.c().d();
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ip1
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            r84.d(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+            this.a.removeUserCloudStorage(jsObject);
         }
     }
 
-    @Override // com.baidu.tieba.ip1
-    public void e(String str) {
+    @JavascriptInterface
+    public void setUserCloudStorage(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            r84.f(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ip1
-    public void c(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
-            r84.e(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ip1
-    public void d(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
-            r84.a(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ip1
-    public void f(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
-            r84.g(callbackHandler, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ip1
-    public void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
-            r84.b(callbackHandler, str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+            this.a.setUserCloudStorage(jsObject);
         }
     }
 }

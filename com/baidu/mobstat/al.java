@@ -22,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class al {
     public static final al B = new al();
     public Context a;
@@ -86,7 +86,7 @@ public class al {
     public void a(Activity activity) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);
@@ -117,7 +117,7 @@ public class al {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements ai.a {
         public b() {
         }
@@ -147,7 +147,7 @@ public class al {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends Handler {
         public c(Looper looper) {
             super(looper);

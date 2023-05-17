@@ -5,7 +5,7 @@ import android.graphics.Rect;
 import com.baidu.pass.main.facesdk.FaceInfo;
 import com.baidu.pass.main.facesdk.model.BDFaceOcclusion;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceExtInfo {
     public static int nComponents = 9;
     public HashMap<String, Point[]> facePointMap;

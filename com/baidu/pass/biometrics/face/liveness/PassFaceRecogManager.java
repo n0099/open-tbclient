@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PassFaceRecogManager implements PassBiometric {
     public static final long e = 300;
     public static PassFaceRecogManager f = null;
@@ -66,7 +66,7 @@ public class PassFaceRecogManager implements PassBiometric {
     public PassFaceRecogCallback c;
     public long d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements IInitCallback {
         public final /* synthetic */ Context a;
         public final /* synthetic */ PassFaceRecogResult b;
@@ -101,7 +101,7 @@ public class PassFaceRecogManager implements PassBiometric {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpHandlerWrap {
         public b(boolean z) {
             super(z);

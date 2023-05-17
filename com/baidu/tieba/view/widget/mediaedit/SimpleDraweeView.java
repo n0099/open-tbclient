@@ -4,12 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hla;
+import com.baidu.tieba.fna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView 
             try {
                 super.onDraw(canvas);
             } catch (Exception e) {
-                hla.g(e);
+                fna.g(e);
             }
         }
     }

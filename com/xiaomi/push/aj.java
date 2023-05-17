@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class aj {
     public static volatile aj a;
 
@@ -23,13 +23,13 @@ public class aj {
     /* renamed from: a  reason: collision with other field name */
     public Object f98a = new Object();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a implements Runnable {
         /* renamed from: a */
-        public abstract String mo221a();
+        public abstract String mo240a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Runnable {
         public a a;
 
@@ -73,7 +73,7 @@ public class aj {
     private ScheduledFuture a(a aVar) {
         ScheduledFuture scheduledFuture;
         synchronized (this.f98a) {
-            scheduledFuture = this.f99a.get(aVar.mo221a());
+            scheduledFuture = this.f99a.get(aVar.mo240a());
         }
         return scheduledFuture;
     }
@@ -87,7 +87,7 @@ public class aj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m180a(a aVar) {
+    public boolean m199a(a aVar) {
         return b(aVar, 0);
     }
 
@@ -103,7 +103,7 @@ public class aj {
         if (aVar == null || a(aVar) != null) {
             return false;
         }
-        String a2 = a(aVar.mo221a());
+        String a2 = a(aVar.mo240a());
         ak akVar = new ak(this, aVar, z, a2);
         if (!z) {
             long abs = Math.abs(System.currentTimeMillis() - this.f97a.getLong(a2, 0L)) / 1000;
@@ -114,7 +114,7 @@ public class aj {
         try {
             ScheduledFuture<?> scheduleAtFixedRate = this.f100a.scheduleAtFixedRate(akVar, i2, i, TimeUnit.SECONDS);
             synchronized (this.f98a) {
-                this.f99a.put(aVar.mo221a(), scheduleAtFixedRate);
+                this.f99a.put(aVar.mo240a(), scheduleAtFixedRate);
             }
             return true;
         } catch (Exception e) {
@@ -124,7 +124,7 @@ public class aj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m181a(String str) {
+    public boolean m200a(String str) {
         synchronized (this.f98a) {
             ScheduledFuture scheduledFuture = this.f99a.get(str);
             if (scheduledFuture == null) {
@@ -141,7 +141,7 @@ public class aj {
         }
         ScheduledFuture<?> schedule = this.f100a.schedule(new al(this, aVar), i, TimeUnit.SECONDS);
         synchronized (this.f98a) {
-            this.f99a.put(aVar.mo221a(), schedule);
+            this.f99a.put(aVar.mo240a(), schedule);
         }
         return true;
     }

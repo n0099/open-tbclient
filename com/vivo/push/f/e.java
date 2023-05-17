@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class e extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +149,7 @@ public final class e extends aa {
                     }
                     if (z) {
                         Uri parse = Uri.parse(skipContent2);
-                        Intent intent = new Intent("android.intent.action.VIEW", parse);
+                        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, parse);
                         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                         b(intent, a.getParams());
                         try {

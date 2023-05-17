@@ -15,7 +15,7 @@ import com.kwai.filedownloader.b.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.message.e;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends b.a implements e.b, i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

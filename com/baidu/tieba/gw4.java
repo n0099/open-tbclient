@@ -1,104 +1,25 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gw4 implements Application.ActivityLifecycleCallbacks {
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public final class gw4 extends AbsJsInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public a(gw4 gw4Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gw4Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (NotificationManagerCompat.from(this.a).areNotificationsEnabled()) {
-                    boolean i = f55.m().i("official_push_switch", true);
-                    Activity activity = this.a;
-                    pt4.v(activity, "", "https://tieba.baidu.com/mo/q/hybrid-main-service/pushSettings?pageType=1&officialPushMsgStatus=" + (i ? 1 : 0), true);
-                    return;
-                }
-                cb5.d(this.a);
-            }
-        }
-    }
+    public hw4 a;
 
     public gw4() {
         Interceptable interceptable = $ic;
@@ -110,46 +31,79 @@ public class gw4 implements Application.ActivityLifecycleCallbacks {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = true;
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity")) {
-            this.a = true;
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
+    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
+    public void deAttachWebView() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity") && this.a) {
-            this.a = false;
-            FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView().findViewById(16908290);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.d(activity, 20.0f), ii.d(activity, 20.0f));
-            layoutParams.addRule(11);
-            layoutParams.rightMargin = ii.g(activity, R.dimen.tbds42);
-            layoutParams.topMargin = ii.g(activity, R.dimen.tbds126) - ii.u(activity);
-            ImageView imageView = new ImageView(activity);
-            imageView.setLayoutParams(layoutParams);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            Drawable drawable = SvgManager.getInstance().getDrawable(R.drawable.icon_login_setting_svg, 1, false);
-            ColorStateList colorListByResourceType = SvgManager.SvgResourceStateType.NORMAL_PRESS.getColorListByResourceType(SkinManager.getColor(4, null, R.color.CAM_X0105));
-            if (colorListByResourceType != null && drawable != null) {
-                drawable = drawable.mutate();
-                DrawableCompat.setTintList(drawable, colorListByResourceType);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.deAttachWebView();
+            hw4 hw4Var = this.a;
+            if (hw4Var != null) {
+                hw4Var.e();
+                this.a = null;
             }
-            imageView.setImageDrawable(drawable);
-            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f091f6d);
-            if (relativeLayout == null) {
-                return;
-            }
-            relativeLayout.addView(imageView);
-            imageView.setOnClickListener(new a(this, activity));
         }
+    }
+
+    @Override // com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface
+    public void attachWebView(@Nullable WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
+            super.attachWebView(webView);
+            if (this.a == null) {
+                this.a = new hw4();
+            }
+        }
+    }
+
+    @JavascriptInterface
+    public void reportData(String str) {
+        hw4 hw4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (hw4Var = this.a) != null) {
+            hw4Var.g(str, 2);
+        }
+    }
+
+    @JavascriptInterface
+    public String getInitData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (this.mWebView != null && (this.mWebView.getParent() instanceof TbWebView)) {
+                    Map<String, qe6<JSONObject>> bizData = ((TbWebView) this.mWebView.getParent()).getBizData();
+                    if (!yh6.b(bizData)) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        for (Map.Entry<String, qe6<JSONObject>> entry : bizData.entrySet()) {
+                            try {
+                                qe6<JSONObject> value = entry.getValue();
+                                if (!TextUtils.isEmpty(entry.getKey()) && value != null) {
+                                    jSONObject2.put(entry.getKey(), value.call());
+                                }
+                            } catch (Exception e) {
+                                BdLog.e(e);
+                            }
+                        }
+                        jSONObject.put("bizData", jSONObject2);
+                    }
+                }
+            } catch (Exception e2) {
+                BdLog.e(e2);
+            }
+            try {
+                if (this.a != null) {
+                    jSONObject.put("perfData", this.a.c(this.mWebView));
+                }
+            } catch (Exception e3) {
+                BdLog.e(e3);
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

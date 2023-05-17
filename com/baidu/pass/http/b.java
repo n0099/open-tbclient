@@ -16,7 +16,7 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static final String a = "HttpStack";
     public static final String b = "Set-Cookie";

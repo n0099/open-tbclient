@@ -1,189 +1,32 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jh3 implements SensorEventListener {
-    public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static volatile jh3 i;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public SensorManager b;
-    public Sensor c;
-    public a d;
-    public double[] e;
-    public boolean f;
-    public long g;
-    public int h;
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
+public interface jh3 {
+    String a(String str);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(double[] dArr);
-    }
+    boolean b(String str);
 
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, sensor, i2) == null) {
-        }
-    }
+    String c(String str);
 
-    public jh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new double[3];
-        this.f = false;
-        this.g = 0L;
-    }
+    @NonNull
+    kh3 d();
 
-    public static jh3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (i == null) {
-                synchronized (jh3.class) {
-                    if (i == null) {
-                        i = new jh3();
-                    }
-                }
-            }
-            return i;
-        }
-        return (jh3) invokeV.objValue;
-    }
+    String e(String str);
 
-    public static synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (jh3.class) {
-                if (i == null) {
-                    return;
-                }
-                i.c();
-            }
-        }
-    }
+    String f();
 
-    public final synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                x42.i("accelerometer", "release");
-                if (this.f) {
-                    g();
-                }
-                this.a = null;
-                i = null;
-            }
-        }
-    }
+    String g(String str);
 
-    public synchronized void b(Context context, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            synchronized (this) {
-                this.a = context;
-                this.h = i2;
-            }
-        }
-    }
+    String h(String str);
 
-    public synchronized void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this) {
-                this.d = aVar;
-            }
-        }
-    }
+    String i(String str);
 
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    x42.c("accelerometer", "start error, none context");
-                } else if (this.f) {
-                    x42.o("accelerometer", "has already start");
-                } else {
-                    SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
-                    this.b = sensorManager;
-                    if (sensorManager != null) {
-                        Sensor defaultSensor = sensorManager.getDefaultSensor(1);
-                        this.c = defaultSensor;
-                        this.b.registerListener(this, defaultSensor, 1);
-                        this.f = true;
-                        x42.i("accelerometer", "start listen");
-                    } else {
-                        x42.c("accelerometer", "none sensorManager");
-                    }
-                }
-            }
-        }
-    }
+    boolean j(String str, boolean z);
 
-    public synchronized void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (!this.f) {
-                    x42.o("accelerometer", "has already stop");
-                    return;
-                }
-                if (this.b != null) {
-                    this.b.unregisterListener(this);
-                }
-                this.b = null;
-                this.c = null;
-                this.f = false;
-            }
-        }
-    }
+    String k();
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
-            float[] fArr = sensorEvent.values;
-            if (fArr != null && fArr.length == 3) {
-                synchronized (this) {
-                    if (this.f && this.d != null && System.currentTimeMillis() - this.g > this.h) {
-                        this.e[0] = (-sensorEvent.values[0]) / 9.8d;
-                        this.e[1] = (-sensorEvent.values[1]) / 9.8d;
-                        this.e[2] = (-sensorEvent.values[2]) / 9.8d;
-                        this.d.a(this.e);
-                        this.g = System.currentTimeMillis();
-                    }
-                    if (x73.v) {
-                        Log.d("AccelerometerManager", "current Time : " + this.g + "current Acc x : " + this.e[0] + "current Acc y : " + this.e[1] + "current Acc z : " + this.e[2]);
-                    }
-                }
-                return;
-            }
-            x42.o("accelerometer", "illegal accelerometer event");
-        }
-    }
+    boolean l(String str);
+
+    String m(String str);
 }

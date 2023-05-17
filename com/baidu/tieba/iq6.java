@@ -1,108 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class iq6 extends hq6 {
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public class iq6 implements gq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ScaleGestureDetector h;
-    public b i;
+    public final gq6 a;
+    public final Map<Integer, gq6> b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes5.dex */
-    public final class c extends ScaleGestureDetector.SimpleOnScaleGestureListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ iq6 b;
-
-        public c(iq6 iq6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iq6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = iq6Var;
-            this.a = false;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScaleBegin(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scaleGestureDetector)) == null) {
-                this.a = false;
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final void onScaleEnd(ScaleGestureDetector scaleGestureDetector) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scaleGestureDetector) == null) {
-                this.a = true;
-            }
-        }
-
-        public /* synthetic */ c(iq6 iq6Var, a aVar) {
-            this(iq6Var);
-        }
-
-        @Override // android.view.ScaleGestureDetector.SimpleOnScaleGestureListener, android.view.ScaleGestureDetector.OnScaleGestureListener
-        public final boolean onScale(ScaleGestureDetector scaleGestureDetector) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scaleGestureDetector)) == null) {
-                if (scaleGestureDetector != null && this.b.i != null) {
-                    float scaleFactor = scaleGestureDetector.getScaleFactor();
-                    if (!this.a && scaleFactor > 1.0f) {
-                        this.a = true;
-                        this.b.i.a(true);
-                    } else if (!this.a && scaleFactor > 0.0f && scaleFactor < 1.0f) {
-                        this.a = true;
-                        this.b.i.a(false);
-                    }
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    public iq6(Context context) {
+    public iq6(gq6 defaultRenderer, Pair<Integer, ? extends gq6>... renderers) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -112,28 +34,52 @@ public class iq6 extends hq6 {
                 return;
             }
         }
-        this.h = new ScaleGestureDetector(context, new c(this, null));
+        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
+        Intrinsics.checkNotNullParameter(renderers, "renderers");
+        this.a = defaultRenderer;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
     }
 
-    @Override // com.baidu.tieba.hq6
-    public boolean c(MotionEvent motionEvent) {
+    @Override // com.baidu.tieba.gq6
+    public sq6 a(ko6 item, kq6 displayer, eo6 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            gq6 gq6Var = this.b.get(Integer.valueOf(c(item)));
+            if (gq6Var == null) {
+                gq6Var = this.a;
+            }
+            return gq6Var.a(item, displayer, config);
+        }
+        return (sq6) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gq6
+    public void b(ko6 item, Canvas canvas, kq6 displayer, eo6 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            gq6 gq6Var = this.b.get(Integer.valueOf(c(item)));
+            if (gq6Var == null) {
+                gq6Var = this.a;
+            }
+            gq6Var.b(item, canvas, displayer, config);
+        }
+    }
+
+    public int c(ko6 item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            try {
-                this.h.onTouchEvent(motionEvent);
-                return super.c(motionEvent);
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().g();
         }
-        return invokeL.booleanValue;
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.i = bVar;
-        }
+        return invokeL.intValue;
     }
 }

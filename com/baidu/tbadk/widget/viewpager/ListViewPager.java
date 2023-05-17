@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ListViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,13 +24,13 @@ public class ListViewPager extends ViewPager {
     public boolean f;
     public SwipeBackLayout.c g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class ListViewPager extends ViewPager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 if (this.a.g != null) {
-                    this.a.g.n0();
+                    this.a.g.m0();
                 }
                 if (Math.abs(f) > Math.abs(f2)) {
                     return true;
@@ -225,7 +225,7 @@ public class ListViewPager extends ViewPager {
                     } else {
                         SwipeBackLayout.c cVar = this.g;
                         if (cVar != null) {
-                            cVar.n0();
+                            cVar.m0();
                         }
                         this.c = motionEvent.getX() - this.a;
                         this.d = motionEvent.getY() - this.b;
@@ -246,7 +246,7 @@ public class ListViewPager extends ViewPager {
                 }
                 SwipeBackLayout.c cVar2 = this.g;
                 if (cVar2 != null) {
-                    cVar2.n0();
+                    cVar2.m0();
                 }
                 this.a = 0.0f;
                 this.b = 0.0f;
@@ -257,7 +257,7 @@ public class ListViewPager extends ViewPager {
             }
             SwipeBackLayout.c cVar3 = this.g;
             if (cVar3 != null) {
-                cVar3.n0();
+                cVar3.m0();
             }
             this.a = motionEvent.getX();
             this.b = motionEvent.getY();

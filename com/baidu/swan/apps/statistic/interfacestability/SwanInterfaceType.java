@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.statistic.interfacestability;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum SwanInterfaceType {
     LOGIN("cs_auth", "ma_login"),
     CHECK_SESSION("cs_auth", "ma_user_checksessionkey"),

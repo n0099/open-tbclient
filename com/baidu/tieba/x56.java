@@ -1,44 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.tbadk.TbPageContext;
+import android.os.Bundle;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class x56 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class x56 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public x56() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
-            return NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, tbPageContext) == null) {
-            try {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                intent.putExtra("android.provider.extra.APP_PACKAGE", tbPageContext.getPageActivity().getPackageName());
-                intent.putExtra("android.provider.extra.CHANNEL_ID", tbPageContext.getPageActivity().getApplicationInfo().uid);
-                intent.putExtra("app_package", tbPageContext.getPageActivity().getPackageName());
-                intent.putExtra("app_uid", tbPageContext.getPageActivity().getApplicationInfo().uid);
-                tbPageContext.getPageActivity().startActivity(intent);
-            } catch (Exception e) {
-                e.printStackTrace();
-                Intent intent2 = new Intent();
-                intent2.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                intent2.setData(Uri.fromParts("package", tbPageContext.getPageActivity().getPackageName(), null));
-                tbPageContext.getPageActivity().startActivity(intent2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("result", y56.b(AppRuntime.getAppContext()));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

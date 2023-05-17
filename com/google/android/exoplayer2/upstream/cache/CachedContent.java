@@ -6,7 +6,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class CachedContent {
     public final TreeSet<SimpleCacheSpan> cachedSpans;
     public final int id;

@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.mapapi.model.LatLng;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SelectedLocationInfo implements Parcelable {
     public static final String ADDRESS = "address";
     public static final Parcelable.Creator<SelectedLocationInfo> CREATOR = new a();
@@ -36,7 +36,7 @@ public class SelectedLocationInfo implements Parcelable {
         return jSONObject;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SelectedLocationInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

@@ -1,28 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class ql implements IExceptionHandlerContext {
+/* loaded from: classes7.dex */
+public class ql extends ul {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.logsystem.exceptionhandler.impl.IExceptionHandlerContext
-    public long getAppLaunchStartTimeStamp() {
+    @Override // com.baidu.tieba.ul
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "medialive" : (String) invokeV.objValue;
     }
 
     public ql() {

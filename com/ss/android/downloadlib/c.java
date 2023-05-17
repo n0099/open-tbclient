@@ -13,7 +13,7 @@ import com.ss.android.socialbase.downloader.a.a;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements h {
     public static String a = "c";
     public Handler b = new Handler(Looper.getMainLooper());
@@ -36,12 +36,12 @@ public class c implements h {
                 com.ss.android.downloadlib.addownload.d.a(downloadInfo.getId());
             }
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0699a() { // from class: com.ss.android.downloadlib.c.3
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0713a() { // from class: com.ss.android.downloadlib.c.3
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
             public void b() {
                 if (!l.b(bVar)) {
                     long j = a2;

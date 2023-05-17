@@ -16,7 +16,7 @@ import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.BlurUtils;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends a {
     public ImageView lr;
 
@@ -26,16 +26,16 @@ public final class b extends a {
 
     @Override // com.kwad.components.ad.reflux.kwai.a
     public final void M(@NonNull Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d048c, this);
-        this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c3);
-        this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912c1);
-        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912c2);
-        this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912bc);
-        this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0912bd);
-        this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0912ba);
-        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912c4);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0912bb);
-        this.lr = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912bf);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04a9, this);
+        this.li = (TextView) findViewById(R.id.obfuscated_res_0x7f0912fe);
+        this.lm = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912fc);
+        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912fd);
+        this.ll = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912f7);
+        this.lj = (TextView) findViewById(R.id.obfuscated_res_0x7f0912f8);
+        this.lk = (TextView) findViewById(R.id.obfuscated_res_0x7f0912f5);
+        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912ff);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0912f6);
+        this.lr = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912fa);
     }
 
     @Override // com.kwad.components.ad.reflux.kwai.a

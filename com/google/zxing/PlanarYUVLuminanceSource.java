@@ -1,5 +1,5 @@
 package com.google.zxing;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PlanarYUVLuminanceSource extends LuminanceSource {
     public static final int THUMBNAIL_SCALE_FACTOR = 2;
     public final int dataHeight;

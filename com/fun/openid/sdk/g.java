@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.fun.openid.sdk.v;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class g implements f {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) && !this.a) {
             v vVar = new v();
-            v.a aVar2 = new v.a() { // from class: com.baidu.tieba.eva
+            v.a aVar2 = new v.a() { // from class: com.baidu.tieba.cxa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

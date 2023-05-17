@@ -1,26 +1,131 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.JsPromptResult;
-import android.webkit.ValueCallback;
-import android.webkit.WebView;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes6.dex */
-public interface vf6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.browser.log.HybridLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.util.LruCache;
+/* loaded from: classes7.dex */
+public class vf6 extends LruCache<String, hg6> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(List<Pair<String, String>> list);
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vf6 a;
 
-    void b(String str, HashMap<String, Object> hashMap);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vf6 vf6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vf6Var;
+        }
 
-    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && customResponsedMessage.getData() != null) {
+                yk8 hybridLog = HybridLog.getInstance();
+                hybridLog.c("MemoryLruCache", "账号切换，清空预取数据缓存：" + this.a.getCount());
+                this.a.clearMemory();
+            }
+        }
+    }
 
-    void d(View view2, String str, HashMap<String, Object> hashMap);
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vf6 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void e(View view2, String str, ValueCallback<String> valueCallback);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-348162747, "Lcom/baidu/tieba/vf6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-348162747, "Lcom/baidu/tieba/vf6$b;");
+                    return;
+                }
+            }
+            a = new vf6(41943040, null);
+        }
+    }
 
-    void f(xf6 xf6Var, Object obj);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vf6(int i) {
+        super(i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(2005016, new a(this, 0));
+    }
+
+    public /* synthetic */ vf6(int i, a aVar) {
+        this(i);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.bumptech.glide.util.LruCache
+    /* renamed from: c */
+    public int getSize(@Nullable hg6 hg6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hg6Var)) == null) {
+            if (hg6Var == null) {
+                return super.getSize(null);
+            }
+            return hg6Var.d();
+        }
+        return invokeL.intValue;
+    }
+
+    public static vf6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (vf6) invokeV.objValue;
+    }
 }

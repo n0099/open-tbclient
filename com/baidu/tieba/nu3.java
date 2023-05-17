@@ -1,45 +1,231 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
-public class nu3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+import okhttp3.FormBody;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class nu3 implements kt1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final pw3<JSONObject> b;
+    public static final long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kt1
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static String b(String str, long j) {
-        InterceptResult invokeLJ;
+    @Override // com.baidu.tieba.kt1
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) {
-            return a(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j)));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return null;
         }
-        return (String) invokeLJ.objValue;
+        return (File) invokeLL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948014909, "Lcom/baidu/tieba/nu3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948014909, "Lcom/baidu/tieba/nu3;");
+                return;
+            }
+        }
+        a = qp1.a;
+        b = new pw3<>();
+        c = TimeUnit.MINUTES.toMillis(2L);
+    }
+
+    public nu3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.kt1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.kt1
+    public JSONObject c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            if (a) {
+                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList params=" + str);
+            }
+            String str2 = f93.K().getAppId() + f93.K().q().N().c(context);
+            JSONObject c2 = b.c(str2);
+            if (a) {
+                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList k=" + str2);
+            }
+            if (c2 != null) {
+                if (a) {
+                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with cache=" + c2);
+                }
+                return c2;
+            } else if (an3.O()) {
+                return null;
+            } else {
+                JSONObject f = f(context, str);
+                if (a) {
+                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with request=" + f);
+                }
+                return b.a(str2, f, c);
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public final JSONObject e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject2 = new JSONObject();
+            gm3.f(jSONObject2, Constants.EXTRA_PA_TYPE, 7);
+            gm3.f(jSONObject2, "pa_unread_sums", Integer.valueOf(i));
+            jSONArray.put(jSONObject2);
+            gm3.f(jSONObject, "un_read_list", jSONArray);
+            return jSONObject;
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0027, code lost:
+        r9 = r4.optString(com.baidu.android.imsdk.internal.Constants.EXTRA_PAUID_TYPE);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public JSONObject f(Context context, String str) {
+        InterceptResult invokeLL;
+        String str2;
+        ResponseBody responseBody;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, str)) == null) {
+            g93 b0 = g93.b0();
+            ResponseBody responseBody2 = null;
+            if (b0 == null) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                int i = 0;
+                int i2 = 0;
+                while (true) {
+                    if (i2 < length) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                        if (optJSONObject.optInt(Constants.EXTRA_PA_TYPE) == 7) {
+                            break;
+                        }
+                        i2++;
+                    } else {
+                        str2 = null;
+                        break;
+                    }
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return null;
+                }
+                String n = ns2.o().n();
+                jg4 jg4Var = new jg4(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", b0.O()).add("pa", str2).build()).build().body(), null);
+                jg4Var.f = true;
+                jg4Var.g = true;
+                jg4Var.h = true;
+                jg4Var.b = "POST";
+                HttpRequestBuilder a2 = lg4.a(jg4Var);
+                kg4.g().u(a2, jg4Var);
+                try {
+                    Response executeSync = a2.build().executeSync();
+                    if (!executeSync.isSuccessful()) {
+                        kp4.d(null);
+                        return null;
+                    }
+                    responseBody = executeSync.body();
+                    if (responseBody == null) {
+                        kp4.d(responseBody);
+                        return null;
+                    }
+                    try {
+                        JSONObject jSONObject = new JSONObject(responseBody.string());
+                        if (!"0".equals(jSONObject.optString("errno"))) {
+                            kp4.d(responseBody);
+                            return null;
+                        }
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+                        if (optJSONObject2 != null) {
+                            i = optJSONObject2.optInt("num");
+                        }
+                        JSONObject e = e(i);
+                        ns2.K().i(e);
+                        kp4.d(responseBody);
+                        return e;
+                    } catch (IOException | JSONException unused) {
+                        kp4.d(responseBody);
+                        return null;
+                    } catch (Throwable th) {
+                        th = th;
+                        responseBody2 = responseBody;
+                        kp4.d(responseBody2);
+                        throw th;
+                    }
+                } catch (IOException | JSONException unused2) {
+                    responseBody = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (JSONException unused3) {
+            }
+        } else {
+            return (JSONObject) invokeLL.objValue;
+        }
     }
 }

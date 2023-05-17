@@ -6,7 +6,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,7 +37,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class PendingResultImpl<R extends Result, T extends IMessageEntity> extends InnerPendingResult<R> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PendingResultImpl";
@@ -81,7 +80,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
 
     public abstract R onComplete(T t);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements DatagramTransport.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +115,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements DatagramTransport.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +153,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements DatagramTransport.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,7 +194,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d<R extends Result> extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -367,7 +366,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
                     hashMap.put("transId", this.transId);
                     this.transId = null;
                 }
-                String[] split = this.url.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = this.url.split("\\.");
                 if (split.length >= 2) {
                     hashMap.put("service", split[0]);
                     hashMap.put("apiName", split[1]);

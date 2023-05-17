@@ -27,16 +27,16 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am;
-import com.baidu.tieba.vl;
-import com.baidu.tieba.wl;
+import com.baidu.tieba.em;
+import com.baidu.tieba.fm;
+import com.baidu.tieba.jm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbAlphaVideo extends FrameLayout implements Animatable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends DefaultDownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
-                File file = new File(am.b(this.a));
+                File file = new File(jm.b(this.a));
                 if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(this.a)) && file.exists()) {
                     this.b.setSourceFile(file);
                     this.b.i();
@@ -118,7 +118,7 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements OnVideoErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -497,16 +497,16 @@ public class TbAlphaVideo extends FrameLayout implements Animatable {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            File file = new File(am.b(str));
+            File file = new File(jm.b(str));
             if (!StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(str)) && file.exists()) {
                 setSourceFile(file);
                 i();
                 return;
             }
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(wl.a);
+            requestParams.setRunType(fm.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new vl("com.baidu.tieba.resloader." + str, new a(this, str)));
+            requestParams.addChannel(new em("com.baidu.tieba.resloader." + str, new a(this, str)));
             PmsManager.getInstance().execute(requestParams);
         }
     }

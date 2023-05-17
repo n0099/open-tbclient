@@ -1,84 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.j93;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes4.dex */
-public class eq1 implements js1 {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class eq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.js1
-    public boolean a(Activity activity, String str, j93.b bVar) {
-        InterceptResult invokeLLL;
+    public static JSONObject a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, bVar)) == null) {
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.js1
-    public boolean b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public eq1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("isEnded", z);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.js1
-    public boolean c(Activity activity, Uri uri, String str) {
-        InterceptResult invokeLLL;
+    public static JSONObject b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, uri, str)) == null) {
-            if (activity != null && uri != null && uri.getPath() != null && !TextUtils.isEmpty(str)) {
-                if (ek3.i()) {
-                    uri = ul3.a(activity, new File(uri.getPath()));
-                }
-                d(activity, uri, str);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", ty3.a(str));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return false;
+            return jSONObject;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void d(Activity activity, Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, uri, str) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
-            intent.addCategory("android.intent.category.DEFAULT");
-            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            intent.addFlags(1);
-            intent.setDataAndType(uri, str);
-            gk3.f(activity, intent);
-        }
+        return (JSONObject) invokeL.objValue;
     }
 }

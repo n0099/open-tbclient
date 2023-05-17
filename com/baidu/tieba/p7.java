@@ -1,227 +1,211 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class p7 {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.Reader;
+/* loaded from: classes6.dex */
+public final class p7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public short[] a;
-    public int b;
-    public boolean c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public p7() {
-        this(true, 16);
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x0132, code lost:
+        if (r11 != 3) goto L56;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(k7<String, String> k7Var, Reader reader) throws IOException {
+        char c;
+        char c2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public p7(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = z;
-        this.a = new short[i];
-    }
-
-    public void a(short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Short.valueOf(s)}) == null) {
-            short[] sArr = this.a;
-            int i = this.b;
-            if (i == sArr.length) {
-                sArr = e(Math.max(8, (int) (i * 1.75f)));
-            }
-            int i2 = this.b;
-            this.b = i2 + 1;
-            sArr[i2] = s;
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!this.c || !(obj instanceof p7)) {
-                return false;
-            }
-            p7 p7Var = (p7) obj;
-            if (!p7Var.c || (i = this.b) != p7Var.b) {
-                return false;
-            }
-            short[] sArr = this.a;
-            short[] sArr2 = p7Var.a;
-            for (int i2 = 0; i2 < i; i2++) {
-                if (sArr[i2] != sArr2[i2]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = 0;
-        }
-    }
-
-    public short[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = this.b;
-            short[] sArr = new short[i];
-            System.arraycopy(this.a, 0, sArr, 0, i);
-            return sArr;
-        }
-        return (short[]) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!this.c) {
-                return super.hashCode();
-            }
-            short[] sArr = this.a;
-            int i = this.b;
-            int i2 = 1;
-            for (int i3 = 0; i3 < i; i3++) {
-                i2 = (i2 * 31) + sArr[i3];
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    public short[] c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0) {
-                int i2 = this.b + i;
-                if (i2 > this.a.length) {
-                    e(Math.max(Math.max(8, i2), (int) (this.b * 1.75f)));
-                }
-                return this.a;
-            }
-            throw new IllegalArgumentException("additionalCapacity must be >= 0: " + i);
-        }
-        return (short[]) invokeI.objValue;
-    }
-
-    public short d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int i2 = this.b;
-            if (i < i2) {
-                short[] sArr = this.a;
-                short s = sArr[i];
-                int i3 = i2 - 1;
-                this.b = i3;
-                if (this.c) {
-                    System.arraycopy(sArr, i + 1, sArr, i, i3 - i);
+        if (interceptable == null || interceptable.invokeLL(65536, null, k7Var, reader) == null) {
+            if (k7Var != null) {
+                if (reader != null) {
+                    char[] cArr = new char[40];
+                    BufferedReader bufferedReader = new BufferedReader(reader);
+                    char c3 = 2;
+                    char c4 = 1;
+                    int i = 0;
+                    char c5 = 0;
+                    int i2 = 0;
+                    int i3 = 0;
+                    while (true) {
+                        int i4 = -1;
+                        boolean z = true;
+                        while (true) {
+                            int read = bufferedReader.read();
+                            if (read == -1) {
+                                if (c5 == c3 && i2 <= 4) {
+                                    throw new IllegalArgumentException("Invalid Unicode sequence: expected format \\uxxxx");
+                                }
+                                if (i4 == -1 && i > 0) {
+                                    i4 = i;
+                                }
+                                if (i4 >= 0) {
+                                    String str = new String(cArr, 0, i);
+                                    String substring = str.substring(0, i4);
+                                    String substring2 = str.substring(i4);
+                                    if (c5 == c4) {
+                                        substring2 = substring2 + "\u0000";
+                                    }
+                                    k7Var.i(substring, substring2);
+                                    return;
+                                }
+                                return;
+                            }
+                            char c6 = (char) read;
+                            if (i == cArr.length) {
+                                char[] cArr2 = new char[cArr.length * 2];
+                                System.arraycopy(cArr, 0, cArr2, 0, i);
+                                cArr = cArr2;
+                            }
+                            if (c5 == c3) {
+                                int digit = Character.digit(c6, 16);
+                                if (digit >= 0) {
+                                    i3 = (i3 << 4) + digit;
+                                    i2++;
+                                    if (i2 < 4) {
+                                        c3 = 2;
+                                    }
+                                } else if (i2 <= 4) {
+                                    throw new IllegalArgumentException("Invalid Unicode sequence: illegal character");
+                                }
+                                cArr[i] = (char) i3;
+                                i++;
+                                if (c6 != '\n') {
+                                    c3 = 2;
+                                    c5 = 0;
+                                } else {
+                                    c5 = 0;
+                                }
+                            }
+                            if (c5 == c4) {
+                                if (c6 != '\n') {
+                                    if (c6 != '\r') {
+                                        if (c6 != 'b') {
+                                            if (c6 != 'f') {
+                                                if (c6 != 'n') {
+                                                    if (c6 != 'r') {
+                                                        if (c6 != 't') {
+                                                            if (c6 == 'u') {
+                                                                c3 = 2;
+                                                                c5 = 2;
+                                                                i2 = 0;
+                                                                i3 = 0;
+                                                            }
+                                                        } else {
+                                                            c6 = '\t';
+                                                        }
+                                                    } else {
+                                                        c6 = '\r';
+                                                    }
+                                                } else {
+                                                    c6 = '\n';
+                                                }
+                                            } else {
+                                                c6 = '\f';
+                                            }
+                                        } else {
+                                            c6 = '\b';
+                                        }
+                                        c5 = 0;
+                                    } else {
+                                        c3 = 2;
+                                        c5 = 3;
+                                    }
+                                } else {
+                                    c3 = 2;
+                                    c5 = 5;
+                                }
+                            } else if (c6 != '\n') {
+                                if (c6 == '\r') {
+                                    break;
+                                }
+                                if (c6 != '!' && c6 != '#') {
+                                    if (c6 != ':' && c6 != '=') {
+                                        if (c6 == '\\') {
+                                            if (c5 == 4) {
+                                                i4 = i;
+                                            }
+                                            c3 = 2;
+                                            c4 = 1;
+                                            c5 = 1;
+                                        }
+                                    } else if (i4 == -1) {
+                                        i4 = i;
+                                        c3 = 2;
+                                        c4 = 1;
+                                        c5 = 0;
+                                    }
+                                } else if (z) {
+                                    do {
+                                        int read2 = bufferedReader.read();
+                                        if (read2 == -1 || (c = (char) read2) == '\r') {
+                                            break;
+                                        }
+                                    } while (c != '\n');
+                                    c3 = 2;
+                                    c4 = 1;
+                                }
+                                if (Character.isSpace(c6)) {
+                                    if (c5 == 3) {
+                                        c5 = 5;
+                                    }
+                                    if (i != 0 && i != i4) {
+                                        c2 = 5;
+                                        if (c5 != 5) {
+                                            if (i4 == -1) {
+                                                c3 = 2;
+                                                c4 = 1;
+                                                c5 = 4;
+                                            }
+                                        }
+                                    }
+                                    c3 = 2;
+                                    c4 = 1;
+                                } else {
+                                    c2 = 5;
+                                }
+                                if (c5 != c2) {
+                                }
+                                c5 = 0;
+                            } else if (c5 != 3) {
+                                break;
+                            } else {
+                                c3 = 2;
+                                c4 = 1;
+                                c5 = 5;
+                            }
+                            if (c5 == 4) {
+                                i4 = i;
+                                c5 = 0;
+                            }
+                            cArr[i] = c6;
+                            i++;
+                            c3 = 2;
+                            c4 = 1;
+                            z = false;
+                        }
+                        if (i > 0 || (i == 0 && i4 == 0)) {
+                            if (i4 == -1) {
+                                i4 = i;
+                            }
+                            String str2 = new String(cArr, 0, i);
+                            k7Var.i(str2.substring(0, i4), str2.substring(i4));
+                        }
+                        c3 = 2;
+                        c4 = 1;
+                        i = 0;
+                        c5 = 0;
+                    }
                 } else {
-                    sArr[i] = sArr[i3];
+                    throw new NullPointerException("reader cannot be null");
                 }
-                return s;
+            } else {
+                throw new NullPointerException("properties cannot be null");
             }
-            throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.b);
         }
-        return invokeI.shortValue;
-    }
-
-    public short[] e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            short[] sArr = new short[i];
-            System.arraycopy(this.a, 0, sArr, 0, Math.min(this.b, i));
-            this.a = sArr;
-            return sArr;
-        }
-        return (short[]) invokeI.objValue;
-    }
-
-    public void insert(int i, short s) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Short.valueOf(s)}) == null) {
-            int i2 = this.b;
-            if (i <= i2) {
-                short[] sArr = this.a;
-                if (i2 == sArr.length) {
-                    sArr = e(Math.max(8, (int) (i2 * 1.75f)));
-                }
-                if (this.c) {
-                    System.arraycopy(sArr, i, sArr, i + 1, this.b - i);
-                } else {
-                    sArr[this.b] = sArr[i];
-                }
-                this.b++;
-                sArr[i] = s;
-                return;
-            }
-            throw new IndexOutOfBoundsException("index can't be > size: " + i + " > " + this.b);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.b == 0) {
-                return "[]";
-            }
-            short[] sArr = this.a;
-            t7 t7Var = new t7(32);
-            t7Var.a('[');
-            t7Var.d(sArr[0]);
-            for (int i = 1; i < this.b; i++) {
-                t7Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                t7Var.d(sArr[i]);
-            }
-            t7Var.a(']');
-            return t7Var.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

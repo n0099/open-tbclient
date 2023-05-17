@@ -4,7 +4,7 @@ import androidx.annotation.IntRange;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BlockInfo {
     @IntRange(from = 0)
     public final long contentLength;

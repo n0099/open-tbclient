@@ -14,14 +14,14 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0112a {
+    /* loaded from: classes3.dex */
+    public static class C0116a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -90,7 +90,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509Certificate)) == null) {
             try {
-                return C0112a.a(a(x509Certificate.getEncoded()));
+                return C0116a.a(a(x509Certificate.getEncoded()));
             } catch (CertificateEncodingException unused) {
                 return null;
             }

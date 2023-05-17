@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.r;
 import com.vivo.push.util.g;
 import com.vivo.push.util.u;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a extends r {
     public static /* synthetic */ Interceptable $ic;
     public static a c;

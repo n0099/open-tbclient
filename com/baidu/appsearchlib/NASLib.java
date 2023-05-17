@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -117,7 +118,7 @@ public class NASLib extends Activity {
                     if (callback != null) {
                         callback.callback(str, trim);
                     } else if (z) {
-                        startActivity(new Intent("android.intent.action.VIEW", Uri.parse(trim)));
+                        startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(trim)));
                     }
                     return trim;
                 } catch (Exception e) {

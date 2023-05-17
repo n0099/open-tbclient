@@ -13,9 +13,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.lw8;
-import com.baidu.tieba.mw8;
-import com.baidu.tieba.ow8;
+import com.baidu.tieba.gy8;
+import com.baidu.tieba.hy8;
+import com.baidu.tieba.jy8;
 import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class EjectionAnimationView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,12 +38,12 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<lw8> i;
+    public ArrayList<gy8> i;
     public List<Bitmap> j;
-    public ow8 k;
+    public jy8 k;
     public Vibrator l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,13 +177,13 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            ArrayList<lw8> arrayList = this.i;
+            ArrayList<gy8> arrayList = this.i;
             if (arrayList == null) {
                 return;
             }
-            Iterator<lw8> it = arrayList.iterator();
+            Iterator<gy8> it = arrayList.iterator();
             while (it.hasNext()) {
-                lw8 next = it.next();
+                gy8 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     next.b(canvas);
                 }
@@ -198,10 +198,10 @@ public class EjectionAnimationView extends View {
         }
     }
 
-    public void setEjectionAnimationViewCallback(ow8 ow8Var) {
+    public void setEjectionAnimationViewCallback(jy8 jy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ow8Var) == null) {
-            this.k = ow8Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jy8Var) == null) {
+            this.k = jy8Var;
         }
     }
 
@@ -217,7 +217,7 @@ public class EjectionAnimationView extends View {
         Bitmap bitmap;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e && !ListUtils.isEmpty(this.j) && (bitmap = this.j.get(new Random().nextInt(this.j.size()))) != null && !bitmap.isRecycled()) {
-            this.i.add(new mw8(bitmap, this.g, this.h, this.b, this.c));
+            this.i.add(new hy8(bitmap, this.g, this.h, this.b, this.c));
         }
     }
 
@@ -228,9 +228,9 @@ public class EjectionAnimationView extends View {
             this.i = new ArrayList<>();
             this.e = true;
             this.d = 1;
-            ow8 ow8Var = this.k;
-            if (ow8Var != null) {
-                ow8Var.onStart();
+            jy8 jy8Var = this.k;
+            if (jy8Var != null) {
+                jy8Var.onStart();
             }
             this.a.sendEmptyMessage(0);
             Vibrator vibrator = this.l;
@@ -244,9 +244,9 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f = true;
-            Iterator<lw8> it = this.i.iterator();
+            Iterator<gy8> it = this.i.iterator();
             while (it.hasNext()) {
-                lw8 next = it.next();
+                gy8 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     this.f = false;
                     next.a();
@@ -275,9 +275,9 @@ public class EjectionAnimationView extends View {
             this.d = 1;
             this.i = new ArrayList<>();
             this.a.removeMessages(0);
-            ow8 ow8Var = this.k;
-            if (ow8Var != null) {
-                ow8Var.onStop();
+            jy8 jy8Var = this.k;
+            if (jy8Var != null) {
+                jy8Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {

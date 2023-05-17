@@ -7,13 +7,13 @@ import com.google.android.exoplayer2.source.ShuffleOrder;
 import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class LoopingMediaSource implements MediaSource {
     public int childPeriodCount;
     public final MediaSource childSource;
     public final int loopCount;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InfinitelyLoopingTimeline extends ForwardingTimeline {
         public InfinitelyLoopingTimeline(Timeline timeline) {
             super(timeline);
@@ -38,7 +38,7 @@ public final class LoopingMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class LoopingTimeline extends AbstractConcatenatedTimeline {
         public final int childPeriodCount;
         public final Timeline childTimeline;

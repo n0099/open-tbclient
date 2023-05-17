@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.text;
 
 import androidx.annotation.NonNull;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SubtitleInputBuffer extends DecoderInputBuffer implements Comparable<SubtitleInputBuffer> {
     public long subsampleOffsetUs;
 

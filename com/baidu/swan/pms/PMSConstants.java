@@ -1,24 +1,24 @@
 package com.baidu.swan.pms;
 
-import com.baidu.tieba.gf4;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.pg4;
+/* loaded from: classes4.dex */
 public class PMSConstants {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static int a() {
             return 1;
         }
     }
 
-    public static boolean a(gf4 gf4Var) {
-        if (gf4Var != null && gf4Var.x()) {
+    public static boolean a(pg4 pg4Var) {
+        if (pg4Var != null && pg4Var.x()) {
             return true;
         }
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum CloudSwitch {
         NO_DISPLAY(0),
         DISPLAY(1);
@@ -30,7 +30,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum CustomerService {
         NO_CUSTOMER_SERVICE(0),
         CUSTOMER_SERVICE(1);
@@ -42,7 +42,7 @@ public class PMSConstants {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum PayProtected {
         NO_PAY_PROTECTED(0),
         PAY_PROTECTED(1);

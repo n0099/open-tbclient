@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.metadata.emsg.EventMessageDecoder;
 import com.google.android.exoplayer2.metadata.id3.Id3Decoder;
 import com.google.android.exoplayer2.metadata.scte35.SpliceInfoDecoder;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface MetadataDecoderFactory {
     public static final MetadataDecoderFactory DEFAULT = new MetadataDecoderFactory() { // from class: com.google.android.exoplayer2.metadata.MetadataDecoderFactory.1
         @Override // com.google.android.exoplayer2.metadata.MetadataDecoderFactory

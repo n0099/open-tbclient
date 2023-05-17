@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final long l;
@@ -42,13 +42,13 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public TextView j;
     public CountDownTimer k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 FrsLotteryCountDownView frsLotteryCountDownView = this.a.get();
                 if (frsLotteryCountDownView == null) {
-                    jg.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
+                    sg.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
                     return;
                 }
                 frsLotteryCountDownView.c.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.l)));
@@ -236,16 +236,16 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0357, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d036e, (ViewGroup) this, true);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915c7);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915c8);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915c9);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915ca);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915cb);
-            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915cc);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915cd);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0915ce);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091608);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091609);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09160a);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09160b);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09160c);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09160d);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09160e);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09160f);
         }
     }
 

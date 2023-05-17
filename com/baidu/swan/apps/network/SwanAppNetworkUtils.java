@@ -10,27 +10,27 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.g43;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.k43;
-import com.baidu.tieba.kz2;
-import com.baidu.tieba.re2;
-import com.baidu.tieba.rl3;
+import com.baidu.tieba.ag2;
+import com.baidu.tieba.an3;
+import com.baidu.tieba.p53;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.t03;
+import com.baidu.tieba.t53;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppNetworkUtils {
-    public static final boolean a = ho1.a;
+    public static final boolean a = qp1.a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onResult(int i);
     }
 
-    /* loaded from: classes3.dex */
-    public static class a implements g43<Bundle> {
+    /* loaded from: classes4.dex */
+    public static class a implements p53<Bundle> {
         public final /* synthetic */ b a;
 
         public a(b bVar) {
@@ -38,7 +38,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.g43
+        @Override // com.baidu.tieba.p53
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar = this.a;
@@ -49,7 +49,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static String g() {
-        String f = rl3.f(re2.U().g0());
+        String f = an3.f(ag2.U().g0());
         if (TextUtils.isEmpty(f)) {
             return "";
         }
@@ -64,7 +64,7 @@ public class SwanAppNetworkUtils {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum NetType {
         NONE("no"),
         WIFI("wifi"),
@@ -138,7 +138,7 @@ public class SwanAppNetworkUtils {
     }
 
     public static void b(@NonNull b bVar) {
-        k43.a(kz2.class, null, new a(bVar));
+        t53.a(t03.class, null, new a(bVar));
     }
 
     public static NetworkInfo c(Context context) {

@@ -1,113 +1,313 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
+import androidx.fragment.app.Fragment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.write.album.AlbumImageBrowseFragment;
+import com.baidu.tieba.write.album.ImageListFragment;
+import com.baidu.tieba.write.album.TbCameraView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class u7a {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class u7a extends e9<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public y7a c;
+    public Fragment[] d;
+    public String[] e;
+    public ImageListFragment f;
+    public AlbumImageBrowseFragment g;
 
-    public static void a(int i, int i2) {
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_type", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
         }
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
+    /* loaded from: classes7.dex */
+    public class a implements TbCameraView.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbCameraView a;
+
+        public a(u7a u7aVar, TbCameraView tbCameraView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u7aVar, tbCameraView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbCameraView;
+        }
+
+        @Override // com.baidu.tieba.write.album.TbCameraView.d
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.p();
+            }
         }
     }
 
-    public static boolean d() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u7a(TbPageContext tbPageContext, y7a y7aVar) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, y7aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((g9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "tag_image";
+        this.b = "tag_b_image";
+        this.c = y7aVar;
+    }
+
+    public TbCameraView A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
             }
-            return true;
+            return imageListFragment.g2();
         }
-        return invokeV.booleanValue;
+        return (TbCameraView) invokeV.objValue;
     }
 
-    public static boolean e() {
+    public ImageListFragment D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TimeHelper.getDayDifference(System.currentTimeMillis(), f55.m().o("key_check_is_question_thread_time", 0L)) > 7) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
-        return invokeV.booleanValue;
+        return (ImageListFragment) invokeV.objValue;
     }
 
-    public static boolean f() {
+    public View E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
             }
-            return false;
+            return imageListFragment.i2();
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public static boolean g() {
+    public View F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
             }
-            return false;
+            return albumImageBrowseFragment.U1();
         }
-        return invokeV.booleanValue;
+        return (View) invokeV.objValue;
     }
 
-    public static void c(Activity activity) {
+    public void I() {
+        ImageListFragment imageListFragment;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
-        }
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).closeLoadingDialog();
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).closeLoadingDialog();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (imageListFragment = this.f) != null) {
+            imageListFragment.j2();
         }
     }
 
-    public static void h(Activity activity) {
+    public void N() {
+        TbCameraView A;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (A = A()) != null) {
+            A.p();
+            A.setVisibility(4);
         }
-        String string = activity.getString(R.string.obfuscated_res_0x7f0f03ea);
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).showLoadingDialog(string);
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).showLoadingDialog(string);
+    }
+
+    public View u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.S1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.e2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment == null) {
+                return null;
+            }
+            return albumImageBrowseFragment.T1();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public View z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment == null) {
+                return null;
+            }
+            return imageListFragment.f2();
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public Fragment B(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                return this.d[i];
+            }
+            return null;
+        }
+        return (Fragment) invokeI.objValue;
+    }
+
+    public String C(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i <= 1) {
+                return this.e[i];
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            AlbumImageBrowseFragment albumImageBrowseFragment = this.g;
+            if (albumImageBrowseFragment != null) {
+                albumImageBrowseFragment.Y1(z);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment != null) {
+                imageListFragment.n2(z);
+            }
+        }
+    }
+
+    public void K(NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, navigationBar) == null) {
+            this.f.p2(navigationBar);
+        }
+    }
+
+    public void M(d8a d8aVar) {
+        ImageListFragment imageListFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, d8aVar) == null) && (imageListFragment = this.f) != null) {
+            imageListFragment.q2(d8aVar);
+        }
+    }
+
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            int i2 = 0;
+            while (true) {
+                Fragment[] fragmentArr = this.d;
+                if (i2 < fragmentArr.length) {
+                    if (fragmentArr[i2] != null && (fragmentArr[i2] instanceof ImageListFragment)) {
+                        ((ImageListFragment) fragmentArr[i2]).onChangeSkinType(i);
+                    }
+                    i2++;
+                } else {
+                    return;
+                }
+            }
+        }
+    }
+
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = new Fragment[2];
+            this.e = new String[2];
+            ImageListFragment imageListFragment = new ImageListFragment();
+            this.f = imageListFragment;
+            imageListFragment.o2(this.c);
+            this.d[0] = this.f;
+            this.e[0] = this.a;
+            AlbumImageBrowseFragment albumImageBrowseFragment = new AlbumImageBrowseFragment();
+            this.g = albumImageBrowseFragment;
+            albumImageBrowseFragment.Z1(this.c);
+            this.d[1] = this.g;
+            this.e[1] = this.b;
+        }
+    }
+
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            TbCameraView A = A();
+            if (A != null) {
+                A.setOnOpenCameraFailedListener(new a(this, A));
+                A.n(false);
+                A.setVisibility(0);
+            }
+            ImageListFragment imageListFragment = this.f;
+            if (imageListFragment != null && imageListFragment.h2() != null) {
+                this.f.h2().n();
+            }
         }
     }
 }

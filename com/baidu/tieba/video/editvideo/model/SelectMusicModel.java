@@ -16,11 +16,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ry9;
+import com.baidu.tieba.a2a;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.t0a;
 import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.xz9;
-import com.baidu.tieba.yz9;
+import com.baidu.tieba.z1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,11 +30,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ry9 a;
+    public t0a a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -48,7 +48,7 @@ public class SelectMusicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class VideoSugMusicResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,8 +100,8 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Integer, yz9> {
+    /* loaded from: classes7.dex */
+    public class a extends BdAsyncTask<Void, Integer, a2a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -135,35 +135,35 @@ public class SelectMusicModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public yz9 doInBackground(Void... voidArr) {
+        public a2a doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 if (TextUtils.isEmpty(this.a) && !this.b) {
-                    return xz9.e().g(this.c, this.d);
+                    return z1a.e().g(this.c, this.d);
                 }
-                return xz9.e().h(this.c, this.a, this.d, this.b);
+                return z1a.e().h(this.c, this.a, this.d, this.b);
             }
-            return (yz9) invokeL.objValue;
+            return (a2a) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(yz9 yz9Var) {
+        public void onPostExecute(a2a a2aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz9Var) == null) {
-                super.onPostExecute(yz9Var);
-                if (yz9Var != null && yz9Var.a == 0) {
-                    this.e.a.p1(this.d, -4399, "");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a2aVar) == null) {
+                super.onPostExecute(a2aVar);
+                if (a2aVar != null && a2aVar.a == 0) {
+                    this.e.a.o1(this.d, -4399, "");
                 } else {
-                    this.e.a.p1(null, yz9Var.a, yz9Var.b);
+                    this.e.a.o1(null, a2aVar.a, a2aVar.b);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,18 +205,18 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, ry9 ry9Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, t0a t0aVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ry9Var};
+            Object[] objArr = {tbPageContext, t0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -224,14 +224,14 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new b(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = ry9Var;
-        X();
+        this.a = t0aVar;
+        W();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);
         registerListener(this.c);
     }
 
-    public void W() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
@@ -253,7 +253,7 @@ public class SelectMusicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public final void X() {
+    public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VIDEO_SUG_MUSIC, TbConfig.SERVER_ADDRESS + "c/f/video/music");
@@ -262,7 +262,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
     }
 
-    public void Y(String str, String str2, String str3, boolean z) {
+    public void X(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
             if ((!z || !TextUtils.isEmpty(str2)) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {

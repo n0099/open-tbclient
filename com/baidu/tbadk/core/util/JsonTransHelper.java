@@ -30,7 +30,7 @@ import tbclient.McnAdInfo;
 import tbclient.ThreadPicList;
 import tbclient.VideoDesc;
 import tbclient.VideoInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JsonTransHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class JsonTransHelper {
             builder.card_title = jSONObject.optString("card_title");
             builder.button_title = jSONObject.optString("button_title");
             builder.effect_time = Long.valueOf(jSONObject.optLong("effect_time"));
-            builder.expire_time = Long.valueOf(jSONObject.optLong(PushConstants.REGISTER_STATUS_EXPIRE_TIME));
+            builder.expire_time = Long.valueOf(jSONObject.optLong("expire_time"));
             return builder.build(false);
         }
         return (McnAdInfo) invokeL.objValue;
@@ -329,7 +329,7 @@ public class JsonTransHelper {
                 jSONObject.put("card_title", mcnAdInfo.card_title);
                 jSONObject.put("button_title", mcnAdInfo.button_title);
                 jSONObject.put("effect_time", mcnAdInfo.effect_time);
-                jSONObject.put(PushConstants.REGISTER_STATUS_EXPIRE_TIME, mcnAdInfo.expire_time);
+                jSONObject.put("expire_time", mcnAdInfo.expire_time);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

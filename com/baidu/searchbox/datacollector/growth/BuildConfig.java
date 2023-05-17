@@ -1,5 +1,5 @@
 package com.baidu.searchbox.datacollector.growth;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.searchbox.datacollector.growth";
     public static final String BUILD_TYPE = "release";

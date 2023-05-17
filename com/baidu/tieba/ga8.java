@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ga8 {
-    void a(int i, int i2);
-
-    void b(int i, int i2);
-
-    void c(int i, int i2);
+    void a(String str, int i);
 }

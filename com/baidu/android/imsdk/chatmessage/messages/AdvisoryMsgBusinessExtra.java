@@ -160,35 +160,34 @@ public class AdvisoryMsgBusinessExtra {
 
     public static AdvisoryMsgBusinessExtra parseAdvisoryExtra(String str) {
         InterceptResult invokeL;
-        JSONObject jSONObject;
-        AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra2 = null;
+            AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra = null;
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             try {
-                jSONObject = new JSONObject(str);
-                advisoryMsgBusinessExtra = new AdvisoryMsgBusinessExtra();
-            } catch (JSONException e) {
-                e = e;
-            }
-            try {
-                advisoryMsgBusinessExtra.subType = jSONObject.optInt(SUBTYPE_KEY, -1);
-                advisoryMsgBusinessExtra.rounds = jSONObject.optInt(ROUNDS_KEY, -1);
-                advisoryMsgBusinessExtra.aid = jSONObject.optString("aid");
-                advisoryMsgBusinessExtra.advisoryAskExtraText = jSONObject.optString("askExtraText");
-                advisoryMsgBusinessExtra.advisoryReplyExtraText = jSONObject.optString("replyExtraText");
-                return advisoryMsgBusinessExtra;
+                JSONObject jSONObject = new JSONObject(str);
+                AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra2 = new AdvisoryMsgBusinessExtra();
+                try {
+                    advisoryMsgBusinessExtra2.subType = jSONObject.optInt(SUBTYPE_KEY, -1);
+                    advisoryMsgBusinessExtra2.rounds = jSONObject.optInt(ROUNDS_KEY, -1);
+                    advisoryMsgBusinessExtra2.aid = jSONObject.optString("aid");
+                    advisoryMsgBusinessExtra2.advisoryAskExtraText = jSONObject.optString("askExtraText");
+                    advisoryMsgBusinessExtra2.advisoryReplyExtraText = jSONObject.optString("replyExtraText");
+                    return advisoryMsgBusinessExtra2;
+                } catch (JSONException e) {
+                    e = e;
+                    advisoryMsgBusinessExtra = advisoryMsgBusinessExtra2;
+                    LogUtils.e(LogUtils.TAG, "getTextJson", e);
+                    return advisoryMsgBusinessExtra;
+                }
             } catch (JSONException e2) {
                 e = e2;
-                advisoryMsgBusinessExtra2 = advisoryMsgBusinessExtra;
-                LogUtils.e(LogUtils.TAG, "getTextJson", e);
-                return advisoryMsgBusinessExtra2;
             }
+        } else {
+            return (AdvisoryMsgBusinessExtra) invokeL.objValue;
         }
-        return (AdvisoryMsgBusinessExtra) invokeL.objValue;
     }
 
     public static void putAdvisoryExtra(JSONObject jSONObject, AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra) {

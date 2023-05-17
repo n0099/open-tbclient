@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IEmotionDownload {
     public static final IEmotionDownload EMPTY = new IEmotionDownload() { // from class: com.baidu.spswitch.emotion.resource.IEmotionDownload.1
         public static /* synthetic */ Interceptable $ic;

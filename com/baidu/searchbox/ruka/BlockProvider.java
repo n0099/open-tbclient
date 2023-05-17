@@ -5,7 +5,7 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.block.impl.BlockMonitor_Factory;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BlockProvider {
     public static final IBlockMonitor EMPTY = new IBlockMonitor() { // from class: com.baidu.searchbox.ruka.BlockProvider.1
         @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor

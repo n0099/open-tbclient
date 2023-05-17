@@ -1,74 +1,139 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.LoadingViewAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ls7 extends vm<x06, CardViewHolder<t06>> {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class ls7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public t06 b;
+    public List<en> b;
+    public xn c;
+    public js7 d;
+    public os7 e;
+    public es7 f;
+    public gs7 g;
+    public fs7 h;
+    public hs7 i;
+    public is7 j;
+    public ks7 k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ls7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ls7(TbPageContext tbPageContext, xn xnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext, xnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
         this.a = tbPageContext;
+        this.c = xnVar;
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardViewHolder<t06> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public List<rn> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new t06(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.getData();
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.vm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x06 x06Var, CardViewHolder<t06> cardViewHolder) {
-        t(i, view2, viewGroup, x06Var, cardViewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, x06 x06Var, CardViewHolder<t06> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void c() {
+        xn xnVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x06Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(x06Var);
-            return view2;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (xnVar = this.c) != null) {
+            xnVar.getListAdapter().notifyDataSetChanged();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList();
+            this.b = arrayList;
+            arrayList.add(new ns7(this.a));
+            this.b.add(new ms7(this.a));
+            this.b.add(new LoadingViewAdapter(this.a));
+            js7 js7Var = new js7(this.a);
+            this.d = js7Var;
+            js7Var.x(this.c);
+            this.b.add(this.d);
+            os7 os7Var = new os7(this.a);
+            this.e = os7Var;
+            os7Var.x(this.c);
+            this.b.add(this.e);
+            es7 es7Var = new es7(this.a);
+            this.f = es7Var;
+            es7Var.x(this.c);
+            this.b.add(this.f);
+            gs7 gs7Var = new gs7(this.a);
+            this.g = gs7Var;
+            gs7Var.x(this.c);
+            this.b.add(this.g);
+            fs7 fs7Var = new fs7(this.a);
+            this.h = fs7Var;
+            fs7Var.x(this.c);
+            this.b.add(this.h);
+            hs7 hs7Var = new hs7(this.a);
+            this.i = hs7Var;
+            hs7Var.x(this.c);
+            this.b.add(this.i);
+            is7 is7Var = new is7(this.a);
+            this.j = is7Var;
+            is7Var.x(this.c);
+            this.b.add(this.j);
+            TbPageContext tbPageContext = this.a;
+            ks7 ks7Var = new ks7(tbPageContext, ThreadData.TYPE_RECOMMEND_INFO, tbPageContext.getUniqueId());
+            this.k = ks7Var;
+            ks7Var.x(this.c);
+            this.b.add(this.k);
+            this.c.addAdapters(this.b);
+        }
+    }
+
+    public void d(List<rn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.c.setData(list);
+        }
+    }
+
+    public void e(zw4 zw4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zw4Var) == null) {
+            for (en enVar : this.b) {
+                if (enVar instanceof ds7) {
+                    ((ds7) enVar).u(zw4Var);
+                }
+            }
+        }
+    }
+
+    public void f(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            for (en enVar : this.b) {
+                enVar.setPageId(bdUniqueId);
+            }
+        }
     }
 }

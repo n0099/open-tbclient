@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Process;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,14 +20,14 @@ import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class n0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile NetworkInfo a;
     public static final HashSet<b> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(@Nullable NetworkInfo networkInfo);
     }
@@ -47,7 +48,7 @@ public class n0 {
         a aVar = new a();
         b = new HashSet<>();
         Context appContext = FunAdSdk.getAppContext();
-        a(appContext, appContext.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE")));
+        a(appContext, appContext.registerReceiver(aVar, new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION)));
     }
 
     public static void b(b bVar) {
@@ -61,7 +62,7 @@ public class n0 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

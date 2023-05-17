@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u2b;
-import com.baidu.tieba.v2b;
-import com.baidu.tieba.z2b;
+import com.baidu.tieba.s4b;
+import com.baidu.tieba.t4b;
+import com.baidu.tieba.x4b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Layout extends Message<Layout, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Layout> ADAPTER;
@@ -36,7 +36,7 @@ public final class Layout extends Message<Layout, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder extends Message.a<Layout, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public final class Layout extends Message<Layout, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ProtoAdapter_Layout extends ProtoAdapter<Layout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,35 +139,35 @@ public final class Layout extends Message<Layout, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Layout decode(u2b u2bVar) throws IOException {
+        public Layout decode(s4b s4bVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u2bVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s4bVar)) == null) {
                 Builder builder = new Builder();
-                long c = u2bVar.c();
+                long c = s4bVar.c();
                 while (true) {
-                    int f = u2bVar.f();
+                    int f = s4bVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
-                                        FieldEncoding g = u2bVar.g();
-                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(u2bVar));
+                                        FieldEncoding g = s4bVar.g();
+                                        builder.addUnknownField(f, g, g.rawProtoAdapter().decode(s4bVar));
                                     } else {
-                                        builder.height(ProtoAdapter.FLOAT.decode(u2bVar));
+                                        builder.height(ProtoAdapter.FLOAT.decode(s4bVar));
                                     }
                                 } else {
-                                    builder.width(ProtoAdapter.FLOAT.decode(u2bVar));
+                                    builder.width(ProtoAdapter.FLOAT.decode(s4bVar));
                                 }
                             } else {
-                                builder.y(ProtoAdapter.FLOAT.decode(u2bVar));
+                                builder.y(ProtoAdapter.FLOAT.decode(s4bVar));
                             }
                         } else {
-                            builder.x(ProtoAdapter.FLOAT.decode(u2bVar));
+                            builder.x(ProtoAdapter.FLOAT.decode(s4bVar));
                         }
                     } else {
-                        u2bVar.d(c);
+                        s4bVar.d(c);
                         return builder.build();
                     }
                 }
@@ -191,26 +191,26 @@ public final class Layout extends Message<Layout, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(v2b v2bVar, Layout layout) throws IOException {
+        public void encode(t4b t4bVar, Layout layout) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, v2bVar, layout) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t4bVar, layout) == null) {
                 Float f = layout.x;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(v2bVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(t4bVar, 1, f);
                 }
                 Float f2 = layout.y;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(v2bVar, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(t4bVar, 2, f2);
                 }
                 Float f3 = layout.width;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(v2bVar, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(t4bVar, 3, f3);
                 }
                 Float f4 = layout.height;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(v2bVar, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(t4bVar, 4, f4);
                 }
-                v2bVar.k(layout.unknownFields());
+                t4bVar.k(layout.unknownFields());
             }
         }
 
@@ -332,7 +332,7 @@ public final class Layout extends Message<Layout, Builder> {
                 return false;
             }
             Layout layout = (Layout) obj;
-            if (unknownFields().equals(layout.unknownFields()) && z2b.f(this.x, layout.x) && z2b.f(this.y, layout.y) && z2b.f(this.width, layout.width) && z2b.f(this.height, layout.height)) {
+            if (unknownFields().equals(layout.unknownFields()) && x4b.f(this.x, layout.x) && x4b.f(this.y, layout.y) && x4b.f(this.width, layout.width) && x4b.f(this.height, layout.height)) {
                 return true;
             }
             return false;

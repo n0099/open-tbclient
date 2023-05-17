@@ -1,20 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class wv4 implements LayoutInflater.Factory {
+import java.util.HashMap;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class wv4 implements jh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yv4 a;
+
+    @Override // com.baidu.tieba.jh6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        ih6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.jh6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jh6
+    public /* synthetic */ void onDestroy() {
+        ih6.b(this);
+    }
 
     public wv4() {
         Interceptable interceptable = $ic;
@@ -30,24 +49,16 @@ public class wv4 implements LayoutInflater.Factory {
         }
     }
 
-    public void a(yv4 yv4Var) {
+    public js9 c(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yv4Var) == null) {
-            this.a = yv4Var;
-        }
-    }
-
-    @Override // android.view.LayoutInflater.Factory
-    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, context, attributeSet)) == null) {
-            if (this.a == null) {
-                this.a = new yv4();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
+            js9 js9Var = new js9();
+            if (hashMap != null && hashMap.get("result") != null) {
+                js9Var.o(hashMap.get("result"));
             }
-            this.a.j(str, context, attributeSet);
-            return null;
+            return js9Var;
         }
-        return (View) invokeLLL.objValue;
+        return (js9) invokeLL.objValue;
     }
 }

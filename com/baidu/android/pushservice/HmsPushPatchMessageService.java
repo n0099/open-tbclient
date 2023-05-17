@@ -28,12 +28,12 @@ public class HmsPushPatchMessageService extends HmsMessageService {
 
         /* renamed from: com.baidu.android.pushservice.HmsPushPatchMessageService$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0018a extends com.baidu.android.pushservice.z.c {
+        public class C0021a extends com.baidu.android.pushservice.z.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a c;
 
-            public C0018a(a aVar) {
+            public C0021a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -89,7 +89,7 @@ public class HmsPushPatchMessageService extends HmsMessageService {
                             e.a(this.d.getApplicationContext(), this.c, 5);
                         }
                         if (com.baidu.android.pushservice.l.d.l(this.d.getApplicationContext())) {
-                            com.baidu.android.pushservice.z.e.a().a(new C0018a(this));
+                            com.baidu.android.pushservice.z.e.a().a(new C0021a(this));
                         }
                     } catch (Exception unused) {
                     }

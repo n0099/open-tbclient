@@ -14,16 +14,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mg1;
-import com.baidu.tieba.pg1;
-import com.baidu.tieba.qh1;
+import com.baidu.tieba.ch1;
+import com.baidu.tieba.fh1;
+import com.baidu.tieba.gi1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PeriodView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,18 +38,18 @@ public class PeriodView extends FrameLayout {
     public TextView i;
     public TextView j;
     public PayChannelEntity k;
-    public qh1 l;
+    public gi1 l;
     public InstallmentEntity m;
     public String n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a();
 
         void b(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class PeriodView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class PeriodView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -228,26 +228,26 @@ public class PeriodView extends FrameLayout {
     public final void e(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0750, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0779, (ViewGroup) this, true);
             this.c = (PolyFrameLayout) findViewById(R.id.root_layout);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091a54);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0906c3);
+            this.d = findViewById(R.id.obfuscated_res_0x7f091aa3);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0906db);
             this.h = findViewById;
             findViewById.setOnTouchListener(new a(this));
             this.h.setOnClickListener(new b(this));
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090315);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090322);
             this.f = findViewById2;
             findViewById2.setOnClickListener(new c(this));
-            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091a55);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0910bf);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090732);
-            qh1 qh1Var = new qh1(getContext());
-            this.l = qh1Var;
-            this.g.setAdapter((ListAdapter) qh1Var);
+            this.g = (ListView) findViewById(R.id.obfuscated_res_0x7f091aa4);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0910fa);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09074e);
+            gi1 gi1Var = new gi1(getContext());
+            this.l = gi1Var;
+            this.g.setAdapter((ListAdapter) gi1Var);
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            mg1 mg1Var = new mg1("10");
-            mg1Var.a("type", this.n);
-            pg1.e(mg1Var);
+            ch1 ch1Var = new ch1("10");
+            ch1Var.a("type", this.n);
+            fh1.e(ch1Var);
         }
     }
 

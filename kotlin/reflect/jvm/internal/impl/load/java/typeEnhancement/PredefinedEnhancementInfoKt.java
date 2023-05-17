@@ -1,9 +1,9 @@
 package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 
 import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import java.util.Map;
 import kotlin.Unit;
@@ -11,7 +11,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.SignatureEnhancementBuilder;
 import kotlin.reflect.jvm.internal.impl.load.kotlin.SignatureBuildingComponents;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PredefinedEnhancementInfoKt {
     public static final Map<String, PredefinedFunctionEnhancementInfo> PREDEFINED_FUNCTION_ENHANCEMENT_INFO_BY_SIGNATURE;
     public static final JavaTypeQualifiers NULLABLE = new JavaTypeQualifiers(NullabilityQualifier.NULLABLE, null, false, false, 8, null);
@@ -549,7 +549,7 @@ public final class PredefinedEnhancementInfoKt {
                 functionEnhancementBuilder.returns(str2, javaTypeQualifiers2, javaTypeQualifiers3);
             }
         });
-        classEnhancementBuilder3.function("get", new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$19
+        classEnhancementBuilder3.function(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$19
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
@@ -595,7 +595,7 @@ public final class PredefinedEnhancementInfoKt {
                 functionEnhancementBuilder.parameter(str, javaTypeQualifiers, javaTypeQualifiers2);
             }
         });
-        new SignatureEnhancementBuilder.ClassEnhancementBuilder(signatureBuildingComponents.javaLang("ref/Reference")).function("get", new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$21
+        new SignatureEnhancementBuilder.ClassEnhancementBuilder(signatureBuildingComponents.javaLang("ref/Reference")).function(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$21
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
@@ -667,7 +667,7 @@ public final class PredefinedEnhancementInfoKt {
                 functionEnhancementBuilder.returns(JvmPrimitiveType.BOOLEAN);
             }
         });
-        new SignatureEnhancementBuilder.ClassEnhancementBuilder(javaFunction3).function(BOSTokenRequest.ACCEPT, new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$24
+        new SignatureEnhancementBuilder.ClassEnhancementBuilder(javaFunction3).function("accept", new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$24
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
@@ -689,7 +689,7 @@ public final class PredefinedEnhancementInfoKt {
                 functionEnhancementBuilder.parameter(str, javaTypeQualifiers);
             }
         });
-        new SignatureEnhancementBuilder.ClassEnhancementBuilder(javaFunction5).function(BOSTokenRequest.ACCEPT, new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$25
+        new SignatureEnhancementBuilder.ClassEnhancementBuilder(javaFunction5).function("accept", new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$25
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);
@@ -771,7 +771,7 @@ public final class PredefinedEnhancementInfoKt {
                 functionEnhancementBuilder.returns(str3, javaTypeQualifiers3);
             }
         });
-        new SignatureEnhancementBuilder.ClassEnhancementBuilder(signatureBuildingComponents.javaFunction("Supplier")).function("get", new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$28
+        new SignatureEnhancementBuilder.ClassEnhancementBuilder(signatureBuildingComponents.javaFunction("Supplier")).function(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Function1<SignatureEnhancementBuilder.ClassEnhancementBuilder.FunctionEnhancementBuilder, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.PredefinedEnhancementInfoKt$$special$$inlined$enhancement$lambda$28
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
                 super(1);

@@ -1,144 +1,116 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class sz1 extends BasePendingOperation {
+/* loaded from: classes7.dex */
+public class sz1 extends mz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final CopyOnWriteArrayList<String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public lx1 a;
-    public x73 b;
-    public JSONObject c;
-    public String d;
-    public String e;
+    public String f;
+    public zn3<Integer> g;
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String b() {
+    @Override // com.baidu.tieba.jx1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948168607, "Lcom/baidu/tieba/sz1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements zn3<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sz1 a;
+
+        public a(sz1 sz1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948168607, "Lcom/baidu/tieba/sz1;");
-                return;
+            this.a = sz1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, num) == null) {
+                if (num.intValue() != 1 && num.intValue() != 0) {
+                    return;
+                }
+                this.a.z();
             }
         }
-        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f = copyOnWriteArrayList;
-        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f.add("https://dxp.baidu.com/mini");
-        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
-        f.add("https://eclick.baidu.com/se.jpg");
-        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
     }
 
-    public sz1(@NonNull lx1 lx1Var, @NonNull x73 x73Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sz1(@NonNull hx1 hx1Var) {
+        super(hx1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lx1Var, x73Var, jSONObject, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {hx1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((hx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = lx1Var;
-        this.b = x73Var;
-        this.c = jSONObject;
-        this.d = str;
-        this.e = str2;
+        this.g = new a(this);
     }
 
-    public static Collection<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (Collection) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return e(this.c.optString("url"));
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return String.format("%s : %s", this.b.getAppId(), this.c.optString("url"));
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public BasePendingOperation.OperationType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST;
-        }
-        return (BasePendingOperation.OperationType) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.I(this.b, this.c, this.d, this.e);
-        }
-    }
-
-    public final boolean e(String str) {
+    public g12 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#exitFullScreen", false);
+            Pair<g12, JSONObject> s = s(str);
+            g12 g12Var = (g12) s.first;
+            if (!g12Var.isSuccess()) {
+                return g12Var;
             }
-            int size = f.size();
-            for (int i = 0; i < size; i++) {
-                String str2 = f.get(i);
-                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                    return true;
-                }
+            String optString = ((JSONObject) s.second).optString("cb");
+            this.f = optString;
+            if (TextUtils.isEmpty(optString)) {
+                return new g12(201);
             }
-            return false;
+            xz1.e().v(this.g);
+            xz1.e().m();
+            return g12.f();
         }
-        return invokeL.booleanValue;
+        return (g12) invokeL.objValue;
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            xz1.e().w();
+            xz1.e().p();
+            d(this.f, new g12(0));
+        }
     }
 }

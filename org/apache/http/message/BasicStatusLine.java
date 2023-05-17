@@ -3,7 +3,7 @@ package org.apache.http.message;
 import org.apache.http.ProtocolVersion;
 import org.apache.http.StatusLine;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BasicStatusLine implements StatusLine {
     public BasicStatusLine(ProtocolVersion protocolVersion, int i, String str) {
         throw new RuntimeException("Stub!");

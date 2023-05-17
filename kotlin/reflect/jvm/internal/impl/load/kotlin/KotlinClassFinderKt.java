@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.kotlin;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClass;
 import kotlin.reflect.jvm.internal.impl.load.kotlin.KotlinClassFinder;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class KotlinClassFinderKt {
     public static final KotlinJvmBinaryClass findKotlinClass(KotlinClassFinder kotlinClassFinder, JavaClass javaClass) {
         KotlinClassFinder.Result findKotlinClassOrContent = kotlinClassFinder.findKotlinClassOrContent(javaClass);

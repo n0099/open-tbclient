@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     @Nullable
     @WorkerThread

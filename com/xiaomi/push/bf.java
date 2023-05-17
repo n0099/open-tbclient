@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bf implements bh {
     public final String a;
     public final String b;

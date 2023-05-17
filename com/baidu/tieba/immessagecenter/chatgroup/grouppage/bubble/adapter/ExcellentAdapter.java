@@ -16,9 +16,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
-import com.baidu.tieba.r68;
+import com.baidu.tieba.j88;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,21 +26,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<TopBubbleData> a;
     public c b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a(int i);
 
         void b(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class ExcellentHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,17 +71,17 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
                 }
             }
             view2.setVisibility(0);
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090686);
-            this.b = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090685);
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904f3);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904f2);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904f0);
-            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904f1);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092045);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09069e);
+            this.b = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f09069d);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09050a);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090509);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090507);
+            this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090508);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920a4);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -218,31 +218,31 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
             TopBubbleData topBubbleData = this.a.get(i);
             TextView textView = excellentHolder.e;
             textView.setText(topBubbleData.getUserName() + "：" + topBubbleData.getContent());
-            excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f03c7);
-            if (!r68.a(topBubbleData.getVersionKey())) {
+            excellentHolder.d.setText(R.string.obfuscated_res_0x7f0f03ff);
+            if (!j88.a(topBubbleData.getVersionKey())) {
                 excellentHolder.f.setVisibility(0);
             } else {
                 excellentHolder.f.setVisibility(8);
             }
-            g35 d = g35.d(excellentHolder.b);
+            p45 d = p45.d(excellentHolder.b);
             d.m(R.dimen.L_X02);
             d.o(R.string.J_X05);
             d.f(R.color.CAM_X0207);
-            g35 d2 = g35.d(excellentHolder.d);
+            p45 d2 = p45.d(excellentHolder.d);
             d2.w(R.color.CAM_X0101);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X10);
-            g35 d3 = g35.d(excellentHolder.e);
+            p45 d3 = p45.d(excellentHolder.e);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0107);
             d3.B(R.dimen.T_X08);
-            g35 d4 = g35.d(excellentHolder.c);
+            p45 d4 = p45.d(excellentHolder.c);
             d4.o(R.string.J_X04);
             d4.f(R.color.CAM_X0303);
             SkinManager.setImageResource(excellentHolder.g, R.drawable.top_bubble_excellent_bg);
             SkinManager.setViewTextColor(excellentHolder.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(excellentHolder.e, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(excellentHolder.f, R.drawable.obfuscated_res_0x7f080510);
+            SkinManager.setImageResource(excellentHolder.f, R.drawable.obfuscated_res_0x7f0805ed);
             SkinManager.setViewTextColor(excellentHolder.c, (int) R.color.CAM_X0304);
             excellentHolder.itemView.setOnClickListener(new a(this, i, excellentHolder));
             excellentHolder.itemView.setOnLongClickListener(new b(this, i));
@@ -257,7 +257,7 @@ public class ExcellentAdapter extends RecyclerView.Adapter<ExcellentHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            return new ExcellentHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0912, viewGroup, false));
+            return new ExcellentHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0946, viewGroup, false));
         }
         return (ExcellentHolder) invokeLI.objValue;
     }

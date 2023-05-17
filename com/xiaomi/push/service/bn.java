@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.provider.Settings;
 import com.baidu.android.util.devices.RomUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bn {
     public static bn a;
 
@@ -41,12 +41,12 @@ public class bn {
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m721a() {
+    public Uri m740a() {
         return Settings.Global.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m722a() {
+    public boolean m741a() {
         return com.xiaomi.push.ab.f94a.contains("xmsf") || com.xiaomi.push.ab.f94a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f94a.contains("miui");
     }
 }

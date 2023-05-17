@@ -1,154 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bqa;
-import com.baidu.tieba.dqa;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes4.dex */
-public class eqa {
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
+/* loaded from: classes5.dex */
+public class eqa implements UBCCloudConfigObserver {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Deque<c>> a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final dqa a;
-        public final HashSet<Ssp.Pid> b;
-
-        public a(dqa dqaVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744372, "Lcom/baidu/tieba/eqa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dqaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dqaVar;
-            this.b = new HashSet<>();
-            for (dqa.c cVar : dqaVar.e) {
-                for (dqa.b bVar : cVar.b) {
-                    this.b.add(bVar.c);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947744372, "Lcom/baidu/tieba/eqa;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.eqa.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.eqa.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.d : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final bqa a;
-        public final HashSet<Ssp.Pid> b;
-
-        public b(bqa bqaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bqaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bqaVar;
-            this.b = new HashSet<>();
-            for (bqa.b bVar : bqaVar.b) {
-                for (bqa.a aVar : bVar.b) {
-                    this.b.add(aVar.c);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.eqa.c
-        public Set<Ssp.Pid> a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.eqa.c
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c : invokeV.intValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        Set<Ssp.Pid> a();
-
-        int b();
+        a = AppConfig.isDebug();
     }
 
     public eqa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public final Deque<c> a(String str) {
-        InterceptResult invokeL;
-        Deque<c> deque;
+    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
+    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
+        String optString;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.a) {
-                deque = this.a.get(str);
-                if (deque == null) {
-                    deque = new ArrayDeque<>();
-                    this.a.put(str, deque);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            if (a) {
+                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
+                    return;
+                }
+                return;
+            }
+            if (jSONObject == null) {
+                optString = "0";
+            } else {
+                try {
+                    optString = jSONObject.optString("version_asc");
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
                 }
             }
-            return deque;
+            if (!"0".equals(optString)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ((cqa) ServiceManager.getService(cqa.a)).b(new JSONObject(str), z);
         }
-        return (Deque) invokeL.objValue;
     }
 }

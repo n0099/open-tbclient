@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.tieba.R;
 import com.kwad.components.core.c.a.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public ViewGroup ke;
     public TextView kf;
@@ -18,7 +18,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     }
 
     private void et() {
-        com.kwad.components.core.c.a.a.a(new a.C0596a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b() { // from class: com.kwad.components.ad.e.a.h.2
+        com.kwad.components.core.c.a.a.a(new a.C0610a(this.ke.getContext()).L(this.jL.mAdTemplate).ae(2).a(new a.b() { // from class: com.kwad.components.ad.e.a.h.2
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 com.kwad.sdk.core.report.a.a(h.this.jL.mAdTemplate, 2, h.this.jL.jK.getTouchCoords());
@@ -53,7 +53,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09138d);
-        this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f091236);
+        this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0913c8);
+        this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f091271);
     }
 }

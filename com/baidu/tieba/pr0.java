@@ -1,36 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes5.dex */
-public final class pr0 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class pr0 extends kr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ur0 b;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public pr0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.b = b("okhttp");
     }
 
-    public static boolean b(String str) {
+    @Override // com.baidu.tieba.wr0
+    public ur0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ur0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.kr0
+    public ur0 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return new hs0();
         }
-        return invokeL.booleanValue;
+        return (ur0) invokeL.objValue;
     }
 }

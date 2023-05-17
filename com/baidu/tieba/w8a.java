@@ -2,90 +2,193 @@ package com.baidu.tieba;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.webkit.WebView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.ArrayList;
-import java.util.LinkedList;
-/* loaded from: classes6.dex */
-public interface w8a {
-    void A();
-
-    void B();
-
-    void D(jd5 jd5Var);
-
-    void E();
-
-    LinkedList<y65> F();
-
-    void b(boolean z);
-
-    void c(String str);
-
-    void d();
-
-    void e(int i, boolean z);
-
-    void f();
-
-    int g();
-
-    void h();
-
-    boolean i();
-
-    void j();
-
-    void k(boolean z);
-
-    void m();
-
-    void n(@Nullable ArrayList<AtSelectData> arrayList);
-
-    void o(boolean z);
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    boolean onBackPressed();
-
-    void onChangeSkinType(int i);
-
-    void onCreate(Bundle bundle);
-
-    void onDestroy();
-
-    void onNewIntent(Intent intent);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void onStart();
-
-    void onStop();
-
-    void p(boolean z);
-
-    void r();
-
-    void s();
-
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class w8a implements v8a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    PermissionJudgePolicy t();
+    public final NewVcodeView a;
+    @NonNull
+    public final NewWriteModel b;
+    public final NewWriteModel.d c;
 
-    void u();
+    @Override // com.baidu.tieba.v8a
+    public void c(NewWriteModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+        }
+    }
 
-    void v();
+    @Override // com.baidu.tieba.v8a
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+        }
+    }
 
-    void w();
+    @Override // com.baidu.tieba.v8a
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
 
-    void x(int[] iArr);
+    /* loaded from: classes8.dex */
+    public class a implements NewWriteModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w8a a;
 
-    void y(boolean z);
+        public a(w8a w8aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w8aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w8aVar;
+        }
 
-    void z(jd5 jd5Var);
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, bb5 bb5Var, WriteData writeData, AntiData antiData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, bb5Var, writeData, antiData}) == null) {
+                this.a.a.showPostThreadLoadingView(false);
+                if (z) {
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                    intent.putExtras(bundle);
+                    uq9.j(writeData);
+                    xt9.a(writeData, postWriteCallBackData.getThreadId());
+                    this.a.a.getContext().setResult(-1, intent);
+                    this.a.a.getContext().finish();
+                } else if (bb5Var != null && !TextUtils.isEmpty(bb5Var.c())) {
+                    if (this.a.a.getWebView() != null) {
+                        this.a.a.getWebView().loadUrl(bb5Var.c());
+                    }
+                } else {
+                    if (postWriteCallBackData != null) {
+                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
+                    }
+                    this.a.a.getContext().finish();
+                }
+            }
+        }
+    }
+
+    public w8a(@NonNull NewVcodeView newVcodeView, @NonNull NewWriteModel newWriteModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newVcodeView, newWriteModel};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a aVar = new a(this);
+        this.c = aVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.s0(aVar);
+    }
+
+    @Override // com.baidu.tieba.v8a
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (TextUtils.isEmpty(str) || !str.contains("objc:jsAiCodeBack")) {
+                return false;
+            }
+            String a2 = eu5.a(str);
+            if (!TextUtils.isEmpty(a2) && !"0".equals(a2)) {
+                g(a2);
+                return true;
+            }
+            this.a.getContext().finish();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v8a
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.showWebView(false);
+            if (this.b.k0() == null) {
+                return;
+            }
+            String vcodeUrl = this.b.k0().getVcodeUrl();
+            if (!TextUtils.isEmpty(vcodeUrl) && this.a.getWebView() != null) {
+                this.a.getWebView().loadUrl(vcodeUrl);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v8a
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (!ri.F()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0db6);
+                this.a.getContext().finish();
+            } else if (!TextUtils.isEmpty(str)) {
+                this.a.showPostThreadLoadingView(true);
+                if (this.b.k0() != null) {
+                    this.b.k0().setVcode(str);
+                    this.b.k0().setVcodeType("6");
+                }
+                this.b.v0();
+            } else {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0db6);
+                this.a.getContext().finish();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.v8a
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
+            this.a.showWebViewDelay(500);
+        }
+    }
 }

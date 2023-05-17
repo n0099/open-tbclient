@@ -5,7 +5,7 @@ import com.bytedance.pangle.Zeus;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static volatile b b;
     public final List<String> a = new CopyOnWriteArrayList();

@@ -6,11 +6,11 @@ import com.google.android.gms.common.internal.ReflectedParcelable;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 @KeepForSdk
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class StatsEvent extends AbstractSafeParcelable implements ReflectedParcelable {
 
     @KeepForSdk
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Types {
         @KeepForSdk
         public static final int EVENT_TYPE_ACQUIRE_WAKE_LOCK = 7;

@@ -1,148 +1,96 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.UnsupportedEncodingException;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public final class mza {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.util.concurrent.Callable;
+import java.util.zip.DataFormatException;
+import java.util.zip.Inflater;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class mza implements Callable<lza> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Intent a;
 
-    public static void a(Closeable closeable) {
+    public mza(Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException unused) {
-            Log.e("Utils", "Exception when closing the 'Closeable'.");
-        }
-    }
-
-    public static void b(Reader reader, Writer writer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
-            c(reader, writer, new char[4096]);
-        }
-    }
-
-    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
-            return;
-        }
-        while (true) {
-            int read = reader.read(cArr);
-            if (-1 == read) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            writer.write(cArr, 0, read);
         }
+        this.a = intent;
     }
 
-    public static Map<String, String> d(Map<String, String> map) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.lza, java.lang.Object] */
+    @Override // java.util.concurrent.Callable
+    public lza call() throws Exception {
+        InterceptResult invokeV;
+        byte[] bArr;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            HashMap hashMap = new HashMap();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                hashMap.put(e(entry.getKey()), entry.getValue());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Intent intent = this.a;
+            if (intent == null) {
+                return null;
             }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = 0;
-            if (str.length() > 0) {
-                while (str.charAt(i) == '/') {
-                    i++;
-                }
+            long j = 0;
+            try {
+                j = intent.getLongExtra("msg_id", 0L);
+            } catch (Exception e) {
+                pza.b("PassByMsgIntentParser", "parserMsgId", e);
             }
-            return "/" + str.substring(i);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static dza f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str != null) {
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 2155) {
-                    if (hashCode != 2177) {
-                        if (hashCode != 2627) {
-                            if (hashCode == 2644 && str.equals("SG")) {
-                                c = 3;
-                            }
-                        } else if (str.equals("RU")) {
-                            c = 2;
-                        }
-                    } else if (str.equals("DE")) {
-                        c = 1;
-                    }
-                } else if (str.equals("CN")) {
-                    c = 0;
-                }
-                if (c == 0) {
-                    return dza.c;
-                }
-                if (c == 1) {
-                    return dza.d;
-                }
-                if (c == 2) {
-                    return dza.e;
-                }
-                if (c == 3) {
-                    return dza.f;
+            try {
+                bArr = this.a.getByteArrayExtra("msg_content");
+            } catch (Exception e2) {
+                pza.b("PassByMsgIntentParser", "parseMsgContent", e2);
+                bArr = null;
+            }
+            Inflater inflater = new Inflater();
+            inflater.setInput(bArr);
+            byte[] bArr2 = new byte[256];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
+            while (!inflater.finished()) {
+                try {
+                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
+                } catch (DataFormatException unused) {
+                    inflater.end();
+                    str = null;
+                } catch (Throwable th) {
+                    inflater.end();
+                    throw th;
                 }
             }
-            if (str2 != null) {
-                if (str2.contains("connect-drcn")) {
-                    return dza.c;
-                }
-                if (str2.contains("connect-dre")) {
-                    return dza.d;
-                }
-                if (str2.contains("connect-drru")) {
-                    return dza.e;
-                }
-                if (str2.contains("connect-dra")) {
-                    return dza.f;
-                }
+            inflater.end();
+            str = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
+            if (str == null) {
+                return null;
             }
-            return dza.b;
+            String optString = new JSONObject(str).optString("data");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            lza lzaVar = new lza();
+            lzaVar.d(j);
+            lzaVar.c(optString);
+            return lzaVar;
         }
-        return (dza) invokeLL.objValue;
-    }
-
-    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            b(new InputStreamReader(inputStream, str), stringWriter);
-            return stringWriter.toString();
-        }
-        return (String) invokeLL.objValue;
+        return invokeV.objValue;
     }
 }

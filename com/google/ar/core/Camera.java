@@ -1,5 +1,5 @@
 package com.google.ar.core;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Camera {
     public long a = 0;
 

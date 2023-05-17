@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.constant.WBConstants;
 import com.sina.weibo.sdk.utils.Utility;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AuthInfo implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AuthInfo> CREATOR;

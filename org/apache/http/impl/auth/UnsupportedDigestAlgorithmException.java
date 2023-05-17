@@ -1,6 +1,6 @@
 package org.apache.http.impl.auth;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class UnsupportedDigestAlgorithmException extends RuntimeException {
     public UnsupportedDigestAlgorithmException() {
         throw new RuntimeException("Stub!");

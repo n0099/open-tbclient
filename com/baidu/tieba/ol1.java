@@ -1,114 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smartcolor.utils.Tri;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.coremedia.iso.boxes.FreeSpaceBox;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class ol1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 120;
     public transient /* synthetic */ FieldHolder $fh;
-    @Deprecated
-    public int a;
-    @Deprecated
-    public int b;
-    @Deprecated
-    public int c;
-    public String d;
-    public String e;
-    public Tri f;
-    public Tri g;
-    public Tri h;
-    public Tri i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public boolean n;
-    public int o;
-    public int p;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final ol1 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ol1();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948035989, "Lcom/baidu/tieba/ol1;")) == null) {
+            return;
         }
-
-        public ol1 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ol1) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public a b(Tri tri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tri)) == null) {
-                this.a.g = tri;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(Tri tri) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tri)) == null) {
-                this.a.f = tri;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-                if (i > 0 && i2 <= 100 && i2 >= i) {
-                    this.a.j = i;
-                    this.a.k = i2;
-                    return this;
-                }
-                throw new IllegalArgumentException("argument out of valid range!");
-            }
-            return (a) invokeII.objValue;
-        }
-
-        public a e(int i, int i2) {
-            InterceptResult invokeII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-                if (i >= 10 && i2 <= 100 && i2 >= i && i % 10 == 0 && i2 % 10 == 0) {
-                    this.a.l = i;
-                    this.a.m = i2;
-                    return this;
-                }
-                throw new IllegalArgumentException("argument out of valid range!");
-            }
-            return (a) invokeII.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948035989, "Lcom/baidu/tieba/ol1;");
         }
     }
 
@@ -116,170 +36,169 @@ public class ol1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 32;
-        Tri tri = Tri.UNDEFINED;
-        this.f = tri;
-        this.g = tri;
-        this.h = tri;
-        this.i = tri;
-        this.n = true;
-        this.o = 800;
-        this.p = 800;
     }
 
-    public Tri g() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public final JSONObject a(String str, boolean z) {
+        InterceptResult invokeLZ;
+        char c;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            switch (str.hashCode()) {
+                case -1472943047:
+                    if (str.equals("click_float_lottie")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1340273551:
+                    if (str.equals("wifi_tip")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1152479161:
+                    if (str.equals("ad_logo")) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -264975480:
+                    if (str.equals("bd_logo")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3327403:
+                    if (str.equals("logo")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3532159:
+                    if (str.equals(FreeSpaceBox.TYPE)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 31392744:
+                    if (str.equals("download_desc")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 102727412:
+                    if (str.equals("label")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
+                    }
+                case 1:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_0\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + a + "\"}";
+                        break;
+                    }
+                case 2:
+                    str2 = "{\"l_gravity\": 9,\"margin\": \"0_20_15_0\"}";
+                    break;
+                case 3:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"15_20_0_0\"}";
+                    break;
+                case 4:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_15\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 15) + "\"}";
+                        break;
+                    }
+                case 5:
+                    str2 = "{\"l_gravity\": 5,\"margin\": \"14_14_0_0\"}";
+                    break;
+                case 6:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_65\"}";
+                        break;
+                    } else {
+                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + a + "\"}";
+                        break;
+                    }
+                case 7:
+                    if (z) {
+                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_37\"}";
+                        break;
+                    } else {
+                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 39) + "\"}";
+                        break;
+                    }
+                default:
+                    str2 = "";
+                    break;
+            }
+            try {
+                return new JSONObject(str2);
+            } catch (Throwable unused) {
+                return null;
+            }
         }
-        return (Tri) invokeV.objValue;
+        return (JSONObject) invokeLZ.objValue;
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public JSONObject b(JSONObject jSONObject, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.n;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, z)) == null) {
+            JSONObject jSONObject2 = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (jSONObject != null) {
+                if (z) {
+                    str2 = str + "_f";
+                } else {
+                    str2 = str;
+                }
+                jSONObject2 = jSONObject.optJSONObject(str2);
+            }
+            if (jSONObject2 != null && !jSONObject2.isNull("l_gravity")) {
+                return jSONObject2;
+            }
+            return a(str, z);
         }
-        return invokeV.booleanValue;
-    }
-
-    public Tri i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (Tri) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Tri m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
-        }
-        return (Tri) invokeV.objValue;
-    }
-
-    public Tri n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return (Tri) invokeV.objValue;
-    }
-
-    @Deprecated
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.o;
-        }
-        return invokeV.intValue;
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeLLZ.objValue;
     }
 }

@@ -6,6 +6,7 @@ import android.os.HandlerThread;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.baidu.mobstat.at;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -14,7 +15,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class av {
     public static av b = new av();
     public static String l = "";
@@ -33,7 +34,7 @@ public class av {
     public List<String> o = new ArrayList();
     public List<String> p = new ArrayList();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(JSONObject jSONObject);
     }
@@ -664,7 +665,7 @@ public class av {
                 String optString = jSONObject.optString(Config.EVENT_NEXT_PAGENAME);
                 long optLong = jSONObject.optLong("t");
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - optLong <= 1500 && TextUtils.isEmpty(optString)) {
+                if (currentTimeMillis - optLong <= BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT && TextUtils.isEmpty(optString)) {
                     jSONObject.put(Config.EVENT_NEXT_PAGENAME, str + "|" + currentTimeMillis);
                     this.h.put(this.h.length() + (-1), jSONObject);
                     c(context);

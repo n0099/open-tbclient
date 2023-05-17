@@ -16,7 +16,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SmartLaunchStats {
     public static final long FIRST_AVAILABLE_TIME_MAX = 30000;
     public static final long FIRST_AVAILABLE_TIME_MIN = 100;

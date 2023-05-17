@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class FlowLayout extends ViewGroup {
     public int c;
     public boolean d;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends ViewGroup.LayoutParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static int f = -1;
@@ -155,7 +155,7 @@ public class FlowLayout extends ViewGroup {
         public final void g(Context context, AttributeSet attributeSet) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.FlowLayout_LayoutParams);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.FlowLayout_LayoutParams);
                 try {
                     this.c = obtainStyledAttributes.getDimensionPixelSize(0, f);
                     this.d = obtainStyledAttributes.getDimensionPixelSize(2, f);
@@ -416,7 +416,7 @@ public class FlowLayout extends ViewGroup {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048588, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.FlowLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.FlowLayout);
             try {
                 this.a = obtainStyledAttributes.getDimensionPixelSize(1, 0);
                 this.b = obtainStyledAttributes.getDimensionPixelSize(5, 0);

@@ -1,35 +1,37 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.content.res.Configuration;
+import android.os.Parcelable;
+import android.util.AttributeSet;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes4.dex */
 public class an4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public final bn4<?> a;
 
-    public an4(Context context) {
+    public an4(bn4<?> bn4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bn4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,264 +41,275 @@ public class an4 {
                 return;
             }
         }
-        this.a = context;
+        this.a = bn4Var;
     }
 
-    public final boolean a(tn4 tn4Var) {
+    public static final an4 b(bn4<?> bn4Var) {
         InterceptResult invokeL;
-        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tn4Var)) == null) {
-            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
-            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    BufferedReader bufferedReader = null;
-                    try {
-                        try {
-                            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                            long j = Long.MAX_VALUE;
-                            long j2 = 0;
-                            int i = 0;
-                            while (true) {
-                                try {
-                                    String readLine = bufferedReader2.readLine();
-                                    if (readLine == null) {
-                                        break;
-                                    }
-                                    JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                    if (jSONObject.has("abtest")) {
-                                        tn4Var.f = "1";
-                                    }
-                                    long j3 = jSONObject.getLong("timestamp");
-                                    if (j3 > 0) {
-                                        if (j3 < j) {
-                                            j = j3;
-                                        }
-                                        if (j3 > j2) {
-                                            j2 = j3;
-                                        }
-                                    }
-                                    tn4Var.a(jSONObject);
-                                    i++;
-                                    if (i >= 10) {
-                                        break;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    bufferedReader = bufferedReader2;
-                                    e.printStackTrace();
-                                    bo4.d(bufferedReader);
-                                } catch (Throwable th) {
-                                    th = th;
-                                    bufferedReader = bufferedReader2;
-                                    bo4.d(bufferedReader);
-                                    throw th;
-                                }
-                            }
-                            tn4Var.g(j, j2);
-                            bo4.d(bufferedReader2);
-                        } catch (Exception e2) {
-                            e = e2;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bn4Var)) == null) {
+            return new an4(bn4Var);
+        }
+        return (an4) invokeL.objValue;
+    }
+
+    public void D(sn4<String, gn4> sn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sn4Var) == null) {
+            this.a.u(sn4Var);
+        }
+    }
+
+    public void a(Fragment fragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
+            bn4<?> bn4Var = this.a;
+            bn4Var.e.j(bn4Var, bn4Var, fragment);
+        }
+    }
+
+    public void d(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
+            this.a.e.o(configuration);
+        }
+    }
+
+    public boolean e(MenuItem menuItem) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) {
+            return this.a.e.p(menuItem);
         }
         return invokeL.booleanValue;
     }
 
-    public void b(boolean z) {
-        String str;
-        File[] listFiles;
+    public boolean j(MenuItem menuItem) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                return;
-            }
-            if (z) {
-                str = "filereal";
-            } else {
-                str = "filedata";
-            }
-            File file2 = new File(file, str);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            File file3 = new File(file, "proc");
-            if (file3.exists() && file3.isDirectory() && (listFiles = file3.listFiles()) != null && listFiles.length != 0) {
-                for (File file4 : listFiles) {
-                    if (file4.isFile()) {
-                        file4.delete();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, menuItem)) == null) {
+            return this.a.e.v(menuItem);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void k(Menu menu) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, menu) == null) {
+            this.a.e.w(menu);
         }
     }
 
-    public boolean c(tn4 tn4Var, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
-        String str;
+    public boolean m(Menu menu) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, tn4Var, z)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            if (!z) {
-                z2 = a(tn4Var);
-            } else {
-                z2 = false;
-            }
-            if (z) {
-                str = "filereal";
-            } else {
-                str = "filedata";
-            }
-            File file2 = new File(file, str);
-            if (file2.exists()) {
-                BufferedReader bufferedReader = null;
-                try {
-                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                    long j = Long.MAX_VALUE;
-                    long j2 = 0;
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                            if (jSONObject.has("abtest")) {
-                                tn4Var.f = "1";
-                            }
-                            long j3 = jSONObject.getLong("timestamp");
-                            if (j3 > 0) {
-                                if (j3 < j) {
-                                    j = j3;
-                                }
-                                if (j3 > j2) {
-                                    j2 = j3;
-                                }
-                            }
-                            tn4Var.a(jSONObject);
-                            z2 = true;
-                        } catch (Exception unused) {
-                            bufferedReader = bufferedReader2;
-                            bo4.d(bufferedReader);
-                            return z2;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            bo4.d(bufferedReader);
-                            throw th;
-                        }
-                    }
-                    tn4Var.g(j, j2);
-                    bo4.d(bufferedReader2);
-                } catch (Exception unused2) {
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-            return z2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, menu)) == null) {
+            return this.a.e.y(menu);
         }
-        return invokeLZ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void d(hn4 hn4Var, boolean z) {
-        String str;
-        File file;
-        FileOutputStream fileOutputStream;
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, hn4Var, z) == null) {
-            File file2 = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            if (!TextUtils.isEmpty(hn4Var.k)) {
-                File file3 = new File(file2, "proc");
-                if (!file3.exists()) {
-                    file3.mkdirs();
-                }
-                file = new File(file3, hn4Var.k);
-            } else {
-                if (z) {
-                    str = "filereal";
-                } else {
-                    str = "filedata";
-                }
-                file = new File(file2, str);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (hn4Var.e != null) {
-                    JSONObject jSONObject2 = hn4Var.e;
-                    if (jSONObject2.has("bizId")) {
-                        try {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
-                            JSONObject jSONObject4 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
-                            if (jSONObject3 != null && jSONObject4 != null) {
-                                jSONObject3.put(DI.APP_INFO_NAME, jSONObject4);
-                                jSONObject2.remove(DI.APP_INFO_NAME);
-                            }
-                            jSONObject = jSONObject2;
-                        } catch (JSONException unused) {
-                            jSONObject = jSONObject2;
-                        }
-                    } else {
-                        jSONObject.put("content", jSONObject2);
-                    }
-                } else if (!TextUtils.isEmpty(hn4Var.d)) {
-                    jSONObject.put("content", hn4Var.d);
-                }
-                jSONObject.put("bizId", hn4Var.a);
-                jSONObject.put("timestamp", hn4Var.f);
-                jSONObject.put("eventType", "0");
-                if (!TextUtils.isEmpty(hn4Var.h)) {
-                    jSONObject.put("abtest", hn4Var.h);
-                }
-                if (!TextUtils.isEmpty(hn4Var.i)) {
-                    jSONObject.put("c", hn4Var.i);
-                }
-                if (hn4Var.j) {
-                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
-                }
-                jSONObject.put(Constant.ID_TYPE, cn4.g().j(hn4Var.a));
-            } catch (JSONException unused2) {
-            }
-            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file, true);
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                fileOutputStream.write(encode);
-                fileOutputStream.write("\n".getBytes());
-                fileOutputStream.flush();
-                bo4.d(fileOutputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                bo4.d(fileOutputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                bo4.d(fileOutputStream2);
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.a.e(z);
         }
+    }
+
+    public List<Fragment> w(List<Fragment> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, list)) == null) {
+            if (this.a.e.d == null) {
+                return null;
+            }
+            if (list == null) {
+                list = new ArrayList<>(x());
+            }
+            list.addAll(this.a.e.d);
+            return list;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public View A(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
+            return this.a.e.onCreateView(view2, str, context, attributeSet);
+        }
+        return (View) invokeLLLL.objValue;
+    }
+
+    public void u(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048602, this, str, fileDescriptor, printWriter, strArr) == null) {
+            this.a.f(str, fileDescriptor, printWriter, strArr);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.t();
+        }
+    }
+
+    public sn4<String, gn4> E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.v();
+        }
+        return (sn4) invokeV.objValue;
+    }
+
+    public List<Fragment> F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.e.c0();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public Parcelable G() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a.e.e0();
+        }
+        return (Parcelable) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.e.n();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.e.q();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.a.e.s();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.e.u();
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.e.x();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.a.e.z();
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.a.e.A();
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.a.e.B();
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.a.e.C();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.a.c();
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.a.d();
+        }
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return this.a.e.E();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            ArrayList<Fragment> arrayList = this.a.e.d;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public cn4 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return this.a.g();
+        }
+        return (cn4) invokeV.objValue;
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            this.a.e.V();
+        }
+    }
+
+    public void C(Parcelable parcelable, List<Fragment> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, parcelable, list) == null) {
+            this.a.e.b0(parcelable, list);
+        }
+    }
+
+    public boolean g(Menu menu, MenuInflater menuInflater) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, menu, menuInflater)) == null) {
+            return this.a.e.r(menu, menuInflater);
+        }
+        return invokeLL.booleanValue;
     }
 }

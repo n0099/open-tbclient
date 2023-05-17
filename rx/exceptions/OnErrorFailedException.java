@@ -1,5 +1,5 @@
 package rx.exceptions;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OnErrorFailedException extends RuntimeException {
     public static final long serialVersionUID = -419289748403337611L;
 

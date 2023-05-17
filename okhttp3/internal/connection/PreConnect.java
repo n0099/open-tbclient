@@ -17,7 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okio.Timeout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PreConnect {
     public static final Call NONE = new Call() { // from class: okhttp3.internal.connection.PreConnect.1
         @Override // okhttp3.Call
@@ -62,7 +62,7 @@ public class PreConnect {
     public static Map<String, Integer> preConnectUrlMap;
     public static volatile ScheduledExecutorService scheduledExecutorService;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class PreConnectTask implements Runnable {
         public static List<String> mPreConnectAllowlist;
         public OkHttpClient mClient;

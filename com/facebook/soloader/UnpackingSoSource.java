@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class UnpackingSoSource extends DirectorySoSource {
     public static final String DEPS_FILE_NAME = "dso_deps";
     public static final String LOCK_FILE_NAME = "dso_lock";
@@ -33,7 +33,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
     public String mCorruptedLib;
     public final Map<String, Object> mLibsBeingLoaded;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class InputDsoIterator implements Closeable {
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
@@ -44,7 +44,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         public abstract InputDso next() throws IOException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Unpacker implements Closeable {
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
@@ -57,7 +57,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
 
     public abstract Unpacker makeUnpacker() throws IOException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Dso {
         public final String hash;
         public final String name;
@@ -68,7 +68,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DsoManifest {
         public final Dso[] dsos;
 
@@ -108,7 +108,7 @@ public abstract class UnpackingSoSource extends DirectorySoSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class InputDso implements Closeable {
         public final InputStream content;
         public final Dso dso;

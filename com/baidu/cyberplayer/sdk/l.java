@@ -1,7 +1,7 @@
 package com.baidu.cyberplayer.sdk;
 
 import com.baidu.searchbox.playerserver.PlayerPolicyManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static final l a = new l();
 

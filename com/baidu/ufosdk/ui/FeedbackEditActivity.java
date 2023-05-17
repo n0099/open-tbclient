@@ -45,7 +45,7 @@ import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +79,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FeedbackEditActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -173,8 +173,8 @@ public class FeedbackEditActivity extends Activity {
             this.G = getIntent().getIntExtra("come_from", -1);
             getIntent().getIntExtra("extend_feedback_channel", -1);
             this.L = getIntent().getIntExtra("showProblem", 0) == 1;
-            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030015);
-            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
+            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030016);
+            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030015);
             if (TextUtils.isEmpty(this.v)) {
                 this.v = "newMessage";
             }
@@ -191,11 +191,11 @@ public class FeedbackEditActivity extends Activity {
             relativeLayout.setId(2030567428);
             RelativeLayout relativeLayout2 = new RelativeLayout(this);
             relativeLayout2.setId(2030632963);
-            this.g.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            this.g.setBackgroundColor(this.d ? -15132391 : -1);
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setId(2030632962);
             linearLayout.setOrientation(0);
-            linearLayout.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            linearLayout.setBackgroundColor(this.d ? -15132391 : -1);
             linearLayout.setGravity(16);
             LinearLayout linearLayout2 = new LinearLayout(this);
             linearLayout2.setGravity(16);
@@ -262,7 +262,7 @@ public class FeedbackEditActivity extends Activity {
             layoutParams7.addRule(11);
             this.I.addRule(15);
             relativeLayout2.addView(this.i, this.I);
-            relativeLayout2.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            relativeLayout2.setBackgroundColor(this.d ? -15132391 : -1);
             RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-1, p1.a(getApplicationContext(), 38.0f));
             this.I = layoutParams8;
             layoutParams8.addRule(10);
@@ -277,7 +277,7 @@ public class FeedbackEditActivity extends Activity {
             RelativeLayout relativeLayout3 = new RelativeLayout(this);
             this.k = relativeLayout3;
             relativeLayout3.setId(2030567429);
-            this.k.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            this.k.setBackgroundColor(this.d ? -15132391 : -1);
             View c2 = p1.c(this, t1.a("25"));
             this.w = c2;
             c2.setVisibility(8);
@@ -286,7 +286,7 @@ public class FeedbackEditActivity extends Activity {
             this.k.addView(this.w, layoutParams10);
             RelativeLayout relativeLayout4 = new RelativeLayout(this);
             this.P = relativeLayout4;
-            relativeLayout4.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            relativeLayout4.setBackgroundColor(this.d ? -15132391 : -1);
             ListView listView = new ListView(this);
             this.Q = listView;
             listView.setDivider(new ColorDrawable(this.d ? -13619152 : -3355444));
@@ -300,13 +300,13 @@ public class FeedbackEditActivity extends Activity {
             this.g.addView(this.P, layoutParams11);
             float a2 = p1.a((Context) this, 3.0f);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            gradientDrawable.setColor(this.d ? -15132391 : -1);
             gradientDrawable.setCornerRadius(a2);
             gradientDrawable.setStroke(3, this.d ? -14540254 : -3355444);
             RelativeLayout relativeLayout5 = new RelativeLayout(this);
             this.R = relativeLayout5;
             relativeLayout5.setId(2030632978);
-            this.R.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            this.R.setBackgroundColor(this.d ? -15132391 : -1);
             TextView textView2 = new TextView(this);
             textView2.setTextColor(this.d ? -5131855 : -16777216);
             textView2.setText("问题类型");
@@ -357,14 +357,14 @@ public class FeedbackEditActivity extends Activity {
             RelativeLayout relativeLayout6 = new RelativeLayout(this);
             float a3 = p1.a((Context) this, 3.0f);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            gradientDrawable2.setColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            gradientDrawable2.setColor(this.d ? -15132391 : -1);
             gradientDrawable2.setCornerRadius(a3);
             gradientDrawable2.setStroke(3, this.d ? -14540254 : -3355444);
             relativeLayout6.setBackgroundDrawable(gradientDrawable2);
             EditText editText = new EditText(this);
             this.l = editText;
             editText.setId(2030632969);
-            this.l.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            this.l.setBackgroundColor(this.d ? -15132391 : -1);
             this.l.setTextColor(this.d ? -5131855 : -13421773);
             this.l.setTextSize(14.0f);
             this.l.setHint(t1.a("6"));
@@ -377,7 +377,7 @@ public class FeedbackEditActivity extends Activity {
             relativeLayout6.addView(this.l, this.I);
             TextView textView5 = new TextView(this);
             this.n = textView5;
-            textView5.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            textView5.setBackgroundColor(this.d ? -15132391 : -1);
             this.n.setTextSize(11.0f);
             this.n.setTextColor(this.d ? -5131855 : -6710887);
             this.n.setText("8-200字");
@@ -430,7 +430,7 @@ public class FeedbackEditActivity extends Activity {
             LinearLayout linearLayout6 = new LinearLayout(this);
             linearLayout6.setId(2030632977);
             linearLayout6.setOrientation(1);
-            linearLayout6.setBackgroundColor(this.d ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+            linearLayout6.setBackgroundColor(this.d ? -15132391 : -1);
             TextView textView7 = new TextView(this);
             this.q = textView7;
             textView7.setBackgroundColor(this.d ? -15329770 : -1);
@@ -511,7 +511,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -555,7 +555,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -593,7 +593,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -638,7 +638,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -686,7 +686,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -728,7 +728,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -872,7 +872,7 @@ public class FeedbackEditActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class g extends ClickableSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -908,7 +908,7 @@ public class FeedbackEditActivity extends Activity {
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                textPaint.setColor(-16776961);
+                textPaint.setColor(BaseAnimatedElement.DEBUG_PAINT_COLOR);
                 textPaint.setUnderlineText(false);
             }
         }

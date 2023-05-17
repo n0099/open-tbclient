@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-/* loaded from: classes4.dex */
-public class ha4 implements bp1 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class ha4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     public ha4() {
         Interceptable interceptable = $ic;
@@ -28,13 +28,17 @@ public class ha4 implements bp1 {
         }
     }
 
-    @Override // com.baidu.tieba.bp1
-    public Class<? extends d72> a() {
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return u34.class;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
-        return (Class) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1526,7 +1526,7 @@ public final class IMBoxManager {
         ShieldAndTopManager.getInstance(context).setSubscription(j, list, list2, i, str, true, iSetSubscriptionListener);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:33:0x007b  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x007c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

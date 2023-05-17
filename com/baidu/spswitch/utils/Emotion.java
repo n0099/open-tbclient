@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Emotion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,9 +91,9 @@ public class Emotion {
         }
     }
 
-    public static void initEmotionPanel(Activity activity, View view2, View view3, ViewGroup viewGroup, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
+    public static void initEmotionPanel(Activity activity, View view2, View view3, ViewGroup viewGroup, ViewGroup viewGroup2, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, view2, view3, viewGroup, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{activity, view2, view3, viewGroup, viewGroup2, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener}) == null) {
             SPConfig.init(z);
             if (onSoftInputShowingListener == null) {
                 onSoftInputShowingListener = new SoftInputUtil.OnSoftInputShowingListener() { // from class: com.baidu.spswitch.utils.Emotion.2
@@ -176,20 +176,33 @@ public class Emotion {
                     }
                 };
             }
-            SoftInputUtil.attach(activity, (ViewGroup) activity.findViewById(16908290), (IPanelHeightTarget) viewGroup, onSoftInputShowingListener);
-            SPSwitchConflictUtil.attach(activity.getWindow(), viewGroup, view2, view3, switchClickListener);
-            BDEmotionPanelManager.getInstance().loadInnerEmotionPanel(activity, viewGroup, view3, z2);
+            if (viewGroup == null) {
+                viewGroup = (ViewGroup) activity.findViewById(16908290);
+            }
+            SoftInputUtil.attach(activity, viewGroup, (IPanelHeightTarget) viewGroup2, onSoftInputShowingListener);
+            SPSwitchConflictUtil.attach(activity.getWindow(), viewGroup2, view2, view3, switchClickListener);
+            BDEmotionPanelManager.getInstance().loadInnerEmotionPanel(activity, viewGroup2, view3, z2);
             BDEmotionPanelManager.getInstance().setOnEmotionClickListener(onEmotionClickListener);
         }
     }
 
+    public static SPSwitchPanelLinearLayout setEmotionPanelAndInit(ViewGroup viewGroup, Activity activity, View view2, View view3, ViewGroup viewGroup2, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{viewGroup, activity, view2, view3, viewGroup2, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener})) == null) {
+            SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout = (SPSwitchPanelLinearLayout) ((ViewGroup) LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.emotion_only_include_panel_linearlayout, viewGroup, true)).findViewById(R.id.panel_root);
+            initEmotionPanel(activity, view2, view3, viewGroup2, sPSwitchPanelLinearLayout, z, z2, onSoftInputShowingListener, switchClickListener, onEmotionClickListener);
+            return sPSwitchPanelLinearLayout;
+        }
+        return (SPSwitchPanelLinearLayout) invokeCommon.objValue;
+    }
+
+    @Deprecated
     public static SPSwitchPanelLinearLayout setEmotionPanelAndInit(ViewGroup viewGroup, Activity activity, View view2, View view3, boolean z, boolean z2, SoftInputUtil.OnSoftInputShowingListener onSoftInputShowingListener, SPSwitchConflictUtil.SwitchClickListener switchClickListener, BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{viewGroup, activity, view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener})) == null) {
-            SPSwitchPanelLinearLayout sPSwitchPanelLinearLayout = (SPSwitchPanelLinearLayout) ((ViewGroup) LayoutInflater.from(AppRuntime.getAppContext()).inflate(R.layout.emotion_only_include_panel_linearlayout, viewGroup, true)).findViewById(R.id.panel_root);
-            initEmotionPanel(activity, view2, view3, sPSwitchPanelLinearLayout, z, z2, onSoftInputShowingListener, switchClickListener, onEmotionClickListener);
-            return sPSwitchPanelLinearLayout;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{viewGroup, activity, view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), onSoftInputShowingListener, switchClickListener, onEmotionClickListener})) == null) {
+            return setEmotionPanelAndInit(viewGroup, activity, view2, view3, (ViewGroup) activity.findViewById(16908290), z, z2, onSoftInputShowingListener, switchClickListener, onEmotionClickListener);
         }
         return (SPSwitchPanelLinearLayout) invokeCommon.objValue;
     }

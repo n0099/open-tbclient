@@ -1,66 +1,44 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class o49 {
+import java.util.ArrayList;
+import tbclient.ExcPbPage.ExcContent;
+/* loaded from: classes6.dex */
+public class o49 implements n49, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public NavigationBar b;
-    public BdTypeListView c;
-    public m49 d;
-    public ji6<o59> e;
+    public String a;
+    public int b;
+    public int c;
+    public ArrayList<PreLoadImageInfo> d;
+    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o49 a;
-
-        public a(o49 o49Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o49Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = o49Var;
+    @Override // com.baidu.tieba.n49
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.getPageActivity().finish();
-            }
-        }
+        return invokeV.intValue;
     }
 
-    public o49(TbPageContext tbPageContext) {
+    public o49(ExcContent excContent) {
+        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,50 +48,68 @@ public class o49 {
                 return;
             }
         }
-        this.a = tbPageContext;
-    }
-
-    public void e(List<in> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
+        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
+            this.d = new ArrayList<>(1);
+            this.a = excContent.src;
+            String str = excContent.bsize;
+            this.e = str;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    this.b = pg.e(split[0], 0);
+                    this.c = pg.e(split[1], 0);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (this.b <= 0) {
+                this.b = 1;
+            }
+            if (this.c <= 0) {
+                this.c = 1;
+            }
+            String str2 = excContent.cdn_src;
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.procType = 17;
+            preLoadImageInfo.height = this.c;
+            preLoadImageInfo.width = this.b;
+            if (StringUtils.isNull(str2)) {
+                preLoadImageInfo.imgUrl = this.a;
+            } else {
+                preLoadImageInfo.imgUrl = str2;
+            }
+            this.d.add(preLoadImageInfo);
         }
     }
 
-    public void f(ji6<o59> ji6Var) {
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ji6Var) == null) {
-            this.e = ji6Var;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
+                return 0;
+            }
+            return (i * this.c) / this.b;
         }
+        return invokeI.intValue;
     }
 
-    public final void b() {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f22));
-            this.b.showBottomLine();
-            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c(View view2) {
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091b0d);
-            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f091b0c);
-            this.c = bdTypeListView;
-            this.d = new m49(this.a, bdTypeListView, this.e);
-            b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.a();
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
+        return (ArrayList) invokeV.objValue;
     }
 }

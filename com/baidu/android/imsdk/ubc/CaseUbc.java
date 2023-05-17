@@ -8,9 +8,8 @@ import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.y60;
+import com.baidu.tieba.h70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -131,7 +130,7 @@ public class CaseUbc {
             if (jSONObject.length() > 0) {
                 jSONArray.put(jSONObject);
             }
-            y60.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            h70.d().f(jSONArray, UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 
@@ -202,7 +201,7 @@ public class CaseUbc {
                         }
                         jSONObject2.put("msgs", jSONArray);
                     }
-                    jSONObject2.put(DealIntentService.KEY_CLASS, debugInfo.curClassName);
+                    jSONObject2.put("class", debugInfo.curClassName);
                     jSONObject2.put("ext_info", debugInfo.extInfo);
                 }
                 jSONObject.put("debug_info", jSONObject2);

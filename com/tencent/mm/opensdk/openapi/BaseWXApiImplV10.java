@@ -52,7 +52,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
     public static String wxappPayEntryClassname;
@@ -654,12 +654,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
             this.appId = str;
         }
         Log.d(TAG, "register app " + this.context.getPackageName());
-        a.C0731a c0731a = new a.C0731a();
-        c0731a.a = "com.tencent.mm";
-        c0731a.action = ConstantsAPI.ACTION_HANDLE_APP_REGISTER;
-        c0731a.content = "weixin://registerapp?appid=" + this.appId;
-        c0731a.b = j;
-        return a.a(this.context, c0731a);
+        a.C0745a c0745a = new a.C0745a();
+        c0745a.a = "com.tencent.mm";
+        c0745a.action = ConstantsAPI.ACTION_HANDLE_APP_REGISTER;
+        c0745a.content = "weixin://registerapp?appid=" + this.appId;
+        c0745a.b = j;
+        return a.a(this.context, c0745a);
     }
 
     @Override // com.tencent.mm.opensdk.openapi.IWXAPI
@@ -845,10 +845,10 @@ public class BaseWXApiImplV10 implements IWXAPI {
             return;
         }
         Log.d(TAG, "unregister app " + this.context.getPackageName());
-        a.C0731a c0731a = new a.C0731a();
-        c0731a.a = "com.tencent.mm";
-        c0731a.action = ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER;
-        c0731a.content = "weixin://unregisterapp?appid=" + this.appId;
-        a.a(this.context, c0731a);
+        a.C0745a c0745a = new a.C0745a();
+        c0745a.a = "com.tencent.mm";
+        c0745a.action = ConstantsAPI.ACTION_HANDLE_APP_UNREGISTER;
+        c0745a.content = "weixin://unregisterapp?appid=" + this.appId;
+        a.a(this.context, c0745a);
     }
 }

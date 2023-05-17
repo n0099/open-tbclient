@@ -24,7 +24,7 @@ import com.bigkoo.svprogresshud.listener.OnDismissListener;
 import com.bigkoo.svprogresshud.view.SVCircleProgressBar;
 import com.bigkoo.svprogresshud.view.SVProgressDefaultView;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SVProgressHUD {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DISMISSDELAYED = 1000;
@@ -46,7 +46,7 @@ public class SVProgressHUD {
     public ViewGroup rootView;
 
     /* renamed from: com.bigkoo.svprogresshud.SVProgressHUD$4  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$bigkoo$svprogresshud$SVProgressHUD$SVProgressHUDMaskType;
         public static /* synthetic */ Interceptable $ic;
@@ -99,7 +99,7 @@ public class SVProgressHUD {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SVProgressHUDMaskType {
         public static final /* synthetic */ SVProgressHUDMaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -327,16 +327,16 @@ public class SVProgressHUD {
                     configMaskType(17170445, true, true);
                     return;
                 case 4:
-                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f06037f, true, false);
+                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f060498, true, false);
                     return;
                 case 5:
-                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f06037f, true, true);
+                    configMaskType(com.baidu.tieba.R.color.obfuscated_res_0x7f060498, true, true);
                     return;
                 case 6:
-                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0802c9, true, false);
+                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080310, true, false);
                     return;
                 case 7:
-                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0802c9, true, true);
+                    configMaskType(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080310, true, true);
                     return;
                 default:
                     return;
@@ -556,7 +556,7 @@ public class SVProgressHUD {
     public void setCancelable(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0921a3);
+            View findViewById = this.rootView.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092206);
             if (z) {
                 findViewById.setOnTouchListener(this.onCancelableTouchListener);
             } else {
@@ -640,7 +640,7 @@ public class SVProgressHUD {
         }
         LayoutInflater from = LayoutInflater.from(context);
         this.decorView = (ViewGroup) ((Activity) context).getWindow().getDecorView().findViewById(16908290);
-        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0556, (ViewGroup) null, false);
+        ViewGroup viewGroup = (ViewGroup) from.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0573, (ViewGroup) null, false);
         this.rootView = viewGroup;
         viewGroup.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
     }

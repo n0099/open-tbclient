@@ -11,29 +11,29 @@ import com.xiaomi.push.hu;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.service.bd;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c implements eg {
     @Override // com.xiaomi.push.eg
     public void a(Context context, HashMap<String, String> hashMap) {
         ig igVar = new ig();
-        igVar.b(ec.a(context).m371a());
+        igVar.b(ec.a(context).m390a());
         igVar.d(ec.a(context).b());
         igVar.c(hr.AwakeAppResponse.f508a);
         igVar.a(bd.a());
         igVar.f650a = hashMap;
         ao.a(context).a((ao) igVar, hh.Notification, true, (hu) null, true);
-        com.xiaomi.channel.commonutils.logger.b.m101a("MoleInfo：\u3000send data in app layer");
+        com.xiaomi.channel.commonutils.logger.b.m120a("MoleInfo：\u3000send data in app layer");
     }
 
     @Override // com.xiaomi.push.eg
     public void b(Context context, HashMap<String, String> hashMap) {
         MiTinyDataClient.upload("category_awake_app", "wake_up_app", 1L, dx.a(hashMap));
-        com.xiaomi.channel.commonutils.logger.b.m101a("MoleInfo：\u3000send data in app layer");
+        com.xiaomi.channel.commonutils.logger.b.m120a("MoleInfo：\u3000send data in app layer");
     }
 
     @Override // com.xiaomi.push.eg
     public void c(Context context, HashMap<String, String> hashMap) {
-        com.xiaomi.channel.commonutils.logger.b.m101a("MoleInfo：\u3000" + dx.b(hashMap));
+        com.xiaomi.channel.commonutils.logger.b.m120a("MoleInfo：\u3000" + dx.b(hashMap));
         String str = hashMap.get("awake_info");
         if (String.valueOf(1007).equals(hashMap.get(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY))) {
             o.a(context, str);

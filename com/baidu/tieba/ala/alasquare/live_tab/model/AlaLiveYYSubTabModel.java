@@ -15,15 +15,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.i66;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.in;
-import com.baidu.tieba.l56;
-import com.baidu.tieba.ni6;
-import com.baidu.tieba.s66;
-import com.baidu.tieba.x46;
+import com.baidu.tieba.e86;
+import com.baidu.tieba.j66;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.u76;
+import com.baidu.tieba.x66;
+import com.baidu.tieba.zj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.AlaLiveInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveYYSubTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public i66 f;
+    public u76 f;
     public long g;
     public int h;
     public int i;
@@ -50,9 +49,9 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public c m;
     public HttpMessageListener n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void a(boolean z, List<in> list);
+        void a(boolean z, List<rn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -77,7 +76,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,19 +110,19 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    l56 l56Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    x66 x66Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(l56Var);
+                            this.a.f.a(x66Var);
                         }
                     } else {
-                        x46.a(this.a.h);
+                        j66.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new i66(l56Var, alaLiveYYSubTabModel.j, this.a.k);
-                        this.a.h0();
+                        alaLiveYYSubTabModel.f = new u76(x66Var, alaLiveYYSubTabModel.j, this.a.k);
+                        this.a.g0();
                     }
                     if (this.a.f != null) {
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
@@ -140,7 +139,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements PollingModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +167,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         public void onSuccess(List<AlaLiveInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.h0();
+                this.a.g0();
                 if (this.a.m != null && this.a.f != null) {
                     this.a.m.a(this.a.c, this.a.f.d());
                 }
@@ -221,11 +220,11 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            i0(1, x46.b(this.h) - 1);
+            h0(1, j66.b(this.h) - 1);
         }
     }
 
-    public final void h0() {
+    public final void g0() {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.f == null) {
@@ -239,17 +238,17 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        s66 s66Var = new s66();
-        s66Var.a = new ni6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(s66Var);
+        e86 e86Var = new e86();
+        e86Var.a = new zj6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(e86Var);
     }
 
-    public boolean e() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            i66 i66Var = this.f;
-            if (i66Var != null && !ListUtils.isEmpty(i66Var.d())) {
+            u76 u76Var = this.f;
+            if (u76Var != null && !ListUtils.isEmpty(u76Var.d())) {
                 return true;
             }
             return false;
@@ -284,15 +283,15 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if (pollingModel != null) {
                 pollingModel.C0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            i0(0, x46.b(this.h));
+            h0(0, j66.b(this.h));
         }
     }
 
-    public final void i0(int i, int i2) {
+    public final void h0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
-            httpMessage.addParam(TiebaStatic.Params.TAB_ID, this.h);
+            httpMessage.addParam("tab_id", this.h);
             String str = "N";
             if (BdNetTypeUtil.isNetWorkAvailable()) {
                 if (BdNetTypeUtil.isWifiNet()) {
@@ -306,7 +305,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", ii.l(this.a.getPageActivity()) + "_" + ii.j(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", ri.l(this.a.getPageActivity()) + "_" + ri.j(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i);
             httpMessage.addParam("big_refresh_count", i2);

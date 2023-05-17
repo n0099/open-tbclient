@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.qb8;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.c25;
+import com.baidu.tieba.ld8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,11 +17,11 @@ import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 import tbclient.AgreeMe.DataRes;
 import tbclient.Error;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<qb8> datas;
+    public ArrayList<ld8> datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,8 +48,8 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            t05.d();
-            t05.c("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            c25.d();
+            c25.c("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
@@ -85,9 +85,9 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 this.hasMore = z;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        qb8 qb8Var = new qb8();
-                        qb8Var.C(agreeList);
-                        this.datas.add(qb8Var);
+                        ld8 ld8Var = new ld8();
+                        ld8Var.D(agreeList);
+                        this.datas.add(ld8Var);
                     }
                 }
             }

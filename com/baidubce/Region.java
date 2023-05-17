@@ -12,7 +12,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Arrays;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Region {
     public static final /* synthetic */ Region[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

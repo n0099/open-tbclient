@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdvanceSetting implements Parcelable {
     public static final String ADVANCE_SETTING = "as";
     public static final String CLEAR_NOTIFICATION = "cn";
@@ -79,8 +79,8 @@ public class AdvanceSetting implements Parcelable {
                 if (!jSONObject.isNull("cn")) {
                     advanceSetting.setClearNotification(jSONObject.getInt("cn") != 0);
                 }
-                if (!jSONObject.isNull(HEAD_UP_NOTIFICATION)) {
-                    if (jSONObject.getInt(HEAD_UP_NOTIFICATION) == 0) {
+                if (!jSONObject.isNull("hn")) {
+                    if (jSONObject.getInt("hn") == 0) {
                         z = false;
                     }
                     advanceSetting.setHeadUpNotification(z);

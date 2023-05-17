@@ -1,5 +1,5 @@
 package com.kwad.components.core.video;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class h implements g {
     @Override // com.kwad.components.core.video.g
     public void onVideoPlayBufferingPaused() {

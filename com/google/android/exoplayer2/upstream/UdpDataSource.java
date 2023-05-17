@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class UdpDataSource implements DataSource {
     public static final int DEAFULT_SOCKET_TIMEOUT_MILLIS = 8000;
     public static final int DEFAULT_MAX_PACKET_SIZE = 2000;
@@ -24,7 +24,7 @@ public final class UdpDataSource implements DataSource {
     public final int socketTimeoutMillis;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UdpDataSourceException extends IOException {
         public UdpDataSourceException(IOException iOException) {
             super(iOException);

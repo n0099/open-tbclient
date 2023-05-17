@@ -3,7 +3,7 @@ package com.baidu.tieba.enterForum.hotuserrank.model;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.es6;
+import com.baidu.tieba.rt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HotUserRankSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public es6 pageData;
+    public rt6 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotUserRankSocketResMsg() {
@@ -36,13 +36,13 @@ public class HotUserRankSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public es6 getPageData() {
+    public rt6 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pageData;
         }
-        return (es6) invokeV.objValue;
+        return (rt6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class HotUserRankSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getInfluenceRankResIdl.error.usermsg);
             }
-            es6 es6Var = new es6();
-            this.pageData = es6Var;
-            es6Var.c(getInfluenceRankResIdl.data);
+            rt6 rt6Var = new rt6();
+            this.pageData = rt6Var;
+            rt6Var.c(getInfluenceRankResIdl.data);
             return getInfluenceRankResIdl;
         }
         return invokeIL.objValue;

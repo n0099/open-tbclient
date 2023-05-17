@@ -23,7 +23,7 @@ import com.huawei.hms.utils.Checker;
 import com.huawei.hms.utils.HMSPackageManager;
 import com.huawei.hms.utils.PackageManagerHelper;
 import com.huawei.hms.utils.UIUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AvailableAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class AvailableAdapter {
     public boolean c;
     public SystemObserver d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface AvailableCallBack {
         void onComplete(int i);
     }
@@ -49,7 +49,7 @@ public class AvailableAdapter {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == 1 || i == 2 : invokeI.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements SystemObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

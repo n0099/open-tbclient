@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.SecureRandom;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static Random a;

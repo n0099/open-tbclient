@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.TbLiveCyberView;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.py9;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.r0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbLiveCyberView extends CyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public class TbLiveCyberView extends CyberVideoView {
     public b L;
     public final CustomMessageListener M;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onError();
 
         void onPrepared();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class TbLiveCyberView extends CyberVideoView {
                 BdLog.e(e);
             }
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.p46
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.b66
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -127,7 +127,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i, i2, obj)) == null) ? TbLiveCyberView.this.l(i, i2, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.o46
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.a66
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -247,10 +247,10 @@ public class TbLiveCyberView extends CyberVideoView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (hi.isEmpty(str)) {
+            if (qi.isEmpty(str)) {
                 return str;
             }
-            if (py9.c().d()) {
+            if (r0a.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -283,7 +283,7 @@ public class TbLiveCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || hi.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || qi.isEmpty(str)) {
             return;
         }
         this.J = str;

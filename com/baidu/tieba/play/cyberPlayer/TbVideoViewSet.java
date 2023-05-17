@@ -11,8 +11,8 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tieba.hi;
 import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
     public static TbVideoViewSet c;
@@ -31,7 +31,7 @@ public class TbVideoViewSet {
     public LRULinkedHashMap<String, TbVideoViewContainer> a;
     public boolean b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a();
 
@@ -53,7 +53,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbVideoViewContainer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_PLAYERS = 3;
@@ -106,7 +106,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class TbVideoViewSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (!hi.isEmpty(str) && this.a.containsKey(str)) {
+            if (!qi.isEmpty(str) && this.a.containsKey(str)) {
                 return this.a.get(str);
             }
             return null;
@@ -215,7 +215,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.b && !hi.isEmpty(str2)) {
+                if (!this.b && !qi.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

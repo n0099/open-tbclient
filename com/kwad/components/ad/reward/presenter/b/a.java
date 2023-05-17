@@ -15,7 +15,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.a implements p.a, com.kwad.sdk.core.webview.a.kwai.a {
     public KsAdWebView bF;
     public KSFrameLayout sT;
@@ -24,9 +24,9 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
     public q sz;
 
     private void initView() {
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09134b);
-        this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09134c);
-        this.sU = findViewById(R.id.obfuscated_res_0x7f0912a1);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091386);
+        this.sT = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091387);
+        this.sU = findViewById(R.id.obfuscated_res_0x7f0912dc);
     }
 
     @Override // com.kwad.sdk.core.webview.a.kwai.a
@@ -46,7 +46,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
             if (this.sV == null) {
                 this.sV = new t(this.bF, this.sU, this.nM.mApkDownloadHelper, this);
             }
-            this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09134f));
+            this.sV.a(this.nM.mAdTemplate, (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09138a));
         }
     }
 

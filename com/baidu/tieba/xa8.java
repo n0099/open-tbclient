@@ -1,86 +1,134 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xa8 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes8.dex */
+public class xa8 extends zb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean e;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public int h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public xa8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = true;
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yb8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            yb8 yb8Var = this.c;
+            if (yb8Var != null) {
+                z2 = yb8Var.a(i, z, obj);
+            } else {
+                z2 = true;
             }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    optJSONObject.optString("title");
-                    aVar.b = optJSONObject.optString("content");
-                    aVar.c = optJSONObject.optString("quote_content");
-                    aVar.d = optJSONObject.optString("fname");
-                    aVar.e = optJSONObject.optString("thread_id");
-                    aVar.f = optJSONObject.optString("post_id");
-                    aVar.h = optJSONObject.optInt("type");
-                    aVar.g = optJSONObject.optString("title");
-                    optJSONObject.optInt("thread_type");
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
-                    if (optJSONObject2 != null) {
-                        optJSONObject2.optString("id");
-                        optJSONObject2.optString("portrait");
-                        optJSONObject2.optInt("gender");
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
-                    if (optJSONObject3 != null) {
-                        optJSONObject3.optString("id");
-                        aVar.a = optJSONObject3.optInt("gender");
+            for (int i2 = 0; i2 < this.a.size(); i2++) {
+                xb8 xb8Var = this.a.get(i2);
+                if (xb8Var instanceof fb8) {
+                    fb8 fb8Var = (fb8) xb8Var;
+                    if (fb8Var.d() && i != i2) {
+                        fb8Var.e(false);
+                        i(i2);
+                    } else {
+                        if (i == i2) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        fb8Var.e(z3);
                     }
                 }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
             }
+            return z2;
         }
-        return (a) invokeL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zb8
+    public List<xb8> j(List list) {
+        InterceptResult invokeL;
+        List<BotsDTO.BotListDTO.SkillDTO> list2;
+        db8 db8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i < list.size()) {
+                    Object obj = list.get(i);
+                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
+                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
+                        if (itemsDTO.getItemType() == 1) {
+                            db8Var = new eb8(itemsDTO);
+                        } else {
+                            db8 db8Var2 = new db8(itemsDTO);
+                            int i2 = this.d;
+                            if (i2 > -1) {
+                                if (i != i2) {
+                                    z = false;
+                                }
+                                db8Var2.n(z);
+                            }
+                            db8Var = db8Var2;
+                        }
+                        arrayList.add(db8Var);
+                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
+                        fb8 fb8Var = new fb8((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
+                        int i3 = this.d;
+                        if (i3 > -1) {
+                            if (i != i3) {
+                                z = false;
+                            }
+                            fb8Var.e(z);
+                        }
+                        arrayList.add(fb8Var);
+                    } else if (obj instanceof BaseMsg) {
+                        TextGenImageMsg textGenImageMsg = (TextGenImageMsg) obj;
+                        if (textGenImageMsg.getSubSkillConfig() != null && (list2 = textGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
+                            if (this.e) {
+                                arrayList.add(new bb8());
+                                this.e = false;
+                            }
+                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
+                                cb8 cb8Var = new cb8(skillDTO);
+                                cb8Var.e(textGenImageMsg);
+                                arrayList.add(cb8Var);
+                            }
+                        }
+                    }
+                    i++;
+                } else {
+                    this.e = true;
+                    return arrayList;
+                }
+            }
+        } else {
+            return (List) invokeL.objValue;
+        }
     }
 }

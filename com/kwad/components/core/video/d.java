@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bg;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d extends com.kwad.components.core.video.a implements bg.a {
     public View Kr;
     public final bg Ks;
@@ -21,7 +21,7 @@ public final class d extends com.kwad.components.core.video.a implements bg.a {
     public boolean Kw;
     public boolean zA;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a extends a.b {
         void onVideoPlayError(int i, int i2);
     }
@@ -79,7 +79,7 @@ public final class d extends com.kwad.components.core.video.a implements bg.a {
         super.oI();
         ImageView imageView = this.jQ;
         if (imageView != null) {
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080cd3);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080e03);
         }
         TextView textView = this.jR;
         if (textView != null) {

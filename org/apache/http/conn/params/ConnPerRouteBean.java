@@ -3,7 +3,7 @@ package org.apache.http.conn.params;
 import java.util.Map;
 import org.apache.http.conn.routing.HttpRoute;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ConnPerRouteBean implements ConnPerRoute {
     public static final int DEFAULT_MAX_CONNECTIONS_PER_ROUTE = 2;
 

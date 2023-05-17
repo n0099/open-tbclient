@@ -7,27 +7,27 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j86;
-import com.baidu.tieba.kh6;
-import com.baidu.tieba.p86;
-import com.baidu.tieba.s46;
+import com.baidu.tieba.ba6;
+import com.baidu.tieba.e66;
+import com.baidu.tieba.v96;
+import com.baidu.tieba.wi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class AlaGameFrsLiveNormalCardView extends kh6<j86> {
+/* loaded from: classes4.dex */
+public class AlaGameFrsLiveNormalCardView extends wi6<v96> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
-    public p86 j;
+    public ba6 j;
 
-    @Override // com.baidu.tieba.kh6
+    @Override // com.baidu.tieba.wi6
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0113 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0115 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -37,7 +37,7 @@ public class AlaGameFrsLiveNormalCardView extends kh6<j86> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class AlaGameFrsNormalViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,38 +88,38 @@ public class AlaGameFrsLiveNormalCardView extends kh6<j86> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kh6
+    @Override // com.baidu.tieba.wi6
     /* renamed from: s */
-    public void i(j86 j86Var) {
+    public void i(v96 v96Var) {
         ThreadData threadData;
-        p86 p86Var;
+        ba6 ba6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, j86Var) == null) && j86Var != null && (threadData = j86Var.a) != null && (p86Var = this.j) != null) {
-            p86Var.d(threadData);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, v96Var) == null) && v96Var != null && (threadData = v96Var.a) != null && (ba6Var = this.j) != null) {
+            ba6Var.d(threadData);
         }
     }
 
-    public void t(s46 s46Var) {
-        p86 p86Var;
+    public void t(e66 e66Var) {
+        ba6 ba6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, s46Var) == null) && (p86Var = this.j) != null) {
-            p86Var.g(s46Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, e66Var) == null) && (ba6Var = this.j) != null) {
+            ba6Var.g(e66Var);
         }
     }
 
-    @Override // com.baidu.tieba.kh6
+    @Override // com.baidu.tieba.wi6
     public void j(TbPageContext<?> tbPageContext, int i) {
-        p86 p86Var;
+        ba6 ba6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (p86Var = this.j) != null) {
-            p86Var.e(tbPageContext, i);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && (ba6Var = this.j) != null) {
+            ba6Var.e(tbPageContext, i);
         }
     }
 
     public final void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.j = new p86(this.i);
+            this.j = new ba6(this.i);
             ((ViewGroup) h()).addView(this.j.c());
         }
     }

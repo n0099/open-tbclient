@@ -7,7 +7,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChargeCurrencyRequest implements IRequestProtocol {
     public double amount;
     public int appId;
@@ -24,7 +24,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ExpandBuilder {
         public final String hdid;
         public final String product_id;

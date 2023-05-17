@@ -1,79 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.me;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class n47 {
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+/* loaded from: classes6.dex */
+public final class n47 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
 
-    public n47() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947952568, "Lcom/baidu/tieba/n47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947952568, "Lcom/baidu/tieba/n47;");
                 return;
             }
         }
-        b();
+        a = new a(null);
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            t05.d();
-            this.a = t05.b("tb.forum_member_info");
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-    }
 
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        me.b<byte[]> bVar;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final p07 a(String iconUrl) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iconUrl)) == null) {
+                Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+                if (TextUtils.isEmpty(iconUrl)) {
+                    return null;
+                }
+                int i = 0;
+                if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                    Uri parse = Uri.parse(iconUrl);
+                    List<String> pathSegments = parse.getPathSegments();
+                    if (pathSegments.size() > 0) {
+                        boolean z = true;
+                        int identifier = cy6.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, cy6.a.getPackageName());
+                        String queryParameter = parse.getQueryParameter("type");
+                        if (queryParameter == null) {
+                            queryParameter = "";
+                        }
+                        int identifier2 = cy6.a.getResources().getIdentifier(parse.getQueryParameter("color"), "color", cy6.a.getPackageName());
+                        String queryParameter2 = parse.getQueryParameter(CriusAttrConstants.PADDING);
+                        if (queryParameter2 != null && queryParameter2.length() != 0) {
+                            z = false;
+                        }
+                        if (!z) {
+                            i = ri.g(cy6.a, cy6.a.getResources().getIdentifier(queryParameter2, EMABTest.TYPE_DIMEN, cy6.a.getPackageName()));
+                        }
+                        if (identifier > 0) {
+                            return new p07(identifier, queryParameter, identifier2, i);
+                        }
+                    }
+                }
                 return null;
             }
-            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            me<byte[]> meVar = this.a;
-            if (meVar != null) {
-                bVar = meVar.h(str2);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
+            return (p07) invokeL.objValue;
         }
-        return (byte[]) invokeL.objValue;
-    }
 
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(str)) {
-                return;
+        public final String b(l07 iconData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iconData)) == null) {
+                Intrinsics.checkNotNullParameter(iconData, "iconData");
+                String b = iconData.b();
+                int currentSkinType = SkinManager.getCurrentSkinType();
+                if (currentSkinType != 0) {
+                    if (currentSkinType == 4) {
+                        return iconData.a();
+                    }
+                    return b;
+                }
+                return iconData.b();
             }
-            b();
-            me<byte[]> meVar = this.a;
-            meVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+            return (String) invokeL.objValue;
         }
     }
 }

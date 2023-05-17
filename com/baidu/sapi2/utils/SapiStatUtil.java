@@ -16,13 +16,14 @@ import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiStatUtil {
     public static final int CLOUND_SHARE_ACCOUNT_STAT_INVOKE_START = 3;
     public static final int CLOUND_SHARE_ACCOUNT_STAT_LOGIN_FAIL = 5;
@@ -290,7 +291,7 @@ public class SapiStatUtil {
     public static void statThirdLoginEnter(SocialType socialType) {
         HashMap hashMap = new HashMap();
         hashMap.put(DnsModel.CLIENTIP_KEY, SapiUtils.getLocalIpAddress());
-        hashMap.put("client", "android");
+        hashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         hashMap.put("social_type", socialType.getType() + "");
         if (SocialType.SINA_WEIBO_SSO == socialType) {
             hashMap.put("is_sso", "1");

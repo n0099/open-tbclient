@@ -11,10 +11,10 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OkHttpRequestManager {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public GzipRequestInterceptor() {
         }

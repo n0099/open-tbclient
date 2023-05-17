@@ -9,6 +9,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import com.baidu.searchbox.command.CommandUtils;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.webkit.logsdk.d.c;
@@ -21,7 +22,7 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static String n;
     public String a;
@@ -668,7 +669,7 @@ public final class a {
                 c = 65535;
                 break;
             case 3529:
-                if (str.equals("nw")) {
+                if (str.equals(CommandUtils.PARAM_NEW_WINDOW)) {
                     c = '\t';
                     break;
                 }

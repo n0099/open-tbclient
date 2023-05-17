@@ -1,108 +1,55 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class h62 extends ProviderDelegation {
+import java.io.File;
+/* loaded from: classes5.dex */
+public class h62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements rm3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ h62 b;
-
-        public a(h62 h62Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h62Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = h62Var;
-            this.a = bundle;
+    public static File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new File(cs2.q(), "sConsole-core");
         }
+        return (File) invokeV.objValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rm3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b.d(this.a);
-            }
-            return (Bundle) invokeV.objValue;
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return uh3.a().getLong("get_app_console_core_code", -1L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return uh3.a().getString("get_app_console_core", "-1");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            e("-1", -1L);
         }
     }
 
-    public h62() {
+    public static void e(@NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+            uh3.a().putString("get_app_console_core", str);
+            uh3.a().putLong("get_app_console_core_code", j);
         }
-    }
-
-    public final Bundle d(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            j62 j62Var = new j62();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return bundle2;
-                        }
-                        bundle2.putString("result", j62Var.getCookie(string));
-                        return bundle2;
-                    }
-                    j62Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                    return bundle2;
-                }
-                bundle2.putBoolean("result", j62Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            }
-            bundle2.putBoolean("result", j62Var.shouldAcceptCookie(string, bundle.getString("param2")));
-            return bundle2;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            return (Bundle) om3.b(new a(this, bundle));
-        }
-        return (Bundle) invokeL.objValue;
     }
 }

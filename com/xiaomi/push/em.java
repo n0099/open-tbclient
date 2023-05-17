@@ -9,14 +9,14 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class em {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hr> f314a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void uploader(Context context, hl hlVar);
     }
@@ -102,7 +102,7 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hr m372a(String str) {
+    public static hr m391a(String str) {
         hr[] values;
         if (f314a == null) {
             synchronized (hr.class) {
@@ -119,12 +119,12 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m373a(int i) {
+    public static String m392a(int i) {
         return i == 1000 ? "E100000" : i == 3000 ? "E100002" : i == 2000 ? "E100001" : i == 6000 ? "E100003" : "";
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m374a(Context context) {
+    public static void m393a(Context context) {
         ClientReportClient.updateConfig(context, a(context));
     }
 
@@ -133,7 +133,7 @@ public class em {
     }
 
     public static void a(Context context, hl hlVar) {
-        if (m375a(context.getApplicationContext())) {
+        if (m394a(context.getApplicationContext())) {
             com.xiaomi.push.service.ca.a(context.getApplicationContext(), hlVar);
             return;
         }
@@ -164,7 +164,7 @@ public class em {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m375a(Context context) {
+    public static boolean m394a(Context context) {
         return (context == null || TextUtils.isEmpty(context.getPackageName()) || !"com.xiaomi.xmsf".equals(context.getPackageName())) ? false : true;
     }
 }

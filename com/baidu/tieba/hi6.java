@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface hi6 {
-    void a(String str);
 
-    void p(int i);
+import android.view.View;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
+/* loaded from: classes5.dex */
+public interface hi6 {
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "EMManagerProvider");
+
+    void a(View view2, int i);
 }

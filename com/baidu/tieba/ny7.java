@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TabList;
-/* loaded from: classes5.dex */
-public class ny7 implements in {
+/* loaded from: classes6.dex */
+public class ny7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -30,7 +30,7 @@ public class ny7 implements in {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public ny7() {
@@ -43,30 +43,20 @@ public class ny7 implements in {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = R.dimen.tbds16;
+        this.b = R.color.CAM_X0204;
     }
 
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.rn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(TabList tabList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tabList) != null) || tabList == null) {
-            return;
-        }
-        String str = tabList.tab_name;
-        this.a = tabList.tab_type;
-        String str2 = tabList.share_pic;
-        String str3 = tabList.share_title;
-        String str4 = tabList.share_desc;
-        String str5 = tabList.share_url;
     }
 }

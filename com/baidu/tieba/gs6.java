@@ -1,228 +1,152 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankHttpResMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankReqMsg;
-import com.baidu.tieba.enterForum.hotuserrank.model.HotUserRankSocketResMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gs6 {
+import java.io.File;
+/* loaded from: classes5.dex */
+public class gs6 extends jk1<ak5> {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public es6 c;
-    public b d;
-    public za e;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(es6 es6Var);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends za {
+    /* loaded from: classes5.dex */
+    public class a implements ak5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gs6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gs6 gs6Var, int i, int i2) {
-            super(i, i2);
+        public a(gs6 gs6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gs6Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {gs6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = gs6Var;
         }
 
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.ak5
+        public boolean a(@NonNull String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return ns6.k().m(str);
             }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ak5
+        @NonNull
+        public String b(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                return ns6.k().j(str);
             }
-            es6 es6Var = null;
-            if (responsedMessage instanceof HotUserRankHttpResMsg) {
-                es6Var = ((HotUserRankHttpResMsg) responsedMessage).getPageData();
-            } else if (responsedMessage instanceof HotUserRankSocketResMsg) {
-                es6Var = ((HotUserRankSocketResMsg) responsedMessage).getPageData();
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ak5
+        @NonNull
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return gs6.c;
             }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (es6Var == null || ListUtils.isEmpty(es6Var.b))) {
-                    if (this.a.d != null) {
-                        this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d30));
-                    }
-                } else if (es6Var != null) {
-                    this.a.c.a = es6Var.a;
-                    this.a.c.b.addAll(es6Var.b);
-                    this.a.c.c = es6Var.c;
-                    this.a.c.d = es6Var.d;
-                    this.a.c.e = es6Var.e;
-                    this.a.c.f = es6Var.f;
-                    if (!ListUtils.isEmpty(es6Var.b)) {
-                        this.a.c.g = es6Var.g;
-                        gs6.c(this.a);
-                    } else {
-                        this.a.c.g = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(es6Var);
-                    }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ak5
+        @NonNull
+        public String d(@NonNull String str, boolean z) {
+            InterceptResult invokeLZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
+                ns6 k = ns6.k();
+                boolean q = k.q(str);
+                boolean r = k.r(str);
+                String g = k.g(str, z);
+                if (g == null) {
+                    g = "";
                 }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
+                if (!q && !r) {
+                    return e(k.h(str), g);
+                }
+                return g;
             }
+            return (String) invokeLZ.objValue;
+        }
+
+        @Override // com.baidu.tieba.ak5
+        @NonNull
+        public String e(@NonNull String str, @NonNull String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                return gs6.b + File.separator + str + File.separator + str2;
+            }
+            return (String) invokeLL.objValue;
         }
     }
 
-    public gs6(BdUniqueId bdUniqueId) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947804543, "Lcom/baidu/tieba/gs6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947804543, "Lcom/baidu/tieba/gs6;");
+                return;
+            }
+        }
+        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        b = a + File.separator + ".emotions";
+        c = a + File.separator + ".collect";
+    }
+
+    public gs6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_HOT_USER_RANK, 309652);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        m();
-        l();
-        this.c = new es6();
     }
 
-    public static /* synthetic */ int c(gs6 gs6Var) {
-        int i = gs6Var.b;
-        gs6Var.b = i + 1;
-        return i;
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.forumId = j;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
-            hotUserRankReqMsg.category = str;
-            hotUserRankReqMsg.pageSize = 20;
-            hotUserRankReqMsg.pageNum = this.b;
-            hotUserRankReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(hotUserRankReqMsg);
-        }
-    }
-
-    public void n(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public int f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: c */
+    public ak5 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return new a(this);
         }
-        return invokeV.intValue;
-    }
-
-    public es6 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (es6) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().removeMessage(this.a);
-            MessageManager.getInstance().unRegisterListener(this.a);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            zn5 zn5Var = new zn5(309652);
-            zn5Var.setResponsedClass(HotUserRankSocketResMsg.class);
-            zn5Var.g(true);
-            zn5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(zn5Var);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, xo9.a(TbConfig.HOT_USER_RANK_URL, 309652));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
+        return (ak5) invokeV.objValue;
     }
 }

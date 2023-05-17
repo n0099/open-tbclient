@@ -6,13 +6,13 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fza;
+import com.baidu.tieba.d1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AGConnectInitializeProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class AGConnectInitializeProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Log.i("AGConnectProvider", "AGConnectInitializeProvider#onCreate");
-            fza.d(getContext());
+            d1b.d(getContext());
             return false;
         }
         return invokeV.booleanValue;

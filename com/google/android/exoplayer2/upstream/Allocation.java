@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.upstream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Allocation {
     public final byte[] data;
     public final int offset;

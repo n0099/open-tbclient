@@ -1,7 +1,7 @@
 package com.baidu.searchbox.performance.speed.task;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseTaskPool {
     public abstract List<LaunchTask> onAppCreateFirst(int i);
 

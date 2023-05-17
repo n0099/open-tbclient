@@ -8,7 +8,7 @@ import com.baidu.pass.main.facesdk.model.BDFaceInstance;
 import com.baidu.pass.main.facesdk.model.BDFaceIsOutBoundary;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceCrop {
     public static final String TAG = "FaceCrop";
     public BDFaceInstance bdFaceInstance;

@@ -3,7 +3,6 @@ package com.baidu.tun2tornadolite.booster.tun;
 import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,8 +32,8 @@ import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Deferred;
 import kotlinx.coroutines.Dispatchers;
 import kotlinx.coroutines.Job;
-@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0007\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0017\u001a\u00020\u00072\u0006\u0010\u0015\u001a\u00020\u0016J\u0011\u0010\u0018\u001a\u00020\u0007H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\u0019J\u0018\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0018\u0010\u001e\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0018\u0010\u001f\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010 \u001a\u00020\u0016H\u0002J \u0010!\u001a\u00020\u00072\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010 \u001a\u00020\u0016H\u0002J\u0018\u0010$\u001a\u00020\u00072\u0006\u0010%\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0018\u0010&\u001a\u00020\u00072\u0006\u0010%\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0011\u0010'\u001a\u00020\u0007H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0019J\u0006\u0010(\u001a\u00020\u0007J\u0016\u0010)\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010 \u001a\u00020\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082.¢\u0006\u0002\n\u0000R \u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006*"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/Tun;", "", "()V", "descriptor", "Landroid/os/ParcelFileDescriptor;", "handleLoop", "Lkotlinx/coroutines/Deferred;", "", "getHandleLoop", "()Lkotlinx/coroutines/Deferred;", "setHandleLoop", "(Lkotlinx/coroutines/Deferred;)V", "headerBuf", "Ljava/nio/ByteBuffer;", "inited", "", "input", "Ljava/io/FileInputStream;", "looping", "output", "Ljava/io/FileOutputStream;", "tunfd", "", "init", "loop", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "processICMP", "buffer", "ipHeader", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;", "processICMPv6", "processOther", CloudStabilityUBCUtils.KEY_LENGTH, "processPacket", "i", "", "processTcp", "packet", "processUdp", "start", "stop", "write", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes7.dex */
+@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\t\n\u0002\b\u0007\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0017\u001a\u00020\u00072\u0006\u0010\u0015\u001a\u00020\u0016J\u0011\u0010\u0018\u001a\u00020\u0007H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010\u0019J\u0018\u0010\u001a\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0018\u0010\u001e\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0018\u0010\u001f\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010 \u001a\u00020\u0016H\u0002J \u0010!\u001a\u00020\u00072\u0006\u0010\"\u001a\u00020#2\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010 \u001a\u00020\u0016H\u0002J\u0018\u0010$\u001a\u00020\u00072\u0006\u0010%\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0018\u0010&\u001a\u00020\u00072\u0006\u0010%\u001a\u00020\r2\u0006\u0010\u001c\u001a\u00020\u001dH\u0002J\u0011\u0010'\u001a\u00020\u0007H\u0086@ø\u0001\u0000¢\u0006\u0002\u0010\u0019J\u0006\u0010(\u001a\u00020\u0007J\u0016\u0010)\u001a\u00020\u00072\u0006\u0010\u001b\u001a\u00020\r2\u0006\u0010 \u001a\u00020\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082.¢\u0006\u0002\n\u0000R \u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\b\u0010\t\"\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u0011X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0012\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0016X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006*"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/Tun;", "", "()V", "descriptor", "Landroid/os/ParcelFileDescriptor;", "handleLoop", "Lkotlinx/coroutines/Deferred;", "", "getHandleLoop", "()Lkotlinx/coroutines/Deferred;", "setHandleLoop", "(Lkotlinx/coroutines/Deferred;)V", "headerBuf", "Ljava/nio/ByteBuffer;", "inited", "", "input", "Ljava/io/FileInputStream;", "looping", "output", "Ljava/io/FileOutputStream;", "tunfd", "", "init", "loop", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "processICMP", "buffer", "ipHeader", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectIPHeader;", "processICMPv6", "processOther", "length", "processPacket", "i", "", "processTcp", "packet", "processUdp", "start", "stop", "write", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+/* loaded from: classes8.dex */
 public final class Tun {
     public static /* synthetic */ Interceptable $ic;
     public static final Tun INSTANCE;
@@ -123,7 +122,7 @@ public final class Tun {
     private final void processUdp(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, this, byteBuffer, directIPHeader) == null) {
-            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m864constructorimpl(directIPHeader.getPacketLength()), null);
+            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m883constructorimpl(directIPHeader.getPacketLength()), null);
             sClientPacket.encodeHeader2Buffer(headerBuf);
             sClientPacket.writeBodyBuffer(byteBuffer);
             SClient.INSTANCE.write(sClientPacket);
@@ -173,8 +172,8 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
             try {
-                int m788constructorimpl = (UByte.m788constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
-                if (m788constructorimpl != 4) {
+                int m807constructorimpl = (UByte.m807constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
+                if (m807constructorimpl != 4) {
                     return;
                 }
                 DirectIPv4Header.Companion.getHeader().setPacketLength(i);
@@ -198,7 +197,7 @@ public final class Tun {
                     processICMP(byteBuffer, header);
                 }
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m788constructorimpl + " protocol: " + protocol);
+                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m807constructorimpl + " protocol: " + protocol);
             } catch (ErrnoException e) {
                 looping = false;
                 e.printStackTrace();
@@ -219,7 +218,7 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, byteBuffer, directIPHeader) == null) {
             if (directIPHeader instanceof DirectIPv4Header) {
-                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m864constructorimpl(directIPHeader.getPacketLength()), null);
+                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m883constructorimpl(directIPHeader.getPacketLength()), null);
                 sClientPacket.encodeHeader2Buffer(headerBuf);
                 sClientPacket.writeBodyBuffer(byteBuffer);
                 SClient.INSTANCE.write(sClientPacket);

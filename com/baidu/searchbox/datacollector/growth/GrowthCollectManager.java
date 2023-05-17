@@ -7,7 +7,7 @@ import com.baidu.searchbox.datacollector.growth.model.ChannelData;
 import com.baidu.searchbox.datacollector.growth.model.ClipBoardData;
 import com.baidu.searchbox.datacollector.growth.service.GrowthCollectProcessor;
 import com.baidu.searchbox.datacollector.growth.service.LifeCycleHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GrowthCollectManager {
     public static volatile boolean hasInit;
 

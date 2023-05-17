@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.h15;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HeadlinesAgreeRewardItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int c;
@@ -45,7 +45,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
                 return;
             }
         }
-        c = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
+        c = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X001);
         d = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.L_X04);
     }
 
@@ -58,7 +58,7 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setPlaceHolder(1);
-            g35.d(this.b).w(R.color.CAM_X0105);
+            p45.d(this.b).w(R.color.CAM_X0105);
         }
     }
 
@@ -138,13 +138,13 @@ public class HeadlinesAgreeRewardItemView extends LinearLayout {
         a(context);
     }
 
-    public void setData(yz4 yz4Var) {
+    public void setData(h15 h15Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yz4Var) != null) || yz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h15Var) != null) || h15Var == null) {
             return;
         }
         b();
-        this.a.N(yz4Var.a(), 10, false);
-        this.b.setText(yz4Var.b());
+        this.a.N(h15Var.a(), 10, false);
+        this.b.setText(h15Var.b());
     }
 }

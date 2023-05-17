@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.qx9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KuangFloatingWindowController {
     public static /* synthetic */ Interceptable $ic;
     public static boolean currentStatus;
@@ -257,7 +257,7 @@ public class KuangFloatingWindowController {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {
-                return ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+                return ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
             }
             WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -310,13 +310,13 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = qx9.a(2002);
+            layoutParams.type = sz9.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
             layoutParams.y = (int) (getHeightPx() * 0.75d);
             layoutParams.width = -2;
-            layoutParams.height = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+            layoutParams.height = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
             layoutParams.gravity = 51;
             if (this.manager == null) {
                 this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");

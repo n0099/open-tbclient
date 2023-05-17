@@ -4,12 +4,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.List;
+/* loaded from: classes8.dex */
 public class xq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public yq9 f;
+    public String g;
+    public int h;
+    public List<String> i;
+    public String j;
 
     public xq9() {
         Interceptable interceptable = $ic;

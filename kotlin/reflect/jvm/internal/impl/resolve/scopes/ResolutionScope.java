@@ -7,16 +7,16 @@ import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.FunctionDescriptor;
 import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ResolutionScope {
     /* renamed from: getContributedClassifier */
-    ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation);
+    ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation);
 
     Collection<DeclarationDescriptor> getContributedDescriptors(DescriptorKindFilter descriptorKindFilter, Function1<? super Name, Boolean> function1);
 
     Collection<? extends FunctionDescriptor> getContributedFunctions(Name name, LookupLocation lookupLocation);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope */
         /* JADX WARN: Multi-variable type inference failed */

@@ -2,7 +2,7 @@ package com.google.zxing.qrcode.encoder;
 
 import com.bumptech.glide.load.engine.GlideException;
 import java.lang.reflect.Array;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ByteMatrix {
     public final byte[][] bytes;
     public final int height;

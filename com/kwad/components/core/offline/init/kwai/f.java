@@ -4,7 +4,7 @@ import android.content.Context;
 import com.kwad.components.offline.api.core.api.INet;
 import com.kwad.sdk.core.network.idc.DomainException;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f implements INet {
     @Override // com.kwad.components.offline.api.core.api.INet
     public final int getActiveNetworkType(Context context) {

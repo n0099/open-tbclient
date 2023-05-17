@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.ISharePrefsWrapper;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
-/* loaded from: classes4.dex */
-public class gd1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+/* loaded from: classes5.dex */
+public interface gd1<View> {
+    void a();
 
-    @Inject(force = false)
-    public static ISharePrefsWrapper a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new ad1();
-        }
-        return (ISharePrefsWrapper) invokeV.objValue;
-    }
+    void b(String str, boolean z);
+
+    void c(boolean z);
+
+    View getRealView();
+
+    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
+
+    void setCriusPopListener(@NonNull ed1 ed1Var);
+
+    void setData(@NonNull fq0 fq0Var);
 }

@@ -1,17 +1,18 @@
 package com.cmic.sso.sdk;
 
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static String a = "aes_key";
@@ -47,6 +48,6 @@ public class b {
                 return;
             }
         }
-        a = new String[]{"120", "0", "196", "1", "213", "2", "2"};
+        a = new String[]{"120", "0", "196", "1", CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_KEY_SETTINGS, "2", "2"};
     }
 }

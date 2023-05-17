@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d extends IOException {
     public d(String str) {
         super(str);

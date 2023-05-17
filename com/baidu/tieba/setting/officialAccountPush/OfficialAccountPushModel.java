@@ -4,7 +4,7 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.za;
+import com.baidu.tieba.fb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +15,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public za b;
+    public fb b;
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str);
     }
@@ -55,8 +55,8 @@ public class OfficialAccountPushModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends za {
+    /* loaded from: classes7.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialAccountPushModel a;
@@ -83,7 +83,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
             this.a = officialAccountPushModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             OfficialAccountPushHttpResponseMessage officialAccountPushHttpResponseMessage;
             Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void W() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             sendMessage(new OfficialAccountPushRequestMessage());

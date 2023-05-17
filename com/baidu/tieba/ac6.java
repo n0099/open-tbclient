@@ -1,43 +1,51 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-/* loaded from: classes3.dex */
-public interface ac6 {
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class ac6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        int a(byte[] bArr, int i);
+    public ac6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(byte[] bArr);
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optString("user_id");
+        jSONObject.optString("user_name");
+        jSONObject.optString("sex");
+        jSONObject.optString("description");
+        jSONObject.optString("portrait");
+        jSONObject.optString("level_id");
+        jSONObject.optString("location");
+        jSONObject.optString(DI.FOLLOW_STATUS);
+        jSONObject.optString("follow_count");
+        jSONObject.optString("fans_count");
+        jSONObject.optString("live_count");
+        jSONObject.optString("record_count");
+        jSONObject.optInt("yy_level_id");
+        jSONObject.optLong("yy_levelup_exp");
+        jSONObject.optLong("yy_level_exp");
+        jSONObject.optString("yy_level_name");
+        jSONObject.optString("yy_level_next_name");
     }
-
-    View a();
-
-    void b(b bVar);
-
-    void c(int i);
-
-    int d();
-
-    void e();
-
-    Rect f();
-
-    void g();
-
-    void h(int i);
-
-    void i(bc6 bc6Var);
-
-    void pause();
-
-    void resume();
-
-    void start();
-
-    void stop();
 }

@@ -1,221 +1,70 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
+import android.content.Context;
 import android.view.View;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.refresh.BdSwipeRefreshLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class gn {
+import java.security.InvalidParameterException;
+/* loaded from: classes5.dex */
+public abstract class gn implements BdSwipeRefreshLayout.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dn a;
-    public hn b;
-    public RecyclerView c;
-    public VelocityTracker d;
-    public float e;
-    public float f;
-    public int g;
-    public int h;
-    public int i;
-    public in5 j;
-    public RecyclerView.OnChildAttachStateChangeListener k;
-    public RecyclerView.OnScrollListener l;
-    public RecyclerView.OnItemTouchListener m;
+    public Context a;
+    public View b;
+    public boolean c;
+    public int d;
+    public a e;
+    public boolean f;
 
-    /* loaded from: classes4.dex */
-    public class a implements RecyclerView.OnChildAttachStateChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn a;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(gn gnVar, int i, int i2, int i3, int i4);
+    }
 
-        public a(gn gnVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gnVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gnVar;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-        public void onChildViewAttachedToWindow(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.a.r(view2);
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
-        public void onChildViewDetachedFromWindow(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) {
-                return;
-            }
-            this.a.s(view2);
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void c(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn a;
-
-        public b(gn gnVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gnVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gnVar;
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public long getCompleteAnimTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0L;
         }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                this.a.u(i);
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) != null) {
-                return;
-            }
-            this.a.t(i, i2);
-        }
+        return invokeV.longValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements RecyclerView.OnItemTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn a;
+    public abstract View n();
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public void onRequestDisallowInterceptTouchEvent(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            }
-        }
+    public abstract void o(boolean z);
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
-            }
-        }
+    public abstract void t();
 
-        public c(gn gnVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gnVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gnVar;
-        }
+    public abstract void u(boolean z);
 
-        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
-        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            float f;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
-                int actionMasked = motionEvent.getActionMasked();
-                if (actionMasked == 0) {
-                    this.a.c.stopScroll();
-                    this.a.e = motionEvent.getX();
-                    this.a.f = motionEvent.getY();
-                    gn gnVar = this.a;
-                    View x = gnVar.x(gnVar.e, this.a.f);
-                    gn gnVar2 = this.a;
-                    gnVar2.g = gnVar2.c.getChildAdapterPosition(x);
-                    if (this.a.d == null) {
-                        this.a.d = VelocityTracker.obtain();
-                    }
-                    this.a.d.addMovement(motionEvent);
-                    return false;
-                }
-                int i = 1;
-                if (actionMasked == 2) {
-                    float x2 = motionEvent.getX();
-                    float y = motionEvent.getY();
-                    if (this.a.i == 2) {
-                        f = y - this.a.f;
-                    } else {
-                        f = x2 - this.a.e;
-                    }
-                    if (f >= 0.0f) {
-                        i = 2;
-                    }
-                    if (i != this.a.h) {
-                        this.a.h = i;
-                        this.a.d.clear();
-                    }
-                    this.a.d.addMovement(motionEvent);
-                    this.a.d.computeCurrentVelocity(50);
-                    gn gnVar3 = this.a;
-                    gnVar3.v(gnVar3.d.getXVelocity(), this.a.d.getYVelocity());
-                    this.a.e = x2;
-                    this.a.f = y;
-                    return false;
-                } else if (actionMasked == 3 || actionMasked == 1) {
-                    this.a.e = 0.0f;
-                    this.a.f = 0.0f;
-                    this.a.d.clear();
-                    return false;
-                } else {
-                    return false;
-                }
-            }
-            return invokeLL.booleanValue;
-        }
-    }
+    public abstract void w(boolean z);
 
-    public gn(en enVar) {
+    public abstract void x();
+
+    public abstract void y();
+
+    public gn(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {enVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -225,126 +74,178 @@ public class gn {
                 return;
             }
         }
-        this.k = new a(this);
-        this.l = new b(this);
-        this.m = new c(this);
-        this.a = new dn(enVar);
-        this.b = new hn(enVar);
-    }
-
-    public final void t(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.p(i, i2, this.g);
-            }
-            this.a.l(i, i2, this.g);
+        this.a = null;
+        this.b = null;
+        this.c = true;
+        this.d = 0;
+        this.f = false;
+        if (context != null) {
+            this.a = context;
+            return;
         }
-    }
-
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.k(view2);
-            } else {
-                this.a.g(view2);
-            }
-        }
+        throw new InvalidParameterException("BdIListPullView context is null");
     }
 
     public final void s(View view2) {
+        int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.l(view2);
-            } else {
-                this.a.h(view2);
+        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
             }
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i = layoutParams.height;
+            if (i > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
+            } else {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+            }
+            view2.measure(childMeasureSpec, makeMeasureSpec);
         }
     }
 
-    public void q(RecyclerView recyclerView, int i) {
+    public void A(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, recyclerView, i) != null) || recyclerView == null) {
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void B(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void C(int i, int i2, int i3, int i4) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) != null) || (view2 = this.b) == null || this.f) {
             return;
         }
-        RecyclerView recyclerView2 = this.c;
-        if (recyclerView2 != null) {
-            recyclerView2.removeOnItemTouchListener(this.m);
-            this.c.removeOnScrollListener(this.l);
-            this.c.removeOnChildAttachStateChangeListener(this.k);
+        view2.setPadding(i, i2, i3, i4);
+        a aVar = this.e;
+        if (aVar != null) {
+            aVar.a(this, i, i3, i2 + p(), i4);
         }
-        this.c = recyclerView;
-        this.i = i;
-        if (recyclerView instanceof BdTypeRecyclerView) {
-            this.b.e((BdTypeRecyclerView) recyclerView, i);
-        } else {
-            this.a.e(recyclerView, i);
-        }
-        this.c.addOnItemTouchListener(this.m);
-        this.c.addOnScrollListener(this.l);
-        this.c.addOnChildAttachStateChangeListener(this.k);
     }
 
-    public final void u(int i) {
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i == 1) {
-                if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                    if (this.j == null) {
-                        this.j = new in5("anim_switch_slide");
-                    }
-                    this.j.b();
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.f) {
+            return;
+        }
+        w(false);
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.f) {
+            return;
+        }
+        y();
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f) {
+            return;
+        }
+        t();
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.f) {
+            return;
+        }
+        x();
+        u(true);
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public void onFinish() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.f) {
+            return;
+        }
+        o(true);
+    }
+
+    public int p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            this.f = true;
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.f = false;
+        }
+    }
+
+    @Override // com.baidu.adp.widget.refresh.BdSwipeRefreshLayout.i
+    public final View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (this.b == null) {
+                View n = n();
+                this.b = n;
+                if (n != null) {
+                    s(n);
+                    this.d = this.b.getMeasuredHeight();
+                    this.b.getMeasuredWidth();
+                } else {
+                    throw new IllegalStateException("BdIListPullView getView is null");
                 }
-            } else if (i == 0 && this.j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
-                this.j.c();
             }
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.q(i);
-            }
-            this.a.m(i);
+            return this.b;
         }
-    }
-
-    public final void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            if (this.c instanceof BdTypeRecyclerView) {
-                this.b.t(f, f2, this.g);
-            }
-            this.a.o(f, f2, this.g);
-        }
-    }
-
-    public void w() {
-        RecyclerView recyclerView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (recyclerView = this.c) != null) {
-            recyclerView.removeOnItemTouchListener(this.m);
-            this.c.removeOnScrollListener(this.l);
-            this.c.removeOnChildAttachStateChangeListener(this.k);
-        }
-    }
-
-    public View x(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            RecyclerView recyclerView = this.c;
-            if (recyclerView == null) {
-                return null;
-            }
-            for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
-                View childAt = this.c.getChildAt(childCount);
-                float translationX = childAt.getTranslationX();
-                float translationY = childAt.getTranslationY();
-                if (f >= childAt.getLeft() + translationX && f <= childAt.getRight() + translationX && f2 >= childAt.getTop() + translationY && f2 <= childAt.getBottom() + translationY) {
-                    return childAt;
-                }
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (View) invokeV.objValue;
     }
 }

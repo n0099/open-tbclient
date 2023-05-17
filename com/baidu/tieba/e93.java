@@ -1,93 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.extcore.cores.SwanAppCores;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class e93 extends u93 {
+/* loaded from: classes5.dex */
+public class e93 extends f93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final g93 l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e93(u83 u83Var) {
-        super(u83Var, "/swanAPI/getLocalImgData");
+    @Override // com.baidu.tieba.j93
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.j93
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.f93
+    public pi4 I() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (pi4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.f93
+    public qb3 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (qb3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.f93
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.j93
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.j93
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.j93
+    public void l(Bundle bundle, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, bundle, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.j93
+    public SwanAppCores m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (SwanAppCores) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.j93
+    public String n(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, strArr)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.j93
+    public void r(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, swanAppActivity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.j93
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.j93
+    public void t(SwanAppActivity swanAppActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, swanAppActivity) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.j93
+    public SwanAppActivity w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (SwanAppActivity) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.j93
+    public b63 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (b63) invokeV.objValue;
+    }
+
+    public e93() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.l = new g93(this, "");
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.j93
+    public g93 q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (x73Var == null) {
-                x42.c("GetLocalImgDataAction", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                x42.c("SwanAppAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("filePath");
-            if (TextUtils.isEmpty(optString)) {
-                x42.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (ff3.s(optString) != PathType.BD_FILE) {
-                x42.c("GetLocalImgDataAction", "invalid path : " + optString);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, r83.a(2006));
-                return false;
-            } else {
-                String M = ff3.M(optString, x73Var.b);
-                if (TextUtils.isEmpty(M)) {
-                    x42.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("filePath", M);
-                    x42.i("GetLocalImgDataAction", "getLocalImgData success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    x42.c("GetLocalImgDataAction", "getLocalImgData failed");
-                    if (u93.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.l;
         }
-        return invokeLLLL.booleanValue;
+        return (g93) invokeV.objValue;
     }
 }

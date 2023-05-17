@@ -13,12 +13,12 @@ import androidx.annotation.StyleableRes;
 import androidx.appcompat.widget.TintTypedArray;
 import com.baidu.tieba.R;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ThemeEnforcement {
     public static final String APPCOMPAT_THEME_NAME = "Theme.AppCompat";
     public static final String MATERIAL_THEME_NAME = "Theme.MaterialComponents";
-    public static final int[] APPCOMPAT_CHECK_ATTRS = {R.attr.obfuscated_res_0x7f04017a};
-    public static final int[] MATERIAL_CHECK_ATTRS = {R.attr.obfuscated_res_0x7f04017d};
+    public static final int[] APPCOMPAT_CHECK_ATTRS = {R.attr.obfuscated_res_0x7f04018a};
+    public static final int[] MATERIAL_CHECK_ATTRS = {R.attr.obfuscated_res_0x7f04018d};
 
     public static void checkAppCompatTheme(@NonNull Context context) {
         checkTheme(context, APPCOMPAT_CHECK_ATTRS, APPCOMPAT_THEME_NAME);
@@ -42,7 +42,7 @@ public final class ThemeEnforcement {
         obtainStyledAttributes.recycle();
         if (z) {
             TypedValue typedValue = new TypedValue();
-            if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040362, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
+            if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04037b, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
                 checkMaterialTheme(context);
             }
         }

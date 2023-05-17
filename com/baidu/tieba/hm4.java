@@ -1,75 +1,62 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Writer;
-/* loaded from: classes4.dex */
-public class hm4 extends Writer {
+/* loaded from: classes5.dex */
+public class hm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public StringBuilder b;
 
-    public hm4(String str) {
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            SharedPreferences a = pm4.a();
+            return a.getLong("latest_update_time" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            SharedPreferences a = pm4.a();
+            return a.getLong("max_age" + i, 0L);
+        }
+        return invokeI.longValue;
+    }
+
+    public static boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
+                return true;
             }
+            return false;
         }
-        this.b = new StringBuilder(128);
-        this.a = str;
+        return invokeI.booleanValue;
     }
 
-    public final void a() {
+    public static void d(int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.length() > 0) {
-            Log.d(this.a, this.b.toString());
-            StringBuilder sb = this.b;
-            sb.delete(0, sb.length());
-        }
-    }
-
-    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            SharedPreferences.Editor edit = pm4.a().edit();
+            edit.putLong("latest_update_time" + i, j).apply();
         }
     }
 
-    @Override // java.io.Writer, java.io.Flushable
-    public void flush() {
+    public static void e(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-        }
-    }
-
-    @Override // java.io.Writer
-    public void write(char[] cArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                char c = cArr[i + i3];
-                if (c == '\n') {
-                    a();
-                } else {
-                    this.b.append(c);
-                }
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j <= 0 || j >= 259200) {
+                j = 0;
             }
+            pm4.a().edit().putLong("max_age" + i, j).apply();
         }
     }
 }

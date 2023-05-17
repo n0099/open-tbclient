@@ -40,11 +40,11 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
 import com.baidu.tieba.im.util.MessageUtils;
-import com.baidu.tieba.j65;
-import com.baidu.tieba.k65;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.t75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LightInteractiveLayout extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public k65 f;
+    public t75 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -90,7 +90,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public int y;
     public ArrayList<LightEmotionData> z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements RecyclerView.OnItemTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -300,7 +300,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends LinearLayoutManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,8 +429,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public void setListBackground(int i, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) && this.e != null && getViewContext() != null) {
-            int l = ii.l(getViewContext()) / 2;
-            int j = ii.j(getViewContext()) / 3;
+            int l = ri.l(getViewContext()) / 2;
+            int j = ri.j(getViewContext()) / 3;
             if (i < l && i2 < j) {
                 SkinManager.setImageResource(this.e, R.drawable.icon_qinghudong_left_up);
             } else if (i < l && i2 > j) {
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(k65 k65Var) {
+    public void setOnDismissListener(t75 t75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, k65Var) == null) {
-            this.f = k65Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, t75Var) == null) {
+            this.f = t75Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.p(k65Var);
+                lightEmotionAdapter.p(t75Var);
             }
         }
     }
@@ -536,9 +536,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (weakReference != null) {
                 return weakReference.get();
             }
-            k65 k65Var = this.f;
-            if (k65Var != null) {
-                k65Var.onClose();
+            t75 t75Var = this.f;
+            if (t75Var != null) {
+                t75Var.onClose();
                 return null;
             }
             return null;
@@ -602,7 +602,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && hi.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && qi.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 K(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    j65.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    s75.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            k65 k65Var = this.f;
-            if (k65Var != null) {
-                k65Var.onClose();
+            t75 t75Var = this.f;
+            if (t75Var != null) {
+                t75Var.onClose();
             }
         }
     }
@@ -737,9 +737,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!G(this.b, this.v, rawY)) {
-                    k65 k65Var = this.f;
-                    if (k65Var != null) {
-                        k65Var.onClose();
+                    t75 t75Var = this.f;
+                    if (t75Var != null) {
+                        t75Var.onClose();
                         return true;
                     }
                     return true;
@@ -772,8 +772,8 @@ public class LightInteractiveLayout extends ConstraintLayout {
         if ((interceptable != null && interceptable.invokeII(1048593, this, i, i2) != null) || getViewContext() == null) {
             return;
         }
-        int l = ii.l(getViewContext()) / 2;
-        int j = ii.j(getViewContext()) / 3;
+        int l = ri.l(getViewContext()) / 2;
+        int j = ri.j(getViewContext()) / 3;
         this.t = i;
         this.u = i2;
         c cVar = new c(this, getViewContext());

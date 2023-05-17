@@ -1,18 +1,21 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public Vector2 b;
-    public Vector2 c;
-    public int d;
+    public Vector3 b;
+    public Quaternion c;
+    public Vector3 d;
+    public p4[] e;
+    public m4[] f;
 
     public m4() {
         Interceptable interceptable = $ic;

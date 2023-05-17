@@ -1,118 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8ExceptionInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class pm1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public long a;
+    public V8ExceptionInfo b;
+    public int c;
 
-    public pm1(Context context) {
+    public pm1(int i, V8ExceptionInfo v8ExceptionInfo, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), v8ExceptionInfo, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = rl1.a;
+        this.a = j;
+        this.b = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
+        this.c = i;
     }
 
-    public static synchronized pm1 a(Context context) {
-        InterceptResult invokeL;
-        pm1 pm1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            synchronized (pm1.class) {
-                pm1Var = new pm1(context);
-            }
-            return pm1Var;
-        }
-        return (pm1) invokeL.objValue;
-    }
-
-    public String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String str3 = pl1.b;
-            String str4 = pl1.c;
-            String str5 = "";
-            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
-                return "";
-            }
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            StringBuilder sb = new StringBuilder();
-            try {
-                str5 = c(str3, str4, currentTimeMillis);
-            } catch (Throwable th) {
-                gn1.d(th);
-            }
-            sb.append(e());
-            sb.append(str);
-            sb.append("/");
-            sb.append("100");
-            sb.append("/");
-            sb.append(str3);
-            sb.append("/");
-            sb.append(currentTimeMillis);
-            sb.append("/");
-            sb.append(str5);
-            sb.append("?skey=");
-            sb.append(str2);
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public String c(String str, String str2, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
-            try {
-                return ln1.b(str + j + str2);
-            } catch (Throwable th) {
-                gn1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                b = new String(en1.b(this.a));
-            } catch (Throwable th) {
-                gn1.d(th);
-            }
-        }
-    }
-
-    public final String e() {
+    public V8ExceptionInfo a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                d();
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (V8ExceptionInfo) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "StuckScreenExceptionInfo{mLastOnScreenHappenedTime=" + this.a + ", mV8ExceptionInfo=" + this.b + ", type=" + this.c + '}';
         }
         return (String) invokeV.objValue;
     }

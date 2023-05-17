@@ -30,14 +30,14 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(api = 21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Exception {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public final List<X509Certificate> a;
         public final List<Integer> b;
@@ -49,13 +49,13 @@ public final class c {
     }
 
     /* renamed from: com.bytedance.pangle.f.c$c  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C0521c {
+    /* loaded from: classes8.dex */
+    public static class C0535c {
         public final X509Certificate[] a;
         public final b b;
         public byte[] c;
 
-        public C0521c(X509Certificate[] x509CertificateArr, b bVar) {
+        public C0535c(X509Certificate[] x509CertificateArr, b bVar) {
             this.a = x509CertificateArr;
             this.b = bVar;
         }
@@ -130,17 +130,17 @@ public final class c {
         }
     }
 
-    public static C0521c a(RandomAccessFile randomAccessFile, m mVar) {
+    public static C0535c a(RandomAccessFile randomAccessFile, m mVar) {
         ArrayMap arrayMap = new ArrayMap();
         try {
             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             try {
                 ByteBuffer a2 = f.a(mVar.a);
                 int i = 0;
-                C0521c c0521c = null;
+                C0535c c0535c = null;
                 while (a2.hasRemaining()) {
                     try {
-                        c0521c = a(f.a(a2), arrayMap, certificateFactory);
+                        c0535c = a(f.a(a2), arrayMap, certificateFactory);
                         i++;
                     } catch (a unused) {
                     } catch (IOException e) {
@@ -154,14 +154,14 @@ public final class c {
                         throw new SecurityException("Failed to parse/verify signer #" + i + " block", e);
                     }
                 }
-                if (i > 0 && c0521c != null) {
+                if (i > 0 && c0535c != null) {
                     if (i == 1) {
                         if (!arrayMap.isEmpty()) {
                             f.a(arrayMap, randomAccessFile, mVar);
                             if (arrayMap.containsKey(3)) {
-                                c0521c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
+                                c0535c.c = f.a((byte[]) arrayMap.get(3), randomAccessFile.length(), mVar);
                             }
-                            return c0521c;
+                            return c0535c;
                         }
                         throw new SecurityException("No content digests found");
                     }
@@ -176,7 +176,7 @@ public final class c {
         }
     }
 
-    public static C0521c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
+    public static C0535c a(ByteBuffer byteBuffer, List<X509Certificate> list, CertificateFactory certificateFactory) {
         X509Certificate[] x509CertificateArr = (X509Certificate[]) list.toArray(new X509Certificate[list.size()]);
         b bVar = null;
         while (byteBuffer.hasRemaining()) {
@@ -200,10 +200,10 @@ public final class c {
                 throw new IOException("Remaining buffer too short to contain additional attribute ID. Remaining: " + a2.remaining());
             }
         }
-        return new C0521c(x509CertificateArr, bVar);
+        return new C0535c(x509CertificateArr, bVar);
     }
 
-    public static C0521c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
+    public static C0535c a(ByteBuffer byteBuffer, Map<Integer, byte[]> map, CertificateFactory certificateFactory) {
         ByteBuffer a2 = f.a(byteBuffer);
         int i = byteBuffer.getInt();
         int i2 = byteBuffer.getInt();

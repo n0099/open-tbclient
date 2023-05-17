@@ -46,7 +46,6 @@ import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +78,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @SuppressLint({"SetJavaScriptEnabled"})
 @TargetApi(11)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FeedbackReportActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -357,19 +356,17 @@ public class FeedbackReportActivity extends Activity {
             if (h0Var != null) {
                 LinearLayout linearLayout3 = new LinearLayout(h0Var.c);
                 linearLayout3.setOrientation(1);
-                boolean z = h0Var.f;
-                int i2 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
-                linearLayout3.setBackgroundColor(z ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+                linearLayout3.setBackgroundColor(h0Var.f ? -15132391 : -1);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -1);
                 layoutParams2.setMargins(p1.a(h0Var.c, 15.0f), p1.a(h0Var.c, 0.0f), p1.a(h0Var.c, 15.0f), p1.a(h0Var.c, 14.0f));
                 int size = h0Var.a.size();
                 if (h0Var.h && q1.a()) {
                     size = h0Var.a.size() - 1;
                 }
-                for (int i3 = 0; i3 < size; i3++) {
+                for (int i2 = 0; i2 < size; i2++) {
                     CustomCheckBox customCheckBox = new CustomCheckBox(h0Var.c, h0Var.f);
                     customCheckBox.setTextColor(h0Var.f ? -10066330 : -13421773);
-                    customCheckBox.setText(h0Var.a.get(i3));
+                    customCheckBox.setText(h0Var.a.get(i2));
                     customCheckBox.setTextSize(14.0f);
                     linearLayout3.addView(customCheckBox, layoutParams2);
                     customCheckBox.setOnClickListener(new g0(h0Var, customCheckBox));
@@ -413,7 +410,7 @@ public class FeedbackReportActivity extends Activity {
                 this.k.addView(textView2, new LinearLayout.LayoutParams(-1, p1.a(getApplicationContext(), 41.0f)));
                 float a4 = p1.a((Context) this, 3.0f);
                 GradientDrawable gradientDrawable = new GradientDrawable();
-                gradientDrawable.setColor(this.e ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+                gradientDrawable.setColor(this.e ? -15132391 : -1);
                 gradientDrawable.setCornerRadius(a4);
                 gradientDrawable.setStroke(3, this.e ? -14540254 : -3355444);
                 EditText editText = new EditText(this);
@@ -473,14 +470,14 @@ public class FeedbackReportActivity extends Activity {
                 RelativeLayout relativeLayout = new RelativeLayout(this);
                 float a5 = p1.a((Context) this, 3.0f);
                 GradientDrawable gradientDrawable2 = new GradientDrawable();
-                gradientDrawable2.setColor(this.e ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+                gradientDrawable2.setColor(this.e ? -15132391 : -1);
                 gradientDrawable2.setCornerRadius(a5);
                 gradientDrawable2.setStroke(3, this.e ? -14540254 : -3355444);
                 relativeLayout.setBackgroundDrawable(gradientDrawable2);
                 EditText editText2 = new EditText(this);
                 this.s = editText2;
                 editText2.setId(2030632969);
-                this.s.setBackgroundColor(this.e ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+                this.s.setBackgroundColor(this.e ? -15132391 : -1);
                 this.s.setTextColor(this.e ? -10066330 : -13421773);
                 this.s.setTextSize(14.0f);
                 if (this.m) {
@@ -498,7 +495,7 @@ public class FeedbackReportActivity extends Activity {
                 relativeLayout.addView(this.s, layoutParams12);
                 TextView textView5 = new TextView(this);
                 this.u = textView5;
-                textView5.setBackgroundColor(this.e ? BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG : -1);
+                textView5.setBackgroundColor(this.e ? -15132391 : -1);
                 this.u.setTextSize(11.0f);
                 this.u.setTextColor(this.e ? -11711155 : -5131855);
                 this.u.setText("4-200字");
@@ -531,10 +528,7 @@ public class FeedbackReportActivity extends Activity {
                 linearLayout8.addView(this.q, layoutParams16);
                 float a6 = p1.a((Context) this, 3.0f);
                 GradientDrawable gradientDrawable3 = new GradientDrawable();
-                if (!this.e) {
-                    i2 = -1;
-                }
-                gradientDrawable3.setColor(i2);
+                gradientDrawable3.setColor(this.e ? -15132391 : -1);
                 gradientDrawable3.setCornerRadius(a6);
                 gradientDrawable3.setStroke(3, this.e ? -14540254 : -3355444);
                 EditText editText3 = new EditText(this);
@@ -562,7 +556,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -607,7 +601,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -649,7 +643,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -790,7 +784,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class d implements i0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -939,7 +933,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1034,7 +1028,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class f implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1091,7 +1085,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1135,7 +1129,7 @@ public class FeedbackReportActivity extends Activity {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1786,7 +1780,7 @@ public class FeedbackReportActivity extends Activity {
             LinearLayout linearLayout = new LinearLayout(this);
             linearLayout.setId(2030632962);
             if (this.e) {
-                i2 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+                i2 = -15132391;
             } else {
                 i2 = -1;
             }
@@ -1877,7 +1871,7 @@ public class FeedbackReportActivity extends Activity {
             layoutParams6.addRule(15);
             relativeLayout2.addView(this.i, layoutParams6);
             if (this.e) {
-                i6 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+                i6 = -15132391;
             } else {
                 i6 = -1;
             }

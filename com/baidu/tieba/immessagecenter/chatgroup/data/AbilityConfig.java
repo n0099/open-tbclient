@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.spswitch.utils.EmotionUbcHelper;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AbilityConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +36,7 @@ public class AbilityConfig implements Serializable {
     @SerializedName("type")
     public int type;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class AbilityConfContent extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,11 +55,11 @@ public class AbilityConfig implements Serializable {
         @SerializedName("text")
         public String text;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public static class EmoticonContent extends OrmObject implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            @SerializedName("meme_id")
+            @SerializedName(EmotionUbcHelper.MEME_ID)
             public String memeId;
             @SerializedName("meme_type")
             public String memeType;

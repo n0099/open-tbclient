@@ -7,10 +7,10 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface TsPayloadReader {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Factory {
         SparseArray<TsPayloadReader> createInitialPayloadReaders();
 
@@ -23,7 +23,7 @@ public interface TsPayloadReader {
 
     void seek();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DvbSubtitleInfo {
         public final byte[] initializationData;
         public final String language;
@@ -36,7 +36,7 @@ public interface TsPayloadReader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class EsInfo {
         public final byte[] descriptorBytes;
         public final List<DvbSubtitleInfo> dvbSubtitleInfos;
@@ -57,7 +57,7 @@ public interface TsPayloadReader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class TrackIdGenerator {
         public static final int ID_UNSET = Integer.MIN_VALUE;
         public final int firstTrackId;

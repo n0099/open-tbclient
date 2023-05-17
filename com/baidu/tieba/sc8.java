@@ -1,62 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class sc8 extends oc8<VoiceMsgContent> implements s17<sc8> {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class sc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
 
-    public sc8 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (sc8) invokeV.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public int h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sc8(zc8<VoiceMsgContent> data, String templateName) {
-        super(data);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, templateName};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((zc8) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(templateName, "templateName");
-        this.d = templateName;
     }
 
-    @Override // com.baidu.tieba.s17
-    public String a() {
-        InterceptResult invokeV;
+    public static a a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            a aVar = new a();
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    optJSONObject.optString("title");
+                    aVar.b = optJSONObject.optString("content");
+                    aVar.c = optJSONObject.optString("quote_content");
+                    aVar.d = optJSONObject.optString("fname");
+                    aVar.e = optJSONObject.optString("thread_id");
+                    aVar.f = optJSONObject.optString("post_id");
+                    aVar.h = optJSONObject.optInt("type");
+                    aVar.g = optJSONObject.optString("title");
+                    optJSONObject.optInt("thread_type");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
+                    if (optJSONObject2 != null) {
+                        optJSONObject2.optString("id");
+                        optJSONObject2.optString("portrait");
+                        optJSONObject2.optInt("gender");
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
+                    if (optJSONObject3 != null) {
+                        optJSONObject3.optString("id");
+                        aVar.a = optJSONObject3.optInt("gender");
+                    }
+                }
+                return aVar;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.s17
-    public /* bridge */ /* synthetic */ sc8 b() {
-        i();
-        return this;
+        return (a) invokeL.objValue;
     }
 }

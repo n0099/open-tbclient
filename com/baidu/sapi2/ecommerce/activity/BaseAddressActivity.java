@@ -11,7 +11,7 @@ import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.result.AddressManageResult;
 import com.baidu.sapi2.stat.AddressManagerStat;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpActivity<P> {
     public AddressManageCallback addressManageCallback;
     public AddressManageDTO addressManageDTO;

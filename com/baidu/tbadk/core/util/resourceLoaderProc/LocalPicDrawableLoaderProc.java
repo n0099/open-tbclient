@@ -4,14 +4,14 @@ import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,25 +67,25 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.dg
-    public tm getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.baidu.tieba.mg
+    public cn getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            tm A = TbImageMemoryCache.v().A(str3);
-            if (A == null) {
-                Bitmap bitmap = SkinManager.getBitmap(gg.e(str2, 0));
+            cn z2 = TbImageMemoryCache.u().z(str3);
+            if (z2 == null) {
+                Bitmap bitmap = SkinManager.getBitmap(pg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                tm tmVar = new tm(bitmap, false, str2);
-                TbImageMemoryCache.v().m(str3, tmVar);
-                return tmVar;
+                cn cnVar = new cn(bitmap, false, str2);
+                TbImageMemoryCache.u().l(str3, cnVar);
+                return cnVar;
             }
-            return A;
+            return z2;
         }
-        return (tm) invokeCommon.objValue;
+        return (cn) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

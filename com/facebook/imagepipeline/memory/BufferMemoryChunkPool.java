@@ -5,7 +5,7 @@ import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BufferMemoryChunkPool extends MemoryChunkPool {
     @DoNotStrip
     public BufferMemoryChunkPool(MemoryTrimmableRegistry memoryTrimmableRegistry, PoolParams poolParams, PoolStatsTracker poolStatsTracker) {

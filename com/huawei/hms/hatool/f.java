@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,12 +17,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,7 +140,7 @@ public abstract class f {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, str3)) == null) {
-            Object a2 = a(str, "get", new Class[]{String.class, String.class}, new Object[]{str2, str3});
+            Object a2 = a(str, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, new Class[]{String.class, String.class}, new Object[]{str2, str3});
             return a2 != null ? (String) a2 : str3;
         }
         return (String) invokeLLL.objValue;

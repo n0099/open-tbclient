@@ -14,16 +14,16 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bj;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends AlertDialog {
     @Nullable
     public static b DG;
     @NonNull
-    public final C0598b DH;
+    public final C0612b DH;
     public com.kwad.components.core.c.kwai.a DK;
     public boolean DL;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         @Nullable
         public DialogInterface.OnShowListener DN;
@@ -59,17 +59,17 @@ public final class b extends AlertDialog {
             return this;
         }
 
-        public final C0598b ms() {
+        public final C0612b ms() {
             if (com.kwad.components.core.a.aw.booleanValue() && (this.context == null || this.adTemplate == null || TextUtils.isEmpty(this.url))) {
                 throw new IllegalArgumentException("param is error, please check it");
             }
-            return new C0598b(this, (byte) 0);
+            return new C0612b(this, (byte) 0);
         }
     }
 
     /* renamed from: com.kwad.components.core.c.kwai.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0598b {
+    /* loaded from: classes9.dex */
+    public static class C0612b {
         @Nullable
         public DialogInterface.OnShowListener DN;
         @Nullable
@@ -78,7 +78,7 @@ public final class b extends AlertDialog {
         public Context context;
         public String url;
 
-        public C0598b(a aVar) {
+        public C0612b(a aVar) {
             this.context = aVar.context;
             this.adTemplate = aVar.adTemplate;
             this.url = aVar.url;
@@ -86,36 +86,36 @@ public final class b extends AlertDialog {
             this.DO = aVar.DO;
         }
 
-        public /* synthetic */ C0598b(a aVar, byte b) {
+        public /* synthetic */ C0612b(a aVar, byte b) {
             this(aVar);
         }
     }
 
-    public b(Activity activity, C0598b c0598b) {
+    public b(Activity activity, C0612b c0612b) {
         super(activity);
         this.DL = false;
         setOwnerActivity(activity);
-        this.DH = c0598b;
-        c0598b.context = Wrapper.wrapContextIfNeed(c0598b.context);
+        this.DH = c0612b;
+        c0612b.context = Wrapper.wrapContextIfNeed(c0612b.context);
         if (com.kwad.sdk.b.kwai.a.a(activity)) {
             getWindow().addFlags(1024);
         }
-        setOnShowListener(c0598b.DN);
-        setOnDismissListener(c0598b.DO);
+        setOnShowListener(c0612b.DN);
+        setOnDismissListener(c0612b.DO);
     }
 
-    public static boolean a(C0598b c0598b) {
+    public static boolean a(C0612b c0612b) {
         Activity dB;
         b bVar = DG;
-        if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0598b.context)) == null || dB.isFinishing()) {
+        if ((bVar != null && bVar.isShowing()) || (dB = bj.dB(c0612b.context)) == null || dB.isFinishing()) {
             return false;
         }
         com.kwad.sdk.kwai.kwai.c.rd().dismiss();
         try {
-            b bVar2 = new b(dB, c0598b);
+            b bVar2 = new b(dB, c0612b);
             DG = bVar2;
             bVar2.show();
-            com.kwad.sdk.core.report.a.c(c0598b.adTemplate, 86, (JSONObject) null);
+            com.kwad.sdk.core.report.a.c(c0612b.adTemplate, 86, (JSONObject) null);
             return true;
         } catch (Throwable th) {
             com.kwad.sdk.core.e.b.printStackTrace(th);
@@ -163,8 +163,8 @@ public final class b extends AlertDialog {
         if (this.DK == null) {
             com.kwad.components.core.c.kwai.a aVar = new com.kwad.components.core.c.kwai.a(this, this.DH);
             this.DK = aVar;
-            aVar.setChangeListener(new a.InterfaceC0597a() { // from class: com.kwad.components.core.c.kwai.b.1
-                @Override // com.kwad.components.core.c.kwai.a.InterfaceC0597a
+            aVar.setChangeListener(new a.InterfaceC0611a() { // from class: com.kwad.components.core.c.kwai.b.1
+                @Override // com.kwad.components.core.c.kwai.a.InterfaceC0611a
                 public final void mp() {
                     b.this.dismiss();
                 }

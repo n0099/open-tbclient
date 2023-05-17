@@ -1,140 +1,308 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.LoginActivity;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.interest.InterestPanelShowManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
 public class qs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
 
-    public qs9(MainTabActivity mainTabActivity, gs9 gs9Var) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948102546, "Lcom/baidu/tieba/qs9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, gs9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948102546, "Lcom/baidu/tieba/qs9;");
+        }
+    }
+
+    public static boolean a(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
+            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void f(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65542, null, i, str) == null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
+        }
+    }
+
+    public static void i(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, str) == null) {
+            o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                        return;
+                    }
+                    return;
+                }
+                mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
+            }
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            c(0);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c(1);
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            e(2);
+        }
+    }
+
+    public static ArrayList<String> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return l(0);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static ArrayList<String> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return l(1);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (i != 0) {
+                if (i == 1) {
+                    mainDBDatabaseManager.d("delete from search_post_data");
+                    return;
+                }
                 return;
             }
+            mainDBDatabaseManager.d("delete from search_data");
         }
-        this.a = mainTabActivity;
     }
 
-    public void a() {
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b) {
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            f(13, str);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            i(0, str);
+        }
+    }
+
+    public static void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+            p(0, str);
+        }
+    }
+
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            p(1, str);
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65541, null, i) != null) || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        if (c() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && TbSingleton.getInstance().isNeedShowInterestGuide()) {
-            this.b = true;
-            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
-            if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
-                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.interest_main_title), this.a.getResources().getString(R.string.interest_select_second_title), this.a.getResources().getString(R.string.interest_forum_second_title)});
-                interestGuideActivityConfig.setScene(10);
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-        f55.m().A("key_app_launch_time", System.currentTimeMillis());
-        b();
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
     }
 
-    public final void b() {
+    public static ArrayList<String> l(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            ArrayList<String> arrayList = new ArrayList<>();
+            Cursor cursor = null;
+            try {
+                try {
+                    if (i != 0) {
+                        if (i == 1) {
+                            cursor = mainDBDatabaseManager.j("select * from search_post_data order by time desc limit 5", null);
+                        }
+                    } else {
+                        cursor = mainDBDatabaseManager.j("select * from search_data order by time desc limit 20", null);
+                    }
+                    while (cursor.moveToNext()) {
+                        String string = cursor.getString(0);
+                        if (string != null && string.length() > 0) {
+                            arrayList.add(string);
+                        }
+                    }
+                } catch (Exception e) {
+                    mainDBDatabaseManager.i(e, "getAllSearchData");
+                }
+                return arrayList;
+            } finally {
+                og.a(cursor);
+            }
+        }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static void n() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
+            o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = mainDBDatabaseManager.j("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    if (cursor != null && cursor.moveToFirst()) {
+                        pb5.d().O(cursor.getInt(cursor.getColumnIndex(FetchTimer.FREQUENCY)));
+                        pb5 d = pb5.d();
+                        if (cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        d.Q(z);
+                        if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
+                            pb5.d().R(false);
+                        } else {
+                            pb5.d().R(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
+                            pb5.d().M(false);
+                        } else {
+                            pb5.d().M(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
+                            pb5.d().U(false);
+                        } else {
+                            pb5.d().U(true);
+                        }
+                        pb5.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
+                        if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
+                            pb5.d().N(false);
+                        } else {
+                            pb5.d().N(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
+                            pb5.d().W(false);
+                        } else {
+                            pb5.d().W(true);
+                        }
+                        pb5.d().X(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        pb5.d().V(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
+                            pb5.d().P(false);
+                        } else {
+                            pb5.d().P(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
+                            pb5.d().d0(false);
+                        } else {
+                            pb5.d().d0(true);
+                        }
+                    } else {
+                        pb5.d().O(300);
+                        pb5.d().Q(true);
+                        pb5.d().R(true);
+                        pb5.d().M(true);
+                        pb5.d().U(true);
+                        pb5.d().S(true);
+                        pb5.d().T(false);
+                        pb5.d().P(true);
+                        pb5.d().d0(false);
+                        pb5.d().N(true);
+                        pb5.d().W(false);
+                        pb5.d().X(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        pb5.d().V(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    }
+                    pb5.d().K(o65.m().i("GroupChatPushOn", true));
+                } catch (Exception e) {
+                    mainDBDatabaseManager.i(e, "getSettingData");
+                }
+                og.a(cursor);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001311));
+            } catch (Throwable th) {
+                og.a(null);
+                throw th;
+            }
+        }
+    }
+
+    public static void p(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65552, null, i, str) == null) {
+            o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                        mainDBDatabaseManager.e("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+                        return;
+                    }
+                    return;
+                }
+                mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
+                mainDBDatabaseManager.e("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+            }
+        }
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65554, null) != null) || TbadkCoreApplication.getCurrentAccount() == null) {
             return;
         }
-        TbSingleton.getInstance().setHasPerformedFirstLoginTest(true);
-        if (UbsABTestHelper.isFirstLoginTestA()) {
-            if (!TbadkCoreApplication.isLogin() && !LoginActivity.class.getName().equals(ii.y())) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-            }
-        } else if (UbsABTestHelper.isFirstLoginTestB()) {
-            if (TbadkApplication.getInst().isNeedNewUserLead()) {
-                InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
-                interestGuideActivityConfig.setRequestCode(25060);
-                interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-            }
-        } else if (TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestGuideActivityConfig interestGuideActivityConfig2 = new InterestGuideActivityConfig(this.a, 4);
-            interestGuideActivityConfig2.setRequestCode(25060);
-            interestGuideActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig2));
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Activity b = w8.f().b();
-            if (b != null) {
-                str = b.getLocalClassName();
-            } else {
-                str = "";
-            }
-            if (!str.contains("MainTabActivity") && !str.contains("FrsActivity") && !str.contains("PbActivity") && !str.contains("NewSquareSearchActivity") && !str.contains("PbCommentFloatActivity")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || TbSingleton.getInstance().hasPerformInterestPanelShow) {
-            return;
-        }
-        TbSingleton.getInstance().hasPerformInterestPanelShow = true;
-        if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-        f55.m().A("key_app_launch_time", System.currentTimeMillis());
-        b();
-        if (!UbsABTestHelper.isFirstLoginTestA() && !UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-        if (UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
+        o9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
+        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(pb5.d().f()), Integer.valueOf(pb5.d().y() ? 1 : 0), Integer.valueOf(pb5.d().A() ? 1 : 0), Integer.valueOf(pb5.d().v() ? 1 : 0), Integer.valueOf(pb5.d().c()), Integer.valueOf(pb5.d().w() ? 1 : 0), Integer.valueOf(pb5.d().E() ? 1 : 0), pb5.d().h(), pb5.d().g(), Integer.valueOf(pb5.d().x() ? 1 : 0), Integer.valueOf(pb5.d().G() ? 1 : 0), Integer.valueOf(pb5.d().D() ? 1 : 0)});
+        o65.m().w("GroupChatPushOn", pb5.d().t());
     }
 }

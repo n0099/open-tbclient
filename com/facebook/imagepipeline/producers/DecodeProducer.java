@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
     public static final String EXTRA_BITMAP_BYTES = "byteCount";
@@ -62,7 +62,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
     public final Runnable mReclaimMemoryRunnable;
     public final Supplier<Boolean> mRecoverFromDecoderOOM;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
         public LocalImagesProgressiveDecoder(Consumer<CloseableReference<CloseableImage>> consumer, ProducerContext producerContext, boolean z, int i) {
             super(consumer, producerContext, z, i);
@@ -87,7 +87,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class NetworkImagesProgressiveDecoder extends ProgressiveDecoder {
         public int mLastScheduledScanNumber;
         public final ProgressiveJpegConfig mProgressiveJpegConfig;
@@ -130,7 +130,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;
         public final String TAG;

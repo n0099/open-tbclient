@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     @VisibleForTesting
     public static final String CREATED_THUMBNAIL = "createdThumbnail";

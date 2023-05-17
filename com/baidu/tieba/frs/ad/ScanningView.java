@@ -17,12 +17,12 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i87;
+import com.baidu.tieba.v97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ScanningView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class ScanningView extends View {
     public int k;
     public int l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,11 +134,11 @@ public class ScanningView extends View {
                 return;
             }
         }
-        this.k = R.drawable.obfuscated_res_0x7f0805b4;
+        this.k = R.drawable.obfuscated_res_0x7f080698;
         this.l = 400;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, i87.ScanningView);
-            this.k = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f0805b4);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, v97.ScanningView);
+            this.k = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f080698);
             this.l = obtainStyledAttributes.getInt(0, 400);
             obtainStyledAttributes.recycle();
         }

@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public final class d24 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class d24 extends ig3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void a(ff2 ff2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, ff2Var, context) == null) {
-        }
-    }
+    public String k;
 
     public d24() {
         Interceptable interceptable = $ic;
@@ -26,7 +24,32 @@ public final class d24 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.k = "";
+    }
+
+    @Override // com.baidu.tieba.ig3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (ig3.j) {
+                    e.printStackTrace();
+                }
+            }
+            if (ig3.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SimpleUser extends Message {
     public static final String DEFAULT_AHEADURL = "";
     public static final String DEFAULT_BLOCKMSG = "";
@@ -41,7 +41,7 @@ public final class SimpleUser extends Message {
     public static final Integer DEFAULT_AGREETYPE = 0;
     public static final Integer DEFAULT_SHOWONLYME = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<SimpleUser> {
         public Integer agreeType;
         public String aheadUrl;

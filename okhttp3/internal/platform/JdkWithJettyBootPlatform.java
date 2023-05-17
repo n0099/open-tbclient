@@ -2,6 +2,7 @@ package okhttp3.internal.platform;
 
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.searchbox.websocket.WebSocketRequest;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -11,7 +12,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JdkWithJettyBootPlatform extends Platform {
     public final Class<?> clientProviderClass;
     public final Method getMethod;
@@ -19,7 +20,7 @@ public class JdkWithJettyBootPlatform extends Platform {
     public final Method removeMethod;
     public final Class<?> serverProviderClass;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class JettyNegoProvider implements InvocationHandler {
         public final List<String> protocols;
         public String selected;
@@ -81,7 +82,7 @@ public class JdkWithJettyBootPlatform extends Platform {
             Class<?> cls = Class.forName("org.eclipse.jetty.alpn.ALPN");
             Class<?> cls2 = Class.forName("org.eclipse.jetty.alpn.ALPN$Provider");
             Class<?> cls3 = Class.forName("org.eclipse.jetty.alpn.ALPN$ClientProvider");
-            return new JdkWithJettyBootPlatform(cls.getMethod("put", SSLSocket.class, cls2), cls.getMethod("get", SSLSocket.class), cls.getMethod("remove", SSLSocket.class), cls3, Class.forName("org.eclipse.jetty.alpn.ALPN$ServerProvider"));
+            return new JdkWithJettyBootPlatform(cls.getMethod("put", SSLSocket.class, cls2), cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, SSLSocket.class), cls.getMethod("remove", SSLSocket.class), cls3, Class.forName("org.eclipse.jetty.alpn.ALPN$ServerProvider"));
         } catch (ClassNotFoundException | NoSuchMethodException unused) {
             return null;
         }

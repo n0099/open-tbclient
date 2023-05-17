@@ -25,7 +25,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.StandaloneMediaClock;
 import com.google.android.exoplayer2.util.TraceUtil;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ExoPlayerImplInternal implements Handler.Callback, MediaPeriod.Callback, TrackSelector.InvalidationListener, MediaSource.Listener {
     public static final int IDLE_INTERVAL_MS = 1000;
     public static final int MAXIMUM_BUFFER_AHEAD_PERIODS = 100;
@@ -91,7 +91,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     public int state = 1;
     public PlaybackInfo playbackInfo = new PlaybackInfo(null, null, 0, C.TIME_UNSET);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaPeriodHolder {
         public boolean hasEnabledTracks;
         public final int index;
@@ -296,7 +296,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaSourceRefreshInfo {
         public final Object manifest;
         public final MediaSource source;
@@ -309,7 +309,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SeekPosition {
         public final Timeline timeline;
         public final int windowIndex;

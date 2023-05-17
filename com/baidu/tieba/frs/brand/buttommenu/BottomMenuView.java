@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.lg;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ug;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.BottomMenu;
 import tbclient.SubBottomMenu;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class BottomMenuView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,19 +40,19 @@ public class BottomMenuView extends LinearLayout {
     public View c;
     public LinearLayout d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu);
 
         void b(MenuItemView menuItemView, BottomMenu bottomMenu);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MenuItemView extends LinearLayout implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: i */
-        public static final int icon_card_morelist_n = 2131232500;
+        public static final int icon_card_morelist_n = 2131232792;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public TbPageContext<?> b;
@@ -99,10 +99,10 @@ public class BottomMenuView extends LinearLayout {
             this.a = icon_card_morelist_n;
             setGravity(17);
             setOnClickListener(this);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0173, this);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0177, this);
             this.b = tbPageContext;
             this.c = (ImageView) findViewById(R.id.item_image);
-            this.d = (TextView) findViewById(R.id.item_text);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09118c);
         }
 
         private b getSubMenuGenerator() {
@@ -119,13 +119,13 @@ public class BottomMenuView extends LinearLayout {
             return (b) invokeV.objValue;
         }
 
-        public a9 getPageContext() {
+        public g9 getPageContext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.b;
             }
-            return (a9) invokeV.objValue;
+            return (g9) invokeV.objValue;
         }
 
         private void setMenuIcon(int i) {
@@ -190,7 +190,7 @@ public class BottomMenuView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class SubMenuItemView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,10 +216,10 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0174, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0178, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.item_text);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0908c6);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09118c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f0908e3);
         }
 
         public SubBottomMenu getSubMenuData() {
@@ -255,7 +255,7 @@ public class BottomMenuView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,14 +292,14 @@ public class BottomMenuView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 if (view2 instanceof SubMenuItemView) {
-                    lg.c(this.b);
+                    ug.c(this.b);
                     SubMenuItemView subMenuItemView = (SubMenuItemView) view2;
                     a aVar = this.a;
                     if (aVar != null) {
                         aVar.a(subMenuItemView, subMenuItemView.getSubMenuData());
                     }
                 } else if (view2 == this.c) {
-                    lg.c(this.b);
+                    ug.c(this.b);
                 }
             }
         }
@@ -342,7 +342,7 @@ public class BottomMenuView extends LinearLayout {
                 this.b.setClippingEnabled(false);
                 this.b.setBackgroundDrawable(new ColorDrawable());
                 this.b.setSoftInputMode(16);
-                lg.m(this.b, menuItemView, 51, 0, 0);
+                ug.m(this.b, menuItemView, 51, 0, 0);
             }
         }
     }
@@ -439,7 +439,7 @@ public class BottomMenuView extends LinearLayout {
         }
         removeAllViews();
         this.c = new View(getContext());
-        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, ii.g(getContext(), R.dimen.tbds16)));
+        this.c.setLayoutParams(new LinearLayout.LayoutParams(-1, ri.g(getContext(), R.dimen.tbds16)));
         this.c.setBackgroundResource(R.drawable.bottom_view_shadow);
         addView(this.c);
         LinearLayout linearLayout = new LinearLayout(getContext());

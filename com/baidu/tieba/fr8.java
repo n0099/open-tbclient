@@ -1,68 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class fr8<T, V extends TypeAdapter.ViewHolder> extends vm<T, V> {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+/* loaded from: classes5.dex */
+public class fr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TbPageContext<HotTopicDetailActivity> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fr8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return c(d(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return c(str).trim();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str.trim();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1541));
+            boolean z = false;
+            int i = 0;
+            while (!z && i < 1000) {
+                Matcher matcher = compile.matcher(str);
+                if (matcher.find()) {
+                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1542));
+                    i++;
+                } else {
+                    z = true;
+                }
             }
+            return str;
         }
-        this.b = tbPageContext;
+        return (String) invokeL.objValue;
     }
 
-    public boolean s() {
-        InterceptResult invokeV;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            Matcher matcher = Pattern.compile(TbFaceManager.d).matcher(str);
+            while (matcher.find()) {
+                if (!TbFaceManager.i().p(matcher.group())) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public TbPageContext t() {
-        InterceptResult invokeV;
+    public static String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String c = c(str);
+            if (StringUtils.isNull(c)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f153c);
+            }
+            if (!e(c)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f153d);
+            }
+            return "";
         }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
-        }
+        return (String) invokeL.objValue;
     }
 }

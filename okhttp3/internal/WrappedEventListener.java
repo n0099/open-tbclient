@@ -12,7 +12,7 @@ import okhttp3.Handshake;
 import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class WrappedEventListener extends EventListener {
     public static EventListener sGloablEventListener;
     public EventListener interalListener;

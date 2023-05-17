@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.atomData.CameraActivityConfig;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
@@ -9,7 +10,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ab implements com.kwad.sdk.core.d<AdTemplate> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdTemplate adTemplate, JSONObject jSONObject) {
@@ -70,7 +71,7 @@ public final class ab implements com.kwad.sdk.core.d<AdTemplate> {
         adTemplate.inPlayAgain = jSONObject.optBoolean("inPlayAgain");
         adTemplate.watched = jSONObject.optBoolean("watched");
         adTemplate.converted = jSONObject.optBoolean("converted");
-        adTemplate.fromCache = jSONObject.optBoolean("fromCache", new Boolean("false").booleanValue());
+        adTemplate.fromCache = jSONObject.optBoolean("fromCache", new Boolean(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE).booleanValue());
         adTemplate.loadDataTime = jSONObject.optLong("loadDataTime");
         adTemplate.checkDataTime = jSONObject.optLong("checkDataTime");
         adTemplate.showStartTime = jSONObject.optLong("showStartTime");

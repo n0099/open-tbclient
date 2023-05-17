@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final float e;
@@ -137,23 +137,16 @@ public class RoundRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void setPaintColor(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c.setColor(i);
-        }
-    }
-
     public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
             this.a = f;
         }
     }
 
     public void setRoundCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.d = i;
         }
     }

@@ -1,59 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class tz9 {
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class tz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
 
-    public abstract void b(String str);
-
-    public tz9(String str) {
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String packageName = f0a.d().getPackageName();
+            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
+            return packageName;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public static final void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            Intent launchIntentForPackage = f0a.d().getPackageManager().getLaunchIntentForPackage(f0a.d().getPackageName());
+            if (launchIntentForPackage != null) {
+                launchIntentForPackage.addFlags(335577088);
             }
-        }
-        this.a = str;
-    }
-
-    public static tz9 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new qz9(str);
-        }
-        return (tz9) invokeL.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
+            if (launchIntentForPackage != null) {
+                int h = f0a.h();
+                f0a.d().startActivity(launchIntentForPackage);
+                if (z && h > 0) {
+                    Process.killProcess(h);
+                    System.exit(0);
+                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
+                }
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.u;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b a;

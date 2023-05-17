@@ -3,7 +3,7 @@ package com.baidu.mapapi.model;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ParcelItem implements Parcelable {
     public static final Parcelable.Creator<ParcelItem> CREATOR = new c();
     public Bundle a;

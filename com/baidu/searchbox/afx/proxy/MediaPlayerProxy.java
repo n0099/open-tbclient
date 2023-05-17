@@ -14,9 +14,8 @@ import com.baidu.searchbox.afx.gl.GLTextureView;
 import com.baidu.searchbox.afx.proxy.PlayerProxy;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.FileDescriptor;
-import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaPlayerProxy extends PlayerProxy {
     public static final String TAG = "MediaPlayerProxy";
     public GLTextureView mGLTextureView;
@@ -32,7 +31,7 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     /* renamed from: com.baidu.searchbox.afx.proxy.MediaPlayerProxy$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
 
@@ -58,7 +57,7 @@ public class MediaPlayerProxy extends PlayerProxy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OnCompletionListener implements MediaPlayer.OnCompletionListener {
         public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
@@ -73,7 +72,11 @@ public class MediaPlayerProxy extends PlayerProxy {
                 return;
             }
             mediaPlayerProxy.mCompletion = true;
-            mediaPlayerProxy.mMediaPlayer.stop();
+            try {
+                mediaPlayerProxy.mMediaPlayer.stop();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             mediaPlayerProxy.callSuperStop();
             if (mediaPlayerProxy.mGLTextureView != null) {
                 mediaPlayerProxy.mGLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.OnCompletionListener.1
@@ -91,7 +94,7 @@ public class MediaPlayerProxy extends PlayerProxy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OnErrorListener implements MediaPlayer.OnErrorListener {
         public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
@@ -127,7 +130,7 @@ public class MediaPlayerProxy extends PlayerProxy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OnInfoListener implements MediaPlayer.OnInfoListener {
         public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
@@ -150,7 +153,7 @@ public class MediaPlayerProxy extends PlayerProxy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OnPrepareListener implements MediaPlayer.OnPreparedListener {
         public WeakReference<MediaPlayerProxy> mPlayerProxyRef;
 
@@ -259,7 +262,11 @@ public class MediaPlayerProxy extends PlayerProxy {
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
     public void pause() {
         if (this.mMediaPlayer != null && isPlaying()) {
-            this.mMediaPlayer.pause();
+            try {
+                this.mMediaPlayer.pause();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             GLTextureView gLTextureView = this.mGLTextureView;
             if (gLTextureView != null) {
                 gLTextureView.setRenderMode(0);
@@ -276,34 +283,14 @@ public class MediaPlayerProxy extends PlayerProxy {
         }
     }
 
-    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void stop() {
-        if (this.mMediaPlayer != null) {
-            if (isPlaying() || isPaused()) {
-                if (Build.VERSION.SDK_INT <= 19) {
-                    seekTo(0);
-                }
-                this.mMediaPlayer.stop();
-                super.stop();
-                GLTextureView gLTextureView = this.mGLTextureView;
-                if (gLTextureView != null) {
-                    gLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.1
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            if (MediaPlayerProxy.this.mGLTextureView != null) {
-                                MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
-                            }
-                        }
-                    });
-                }
-            }
-        }
-    }
-
     public void seekTo(int i) {
         MediaPlayer mediaPlayer = this.mMediaPlayer;
         if (mediaPlayer != null) {
-            mediaPlayer.seekTo(i);
+            try {
+                mediaPlayer.seekTo(i);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -328,7 +315,7 @@ public class MediaPlayerProxy extends PlayerProxy {
             if (this.mMediaPlayer != null) {
                 this.mMediaPlayer.setDataSource(fileDescriptor);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -405,8 +392,36 @@ public class MediaPlayerProxy extends PlayerProxy {
             if (this.mMediaPlayer != null) {
                 this.mMediaPlayer.setDataSource(fileDescriptor, j, j2);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
+    public void stop() {
+        if (this.mMediaPlayer != null) {
+            if (isPlaying() || isPaused()) {
+                if (Build.VERSION.SDK_INT <= 19) {
+                    seekTo(0);
+                }
+                try {
+                    this.mMediaPlayer.stop();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                super.stop();
+                GLTextureView gLTextureView = this.mGLTextureView;
+                if (gLTextureView != null) {
+                    gLTextureView.post(new Runnable() { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.1
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            if (MediaPlayerProxy.this.mGLTextureView != null) {
+                                MediaPlayerProxy.this.mGLTextureView.setRenderMode(0);
+                            }
+                        }
+                    });
+                }
+            }
         }
     }
 }

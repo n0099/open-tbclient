@@ -1,67 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.UnsupportedEncodingException;
-import java.util.Locale;
-/* loaded from: classes7.dex */
-public final class y0b {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class y0b<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final g0b<TResult> a;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public y0b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeL.objValue;
+        this.a = new g0b<>();
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public void a(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
-            }
-            try {
-                String upperCase = str.toUpperCase(Locale.ENGLISH);
-                int length = upperCase.length() / 2;
-                byte[] bArr = new byte[length];
-                try {
-                    byte[] bytes = upperCase.getBytes("UTF-8");
-                    for (int i = 0; i < length; i++) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("0x");
-                        int i2 = i * 2;
-                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
-                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
-                    }
-                    return bArr;
-                } catch (UnsupportedEncodingException | NumberFormatException e) {
-                    b1b.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
-                    return new byte[0];
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            g0b<TResult> g0bVar = this.a;
+            synchronized (g0bVar.a) {
+                if (!g0bVar.b) {
+                    g0bVar.b = true;
+                    g0bVar.d = exc;
+                    g0bVar.a.notifyAll();
+                    g0bVar.b();
                 }
-            } catch (Throwable th) {
-                b1b.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
-                return new byte[0];
             }
         }
-        return (byte[]) invokeL.objValue;
+    }
+
+    public void b(TResult tresult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+            g0b<TResult> g0bVar = this.a;
+            synchronized (g0bVar.a) {
+                if (!g0bVar.b) {
+                    g0bVar.b = true;
+                    g0bVar.c = tresult;
+                    g0bVar.a.notifyAll();
+                    g0bVar.b();
+                }
+            }
+        }
     }
 }

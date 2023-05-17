@@ -1,51 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.EditText;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.bx8;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.pb.account.forbid.ForbidTplData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
-public abstract class vw8<V extends bx8, D extends IBaseDialogData> implements ax8 {
+/* loaded from: classes8.dex */
+public class vw8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public TbPageContext b;
-    public Context c;
-    public DialogInterface.OnKeyListener d;
-    public DialogInterface.OnCancelListener e;
-    public int f;
-    public boolean g;
-    public V h;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewHelper.ViewCallback {
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(ForbidTplData forbidTplData);
+
+        void b(ForbidTplData forbidTplData);
+    }
+
+    /* loaded from: classes8.dex */
+    public static class a extends BdAsyncTask<String, Object, ForbidTplData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
+        public String a;
+        public String b;
+        public b c;
 
-        public a(vw8 vw8Var, AtomicBoolean atomicBoolean) {
+        public a(String str, String str2, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vw8Var, atomicBoolean};
+                Object[] objArr = {str, str2, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,116 +50,80 @@ public abstract class vw8<V extends bx8, D extends IBaseDialogData> implements a
                     return;
                 }
             }
-            this.a = atomicBoolean;
+            this.a = str;
+            this.b = str2;
+            this.c = bVar;
+            setPriority(3);
         }
 
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForbidTplData doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (view2 instanceof EditText) {
-                    this.a.set(true);
-                    return true;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                NetWork netWork = new NetWork(vw8.a);
+                netWork.addPostData("forum_id", this.a);
+                netWork.addPostData("user_id", this.b);
+                String postNetData = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return (ForbidTplData) OrmObject.objectWithJsonStr(postNetData, ForbidTplData.class);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                        ForbidTplData forbidTplData = new ForbidTplData();
+                        forbidTplData.error.errno = -1000;
+                        return forbidTplData;
+                    }
                 }
-                return false;
+                ForbidTplData forbidTplData2 = new ForbidTplData();
+                forbidTplData2.error.errno = netWork.getServerErrorCode();
+                forbidTplData2.error.errMsg = netWork.getErrorString();
+                return forbidTplData2;
             }
-            return invokeL.booleanValue;
+            return (ForbidTplData) invokeL.objValue;
         }
-    }
 
-    public vw8(TbPageContext tbPageContext, V v, D d) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v, d};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = -1;
-        this.g = false;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.h = v;
-        d(d);
-    }
-
-    public void d(D d) {
-        V v;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
-            v.c(d);
-        }
-    }
-
-    @Override // com.baidu.tieba.ax8
-    public void dismiss() {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
-            lg.a(alertDialog, this.b.getPageActivity());
-        }
-    }
-
-    @Override // com.baidu.tieba.ax8
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null) {
-                lg.i(alertDialog, this.b.getPageActivity());
-                return;
-            }
-            if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003fd).create();
-            } else {
-                this.a = new AlertDialog.Builder(this.c).create();
-            }
-            GreyUtil.grey(this.a);
-            this.a.setCanceledOnTouchOutside(c());
-            this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.d);
-            DialogInterface.OnCancelListener onCancelListener = this.e;
-            if (onCancelListener != null) {
-                this.a.setOnCancelListener(onCancelListener);
-            }
-            lg.i(this.a, this.b.getPageActivity());
-            if (this.a.getWindow().getDecorView().getParent() == null) {
-                return;
-            }
-            Window window = this.a.getWindow();
-            if (this.f == -1) {
-                this.f = 17;
-            }
-            window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.7f;
-            attributes.width = -1;
-            DisplayMetrics t = ii.t(this.b.getPageActivity());
-            if (t != null) {
-                int a2 = a();
-                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                    attributes.width = t.heightPixels - (a2 * 2);
-                } else {
-                    attributes.width = t.widthPixels - (a2 * 2);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidTplData forbidTplData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidTplData) == null) {
+                super.onPostExecute(forbidTplData);
+                if (this.c != null) {
+                    ForbidTplData.ErrorInfo errorInfo = forbidTplData.error;
+                    if (errorInfo.errno == 0 && qi.isEmpty(errorInfo.errMsg)) {
+                        this.c.b(forbidTplData);
+                    } else {
+                        this.c.a(forbidTplData);
+                    }
                 }
             }
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.setContentView(this.h.getViewGroup());
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255314, "Lcom/baidu/tieba/vw8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948255314, "Lcom/baidu/tieba/vw8;");
+                return;
+            }
+        }
+        a = TbConfig.SERVER_ADDRESS + "c/u/bawu/listreason";
+    }
+
+    public static void b(String str, String str2, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, bVar) == null) {
+            new a(str, str2, bVar).execute(new String[0]);
         }
     }
 }

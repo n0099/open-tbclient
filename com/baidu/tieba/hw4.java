@@ -1,82 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.Lifecycle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.webkit.WebView;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.browser.TBWebViewActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
-import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.WebViewTrackerEnableSwitch;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hw4 implements Application.ActivityLifecycleCallbacks {
+import com.baidu.ubc.UBCManager;
+import com.facebook.common.util.UriUtil;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class hw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-
-        public a(hw4 hw4Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw4Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdTokenController.J().M(this.a);
-            }
-        }
-    }
+    public final boolean a;
+    public volatile boolean b;
+    public String c;
+    public Runnable d;
+    public ti6 e;
 
     public hw4() {
         Interceptable interceptable = $ic;
@@ -88,214 +42,200 @@ public class hw4 implements Application.ActivityLifecycleCallbacks {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || activity == null) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (y35.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    y35.a().k(true);
-                    return;
-                } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                    return;
-                }
-            }
-            y35.a().h(name);
-        }
-    }
-
-    public final void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) != null) || activity == null) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (y35.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
-            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name)) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    y35.a().l(true);
-                    return;
-                } else if (!SchemeActionHelper.isToMaintab(activity.getIntent())) {
-                    return;
-                }
-            }
-            y35.a().g(name);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            c(activity, Lifecycle.Event.ON_PAUSE);
-            boolean z = false;
-            if (activity.isFinishing()) {
-                l15.i();
-                if (((activity instanceof TBWebViewActivity) && activity.getIntent() != null && !TextUtils.isEmpty(activity.getIntent().getStringExtra(WebViewActivityConfig.TAG_WEB_DIALOG_NAME))) || activity.getClass().getName().equals("com.baidu.tieba.UpdateDialog")) {
-                    z = true;
-                }
-                r15.l(z);
-            } else {
-                r15.l(false);
-            }
-            TbadkCoreApplication.getInst().setCurGlobalActivity(null);
-        }
-    }
-
-    public final void c(@Nullable Activity activity, @NonNull Lifecycle.Event event) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, event) == null) && activity != null && !BaseActivity.class.isAssignableFrom(activity.getClass()) && !BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
-            if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                e05 e05Var = new e05();
-                e05Var.a = TbadkCoreApplication.getInst();
-                e05Var.b = activity;
-                e05Var.c = event;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921698, e05Var));
                 return;
             }
-            ThirdPartyActivityLifecycleEvent thirdPartyActivityLifecycleEvent = new ThirdPartyActivityLifecycleEvent();
-            thirdPartyActivityLifecycleEvent.event = event;
-            vj5.i(thirdPartyActivityLifecycleEvent);
+        }
+        this.a = WebViewTrackerEnableSwitch.isOn();
+        this.b = false;
+        this.e = null;
+    }
+
+    public void e() {
+        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (runnable = this.d) != null) {
+            runnable.run();
         }
     }
 
-    public final void d(Activity activity) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        if (activity.getClass().getName().equals(ii.y())) {
-            CurrentPageTypeHelper.PageType pageType = CurrentPageTypeHelper.PageType.OTHER;
-            if (TBWebViewActivity.class.isAssignableFrom(activity.getClass())) {
-                pageType = CurrentPageTypeHelper.PageType.WEB;
-            } else if (activity.getClass().getName().contains("SwanAppActivity")) {
-                pageType = CurrentPageTypeHelper.PageType.SMART_APP;
-            } else if (activity.getClass().getName().contains("FlutterPageActivity")) {
-                pageType = CurrentPageTypeHelper.PageType.FLUTTER;
-            } else if (activity.getClass().getName().contains("NewSquareSearchActivity")) {
-                pageType = CurrentPageTypeHelper.PageType.NATIVE_WEB;
-            } else if (BaseActivity.class.isAssignableFrom(activity.getClass()) || BaseFragmentActivity.class.isAssignableFrom(activity.getClass())) {
-                pageType = CurrentPageTypeHelper.PageType.NATIVE;
-            }
-            vj5.i(new CurrentPageTypeEvent(pageType));
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d != null) {
+            bh6.a().e(this.d);
+            this.d = null;
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
+    public final void a(final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (activity != null && currentActivity != null && nj5.b().h(activity) && !nj5.b().h(currentActivity)) {
-                nj5.b().o();
-                if (!nj5.b().g(currentActivity.getClass().getName())) {
-                    nj5.b().l(false);
-                }
-            }
-            if (db5.i() != null && activity == db5.i().getActivity()) {
-                db5.i().m();
-            }
-            if (db5.k() != null && activity == db5.k().getActivity()) {
-                db5.l();
-            }
-            if (ca5.b() != null && activity == ca5.b().getActivity()) {
-                ca5.b().t();
-            }
-            c(activity, Lifecycle.Event.ON_DESTROY);
-            if (activity instanceof TbPageContextSupport) {
-                TbPageContext pageContext = ((TbPageContextSupport) activity).getPageContext();
-                wl6.b().unregister(pageContext);
-                BdUniqueId uniqueId = pageContext.getUniqueId();
-                if (uniqueId != null) {
-                    wl6.a(uniqueId);
-                }
-            }
-        }
-    }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !this.b && this.d == null) {
+            this.d = new Runnable() { // from class: com.baidu.tieba.ew4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, activity, bundle) != null) || activity == null) {
-            return;
-        }
-        c55.q().w(activity);
-        if (c55.q().v(activity)) {
-            return;
-        }
-        String name = activity.getClass().getName();
-        if (!SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !r15.k(activity) && ((!"com.baidu.tieba.pb.pb.main.PbActivity".equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name)) || !x35.a().a)) {
-            qb.b().e();
-        }
-        if (nj5.b().e(name)) {
-            nj5.b().a();
-        } else if (nj5.b().h(activity)) {
-            nj5.b().c();
-            if (nj5.b().g(name)) {
-                nj5.b().l(true);
-            }
-        } else if (nj5.b().f(name)) {
-            nj5.b().o();
-            if (!nj5.b().g(name)) {
-                nj5.b().l(false);
-            } else {
-                nj5.b().l(true);
-            }
-        }
-        x35.a().e(activity);
-        c(activity, Lifecycle.Event.ON_CREATE);
-        l15.i();
-        r15.l(false);
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            if (activity != null) {
-                if (!activity.getClass().getSimpleName().equals("LogoActivity")) {
-                    qb.b().a("BdTokenController", new a(this, UtilHelper.isActivityStartFromScheme(activity)));
-                }
-                String name = activity.getClass().getName();
-                if (nj5.b().e(name)) {
-                    nj5.b().a();
-                } else if (nj5.b().h(activity)) {
-                    nj5.b().c();
-                    if (nj5.b().g(name)) {
-                        nj5.b().l(true);
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        hw4.this.d(str);
                     }
                 }
+            };
+            bh6.a().d(this.d, 10000L);
+        }
+    }
+
+    public /* synthetic */ void d(String str) {
+        g(str, 1);
+    }
+
+    public final void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            try {
+                if (this.e != null && !yh6.a(this.e.e())) {
+                    Map<String, Pair<Long, Long>> f = this.e.f();
+                    JSONArray jSONArray = new JSONArray();
+                    for (Pair<String, Long> pair : this.e.e()) {
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("path", pair.first);
+                        jSONObject2.put("req", pair.second);
+                        Pair<Long, Long> pair2 = f.get(pair.first);
+                        if (pair2 != null) {
+                            jSONObject2.put(UriUtil.LOCAL_RESOURCE_SCHEME, pair2.first);
+                            jSONObject2.put("hit", pair2.second);
+                        } else {
+                            jSONObject2.put(UriUtil.LOCAL_RESOURCE_SCHEME, -1);
+                            jSONObject2.put("hit", -1);
+                        }
+                        jSONArray.put(jSONObject2);
+                    }
+                    if (!yh6.c(jSONArray)) {
+                        jSONObject.put(PrefetchEvent.MODULE, jSONArray);
+                    }
+                }
+            } catch (JSONException unused) {
             }
-            d(activity);
-            b(activity);
-            a(activity);
-            c(activity, Lifecycle.Event.ON_RESUME);
-            TbadkCoreApplication.getInst().setCurGlobalActivity(activity);
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
+    public JSONObject c(WebView webView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            c(activity, Lifecycle.Event.ON_START);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            if (webView != null) {
+                try {
+                    if (webView.getParent() instanceof TbWebView) {
+                        this.e = ((TbWebView) webView.getParent()).getPerfData();
+                    }
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            if (this.e != null && this.a && !this.b && ti6.k(this.e.g())) {
+                String g = this.e.g();
+                JSONObject jSONObject = new JSONObject();
+                String c = this.e.c();
+                this.c = c;
+                jSONObject.put("logId", c);
+                jSONObject.put("url", g);
+                jSONObject.put("clientType", "Android");
+                jSONObject.put("isOfflinePackage", this.e.j());
+                jSONObject.put(com.kuaishou.weapon.p0.u.x, this.e.d());
+                jSONObject.put("wvst", this.e.i());
+                jSONObject.put("wvft", this.e.h());
+                jSONObject.put("lst", this.e.b());
+                a(jSONObject.toString());
+                return jSONObject;
+            }
+            return null;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
+    public synchronized void g(String str, int i) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            TbadkCoreApplication.getInst().setStartType(1);
-            c55.q().x(activity);
-            c(activity, Lifecycle.Event.ON_STOP);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
+            synchronized (this) {
+                try {
+                    f();
+                    if (this.a && !this.b && !TextUtils.isEmpty(str)) {
+                        this.b = true;
+                        UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+                        if (uBCManager != null) {
+                            uBCManager.onEvent("5607", str);
+                        }
+                        try {
+                            JSONObject jSONObject = new JSONObject(str);
+                            jSONObject.optString("logId", this.c);
+                            String optString = jSONObject.optString("url", "");
+                            boolean optBoolean = jSONObject.optBoolean("isOfflinePackage", false);
+                            long optLong = jSONObject.optLong(com.kuaishou.weapon.p0.u.x, -1L);
+                            long optLong2 = jSONObject.optLong("wvst", -1L);
+                            long optLong3 = jSONObject.optLong("wvft", -1L);
+                            long optLong4 = jSONObject.optLong("lst", -1L);
+                            long optLong5 = jSONObject.optLong("navigationStart", -1L);
+                            long optLong6 = jSONObject.optLong("fetchStart", -1L);
+                            long optLong7 = jSONObject.optLong("domainLookupStart", -1L);
+                            long optLong8 = jSONObject.optLong("domainLookupEnd", -1L);
+                            long optLong9 = jSONObject.optLong("connectStart", -1L);
+                            long optLong10 = jSONObject.optLong("connectEnd", -1L);
+                            long optLong11 = jSONObject.optLong("requestStart", -1L);
+                            long optLong12 = jSONObject.optLong("responseStart", -1L);
+                            long optLong13 = jSONObject.optLong("responseEnd", -1L);
+                            long optLong14 = jSONObject.optLong("ds", -1L);
+                            long optLong15 = jSONObject.optLong("df", -1L);
+                            try {
+                                long optLong16 = jSONObject.optLong("drt", -1L);
+                                long optLong17 = jSONObject.optLong("dt", -1L);
+                                long optLong18 = jSONObject.optLong("autoFMP", -1L);
+                                long optLong19 = jSONObject.optLong("autoFP", -1L);
+                                long optLong20 = jSONObject.optLong("autoFCP", -1L);
+                                int optInt = jSONObject.optInt("autoWVLCP", -1);
+                                int optInt2 = jSONObject.optInt("autoWVFCP", -1);
+                                long optLong21 = jSONObject.optLong("fp", -1L);
+                                long optLong22 = jSONObject.optLong("fmp", -1L);
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("是否离线包：");
+                                sb.append(optBoolean);
+                                sb.append(",总耗时");
+                                long j = optLong22 - optLong;
+                                sb.append(j);
+                                sb.append("-初始化:");
+                                sb.append(optLong4 - optLong);
+                                sb.append(",加载:");
+                                sb.append(optLong14 - optLong4);
+                                sb.append(",解析:");
+                                sb.append(optLong15 - optLong14);
+                                sb.append("，渲染:");
+                                sb.append(optLong22 - optLong15);
+                                wh6.b("newHybrid", sb.toString());
+                                try {
+                                    b(jSONObject);
+                                    StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.WEBVIEW_PERF_DATA_KEY).param("obj_param1", jSONObject.toString()).param(TiebaStatic.Params.OBJ_PARAM2, jSONObject.toString());
+                                    if (optBoolean) {
+                                        str2 = "0";
+                                    } else {
+                                        str2 = "1";
+                                    }
+                                    TiebaStatic.log(param.param("obj_id", str2).param("obj_type", i).param("obj_locate", 1).param("obj_source", 1).param(TiebaStatic.Params.OBJ_PARAM3, j).param(com.kuaishou.weapon.p0.u.x, optLong).param("wvst", optLong2).param("wvft", optLong3).param("lst", optLong4).param("navigationStart", optLong5).param("fetchStart", optLong6).param("domainLookupStart", optLong7).param("domainLookupEnd", optLong8).param("connectStart", optLong9).param("connectEnd", optLong10).param("requestStart", optLong11).param("responseStart", optLong12).param("responseEnd", optLong13).param("ds", optLong14).param("df", optLong15).param("drt", optLong16).param("dt", optLong17).param("autoFMP", optLong18).param("autoFP", optLong19).param("autoFCP", optLong20).param("autoWVLCP", optInt).param("autoWVFCP", optInt2).param("fp", optLong21).param("fmp", optLong22).param("url", optString));
+                                } catch (Exception unused) {
+                                } catch (Throwable th) {
+                                    th = th;
+                                    throw th;
+                                }
+                            } catch (Exception unused2) {
+                            } catch (Throwable th2) {
+                                th = th2;
+                            }
+                        } catch (Exception unused3) {
+                        }
+                    }
+                } catch (Throwable th3) {
+                    th = th3;
+                }
+            }
         }
     }
 }

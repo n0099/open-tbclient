@@ -3,7 +3,7 @@ package com.facebook.imagepipeline.cache;
 import java.util.LinkedHashSet;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BoundedLinkedHashSet<E> {
     public LinkedHashSet<E> mLinkedHashSet;
     public int mMaxSize;

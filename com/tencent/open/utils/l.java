@@ -29,7 +29,9 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.pass.main.facesdk.BuildConfig;
 import com.baidu.sapi2.activity.ImageClipActivity;
 import com.baidu.sapi2.result.GetCertStatusResult;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
 import com.tencent.tauth.IUiListener;
@@ -49,7 +51,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static String a = "";
     public static String b = "";
@@ -63,7 +65,7 @@ public class l {
         return (char) (i2 < 10 ? i2 + 48 : (i2 - 10) + 97);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String a;
         public long b;
@@ -590,7 +592,7 @@ public class l {
     public static void a(Context context, String str, String str2, String str3) {
         Intent intent = new Intent();
         intent.setComponent(new ComponentName(str, str2));
-        intent.setAction("android.intent.action.VIEW");
+        intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
         intent.addFlags(1073741824);
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.setData(Uri.parse(str3));
@@ -1213,7 +1215,7 @@ public class l {
     }
 
     public static JSONObject d(String str) throws JSONException {
-        if (str.equals("false")) {
+        if (str.equals(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
             str = "{value : false}";
         }
         if (str.equals("true")) {

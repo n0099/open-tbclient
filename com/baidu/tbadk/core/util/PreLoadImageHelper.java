@@ -9,20 +9,20 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.gif.GifInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextEmotionInfo;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.in;
-import com.baidu.tieba.jn;
-import com.baidu.tieba.mn;
-import com.baidu.tieba.nn;
-import com.baidu.tieba.sm;
-import com.baidu.tieba.vm;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.en;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.sn;
+import com.baidu.tieba.vn;
+import com.baidu.tieba.wn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PreLoadImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;
@@ -42,42 +42,42 @@ public class PreLoadImageHelper {
         }
     }
 
-    public static void addPreloadSuggestSize(jn jnVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
-        vm<in, TypeAdapter.ViewHolder> h;
-        sm preloadSize;
+    public static void addPreloadSuggestSize(sn snVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
+        en<rn, TypeAdapter.ViewHolder> h;
+        bn preloadSize;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, jnVar, obj, preLoadImageInfo) == null) && jnVar != null && obj != null && preLoadImageInfo != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65537, null, snVar, obj, preLoadImageInfo) == null) && snVar != null && obj != null && preLoadImageInfo != null) {
             if (preLoadImageInfo.width > 0 && preLoadImageInfo.height > 0) {
                 return;
             }
-            nn nnVar = null;
-            if (jnVar instanceof nn) {
-                nnVar = (nn) jnVar;
-            } else if (jnVar instanceof BdRecyclerAdapter) {
-                BdRecyclerAdapter bdRecyclerAdapter = (BdRecyclerAdapter) jnVar;
-                if (bdRecyclerAdapter.y() instanceof nn) {
-                    nnVar = (nn) bdRecyclerAdapter.y();
+            wn wnVar = null;
+            if (snVar instanceof wn) {
+                wnVar = (wn) snVar;
+            } else if (snVar instanceof BdRecyclerAdapter) {
+                BdRecyclerAdapter bdRecyclerAdapter = (BdRecyclerAdapter) snVar;
+                if (bdRecyclerAdapter.y() instanceof wn) {
+                    wnVar = (wn) bdRecyclerAdapter.y();
                 }
             }
-            if (nnVar != null && (obj instanceof in) && (h = nnVar.h((in) obj)) != null && (preloadSize = h.getPreloadSize(preLoadImageInfo.preloadType)) != null && preloadSize.b() > 0 && preloadSize.a() > 0) {
+            if (wnVar != null && (obj instanceof rn) && (h = wnVar.h((rn) obj)) != null && (preloadSize = h.getPreloadSize(preLoadImageInfo.preloadType)) != null && preloadSize.b() > 0 && preloadSize.a() > 0) {
                 preLoadImageInfo.width = preloadSize.b();
                 preLoadImageInfo.height = preloadSize.a();
             }
         }
     }
 
-    public static void load(mn mnVar, BdUniqueId bdUniqueId) {
+    public static void load(vn vnVar, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, mnVar, bdUniqueId) == null) {
-            load(mnVar, bdUniqueId, 13);
+        if (interceptable == null || interceptable.invokeLL(65538, null, vnVar, bdUniqueId) == null) {
+            load(vnVar, bdUniqueId, 13);
         }
     }
 
-    public static void load(mn mnVar, BdUniqueId bdUniqueId, int i) {
-        jn adapter;
-        jn jnVar;
+    public static void load(vn vnVar, BdUniqueId bdUniqueId, int i) {
+        sn adapter;
+        sn snVar;
         ArrayList<PreLoadImageInfo> images;
-        jn jnVar2;
+        sn snVar2;
         int i2;
         int pbImageSize;
         int i3;
@@ -85,14 +85,14 @@ public class PreLoadImageHelper {
         int i5;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65539, null, mnVar, bdUniqueId, i) != null) || mnVar == null || !BdNetTypeUtil.isWifiNet() || (adapter = mnVar.getAdapter()) == null) {
+        if ((interceptable != null && interceptable.invokeLLI(65539, null, vnVar, bdUniqueId, i) != null) || vnVar == null || !BdNetTypeUtil.isWifiNet() || (adapter = vnVar.getAdapter()) == null) {
             return;
         }
         int bigImageMaxUsedMemory = (int) (TbConfig.getBigImageMaxUsedMemory() * 0.8f);
         boolean isSupportGifEmotions = TbImageHelper.isSupportGifEmotions();
-        int firstVisiblePosition = mnVar.getFirstVisiblePosition();
-        int lastVisiblePosition = mnVar.getLastVisiblePosition();
-        cg.h().f(bdUniqueId, null);
+        int firstVisiblePosition = vnVar.getFirstVisiblePosition();
+        int lastVisiblePosition = vnVar.getLastVisiblePosition();
+        lg.h().f(bdUniqueId, null);
         int i6 = 0;
         int i7 = 0;
         int i8 = 0;
@@ -104,7 +104,7 @@ public class PreLoadImageHelper {
                 int i10 = i8;
                 while (it.hasNext()) {
                     PreLoadImageInfo next = it.next();
-                    if (cg.h().j(next.procType)) {
+                    if (lg.h().j(next.procType)) {
                         int i11 = next.procType;
                         if (12 != i11 && 28 != i11) {
                             int i12 = next.width * next.height;
@@ -132,30 +132,30 @@ public class PreLoadImageHelper {
                                         str = gifInfo.mStaticUrl;
                                     }
                                     if (!TextUtils.isEmpty(str)) {
-                                        cg h = cg.h();
+                                        lg h = lg.h();
                                         GifInfo gifInfo2 = tbRichTextEmotionInfo.mGifInfo;
                                         String str2 = gifInfo2.mSharpText;
-                                        jnVar2 = adapter;
+                                        snVar2 = adapter;
                                         i3 = i14;
                                         i4 = i10;
                                         i5 = i13;
                                         h.k(str2, next.procType, null, next.width, next.height, bdUniqueId, gifInfo2.mGid, str2, Boolean.valueOf(isSupportGifEmotions), str);
                                     }
                                 } else {
-                                    jnVar2 = adapter;
+                                    snVar2 = adapter;
                                     i3 = i14;
                                     i4 = i10;
                                     i5 = i13;
                                     String str3 = next.imgUrl;
                                     if (!TextUtils.isEmpty(str3)) {
-                                        cg.h().k(str3, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                        lg.h().k(str3, next.procType, null, next.width, next.height, bdUniqueId, new Object[0]);
                                     }
                                 }
                                 i10 = i4;
                                 i9 = i5;
                                 i6 = i3;
                             }
-                            jnVar2 = adapter;
+                            snVar2 = adapter;
                             i3 = i14;
                             i4 = i10;
                             i5 = i13;
@@ -163,18 +163,18 @@ public class PreLoadImageHelper {
                             i9 = i5;
                             i6 = i3;
                         } else {
-                            jnVar2 = adapter;
+                            snVar2 = adapter;
                             int i15 = i10 + 1;
                             if (i15 <= 30 && firstVisiblePosition > lastVisiblePosition && !TextUtils.isEmpty(next.imgUrl)) {
                                 int i16 = next.procType;
                                 if (12 == i16) {
                                     i2 = i9;
-                                    cg.h().k(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                    lg.h().k(next.imgUrl, 12, null, next.width, next.height, bdUniqueId, new Object[0]);
                                 } else {
                                     int i17 = i9;
                                     if (28 == i16) {
                                         i2 = i17;
-                                        cg.h().k(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
+                                        lg.h().k(next.imgUrl, 28, null, next.width, next.height, bdUniqueId, new Object[0]);
                                     } else {
                                         i2 = i17;
                                     }
@@ -185,10 +185,10 @@ public class PreLoadImageHelper {
                             i10 = i15;
                             i9 = i2;
                         }
-                        adapter = jnVar2;
+                        adapter = snVar2;
                     }
                 }
-                jnVar = adapter;
+                snVar = adapter;
                 int i18 = i10;
                 int i19 = i9;
                 if ((i6 <= i && i19 < bigImageMaxUsedMemory) || i18 <= 30) {
@@ -198,10 +198,10 @@ public class PreLoadImageHelper {
                     return;
                 }
             } else {
-                jnVar = adapter;
+                snVar = adapter;
             }
             firstVisiblePosition++;
-            adapter = jnVar;
+            adapter = snVar;
         }
     }
 }

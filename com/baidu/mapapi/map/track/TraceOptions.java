@@ -2,7 +2,7 @@ package com.baidu.mapapi.map.track;
 
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TraceOptions {
     public List<LatLng> c;
     public int f;
@@ -13,7 +13,7 @@ public class TraceOptions {
     public int g = TraceAnimateType.TraceOverlayAnimationEasingCurveLinear.ordinal();
     public boolean h = false;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum TraceAnimateType {
         TraceOverlayAnimationEasingCurveLinear,
         TraceOverlayAnimationEasingCurveEaseIn,

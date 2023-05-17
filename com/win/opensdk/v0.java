@@ -1,4 +1,4 @@
 package com.win.opensdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface v0 {
 }

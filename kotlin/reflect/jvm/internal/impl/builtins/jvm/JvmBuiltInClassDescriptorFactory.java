@@ -31,7 +31,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
 import kotlin.reflect.jvm.internal.impl.storage.StorageKt;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JvmBuiltInClassDescriptorFactory implements ClassDescriptorFactory {
     public static final ClassId CLONEABLE_CLASS_ID;
     public static final Name CLONEABLE_NAME;
@@ -46,7 +46,7 @@ public final class JvmBuiltInClassDescriptorFactory implements ClassDescriptorFa
         return (ClassDescriptorImpl) StorageKt.getValue(this.cloneable$delegate, this, $$delegatedProperties[0]);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

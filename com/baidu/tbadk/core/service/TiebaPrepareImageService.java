@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rs5;
+import com.baidu.tieba.au5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TiebaPrepareImageService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISPLAY_SIZE = "display_size";
@@ -65,7 +65,7 @@ public class TiebaPrepareImageService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class TiebaPrepareImageService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BdAsyncTask<Object, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 TiebaPrepareImageService.IS_DECODING = true;
                 boolean z2 = false;
                 try {
-                    c = rs5.c(this.a, this.e, this.b, this.c, this.e.mMaxSize);
+                    c = au5.c(this.a, this.e, this.b, this.c, this.e.mMaxSize);
                 } catch (Exception unused) {
                     TiebaPrepareImageService.IS_DECODING = false;
                 } catch (Throwable th) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static RegisterStatus a(String str) {
         DebugLogger.i("StatusSerialize", "register status serialize stringToRegisterStatus start, statusText=" + str);
@@ -19,8 +19,8 @@ public class a {
             if (!jSONObject.isNull(PushConstants.REGISTER_STATUS_PUSH_ID)) {
                 registerStatus2.setPushId(jSONObject.getString(PushConstants.REGISTER_STATUS_PUSH_ID));
             }
-            if (!jSONObject.isNull(PushConstants.REGISTER_STATUS_EXPIRE_TIME)) {
-                registerStatus2.setExpireTime(jSONObject.getInt(PushConstants.REGISTER_STATUS_EXPIRE_TIME));
+            if (!jSONObject.isNull("expire_time")) {
+                registerStatus2.setExpireTime(jSONObject.getInt("expire_time"));
             }
             DebugLogger.i("StatusSerialize", "register status serialize stringToRegisterStatus success, RegisterStatus=" + registerStatus2);
             return registerStatus2;
@@ -58,7 +58,7 @@ public class a {
                 a.put(PushConstants.REGISTER_STATUS_PUSH_ID, registerStatus.getPushId());
             }
             if (registerStatus.getExpireTime() > 0) {
-                a.put(PushConstants.REGISTER_STATUS_EXPIRE_TIME, registerStatus.getExpireTime());
+                a.put("expire_time", registerStatus.getExpireTime());
             }
             String jSONObject = a.toString();
             DebugLogger.i("StatusSerialize", "register status serialize registerStatusToString success, statusText=" + jSONObject);

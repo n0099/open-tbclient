@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ez5;
+import com.baidu.tieba.q06;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class BdPersonListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
     public static int e0 = 1;
@@ -44,7 +44,7 @@ public class BdPersonListView extends BdTypeListView {
     public boolean c0;
     public boolean d0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(float f);
 
@@ -68,7 +68,7 @@ public class BdPersonListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +131,7 @@ public class BdPersonListView extends BdTypeListView {
         this.K = new Scroller(this.J);
         this.L = new Scroller(this.J);
         this.V = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ez5.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, q06.ExpandListView);
         this.W = obtainStyledAttributes.getDimensionPixelSize(e0, 0);
         obtainStyledAttributes.recycle();
     }

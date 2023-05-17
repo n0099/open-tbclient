@@ -4,7 +4,7 @@ import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.binary.StringUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class RFC1522Codec {
     public static final String POSTFIX = "?=";
     public static final String PREFIX = "=?";

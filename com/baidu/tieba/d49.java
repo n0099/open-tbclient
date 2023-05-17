@@ -1,80 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class d49 extends vm<wc5, PersonInfoUserPicViewHolder> {
+/* loaded from: classes5.dex */
+public class d49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View.OnClickListener b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d49(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public PersonInfoUserPicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new PersonInfoUserPicViewHolder(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d093e, (ViewGroup) null));
-        }
-        return (PersonInfoUserPicViewHolder) invokeL.objValue;
-    }
-
-    public void u(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b = onClickListener;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14349");
+            statisticItem.param("tid", str);
+            statisticItem.param("uid", str2);
+            statisticItem.param("post_id", str3);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wc5 wc5Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
-        InterceptResult invokeCommon;
+    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wc5Var, personInfoUserPicViewHolder})) == null) {
-            if (personInfoUserPicViewHolder != null && wc5Var != null) {
-                personInfoUserPicViewHolder.d(this.b);
-                personInfoUserPicViewHolder.a(wc5Var);
-                return personInfoUserPicViewHolder.getView();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14348");
+            statisticItem.param("tid", str2);
+            statisticItem.param("uid", str3);
+            statisticItem.param("post_id", str4);
+            statisticItem.param("pid", str4);
+            statisticItem.param("fname", str5);
+            statisticItem.param("fid", j);
+            statisticItem.param("obj_locate", str);
+            TiebaStatic.log(statisticItem);
         }
-        return (View) invokeCommon.objValue;
     }
 }

@@ -24,7 +24,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import javax.annotation.concurrent.GuardedBy;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DynamiteModule {
     @Nullable
     @GuardedBy("DynamiteModule.class")
@@ -68,24 +68,24 @@ public final class DynamiteModule {
     public static final VersionPolicy zza = new zzl();
 
     @DynamiteApi
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class DynamiteLoaderClassLoader {
         @Nullable
         @GuardedBy("DynamiteLoaderClassLoader.class")
         public static ClassLoader sClassLoader;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface VersionPolicy {
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public interface IVersions {
             int zza(@NonNull Context context, @NonNull String str);
 
             int zzb(@NonNull Context context, @NonNull String str, boolean z) throws LoadingException;
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class SelectionResult {
             @KeepForSdk
             public int localVersion = 0;
@@ -107,7 +107,7 @@ public final class DynamiteModule {
     }
 
     @KeepForSdk
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class LoadingException extends Exception {
         public /* synthetic */ LoadingException(String str, zzp zzpVar) {
             super(str);

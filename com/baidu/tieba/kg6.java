@@ -1,73 +1,66 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes6.dex */
 public class kg6 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947912175, "Lcom/baidu/tieba/kg6;")) == null) {
-            return;
+    public static ve9 a(ug6 ug6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ug6Var)) == null) {
+            ve9 ve9Var = new ve9();
+            if (ug6Var != null) {
+                ve9Var.b = ug6Var.c;
+                ve9Var.e = ug6Var.g;
+                ve9Var.f = ug6Var.i;
+                ve9Var.c = ug6Var.d;
+                if (!yh6.a(ug6Var.b)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    ve9Var.a = arrayList;
+                    arrayList.addAll(ug6Var.b);
+                }
+                if (!yh6.a(ug6Var.f)) {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    ve9Var.d = arrayList2;
+                    arrayList2.addAll(ug6Var.f);
+                }
+            }
+            return ve9Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947912175, "Lcom/baidu/tieba/kg6;");
-        }
+        return (ve9) invokeL.objValue;
     }
 
-    public static void a(String str, String str2) {
+    public static void b(pg6 pg6Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a && b >= 1) {
-            Log.d(str, str2);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a && b >= 3) {
-            Log.e(str, str2);
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a && b >= 0) {
-            Log.i(str, str2);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a && b >= 2) {
-            Log.w(str, str2);
-        }
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            b = i;
-        }
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeLL(65537, null, pg6Var, str) == null) {
+            try {
+                if (pg6Var != null) {
+                    te9.n().z(str, pg6Var.b());
+                    te9.n().x();
+                    if (!yh6.b(pg6Var.a())) {
+                        HashMap<String, ve9> hashMap = new HashMap<>();
+                        for (Map.Entry<String, ug6> entry : pg6Var.a().entrySet()) {
+                            hashMap.put(entry.getKey(), a(entry.getValue()));
+                        }
+                        ue9.a().l(str, hashMap);
+                    }
+                    ue9.a().h(true, str);
+                    return;
+                }
+                te9.n().h(str);
+                te9.n().x();
+                ue9.a().f(str);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
         }
     }
 }

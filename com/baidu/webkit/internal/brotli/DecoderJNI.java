@@ -4,10 +4,10 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DecoderJNI implements INoProGuard {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Wrapper implements INoProGuard {
         public final long[] context;
         public final ByteBuffer inputBuffer;
@@ -89,7 +89,7 @@ public class DecoderJNI implements INoProGuard {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum a {
         ERROR,
         DONE,

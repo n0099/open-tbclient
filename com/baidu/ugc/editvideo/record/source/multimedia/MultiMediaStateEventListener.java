@@ -1,5 +1,5 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface MultiMediaStateEventListener {
     void onIndexChanged(int i, int i2);
 

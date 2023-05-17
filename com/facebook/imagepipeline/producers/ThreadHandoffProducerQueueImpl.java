@@ -4,7 +4,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThreadHandoffProducerQueueImpl implements ThreadHandoffProducerQueue {
     public final Executor mExecutor;
     public boolean mQueueing = false;

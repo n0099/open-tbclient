@@ -7,7 +7,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class en {
     public static volatile en a;
 
@@ -51,14 +51,14 @@ public class en {
         if (intent == null) {
             return;
         }
-        a(str, em.m373a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+        a(str, em.m392a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
         if (intent == null) {
             return;
         }
-        a(str, em.m373a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
+        a(str, em.m392a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {

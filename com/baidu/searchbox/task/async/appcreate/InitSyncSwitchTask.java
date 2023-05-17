@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.async.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.switchs.SyncSwitch;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitSyncSwitchTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

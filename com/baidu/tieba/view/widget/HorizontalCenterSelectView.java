@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HorizontalCenterSelectView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
@@ -46,18 +46,18 @@ public class HorizontalCenterSelectView extends RecyclerView {
     public int k;
     public final RecyclerView.OnScrollListener l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void a(int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c extends RecyclerView.Adapter<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HorizontalCenterSelectView a;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class b extends RecyclerView.ViewHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -118,8 +118,8 @@ public class HorizontalCenterSelectView extends RecyclerView {
                         return;
                     }
                 }
-                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0925e1);
-                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092547);
+                this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09264d);
+                this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925b2);
             }
         }
 
@@ -190,7 +190,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
                 }
                 bVar.b.setTextSize(0, this.a.b.getTextSize());
                 bVar.b.setTextColor(this.a.b.getColor());
-                g35.d(bVar.b).A(R.array.S_O_X001);
+                p45.d(bVar.b).A(R.array.S_O_X001);
                 bVar.b.setOnClickListener(new a(this, i));
                 if (i == this.a.i) {
                     bVar.b.setAlpha(1.0f);
@@ -205,7 +205,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a extends RecyclerView.OnScrollListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,7 +385,7 @@ public class HorizontalCenterSelectView extends RecyclerView {
         this.a = new ArrayList();
         this.b = new Paint();
         this.h = false;
-        this.k = R.layout.obfuscated_res_0x7f0d042f;
+        this.k = R.layout.obfuscated_res_0x7f0d044b;
         this.l = new a(this);
         init();
     }

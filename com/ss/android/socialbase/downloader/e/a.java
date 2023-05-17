@@ -6,7 +6,7 @@ import com.ss.android.socialbase.downloader.f.p;
 import com.ss.android.socialbase.downloader.i.f;
 import java.io.InputStream;
 import java.util.concurrent.Future;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a implements b {
     public final InputStream a;
     public final int b;

@@ -1,4 +1,4 @@
 package com.baidu.searchbox.retrieve.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public final class R {
 }

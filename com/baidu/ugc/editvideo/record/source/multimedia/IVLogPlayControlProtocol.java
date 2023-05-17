@@ -1,10 +1,10 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IVLogPlayControlProtocol {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnPlayStateListener {
         void onPause();
 
@@ -17,7 +17,7 @@ public interface IVLogPlayControlProtocol {
         void onStart();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class OnPlayStateListenerAdapter implements OnPlayStateListener {
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
         public void onPause() {

@@ -1,42 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public interface nu {
-    @CallSuper
-    void a(SubTaskState subTaskState);
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Map;
+import kotlin.TypeCastException;
+import kotlin.Unit;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.io.CloseableKt;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class nu {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(TaskInfo taskInfo, int i);
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean b(nu nuVar, TaskInfo taskInfo, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, nuVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
-        }
-
-        public static void a(nu nuVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, nuVar, subTaskState) == null) && !nuVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
-                nuVar.a(subTaskState);
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final Map<String, Object> a(byte[] bArr) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            if (bArr.length == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return MapsKt__MapsKt.emptyMap();
+            }
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            try {
+                ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
+                Object readObject = objectInputStream.readObject();
+                if (readObject != null) {
+                    Map<String, Object> map = (Map) readObject;
+                    CloseableKt.closeFinally(objectInputStream, null);
+                    CloseableKt.closeFinally(byteArrayInputStream, null);
+                    return map;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type kotlin.collections.Map<kotlin.String, kotlin.Any>");
+            } catch (Throwable th) {
+                try {
+                    throw th;
+                } catch (Throwable th2) {
+                    CloseableKt.closeFinally(byteArrayInputStream, th);
+                    throw th2;
+                }
             }
         }
+        return (Map) invokeL.objValue;
+    }
 
-        @CallSuper
-        public static void c(nu nuVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, nuVar, subTaskState) == null) {
-                qu.c.b(subTaskState);
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static final byte[] b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                objectOutputStream.writeObject(map);
+                Unit unit = Unit.INSTANCE;
+                CloseableKt.closeFinally(objectOutputStream, null);
+                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                Intrinsics.checkExpressionValueIsNotNull(byteArray, "bytesStream.toByteArray()");
+                CloseableKt.closeFinally(byteArrayOutputStream, null);
+                Intrinsics.checkExpressionValueIsNotNull(byteArray, "ByteArrayOutputStream().…m.toByteArray()\n        }");
+                return byteArray;
+            } finally {
             }
+        } else {
+            return (byte[]) invokeL.objValue;
         }
     }
 }

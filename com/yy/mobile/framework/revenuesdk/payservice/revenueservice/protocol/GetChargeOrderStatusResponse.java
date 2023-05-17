@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GetChargeOrderStatusResponse implements IBaseJsonResponse {
     public long amount;
     public int appId;

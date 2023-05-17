@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface AudioRendererEventListener {
     void onAudioDecoderInitialized(String str, long j, long j2);
 
@@ -19,7 +19,7 @@ public interface AudioRendererEventListener {
 
     void onAudioSinkUnderrun(int i, long j, long j2);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class EventDispatcher {
         @Nullable
         public final Handler handler;

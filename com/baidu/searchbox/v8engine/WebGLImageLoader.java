@@ -11,7 +11,7 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.nl1;
+import com.baidu.tieba.rm1;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +19,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.apache.commons.codec.language.bm.ResourceConstants;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebGLImageLoader {
     public static final String ASSET_URL = "asset://";
     public static final String BDFILE = "bdfile://";
@@ -30,7 +30,7 @@ public class WebGLImageLoader {
     public static ExecutorService sExecutorService;
     public static BitmapReferenceMap sReferenceMap = new BitmapReferenceMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public final WebGLImage mImage;
         public final int mImageId;
@@ -272,7 +272,7 @@ public class WebGLImageLoader {
         ImageBitmapBean imageBitmapBean = null;
         if (obj instanceof String) {
             String str2 = (String) obj;
-            if (nl1.b(str2)) {
+            if (rm1.b(str2)) {
                 decodeStream = BitmapFactory.decodeFile(str2, options);
                 if (decodeStream == null) {
                     decodeStream = BitmapFactory.decodeFile(str2);

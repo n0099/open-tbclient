@@ -1,9 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes5.dex */
+public interface hu extends ir {
+    iu d();
 
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public interface hu {
-    void a(String str, String str2, JSONObject jSONObject);
-
-    void b(String str, JSONObject jSONObject);
+    qu f();
 }

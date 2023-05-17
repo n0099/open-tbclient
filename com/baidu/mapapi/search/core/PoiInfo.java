@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PoiInfo implements Parcelable {
     public static final Parcelable.Creator<PoiInfo> CREATOR = new h();
     public int a;
@@ -33,7 +33,7 @@ public class PoiInfo implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ParentPoiInfo implements Parcelable {
         public static final Parcelable.Creator<ParentPoiInfo> CREATOR = new i();
         public String parentPoiAddress;
@@ -213,7 +213,7 @@ public class PoiInfo implements Parcelable {
         return this.isPano;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum POITYPE {
         POINT(0),
         BUS_STATION(1),

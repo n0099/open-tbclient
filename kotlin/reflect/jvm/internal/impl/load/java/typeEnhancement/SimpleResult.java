@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SimpleResult extends Result {
     public final SimpleType type;
 

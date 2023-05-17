@@ -3,7 +3,7 @@ package com.kwad.sdk.core.diskcache.a;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static String bC(String str) {
         if (str == null) {

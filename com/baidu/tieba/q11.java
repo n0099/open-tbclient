@@ -1,108 +1,135 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+import java.util.Map;
+/* loaded from: classes7.dex */
 public class q11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClogBuilder.LogType a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public q11(ClogBuilder.LogType logType, String str, String str2, boolean z) {
-        this(logType, str, str2, z, "");
+    public static boolean d(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ClogBuilder.LogType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (String) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
+    }
+
+    public static void i(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
+        }
+    }
+
+    public static <K, V> boolean a(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, k)) == null) {
+            if (d(map)) {
+                return false;
             }
-        }
-    }
-
-    public q11(ClogBuilder.LogType logType, String str, String str2, boolean z, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z), str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = "";
-        this.a = logType;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = str3;
-    }
-
-    public v11 a(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            return b(i, str, "normal");
-        }
-        return (v11) invokeIL.objValue;
-    }
-
-    public v11 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            v11 v11Var = new v11();
             try {
-                v11Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
+                return map.containsKey(k);
+            } catch (Exception e) {
+                i(e);
+                return false;
             }
-            return v11Var;
         }
-        return (v11) invokeILL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public static <K, V> V b(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, k)) == null) {
+            if (d(map)) {
+                return null;
+            }
+            try {
+                return map.get(k);
+            } catch (Exception e) {
+                i(e);
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (V) invokeLL.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static <K, V> boolean f(Map<K, V> map, Map<? extends K, ? extends V> map2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                map.putAll(map2);
+                return true;
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static <K, V> V g(Map<K, V> map, K k) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, k)) == null) {
+            if (d(map)) {
+                return null;
+            }
+            try {
+                return map.remove(k);
+            } catch (Exception e) {
+                i(e);
+                return null;
+            }
+        }
+        return (V) invokeLL.objValue;
+    }
+
+    public static <K, V> boolean c(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            if (!d(map) && !map.isEmpty()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <K, V> int h(Map<K, V> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
+            if (d(map)) {
+                return 0;
+            }
+            return map.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static <K, V> boolean e(Map<K, V> map, K k, V v) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, k, v)) == null) {
+            if (d(map)) {
+                return false;
+            }
+            try {
+                map.put(k, v);
+                return true;
+            } catch (Exception e) {
+                i(e);
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
     }
 }

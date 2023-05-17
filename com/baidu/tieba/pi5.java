@@ -1,21 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: SecondFloorService.java */
-/* loaded from: classes5.dex */
-public final /* synthetic */ class pi5 {
+/* loaded from: classes7.dex */
+public class pi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static qi5 a() {
-        InterceptResult invokeV;
+    public static oi5 a(View view2, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (qi5) ServiceManager.getService(qi5.a);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                return new qi5();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new ti5();
+            }
+            if (!(view2 instanceof FrameLayout)) {
+                return null;
+            }
+            if (z) {
+                return new ui5();
+            }
+            return new mi5();
         }
-        return (qi5) invokeV.objValue;
+        return (oi5) invokeLZ.objValue;
     }
 }

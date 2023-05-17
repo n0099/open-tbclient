@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.searchbox.common.security.ioc.HostAbilityRuntime;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AndroidIDProxy {
     public static String androidId;
     public static volatile boolean hasInvoked;

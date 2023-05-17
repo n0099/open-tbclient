@@ -1,337 +1,229 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdListView;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.enterForum.home.forumRecommendHttpResponseMessage;
-import com.baidu.tieba.enterForum.home.forumRecommendRequestMessage;
-import com.baidu.tieba.enterForum.home.forumRecommendSocketResponseMessage;
-import com.baidu.tieba.square.ForumSquareDelegate;
-import com.baidu.tieba.square.adapter.LeftAdapter;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import java.util.ArrayList;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class ql9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final pl9 b;
-    public final ForumSquareDelegate c;
-    public za d;
-    public final View.OnClickListener e;
-    public View.OnClickListener f;
-    public LeftAdapter.b g;
-    public RecyclerView.OnScrollListener h;
-    public BdListView.p i;
+    public long a;
+    public volatile boolean b;
+    public long c;
 
-    /* loaded from: classes6.dex */
-    public class a extends za {
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql9 a;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ql9 ql9Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql9Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ql9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-485678003, "Lcom/baidu/tieba/ql9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-485678003, "Lcom/baidu/tieba/ql9$b;");
                     return;
                 }
             }
-            this.a = ql9Var;
-        }
-
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                String str = "";
-                if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
-                    forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
-                    if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendsocketresponsemessage.getHotSearchInfoData().V();
-                    }
-                } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
-                    forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
-                    if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                        str = forumrecommendhttpresponsemessage.getHotSearchInfoData().V();
-                    }
-                }
-                if (TextUtils.isEmpty(str)) {
-                    str = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f05c1);
-                }
-                if (this.a.b != null) {
-                    this.a.b.A(str);
-                }
-            }
+            a = new ql9(null);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql9 a;
-
-        public b(ql9 ql9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948095819, "Lcom/baidu/tieba/ql9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ql9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c.onLoadRefresh();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948095819, "Lcom/baidu/tieba/ql9;");
+                return;
             }
         }
+        d = fl9.a;
+        e = ql9.class.getSimpleName();
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql9 a;
-
-        public c(ql9 ql9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ql9Var;
+    public static ql9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c13654").param("uid", TbadkCoreApplication.getCurrentAccountId()));
-                this.a.f();
-            }
-        }
+        return (ql9) invokeV.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements LeftAdapter.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql9 a;
-
-        public d(ql9 ql9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!this.b || System.currentTimeMillis() - this.c > 172800000) {
+                return false;
             }
-            this.a = ql9Var;
+            return true;
         }
-
-        @Override // com.baidu.tieba.square.adapter.LeftAdapter.b
-        public void a(View view2, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, str) == null) {
-                this.a.c.onSelected(str);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class e extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e(ql9 ql9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                super.onScrollStateChanged(recyclerView, i);
-            }
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
-                super.onScrolled(recyclerView, i, i2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements BdListView.p {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql9 a;
-
-        public f(ql9 ql9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ql9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ql9Var;
-        }
-
-        @Override // com.baidu.adp.widget.ListView.BdListView.p
-        public void onScrollToBottom() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c.onLoadMore();
-            }
-        }
-    }
-
-    public ql9(@NonNull Context context, ForumSquareDelegate forumSquareDelegate, @NonNull pl9 pl9Var) {
+    public ql9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, forumSquareDelegate, pl9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new a(this, CmdConfigHttp.FORUM_RECOMMEND_HTTP_CMD, 303011);
-        this.e = new b(this);
-        this.f = new c(this);
-        this.g = new d(this);
-        this.h = new e(this);
-        this.i = new f(this);
-        this.a = context;
-        this.b = pl9Var;
-        this.c = forumSquareDelegate;
-        pl9Var.v(this.f);
-        this.b.x(this.e);
-        this.b.w(this.g);
-        this.b.z(this.i);
-        this.b.y(this.h);
+        String b2 = gl9.b("fulllog_switch", null);
+        if (!TextUtils.isEmpty(b2)) {
+            this.b = Boolean.valueOf(b2).booleanValue();
+        }
+        this.c = Long.parseLong(gl9.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis())));
     }
 
-    public void e() {
+    public /* synthetic */ ql9(a aVar) {
+        this();
+    }
+
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String hotSearch = TbSingleton.getInstance().getHotSearch();
-            if (!TextUtils.isEmpty(hotSearch)) {
-                this.b.A(hotSearch);
-            } else if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-                MessageManager.getInstance().registerListener(this.d);
-                g();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            Logger logger = LoggerManager.getLogger("net");
+            logger.e("1809", "netLog", str);
+            logger.flush(true);
+            if (g()) {
+                e(false);
             }
         }
     }
 
-    public final void g() {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
-            forumrecommendrequestmessage.set_like_forum(Integer.valueOf(TbadkCoreApplication.isLogin() ? 1 : 0));
-            forumrecommendrequestmessage.set_topic(0);
-            forumrecommendrequestmessage.set_recommend(1);
-            MessageManager.getInstance().sendMessage(forumrecommendrequestmessage);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && g()) {
+            Logger logger = LoggerManager.getLogger("net");
+            logger.d("1809", "netLog", str);
+            logger.flush(true);
+            e(false);
         }
     }
 
-    public final void f() {
+    public final boolean d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
-            return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j - this.a > 60000) {
+                return true;
+            }
+            return false;
         }
-        if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.a), new CustomMessage<>(2002001, new LoginActivityConfig(this.a, true, 11013)));
-            return;
+        return invokeJ.booleanValue;
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean d2 = d(currentTimeMillis);
+            if (d2) {
+                this.a = currentTimeMillis;
+            }
+            if (z || d2) {
+                String b2 = gl9.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
+                ArrayList arrayList = new ArrayList();
+                arrayList.add("net");
+                IUploadTask iUploadTask = (IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE);
+                if (iUploadTask != null) {
+                    long j = currentTimeMillis - 5184000000L;
+                    long j2 = currentTimeMillis + 3600000;
+                    iUploadTask.activeUploadSnapShot("netLog", b2, arrayList, null, 10240L, j, j2, true, null);
+                    if (d) {
+                        String str = e;
+                        Log.i(str, "dataId" + b2 + "   isMatchTimeInterval(curTime) == true");
+                        String str2 = e;
+                        Log.i(str2, "startTime==" + j + "endTime==" + j2);
+                    }
+                }
+            }
         }
-        UrlManager.getInstance().dealOneLink(UtilHelper.getTbPageContext(this.a), new String[]{TbConfig.TIEBA_ADDRESS + "mo/q/priforum/create/info?nomenu=1"});
+    }
+
+    public boolean f(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, networkStatRecord)) == null) {
+            int c = gl9.c();
+            if (networkStatRecord.exception == null && networkStatRecord.receiveHeaderTs - networkStatRecord.sendHeaderTs < c && networkStatRecord.realResponseLength <= 1048576 && networkStatRecord.requestBodyLength <= 1048576) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean h(JSONObject jSONObject, JSONObject jSONObject2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jSONObject, jSONObject2)) == null) {
+            synchronized (this) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("type");
+                    String optString2 = jSONObject.optString("fulllog");
+                    if (TextUtils.equals(optString, "fulllog_network")) {
+                        if (TextUtils.equals(optString2, "1")) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            this.a = currentTimeMillis;
+                            this.c = currentTimeMillis;
+                            this.b = true;
+                            e(true);
+                            if (d) {
+                                Log.i(e, "Start online real full network log!");
+                            }
+                            gl9.e("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
+                        } else if (TextUtils.equals(optString2, "0")) {
+                            this.b = false;
+                            if (d) {
+                                Log.i(e, "Stop online real full network log!");
+                            }
+                        }
+                        gl9.e("fulllog_switch", String.valueOf(this.b));
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

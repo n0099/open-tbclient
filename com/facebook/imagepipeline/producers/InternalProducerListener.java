@@ -4,7 +4,7 @@ import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class InternalProducerListener implements ProducerListener2 {
     public final ProducerListener mProducerListener;
     @Nullable

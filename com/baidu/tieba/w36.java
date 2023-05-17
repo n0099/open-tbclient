@@ -1,23 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
-/* loaded from: classes6.dex */
-public class w36 implements nt3 {
+import java.io.PrintStream;
+/* loaded from: classes8.dex */
+public class w36 extends jk1<qi1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public class a implements qi1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(w36 w36Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w36Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qi1
+        public boolean a(String str, kj1 kj1Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, kj1Var)) == null) {
+                if (z36.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + zi1.a));
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
 
     public w36() {
         Interceptable interceptable = $ic;
@@ -33,43 +69,15 @@ public class w36 implements nt3 {
         }
     }
 
-    @Override // com.baidu.tieba.pt3
-    public void a(u83 u83Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: a */
+    public qi1 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, u83Var) == null) && u83Var != null) {
-            u83Var.b(new y36(u83Var));
-            u83Var.b(new r36(u83Var));
-            u83Var.b(new np3(u83Var));
-            u83Var.b(new pp3(u83Var));
-            u83Var.b(new rp3(u83Var));
-            u83Var.b(new la3(u83Var));
-            u83Var.b(new ma3(u83Var));
-            u83Var.b(new mc3(u83Var));
-            u83Var.b(new sp3(u83Var));
-            u83Var.b(new pu1(u83Var));
-            u83Var.b(new v36(u83Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-    }
-
-    @Override // com.baidu.tieba.pt3
-    @Nullable
-    public Map<String, Object> b(@NonNull yv1 yv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yv1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(yv1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pt3
-    @Nullable
-    public Map<String, Object> c(@NonNull yv1 yv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yv1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(yv1Var);
-        }
-        return (Map) invokeL.objValue;
+        return (qi1) invokeV.objValue;
     }
 }

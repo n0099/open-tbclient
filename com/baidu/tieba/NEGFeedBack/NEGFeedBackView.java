@@ -16,16 +16,16 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ty5;
-import com.baidu.tieba.yy4;
+import com.baidu.tieba.f06;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NEGFeedBackView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,16 +36,16 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public ty5 h;
+    public f06 h;
     public View.OnClickListener i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, yy4 yy4Var);
+        void a(ArrayList<Integer> arrayList, String str, h05 h05Var);
 
-        void b(yy4 yy4Var, CompoundButton compoundButton, boolean z);
+        void b(h05 h05Var, CompoundButton compoundButton, boolean z);
 
-        void c(yy4 yy4Var);
+        void c(h05 h05Var);
     }
 
     public void setACRotateAnimation() {
@@ -60,7 +60,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(g9.a(this.a.getContext()))) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || FullBrowseHelper.checkAndShowFullBrowseModeDialog(m9.a(this.a.getContext()))) {
                 return;
             }
             this.a.s();
@@ -132,10 +132,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(yy4 yy4Var) {
+    public void setData(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, yy4Var) == null) {
-            this.h.u(yy4Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, h05Var) == null) {
+            this.h.u(h05Var);
         }
     }
 
@@ -201,7 +201,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void t(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
-            this.h = new ty5(tbPageContext, this);
+            this.h = new f06(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             u();
@@ -281,7 +281,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void r(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, i2) == null) {
-            int g = ii.g(this.a, R.dimen.tbds24);
+            int g = ri.g(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);

@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.gi;
 import com.xiaomi.push.gm;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cl implements gi {
     public final /* synthetic */ XMPushService a;
 
@@ -12,7 +12,7 @@ public class cl implements gi {
 
     @Override // com.xiaomi.push.gi
     /* renamed from: a */
-    public boolean mo421a(gm gmVar) {
+    public boolean mo440a(gm gmVar) {
         return true;
     }
 }

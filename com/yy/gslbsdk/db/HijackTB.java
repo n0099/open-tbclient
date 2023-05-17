@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.db;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HijackTB implements Serializable {
     public static final String DNSIP = "dnsip";
     public static final String HIP = "hip";

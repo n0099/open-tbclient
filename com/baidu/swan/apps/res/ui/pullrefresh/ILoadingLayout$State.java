@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.res.ui.pullrefresh;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum ILoadingLayout$State {
     NONE,
     RESET,

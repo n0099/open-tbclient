@@ -1,103 +1,52 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class j32 extends l32 {
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
+public class j32 extends m22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String t;
-    public int u;
-    public boolean v;
-    public double w;
-    public int x;
-    public int y;
-    public String z;
+    public u22 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j32(String str, @NonNull String str2) {
-        super(str, str2);
+    public j32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
+        u22 u22Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && (u22Var = this.a) != null && u22Var.d()) {
+            if (this.a.c()) {
+                n22Var.b.setShader(this.a.b());
                 return;
             }
-        }
-        this.t = "";
-        this.v = false;
-        this.z = "";
-        this.A = "";
-        this.B = "";
-        this.C = "";
-    }
-
-    private void i() {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
-            try {
-                this.u = Color.parseColor(jSONObject.optString("color"));
-                this.v = true;
-            } catch (Exception unused) {
-                x42.o("Component-Model-TextView", "text color occurs exception");
-                this.v = false;
-            }
-            this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
-            this.x = ol3.g((float) this.j.optDouble("lineHeight", 0.0d));
-            this.y = ol3.g((float) this.j.optDouble("lineSpace", 0.0d));
-            this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-            this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-            this.B = this.j.optString("whiteSpace");
-            this.C = this.j.optString("lineBreak");
+            n22Var.e.setColor(this.a.a());
+            n22Var.b.setColor(this.a.a());
+            n22Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.m22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("text");
-        i();
-    }
-
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.n32
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.t = jSONObject.optString("text", this.t);
-            i();
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new u22(jSONArray);
         }
     }
 }

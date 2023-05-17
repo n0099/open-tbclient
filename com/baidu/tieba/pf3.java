@@ -1,98 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class pf3 extends u93 {
+/* loaded from: classes7.dex */
+public final class pf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pf3(u83 u83Var) {
-        super(u83Var, "/swanAPI/file/removeSavedFile");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ig3 a;
+
+        public a(ig3 ig3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ig3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ig3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nf3.k("934", this.a.f());
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (context != null && callbackHandler != null && x73Var != null && x73Var.f0() != null) {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    x42.c("removeSavedFile", "params is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String M = ff3.M(optParamsAsJo.optString("filePath"), x73.g0());
-                if (u93.b) {
-                    Log.d("SaveFileAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
-                    Log.d("SaveFileAction", "——> handle: filePath " + M);
-                }
-                if (u93.b) {
-                    Log.d("RemoveSavedFileAction", "——> handle: filePath " + M);
-                }
-                if (TextUtils.isEmpty(M)) {
-                    x42.c("removeSavedFile", "file path is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                int a = x73Var.f0().a(M);
-                if (u93.b) {
-                    Log.d("RemoveSavedFileAction", "——> handle: statusCode " + a);
-                }
-                if (a > 2000) {
-                    x42.c("removeSavedFile", "file path status code : " + a);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(a, r83.a(a)));
-                    return false;
-                } else if (bo4.k(M)) {
-                    x42.i("removeSavedFile", "file delete success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    if (u93.b) {
-                        Log.d("RemoveSavedFileAction", "——> handle:  delete OK ");
-                        return true;
-                    }
-                    return true;
-                } else {
-                    x42.c("removeSavedFile", "file delete fail");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2004, r83.a(2004)));
-                    if (u93.b) {
-                        Log.d("RemoveSavedFileAction", "——> handle:  delete fail ");
-                    }
-                    return false;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948060076, "Lcom/baidu/tieba/pf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            x42.c("removeSavedFile", "execute fail");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948060076, "Lcom/baidu/tieba/pf3;");
+                return;
+            }
         }
-        return invokeLLLL.booleanValue;
+        a = qp1.a;
+    }
+
+    public static void a(ig3 ig3Var, du2 du2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, ig3Var, du2Var) == null) && ig3Var != null && du2Var != null) {
+            ig3Var.a = zf3.n(du2Var.G());
+            ig3Var.f = du2Var.H();
+            ig3Var.c = du2Var.T();
+            ig3Var.a("swan", li3.h(du2Var.G()));
+            ig3Var.a("appversion", du2Var.v1());
+            ig3Var.a("thirdversion", du2Var.w1());
+            ig3Var.b(zf3.k(du2Var.W()));
+            ig3Var.d(du2Var.s0().getString("ubc"));
+        }
+    }
+
+    public static void b(jg3 jg3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, jg3Var) == null) {
+            if (jg3Var == null) {
+                if (a) {
+                    Log.w("SwanAppFuncUbc", "event is null");
+                    return;
+                }
+                return;
+            }
+            ig3 ig3Var = new ig3();
+            ig3Var.f = jg3Var.f;
+            ig3Var.a = jg3Var.a;
+            ig3Var.g = jg3Var.g;
+            ig3Var.c = jg3Var.c;
+            ig3Var.b = jg3Var.b;
+            ig3Var.e = jg3Var.e;
+            ig3Var.e(jg3Var.c());
+            c(ig3Var);
+        }
+    }
+
+    public static void c(ig3 ig3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, ig3Var) == null) {
+            am3.j(new a(ig3Var), "SwanAppFuncClickUBC");
+        }
     }
 }

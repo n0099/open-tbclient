@@ -7,7 +7,7 @@ import com.facebook.fresco.ui.common.ControllerListener2;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MiddlewareUtils {
     public static ControllerListener2.Extras obtainExtras(Map<String, Object> map, Map<String, Object> map2, @Nullable Map<String, Object> map3, @Nullable Rect rect, @Nullable String str, @Nullable PointF pointF, @Nullable Map<String, Object> map4, @Nullable Object obj, @Nullable Uri uri) {
         ControllerListener2.Extras extras = new ControllerListener2.Extras();

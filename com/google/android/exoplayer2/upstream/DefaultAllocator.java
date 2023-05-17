@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.upstream;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultAllocator implements Allocator {
     public static final int AVAILABLE_EXTRA_CAPACITY = 100;
     public int allocatedCount;

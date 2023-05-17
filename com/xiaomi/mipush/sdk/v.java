@@ -13,17 +13,17 @@ import com.xiaomi.push.service.bk;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class v {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a extends RuntimeException {
         public a(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public String a;
 

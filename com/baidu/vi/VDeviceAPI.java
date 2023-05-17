@@ -23,7 +23,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapsdkplatform.comapi.util.SyncSysInfo;
 import com.baidu.platform.comapi.util.NetworkUtil;
 import com.baidu.platform.comapi.util.SysOSUtil;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +37,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VDeviceAPI {
     public static /* synthetic */ Interceptable $ic;
     public static PowerManager.WakeLock a;
@@ -287,7 +289,7 @@ public class VDeviceAPI {
         if (interceptable == null || interceptable.invokeV(65569, null) == null) {
             unsetNetworkChangedCallback();
             b = new e();
-            VIContext.getContext().registerReceiver(b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            VIContext.getContext().registerReceiver(b, new IntentFilter(NetworkMonitor.NET_CHANGE_ACTION));
         }
     }
 
@@ -446,14 +448,14 @@ public class VDeviceAPI {
     public static void openUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, null, str) == null) {
-            VIContext.getContext().startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+            VIContext.getContext().startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)));
         }
     }
 
     public static void setupSoftware(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65571, null, str) == null) {
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.setDataAndType(Uri.fromFile(new File(str)), "application/vnd.android.package-archive");
             VIContext.getContext().startActivity(intent);
         }

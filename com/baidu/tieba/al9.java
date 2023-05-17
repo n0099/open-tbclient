@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public final class al9 extends on9 {
+/* loaded from: classes4.dex */
+public class al9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zk9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public al9() {
+    public static synchronized zk9 a() {
+        InterceptResult invokeV;
+        zk9 zk9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (al9.class) {
+                if (a == null) {
+                    a = new zk9();
+                }
+                zk9Var = a;
             }
+            return zk9Var;
         }
+        return (zk9) invokeV.objValue;
     }
 }

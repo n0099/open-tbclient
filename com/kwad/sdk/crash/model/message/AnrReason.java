@@ -1,7 +1,7 @@
 package com.kwad.sdk.crash.model.message;
 
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AnrReason extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = 2458805633316742361L;
     public String mLongMsg;

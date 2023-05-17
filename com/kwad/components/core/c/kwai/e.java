@@ -3,6 +3,7 @@ package com.kwad.components.core.c.kwai;
 import android.annotation.SuppressLint;
 import android.view.View;
 import androidx.annotation.Nullable;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.tieba.R;
 import com.kwad.components.core.c.kwai.b;
 import com.kwad.components.core.webview.KsAdWebView;
@@ -21,11 +22,11 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.utils.t;
 import com.kwad.sdk.utils.u;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e extends c implements View.OnClickListener {
     @Nullable
     public b DG;
-    public b.C0598b DH;
+    public b.C0612b DH;
     public Runnable DP;
     public KsAdWebView bF;
     public aa bI;
@@ -148,7 +149,7 @@ public final class e extends c implements View.OnClickListener {
     private void mt() {
         aF();
         this.bF.loadUrl(this.DH.url);
-        this.bF.postDelayed(mu(), 1500L);
+        this.bF.postDelayed(mu(), BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT);
         this.bF.setBackgroundColor(0);
         this.bF.getBackground().setAlpha(0);
         this.bF.setVisibility(0);
@@ -208,7 +209,7 @@ public final class e extends c implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091222);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09125d);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

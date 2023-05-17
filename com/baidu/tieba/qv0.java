@@ -1,32 +1,33 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public interface qv0 {
-    void a(jy0 jy0Var);
+/* loaded from: classes7.dex */
+public class qv0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(jy0 jy0Var);
-
-    @Autowired
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @NonNull
-        @Inject(force = false)
-        public static qv0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return iw0.a();
-            }
-            return (qv0) invokeV.objValue;
+    public static ez0 a(@NonNull BdVideoSeries bdVideoSeries, @NonNull BdVideo bdVideo, @NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, bdVideoSeries, bdVideo, str, str2)) == null) {
+            ez0 ez0Var = new ez0();
+            ez0Var.k(str2);
+            ez0Var.l(dz0.c(bdVideo.getCurrentLength()) + "/" + dz0.c(bdVideo.getTotalLength()));
+            ez0Var.p(bdVideoSeries.getVid());
+            ez0Var.m(bdVideo.getType());
+            ez0Var.j(System.currentTimeMillis());
+            ez0Var.n(bdVideo.getTitle());
+            ez0Var.o(str);
+            ez0Var.r(bdVideoSeries.getPositionMs());
+            ez0Var.q(bdVideo.getCurrentLength());
+            ez0Var.s(bdVideo.getTotalLength());
+            return ez0Var;
         }
+        return (ez0) invokeLLLL.objValue;
     }
 }

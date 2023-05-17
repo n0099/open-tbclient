@@ -7,7 +7,7 @@ import com.xiaomi.push.ig;
 import com.xiaomi.push.ir;
 import com.xiaomi.push.service.bx;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ai extends bx.a {
     public final /* synthetic */ XMPushService a;
 
@@ -25,17 +25,17 @@ public final class ai extends bx.a {
     public void a(bx bxVar) {
         com.xiaomi.push.az a = com.xiaomi.push.az.a(this.a);
         String a2 = bxVar.a("MSAID", "msaid");
-        String mo186a = a.mo186a();
-        if (TextUtils.isEmpty(mo186a) || TextUtils.equals(a2, mo186a)) {
+        String mo205a = a.mo205a();
+        if (TextUtils.isEmpty(mo205a) || TextUtils.equals(a2, mo205a)) {
             return;
         }
-        bxVar.a("MSAID", "msaid", mo186a);
+        bxVar.a("MSAID", "msaid", mo205a);
         ig igVar = new ig();
         igVar.b(this.f888a.d);
         igVar.c(hr.ClientInfoUpdate.f508a);
         igVar.a(bd.a());
         igVar.a(new HashMap());
-        a.a(igVar.m561a());
+        a.a(igVar.m580a());
         byte[] a3 = ir.a(ah.a(this.a.getPackageName(), this.f888a.d, igVar, hh.Notification));
         XMPushService xMPushService = this.a;
         xMPushService.a(xMPushService.getPackageName(), a3, true);

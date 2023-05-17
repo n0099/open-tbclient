@@ -12,26 +12,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IComOpenClient extends IInterface {
     String a(String str) throws RemoteException;
 
     boolean a(String str, String str2, Bundle bundle) throws RemoteException;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements IComOpenClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0104a implements IComOpenClient {
+        /* loaded from: classes3.dex */
+        public static class C0108a implements IComOpenClient {
             public static /* synthetic */ Interceptable $ic;
             public static IComOpenClient a;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder b;
 
-            public C0104a(IBinder iBinder) {
+            public C0108a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public interface IComOpenClient extends IInterface {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return C0104a.a;
+                return C0108a.a;
             }
             return (IComOpenClient) invokeV.objValue;
         }
@@ -137,7 +137,7 @@ public interface IComOpenClient extends IInterface {
                 if (queryLocalInterface != null && (queryLocalInterface instanceof IComOpenClient)) {
                     return (IComOpenClient) queryLocalInterface;
                 }
-                return new C0104a(iBinder);
+                return new C0108a(iBinder);
             }
             return (IComOpenClient) invokeL.objValue;
         }

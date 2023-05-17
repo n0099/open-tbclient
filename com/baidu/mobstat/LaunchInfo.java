@@ -3,7 +3,7 @@ package com.baidu.mobstat;
 import android.content.Context;
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchInfo {
     public String a;
     public String b;

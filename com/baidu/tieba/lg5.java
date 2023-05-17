@@ -1,177 +1,120 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class lg5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "add_user_collect_emotoin";
-    public static String b = "image_url";
-    public static String c = "thumbnail_url";
-    public static String d = "pic_id";
-    public static String e = "package_id";
-    public static String f = "#(meme,setting)";
-    public static String g = "#(meme,collect_";
-    public static String h = "meme,collect_";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public final int c;
+    public final boolean d;
+    public hg5 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947941935, "Lcom/baidu/tieba/lg5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public lg5(View view2) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947941935, "Lcom/baidu/tieba/lg5;");
+        this.a = -1;
+        this.b = view2;
+        this.c = og5.a(view2.getContext());
+        this.d = pg5.c((Activity) view2.getContext());
+    }
+
+    public final hg5 a(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            hg5 hg5Var = this.e;
+            if (hg5Var != null) {
+                return hg5Var;
+            }
+            if (view2 instanceof hg5) {
+                hg5 hg5Var2 = (hg5) view2;
+                this.e = hg5Var2;
+                return hg5Var2;
+            } else if (view2 instanceof ViewGroup) {
+                int i = 0;
+                while (true) {
+                    ViewGroup viewGroup = (ViewGroup) view2;
+                    if (i < viewGroup.getChildCount()) {
+                        hg5 a = a(viewGroup.getChildAt(i));
+                        if (a != null) {
+                            this.e = a;
+                            return a;
+                        }
+                        i++;
+                    } else {
+                        return null;
+                    }
+                }
+            } else {
+                return null;
+            }
+        } else {
+            return (hg5) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @TargetApi(16)
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (this.d && Build.VERSION.SDK_INT >= 16 && this.b.getFitsSystemWindows()) {
+                Rect rect = new Rect();
+                this.b.getWindowVisibleDisplayFrame(rect);
+                i2 = rect.bottom - rect.top;
+            }
+            Log.d("KPSRootLayoutHandler", "onMeasure, width: " + i + " height: " + i2);
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                Log.d("KPSRootLayoutHandler", "" + i4 + " == 0 break;");
+            } else if (Math.abs(i4) == this.c) {
+                Log.w("KPSRootLayoutHandler", String.format("offset just equal statusBar height %d", Integer.valueOf(i4)));
+            } else {
+                this.a = i2;
+                hg5 a = a(this.b);
+                if (a == null) {
+                    Log.w("KPSRootLayoutHandler", "can't find the valid panel conflict layout, give up!");
+                } else if (Math.abs(i4) < ng5.f(this.b.getContext())) {
+                    Log.w("KPSRootLayoutHandler", "system bottom-menu-bar(such as HuaWei Mate7) causes layout changed");
+                } else if (i4 > 0) {
+                    a.handleHide();
+                } else if (a.b() && a.isVisible()) {
+                    a.handleShow();
                 }
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public static String a() {
-        InterceptResult invokeV;
-        String currentAccount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("collect_");
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                currentAccount = "";
-            } else {
-                currentAccount = TbadkCoreApplication.getCurrentAccount();
-            }
-            sb.append(currentAccount);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        String currentAccount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("diy_");
-            if (TbadkCoreApplication.getCurrentAccount() == null) {
-                currentAccount = "";
-            } else {
-                currentAccount = TbadkCoreApplication.getCurrentAccount();
-            }
-            sb.append(currentAccount);
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return Math.abs(b().hashCode()) + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return Math.abs(a().hashCode()) + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Matcher matcher = Pattern.compile("#\\(meme,collect_[a-zA-Z0-9_,]+\\)").matcher(str);
-        int i = 0;
-        int i2 = 0;
-        while (matcher.find()) {
-            String[] split = matcher.group().split(",");
-            if (split != null && split.length == 5 && split[1] != null && split[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)")) {
-                i2++;
-            }
-        }
-        Matcher matcher2 = Pattern.compile("#\\(meme,[a-zA-Z0-9_,]+\\)").matcher(str);
-        while (matcher2.find()) {
-            String[] split2 = matcher2.group().split(",");
-            if (split2 != null && split2.length == 5 && split2[1] != null && !split2[1].startsWith("#\\(meme,collect_[a-zA-Z0-9_,]+\\)") && split2[1].contains("_")) {
-                i++;
-            }
-        }
-        if (i2 > 0) {
-            StatisticItem statisticItem = new StatisticItem("c12223");
-            statisticItem.param("obj_param1", i2);
-            TiebaStatic.log(statisticItem);
-        }
-        if (i > 0) {
-            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FACESHOP_USE_EMOTION);
-            statisticItem2.param("obj_param1", i);
-            TiebaStatic.log(statisticItem2);
         }
     }
 }

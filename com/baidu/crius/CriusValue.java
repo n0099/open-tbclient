@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusValue {
     public static /* synthetic */ Interceptable $ic;
     public static final CriusValue AUTO;
@@ -22,7 +22,7 @@ public class CriusValue {
     public final float value;
 
     /* renamed from: com.baidu.crius.CriusValue$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusUnit;
         public static /* synthetic */ Interceptable $ic;

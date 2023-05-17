@@ -10,7 +10,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.InvocationTargetException;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ZeusFragmentV4 extends Fragment {
     public Application.ActivityLifecycleCallbacks callbacks = new b(this);
 
@@ -18,7 +18,7 @@ public class ZeusFragmentV4 extends Fragment {
         a.a(ZeusFragmentV4.class);
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.q1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.u1
     @Nullable
     public Context getContext() {
         try {

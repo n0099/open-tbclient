@@ -1,5 +1,5 @@
 package com.baidu.searchbox.network.outback.statistics;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestCallException extends Exception {
     public Exception mRealException;
     public NetworkStatRecord mStatRecord;

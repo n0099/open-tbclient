@@ -47,7 +47,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultMp4Builder implements Mp4Builder {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static Logger LOG = Logger.getLogger(DefaultMp4Builder.class.getName());
@@ -60,7 +60,7 @@ public class DefaultMp4Builder implements Mp4Builder {
         return null;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class InterleaveChunkMdat implements Box {
         public List<List<Sample>> chunkList;
         public long contentSize;

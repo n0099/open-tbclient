@@ -22,15 +22,15 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.ol3;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.xm3;
 import com.sina.weibo.sdk.constant.WBConstants;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000n\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u0007\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001:\u0001PB\u0011\b\u0016\u0012\u0006\u0010H\u001a\u00020G¢\u0006\u0004\bI\u0010JB\u0019\b\u0016\u0012\u0006\u0010H\u001a\u00020G\u0012\u0006\u0010L\u001a\u00020K¢\u0006\u0004\bI\u0010MB!\b\u0016\u0012\u0006\u0010H\u001a\u00020G\u0012\u0006\u0010L\u001a\u00020K\u0012\u0006\u0010N\u001a\u00020\f¢\u0006\u0004\bI\u0010OJ\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0017\u0010\u0007\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\u0006J\u0017\u0010\b\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\b\u0010\u0006J\u000f\u0010\t\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\t\u0010\nJ\u0019\u0010\u000b\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0014¢\u0006\u0004\b\u000b\u0010\u0006J/\u0010\u0011\u001a\u00020\u00042\u0006\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\f2\u0006\u0010\u000f\u001a\u00020\f2\u0006\u0010\u0010\u001a\u00020\fH\u0014¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0015\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u0013H\u0002¢\u0006\u0004\b\u0015\u0010\u0016J\u0015\u0010\u0018\u001a\u00020\u00042\u0006\u0010\u0017\u001a\u00020\f¢\u0006\u0004\b\u0018\u0010\u0019J\u0015\u0010\u001a\u001a\u00020\u00042\u0006\u0010\u0014\u001a\u00020\u0013¢\u0006\u0004\b\u001a\u0010\u001bJ\r\u0010\u001c\u001a\u00020\u0004¢\u0006\u0004\b\u001c\u0010\nR\u0016\u0010\u001e\u001a\u00020\u001d8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u001e\u0010\u001fR\u001d\u0010%\u001a\u00020 8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b!\u0010\"\u001a\u0004\b#\u0010$R\u0016\u0010&\u001a\u00020\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010'R\u0016\u0010,\u001a\u00020\u001d8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b,\u0010\u001fR\u0016\u0010.\u001a\u00020-8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b.\u0010/R\u0018\u00101\u001a\u0004\u0018\u0001008\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u00102R\u0016\u00103\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b3\u00104R\u0016\u00105\u001a\u00020\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u0010'R$\u00107\u001a\u0004\u0018\u0001068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b7\u00108\u001a\u0004\b9\u0010:\"\u0004\b;\u0010<R\u0016\u0010=\u001a\u00020\u001d8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b=\u0010\u001fR\u0016\u0010>\u001a\u00020\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b>\u0010'R\u0016\u0010?\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b?\u00104R\u0016\u0010@\u001a\u00020\u001d8\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b@\u0010\u001fR\u0016\u0010A\u001a\u00020\u00138\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bA\u0010'R\u0018\u0010C\u001a\u0004\u0018\u00010B8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u0010DR\u0016\u0010E\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bE\u00104R\u0016\u0010F\u001a\u00020\f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bF\u00104¨\u0006Q"}, d2 = {"Lcom/baidu/swan/game/guide/view/GameGuideProgressView;", "Landroid/view/View;", "Landroid/graphics/Canvas;", "canvas", "", "drawGradientImg", "(Landroid/graphics/Canvas;)V", "drawProcess", "drawStroke", "init", "()V", "onDraw", "", "w", "h", "oldw", "oldh", "onSizeChanged", "(IIII)V", "", "process", "reviseProcess", "(F)F", "color", "setProgressColor", "(I)V", "startProcess", "(F)V", "stopProcess", "Landroid/graphics/Paint;", "clipPaint", "Landroid/graphics/Paint;", "Landroid/graphics/Path;", "clipPath$delegate", "Lkotlin/Lazy;", "getClipPath", "()Landroid/graphics/Path;", "clipPath", "currentProgress", "F", "Landroid/graphics/Bitmap;", "gradientBitmap", "Landroid/graphics/Bitmap;", "gradientImgWidth", "imgPaint", "", "isProgressStopped", "Z", "Landroid/graphics/Rect;", "originImgRect", "Landroid/graphics/Rect;", WBConstants.TRANS_PROGRESS_COLOR, "I", "progressHeight", "Lcom/baidu/swan/game/guide/view/GameGuideProgressView$OnGameTimeProgressListener;", "progressListener", "Lcom/baidu/swan/game/guide/view/GameGuideProgressView$OnGameTimeProgressListener;", "getProgressListener", "()Lcom/baidu/swan/game/guide/view/GameGuideProgressView$OnGameTimeProgressListener;", "setProgressListener", "(Lcom/baidu/swan/game/guide/view/GameGuideProgressView$OnGameTimeProgressListener;)V", "progressPaint", "roundCorner", "strokeColor", "strokePaint", "strokeWidth", "Landroid/animation/ValueAnimator;", "valueAnim", "Landroid/animation/ValueAnimator;", "viewHeight", "viewWidth", "Landroid/content/Context;", "context", "<init>", "(Landroid/content/Context;)V", "Landroid/util/AttributeSet;", "attributeSet", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "OnGameTimeProgressListener", "gameguide_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class GameGuideProgressView extends View {
     public float a;
     public int b;
@@ -51,7 +51,7 @@ public final class GameGuideProgressView extends View {
     public a q;
     public final Lazy r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(float f);
 
@@ -76,7 +76,7 @@ public final class GameGuideProgressView extends View {
         return f;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b implements ValueAnimator.AnimatorUpdateListener {
         public b() {
         }
@@ -102,7 +102,7 @@ public final class GameGuideProgressView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class c extends AnimatorListenerAdapter {
         public boolean a;
 
@@ -136,12 +136,12 @@ public final class GameGuideProgressView extends View {
     public GameGuideProgressView(Context context) {
         super(context);
         Intrinsics.checkNotNullParameter(context, "context");
-        this.a = ol3.h(1.0f);
+        this.a = xm3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = ol3.h(20.0f);
-        float h = ol3.h(6.0f);
+        this.d = xm3.h(20.0f);
+        float h = xm3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
@@ -173,12 +173,12 @@ public final class GameGuideProgressView extends View {
         super(context, attributeSet);
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.a = ol3.h(1.0f);
+        this.a = xm3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = ol3.h(20.0f);
-        float h = ol3.h(6.0f);
+        this.d = xm3.h(20.0f);
+        float h = xm3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
@@ -190,12 +190,12 @@ public final class GameGuideProgressView extends View {
         super(context, attributeSet, i);
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        this.a = ol3.h(1.0f);
+        this.a = xm3.h(1.0f);
         int parseColor = Color.parseColor("#FFCD5D");
         this.b = parseColor;
         this.c = parseColor;
-        this.d = ol3.h(20.0f);
-        float h = ol3.h(6.0f);
+        this.d = xm3.h(20.0f);
+        float h = xm3.h(6.0f);
         this.g = h;
         this.j = h / 2.0f;
         this.r = LazyKt__LazyJVMKt.lazy(GameGuideProgressView$clipPath$2.INSTANCE);
@@ -358,7 +358,7 @@ public final class GameGuideProgressView extends View {
         paint8.setStyle(Paint.Style.FILL);
         Context appContext = AppRuntime.getAppContext();
         Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
-        Drawable drawable = appContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080165);
+        Drawable drawable = appContext.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08017d);
         Bitmap bitmap = null;
         if (!(drawable instanceof BitmapDrawable)) {
             drawable = null;
@@ -392,7 +392,7 @@ public final class GameGuideProgressView extends View {
         float h = h(f);
         this.k = h;
         if (h == 1.0f) {
-            if (ho1.a) {
+            if (qp1.a) {
                 Log.d("GameTimeProgressView", "当前进度为1，不处理");
             }
             invalidate();
@@ -436,7 +436,7 @@ public final class GameGuideProgressView extends View {
         this.h = i;
         this.i = i2;
         if (i <= this.d) {
-            if (!ho1.a) {
+            if (!qp1.a) {
                 this.d = i;
                 return;
             }

@@ -1,7 +1,25 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface d81 {
-    void onDestroy();
 
-    void onPause();
+import android.app.Activity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.n81;
+/* loaded from: classes5.dex */
+public interface d81 {
+    boolean a(String str);
+
+    Activity c();
+
+    boolean d();
+
+    LinearLayout e();
+
+    boolean f();
+
+    FrameLayout h();
+
+    n81.d l();
+
+    AbsNadBrowserView m();
 }

@@ -2,11 +2,11 @@ package com.xiaomi.mipush.sdk;
 
 import com.xiaomi.push.hm;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static HashMap<e, a> a = new HashMap<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public String a;
         public String b;
@@ -42,12 +42,12 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m171a(e eVar) {
+    public static a m190a(e eVar) {
         return a.get(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hm m172a(e eVar) {
+    public static hm m191a(e eVar) {
         return hm.AggregatePushSwitch;
     }
 

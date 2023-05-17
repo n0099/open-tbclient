@@ -1,58 +1,126 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.download.center.clearcache.BaseClearCache;
+import com.baidu.searchbox.download.center.clearcache.DiskManager;
+import com.baidu.searchbox.download.center.clearcache.DiskUtilKt;
+import com.baidu.searchbox.download.center.clearcache.IClearCacheContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class br6 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class br6 implements IClearCacheContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, ax4 ax4Var, String str) {
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void addClearCache(List<BaseClearCache> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, view2, ax4Var, str) == null) && ax4Var != null && ax4Var.getThreadData() != null) {
-            ThreadData threadData = ax4Var.getThreadData();
-            if (threadData.isVideoThreadType()) {
-                TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
-                return;
-            }
-            int id = view2.getId();
-            if (view2.getId() != R.id.thread_card_root && id != R.id.thread_info_commont_container) {
-                if (id == R.id.user_avatar) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.user_name) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.forum_name_text) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-                    return;
-                } else if (id == R.id.thread_info_commont_container) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-                    return;
-                } else if (view2 instanceof TbImageView) {
-                    TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
-                    return;
-                } else {
-                    return;
-                }
-            }
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
         }
     }
 
-    public static void b(ax4 ax4Var, String str) {
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void clearHistoryFile() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, ax4Var, str) == null) && ax4Var != null && ax4Var.getThreadData() != null) {
-            if (ax4Var.getThreadData().isVideoThreadType()) {
-                ci6.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(ax4Var.getThreadData(), str));
-            } else {
-                ci6.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(ax4Var.getThreadData(), str));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public BaseClearCache getDownloadClearCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (BaseClearCache) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void notifyDiskLevelChanged(DiskManager.NotifyLevel notifyLevel, DiskManager.DiskLevel diskLevel, DiskManager.DiskLevel diskLevel2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, notifyLevel, diskLevel, diskLevel2) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void notifyPersonalClearCacheTipsChange() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void registerBackForegroundEvent() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void registerDiskUsageLevelChangedObserver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void startDownloadActivity(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+        }
+    }
+
+    public br6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public List<File> getAppFileList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return DiskUtilKt.getAppFileList();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public List<File> getUserAssetFileList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return DiskUtilKt.getUserAssetFileList();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.download.center.clearcache.IClearCacheContext
+    public void cleanCacheMonitorUBC(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            DiskUtilKt.cleanCacheMonitorUBC(str);
         }
     }
 }

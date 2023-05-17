@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TransactionIdCreater {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int API_SIZE = 6;

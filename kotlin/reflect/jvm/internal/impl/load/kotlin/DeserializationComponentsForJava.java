@@ -17,7 +17,7 @@ import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ErrorRepor
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.LocalClassifierTypeSettings;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.NewKotlinTypeChecker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DeserializationComponentsForJava {
     public final DeserializationComponents components;
 

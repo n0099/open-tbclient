@@ -2,146 +2,207 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public abstract class qr4 implements pr4 {
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.DecryptCode.DataRes;
+/* loaded from: classes7.dex */
+public class qr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String l;
+    public static final String m;
+    public static final String n;
+    public static final String o;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public Integer k;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101430, "Lcom/baidu/tieba/qr4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948101430, "Lcom/baidu/tieba/qr4;");
+                return;
+            }
+        }
+        l = TbadkCoreApplication.getInst().getString(R.string.tb_token);
+        m = TbadkCoreApplication.getInst().getString(R.string.tb_ai_apps_tips);
+        n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03c3);
+        o = TbadkCoreApplication.getInst().getString(R.string.check_immediately);
+    }
 
     public qr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
     }
 
-    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) && strArr != null && strArr.length > i && map != null && sb != null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            while (i < strArr.length) {
-                String str = "@" + strArr[i];
-                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        Map.Entry<String, String> next = it.next();
-                        if (str.startsWith(next.getKey())) {
-                            String replace = str.replace(next.getKey(), "");
-                            if ("@p".equals(next.getKey())) {
-                                String d = d(replace);
-                                if (!StringUtils.isNull(d)) {
-                                    linkedHashMap.put(next.getValue(), d);
-                                }
-                            } else {
-                                linkedHashMap.put(next.getValue(), replace);
-                            }
-                        }
-                    }
-                }
-                i++;
-            }
-            for (Map.Entry entry : linkedHashMap.entrySet()) {
-                if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
-                    String str2 = "?";
-                    if (sb.toString().contains("?")) {
-                        str2 = "&";
-                    }
-                    sb.append(str2);
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final String d(String str) {
-        InterceptResult invokeL;
-        char c;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 81) {
-                if (hashCode != 104) {
-                    if (hashCode != 112) {
-                        if (hashCode != 119) {
-                            if (hashCode != 122) {
-                                if (hashCode != 98) {
-                                    if (hashCode == 99 && str.equals("c")) {
-                                        c = 1;
-                                    }
-                                    c = 65535;
-                                } else {
-                                    if (str.equals("b")) {
-                                        c = 2;
-                                    }
-                                    c = 65535;
-                                }
-                            } else {
-                                if (str.equals("z")) {
-                                    c = 5;
-                                }
-                                c = 65535;
-                            }
-                        } else {
-                            if (str.equals("w")) {
-                                c = 0;
-                            }
-                            c = 65535;
-                        }
-                    } else {
-                        if (str.equals("p")) {
-                            c = 4;
-                        }
-                        c = 65535;
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(DataRes dataRes) {
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
+            int intValue = dataRes.type.intValue();
+            this.i = intValue;
+            if (intValue != 0 && intValue != 1) {
+                if (intValue == 2) {
+                    this.a = dataRes.title;
+                    this.d = dataRes.url;
+                    return;
+                } else if (intValue != 4 && intValue == 3) {
+                    this.d = dataRes.url;
+                    this.a = dataRes.title;
+                    this.b = dataRes.img;
+                    this.c = dataRes.tips;
+                    this.e = dataRes.btn_sure;
+                    this.f = dataRes.btn_cancel;
+                    return;
                 } else {
-                    if (str.equals("h")) {
-                        c = 3;
-                    }
-                    c = 65535;
+                    return;
                 }
+            }
+            if (StringUtils.isNull(dataRes.title)) {
+                str = l;
             } else {
-                if (str.equals("Q")) {
-                    c = 6;
+                str = dataRes.title;
+            }
+            this.a = str;
+            this.b = dataRes.img;
+            if (StringUtils.isNull(dataRes.tips)) {
+                str2 = m;
+            } else {
+                str2 = dataRes.tips;
+            }
+            this.c = str2;
+            if (!StringUtils.isNull(dataRes.url)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(dataRes.url);
+                    this.g = jSONObject.optString("appid");
+                    this.h = jSONObject.optString("appname");
+                    String optString = jSONObject.optString("url");
+                    Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
+                    this.k = valueOf;
+                    this.d = h46.a(this.g, optString, "9104", valueOf);
+                    this.j = jSONObject.optString("naws_app_id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                c = 65535;
             }
-            switch (c) {
-                case 0:
-                    return PbModel.WISE;
-                case 1:
-                    return ThirdPartyUtil.TYPE_WEIXIN;
-                case 2:
-                    return "shoubai";
-                case 3:
-                    return "tbShareH5";
-                case 4:
-                    return "pc";
-                case 5:
-                    return "zhongjianye";
-                case 6:
-                    return com.tencent.connect.common.Constants.SOURCE_QQ;
-                default:
-                    return null;
+            if (StringUtils.isNull(dataRes.btn_sure)) {
+                str3 = o;
+            } else {
+                str3 = dataRes.btn_sure;
             }
+            this.e = str3;
+            if (StringUtils.isNull(dataRes.btn_cancel)) {
+                str4 = n;
+            } else {
+                str4 = dataRes.btn_cancel;
+            }
+            this.f = str4;
         }
-        return (String) invokeL.objValue;
     }
 }

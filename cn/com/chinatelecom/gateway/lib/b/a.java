@@ -10,7 +10,6 @@ import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -215,7 +214,7 @@ public class a {
             try {
                 try {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    httpURLConnection.setRequestProperty(BOSTokenRequest.ACCEPT, "*/*");
+                    httpURLConnection.setRequestProperty("accept", "*/*");
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);

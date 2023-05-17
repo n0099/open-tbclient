@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class CurrentPageTypeHelper {
     public static /* synthetic */ Interceptable $ic;
     public static PageType currentPageType;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class PageType {
         public static final /* synthetic */ PageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

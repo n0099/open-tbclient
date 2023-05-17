@@ -6,7 +6,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     @Keep
     public static volatile b e;

@@ -25,10 +25,9 @@ import android.widget.TextView;
 import androidx.constraintlayout.motion.utils.Easing;
 import androidx.core.content.ContextCompat;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.kq0;
+import com.baidu.tieba.ar0;
+import com.baidu.tieba.t41;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.gslbsdk.db.DelayTB;
 import java.util.ArrayList;
@@ -45,8 +44,8 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001:\u0001_B'\b\u0007\u0012\u0006\u0010Y\u001a\u00020X\u0012\n\b\u0002\u0010[\u001a\u0004\u0018\u00010Z\u0012\b\b\u0002\u0010\\\u001a\u00020\u0005¢\u0006\u0004\b]\u0010^J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\n\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\f\u0010\u0007J\u000f\u0010\r\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\r\u0010\u0007J!\u0010\u0012\u001a\u00020\u00022\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0004J\u000f\u0010\u0016\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0018\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0018\u0010\u0004J\u0015\u0010\u001b\u001a\u00020\u00022\u0006\u0010\u001a\u001a\u00020\u0019¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u0017\u0010\u001f\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001f\u0010\u001eJ\u0017\u0010 \u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b \u0010\u001eJ\u0015\u0010\"\u001a\u00020\u00022\u0006\u0010!\u001a\u00020\u0005¢\u0006\u0004\b\"\u0010#J\u0017\u0010$\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b$\u0010\u001eJ\u001f\u0010%\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b%\u0010\u0013J\u0017\u0010&\u001a\u00020\u00022\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e¢\u0006\u0004\b&\u0010\u001eJ\r\u0010'\u001a\u00020\u0002¢\u0006\u0004\b'\u0010\u0004J\u0019\u0010*\u001a\u00020\u00022\b\u0010)\u001a\u0004\u0018\u00010(H\u0002¢\u0006\u0004\b*\u0010+J\u0019\u0010,\u001a\u00020\u00022\b\u0010)\u001a\u0004\u0018\u00010(H\u0002¢\u0006\u0004\b,\u0010+J\u0019\u0010-\u001a\u00020\u00022\b\u0010)\u001a\u0004\u0018\u00010(H\u0002¢\u0006\u0004\b-\u0010+J\u0013\u0010.\u001a\u00020\b*\u00020\bH\u0002¢\u0006\u0004\b.\u0010/R\u001d\u00105\u001a\u0002008B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b1\u00102\u001a\u0004\b3\u00104R\u0016\u00106\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u001d\u0010>\u001a\u00020:8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b;\u00102\u001a\u0004\b<\u0010=R\u0018\u0010\u001a\u001a\u0004\u0018\u00010\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010?R\u0016\u0010A\u001a\u00020@8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bA\u0010BR\u0016\u0010C\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u00107R\u0016\u0010D\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u00107R\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bH\u00107R\u0016\u0010J\u001a\u00020I8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bJ\u0010KR\u0016\u0010M\u001a\u00020L8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bM\u0010NR\u0016\u0010O\u001a\u00020E8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bO\u0010GR\u001c\u0010R\u001a\b\u0012\u0004\u0012\u00020Q0P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bR\u0010SR2\u0010V\u001a\u001e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050Tj\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u0005`U8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bV\u0010W¨\u0006`"}, d2 = {"Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView;", "Landroid/widget/FrameLayout;", "", "destroy", "()V", "", "getCurrentMeasuredWidth", "()I", "Landroid/view/View;", NativeConstants.TYPE_VIEW, "getMeasuredWidth", "(Landroid/view/View;)I", "getNextIndex", "getNextMeasuredWidth", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "model", "", DelayTB.DELAY, "innerStartDelay", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;J)V", "makeSureAtLeastOneTvDisplayWhenStop", "Landroid/widget/LinearLayout$LayoutParams;", "newTextViewLayoutParams", "()Landroid/widget/LinearLayout$LayoutParams;", "reset", "Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView$IOnActionListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setActionListener", "(Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView$IOnActionListener;)V", "setAnimation", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;)V", "setFrame", "setLinear", "maxWidthPx", "setMaxWidth", "(I)V", "setTextViewList", "startAnimationWithDelay", "startDelay", "stop", "Landroid/animation/ValueAnimator;", ShaderParams.VALUE_TYPE_ANIMATOR, "updateAlphaAnimation", "(Landroid/animation/ValueAnimator;)V", "updateFadeInPositionAnimation", "updateFadeOutPositionAnimation", "removeFromParent", "(Landroid/view/View;)Landroid/view/View;", "Landroid/animation/AnimatorSet;", "animatorSet$delegate", "Lkotlin/Lazy;", "getAnimatorSet", "()Landroid/animation/AnimatorSet;", "animatorSet", "currentIdx", "I", "displayIntervalMillis", "J", "Landroid/widget/LinearLayout;", "linear$delegate", "getLinear", "()Landroid/widget/LinearLayout;", Easing.LINEAR_NAME, "Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView$IOnActionListener;", "Landroid/os/Handler;", "mainHandler", "Landroid/os/Handler;", "maxWidth", "nextWidth", "", "originalY", "F", "prevWidth", "Ljava/lang/Runnable;", "startAnimation", "Ljava/lang/Runnable;", "", "stopAnimationFlag", "Z", "textSizePx", "", "Landroid/widget/TextView;", "tvList", "Ljava/util/List;", "Ljava/util/HashMap;", "Lkotlin/collections/HashMap;", "widthMap", "Ljava/util/HashMap;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "IOnActionListener", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u009c\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u000e\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u0001:\u0001_B'\b\u0007\u0012\u0006\u0010Y\u001a\u00020X\u0012\n\b\u0002\u0010[\u001a\u0004\u0018\u00010Z\u0012\b\b\u0002\u0010\\\u001a\u00020\u0005¢\u0006\u0004\b]\u0010^J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u000f\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0017\u0010\n\u001a\u00020\u00052\u0006\u0010\t\u001a\u00020\bH\u0002¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\f\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\f\u0010\u0007J\u000f\u0010\r\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\r\u0010\u0007J!\u0010\u0012\u001a\u00020\u00022\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0004J\u000f\u0010\u0016\u001a\u00020\u0015H\u0002¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0018\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0018\u0010\u0004J\u0015\u0010\u001b\u001a\u00020\u00022\u0006\u0010\u001a\u001a\u00020\u0019¢\u0006\u0004\b\u001b\u0010\u001cJ\u0017\u0010\u001d\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ\u0017\u0010\u001f\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001f\u0010\u001eJ\u0017\u0010 \u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b \u0010\u001eJ\u0015\u0010\"\u001a\u00020\u00022\u0006\u0010!\u001a\u00020\u0005¢\u0006\u0004\b\"\u0010#J\u0017\u0010$\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b$\u0010\u001eJ\u001f\u0010%\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b%\u0010\u0013J\u0017\u0010&\u001a\u00020\u00022\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e¢\u0006\u0004\b&\u0010\u001eJ\r\u0010'\u001a\u00020\u0002¢\u0006\u0004\b'\u0010\u0004J\u0019\u0010*\u001a\u00020\u00022\b\u0010)\u001a\u0004\u0018\u00010(H\u0002¢\u0006\u0004\b*\u0010+J\u0019\u0010,\u001a\u00020\u00022\b\u0010)\u001a\u0004\u0018\u00010(H\u0002¢\u0006\u0004\b,\u0010+J\u0019\u0010-\u001a\u00020\u00022\b\u0010)\u001a\u0004\u0018\u00010(H\u0002¢\u0006\u0004\b-\u0010+J\u0013\u0010.\u001a\u00020\b*\u00020\bH\u0002¢\u0006\u0004\b.\u0010/R\u001d\u00105\u001a\u0002008B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b1\u00102\u001a\u0004\b3\u00104R\u0016\u00106\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b6\u00107R\u0016\u00108\u001a\u00020\u00108\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u001d\u0010>\u001a\u00020:8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b;\u00102\u001a\u0004\b<\u0010=R\u0018\u0010\u001a\u001a\u0004\u0018\u00010\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010?R\u0016\u0010A\u001a\u00020@8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bA\u0010BR\u0016\u0010C\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bC\u00107R\u0016\u0010D\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bD\u00107R\u0016\u0010F\u001a\u00020E8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bH\u00107R\u0016\u0010J\u001a\u00020I8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bJ\u0010KR\u0016\u0010M\u001a\u00020L8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bM\u0010NR\u0016\u0010O\u001a\u00020E8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bO\u0010GR\u001c\u0010R\u001a\b\u0012\u0004\u0012\u00020Q0P8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bR\u0010SR2\u0010V\u001a\u001e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00050Tj\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u0005`U8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bV\u0010W¨\u0006`"}, d2 = {"Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView;", "Landroid/widget/FrameLayout;", "", "destroy", "()V", "", "getCurrentMeasuredWidth", "()I", "Landroid/view/View;", "view", "getMeasuredWidth", "(Landroid/view/View;)I", "getNextIndex", "getNextMeasuredWidth", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "model", "", DelayTB.DELAY, "innerStartDelay", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;J)V", "makeSureAtLeastOneTvDisplayWhenStop", "Landroid/widget/LinearLayout$LayoutParams;", "newTextViewLayoutParams", "()Landroid/widget/LinearLayout$LayoutParams;", "reset", "Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView$IOnActionListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "setActionListener", "(Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView$IOnActionListener;)V", "setAnimation", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;)V", "setFrame", "setLinear", "maxWidthPx", "setMaxWidth", "(I)V", "setTextViewList", "startAnimationWithDelay", "startDelay", "stop", "Landroid/animation/ValueAnimator;", ShaderParams.VALUE_TYPE_ANIMATOR, "updateAlphaAnimation", "(Landroid/animation/ValueAnimator;)V", "updateFadeInPositionAnimation", "updateFadeOutPositionAnimation", "removeFromParent", "(Landroid/view/View;)Landroid/view/View;", "Landroid/animation/AnimatorSet;", "animatorSet$delegate", "Lkotlin/Lazy;", "getAnimatorSet", "()Landroid/animation/AnimatorSet;", "animatorSet", "currentIdx", "I", "displayIntervalMillis", "J", "Landroid/widget/LinearLayout;", "linear$delegate", "getLinear", "()Landroid/widget/LinearLayout;", Easing.LINEAR_NAME, "Lcom/baidu/nadcore/slidingtag/NadRewardSlidingTagView$IOnActionListener;", "Landroid/os/Handler;", "mainHandler", "Landroid/os/Handler;", "maxWidth", "nextWidth", "", "originalY", "F", "prevWidth", "Ljava/lang/Runnable;", "startAnimation", "Ljava/lang/Runnable;", "", "stopAnimationFlag", "Z", "textSizePx", "", "Landroid/widget/TextView;", "tvList", "Ljava/util/List;", "Ljava/util/HashMap;", "Lkotlin/collections/HashMap;", "widthMap", "Ljava/util/HashMap;", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "IOnActionListener", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes3.dex */
 public final class NadRewardSlidingTagView extends FrameLayout {
     public final Lazy a;
     public final List<TextView> b;
@@ -64,7 +63,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
     public HashMap<Integer, Integer> n;
     public final Lazy o;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(Context context, String str, int i, String str2);
     }
@@ -89,16 +88,16 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         return (LinearLayout) this.a.getValue();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b implements View.OnClickListener {
         public final /* synthetic */ LinearLayout a;
         public final /* synthetic */ NadRewardSlidingTagView b;
-        public final /* synthetic */ kq0 c;
+        public final /* synthetic */ ar0 c;
 
-        public b(LinearLayout linearLayout, NadRewardSlidingTagView nadRewardSlidingTagView, kq0 kq0Var) {
+        public b(LinearLayout linearLayout, NadRewardSlidingTagView nadRewardSlidingTagView, ar0 ar0Var) {
             this.a = linearLayout;
             this.b = nadRewardSlidingTagView;
-            this.c = kq0Var;
+            this.c = ar0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -114,7 +113,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class c implements Runnable {
         public c() {
         }
@@ -125,7 +124,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class d implements Runnable {
         public d() {
         }
@@ -159,14 +158,14 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         this.e = 3000L;
         this.h = new c();
         this.i = new Handler(Looper.getMainLooper());
-        this.m = d41.c.a(context, 11.0f);
+        this.m = t41.c.a(context, 11.0f);
         this.n = new HashMap<>();
         this.o = LazyKt__LazyJVMKt.lazy(new Function0<AnimatorSet>() { // from class: com.baidu.nadcore.slidingtag.NadRewardSlidingTagView$animatorSet$2
             {
                 super(0);
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class a extends AnimatorListenerAdapter {
                 public a() {
                 }
@@ -218,7 +217,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 }
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class b extends AnimatorListenerAdapter {
                 public final /* synthetic */ AnimatorSet a;
                 public final /* synthetic */ NadRewardSlidingTagView$animatorSet$2 b;
@@ -247,7 +246,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 }
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class c implements ValueAnimator.AnimatorUpdateListener {
                 public c() {
                 }
@@ -258,7 +257,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 }
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class d implements ValueAnimator.AnimatorUpdateListener {
                 public d() {
                 }
@@ -269,7 +268,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 }
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class e extends AnimatorListenerAdapter {
                 public e() {
                 }
@@ -343,7 +342,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 }
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class f implements ValueAnimator.AnimatorUpdateListener {
                 public f() {
                 }
@@ -354,7 +353,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 }
             }
 
-            /* loaded from: classes2.dex */
+            /* loaded from: classes3.dex */
             public static final class g implements ValueAnimator.AnimatorUpdateListener {
                 public g() {
                 }
@@ -414,11 +413,11 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         return nadRewardSlidingTagView.B();
     }
 
-    private final void setAnimation(kq0 kq0Var) {
-        this.e = kq0Var.d;
+    private final void setAnimation(ar0 ar0Var) {
+        this.e = ar0Var.d;
     }
 
-    private final void setFrame(kq0 kq0Var) {
+    private final void setFrame(ar0 ar0Var) {
         int i;
         if (getLinear().getVisibility() == 0) {
             i = 0;
@@ -440,14 +439,14 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         return view2;
     }
 
-    public final void F(kq0 kq0Var) {
+    public final void F(ar0 ar0Var) {
         long j;
-        if (kq0Var != null) {
-            j = kq0Var.e;
+        if (ar0Var != null) {
+            j = ar0Var.e;
         } else {
             j = 3000;
         }
-        z(kq0Var, j);
+        z(ar0Var, j);
     }
 
     public final void H(ValueAnimator valueAnimator) {
@@ -495,7 +494,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         if (textView.getLayoutParams() == null) {
             textView.setLayoutParams(B());
         }
-        int a2 = d41.c.a(getContext(), 7.0f) + y(textView) + d41.c.a(getContext(), 7.0f);
+        int a2 = t41.c.a(getContext(), 7.0f) + y(textView) + t41.c.a(getContext(), 7.0f);
         int i = this.l;
         if (i > 0) {
             a2 = RangesKt___RangesKt.coerceAtMost(a2, i);
@@ -515,7 +514,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         if (textView.getLayoutParams() == null) {
             textView.setLayoutParams(B());
         }
-        int a2 = d41.c.a(getContext(), 7.0f) + y(textView) + d41.c.a(getContext(), 7.0f);
+        int a2 = t41.c.a(getContext(), 7.0f) + y(textView) + t41.c.a(getContext(), 7.0f);
         int i = this.l;
         if (i > 0) {
             a2 = RangesKt___RangesKt.coerceAtMost(a2, i);
@@ -584,7 +583,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.nadcore.slidingtag.NadRewardSlidingTagView.o(com.baidu.nadcore.slidingtag.NadRewardSlidingTagView, android.view.View):android.view.View");
     }
 
-    public final void E(kq0 kq0Var, long j) {
+    public final void E(ar0 ar0Var, long j) {
         if (getVisibility() != 0) {
             return;
         }
@@ -595,27 +594,27 @@ public final class NadRewardSlidingTagView extends FrameLayout {
         this.i.postDelayed(this.h, j);
     }
 
-    public final void z(kq0 kq0Var, long j) {
+    public final void z(ar0 ar0Var, long j) {
         boolean z;
         D();
-        if (kq0Var != null) {
-            List<kq0.c> list = kq0Var.a;
+        if (ar0Var != null) {
+            List<ar0.c> list = ar0Var.a;
             if (list != null && !list.isEmpty()) {
                 z = false;
             } else {
                 z = true;
             }
             if (!z) {
-                setTextViewList(kq0Var);
-                setLinear(kq0Var);
-                setFrame(kq0Var);
-                setAnimation(kq0Var);
-                E(kq0Var, j);
+                setTextViewList(ar0Var);
+                setLinear(ar0Var);
+                setFrame(ar0Var);
+                setAnimation(ar0Var);
+                E(ar0Var, j);
             }
         }
     }
 
-    private final void setLinear(kq0 kq0Var) {
+    private final void setLinear(ar0 ar0Var) {
         LinearLayout linear = getLinear();
         int i = 0;
         if (!this.b.isEmpty()) {
@@ -626,7 +625,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
                 linear.addView(textView, B());
                 Unit unit = Unit.INSTANCE;
             }
-            linear.setOnClickListener(new b(linear, this, kq0Var));
+            linear.setOnClickListener(new b(linear, this, ar0Var));
         } else {
             i = 8;
         }
@@ -649,7 +648,7 @@ public final class NadRewardSlidingTagView extends FrameLayout {
             float floatValue = f2.floatValue();
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(this.b, this.c);
             if (textView != null) {
-                textView.setY(this.d + (d41.c.a(getContext(), 4.0f) * (1 - floatValue)));
+                textView.setY(this.d + (t41.c.a(getContext(), 4.0f) * (1 - floatValue)));
             }
         }
     }
@@ -670,18 +669,18 @@ public final class NadRewardSlidingTagView extends FrameLayout {
             float floatValue = f2.floatValue();
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(this.b, this.c);
             if (textView != null) {
-                textView.setY(this.d - (d41.c.a(getContext(), 4.0f) * floatValue));
+                textView.setY(this.d - (t41.c.a(getContext(), 4.0f) * floatValue));
             }
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r4v3, resolved type: android.text.SpannableString */
     /* JADX WARN: Multi-variable type inference failed */
-    private final void setTextViewList(kq0 kq0Var) {
+    private final void setTextViewList(ar0 ar0Var) {
         String str;
         int color;
         int color2;
-        for (kq0.c cVar : kq0Var.a) {
+        for (ar0.c cVar : ar0Var.a) {
             if (!StringsKt__StringsJVMKt.isBlank(cVar.a)) {
                 int[] iArr = cVar.b;
                 if (iArr != null && iArr.length == 2) {

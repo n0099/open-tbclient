@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,7 +17,7 @@ import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class d extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +92,7 @@ public final class d extends aa {
                                 if (z) {
                                     return;
                                 }
-                                intent = new Intent("android.intent.action.VIEW", Uri.parse(skipContent));
+                                intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(skipContent));
                                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                             }
                         }

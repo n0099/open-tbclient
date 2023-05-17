@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.source.dash.manifest;
 
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Period {
     public final List<AdaptationSet> adaptationSets;
     public final String id;

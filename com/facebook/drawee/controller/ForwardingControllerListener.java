@@ -9,7 +9,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO>, OnDrawControllerListener<INFO> {
     public static final String TAG = "FdingControllerListener";
     public final List<ControllerListener<? super INFO>> mListeners = new ArrayList(2);

@@ -1,35 +1,76 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.searchbox.http.request.PostStringRequest;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class jf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
-        String remove;
-        int parseInt;
+    public static long a(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, map) != null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
+            if (baseMenuView.a()) {
+                return 240L;
+            }
+            return 200L;
         }
-        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
-            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
-            postStringRequestBuilder.readTimeout(parseInt);
-            postStringRequestBuilder.writeTimeout(parseInt);
-            postStringRequestBuilder.connectionTimeout(parseInt);
-        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
-            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
-            postByteRequestBuilder.readTimeout(parseInt);
-            postByteRequestBuilder.writeTimeout(parseInt);
-            postByteRequestBuilder.connectionTimeout(parseInt);
+        return invokeL.longValue;
+    }
+
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator b(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new kf4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator e(BaseMenuView baseMenuView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
+            ofFloat.setDuration(160L);
+            ofFloat.setInterpolator(new kf4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(a(baseMenuView));
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLL.objValue;
     }
 }

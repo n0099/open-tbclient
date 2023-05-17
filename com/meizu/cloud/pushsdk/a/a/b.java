@@ -21,7 +21,7 @@ import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static final String a = "b";
     public static final Object b = new Object();

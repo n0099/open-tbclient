@@ -1,12 +1,59 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import java.util.AbstractMap;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public interface nha {
-    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
+import android.database.Cursor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+/* loaded from: classes6.dex */
+public class nha {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948003842, "Lcom/baidu/tieba/nha;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948003842, "Lcom/baidu/tieba/nha;");
+                return;
+            }
+        }
+        a = mga.m();
+    }
+
+    public static void a(Cursor cursor) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
+            try {
+                if (!cursor.isClosed()) {
+                    cursor.close();
+                }
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void b(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

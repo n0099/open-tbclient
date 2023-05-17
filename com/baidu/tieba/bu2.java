@@ -1,106 +1,147 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes3.dex */
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes5.dex */
 public class bu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bu2 b;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final og3 a;
+    public final Map<String, Integer> a;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bu2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-907012147, "Lcom/baidu/tieba/bu2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-907012147, "Lcom/baidu/tieba/bu2$a;");
+                    return;
+                }
+            }
+            a = new bu2();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657386, "Lcom/baidu/tieba/bu2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657386, "Lcom/baidu/tieba/bu2;");
+                return;
+            }
+        }
+        boolean z = qp1.a;
+        ns2.g0().getSwitch("swan_pms_request_retry_count", 1);
+        b = 1;
+    }
 
     public bu2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new og3("swan_local_ab_data");
-        if (ProcessUtils.isMainProcess()) {
-            this.a.clear();
-        }
-        c();
+        this.a = new ConcurrentHashMap();
     }
 
     public static bu2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (bu2.class) {
-                    if (b == null) {
-                        b = new bu2();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a.a;
         }
         return (bu2) invokeV.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString(Config.SID, "");
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.put(str, Integer.valueOf(c(str) + 1));
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void c() {
-        String substring;
-        Object e;
+    public final int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
-            List<cu2> c = new au2().c();
-            for (cu2 cu2Var : c) {
-                du2 b2 = cu2Var.b();
-                eu2 c2 = cu2Var.c();
-                if (b2 == null) {
-                    e = c2.d();
-                } else {
-                    e = b2.e();
-                }
-                if (e instanceof Boolean) {
-                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
-                } else if (e instanceof Double) {
-                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
-                } else if (e instanceof Integer) {
-                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
-                } else if (e instanceof Long) {
-                    this.a.writeLong(c2.e(), ((Long) e).longValue());
-                } else if (e instanceof String) {
-                    this.a.writeString(c2.e(), (String) e);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num == null) {
+                return 0;
             }
-            StringBuilder sb = new StringBuilder();
-            for (cu2 cu2Var2 : c) {
-                du2 b3 = cu2Var2.b();
-                if (b3 != null) {
-                    sb.append(b3.d());
-                    sb.append("-");
-                }
-            }
-            if (sb.length() == 0) {
-                substring = "";
-            } else {
-                substring = sb.substring(0, sb.length() - 1);
-            }
-            this.a.writeString(Config.SID, substring);
+            return num.intValue();
         }
+        return invokeL.intValue;
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (d() && c(str) < b) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = rg4.b().i().getInt("get_pkg_retry_switch", 0);
+            g62.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
+            if (i != 1) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return str + "_" + str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

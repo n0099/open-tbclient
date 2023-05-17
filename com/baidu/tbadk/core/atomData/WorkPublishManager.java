@@ -2,14 +2,14 @@ package com.baidu.tbadk.core.atomData;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.p5a;
-import com.baidu.tieba.sr9;
+import com.baidu.tieba.r7a;
+import com.baidu.tieba.ut9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WorkPublishManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_VIDEO_HOT_TOPIC = 8;
@@ -77,21 +77,21 @@ public class WorkPublishManager {
         }
         objLocate = str;
         if (str != null && str.equals("7")) {
-            sr9.k(true);
-            sr9.i(str2);
+            ut9.k(true);
+            ut9.i(str2);
             i = 7;
         } else if (TextUtils.equals(str, "8")) {
-            sr9.j(8);
-            sr9.i(str2);
+            ut9.j(8);
+            ut9.i(str2);
             i = 8;
         } else {
             i = 6;
         }
-        if (p5a.b()) {
-            p5a.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        if (r7a.b()) {
+            r7a.h(null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
             return;
         }
-        p5a.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
+        r7a.k(false, false, null, null, null, null, i, Boolean.TRUE, str3, str4, str5);
     }
 
     public static void setObjLocate(String str) {

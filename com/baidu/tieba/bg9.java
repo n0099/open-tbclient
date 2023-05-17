@@ -1,58 +1,85 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.recapp.adapter.FrsAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class bg9 {
+/* loaded from: classes5.dex */
+public class bg9 extends c87<ThreadData, FrsAppEmptyHolder> implements rf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<a> a;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public int b;
-
-        public a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = i;
+    @Override // com.baidu.tieba.rf9
+    public void setIsFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
     }
 
-    public bg9(SparseArray<a> sparseArray) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg9(sf9 sf9Var, BdUniqueId bdUniqueId) {
+        super(sf9Var.s(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
+            Object[] objArr = {sf9Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = sparseArray;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: G */
+    public FrsAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View view2 = new View(this.c.getPageActivity());
+            view2.setVisibility(8);
+            return new FrsAppEmptyHolder(view2);
+        }
+        return (FrsAppEmptyHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsAppEmptyHolder frsAppEmptyHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
+            if (threadData instanceof AdvertAppInfo) {
+                AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
+                oy4 oy4Var = advertAppInfo.i;
+                if (advertAppInfo.c == -1001) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                oy4.c(oy4Var, threadData.position, z);
+            }
+            return frsAppEmptyHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

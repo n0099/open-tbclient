@@ -5,7 +5,7 @@ import com.facebook.datasource.AbstractDataSource;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SettableDataSource<T> extends AbstractDataSource<CloseableReference<T>> {
     public static <V> SettableDataSource<V> create() {
         return new SettableDataSource<>();

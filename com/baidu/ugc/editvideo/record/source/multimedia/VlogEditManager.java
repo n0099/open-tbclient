@@ -20,7 +20,7 @@ import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateProtocol, IVlogEditManager, IVlogEditViewManager {
     public static final int STATE_ERROR = -1;
     public static final int STATE_IDLE = 0;

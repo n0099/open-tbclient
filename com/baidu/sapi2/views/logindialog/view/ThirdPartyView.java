@@ -26,7 +26,7 @@ import com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThirdPartyView extends LinearLayout implements View.OnClickListener {
     public Context a;
     public ImageView b;
@@ -46,7 +46,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
     public void a() {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends ThirdLoginCallback {
         public final /* synthetic */ long a;
 
@@ -85,7 +85,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends WebAuthListener {
         public final /* synthetic */ long a;
 
@@ -124,7 +124,7 @@ public class ThirdPartyView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class c {
         public static final /* synthetic */ int[] a;
 

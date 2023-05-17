@@ -1,190 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
-import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.FrsTabInfo;
-/* loaded from: classes5.dex */
-public class mb7 {
+/* loaded from: classes6.dex */
+public class mb7 extends c87<j26, CardViewHolder<f26>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BaseFragment b;
-    public TextView c;
-    public FrsTabSortSwitchButton d;
-    public int e;
-    public String f;
-    public FrsTabSortSwitchButton.e g;
+    public TbPageContext l;
+    public f26 m;
 
-    /* loaded from: classes5.dex */
-    public class a implements FrsTabSortSwitchButton.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mb7 a;
-
-        public a(mb7 mb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mb7Var;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:25:0x0079, code lost:
-            if (((com.baidu.tieba.frs.commontab.FrsCommonTabFragment) r4.a.b).W1() != null) goto L18;
-         */
-        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public boolean a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                boolean z = false;
-                if (!g67.f().i() && !f67.h().j()) {
-                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0d30);
-                        return false;
-                    }
-                    if (this.a.b instanceof FrsNewAreaFragment) {
-                        if (((FrsNewAreaFragment) this.a.b).p2() == null || ((FrsNewAreaFragment) this.a.b).l2() == null) {
-                            return false;
-                        }
-                    } else if (this.a.b instanceof FrsCommonTabFragment) {
-                        if (((FrsCommonTabFragment) this.a.b).X1() != null) {
-                        }
-                    }
-                    z = true;
-                    if (this.a.e == i) {
-                        return true;
-                    }
-                    this.a.e = i;
-                    if (this.a.e != 7) {
-                        rr5.c();
-                        sq9.a();
-                    } else {
-                        sq9.b();
-                    }
-                    if (this.a.b instanceof FrsNewAreaFragment) {
-                        ((FrsNewAreaFragment) this.a.b).p2().l0(this.a.d.w(this.a.e));
-                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
-                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.e));
-                        }
-                        ((FrsNewAreaFragment) this.a.b).l2().P();
-                    } else {
-                        ((FrsCommonTabFragment) this.a.b).e2(kk7.d(this.a.d.w(this.a.e)));
-                        ((FrsCommonTabFragment) this.a.b).W1().x(true);
-                    }
-                    this.a.f();
-                }
-                return z;
-            }
-            return invokeI.booleanValue;
-        }
-    }
-
-    public mb7(BaseFragment baseFragment, RelativeLayout relativeLayout) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mb7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, relativeLayout};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = -1;
-        this.g = new a(this);
-        if (baseFragment != null && relativeLayout != null) {
-            this.b = baseFragment;
-            View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0370, relativeLayout);
-            this.a = inflate;
-            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
-            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0920eb);
-            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f0920ec);
-            this.d = frsTabSortSwitchButton;
-            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
-            this.e = this.d.getState();
-            h();
-        }
+        this.m = null;
+        this.l = tbPageContext;
     }
 
-    public void g(int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: G */
+    public CardViewHolder<f26> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.d != null) {
-            this.d.t(kk7.f(i));
-            this.e = this.d.getState();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            this.m = new f26(this.l);
+            return new CardViewHolder<>(this.m);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void i(List<FrsTabInfo> list) {
-        FrsTabSortSwitchButton frsTabSortSwitchButton;
+    public View H(int i, View view2, ViewGroup viewGroup, j26 j26Var, CardViewHolder<f26> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
-            frsTabSortSwitchButton.setData(list);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j26Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(j26Var);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c11437");
-            statisticItem.param("obj_type", this.d.w(this.e));
-            statisticItem.param("fid", this.f);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
-            if (frsTabSortSwitchButton != null) {
-                frsTabSortSwitchButton.D();
-            }
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-        }
+    @Override // com.baidu.tieba.c87, com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (j26) obj, (CardViewHolder) viewHolder);
+        return view2;
     }
 }

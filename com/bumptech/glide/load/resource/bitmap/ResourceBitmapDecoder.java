@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.drawable.ResourceDrawableDecoder;
 import com.facebook.common.util.UriUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResourceBitmapDecoder implements ResourceDecoder<Uri, Bitmap> {
     public final BitmapPool bitmapPool;
     public final ResourceDrawableDecoder drawableDecoder;

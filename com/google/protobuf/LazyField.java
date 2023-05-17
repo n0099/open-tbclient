@@ -3,7 +3,7 @@ package com.google.protobuf;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LazyField {
     public ByteString bytes;
     public final MessageLite defaultInstance;
@@ -11,7 +11,7 @@ public class LazyField {
     public volatile boolean isDirty = false;
     public volatile MessageLite value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class LazyEntry<K> implements Map.Entry<K, Object> {
         public Map.Entry<K, LazyField> entry;
 
@@ -46,7 +46,7 @@ public class LazyField {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class LazyIterator<K> implements Iterator<Map.Entry<K, Object>> {
         public Iterator<Map.Entry<K, Object>> iterator;
 

@@ -2,7 +2,7 @@ package com.baidu.swan.apps.lifecycle.process;
 
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum LifecycleProcessType {
     MAIN,
     SWAN,

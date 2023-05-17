@@ -36,7 +36,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PushService implements com.heytap.mcssdk.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_PACKAGE = "appPackage";
@@ -76,7 +76,7 @@ public class PushService implements com.heytap.mcssdk.a {
     public String mRegisterID;
     public String mVerifyCode;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final PushService a;

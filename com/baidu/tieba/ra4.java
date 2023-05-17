@@ -1,81 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class ra4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class ra4 extends ig3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
-    public static boolean a(View view2, dy2 dy2Var) {
-        InterceptResult invokeLL;
+    public ra4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, dy2Var)) == null) {
-            op1 X = kt2.U().X();
-            if (X != null && X.c(view2, dy2Var)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean f(View view2, dy2 dy2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, dy2Var)) == null) {
-            op1 X = kt2.U().X();
-            if (X != null && X.a(view2, dy2Var)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b() {
+    @Override // com.baidu.tieba.ig3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            op1 X = kt2.U().X();
-            if (X != null) {
-                return X.getContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static void c(wm3 wm3Var) {
-        op1 X;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, wm3Var) == null) && (X = kt2.U().X()) != null) {
-            X.e(wm3Var);
-        }
-    }
-
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            op1 X = kt2.U().X();
-            if (X != null && X.removeView(view2)) {
-                return true;
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put("touch", this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (ig3.j) {
+                    e.printStackTrace();
+                }
             }
-            return false;
+            return super.f();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(wm3 wm3Var) {
-        op1 X;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, wm3Var) == null) && (X = kt2.U().X()) != null) {
-            X.f(wm3Var);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

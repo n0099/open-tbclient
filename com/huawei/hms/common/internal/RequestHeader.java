@@ -4,7 +4,6 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +17,7 @@ import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.JsonUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RequestHeader implements IMessageEntity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestHeader";
@@ -172,7 +171,7 @@ public class RequestHeader implements IMessageEntity {
                 this.srv_name = JsonUtil.getStringValue(jSONObject, "srv_name");
                 this.api_name = JsonUtil.getStringValue(jSONObject, "api_name");
                 this.app_id = JsonUtil.getStringValue(jSONObject, "app_id");
-                this.pkg_name = JsonUtil.getStringValue(jSONObject, EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                this.pkg_name = JsonUtil.getStringValue(jSONObject, "pkg_name");
                 this.sdk_version = JsonUtil.getIntValue(jSONObject, "sdk_version");
                 this.kitSdkVersion = JsonUtil.getIntValue(jSONObject, "kitSdkVersion");
                 this.apiLevel = JsonUtil.getIntValue(jSONObject, "apiLevel");
@@ -293,7 +292,7 @@ public class RequestHeader implements IMessageEntity {
                 jSONObject.put("srv_name", this.srv_name);
                 jSONObject.put("api_name", this.api_name);
                 jSONObject.put("app_id", this.app_id);
-                jSONObject.put(EmotionResourceInfo.JSON_KEY_PKG_NAME, this.pkg_name);
+                jSONObject.put("pkg_name", this.pkg_name);
                 jSONObject.put("sdk_version", this.sdk_version);
                 jSONObject.put("kitSdkVersion", this.kitSdkVersion);
                 jSONObject.put("apiLevel", this.apiLevel);

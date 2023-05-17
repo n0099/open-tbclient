@@ -10,7 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c extends ImageView {
     public final String a;
     public boolean b;

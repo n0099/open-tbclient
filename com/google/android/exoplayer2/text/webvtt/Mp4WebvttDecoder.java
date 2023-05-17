@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Mp4WebvttDecoder extends SimpleSubtitleDecoder {
     public static final int BOX_HEADER_SIZE = 8;
     public static final int TYPE_payl = Util.getIntegerCodeForString("payl");

@@ -29,7 +29,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractHttpClient implements HttpClient {
     public abstract AuthSchemeRegistry createAuthSchemeRegistry();
 

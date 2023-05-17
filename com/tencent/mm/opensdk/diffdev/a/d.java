@@ -8,7 +8,7 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class d extends AsyncTask<Void, Void, a> {
     public static String h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public String appId;
@@ -19,7 +19,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public String scope;
     public String signature;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public OAuthErrCode m;
         public String n;

@@ -1,29 +1,197 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.le3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class bb3 extends u93 {
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.URI;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class bb3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes4.dex */
+    public class a implements zn3<je3<le3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ File d;
+        public final /* synthetic */ UnitedSchemeEntity e;
+        public final /* synthetic */ bb3 f;
+
+        /* renamed from: com.baidu.tieba.bb3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0235a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0235a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    aVar.f.p(aVar.c, aVar.d, aVar.e, aVar.a, aVar.b);
+                }
+            }
+        }
+
+        public a(bb3 bb3Var, CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bb3Var, callbackHandler, str, context, file, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = bb3Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = file;
+            this.e = unitedSchemeEntity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zn3
+        /* renamed from: b */
+        public void a(je3<le3.e> je3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, je3Var) == null) {
+                if (!ee3.h(je3Var)) {
+                    g62.i("SaveImage", "Permission denied");
+                    ee3.q(je3Var, this.a, this.b);
+                    return;
+                }
+                am3.k(new RunnableC0235a(this), "SaveImageAction");
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements j43 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ File b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ UnitedSchemeEntity e;
+        public final /* synthetic */ bb3 f;
+
+        public b(bb3 bb3Var, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bb3Var, context, file, callbackHandler, str, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = bb3Var;
+            this.a = context;
+            this.b = file;
+            this.c = callbackHandler;
+            this.d = str;
+            this.e = unitedSchemeEntity;
+        }
+
+        @Override // com.baidu.tieba.j43
+        public void a(String str) {
+            int i;
+            String str2;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
+            }
+            boolean q = nl3.a() ? this.f.q(this.a, this.b) : this.f.r(this.a, this.b);
+            if (q) {
+                i = 0;
+            } else {
+                i = 1001;
+            }
+            if (q) {
+                str2 = "save success";
+            } else {
+                str2 = "can not save to album : " + this.b;
+            }
+            g62.i("SaveImage", str2);
+            this.c.handleSchemeDispatchCallback(this.d, UnitedSchemeUtility.wrapCallbackParams(i, str2).toString());
+        }
+
+        @Override // com.baidu.tieba.j43
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                g62.i("SaveImage", str + "");
+                UnitedSchemeUtility.safeCallback(this.c, this.e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.d);
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bb3(u83 u83Var) {
-        super(u83Var, "/swanAPI/showNavigationBarLoading");
+    public bb3(da3 da3Var) {
+        super(da3Var, "/swanAPI/saveImageToPhotosAlbum");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,41 +205,186 @@ public class bb3 extends u93 {
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+    public final String m(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+            String t = kp4.t(file.getPath());
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            if (!TextUtils.isEmpty(t)) {
+                return valueOf + "." + t;
+            }
+            return valueOf;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String o(Uri uri, Context context) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri, context)) == null) {
+            Cursor cursor2 = null;
+            r7 = null;
+            r7 = null;
+            String str = null;
+            try {
+                cursor = context.getContentResolver().query(uri, new String[]{"_data"}, null, null, null);
+                if (cursor != null) {
+                    try {
+                        try {
+                            int columnIndexOrThrow = cursor.getColumnIndexOrThrow("_data");
+                            cursor.moveToFirst();
+                            str = cursor.getString(columnIndexOrThrow);
+                        } catch (SQLException e) {
+                            e = e;
+                            if (db3.b) {
+                                e.printStackTrace();
+                            }
+                            kp4.d(cursor);
+                            return str;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor2 = cursor;
+                        kp4.d(cursor2);
+                        throw th;
+                    }
+                }
+            } catch (SQLException e2) {
+                e = e2;
+                cursor = null;
+            } catch (Throwable th2) {
+                th = th2;
+                kp4.d(cursor2);
+                throw th;
+            }
+            kp4.d(cursor);
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (u93.b) {
-                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                g62.c("SaveImage", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
-            if (x73Var != null && x73Var.n0()) {
-                if (u93.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                g62.c("SaveImage", "illegal params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
+                return false;
+            }
+            String optString = a2.optString("filePath");
+            try {
+                File n = n(g93Var, optString, URI.create(optString));
+                if (n != null && n.exists() && n.isFile()) {
+                    String optString2 = a2.optString("cb");
+                    if (TextUtils.isEmpty(optString2)) {
+                        g62.c("SaveImage", "empty cb");
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+                        return false;
+                    }
+                    g93Var.e0().g(context, "mapp_images", new a(this, callbackHandler, optString2, context, n, unitedSchemeEntity));
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    return true;
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                g62.c("SaveImage", "can not find such file");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + n);
                 return false;
-            }
-            g72 V = kt2.U().V();
-            if (V == null) {
-                x42.c("navigationLoading", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            } catch (Exception e) {
+                if (db3.b) {
+                    e.printStackTrace();
+                }
+                g62.c("SaveImage", "Illegal file_path");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);
                 return false;
-            }
-            d72 m = V.m();
-            if (m == null) {
-                x42.c("navigationLoading", "swanAppFragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!m.Q2()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                x42.c("navigationLoading", "show navigation loading progressbar fail");
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final File n(g93 g93Var, String str, URI uri) {
+        InterceptResult invokeLLL;
+        String e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, g93Var, str, uri)) == null) {
+            jh3 G = tu2.U().G();
+            if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
+                e = G.i(str);
+            } else if (f53.B(g93Var.Y())) {
+                e = G.m(str);
+            } else {
+                e = G.e(str);
+            }
+            if (!TextUtils.isEmpty(e)) {
+                return new File(e);
+            }
+            return null;
+        }
+        return (File) invokeLLL.objValue;
+    }
+
+    public final void p(@NonNull Context context, File file, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, context, file, unitedSchemeEntity, callbackHandler, str) == null) {
+            i43.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new b(this, context, file, callbackHandler, str, unitedSchemeEntity));
+        }
+    }
+
+    public final boolean q(Context context, File file) {
+        String str;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, file)) == null) {
+            try {
+                str = MediaStore.Images.Media.insertImage(context.getContentResolver(), file.getPath(), file.getName(), "by aiapp");
+            } catch (FileNotFoundException e) {
+                if (db3.b) {
+                    e.printStackTrace();
+                }
+                str = null;
+            }
+            if (!TextUtils.isEmpty(str)) {
+                String o = o(Uri.parse(str), context);
+                if (!TextUtils.isEmpty(o)) {
+                    em3.r(context, o);
+                }
+            }
+            if (db3.b) {
+                Log.i("SaveImageAction", "saveToAlbum : file = " + file);
+                Log.i("SaveImageAction", "saveToAlbum : image = " + str);
+            }
+            g62.i("SaveImage", "save success");
+            return !TextUtils.isEmpty(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean r(Context context, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, file)) == null) {
+            Bitmap decodeFile = BitmapFactory.decodeFile(file.getPath());
+            if (decodeFile == null) {
+                return false;
+            }
+            decodeFile.recycle();
+            File externalStoragePublicDirectory = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            kp4.l(externalStoragePublicDirectory);
+            File file2 = new File(externalStoragePublicDirectory, m(file));
+            if (kp4.f(file, file2) == 0) {
+                return false;
+            }
+            em3.r(context, file2.getAbsolutePath());
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

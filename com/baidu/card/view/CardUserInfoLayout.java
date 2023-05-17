@@ -28,7 +28,6 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -55,23 +54,24 @@ import com.baidu.tbadk.widget.level.TbLevelView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ex;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.is5;
-import com.baidu.tieba.k05;
-import com.baidu.tieba.kf9;
-import com.baidu.tieba.ks5;
-import com.baidu.tieba.lx;
-import com.baidu.tieba.pt4;
+import com.baidu.tieba.f85;
+import com.baidu.tieba.gh9;
+import com.baidu.tieba.gz;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.nx;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.pg;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rt5;
+import com.baidu.tieba.st5;
+import com.baidu.tieba.t15;
+import com.baidu.tieba.tt5;
+import com.baidu.tieba.ux;
 import com.baidu.tieba.view.VirtualImageStatusTip;
-import com.baidu.tieba.vw;
-import com.baidu.tieba.w65;
-import com.baidu.tieba.xy;
+import com.baidu.tieba.wp9;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -81,8 +81,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
-/* loaded from: classes2.dex */
-public class CardUserInfoLayout extends RelativeLayout implements lx {
+/* loaded from: classes3.dex */
+public class CardUserInfoLayout extends RelativeLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public static final int U;
     public static final int V;
@@ -141,7 +141,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,13 +169,13 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g();
+                this.a.g.playAnimation();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class b implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardUserInfoLayout a;
@@ -198,17 +198,16 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             this.a = cardUserInfoLayout;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String url;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.d) && this.a.G != null && this.a.G.getAuthor() != null && this.a.G.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.G.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.G.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (g9.a(this.a.d) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(this.a.d), new String[]{url});
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g();
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,40 +233,15 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            boolean z;
+            String url;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G != null && this.a.G.getAuthor() != null && !StringUtils.isNull(this.a.G.getAuthor().getName_show()) && !StringUtils.isNull(this.a.G.getAuthor().getUserId()) && this.a.G.getForum_name() != null) {
-                if (view2.getTag(R.id.tag_nick_name_activity) != null && (view2.getTag(R.id.tag_nick_name_activity) instanceof String)) {
-                    String str = (String) view2.getTag(R.id.tag_nick_name_activity);
-                    if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
-                        pt4.v(view2.getContext(), null, str, true);
-                        return;
-                    }
-                }
-                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.d, this.a.G.getAuthor().getUserId(), this.a.G.getAuthor().getName_show(), this.a.G.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD);
-                personInfoActivityConfig.setSourceTid(this.a.G.getTid());
-                if (this.a.G.getThreadVideoInfo() != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                personInfoActivityConfig.setIsVideoThread(z);
-                if (this.a.G.getResource() == 1) {
-                    personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
-                } else if (this.a.G.getResource() == 2) {
-                    personInfoActivityConfig.setVideoPersonFrom("frs");
-                } else if (this.a.G.getResource() == 5) {
-                    personInfoActivityConfig.setVideoPersonFrom("topic_detail");
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
-                if (this.a.C != null) {
-                    this.a.C.onClick(view2);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.d) && this.a.G != null && this.a.G.getAuthor() != null && this.a.G.getAuthor().getTShowInfoNew() != null && ListUtils.getItem(this.a.G.getAuthor().getTShowInfoNew(), 0) != null && (url = this.a.G.getAuthor().getTShowInfoNew().get(0).getUrl()) != null && (m9.a(this.a.d) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.d), new String[]{url});
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,17 +267,40 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G != null && this.a.G.getAuthor() != null) {
-                pt4.x(this.a.d.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.G.getAuthor().getUserId() + "&opacity=0", true, true, true);
-                if (this.a.D != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G != null && this.a.G.getAuthor() != null && !StringUtils.isNull(this.a.G.getAuthor().getName_show()) && !StringUtils.isNull(this.a.G.getAuthor().getUserId()) && this.a.G.getForum_name() != null) {
+                if (view2.getTag(R.id.tag_nick_name_activity) != null && (view2.getTag(R.id.tag_nick_name_activity) instanceof String)) {
+                    String str = (String) view2.getTag(R.id.tag_nick_name_activity);
+                    if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
+                        yu4.v(view2.getContext(), null, str, true);
+                        return;
+                    }
+                }
+                PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.a.d, this.a.G.getAuthor().getUserId(), this.a.G.getAuthor().getName_show(), this.a.G.getForum_name(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                personInfoActivityConfig.setSourceTid(this.a.G.getTid());
+                if (this.a.G.getThreadVideoInfo() != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                personInfoActivityConfig.setIsVideoThread(z);
+                if (this.a.G.getResource() == 1) {
+                    personInfoActivityConfig.setVideoPersonFrom("home");
+                } else if (this.a.G.getResource() == 2) {
+                    personInfoActivityConfig.setVideoPersonFrom("frs");
+                } else if (this.a.G.getResource() == 5) {
+                    personInfoActivityConfig.setVideoPersonFrom("topic_detail");
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
+                if (this.a.C != null) {
                     this.a.C.onClick(view2);
                 }
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,7 +328,43 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G != null && this.a.G.getAuthor() != null) {
-                this.a.frsVirtualImageStatistic(ex.a);
+                yu4.x(this.a.d.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.G.getAuthor().getUserId() + "&opacity=0", true, true, true);
+                if (this.a.D != null) {
+                    this.a.C.onClick(view2);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class f implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CardUserInfoLayout a;
+
+        public f(CardUserInfoLayout cardUserInfoLayout) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cardUserInfoLayout};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cardUserInfoLayout;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.G != null && this.a.G.getAuthor() != null) {
+                this.a.frsVirtualImageStatistic(nx.a);
                 if ((view2 instanceof HeadCustomImageView) && ((HeadCustomImageView) view2).b()) {
                     return;
                 }
@@ -340,13 +373,13 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class f implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardUserInfoLayout a;
 
-        public f(CardUserInfoLayout cardUserInfoLayout) {
+        public g(CardUserInfoLayout cardUserInfoLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -381,17 +414,17 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                     CommonStatisticUtils.staticNameplateOfUserLevel(2, 5, a);
                 }
             }
-            pt4.v(this.a.d, null, TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL, true);
+            yu4.v(this.a.d, null, TbConfig.USER_GROWTH_TASK_CENTER_MAIN_URL, true);
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class g implements View.OnClickListener {
+    /* loaded from: classes3.dex */
+    public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardUserInfoLayout a;
 
-        public g(CardUserInfoLayout cardUserInfoLayout) {
+        public h(CardUserInfoLayout cardUserInfoLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -418,13 +451,13 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class h implements Runnable {
+    /* loaded from: classes3.dex */
+    public class i implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardUserInfoLayout a;
 
-        public h(CardUserInfoLayout cardUserInfoLayout) {
+        public i(CardUserInfoLayout cardUserInfoLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -442,22 +475,23 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             this.a = cardUserInfoLayout;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.g.playAnimation();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                st5.d(String.valueOf(this.a.G.getFid()), this.a.G.getAuthor().getPortrait(), "7", this.a.d.getApplicationContext());
+                tt5.c("c15281", String.valueOf(this.a.G.getFid()), "7");
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class i implements Runnable {
+    /* loaded from: classes3.dex */
+    public class j implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardUserInfoLayout a;
 
-        public i(CardUserInfoLayout cardUserInfoLayout) {
+        public j(CardUserInfoLayout cardUserInfoLayout) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -497,9 +531,9 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                 return;
             }
         }
-        U = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds25);
-        V = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
-        W = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        U = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds25);
+        V = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds15);
+        W = ri.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
     }
 
     public final void i() {
@@ -529,8 +563,8 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.w = new TBLottieAnimationView(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.g(this.d, R.dimen.tbds650), ii.g(this.d, R.dimen.tbds100));
-            layoutParams.setMargins(ii.g(this.d, R.dimen.tbds64), 0, 0, 0);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ri.g(this.d, R.dimen.tbds650), ri.g(this.d, R.dimen.tbds100));
+            layoutParams.setMargins(ri.g(this.d, R.dimen.tbds64), 0, 0, 0);
             addView(this.w, layoutParams);
             m();
             this.w.setVisibility(8);
@@ -640,12 +674,12 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         this.K = 34053;
         this.M = 0;
         this.N = null;
-        this.O = new a(this);
-        this.P = new b(this);
-        this.Q = new c(this);
-        this.R = new d(this);
-        this.S = new e(this);
-        this.T = new f(this);
+        this.O = new b(this);
+        this.P = new c(this);
+        this.Q = new d(this);
+        this.R = new e(this);
+        this.S = new f(this);
+        this.T = new g(this);
         n();
     }
 
@@ -729,7 +763,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             }
             this.i.setOnClickListener(null);
             if (author.getIs_bawu() == 1) {
-                g35 d2 = g35.d(this.i);
+                p45 d2 = p45.d(this.i);
                 d2.w(R.color.CAM_X0101);
                 d2.e(R.string.A_X04);
                 d2.o(R.string.J_X04);
@@ -804,7 +838,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                 this.g.setSpeed(0.8f);
                 this.g.setVisibility(0);
                 this.g.loop(true);
-                this.g.post(new i(this));
+                this.g.post(new a(this));
             }
             h();
         }
@@ -851,7 +885,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         if (interceptable == null || interceptable.invokeL(1048581, this, threadData) == null) {
             if (TbSingleton.getInstance().isUserGrowthOpen() && ((!threadData.isFromHomPage || threadData.isVideoThreadType()) && threadData.getAuthor() != null && threadData.getAuthor().getUserGrowthData() != null && threadData.getAuthor().getUserGrowthData().a() >= 0 && threadData.getAuthor().getUserGrowthData().a() <= 10)) {
                 int a2 = threadData.getAuthor().getUserGrowthData().a();
-                this.k.setImageResource(vw.b(a2));
+                this.k.setImageResource(ex.b(a2));
                 this.k.setVisibility(0);
                 this.k.setTag(threadData);
                 this.k.setOnClickListener(this.T);
@@ -877,7 +911,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, threadData) == null) && threadData.getVoiceRoomData() != null && !StringUtils.isNull(threadData.getVoiceRoomData().room_name) && threadData.getVoiceRoomData().room_id.longValue() > 0) {
             if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-                marginLayoutParams.bottomMargin = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+                marginLayoutParams.bottomMargin = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
                 setLayoutParams(marginLayoutParams);
             }
             if (threadData.getVoiceRoomData().status.intValue() == 1) {
@@ -891,7 +925,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                 this.g.setSpeed(0.8f);
                 this.g.setVisibility(0);
                 this.g.loop(true);
-                this.g.post(new h(this));
+                this.g.post(new j(this));
             } else {
                 this.g.setVisibility(8);
                 this.g.cancelAnimation();
@@ -924,7 +958,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                     this.J.setFrom(1);
                 }
                 this.J.e(threadData.getAuthor());
-                this.J.setSmallWidthAndHeight(ii.g(TbadkApplication.getInst(), R.dimen.tbds94), ii.g(TbadkApplication.getInst(), R.dimen.tbds120));
+                this.J.setSmallWidthAndHeight(ri.g(TbadkApplication.getInst(), R.dimen.tbds94), ri.g(TbadkApplication.getInst(), R.dimen.tbds120));
                 this.I.setVisibility(8);
                 this.J.setVisibility(0);
                 frsVirtualImageStatistic(2);
@@ -963,11 +997,11 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             }
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = kf9.e().c();
+                AppPosInfo c2 = gh9.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
-                    double h2 = ii.h(gg.c(str2, 0.0d), gg.c(str3, 0.0d), gg.c(latitude, 0.0d), gg.c(longtitude, 0.0d));
+                    double h2 = ri.h(pg.c(str2, 0.0d), pg.c(str3, 0.0d), pg.c(latitude, 0.0d), pg.c(longtitude, 0.0d));
                     str = h2 <= 50.0d ? StringHelper.formatDistanceNum(h2) : threadData.getAddress();
                 }
             } else if (z) {
@@ -1016,7 +1050,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             ArrayList<IconData> tShowInfoNew = threadData.getAuthor().getTShowInfoNew();
             if (ListUtils.getCount(tShowInfoNew) != 0) {
                 this.m.setVisibility(0);
-                this.m.h(tShowInfoNew, 2, this.d.getResources().getDimensionPixelSize(R.dimen.tbds48), this.d.getResources().getDimensionPixelSize(R.dimen.tbds48), this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070303), true);
+                this.m.h(tShowInfoNew, 2, this.d.getResources().getDimensionPixelSize(R.dimen.tbds48), this.d.getResources().getDimensionPixelSize(R.dimen.tbds48), this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07040b), true);
                 return;
             }
             this.m.setVisibility(8);
@@ -1048,15 +1082,15 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
             VirtualImageCustomState customState = this.G.getCustomState();
             if (customState == null) {
-                this.M = ex.f;
+                this.M = nx.f;
             } else {
-                this.M = ex.e;
+                this.M = nx.e;
                 this.N = this.v.j(customState);
             }
             if (this.G.isFromFrs()) {
-                ex.a(i2, this.G.getTid(), ex.b, this.M, this.N, this.G.getAuthorId());
+                nx.a(i2, this.G.getTid(), nx.b, this.M, this.N, this.G.getAuthorId());
             } else if (this.G.isFromConcern()) {
-                ex.a(i2, this.G.getTid(), ex.c, this.M, this.N, this.G.getAuthorId());
+                nx.a(i2, this.G.getTid(), nx.c, this.M, this.N, this.G.getAuthorId());
             }
         }
     }
@@ -1113,17 +1147,17 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         }
     }
 
-    public final void f(k05 k05Var, String str) {
+    public final void f(t15 t15Var, String str) {
         boolean z;
         String f2;
         String b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, k05Var, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, t15Var, str) == null) {
             if (str == null) {
                 str = "";
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            String c2 = k05Var.c();
+            String c2 = t15Var.c();
             spannableStringBuilder.insert(0, (CharSequence) c2);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
                 z = true;
@@ -1132,20 +1166,20 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             }
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds2);
-            w65.b bVar = new w65.b();
-            bVar.y(k05Var.d());
+            f85.b bVar = new f85.b();
+            bVar.y(t15Var.d());
             if (z) {
-                f2 = k05Var.e();
+                f2 = t15Var.e();
             } else {
-                f2 = k05Var.f();
+                f2 = t15Var.f();
             }
-            bVar.D(un9.f(f2));
+            bVar.D(wp9.f(f2));
             if (z) {
-                b2 = k05Var.a();
+                b2 = t15Var.a();
             } else {
-                b2 = k05Var.b();
+                b2 = t15Var.b();
             }
-            bVar.q(un9.f(b2));
+            bVar.q(wp9.f(b2));
             bVar.A(dimenPixelSize);
             bVar.x(dimenPixelSize);
             bVar.z(dimenPixelSize);
@@ -1172,15 +1206,15 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (p(512)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.h.getMeasuredHeight());
-                layoutParams.setMargins(ii.g(this.d, R.dimen.tbds10), ii.g(this.d, R.dimen.tbds_5), 0, 0);
+                layoutParams.setMargins(ri.g(this.d, R.dimen.tbds10), ri.g(this.d, R.dimen.tbds_5), 0, 0);
                 this.r.setLayoutParams(layoutParams);
             }
-            int i7 = ii.s(this.d)[0];
+            int i7 = ri.s(this.d)[0];
             if (i7 <= 0) {
                 return;
             }
             int width = getWidth() - this.a;
-            if (this.G.getAuthor() != null && this.G.getAuthor().getThemeCard() != null && !hi.isEmpty(this.G.getAuthor().getThemeCard().getCardImageUrlAndroid()) && !this.G.isHeadLinePost) {
+            if (this.G.getAuthor() != null && this.G.getAuthor().getThemeCard() != null && !qi.isEmpty(this.G.getAuthor().getThemeCard().getCardImageUrlAndroid()) && !this.G.isHeadLinePost) {
                 i2 = this.b;
             } else {
                 if (this.G.showFollowBtn()) {
@@ -1200,7 +1234,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                 arrayList.add(this.i);
                 arrayList.add(this.k);
                 arrayList.add(this.r);
-                is5.c(i3, string, this.h, this.l, arrayList, this.j);
+                rt5.c(i3, string, this.h, this.l, arrayList, this.j);
                 ThreadData threadData = this.G;
                 if (threadData.isFromConcern) {
                     i4 = 3;
@@ -1209,7 +1243,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
                 } else {
                     i4 = 2;
                 }
-                ks5.a(this.h, this.m, this.k, this.l, this.j, i4);
+                tt5.a(this.h, this.m, this.k, this.l, this.j, i4);
                 if (p(128)) {
                     int i8 = Integer.MAX_VALUE;
                     if (p(2048)) {
@@ -1250,7 +1284,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             this.f.getHeadView().setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.f.getHeadView().setDefaultResource(17170445);
             this.f.getHeadView().setPlaceHolder(1);
-            this.f.setAfterClickListener(new g(this));
+            this.f.setAfterClickListener(new h(this));
             this.I = (FrameLayout) findViewById(R.id.user_container);
             this.x = (HeadWorldCupFlagLayout) findViewById(R.id.world_cup_flag);
             HeadCustomImageView headCustomImageView = (HeadCustomImageView) findViewById(R.id.user_avatar_virtual_image);
@@ -1286,7 +1320,9 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             this.v = virtualImageStatusTip;
             virtualImageStatusTip.setOnClickListener(this.S);
             this.k = (TbImageView) findViewById(R.id.user_growth_level);
-            this.l = (TbLevelView) findViewById(R.id.forum_level_view);
+            TbLevelView tbLevelView = (TbLevelView) findViewById(R.id.forum_level_view);
+            this.l = tbLevelView;
+            tbLevelView.setOnClickListener(new i(this));
         }
     }
 
@@ -1378,7 +1414,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
     public void recoverVirtualImageAnimate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            xy.a(this.F);
+            gz.a(this.F);
             this.u.setVisibility(0);
             this.v.setVisibility(8);
             this.J.setHeadViewNormalSize();
@@ -1462,12 +1498,12 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
             LayoutInflater.from(getContext()).inflate(R.layout.user_info_layout, (ViewGroup) this, true);
             k();
             l();
-            ii.g(this.d, R.dimen.tbds40);
-            this.y = ii.g(this.d, R.dimen.tbds164);
-            this.z = ii.g(this.d, R.dimen.tbds156);
-            this.A = ii.g(this.d, R.dimen.tbds148);
-            this.B = ii.g(this.d, R.dimen.tbds118);
-            ii.g(this.d, R.dimen.tbds580);
+            ri.g(this.d, R.dimen.tbds40);
+            this.y = ri.g(this.d, R.dimen.tbds164);
+            this.z = ri.g(this.d, R.dimen.tbds156);
+            this.A = ri.g(this.d, R.dimen.tbds148);
+            this.B = ri.g(this.d, R.dimen.tbds118);
+            ri.g(this.d, R.dimen.tbds580);
         }
     }
 
@@ -1487,7 +1523,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         VirtualImageCustomState customState = this.G.getCustomState();
         if (customState != null && !TextUtils.isEmpty(customState.getIcon())) {
             this.u.setVisibility(8);
-            xy.b(this.F, 400);
+            gz.b(this.F, 400);
             this.v.setVisibility(0);
             this.v.setData(customState, true, str);
             this.v.f();
@@ -1510,7 +1546,7 @@ public class CardUserInfoLayout extends RelativeLayout implements lx {
         }
     }
 
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048601, this, tbPageContext, i2) == null) && i2 != this.e) {

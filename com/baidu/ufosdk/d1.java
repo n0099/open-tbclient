@@ -7,13 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +28,7 @@ public class d1 extends BaseAdapter {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,15 +101,15 @@ public class d1 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 aVar = new a();
-                view3 = this.c.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0929, (ViewGroup) null);
+                view3 = this.c.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d095d, (ViewGroup) null);
                 Context context = this.a;
                 if (this.d) {
-                    i3 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+                    i3 = -15132391;
                 } else {
                     i3 = -1;
                 }
                 view3.setBackgroundDrawable(p1.a(context, i3, "ufo_list_press.png"));
-                aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c42);
+                aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c96);
                 view3.setTag(aVar);
             } else {
                 view3 = view2;

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class OldUserData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4483304441506804594L;
@@ -35,7 +35,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public long userId;
     public String userName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -338,7 +338,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return;
         }
         userData.setUserIdLong(Math.max(this.id, this.userId));
-        if (!hi.isEmpty(this.userName) && !StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) {
+        if (!qi.isEmpty(this.userName) && !StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) {
             str = this.userName;
         } else {
             str = this.name;

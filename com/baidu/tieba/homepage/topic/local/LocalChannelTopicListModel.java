@@ -6,24 +6,24 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.dw7;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
+import com.baidu.tieba.rx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicListModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(dw7 dw7Var);
+        void a(rx7 rx7Var);
 
         void onFail(String str);
     }
@@ -38,7 +38,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,26 +79,26 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
                 }
                 return;
             }
-            dw7 dw7Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
+            rx7 rx7Var = ((LocalChannelTopicListResponseMessage) httpResponsedMessage).data;
             if (this.a.a != null) {
-                this.a.a.a(dw7Var);
+                this.a.a.a(rx7Var);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocalChannelTopicListModel(a9 a9Var) {
-        super(a9Var);
+    public LocalChannelTopicListModel(g9 g9Var) {
+        super(g9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
+            Object[] objArr = {g9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,7 +109,7 @@ public class LocalChannelTopicListModel extends BdBaseModel<LocalChannelTopicLis
         registerListener(aVar);
     }
 
-    public void W(b bVar) {
+    public void V(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a = bVar;

@@ -12,7 +12,7 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class h extends com.kwad.components.ad.i.b {
     public List<AdTemplate> mc;
     public boolean md;

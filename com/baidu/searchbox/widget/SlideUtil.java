@@ -14,7 +14,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SlideUtil {
     public static void convertActivityToTranslucentAfterL(Activity activity, OnTranslucentListener onTranslucentListener) {
         Class<?>[] declaredClasses;

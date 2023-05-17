@@ -8,13 +8,13 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import com.baidu.cyberplayer.sdk.i;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class g extends SurfaceView implements i {
     public i.a a;
     public a b;
     public Surface c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements SurfaceHolder.Callback {
         public a() {
         }

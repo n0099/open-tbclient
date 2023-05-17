@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PBMediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,7 +89,7 @@ public class PBMediaView extends FrameLayout {
             int a = M.a(context, 15);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(a, a);
             layoutParams.gravity = 3;
-            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f081373);
+            imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0814ff);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }

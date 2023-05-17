@@ -1,187 +1,305 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.net.Uri;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.content.res.ResourcesCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.Align;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThemeCardInUserData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes4.dex */
-public class fy extends tw implements kx<ThreadData> {
+/* loaded from: classes5.dex */
+public class fy extends cx implements tx<h05>, ux {
     public static /* synthetic */ Interceptable $ic;
+    public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext e;
-    public SimpleDraweeView f;
-    public TextView g;
-    public ImageView h;
-    public FrameLayout i;
-    public boolean j;
+    public NEGFeedBackView e;
+    public Align f;
+    public boolean g;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ThemeCardInUserData a;
-        public final /* synthetic */ fy b;
-
-        public a(fy fyVar, ThemeCardInUserData themeCardInUserData) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448304954, "Lcom/baidu/tieba/fy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fyVar, themeCardInUserData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = fyVar;
-            this.a = themeCardInUserData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String jumpUrl = this.a.getJumpUrl();
-                if (!StringUtils.isNull(jumpUrl)) {
-                    UrlManager.getInstance().dealOneLink(this.b.e, new String[]{tq9.a(jumpUrl, "0", "", String.valueOf(this.a.getCardId()))});
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448304954, "Lcom/baidu/tieba/fy;");
+                return;
             }
         }
+        h = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
     }
 
-    public fy(TbPageContext tbPageContext) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cx
+    /* renamed from: n */
+    public NEGFeedBackView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (NEGFeedBackView) invokeV.objValue;
+    }
+
+    public fy(TbPageContext tbPageContext, Align align) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {tbPageContext, align};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = true;
-        this.e = tbPageContext;
         h(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070262), ii.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d3));
-        layoutParams.addRule(11);
-        layoutParams.rightMargin = ii.g(tbPageContext.getPageActivity(), R.dimen.tbds30);
-        i(layoutParams);
-        SimpleDraweeView simpleDraweeView = new SimpleDraweeView(tbPageContext.getPageActivity());
-        this.f = simpleDraweeView;
-        simpleDraweeView.setContentDescription("个性卡片");
-        FrameLayout frameLayout = new FrameLayout(tbPageContext.getContext());
-        this.i = frameLayout;
-        frameLayout.addView(this.f);
-        ImageView imageView = new ImageView(tbPageContext.getPageActivity());
-        this.h = imageView;
-        imageView.setContentDescription("个性卡片ID前缀");
-        FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(ii.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070215), ii.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701b2));
-        layoutParams2.gravity = 51;
-        layoutParams2.topMargin = ii.g(tbPageContext.getPageActivity(), R.dimen.tbds13);
-        this.h.setLayoutParams(layoutParams2);
-        this.i.addView(this.h);
-        TextView textView = new TextView(tbPageContext.getContext());
-        this.g = textView;
-        textView.setContentDescription("个性卡片ID");
-        FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
-        layoutParams3.gravity = 83;
-        layoutParams3.leftMargin = ii.g(tbPageContext.getPageActivity(), R.dimen.M_W_X001);
-        layoutParams3.bottomMargin = ii.g(tbPageContext.getPageActivity(), R.dimen.tbds3);
-        this.g.setLayoutParams(layoutParams3);
-        this.i.addView(this.g);
-        g(this.i);
+        NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(tbPageContext);
+        this.e = nEGFeedBackView;
+        nEGFeedBackView.setId(R.id.decor_item_right_id);
+        g(this.e);
+        l(align);
     }
 
-    public void l(ThreadData threadData) {
-        MetaData author;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public fy(TbPageContext tbPageContext, boolean z) {
+        this(tbPageContext, r9);
+        Align align;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null || this.f == null || (author = threadData.getAuthor()) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((TbPageContext) objArr2[0], (Align) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        ThemeCardInUserData themeCard = author.getThemeCard();
-        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !threadData.isHeadLinePost) {
-            if (this.j && (this.f.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
-                layoutParams.rightMargin = ii.g(this.e.getPageActivity(), R.dimen.tbds106);
-                this.f.setLayoutParams(layoutParams);
-            }
-            this.f.setVisibility(0);
-            this.f.setImageDrawable(null);
-            if (!StringUtils.isNull(themeCard.getDynamicUrl())) {
-                this.f.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse(themeCard.getDynamicUrl())).setAutoPlayAnimations(true).build());
-            } else {
-                this.f.setImageURI(Uri.parse(themeCard.getCardImageUrlAndroid()));
-            }
-            if (!StringUtils.isNull(themeCard.getExclusiveNo()) && !StringUtils.isNull(themeCard.getCardImageUrlAndroid())) {
-                this.g.setText(themeCard.getExclusiveNo());
-                WebPManager.setPureDrawable(this.h, R.drawable.icon_pure_zb_no, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
-                try {
-                    this.g.setTypeface(ResourcesCompat.getFont(this.e.getPageActivity(), R.font.baidunumber_medium));
-                } catch (Resources.NotFoundException e) {
-                    BdLog.e(e);
-                }
-                g35 d = g35.d(this.g);
-                d.B(R.dimen.T_X09);
-                d.w(R.color.CAM_X0105);
-                this.h.setAlpha(0.7f);
-                this.g.setAlpha(0.7f);
-            }
-            this.f.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
-            this.f.setOnClickListener(new a(this, themeCard));
-            return;
+        if (z) {
+            align = Align.ALIGN_RIGHT_BOTTOM;
+        } else {
+            align = Align.ALIGN_RIGHT_TOP;
         }
-        this.f.setVisibility(8);
-        this.i.setVisibility(8);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kx
-    /* renamed from: m */
-    public void a(ThreadData threadData) {
+    @Override // com.baidu.tieba.tx
+    /* renamed from: o */
+    public void a(h05 h05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            l(threadData);
+        if (interceptable == null || interceptable.invokeL(1048582, this, h05Var) == null) {
+            if (h05Var == null) {
+                this.e.setVisibility(8);
+                return;
+            }
+            this.e.setData(h05Var);
+            this.e.setFirstRowSingleColumn(true);
+            this.e.setVisibility(0);
         }
     }
 
-    public void n(boolean z) {
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.j = z;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.e.setAutoProcess(z);
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.e.setHeadText(str);
+        }
+    }
+
+    public void s(NEGFeedBackView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            this.e.setEventCallback(bVar);
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.e.y(z);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds57);
+            int g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+            int g3 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds34);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(g, g);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.rightMargin = g2;
+            layoutParams.topMargin = g3;
+            i(layoutParams);
+            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.e.setPadding(0, 0, 0, 0);
+            this.e.setLayoutParams(layoutParams);
+        }
+    }
+
+    public void l(Align align) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, align) != null) || this.f == align) {
+            return;
+        }
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
+        int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
+        if (align == Align.ALIGN_RIGHT_TOP) {
+            int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds50);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.rightMargin = dimenPixelSize3;
+            layoutParams.topMargin = dimenPixelSize4;
+            i(layoutParams);
+            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.e.setLayoutParams(layoutParams);
+        } else if (align == Align.ALIGN_RIGHT_CENTER) {
+            int dimenPixelSize5 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(15);
+            layoutParams2.rightMargin = dimenPixelSize5;
+            layoutParams2.bottomMargin = 0;
+            i(layoutParams2);
+            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.e.setLayoutParams(layoutParams2);
+        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
+            int i = h;
+            int g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g3 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
+            layoutParams3.addRule(11);
+            layoutParams3.addRule(12);
+            layoutParams3.rightMargin = g2;
+            layoutParams3.bottomMargin = g3;
+            i(layoutParams3);
+            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.e.setPadding(g, g, g, g);
+            this.e.setLayoutParams(layoutParams3);
+        }
+        this.f = align;
+    }
+
+    public void m(jy4 jy4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jy4Var) == null) && jy4Var != null && jy4Var.getNegFeedBackData() != null) {
+            if (jy4Var.getNegFeedBackData().h() <= 0 && jy4Var.getThreadData() != null) {
+                if (!jy4Var.showCardBottomOpWeight() && !jy4Var.isFromFrs()) {
+                    l(Align.ALIGN_RIGHT_BOTTOM);
+                } else if (jy4Var.isSupportTop()) {
+                    t(UtilHelper.getDimenPixelSize(R.dimen.tbds50));
+                } else if (jy4Var.isSupportBottom()) {
+                    py pyVar = this.d;
+                    if (pyVar != null) {
+                        pyVar.o(this);
+                    }
+                } else {
+                    l(Align.ALIGN_RIGHT_TOP);
+                }
+            } else if (this.g) {
+                k();
+            } else {
+                p(jy4Var);
+            }
+        }
+    }
+
+    public final void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
+            if (this.e.getParent() == null || layoutParams == null || layoutParams.topMargin != i) {
+                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
+                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
+                int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+                RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
+                layoutParams2.addRule(11);
+                layoutParams2.addRule(10);
+                layoutParams2.rightMargin = dimenPixelSize3;
+                layoutParams2.topMargin = i;
+                i(layoutParams2);
+                this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+                this.e.setLayoutParams(layoutParams2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ux
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
+            this.e.u();
+        }
+    }
+
+    public final void p(jy4 jy4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jy4Var) == null) {
+            if (jy4Var.showCardBottomOpWeight()) {
+                int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
+                int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
+                int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+                int dimenPixelSize4 = UtilHelper.getDimenPixelSize(R.dimen.tbds50);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize2, dimenPixelSize2);
+                layoutParams.addRule(11);
+                layoutParams.addRule(10);
+                layoutParams.rightMargin = dimenPixelSize3;
+                layoutParams.topMargin = dimenPixelSize4;
+                i(layoutParams);
+                this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+                this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+                this.e.setLayoutParams(layoutParams);
+                return;
+            }
+            int i = h;
+            int g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int g3 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(i, i);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(10);
+            layoutParams2.rightMargin = g2;
+            layoutParams2.topMargin = g3;
+            i(layoutParams2);
+            this.e.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.e.setPadding(g, g, g, g);
+            this.e.setLayoutParams(layoutParams2);
         }
     }
 }

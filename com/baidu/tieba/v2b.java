@@ -1,242 +1,138 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import java.io.IOException;
-import kotlinx.coroutines.scheduling.CoroutineScheduler;
-import okio.BufferedSink;
-import okio.ByteString;
-/* loaded from: classes6.dex */
-public final class v2b {
-    public static /* synthetic */ Interceptable $ic;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import org.bouncycastle.crypto.engines.AESEngine;
+import org.bouncycastle.crypto.prng.SP800SecureRandomBuilder;
+/* loaded from: classes7.dex */
+public class v2b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BufferedSink a;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (-(i & 1)) ^ (i >>> 1) : invokeI.intValue;
-    }
-
-    public static long b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i >> 31) ^ (i << 1) : invokeI.intValue;
-    }
-
-    public static long d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
-    }
-
-    public static int i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
-            if ((i & (-128)) == 0) {
-                return 1;
-            }
-            if ((i & (-16384)) == 0) {
-                return 2;
-            }
-            if (((-2097152) & i) == 0) {
-                return 3;
-            }
-            return (i & (-268435456)) == 0 ? 4 : 5;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948190307, "Lcom/baidu/tieba/v2b;")) == null) {
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    public static int j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            if (((-128) & j) == 0) {
-                return 1;
-            }
-            if (((-16384) & j) == 0) {
-                return 2;
-            }
-            if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
-                return 3;
-            }
-            if (((-268435456) & j) == 0) {
-                return 4;
-            }
-            if (((-34359738368L) & j) == 0) {
-                return 5;
-            }
-            if (((-4398046511104L) & j) == 0) {
-                return 6;
-            }
-            if (((-562949953421312L) & j) == 0) {
-                return 7;
-            }
-            if (((-72057594037927936L) & j) == 0) {
-                return 8;
-            }
-            return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
-        }
-        return invokeJ.intValue;
-    }
-
-    public v2b(BufferedSink bufferedSink) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bufferedSink};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948190307, "Lcom/baidu/tieba/v2b;");
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:29:0x001f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static SecureRandom a() {
+        InterceptResult invokeV;
+        SecureRandom secureRandom;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            z2b.b("EncryptUtil", "generateSecureRandomNew ");
+            try {
+            } catch (NoSuchAlgorithmException unused) {
+                z2b.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
             }
-        }
-        this.a = bufferedSink;
-    }
-
-    public static int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i >= 0) {
-                return i(i);
-            }
-            return 10;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return i(f(i, FieldEncoding.VARINT));
-        }
-        return invokeI.intValue;
-    }
-
-    public void k(ByteString byteString) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteString) == null) {
-            this.a.write(byteString);
-        }
-    }
-
-    public void l(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.writeIntLe(i);
-        }
-    }
-
-    public void m(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a.writeLongLe(j);
-        }
-    }
-
-    public void n(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i >= 0) {
-                q(i);
-            } else {
-                r(i);
-            }
-        }
-    }
-
-    public void o(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a.writeUtf8(str);
-        }
-    }
-
-    public void q(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            while ((i & (-128)) != 0) {
-                this.a.writeByte((i & 127) | 128);
-                i >>>= 7;
-            }
-            this.a.writeByte(i);
-        }
-    }
-
-    public void r(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            while (((-128) & j) != 0) {
-                this.a.writeByte((((int) j) & 127) | 128);
-                j >>>= 7;
-            }
-            this.a.writeByte((int) j);
-        }
-    }
-
-    public static int f(int i, FieldEncoding fieldEncoding) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, fieldEncoding)) == null) {
-            return (i << 3) | fieldEncoding.value;
-        }
-        return invokeIL.intValue;
-    }
-
-    public void p(int i, FieldEncoding fieldEncoding) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, fieldEncoding) == null) {
-            q(f(i, fieldEncoding));
-        }
-    }
-
-    public static int h(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            int length = str.length();
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                char charAt = str.charAt(i2);
-                if (charAt >= 128) {
-                    if (charAt < 2048) {
-                        i3 += 2;
-                    } else if (charAt >= 55296 && charAt <= 57343) {
-                        if (charAt <= 56319 && (i = i2 + 1) < length && str.charAt(i) >= 56320 && str.charAt(i) <= 57343) {
-                            i3 += 4;
-                            i2 = i;
+            if (Build.VERSION.SDK_INT >= 26) {
+                secureRandom = SecureRandom.getInstanceStrong();
+                if (secureRandom == null) {
+                    try {
+                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                    } catch (NoSuchAlgorithmException unused2) {
+                        z2b.c("EncryptUtil", "NoSuchAlgorithmException");
+                        return secureRandom;
+                    } catch (Throwable th) {
+                        if (b) {
+                            z2b.c("EncryptUtil", "exception : " + th.getMessage() + " , you should implementation bcprov-jdk15on library");
+                            b = false;
                         }
-                    } else {
-                        i3 += 3;
+                        return secureRandom;
                     }
-                    i2++;
                 }
-                i3++;
-                i2++;
+                AESEngine aESEngine = new AESEngine();
+                byte[] bArr = new byte[32];
+                secureRandom.nextBytes(bArr);
+                return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine, 256, bArr, false);
             }
-            return i3;
+            secureRandom = null;
+            if (secureRandom == null) {
+            }
+            AESEngine aESEngine2 = new AESEngine();
+            byte[] bArr2 = new byte[32];
+            secureRandom.nextBytes(bArr2);
+            return new SP800SecureRandomBuilder(secureRandom, true).setEntropyBitsRequired(384).buildCTR(aESEngine2, 256, bArr2, false);
         }
-        return invokeL.intValue;
+        return (SecureRandom) invokeV.objValue;
+    }
+
+    public static byte[] b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            SecureRandom a2 = a();
+            if (a2 == null) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[i];
+            a2.nextBytes(bArr);
+            return bArr;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public static String d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            return w2b.a(c(i));
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static byte[] c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (!a) {
+                byte[] bArr = new byte[i];
+                SecureRandom secureRandom = null;
+                try {
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        secureRandom = SecureRandom.getInstanceStrong();
+                    }
+                } catch (NoSuchAlgorithmException unused) {
+                    z2b.c("EncryptUtil", "getSecureRandomBytes: NoSuchAlgorithmException");
+                }
+                if (secureRandom == null) {
+                    try {
+                        secureRandom = SecureRandom.getInstance("SHA1PRNG");
+                    } catch (NoSuchAlgorithmException unused2) {
+                        z2b.c("EncryptUtil", "getSecureRandomBytes getInstance: NoSuchAlgorithmException");
+                        return new byte[0];
+                    } catch (Exception e) {
+                        z2b.c("EncryptUtil", "getSecureRandomBytes getInstance: exception : " + e.getMessage());
+                        return new byte[0];
+                    }
+                }
+                secureRandom.nextBytes(bArr);
+                return bArr;
+            }
+            return b(i);
+        }
+        return (byte[]) invokeI.objValue;
     }
 }

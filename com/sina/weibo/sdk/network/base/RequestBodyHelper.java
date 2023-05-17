@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RequestBodyHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";

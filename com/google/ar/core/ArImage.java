@@ -4,7 +4,7 @@ import android.graphics.Rect;
 import android.media.Image;
 import com.google.ar.core.exceptions.FatalException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ArImage extends com.baidu.tieba.d {
     public final Session a;
     public long b;
@@ -32,7 +32,7 @@ public class ArImage extends com.baidu.tieba.d {
 
     public static native void nativeLoadSymbols();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends com.baidu.tieba.e {
         public final long a;
         public final int b;

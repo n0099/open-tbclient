@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.topic.topicdetail.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.iw7;
+import com.baidu.tieba.wx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.NewHottopic.NewHottopicResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iw7 mTopicDetailData;
+    public wx7 mTopicDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicDetailMessage() {
@@ -35,13 +35,13 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
         }
     }
 
-    public iw7 getTopicDetailData() {
+    public wx7 getTopicDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mTopicDetailData;
         }
-        return (iw7) invokeV.objValue;
+        return (wx7) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -57,9 +57,9 @@ public class ResponseSocketGetTopicDetailMessage extends SocketResponsedMessage 
             setError(newHottopicResIdl.error.errorno.intValue());
             setErrorString(newHottopicResIdl.error.usermsg);
             if (getError() == 0 && newHottopicResIdl.data != null) {
-                iw7 iw7Var = new iw7();
-                this.mTopicDetailData = iw7Var;
-                iw7Var.b(newHottopicResIdl.data);
+                wx7 wx7Var = new wx7();
+                this.mTopicDetailData = wx7Var;
+                wx7Var.b(newHottopicResIdl.data);
             }
             return newHottopicResIdl;
         }

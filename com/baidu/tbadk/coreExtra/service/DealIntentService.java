@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.atomData.LogoActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.a55;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.w8;
+import com.baidu.tieba.c9;
+import com.baidu.tieba.j65;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DealIntentService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ACTION_ON_POST_EXSIT = "TaskExsits";
@@ -96,7 +96,7 @@ public class DealIntentService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,12 +170,12 @@ public class DealIntentService extends BdBaseService {
                 if (intent == null || intent.getExtras() == null) {
                     return null;
                 }
-                int i2 = this.a.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
+                int i2 = this.a.getExtras().getInt("class", -1);
                 String stringExtra = this.a.getStringExtra("link");
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!hi.isEmpty(stringExtra2) && j == 0) {
+                if (!qi.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -233,15 +233,15 @@ public class DealIntentService extends BdBaseService {
                 if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(stringExtra)) {
                     TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "cl_push_noti:" + string, "taskId:" + j + ";link:" + stringExtra + ";uid:" + TbadkCoreApplication.getCurrentAccount());
                 }
-                if (w8.f().b() != null) {
-                    if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (w8.f().b().getClass().getName().equalsIgnoreCase(a55.c())) {
-                            this.a.putExtra(DealIntentService.KEY_CLASS, 5);
+                if (c9.f().b() != null) {
+                    if (5 == this.a.getIntExtra("class", -1)) {
+                        if (c9.f().b().getClass().getName().equalsIgnoreCase(j65.c())) {
+                            this.a.putExtra("class", 5);
                         } else {
-                            this.a.putExtra(DealIntentService.KEY_CLASS, 21);
+                            this.a.putExtra("class", 21);
                         }
-                    } else if (10 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        this.a.putExtra(DealIntentService.KEY_CLASS, 12);
+                    } else if (10 == this.a.getIntExtra("class", -1)) {
+                        this.a.putExtra("class", 12);
                     }
                     return DealIntentService.ACTION_ON_POST_EXSIT;
                 }

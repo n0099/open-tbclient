@@ -2,7 +2,7 @@ package com.google.firebase;
 
 import androidx.annotation.NonNull;
 import com.google.android.gms.common.internal.Preconditions;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FirebaseException extends Exception {
     @Deprecated
     public FirebaseException() {

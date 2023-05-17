@@ -8,7 +8,7 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class Downloader extends b {
     public static volatile Downloader instance;
 

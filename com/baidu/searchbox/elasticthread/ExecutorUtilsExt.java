@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
 import java.util.concurrent.Executor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ExecutorUtilsExt {
     public static final boolean DEBUG = false;
     public static final String ELASTIC_TASK_NAME_PREFIX = "elastic_";

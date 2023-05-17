@@ -6,7 +6,7 @@ import android.net.Uri;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AssetDataSource implements DataSource {
     public final AssetManager assetManager;
     public long bytesRemaining;
@@ -15,7 +15,7 @@ public final class AssetDataSource implements DataSource {
     public boolean opened;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class AssetDataSourceException extends IOException {
         public AssetDataSourceException(IOException iOException) {
             super(iOException);

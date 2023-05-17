@@ -6,7 +6,7 @@ import com.google.zxing.Result;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class SMSMMSResultParser extends ResultParser {
     public static void addNumberVia(Collection<String> collection, Collection<String> collection2, String str) {
         int indexOf = str.indexOf(59);

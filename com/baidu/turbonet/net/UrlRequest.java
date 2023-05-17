@@ -19,7 +19,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface UrlRequest {
     void a(int i);
 
@@ -55,7 +55,7 @@ public interface UrlRequest {
 
     void start();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public interface UrlRequest {
         public String v;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public @interface RequestPriority {
         }
 
@@ -321,7 +321,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,13 +357,13 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public @interface StatusValues {
         }
 
@@ -440,7 +440,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

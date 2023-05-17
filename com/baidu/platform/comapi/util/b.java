@@ -5,20 +5,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ a.C0129a a;
+    public final /* synthetic */ a.C0133a a;
     public final /* synthetic */ Object b;
     public final /* synthetic */ a c;
 
-    public b(a aVar, a.C0129a c0129a, Object obj) {
+    public b(a aVar, a.C0133a c0133a, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, c0129a, obj};
+            Object[] objArr = {aVar, c0133a, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,7 +29,7 @@ public class b implements Runnable {
             }
         }
         this.c = aVar;
-        this.a = c0129a;
+        this.a = c0133a;
         this.b = obj;
     }
 

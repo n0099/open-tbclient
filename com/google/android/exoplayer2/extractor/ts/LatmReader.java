@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.util.CodecSpecificDataUtil;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class LatmReader implements ElementaryStreamReader {
     public static final int INITIAL_BUFFER_SIZE = 1024;
     public static final int STATE_FINDING_SYNC_1 = 0;

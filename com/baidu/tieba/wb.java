@@ -1,64 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class wb extends DiskFileOperate {
+/* loaded from: classes8.dex */
+public class wb {
     public static /* synthetic */ Interceptable $ic;
+    public static wb d;
     public transient /* synthetic */ FieldHolder $fh;
-    public NSGif a;
+    public final IdleTaskRegister a;
+    public boolean b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wb(String str, String str2, DiskFileOperate.Action action) {
-        super(str, str2, action);
+    public wb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.a = new IdleTaskRegister();
+        this.b = false;
+        this.c = false;
     }
 
-    public NSGif a() {
+    public static wb b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                d = new wb();
+            }
+            return d;
         }
-        return (NSGif) invokeV.objValue;
+        return (wb) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
-    public boolean formatData(byte[] bArr) {
-        InterceptResult invokeL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null && NSGif.f) {
-                NSGif f = NSGif.f(bArr, 0, bArr.length);
-                this.a = f;
-                if (f != null) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+            this.a.scheduleIdleTask(true);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            this.c = true;
+            this.a.scheduleIdleTask(false);
+        }
+    }
+
+    public void a(String str, Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
+            if (!this.b) {
+                this.a.registerIdleTask(str, runnable);
+            } else {
+                runnable.run();
+            }
+        }
     }
 }

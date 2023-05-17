@@ -6,14 +6,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.StrictMode;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.yca;
+import com.baidu.tieba.wea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.base.annotations.CalledByNative;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BuildInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public class BuildInfo {
                 }
                 return Integer.toString(packageInfo.versionCode);
             } catch (PackageManager.NameNotFoundException unused) {
-                yca.a("BuildInfo", "versionCode not available.");
+                wea.a("BuildInfo", "versionCode not available.");
                 return "versionCode not available.";
             }
         }
@@ -174,7 +174,7 @@ public class BuildInfo {
                 }
                 return packageInfo.versionName;
             } catch (PackageManager.NameNotFoundException unused) {
-                yca.a("BuildInfo", "versionName not available");
+                wea.a("BuildInfo", "versionName not available");
                 return "versionName not available";
             }
         }

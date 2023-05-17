@@ -1,7 +1,7 @@
 package com.baidu.sofire.face.api;
 
 import android.hardware.Camera;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface RecordCallback {
     void onBegin();
 

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zqa;
+import com.baidu.tieba.xsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class g0 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,18 +110,18 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07e1;
+                i = R.string.obfuscated_res_0x7f0f084f;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07e3;
+                i = R.string.obfuscated_res_0x7f0f0851;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07e2;
+                i = R.string.obfuscated_res_0x7f0f0850;
             }
             button.setText(i);
         }
@@ -149,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public zqa getDownloadListener() {
+    public xsa getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new zqa(this.e) : (zqa) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new xsa(this.e) : (xsa) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -160,11 +160,11 @@ public class g0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900e1);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ad);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ee);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ba);
             this.c = (TextView) findViewById(R.id.ad_source);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0900ae);
         }
     }
 }

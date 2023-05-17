@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.d.a;
 import com.meizu.cloud.pushsdk.d.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c implements a {
     public final String a = c.class.getSimpleName();
     public final HashMap<String, Object> b = new HashMap<>();

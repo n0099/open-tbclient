@@ -1,84 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class z55 implements b65 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final TBLottieAnimationView a;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.data.LevePopData;
+import com.baidu.tbadk.data.LiveRemindData;
+import com.baidu.tbadk.data.MemberBroadcastData;
+import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
+import java.util.List;
+import tbclient.AlaLiveInfo;
+/* loaded from: classes8.dex */
+public interface z55 {
+    MemberBroadcastData getActivityBroadcastData();
 
-    public z55(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(context);
-        this.a = tBLottieAnimationView;
-        tBLottieAnimationView.loop(true);
-    }
+    ChatRoomEntranceData getChatRoomEntranceData();
 
-    @Override // com.baidu.tieba.b65
-    public void a(x55 x55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, x55Var) == null) {
-            TBLottieAnimationView tBLottieAnimationView = this.a;
-            int i = x55Var.c;
-            int i2 = -2;
-            if (i < 0) {
-                i = -2;
-            }
-            int i3 = x55Var.c;
-            if (i3 >= 0) {
-                i2 = i3;
-            }
-            tBLottieAnimationView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            SkinManager.setLottieAnimation(this.a, x55Var.b);
-        }
-    }
+    od5 getFestivalConfigData();
 
-    @Override // com.baidu.tieba.b65
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (View) invokeV.objValue;
-    }
+    IconPopData getIconPopData();
 
-    @Override // com.baidu.tieba.b65
-    public void onDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.cancelAnimation();
-        }
-    }
+    LevePopData getLevePopData();
 
-    @Override // com.baidu.tieba.b65
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.playAnimation();
-        }
-    }
+    List<AlaLiveInfo> getLiveFollowSecondFloor();
+
+    List<AlaLiveInfo> getLiveIndexSecondFloor();
+
+    List<AlaLiveInfo> getLivePicSecondFloor();
+
+    LiveRemindData getLiveRemindData();
+
+    MemberBroadcastData getMemberBroadcastData();
+
+    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
+
+    String getUniqueId();
 }

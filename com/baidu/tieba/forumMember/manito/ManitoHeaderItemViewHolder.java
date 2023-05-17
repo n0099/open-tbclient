@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,6 +34,6 @@ public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.b = 3;
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091629);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09166b);
     }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DuplayerHandlerThreadPool {
     public static final int MSG_CHECK_IDLE_LONG_TIME_OUT = 100;
     public static final int MSG_CHECK_IDLE_SHORT_TIME_OUT = 101;
@@ -23,7 +23,7 @@ public class DuplayerHandlerThreadPool {
     public ArrayList<DuplayerHandlerThread> d;
     public c e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public final AtomicInteger a = new AtomicInteger(1);
         public final String b;
@@ -42,12 +42,12 @@ public class DuplayerHandlerThreadPool {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static DuplayerHandlerThreadPool a = new DuplayerHandlerThreadPool();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c extends Handler {
         public c(Looper looper) {
             super(looper);

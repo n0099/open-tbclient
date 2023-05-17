@@ -10,12 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HistoryLoginStat implements NoProguard {
     public static final String TAG = "HistoryLoginStat";
     public static final String UBC_ID = "4921";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HistoryClickLoginStat implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_CODE = "code";
@@ -72,7 +72,7 @@ public class HistoryLoginStat implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HistoryShowStat implements NoProguard {
         public static final String KEY_EXT = "ext";
         public static final String KEY_EXT_AVAILABLE_COUNT = "available_count";

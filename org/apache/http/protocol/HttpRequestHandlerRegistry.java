@@ -2,7 +2,7 @@ package org.apache.http.protocol;
 
 import java.util.Map;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpRequestHandlerRegistry implements HttpRequestHandlerResolver {
     public HttpRequestHandlerRegistry() {
         throw new RuntimeException("Stub!");

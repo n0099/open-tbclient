@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.live.business.model.data.LiveBannerEntity;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BannerEntity implements Parcelable {
     public static final Parcelable.Creator<BannerEntity> CREATOR = new a();
     public String bannerId;
@@ -26,7 +26,7 @@ public class BannerEntity implements Parcelable {
         this.mBroadcastInterval = 1000;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<BannerEntity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

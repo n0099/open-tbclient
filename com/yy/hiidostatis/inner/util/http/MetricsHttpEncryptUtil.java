@@ -4,7 +4,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MetricsHttpEncryptUtil extends AbstractStatisHttpUtil {
     public static final String RSA_PUB_KEY = "MCwwDQYJKoZIhvcNAQEBBQADGwAwGAIRAMRSvSVZEbyQwtFwNtNiZKkCAwEAAQ==";
     public static final String URL_FORMAT = "http://%s/c.gif";

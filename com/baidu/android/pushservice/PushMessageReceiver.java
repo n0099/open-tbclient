@@ -18,6 +18,7 @@ import com.baidu.android.pushservice.util.Utility;
 import com.baidu.android.pushservice.w.m.l;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -340,7 +341,7 @@ public abstract class PushMessageReceiver extends BroadcastReceiver {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                com.baidu.android.pushservice.m.d.h(this.c, Utility.c(this.c.getPackageName() + "," + this.d + "," + this.e + ",false," + ((int) com.baidu.android.pushservice.a.a())));
+                com.baidu.android.pushservice.m.d.h(this.c, Utility.c(this.c.getPackageName() + "," + this.d + "," + this.e + "," + CommandUBCHelper.COMMAND_UBC_VALUE_FALSE + "," + ((int) com.baidu.android.pushservice.a.a())));
             }
         }
     }

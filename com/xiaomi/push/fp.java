@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fp {
     public XmlPullParser a;
 
@@ -31,13 +31,13 @@ public class fp {
                 return gu.a(this.a, fvVar);
             }
             if (name.equals("presence")) {
-                return gu.m459a(this.a);
+                return gu.m478a(this.a);
             }
             if (this.a.getName().equals("stream")) {
                 return null;
             }
             if (this.a.getName().equals("error")) {
-                throw new gg(gu.m460a(this.a));
+                throw new gg(gu.m479a(this.a));
             }
             if (!this.a.getName().equals("warning")) {
                 this.a.getName().equals("bind");

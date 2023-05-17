@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.TypeProjection;
 import kotlin.reflect.jvm.internal.impl.types.TypeUtils;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypeCheckingProcedure {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final TypeCheckingProcedureCallbacks constraints;
@@ -121,7 +121,7 @@ public class TypeCheckingProcedure {
     }
 
     /* renamed from: kotlin.reflect.jvm.internal.impl.types.checker.TypeCheckingProcedure$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$jetbrains$kotlin$types$Variance;
 
@@ -163,7 +163,7 @@ public class TypeCheckingProcedure {
         return this.constraints.capture(typeProjection2.getType(), typeProjection);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum EnrichedProjectionKind {
         IN,
         OUT,

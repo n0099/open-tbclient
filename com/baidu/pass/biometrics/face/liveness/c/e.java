@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import com.baidu.pass.biometrics.base.debug.Log;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static String a(Context context, String str) {
         ClassLoader classLoader = context.getClassLoader();

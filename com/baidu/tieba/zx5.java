@@ -1,177 +1,212 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.content.Context;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class zx5 implements in, cy5, qy4 {
+import java.util.Calendar;
+/* loaded from: classes8.dex */
+public class zx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<BdUniqueId> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public int b;
+    public ay5 a;
 
-    @Override // com.baidu.tieba.qy4
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375346, "Lcom/baidu/tieba/zx5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948375346, "Lcom/baidu/tieba/zx5;");
-                return;
-            }
-        }
-        c = new SparseArray<>();
-    }
-
-    public zx5() {
+    public zx5(Context context, gy5 gy5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, gy5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        ay5 ay5Var = new ay5(2);
+        this.a = ay5Var;
+        ay5Var.A = context;
+        ay5Var.a = gy5Var;
     }
 
-    public static List<BdUniqueId> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < c.size(); i++) {
-                arrayList.add(c.valueAt(i));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qy4
-    public AdvertAppInfo H() {
+    public ly5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (a() instanceof qy4) {
-                return (AdvertAppInfo) a();
-            }
-            return null;
+            return new ly5(this.a);
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return (ly5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cy5
-    public Object a() {
-        InterceptResult invokeV;
+    public zx5 b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.T = z;
+            return this;
         }
-        return invokeV.objValue;
+        return (zx5) invokeZ.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public zx5 c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
         }
-        return invokeV.intValue;
+        return (zx5) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public zx5 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return c.get(this.b);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (zx5) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.qy4
-    public int s() {
-        InterceptResult invokeV;
+    public zx5 e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!(a() instanceof AdvertAppInfo)) {
-                return -1;
-            }
-            return ((qy4) a()).s();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
         }
-        return invokeV.intValue;
+        return (zx5) invokeI.objValue;
     }
 
-    public static void b(List<Integer> list) {
+    public zx5 f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, list) == null) && c.size() <= 0 && list != null) {
-            for (Integer num : list) {
-                c.put(num.intValue(), BdUniqueId.gen());
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
         }
+        return (zx5) invokeI.objValue;
     }
 
-    public static int e(BdUniqueId bdUniqueId) {
+    public zx5 g(Calendar calendar) {
         InterceptResult invokeL;
-        int indexOfValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
-            if (c.size() == 0 || (indexOfValue = c.indexOfValue(bdUniqueId)) == -1 || c.size() <= indexOfValue) {
-                return -1;
-            }
-            return c.keyAt(indexOfValue);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
         }
-        return invokeL.intValue;
+        return (zx5) invokeL.objValue;
     }
 
-    public void f(Object obj) {
+    public zx5 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-            this.a = obj;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
         }
+        return (zx5) invokeL.objValue;
     }
 
-    public void g(int i) {
+    public zx5 i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
         }
+        return (zx5) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.qy4
-    public void setPosition(int i) {
+    public zx5 l(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || !(a() instanceof qy4)) {
-            return;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
         }
-        ((qy4) a()).setPosition(i);
+        return (zx5) invokeF.objValue;
+    }
+
+    public zx5 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
+        }
+        return (zx5) invokeI.objValue;
+    }
+
+    public zx5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
+        }
+        return (zx5) invokeI.objValue;
+    }
+
+    public zx5 p(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
+        }
+        return (zx5) invokeL.objValue;
+    }
+
+    public zx5 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            ay5 ay5Var = this.a;
+            ay5Var.l = str;
+            ay5Var.m = str2;
+            ay5Var.n = str3;
+            ay5Var.o = str4;
+            ay5Var.p = str5;
+            ay5Var.q = str6;
+            return this;
+        }
+        return (zx5) invokeCommon.objValue;
+    }
+
+    public zx5 k(int i, by5 by5Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, by5Var)) == null) {
+            ay5 ay5Var = this.a;
+            ay5Var.x = i;
+            ay5Var.c = by5Var;
+            return this;
+        }
+        return (zx5) invokeIL.objValue;
+    }
+
+    public zx5 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            ay5 ay5Var = this.a;
+            ay5Var.r = i;
+            ay5Var.s = i2;
+            ay5Var.t = i3;
+            ay5Var.u = i4;
+            ay5Var.v = i5;
+            ay5Var.w = i6;
+            return this;
+        }
+        return (zx5) invokeCommon.objValue;
     }
 }

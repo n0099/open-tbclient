@@ -2,8 +2,8 @@ package com.google.a.b.a.a.a;
 
 import android.os.Bundle;
 import android.os.Parcel;
-import com.baidu.tieba.iwa;
-/* loaded from: classes7.dex */
+import com.baidu.tieba.gya;
+/* loaded from: classes9.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public e() {
         super("com.google.android.play.core.install.protocol.IInstallServiceCallback");
@@ -16,13 +16,13 @@ public abstract class e extends com.google.a.a.b implements d {
                 if (i != 3) {
                     return false;
                 }
-                iwa.a(parcel, Bundle.CREATOR);
+                gya.a(parcel, Bundle.CREATOR);
                 a();
             } else {
-                b((Bundle) iwa.a(parcel, Bundle.CREATOR));
+                b((Bundle) gya.a(parcel, Bundle.CREATOR));
             }
         } else {
-            a((Bundle) iwa.a(parcel, Bundle.CREATOR));
+            a((Bundle) gya.a(parcel, Bundle.CREATOR));
         }
         return true;
     }

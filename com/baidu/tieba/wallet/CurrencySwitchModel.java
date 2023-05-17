@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CurrencySwitchModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class CurrencySwitchModel extends BdBaseModel {
     public OnPostDataCallBack mCallBack;
     public final HttpMessageListener mSwitchCurrencyListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface OnPostDataCallBack {
         void callback(boolean z, int i, String str);
     }
@@ -54,7 +54,7 @@ public class CurrencySwitchModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -124,7 +124,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                ii.P(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
+                ri.P(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
                 return;
             }
             this.isSending = true;

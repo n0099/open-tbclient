@@ -5,7 +5,7 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.network.EmptyResultData;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseOfflineCompoResultData implements Serializable {
     public static final int CODE_RESULT_OK = 1;
     public static final long serialVersionUID = 7464537023322307192L;

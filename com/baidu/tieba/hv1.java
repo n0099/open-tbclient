@@ -1,50 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hv1 extends ProviderDelegation {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+/* loaded from: classes5.dex */
+public interface hv1 {
+    pv1 a(Context context);
 
-    public hv1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    lv1 b(Context context);
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (bundle == null) {
-                z = false;
-            } else {
-                z = bundle.getBoolean("status");
-            }
-            for (lo1 lo1Var : SwanAppAllianceLoginHelper.d.e()) {
-                if (lo1Var != null) {
-                    lo1Var.a(z);
-                }
-            }
-            return null;
-        }
-        return (Bundle) invokeL.objValue;
-    }
+    pv1 c(Context context);
+
+    bb2 d();
+
+    mv1 e(Context context, int i);
+
+    pv1 f(Context context);
+
+    pv1 g(Context context);
+
+    cb2 h(Context context, int i);
+
+    pv1 i(Context context);
+
+    boolean j(int i);
 }

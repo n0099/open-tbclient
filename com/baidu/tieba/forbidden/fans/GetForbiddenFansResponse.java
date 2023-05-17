@@ -2,8 +2,8 @@ package com.baidu.tieba.forbidden.fans;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.u37;
+import com.baidu.tieba.h57;
+import com.baidu.tieba.l05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<u37> fansList;
-    public cz4 pageData;
+    public ArrayList<h57> fansList;
+    public l05 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForbiddenFansResponse(int i) {
@@ -54,20 +54,20 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                 int length = optJSONArray.length();
                 this.fansList = new ArrayList<>();
                 for (int i2 = 0; i2 < length; i2++) {
-                    u37 u37Var = new u37();
-                    u37Var.a(optJSONArray.getJSONObject(i2));
-                    if (u37Var.a != 0) {
-                        this.fansList.add(u37Var);
+                    h57 h57Var = new h57();
+                    h57Var.a(optJSONArray.getJSONObject(i2));
+                    if (h57Var.a != 0) {
+                        this.fansList.add(h57Var);
                     }
                 }
             }
-            cz4 cz4Var = new cz4();
-            this.pageData = cz4Var;
-            cz4Var.i(jSONObject.optJSONObject("page"));
+            l05 l05Var = new l05();
+            this.pageData = l05Var;
+            l05Var.i(jSONObject.optJSONObject("page"));
         }
     }
 
-    public ArrayList<u37> getFansList() {
+    public ArrayList<h57> getFansList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -76,12 +76,12 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
         return (ArrayList) invokeV.objValue;
     }
 
-    public cz4 getPageData() {
+    public l05 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.pageData;
         }
-        return (cz4) invokeV.objValue;
+        return (l05) invokeV.objValue;
     }
 }

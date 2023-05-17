@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.FollowStatusService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dl8 extends tj1<FollowStatusService> {
+import tbclient.HotForum.ForumInfo;
+/* loaded from: classes5.dex */
+public class dl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +24,15 @@ public class dl8 extends tj1<FollowStatusService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public FollowStatusService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new el8();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
+            String str = forumInfo.avatar;
+            forumInfo.forum_id.longValue();
+            String str2 = forumInfo.forum_name;
+            forumInfo.time_out.longValue();
+            forumInfo.member_count.longValue();
+            forumInfo.thread_count.longValue();
         }
-        return (FollowStatusService) invokeV.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.callback.MapStatusAndLocateCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OnceLocationManager implements GetLocationCallback {
     public static final String TAG = "OnceLocationManager";
     public static OnceLocationManager manager;

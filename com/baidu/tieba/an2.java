@@ -1,51 +1,77 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dn2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes3.dex */
-public class an2 extends rl2<io2> {
+/* loaded from: classes4.dex */
+public abstract class an2<W extends dn2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.rl2
+    public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
+
     @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    public abstract String b();
+
+    public void c(@NonNull ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableCameraAutoFocus" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620868, "Lcom/baidu/tieba/an2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947620868, "Lcom/baidu/tieba/an2;");
+                return;
+            }
+        }
+        a = qp1.a;
     }
 
     public an2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull io2 io2Var) {
+    public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, io2Var) == null) {
-            String str = command.what;
-            d(io2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                io2Var.t(((Boolean) obj).booleanValue());
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && a) {
+            String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = str3 + "\t【" + str2 + "】";
+            }
+            if (z) {
+                g62.i("【InlineCommand】", str3);
+            } else {
+                Log.v("【InlineCommand】", str3);
             }
         }
     }

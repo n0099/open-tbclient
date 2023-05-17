@@ -8,21 +8,21 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends MsgCommonItemAdapter.MsgViewHolder<TextView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,16 +71,16 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<TextView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
             FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            frameLayout.setPadding(ii.g(viewGroup.getContext(), R.dimen.M_W_X022), ii.g(viewGroup.getContext(), R.dimen.M_H_X005), ii.g(viewGroup.getContext(), R.dimen.M_W_X022), ii.g(viewGroup.getContext(), R.dimen.M_H_X008));
+            frameLayout.setPadding(ri.g(viewGroup.getContext(), R.dimen.M_W_X022), ri.g(viewGroup.getContext(), R.dimen.M_H_X005), ri.g(viewGroup.getContext(), R.dimen.M_W_X022), ri.g(viewGroup.getContext(), R.dimen.M_H_X008));
             TextView textView = new TextView(viewGroup.getContext());
-            textView.setPadding(ii.g(viewGroup.getContext(), R.dimen.M_W_X006), ii.g(viewGroup.getContext(), R.dimen.M_H_X002), ii.g(viewGroup.getContext(), R.dimen.M_W_X006), ii.g(viewGroup.getContext(), R.dimen.M_H_X002));
+            textView.setPadding(ri.g(viewGroup.getContext(), R.dimen.M_W_X006), ri.g(viewGroup.getContext(), R.dimen.M_H_X002), ri.g(viewGroup.getContext(), R.dimen.M_W_X006), ri.g(viewGroup.getContext(), R.dimen.M_H_X002));
             textView.setGravity(17);
             frameLayout.addView(textView, new ViewGroup.LayoutParams(-1, -2));
             return new a(frameLayout, textView);
@@ -89,7 +89,7 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.vm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -102,7 +102,7 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             TextView a2 = msgViewHolder.a();
-            g35 d = g35.d(a2);
+            p45 d = p45.d(a2);
             d.B(R.dimen.T_X09);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0101);

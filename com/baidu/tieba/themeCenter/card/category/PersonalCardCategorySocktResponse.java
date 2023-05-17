@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.card.category;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dw9;
-import com.baidu.tieba.lw9;
+import com.baidu.tieba.fy9;
+import com.baidu.tieba.ny9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,13 +17,13 @@ import tbclient.Error;
 import tbclient.GetCardByCategory.DataRes;
 import tbclient.GetCardByCategory.GetCardByCategoryResIdl;
 import tbclient.GetCardByCategory.ThemeCardInMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<dw9> mCardCategoryList;
-    public lw9 mRecommand;
+    public List<fy9> mCardCategoryList;
+    public ny9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategorySocktResponse() {
@@ -69,18 +69,18 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
                 this.hasMore = false;
             }
             if (getCardByCategoryResIdl.data.recommend != null) {
-                lw9 lw9Var = new lw9();
-                this.mRecommand = lw9Var;
-                lw9Var.d(getCardByCategoryResIdl.data.recommend);
+                ny9 ny9Var = new ny9();
+                this.mRecommand = ny9Var;
+                ny9Var.d(getCardByCategoryResIdl.data.recommend);
             }
             List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
             if (list != null && list.size() > 0) {
                 this.mCardCategoryList = new ArrayList();
                 for (ThemeCardInMain themeCardInMain : list) {
                     if (themeCardInMain != null) {
-                        dw9 dw9Var = new dw9();
-                        dw9Var.c(themeCardInMain);
-                        this.mCardCategoryList.add(dw9Var);
+                        fy9 fy9Var = new fy9();
+                        fy9Var.c(themeCardInMain);
+                        this.mCardCategoryList.add(fy9Var);
                     }
                 }
             }
@@ -89,7 +89,7 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public List<dw9> getCardCategoryList() {
+    public List<fy9> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -98,13 +98,13 @@ public class PersonalCardCategorySocktResponse extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public lw9 getRecommand() {
+    public ny9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (lw9) invokeV.objValue;
+        return (ny9) invokeV.objValue;
     }
 
     public boolean isHasMore() {

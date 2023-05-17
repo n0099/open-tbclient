@@ -1,5 +1,5 @@
 package com.baidu.searchbox.aperf.param.dye;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IDyeConfig {
     String getDyeConfig();
 }

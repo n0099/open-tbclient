@@ -24,7 +24,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.sapi2.SapiWebView;
 import com.qq.e.comm.constants.Constants;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
@@ -41,7 +40,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ImageActivity extends Activity {
     public RelativeLayout a;
     public QQToken b;
@@ -190,7 +189,7 @@ public class ImageActivity extends Activity {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class QQAvatarImp extends BaseApi {
         public QQAvatarImp(QQToken qQToken) {
             super(qQToken);
@@ -209,7 +208,7 @@ public class ImageActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends View {
         public a(Context context) {
             super(context);
@@ -331,7 +330,7 @@ public class ImageActivity extends Activity {
         int a4 = com.tencent.connect.avatar.a.a(this, 7.0f);
         this.g = new Button(this);
         this.g.setLayoutParams(new RelativeLayout.LayoutParams(com.tencent.connect.avatar.a.a(this, 78.0f), com.tencent.connect.avatar.a.a(this, 45.0f)));
-        this.g.setText(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL);
+        this.g.setText("取消");
         this.g.setTextColor(-1);
         this.g.setTextSize(18.0f);
         this.g.setPadding(a3, a4, a3, a4);

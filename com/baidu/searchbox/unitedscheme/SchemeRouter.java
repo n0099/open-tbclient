@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class SchemeRouter {
     public static boolean invoke(Context context, String str) {
         if (UnitedSchemeUtility.isUnitedScheme(str)) {
@@ -53,6 +53,18 @@ public class SchemeRouter {
         }
         UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
         UnitedSchemeEntity unitedSchemeEntity = new UnitedSchemeEntity(uri, str);
+        unitedSchemeEntity.setOnlyVerify(false);
+        return unitedSchemeMainDispatcher.dispatch(context, unitedSchemeEntity, callbackHandler);
+    }
+
+    public static boolean invokeScheme(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        if (unitedSchemeEntity == null || unitedSchemeEntity.getUri() == null || !UnitedSchemeUtility.isUnitedScheme(unitedSchemeEntity.getUri())) {
+            return false;
+        }
+        if (context == null) {
+            context = SchemeConfig.getAppContext();
+        }
+        UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
         unitedSchemeEntity.setOnlyVerify(false);
         return unitedSchemeMainDispatcher.dispatch(context, unitedSchemeEntity, callbackHandler);
     }

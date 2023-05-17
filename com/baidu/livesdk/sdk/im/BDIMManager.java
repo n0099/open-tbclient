@@ -14,7 +14,7 @@ import com.baidu.livesdk.api.im.IMManager;
 import com.baidu.livesdk.api.im.LoginListener;
 import com.baidu.livesdk.api.im.LogoutListener;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDIMManager implements IMManager {
     public Context mContext;
 

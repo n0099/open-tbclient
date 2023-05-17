@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bp extends aj.a {
     public Context a;
 
@@ -11,12 +11,12 @@ public class bp extends aj.a {
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.a).m106a().isEventUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.a).m125a().isEventUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a  reason: collision with other method in class */
-    public String mo221a() {
+    public String mo240a() {
         return "100886";
     }
 
@@ -25,7 +25,7 @@ public class bp extends aj.a {
         try {
             if (a()) {
                 com.xiaomi.channel.commonutils.logger.b.c(this.a.getPackageName() + " begin upload event");
-                com.xiaomi.clientreport.manager.a.a(this.a).m108b();
+                com.xiaomi.clientreport.manager.a.a(this.a).m127b();
             }
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

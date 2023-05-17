@@ -1,42 +1,101 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class ye2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class ye2 implements xe2 {
     public static /* synthetic */ Interceptable $ic;
-    public static Uri a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final re2 b;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.xe2
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
-            } catch (Exception e) {
-                x42.d("SwanLaunchBehaviorTable", "createTable", e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @NonNull
-    public static synchronized Uri b() {
-        InterceptResult invokeV;
-        Uri uri;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ye2.class) {
-                if (a == null) {
-                    a = we2.c.buildUpon().appendPath("user_behavior").build();
-                }
-                uri = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327203, "Lcom/baidu/tieba/ye2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return uri;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948327203, "Lcom/baidu/tieba/ye2;");
+                return;
+            }
         }
-        return (Uri) invokeV.objValue;
+        c = qp1.a;
+    }
+
+    @Override // com.baidu.tieba.xe2
+    public re2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (re2) invokeV.objValue;
+    }
+
+    public ye2(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = i >= 20 ? Math.min(i, 300) : 20;
+        this.b = new ue2(10);
+    }
+
+    @Override // com.baidu.tieba.xe2
+    public boolean c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
+            if (c) {
+                Log.d("LocalLruStrategy", "prelink url - " + str3);
+            }
+            se2 a = this.b.a(str2, str3);
+            boolean z = true;
+            if (a == null) {
+                if (c) {
+                    Log.d("LocalLruStrategy", "url not in LRU, do prelink");
+                }
+                return true;
+            }
+            if (System.currentTimeMillis() - a.b < this.a * 1000) {
+                z = false;
+            }
+            if (c) {
+                Log.d("LocalLruStrategy", "url in LRU, time is out - " + z);
+            }
+            return z;
+        }
+        return invokeLLL.booleanValue;
     }
 }

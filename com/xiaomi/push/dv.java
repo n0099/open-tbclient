@@ -3,10 +3,10 @@ package com.xiaomi.push;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class dv {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends e {
 
         /* renamed from: a  reason: collision with other field name */
@@ -53,21 +53,21 @@ public final class dv {
         @Override // com.xiaomi.push.e
         public a a(b bVar) {
             while (true) {
-                int m189a = bVar.m189a();
-                if (m189a == 0) {
+                int m208a = bVar.m208a();
+                if (m208a == 0) {
                     return this;
                 }
-                if (m189a == 8) {
+                if (m208a == 8) {
                     a(bVar.c());
-                } else if (m189a == 16) {
-                    a(bVar.m195a());
-                } else if (m189a == 24) {
-                    b(bVar.m198b());
-                } else if (m189a == 32) {
-                    b(bVar.m195a());
-                } else if (m189a == 42) {
-                    a(bVar.m192a());
-                } else if (!a(bVar, m189a)) {
+                } else if (m208a == 16) {
+                    a(bVar.m214a());
+                } else if (m208a == 24) {
+                    b(bVar.m217b());
+                } else if (m208a == 32) {
+                    b(bVar.m214a());
+                } else if (m208a == 42) {
+                    a(bVar.m211a());
+                } else if (!a(bVar, m208a)) {
                     return this;
                 }
             }
@@ -93,53 +93,53 @@ public final class dv {
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public List<String> m290a() {
+        public List<String> m309a() {
             return this.f238a;
         }
 
         @Override // com.xiaomi.push.e
         public void a(c cVar) {
-            if (m291a()) {
-                cVar.m245b(1, c());
+            if (m310a()) {
+                cVar.m264b(1, c());
             }
-            if (m293c()) {
-                cVar.m237a(2, m292b());
+            if (m312c()) {
+                cVar.m256a(2, m311b());
             }
-            if (m294d()) {
-                cVar.m232a(3, d());
+            if (m313d()) {
+                cVar.m251a(3, d());
             }
             if (f()) {
-                cVar.m237a(4, m295e());
+                cVar.m256a(4, m314e());
             }
-            for (String str : m290a()) {
-                cVar.m236a(5, str);
+            for (String str : m309a()) {
+                cVar.m255a(5, str);
             }
         }
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()I */
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.a()[B */
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m291a() {
+        public boolean m310a() {
             return this.f239a;
         }
 
         @Override // com.xiaomi.push.e
         public int b() {
             int i = 0;
-            int b = m291a() ? c.b(1, c()) + 0 : 0;
-            if (m293c()) {
-                b += c.a(2, m292b());
+            int b = m310a() ? c.b(1, c()) + 0 : 0;
+            if (m312c()) {
+                b += c.a(2, m311b());
             }
-            if (m294d()) {
+            if (m313d()) {
                 b += c.a(3, d());
             }
             if (f()) {
-                b += c.a(4, m295e());
+                b += c.a(4, m314e());
             }
-            for (String str : m290a()) {
+            for (String str : m309a()) {
                 i += c.a(str);
             }
-            int size = b + i + (m290a().size() * 1);
+            int size = b + i + (m309a().size() * 1);
             this.c = size;
             return size;
         }
@@ -158,7 +158,7 @@ public final class dv {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.e.b()I */
         /* renamed from: b  reason: collision with other method in class */
-        public boolean m292b() {
+        public boolean m311b() {
             return this.f241c;
         }
 
@@ -167,7 +167,7 @@ public final class dv {
         }
 
         /* renamed from: c  reason: collision with other method in class */
-        public boolean m293c() {
+        public boolean m312c() {
             return this.f240b;
         }
 
@@ -176,7 +176,7 @@ public final class dv {
         }
 
         /* renamed from: d  reason: collision with other method in class */
-        public boolean m294d() {
+        public boolean m313d() {
             return this.d;
         }
 
@@ -185,7 +185,7 @@ public final class dv {
         }
 
         /* renamed from: e  reason: collision with other method in class */
-        public boolean m295e() {
+        public boolean m314e() {
             return this.f;
         }
 

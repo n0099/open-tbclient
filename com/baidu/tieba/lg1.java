@@ -1,162 +1,127 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class lg1 {
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+/* loaded from: classes6.dex */
+public class lg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941811, "Lcom/baidu/tieba/lg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947941811, "Lcom/baidu/tieba/lg1;");
-                return;
-            }
-        }
-        b = new JSONObject();
-    }
-
-    public static final void a(String str, long j) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
+    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        ?? r3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
             try {
-                if (b == null) {
-                    b = new JSONObject();
+                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
+                try {
+                    try {
+                        bitmap = BitmapFactory.decodeStream(r3);
+                        mh1.a(new Closeable[]{r3});
+                    } catch (Exception e) {
+                        e = e;
+                        e.printStackTrace();
+                        mh1.a(new Closeable[]{r3});
+                        return bitmap;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bitmap = r3;
+                    mh1.a(new Closeable[]{bitmap});
+                    throw th;
                 }
-                JSONObject jSONObject = b;
-                if (jSONObject != null) {
-                    jSONObject.put(str, j);
-                }
-            } catch (Exception unused) {
-                yg1.g("add panelShow json error");
+            } catch (Exception e2) {
+                e = e2;
+                r3 = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                mh1.a(new Closeable[]{bitmap});
+                throw th;
             }
+            return bitmap;
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public static final void b(String str, String str2, String str3) {
+    public static boolean b(String str, OutputStream outputStream) {
+        InterceptResult invokeLL;
+        Throwable th;
+        BufferedOutputStream bufferedOutputStream;
+        IOException e;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) == null) {
+            BufferedInputStream bufferedInputStream2 = null;
             try {
-                jSONObject.put("exceptionCode", 3);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("errno", str2);
+                bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
+                try {
+                    bufferedOutputStream = new BufferedOutputStream(outputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    bufferedOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedOutputStream = null;
                 }
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject.put("errmsg", str3);
-                }
-            } catch (Exception unused) {
+            } catch (IOException e3) {
+                e = e3;
+                bufferedOutputStream = null;
+            } catch (Throwable th3) {
+                th = th3;
+                bufferedOutputStream = null;
             }
-            mg1 mg1Var = new mg1(str);
-            mg1Var.c(jSONObject);
-            pg1.e(mg1Var);
-        }
-    }
-
-    public static final void c(String str, HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
-            if (hashMap != null) {
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-                mg1 mg1Var = new mg1(str);
-                mg1Var.c(jSONObject);
-                pg1.e(mg1Var);
-                return;
-            }
-            pg1.e(new mg1(str));
-        }
-    }
-
-    public static final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && a > 0) {
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("3", a);
-                jSONObject.put("4", System.currentTimeMillis());
-            } catch (Exception unused) {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = bufferedInputStream.read(bArr);
+                    if (read != -1) {
+                        bufferedOutputStream.write(bArr, 0, read);
+                    } else {
+                        mh1.a(bufferedInputStream, bufferedOutputStream);
+                        return true;
+                    }
+                }
+            } catch (IOException e4) {
+                e = e4;
+                bufferedInputStream2 = bufferedInputStream;
+                try {
+                    e.printStackTrace();
+                    mh1.a(bufferedInputStream2, bufferedOutputStream);
+                    return false;
+                } catch (Throwable th4) {
+                    th = th4;
+                    mh1.a(bufferedInputStream2, bufferedOutputStream);
+                    throw th;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                bufferedInputStream2 = bufferedInputStream;
+                mh1.a(bufferedInputStream2, bufferedOutputStream);
+                throw th;
             }
-            mg1 mg1Var = new mg1(Constants.DEFAULT_UIN);
-            mg1Var.c(jSONObject);
-            pg1.e(mg1Var);
-            a = 0L;
-        }
-    }
-
-    public static final void e() {
-        JSONObject jSONObject;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (jSONObject = b) != null) {
-            if (jSONObject != null) {
-                i = jSONObject.length();
-            } else {
-                i = 0;
-            }
-            if (i > 0) {
-                a("2", System.currentTimeMillis());
-                mg1 mg1Var = new mg1(Constants.DEFAULT_UIN);
-                mg1Var.c(b);
-                pg1.e(mg1Var);
-                b = null;
-            }
-        }
-    }
-
-    public static final void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
-            a = j;
-        }
-    }
-
-    public static final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("exceptionCode", 0);
-            } catch (Exception unused) {
-            }
-            mg1 mg1Var = new mg1(str);
-            mg1Var.c(jSONObject);
-            pg1.e(mg1Var);
-        }
-    }
-
-    public static final void g(int i, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("exceptionType", i);
-            jSONObject.put("payChannel", str2);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
-            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
-            mg1 mg1Var = new mg1(str);
-            mg1Var.c(jSONObject);
-            pg1.e(mg1Var);
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

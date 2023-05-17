@@ -2,7 +2,7 @@ package protobuf.LogStat;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DataReq extends Message {
     public static final String DEFAULT_STEXT = "";
     public static final String DEFAULT_STTYPE = "";
@@ -11,7 +11,7 @@ public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String stType;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public String stExt;
         public String stType;

@@ -1,62 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromotCommentList;
-/* loaded from: classes3.dex */
-public class ao9 {
+/* loaded from: classes4.dex */
+public class ao9 extends ix4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622046, "Lcom/baidu/tieba/ao9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947622046, "Lcom/baidu/tieba/ao9;");
+                return;
+            }
+        }
+        c = TbConfig.SERVER_ADDRESS + TbConfig.FORUM_SQUARE;
+    }
 
     public ao9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public String a() {
+    public long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.c;
+            }
+            return 0L;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public boolean b() {
+    public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == 1) {
-                return true;
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                return netWork.getNetContext().getStat().stat.d;
             }
-            return false;
+            return 0L;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public void c(BusinessPromotCommentList businessPromotCommentList) {
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromotCommentList) != null) || businessPromotCommentList == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            f(c);
+            return d();
         }
-        this.a = businessPromotCommentList.title;
-        String str = businessPromotCommentList.username;
-        businessPromotCommentList.uid.longValue();
-        this.b = businessPromotCommentList.is_lz.intValue();
+        return (String) invokeV.objValue;
     }
 }

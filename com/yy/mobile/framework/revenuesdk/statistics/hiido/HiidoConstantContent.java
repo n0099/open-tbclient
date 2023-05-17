@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HiidoConstantContent {
     public static String ACT_LPF_REVENUE_PAY_ORIGINAL = "lpfrevenuepayoriginal";
     public static String mAppKey = "aa065bf52c62a7834472a56e06c40b58";

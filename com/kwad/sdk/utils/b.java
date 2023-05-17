@@ -6,7 +6,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static boolean a(long j, long j2) {
         if (j > 0 && j2 > 0) {

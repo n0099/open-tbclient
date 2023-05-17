@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class i {
     public volatile m a;
     public int b;

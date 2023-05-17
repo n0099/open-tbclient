@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.baidu.searchbox.crius.ui.CriusUI;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusUILayout extends CriusUI<CriusLayout> {
     public CriusUILayout(Context context, CriusData criusData) {
         super(context, criusData);

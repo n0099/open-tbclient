@@ -1,52 +1,105 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.media.AudioManager;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class vi3 {
+/* loaded from: classes7.dex */
+public class vi3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
 
-    public vi3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vi3(da3 da3Var) {
+        super(da3Var, "/swanAPI/getMediaVolumeSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @NonNull
-    public static vi3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            vi3 vi3Var = new vi3();
-            if (jSONObject == null) {
-                return vi3Var;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                g62.c("getMediaVolumeSync", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (db3.b) {
+                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                g62.c("getMediaVolumeSync", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (db3.b) {
+                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
+                }
+                return false;
+            } else {
+                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
+                if (audioManager == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
+                    if (db3.b) {
+                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
+                    }
+                    return false;
+                }
+                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
+                int streamVolume = audioManager.getStreamVolume(3);
+                if (streamMaxVolume <= 0) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
+                    if (db3.b) {
+                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
+                    }
+                    return false;
+                }
+                double d = streamVolume / streamMaxVolume;
+                if (d < 0.0d) {
+                    d = 0.0d;
+                } else if (d > 1.0d) {
+                    d = 1.0d;
+                }
+                if (db3.b) {
+                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("value", d);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+                    return true;
+                } catch (JSONException unused) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
+                    if (db3.b) {
+                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
+                    }
+                    return false;
+                }
             }
-            vi3Var.a = jSONObject.optString("SSID");
-            vi3Var.b = jSONObject.optString("BSSID");
-            vi3Var.e = jSONObject.optBoolean("maunal");
-            vi3Var.d = jSONObject.optString(com.baidu.sapi2.views.logindialog.view.a.m);
-            vi3Var.c = jSONObject.optString("identity");
-            return vi3Var;
         }
-        return (vi3) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

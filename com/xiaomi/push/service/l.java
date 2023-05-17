@@ -9,7 +9,7 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.ServiceInfo;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static ComponentName a(Context context, Intent intent) {
         if (intent != null) {
@@ -49,7 +49,7 @@ public class l {
             }
             return false;
         } catch (PackageManager.NameNotFoundException e) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("checkService " + e);
+            com.xiaomi.channel.commonutils.logger.b.m120a("checkService " + e);
             return false;
         }
     }
@@ -65,7 +65,7 @@ public class l {
             }
             return false;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+            com.xiaomi.channel.commonutils.logger.b.m120a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
             return false;
         }
     }
@@ -82,7 +82,7 @@ public class l {
                 }
             }
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("checkProvider " + e);
+            com.xiaomi.channel.commonutils.logger.b.m120a("checkProvider " + e);
         }
         return z;
     }
@@ -94,7 +94,7 @@ public class l {
             intent.setPackage(str);
             return packageManager.resolveActivity(intent, 65536) != null;
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+            com.xiaomi.channel.commonutils.logger.b.m120a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
             return false;
         }
     }

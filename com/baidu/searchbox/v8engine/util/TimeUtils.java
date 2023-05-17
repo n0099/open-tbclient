@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TimeUtils {
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
     public static final long NANOS_PER_MS = 1000000;

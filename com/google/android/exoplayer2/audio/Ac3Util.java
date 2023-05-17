@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Ac3Util {
     public static final int AC3_SYNCFRAME_AUDIO_SAMPLE_COUNT = 1536;
     public static final int AUDIO_SAMPLES_PER_AUDIO_BLOCK = 256;
@@ -27,7 +27,7 @@ public final class Ac3Util {
         return 1536;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Ac3SyncFrameInfo {
         public static final int STREAM_TYPE_TYPE0 = 0;
         public static final int STREAM_TYPE_TYPE1 = 1;

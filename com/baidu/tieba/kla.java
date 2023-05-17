@@ -1,204 +1,95 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.NinePatch;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ala;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.Div;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class kla {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class kla extends gla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(TextWordsEntity.TextStyleEntity textStyleEntity) {
+    @Override // com.baidu.tieba.gla
+    public Map<String, String> f(lla llaVar) {
         InterceptResult invokeL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textStyleEntity)) == null) {
-            if (textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null || !styleBackgroudInfoEntity.isLoaded()) {
-                return null;
-            }
-            return ila.f(styleBackgroudInfoEntity.getSourceFile().getAbsolutePath());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, llaVar)) == null) {
+            return null;
         }
-        return (Bitmap) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public static void b(Bitmap bitmap, NinePatchChunk ninePatchChunk, Canvas canvas, int i) {
+    @Override // com.baidu.tieba.gla
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, ninePatchChunk, canvas, i) == null) || bitmap == null || ninePatchChunk == null || !NinePatch.isNinePatchChunk(ninePatchChunk.toBytes())) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 200;
         }
-        new NinePatch(bitmap, ninePatchChunk.toBytes(), null).draw(canvas, new Rect(i, i, canvas.getWidth() - i, canvas.getHeight() - i));
-        bitmap.recycle();
+        return invokeV.intValue;
     }
 
-    public static void c(TextPaint textPaint, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        TextWordsEntity.StyleShadowInfoEntity styleShadowInfoEntity;
-        int i;
+    @Override // com.baidu.tieba.gla
+    public void j(lla llaVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, textPaint, textStyleEntity, textColorEntity) == null) || textStyleEntity == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, llaVar) == null) {
         }
-        List<TextWordsEntity.StyleShadowInfoEntity> list = textStyleEntity.mShadowInfoList;
-        if (mla.e(list) || (styleShadowInfoEntity = list.get(0)) == null) {
-            return;
-        }
-        int i2 = i(styleShadowInfoEntity.mShadowColor, styleShadowInfoEntity.mShadowAlpha);
-        if (textColorEntity != null && ((i = textStyleEntity.mTextStyleType) == 1 || i == 5)) {
-            i2 = textColorEntity.mColorInfo;
-        }
-        textPaint.setShadowLayer(ama.a(Integer.parseInt(styleShadowInfoEntity.mShadowBlur)), ama.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetX)), ama.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetY)), i2);
     }
 
-    public static int[] d(TextPaint textPaint, TextPaint textPaint2, TextPaint textPaint3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.gla
+    public void n(lla llaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, textPaint, textPaint2, textPaint3, textStyleEntity, textColorEntity)) == null) {
-            int[] iArr = new int[2];
-            if (textStyleEntity == null) {
-                return iArr;
-            }
-            List<TextWordsEntity.StyleStrokeInfoEntity> list = textStyleEntity.mStrokeInfoList;
-            if (mla.e(list)) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity = list.get(0);
-            if (styleStrokeInfoEntity != null) {
-                textPaint2.setTextSize(textPaint.getTextSize());
-                textPaint2.setFlags(textPaint.getFlags());
-                textPaint2.setAlpha(textPaint.getAlpha());
-                textPaint2.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint2.setTextSkewX(textPaint.getTextSkewX());
-                int i = i(styleStrokeInfoEntity.mStrokeColor, styleStrokeInfoEntity.mStrokeAlpha);
-                if (textColorEntity != null && textStyleEntity.mTextStyleType == 2) {
-                    i = textColorEntity.mColorInfo;
-                }
-                textPaint2.setStyle(Paint.Style.STROKE);
-                textPaint2.setColor(i);
-                textPaint2.setStrokeWidth(ama.a(Integer.parseInt(styleStrokeInfoEntity.mStrokeWidth)));
-            }
-            iArr[0] = 1;
-            if (list.size() <= 1) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity2 = list.get(1);
-            if (styleStrokeInfoEntity2 != null) {
-                textPaint3.setTextSize(textPaint.getTextSize());
-                textPaint3.setFlags(textPaint.getFlags());
-                textPaint3.setAlpha(textPaint.getAlpha());
-                textPaint3.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint3.setTextSkewX(textPaint.getTextSkewX());
-                textPaint3.setStyle(Paint.Style.STROKE);
-                textPaint3.setColor(i(styleStrokeInfoEntity2.mStrokeColor, styleStrokeInfoEntity2.mStrokeAlpha));
-                textPaint3.setStrokeWidth(ama.a(Integer.parseInt(styleStrokeInfoEntity2.mStrokeWidth)));
-            }
-            iArr[1] = 1;
-            return iArr;
+        if (interceptable == null || interceptable.invokeL(1048581, this, llaVar) == null) {
         }
-        return (int[]) invokeLLLLL.objValue;
     }
 
-    public static void e(Canvas canvas, TextPaint textPaint, int i, int i2, int i3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        int i4;
-        LinearGradient linearGradient;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kla(dla dlaVar, lla llaVar, ala.a aVar) {
+        super(dlaVar, llaVar, aVar);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{canvas, textPaint, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textStyleEntity, textColorEntity}) == null) || textStyleEntity == null) {
-            return;
-        }
-        List<TextWordsEntity.StyleTextInfoEntity> list = textStyleEntity.mTextInfoList;
-        if (mla.e(list)) {
-            return;
-        }
-        if (TextUtils.equals(textStyleEntity.mTextType, "0") || list.size() > 1) {
-            if (TextUtils.equals(textStyleEntity.mTextType, "1")) {
-                linearGradient = new LinearGradient(0.0f, i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
-            } else if (!TextUtils.equals(textStyleEntity.mTextType, "2")) {
-                int h = h(list.get(0));
-                if (textColorEntity != null && ((i4 = textStyleEntity.mTextStyleType) == 1 || i4 == 2 || i4 == 3)) {
-                    h = textColorEntity.mColorInfo;
-                }
-                textPaint.setColor(h);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dlaVar, llaVar, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((dla) objArr2[0], (lla) objArr2[1], (ala.a) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            } else {
-                linearGradient = new LinearGradient(canvas.getWidth(), i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            textPaint.setShader(linearGradient);
         }
     }
 
-    public static NinePatchChunk f(Bitmap bitmap, TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeLL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
+    @Override // com.baidu.tieba.gla
+    public RandomAccessFile e(File file, String str, long j) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bitmap, textStyleEntity)) == null) {
-            if (bitmap == null || textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null) {
-                return null;
-            }
-            NinePatchChunk ninePatchChunk = new NinePatchChunk();
-            ArrayList<Div> arrayList = styleBackgroudInfoEntity.mStretchableX;
-            ArrayList<Div> arrayList2 = styleBackgroudInfoEntity.mStretchableY;
-            ninePatchChunk.xDivs = arrayList;
-            ninePatchChunk.yDivs = arrayList2;
-            Rect rect = new Rect();
-            ninePatchChunk.padding = rect;
-            rect.left = styleBackgroudInfoEntity.mBackgroudLeft;
-            rect.top = styleBackgroudInfoEntity.mBackgroudTop;
-            rect.right = styleBackgroudInfoEntity.mBackgroudRight;
-            rect.bottom = styleBackgroudInfoEntity.mBackgroudBottom;
-            NinePatchChunk.createColors(bitmap, ninePatchChunk);
-            return ninePatchChunk;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
+            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
+            randomAccessFile.seek(0L);
+            return randomAccessFile;
         }
-        return (NinePatchChunk) invokeLL.objValue;
+        return (RandomAccessFile) invokeCommon.objValue;
     }
 
-    public static int g(TextPaint textPaint) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gla
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textPaint)) == null) {
-            Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
-            return Math.abs(fontMetricsInt.ascent) + Math.abs(fontMetricsInt.descent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return kla.class.getSimpleName();
         }
-        return invokeL.intValue;
-    }
-
-    public static int h(TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, styleTextInfoEntity)) == null) {
-            if (styleTextInfoEntity == null) {
-                return 0;
-            }
-            return i(styleTextInfoEntity.mTextColor, styleTextInfoEntity.mTextAlpha);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeLL.intValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.bytedance.pangle.util;
 
 import android.os.Build;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class h {
     public static boolean a() {
         if (Build.VERSION.SDK_INT >= 21) {

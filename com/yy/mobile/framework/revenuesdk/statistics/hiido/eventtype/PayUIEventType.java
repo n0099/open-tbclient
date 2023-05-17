@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PayUIEventType {
     public static final String failpagecallnum = "failpagecallnum";
     public static final String failpageclose = "failpageclose";

@@ -7,17 +7,18 @@ import android.net.Uri;
 import android.os.Build;
 import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebView;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.kwad.components.core.webview.KsAdWebView;
 import com.kwad.sdk.core.report.u;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends com.kwad.components.core.webview.kwai.a {
     public long KK;
     public boolean KQ;
     public a gX;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public boolean KN;
         public KsAdWebView.b KR;
@@ -215,7 +216,7 @@ public final class c extends com.kwad.components.core.webview.kwai.a {
                 }
                 return true;
             }
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
             if (this.gX != null) {
                 this.gX.getContext().startActivity(intent);
             }

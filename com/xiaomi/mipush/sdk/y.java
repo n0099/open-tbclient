@@ -2,7 +2,7 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class y implements Runnable {
     public final /* synthetic */ Context a;
 
@@ -19,7 +19,7 @@ public final class y implements Runnable {
         try {
             this.a.startService(this.f91a);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.m101a(e.getMessage());
+            com.xiaomi.channel.commonutils.logger.b.m120a(e.getMessage());
         }
     }
 }

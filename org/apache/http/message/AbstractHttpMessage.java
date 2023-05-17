@@ -5,7 +5,7 @@ import org.apache.http.HeaderIterator;
 import org.apache.http.HttpMessage;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractHttpMessage implements HttpMessage {
     public HeaderGroup headergroup;
     public HttpParams params;

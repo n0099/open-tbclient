@@ -17,8 +17,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
-public class SilentDownloaderManager implements a.InterfaceC0089a {
+/* loaded from: classes3.dex */
+public class SilentDownloaderManager implements a.InterfaceC0092a {
     public static volatile SilentDownloaderManager a;
     public static volatile boolean d;
     public Context c;
@@ -31,7 +31,7 @@ public class SilentDownloaderManager implements a.InterfaceC0089a {
     public HashMap<String, String> k = new HashMap<>();
     public Map<String, String> j = new HashMap();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         CORE,
         LIBS_INFO_DEF_PRO,
@@ -222,11 +222,11 @@ public class SilentDownloaderManager implements a.InterfaceC0089a {
         return a;
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0089a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0092a
     public void a(String str, long j) {
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0089a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0092a
     public void a(String str, long j, int i, String str2) {
         CyberLog.i("SilentDownloaderManager", "onDownloadFail srcUrl:" + str + " detail:" + str2);
         this.i = false;
@@ -239,11 +239,11 @@ public class SilentDownloaderManager implements a.InterfaceC0089a {
         e("detail", str2);
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0089a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0092a
     public void a(String str, long j, long j2) {
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0089a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0092a
     public void a(String str, long j, ArrayList<String> arrayList) {
         CyberLog.i("SilentDownloaderManager", "onDownloadSuccess:" + arrayList);
         int i = this.b + 1;

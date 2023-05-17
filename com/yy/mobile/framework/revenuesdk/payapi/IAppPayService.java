@@ -17,15 +17,15 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParam
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IAppPayService {
     void addPayListener(IAppPayServiceListener iAppPayServiceListener);
 
     void cancelAllRequest();
 
-    IPayServiceStatistics getPayServiceStatistics();
+    IPayServiceStatisticsApi getPayServiceStatistics();
 
     boolean isSupported(@NonNull Activity activity, @NonNull PayType payType);
 
@@ -44,8 +44,6 @@ public interface IAppPayService {
     void queryProductList(@NonNull QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult);
 
     void querySplitOrderConfig(GetSplitOrderConfigReqParams getSplitOrderConfigReqParams, IResult<SplitOrderConfigResult> iResult);
-
-    void registerPayServiceStatistics(IPayServiceStatistics iPayServiceStatistics);
 
     void removePayListener(IAppPayServiceListener iAppPayServiceListener);
 

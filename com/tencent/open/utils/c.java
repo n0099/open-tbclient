@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static String c;
     public String a;

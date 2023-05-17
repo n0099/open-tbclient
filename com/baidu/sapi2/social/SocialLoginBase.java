@@ -5,7 +5,7 @@ import android.widget.RelativeLayout;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static WXInvokeCallback t;
     public RelativeLayout rootView;
@@ -25,6 +25,6 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
             setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
         } catch (Throwable unused) {
         }
-        this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e46);
+        this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ea2);
     }
 }

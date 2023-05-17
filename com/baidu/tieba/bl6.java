@@ -1,26 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import android.os.Handler;
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public final class bl6 implements v17 {
+/* loaded from: classes5.dex */
+public class bl6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.v17
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_CLICK_VIDEO_TOPIC : (String) invokeV.objValue;
-    }
 
     public bl6() {
         Interceptable interceptable = $ic;
@@ -36,21 +27,30 @@ public final class bl6 implements v17 {
         }
     }
 
-    @Override // com.baidu.tieba.v17
-    public Map<String, String> a(hy6 businessInfo) {
-        InterceptResult invokeL;
+    public static Handler a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String str = businessInfo.a().get("topic_id");
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (bl6.class) {
+                    if (a == null) {
+                        a = new Handler(Looper.getMainLooper());
+                    }
+                }
             }
-            hashMap.put("topic_id", str);
-            hashMap.put("obj_locate", "4");
-            return hashMap;
+            return a;
         }
-        return (Map) invokeL.objValue;
+        return (Handler) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a().post(runnable);
+            } else {
+                runnable.run();
+            }
+        }
     }
 }

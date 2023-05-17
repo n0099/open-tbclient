@@ -15,14 +15,14 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aq9;
+import com.baidu.tieba.cs9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DragHorizonScrollView extends ViewGroup implements View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public Runnable D;
     public BaseAdapter a;
     public View b;
-    public aq9 c;
+    public cs9 c;
     public int d;
     public int e;
     public int f;
@@ -57,7 +57,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c {
     }
 
@@ -67,7 +67,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +120,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +206,7 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
             this.n = viewConfiguration.getScaledMaximumFlingVelocity();
             this.j = new Scroller(context, new LinearInterpolator());
             this.k = new Scroller(context);
-            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ef);
+            this.q = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703f7);
             this.r = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
         }
     }
@@ -316,10 +316,10 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
         }
     }
 
-    public void setDragController(aq9 aq9Var) {
+    public void setDragController(cs9 cs9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, aq9Var) == null) {
-            this.c = aq9Var;
+        if (interceptable == null || interceptable.invokeL(1048599, this, cs9Var) == null) {
+            this.c = cs9Var;
         }
     }
 
@@ -366,14 +366,14 @@ public class DragHorizonScrollView extends ViewGroup implements View.OnLongClick
 
     @Override // android.view.View
     public void computeScroll() {
-        aq9 aq9Var;
+        cs9 cs9Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.j.computeScrollOffset()) {
                 scrollTo(this.j.getCurrX(), 0);
                 postInvalidateDelayed(16L);
-                if ((this.o || this.p) && (aq9Var = this.c) != null) {
-                    aq9Var.d();
+                if ((this.o || this.p) && (cs9Var = this.c) != null) {
+                    cs9Var.d();
                     return;
                 }
                 return;

@@ -13,11 +13,11 @@ public class a extends j {
     public int cj = 720;
     public int ck = 1280;
     public boolean cl = true;
-    public InterfaceC0044a cm = null;
+    public InterfaceC0047a cm = null;
 
     /* renamed from: com.baidu.ar.anime.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public interface InterfaceC0044a {
+    public interface InterfaceC0047a {
         void b(FramePixels framePixels);
     }
 
@@ -28,8 +28,8 @@ public class a extends j {
         this.nk.setOutputHeight(this.ck);
     }
 
-    public void a(InterfaceC0044a interfaceC0044a) {
-        this.cm = interfaceC0044a;
+    public void a(InterfaceC0047a interfaceC0047a) {
+        this.cm = interfaceC0047a;
     }
 
     public void an() {
@@ -63,9 +63,9 @@ public class a extends j {
     public final boolean c(FramePixels framePixels) {
         if (this.cl) {
             this.cl = false;
-            InterfaceC0044a interfaceC0044a = this.cm;
-            if (interfaceC0044a != null) {
-                interfaceC0044a.b(framePixels);
+            InterfaceC0047a interfaceC0047a = this.cm;
+            if (interfaceC0047a != null) {
+                interfaceC0047a.b(framePixels);
                 return true;
             }
             return true;

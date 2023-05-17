@@ -1,16 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class dg2 implements nf2 {
+/* loaded from: classes5.dex */
+public class dg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public long B;
+    public long C;
+    public boolean D;
+    public int E;
+    public String F;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public String t;
+    public String u;
+    public String v;
+    public long w;
+    public int x;
+    public int y;
+    public int z;
 
     public dg2() {
         Interceptable interceptable = $ic;
@@ -22,27 +53,18 @@ public class dg2 implements nf2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
     }
 
-    @Override // com.baidu.tieba.nf2
-    public String getUserAgent() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return wj3.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanAppDbInfo{appId='" + this.a + "', appKey='" + this.b + "', errorCode=" + this.d + ", errorDetail='" + this.e + "', errorMsg='" + this.f + "', resumeDate='" + this.g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
         }
         return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nf2
-    public ff2 a(String str, cg2 cg2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, cg2Var, v8ThreadDelegatePolicy)) == null) {
-            return new jf2(str, cg2Var, v8ThreadDelegatePolicy);
-        }
-        return (ff2) invokeLLL.objValue;
     }
 }

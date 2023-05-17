@@ -1,15 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.SpannableString;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x53;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,24 +12,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.lang.ref.WeakReference;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes6.dex */
 public class k53 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
-    public static k53 e;
+    public static volatile k53 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public HashMap<String, l53> b;
-    public List<String> c;
+    public ConcurrentHashMap<String, l53<j53>> a;
+    public ConcurrentHashMap<String, Runnable> b;
+    public a c;
+
+    /* loaded from: classes6.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<k53> a;
+        public String b;
+
+        public b(k53 k53Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k53Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(k53Var);
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            k53 k53Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (k53Var = this.a.get()) == null) {
+                return;
+            }
+            if (k53.d) {
+                Log.d("MDelegate-Observe", "run: observer timeout " + this.b);
+            }
+            j53 j53Var = new j53(this.b);
+            j53Var.setResult(null);
+            k53Var.c(j53Var);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +106,23 @@ public class k53 {
                 return;
             }
         }
-        d = ho1.a;
+        d = qp1.a;
+    }
+
+    public static k53 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (k53.class) {
+                    if (e == null) {
+                        e = new k53();
+                    }
+                }
+            }
+            return e;
+        }
+        return (k53) invokeV.objValue;
     }
 
     public k53() {
@@ -65,156 +138,120 @@ public class k53 {
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new ArrayList();
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+        this.c = new a(Looper.getMainLooper());
     }
 
-    public static k53 c() {
-        InterceptResult invokeV;
+    public void c(@NonNull j53 j53Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (k53.class) {
-                    if (e == null) {
-                        e = new k53();
-                    }
-                }
-            }
-            return e;
-        }
-        return (k53) invokeV.objValue;
-    }
-
-    public List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.c;
-            if (list != null && list.size() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
-        l53 l53Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, l53> hashMap = this.b;
-            if (hashMap != null && (l53Var = hashMap.get(str)) != null) {
-                return l53Var.a();
-            }
-            return null;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "get emoji info from " + str);
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String E = bo4.E(new File(str + File.separator + "emoji.json"));
-                if (TextUtils.isEmpty(E)) {
-                    if (d) {
-                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, j53Var) == null) {
+            l53<j53> l53Var = this.a.get(j53Var.b());
+            if (l53Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "notify a null observer");
                     return;
                 }
-                try {
-                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
-                    if (optJSONArray == null) {
-                        return;
-                    }
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    if (optJSONObject == null) {
-                        return;
-                    }
-                    String optString = optJSONObject.optString("package_icon");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.c.clear();
-                    this.b.clear();
-                    if (optJSONArray2 != null) {
-                        int length = optJSONArray2.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
-                            String optString2 = jSONObject.optString("id");
-                            String optString3 = jSONObject.optString("text");
-                            String optString4 = jSONObject.optString("icon");
-                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
-                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.c.add(optString3);
-                                this.b.put(optString3, new l53(optString2, optString3, decodeFile));
-                            }
-                        }
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                return;
+            }
+            String b2 = l53Var.b();
+            if (d) {
+                Log.d("MDelegate-Observe", "notify observer: " + b2);
+            }
+            l53Var.onEvent(j53Var);
+            if (this.b.containsKey(b2)) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + b2 + " timeout runnable");
                 }
-            } else if (d) {
-                Log.d("EmojiInfoManager", "文件路径错误");
+                this.c.removeCallbacks(this.b.get(b2));
+                this.b.remove(b2);
+            }
+            if (l53Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "auto unregister disposable observer: " + b2);
+                }
+                f(l53Var);
             }
         }
     }
 
-    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLL;
-        Object aVar;
+    public void e(l53<j53> l53Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l53Var) == null) {
+            if (l53Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "register a null observer");
+                    return;
+                }
+                return;
+            }
+            String b2 = l53Var.b();
+            if (this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "multiple register observer：" + b2);
+                    return;
+                }
+                return;
+            }
             if (d) {
-                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
+                Log.d("MDelegate-Observe", "register observer: " + b2);
             }
-            SpannableString spannableString = new SpannableString(charSequence);
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            while (matcher.find()) {
-                String group = matcher.group();
-                int start = matcher.start();
-                Bitmap a = c().a(group);
-                if (a == null) {
-                    break;
+            this.a.put(b2, l53Var);
+            long a2 = l53Var.a();
+            if (a2 > 0 && l53Var.c()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "post observer: " + b2 + " " + a2 + "ms timeout runnable");
                 }
-                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
-                if (createScaledBitmap != null) {
-                    if (textView instanceof EditText) {
-                        aVar = new x53.b(context.getApplicationContext(), createScaledBitmap);
-                    } else {
-                        aVar = new x53.a(context.getApplicationContext(), createScaledBitmap);
-                    }
-                    spannableString.setSpan(aVar, start, group.length() + start, 33);
-                }
+                b bVar = new b(this, b2);
+                this.b.put(b2, bVar);
+                this.c.postDelayed(bVar, a2);
             }
-            return spannableString;
         }
-        return (SpannableString) invokeLLL.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (d) {
+                Log.d("MDelegate-Observe", "release observable");
+            }
+            if (e == null) {
+                return;
+            }
+            this.a.clear();
+            for (Map.Entry<String, Runnable> entry : this.b.entrySet()) {
+                if (d) {
+                    Log.d("MDelegate-Observe", "remove observer: " + entry.getKey() + " timeout runnable");
+                }
+                this.c.removeCallbacks(entry.getValue());
+            }
+            this.b.clear();
+            e = null;
+        }
+    }
+
+    public void f(l53<j53> l53Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, l53Var) == null) {
+            if (l53Var == null) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a null observer");
+                    return;
+                }
+                return;
+            }
+            String b2 = l53Var.b();
+            if (!this.a.containsKey(b2)) {
+                if (d) {
+                    Log.e("MDelegate-Observe", "unregister a nonexistent observer");
+                    return;
+                }
+                return;
+            }
+            if (d) {
+                Log.d("MDelegate-Observe", "unregister observer: " + b2);
+            }
+            this.a.remove(b2);
+        }
     }
 }

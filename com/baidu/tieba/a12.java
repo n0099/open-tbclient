@@ -1,64 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class a12 extends u02 {
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+/* loaded from: classes4.dex */
+public class a12 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, t02> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a12(u83 u83Var) {
-        super(u83Var, "/swanAPI/canvas/remove");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562247, "Lcom/baidu/tieba/a12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947562247, "Lcom/baidu/tieba/a12;");
+                return;
+            }
+        }
+        b = qp1.a;
+    }
+
+    public a12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
+            }
+        }
+        this.a = new LinkedHashMap();
+    }
+
+    public synchronized void a(BasePendingOperation basePendingOperation) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, basePendingOperation) == null) {
+            synchronized (this) {
+                if (basePendingOperation == null) {
+                    return;
+                }
+                if (b) {
+                    Log.d("PendingOperationHandler", "*************** 【Add pending module】:" + basePendingOperation.b() + " params: " + basePendingOperation.c());
+                }
+                c(basePendingOperation.getType()).b(basePendingOperation);
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            u22 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                x42.c("SwanAppCanvas", "remove action parse model is null");
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, t02> entry : this.a.entrySet()) {
+                    entry.getValue().c();
+                }
+                this.a.clear();
             }
-            x32 x32Var = (x32) k42.a(k);
-            if (x32Var == null) {
-                x42.c("SwanAppCanvas", "remove canvas fail: fina a null component");
-                unitedSchemeEntity.result = l(1001);
-                return false;
-            }
-            o32 B = x32Var.B();
-            boolean a = B.a();
-            if (!a) {
-                x42.c("SwanAppCanvas", "remove canvas fail: " + B.b);
-            }
-            j(unitedSchemeEntity, callbackHandler, a);
-            return a;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                for (Map.Entry<String, t02> entry : this.a.entrySet()) {
+                    entry.getValue().a();
+                }
+            }
+        }
+    }
+
+    public final t02 c(BasePendingOperation.OperationType operationType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, operationType)) == null) {
+            if (!this.a.containsKey(operationType.name())) {
+                t02 a = x02.a(operationType);
+                this.a.put(operationType.name(), a);
+                return a;
+            }
+            return this.a.get(operationType.name());
+        }
+        return (t02) invokeL.objValue;
     }
 }

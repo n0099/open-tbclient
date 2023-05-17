@@ -8,7 +8,7 @@ import com.google.zxing.aztec.encoder.Encoder;
 import com.google.zxing.common.BitMatrix;
 import java.nio.charset.Charset;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class AztecWriter implements Writer {
     public static final Charset DEFAULT_CHARSET = Charset.forName("ISO-8859-1");
 

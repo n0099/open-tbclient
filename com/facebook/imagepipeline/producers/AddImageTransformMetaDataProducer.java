@@ -1,11 +1,11 @@
 package com.facebook.imagepipeline.producers;
 
 import com.facebook.imagepipeline.image.EncodedImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AddImageTransformMetaDataProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class AddImageTransformMetaDataConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public AddImageTransformMetaDataConsumer(Consumer<EncodedImage> consumer) {
             super(consumer);

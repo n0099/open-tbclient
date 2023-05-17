@@ -1,5 +1,5 @@
 package com.facebook.cache.common;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseCacheEventListener implements CacheEventListener {
     @Override // com.facebook.cache.common.CacheEventListener
     public void onCleared() {

@@ -17,7 +17,7 @@ import tbclient.GetWorksTags.Category;
 import tbclient.GetWorksTags.DataRes;
 import tbclient.GetWorksTags.GetWorksTagsResIdl;
 import tbclient.GetWorksTags.Tag;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class GetSelectClassHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

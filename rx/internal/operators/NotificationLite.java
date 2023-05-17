@@ -1,8 +1,8 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.k5b;
+import com.baidu.tieba.i7b;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NotificationLite {
     public static final Object a = new Serializable() { // from class: rx.internal.operators.NotificationLite.1
         public static final long serialVersionUID = 1;
@@ -19,7 +19,7 @@ public final class NotificationLite {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class OnErrorSentinel implements Serializable {
         public static final long serialVersionUID = 3;
         public final Throwable e;
@@ -37,19 +37,19 @@ public final class NotificationLite {
         return a;
     }
 
-    public static <T> boolean a(k5b<? super T> k5bVar, Object obj) {
+    public static <T> boolean a(i7b<? super T> i7bVar, Object obj) {
         if (obj == a) {
-            k5bVar.onCompleted();
+            i7bVar.onCompleted();
             return true;
         } else if (obj == b) {
-            k5bVar.onNext(null);
+            i7bVar.onNext(null);
             return false;
         } else if (obj != null) {
             if (obj.getClass() == OnErrorSentinel.class) {
-                k5bVar.onError(((OnErrorSentinel) obj).e);
+                i7bVar.onError(((OnErrorSentinel) obj).e);
                 return true;
             }
-            k5bVar.onNext(obj);
+            i7bVar.onNext(obj);
             return false;
         } else {
             throw new IllegalArgumentException("The lite notification can not be null");

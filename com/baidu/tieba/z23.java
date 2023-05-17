@@ -1,21 +1,290 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppBaseActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public class z23 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+/* loaded from: classes8.dex */
+public class z23 implements x23, ku2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final ExecutorService e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c43 c;
+    public final c43 d;
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+
+        public a(z23 z23Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z23Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (x23.b) {
+                    try {
+                        x23.b.wait(this.a);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements c43 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<Runnable, String> c;
+        public boolean d;
+
+        @Override // com.baidu.tieba.c43
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "HighPriorityTask" : (String) invokeV.objValue;
+        }
+
+        public b(z23 z23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = new ConcurrentHashMap();
+            this.d = false;
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.d = false;
+                f();
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+                if (this.d) {
+                    this.c.put(runnable, str);
+                } else {
+                    am3.l(runnable, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.d = false;
+                long currentTimeMillis = System.currentTimeMillis();
+                int size = this.c.size();
+                f();
+                if (ku2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "high task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.d = true;
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
+                return;
+            }
+            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+                if (entry != null) {
+                    am3.l(entry.getKey(), entry.getValue());
+                }
+            }
+            this.c.clear();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements c43 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<Runnable, String> c;
+        public boolean d;
+        public final /* synthetic */ z23 e;
+
+        @Override // com.baidu.tieba.c43
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public String getName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LowPriorityTask" : (String) invokeV.objValue;
+        }
+
+        public c(z23 z23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z23Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = z23Var;
+            this.c = new ConcurrentHashMap();
+            this.d = false;
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.d = false;
+                f();
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+                if (this.d) {
+                    this.c.put(runnable, str);
+                } else {
+                    am3.l(runnable, str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+                this.d = false;
+                long currentTimeMillis = System.currentTimeMillis();
+                int size = this.c.size();
+                f();
+                if (ku2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "low task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
+                }
+                if (h33.e()) {
+                    this.e.c();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.c43
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.d = true;
+                if (h33.e()) {
+                    this.e.b(h33.f());
+                }
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
+                return;
+            }
+            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
+                if (entry != null) {
+                    am3.l(entry.getKey(), entry.getValue());
+                }
+            }
+            this.c.clear();
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final z23 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-281758546, "Lcom/baidu/tieba/z23$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-281758546, "Lcom/baidu/tieba/z23$d;");
+                    return;
+                }
+            }
+            a = new z23(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,123 +299,88 @@ public class z23 {
                 return;
             }
         }
-        a = ho1.a;
+        e = Executors.newSingleThreadExecutor();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean a(Context context, @NonNull a33 a33Var) {
-        InterceptResult invokeLL;
+    public z23() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, a33Var)) == null) {
-            if (context instanceof SwanAppBaseActivity) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            a33Var.b(2, "method should be called after setActivityRef");
-            if (!a) {
-                return false;
-            }
-            throw new IllegalStateException("this method should be called after setActivityRef");
         }
-        return invokeLL.booleanValue;
+        this.c = new b(this);
+        this.d = new c(this);
     }
 
-    public static boolean c(ArrayList<String> arrayList, @NonNull a33 a33Var) {
-        InterceptResult invokeLL;
+    public static z23 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, arrayList, a33Var)) == null) {
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return false;
-            }
-            a33Var.a("permission has already granted");
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return d.a;
         }
-        return invokeLL.booleanValue;
+        return (z23) invokeV.objValue;
     }
 
-    @NonNull
-    public static ArrayList<String> d(@NonNull Context context, @NonNull String[] strArr) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.x23
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, strArr)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (String str : strArr) {
-                if (!to4.a(context, str)) {
-                    arrayList.add(str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (ku2.a) {
+                Log.d("SwanPerformance", "low priority thread notify");
+            }
+            synchronized (x23.b) {
+                try {
+                    x23.b.notifyAll();
                 }
             }
-            return arrayList;
         }
-        return (ArrayList) invokeLL.objValue;
     }
 
-    public static boolean b(@NonNull Context context, @NonNull String str, @NonNull a33 a33Var) {
-        InterceptResult invokeLLL;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, str, a33Var)) == null) {
-            if (to4.a(context, str)) {
-                a33Var.a("permission has already granted");
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a43.g().i(this.c, 3000);
+            a43.g().i(this.d, 5000);
+        }
+    }
+
+    public /* synthetic */ z23(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.x23
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (ku2.a) {
+                Log.d("SwanPerformance", "low priority thread wait = " + i);
+            }
+            e.execute(new a(this, i));
+        }
+    }
+
+    public boolean d(@NonNull Runnable runnable, @NonNull String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, runnable, str, z)) == null) {
+            if (z) {
+                this.c.c(runnable, str);
+                return true;
+            } else if (h33.e()) {
+                e.execute(runnable);
+                return true;
+            } else {
+                this.d.c(runnable, str);
                 return true;
             }
-            return false;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(@NonNull String str, @NonNull String[] strArr, int i, @NonNull Context context, @NonNull a33 a33Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{str, strArr, Integer.valueOf(i), context, a33Var}) != null) || !a(context, a33Var) || b(context, str, a33Var)) {
-            return;
-        }
-        g(context, strArr, i, a33Var);
-    }
-
-    @Deprecated
-    public static void f(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull a33 a33Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65542, null, context, strArr, i, a33Var) != null) || !a(context, a33Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, a33Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).A(i, (String[]) d.toArray(new String[0]), new v23(i, a33Var));
-    }
-
-    public static void g(@NonNull Context context, @NonNull String[] strArr, int i, @NonNull a33 a33Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLIL(65543, null, context, strArr, i, a33Var) != null) || !a(context, a33Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, a33Var)) {
-            return;
-        }
-        ((SwanAppBaseActivity) context).A(i, (String[]) d.toArray(new String[0]), new w23(context, i, a33Var));
-    }
-
-    public static void h(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull a33 a33Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65544, null, strArr, i, context, a33Var) != null) || !a(context, a33Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, a33Var)) {
-            return;
-        }
-        g(context, (String[]) d.toArray(new String[0]), i, a33Var);
-    }
-
-    @Deprecated
-    public static void requestPermissions(@NonNull String[] strArr, int i, @NonNull Context context, @NonNull a33 a33Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(65545, null, strArr, i, context, a33Var) != null) || !a(context, a33Var)) {
-            return;
-        }
-        ArrayList<String> d = d(context, strArr);
-        if (c(d, a33Var)) {
-            return;
-        }
-        f(context, (String[]) d.toArray(new String[0]), i, a33Var);
+        return invokeLLZ.booleanValue;
     }
 }

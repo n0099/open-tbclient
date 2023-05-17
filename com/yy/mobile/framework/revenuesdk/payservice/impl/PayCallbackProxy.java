@@ -5,7 +5,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
 import com.yy.mobile.framework.revenuesdk.payapi.PayType;
@@ -14,12 +14,12 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayFlowEventType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public final String TAG = "PayCallbackProxy";
     public IAppPayService appPayService;
     public IPayCallback iPayCallback;
-    public IPayEventStatistics mPayEventReporter;
+    public IPayEventStatisticsApi mPayEventReporter;
     public String orderId;
     public ChargeCurrencyReqParams params;
     public String payLoad;
@@ -29,7 +29,7 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public HiidoReport.CReportResponse reportResponse;
     public long requestTime;
 
-    public PayCallbackProxy(PayType payType, String str, ChargeCurrencyReqParams chargeCurrencyReqParams, String str2, PollingModeInfo pollingModeInfo, IPayEventStatistics iPayEventStatistics, IAppPayService iAppPayService, IPayServiceCallback iPayServiceCallback, IPayCallback iPayCallback) {
+    public PayCallbackProxy(PayType payType, String str, ChargeCurrencyReqParams chargeCurrencyReqParams, String str2, PollingModeInfo pollingModeInfo, IPayEventStatisticsApi iPayEventStatisticsApi, IAppPayService iAppPayService, IPayServiceCallback iPayServiceCallback, IPayCallback iPayCallback) {
         this.orderId = "";
         this.payType = payType;
         if (str != null) {
@@ -40,7 +40,7 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
         this.iPayCallback = iPayCallback;
         this.payLoad = str2;
         this.pollingModeInfo = pollingModeInfo;
-        this.mPayEventReporter = iPayEventStatistics;
+        this.mPayEventReporter = iPayEventStatisticsApi;
         this.payServiceCallback = iPayServiceCallback;
         this.appPayService = iAppPayService;
         HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
@@ -58,9 +58,9 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
             this.iPayCallback.onPayStatus(PurchaseStatus.PAY_FAIL, payCallBackBean2);
             this.iPayCallback.onFail(i, " " + str, payCallBackBean2);
         }
-        IPayEventStatistics iPayEventStatistics = this.mPayEventReporter;
-        if (iPayEventStatistics != null) {
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, i + "", "pay failed reason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+        IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventReporter;
+        if (iPayEventStatisticsApi != null) {
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, i + "", "pay failed reason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
         }
         IAppPayService iAppPayService = this.appPayService;
         if (iAppPayService != null && iAppPayService.getPayServiceStatistics() != null) {
@@ -107,10 +107,10 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
             iPayCallback.onPayStatus(PurchaseStatus.PAY_SUCCESS, payCallBackBean);
         }
         this.payServiceCallback.requestPayOrderResult(this.params, this.orderId, this.pollingModeInfo);
-        IPayEventStatistics iPayEventStatistics = this.mPayEventReporter;
-        if (iPayEventStatistics != null) {
+        IPayEventStatisticsApi iPayEventStatisticsApi = this.mPayEventReporter;
+        if (iPayEventStatisticsApi != null) {
             String str = this.orderId;
-            iPayEventStatistics.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, "0", "pay success!", str, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+            iPayEventStatisticsApi.reportPayFlowEvent(PayFlowEventType.payingaddpaymentrespone, "0", "pay success!", str, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
         }
         IAppPayService iAppPayService = this.appPayService;
         if (iAppPayService != null && iAppPayService.getPayServiceStatistics() != null) {

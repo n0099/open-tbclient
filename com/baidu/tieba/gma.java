@@ -1,26 +1,94 @@
 package com.baidu.tieba;
 
+import android.os.Process;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import java.nio.ByteBuffer;
+/* loaded from: classes5.dex */
 public class gma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile boolean a;
+    public sma b;
+    public b c;
+    public xma d;
+    public boolean e;
 
-    public gma a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this : (gma) invokeZ.objValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public gma b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this : (gma) invokeI.objValue;
+    /* loaded from: classes5.dex */
+    public class b extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gma a;
+
+        public b(gma gmaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gmaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gmaVar;
+        }
+
+        public /* synthetic */ b(gma gmaVar, a aVar) {
+            this(gmaVar);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(-19);
+                try {
+                    try {
+                        this.a.b = new sma(-100);
+                        if (this.a.b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(sma.d);
+                            this.a.b.c();
+                            if (this.a.b.e() != 3) {
+                                return;
+                            }
+                            while (!this.a.a) {
+                                allocateDirect.clear();
+                                int a = this.a.b.a(allocateDirect, sma.d);
+                                if (a > 0) {
+                                    double a2 = zma.a(allocateDirect, a);
+                                    if (this.a.d != null && a2 > 0.0d) {
+                                        this.a.d.a(a2);
+                                    }
+                                }
+                            }
+                        } else if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    } catch (Exception unused) {
+                        if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    }
+                } finally {
+                    this.a.i();
+                }
+            }
+        }
     }
 
     public gma() {
@@ -33,6 +101,55 @@ public class gma {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = true;
+            this.a = false;
+            b bVar = new b(this, null);
+            this.c = bVar;
+            bVar.start();
+        }
+    }
+
+    public void d(xma xmaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xmaVar) == null) {
+            this.d = xmaVar;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = true;
+            this.e = false;
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            this.e = false;
+            sma smaVar = this.b;
+            if (smaVar != null) {
+                smaVar.b();
+            }
+            if (this.c != null) {
+                this.c = null;
             }
         }
     }

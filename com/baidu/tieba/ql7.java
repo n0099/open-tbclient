@@ -1,45 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Serializable;
-/* loaded from: classes6.dex */
-public final class ql7 {
+/* loaded from: classes7.dex */
+public class ql7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final long d(Bundle bundle) {
-        InterceptResult invokeL;
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
-            return bundle.getLong("extra_fid");
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(str);
         }
-        return invokeL.longValue;
     }
 
-    public static final String e(Bundle bundle) {
-        InterceptResult invokeL;
+    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            return bundle.getString("extra_forum_name");
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) && !UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) && str2 != null) {
+            nz9.a(tbPageContext, str2);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static final Frs$From f(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bundle)) == null) {
-            Serializable serializable = bundle.getSerializable("extra_from");
-            if (serializable != null) {
-                return (Frs$From) serializable;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.tbadk.module.frs.Frs.From");
-        }
-        return (Frs$From) invokeL.objValue;
     }
 }

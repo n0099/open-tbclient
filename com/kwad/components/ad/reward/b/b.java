@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.b;
 
 import com.ksad.json.annotation.KsJson;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static int STATUS_NONE = 2;
     public static int oJ = 1;

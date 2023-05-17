@@ -23,7 +23,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadDispatcher {
     public static final String TAG = "DownloadDispatcher";
     public int cancleSecondsFromRunning;

@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.source.dash.DashSegmentIndex;
 import com.google.android.exoplayer2.source.dash.manifest.SegmentBase;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class Representation {
     public static final long REVISION_ID_DEFAULT = -1;
     public final String baseUrl;
@@ -23,7 +23,7 @@ public abstract class Representation {
 
     public abstract RangedUri getIndexUri();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class MultiSegmentRepresentation extends Representation implements DashSegmentIndex {
         public final SegmentBase.MultiSegmentBase segmentBase;
 
@@ -83,7 +83,7 @@ public abstract class Representation {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SingleSegmentRepresentation extends Representation {
         public final String cacheKey;
         public final long contentLength;

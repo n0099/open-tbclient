@@ -1,48 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.net.exception.RequestError;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import okhttp3.Request;
+import org.apache.http.protocol.HTTP;
+/* loaded from: classes6.dex */
 public class ks0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ks0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923521, "Lcom/baidu/tieba/ks0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923521, "Lcom/baidu/tieba/ks0;");
-                return;
-            }
-        }
-        b = new ks0();
-    }
-
-    public ks0() {
+    public static Request.Builder a(@NonNull js0 js0Var) throws RequestError {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, js0Var)) == null) {
+            Request.Builder builder = new Request.Builder();
+            try {
+                builder.url(js0Var.a);
+                Object obj = js0Var.e;
+                if (obj != null) {
+                    builder.tag(obj);
+                }
+                if (js0Var.h) {
+                    builder.header("Content-Type", "application/x-www-form-urlencoded");
+                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
+                    builder.header(HTTP.CONN_DIRECTIVE, "close");
+                    builder.header("accept", "*/*");
+                }
+                Headers.a aVar = js0Var.c;
+                if (aVar != null) {
+                    Headers c = aVar.c();
+                    for (int i = 0; i < c.g(); i++) {
+                        builder.header(c.f(i), c.h(i));
+                    }
+                }
+                String str = js0Var.b;
+                builder.method(str, gs0.g(str, js0Var.d));
+                return builder;
+            } catch (Throwable th) {
+                throw new RequestError("Invalid request url: " + js0Var.a, th);
             }
         }
-        this.a = 0;
+        return (Request.Builder) invokeL.objValue;
     }
 }

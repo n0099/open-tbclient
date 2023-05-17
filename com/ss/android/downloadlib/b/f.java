@@ -8,7 +8,7 @@ import com.ss.android.downloadlib.g.l;
 import com.ss.android.socialbase.downloader.a.a;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static Handler a = new Handler(Looper.getMainLooper());
 
@@ -62,12 +62,12 @@ public class f {
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0699a() { // from class: com.ss.android.downloadlib.b.f.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0713a() { // from class: com.ss.android.downloadlib.b.f.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
             public void c() {
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
             public void b() {
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
                 com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.b.f.1.1

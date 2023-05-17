@@ -39,12 +39,12 @@ import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tbadk.data.StatisticInfoField;
 import com.baidu.tbadk.mutiprocess.event.CollectEmotionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dz7;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.lg5;
-import com.baidu.tieba.p28;
-import com.baidu.tieba.w05;
-import com.baidu.tieba.wj5;
+import com.baidu.tieba.d48;
+import com.baidu.tieba.f25;
+import com.baidu.tieba.fl5;
+import com.baidu.tieba.r08;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.uh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public ImageView D;
     public HashMap<String, Boolean> E;
     public String F;
-    public wj5 G;
+    public fl5 G;
     public LinkedHashMap<String, String> a;
     public int b;
     public h c;
@@ -93,17 +93,17 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public int y;
     public StatisticInfoField z;
 
-    public abstract void s2(String str, p28 p28Var);
+    public abstract void s2(String str, d48 d48Var);
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0317a implements Animation.AnimationListener {
+        /* loaded from: classes6.dex */
+        public class animation.Animation$AnimationListenerC0331a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -122,7 +122,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 }
             }
 
-            public animation.Animation$AnimationListenerC0317a(a aVar) {
+            public animation.Animation$AnimationListenerC0331a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -189,7 +189,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     if (view2 == this.a.C) {
                         this.a.n2();
                         if (this.a.z != null && this.a.y == 1) {
-                            dz7.a(2, 2, Long.parseLong(this.a.z.getForumId()), Long.parseLong(this.a.z.getChatRoomId()));
+                            r08.a(2, 2, Long.parseLong(this.a.z.getForumId()), Long.parseLong(this.a.z.getChatRoomId()));
                             return;
                         }
                         return;
@@ -211,7 +211,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     }
                     this.a.l.setDuration(300L);
                     this.a.l.setFillAfter(true);
-                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0317a(this));
+                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0331a(this));
                     this.a.m = false;
                     this.a.g.startAnimation(this.a.l);
                 } else if (this.a.g.getVisibility() == 8) {
@@ -242,7 +242,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -295,7 +295,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class c implements BaseViewPager.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,8 +327,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements w05.c {
+    /* loaded from: classes6.dex */
+    public class d implements f25.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -351,15 +351,15 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.w05.c
-        public void a(w05 w05Var, int i, View view2) {
+        @Override // com.baidu.tieba.f25.c
+        public void a(f25 f25Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, w05Var, i, view2) == null) && w05Var == this.a.getListMenu()) {
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, f25Var, i, view2) == null) && f25Var == this.a.getListMenu()) {
                 if (i != 0) {
                     if (i == 1) {
                         this.a.n2();
                         if (this.a.z != null && this.a.y == 1) {
-                            dz7.a(2, 3, Long.parseLong(this.a.z.getForumId()), Long.parseLong(this.a.z.getChatRoomId()));
+                            r08.a(2, 3, Long.parseLong(this.a.z.getForumId()), Long.parseLong(this.a.z.getChatRoomId()));
                         }
                     }
                 } else {
@@ -385,19 +385,19 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     } catch (Exception unused) {
                     }
                 }
-                w05Var.e();
+                f25Var.e();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class e implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w05.c a;
+        public final /* synthetic */ f25.c a;
         public final /* synthetic */ AbsMsgImageActivity b;
 
-        public e(AbsMsgImageActivity absMsgImageActivity, w05.c cVar) {
+        public e(AbsMsgImageActivity absMsgImageActivity, f25.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -421,12 +421,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                String[] strArr = {this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f117a), this.b.getPageContext().getString(R.string.add_emotion)};
+                String[] strArr = {this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f1241), this.b.getPageContext().getString(R.string.add_emotion)};
                 AbsMsgImageActivity absMsgImageActivity = this.b;
                 absMsgImageActivity.createListMenu(strArr, this.a, absMsgImageActivity.B);
                 this.b.showListMenu();
                 if (this.b.z != null && this.b.y == 1) {
-                    dz7.a(1, 3, Long.parseLong(this.b.z.getForumId()), Long.parseLong(this.b.z.getChatRoomId()));
+                    r08.a(1, 3, Long.parseLong(this.b.z.getForumId()), Long.parseLong(this.b.z.getChatRoomId()));
                 }
                 return false;
             }
@@ -434,8 +434,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class f implements p28 {
+    /* loaded from: classes6.dex */
+    public class f implements d48 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -458,7 +458,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.p28
+        @Override // com.baidu.tieba.d48
         public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -517,8 +517,8 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class g extends wj5<CollectEmotionEvent> {
+    /* loaded from: classes6.dex */
+    public class g extends fl5<CollectEmotionEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity c;
@@ -542,7 +542,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pj5
+        @Override // com.baidu.tieba.yk5
         /* renamed from: a */
         public boolean onEvent(CollectEmotionEvent collectEmotionEvent) {
             InterceptResult invokeL;
@@ -561,7 +561,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class h extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -819,11 +819,11 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.E.containsKey(this.F) && this.E.get(this.F).booleanValue()) {
-                ii.P(TbadkCoreApplication.getInst(), R.string.save_emotion_duplicate);
+                ri.P(TbadkCoreApplication.getInst(), R.string.save_emotion_duplicate);
             } else if (this.F == null) {
             } else {
                 if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    lg5.b bVar = new lg5.b();
+                    uh5.b bVar = new uh5.b();
                     bVar.c = this.F;
                     String str = this.p;
                     bVar.a = str;
@@ -831,11 +831,11 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
                 } else if (FullBrowseHelper.checkAndShowFullBrowseModeDialog(getPageContext())) {
                 } else {
-                    Intent intent = new Intent(lg5.a);
+                    Intent intent = new Intent(uh5.a);
                     intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                    intent.putExtra(lg5.b, this.p);
-                    intent.putExtra(lg5.c, this.q);
-                    intent.putExtra(lg5.d, this.F);
+                    intent.putExtra(uh5.b, this.p);
+                    intent.putExtra(uh5.c, this.q);
+                    intent.putExtra(uh5.d, this.F);
                     TbadkCoreApplication.getInst().sendBroadcast(intent);
                 }
             }
@@ -968,9 +968,9 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.d = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.i);
             SkinManager.setImageResource(this.g.getBackImageView(), R.drawable.icon_return_bg);
             this.f = this.g.setTitleText("");
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0927f9);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f092869);
             this.h = multiImageView;
-            multiImageView.setPageMargin(ii.d(getPageContext().getContext(), 8.0f));
+            multiImageView.setPageMargin(ri.d(getPageContext().getContext(), 8.0f));
             this.h.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
             this.h.setOnPageChangeListener(this.k);
             this.h.setItemOnclickListener(this.i);

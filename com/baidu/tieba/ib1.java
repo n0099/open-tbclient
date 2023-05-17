@@ -1,58 +1,45 @@
 package com.baidu.tieba;
 
+import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ib1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ib1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
 
-    public ib1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        new ArrayList();
-        this.a = new ArrayList();
-    }
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ob1 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static ib1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ib1.class) {
-                    if (b == null) {
-                        b = new ib1();
-                    }
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-724184780, "Lcom/baidu/tieba/ib1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-724184780, "Lcom/baidu/tieba/ib1$a;");
+                    return;
                 }
             }
-            return b;
+            a = new ob1();
         }
-        return (ib1) invokeV.objValue;
     }
 
-    public synchronized void b(String str) {
+    public static qb1<ImageView> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this) {
-                y01.b(this.a, str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a.a;
         }
+        return (qb1) invokeV.objValue;
     }
 }

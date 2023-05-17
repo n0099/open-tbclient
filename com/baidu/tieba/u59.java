@@ -1,128 +1,145 @@
 package com.baidu.tieba;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SmartApp;
-/* loaded from: classes6.dex */
-public class u59 implements i59 {
+/* loaded from: classes7.dex */
+public class u59 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Long b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public Integer h;
+    public Context a;
+    public View b;
+    public LinearLayout c;
+    public float d;
 
-    public u59(SmartApp smartApp) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u59 a;
+
+        public a(u59 u59Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u59Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u59Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u59(Context context, View view2) {
+        super(context, 16973835);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {smartApp};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        if (smartApp == null) {
-            return;
-        }
-        this.b = smartApp.naws_app_id;
-        this.c = smartApp.id;
-        this.d = smartApp.avatar;
-        this.e = smartApp.name;
-        String str = smartApp._abstract;
-        String str2 = smartApp.pic;
-        this.f = smartApp.h5_url;
-        this.g = smartApp.link;
-        if (smartApp.is_recom.intValue() == 1) {
-            this.a = 1;
-        }
-        this.h = smartApp.is_game;
+        this.d = 0.33f;
+        this.a = context;
+        this.b = view2;
     }
 
-    public Long a() {
-        InterceptResult invokeV;
+    public void a(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+            this.d = f;
         }
-        return (Long) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            requestWindowFeature(1);
+            setContentView(R.layout.person_info_more_dialog);
+            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = defaultDisplay.getWidth();
+            getWindow().setAttributes(attributes);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            getWindow().setDimAmount(this.d);
+            getWindow().setGravity(80);
+            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003ee);
+            setCanceledOnTouchOutside(true);
+            setCancelable(true);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ea2);
+            this.c = linearLayout;
+            linearLayout.setOnClickListener(new a(this));
+            if (this.b == null) {
+                return;
+            }
+            this.c.removeAllViews();
+            if (this.b.getParent() != null) {
+                if (this.b.getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.b.getParent()).removeView(this.b);
+                    this.c.addView(this.b);
+                    return;
+                }
+                return;
+            }
+            this.c.addView(this.b);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // android.app.Dialog
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.b = view2;
+            LinearLayout linearLayout = this.c;
+            if (linearLayout != null) {
+                linearLayout.removeAllViews();
+                if (this.b.getParent() != null) {
+                    if (this.b.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.b.getParent()).removeView(this.b);
+                        this.c.addView(this.b);
+                        return;
+                    }
+                    return;
+                }
+                this.c.addView(this.b);
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Integer e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.h;
-        }
-        return (Integer) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i59
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
     }
 }

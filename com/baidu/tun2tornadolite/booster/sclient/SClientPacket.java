@@ -21,7 +21,7 @@ import kotlin.jvm.internal.StringCompanionObject;
 import kotlin.text.Regex;
 import kotlin.text.UStringsKt;
 @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0010\u0002\n\u0002\b\u0006\u0018\u0000 \u00182\u00020\u0001:\u0001\u0018B(\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003\u0012\u0006\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0007J\u000e\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\tJ\u0006\u0010\u0015\u001a\u00020\tJ\u0006\u0010\u0016\u001a\u00020\tJ\u000e\u0010\u0017\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\tR\u000e\u0010\b\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u0006\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\n\u0010\u000bR\u001c\u0010\u0005\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\r\u0010\u000bR\u0019\u0010\u000e\u001a\u00020\u0003X\u0082\u000eø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\fR\u000e\u0010\u000f\u001a\u00020\tX\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u0004\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\u0010\u0010\u000bR\u001c\u0010\u0002\u001a\u00020\u0003ø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\n\n\u0002\u0010\f\u001a\u0004\b\u0011\u0010\u000b\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u0019"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "", "version", "Lkotlin/UInt;", GestureAR.SDK_TO_LUA_GESTURE_RESULT_RESERVED, "command", "bodyLength", "(IIIILkotlin/jvm/internal/DefaultConstructorMarker;)V", "body", "Ljava/nio/ByteBuffer;", "getBodyLength-pVg5ArA", "()I", "I", "getCommand-pVg5ArA", "header", "headerBuf", "getReserved-pVg5ArA", "getVersion-pVg5ArA", "encodeHeader2Buffer", "", "buf", "getBody", "getHeader", "writeBodyBuffer", "Companion", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SClientPacket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CMD_EVENT = 2;
@@ -61,7 +61,7 @@ public final class SClientPacket {
     }
 
     @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u001b\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u000e\u0010\u000fJ\u000e\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013J!\u0010\u0014\u001a\u00020\f*\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017H\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u0018\u0010\u0019J!\u0010\u0014\u001a\u00020\f*\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u0017H\u0002ø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b\u001a\u0010\u001bR\u0019\u0010\u0003\u001a\u00020\u0004X\u0086Tø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0005R\u0019\u0010\u0006\u001a\u00020\u0004X\u0086Tø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0005R\u0019\u0010\u0007\u001a\u00020\u0004X\u0086Tø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0005R\u0019\u0010\b\u001a\u00020\u0004X\u0086Tø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0005R\u0019\u0010\t\u001a\u00020\u0004X\u0086Tø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0005R\u0019\u0010\n\u001a\u00020\u0004X\u0086Tø\u0001\u0000ø\u0001\u0001ø\u0001\u0002¢\u0006\u0004\n\u0002\u0010\u0005\u0082\u0002\u000f\n\u0002\b\u0019\n\u0005\b¡\u001e0\u0001\n\u0002\b!¨\u0006\u001c"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket$Companion;", "", "()V", "CMD_EVENT", "Lkotlin/UInt;", "I", "CMD_HAND_SHAKE", "CMD_HEART_BEAT", "CMD_IP_PACKET", "RESERVED", "VERSION", "cmd2Str", "", "cmd", "cmd2Str-WZ4Q5Ns", "(I)Ljava/lang/String;", "createPacketByHeader", "Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "header", "", "toBinary", "Lkotlin/UByte;", "len", "", "toBinary-0ky7B_Q", "(BI)Ljava/lang/String;", "toBinary-qim9Vi0", "(II)Ljava/lang/String;", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public final class SClientPacket {
         }
 
         /* renamed from: cmd2Str-WZ4Q5Ns  reason: not valid java name */
-        public final String m74cmd2StrWZ4Q5Ns(int i) {
+        public final String m93cmd2StrWZ4Q5Ns(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? HlsPlaylistParser.METHOD_NONE : "CMD_HEART_BEAT" : "CMD_EVENT" : "CMD_IP_PACKET" : "CMD_HAND_SHAKE" : (String) invokeI.objValue;
@@ -93,7 +93,7 @@ public final class SClientPacket {
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('%' char), (r6v0 int), ('s' char)] */
         /* renamed from: toBinary-0ky7B_Q  reason: not valid java name */
-        private final String m72toBinary0ky7B_Q(byte b, int i) {
+        private final String m91toBinary0ky7B_Q(byte b, int i) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) {
@@ -102,7 +102,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2056toStringLxnNnR4(b, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2075toStringLxnNnR4(b, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -111,7 +111,7 @@ public final class SClientPacket {
 
         /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [('%' char), (r6v0 int), ('s' char)] */
         /* renamed from: toBinary-qim9Vi0  reason: not valid java name */
-        private final String m73toBinaryqim9Vi0(int i, int i2) {
+        private final String m92toBinaryqim9Vi0(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
@@ -120,7 +120,7 @@ public final class SClientPacket {
                 sb.append('%');
                 sb.append(i2);
                 sb.append('s');
-                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2057toStringV7xB4Y4(i, 2)}, 1));
+                String format = String.format(sb.toString(), Arrays.copyOf(new Object[]{UStringsKt.m2076toStringV7xB4Y4(i, 2)}, 1));
                 Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
                 return new Regex(" ").replace(format, "0");
             }
@@ -132,7 +132,7 @@ public final class SClientPacket {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, header)) == null) {
                 Intrinsics.checkNotNullParameter(header, "header");
-                return new SClientPacket(UInt.m864constructorimpl((UByte.m788constructorimpl(header[0]) & 255) >> 4), UInt.m864constructorimpl(UByte.m788constructorimpl(header[0]) & 255 & 15), UInt.m864constructorimpl(UByte.m788constructorimpl(header[1]) & 255), UInt.m864constructorimpl(UInt.m864constructorimpl(UByte.m788constructorimpl(header[3]) & 255) | UInt.m864constructorimpl(UInt.m864constructorimpl(UByte.m788constructorimpl(header[2]) & 255) << 8)), null);
+                return new SClientPacket(UInt.m883constructorimpl((UByte.m807constructorimpl(header[0]) & 255) >> 4), UInt.m883constructorimpl(UByte.m807constructorimpl(header[0]) & 255 & 15), UInt.m883constructorimpl(UByte.m807constructorimpl(header[1]) & 255), UInt.m883constructorimpl(UInt.m883constructorimpl(UByte.m807constructorimpl(header[3]) & 255) | UInt.m883constructorimpl(UInt.m883constructorimpl(UByte.m807constructorimpl(header[2]) & 255) << 8)), null);
             }
             return (SClientPacket) invokeL.objValue;
         }
@@ -163,13 +163,13 @@ public final class SClientPacket {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, buf) == null) {
             Intrinsics.checkNotNullParameter(buf, "buf");
-            int m864constructorimpl = UInt.m864constructorimpl(UInt.m864constructorimpl(m71getVersionpVg5ArA() & 15) << 28);
-            this.header = m864constructorimpl;
-            int m864constructorimpl2 = UInt.m864constructorimpl(m864constructorimpl | UInt.m864constructorimpl(UInt.m864constructorimpl(m70getReservedpVg5ArA() & 15) << 24));
-            this.header = m864constructorimpl2;
-            int m864constructorimpl3 = UInt.m864constructorimpl(m864constructorimpl2 | UInt.m864constructorimpl(UInt.m864constructorimpl(m69getCommandpVg5ArA() & 255) << 16));
-            this.header = m864constructorimpl3;
-            this.header = UInt.m864constructorimpl(m864constructorimpl3 | UInt.m864constructorimpl(UInt.m864constructorimpl(m68getBodyLengthpVg5ArA() & 65535) << 0));
+            int m883constructorimpl = UInt.m883constructorimpl(UInt.m883constructorimpl(m90getVersionpVg5ArA() & 15) << 28);
+            this.header = m883constructorimpl;
+            int m883constructorimpl2 = UInt.m883constructorimpl(m883constructorimpl | UInt.m883constructorimpl(UInt.m883constructorimpl(m89getReservedpVg5ArA() & 15) << 24));
+            this.header = m883constructorimpl2;
+            int m883constructorimpl3 = UInt.m883constructorimpl(m883constructorimpl2 | UInt.m883constructorimpl(UInt.m883constructorimpl(m88getCommandpVg5ArA() & 255) << 16));
+            this.header = m883constructorimpl3;
+            this.header = UInt.m883constructorimpl(m883constructorimpl3 | UInt.m883constructorimpl(UInt.m883constructorimpl(m87getBodyLengthpVg5ArA() & 65535) << 0));
             this.headerBuf = buf;
             ByteBuffer byteBuffer = null;
             if (buf == null) {
@@ -182,26 +182,26 @@ public final class SClientPacket {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer2 = null;
             }
-            byteBuffer2.put((byte) UInt.m864constructorimpl(UInt.m864constructorimpl(this.header >>> 24) & 255));
+            byteBuffer2.put((byte) UInt.m883constructorimpl(UInt.m883constructorimpl(this.header >>> 24) & 255));
             ByteBuffer byteBuffer3 = this.headerBuf;
             if (byteBuffer3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer3 = null;
             }
-            byteBuffer3.put((byte) UInt.m864constructorimpl(UInt.m864constructorimpl(this.header >>> 16) & 255));
+            byteBuffer3.put((byte) UInt.m883constructorimpl(UInt.m883constructorimpl(this.header >>> 16) & 255));
             ByteBuffer byteBuffer4 = this.headerBuf;
             if (byteBuffer4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
                 byteBuffer4 = null;
             }
-            byteBuffer4.put((byte) UInt.m864constructorimpl(UInt.m864constructorimpl(this.header >>> 8) & 255));
+            byteBuffer4.put((byte) UInt.m883constructorimpl(UInt.m883constructorimpl(this.header >>> 8) & 255));
             ByteBuffer byteBuffer5 = this.headerBuf;
             if (byteBuffer5 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("headerBuf");
             } else {
                 byteBuffer = byteBuffer5;
             }
-            byteBuffer.put((byte) UInt.m864constructorimpl(UInt.m864constructorimpl(this.header >>> 0) & 255));
+            byteBuffer.put((byte) UInt.m883constructorimpl(UInt.m883constructorimpl(this.header >>> 0) & 255));
         }
     }
 
@@ -220,7 +220,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getBodyLength-pVg5ArA  reason: not valid java name */
-    public final int m68getBodyLengthpVg5ArA() {
+    public final int m87getBodyLengthpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -230,7 +230,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getCommand-pVg5ArA  reason: not valid java name */
-    public final int m69getCommandpVg5ArA() {
+    public final int m88getCommandpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -254,7 +254,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getReserved-pVg5ArA  reason: not valid java name */
-    public final int m70getReservedpVg5ArA() {
+    public final int m89getReservedpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -264,7 +264,7 @@ public final class SClientPacket {
     }
 
     /* renamed from: getVersion-pVg5ArA  reason: not valid java name */
-    public final int m71getVersionpVg5ArA() {
+    public final int m90getVersionpVg5ArA() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {

@@ -1,4 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface ti0 extends si0, vi0, wi0 {
+
+import androidx.annotation.Nullable;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public interface ti0 {
+    void a(boolean z, @Nullable Map<String, String> map);
 }

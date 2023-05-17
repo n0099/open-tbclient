@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.PassFriend.PassFriendResIdl;
 import tbclient.PassFriend.friendInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ResponsePassFriendMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

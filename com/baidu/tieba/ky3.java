@@ -1,254 +1,235 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.webkit.WebSettings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.UUID;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ky3 extends x33 {
+/* loaded from: classes6.dex */
+public class ky3 extends jy3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String f;
-    public JSONObject g;
-    public ny3 h;
+    public int q;
+    public int r;
+    public int s;
+    public String t;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ ky3 b;
-
-        public a(ky3 ky3Var, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ky3Var, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ky3Var;
-            this.a = jSONObject;
+    @Override // com.baidu.tieba.jy3
+    public HashMap<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-
-        /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        @Override // java.lang.Runnable
-        public void run() {
-            char c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jy3.t().I(this.b.g);
-                String str = this.b.f;
-                switch (str.hashCode()) {
-                    case -1261560102:
-                        if (str.equals("queryStatus")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -625158317:
-                        if (str.equals("deleteDownload")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -451216226:
-                        if (str.equals("pauseDownload")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case -234424485:
-                        if (str.equals("open_manual")) {
-                            c = 7;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 184711125:
-                        if (str.equals("resumeDownload")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 900412038:
-                        if (str.equals("installApp")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1554935562:
-                        if (str.equals("startDownload")) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1921860518:
-                        if (str.equals("startDownloadFile")) {
-                            c = '\b';
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1944785703:
-                        if (str.equals("checkPackageExpired")) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        this.b.w(this.a);
-                        return;
-                    case 1:
-                        this.b.u(this.a);
-                        return;
-                    case 2:
-                        this.b.t(this.a);
-                        return;
-                    case 3:
-                        this.b.v(this.a);
-                        return;
-                    case 4:
-                        this.b.p(this.a);
-                        return;
-                    case 5:
-                        this.b.q(this.a);
-                        return;
-                    case 6:
-                        this.b.s(this.a);
-                        return;
-                    case 7:
-                        this.b.r(this.a);
-                        return;
-                    case '\b':
-                        this.b.x(this.a);
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
+        return (HashMap) invokeV.objValue;
     }
 
-    public ky3() {
+    @Override // com.baidu.tieba.jy3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jy3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://powerful.xdplt.com/api/v1/front/ltc" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky3(Context context, hy3 hy3Var, int i, int i2) {
+        super(context, hy3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, hy3Var, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (hy3) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.q = 1;
+        this.r = 1;
+        this.s = 1;
+        this.r = i;
+        this.s = i2;
     }
 
-    public final void p(@NonNull JSONObject jSONObject) {
+    public final String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            jy3.t().s(jSONObject.optString("key_download_package_name"));
-        }
-    }
-
-    public final void r(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            jy3.t().x(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"));
-        }
-    }
-
-    public final void s(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            jy3.t().p(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optLong(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, 0L));
-        }
-    }
-
-    public final void t(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            jy3.t().y(jSONObject.optString("key_download_package_name"));
-        }
-    }
-
-    public final void u(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
-            jy3.t().z(jSONObject.optString("key_download_package_name"));
-        }
-    }
-
-    public final void v(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            jy3.t().G(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
-        }
-    }
-
-    public final void w(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            jy3.t().J(jSONObject.optString("key_download_url"), jSONObject.optString("key_download_package_name"), jSONObject.optString("download_params"));
-        }
-    }
-
-    public final void x(@NonNull JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
-            jy3.t().K(jSONObject.optString("key_download_url"), jSONObject.optString(by3.b), jSONObject.optString(by3.c));
-        }
-    }
-
-    @Override // com.baidu.tieba.x33
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            this.f = bundle.getString(AppDownloadNetworkStateReceiver.KEY_OPERATION, "");
-            this.g = xk3.d(bundle.getString("ubc_params", ""));
-            JSONObject d = xk3.d(bundle.getString("data", ""));
-            if (this.h == null) {
-                this.h = new ny3(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            try {
+                String a = lu3.b.a(this.b);
+                if (TextUtils.isEmpty(a)) {
+                    return UUID.randomUUID().toString();
+                }
+                return a;
+            } catch (Exception unused) {
+                return "";
             }
-            jy3.t().H(this.h);
-            jy3.m.execute(new a(this, d));
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void q(@NonNull JSONObject jSONObject) {
+    public JSONObject i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String optString = jSONObject.optString("key_download_url");
-            String optString2 = jSONObject.optString("key_download_package_name");
-            String optString3 = jSONObject.optString("download_params");
-            ty3.n().h("manualInstall", new sy3(this.g), optString2, optString3, optString);
-            jy3.t().L(optString, optString2, optString3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("id", this.i.e());
+                jSONObject2.put("name", yx3.b().a());
+                jSONObject2.put("bundle", zy3.k());
+                jSONObject2.put("version", zy3.l());
+                jSONObject.put("app", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("ua", l());
+                jSONObject3.put("imei", yx3.b().m());
+                jSONObject3.put(HttpRequest.ANDROID_ID, h());
+                jSONObject3.put("ip", j(true));
+                jSONObject3.put("type", 1);
+                jSONObject3.put("os", 1);
+                jSONObject3.put(HttpConstants.OS_VERSION, zy3.f());
+                jSONObject3.put("make", zy3.g());
+                jSONObject3.put("model", zy3.e());
+                jSONObject3.put("language", this.b.getResources().getConfiguration().locale.getLanguage());
+                jSONObject3.put("connection_type", NetworkUtils.c(true));
+                jSONObject3.put("carrier", k(this.b));
+                jSONObject3.put("mac", NetworkUtils.e(this.b));
+                jSONObject3.put("screen_width", zy3.i(this.b));
+                jSONObject3.put("screen_height", zy3.h(this.b));
+                jSONObject3.put("screen_orientation", this.b.getResources().getConfiguration().orientation);
+                jSONObject.put(Config.DEVICE_PART, jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("sid", this.i.b());
+                jSONObject4.put("ad_count", this.q);
+                jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
+                jSONObject4.put("pos", this.s);
+                jSONObject4.put("width", this.i.d());
+                jSONObject4.put("height", this.i.a());
+                jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put(jSONObject4);
+                jSONObject.put("imps", jSONArray);
+                return jSONObject;
+            } catch (Exception unused) {
+                return null;
+            }
         }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0032, code lost:
+        r0 = r3.getHostAddress().toString();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String j(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            String str = null;
+            try {
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                loop0: while (true) {
+                    if (!networkInterfaces.hasMoreElements()) {
+                        break;
+                    }
+                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                    while (inetAddresses.hasMoreElements()) {
+                        InetAddress nextElement = inetAddresses.nextElement();
+                        if (!z || !(nextElement instanceof Inet6Address)) {
+                            if (!nextElement.isLoopbackAddress()) {
+                                break loop0;
+                            }
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public int k(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        String simOperator;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
+                return 0;
+            }
+            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
+                if ("46001".equals(simOperator)) {
+                    return 2;
+                }
+                if (!"46003".equals(simOperator)) {
+                    return 0;
+                }
+                return 3;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TextUtils.isEmpty(this.t)) {
+                try {
+                    try {
+                        this.t = WebSettings.getDefaultUserAgent(this.b);
+                    } catch (Exception unused) {
+                        this.t = "";
+                    }
+                } catch (Exception unused2) {
+                    this.t = System.getProperty("http.agent");
+                }
+            }
+            return this.t;
+        }
+        return (String) invokeV.objValue;
     }
 }

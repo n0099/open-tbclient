@@ -2,7 +2,7 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.nc9;
+import com.baidu.tieba.je9;
 import com.baidu.tieba.pushdialog.PushDialogStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import tbclient.GetLockWindowMsg.GetLockWindowMsgResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nc9 mData;
+    public je9 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushDialogHttpResMsg(int i) {
@@ -47,21 +47,21 @@ public class PushDialogHttpResMsg extends TbHttpResponsedMessage {
                 setError(getLockWindowMsgResIdl.error.errorno.intValue());
                 setErrorString(getLockWindowMsgResIdl.error.usermsg);
                 if (getLockWindowMsgResIdl.data != null) {
-                    nc9 nc9Var = new nc9();
-                    this.mData = nc9Var;
-                    nc9Var.e(getLockWindowMsgResIdl.data);
+                    je9 je9Var = new je9();
+                    this.mData = je9Var;
+                    je9Var.e(getLockWindowMsgResIdl.data);
                 }
             } catch (IOException unused) {
             }
         }
     }
 
-    public nc9 getData() {
+    public je9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (nc9) invokeV.objValue;
+        return (je9) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.fun.ad.sdk.internal.api.flavor;
 
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface RCInterceptor {
     boolean needRipper();
 

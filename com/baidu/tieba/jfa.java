@@ -1,21 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jfa {
+import com.baidu.turbonet.net.UploadDataProvider;
+import java.io.IOException;
+import java.io.OutputStream;
+/* loaded from: classes6.dex */
+public abstract class jfa extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile efa a;
-    public static bfa b;
-    public static dfa c;
-    public static cfa d;
-    public static dea e;
-    public static hea f;
     public transient /* synthetic */ FieldHolder $fh;
+    public IOException a;
+    public boolean b;
+    public boolean c;
+
+    public abstract void e() throws IOException;
+
+    public abstract UploadDataProvider f();
+
+    public abstract void g() throws IOException;
 
     public jfa() {
         Interceptable interceptable = $ic;
@@ -31,112 +36,42 @@ public class jfa {
         }
     }
 
-    public static efa d() {
-        InterceptResult invokeV;
+    public void a() throws IOException {
+        IOException iOException;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (jfa.class) {
-                if (a == null) {
-                    a = ifa.a();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (iOException = this.a) == null) {
+            return;
+        }
+        throw iOException;
+    }
+
+    public void c() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!this.c) {
+                if (!this.b) {
+                    return;
                 }
+                throw new IOException("Stream has been closed.");
             }
-            return a;
+            a();
+            throw new IOException("Writing after request completed.");
         }
-        return (efa) invokeV.objValue;
     }
 
-    public static bfa a() {
-        InterceptResult invokeV;
+    @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            bfa bfaVar = b;
-            if (bfaVar != null) {
-                return bfaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                b = a.a();
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
         }
-        return (bfa) invokeV.objValue;
     }
 
-    public static cfa b() {
-        InterceptResult invokeV;
+    public void h(IOException iOException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            cfa cfaVar = d;
-            if (cfaVar != null) {
-                return cfaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                d = a.e();
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+            this.a = iOException;
+            this.c = true;
         }
-        return (cfa) invokeV.objValue;
-    }
-
-    public static dfa c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            dfa dfaVar = c;
-            if (dfaVar != null) {
-                return dfaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                c = a.b();
-            }
-            return c;
-        }
-        return (dfa) invokeV.objValue;
-    }
-
-    public static dea e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            dea deaVar = e;
-            if (deaVar != null) {
-                return deaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                e = a.c();
-            }
-            return e;
-        }
-        return (dea) invokeV.objValue;
-    }
-
-    public static hea f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            hea heaVar = f;
-            if (heaVar != null) {
-                return heaVar;
-            }
-            if (a == null) {
-                a = d();
-            }
-            if (a != null) {
-                f = a.d();
-            }
-            return f;
-        }
-        return (hea) invokeV.objValue;
     }
 }

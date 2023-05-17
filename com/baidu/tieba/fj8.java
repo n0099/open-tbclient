@@ -1,74 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class fj8 extends ej8<String> {
+/* loaded from: classes5.dex */
+public class fj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947766165, "Lcom/baidu/tieba/fj8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947766165, "Lcom/baidu/tieba/fj8;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fj8(String key) {
-        super(key);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_match_last_text");
-    }
-
-    public final boolean f(String text) {
+    public static ej8 a(TbPageContext<?> tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            return !TextUtils.equals(text, a(""));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof th8)) {
+                return ((th8) tbPageContext.getPageActivity()).k0();
+            }
+            return null;
         }
-        return invokeL.booleanValue;
+        return (ej8) invokeL.objValue;
     }
 
-    public final void update(String text) {
+    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            if (f(text)) {
-                d(text);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof th8)) {
+                return ((th8) tbPageContext.getPageActivity()).r0();
             }
+            return null;
         }
+        return (LegoListFragment) invokeL.objValue;
+    }
+
+    public static jj8 c(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            if (tbPageContext != null && (tbPageContext.getPageActivity() instanceof th8)) {
+                return ((th8) tbPageContext.getPageActivity()).i1();
+            }
+            return null;
+        }
+        return (jj8) invokeL.objValue;
     }
 }

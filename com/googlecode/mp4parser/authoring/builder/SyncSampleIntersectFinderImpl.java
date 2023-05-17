@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder {
     public final int minFragmentDurationSeconds;
     public Movie movie;
@@ -21,7 +21,7 @@ public class SyncSampleIntersectFinderImpl implements FragmentIntersectionFinder
     public static Map<CacheTuple, long[]> getTimesCache = new ConcurrentHashMap();
     public static Map<CacheTuple, long[]> getSampleNumbersCache = new ConcurrentHashMap();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CacheTuple {
         public Movie movie;
         public Track track;

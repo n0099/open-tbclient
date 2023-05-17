@@ -60,7 +60,7 @@ import java.net.URLDecoder;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AuthAgent extends BaseApi {
     public static final String KEY_FORCE_QR_LOGIN = "KEY_FORCE_QR_LOGIN";
     public static final String SECURE_LIB_ARM64_FILE_NAME = "libwbsafeedit_64";
@@ -77,14 +77,14 @@ public class AuthAgent extends BaseApi {
     private void a(Bundle bundle, Map<String, Object> map) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b extends DefaultUiListener {
         public WeakReference<IUiListener> a;
         public final String c = "sendinstall";
         public final String d = "installwording";
         public final String e = "https://appsupport.qq.com/cgi-bin/qzapps/mapp_addapp.cgi";
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes10.dex */
         public abstract class a implements View.OnClickListener {
             public Dialog d;
 
@@ -360,7 +360,7 @@ public class AuthAgent extends BaseApi {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends DefaultUiListener {
         public IUiListener a;
 
@@ -409,7 +409,7 @@ public class AuthAgent extends BaseApi {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class c extends DefaultUiListener {
         public final IUiListener b;
         public final boolean c;

@@ -9,7 +9,7 @@ import com.vivo.push.f.u;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.NotifyArriveCallbackByUser;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class q implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

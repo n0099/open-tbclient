@@ -1,6 +1,6 @@
 package com.fun;
 
-import com.baidu.tieba.cva;
+import com.baidu.tieba.axa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.SidSessionMeta;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public class h0 {
     public final String b;
     public final Reporter c;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class a extends HashMap<String, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class h0 {
                 return;
             }
         }
-        this.c = cva.a();
+        this.c = axa.a();
         this.a = sidSessionMeta;
         this.b = str;
     }

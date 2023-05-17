@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import android.content.Intent;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class x14 implements w14 {
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class x14 extends m14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, y14> a;
-    public HashMap<String, ArrayList<w14>> b;
-    public String c;
-    public e64 d;
-    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,118 +30,51 @@ public class x14 implements w14 {
                 return;
             }
         }
-        f = ho1.a;
+        c = qp1.a;
     }
 
-    public x14(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x14() {
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.c = str;
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.m14
+    public g12 a(@NonNull JSONObject jSONObject, @NonNull km2 km2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
-            }
-            if (this.d == null) {
-                this.d = e64.b();
-            }
-            y14 y14Var = new y14(this.d, this.c, str, this);
-            this.a.put(str, y14Var);
-            y14Var.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.w14
-    public void a(String str, String str2) {
-        ArrayList<w14> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).a(str, str2);
-                        if (f) {
-                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, km2Var)) == null) {
+            g93 b0 = g93.b0();
+            if (b0 != null && b0.w() != null) {
+                try {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
                     }
-                    this.a.remove(str);
+                    km3.f(b0.w());
+                }
+                km2Var.onSuccess(null);
+            } else {
+                km2Var.onFail(100, "swan or activity is null");
+                if (c) {
+                    Log.d("StartAppUsagePage", "swan or activity is null");
                 }
             }
+            return null;
         }
-    }
-
-    public void e(String str, w14 w14Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, w14Var) == null) {
-            synchronized (this.e) {
-                if (!d(str)) {
-                    if (f) {
-                        Log.e("AudioDownloadManager", "start load url = " + str);
-                    }
-                    c(str);
-                } else if (f) {
-                    Log.e("AudioDownloadManager", "re load url = " + str);
-                }
-                b(str, w14Var);
-            }
-        }
-    }
-
-    public final void b(String str, w14 w14Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, w14Var) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(w14Var);
-                return;
-            }
-            ArrayList<w14> arrayList = new ArrayList<>();
-            arrayList.add(w14Var);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.w14
-    public void fail(int i, String str) {
-        ArrayList<w14> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).fail(i, str);
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
+        return (g12) invokeLL.objValue;
     }
 }

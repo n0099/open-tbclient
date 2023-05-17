@@ -1,6 +1,5 @@
 package com.yy.hiidostatis.inner.util.cipher;
 
-import com.baidu.android.common.security.RSAUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -21,7 +20,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RsaCipher {
     public static final String RSA_PADDING = "RSA/ECB/PKCS1Padding";
     public PrivateKey privateKey;
@@ -209,7 +208,7 @@ public class RsaCipher {
 
     public void loadPublicKey(InputStream inputStream) throws Exception {
         try {
-            this.publicKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(readAllBytes(inputStream)));
+            this.publicKey = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(readAllBytes(inputStream)));
         } catch (Throwable th) {
             throw new Exception(th);
         }
@@ -217,7 +216,7 @@ public class RsaCipher {
 
     public void loadPrivateKey(InputStream inputStream) throws Exception {
         try {
-            this.privateKey = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePrivate(new PKCS8EncodedKeySpec(readAllBytes(inputStream)));
+            this.privateKey = KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(readAllBytes(inputStream)));
         } catch (Throwable th) {
             throw new Exception(th);
         }

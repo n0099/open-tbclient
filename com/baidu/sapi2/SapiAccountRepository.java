@@ -86,8 +86,9 @@ import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tieba.external.music.data.MusicData;
-import com.baidu.tieba.pl1;
+import com.baidu.tieba.ym1;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import com.fun.ad.sdk.FunAdSdk;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
@@ -112,14 +113,14 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiAccountRepository {
     public static final String API_V3 = "3";
     public static final int SSL_AES = 6;
     public static final String TAG = "SapiAccountRepository";
     public SapiConfiguration configuration = SapiAccountManager.getInstance().getSapiConfiguration();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i, String str);
 
@@ -785,7 +786,7 @@ public final class SapiAccountRepository {
         OneKeyLoginStat.CheckAbility.statExtMap.put("connectTimeout", Integer.valueOf(i));
         OneKeyLoginStat.CheckAbility.statExtMap.put("scene", "api");
         OneKeyLoginStat.CheckAbility.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-        OneKeyLoginStat.CheckAbility.statExtMap.put("operator", pl1.d().c(this.configuration.context));
+        OneKeyLoginStat.CheckAbility.statExtMap.put("operator", ym1.d().c(this.configuration.context));
         new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, buildNaCookie, getUaInfo(), i, new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.17
             @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
             public void onFailure(Throwable th, int i2, String str2) {
@@ -810,7 +811,7 @@ public final class SapiAccountRepository {
     public void getOnlineAppShareModel(List<GetOnlineRequestShareModel> list, String str, final GetOnlineAppCallback getOnlineAppCallback) {
         if (getOnlineAppCallback != null && list != null && list.size() != 0) {
             HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-            httpHashMapWrap.put("client", "android");
+            httpHashMapWrap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
             httpHashMapWrap.put("clientfrom", "native");
             JSONArray jSONArray = new JSONArray();
             for (GetOnlineRequestShareModel getOnlineRequestShareModel : list) {
@@ -1288,7 +1289,7 @@ public final class SapiAccountRepository {
         httpHashMap.put("tpl", str);
         httpHashMap.put("appid", str2);
         httpHashMap.put("ucdata", str3);
-        httpHashMap.put("client", "android");
+        httpHashMap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         httpHashMap.put("clientfrom", "native");
         httpHashMap.put(FunAdSdk.PLATFORM_SIG, calculateSig(httpHashMap.getMap(), SapiAccountManager.getInstance().getConfignation().appSignKey));
         new HttpClientWrap().post(appUc2PassLoginUrl, ReqPriority.IMMEDIATE, httpHashMap, buildLoginStatusCookie, getUaInfo(), new HttpHandlerWrap(Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.29
@@ -1649,7 +1650,7 @@ public final class SapiAccountRepository {
             return;
         }
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
-        httpHashMapWrap.put("client", "android");
+        httpHashMapWrap.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
         httpHashMapWrap.put("clientfrom", "native");
         httpHashMapWrap.put("tpl", str);
         StringBuilder sb = new StringBuilder();
@@ -1715,7 +1716,7 @@ public final class SapiAccountRepository {
             if (accountFromBduss == null) {
                 getTplStokenResult.setResultCode(-301);
                 getTplStokenCallback.onFailure(getTplStokenResult);
-                GetTplStokenStat.onEventAutoStat(String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(-301), GetTplStokenResult.ERROR_MSG_BDUSS_NOT_EXIST);
+                GetTplStokenStat.onEventAutoStat(String.valueOf(System.currentTimeMillis() - currentTimeMillis), String.valueOf(-301), "bduss 本地不存在");
                 return getTplStokenResult.tplStokenMap;
             }
             final String str2 = accountFromBduss.ptoken;
@@ -1986,13 +1987,13 @@ public final class SapiAccountRepository {
             String operatorType = new OneKeyLoginSdkCall().getOperatorType();
             jSONObject.put("token", str);
             jSONObject.put("tpl", this.configuration.tpl);
-            jSONObject.put("client", "android");
+            jSONObject.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
             jSONObject.put("clientfrom", "native");
             jSONObject.put("appid", OneKeyLoginSdkCall.oneKeyLoginAppKey);
             jSONObject.put("operator", operatorType);
             jSONObject.put("scene", "api");
             jSONObject.put("sign", str2);
-            if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+            if ("CU".equals(operatorType)) {
                 jSONObject.put("CUVersion", "2");
             }
         } catch (JSONException e) {
@@ -2002,7 +2003,7 @@ public final class SapiAccountRepository {
         String str3 = OneKeyLoginResult.secondJsCode;
         final long currentTimeMillis = System.currentTimeMillis();
         OneKeyLoginStat.LoadLogin.statExtMap.put("netType", SapiUtils.getNetworkClass(this.configuration.context));
-        OneKeyLoginStat.LoadLogin.statExtMap.put("operator", pl1.d().c(this.configuration.context));
+        OneKeyLoginStat.LoadLogin.statExtMap.put("operator", ym1.d().c(this.configuration.context));
         SapiCoreUtil.executeJsCode(oneKeyLoginJsCode, str3, jSONObject.toString(), this.configuration.context, new ExecuteJsCallback() { // from class: com.baidu.sapi2.SapiAccountRepository.19
             @Override // com.baidu.sapi2.callback.inner.ExecuteJsCallback
             public void jsExecuteCompleted(String str4) {

@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes4.dex */
+import java.util.Arrays;
+/* loaded from: classes5.dex */
 public class hz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, gz> a;
+    public lz[] a;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        List<gz> a();
-    }
-
-    public hz(a aVar) {
+    public hz() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,21 +25,29 @@ public class hz {
                 return;
             }
         }
-        this.a = new HashMap();
-        for (gz gzVar : aVar.a()) {
-            this.a.put(gzVar.c(), gzVar);
-        }
+        this.a = new lz[]{new mz(8, 0), new nz(0, 1), new nz(1, 1), new mz(7, 1)};
     }
 
-    public gz a(String str) {
+    public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (gz) invokeL.objValue;
-    }
-
-    public List<gz> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        kz kzVar = new kz();
+        byte[] b = iz.b(bArr, bArr.length + ((this.a.length + 1) * kz.b));
+        iz.a(b, kzVar.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            lz[] lzVarArr = this.a;
+            if (i >= lzVarArr.length) {
+                return Arrays.copyOf(kzVar.b(), kz.b);
+            }
+            lz lzVar = lzVarArr[i];
+            i++;
+            int length = bArr.length + (kz.b * i);
+            kzVar.a(lzVar.b(b, 0, length), lzVar.a(), lzVar.c(), lzVar.d());
+            iz.a(b, kzVar.b(), length);
+        }
     }
 }

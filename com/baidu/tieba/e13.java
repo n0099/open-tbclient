@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.util.LruCache;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.b73;
+import com.baidu.nadcore.exp.ADConfigError;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,128 +16,140 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.io.IOException;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class e13 {
+/* loaded from: classes5.dex */
+public class e13 extends f13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static e13 f;
+    public static final boolean a;
+    public static LruCache<String, ArrayMap<String, ge3>> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, JSONArray> a;
-    public String[] b;
-    public String c;
-    public Map<String, String> d;
 
-    /* loaded from: classes4.dex */
-    public static abstract class a {
+    @Override // com.baidu.tieba.f13
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "accredit" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a implements d13 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn3 a;
 
-        public abstract void c(String str);
+        /* renamed from: com.baidu.tieba.e13$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0267a implements d13 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-        public a() {
+            public C0267a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.d13
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (e13.a) {
+                        Log.d("SwanAppUpdateManager", "has scope set");
+                    }
+                    this.a.a.a(e13.g(true));
+                }
+            }
+        }
+
+        public a(zn3 zn3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zn3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = zn3Var;
         }
 
-        public final void b(int i) {
-            Application c;
+        @Override // com.baidu.tieba.d13
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = er2.c()) != null) {
-                c(c.getString(i));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Map<String, ge3> g = e13.g(true);
+                if (g.size() > 0) {
+                    this.a.a(g);
+                    if (e13.a) {
+                        Log.d("SwanAppUpdateManager", "callback scope set");
+                        return;
+                    }
+                    return;
+                }
+                g62.k("SwanAppUpdateManager", "has not scope set，required request from server");
+                c13.g().update(new C0267a(this));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends ResponseCallback {
+    /* loaded from: classes5.dex */
+    public static class b implements d13 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public AtomicInteger a;
-        public boolean b;
-        public int c;
-        public a d;
-        public final /* synthetic */ e13 e;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ zn3 b;
+        public final /* synthetic */ String c;
 
-        public b(e13 e13Var, int i, a aVar) {
+        public b(String str, zn3 zn3Var, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e13Var, Integer.valueOf(i), aVar};
+                Object[] objArr = {str, zn3Var, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = e13Var;
-            this.a = new AtomicInteger(0);
-            this.c = i;
-            this.d = aVar;
+            this.a = str;
+            this.b = zn3Var;
+            this.c = str2;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            a aVar;
+        @Override // com.baidu.tieba.d13
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && !this.b && this.a.incrementAndGet() >= this.c && (aVar = this.d) != null) {
-                aVar.b(R.string.obfuscated_res_0x7f0f014b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                j13.f().d(this.a);
+                this.b.a(e13.g(true).get(this.c));
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                this.b = true;
-                this.e.a = new ArrayMap();
-                a aVar = this.d;
-                if (aVar != null) {
-                    aVar.b(R.string.obfuscated_res_0x7f0f014f);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                if (response != null && response.body() != null && response.isSuccessful()) {
-                    try {
-                        return response.body().string();
-                    } catch (IOException e) {
-                        if (e13.e) {
-                            Log.d("TraceDataManager", "Trace Data publish fail for IOException", e);
-                        }
-                    }
-                }
-                return null;
-            }
-            return invokeLI.objValue;
         }
     }
 
@@ -154,36 +166,8 @@ public class e13 {
                 return;
             }
         }
-        e = ho1.a;
-    }
-
-    public static e13 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (e13.class) {
-                    if (f == null) {
-                        f = new e13();
-                    }
-                }
-            }
-            return f;
-        }
-        return (e13) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String[] strArr = this.b;
-            if (strArr != null && strArr.length > 0 && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        a = qp1.a;
+        b = new LruCache<>(6);
     }
 
     public e13() {
@@ -196,112 +180,221 @@ public class e13 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static ArrayMap<String, ge3> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            g93 b0 = g93.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return b.get(b0.b);
+            }
+            return null;
+        }
+        return (ArrayMap) invokeV.objValue;
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
+            g62.k("SwanAppUpdateManager", "resetCache");
+            b.evictAll();
+        }
+    }
+
+    @Override // com.baidu.tieba.f13
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            g62.k("SwanAppUpdateManager", "onFail");
+        }
+    }
+
+    @Override // com.baidu.tieba.f13
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g62.k("SwanAppUpdateManager", "onFiltered");
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            g62.k("SwanAppUpdateManager", "cleanAccreditListData");
+            g93 M = g93.M();
+            if (M == null) {
+                g62.k("SwanAppUpdateManager", "swanApp is null");
                 return;
             }
+            g62.k("SwanAppUpdateManager", "prefName: " + M.e0().p() + ", cleanAccredit");
+            c13.g().w(new e13());
+            M.e0().B("node_data_accredit_list", "");
+            o();
+            c13.g().update();
         }
-        this.a = new ArrayMap();
-        this.c = "";
-        this.d = new HashMap();
     }
 
-    public void c(JSONObject jSONObject) {
+    @NonNull
+    public static Map<String, ge3> g(boolean z) {
+        InterceptResult invokeZ;
+        long j;
+        int size;
+        ArrayMap<String, ge3> l;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && this.a != null && jSONObject != null) {
-            String T = kt2.U().T();
-            JSONArray jSONArray = this.a.get(T);
-            if (jSONArray == null) {
-                jSONArray = new JSONArray();
-                this.a.put(T, jSONArray);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z)) == null) {
+            if (z && (l = l()) != null) {
+                return l;
             }
-            jSONArray.put(jSONObject);
-        }
-    }
-
-    public final String d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (f() && i < this.b.length) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("http://");
-                sb.append(this.b[i]);
-                sb.append(":");
-                sb.append(this.c);
-                sb.append("/uploadTraceData");
-                sb.append("?");
-                for (Map.Entry<String, String> entry : this.d.entrySet()) {
-                    sb.append(entry.getKey());
-                    sb.append("=");
-                    sb.append(entry.getValue());
+            if (a) {
+                j = System.nanoTime();
+            } else {
+                j = 0;
+            }
+            ArrayMap arrayMap = new ArrayMap();
+            g93 M = g93.M();
+            if (M == null) {
+                g62.k("SwanAppUpdateManager", "#getAccreditListData swanApp=null");
+                return arrayMap;
+            }
+            String appId = M.getAppId();
+            String q = M.e0().q("node_data_accredit_list", "");
+            String q2 = M.e0().q("cur_request_id", "");
+            g62.k("SwanAppUpdateManager", "#getAccreditListData prefName=" + M.e0().p() + " requestId=" + q2 + " accreditList=" + q);
+            if (TextUtils.isEmpty(q)) {
+                return arrayMap;
+            }
+            try {
+                ArrayMap<String, ge3> m = m(new JSONObject(q), appId);
+                if (a) {
+                    long nanoTime = System.nanoTime();
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("#getAccreditListData cost=");
+                    sb.append((nanoTime - j) / 1000000.0d);
+                    sb.append(" size=");
+                    LruCache<String, ArrayMap<String, ge3>> lruCache = b;
+                    if (lruCache == null) {
+                        size = 0;
+                    } else {
+                        size = lruCache.size();
+                    }
+                    sb.append(size);
+                    Log.d("SwanAppUpdateManager", sb.toString());
                 }
-                return sb.toString();
+                g62.k("SwanAppUpdateManager", "getAccreditListData - from json");
+                return m;
+            } catch (JSONException e) {
+                g62.l("SwanAppUpdateManager", "#getAccreditListData - parse accreditList fail", e);
+                return arrayMap;
             }
-            return "";
         }
-        return (String) invokeI.objValue;
+        return (Map) invokeZ.objValue;
     }
 
-    public void h(Bundle bundle) {
+    public static void h(@NonNull zn3<Map<String, ge3>> zn3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, bundle) != null) || bundle == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, zn3Var) == null) {
+            if (a) {
+                Log.d("SwanAppUpdateManager", "API get scope set");
+            }
+            c13.g().z(new a(zn3Var));
+        }
+    }
+
+    @Nullable
+    public static ge3 k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return g(true).get(str);
+        }
+        return (ge3) invokeL.objValue;
+    }
+
+    public static void i(String str, @NonNull zn3<ge3> zn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, zn3Var) == null) {
+            j(str, zn3Var, j13.f().b(str));
+        }
+    }
+
+    public static void j(String str, @NonNull zn3<ge3> zn3Var, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, zn3Var, str2) == null) {
+            ge3 ge3Var = g(true).get(str);
+            if (ge3Var != null) {
+                j13.f().d(str2);
+                zn3Var.a(ge3Var);
+                if (a) {
+                    Log.d("SwanAppUpdateManager", "callback scope node");
+                    return;
+                }
+                return;
+            }
+            g62.k("SwanAppUpdateManager", "has not scope node，required request from server");
+            c13.g().update(new b(str2, zn3Var, str));
+        }
+    }
+
+    public static ArrayMap<String, ge3> m(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, jSONObject, str)) == null) {
+            ArrayMap<String, ge3> arrayMap = new ArrayMap<>();
+            if (jSONObject == null) {
+                return arrayMap;
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("list");
+            if (optJSONObject2 == null) {
+                g62.k("SwanAppUpdateManager", "getAccreditListData - joAccreditList is null");
+                return arrayMap;
+            }
+            Iterator<String> keys = optJSONObject2.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next) && (optJSONObject = optJSONObject2.optJSONObject(next)) != null) {
+                    arrayMap.put(next, ge3.f(next, optJSONObject));
+                }
+            }
+            n(arrayMap, str);
+            return arrayMap;
+        }
+        return (ArrayMap) invokeLL.objValue;
+    }
+
+    public static void n(ArrayMap<String, ge3> arrayMap, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65547, null, arrayMap, str) != null) || arrayMap == null || arrayMap.size() <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
-        String string = bundle.getString("tool_ip");
-        String string2 = bundle.getString("tool_port");
-        String string3 = bundle.getString("projectId");
-        if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3)) {
-            if (e) {
-                Log.d("TraceDataManager", "IP : " + string);
-                Log.d("TraceDataManager", "Port : " + string2);
-                Log.d("TraceDataManager", "Project ID : " + string3);
-            }
-            this.b = string.split("_");
-            this.c = string2;
-            this.d.put("projectId", string3);
-        } else if (e) {
-            Log.d("TraceDataManager", "Trace Data Params is invalid");
-        }
+        g62.k("SwanAppUpdateManager", "putScopeInfo to cache: appId=" + str + ",getAppId=" + f93.K().getAppId());
+        b.put(str, arrayMap);
     }
 
-    public void g(a aVar) {
+    @Override // com.baidu.tieba.f13
+    public void d(String str, JSONObject jSONObject, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (!f()) {
-                p73.f(w73.K().w(), R.string.obfuscated_res_0x7f0f014c).G();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, jSONObject, str2) == null) {
+            g62.k("SwanAppUpdateManager", "onUpdate ");
+            if (jSONObject == null) {
+                g62.k("SwanAppUpdateManager", ADConfigError.REASON_NULL_DATA);
                 return;
             }
-            Map<String, JSONArray> map = this.a;
-            if (map != null && map.size() > 0) {
-                JSONArray jSONArray = new JSONArray();
-                try {
-                    for (Map.Entry<String, JSONArray> entry : this.a.entrySet()) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.putOpt("path", entry.getKey());
-                        jSONObject.putOpt("data", entry.getValue().toString());
-                        jSONArray.put(jSONObject);
-                    }
-                } catch (JSONException e2) {
-                    if (e) {
-                        Log.e("TraceDataManager", "Maybe the format of the Trace data is incorrect", e2);
-                    }
-                }
-                ve4 postRequest = bf4.g().postRequest();
-                postRequest.requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONArray.toString()));
-                postRequest.connectionTimeout(3000);
-                int min = Math.min(this.b.length, 4);
-                b bVar = new b(this, min, aVar);
-                for (int i = 0; i < min; i++) {
-                    postRequest.url(d(i));
-                    postRequest.build().executeAsync(bVar);
-                }
+            g93 M = g93.M();
+            if (M == null) {
+                g62.k("SwanAppUpdateManager", "swanApp is null");
                 return;
             }
-            b73.a aVar2 = new b73.a(w73.K().w());
-            aVar2.U(R.string.obfuscated_res_0x7f0f014e);
-            aVar2.v(R.string.obfuscated_res_0x7f0f014d);
-            aVar2.n(new fn3());
-            aVar2.O(R.string.obfuscated_res_0x7f0f011a, null);
-            aVar2.X();
+            String jSONObject2 = jSONObject.toString();
+            g62.k("SwanAppUpdateManager", "request appId: " + str + ",prefName: " + M.e0().p() + ", putAccredit = " + jSONObject2);
+            M.e0().B("node_data_accredit_list", jSONObject2);
+            pd3 e0 = M.e0();
+            e0.B("cur_request_id", "update:" + str2 + "_" + str + "_" + System.currentTimeMillis());
+            o();
         }
     }
 }

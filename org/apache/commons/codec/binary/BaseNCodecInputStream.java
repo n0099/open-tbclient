@@ -3,7 +3,7 @@ package org.apache.commons.codec.binary;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseNCodecInputStream extends FilterInputStream {
     public final BaseNCodec baseNCodec;
     public final boolean doEncode;

@@ -1,5 +1,5 @@
 package com.bytedance.pangle.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class q extends Exception {
     public final int a;
 

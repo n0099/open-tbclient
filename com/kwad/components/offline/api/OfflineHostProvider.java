@@ -2,12 +2,12 @@ package com.kwad.components.offline.api;
 
 import android.content.Context;
 import com.kwad.components.offline.api.core.IOfflineHostApi;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OfflineHostProvider {
     public Context mContext;
     public IOfflineHostApi mOfflineHostApi;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Holder {
         public static final OfflineHostProvider sInstance = new OfflineHostProvider();
     }

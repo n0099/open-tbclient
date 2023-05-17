@@ -26,7 +26,7 @@ import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.components.ad.reward.presenter.a implements com.kwad.components.core.webview.b.d.b {
     @Nullable
     public ValueAnimator bN;
@@ -136,11 +136,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
             showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_PLAYABLE_PORTRAIT;
         } else if (!com.kwad.sdk.core.response.a.a.bF(this.mAdInfo) || (viewGroup2 = this.rt) == null) {
             if (com.kwad.sdk.core.response.a.a.aK(this.mAdTemplate)) {
-                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091312);
+                ViewGroup viewGroup3 = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09134d);
                 this.ru = viewGroup3;
                 if (viewGroup3 != null) {
                     Resources resources = viewGroup3.getResources();
-                    b(this.ru, (int) (resources.getDimension(R.dimen.obfuscated_res_0x7f070380) + resources.getDimension(R.dimen.obfuscated_res_0x7f070383)));
+                    b(this.ru, (int) (resources.getDimension(R.dimen.obfuscated_res_0x7f0704ba) + resources.getDimension(R.dimen.obfuscated_res_0x7f0704bd)));
                     viewGroup = this.ru;
                     showActionBarResult = RewardActionBarControl.ShowActionBarResult.SHOW_NATIVE_LIVE_SUBSCRIBE;
                 }
@@ -213,7 +213,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
         this.mAdInfo = bQ;
         if (com.kwad.sdk.core.response.a.a.bF(bQ)) {
-            this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912fe);
+            this.rt = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091339);
         }
         this.pM.T(this.mAdTemplate);
         k kVar = this.nM;
@@ -341,11 +341,11 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911cf);
-        this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0913a1);
-        this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0913a2);
-        this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0913a3);
-        this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0913a4);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09120a);
+        this.rn = (ActionBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f0913dc);
+        this.ro = (ActionBarAppPortrait) findViewById(R.id.obfuscated_res_0x7f0913dd);
+        this.rp = (ActionBarAppPortraitForLive) findViewById(R.id.obfuscated_res_0x7f0913de);
+        this.rq = (ActionBarH5) findViewById(R.id.obfuscated_res_0x7f0913df);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

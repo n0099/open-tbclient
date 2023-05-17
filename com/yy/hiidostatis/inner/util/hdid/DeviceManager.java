@@ -10,7 +10,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.util.Random;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum DeviceManager {
     instance;
     

@@ -564,7 +564,7 @@ public class MediaSessionLegacyStub extends MediaSessionCompat.Callback {
 
     @Override // android.support.v4.media.session.MediaSessionCompat.Callback
     public void onRewind() {
-        dispatchSessionTask(SessionCommand.COMMAND_CODE_SESSION_REWIND, new SessionTask() { // from class: androidx.media2.session.MediaSessionLegacyStub.14
+        dispatchSessionTask(40001, new SessionTask() { // from class: androidx.media2.session.MediaSessionLegacyStub.14
             @Override // androidx.media2.session.MediaSessionLegacyStub.SessionTask
             public void run(MediaSession.ControllerInfo controllerInfo) throws RemoteException {
                 MediaSessionLegacyStub.this.mSessionImpl.getCallback().onRewind(MediaSessionLegacyStub.this.mSessionImpl.getInstance(), controllerInfo);

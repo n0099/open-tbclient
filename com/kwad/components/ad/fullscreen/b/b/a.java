@@ -10,7 +10,7 @@ import com.kwad.components.ad.reward.d.j;
 import com.kwad.components.core.playable.PlayableSource;
 import com.kwad.components.core.webview.jshandler.k;
 import com.kwad.sdk.core.response.a.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends com.kwad.components.ad.reward.presenter.c.a implements f {
     public FrameLayout fl;
     public final e mPlayEndPageListener = new e() { // from class: com.kwad.components.ad.fullscreen.b.b.a.1
@@ -83,7 +83,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.c.a impleme
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09125f);
+        this.fl = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09129a);
     }
 
     @Override // com.kwad.components.ad.reward.presenter.c.a, com.kwad.sdk.mvp.Presenter

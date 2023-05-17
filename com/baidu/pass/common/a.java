@@ -7,13 +7,13 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final String a = "Security";
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0122a {
+    /* loaded from: classes3.dex */
+    public static class C0126a {
         public static final String a = "UTF-8";
         public static final String b = "AES/CBC/NoPadding";
         public static final String c = "AES";
@@ -21,11 +21,11 @@ public class a {
         public String e;
         public String f;
 
-        public C0122a() {
+        public C0126a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
         }
 
-        public C0122a(String str, String str2, String str3) {
+        public C0126a(String str, String str2, String str3) {
             this.d = "UTF-8";
             this.e = "AES/CBC/NoPadding";
             this.f = "AES";

@@ -21,7 +21,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +41,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.DefaultWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
 import com.sina.weibo.sdk.web.view.LoadingBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BROWSER_CLOSE_SCHEME = "sinaweibo://browser/close";
@@ -90,7 +89,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         return invokeLL.booleanValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class MyChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -566,7 +565,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                     }
                 }
             });
-            builder.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new DialogInterface.OnClickListener(this, sslErrorHandler) { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
+            builder.setNegativeButton("取消", new DialogInterface.OnClickListener(this, sslErrorHandler) { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WeiboSdkWebActivity this$0;

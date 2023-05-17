@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.sdk.utils.ax;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public String ait;
     public String aiu;

@@ -1,187 +1,175 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
-public class yc9 {
+/* loaded from: classes8.dex */
+public class yc9 extends zc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static yc9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public ConcurrentHashMap<String, zc9> c;
+    public VideoItemData S0;
+    public VideoSerializeVideoThreadInfo T0;
+    public ThreadData U0;
 
-    public yc9() {
+    @Override // com.baidu.tieba.zc9
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public boolean onBackPress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yc9(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new ConcurrentHashMap<>();
+        q0(false);
+        setStageType(null);
     }
 
-    public static yc9 a() {
-        InterceptResult invokeV;
+    public final void C0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (yc9.class) {
-                    if (d == null) {
-                        d = new yc9();
-                    }
-                }
-            }
-            return d;
-        }
-        return (yc9) invokeV.objValue;
-    }
-
-    public ConcurrentHashMap<String, zc9> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public zc9 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap == null || this.c == null) {
-                return null;
-            }
-            String str2 = hashMap.get(str);
-            if (TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            return this.c.get(str2);
-        }
-        return (zc9) invokeL.objValue;
-    }
-
-    public void f(String str) {
-        ConcurrentHashMap<String, zc9> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            Iterator<String> it = concurrentHashMap.keySet().iterator();
-            while (it.hasNext()) {
-                zc9 zc9Var = this.c.get(it.next());
-                if (zc9Var != null && str.equals(zc9Var.b)) {
-                    it.remove();
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.R);
+            pbActivityConfig.createNormalCfg(str2, null, null);
+            pbActivityConfig.setForumId(String.valueOf(str));
+            pbActivityConfig.setThreadData(this.U0);
+            pbActivityConfig.setVideoOriginArea(ThreadCardUtils.computeViewArea(this.T));
+            pbActivityConfig.setNeedPreLoad(true);
+            d87.update(this.U0);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
+            View.OnClickListener onClickListener = this.E0;
+            if (onClickListener != null) {
+                onClickListener.onClick(getMainView());
             }
         }
     }
 
-    public void g(boolean z) {
-        ConcurrentHashMap<String, zc9> concurrentHashMap;
+    public void D0() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || (concurrentHashMap = this.c) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            t0(this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9
+    public void R() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i = this.p;
+            if (i == this.e || i == this.n) {
+                D0();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9
+    public void S() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f = 32;
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9
+    public void f0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.f0();
+            this.T.setOnTouchListener(null);
+            this.T.setOnClickListener(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.zc9, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || view2 == null) {
             return;
         }
-        for (String str : concurrentHashMap.keySet()) {
-            zc9 zc9Var = this.c.get(str);
-            if (zc9Var != null) {
-                zc9Var.e = z;
+        if (view2.getId() == R.id.video_mute) {
+            Z();
+        } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
+            ri.P(this.R, R.string.no_network_guide);
+        } else if (this.W) {
+            VideoItemData videoItemData = this.S0;
+            if (videoItemData != null) {
+                C0(videoItemData.forum_id, videoItemData.thread_id);
+            }
+        } else {
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.T0;
+            if (videoSerializeVideoThreadInfo != null) {
+                C0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
             }
         }
     }
 
-    public zc9 d(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zc9, com.baidu.tieba.wc9
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            ConcurrentHashMap<String, zc9> concurrentHashMap = this.c;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
-        }
-        return (zc9) invokeL.objValue;
-    }
-
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap == null) {
-                return null;
-            }
-            return hashMap.get(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void i(HashMap<String, zc9> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hashMap) == null) {
-            this.c.clear();
-            if (hashMap == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, threadData) == null) {
+            super.setData(threadData);
+            this.U0 = threadData;
+            if (this.W) {
+                VideoItemData videoItemData = new VideoItemData();
+                this.S0 = videoItemData;
+                videoItemData.buildWithThreadData(threadData);
                 return;
             }
-            this.c.putAll(hashMap);
-        }
-    }
-
-    public void h(boolean z, String str) {
-        ConcurrentHashMap<String, zc9> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null) {
-            for (String str2 : concurrentHashMap.keySet()) {
-                zc9 zc9Var = this.c.get(str2);
-                if (zc9Var != null && str.equals(zc9Var.b)) {
-                    zc9Var.e = z;
-                }
-            }
-        }
-    }
-
-    public void j(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.a) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void k(String str, String str2) {
-        HashMap<String, String> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && (hashMap = this.b) != null) {
-            hashMap.put(str, str2);
-        }
-    }
-
-    public void l(String str, HashMap<String, zc9> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, hashMap) == null) {
-            if (this.c == null) {
-                this.c = new ConcurrentHashMap<>();
-            }
-            f(str);
-            this.c.putAll(hashMap);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
+            this.T0 = videoSerializeVideoThreadInfo;
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.T0;
+            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
+            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
+            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
+            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
         }
     }
 }

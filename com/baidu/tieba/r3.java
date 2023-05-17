@@ -9,15 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class r3 extends n3 {
+/* loaded from: classes7.dex */
+public abstract class r3 implements Comparable<r3> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long h;
+    public static final o6<String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
-    public int e;
-    public int f;
-    public float g;
+    public final long a;
+    public final int b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,169 +30,136 @@ public class r3 extends n3 {
                 return;
             }
         }
-        h = n3.d("blended");
+        c = new o6<>();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public r3() {
-        this(null);
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b * 7489;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return b(this.a);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public r3(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((r3) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = j;
+        this.b = Long.numberOfTrailingZeros(j);
     }
 
-    @Override // com.baidu.tieba.n3
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((super.hashCode() * 947) + (this.d ? 1 : 0)) * 947) + this.e) * 947) + this.f) * 947) + d7.b(this.g);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public r3(int i, int i2, float f) {
-        this(true, i, i2, f);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x001d, code lost:
+        r7 = com.baidu.tieba.r3.c;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0021, code lost:
+        if (r0 >= r7.b) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:25:?, code lost:
+        return r7.get(r0);
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public r3(r3 r3Var) {
-        this(r0, r1, r2, r10);
-        boolean z;
-        int i;
-        int i2;
-        float f;
+    public static final String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r3Var};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            int i = -1;
+            while (j != 0 && (i = i + 1) < 63 && ((j >> i) & 1) == 0) {
             }
+            return null;
         }
-        if (r3Var != null && !r3Var.d) {
-            z = false;
-        } else {
-            z = true;
-        }
-        if (r3Var == null) {
-            i = 770;
-        } else {
-            i = r3Var.e;
-        }
-        if (r3Var == null) {
-            i2 = 771;
-        } else {
-            i2 = r3Var.f;
-        }
-        if (r3Var == null) {
-            f = 1.0f;
-        } else {
-            f = r3Var.g;
-        }
+        return (String) invokeJ.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r3(boolean z, int i, int i2, float f) {
-        super(h);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.g = 1.0f;
-        this.d = z;
-        this.e = i;
-        this.f = i2;
-        this.g = f;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: e */
-    public int compareTo(n3 n3Var) {
+    public static final long c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n3Var)) == null) {
-            long j = this.a;
-            long j2 = n3Var.a;
-            if (j != j2) {
-                return (int) (j - j2);
-            }
-            r3 r3Var = (r3) n3Var;
-            boolean z = this.d;
-            if (z != r3Var.d) {
-                if (z) {
-                    return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int i = 0;
+            while (true) {
+                o6<String> o6Var = c;
+                if (i < o6Var.b) {
+                    if (o6Var.get(i).compareTo(str) == 0) {
+                        return 1 << i;
+                    }
+                    i++;
+                } else {
+                    return 0L;
                 }
-                return -1;
             }
-            int i = this.e;
-            int i2 = r3Var.e;
-            if (i != i2) {
-                return i - i2;
-            }
-            int i3 = this.f;
-            int i4 = r3Var.f;
-            if (i3 != i4) {
-                return i3 - i4;
-            }
-            if (com.badlogic.gdx.math.d.e(this.g, r3Var.g)) {
-                return 0;
-            }
-            if (this.g < r3Var.g) {
-                return 1;
-            }
-            return -1;
+        } else {
+            return invokeL.longValue;
         }
-        return invokeL.intValue;
+    }
+
+    public static final long d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            long c2 = c(str);
+            if (c2 > 0) {
+                return c2;
+            }
+            c.a(str);
+            return 1 << (c.b - 1);
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean a(r3 r3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r3Var)) == null) {
+            if (r3Var.hashCode() == hashCode()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof r3)) {
+                return false;
+            }
+            r3 r3Var = (r3) obj;
+            if (this.a != r3Var.a) {
+                return false;
+            }
+            return a(r3Var);
+        }
+        return invokeL.booleanValue;
     }
 }

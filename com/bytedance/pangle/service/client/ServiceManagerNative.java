@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ServiceManagerNative {
     public static volatile ServiceManagerNative sInstance;
     public final HashMap<ServiceConnection, f> serviceConn2ServiceConn = new HashMap<>();

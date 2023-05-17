@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCue;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WebvttDecoder extends SimpleSubtitleDecoder {
     public static final String COMMENT_START = "NOTE";
     public static final int EVENT_COMMENT = 1;

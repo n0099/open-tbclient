@@ -1,25 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
 public class in5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kn5 a;
+    public String a;
     public String b;
+    public final ArrayList<String> c;
 
-    public in5(String str) {
+    public in5(BdUniqueId bdUniqueId, String str, String str2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {bdUniqueId, str, str2, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,44 +35,86 @@ public class in5 {
                 return;
             }
         }
-        this.b = str;
+        this.c = new ArrayList<>();
+        this.a = str;
+        this.b = str2;
+        g(intent);
     }
 
-    public final void a(String str, int i) {
-        int intValue;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || hi.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        int i2 = intValue + 1;
-        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
-        if (intValue2 > 0) {
-            i = (i + (intValue2 * (i2 - 1))) / i2;
-        }
-        TbSingleton.getInstance().setAnimAvgFps(str, i);
-        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
-        if (i2 >= 5) {
-            TbSingleton.getInstance().setAnimComputedFps(str, i);
-            jn5.a();
-        }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
-            if (this.a == null) {
-                this.a = new kn5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ArrayList<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return TbPageExtraHelper.buildNextPageSourceKeyList(this.c, this.a);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return (String) ListUtils.getItem(this.c, ListUtils.getCount(this.c) - 1);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                return true;
             }
-            this.a.c();
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
+            this.c.clear();
+            if (intent != null) {
+                ArrayList<String> stringArrayListExtra = intent.getStringArrayListExtra("tb_page_extar_source_list");
+                if (!ListUtils.isEmpty(stringArrayListExtra)) {
+                    this.c.addAll(stringArrayListExtra);
+                }
+            }
         }
     }
 
-    public void c() {
-        kn5 kn5Var;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (kn5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
-            kn5Var.d();
-            a(this.b, this.a.b());
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
         }
     }
 }

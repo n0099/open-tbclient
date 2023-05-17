@@ -6,7 +6,7 @@ import android.content.pm.ServiceInfo;
 import android.os.Build;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class et {
 
     /* renamed from: a  reason: collision with other field name */
@@ -16,14 +16,14 @@ public final class et {
     public static final String f330a = XMJobService.class.getCanonicalName();
     public static int a = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean mo388a();
+        boolean mo407a();
     }
 
     public static synchronized void a() {
@@ -31,7 +31,7 @@ public final class et {
             if (f329a == null) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m101a("[Alarm] stop alarm.");
+            com.xiaomi.channel.commonutils.logger.b.m120a("[Alarm] stop alarm.");
             f329a.a();
         }
     }
@@ -77,7 +77,7 @@ public final class et {
                         } catch (Exception e) {
                             e = e;
                             i = i2;
-                            com.xiaomi.channel.commonutils.logger.b.m101a("check service err : " + e.getMessage());
+                            com.xiaomi.channel.commonutils.logger.b.m120a("check service err : " + e.getMessage());
                             if (i != 0) {
                             }
                             int i3 = Build.VERSION.SDK_INT;
@@ -90,7 +90,7 @@ public final class et {
             } catch (Exception e2) {
                 e = e2;
             }
-            if (i != 0 && s.m646a(applicationContext)) {
+            if (i != 0 && s.m665a(applicationContext)) {
                 throw new RuntimeException("Should export service: " + f330a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
             }
             int i32 = Build.VERSION.SDK_INT;
@@ -119,21 +119,21 @@ public final class et {
     public static synchronized void a(boolean z) {
         synchronized (et.class) {
             if (f329a == null) {
-                com.xiaomi.channel.commonutils.logger.b.m101a("timer is not initialized");
+                com.xiaomi.channel.commonutils.logger.b.m120a("timer is not initialized");
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m101a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
+            com.xiaomi.channel.commonutils.logger.b.m120a("[Alarm] register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
             f329a.a(z);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m387a() {
+    public static synchronized boolean m406a() {
         synchronized (et.class) {
             if (f329a == null) {
                 return false;
             }
-            return f329a.mo388a();
+            return f329a.mo407a();
         }
     }
 }

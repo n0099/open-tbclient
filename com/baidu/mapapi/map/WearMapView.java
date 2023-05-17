@@ -40,7 +40,7 @@ import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
 @TargetApi(20)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsListener {
     public static final int BT_INVIEW = 1;
     public static String c;
@@ -81,14 +81,14 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public static int t = 0;
     public static int u = 10;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnDismissCallback {
         void onDismiss();
 
         void onNotify();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum ScreenShape {
         ROUND,
         RECTANGLE,
@@ -105,7 +105,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
     public void setMapCustomStyleEnable(boolean z) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AnimationTask extends TimerTask {
         public AnimationTask() {
         }
@@ -118,7 +118,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public final WeakReference<Context> b;
 

@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.se;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,53 +18,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
+import com.squareup.wire.Wire;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.FrsPage.DataRes;
+import tbclient.FrsPage.ForumInfo;
+import tbclient.FrsPage.FrsPageResIdl;
+import tbclient.ThreadInfo;
+import tbclient.User;
+/* loaded from: classes8.dex */
 public class xp9 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, zp9> a;
+    public static final Wire c;
+    public static xp9 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                xp9.a(1);
-            }
-        }
-    }
+    public gq9 a;
+    public se<byte[]> b;
 
     static {
         InterceptResult invokeClinit;
@@ -74,80 +50,324 @@ public class xp9 {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2001011));
-        a = new HashMap<>();
+        c = new Wire(new Class[0]);
     }
 
-    public static void a(int i) {
+    public static xp9 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            for (String str : a.keySet()) {
-                b(a.get(str), i);
-            }
-        }
-    }
-
-    public static void b(zp9 zp9Var, int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, zp9Var, i) == null) {
-            yp9 yp9Var = zp9Var.d;
-            yp9 yp9Var2 = zp9Var.e;
-            yp9 yp9Var3 = zp9Var.f;
-            if (yp9Var.b + yp9Var2.b + yp9Var3.b >= i) {
-                og ogVar = new og("dbg");
-                ogVar.b("act", zp9Var.c);
-                ogVar.b("httpTimeCost", String.valueOf(yp9Var.a));
-                ogVar.b("httpNum", String.valueOf(yp9Var.b));
-                ogVar.b("httpFailnum", String.valueOf(yp9Var.c));
-                ogVar.b("httpSize", String.valueOf(yp9Var.d));
-                ogVar.b("socketTimeCost", String.valueOf(yp9Var2.a));
-                ogVar.b("socketNum", String.valueOf(yp9Var2.b));
-                ogVar.b("socketFailnum", String.valueOf(yp9Var2.c));
-                ogVar.b("socketSize", String.valueOf(yp9Var2.d));
-                ogVar.b("abortTimeCost", String.valueOf(yp9Var3.a));
-                ogVar.b("abortNum", String.valueOf(yp9Var3.b));
-                ogVar.b("netType", zp9Var.b);
-                if (zp9Var.a) {
-                    str = "1";
-                } else {
-                    str = "0";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (xp9.class) {
+                    if (d == null) {
+                        d = new xp9();
+                    }
                 }
-                ogVar.b("isJson", str);
-                BdStatisticsManager.getInstance().debug("frs", ogVar);
-                yp9Var.a();
-                yp9Var2.a();
-                yp9Var3.a();
+            }
+            return d;
+        }
+        return (xp9) invokeV.objValue;
+    }
+
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            long o = o65.m().o("key_frs_cache_time", 604800000L);
+            if (o < 0) {
+                return 604800000L;
+            }
+            return o;
+        }
+        return invokeV.longValue;
+    }
+
+    public gq9 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
+        }
+        return (gq9) invokeV.objValue;
+    }
+
+    public xp9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.b = BdCacheService.n().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+    }
+
+    public void a(String str, byte[] bArr, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, str, bArr, z) == null) && str != null && str.length() > 0) {
+            if (z) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                se<byte[]> seVar = this.b;
+                seVar.e(currentAccount + str, bArr, h());
+                return;
+            }
+            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+            se<byte[]> seVar2 = this.b;
+            seVar2.i(currentAccount2 + str, bArr, h());
+        }
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.b != null && str != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            se<byte[]> seVar = this.b;
+            byte[] bArr = seVar.get(currentAccount + str);
+            if (bArr != null && bArr.length > 0) {
+                try {
+                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
+                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.forum != null && frsPageResIdl.data.forum.banner_list != null && frsPageResIdl.data.forum.banner_list.app != null && frsPageResIdl.data.forum.banner_list.app.size() > 0) {
+                        ArrayList arrayList = new ArrayList();
+                        for (App app : frsPageResIdl.data.forum.banner_list.app) {
+                            boolean isNull = StringUtils.isNull(str2);
+                            if (app != null && (isNull || str2.equals(af9.a(app)))) {
+                                arrayList.add(app);
+                            }
+                        }
+                        BannerList.Builder builder = new BannerList.Builder(frsPageResIdl.data.forum.banner_list);
+                        if (builder.app != null) {
+                            builder.app.removeAll(arrayList);
+                        }
+                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
+                        DataRes.Builder builder3 = new DataRes.Builder(frsPageResIdl.data);
+                        ForumInfo.Builder builder4 = new ForumInfo.Builder(frsPageResIdl.data.forum);
+                        builder4.banner_list = builder.build(true);
+                        builder3.forum = builder4.build(true);
+                        builder2.data = builder3.build(true);
+                        a(str, builder2.build(true).toByteArray(), true);
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
             }
         }
     }
 
-    public static void c(String str, String str2, boolean z) {
+    public void m(String str, byte[] bArr) {
+        List<ThreadInfo> list;
+        int count;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new zp9(str, str2, z));
+        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) && this.b != null && str != null && bArr != null && bArr.length > 0) {
+            try {
+                FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
+                if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
+                    return;
+                }
+                if (count >= 15) {
+                    a(str, bArr, true);
+                    return;
+                }
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                se<byte[]> seVar = this.b;
+                byte[] bArr2 = seVar.get(currentAccount + str);
+                if (bArr2 == null) {
+                    a(str, bArr, true);
+                    return;
+                }
+                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) c.parseFrom(bArr2, FrsPageResIdl.class);
+                if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
+                    List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
+                    int count2 = ListUtils.getCount(list2);
+                    ArrayList arrayList = new ArrayList();
+                    ArrayList arrayList2 = new ArrayList();
+                    int i = 0;
+                    for (int i2 = 15; i < count2 && count < i2; i2 = 15) {
+                        ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list2, i);
+                        if (threadInfo != null && threadInfo.tid != null && threadInfo.is_top.intValue() == 0 && !k(threadInfo.tid.longValue(), list)) {
+                            arrayList.add(threadInfo);
+                            User f = f(frsPageResIdl2.data.user_list, threadInfo.author_id.longValue());
+                            if (f != null) {
+                                arrayList2.add(f);
+                            }
+                            count++;
+                        }
+                        i++;
+                    }
+                    FrsPageResIdl.Builder builder = new FrsPageResIdl.Builder(frsPageResIdl);
+                    DataRes.Builder builder2 = new DataRes.Builder(frsPageResIdl.data);
+                    builder2.thread_list.addAll(arrayList);
+                    builder2.user_list.addAll(arrayList2);
+                    builder.data = builder2.build(true);
+                    a(str, builder.build(true).toByteArray(), true);
+                    return;
+                }
+                a(str, bArr, true);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    public static zp9 e(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
-            if (str2 == null) {
-                str2 = "";
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.b != null && str != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            se<byte[]> seVar = this.b;
+            byte[] bArr = seVar.get(currentAccount + str);
+            if (bArr != null && bArr.length > 0) {
+                try {
+                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
+                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.ala_stage_list != null) {
+                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
+                        if (builder.ala_stage_list != null) {
+                            builder.ala_stage_list.clear();
+                        }
+                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
+                        builder2.data = builder.build(true);
+                        a(str, builder2.build(true).toByteArray(), true);
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
             }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new zp9(str, str2, z));
-            }
-            return a.get(str3);
         }
-        return (zp9) invokeLLZ.objValue;
+    }
+
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && this.b != null && str != null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            se<byte[]> seVar = this.b;
+            byte[] bArr = seVar.get(currentAccount + str);
+            if (bArr != null && bArr.length > 0) {
+                try {
+                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
+                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.thread_list != null) {
+                        ArrayList arrayList = new ArrayList();
+                        for (ThreadInfo threadInfo : frsPageResIdl.data.thread_list) {
+                            if (threadInfo != null && threadInfo.tid != null && str2 != null && str2.equals(threadInfo.tid.toString())) {
+                                arrayList.add(threadInfo);
+                            }
+                        }
+                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
+                        if (builder.thread_list != null) {
+                            builder.thread_list.removeAll(arrayList);
+                        }
+                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
+                        builder2.data = builder.build(true);
+                        a(str, builder2.build(true).toByteArray(), true);
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+            }
+        }
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.b != null && str != null) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                se<byte[]> seVar = this.b;
+                byte[] bArr = seVar.get(currentAccount + str);
+                if (bArr != null && bArr.length > 0) {
+                    gq9 gq9Var = new gq9();
+                    this.a = gq9Var;
+                    gq9Var.isFromCache = true;
+                    gq9Var.parserProtobuf(bArr, false);
+                    ForumData forumData = this.a.forum;
+                    if (forumData != null && forumData.getFrsBannerData() != null) {
+                        this.a.forum.getFrsBannerData().i = false;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final User f(List<User> list, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, list, j)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            for (User user : list) {
+                if (user != null && user.id.longValue() == j) {
+                    return user;
+                }
+            }
+            return null;
+        }
+        return (User) invokeLJ.objValue;
+    }
+
+    public final boolean k(long j, List<ThreadInfo> list) {
+        InterceptResult invokeJL;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, list)) == null) {
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list, i);
+                if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == j) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeJL.booleanValue;
+    }
+
+    public String g(String str, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i, i2, i3)) == null) {
+            String str2 = str + i + i2;
+            if (i3 != 0) {
+                return str + i + i2 + FrsRequestData.CATEGORY_ID_KEY + i3;
+            }
+            return str2;
+        }
+        return (String) invokeLIII.objValue;
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        se.b<byte[]> h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (str != null && str.length() > 0 && (h = this.b.h(str)) != null) {
+                return UtilHelper.isSameDay(h.c, System.currentTimeMillis());
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void n(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && str != null && str.length() > 0) {
+            if (z) {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                se<byte[]> seVar = this.b;
+                seVar.remove(currentAccount + str);
+                return;
+            }
+            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
+            se<byte[]> seVar2 = this.b;
+            seVar2.d(currentAccount2 + str);
+        }
     }
 }

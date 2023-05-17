@@ -1,28 +1,39 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.SingleThreadEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class mu8 extends WebChromeClient {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class mu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public eq9 b;
+    public SingleThreadEmotionHorizontalAdater a;
+    public BdListView b;
+    public su8 c;
+    public List<EmotionPackageData> d;
 
-    public mu8(PayVcodeActivity payVcodeActivity) {
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    public mu8(TbPageContext<?> tbPageContext, BdListView bdListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
+            Object[] objArr = {tbPageContext, bdListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,28 +43,27 @@ public class mu8 extends WebChromeClient {
                 return;
             }
         }
-        this.a = payVcodeActivity;
+        this.b = bdListView;
+        su8 su8Var = new su8(tbPageContext);
+        this.c = su8Var;
+        su8Var.c(TbadkCoreApplication.getInst().getSkinType());
+        this.b.addHeaderView(this.c.b());
+        this.d = new ArrayList();
+        SingleThreadEmotionHorizontalAdater singleThreadEmotionHorizontalAdater = new SingleThreadEmotionHorizontalAdater(this.d, tbPageContext);
+        this.a = singleThreadEmotionHorizontalAdater;
+        this.b.setAdapter((ListAdapter) singleThreadEmotionHorizontalAdater);
     }
 
-    public void a(eq9 eq9Var) {
+    public void update(List<EmotionPackageData> list) {
+        su8 su8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eq9Var) == null) {
-            this.b = eq9Var;
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        PayVcodeActivity payVcodeActivity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            eq9 eq9Var = this.b;
-            if ((eq9Var != null && eq9Var.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !lg.f(payVcodeActivity.getPageContext())) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && (su8Var = this.c) != null && this.a != null) {
+            su8Var.update(Integer.valueOf(list.size()));
+            this.d.clear();
+            if (list != null) {
+                this.d.addAll(list);
             }
-            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            this.a.notifyDataSetChanged();
         }
-        return invokeLLLLL.booleanValue;
     }
 }

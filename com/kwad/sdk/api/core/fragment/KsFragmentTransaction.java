@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KsFragmentTransaction {
     public final FragmentTransaction mBase;
 

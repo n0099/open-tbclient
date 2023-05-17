@@ -1,117 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class lj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public View c;
-    public int d;
-    public kj3 e;
+    public kj3 a;
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ lj3 b;
-
-        public a(lj3 lj3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lj3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = lj3Var;
-            this.a = str;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.e != null) {
-                    this.b.e.c(this.a);
-                }
-                Rect rect = new Rect();
-                this.b.c.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.b.d != this.b.a) {
-                    if (this.b.d == height) {
-                        return;
-                    }
-                    if (this.b.d - height > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.b(this.a, this.b.d - height);
-                        }
-                        this.b.d = height;
-                        return;
-                    } else if (height - this.b.d > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.a(this.a, height - this.b.d);
-                        }
-                        this.b.d = height;
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                this.b.d = height;
-            }
-        }
-    }
-
-    public lj3(String str, Activity activity) {
+    public lj3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 200;
-        View decorView = activity.getWindow().getDecorView();
-        this.c = decorView;
-        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
     }
 
-    public final void h(kj3 kj3Var) {
+    public void a(int i) {
+        kj3 kj3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kj3Var) == null) {
-            this.e = kj3Var;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (kj3Var = this.a) != null) {
+            kj3Var.a(i);
         }
     }
 
-    public static void g(String str, Activity activity, kj3 kj3Var) {
+    public void b(kj3 kj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, kj3Var) == null) {
-            new lj3(str, activity).h(kj3Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kj3Var) == null) {
+            this.a = kj3Var;
         }
     }
 }

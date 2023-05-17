@@ -19,6 +19,8 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
@@ -34,7 +36,7 @@ import java.util.List;
 import org.apache.commons.codec.language.Caverphone1;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int a;
     public static NotificationChannel b;
@@ -233,7 +235,7 @@ public class c {
         if (a2 == null) {
             return null;
         }
-        Intent intent = new Intent("android.intent.action.VIEW");
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
         if (Build.VERSION.SDK_INT >= 24) {
             intent.addFlags(1);
         }
@@ -378,7 +380,7 @@ public class c {
     }
 
     public static String a(long j, boolean z) {
-        long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
+        long[] jArr = {AccountConstants.TYPE_MODIFY_ATTENTION_FANS, 1073741824, 1048576, 1024, 1};
         String[] strArr = {"TB", "GB", "MB", "KB", "B"};
         if (j < 1) {
             return "0 " + strArr[4];
@@ -765,7 +767,7 @@ public class c {
     }
 
     public static String b(long j) {
-        long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
+        long[] jArr = {AccountConstants.TYPE_MODIFY_ATTENTION_FANS, 1073741824, 1048576, 1024, 1};
         String[] strArr = {"TB", "GB", "MB", "KB", "B"};
         if (j < 1) {
             return "0 " + strArr[4];

@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.name;
 
 import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FqName {
     public static final FqName ROOT = new FqName("");
     public final FqNameUnsafe fqName;

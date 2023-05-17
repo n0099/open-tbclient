@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.processor.adapter;
 import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView;
 import com.baidu.ugc.editvideo.record.source.IDataSourceView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PlayerDataSourceViewAdapter implements IDataSourceView.IPlayerDataSourceView {
     public IPlayer.OnPlayerCompletionListener mOnCompleteListener;
     public IPlayer.OnPlayerErrorListener mOnErrorListener;

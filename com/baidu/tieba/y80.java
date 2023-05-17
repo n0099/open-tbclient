@@ -1,50 +1,62 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
-/* loaded from: classes7.dex */
-public abstract class y80<V> extends FutureTask<V> {
+import java.io.InputStream;
+/* loaded from: classes8.dex */
+public class y80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdAsyncTask<?, ?, ?> a;
+    public z80 a;
+    public a90 b;
 
-    public abstract void a();
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y80(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        super(callable);
+    public y80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {callable, bdAsyncTask};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Callable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = bdAsyncTask;
+        this.a = new z80();
+        this.b = new a90();
     }
 
-    public BdAsyncTask<?, ?, ?> b() {
-        InterceptResult invokeV;
+    public r80 a(r80 r80Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, r80Var, z)) == null) {
+            this.a.b(r80Var, z);
+            return r80Var;
         }
-        return (BdAsyncTask) invokeV.objValue;
+        return (r80) invokeLZ.objValue;
+    }
+
+    public r80 b(Context context, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
+            return this.a.c(context, j);
+        }
+        return (r80) invokeLJ.objValue;
+    }
+
+    public r80 c(InputStream inputStream) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
+            return this.b.b(inputStream);
+        }
+        return (r80) invokeL.objValue;
     }
 }

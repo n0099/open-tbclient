@@ -1,88 +1,191 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class kr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
+    public boolean c;
+    public String d;
+    public int e;
+    public String f;
+    public String g;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static gr3 a(byte[] bArr) {
-        InterceptResult invokeL;
+    public kr3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            gr3 gr3Var = null;
-            if (bArr == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                gr3Var = new gr3();
-                wrap.get();
-                wrap.get();
-                gr3Var.r(wrap.get());
-                gr3Var.p(wrap.get());
-                int i = wrap.getShort();
-                gr3Var.q(i);
-                int i2 = wrap.getInt();
-                gr3Var.k(i2);
-                gr3Var.l(wrap.getLong());
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                gr3Var.o(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    gr3Var.j(bArr3);
-                }
-            }
-            return gr3Var;
         }
-        return (gr3) invokeL.objValue;
     }
 
-    public static byte[] b(gr3 gr3Var) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gr3Var)) == null) {
-            if (gr3Var == null) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(gr3Var.h() + 20 + gr3Var.b());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (gr3Var.e() != null && gr3Var.e().length == 2) {
-                allocate.put(gr3Var.e()[0]);
-                allocate.put(gr3Var.e()[1]);
-                allocate.put(gr3Var.i());
-                allocate.put(gr3Var.g());
-                if (gr3Var.f() != null && gr3Var.f().length != 0) {
-                    int length = gr3Var.f().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (gr3Var.a() != null && gr3Var.a().length != 0) {
-                        allocate.putInt(gr3Var.a().length);
-                    } else {
-                        allocate.putInt(0);
-                    }
-                    allocate.putLong(gr3Var.c());
-                    if (gr3Var.f() != null) {
-                        allocate.put(gr3Var.f());
-                    }
-                    if (gr3Var.a() != null) {
-                        allocate.put(gr3Var.a());
-                    }
-                    return allocate.array();
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (byte[]) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.d;
+            int hashCode = str.hashCode();
+            if (hashCode != 2154) {
+                if (hashCode != 2161) {
+                    if (hashCode == 2162 && str.equals("CU")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("CT")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("CM")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        this.g = "";
+                    } else {
+                        this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f00a0);
+                    }
+                } else {
+                    this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009e);
+                }
+            } else {
+                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f009c);
+            }
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.d;
+            int hashCode = str.hashCode();
+            if (hashCode != 2154) {
+                if (hashCode != 2161) {
+                    if (hashCode == 2162 && str.equals("CU")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("CT")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("CM")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        this.f = "https://wap.cmpassport.com/resources/html/contract.html";
+                    }
+                } else {
+                    this.f = "https://ms.zzx9.cn/html/oauth/protocol2.html";
+                }
+            } else {
+                this.f = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
+            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+        }
     }
 }

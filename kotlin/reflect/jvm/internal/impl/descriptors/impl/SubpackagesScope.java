@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.DescriptorKindExclude;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.DescriptorKindFilter;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SubpackagesScope extends MemberScopeImpl {
     public final FqName fqName;
     public final ModuleDescriptor moduleDescriptor;

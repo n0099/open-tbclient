@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.extractor.mp4;
 
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TrackSampleTable {
     public final int[] flags;
     public final int maximumSize;

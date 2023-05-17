@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseDialogFragment extends DialogFragment implements View.OnClickListener {
     public abstract int getLayoutResId();
 
@@ -30,14 +30,14 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        setStyle(1, R.style.obfuscated_res_0x7f100123);
+        setStyle(1, R.style.obfuscated_res_0x7f100125);
     }
 
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003f5;
+        getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f100407;
         return inflate;
     }
 }

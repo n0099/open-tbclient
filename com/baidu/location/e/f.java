@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class f {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -30,7 +30,7 @@ public abstract class f {
     public byte[] m;
     public String n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

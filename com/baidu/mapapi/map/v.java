@@ -5,14 +5,14 @@ import com.baidu.mapapi.map.v.a;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class v<T extends a> {
     public final m a;
     public final int b;
     public List<T> c;
     public List<v<T>> d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a {
         public abstract Point getPoint();
     }

@@ -6,7 +6,7 @@ import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.f;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d implements Runnable {
     @Override // java.lang.Runnable
     public final void run() {

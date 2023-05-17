@@ -1,15 +1,15 @@
 package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tieba.j8;
+import com.baidu.tieba.n8;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface AbTestService {
     public static final ServiceReference SERVICE_REFERENCE = new ServiceReference("abtest", "service");
 
     String getExpInfos();
 
-    ArrayList<j8> getExperimentInfoList();
+    ArrayList<n8> getExperimentInfoList();
 
     double getSwitch(String str, double d);
 

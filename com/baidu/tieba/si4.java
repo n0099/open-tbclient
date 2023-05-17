@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public class si4 {
+/* loaded from: classes7.dex */
+public abstract class si4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wg4 a;
-    public List<xg4> b;
-    public List<yg4> c;
-    public ug4 d;
-    public PMSAppInfo e;
-    public sg4 f;
+
+    public abstract ij4 a();
+
+    public abstract boolean b(ij4 ij4Var);
+
+    public abstract void c(boolean z);
 
     public si4() {
         Interceptable interceptable = $ic;
@@ -29,5 +28,14 @@ public class si4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "task=" + a();
+        }
+        return (String) invokeV.objValue;
     }
 }

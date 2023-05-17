@@ -5,7 +5,7 @@ import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.ShowFirstParty;
 @ShowFirstParty
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FirstPartyScopes {
     @NonNull
     @KeepForSdk

@@ -7,7 +7,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ProcessFileStrategy {
     public final FileLock fileLock = new FileLock();
 

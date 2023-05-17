@@ -21,7 +21,7 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ViewCompat;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingParent, NestedScrollingChild {
     public static final int[] J = {16842766};
     public Animation A;
@@ -60,7 +60,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
     public int y;
     public int z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface h {
         void a();
 
@@ -79,12 +79,12 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         void onFinish();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface i {
         boolean a(BdSwipeRefreshLayout bdSwipeRefreshLayout, @Nullable View view2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface j {
         void onRefresh();
     }
@@ -93,7 +93,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
@@ -119,7 +119,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends Animation {
         public b() {
         }
@@ -130,7 +130,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Animation.AnimationListener {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationRepeat(Animation animation) {
@@ -153,7 +153,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends Animation {
         public d() {
         }
@@ -173,7 +173,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e extends Animation {
         public e() {
         }
@@ -184,7 +184,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f extends Animation {
         public f() {
         }
@@ -198,7 +198,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements Runnable {
         public g() {
         }
@@ -401,7 +401,7 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
 
     public void setScene(String str) {
         if ("recommend".equals(str)) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070617);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076a);
         }
         this.f = this.z;
     }
@@ -439,13 +439,13 @@ public class BdSwipeRefreshLayout extends ViewGroup implements NestedScrollingPa
         this.D = getResources().getDisplayMetrics().widthPixels;
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
         if ("baidu".equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070617);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076a);
         } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070618);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076b);
         } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070619);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076c);
         } else if ("tieba".equals(LiveFeedPageSdk.getInstance().getHost())) {
-            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070617);
+            this.z = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07076a);
         }
         this.f = this.z;
         this.h = new NestedScrollingParentHelper(this);

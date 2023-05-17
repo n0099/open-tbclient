@@ -1,113 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class n24 extends yh2 {
+/* loaded from: classes6.dex */
+public final class n24 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
+    public o34 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n24(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950553, "Lcom/baidu/tieba/n24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947950553, "Lcom/baidu/tieba/n24;");
                 return;
             }
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
+        b = qp1.a;
     }
 
-    public static yh2 t(String str, String str2) {
-        InterceptResult invokeLL;
+    public n24() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return new n24("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
-        }
-        return (yh2) invokeLL.objValue;
-    }
-
-    public static yh2 v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return new n24("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
-        }
-        return (yh2) invokeLL.objValue;
-    }
-
-    public static yh2 u(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                str = "show";
-            } else {
-                str = "hide";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return new n24("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
         }
-        return (yh2) invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.xh2
-    public String o(String str) {
+    public void c() {
+        o34 o34Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (o34Var = this.a) != null) {
+            o34Var.c();
+        }
+    }
+
+    public static n24 d(n12 n12Var) {
         InterceptResult invokeL;
-        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, n12Var)) == null) {
+            if (n12Var == null) {
+                return null;
+            }
+            n24 n24Var = new n24();
+            n24Var.a = o34.e(n12Var);
+            return n24Var;
+        }
+        return (n24) invokeL.objValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            JSONObject a = a(str);
+            o34 o34Var = this.a;
+            if (o34Var != null) {
+                o34Var.b(a);
+            }
+        }
+    }
+
+    public final JSONObject a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode != -2011830027) {
-                if (hashCode != -774049378) {
-                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                        c = 0;
-                    }
-                    c = 65535;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", ty3.a(str));
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
                 }
-            } else {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return "";
-                    }
-                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
-                }
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
-            }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(lk3.b(lk3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

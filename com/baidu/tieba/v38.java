@@ -1,56 +1,79 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class v38 {
     public static /* synthetic */ Interceptable $ic;
+    public static v38 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MetaData> a;
-    public List<MetaData> b;
-    public List<MetaData> c;
-    public List<MetaData> d;
+    public long a;
+    public List<Long> b;
+    public final CustomMessageListener c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Comparator<MetaData> {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189966, "Lcom/baidu/tieba/v38;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948189966, "Lcom/baidu/tieba/v38;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v38 a;
 
-        public a(v38 v38Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v38 v38Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v38Var};
+                Object[] objArr = {v38Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = v38Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(MetaData metaData, MetaData metaData2) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, metaData, metaData2)) == null) {
-                return Long.compare(metaData.lastUpdateTime, metaData2.lastUpdateTime);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.b();
             }
-            return invokeLL.intValue;
         }
     }
 
@@ -58,108 +81,187 @@ public class v38 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new ArrayList();
+        this.a = 0L;
+        this.b = new ArrayList();
+        this.c = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public List<MetaData> b() {
+    public synchronized List<Long> g() {
         InterceptResult invokeV;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(true, true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (Long l : this.b) {
+                    if (l != null) {
+                        arrayList.add(Long.valueOf(r58.c(l.longValue())));
+                    }
+                }
+            }
+            return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    public final void f() {
+    public static v38 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Collections.sort(this.d, new a(this));
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!ch8.e(this.a)) {
-                for (MetaData metaData : this.a) {
-                    metaData.setItemType(1);
-                }
-            }
-            if (!ch8.e(this.c)) {
-                for (MetaData metaData2 : this.c) {
-                    metaData2.setItemType(2);
-                }
-            }
-            if (!ch8.e(this.b)) {
-                for (MetaData metaData3 : this.b) {
-                    metaData3.setItemType(3);
-                }
-            }
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (MetaData metaData : this.a) {
-                if (metaData != null) {
-                    arrayList.add(metaData.getUserId());
-                }
-            }
-            if (ch8.e(this.c)) {
-                return;
-            }
-            for (MetaData metaData2 : this.c) {
-                if (metaData2 != null) {
-                    if (metaData2.getUserId() == null) {
-                        this.d.add(metaData2);
-                    } else if (!arrayList.contains(metaData2.getUserId())) {
-                        arrayList.add(metaData2.getUserId());
-                        this.d.add(metaData2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (v38.class) {
+                    if (d == null) {
+                        d = new v38();
                     }
                 }
             }
+            return d;
+        }
+        return (v38) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a = 0L;
+                this.b.clear();
+            }
         }
     }
 
-    public List<MetaData> c(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            this.a = w38.a();
-            if (z) {
-                this.b = x38.a();
-            }
-            a();
-            e(z);
-            f();
-            if (z2) {
-                this.c = z38.a();
-                d();
-            }
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (List) invokeCommon.objValue;
+        return invokeV.longValue;
     }
 
-    public final void e(boolean z) {
+    public Long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (!ch8.e(this.a)) {
-                this.d.addAll(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return j38.n().q().get(this.a);
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    public synchronized boolean i() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (this.a > 0) {
+                    if (this.b.size() > 0) {
+                        z = true;
+                    }
+                }
+                z = false;
             }
-            if (z && !ch8.e(this.b)) {
-                this.d.addAll(this.b);
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+            }
+        }
+    }
+
+    public synchronized void a(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (this) {
+                if (this.a != 0 && this.a != j) {
+                    this.b.clear();
+                    ka.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.a);
+                }
+                this.a = j;
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() == j2) {
+                        return;
+                    }
+                }
+                this.b.add(Long.valueOf(j2));
+            }
+        }
+    }
+
+    public synchronized boolean c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            synchronized (this) {
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() == j) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public synchronized String h() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                str = "";
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() != 0) {
+                        str = (str + l.longValue()) + ",";
+                    }
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            synchronized (this) {
+                b();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    try {
+                        this.a = pg.g(str, 0L);
+                        try {
+                            String[] split = str2.split(",");
+                            if (split != null && split.length > 0) {
+                                for (int i = 0; i < split.length; i++) {
+                                    if (!TextUtils.isEmpty(split[i])) {
+                                        this.b.add(Long.valueOf(Long.parseLong(split[i])));
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            BdLog.e(e);
+                        }
+                    } catch (Exception e2) {
+                        BdLog.e(e2);
+                    }
+                }
             }
         }
     }

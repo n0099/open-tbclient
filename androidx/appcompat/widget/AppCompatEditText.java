@@ -88,7 +88,7 @@ public class AppCompatEditText extends EditText implements TintableBackgroundVie
     }
 
     public AppCompatEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040284);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040295);
     }
 
     @Override // android.widget.TextView

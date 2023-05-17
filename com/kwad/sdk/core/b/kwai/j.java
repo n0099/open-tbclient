@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdInfo.AdConversionInfo adConversionInfo, JSONObject jSONObject) {

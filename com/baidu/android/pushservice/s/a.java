@@ -18,20 +18,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static C0033a a;
+    public static C0036a a;
     public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.pushservice.s.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0033a {
+    public static class C0036a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
         public final JobScheduler b;
         public boolean c;
 
-        public C0033a(Context context) {
+        public C0036a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,10 +91,10 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
             synchronized (a.class) {
-                C0033a c0033a = a;
-                if (c0033a != null) {
+                C0036a c0036a = a;
+                if (c0036a != null) {
                     try {
-                        c0033a.b();
+                        c0036a.b();
                     } catch (Exception unused) {
                     }
                     a = null;
@@ -108,11 +108,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) {
             synchronized (a.class) {
-                C0033a c0033a = a;
-                if (c0033a != null) {
+                C0036a c0036a = a;
+                if (c0036a != null) {
                     try {
                         b = true;
-                        c0033a.a(z);
+                        c0036a.a(z);
                     } catch (Exception unused) {
                     }
                 }
@@ -132,7 +132,7 @@ public class a {
             synchronized (a.class) {
                 if (a == null && Build.VERSION.SDK_INT >= 21) {
                     try {
-                        a = new C0033a(context);
+                        a = new C0036a(context);
                     } catch (Exception unused) {
                     }
                 }

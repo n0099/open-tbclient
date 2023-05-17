@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
+import android.widget.Scroller;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class qv5 extends pv5 {
+/* loaded from: classes7.dex */
+public class qv5 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiDelPostMenuView c;
-    public ViewGroup d;
+    public final Scroller a;
+    public final nv5 b;
+    public int c;
+    public int d;
 
-    public qv5(TbPageContext tbPageContext, ViewGroup viewGroup, fv5 fv5Var) {
+    public qv5(nv5 nv5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, fv5Var};
+            Object[] objArr = {nv5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,52 +32,59 @@ public class qv5 extends pv5 {
                 return;
             }
         }
-        this.d = viewGroup;
-        nv5 nv5Var = new nv5(tbPageContext, new gv5(fv5Var));
         this.b = nv5Var;
-        nv5Var.d(this);
-        this.c = new MultiDelPostMenuView(tbPageContext, this);
+        this.a = new Scroller(nv5Var.getContext(), new LinearInterpolator());
     }
 
-    @Override // com.baidu.tieba.pv5
-    public void a() {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !this.a.isFinished();
         }
-        this.a = false;
-        MultiDelPostMenuView multiDelPostMenuView = this.c;
-        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
-            this.d.removeView(this.c);
-        }
-        mv5 mv5Var = this.b;
-        if (mv5Var != null) {
-            mv5Var.dismiss();
-        }
-        this.c = null;
-        this.d = null;
-        this.b = null;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pv5
-    public void d(int i) {
-        MultiDelPostMenuView multiDelPostMenuView;
+    public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
-            multiDelPostMenuView.setDelCount(i);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.abortAnimation();
         }
     }
 
-    @Override // com.baidu.tieba.pv5
-    public void e() {
+    public void b(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
-            return;
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
+            c(0, 0, i, i2, i3);
         }
-        this.a = true;
-        ViewGroup viewGroup = this.d;
-        if (viewGroup != null) {
-            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
+    }
+
+    public void c(int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            this.a.startScroll(i, i2, i3, i4, i5);
+            this.b.removeCallbacks(this);
+            this.b.post(this);
+            this.c = i;
+            this.d = i2;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.a.computeScrollOffset()) {
+                int currX = this.a.getCurrX();
+                int currY = this.a.getCurrY();
+                this.b.b(this.c, this.d, currX, currY);
+                this.b.post(this);
+                this.c = currX;
+                this.d = currY;
+                return;
+            }
+            this.b.removeCallbacks(this);
+            this.b.a();
         }
     }
 }

@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SapiConfiguration implements NoProguard {
     public static final int BROWSE_MODE_STATE_ONLY = 2;
     public static final int BROWSE_MODE_STATE_USER_AUTHORIZED = 1;
@@ -110,12 +110,12 @@ public final class SapiConfiguration implements NoProguard {
     public final String xiaomiRedirectUri;
     public String yyAppId;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CallbackTextSizeListener extends NoProguard {
         int callbackTextSize();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder implements NoProguard {
         public String appId;
         public String appSignKey;
@@ -599,7 +599,7 @@ public final class SapiConfiguration implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SmsLoginConfig implements NoProguard {
         public Switch flagHideExtraEntry;
         public Switch flagLoginBtnType;

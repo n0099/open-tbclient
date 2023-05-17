@@ -1,193 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class jg9 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<kg9> b;
-    public boolean c;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+/* loaded from: classes6.dex */
+public interface jg9 extends IAdBaseAsyncController {
+    View b(@NonNull String str, boolean z);
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    AdvertAppInfo d(@NonNull String str);
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
-    }
+    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
 
-    /* loaded from: classes5.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TbImageView c;
-        public View d;
+    boolean f(@NonNull String str);
 
-        public b(jg9 jg9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jg9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void g(@NonNull qr5 qr5Var);
 
-        public /* synthetic */ b(jg9 jg9Var, a aVar) {
-            this(jg9Var);
-        }
-    }
+    int getAdCount();
 
-    public jg9(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = true;
-        this.a = context;
-        this.b = new ArrayList();
-    }
+    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
 
-    public void a(List<kg9> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && list != null && list.size() != 0) {
-            this.b.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
+    void j(@NonNull String str);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public kg9 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            List<kg9> list = this.b;
-            if (list != null && i < list.size()) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (kg9) invokeI.objValue;
-    }
+    void k(@NonNull AdvertAppInfo advertAppInfo);
 
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
+    void l();
 
-    public final b b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            b bVar = new b(this, null);
-            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb4);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb2);
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cb3);
-            bVar.c = tbImageView;
-            tbImageView.setAutoChangeStyle(false);
-            bVar.d = view2.findViewById(R.id.obfuscated_res_0x7f091484);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
+    boolean n();
 
-    public View d(kg9 kg9Var, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLLL;
-        b b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, kg9Var, view2, viewGroup)) == null) {
-            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof b)) {
-                b2 = (b) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07fb, viewGroup, false);
-                b2 = b(view2);
-                view2.setTag(b2);
-            }
-            if (kg9Var == null) {
-                return view2;
-            }
-            b2.a.setText(kg9Var.d);
-            b2.b.setText(kg9Var.e);
-            b2.c.setDefaultResource(R.drawable.obfuscated_res_0x7f081164);
-            b2.c.J(kg9Var.f, 10, 0, 0, false);
-            return view2;
-        }
-        return (View) invokeLLL.objValue;
-    }
+    void o(String str);
 
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<kg9> list = this.b;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            return d(this.b.get(i), view2, viewGroup);
-        }
-        return (View) invokeILL.objValue;
-    }
+    void onDestroy();
 }

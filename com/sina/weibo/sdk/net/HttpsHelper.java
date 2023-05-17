@@ -25,13 +25,13 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HttpsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SSLSocketFactory mSSLSocketFactory;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class CustomX509TrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

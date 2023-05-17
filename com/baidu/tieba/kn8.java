@@ -1,50 +1,35 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipThemeItem;
-/* loaded from: classes5.dex */
-public class kn8 {
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class kn8 implements ExtLiveLogService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public kn8(VipThemeItem vipThemeItem) {
+    public kn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        vipThemeItem.props_id.intValue();
-        String str = vipThemeItem.title;
-        String str2 = vipThemeItem.img_url;
-        String str3 = vipThemeItem.tag_img_url;
-        this.a = vipThemeItem.props_category.intValue();
-        String str4 = vipThemeItem.props_category_name;
-        String str5 = vipThemeItem.link;
-        String str6 = vipThemeItem.update_time;
-        vipThemeItem.id.intValue();
-        vipThemeItem.type.intValue();
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService
+    public void onLivePluginEvent(String str, Map<String, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) {
+            ok8.b(map);
         }
-        return invokeV.intValue;
     }
 }

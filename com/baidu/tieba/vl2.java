@@ -1,101 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.KeyEvent;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xl2;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class vl2 extends sl2<xl2> {
+/* loaded from: classes7.dex */
+public class vl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xl2.f h;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String errMsg;
+    @V8JavascriptField
+    public String[] files;
 
-    /* loaded from: classes6.dex */
-    public class a implements xl2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vl2 a;
-
-        public a(vl2 vl2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vl2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vl2Var;
-        }
-
-        @Override // com.baidu.tieba.xl2.f
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onCustomKeyboardShow", Integer.valueOf(i));
-            }
-        }
-
-        @Override // com.baidu.tieba.xl2.f
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "committext", str);
-            }
-        }
-
-        @Override // com.baidu.tieba.xl2.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onCustomKeyboardHide", null);
-            }
-        }
-
-        @Override // com.baidu.tieba.xl2.f
-        public void d() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "deletebutton", new KeyEvent(0, 67));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vl2(@NonNull xl2 xl2Var) {
-        super(xl2Var);
+    public vl2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xl2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ul2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        xl2Var.C0(aVar);
-        this.a.a(new cm2());
-        this.a.a(new yl2());
-        this.a.a(new bm2());
-        this.a.a(new am2());
-        this.a.a(new zl2());
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ReadDirCallBack" + this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

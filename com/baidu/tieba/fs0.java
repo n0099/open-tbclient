@@ -1,9 +1,36 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface fs0 {
-    int b();
 
-    boolean isPause();
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import org.apache.http.client.methods.HttpPut;
+/* loaded from: classes5.dex */
+public final class fs0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean isPlaying();
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
 }

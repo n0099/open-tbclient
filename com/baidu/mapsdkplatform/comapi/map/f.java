@@ -36,14 +36,14 @@ import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
     public transient /* synthetic */ FieldHolder $fh;
     public AsyncHttpClient b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i, String str, String str2);
 
@@ -67,7 +67,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;

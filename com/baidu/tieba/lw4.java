@@ -1,210 +1,435 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.database.Cursor;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import android.webkit.WebView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
+import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpReqMsg;
+import com.baidu.tbadk.browser.proxy.OfflineWebViewHttpResMsg;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Date;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.TreeSet;
+/* loaded from: classes6.dex */
 public class lw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BdUniqueId a;
+    public Map<String, Boolean> b;
+    public Map<String, String> c;
+    public Map<String, String> d;
+    public HttpMessageListener e;
 
-    public static boolean a(AccountData accountData, i9 i9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, accountData, i9Var)) == null) {
-            return i9Var.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
-        }
-        return invokeLL.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ lw4 a;
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().d("update account_data set isactive=0 where isactive=1");
-        }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from account_data where id=?", new String[]{str});
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            int i = 0;
-            Cursor cursor = null;
-            try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select count(*) from account_data", null);
-                        if (cursor != null && cursor.moveToFirst()) {
-                            i = cursor.getInt(0);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAccountNum");
-                    }
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(lw4 lw4Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return i;
-            } finally {
-                fg.a(cursor);
+            }
+            this.a = lw4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: boolean */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Removed duplicated region for block: B:27:0x009b  */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x018b  */
+        /* JADX WARN: Removed duplicated region for block: B:40:0x018e  */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            String str;
+            String str2;
+            WebView webView;
+            String str3;
+            int i;
+            boolean z;
+            int i2;
+            String str4;
+            String str5;
+            String p;
+            StringBuilder sb;
+            String str6;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof OfflineWebViewHttpResMsg)) {
+                return;
+            }
+            OfflineWebViewHttpResMsg offlineWebViewHttpResMsg = (OfflineWebViewHttpResMsg) httpResponsedMessage;
+            int i3 = 0;
+            String str7 = null;
+            if (!(offlineWebViewHttpResMsg.getOrginalMessage() instanceof OfflineWebViewHttpReqMsg)) {
+                str = "";
+                str2 = null;
+                webView = null;
+                str3 = null;
+                i = 0;
+            } else {
+                OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = (OfflineWebViewHttpReqMsg) offlineWebViewHttpResMsg.getOrginalMessage();
+                boolean z2 = offlineWebViewHttpReqMsg.isFromRequestByNative;
+                webView = offlineWebViewHttpReqMsg.webView;
+                if (StringUtils.isNull(offlineWebViewHttpReqMsg.url)) {
+                    str = "";
+                    str2 = null;
+                    str3 = null;
+                    i = z2;
+                } else {
+                    String str8 = offlineWebViewHttpReqMsg.url;
+                    str = offlineWebViewHttpReqMsg.module;
+                    str3 = offlineWebViewHttpReqMsg.urlSign;
+                    String str9 = offlineWebViewHttpReqMsg.jsCallbackMethod;
+                    if (TextUtils.isEmpty(str9) && z2 == 0) {
+                        str9 = (String) this.a.c.remove(str3);
+                        i3 = 1;
+                    }
+                    z = ((Boolean) this.a.b.remove(str3)).booleanValue();
+                    str7 = str9;
+                    str2 = str8;
+                    i2 = z2;
+                    if (!offlineWebViewHttpResMsg.isSuccess() && !TextUtils.isEmpty(offlineWebViewHttpResMsg.getResult())) {
+                        str5 = offlineWebViewHttpResMsg.getResult();
+                        str4 = BasicPushStatus.SUCCESS_CODE;
+                    } else {
+                        str4 = offlineWebViewHttpResMsg.getError() + "";
+                        str5 = "\"\"";
+                    }
+                    p = te9.n().p(str);
+                    if (p == null) {
+                        p = "0.0.0.0";
+                    }
+                    sb = new StringBuilder();
+                    sb.append("{");
+                    sb.append("\"status\":");
+                    sb.append("\"");
+                    sb.append(str4);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"data\":");
+                    sb.append(str5);
+                    sb.append(",");
+                    sb.append("\"cache_version\":");
+                    sb.append("\"");
+                    sb.append(p);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"cache\":");
+                    sb.append("\"");
+                    sb.append(i3);
+                    sb.append("\"");
+                    sb.append(",");
+                    sb.append("\"fromPreRequest\":");
+                    sb.append("\"");
+                    sb.append(i2 ^ 1);
+                    sb.append("\"");
+                    sb.append("}");
+                    wh6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+                    if (i2 != 0 && !z) {
+                        if (StringUtils.isNull(str7)) {
+                            wh6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），缓存请求结果：url=" + str2);
+                            this.a.d.put(str3, sb.toString());
+                            return;
+                        }
+                        wh6.a("OfflineWebHttpProxy", "请求完成：预请求-收到网络请求结果（" + httpResponsedMessage.getStatusCode() + "），开始回调js函数(" + str7 + ")：url=" + str2);
+                        this.a.l(webView, str7, sb.toString());
+                        return;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("请求完成：");
+                    if (i2 == 0) {
+                        str6 = "端能力";
+                    } else {
+                        str6 = "预请求";
+                    }
+                    sb2.append(str6);
+                    sb2.append("-收到网络请求结果（");
+                    sb2.append(httpResponsedMessage.getStatusCode());
+                    sb2.append("），开始回调端能力：url=");
+                    sb2.append(str2);
+                    wh6.a("OfflineWebHttpProxy", sb2.toString());
+                    this.a.i(webView, str2, sb.toString());
+                }
+            }
+            z = false;
+            i2 = i;
+            if (!offlineWebViewHttpResMsg.isSuccess()) {
+            }
+            str4 = offlineWebViewHttpResMsg.getError() + "";
+            str5 = "\"\"";
+            p = te9.n().p(str);
+            if (p == null) {
+            }
+            sb = new StringBuilder();
+            sb.append("{");
+            sb.append("\"status\":");
+            sb.append("\"");
+            sb.append(str4);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"data\":");
+            sb.append(str5);
+            sb.append(",");
+            sb.append("\"cache_version\":");
+            sb.append("\"");
+            sb.append(p);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"cache\":");
+            sb.append("\"");
+            sb.append(i3);
+            sb.append("\"");
+            sb.append(",");
+            sb.append("\"fromPreRequest\":");
+            sb.append("\"");
+            sb.append(i2 ^ 1);
+            sb.append("\"");
+            sb.append("}");
+            wh6.a("OfflineWebHttpProxy", "网络请求结果：fromPreRequest=" + (i2 ^ 1));
+            if (i2 != 0) {
+            }
+            StringBuilder sb22 = new StringBuilder();
+            sb22.append("请求完成：");
+            if (i2 == 0) {
+            }
+            sb22.append(str6);
+            sb22.append("-收到网络请求结果（");
+            sb22.append(httpResponsedMessage.getStatusCode());
+            sb22.append("），开始回调端能力：url=");
+            sb22.append(str2);
+            wh6.a("OfflineWebHttpProxy", sb22.toString());
+            this.a.i(webView, str2, sb.toString());
+        }
+    }
+
+    public lw4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeV.intValue;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = new HashMap();
+        this.e = new a(this, CmdConfigHttp.CMD_WEB_HTTP_PROXY);
+        BdUniqueId gen = BdUniqueId.gen();
+        this.a = gen;
+        this.e.setTag(gen);
+        this.e.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public static AccountData e() {
-        InterceptResult invokeV;
-        AccountData accountData;
-        Exception e;
-        Cursor cursor;
+    public final void f(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor2 = null;
-            if (mainDBDatabaseManager != null) {
-                try {
-                    cursor = mainDBDatabaseManager.j("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
-                    if (cursor != null) {
-                        try {
-                            try {
-                                if (cursor.moveToFirst()) {
-                                    accountData = new AccountData();
-                                    try {
-                                        accountData.setID(cursor.getString(0));
-                                        accountData.setAccount(cursor.getString(1));
-                                        accountData.setPassword(cursor.getString(2));
-                                        accountData.setBDUSS(cursor.getString(3));
-                                        accountData.setIsActive(cursor.getInt(4));
-                                        accountData.setTbs(cursor.getString(5));
-                                        accountData.setTime(cursor.getLong(6));
-                                        accountData.setPortrait(cursor.getString(7));
-                                        accountData.setSex(cursor.getInt(9));
-                                        accountData.setMemberIconUrl(cursor.getString(10));
-                                        accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                                        accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                                        cursor2 = cursor;
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        mainDBDatabaseManager.i(e, "getActiveAccountData");
-                                        fg.a(cursor);
-                                        return accountData;
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                accountData = null;
-                                e = e3;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            fg.a(cursor2);
-                            throw th;
-                        }
-                    }
-                    accountData = null;
-                    cursor2 = cursor;
-                } catch (Exception e4) {
-                    accountData = null;
-                    e = e4;
-                    cursor = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fg.a(cursor2);
-                    throw th;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) && offlineBridgeData != null && !StringUtils.isNull(offlineBridgeData.url) && !StringUtils.isNull(offlineBridgeData.type)) {
+            String g = g(offlineBridgeData.url);
+            String remove = this.d.remove(g);
+            if (!TextUtils.isEmpty(remove) && str != null) {
+                wh6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行js回调，url=" + offlineBridgeData.url);
+                l(webView, str, remove);
+            } else if (!TextUtils.isEmpty(remove) && z) {
+                wh6.a("OfflineWebHttpProxy", "请求完成：命中预请求缓存-执行端能力回调，url=" + offlineBridgeData.url);
+                i(webView, offlineBridgeData.url, remove);
+            } else if (this.b.containsKey(g)) {
+                if (!TextUtils.isEmpty(str)) {
+                    wh6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-js回调函数-等待网络结果完成后回调，url=" + offlineBridgeData.url);
+                    this.c.put(g, str);
+                } else if (z) {
+                    wh6.a("OfflineWebHttpProxy", "加入等待队列：重复的请求-端能力-等待网络结果完成后回调，url=" + offlineBridgeData.url);
+                    this.b.put(g, Boolean.TRUE);
                 }
             } else {
-                accountData = null;
+                StringBuilder sb = new StringBuilder();
+                if (z) {
+                    str2 = "端能力";
+                } else {
+                    str2 = "预请求";
+                }
+                sb.append(str2);
+                sb.append("-正在发起网络请求：");
+                sb.append(offlineBridgeData.url);
+                wh6.a("OfflineWebHttpProxy", sb.toString());
+                this.b.put(g, Boolean.valueOf(z));
+                m(webView, offlineBridgeData, str, z, g);
             }
-            fg.a(cursor2);
-            return accountData;
         }
-        return (AccountData) invokeV.objValue;
     }
 
-    public static ArrayList<AccountData> f() {
-        InterceptResult invokeV;
+    public final String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            ArrayList<AccountData> arrayList = new ArrayList<>();
-            Cursor cursor = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
             try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select * from account_data order by time desc", null);
-                        while (cursor.moveToNext()) {
-                            AccountData accountData = new AccountData();
-                            accountData.setID(cursor.getString(0));
-                            accountData.setAccount(cursor.getString(1));
-                            accountData.setPassword(cursor.getString(2));
-                            accountData.setBDUSS(cursor.getString(3));
-                            accountData.setIsActive(cursor.getInt(4));
-                            accountData.setTbs(cursor.getString(5));
-                            accountData.setTime(cursor.getLong(6));
-                            accountData.setPortrait(cursor.getString(7));
-                            accountData.setSex(cursor.getInt(9));
-                            accountData.setMemberIconUrl(cursor.getString(10));
-                            accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                            accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                            arrayList.add(accountData);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAllAccountData");
+                Uri parse = Uri.parse(str);
+                String str2 = parse.getScheme() + "://" + parse.getAuthority() + parse.getPath();
+                TreeSet<String> treeSet = new TreeSet(parse.getQueryParameterNames());
+                StringBuilder sb = new StringBuilder();
+                boolean z = true;
+                for (String str3 : treeSet) {
+                    if (z) {
+                        z = false;
+                        sb.append("?");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
+                    } else {
+                        sb.append("&");
+                        sb.append(str3);
+                        sb.append("=");
+                        sb.append(parse.getQueryParameter(str3));
                     }
                 }
-                return arrayList;
-            } finally {
-                fg.a(cursor);
+                return yi.c(str2 + ((Object) sb));
+            } catch (Exception unused) {
+                return str;
             }
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void g(AccountData accountData) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, accountData) == null) && accountData != null && accountData.getID() != null) {
-            Intent intent = new Intent();
-            intent.setAction("com.baidu.tieba.action.accountChange");
-            intent.putExtra("intent_data_accountData", TbadkCoreApplication.getCurrentAccountObj());
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            TbadkCoreApplication.getInst().sendBroadcast(intent);
-            String str = "set_basedata_account:";
-            if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:valid_logined";
-            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:valid";
-            } else if (!StringUtils.isNull(accountData.getID())) {
-                str = "set_basedata_account:logined";
-            }
-            u45.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
-            if (accountData.getIsActive() == 1) {
-                b();
-            }
-            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!c(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
-                    mainDBDatabaseManager.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.a);
+            MessageManager.getInstance().removeMessage(this.a);
+            this.b.clear();
+            this.b = null;
+            this.d.clear();
+            this.d = null;
+            this.c.clear();
+            this.c = null;
+        }
+    }
+
+    public final void i(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, str2) == null) {
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            linkedHashMap.put("result", str2);
+            linkedHashMap.put("NotificationKey", str);
+            kh6.a().d(webView, "RequestByNativeToH5", linkedHashMap);
+        }
+    }
+
+    public void j(WebView webView, OfflineBridgeData offlineBridgeData, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, offlineBridgeData, str) == null) {
+            wh6.a("OfflineWebHttpProxy", "预请求：" + offlineBridgeData.url);
+            f(webView, offlineBridgeData, str, false);
+        }
+    }
+
+    public void k(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z)}) == null) {
+            wh6.a("OfflineWebHttpProxy", "端能力请求：" + offlineBridgeData.url);
+            f(webView, offlineBridgeData, str, z);
+        }
+    }
+
+    public final void l(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, webView, str, str2) == null) && webView != null) {
+            webView.loadUrl("javascript:window." + str + "('" + str2 + "')");
+        }
+    }
+
+    public final void m(WebView webView, OfflineBridgeData offlineBridgeData, String str, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{webView, offlineBridgeData, str, Boolean.valueOf(z), str2}) == null) {
+            OfflineWebViewHttpReqMsg offlineWebViewHttpReqMsg = new OfflineWebViewHttpReqMsg();
+            offlineWebViewHttpReqMsg.url = offlineBridgeData.url;
+            offlineWebViewHttpReqMsg.urlSign = str2;
+            offlineWebViewHttpReqMsg.module = offlineBridgeData.module;
+            offlineWebViewHttpReqMsg.begin = offlineBridgeData.begin;
+            offlineWebViewHttpReqMsg.jsCallbackMethod = str;
+            offlineWebViewHttpReqMsg.webView = webView;
+            offlineWebViewHttpReqMsg.setTag(this.a);
+            offlineWebViewHttpReqMsg.isFromRequestByNative = z;
+            CookieSyncManager.createInstance(yg6.getContext());
+            String cookie = CookieManager.getInstance().getCookie("tieba.baidu.com");
+            if (!TextUtils.isEmpty(cookie)) {
+                HashMap<String, String> headers = offlineWebViewHttpReqMsg.getHeaders();
+                if (headers != null) {
+                    String str3 = headers.get("Cookie");
+                    if (!TextUtils.isEmpty(str3)) {
+                        if (str3.endsWith(ParamableElem.DIVIDE_PARAM)) {
+                            cookie = str3 + cookie;
+                        } else {
+                            cookie = str3 + ParamableElem.DIVIDE_PARAM + cookie;
+                        }
+                    }
+                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
+                } else {
+                    offlineWebViewHttpReqMsg.addHeader("Cookie", cookie);
                 }
-                mainDBDatabaseManager.d("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
-                a(accountData, mainDBDatabaseManager);
             }
+            offlineWebViewHttpReqMsg.setUserAgent(webView.getSettings().getUserAgentString());
+            offlineWebViewHttpReqMsg.addCookie("cache_version", te9.n().p(offlineBridgeData.module));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WEB_HTTP_PROXY, offlineBridgeData.url);
+            tbHttpMessageTask.setResponsedClass(OfflineWebViewHttpResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setPriority(4);
+            if (offlineBridgeData.type.toLowerCase().equals(CommandUBCHelper.COMMAND_UBC_SOURCE_SEND)) {
+                Map<String, String> map = offlineBridgeData.data;
+                if (map != null && !map.isEmpty()) {
+                    for (Map.Entry<String, String> entry : offlineBridgeData.data.entrySet()) {
+                        offlineWebViewHttpReqMsg.addParam(entry.getKey(), entry.getValue());
+                    }
+                }
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.POST);
+            } else {
+                tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+            }
+            MessageManager.getInstance().sendMessage(offlineWebViewHttpReqMsg, tbHttpMessageTask);
         }
     }
 }

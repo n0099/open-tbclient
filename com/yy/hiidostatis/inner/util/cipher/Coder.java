@@ -8,7 +8,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Coder {
     public static final String CHARSET = "UTF-8";
     public static final String KEY_DES = "DES";

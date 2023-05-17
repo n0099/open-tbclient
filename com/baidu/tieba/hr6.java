@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class hr6 extends zx4 {
+import tbclient.ApkDetail;
+import tbclient.ManageInfo;
+/* loaded from: classes5.dex */
+public class hr6 implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public List<gr6> e;
+    public ItemData a;
+    public int b;
+    public int c;
+    public boolean d;
+
+    public static boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +42,7 @@ public class hr6 extends zx4 {
                 return;
             }
         }
-        BdUniqueId.gen();
+        e = BdUniqueId.gen();
     }
 
     public hr6() {
@@ -48,52 +58,98 @@ public class hr6 extends zx4 {
                 return;
             }
         }
-        d(13);
-        this.e = new ArrayList();
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = true;
     }
 
-    public List<gr6> f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public hr6 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            hr6 hr6Var = new hr6();
+            hr6Var.a = this.a;
+            hr6Var.b = this.b;
+            hr6Var.c = this.c;
+            hr6Var.d = this.d;
+            return hr6Var;
         }
-        return (List) invokeV.objValue;
+        return (hr6) invokeV.objValue;
     }
 
-    public String getTitle() {
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e;
         }
-        return (String) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void e() {
+    public static hr6 b(nd5 nd5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_game), R.drawable.obfuscated_res_0x7f080850));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_comic), R.drawable.obfuscated_res_0x7f08084c));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_sport), R.drawable.obfuscated_res_0x7f080858));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_digita), R.drawable.obfuscated_res_0x7f08084d));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_entertainment), R.drawable.obfuscated_res_0x7f080859));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_moviezong), R.drawable.obfuscated_res_0x7f080853));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_campus), R.drawable.obfuscated_res_0x7f08084e));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_motion), R.drawable.obfuscated_res_0x7f08084f));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_local), R.drawable.obfuscated_res_0x7f080855));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_science), R.drawable.obfuscated_res_0x7f080854));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_history), R.drawable.obfuscated_res_0x7f080851));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_novel), R.drawable.obfuscated_res_0x7f080852));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_industry), R.drawable.obfuscated_res_0x7f080857));
-            this.e.add(new gr6(TbadkApplication.getInst().getString(R.string.interested_class_name_music), R.drawable.obfuscated_res_0x7f080856));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nd5Var)) == null) {
+            hr6 hr6Var = new hr6();
+            hr6Var.a = nd5Var.b;
+            hr6Var.b = nd5Var.d;
+            hr6Var.c = nd5Var.e;
+            return hr6Var;
         }
+        return (hr6) invokeL.objValue;
     }
 
-    public void setTitle(String str) {
+    public static hr6 c(ManageInfo manageInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
+            hr6 hr6Var = new hr6();
+            ItemData itemData = new ItemData();
+            hr6Var.a = itemData;
+            itemData.parseProto(manageInfo.item);
+            hr6Var.b = manageInfo.item_source.intValue();
+            return hr6Var;
         }
+        return (hr6) invokeL.objValue;
+    }
+
+    public boolean d(hr6 hr6Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        ItemData itemData;
+        ApkDetail apkDetail;
+        ApkDetail apkDetail2;
+        ItemData itemData2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hr6Var)) == null) {
+            if (this.b == hr6Var.b && this.c == hr6Var.c) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ItemData itemData3 = this.a;
+            if (itemData3 != null && (itemData2 = hr6Var.a) != null) {
+                z2 = itemData3.pkgName.equals(itemData2.pkgName);
+            } else {
+                z2 = false;
+            }
+            ItemData itemData4 = this.a;
+            if (itemData4 != null && (itemData = hr6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
+                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
+            } else {
+                z3 = false;
+            }
+            if (z && z2 && z3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

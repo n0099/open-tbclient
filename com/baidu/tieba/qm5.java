@@ -1,112 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qm5 {
     public static /* synthetic */ Interceptable $ic;
-    public static qm5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public BdUniqueId c;
+    public gm5 d;
+    public sm5 e;
+    public Object f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948096656, "Lcom/baidu/tieba/qm5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948096656, "Lcom/baidu/tieba/qm5;");
-        }
-    }
-
-    public qm5() {
+    public qm5(int i, gm5 gm5Var, sm5 sm5Var, fm5 fm5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), gm5Var, sm5Var, fm5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized qm5 c() {
-        InterceptResult invokeV;
-        qm5 qm5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (qm5.class) {
-                if (a == null) {
-                    a = new qm5();
-                }
-                qm5Var = a;
-            }
-            return qm5Var;
-        }
-        return (qm5) invokeV.objValue;
-    }
-
-    public void a(PayConfig payConfig, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
-            if (payConfig != null && context != null) {
-                if (!d()) {
-                    e(R.string.plugin_pay_wallet_not_found);
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            e(R.string.plugin_pay_error);
         }
+        this.b = true;
+        this.a = i;
+        this.d = gm5Var;
+        this.e = sm5Var;
     }
 
-    public void b(String str, TbPageContext<?> tbPageContext) {
+    public gm5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) != null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        return (gm5) invokeV.objValue;
     }
 
-    public boolean d() {
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public Object c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TbadkCoreApplication.getInst().appResponseToCmd(2001351) || !TbadkCoreApplication.getInst().isWalletShouldOpen() || Build.VERSION.SDK_INT < 8) {
-                return false;
-            }
-            return true;
+            return this.f;
+        }
+        return invokeV.objValue;
+    }
+
+    public sm5 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (sm5) invokeV.objValue;
+    }
+
+    public BdUniqueId e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
         return invokeV.booleanValue;
     }
 
-    public final void e(int i) {
+    public void g(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            ii.P(TbadkCoreApplication.getInst().getContext(), i);
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.f = obj;
+        }
+    }
+
+    public void h(sm5 sm5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sm5Var) == null) {
+            this.e = sm5Var;
+        }
+    }
+
+    public void i(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.c = bdUniqueId;
         }
     }
 }

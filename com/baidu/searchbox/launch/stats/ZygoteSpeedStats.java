@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class ZygoteSpeedStats extends AbstractSpeedStats {
     public static final String AD_CLOSE_TO_MAIN_FINISH = "adCloseToMainFinish";
     public static final String AFTER_MAINTAB_CREATE_COST_NO_AD = "afterMainTabCreateCostNoAd";

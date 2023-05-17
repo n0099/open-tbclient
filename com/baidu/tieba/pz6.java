@@ -1,324 +1,148 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.uistate.SocialUiStateKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function3;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.AbstractComponent;
-import tbclient.ComponentFactory;
-import tbclient.FeedEntrybarComponent;
-import tbclient.FeedFeedback;
-import tbclient.FeedHeadComponent;
-import tbclient.FeedHeadFigureComponent;
-import tbclient.FeedItem;
-import tbclient.FeedLayout;
-import tbclient.FeedLinkComponent;
-import tbclient.FeedLiveComponent;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedPicComponent;
-import tbclient.FeedSocialComponent;
-import tbclient.FeedVideoComponent;
-import tbclient.LayoutFactory;
-import tbclient.TitleComponent;
-import tbclient.Voice;
-/* loaded from: classes6.dex */
-public abstract class pz6 implements qz6<LayoutFactory>, u17, y07 {
+/* loaded from: classes7.dex */
+public final class pz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, ? extends v17> a;
-    public Map<String, String> b;
+    public final x07 a;
+    public y07 b;
+    public final Function1<x07, Unit> c;
+    public final Function3<Context, x07, y07, Boolean> d;
+    public final Function1<x07, Unit> e;
 
-    public abstract s17<?> e(iy6<?> iy6Var, uy6 uy6Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948079389, "Lcom/baidu/tieba/pz6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948079389, "Lcom/baidu/tieba/pz6;");
+        }
+    }
 
-    public pz6() {
+    @JvmOverloads
+    public pz6(x07 data, y07 statData, Function1<? super x07, Unit> onShareClick, Function3<? super Context, ? super x07, ? super y07, Boolean> onCommentClick, Function1<? super x07, Unit> onPraiseClick) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, statData, onShareClick, onCommentClick, onPraiseClick};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(statData, "statData");
+        Intrinsics.checkNotNullParameter(onShareClick, "onShareClick");
+        Intrinsics.checkNotNullParameter(onCommentClick, "onCommentClick");
+        Intrinsics.checkNotNullParameter(onPraiseClick, "onPraiseClick");
+        this.a = data;
+        this.b = statData;
+        this.c = onShareClick;
+        this.d = onCommentClick;
+        this.e = onPraiseClick;
     }
 
-    @Override // com.baidu.tieba.y07
-    public void a(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            this.b = map;
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ pz6(x07 x07Var, y07 y07Var, Function1 function1, Function3 function3, Function1 function12, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(x07Var, r0, r1, r2, r3);
+        y07 y07Var2;
+        Function1 function13;
+        Function3 function32;
+        Function1 function14;
+        if ((i & 2) != 0) {
+            y07Var2 = new y07(null, null, null, 7, null);
+        } else {
+            y07Var2 = y07Var;
+        }
+        if ((i & 4) != 0) {
+            function13 = SocialUiStateKt.a;
+        } else {
+            function13 = function1;
+        }
+        if ((i & 8) != 0) {
+            function32 = SocialUiStateKt.b;
+        } else {
+            function32 = function3;
+        }
+        if ((i & 16) != 0) {
+            function14 = SocialUiStateKt.c;
+        } else {
+            function14 = function12;
         }
     }
 
-    @Override // com.baidu.tieba.u17
-    public void c(Map<String, ? extends v17> map) {
+    public final x07 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            this.a = map;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (x07) invokeV.objValue;
     }
 
-    public final boolean f(List<ComponentFactory> list) {
-        InterceptResult invokeL;
+    public final Function3<Context, x07, y07, Boolean> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-            for (ComponentFactory componentFactory : list) {
-                if (componentFactory.feed_live != null) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return invokeL.booleanValue;
+        return (Function3) invokeV.objValue;
     }
 
-    public final boolean g(List<ComponentFactory> list) {
-        InterceptResult invokeL;
+    public final Function1<x07, Unit> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            for (ComponentFactory componentFactory : list) {
-                if (componentFactory.feed_video != null) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return invokeL.booleanValue;
+        return (Function1) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qz6
-    /* renamed from: d */
-    public s17<?> b(LayoutFactory originData) {
-        InterceptResult invokeL;
-        String str;
+    public final Function1<x07, Unit> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, originData)) == null) {
-            Intrinsics.checkNotNullParameter(originData, "originData");
-            ArrayList arrayList = new ArrayList();
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            uy6 uy6Var = new uy6();
-            uy6Var.f(this.a);
-            FeedLayout feedLayout = originData.feed;
-            Intrinsics.checkNotNullExpressionValue(feedLayout, "originData.feed");
-            vy6.a(uy6Var, feedLayout);
-            uy6Var.e(this.b);
-            oz6 oz6Var = new oz6();
-            for (ComponentFactory componentFactory : originData.feed.components) {
-                String str2 = componentFactory.component;
-                if (str2 != null) {
-                    wy6 wy6Var = null;
-                    wy6 wy6Var2 = null;
-                    String str3 = null;
-                    switch (str2.hashCode()) {
-                        case -1644137503:
-                            if (str2.equals("feed_head")) {
-                                List<ComponentFactory> list = originData.feed.components;
-                                Intrinsics.checkNotNullExpressionValue(list, "originData.feed.components");
-                                if (f(list)) {
-                                    str = "live_head_click";
-                                } else {
-                                    str = "user_info_click";
-                                }
-                                FeedHeadComponent feedHeadComponent = componentFactory.feed_head;
-                                if (feedHeadComponent != null) {
-                                    lz6 b = vy6.b(uy6Var, str);
-                                    lz6 b2 = vy6.b(uy6Var, "user_info_click2");
-                                    FeedFeedback feedFeedback = originData.feed.feedback;
-                                    if (feedFeedback != null) {
-                                        wy6Var = h07.a(feedFeedback, uy6Var);
-                                    }
-                                    vz6.e(feedHeadComponent, arrayList, b, b2, wy6Var, vz6.a(originData.feed.business_info));
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1644093164:
-                            if (str2.equals("feed_item")) {
-                                FeedItem feedItem = componentFactory.feed_item;
-                                if (feedItem != null) {
-                                    wz6.c(feedItem, arrayList, uy6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1644014085:
-                            if (str2.equals("feed_link")) {
-                                FeedLinkComponent feedLinkComponent = componentFactory.feed_link;
-                                if (feedLinkComponent != null) {
-                                    yz6.a(feedLinkComponent, arrayList);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1644013843:
-                            if (str2.equals("feed_live")) {
-                                FeedLiveComponent feedLiveComponent = componentFactory.feed_live;
-                                if (feedLiveComponent != null) {
-                                    zz6.a(feedLiveComponent, arrayList, uy6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -1461408349:
-                            if (str2.equals("feed_abstract")) {
-                                AbstractComponent abstractComponent = componentFactory.feed_abstract;
-                                if (abstractComponent != null) {
-                                    sz6.b(abstractComponent, arrayList, spannableStringBuilder, uy6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -993000478:
-                            if (str2.equals("feed_entrybar")) {
-                                FeedEntrybarComponent feedEntrybarComponent = componentFactory.feed_entrybar;
-                                if (feedEntrybarComponent != null) {
-                                    uz6.a(feedEntrybarComponent, arrayList, vy6.b(uy6Var, "enter_forum_btn_click"));
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case -191576215:
-                            if (str2.equals("feed_pic")) {
-                                FeedPicComponent feedPicComponent = componentFactory.feed_pic;
-                                if (feedPicComponent != null) {
-                                    b07.b(feedPicComponent, arrayList, uy6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 582564983:
-                            if (str2.equals("feed_title")) {
-                                List<ComponentFactory> list2 = originData.feed.components;
-                                Intrinsics.checkNotNullExpressionValue(list2, "originData.feed.components");
-                                boolean g = g(list2);
-                                TitleComponent titleComponent = componentFactory.feed_title;
-                                if (titleComponent != null) {
-                                    e07.a(titleComponent, arrayList, spannableStringBuilder, uy6Var, g);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 584396442:
-                            if (str2.equals("feed_video")) {
-                                FeedVideoComponent feedVideoComponent = componentFactory.feed_video;
-                                if (feedVideoComponent != null) {
-                                    str3 = feedVideoComponent.schema;
-                                }
-                                if (str3 == null) {
-                                    str3 = "";
-                                }
-                                oz6Var.g(f07.a(str3, uy6Var));
-                                FeedVideoComponent feedVideoComponent2 = componentFactory.feed_video;
-                                if (feedVideoComponent2 != null) {
-                                    f07.c(feedVideoComponent2, arrayList, oz6Var, uy6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 584579921:
-                            if (str2.equals("feed_voice")) {
-                                Voice voice = componentFactory.feed_voice;
-                                if (voice != null) {
-                                    g07.a(voice, arrayList);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 744478951:
-                            if (str2.equals("feed_origin")) {
-                                FeedOriginComponent feedOriginComponent = componentFactory.feed_origin;
-                                if (feedOriginComponent != null) {
-                                    a07.a(feedOriginComponent, arrayList, uy6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 856047918:
-                            if (str2.equals("feed_social")) {
-                                FeedSocialComponent feedSocialComponent = componentFactory.feed_social;
-                                if (feedSocialComponent != null) {
-                                    d07.a(feedSocialComponent, arrayList, uy6Var, oz6Var);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                        case 1804018946:
-                            if (str2.equals("feed_head_figure")) {
-                                FeedHeadFigureComponent feedHeadFigureComponent = componentFactory.feed_head_figure;
-                                if (feedHeadFigureComponent != null) {
-                                    lz6 b3 = vy6.b(uy6Var, "virtual_head_show");
-                                    lz6 b4 = vy6.b(uy6Var, "virtual_head_click");
-                                    FeedFeedback feedFeedback2 = originData.feed.feedback;
-                                    if (feedFeedback2 != null) {
-                                        wy6Var2 = h07.a(feedFeedback2, uy6Var);
-                                    }
-                                    vz6.f(feedHeadFigureComponent, arrayList, b3, b4, wy6Var2);
-                                    break;
-                                } else {
-                                    break;
-                                }
-                            } else {
-                                continue;
-                            }
-                    }
-                }
-            }
-            String str4 = originData.feed.schema;
-            Intrinsics.checkNotNullExpressionValue(str4, "originData.feed.schema");
-            return e(new iy6<>(arrayList, str4, Intrinsics.areEqual(uy6Var.a().a().get("is_grey_mode"), "1"), uy6Var.b().a().get("thread_id"), uy6Var.a().a().get("user_id"), null, 32, null), uy6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        return (s17) invokeL.objValue;
+        return (Function1) invokeV.objValue;
+    }
+
+    public final y07 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (y07) invokeV.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SettingTextFunctionIntroView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic = null;
     public static String h = "has_shown_funtion_intro";
@@ -52,7 +52,7 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, ii.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, ri.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -75,6 +75,6 @@ public class SettingTextFunctionIntroView extends TbSettingTextTipView {
             }
         }
         c();
-        h(0, 0, ii.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
+        h(0, 0, ri.g(context, R.dimen.obfuscated_res_0x7f070201), 0);
     }
 }

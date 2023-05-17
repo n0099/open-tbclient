@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.editvideo.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MusicInfo implements Parcelable, Serializable {
     public static final Parcelable.Creator<MusicInfo> CREATOR = new Parcelable.Creator<MusicInfo>() { // from class: com.baidu.ugc.editvideo.editvideo.data.MusicInfo.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class MusicInfo implements Parcelable, Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MusicInfo m78clone() {
+    public MusicInfo m97clone() {
         MusicInfo musicInfo = new MusicInfo();
         musicInfo.mMusicId = this.mMusicId;
         musicInfo.name = this.name;

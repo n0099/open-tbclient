@@ -1,46 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.homepage.tabfeed.data.SpecialColumnListData;
+import com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class bx7 extends kh6<zw7> {
+/* loaded from: classes5.dex */
+public class bx7 extends en<SpecialColumnListData, AdapterViewHolder<SpecialTopicLayout>> implements jw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public zw7 j;
+    public TbPageContext a;
+    public String b;
 
-    @Override // com.baidu.tieba.kh6
-    public int d() {
-        InterceptResult invokeV;
+    public void u(xn xnVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01cf : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.kh6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, xnVar) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bx7(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public bx7(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), SpecialColumnListData.TYPE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,27 +38,50 @@ public class bx7 extends kh6<zw7> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = h().findViewById(R.id.obfuscated_res_0x7f090605);
+        this.a = tbPageContext;
+    }
+
+    @Override // com.baidu.tieba.jw7
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = str;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kh6
-    /* renamed from: r */
-    public void i(zw7 zw7Var) {
+    @Override // com.baidu.tieba.en
+    /* renamed from: s */
+    public AdapterViewHolder<SpecialTopicLayout> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, zw7Var) != null) || zw7Var == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            SpecialTopicLayout specialTopicLayout = new SpecialTopicLayout(this.a);
+            specialTopicLayout.setShowMore(true);
+            return new AdapterViewHolder<>(specialTopicLayout);
         }
-        this.j = zw7Var;
-        SkinManager.setBackgroundColor(this.i, zw7Var.b);
-        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
-        layoutParams.height = ii.g(this.c, zw7Var.a);
-        this.i.setLayoutParams(layoutParams);
+        return (AdapterViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, SpecialColumnListData specialColumnListData, AdapterViewHolder<SpecialTopicLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, specialColumnListData, adapterViewHolder})) == null) {
+            SpecialTopicLayout a = adapterViewHolder.a();
+            a.setTabCode(this.b);
+            a.a(specialColumnListData);
+            return adapterViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

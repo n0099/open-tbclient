@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable<HlsPlaylist>> {
     public static final double PLAYLIST_STUCK_TARGET_DURATION_COEFFICIENT = 3.5d;
     public final HlsDataSourceFactory dataSourceFactory;
@@ -35,19 +35,19 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
     public final IdentityHashMap<HlsMasterPlaylist.HlsUrl, MediaPlaylistBundle> playlistBundles = new IdentityHashMap<>();
     public final Handler playlistRefreshHandler = new Handler();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface PlaylistEventListener {
         void onPlaylistBlacklisted(HlsMasterPlaylist.HlsUrl hlsUrl, long j);
 
         void onPlaylistChanged();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface PrimaryPlaylistListener {
         void onPrimaryPlaylistRefreshed(HlsMediaPlaylist hlsMediaPlaylist);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class MediaPlaylistBundle implements Loader.Callback<ParsingLoadable<HlsPlaylist>>, Runnable {
         public long blacklistUntilMs;
         public long earliestNextLoadTimeMs;
@@ -197,7 +197,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class PlaylistResetException extends IOException {
         public final String url;
 
@@ -206,7 +206,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class PlaylistStuckException extends IOException {
         public final String url;
 

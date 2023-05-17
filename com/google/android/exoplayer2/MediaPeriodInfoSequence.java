@@ -3,7 +3,7 @@ package com.google.android.exoplayer2;
 import android.util.Pair;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.MediaSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MediaPeriodInfoSequence {
     public int repeatMode;
     public boolean shuffleModeEnabled;
@@ -11,7 +11,7 @@ public final class MediaPeriodInfoSequence {
     public final Timeline.Period period = new Timeline.Period();
     public final Timeline.Window window = new Timeline.Window();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaPeriodInfo {
         public final long contentPositionUs;
         public final long durationUs;

@@ -2,10 +2,10 @@ package com.kwad.components.offline.api;
 
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IOfflineCompo {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Priority {
         public static final int HIGH = -100;
         public static final int HIGHEST = -200;

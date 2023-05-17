@@ -1,34 +1,107 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.UiSettings;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.yc4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ad4 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes4.dex */
+public final class ad4 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    /* loaded from: classes3.dex */
-    public static class a implements yc4.c {
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-951281542, "Lcom/baidu/tieba/ad4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-951281542, "Lcom/baidu/tieba/ad4$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public final boolean onTouch(View v, MotionEvent event) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v, event)) == null) {
+                Intrinsics.checkNotNullExpressionValue(event, "event");
+                int action = event.getAction();
+                if (action != 0) {
+                    if (action == 1 || action == 3) {
+                        Intrinsics.checkNotNullExpressionValue(v, "v");
+                        v.setAlpha(1.0f);
+                        return false;
+                    }
+                    return false;
+                }
+                Intrinsics.checkNotNullExpressionValue(v, "v");
+                v.setAlpha(0.2f);
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fc4 a;
+        public final /* synthetic */ ad4 a;
 
-        public a(fc4 fc4Var) {
+        public c(ad4 ad4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fc4Var};
+                Object[] objArr = {ad4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,83 +111,147 @@ public class ad4 {
                     return;
                 }
             }
-            this.a = fc4Var;
+            this.a = ad4Var;
         }
 
-        @Override // com.baidu.tieba.yc4.c
-        public void onFail() {
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x42.i("map", "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.yc4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.p(true);
-                x42.i("map", "location permission success");
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.c();
             }
         }
     }
 
-    public static void a(Context context, hd4 hd4Var, ju2 ju2Var, fc4 fc4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, hd4Var, ju2Var, fc4Var) == null) {
-            b(context, hd4Var, ju2Var, fc4Var, false);
+    /* loaded from: classes4.dex */
+    public static final class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ad4 a;
+
+        public d(ad4 ad4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ad4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.b();
+            }
         }
     }
 
-    public static void b(Context context, hd4 hd4Var, ju2 ju2Var, fc4 fc4Var, boolean z) {
+    /* loaded from: classes4.dex */
+    public static final class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ad4 a;
+
+        public e(ad4 ad4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ad4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ad4Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public final void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.a.a) != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ad4(Context context) {
+        super(context, R.style.obfuscated_res_0x7f1001bf);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, hd4Var, ju2Var, fc4Var, Boolean.valueOf(z)}) == null) {
-            if (hd4Var != null && ju2Var != null && ju2Var.isValid()) {
-                BaiduMap map = hd4Var.l.getMap();
-                dd4 dd4Var = new dd4(hd4Var);
-                map.setOnMapClickListener(dd4Var);
-                map.setOnMarkerClickListener(dd4Var);
-                map.setOnMapLoadedCallback(dd4Var);
-                map.setOnMapRenderCallbadk(dd4Var);
-                map.setOnMapStatusChangeListener(dd4Var);
-                map.setOnMyLocationClickListener(dd4Var);
-                UiSettings uiSettings = map.getUiSettings();
-                uiSettings.setScrollGesturesEnabled(ju2Var.t);
-                uiSettings.setRotateGesturesEnabled(ju2Var.u);
-                uiSettings.setZoomGesturesEnabled(ju2Var.s);
-                hd4Var.l.showZoomControls(false);
-                hd4Var.l.showScaleControl(false);
-                map.setBuildingsEnabled(ju2Var.x);
-                uiSettings.setOverlookingGesturesEnabled(ju2Var.w);
-                qu2 qu2Var = ju2Var.j;
-                if (qu2Var != null && qu2Var.isValid()) {
-                    x42.i("map", "initMapView coordinate is " + ju2Var.j);
-                    qu2 qu2Var2 = ju2Var.j;
-                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(qu2Var2.a, qu2Var2.b)));
-                }
-                map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) ju2Var.k));
-                x42.i("map", "initMapView scale is " + ju2Var.k);
-                boolean z2 = ju2Var.r;
-                hd4Var.k = z2;
-                if (z2) {
-                    c(context, fc4Var);
-                } else {
-                    fc4Var.p(false);
-                    map.setMyLocationEnabled(false);
-                }
-                uiSettings.setCompassEnabled(ju2Var.v);
-                bd4.e(AppRuntime.getAppContext(), ju2Var, hd4Var);
-                bd4.d(ju2Var, hd4Var, dd4Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            x42.c("map", "initMapView model is invalid");
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        c();
+    }
+
+    public final void e(a onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            Intrinsics.checkNotNullParameter(onClickListener, "onClickListener");
+            this.a = onClickListener;
         }
     }
 
-    public static void c(Context context, fc4 fc4Var) {
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final View.OnTouchListener b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, fc4Var) == null) {
-            yc4.b(context, new a(fc4Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b.a;
+        }
+        return (View.OnTouchListener) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d00c6);
+            setCanceledOnTouchOutside(false);
+            d();
+        }
+    }
+
+    @SuppressLint({"ClickableViewAccessibility"})
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090a5b)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f090a5b)).setOnClickListener(new c(this));
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f091039)).setOnTouchListener(b());
+            ((ImageView) findViewById(R.id.obfuscated_res_0x7f091039)).setOnClickListener(new d(this));
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0907c0)).setOnTouchListener(b());
+            ((Button) findViewById(R.id.obfuscated_res_0x7f0907c0)).setOnClickListener(new e(this));
         }
     }
 }

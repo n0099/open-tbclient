@@ -112,7 +112,7 @@ public class DropDownListView extends ListView {
     }
 
     public DropDownListView(@NonNull Context context, boolean z) {
-        super(context, null, R.attr.obfuscated_res_0x7f04026f);
+        super(context, null, R.attr.obfuscated_res_0x7f040289);
         this.mSelectorRect = new Rect();
         this.mSelectionLeftPadding = 0;
         this.mSelectionTopPadding = 0;

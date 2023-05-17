@@ -1,6 +1,6 @@
 package com.baidu.swan.bdtls.impl.model;
 
-import com.baidu.tieba.br3;
+import com.baidu.tieba.ks3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -15,7 +15,7 @@ import com.google.protobuf.Parser;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class Bdtls$ApplicationData extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static Parser<Bdtls$ApplicationData> PARSER = new a();
     public static final int SKR_FIELD_NUMBER = 1;
@@ -26,7 +26,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
     public int memoizedSerializedSize;
     public ByteString sKR_;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$ApplicationData, b> implements Object {
         public int a;
         public ByteString b = ByteString.EMPTY;
@@ -75,7 +75,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$ApplicationData buildPartial() {
-            Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (br3) null);
+            Bdtls$ApplicationData bdtls$ApplicationData = new Bdtls$ApplicationData(this, (ks3) null);
             int i = 1;
             if ((this.a & 1) != 1) {
                 i = 0;
@@ -283,7 +283,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         return super.writeReplace();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends AbstractParser<Bdtls$ApplicationData> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.protobuf.Parser
@@ -323,7 +323,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, br3 br3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ApplicationData(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ks3 ks3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -355,7 +355,7 @@ public final class Bdtls$ApplicationData extends GeneratedMessageLite implements
         }
     }
 
-    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, br3 br3Var) {
+    public /* synthetic */ Bdtls$ApplicationData(GeneratedMessageLite.Builder builder, ks3 ks3Var) {
         this(builder);
     }
 

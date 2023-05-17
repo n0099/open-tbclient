@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.network;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     public final double a;
     public final int b;

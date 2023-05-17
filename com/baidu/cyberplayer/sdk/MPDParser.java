@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MPDParser {
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MPDInfo {
         public int mpdAuto;
         public int mpdClarity;

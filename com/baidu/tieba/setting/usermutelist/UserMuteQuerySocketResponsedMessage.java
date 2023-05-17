@@ -12,7 +12,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.UserMuteQuery.DataRes;
 import tbclient.UserMuteQuery.UserMuteQueryResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class UserMuteQuerySocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

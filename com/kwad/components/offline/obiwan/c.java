@@ -7,7 +7,7 @@ import com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.utils.as;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c implements IObiwanOfflineCompoInitConfig {
     @Override // com.kwad.components.offline.api.obiwan.IObiwanOfflineCompoInitConfig
     public final String getLogDirPath() {

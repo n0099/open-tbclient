@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapObject implements NoProguard, Parcelable {
     public static final Parcelable.Creator<MapObject> CREATOR = new Parcelable.Creator<MapObject>() { // from class: com.baidu.pass.ecommerce.common.MapObject.1
         /* JADX DEBUG: Method merged with bridge method */

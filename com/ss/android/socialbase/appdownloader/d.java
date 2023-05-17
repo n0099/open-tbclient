@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.appdownloader.c.m;
@@ -22,7 +23,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static final String a = "d";
     public static volatile d b;
@@ -253,7 +254,7 @@ public class d {
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
             intentFilter.addAction("android.intent.action.BOOT_COMPLETED");
             intentFilter.addAction("android.ss.intent.action.DOWNLOAD_COMPLETE");
             IntentFilter intentFilter2 = new IntentFilter();

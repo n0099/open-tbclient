@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatLoadLogin {
     public static final String KEY_IS_LOAD_CACHE = "is_load_cache";
     public static final String KEY_LOAD_LOGIN = "t_load_login";

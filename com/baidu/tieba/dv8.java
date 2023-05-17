@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
-/* loaded from: classes4.dex */
-public class dv8 implements CustomMessageTask.CustomRunnable<Object> {
+import java.util.List;
+/* loaded from: classes5.dex */
+public class dv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<jv8> a;
+    public Integer b;
+    public String c;
+    public String d;
 
     public dv8() {
         Interceptable interceptable = $ic;
@@ -29,33 +26,5 @@ public class dv8 implements CustomMessageTask.CustomRunnable<Object> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            cv8 cv8Var = null;
-            if (customMessage == null || customMessage.getCmd() != 2001314) {
-                return null;
-            }
-            t05.d();
-            byte[] bArr = t05.b("tb.pb_normal").get("chosen_pb_page_cache");
-            if (bArr != null) {
-                try {
-                    excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                } catch (Exception unused) {
-                    excPbPageResIdl = null;
-                }
-                if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                    cv8Var = new cv8(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
-                }
-            }
-            return new ReadChosenPbCacheResponse(cv8Var);
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

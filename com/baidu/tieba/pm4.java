@@ -1,9 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.view.View;
-/* loaded from: classes5.dex */
-public interface pm4 {
-    View onCreateView(View view2, String str, Context context, AttributeSet attributeSet);
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class pm4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static SharedPreferences a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new qp4("key_pms_sp_name");
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
 }

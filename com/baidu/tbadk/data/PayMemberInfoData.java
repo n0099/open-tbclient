@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PayMemberInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PayMemberInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class PayMemberInfoData extends OrmObject {
         }
     }
 
-    public void V(PayMemberInfo payMemberInfo) {
+    public void U(PayMemberInfo payMemberInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, payMemberInfo) != null) || payMemberInfo == null) {
             return;

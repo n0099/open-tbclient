@@ -16,7 +16,7 @@ import java.io.Serializable;
 import java.util.List;
 import tbclient.Loop.MemberBroadcastInfo;
 import tbclient.PbContent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberBroadcastData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static long serialVersionUID = 5874348634746288330L;

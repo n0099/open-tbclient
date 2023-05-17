@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IHttpDnsConfig {
     String getAccountId();
 

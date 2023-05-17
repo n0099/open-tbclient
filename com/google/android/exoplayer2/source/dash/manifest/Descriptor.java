@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source.dash.manifest;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Descriptor {
     @Nullable
     public final String id;

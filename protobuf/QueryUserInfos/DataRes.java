@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DataRes extends Message {
     public static final String DEFAULT_INTRO = "";
     public static final String DEFAULT_NAME = "";
@@ -55,7 +55,7 @@ public final class DataRes extends Message {
     public static final List<IconInfo> DEFAULT_ICONINFO = Collections.emptyList();
     public static final Integer DEFAULT_REMINDMASK = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<DataRes> {
         public Integer hasConcerned;
         public List<IconInfo> iconInfo;

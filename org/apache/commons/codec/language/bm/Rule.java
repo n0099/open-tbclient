@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.language.bm.Languages;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Rule {
     public static final String ALL = "ALL";
     public static final String DOUBLE_QUOTE = "\"";
@@ -33,17 +33,17 @@ public class Rule {
     };
     public static final Map<NameType, Map<RuleType, Map<String, List<Rule>>>> RULES = new EnumMap(NameType.class);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface PhonemeExpr {
         Iterable<Phoneme> getPhonemes();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface RPattern {
         boolean isMatch(CharSequence charSequence);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Phoneme implements PhonemeExpr {
         public static final Comparator<Phoneme> COMPARATOR = new Comparator<Phoneme>() { // from class: org.apache.commons.codec.language.bm.Rule.Phoneme.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -94,7 +94,7 @@ public class Rule {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PhonemeList implements PhonemeExpr {
         public final List<Phoneme> phonemes;
 

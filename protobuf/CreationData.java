@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CreationData extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer agreeCount;
@@ -29,7 +29,7 @@ public final class CreationData extends Message {
     public static final Integer DEFAULT_VALIDPLAYCOUNT = 0;
     public static final Integer DEFAULT_VALIDPLAYCOUNTTREND = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<CreationData> {
         public Integer agreeCount;
         public Integer agreeCountTrend;

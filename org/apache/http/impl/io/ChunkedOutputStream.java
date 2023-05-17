@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.http.io.SessionOutputBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ChunkedOutputStream extends OutputStream {
     public ChunkedOutputStream(SessionOutputBuffer sessionOutputBuffer) throws IOException {
         throw new RuntimeException("Stub!");

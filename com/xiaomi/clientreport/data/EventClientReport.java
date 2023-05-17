@@ -3,7 +3,7 @@ package com.xiaomi.clientreport.data;
 import com.heytap.msp.push.mode.MessageStat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class EventClientReport extends a {
     public String eventContent;
     public String eventId;

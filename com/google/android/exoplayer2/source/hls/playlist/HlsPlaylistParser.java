@@ -26,7 +26,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
     public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
     public static final String BOOLEAN_FALSE = "NO";
@@ -85,7 +85,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static final Pattern REGEX_DEFAULT = compileBooleanAttrPattern(EngineName.DEFAULT_ENGINE);
     public static final Pattern REGEX_FORCED = compileBooleanAttrPattern("FORCED");
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class LineIterator {
         public final Queue<String> extraLines;
         public String next;

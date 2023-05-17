@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DefaultAllocator;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultLoadControl implements LoadControl {
     public static final int ABOVE_HIGH_WATERMARK = 0;
     public static final int BELOW_LOW_WATERMARK = 2;

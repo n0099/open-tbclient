@@ -1,159 +1,222 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.IProcessBridge;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class k43 {
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes6.dex */
+public final class k43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile k43 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<a> a;
+    public Set<String> b;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ g43 c;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
+    }
 
-        public a(Class cls, Bundle bundle, g43 g43Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863071, "Lcom/baidu/tieba/k43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cls, bundle, g43Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cls;
-            this.b = bundle;
-            this.c = g43Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle b = k43.b(this.a, this.b);
-                g43 g43Var = this.c;
-                if (g43Var != null) {
-                    g43Var.onResult(b);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947863071, "Lcom/baidu/tieba/k43;");
+                return;
             }
         }
+        c = qp1.a;
     }
 
-    public static void a(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @Nullable g43<Bundle> g43Var) {
+    public k43() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, cls, bundle, g43Var) == null) {
-            rk3.k(new a(cls, bundle, g43Var), "asyncCallMainProcess");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = new SparseArray<>();
+        this.b = new HashSet();
     }
 
-    @NonNull
-    public static Bundle b(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        IProcessBridge S;
+    public static k43 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, bundle)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                Bundle d = d(cls, bundle);
-                if (d == null) {
-                    return new Bundle();
-                }
-                return d;
-            }
-            s43 y = w73.K().y();
-            if (y != null && (S = y.S()) != null) {
-                try {
-                    Bundle callMainProcessSync = S.callMainProcessSync(cls.getName(), bundle);
-                    if (callMainProcessSync == null) {
-                        return new Bundle();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (d == null) {
+                synchronized (k43.class) {
+                    if (d == null) {
+                        d = new k43();
                     }
-                    return callMainProcessSync;
-                } catch (Throwable th) {
-                    x42.d("SwanProcessCallManager", "callMainProcessSync", th);
                 }
             }
-            return DelegateUtils.callOnMainWithContentProvider(er2.c(), cls, bundle).mResult;
+            return d;
         }
-        return (Bundle) invokeLL.objValue;
+        return (k43) invokeV.objValue;
     }
 
     @NonNull
-    public static m43 c(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+    public static int[] b(@NonNull Activity activity, @Nullable String[] strArr) {
         InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, bundle)) == null) {
-            return new m43(b(cls, bundle));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, activity, strArr)) == null) {
+            if (strArr != null && strArr.length != 0) {
+                int[] iArr = new int[strArr.length];
+                for (int i2 = 0; i2 < strArr.length; i2++) {
+                    if (cq4.a(activity, strArr[i2])) {
+                        i = 0;
+                    } else {
+                        i = -1;
+                    }
+                    iArr[i2] = i;
+                }
+                return iArr;
+            }
+            return new int[0];
         }
-        return (m43) invokeLL.objValue;
+        return (int[]) invokeLL.objValue;
     }
 
     @Nullable
-    @SuppressLint({"BDThrowableCheck"})
-    public static Bundle d(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
+    public static String d(@NonNull Activity activity, @NonNull String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, bundle)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return null;
-            }
-            ProviderDelegation a2 = l43.a(cls);
-            if (a2 == null) {
-                try {
-                    a2 = cls.newInstance();
-                } catch (Exception e) {
-                    x42.d("SwanProcessCallManager", "callOnMainProcess", e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, strArr)) == null) {
+            for (String str : strArr) {
+                if (!cq4.a(activity, str)) {
+                    if (qm4.f(activity, str)) {
+                        return str;
+                    }
+                    if (!e(str)) {
+                        return str;
+                    }
                 }
             }
-            if (a2 == null) {
-                return null;
-            }
-            return a2.execCall(bundle);
+            return null;
         }
-        return (Bundle) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Nullable
-    @SuppressLint({"BDThrowableCheck"})
-    public static Bundle e(@NonNull String str, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bundle)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            oh3 a2 = uh3.a();
+            return a2.getBoolean("first#" + str, false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            oh3 a2 = uh3.a();
+            a2.putBoolean("first#" + str, true);
+        }
+    }
+
+    public final boolean a(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (strArr == null || strArr.length <= 0) {
+                return true;
             }
-            ProviderDelegation b = l43.b(str);
-            if (b == null) {
-                try {
-                    b = (ProviderDelegation) Class.forName(str).newInstance();
-                } catch (Exception e) {
-                    x42.d("SwanProcessCallManager", "callOnMainProcess", e);
+            for (String str : strArr) {
+                if (!TextUtils.isEmpty(str) && this.b.contains(str)) {
+                    return true;
                 }
             }
-            if (b == null) {
-                return null;
-            }
-            return b.execCall(bundle);
+            return false;
         }
-        return (Bundle) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void f(Activity activity, int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, i, strArr, iArr) == null) {
+            boolean z = !a(strArr);
+            if (Build.VERSION.SDK_INT >= 23) {
+                h(activity, strArr, iArr);
+            }
+            a aVar = this.a.get(i);
+            if (aVar != null) {
+                this.a.remove(i);
+                if ((aVar instanceof f43) && z) {
+                    aVar = ((f43) aVar).s();
+                }
+                aVar.onRequestPermissionsResult(i, strArr, iArr);
+            }
+            if (c) {
+                Log.d("SwanAppPermission", "onRequestPermissionsResult requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+                StringBuilder sb = new StringBuilder();
+                sb.append("onRequestPermissionsResult grantResults: ");
+                sb.append(Arrays.toString(iArr));
+                Log.d("SwanAppPermission", sb.toString());
+            }
+        }
+    }
+
+    @RequiresApi(api = 23)
+    public final void h(Activity activity, @NonNull String[] strArr, @NonNull int[] iArr) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, strArr, iArr) == null) && Build.VERSION.SDK_INT >= 23 && activity != null && (length = strArr.length) == iArr.length && length > 0) {
+            for (int i = 0; i < length; i++) {
+                int i2 = iArr[i];
+                String str = strArr[i];
+                if (!TextUtils.isEmpty(str) && i2 == -1 && !activity.shouldShowRequestPermissionRationale(str)) {
+                    this.b.add(str);
+                }
+            }
+        }
+    }
+
+    @TargetApi(23)
+    public void requestPermissions(Activity activity, int i, @NonNull String[] strArr, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLILL(1048579, this, activity, i, strArr, aVar) == null) && aVar != null && activity != null) {
+            String d2 = d(activity, strArr);
+            if (d2 != null) {
+                this.a.put(i, aVar);
+                activity.requestPermissions(strArr, i);
+                g(d2);
+            } else {
+                aVar.onRequestPermissionsResult(i, strArr, b(activity, strArr));
+            }
+            if (c) {
+                Log.d("SwanAppPermission", "requestPermissions activity: " + activity + " requestCode: " + i + " permissions: " + Arrays.toString(strArr));
+            }
+        }
     }
 }

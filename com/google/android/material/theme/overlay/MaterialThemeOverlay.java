@@ -9,10 +9,10 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.appcompat.view.ContextThemeWrapper;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialThemeOverlay {
-    public static final int[] ANDROID_THEME_OVERLAY_ATTRS = {16842752, R.attr.obfuscated_res_0x7f04071c};
-    public static final int[] MATERIAL_THEME_OVERLAY_ATTR = {R.attr.obfuscated_res_0x7f0404c4};
+    public static final int[] ANDROID_THEME_OVERLAY_ATTRS = {16842752, R.attr.obfuscated_res_0x7f040760};
+    public static final int[] MATERIAL_THEME_OVERLAY_ATTR = {R.attr.obfuscated_res_0x7f0404e2};
 
     @StyleRes
     public static int obtainAndroidThemeOverlayId(@NonNull Context context, AttributeSet attributeSet) {

@@ -4,7 +4,7 @@ import com.baidu.searchbox.aideviceperformance.inference.DevicePerformanceModelI
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ModelInfoDataProvider {
     public static final String DEFAULTMODELNAME_AMENDEDSTATICSCORE = "amended_static_score.mlmodel";
     public static final long DEFAULTMODELVERSION_AMENDEDSTATICSCORE = 1;
@@ -37,7 +37,7 @@ public class ModelInfoDataProvider {
         return hashMap2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum DevicePerformanceModelInfoType {
         DeviceInfoGBDT(ModelInfoDataProvider.defaultModelName_GbdtDeviceScore),
         DeviceInfoLR(ModelInfoDataProvider.defaultModelName_LrDeviceScore),

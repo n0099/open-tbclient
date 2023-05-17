@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.godreply;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pp9;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,11 +16,11 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class LookMoreHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pp9> list;
+    public List<rr9> list;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LookMoreHttpResMessage() {
@@ -56,16 +56,16 @@ public class LookMoreHttpResMessage extends HttpResponsedMessage {
             }
             if (getError() == 0 && getPostListResIdl != null && (dataRes = getPostListResIdl.data) != null && (list = dataRes.post_list) != null && list.size() > 0) {
                 for (Post post : list) {
-                    pp9 pp9Var = new pp9();
-                    pp9Var.C0(post);
-                    pp9Var.O = 102;
-                    this.list.add(pp9Var);
+                    rr9 rr9Var = new rr9();
+                    rr9Var.C0(post);
+                    rr9Var.O = 102;
+                    this.list.add(rr9Var);
                 }
             }
         }
     }
 
-    public List<pp9> getData() {
+    public List<rr9> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

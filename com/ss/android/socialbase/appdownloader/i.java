@@ -1,10 +1,11 @@
 package com.ss.android.socialbase.appdownloader;
 
 import android.content.Context;
+import com.baidu.spswitch.emotion.Emoticons;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.sina.weibo.sdk.utils.ResourceManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static int a(Context context, String str) {
         try {
@@ -17,7 +18,7 @@ public class i {
 
     public static int b(String str, String str2) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "attr", str2);
+            return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, Emoticons.KEY_ATTR, str2);
         } catch (Exception e) {
             e.printStackTrace();
             return 0;

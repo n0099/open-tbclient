@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.util;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class UriUtil {
     public static final int FRAGMENT = 3;
     public static final int INDEX_COUNT = 4;

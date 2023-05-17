@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gv6;
-import com.baidu.tieba.km6;
+import com.baidu.tieba.ev4;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.vt4;
-import com.baidu.tieba.zr8;
+import com.baidu.tieba.tw6;
+import com.baidu.tieba.ut8;
+import com.baidu.tieba.wn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UserDiyModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL_DELETE = "all_delete";
@@ -45,13 +45,13 @@ public class UserDiyModel extends FaceBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserDiyModel a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public class UserDiyModel extends FaceBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003532 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
                 try {
-                    zr8.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
+                    ut8.v(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("diy_pic_update_time")).longValue());
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
@@ -124,7 +124,7 @@ public class UserDiyModel extends FaceBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class UserDiyModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<DiyEmotionData> r = gv6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<DiyEmotionData> r = tw6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
                 if (r == null) {
                     return;
@@ -171,7 +171,7 @@ public class UserDiyModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DIY_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, vt4.t(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, ev4.t(jSONArray.toString()));
                 } else {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, "all_delete");
                 }
@@ -203,10 +203,10 @@ public class UserDiyModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void V() {
+    public void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            km6.a(new a(this), "FaceUpload", 1);
+            wn6.a(new a(this), "FaceUpload", 1);
         }
     }
 

@@ -14,13 +14,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FunAdButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +132,7 @@ public class FunAdButton extends View {
         this.a = R.color.CAM_X0101;
         this.b = R.color.CAM_X0304;
         this.c = R.color.CAM_X0302;
-        this.d = R.drawable.obfuscated_res_0x7f0800c1;
+        this.d = R.drawable.obfuscated_res_0x7f0800d9;
         this.e = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
         this.f = getResources().getDimensionPixelSize(R.dimen.tbds198);
         this.g = 0;
@@ -177,7 +177,7 @@ public class FunAdButton extends View {
             this.i = getResources().getColor(R.color.CAM_X0302);
             this.o = 100;
             this.g = 0;
-            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00ae);
+            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00d8);
             this.l = getResources().getDimension(R.dimen.T_X08);
             this.p = getResources().getDimensionPixelSize(R.dimen.tbds42);
             this.q = new RectF();
@@ -289,7 +289,7 @@ public class FunAdButton extends View {
     public void setButtonTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.l = ii.d(getContext(), i);
+            this.l = ri.d(getContext(), i);
             postInvalidate();
         }
     }

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.nio.charset.Charset;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Tx3gDecoder extends SimpleSubtitleDecoder {
     public static final char BOM_UTF16_BE = 65279;
     public static final char BOM_UTF16_LE = 65534;

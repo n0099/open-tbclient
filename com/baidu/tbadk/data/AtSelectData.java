@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Objects;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AtSelectData implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_ALL_FAKE_NAME = "全体成员";
@@ -35,7 +35,7 @@ public class AtSelectData implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AtSelectData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

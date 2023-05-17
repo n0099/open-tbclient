@@ -1,84 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class ou4 implements xf6 {
+import com.facebook.common.util.UriUtil;
+/* loaded from: classes6.dex */
+public class ou4 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        wf6.a(this, webView, str, jSONObject);
+    /* loaded from: classes6.dex */
+    public static class a implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    new ou4("BenchmarkThread").start();
+                    return false;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void onDestroy() {
-        wf6.b(this);
-    }
-
-    public ou4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ou4(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.xf6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            Looper.myQueue().addIdleHandler(new a());
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public hq9 c(WebView webView) {
-        InterceptResult invokeL;
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            hq9 hq9Var = new hq9();
-            Activity a = mf6.a(webView.getContext());
-            int i = 1;
-            if (a instanceof BaseWebViewActivity) {
-                ((BaseWebViewActivity) a).isDisableGoBack = true;
-            } else {
-                i = 0;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                hq9Var.o(jSONObject.toString());
-                return hq9Var;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return hq9Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                b();
             }
         }
-        return (hq9) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            double nanoTime = System.nanoTime();
+            float f = 10.0f;
+            for (int i = 0; i < 1000000; i++) {
+                f = f + 1.9509029f + 98.90882f + 1998.158f + 989.98895f + 1.1599002f + 16.2098f + 8899.087f + i;
+            }
+            BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f);
+            TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
+            so5.a();
+        }
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RefreshRateManager implements DisplayManager.DisplayListener, LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String REFRESH_START = "1";
@@ -29,13 +29,13 @@ public class RefreshRateManager implements DisplayManager.DisplayListener, Lifec
     public OnRefreshRateListener mOnRefreshRateListener;
 
     /* renamed from: com.baidu.tbadk.core.util.RefreshRateManager$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnRefreshRateListener {
         void onRefreshChanged(float f);
     }
@@ -54,7 +54,7 @@ public class RefreshRateManager implements DisplayManager.DisplayListener, Lifec
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final RefreshRateManager INSTANCE;

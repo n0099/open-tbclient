@@ -1,71 +1,52 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class lg2 implements wt2 {
+/* loaded from: classes6.dex */
+public final class lg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947941842, "Lcom/baidu/tieba/lg2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
+            } catch (Exception e) {
+                g62.d("SwanAppSubscribeMsg", "createTable", e);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947941842, "Lcom/baidu/tieba/lg2;");
+        }
+    }
+
+    @WorkerThread
+    public static void b(@Nullable String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
+            Application c = ns2.c();
+            if (c != null && strArr != null) {
+                StringBuilder sb = new StringBuilder();
+                int length = strArr.length;
+                for (int i = 0; i < length; i++) {
+                    String str = strArr[i];
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append(str);
+                        if (i < length - 1) {
+                            sb.append(",");
+                        }
+                    }
+                }
+                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
+                g62.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
                 return;
             }
-        }
-        a = ho1.a;
-    }
-
-    public lg2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wt2
-    public void a(boolean z, Activity activity) {
-        long j;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && ng2.a() && !z) {
-            if (a) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            boolean B = ol3.B();
-            if (a) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
-            }
-            if (B) {
-                boolean n = pg2.n();
-                x42.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
-                jg2.c().d().u(null, n, 16);
-                pg2.p(false);
-            }
+            g62.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
         }
     }
 }

@@ -16,7 +16,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConnectManager {
     public static final boolean DEBUG = false;
     public static final String TAG = "ConnectManager";
@@ -87,7 +87,7 @@ public class ConnectManager {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetworkStateEnum {
         NO("no"),
         WIFI("wifi"),

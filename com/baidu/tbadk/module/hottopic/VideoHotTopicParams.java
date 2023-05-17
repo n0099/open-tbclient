@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VideoHotTopicParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class VideoHotTopicParams {
     public List<Map<String, Object>> dataList;
     @SerializedName("enter_type")
     public String enterType;
-    @SerializedName("pageId")
+    @SerializedName(IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID)
     public String flutterPageId;
     @SerializedName("from_comment")
     public String fromComment;
@@ -36,7 +36,7 @@ public class VideoHotTopicParams {
     public String threadId;
     @SerializedName("topic_id")
     public long topicId;
-    @SerializedName(IntentConfig.TOPIC_NAME)
+    @SerializedName("topic_name")
     public String topicName;
 
     public VideoHotTopicParams() {

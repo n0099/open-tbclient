@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidParameterException;
-/* loaded from: classes7.dex */
-public abstract class xa extends ua<SocketResponsedMessage> {
+/* loaded from: classes8.dex */
+public abstract class xa extends za<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +31,7 @@ public abstract class xa extends ua<SocketResponsedMessage> {
                 return;
             }
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.SOCKET) {
+        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.HTTP) {
             throw new InvalidParameterException("cmd invalid");
         }
     }

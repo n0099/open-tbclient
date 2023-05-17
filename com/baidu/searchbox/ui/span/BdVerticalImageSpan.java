@@ -4,7 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.text.style.ImageSpan;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BdVerticalImageSpan extends ImageSpan {
     public BdVerticalImageSpan(Drawable drawable) {
         super(drawable);

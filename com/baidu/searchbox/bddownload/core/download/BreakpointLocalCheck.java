@@ -8,7 +8,7 @@ import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.ResumeFailedCause;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointLocalCheck {
     public boolean dirty;
     public boolean fileExist;

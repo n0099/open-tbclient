@@ -2,11 +2,12 @@ package com.google.gson.stream;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
     public static final String[] REPLACEMENT_CHARS = new String[128];
@@ -355,7 +356,7 @@ public class JsonWriter implements Closeable, Flushable {
         if (bool.booleanValue()) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         writer.write(str);
         return this;
@@ -379,7 +380,7 @@ public class JsonWriter implements Closeable, Flushable {
         if (z) {
             str = "true";
         } else {
-            str = "false";
+            str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
         }
         writer.write(str);
         return this;

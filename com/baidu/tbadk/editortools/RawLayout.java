@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RawLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern h;
@@ -35,7 +35,7 @@ public class RawLayout extends ViewGroup {
     public int f;
     public final int[] g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,7 +152,7 @@ public class RawLayout extends ViewGroup {
                 }
             }
             this.a = 0;
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.RawLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.RawLayout);
             this.a = obtainStyledAttributes.getInt(0, 0);
             obtainStyledAttributes.recycle();
             if (((LinearLayout.LayoutParams) this).gravity == -1) {
@@ -524,7 +524,7 @@ public class RawLayout extends ViewGroup {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.RawLayout);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, zt9.RawLayout);
             String string = obtainStyledAttributes.getString(1);
             if (string == null) {
                 string = "horizontal";

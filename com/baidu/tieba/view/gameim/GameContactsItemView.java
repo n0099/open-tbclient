@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.n08;
+import com.baidu.tieba.b28;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class GameContactsItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int e;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public n08 d;
+    public b28 d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +44,7 @@ public class GameContactsItemView extends RelativeLayout {
                 return;
             }
         }
-        e = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
+        e = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds114);
     }
 
     public void a() {
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public n08 getGameMatchUser() {
+    public b28 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (n08) invokeV.objValue;
+        return (b28) invokeV.objValue;
     }
 
     public void h() {
@@ -178,12 +178,12 @@ public class GameContactsItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.c = new View(getContext());
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ii.g(getContext(), R.dimen.tbds13), ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ri.g(getContext(), R.dimen.tbds13), ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds47));
             layoutParams.addRule(11);
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            g35 d = g35.d(this.c);
+            p45 d = p45.d(this.c);
             d.o(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -197,7 +197,7 @@ public class GameContactsItemView extends RelativeLayout {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(6, this.a.getId());
             layoutParams.addRule(7, this.a.getId());
-            layoutParams.setMargins(0, -ii.g(getContext(), R.dimen.tbds10), -ii.g(getContext(), R.dimen.tbds14), 0);
+            layoutParams.setMargins(0, -ri.g(getContext(), R.dimen.tbds10), -ri.g(getContext(), R.dimen.tbds14), 0);
             this.b.setLayoutParams(layoutParams);
             addView(this.b);
         }
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull n08 n08Var) {
+    public void setGameMatchUser(@NonNull b28 b28Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, n08Var) != null) || n08Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, b28Var) != null) || b28Var.equals(this.d)) {
             return;
         }
-        this.d = n08Var;
+        this.d = b28Var;
         i();
     }
 }

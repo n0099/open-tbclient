@@ -1,43 +1,57 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ny2 extends oy2 {
+/* loaded from: classes6.dex */
+public class ny2 extends iy2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ny2(boolean z) {
-        super(4);
+    public ny2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = z;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    private void update(yx2 yx2Var, ay2 ay2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeLLLL(65537, this, yx2Var, ay2Var, unitedSchemeEntity, callbackHandler) == null) {
+            yx2Var.A(ay2Var);
+            yx2Var.z(ay2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.iy2
+    public boolean a(yx2 yx2Var, ay2 ay2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{yx2Var, ay2Var, context, unitedSchemeEntity, callbackHandler, g93Var})) == null) {
+            g62.i("video", "update, video id:" + ay2Var.j + " slave id: " + ay2Var.c);
+            update(yx2Var, ay2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.util.VersionInitHelper;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitVersionTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

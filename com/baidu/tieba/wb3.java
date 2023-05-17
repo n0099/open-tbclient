@@ -1,161 +1,200 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.res.ui.FloatButton;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class wb3 extends u93 {
+/* loaded from: classes8.dex */
+public class wb3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile wb3 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public FloatButton b;
+    public String c;
+    public JSONObject d;
+    public String e;
 
-    /* loaded from: classes6.dex */
-    public class a implements l92 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb3 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ wb3 c;
-
-        @Override // com.baidu.tieba.l92
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.l92
-        public void c(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.l92
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.l92
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.l92
-        public void goBack() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        public a(wb3 wb3Var, vb3 vb3Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948264769, "Lcom/baidu/tieba/wb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wb3Var, vb3Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = wb3Var;
-            this.a = vb3Var;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.l92
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.c.l(str, this.a.n)) {
-                    this.c.k(str, this.b, this.a.e);
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wb3(u83 u83Var, String str) {
-        super(u83Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948264769, "Lcom/baidu/tieba/wb3;");
                 return;
             }
         }
+        f = qp1.a;
     }
 
-    public boolean l(String str, List<String> list) {
-        InterceptResult invokeLL;
+    public wb3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list)) == null) {
-            if (!TextUtils.isEmpty(str) && list != null && !list.isEmpty()) {
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                        return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = "";
+    }
+
+    public static wb3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (wb3.class) {
+                    if (g == null) {
+                        g = new wb3();
                     }
                 }
             }
-            return false;
+            return g;
         }
-        return invokeLL.booleanValue;
+        return (wb3) invokeV.objValue;
     }
 
-    public final boolean k(String str, CallbackHandler callbackHandler, String str2) {
-        InterceptResult invokeLLL;
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, callbackHandler, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("url", str);
-            } catch (JSONException e) {
-                if (u93.b) {
-                    e.printStackTrace();
-                }
+        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || g == null) {
+            return;
+        }
+        g = null;
+    }
+
+    public FloatButton c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (FloatButton) invokeV.objValue;
+    }
+
+    public final FloatButton a(Context context, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, viewGroup)) == null) {
+            if (context != null && viewGroup != null) {
+                FloatButton e = e(context);
+                viewGroup.addView(e);
+                return e;
             }
-            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-            return true;
+            return null;
         }
-        return invokeLLL.booleanValue;
+        return (FloatButton) invokeLL.objValue;
     }
 
-    public void m(CallbackHandler callbackHandler, SwanAppSlaveManager swanAppSlaveManager, vb3 vb3Var) {
+    public void b(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, swanAppSlaveManager, vb3Var) == null) {
-            swanAppSlaveManager.r1(new a(this, vb3Var, callbackHandler));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) && intent != null && this.b != null) {
+            String dataString = intent.getDataString();
+            if (TextUtils.isEmpty(dataString)) {
+                return;
+            }
+            String substring = dataString.substring(8);
+            if (!TextUtils.isEmpty(substring) && substring.equals(this.e)) {
+                if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
+                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f020d);
+                } else if (TextUtils.equals(PackageChangedReceiver.ACTION_UNINSTALL, intent.getAction())) {
+                    this.c = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1417);
+                }
+                this.b.setFloatButtonText(this.c);
+            }
+        }
+    }
+
+    public final FloatButton e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            return (FloatButton) LayoutInflater.from(context.getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d08b9, (ViewGroup) null);
+        }
+        return (FloatButton) invokeL.objValue;
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void j(FloatButton floatButton) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, floatButton) == null) {
+            this.b = floatButton;
+        }
+    }
+
+    public FloatButton f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            Activity activity = this.a;
+            if (!(activity instanceof SwanAppActivity)) {
+                return null;
+            }
+            if (this.b == null) {
+                this.b = a(activity, (ViewGroup) activity.findViewById(16908290));
+            }
+            this.b.setFloatButtonText(this.c);
+            this.b.setFloatButtonDrawable(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08137f));
+            this.b.setFloatButtonDefaultPosition();
+            this.b.setFloatButtonStyle(this.d);
+            this.b.setVisibility(0);
+            return this.b;
+        }
+        return (FloatButton) invokeV.objValue;
+    }
+
+    public void g(Activity activity, JSONObject jSONObject) {
+        String string;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, activity, jSONObject) == null) && jSONObject != null) {
+            if (f) {
+                Log.i("FloatButtonGuideManager", jSONObject.toString());
+            }
+            this.a = activity;
+            String optString = jSONObject.optString("name");
+            this.e = optString;
+            if (an3.F(activity, optString)) {
+                string = activity.getString(R.string.obfuscated_res_0x7f0f020d);
+            } else {
+                string = activity.getString(R.string.obfuscated_res_0x7f0f1417);
+            }
+            this.c = string;
+            this.d = jSONObject.optJSONObject("style");
         }
     }
 }

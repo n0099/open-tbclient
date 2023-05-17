@@ -1,105 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.content.MutableContextWrapper;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Build;
-import android.webkit.ValueCallback;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.NadNativeBrowserView;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
-public final class f91 extends WebChromeClient {
+@Service
+/* loaded from: classes5.dex */
+public final class f91 extends li0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a91 a;
-    public NadNativeBrowserView b;
+    public final String a;
 
-    @RequiresApi(21)
-    /* loaded from: classes4.dex */
-    public static final class a implements d61 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WebChromeClient.FileChooserParams a;
-
-        public a(WebChromeClient.FileChooserParams fileChooserParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fileChooserParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fileChooserParams;
-        }
-
-        @Override // com.baidu.tieba.d61
-        public Intent a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                WebChromeClient.FileChooserParams fileChooserParams = this.a;
-                if (fileChooserParams != null) {
-                    return fileChooserParams.createIntent();
-                }
-                return null;
-            }
-            return (Intent) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.d61
-        public String[] b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                WebChromeClient.FileChooserParams fileChooserParams = this.a;
-                if (fileChooserParams != null) {
-                    return fileChooserParams.getAcceptTypes();
-                }
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.d61
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                WebChromeClient.FileChooserParams fileChooserParams = this.a;
-                if (fileChooserParams != null) {
-                    return fileChooserParams.getMode();
-                }
-                return -1;
-            }
-            return invokeV.intValue;
-        }
+    @Override // com.baidu.tieba.li0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
     }
 
-    public f91(NadNativeBrowserView webView, a91 a91Var) {
+    public f91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView, a91Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,115 +39,51 @@ public final class f91 extends WebChromeClient {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(webView, "webView");
-        this.a = a91Var;
-        this.b = webView;
+        this.a = "PreRenderAction";
     }
 
-    public final Activity a(WebView webView) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.li0
+    public boolean b(Context context, pi0 schemeModel, Map<String, Object> map, ti0 ti0Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
-            if (webView == null) {
-                return null;
-            }
-            if (webView.getContext() instanceof Activity) {
-                Context context = webView.getContext();
-                if (context != null) {
-                    return (Activity) context;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
-            } else if (!(webView.getContext() instanceof MutableContextWrapper)) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, ti0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, ti0Var);
+            if (vm0.b().a().a("ad_do_prerender", 1) == 1) {
+                z = true;
             } else {
-                Context context2 = webView.getContext();
-                if (context2 != null) {
-                    if (!(((MutableContextWrapper) context2).getBaseContext() instanceof Activity)) {
-                        return null;
-                    }
-                    Context context3 = webView.getContext();
-                    if (context3 != null) {
-                        Context baseContext = ((MutableContextWrapper) context3).getBaseContext();
-                        if (baseContext != null) {
-                            return (Activity) baseContext;
-                        }
-                        throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
-                    }
-                    throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+                z = false;
+            }
+            if (!z) {
+                b91 c = z81.c();
+                if (c != null) {
+                    c.c();
                 }
-                throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+                return false;
             }
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            String str = d.get("url");
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                h91.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
+                return false;
+            }
+            d.get("web_type");
+            String str2 = d.get(TiebaStatic.Params.REFER);
+            b91 c2 = z81.c();
+            if (c2 != null) {
+                c2.b(str, null, str2);
+            }
+            return true;
         }
-        return (Activity) invokeL.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public Bitmap getDefaultVideoPoster() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.RGB_565);
-                createBitmap.eraseColor(0);
-                return createBitmap;
-            } catch (Exception unused) {
-                return super.getDefaultVideoPoster();
-            }
-        }
-        return (Bitmap) invokeV.objValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onProgressChanged(WebView webView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i) == null) {
-            super.onProgressChanged(webView, i);
-            a91 a91Var = this.a;
-            if (a91Var != null) {
-                a91Var.a(this.b, i);
-            }
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onReceivedTitle(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-            super.onReceivedTitle(webView, str);
-            a91 a91Var = this.a;
-            if (a91Var != null) {
-                a91Var.b(this.b, str);
-            }
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onRequestFocus(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
-            super.onRequestFocus(webView);
-            a91 a91Var = this.a;
-            if (a91Var != null) {
-                a91Var.c(this.b);
-            }
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, valueCallback, fileChooserParams)) == null) {
-            this.b.U();
-            Activity a2 = a(webView);
-            if (a2 != null && Build.VERSION.SDK_INT >= 21) {
-                return g61.h(a2, valueCallback, new a(fileChooserParams));
-            }
-            if (valueCallback != null) {
-                valueCallback.onReceiveValue(null);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

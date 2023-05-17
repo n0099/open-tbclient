@@ -10,19 +10,19 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.xba;
-import com.baidu.tieba.xo9;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.zda;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class WorkVideoGuideModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xba a;
+    public zda a;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -44,7 +44,7 @@ public class WorkVideoGuideModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,28 +82,28 @@ public class WorkVideoGuideModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, xba xbaVar) {
+    public WorkVideoGuideModel(TbPageContext<?> tbPageContext, zda zdaVar) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xbaVar};
+            Object[] objArr = {tbPageContext, zdaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = xbaVar;
-        W();
+        this.a = zdaVar;
+        V();
     }
 
-    public void X(boolean z) {
+    public void W(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE);
@@ -113,11 +113,11 @@ public class WorkVideoGuideModel extends BdBaseModel {
         }
     }
 
-    public final void W() {
+    public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(new a(this, CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE));
-            xo9.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
+            zq9.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpWorkVIdeoGuideMessage.class, true, true, true, true);
         }
     }
 }

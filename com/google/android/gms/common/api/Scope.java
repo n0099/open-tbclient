@@ -12,7 +12,7 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 @KeepForSdk
 @SafeParcelable.Class(creator = "ScopeCreator")
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Scope extends AbstractSafeParcelable implements ReflectedParcelable {
     @NonNull
     public static final Parcelable.Creator<Scope> CREATOR = new zza();

@@ -1,19 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public interface vu2 {
-    String b();
+    void a(ov1 ov1Var);
 
-    String c();
+    void b(ov1 ov1Var);
 
-    String f();
+    void c(ov1 ov1Var);
 
-    Object i();
-
-    void j(boolean z);
-
-    void k(boolean z);
-
-    boolean onBackPressed();
-
-    void onDestroy();
+    void d(ov1 ov1Var);
 }

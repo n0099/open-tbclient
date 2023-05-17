@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CapturedTypeParameterDescriptor implements TypeParameterDescriptor {
     public final DeclarationDescriptor declarationDescriptor;
     public final int declaredTypeParametersCount;

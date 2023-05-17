@@ -7,7 +7,7 @@ import com.meizu.cloud.pushinternal.DebugLogger;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends com.meizu.cloud.pushsdk.handler.a.a<RegisterStatus> {
     public c(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);

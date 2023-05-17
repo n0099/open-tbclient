@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusNode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BORDER = 4;
@@ -212,7 +212,7 @@ public class CriusNode {
     }
 
     /* renamed from: com.baidu.crius.CriusNode$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$crius$CriusEdge;
         public static /* synthetic */ Interceptable $ic;

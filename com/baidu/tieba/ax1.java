@@ -1,46 +1,37 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.support.v4.app.FragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class ax1 extends aw1 {
+/* loaded from: classes4.dex */
+public class ax1 extends u82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View f;
-    public int g;
-    public ViewTreeObserver.OnGlobalLayoutListener h;
 
-    @Override // com.baidu.tieba.aw1
-    public String h() {
+    @Override // com.baidu.tieba.u82, com.baidu.tieba.m82
+    public boolean f2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    /* loaded from: classes4.dex */
+    public class a extends ra2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax1 a;
+        public final /* synthetic */ ax1 c;
 
         public a(ax1 ax1Var) {
             Interceptable interceptable = $ic;
@@ -57,121 +48,122 @@ public class ax1 extends aw1 {
                     return;
                 }
             }
-            this.a = ax1Var;
+            this.c = ax1Var;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // com.baidu.tieba.ra2, com.baidu.tieba.ua2
+        public boolean a(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                this.a.f.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.a.g == height) {
-                    return;
-                }
-                if (this.a.g - height > 180) {
-                    HashMap hashMap = new HashMap();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("height", ol3.O(this.a.g - height));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    hashMap.put("data", jSONObject.toString());
-                    kt2.U().u(new yh2("keyboardHeightChange", hashMap));
-                    this.a.g = height;
-                } else if (height - this.a.g > 180) {
-                    HashMap hashMap2 = new HashMap();
-                    JSONObject jSONObject2 = new JSONObject();
-                    try {
-                        jSONObject2.put("height", 0);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
-                    hashMap2.put("data", jSONObject2.toString());
-                    kt2.U().u(new yh2("keyboardHeightChange", hashMap2));
-                    this.a.g = height;
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return super.a(str);
             }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public ax1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void A() {
+    @Override // com.baidu.tieba.u82, com.baidu.tieba.m82
+    public boolean I() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SwanAppActivity activity = kt2.U().getActivity();
-            if (activity == null) {
-                x42.c("SoftKeyboardApi", "activity is null");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            nv1 nv1Var = this.H0;
+            if (nv1Var != null && nv1Var.canGoBack()) {
+                this.H0.goBack();
+                return true;
             }
-            this.f = activity.getWindow().getDecorView();
-            Rect rect = new Rect();
-            this.f.getWindowVisibleDisplayFrame(rect);
-            this.g = rect.height();
-            if (this.h == null) {
-                this.h = new a(this);
-                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
-            }
+            bx1.a().b(1);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.h != null) {
-                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
-            }
-            this.h = null;
-            this.g = 0;
-        }
-    }
-
-    public xz1 C() {
+    @Override // com.baidu.tieba.u82
+    public ua2 c3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#startKeyboardHeightChange", false);
-            if (x73.b0() == null) {
-                return new xz1(1001, "swan app is null");
-            }
-            A();
-            return xz1.f();
+            return new a(this);
         }
-        return (xz1) invokeV.objValue;
+        return (ua2) invokeV.objValue;
     }
 
-    public xz1 D() {
+    public final int j3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            q("#stopKeyboardHeightChange", false);
-            if (x73.b0() == null) {
-                return new xz1(1001, "swan app is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (g2()) {
+                return 18;
             }
-            B();
-            return xz1.f();
+            return 12;
         }
-        return (xz1) invokeV.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.u82
+    public pv1 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ag2.U().f0().g(getContext());
+        }
+        return (pv1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.u82, com.baidu.tieba.m82
+    public void X1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            super.X1(view2);
+            this.f0.setRightZoneVisibility(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.u82
+    public void d3() {
+        FragmentActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (activity = getActivity()) != null && this.g0 == null) {
+            this.g0 = new nf4(activity, this.f0, j3(), ns2.K(), new po3());
+            new wy2(this.g0, this).z();
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r6v3, types: [com.baidu.tieba.nv1] */
+    @Override // com.baidu.tieba.u82, com.baidu.swan.support.v4.app.Fragment
+    public View z0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e3, viewGroup, false);
+            X1(inflate);
+            pv1 k = k();
+            this.G0 = k;
+            k.Y(c3());
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.I0);
+            FrameLayout frameLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bb);
+            this.G0.j(frameLayout, this.H0.covertToView());
+            Z2(frameLayout);
+            if (W1()) {
+                return Z1(inflate);
+            }
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 }

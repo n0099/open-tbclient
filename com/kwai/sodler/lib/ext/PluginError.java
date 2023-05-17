@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class PluginError extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_INS_CAPACITY = 3005;
@@ -37,7 +37,7 @@ public abstract class PluginError extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
     public final int mCode;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CancelError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class InstallError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +112,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class LoadError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NotWifiDownloadError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class RetryError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,7 +235,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class UpdateError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,44 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class wo5 {
+/* loaded from: classes8.dex */
+public class wo5 extends wa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public LoadType b;
-    public int c;
-    public Object d;
 
-    public wo5(boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wo5() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = z;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ab
+    /* renamed from: c */
+    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage == null) {
+                return null;
+            }
+            if (httpResponsedMessage.getError() == 2260104) {
+                ks5.a();
+            }
+            return httpResponsedMessage;
         }
-        return invokeV.booleanValue;
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,14 +1,14 @@
 package com.facebook.common.soloader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SoLoaderProxy {
     public static volatile Loader sLoader = new DefaultLoader();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Loader {
         void loadLibrary(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class DefaultLoader implements Loader {
         @Override // com.facebook.common.soloader.SoLoaderProxy.Loader
         public void loadLibrary(String str) {

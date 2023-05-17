@@ -5,7 +5,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static com.ss.android.downloadlib.addownload.a.c a;
 

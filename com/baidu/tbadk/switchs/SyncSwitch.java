@@ -1,13 +1,14 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.qg;
-import com.baidu.tieba.uh;
+import com.baidu.tieba.bf;
+import com.baidu.tieba.di;
+import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +87,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(uh.class);
+            SwitchManager.getInstance().registerSwitch(di.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -107,7 +108,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(qg.class);
+            SwitchManager.getInstance().registerSwitch(zg.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -156,6 +157,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunnySpriteColdStartRequestSwitch.class);
             SwitchManager.getInstance().registerSwitch(SpriteInterceptHomeTipSwitch.class);
             SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
+            SwitchManager.getInstance().registerSwitch(DuTokenNewSwitch.class);
+            bf.a().b();
         }
     }
 }

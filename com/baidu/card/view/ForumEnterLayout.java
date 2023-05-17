@@ -23,16 +23,16 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
 import com.baidu.tbadk.core.view.ThreadForumEnterGoodsButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.pn9;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ForumEnterLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class ForumEnterLayout extends RelativeLayout {
     public ThreadForumEnterGoodsButton c;
     public TextView d;
     public EMTextView e;
-    public ax4 f;
+    public jy4 f;
     public Drawable g;
     public final int h;
     public final int i;
@@ -50,7 +50,7 @@ public class ForumEnterLayout extends RelativeLayout {
     public View.OnClickListener l;
     public final View.OnClickListener m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,18 +109,18 @@ public class ForumEnterLayout extends RelativeLayout {
                 return;
             }
         }
-        this.h = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.h = ri.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        this.i = ri.g(TbadkApplication.getInst(), R.dimen.tbds60);
         this.k = 0;
         this.m = new a(this);
         i(context);
     }
 
-    public final boolean m(ax4 ax4Var) {
+    public final boolean m(jy4 jy4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ax4Var)) == null) {
-            if (ax4Var != null && ax4Var.getThreadData() != null && ax4Var.getThreadData().getPollData() != null && ax4Var.getThreadData().getPollData().getOptions() != null && ax4Var.getThreadData().getPollData().getOptions().size() > 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jy4Var)) == null) {
+            if (jy4Var != null && jy4Var.getThreadData() != null && jy4Var.getThreadData().getPollData() != null && jy4Var.getThreadData().getPollData().getOptions() != null && jy4Var.getThreadData().getPollData().getOptions().size() > 0) {
                 return true;
             }
             return false;
@@ -147,8 +147,8 @@ public class ForumEnterLayout extends RelativeLayout {
                 return;
             }
         }
-        this.h = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.h = ri.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        this.i = ri.g(TbadkApplication.getInst(), R.dimen.tbds60);
         this.k = 0;
         this.m = new a(this);
         i(context);
@@ -173,8 +173,8 @@ public class ForumEnterLayout extends RelativeLayout {
                 return;
             }
         }
-        this.h = ii.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds60);
+        this.h = ri.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        this.i = ri.g(TbadkApplication.getInst(), R.dimen.tbds60);
         this.k = 0;
         this.m = new a(this);
         i(context);
@@ -192,11 +192,11 @@ public class ForumEnterLayout extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public final boolean l(ax4 ax4Var) {
+    public final boolean l(jy4 jy4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ax4Var)) == null) {
-            if (ax4Var != null && ax4Var.getThreadData() != null && ax4Var.getThreadData().isVideoThreadType() && ax4Var.getThreadData().getThreadVideoInfo() != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jy4Var)) == null) {
+            if (jy4Var != null && jy4Var.getThreadData() != null && jy4Var.getThreadData().isVideoThreadType() && jy4Var.getThreadData().getThreadVideoInfo() != null) {
                 return true;
             }
             return false;
@@ -234,11 +234,11 @@ public class ForumEnterLayout extends RelativeLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int l = (ii.l(this.a) - (this.h * 2)) - this.i;
+            int l = (ri.l(this.a) - (this.h * 2)) - this.i;
             if (l > 0) {
                 this.j = l / 2;
             } else {
-                this.j = ii.g(this.a, R.dimen.tbds540);
+                this.j = ri.g(this.a, R.dimen.tbds540);
             }
             this.d.setMaxWidth(this.j);
         }
@@ -270,7 +270,7 @@ public class ForumEnterLayout extends RelativeLayout {
             i = 2;
         }
         if (str != null && i > 0) {
-            TiebaStatic.log(pn9.k(str, threadData, i));
+            TiebaStatic.log(rp9.k(str, threadData, i));
         }
     }
 
@@ -281,7 +281,7 @@ public class ForumEnterLayout extends RelativeLayout {
             View inflate = LayoutInflater.from(context).inflate(R.layout.card_home_page_forum_enter_item, (ViewGroup) this, true);
             TextView textView = (TextView) inflate.findViewById(R.id.text_post);
             this.d = textView;
-            textView.setCompoundDrawablePadding(ii.g(context, R.dimen.tbds10));
+            textView.setCompoundDrawablePadding(ri.g(context, R.dimen.tbds10));
             this.b = (ThreadForumEnterButton) inflate.findViewById(R.id.forum_enter_button);
             this.c = (ThreadForumEnterGoodsButton) inflate.findViewById(R.id.forum_enter_goods_button);
             this.b.setAfterClickListener(this.m);
@@ -309,21 +309,21 @@ public class ForumEnterLayout extends RelativeLayout {
             this.b.e();
             this.c.e();
             this.g = getArrowRight();
-            g35 d = g35.d(this.e);
+            p45 d = p45.d(this.e);
             d.w(R.color.CAM_X0109);
             d.C(R.string.F_X01);
         }
     }
 
-    public void setData(ax4 ax4Var) {
+    public void setData(jy4 jy4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ax4Var) == null) {
-            this.f = ax4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jy4Var) == null) {
+            this.f = jy4Var;
             g();
-            ThreadData threadData = ax4Var.getThreadData();
+            ThreadData threadData = jy4Var.getThreadData();
             int i = 8;
-            if (!k(threadData) && ((ax4Var.showCardEnterFourm() || !threadData.isFromHomPage) && !StringUtils.isNull(threadData.getForum_name()) && !j(threadData))) {
+            if (!k(threadData) && ((jy4Var.showCardEnterFourm() || !threadData.isFromHomPage) && !StringUtils.isNull(threadData.getForum_name()) && !j(threadData))) {
                 this.b.setVisibility(0);
                 this.b.b(threadData, this.j);
                 z = true;
@@ -331,7 +331,7 @@ public class ForumEnterLayout extends RelativeLayout {
                 this.b.setVisibility(8);
                 z = false;
             }
-            if (!m(ax4Var) && !l(ax4Var) && ax4Var.showCardGoodsFourm() && ax4Var.getThreadData().isGoods()) {
+            if (!m(jy4Var) && !l(jy4Var) && jy4Var.showCardGoodsFourm() && jy4Var.getThreadData().isGoods()) {
                 this.c.setVisibility(0);
                 this.c.a(threadData);
                 z = true;
@@ -340,7 +340,7 @@ public class ForumEnterLayout extends RelativeLayout {
             }
             if (ThreadCardUtils.isSelf(threadData) && threadData.isPrivacy) {
                 this.d.setVisibility(0);
-                this.d.setTextSize(0, ii.g(getContext(), R.dimen.tbds32));
+                this.d.setTextSize(0, ri.g(getContext(), R.dimen.tbds32));
                 this.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
                 this.d.setText(R.string.private_desc);

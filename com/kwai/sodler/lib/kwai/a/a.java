@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.utils.q;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, Resources> axH;
@@ -27,8 +27,8 @@ public final class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.kwai.sodler.lib.kwai.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C0662a {
+    /* loaded from: classes9.dex */
+    public static final class C0676a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,7 +50,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0662a.b(resources, assetManager);
+                        return C0676a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -88,7 +88,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0662a.b(resources, assetManager);
+                        return C0676a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -126,7 +126,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0662a.b(resources, assetManager);
+                        return C0676a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -164,7 +164,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +178,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0662a.b(resources, assetManager);
+                        return C0676a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -202,7 +202,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,7 +216,7 @@ public final class a {
                 } catch (Exception e) {
                     e.printStackTrace();
                     try {
-                        return C0662a.b(resources, assetManager);
+                        return C0676a.b(resources, assetManager);
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
@@ -272,7 +272,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, context, assetManager, displayMetrics, configuration)) == null) {
             Resources resources = context.getResources();
-            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0662a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
+            return a(resources) ? d.b(resources, assetManager) : b(resources) ? c.b(resources, assetManager) : e(resources) ? b.b(resources, assetManager) : c(resources) ? f.c(context, resources, assetManager) : d(resources) ? e.b(resources, assetManager) : f(resources) ? C0676a.b(resources, assetManager) : new Resources(assetManager, displayMetrics, configuration);
         }
         return (Resources) invokeLLLL.objValue;
     }

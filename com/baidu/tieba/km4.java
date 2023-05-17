@@ -1,221 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class km4<E> implements Cloneable {
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes6.dex */
+public class km4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int[] b;
-    public Object[] c;
-    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947917879, "Lcom/baidu/tieba/km4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947917879, "Lcom/baidu/tieba/km4;");
-                return;
-            }
-        }
-        e = new Object();
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public km4() {
-        this(10);
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.d;
-            Object[] objArr = this.c;
-            for (int i2 = 0; i2 < i; i2++) {
-                objArr[i2] = null;
-            }
-            this.d = 0;
-            this.a = false;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: b */
-    public km4<E> clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            km4<E> km4Var = null;
-            try {
-                km4<E> km4Var2 = (km4) super.clone();
-                try {
-                    km4Var2.b = (int[]) this.b.clone();
-                    km4Var2.c = (Object[]) this.c.clone();
-                    return km4Var2;
-                } catch (CloneNotSupportedException unused) {
-                    km4Var = km4Var2;
-                    return km4Var;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-            } catch (CloneNotSupportedException unused2) {
-            }
-        } else {
-            return (km4) invokeV.objValue;
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a) {
-                c();
-            }
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public km4(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        if (i == 0) {
-            this.b = fm4.a;
-            this.c = fm4.b;
-        } else {
-            int d = fm4.d(i);
-            this.b = new int[d];
-            this.c = new Object[d];
-        }
-        this.d = 0;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i = this.d;
-            int[] iArr = this.b;
-            Object[] objArr = this.c;
-            int i2 = 0;
-            for (int i3 = 0; i3 < i; i3++) {
-                Object obj = objArr[i3];
-                if (obj != e) {
-                    if (i3 != i2) {
-                        iArr[i2] = iArr[i3];
-                        objArr[i2] = obj;
-                        objArr[i3] = null;
-                    }
-                    i2++;
+                if (hexString.length() == 1) {
+                    sb.append("0");
                 }
+                sb.append(hexString);
+                sb.append(str);
             }
-            this.a = false;
-            this.d = i2;
-        }
-    }
-
-    public int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.a) {
-                c();
-            }
-            return this.b[i];
-        }
-        return invokeI.intValue;
-    }
-
-    public void delete(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (a = fm4.a(this.b, this.d, i)) >= 0) {
-            Object[] objArr = this.c;
-            Object obj = objArr[a];
-            Object obj2 = e;
-            if (obj != obj2) {
-                objArr[a] = obj2;
-                this.a = true;
-            }
-        }
-    }
-
-    public E f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (this.a) {
-                c();
-            }
-            return (E) this.c[i];
-        }
-        return (E) invokeI.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (e() <= 0) {
-                return StringUtil.EMPTY_ARRAY;
-            }
-            StringBuilder sb = new StringBuilder(this.d * 28);
-            sb.append('{');
-            for (int i = 0; i < this.d; i++) {
-                if (i > 0) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                sb.append(d(i));
-                sb.append('=');
-                E f = f(i);
-                if (f != this) {
-                    sb.append(f);
-                } else {
-                    sb.append("(this Map)");
-                }
-            }
-            sb.append('}');
             return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            FileInputStream fileInputStream2 = null;
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                fileInputStream = new FileInputStream(file);
+                try {
+                    byte[] bArr = new byte[8192];
+                    while (true) {
+                        int read = fileInputStream.read(bArr);
+                        if (read > 0) {
+                            messageDigest.update(bArr, 0, read);
+                        } else {
+                            String a = a(messageDigest.digest(), "", z);
+                            kp4.d(fileInputStream);
+                            return a;
+                        }
+                    }
+                } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
+                    kp4.d(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    kp4.d(fileInputStream2);
+                    throw th;
+                }
+            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeLZ.objValue;
+        }
     }
 }

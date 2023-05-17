@@ -1,36 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-/* loaded from: classes6.dex */
-public class uu9 implements gt9 {
+/* loaded from: classes7.dex */
+public class uu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bv9 a;
-    public o15 b;
-    public av9 c;
-    public zu9 d;
-    public xu9 e;
-    public vu9 f;
-    public yu9 g;
-    public wu9 h;
-    public MainTabActivity i;
-    public gs9 j;
-    public boolean k;
+    public final MainTabActivity a;
+    public boolean b;
+    public Runnable c;
 
-    public uu9(@NonNull MainTabActivity mainTabActivity, @NonNull gs9 gs9Var) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uu9 a;
+
+        public a(uu9 uu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uu9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uu9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                    this.a.b = true;
+                } else {
+                    this.a.a();
+                }
+            }
+        }
+    }
+
+    public uu9(MainTabActivity mainTabActivity, iu9 iu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, gs9Var};
+            Object[] objArr = {mainTabActivity, iu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,67 +70,41 @@ public class uu9 implements gt9 {
                 return;
             }
         }
-        this.k = false;
-        this.i = mainTabActivity;
-        this.j = gs9Var;
-        this.a = new bv9(mainTabActivity.getPageContext(), gs9Var, mainTabActivity, false);
-        this.b = new o15(mainTabActivity.getPageContext());
-        this.c = new av9(mainTabActivity, gs9Var);
-        this.d = new zu9(mainTabActivity, gs9Var);
-        this.g = new yu9(mainTabActivity, gs9Var);
-        this.h = new wu9(mainTabActivity, gs9Var);
-        this.e = new xu9(mainTabActivity, gs9Var);
+        this.b = false;
+        this.c = new a(this);
+        this.a = mainTabActivity;
     }
 
-    @Override // com.baidu.tieba.gt9
     public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (LooperBlockSwitch.getIsOn()) {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(this.a);
-                l15.g(linkedList);
-            } else if (!this.k) {
-            } else {
-                gf8.m = false;
-                LinkedList linkedList2 = new LinkedList();
-                linkedList2.add(this.h);
-                linkedList2.add(this.a);
-                l15.g(linkedList2);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbSingleton.getInstance().getNewUserRedPackageData() != null) {
+            TbSingleton.getInstance().setNewUserRedPackageShowed(true);
+            this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
+            TbSingleton.getInstance().setNewUserRedPackageData(null);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || LooperBlockSwitch.getIsOn() || !this.k) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            this.b = false;
+            sg.a().removeCallbacks(this.c);
+            sg.a().postDelayed(this.c, 200L);
         }
-        LinkedList linkedList = new LinkedList();
-        linkedList.add(this.h);
-        linkedList.add(this.c);
-        linkedList.add(this.d);
-        linkedList.add(this.e);
-        l15.g(linkedList);
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(this.a);
-            if (LooperBlockSwitch.getIsOn()) {
-                linkedList.add(this.c);
-                linkedList.add(this.d);
-                linkedList.add(this.h);
-                linkedList.add(this.b);
-                linkedList.add(this.g);
-            }
-            vu9 vu9Var = new vu9(this.i, this.j, "source_from_theme");
-            this.f = vu9Var;
-            linkedList.add(vu9Var);
-            l15.g(linkedList);
-            this.k = true;
+            sg.a().removeCallbacks(this.c);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            sg.a().removeCallbacks(this.c);
+            sg.a().postDelayed(this.c, 200L);
         }
     }
 }

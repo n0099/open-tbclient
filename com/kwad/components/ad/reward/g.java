@@ -11,7 +11,7 @@ import com.kwad.sdk.api.model.AdExposureFailedReason;
 import com.kwad.sdk.components.DevelopMangerComponents;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g implements com.kwad.components.core.internal.api.a, KsRewardVideoAd {
     public com.kwad.components.ad.reward.c.c kJ;
     public final AdInfo mAdInfo;

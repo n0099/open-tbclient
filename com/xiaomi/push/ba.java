@@ -12,7 +12,7 @@ import android.os.Looper;
 import android.os.Parcel;
 import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ba implements at {
     public static boolean a;
 
@@ -31,7 +31,7 @@ public class ba implements at {
     /* renamed from: a  reason: collision with other field name */
     public final Object f137a = new Object();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a {
 
         /* renamed from: a  reason: collision with other field name */
@@ -48,7 +48,7 @@ public class ba implements at {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b implements ServiceConnection {
         public b() {
         }
@@ -66,7 +66,7 @@ public class ba implements at {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class c {
         public static String a(IBinder iBinder, String str, String str2, String str3) {
             Parcel obtain = Parcel.obtain();
@@ -111,7 +111,7 @@ public class ba implements at {
         }
         synchronized (this.f137a) {
             try {
-                com.xiaomi.channel.commonutils.logger.b.m101a("oppo's " + str + " wait...");
+                com.xiaomi.channel.commonutils.logger.b.m120a("oppo's " + str + " wait...");
                 this.f137a.wait(3000L);
             } catch (Exception unused) {
             }
@@ -151,7 +151,7 @@ public class ba implements at {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: b  reason: collision with other method in class */
-    public void m207b() {
+    public void m226b() {
         ServiceConnection serviceConnection = this.f135a;
         if (serviceConnection != null) {
             try {
@@ -163,7 +163,7 @@ public class ba implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo186a() {
+    public String mo205a() {
         a("getOAID");
         if (this.f136a == null) {
             return null;
@@ -173,7 +173,7 @@ public class ba implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo187a() {
+    public boolean mo206a() {
         return a;
     }
 }

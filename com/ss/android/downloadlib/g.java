@@ -13,7 +13,7 @@ import com.ss.android.downloadlib.addownload.j;
 import com.ss.android.downloadlib.addownload.k;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static volatile g a;
     public final com.ss.android.download.api.a b;

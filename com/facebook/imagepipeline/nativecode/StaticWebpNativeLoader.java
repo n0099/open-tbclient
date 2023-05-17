@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.nativecode;
 
 import android.os.Build;
 import com.facebook.common.soloader.SoLoaderProxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class StaticWebpNativeLoader {
     public static boolean sInitialized;
 

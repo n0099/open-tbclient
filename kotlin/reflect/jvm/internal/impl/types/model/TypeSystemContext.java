@@ -6,7 +6,7 @@ import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeSystemOptimizationContext;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface TypeSystemContext extends TypeSystemOptimizationContext {
     int argumentsCount(KotlinTypeMarker kotlinTypeMarker);
 
@@ -94,7 +94,7 @@ public interface TypeSystemContext extends TypeSystemOptimizationContext {
 
     SimpleTypeMarker withNullability(SimpleTypeMarker simpleTypeMarker, boolean z);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static List<SimpleTypeMarker> fastCorrespondingSupertypes(TypeSystemContext typeSystemContext, SimpleTypeMarker simpleTypeMarker, TypeConstructorMarker typeConstructorMarker) {
             return null;

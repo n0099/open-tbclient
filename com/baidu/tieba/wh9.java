@@ -1,7 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
-/* loaded from: classes6.dex */
-public interface wh9 {
-    void a(ShareEntity shareEntity, xh9 xh9Var);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
+public class wh9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a();
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
 }

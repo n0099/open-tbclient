@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,202 +14,126 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.Map;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class wh4<T> implements of4<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public static final zk4 c;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes8.dex */
+public class wh4 extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile wh4 b = null;
+    public static final int c = 12;
     public transient /* synthetic */ FieldHolder $fh;
-    public of4<T> a;
-    public int b;
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
+    public ConcurrentHashMap<Class<?>, oh4> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270566, "Lcom/baidu/tieba/wh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948270566, "Lcom/baidu/tieba/wh4;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948270566, "Lcom/baidu/tieba/wh4;")) == null) {
+            return;
         }
-        c = zk4.e();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948270566, "Lcom/baidu/tieba/wh4;");
+        }
     }
 
-    @Override // com.baidu.tieba.of4
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a.k();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public wh4(of4<T> of4Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public wh4() {
+        this("ai_apps_pms.db", c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {of4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 0;
-        this.a = of4Var;
+        c();
     }
 
-    @Override // com.baidu.tieba.of4
-    public String d(T t) {
-        InterceptResult invokeL;
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wh4(String str, int i) {
+        super(AppRuntime.getAppContext(), str, null, i, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            of4<T> of4Var = this.a;
-            if (of4Var != null) {
-                str = of4Var.d(t);
-            } else {
-                str = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            if (str == null) {
-                try {
-                    return dl4.d(AppRuntime.getAppContext()).getAbsolutePath();
-                } catch (Exception e) {
-                    c.g("PMSDownStreamCallbackGuard", "#getDownloadPath getPmsDir出错", e);
-                    return str;
+        }
+    }
+
+    public static wh4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (wh4.class) {
+                    if (b == null) {
+                        b = new wh4();
+                    }
                 }
             }
-            return str;
+            return b;
         }
-        return (String) invokeL.objValue;
+        return (wh4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.of4
-    public void a(T t) {
-        of4<T> of4Var;
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && (of4Var = this.a) != null) {
-            try {
-                of4Var.a(t);
-            } catch (Exception e) {
-                c.g("PMSDownStreamCallbackGuard", "#onDownloadProgress 错误", e);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b = null;
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ConcurrentHashMap<Class<?>, oh4> concurrentHashMap = new ConcurrentHashMap<>();
+            this.a = concurrentHashMap;
+            concurrentHashMap.put(fi4.class, new sh4());
+            this.a.put(gi4.class, new th4());
+            this.a.put(PMSAppInfo.class, new ph4());
+            this.a.put(di4.class, new rh4());
+            this.a.put(bi4.class, new qh4());
+            this.a.put(hi4.class, new uh4());
+            this.a.put(ii4.class, new vh4());
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            for (oh4 oh4Var : this.a.values()) {
+                oh4Var.a(sQLiteDatabase);
             }
         }
     }
 
-    @Override // com.baidu.tieba.of4
-    public void c(T t) {
-        of4<T> of4Var;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) && (of4Var = this.a) != null) {
-            try {
-                of4Var.c(t);
-            } catch (Exception e) {
-                c.g("PMSDownStreamCallbackGuard", "#onDownloadStart 错误", e);
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            for (oh4 oh4Var : this.a.values()) {
+                oh4Var.onUpgrade(sQLiteDatabase, i, i2);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.of4
-    public void f(T t) {
-        of4<T> of4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, t) == null) && (of4Var = this.a) != null) {
-            try {
-                of4Var.f(t);
-            } catch (Exception e) {
-                c.g("PMSDownStreamCallbackGuard", "#onDownloading 错误", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.of4
-    public void i(T t) {
-        of4<T> of4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, t) == null) && (of4Var = this.a) != null) {
-            try {
-                of4Var.i(t);
-            } catch (Exception e) {
-                c.g("PMSDownStreamCallbackGuard", "#onDownloadFinish 错误", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.of4
-    public void j(T t) {
-        of4<T> of4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) && (of4Var = this.a) != null) {
-            try {
-                of4Var.j(t);
-            } catch (Exception e) {
-                c.g("PMSDownStreamCallbackGuard", "#onDownloadStop 错误", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.of4
-    public void e(T t, rg4 rg4Var) {
-        of4<T> of4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, t, rg4Var) == null) && (of4Var = this.a) != null) {
-            try {
-                of4Var.e(t, rg4Var);
-            } catch (Exception e) {
-                c.g("PMSDownStreamCallbackGuard", "#onDownloadError 错误", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qf4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            of4<T> of4Var = this.a;
-            if (of4Var == null) {
-                return new Bundle();
-            }
-            return of4Var.m(bundle, set);
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.of4
-    public rg4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            of4<T> of4Var = this.a;
-            if (of4Var != null) {
-                return of4Var.h(t, file, j, readableByteChannel);
-            }
-            return new rg4(2302, "业务层默认不处理下载流");
-        }
-        return (rg4) invokeCommon.objValue;
     }
 }

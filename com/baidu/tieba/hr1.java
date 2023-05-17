@@ -1,44 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class hr1 {
+/* loaded from: classes5.dex */
+public class hr1 implements ft1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public Resources b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ft1
+    public boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            return false;
         }
-        return (Resources) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public abstract void c(boolean z);
-
-    public void d(boolean z) {
+    @Override // com.baidu.tieba.ft1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void f(Object obj, ld3 ld3Var) {
+    @Override // com.baidu.tieba.ft1
+    public boolean c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, ld3Var) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            return false;
         }
-    }
-
-    public void g(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
-        }
+        return invokeLL.booleanValue;
     }
 
     public hr1() {
@@ -52,22 +53,6 @@ public abstract class hr1 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return lg3.a().getBoolean("PREFS_NIGHT_MODE", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            lg3.a().putBoolean("PREFS_NIGHT_MODE", z);
         }
     }
 }

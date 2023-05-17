@@ -3,7 +3,7 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedReserveHeaderInfo implements Parcelable {
     public static final Parcelable.Creator<LiveFeedReserveHeaderInfo> CREATOR = new Parcelable.Creator<LiveFeedReserveHeaderInfo>() { // from class: com.baidu.live.business.model.data.LiveFeedReserveHeaderInfo.1
         /* JADX DEBUG: Method merged with bridge method */

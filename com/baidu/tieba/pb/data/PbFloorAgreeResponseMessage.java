@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb.data;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.permission.DangerousPermissionStatistic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
+import com.baidu.tieba.mw8;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.ru8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                 return;
             }
-            JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
+            JSONObject optJSONObject2 = optJSONObject.optJSONObject(DangerousPermissionStatistic.UBC_TYPE_VALUE_AGREE);
             if (optJSONObject2 != null) {
                 this.mScore = optJSONObject2.optInt("score");
                 boolean z = true;
@@ -61,7 +62,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
                 }
                 this.isFirstAgree = z;
             }
-            this.mActDialogData = ru8.a(optJSONObject);
+            this.mActDialogData = mw8.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");
             ContriInfo contriInfo = new ContriInfo();
             this.mContriInfo = contriInfo;

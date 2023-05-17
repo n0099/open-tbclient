@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ForumList;
-import tbclient.GetDislikeList.DataRes;
-/* loaded from: classes6.dex */
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class vg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<tg9> a;
-    public boolean b;
+    public String a;
+    public String b;
+    public String c;
 
     public vg9() {
         Interceptable interceptable = $ic;
@@ -25,29 +25,20 @@ public class vg9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = true;
     }
 
-    public void a(DataRes dataRes) {
+    public static vg9 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            vg9 vg9Var = new vg9();
+            vg9Var.a = jSONObject.optString("lottie");
+            vg9Var.b = jSONObject.optString("text");
+            vg9Var.c = jSONObject.optString("cmd");
+            return vg9Var;
         }
-        for (ForumList forumList : dataRes.forum_list) {
-            tg9 tg9Var = new tg9();
-            tg9Var.a = forumList.avatar;
-            tg9Var.b = forumList.forum_name;
-            tg9Var.c = String.valueOf(forumList.forum_id);
-            this.a.add(tg9Var);
-        }
-        boolean z = true;
-        if (dataRes.has_more.intValue() != 1) {
-            z = false;
-        }
-        this.b = z;
+        return (vg9) invokeL.objValue;
     }
 }

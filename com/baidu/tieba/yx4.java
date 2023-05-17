@@ -1,146 +1,256 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
-import com.baidu.tbadk.data.CardLinkInfoData;
+import com.baidu.tbadk.core.account.data.DelAllUerDataReqMsg;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yx4 implements Comparable<yx4> {
+/* loaded from: classes8.dex */
+public class yx4 {
     public static /* synthetic */ Interceptable $ic;
+    public static yx4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public boolean n;
-    public int o;
-    public CardLinkInfoData p;
-    public int q;
+    public ProgressDialog a;
 
-    public yx4(int i, int i2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948345524, "Lcom/baidu/tieba/yx4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948345524, "Lcom/baidu/tieba/yx4;");
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements is5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yx4 a;
+
+        /* loaded from: classes8.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    tz9.b(true);
+                }
+            }
+        }
+
+        public b(yx4 yx4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yx4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.is5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
+                this.a.d();
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity == null) {
+                    return;
+                }
+                if (bool.booleanValue()) {
+                    TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(currentActivity);
+                    tBAlertBuilder.w(R.string.delete_success);
+                    tBAlertBuilder.m(R.string.delete_all_user_data_hint);
+                    tBAlertBuilder.u(new TBAlertConfig.a(currentActivity.getString(R.string.obfuscated_res_0x7f0f1075), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+                    tBAlertBuilder.z();
+                    return;
+                }
+                ri.P(currentActivity, R.string.delete_fail);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a extends et5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(yx4 yx4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.et5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008015, currentAccount));
+                    nb5.h0().X(true);
+                    NotificationHelper.cancelAllNotification(TbadkCoreApplication.getInst());
+                    uq9.y("");
+                    tx4.t().g(currentAccount, false);
+                    BdCacheService.n().a(currentAccount);
+                    o65.m().e(currentAccount);
+                    return Boolean.TRUE;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return Boolean.FALSE;
+                }
+            }
+            return (Boolean) invokeV.objValue;
+        }
+    }
+
+    public yx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static yx4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (yx4.class) {
+                    if (b == null) {
+                        b = new yx4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (yx4) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            it5.b(new a(this), new b(this));
+        }
+    }
+
+    public final void d() {
+        ProgressDialog progressDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (progressDialog = this.a) != null && progressDialog.isShowing()) {
+            this.a.dismiss();
+            this.a = null;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            DelAllUerDataReqMsg delAllUerDataReqMsg = new DelAllUerDataReqMsg();
+            delAllUerDataReqMsg.setOpType(1);
+            MessageManager.getInstance().sendMessage(delAllUerDataReqMsg);
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ProgressDialog progressDialog = this.a;
+            if (progressDialog == null) {
+                this.a = ri.L(TbadkCoreApplication.getInst().getCurrentActivity(), null);
+            } else {
+                progressDialog.show();
+            }
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
+            f();
+        }
+    }
+
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
+            if (z) {
+                d();
+                ri.Q(TbadkCoreApplication.getInst().getCurrentActivity(), str);
                 return;
             }
+            b();
         }
-        this.a = i;
-        this.b = i2;
-    }
-
-    public static yx4 b(TbLinkSpanGroup tbLinkSpanGroup, cn7 cn7Var) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, cn7Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            yx4 yx4Var = new yx4(tbLinkSpanGroup.e(), 2);
-            if (cn7Var == null) {
-                return yx4Var;
-            }
-            if (TextUtils.isEmpty(cn7Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
-            } else {
-                str = cn7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
-            }
-            yx4Var.d = str;
-            yx4Var.c = cn7Var.c();
-            yx4Var.m = cn7Var.a();
-            if (!ListUtils.isEmpty(cn7Var.b()) && cn7Var.b().get(0) != null) {
-                yx4Var.e = cn7Var.b().get(0).a();
-            }
-            yx4Var.l = cn7Var.f();
-            yx4Var.f = cn7Var.d();
-            if (cn7Var.e() != null) {
-                yx4Var.j = cn7Var.e().a();
-                yx4Var.k = cn7Var.e().b();
-            }
-            tbLinkSpanGroup.B(yx4Var);
-            return yx4Var;
-        }
-        return (yx4) invokeLL.objValue;
-    }
-
-    public static yx4 c(TbLinkSpanGroup tbLinkSpanGroup, e75 e75Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, e75Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            boolean z = true;
-            yx4 yx4Var = new yx4(tbLinkSpanGroup.e(), 1);
-            if (e75Var == null) {
-                return yx4Var;
-            }
-            int i = e75Var.b;
-            if (i == 4) {
-                CardLinkInfoData cardLinkInfoData = e75Var.j;
-                if (cardLinkInfoData != null) {
-                    yx4Var.p = cardLinkInfoData;
-                    yx4Var.c = cardLinkInfoData.title;
-                    yx4Var.e = cardLinkInfoData.imageUrl;
-                    yx4Var.l = cardLinkInfoData.tagText;
-                    yx4Var.g = cardLinkInfoData.url;
-                    yx4Var.i = false;
-                    yx4Var.o = i;
-                }
-            } else {
-                yx4Var.p = e75Var.j;
-                yx4Var.c = e75Var.e;
-                yx4Var.e = e75Var.d;
-                yx4Var.l = e75Var.f;
-                yx4Var.f = e75Var.g;
-                yx4Var.g = e75Var.c;
-                yx4Var.n = e75Var.h;
-                String str = e75Var.i;
-                if (i != 1 && i != 5) {
-                    z = false;
-                }
-                yx4Var.i = z;
-                yx4Var.o = e75Var.b;
-            }
-            tbLinkSpanGroup.B(yx4Var);
-            return yx4Var;
-        }
-        return (yx4) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull yx4 yx4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, yx4Var)) == null) {
-            return this.q - yx4Var.q;
-        }
-        return invokeL.intValue;
     }
 }

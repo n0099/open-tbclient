@@ -22,7 +22,6 @@ import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +44,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NetworkUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_RSSI = -127;
@@ -86,7 +85,7 @@ public class NetworkUtil {
         return invokeI.intValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class NetType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_2G = 2;
@@ -116,7 +115,7 @@ public class NetworkUtil {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SignalType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LTE_CQI = "lteCqi";
@@ -331,7 +330,7 @@ public class NetworkUtil {
             if (!"46001".equals(networkOperator) && !"46006".equals(networkOperator) && !"46009".equals(networkOperator)) {
                 if (!"46000".equals(networkOperator) && !"46002".equals(networkOperator) && !"46004".equals(networkOperator) && !"46007".equals(networkOperator)) {
                     if (!"46003".equals(networkOperator) && !"46005".equals(networkOperator) && !"46011".equals(networkOperator)) {
-                        return ImageViewerConfig.FROM_OTHER;
+                        return "other";
                     }
                     return "China_Telecom";
                 }

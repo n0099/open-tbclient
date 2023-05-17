@@ -3,7 +3,7 @@ package com.baidu.pass.main.facesdk;
 import android.util.Log;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceAuth {
     public static final String TAG = "FaceSDK";
     public boolean isLoadSucess;

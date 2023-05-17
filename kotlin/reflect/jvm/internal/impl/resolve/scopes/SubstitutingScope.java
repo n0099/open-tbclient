@@ -24,7 +24,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SubstitutingScope implements MemberScope {
     public final Lazy _allDescriptors$delegate;
     public Map<DeclarationDescriptor, DeclarationDescriptor> substitutedDescriptors;
@@ -61,10 +61,10 @@ public final class SubstitutingScope implements MemberScope {
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
-        ClassifierDescriptor mo2027getContributedClassifier = this.workerScope.mo2027getContributedClassifier(name, lookupLocation);
-        if (mo2027getContributedClassifier != null) {
-            return (ClassifierDescriptor) substitute((SubstitutingScope) mo2027getContributedClassifier);
+    public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        ClassifierDescriptor mo2046getContributedClassifier = this.workerScope.mo2046getContributedClassifier(name, lookupLocation);
+        if (mo2046getContributedClassifier != null) {
+            return (ClassifierDescriptor) substitute((SubstitutingScope) mo2046getContributedClassifier);
         }
         return null;
     }

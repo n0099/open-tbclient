@@ -1,6 +1,6 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ConsumeConfirmMessage {
     public int appid;
     public int business_type;

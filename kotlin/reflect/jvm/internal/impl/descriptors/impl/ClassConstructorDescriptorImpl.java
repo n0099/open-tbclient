@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import java.util.Collection;
 import java.util.Collections;
@@ -21,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.Visibility;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ClassConstructorDescriptorImpl extends FunctionDescriptorImpl implements ClassConstructorDescriptor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final Name NAME = Name.special("<init>");
@@ -145,7 +146,7 @@ public class ClassConstructorDescriptorImpl extends FunctionDescriptorImpl imple
                             break;
                     }
                 } else {
-                    objArr[1] = "copy";
+                    objArr[1] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
                 }
                 switch (i) {
                     case 4:

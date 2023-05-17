@@ -9,7 +9,7 @@ import com.vivo.push.b.x;
 import com.vivo.push.e;
 import com.vivo.push.util.u;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

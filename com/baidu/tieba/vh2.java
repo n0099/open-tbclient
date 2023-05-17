@@ -1,83 +1,150 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class vh2 implements Runnable {
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+/* loaded from: classes7.dex */
+public class vh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, Integer> b;
+    public static final Object c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
 
-    public abstract void c();
-
-    public vh2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240713, "Lcom/baidu/tieba/vh2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948240713, "Lcom/baidu/tieba/vh2;");
                 return;
             }
         }
-        this.a = true;
+        a = qp1.a;
+        b = new HashMap();
+        c = new Object();
+        d = wh2.a();
     }
 
-    public boolean a() {
+    @NonNull
+    public static Set<String> b() {
         InterceptResult invokeV;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.lang.Runnable
-    public final void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c();
-            this.a = false;
-        }
-    }
-
-    public vh2(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!d) {
+                return Collections.emptySet();
             }
+            synchronized (c) {
+                strArr = (String[]) b.keySet().toArray(new String[0]);
+            }
+            return kn3.a(strArr);
         }
-        this.a = true;
-        this.b = str;
+        return (Set) invokeV.objValue;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(this.b)) {
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "remove all exclude appIds");
+        }
+        synchronized (c) {
+            b.clear();
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!d || TextUtils.isEmpty(str)) {
                 return false;
             }
-            return this.b.endsWith(str);
+            synchronized (c) {
+                containsKey = b.containsKey(str);
+            }
+            if (a) {
+                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
+            }
+            return containsKey;
         }
         return invokeL.booleanValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (c) {
+            Integer num = b.get(str);
+            if (num == null) {
+                b.put(str, 1);
+            } else {
+                b.put(str, Integer.valueOf(num.intValue() + 1));
+            }
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (c) {
+            Integer num = b.get(str);
+            if (num != null) {
+                int intValue = num.intValue() - 1;
+                if (intValue <= 0) {
+                    b.remove(str);
+                } else {
+                    b.put(str, Integer.valueOf(intValue));
+                }
+            }
+        }
+    }
+
+    public static void e(om4 om4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, om4Var) == null) && d && om4Var != null) {
+            for (ei4 ei4Var : om4Var.j()) {
+                if (ei4Var instanceof fi4) {
+                    d(ei4Var.g);
+                } else if (ei4Var instanceof gi4) {
+                    d(((gi4) ei4Var).o);
+                }
+            }
+        }
     }
 }

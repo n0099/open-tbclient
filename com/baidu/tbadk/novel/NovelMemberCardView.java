@@ -22,17 +22,17 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.nc5;
-import com.baidu.tieba.pt4;
-import com.baidu.tieba.vl5;
-import com.baidu.tieba.wl5;
+import com.baidu.tieba.en5;
+import com.baidu.tieba.fn5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.wd5;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NovelMemberCardView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     public ImageView f;
     public View g;
     public TextView h;
-    public nc5 i;
+    public wd5 i;
     public boolean j;
     public String k;
     public int l;
@@ -53,7 +53,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     public int o;
     public final CustomMessageListener p;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,10 +120,10 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         e(context);
     }
 
-    public void f(nc5 nc5Var) {
+    public void f(wd5 wd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nc5Var) == null) {
-            if (nc5Var.h()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wd5Var) == null) {
+            if (wd5Var.h()) {
                 this.b.setVisibility(8);
                 this.g.setVisibility(0);
                 this.h.setText(R.string.novel_member_payed);
@@ -186,7 +186,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return vl5.g(vl5.a(str, "sectionIndex", this.l));
+            return en5.g(en5.a(str, "sectionIndex", this.l));
         }
         return (String) invokeL.objValue;
     }
@@ -205,10 +205,10 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         if ((interceptable != null && interceptable.invokeV(65542, this) != null) || this.i == null) {
             return;
         }
-        String c = vl5.c(String.valueOf(this.i.f()), TbadkCoreApplication.getCurrentAccount());
+        String c = en5.c(String.valueOf(this.i.f()), TbadkCoreApplication.getCurrentAccount());
         ReadRecordsData readRecordsData = (ReadRecordsData) OrmObject.objectWithJsonStr(c, ReadRecordsData.class);
-        if (!StringUtils.isNull(c) && readRecordsData != null && readRecordsData.W()) {
-            this.k = readRecordsData.V();
+        if (!StringUtils.isNull(c) && readRecordsData != null && readRecordsData.V()) {
+            this.k = readRecordsData.U();
         } else {
             this.k = String.valueOf(this.i.b());
         }
@@ -222,11 +222,11 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
         this.a = skinType;
         this.c.setSkinType(skinType);
-        g35 d = g35.d(this.d);
+        p45 d = p45.d(this.d);
         d.C(R.string.F_X01);
         d.B(R.dimen.T_X05);
         d.w(R.color.CAM_X0319);
-        g35 d2 = g35.d(this.h);
+        p45 d2 = p45.d(this.h);
         d2.C(R.string.F_X01);
         d2.B(R.dimen.T_X05);
         d2.w(R.color.CAM_X0304);
@@ -235,19 +235,19 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     }
 
     public final void d(View view2) {
-        nc5 nc5Var;
+        wd5 wd5Var;
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (nc5Var = this.i) != null) {
-            if (nc5Var.h()) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (wd5Var = this.i) != null) {
+            if (wd5Var.h()) {
                 i = 2;
             } else {
                 i = 1;
             }
             if (view2.getId() == R.id.novel_member_rights_page) {
-                wl5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.i.f()), this.m, this.n, this.o);
+                fn5.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_CLICK, 4, String.valueOf(this.i.f()), this.m, this.n, this.o);
             } else {
-                wl5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.i.f()), this.m, this.n);
+                fn5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_CLICK, i, String.valueOf(this.i.f()), this.m, this.n);
             }
         }
     }
@@ -275,13 +275,13 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
         }
     }
 
-    public void setData(nc5 nc5Var) {
+    public void setData(wd5 wd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, nc5Var) == null) {
-            if (nc5Var != null && !nc5Var.i()) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, wd5Var) == null) {
+            if (wd5Var != null && !wd5Var.i()) {
                 setVisibility(0);
-                this.i = nc5Var;
-                if (!StringUtils.isNull(nc5Var.d())) {
+                this.i = wd5Var;
+                if (!StringUtils.isNull(wd5Var.d())) {
                     this.c.N(this.i.d(), 10, false);
                 } else {
                     this.c.setVisibility(8);
@@ -347,19 +347,19 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
     }
 
     public void j() {
-        nc5 nc5Var;
+        wd5 wd5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (nc5Var = this.i) != null) {
-            f(nc5Var);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (wd5Var = this.i) != null) {
+            f(wd5Var);
         }
     }
 
     public final void h() {
-        nc5 nc5Var;
+        wd5 wd5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (nc5Var = this.i) != null && !StringUtils.isNull(nc5Var.c()) && !StringUtils.isNull(this.i.a())) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (wd5Var = this.i) != null && !StringUtils.isNull(wd5Var.c()) && !StringUtils.isNull(this.i.a())) {
             if (this.i.h()) {
-                k(l(vl5.f(this.i.c(), "data", "cid", this.k)), true);
+                k(l(en5.f(this.i.c(), "data", "cid", this.k)), true);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
                 return;
             }
@@ -375,7 +375,7 @@ public class NovelMemberCardView extends LinearLayout implements View.OnClickLis
             bundle.putString(NovelWebViewActivityConfig.KEY_NOVEL_ID, String.valueOf(this.i.f()));
             bundle.putString(NovelWebViewActivityConfig.KEY_NOVEL_TID, this.m);
             bundle.putString(NovelWebViewActivityConfig.KEY_NOVEL_FID, this.n);
-            pt4.y(getContext(), "", str, false, true, true, bundle);
+            yu4.y(getContext(), "", str, false, true, true, bundle);
         }
     }
 

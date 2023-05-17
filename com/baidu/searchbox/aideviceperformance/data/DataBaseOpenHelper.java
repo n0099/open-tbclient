@@ -7,13 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     public static final boolean DEBUG = Config.isDebug();
     public static final String TAG = "DataBaseOpenHelper";
     public OnSqliteUpdateListener onSqliteUpdateListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnSqliteUpdateListener {
         void onSqliteUpdateListener(SQLiteDatabase sQLiteDatabase, int i, int i2);
     }

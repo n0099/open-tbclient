@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.extractor.MpegAudioHeader;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MpegAudioReader implements ElementaryStreamReader {
     public static final int HEADER_SIZE = 4;
     public static final int STATE_FINDING_HEADER = 0;

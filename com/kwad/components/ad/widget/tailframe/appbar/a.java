@@ -23,7 +23,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a extends LinearLayout {
     public View BA;
     public TextView CI;
@@ -55,19 +55,19 @@ public abstract class a extends LinearLayout {
 
     private void initView() {
         this.BA = LinearLayout.inflate(getContext(), getLayoutId(), this);
-        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911de);
-        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f0911e0);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f0911e1);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f0911dd);
-        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f0911df);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091214);
+        this.hF = (ImageView) findViewById(R.id.obfuscated_res_0x7f091219);
+        this.hG = (TextView) findViewById(R.id.obfuscated_res_0x7f09121b);
+        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09121c);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091218);
+        this.CI = (TextView) findViewById(R.id.obfuscated_res_0x7f09121a);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09124f);
         this.wZ = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
         this.wZ.setTextColor(-1);
-        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f0912d9);
-        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f0912d3);
-        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f0912d5);
-        this.un = findViewById(R.id.obfuscated_res_0x7f0912d4);
+        this.uu = (KsAppTagsView) findViewById(R.id.obfuscated_res_0x7f091314);
+        this.uo = (Button) findViewById(R.id.obfuscated_res_0x7f09130e);
+        this.up = (Button) findViewById(R.id.obfuscated_res_0x7f091310);
+        this.un = findViewById(R.id.obfuscated_res_0x7f09130f);
         this.ux = new com.kwad.components.ad.g.a(this.BA);
     }
 

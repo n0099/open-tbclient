@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.memory;
 
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class MemoryChunkUtil {
     public static int adjustByteCount(int i, int i2, int i3) {
         return Math.min(Math.max(0, i3 - i), i2);

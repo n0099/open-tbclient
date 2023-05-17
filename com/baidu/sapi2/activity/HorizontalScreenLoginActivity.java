@@ -16,11 +16,11 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.ViewUtility;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HorizontalScreenLoginActivity extends LoginActivity {
     public static int I;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AndroidBug5497Workaround {
         public final int a;
         public View b;

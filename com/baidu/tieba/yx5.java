@@ -1,25 +1,57 @@
 package com.baidu.tieba;
 
-import android.view.View;
-/* loaded from: classes7.dex */
-public interface yx5 extends ey5<gy5> {
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class yx5 implements oy5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(gy5 gy5Var, View view2);
-
-        void b(gy5 gy5Var, View view2);
+    public yx5(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = i2;
     }
 
-    void a(int i);
+    @Override // com.baidu.tieba.oy5
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < getItemsCount()) {
+                return Integer.valueOf(this.a + i);
+            }
+            return 0;
+        }
+        return invokeI.objValue;
+    }
 
-    void c(Object obj);
-
-    View getView();
-
-    void h(a aVar);
-
-    void j();
-
-    void l(int i);
+    @Override // com.baidu.tieba.oy5
+    public int getItemsCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (this.b - this.a) + 1;
+        }
+        return invokeV.intValue;
+    }
 }

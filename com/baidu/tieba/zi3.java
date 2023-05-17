@@ -1,109 +1,60 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
 public class zi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            if (!wifiConfiguration.allowedKeyManagement.get(0)) {
-                return -1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public boolean b;
 
-    public static int b(vi3 vi3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vi3Var)) == null) {
-            if (vi3Var == null) {
-                return -1;
-            }
-            if (TextUtils.isEmpty(vi3Var.c) && TextUtils.isEmpty(vi3Var.d)) {
-                return 0;
-            }
-            if (!TextUtils.isEmpty(vi3Var.c) && !TextUtils.isEmpty(vi3Var.d)) {
-                return 3;
-            }
-            if (TextUtils.isEmpty(vi3Var.d)) {
-                return -1;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("WEP")) {
-                return 1;
-            }
-            if (str.contains("PSK")) {
-                return 2;
-            }
-            if (str.contains("EAP")) {
-                return 3;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65539, null, wifiConfiguration, i) != null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        wifiConfiguration.allowedKeyManagement.set(2);
-                        wifiConfiguration.allowedKeyManagement.set(3);
-                        return;
-                    }
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                wifiConfiguration.allowedKeyManagement.set(1);
-                return;
             }
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-            return;
         }
-        wifiConfiguration.allowedKeyManagement.set(0);
+    }
+
+    @Nullable
+    public static a a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            if (registerReceiver == null) {
+                return null;
+            }
+            a aVar = new a();
+            aVar.a = registerReceiver.getIntExtra("level", -1);
+            boolean z = false;
+            if (registerReceiver.getIntExtra("plugged", 0) != 0) {
+                z = true;
+            }
+            aVar.b = z;
+            return aVar;
+        }
+        return (a) invokeL.objValue;
     }
 }

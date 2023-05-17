@@ -9,7 +9,7 @@ import java.io.OutputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class RequestBody {
     public long contentLength() throws IOException {
         return -1L;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DbHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "pms.db";
     public static final int DB_VERSION = 4;

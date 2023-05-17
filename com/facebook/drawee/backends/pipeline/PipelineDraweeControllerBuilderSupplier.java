@@ -17,7 +17,7 @@ import com.facebook.imagepipeline.drawable.DrawableFactory;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PipelineDraweeControllerBuilderSupplier implements Supplier<PipelineDraweeControllerBuilder> {
     public final Set<ControllerListener> mBoundControllerListeners;
     public final Set<ControllerListener2> mBoundControllerListeners2;

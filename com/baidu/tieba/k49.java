@@ -1,67 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class k49 implements in {
+import tbclient.ExcPbPage.ExcContent;
+/* loaded from: classes6.dex */
+public class k49 implements m49 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public ExcContent a;
+    public SpannableString b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863257, "Lcom/baidu/tieba/k49;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947863257, "Lcom/baidu/tieba/k49;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.m49
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return false;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public k49(boolean z, h49 h49Var) {
+    @Override // com.baidu.tieba.n49
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public k49(ExcContent excContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), h49Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {excContent};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String str = h49Var.e;
-        String str2 = h49Var.d;
-        this.a = h49Var.a;
-        String str3 = h49Var.f;
-        List<i49> list = h49Var.c;
-        int i3 = h49Var.b;
+        this.a = excContent;
+    }
+
+    @Override // com.baidu.tieba.m49
+    public CharSequence b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return c(this.a);
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public final SpannableString c(ExcContent excContent) {
+        InterceptResult invokeL;
+        sh5.a f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
+            if (this.b == null) {
+                String str = excContent.text;
+                if (TbFaceManager.i().o(str)) {
+                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
+                    this.b = new SpannableString(str2 + " ");
+                    mx5 c = TbFaceManager.i().c(str);
+                    if (TbFaceManager.i().f(str) != null) {
+                        int a = (int) (f.a() * 0.6d);
+                        c.setBounds(new Rect(0, 0, a, a));
+                    } else {
+                        c.setBounds(new Rect(0, 0, 0, 0));
+                    }
+                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
+                }
+            }
+            return this.b;
+        }
+        return (SpannableString) invokeL.objValue;
     }
 }

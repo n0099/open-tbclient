@@ -1,73 +1,198 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ym1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
-public final class en1 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes5.dex */
+public class en1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile en1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicBoolean a;
+    public final AtomicBoolean b;
+    public final AtomicBoolean c;
+    public final AtomicBoolean d;
+    public final HashMap<Integer, ym1.a> e;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public en1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            try {
-                byte[] bArr2 = new byte[32];
-                new SecureRandom().nextBytes(bArr2);
-                byte[] bArr3 = new byte[16];
-                System.arraycopy(bArr2, 8, bArr3, 0, 16);
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr3);
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                cipher.init(1, secretKeySpec, ivParameterSpec);
-                byte[] doFinal = cipher.doFinal(bArr);
-                byte[] bArr4 = new byte[doFinal.length + 32];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(bArr2, 0, bArr4, doFinal.length, 32);
-                return Base64.encodeToString(bArr4, 0);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+        this.c = new AtomicBoolean(false);
+        this.d = new AtomicBoolean(false);
+        this.e = new HashMap<>();
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public static en1 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                synchronized (en1.class) {
+                    if (f == null) {
+                        f = new en1();
+                    }
                 }
-                byte[] decode = Base64.decode(str, 0);
-                if (decode != null && decode.length >= 32) {
-                    byte[] bArr = new byte[32];
-                    int length = decode.length - 32;
-                    byte[] bArr2 = new byte[length];
-                    System.arraycopy(decode, 0, bArr2, 0, length);
-                    System.arraycopy(decode, length, bArr, 0, 32);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                    Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                    byte[] bArr3 = new byte[16];
-                    System.arraycopy(bArr, 8, bArr3, 0, 16);
-                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                    return cipher.doFinal(bArr2);
+            }
+            return f;
+        }
+        return (en1) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized int a(ym1.a aVar) {
+        InterceptResult invokeL;
+        int currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            synchronized (this) {
+                currentTimeMillis = (int) System.currentTimeMillis();
+                this.e.put(Integer.valueOf(currentTimeMillis), aVar);
+            }
+            return currentTimeMillis;
+        }
+        return invokeL.intValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a.set(z);
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.b.set(z);
+        }
+    }
+
+    public synchronized boolean h(int i) {
+        InterceptResult invokeI;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            synchronized (this) {
+                containsKey = this.e.containsKey(Integer.valueOf(i));
+            }
+            return containsKey;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.c.set(z);
+        }
+    }
+
+    public synchronized boolean l(int i) {
+        InterceptResult invokeI;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            synchronized (this) {
+                containsKey = this.e.containsKey(Integer.valueOf(i));
+            }
+            return containsKey;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d.set(z);
+        }
+    }
+
+    public synchronized Pair<Boolean, ym1.a> b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            synchronized (this) {
+                if (!this.e.containsKey(Integer.valueOf(i))) {
+                    return new Pair<>(Boolean.FALSE, null);
                 }
-                return decode;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+                qn1.a().b(i);
+                this.e.remove(Integer.valueOf(i));
+                return new Pair<>(Boolean.TRUE, this.e.get(Integer.valueOf(i)));
             }
         }
-        return (byte[]) invokeL.objValue;
+        return (Pair) invokeI.objValue;
+    }
+
+    public boolean e(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return this.a.compareAndSet(z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean i(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return this.b.compareAndSet(z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean m(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return this.c.compareAndSet(z, z2);
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public boolean o(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return this.d.compareAndSet(z, z2);
+        }
+        return invokeCommon.booleanValue;
     }
 }

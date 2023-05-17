@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import java.io.Serializable;
 @SuppressLint({"KotlinPropertyAccess"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdVideo implements Serializable, Cloneable {
     public static final int ANIM_LOGO_DOWNLOAD_TOAST = 123;
     public static final int ANIM_LOGO_ENABLE = 120;

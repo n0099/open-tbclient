@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.CloseAd.CloseAdResIdl;
 import tbclient.Error;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class MemberCloseAdHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class MemberCloseAdHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() == 0 && closeAdResIdl.data != null) {
                 CloseAdData closeAdData = new CloseAdData();
                 this.mData = closeAdData;
-                closeAdData.X(closeAdResIdl.data.vip_close_ad);
+                closeAdData.W(closeAdResIdl.data.vip_close_ad);
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.m69;
+import com.baidu.tieba.i89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.HistorySwan.HistorySwanResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m69 mData;
+    public i89 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistoryHttpResponsedMessage() {
@@ -36,13 +36,13 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
         }
     }
 
-    public m69 getData() {
+    public i89 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (m69) invokeV.objValue;
+        return (i89) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
             setErrorString(historySwanResIdl.error.usermsg);
         }
         if (historySwanResIdl.data != null) {
-            m69 m69Var = new m69();
-            this.mData = m69Var;
-            m69Var.b(historySwanResIdl.data);
+            i89 i89Var = new i89();
+            this.mData = i89Var;
+            i89Var.b(historySwanResIdl.data);
         }
     }
 }

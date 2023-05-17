@@ -1,11 +1,26 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.om2;
+/* loaded from: classes8.dex */
 public interface vt1 {
-    wk4 a();
+    boolean a(@Nullable Activity activity);
 
-    void b(be2 be2Var, zd2 zd2Var);
+    void b(@NonNull Context context);
 
-    boolean c();
+    void c(@NonNull String str);
 
-    boolean d();
+    void d(CallbackHandler callbackHandler);
+
+    void e(g93 g93Var);
+
+    String f(@NonNull Context context);
+
+    void g(g93 g93Var);
+
+    void h(@NonNull Activity activity, String str, String str2, nm2 nm2Var, om2.b bVar);
 }

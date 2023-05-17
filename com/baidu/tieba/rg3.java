@@ -1,88 +1,56 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class rg3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Deprecated
+/* loaded from: classes7.dex */
+public class rg3 extends db3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, qg3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948120619, "Lcom/baidu/tieba/rg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948120619, "Lcom/baidu/tieba/rg3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rg3(da3 da3Var) {
+        super(da3Var, "/swanAPI/clearStorage");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
-        b = new ArrayMap();
     }
 
-    @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        qg3 qg3Var = b.get(str);
-                        if (qg3Var != null && qg3Var.a() != null) {
-                            return qg3Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            ng3.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
-                    }
-                }
-                return mg3.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
-                }
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
+            g93Var.f0().g().edit().clear().apply();
+            cl3.h.update();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return (AshmemFileDescriptor) invokeLI.objValue;
-    }
-
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (rg3.class) {
-                if (ProcessUtils.isMainProcess()) {
-                    return;
-                }
-                qg3 qg3Var = b.get(ashmemFileDescriptor.getName());
-                if (qg3Var != null && qg3Var.a() != null && qg3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = qg3Var.b();
-                    qg3Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
-                }
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

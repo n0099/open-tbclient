@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class GameVideoGridView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class GameVideoGridView extends BdGridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.b == null) {
-                this.b = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008f);
+                this.b = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01009a);
             }
             if (this.c == null) {
                 GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.b);

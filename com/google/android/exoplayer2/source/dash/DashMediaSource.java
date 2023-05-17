@@ -33,7 +33,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DashMediaSource implements MediaSource {
     public static final long DEFAULT_LIVE_PRESENTATION_DELAY_FIXED_MS = 30000;
     public static final long DEFAULT_LIVE_PRESENTATION_DELAY_PREFER_MANIFEST_MS = -1;
@@ -65,7 +65,7 @@ public final class DashMediaSource implements MediaSource {
     public final Runnable simulateManifestRefreshRunnable;
     public MediaSource.Listener sourceListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class DashTimeline extends Timeline {
         public final int firstPeriodId;
         public final DashManifest manifest;
@@ -163,7 +163,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Iso8601Parser implements ParsingLoadable.Parser<Long> {
         public Iso8601Parser() {
         }
@@ -183,7 +183,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class ManifestCallback implements Loader.Callback<ParsingLoadable<DashManifest>> {
         public ManifestCallback() {
         }
@@ -207,7 +207,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class PeriodSeekInfo {
         public final long availableEndTimeUs;
         public final long availableStartTimeUs;
@@ -258,7 +258,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class UtcTimestampCallback implements Loader.Callback<ParsingLoadable<Long>> {
         public UtcTimestampCallback() {
         }
@@ -282,7 +282,7 @@ public final class DashMediaSource implements MediaSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class XsDateTimeParser implements ParsingLoadable.Parser<Long> {
         public XsDateTimeParser() {
         }

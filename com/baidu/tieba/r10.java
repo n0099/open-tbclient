@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.util.devices.DeviceUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class r10 {
+/* loaded from: classes7.dex */
+public class r10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a(String str);
-
-    public abstract void b(String str, String str2);
+    public boolean a;
+    public String b;
 
     public r10() {
         Interceptable interceptable = $ic;
@@ -23,7 +26,41 @@ public abstract class r10 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = "";
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.a) {
+                StringBuilder sb = new StringBuilder();
+                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
+                    sb.append("BDOS/1.0");
+                    sb.append(" ");
+                    sb.append("(");
+                    sb.append("HarmonyOS");
+                    sb.append(" ");
+                    String harmonyVersion = DeviceUtils.getHarmonyVersion();
+                    if (TextUtils.isEmpty(harmonyVersion)) {
+                        harmonyVersion = "0.0";
+                    }
+                    sb.append(harmonyVersion);
+                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                }
+                String sb2 = sb.toString();
+                this.b = sb2;
+                if (!TextUtils.isEmpty(sb2)) {
+                    this.b = t10.a(this.b);
+                }
+                this.a = true;
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

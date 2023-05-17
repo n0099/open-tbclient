@@ -1,6 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.schemeauthenticate.dispatcher.UnitedSchemePublicDispatcher;
 import com.google.gson.internal.bind.TypeAdapters;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
@@ -20,7 +21,7 @@ import kotlin.reflect.jvm.internal.impl.types.DynamicTypesKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.util.ModuleVisibilityHelper;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Visibilities {
     public static final ReceiverValue ALWAYS_SUITABLE_RECEIVER;
     public static final Visibility DEFAULT_VISIBILITY;
@@ -253,7 +254,7 @@ public class Visibilities {
             return Visibilities.MODULE_VISIBILITY_HELPER.isInFriendModule(declarationDescriptorWithVisibility, declarationDescriptor);
         }
     };
-    public static final Visibility PUBLIC = new Visibility("public", true) { // from class: kotlin.reflect.jvm.internal.impl.descriptors.Visibilities.5
+    public static final Visibility PUBLIC = new Visibility(UnitedSchemePublicDispatcher.MODULE_NAME, true) { // from class: kotlin.reflect.jvm.internal.impl.descriptors.Visibilities.5
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
             Object[] objArr = new Object[3];
             if (i != 1) {

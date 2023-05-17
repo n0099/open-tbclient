@@ -4,15 +4,15 @@ import androidx.annotation.NonNull;
 import com.ksad.json.annotation.KsJson;
 import com.kwad.components.core.playable.PlayableSource;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c Lb;
     public com.kwad.components.core.webview.jshandler.b Lc;
 
     @KsJson
     /* renamed from: com.kwad.components.core.webview.jshandler.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0613a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes9.dex */
+    public static class C0627a extends com.kwad.sdk.core.response.kwai.a {
         public String Ld;
 
         public final String getTarget() {
@@ -21,7 +21,7 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     @KsJson
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends com.kwad.sdk.core.response.kwai.a {
         public int Le;
         public int Lf;
@@ -45,9 +45,9 @@ public final class a implements com.kwad.sdk.core.webview.kwai.a {
     public final void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         this.Lb = cVar;
         try {
-            C0613a c0613a = new C0613a();
-            c0613a.parseJson(new JSONObject(str));
-            String target = c0613a.getTarget();
+            C0627a c0627a = new C0627a();
+            c0627a.parseJson(new JSONObject(str));
+            String target = c0627a.getTarget();
             if (this.Lc != null) {
                 this.Lc.a(this, target);
             }

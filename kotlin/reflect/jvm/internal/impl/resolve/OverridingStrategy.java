@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.resolve;
 
 import java.util.Collection;
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableMemberDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class OverridingStrategy {
     public abstract void addFakeOverride(CallableMemberDescriptor callableMemberDescriptor);
 

@@ -1,37 +1,44 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.helios.common.cc.n;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.z40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
-public final class t30 extends s30 {
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class t30 implements m30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b d;
+    public a a;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes7.dex */
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public Context a;
+        public z40.a b;
+        public boolean c;
+        public boolean d;
+        public boolean e;
+        public long f;
+        public JSONObject g;
+        public JSONObject h;
+        public long i;
 
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Class<?> a;
-        public Method b;
-        public Method c;
-
-        public b() {
+        public a(t30 t30Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t30Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,93 +48,297 @@ public final class t30 extends s30 {
                     return;
                 }
             }
-            d();
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final long b(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                try {
-                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
-                } catch (Exception unused) {
-                    throw new n.a("");
-                }
+            if (context == null) {
+                throw new NullPointerException("context should not be null");
             }
-            return invokeL.longValue;
+            this.b = new z40(context.getApplicationContext()).d().f("cloud").f("cstore");
         }
 
-        public final void d() {
+        public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a = Class.forName(com.baidu.helios.common.cc.n.a(w30.a()), true, Object.class.getClassLoader());
-                    this.b = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(w30.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.c = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(w30.c()), null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                this.h = jSONObject;
             }
         }
 
-        public final void f(Object obj, byte[] bArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
-                try {
-                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
-                } catch (Exception unused) {
-                    throw new n.a("");
-                }
-            }
-        }
-
-        public final Object g() {
+        /* JADX WARN: Code restructure failed: missing block: B:16:0x002d, code lost:
+            if (e() != false) goto L21;
+         */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public synchronized boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                synchronized (this) {
+                    n();
+                    o();
+                    boolean i = i20.f(this.a).i();
+                    boolean z = false;
+                    if (this.c && i) {
+                        if (this.g == null) {
+                            return true;
+                        }
+                        if (!f()) {
+                        }
+                        z = true;
+                        return z;
+                    }
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean c(JSONObject jSONObject, JSONObject jSONObject2) {
+            InterceptResult invokeLL;
+            JSONArray jSONArray;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, jSONObject2)) == null) {
+                JSONArray jSONArray2 = null;
+                try {
+                    jSONArray = r30.a(jSONObject.optJSONArray(Config.SID), "pkg");
+                    try {
+                        jSONArray2 = r30.a(jSONObject2.optJSONArray(Config.SID), "pkg");
+                    } catch (Exception unused) {
+                    }
+                } catch (Exception unused2) {
+                    jSONArray = null;
+                }
+                return t30.c(jSONArray, jSONArray2) || r30.b(jSONObject, jSONObject2, "oid") || r30.b(jSONObject, jSONObject2, Config.GAID) || r30.b(jSONObject, jSONObject2, "iid") || r30.b(jSONObject, jSONObject2, "adrid") || r30.b(jSONObject, jSONObject2, "aid");
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public void d(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
+                this.g = jSONObject;
+                k();
+            }
+        }
+
+        public final synchronized boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                synchronized (this) {
+                    if (this.g == null) {
+                        return true;
+                    }
+                    if (this.h != null) {
+                        return c(this.g, this.h);
+                    }
+                    throw new IllegalArgumentException("you forgot invoke methond :IMatchConditions.setComparedCStoreParams before ");
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? Math.abs(System.currentTimeMillis() - this.i) / 1000 > this.f : invokeV.booleanValue;
+        }
+
+        public final long g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                JSONObject jSONObject = this.g;
+                if (jSONObject == null) {
+                    return 0L;
+                }
+                return jSONObject.optLong("ctime", 0L);
+            }
+            return invokeV.longValue;
+        }
+
+        public final void h() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                try {
+                    this.g = s30.a(this.b.g("cs.dat", true));
+                    this.i = g();
+                } catch (Exception unused) {
+                    this.i = 0L;
+                }
+            }
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                try {
+                    JSONObject a = s30.a(this.b.g("ct.dat", true));
+                    if (a == null) {
+                        this.f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                    } else {
+                        this.f = a.optLong("TIME_OUT", ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME);
+                    }
+                } catch (Exception unused) {
+                    this.f = ChatMessageDBManager.CAST_RELIABLE_MSG_EXPIRED_TIME;
+                }
+            }
+        }
+
+        public final void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                try {
+                    JSONObject a = s30.a(this.b.g("ci.dat", true));
+                    if (a == null) {
+                        this.c = true;
+                    } else {
+                        this.c = a.optBoolean("isOn", true);
+                    }
+                } catch (Exception unused) {
+                    this.c = true;
+                }
+            }
+        }
+
+        public final boolean k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                try {
+                    this.b.i("cs.dat", this.g.toString(), true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("isOn", this.c);
+                    this.b.i("ci.dat", jSONObject.toString(), true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final boolean m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("TIME_OUT", this.f);
+                    this.b.i("ct.dat", jSONObject.toString(), true);
+                    return true;
+                } catch (Exception unused) {
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        public final synchronized void n() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+                synchronized (this) {
+                    boolean z = true;
+                    if (this.d) {
+                        this.d = !l();
+                    }
+                    if (this.e) {
+                        if (m()) {
+                            z = false;
+                        }
+                        this.e = z;
+                    }
+                }
+            }
+        }
+
+        public final void o() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+                h();
+                i();
+                j();
+            }
         }
     }
 
-    public t30(int i, int i2) {
+    public t30(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
-        this.d = new b(null);
+        if (context == null) {
+            throw new NullPointerException("context should not be null");
+        }
+        if (this.a == null) {
+            this.a = new a(this, context.getApplicationContext());
+        }
     }
 
-    @Override // com.baidu.tieba.s30
-    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
-        long j;
-        InterceptResult invokeLII;
+    public static boolean c(JSONArray jSONArray, JSONArray jSONArray2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            try {
-                Object g = this.d.g();
-                this.d.f(g, bArr, i, i2);
-                j = this.d.b(g);
-            } catch (Exception unused) {
-                j = 4294967295L;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONArray, jSONArray2)) == null) {
+            int length = jSONArray == null ? 0 : jSONArray.length();
+            if (length != (jSONArray2 == null ? 0 : jSONArray2.length())) {
+                return true;
             }
-            return com.baidu.helios.common.cc.a.a(new long[]{j});
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                JSONObject optJSONObject2 = jSONArray2.optJSONObject(i);
+                if (r30.b(optJSONObject, optJSONObject2, "pkg") || r30.b(optJSONObject, optJSONObject2, "aid") || r30.c(optJSONObject, optJSONObject2, "priority")) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m30
+    public m30 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            this.a.a(jSONObject);
+            return this;
+        }
+        return (m30) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.m30
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m30
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            this.a.d(jSONObject);
+        }
     }
 }

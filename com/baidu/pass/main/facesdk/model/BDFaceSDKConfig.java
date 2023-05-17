@@ -1,5 +1,5 @@
 package com.baidu.pass.main.facesdk.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceSDKConfig {
     public float scaleRatio = -1.0f;
     public int maxDetectNum = 10;

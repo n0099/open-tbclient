@@ -20,7 +20,7 @@ public class a extends c {
 
     /* renamed from: com.baidu.android.pushservice.w.m.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static /* synthetic */ class C0036a {
+    public static /* synthetic */ class C0039a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class a extends c {
             if (TextUtils.isEmpty(j) || !Utility.m(this.a, j)) {
                 j = a2.a() == com.baidu.android.pushservice.k.c.a ? a2.b.b() : null;
             }
-            if (C0036a.a[a2.a().ordinal()] == 1) {
+            if (C0039a.a[a2.a().ordinal()] == 1) {
                 String a3 = a(j);
                 try {
                     this.a.getPackageManager().getPackageInfo(a3, 128);

@@ -18,7 +18,7 @@ import com.google.zxing.qrcode.decoder.QRCodeDecoderMetaData;
 import com.google.zxing.qrcode.detector.Detector;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class QRCodeReader implements Reader {
     public static final ResultPoint[] NO_POINTS = new ResultPoint[0];
     public final Decoder decoder = new Decoder();

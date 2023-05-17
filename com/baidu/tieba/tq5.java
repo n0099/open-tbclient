@@ -1,86 +1,80 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.ar5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class tq5 {
+/* loaded from: classes7.dex */
+public class tq5 extends li5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ViewGroup a;
-    public final int b;
+    public NoDataView a;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof tq5) {
-                tq5 tq5Var = (tq5) obj;
-                return Intrinsics.areEqual(this.a, tq5Var.a) && this.b == tq5Var.b;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "DetailViewInfo(parent=" + this.a + ", childIndex=" + this.b + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public tq5(ViewGroup parent, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tq5(Context context) {
+        super(new NoDataView(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parent, Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(parent, "parent");
-        this.a = parent;
-        this.b = i;
+        this.a = (NoDataView) getView();
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.f(m9.a(getView().getContext()), i);
         }
-        return invokeV.intValue;
     }
 
-    public final ViewGroup b() {
-        InterceptResult invokeV;
+    public void b(ar5.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || aVar == null) {
+            return;
         }
-        return (ViewGroup) invokeV.objValue;
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
+            str = aVar.a;
+        } else {
+            str = aVar.d;
+        }
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
+        }
+        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

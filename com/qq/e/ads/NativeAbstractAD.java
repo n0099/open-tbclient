@@ -10,13 +10,13 @@ import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.util.AdError;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DownAPPConfirmPolicy f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface BasicADListener {
         void onNoAD(AdError adError);
     }

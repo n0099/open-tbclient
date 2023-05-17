@@ -16,13 +16,13 @@ import kotlin.reflect.jvm.internal.impl.resolve.calls.inference.CapturedTypeCons
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
 import kotlin.reflect.jvm.internal.impl.types.typesApproximation.CapturedTypeApproximationKt;
 import kotlin.reflect.jvm.internal.impl.utils.ExceptionUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypeSubstitutor {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final TypeSubstitutor EMPTY = create(TypeSubstitution.EMPTY);
     public final TypeSubstitution substitution;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum VarianceConflictType {
         NO_CONFLICT,
         IN_IN_OUT_POSITION,
@@ -343,7 +343,7 @@ public class TypeSubstitutor {
     }
 
     /* renamed from: kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$org$jetbrains$kotlin$types$TypeSubstitutor$VarianceConflictType;
 
@@ -365,7 +365,7 @@ public class TypeSubstitutor {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SubstitutionException extends Exception {
         public SubstitutionException(String str) {
             super(str);
@@ -549,7 +549,7 @@ public class TypeSubstitutor {
     private TypeProjection substituteCompoundType(TypeProjection typeProjection, int i) throws SubstitutionException {
         KotlinType type = typeProjection.getType();
         Variance projectionKind = typeProjection.getProjectionKind();
-        if (type.getConstructor().mo2025getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
+        if (type.getConstructor().mo2044getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
             return typeProjection;
         }
         KotlinType kotlinType = null;
@@ -617,9 +617,9 @@ public class TypeSubstitutor {
             TypeProjection unsafeSubstitute = unsafeSubstitute(new TypeProjectionImpl(typeProjection.getProjectionKind(), origin), i + 1);
             return new TypeProjectionImpl(unsafeSubstitute.getProjectionKind(), TypeWithEnhancementKt.wrapEnhancement(unsafeSubstitute.getType().unwrap(), substitute(enhancement, typeProjection.getProjectionKind())));
         } else if (!DynamicTypesKt.isDynamic(type) && !(type.unwrap() instanceof RawType)) {
-            TypeProjection mo2030get = this.substitution.mo2030get(type);
+            TypeProjection mo2049get = this.substitution.mo2049get(type);
             Variance projectionKind = typeProjection.getProjectionKind();
-            if (mo2030get == null && FlexibleTypesKt.isFlexible(type) && !TypeCapabilitiesKt.isCustomTypeVariable(type)) {
+            if (mo2049get == null && FlexibleTypesKt.isFlexible(type) && !TypeCapabilitiesKt.isCustomTypeVariable(type)) {
                 FlexibleType asFlexibleType = FlexibleTypesKt.asFlexibleType(type);
                 int i2 = i + 1;
                 TypeProjection unsafeSubstitute2 = unsafeSubstitute(new TypeProjectionImpl(projectionKind, asFlexibleType.getLowerBound()), i2);
@@ -633,8 +633,8 @@ public class TypeSubstitutor {
                 }
                 return new TypeProjectionImpl(projectionKind2, KotlinTypeFactory.flexibleType(TypeSubstitutionKt.asSimpleType(unsafeSubstitute2.getType()), TypeSubstitutionKt.asSimpleType(unsafeSubstitute3.getType())));
             } else if (!KotlinBuiltIns.isNothing(type) && !KotlinTypeKt.isError(type)) {
-                if (mo2030get != null) {
-                    VarianceConflictType conflictType = conflictType(projectionKind, mo2030get.getProjectionKind());
+                if (mo2049get != null) {
+                    VarianceConflictType conflictType = conflictType(projectionKind, mo2049get.getProjectionKind());
                     if (!CapturedTypeConstructorKt.isCaptured(type)) {
                         int i3 = AnonymousClass2.$SwitchMap$org$jetbrains$kotlin$types$TypeSubstitutor$VarianceConflictType[conflictType.ordinal()];
                         if (i3 != 1) {
@@ -646,22 +646,22 @@ public class TypeSubstitutor {
                         }
                     }
                     CustomTypeVariable customTypeVariable = TypeCapabilitiesKt.getCustomTypeVariable(type);
-                    if (mo2030get.isStarProjection()) {
-                        if (mo2030get == null) {
+                    if (mo2049get.isStarProjection()) {
+                        if (mo2049get == null) {
                             $$$reportNull$$$0(21);
                         }
-                        return mo2030get;
+                        return mo2049get;
                     }
                     if (customTypeVariable != null) {
-                        makeNullableIfNeeded = customTypeVariable.substitutionResult(mo2030get.getType());
+                        makeNullableIfNeeded = customTypeVariable.substitutionResult(mo2049get.getType());
                     } else {
-                        makeNullableIfNeeded = TypeUtils.makeNullableIfNeeded(mo2030get.getType(), type.isMarkedNullable());
+                        makeNullableIfNeeded = TypeUtils.makeNullableIfNeeded(mo2049get.getType(), type.isMarkedNullable());
                     }
                     if (!type.getAnnotations().isEmpty()) {
                         makeNullableIfNeeded = TypeUtilsKt.replaceAnnotations(makeNullableIfNeeded, new CompositeAnnotations(makeNullableIfNeeded.getAnnotations(), filterOutUnsafeVariance(this.substitution.filterAnnotations(type.getAnnotations()))));
                     }
                     if (conflictType == VarianceConflictType.NO_CONFLICT) {
-                        projectionKind = combine(projectionKind, mo2030get.getProjectionKind());
+                        projectionKind = combine(projectionKind, mo2049get.getProjectionKind());
                     }
                     return new TypeProjectionImpl(projectionKind, makeNullableIfNeeded);
                 }

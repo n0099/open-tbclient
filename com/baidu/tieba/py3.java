@@ -1,334 +1,243 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.FileProvider;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.guide.install.InstallActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-/* loaded from: classes6.dex */
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
 public class py3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948078335, "Lcom/baidu/tieba/py3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @Nullable
+    public static Map<String, String> a(String str, String str2, String str3, String str4, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
+            if (!z && yx3.b() != null) {
+                TreeMap treeMap = new TreeMap();
+                treeMap.put("ver", zy3.l());
+                treeMap.put("host", yx3.b().a());
+                treeMap.put("os", "android");
+                int c = NetworkUtils.c(false);
+                treeMap.put("net", c + "");
+                treeMap.put("phone", zy3.e());
+                treeMap.put("osV", zy3.f());
+                treeMap.put("slot", str);
+                treeMap.put("flow", str2);
+                treeMap.put("appid", str3);
+                treeMap.put("apid", str4);
+                treeMap.put("sdk", yx3.b().getSdkVersion());
+                treeMap.put("time", "" + System.currentTimeMillis());
+                return treeMap;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948078335, "Lcom/baidu/tieba/py3;");
-                return;
-            }
+            return null;
         }
-        a = ho1.a;
+        return (Map) invokeCommon.objValue;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return lg3.a().getLong("install_authorize_guide_time_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return lg3.a().getLong("install_continue_guide_time_key", 0L);
-        }
-        return invokeV.longValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26 && !AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) {
-                return "authorize";
-            }
-            return "continue";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return lg3.a().getInt("install_guide_count_key", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return lg3.a().getInt("install_guide_max_count_key", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return lg3.a().getBoolean("install_guide_switch_key", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            lg3.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
-        }
-    }
-
-    public static void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
-            lg3.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
-        }
-    }
-
-    public static void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            lg3.a().edit().putInt("install_guide_count_key", lg3.a().getInt("install_guide_count_key", 0) + 1).apply();
-        }
-    }
-
-    public static boolean g(Context context, String str) {
+    public static String b(String str, @Nullable Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            if (context == null) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map == null) {
+                return "https://mobads-logs.baidu.com/dz.zb?type=mnp&";
             }
-            try {
-                if (context.getPackageManager() == null) {
-                    return false;
-                }
-                if (context.getPackageManager().getPackageInfo(str, 0) == null) {
-                    return false;
-                }
-                return true;
-            } catch (Exception unused) {
-                return false;
-            }
+            map.put("name", str);
+            return xy3.b("https://mobads-logs.baidu.com/dz.zb?type=mnp&", map);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static boolean h(Context context, File file, boolean z) {
-        InterceptResult invokeLLZ;
-        int i;
+    public static void d(String str, xx3 xx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, file, z)) == null) {
-            if (context != null && file != null && file.isFile() && file.exists()) {
-                Intent intent = new Intent("android.intent.action.VIEW");
-                if (a) {
-                    Log.e("GameCenterApkUtil", "install apk start");
-                }
-                try {
-                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(1342177280);
-                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
-                    if (z) {
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                    }
-                    if (Build.VERSION.SDK_INT < 24) {
-                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                    }
-                    m(context, file, intent);
-                    if ((context instanceof Activity) && wx3.o.D()) {
-                        intent.setAction("android.intent.action.INSTALL_PACKAGE");
-                        intent.setFlags(0);
-                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                        if (Build.VERSION.SDK_INT >= 24) {
-                            intent.addFlags(1);
-                        }
-                        if (context instanceof InstallActivity) {
-                            i = 1345431;
-                        } else {
-                            i = 0;
-                        }
-                        ((Activity) context).startActivityForResult(intent, i);
-                    } else {
-                        context.startActivity(intent);
-                    }
-                    if (a) {
-                        Log.e("GameCenterApkUtil", "install apk done");
-                    }
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    intent.setComponent(null);
-                    m(context, file, intent);
-                    try {
-                        context.startActivity(intent);
-                        if (a) {
-                            Log.e("GameCenterApkUtil", "retry install apk done");
-                        }
-                    } catch (Exception e2) {
-                        if (a) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, xx3Var) == null) {
+            xx3Var.e(str);
         }
-        return invokeLLZ.booleanValue;
     }
 
-    public static boolean i(Context context, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public static void g(AdElementInfo adElementInfo, xx3 xx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, str, z)) == null) {
-            if (a) {
-                Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeLL(65542, null, adElementInfo, xx3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            d(e(str, 0, 0), xx3Var);
+        }
+    }
+
+    public static void k(@Nullable Map<String, String> map, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, map, str) == null) {
+            l(map, str, new gy3(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void m(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
+            n(str, map, new gy3(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void p(AdElementInfo adElementInfo, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65551, null, adElementInfo, xx3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getSkipTrackers()) {
+            d(e(str, 0, 0), xx3Var);
+        }
+    }
+
+    public static void q(AdElementInfo adElementInfo, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65552, null, adElementInfo, xx3Var) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getStartTrackers()) {
+            d(e(str, 0, 0), xx3Var);
+        }
+    }
+
+    public static String c(@NonNull Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            return map.get("flow");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            String replaceAll = str.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()).replaceAll("%25%25play_mode%25%25", "0");
+            String replaceAll2 = replaceAll.replaceAll("%25%25cur_time%25%25", "" + i);
+            return replaceAll2.replaceAll("%25%25start_time%25%25", "" + i2).replaceAll("%25%25area%25%25", "hot");
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static void f(String str, String str2, String str3, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, xx3Var) == null) && yx3.b() != null && !zy3.o()) {
+            String a = yx3.b().a();
+            JSONObject jSONObject = new JSONObject();
             try {
-                return h(context, new File(str), z);
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
+                jSONObject.put("bizId", 10003);
+                jSONObject.put(TbEnum.SystemMessage.KEY_GROUP_ID, 10003);
+                jSONObject.put("containerAppName", a);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("distribute_channel", 38);
+                jSONObject2.put("CTK", str3);
+                jSONObject2.put("logtype", 2);
+                jSONObject2.put("media_id", str);
+                jSONObject2.put("PVID", str3);
+                jSONObject2.put("tuid", str2);
+                jSONObject2.put("time", zy3.j());
+                jSONObject2.put("page_type", 1);
+                jSONObject2.put("traffic_type", 1);
+                jSONObject.put("content", jSONObject2);
+                xx3Var.d(jSONObject.toString());
+            } catch (JSONException e) {
                 e.printStackTrace();
-                return false;
             }
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (f() && l(str) && d() < e()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65552, null, z) == null) {
-            lg3.a().edit().putBoolean("install_guide_switch_key", z).apply();
         }
     }
 
-    public static boolean k(Context context, String str) {
-        InterceptResult invokeLL;
+    public static void h(AdElementInfo adElementInfo, xx3 xx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, str)) == null) {
-            if (context != null && !TextUtils.isEmpty(str)) {
-                Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.setPackage(str);
-                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                if (queryIntentActivities != null && queryIntentActivities.size() > 0 && queryIntentActivities.iterator().next() != null) {
-                    String str2 = queryIntentActivities.iterator().next().activityInfo.name;
-                    Intent intent2 = new Intent("android.intent.action.MAIN");
-                    intent2.addCategory("android.intent.category.LAUNCHER");
-                    intent2.setComponent(new ComponentName(str, str2));
-                    intent2.setFlags(270532608);
-                    try {
-                        context.startActivity(intent2);
-                        if (a) {
-                            Log.d("GameCenterApkUtil", "openApp:packageName = " + str);
-                            return true;
-                        }
-                        return true;
-                    } catch (Exception unused) {
-                    }
-                }
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, adElementInfo, xx3Var) != null) || adElementInfo == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String a = xy3.a(xy3.a(xy3.c(str, hashSet), BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE"), "da_type", WorkPostNotifyFlutterData.FAIL_POST);
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), xx3Var);
+        }
+        d(adElementInfo.getClickUrl(), xx3Var);
     }
 
-    public static boolean l(String str) {
-        InterceptResult invokeL;
-        long b;
+    public static void i(AdElementInfo adElementInfo, xx3 xx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.equals(str, "authorize")) {
-                b = a();
-            } else {
-                b = b();
-            }
-            if ((System.currentTimeMillis() / 86400000) - (b / 86400000) > 0) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLL(65544, null, adElementInfo, xx3Var) != null) || adElementInfo == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String c = xy3.c(str, hashSet);
+            if (!TextUtils.isEmpty(adElementInfo.getEndFrameUrl())) {
+                c = xy3.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE");
+            } else if (!TextUtils.isEmpty(adElementInfo.getEndFrameHtml())) {
+                c = xy3.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL");
+            }
+            String a = xy3.a(c, "da_type", "103");
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), xx3Var);
+        }
     }
 
-    public static boolean m(Context context, File file, Intent intent) {
-        InterceptResult invokeLLL;
-        ActivityInfo activityInfo;
-        String str;
+    public static void j(AdElementInfo adElementInfo, xx3 xx3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65549, null, context, file, intent)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                try {
-                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
-                    if (uriForFile == null) {
-                        return false;
-                    }
-                    intent.setDataAndType(uriForFile, intent.getType());
-                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
-                    if (queryIntentActivities == null) {
-                        return true;
-                    }
-                    for (ResolveInfo resolveInfo : queryIntentActivities) {
-                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
-                            context.grantUriPermission(str, uriForFile, 1);
-                        }
-                    }
-                } catch (IllegalArgumentException e) {
-                    if (!a) {
-                        return false;
-                    }
-                    throw e;
-                }
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeLL(65545, null, adElementInfo, xx3Var) != null) || adElementInfo == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        for (String str : adElementInfo.getImpressionUrls()) {
+            d(e(str, 0, 0), xx3Var);
+        }
+        for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
+            d(e(str2, 0, 0), xx3Var);
+        }
+    }
+
+    public static void l(@Nullable Map<String, String> map, String str, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65547, null, map, str, xx3Var) != null) || map == null) {
+            return;
+        }
+        TreeMap treeMap = new TreeMap(map);
+        if (!TextUtils.isEmpty(str)) {
+            treeMap.put(StatConstants.KEY_EXT_ERR_CODE, str);
+            treeMap.put(StatConstants.KEY_EXT_ERR_MSG, ty3.a(str));
+        }
+        n("error", treeMap, xx3Var);
+    }
+
+    public static void n(String str, Map<String, String> map, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65549, null, str, map, xx3Var) != null) || map == null) {
+            return;
+        }
+        d(b(str, map), xx3Var);
+    }
+
+    public static void o(int i, int i2, AdElementInfo adElementInfo, xx3 xx3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), adElementInfo, xx3Var}) != null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            d(e(str, i, i2), xx3Var);
+        }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.RoundWebview;
 import com.baidu.sapi2.views.swipeback.SwipeBackLayout;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class YouthStyleLoginActivity extends LoginActivity {
     public SwipeBackLayout I;
     public ImageView J;

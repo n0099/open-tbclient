@@ -6,10 +6,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IAsyncProcessCallback extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Default implements IAsyncProcessCallback {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -23,7 +23,7 @@ public interface IAsyncProcessCallback extends IInterface {
 
     void onResult(Bundle bundle, int i) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IAsyncProcessCallback {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAsyncProcessCallback";
         public static final int TRANSACTION_onResult = 1;
@@ -33,7 +33,7 @@ public interface IAsyncProcessCallback extends IInterface {
             return this;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IAsyncProcessCallback {
             public static IAsyncProcessCallback sDefaultImpl;
             public IBinder mRemote;

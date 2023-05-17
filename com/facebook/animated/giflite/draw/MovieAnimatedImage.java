@@ -3,7 +3,7 @@ package com.facebook.animated.giflite.draw;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableFrameInfo;
 import com.facebook.imagepipeline.animated.base.AnimatedImage;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MovieAnimatedImage implements AnimatedImage {
     public final int mDuration;
     public final int[] mFrameDurations;

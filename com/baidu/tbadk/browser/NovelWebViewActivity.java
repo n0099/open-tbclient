@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.atomData.NovelWebViewActivityConfig;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.en5;
+import com.baidu.tieba.fn5;
+import com.baidu.tieba.gv4;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.vl5;
-import com.baidu.tieba.wl5;
-import com.baidu.tieba.xt4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NovelWebViewActivity extends TBWebViewActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static String f = "";
@@ -54,7 +54,7 @@ public class NovelWebViewActivity extends TBWebViewActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class NovelWebViewActivity extends TBWebViewActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends TBWebViewActivity.x {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class NovelWebViewActivity extends TBWebViewActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                String unused = NovelWebViewActivity.g = vl5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
+                String unused = NovelWebViewActivity.g = en5.c(NovelWebViewActivity.f, TbadkCoreApplication.getCurrentAccount());
                 if (this.c.b && StringUtils.isNull(NovelWebViewActivity.g)) {
                     this.c.D1();
                 }
@@ -147,7 +147,7 @@ public class NovelWebViewActivity extends TBWebViewActivity {
                 } else {
                     i = 1;
                 }
-                wl5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
+                fn5.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_JUMP_H5, i, NovelWebViewActivity.f, this.c.c, this.c.d);
             }
         }
     }
@@ -197,7 +197,7 @@ public class NovelWebViewActivity extends TBWebViewActivity {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vl5.e(f, new ReadRecordsData(f));
+            en5.e(f, new ReadRecordsData(f));
             BdTopToast bdTopToast = new BdTopToast(getPageContext().getPageActivity());
             bdTopToast.h(true);
             bdTopToast.g(getPageContext().getString(R.string.novel_add_mark_tip));
@@ -218,8 +218,8 @@ public class NovelWebViewActivity extends TBWebViewActivity {
                 this.d = getIntent().getStringExtra(NovelWebViewActivityConfig.KEY_NOVEL_FID);
             }
             this.mWebView.setWebViewClient(new b(this, null));
-            xt4 xt4Var = this.mView;
-            if (xt4Var != null && (imageView = xt4Var.j) != null) {
+            gv4 gv4Var = this.mView;
+            if (gv4Var != null && (imageView = gv4Var.j) != null) {
                 imageView.setVisibility(8);
             }
             registerListener(this.e);

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.StatFs;
 import android.text.TextUtils;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.webkit.internal.CpuInfo;
 import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.ReflectUtils;
@@ -27,7 +28,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SevenZipUtils {
     public static final String ASSETS_NAME_PREFIX = "file:///android_assets";
     public static final int BUF_SIZE = 512;
@@ -312,7 +313,7 @@ public class SevenZipUtils {
         }
         boolean z = true;
         String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("zeus_same_version_no7z_enable");
-        if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase("false")) {
+        if (GetCloudSettingsValue != null && GetCloudSettingsValue.equalsIgnoreCase(CommandUBCHelper.COMMAND_UBC_VALUE_FALSE)) {
             z = false;
         }
         Log.i(GlobalConstants.LOG_PER_TAG, "zeus_same_version_no7z_enable = ".concat(String.valueOf(z)));

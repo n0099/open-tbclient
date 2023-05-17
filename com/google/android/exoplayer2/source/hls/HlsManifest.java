@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.source.hls;
 
 import com.google.android.exoplayer2.source.hls.playlist.HlsMasterPlaylist;
 import com.google.android.exoplayer2.source.hls.playlist.HlsMediaPlaylist;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsManifest {
     public final HlsMasterPlaylist masterPlaylist;
     public final HlsMediaPlaylist mediaPlaylist;

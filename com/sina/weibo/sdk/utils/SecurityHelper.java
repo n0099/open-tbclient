@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.ApiUtils;
 import com.sina.weibo.sdk.auth.WbAppInfo;
 import com.sina.weibo.sdk.constant.WBConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SecurityHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DailyPrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,15 +94,15 @@ public class DailyPrivilegeItemView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0411, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d042b, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c30);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c3f);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c84);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c93);
             this.d = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
-            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c40);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c2f);
+            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c94);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c83);
         }
     }
 }

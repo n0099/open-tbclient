@@ -3,7 +3,7 @@ package org.aspectj.runtime.reflect;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
 import org.aspectj.lang.reflect.InitializerSignature;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InitializerSignatureImpl extends CodeSignatureImpl implements InitializerSignature {
     public Constructor constructor;
 

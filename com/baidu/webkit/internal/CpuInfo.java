@@ -3,13 +3,14 @@ package com.baidu.webkit.internal;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.util.devices.IDevices;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.kuaishou.weapon.p0.k1;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CpuInfo implements INoProGuard {
     public static final int CPU_TYPE_ARM_AR = 2;
     public static final int CPU_TYPE_MIPS = 4;
@@ -200,7 +201,7 @@ public class CpuInfo implements INoProGuard {
         if (TextUtils.isEmpty(property) || !property.endsWith("64")) {
             try {
                 Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                String str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
+                String str = (String) cls.getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
                 if (str != null) {
                     if (!str.isEmpty()) {
                         return true;

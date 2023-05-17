@@ -1,48 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tieba.frs.FrsActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class mi7 extends b25 {
+/* loaded from: classes6.dex */
+public class mi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mi7() {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "100465_3" : (String) invokeV.objValue;
+    }
+
+    public static void a(@NonNull StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, statisticItem) == null) {
+            statisticItem.param("obj_param1", c());
         }
     }
 
-    @Override // com.baidu.tieba.b25
-    public void a(@NonNull Context context, @NonNull t15 t15Var) {
+    public static void b(@NonNull StatisticItem statisticItem, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, t15Var) == null) {
-            if (TbSingleton.getInstance().getFrsResponseData() == null) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧内屏蔽弹窗失败：当前没有FRS吧数据");
-                r15.s("frsShield");
-            } else if (!(context instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "展示吧内屏蔽弹窗失败：当前Activity非FrsActivity");
-                r15.s("frsShield");
-            } else {
-                if (!tj7.d(TbSingleton.getInstance().getFrsResponseData(), ((FrsActivity) context).v1())) {
-                    r15.s("frsShield");
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(65537, null, statisticItem, str, str2) == null) {
+            statisticItem.param("fid", str);
+            statisticItem.param("fname", str2);
+        }
+    }
+
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem("c14564").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
+            a(param);
+            TiebaStatic.log(param);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 11);
+            a(param);
+            TiebaStatic.log(param);
         }
     }
 }

@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import android.graphics.Canvas;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-@Service
-/* loaded from: classes3.dex */
-public class al implements IThreadManager {
+/* loaded from: classes4.dex */
+public class al extends uk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
 
     public al() {
         Interceptable interceptable = $ic;
@@ -25,17 +21,16 @@ public class al implements IThreadManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
     }
 
-    @Override // com.baidu.nps.interfa.IThreadManager
-    public void run(Runnable runnable) {
+    @Override // com.baidu.tieba.uk, com.baidu.tieba.sk
+    public void h(Canvas canvas, vk vkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, vkVar, imageView) == null) {
+            this.c.setColorFilter(null);
+            super.h(canvas, vkVar, imageView);
         }
     }
 }

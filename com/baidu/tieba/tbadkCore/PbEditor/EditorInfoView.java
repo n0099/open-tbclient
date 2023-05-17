@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class EditorInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,8 +76,8 @@ public class EditorInfoView extends TextView {
                 return;
             }
         }
-        this.a = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070260);
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e7);
+        this.a = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070374);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703ef);
         this.b = dimension;
         int i4 = this.a;
         setPadding(i4, dimension, i4, dimension);
@@ -91,7 +91,7 @@ public class EditorInfoView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702cc));
+            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0703d4));
         }
     }
 }

@@ -12,7 +12,7 @@ import com.huawei.hms.aaid.constant.ErrorEnum;
 import com.huawei.hms.push.utils.PushBiUtil;
 import com.huawei.hms.support.api.entity.push.PushNaming;
 import java.util.concurrent.Callable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class IntentCallable implements Callable<Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

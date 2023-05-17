@@ -1,107 +1,247 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.Headers;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class p11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends mr0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q11 a;
-
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
         }
+    }
 
-        public a(q11 q11Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q11Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void i(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            return j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Map<String, String> b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            HashMap hashMap = new HashMap();
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                String optString = jSONObject.optString(next);
+                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
+                    hashMap.put(next, optString);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (Exception e) {
+                h(e.getMessage());
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                StringWriter stringWriter = new StringWriter(str.length());
+                k(stringWriter, str);
+                return stringWriter.toString();
+            } catch (IOException e) {
+                h(e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(JSONObject jSONObject, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, i);
+                    return;
+                } catch (Exception e) {
+                    i(e);
                     return;
                 }
             }
-            this.a = q11Var;
-        }
-
-        @Override // com.baidu.tieba.kr0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
-                o11.b(this.a.a(i, exc.getMessage()));
-            }
-        }
-
-        @Override // com.baidu.tieba.lr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.lr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
-                o11.b(this.a.a(i, "success"));
-            }
+            h("json或key值不合法！");
         }
     }
 
-    public static void a(@Nullable q11 q11Var) {
-        p31 p31Var;
+    public static <T> void f(JSONObject jSONObject, String str, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, q11Var) == null) && q11Var != null && !TextUtils.isEmpty(q11Var.d())) {
-            tr0 tr0Var = new tr0();
-            tr0Var.l(q11Var.d());
-            tr0Var.g(3000);
-            tr0Var.c();
-            if (!TextUtils.isEmpty(q11Var.e)) {
-                tr0Var.d("User-Agent", q11Var.e);
-            } else {
-                tr0Var.d("User-Agent", li0.e());
+        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, t);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
             }
-            ar0.b().a().a(tr0Var, new a(q11Var));
-            if (j31.a && (p31Var = (p31) i31.a().a(p31.class)) != null) {
-                p31Var.b(new k31("计费", "", "并行计费"));
-            }
+            h("json或key值不合法！");
         }
     }
 
-    public static void b(@Nullable String str) {
-        p31 p31Var;
+    public static void g(JSONObject jSONObject, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, z);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
         }
-        tr0 tr0Var = new tr0();
-        tr0Var.l(str);
-        tr0Var.g(3000);
-        tr0Var.d("User-Agent", li0.e());
-        tr0Var.c();
-        ar0.b().a().a(tr0Var, null);
-        if (j31.a && (p31Var = (p31) i31.a().a(p31.class)) != null) {
-            p31Var.b(new k31("计费", "", "并行计费"));
+    }
+
+    public static void e(JSONObject jSONObject, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                try {
+                    jSONObject.put(str, j);
+                    return;
+                } catch (Exception e) {
+                    i(e);
+                    return;
+                }
+            }
+            h("json或key值不合法！");
+        }
+    }
+
+    public static void k(Writer writer, String str) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
+            if (writer != null) {
+                if (str != null) {
+                    int length = str.length();
+                    StringBuilder sb = new StringBuilder(4);
+                    boolean z = false;
+                    boolean z2 = false;
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
+                        if (z2) {
+                            sb.append(charAt);
+                            if (sb.length() == 4) {
+                                try {
+                                    writer.write((char) Integer.parseInt(sb.toString(), 16));
+                                    sb.setLength(0);
+                                    z = false;
+                                    z2 = false;
+                                } catch (NumberFormatException e) {
+                                    h(e.getMessage());
+                                }
+                            }
+                        } else if (z) {
+                            if (charAt != '\"') {
+                                if (charAt != '\'') {
+                                    if (charAt != '\\') {
+                                        if (charAt != 'b') {
+                                            if (charAt != 'f') {
+                                                if (charAt != 'n') {
+                                                    if (charAt != 'r') {
+                                                        if (charAt != 't') {
+                                                            if (charAt != 'u') {
+                                                                writer.write(charAt);
+                                                            } else {
+                                                                z = false;
+                                                                z2 = true;
+                                                            }
+                                                        } else {
+                                                            writer.write(9);
+                                                        }
+                                                    } else {
+                                                        writer.write(13);
+                                                    }
+                                                } else {
+                                                    writer.write(10);
+                                                }
+                                            } else {
+                                                writer.write(12);
+                                            }
+                                        } else {
+                                            writer.write(8);
+                                        }
+                                    } else {
+                                        writer.write(92);
+                                    }
+                                } else {
+                                    writer.write(39);
+                                }
+                            } else {
+                                writer.write(34);
+                            }
+                            z = false;
+                        } else if (charAt == '\\') {
+                            z = true;
+                        } else {
+                            writer.write(charAt);
+                        }
+                    }
+                    if (z) {
+                        writer.write(92);
+                        return;
+                    }
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("The Writer must not be null");
         }
     }
 }

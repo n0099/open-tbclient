@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpClientWrap {
     public static final String c = "encode";
     public static final String d = "ua";

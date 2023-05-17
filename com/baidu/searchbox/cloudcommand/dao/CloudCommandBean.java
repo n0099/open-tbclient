@@ -1,5 +1,5 @@
 package com.baidu.searchbox.cloudcommand.dao;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudCommandBean {
     public int mDispatched;
     public String mMsgId;

@@ -5,11 +5,11 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface ICancelToken extends IInterface {
     void cancel() throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements ICancelToken {
         public Stub() {
             super("com.google.android.gms.common.internal.ICancelToken");

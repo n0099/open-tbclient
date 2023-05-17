@@ -1,130 +1,40 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.os.Bundle;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
-/* loaded from: classes5.dex */
-public abstract class om3<OuT> implements Runnable {
+/* loaded from: classes6.dex */
+public class om3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rm3<OuT> a;
-    public OuT b;
 
-    public abstract void c();
-
-    /* loaded from: classes5.dex */
-    public static class a extends om3<OuT> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CountDownLatch c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rm3 rm3Var, CountDownLatch countDownLatch) {
-            super(rm3Var, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rm3Var, countDownLatch};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((rm3) objArr2[0], (a) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = countDownLatch;
-        }
-
-        @Override // com.baidu.tieba.om3
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.countDown();
-            }
-        }
-    }
-
-    public om3(rm3<OuT> rm3Var) {
+    public static void a(SwanAppActivity swanAppActivity) {
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rm3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
+            return;
         }
-        this.b = null;
-        this.a = rm3Var;
-    }
-
-    public static <OuT> OuT b(rm3<OuT> rm3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rm3Var)) == null) {
-            return (OuT) a(Looper.getMainLooper(), rm3Var);
+        if (f53.D()) {
+            r62.k().s();
         }
-        return (OuT) invokeL.objValue;
-    }
-
-    public /* synthetic */ om3(rm3 rm3Var, a aVar) {
-        this(rm3Var);
-    }
-
-    public static <OuT> OuT a(Looper looper, rm3<OuT> rm3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, rm3Var)) == null) {
-            if (rm3Var == null) {
-                return null;
-            }
-            if (looper != null && Thread.currentThread() != looper.getThread()) {
-                CountDownLatch countDownLatch = new CountDownLatch(1);
-                a aVar = new a(rm3Var, countDownLatch);
-                new Handler(looper).post(aVar);
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    x42.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
-                    e.printStackTrace();
-                }
-                return aVar.b;
-            }
-            return rm3Var.create();
+        Bundle bundle = new Bundle();
+        bundle.putAll(intent.getExtras());
+        bundle.putBoolean("should_ignore_launch_time", true);
+        Bundle bundle2 = bundle.getBundle("mExtraData");
+        if (bundle2 == null) {
+            bundle2 = new Bundle();
+            bundle.putBundle("mExtraData", bundle2);
         }
-        return (OuT) invokeLL.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                try {
-                    this.b = this.a.create();
-                } catch (Exception e) {
-                    x42.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
-                }
-            } finally {
-                c();
-            }
-        }
+        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
+        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
+        f93.K().n(new String[0]);
+        bundle.remove("pms_db_info_onload");
+        bundle.remove("pms_db_info_updated");
+        bundle.remove("mPage");
+        bundle.putString("launch_id", SwanLauncher.h());
+        f93.K().l(bundle, "update_tag_by_activity_on_relaunch");
     }
 }

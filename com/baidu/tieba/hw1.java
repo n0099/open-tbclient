@@ -1,325 +1,55 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.aw1;
-import com.baidu.tieba.mb3;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
+import com.baidu.webkit.sdk.WebChromeClient;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import java.io.File;
+import java.io.InputStream;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class hw1 extends aw1 {
+/* loaded from: classes5.dex */
+public class hw1 extends i03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "Basic" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "PreLoadSubPackageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x73 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ JSONArray c;
-        public final /* synthetic */ hw1 d;
-
-        /* loaded from: classes4.dex */
-        public class a implements mb3.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ CountDownLatch a;
-            public final /* synthetic */ List b;
-            public final /* synthetic */ String c;
-
-            public a(c cVar, CountDownLatch countDownLatch, List list, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, countDownLatch, list, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = countDownLatch;
-                this.b = list;
-                this.c = str;
-            }
-
-            @Override // com.baidu.tieba.mb3.e
-            public void a(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.a.countDown();
-                    this.b.add(this.c);
-                }
-            }
-
-            @Override // com.baidu.tieba.mb3.e
-            public void b(int i, qj3 qj3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, qj3Var) == null) {
-                    this.a.countDown();
-                    x42.o("PreLoadSubPackageApi", "downloadSubPackage fail, code=" + i);
-                }
-            }
-        }
-
-        public c(hw1 hw1Var, x73 x73Var, String str, JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw1Var, x73Var, str, jSONArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = hw1Var;
-            this.a = x73Var;
-            this.b = str;
-            this.c = jSONArray;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String k0 = this.a.k0();
-                if (!TextUtils.isDigitsOnly(k0)) {
-                    hw1 hw1Var = this.d;
-                    String str = this.b;
-                    hw1Var.d(str, new xz1(202, "current version error:" + k0));
-                    return;
-                }
-                List<xg4> k = uf4.i().k(this.a.b, Integer.parseInt(k0));
-                ArraySet<String> arraySet = new ArraySet();
-                List synchronizedList = Collections.synchronizedList(new ArrayList());
-                for (int i2 = 0; i2 < this.c.length(); i2++) {
-                    String optString = this.c.optString(i2);
-                    if (!TextUtils.isEmpty(optString)) {
-                        if (hw1.E(optString, k) && this.a.u0(optString)) {
-                            synchronizedList.add(optString);
-                        } else {
-                            arraySet.add(optString);
-                        }
-                    }
-                }
-                if (!arraySet.isEmpty()) {
-                    CountDownLatch countDownLatch = new CountDownLatch(arraySet.size());
-                    for (String str2 : arraySet) {
-                        String R = this.a.R(str2);
-                        if (TextUtils.isEmpty(R)) {
-                            countDownLatch.countDown();
-                        } else {
-                            x73 x73Var = this.a;
-                            mb3.l(x73Var.b, x73Var.k0(), "1", str2, R, null, new a(this, countDownLatch, synchronizedList, str2));
-                        }
-                    }
-                    try {
-                        countDownLatch.await(1L, TimeUnit.MINUTES);
-                    } catch (InterruptedException e) {
-                        x42.d("PreLoadSubPackageApi", "loadSubPackages", e);
-                    }
-                }
-                JSONObject jSONObject = new JSONObject();
-                for (int i3 = 0; i3 < this.c.length(); i3++) {
-                    try {
-                        String optString2 = this.c.optString(i3);
-                        if (synchronizedList.contains(this.c.optString(i3))) {
-                            i = 0;
-                        } else {
-                            i = 1001;
-                        }
-                        jSONObject.put(optString2, i);
-                    } catch (Exception unused) {
-                    }
-                }
-                this.d.d(this.b, new xz1(0, jSONObject));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements aw1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw1 a;
-
-        public a(hw1 hw1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw1Var;
-        }
-
-        @Override // com.baidu.tieba.aw1.a
-        public xz1 a(x73 x73Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x73Var, jSONObject, str)) == null) {
-                String optString = jSONObject.optString("root");
-                if (TextUtils.isEmpty(optString)) {
-                    x42.c("PreLoadSubPackageApi", "subPackage root is null");
-                    return new xz1(202);
-                }
-                this.a.D(x73Var, optString, str);
-                return new xz1(0);
-            }
-            return (xz1) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements aw1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw1 a;
-
-        public b(hw1 hw1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hw1Var;
-        }
-
-        @Override // com.baidu.tieba.aw1.a
-        public xz1 a(x73 x73Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x73Var, jSONObject, str)) == null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("roots");
-                if (optJSONArray == null || optJSONArray.length() == 0) {
-                    return new xz1(202);
-                }
-                this.a.B(x73Var, str, optJSONArray);
-                return new xz1(0);
-            }
-            return (xz1) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x73 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ hw1 d;
-
-        public d(hw1 hw1Var, x73 x73Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw1Var, x73Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = hw1Var;
-            this.a = x73Var;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.v0(this.b) && this.a.u0(this.b)) {
-                    x42.i("PreLoadSubPackageApi", "subPackage have existed");
-                    this.d.d(this.c, new xz1(1001, "subPackage have existed"));
-                    return;
-                }
-                String R = this.a.R(this.b);
-                if (!TextUtils.isEmpty(R)) {
-                    this.d.C(this.a, this.b, R, this.c);
-                    return;
-                }
-                x42.i("PreLoadSubPackageApi", "subPackage cannot find aps key");
-                this.d.d(this.c, new xz1(202));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements mb3.e {
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ hw1 b;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ hw1 c;
 
-        public e(hw1 hw1Var, String str) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public a(hw1 hw1Var, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hw1Var, str};
+                Object[] objArr = {hw1Var, str, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -329,103 +59,164 @@ public class hw1 extends aw1 {
                     return;
                 }
             }
-            this.b = hw1Var;
+            this.c = hw1Var;
             this.a = str;
+            this.b = callbackHandler;
         }
 
-        @Override // com.baidu.tieba.mb3.e
-        public void a(String str) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                x42.i("PreLoadSubPackageApi", "preload subPackage success");
-                this.b.d(this.a, new xz1(0, "preload subPackage success"));
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(1001, "request IOException").toString());
+                if (hw1.e) {
+                    Log.d("aiRequestAction", "response fail : " + UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
+                }
             }
         }
 
-        @Override // com.baidu.tieba.mb3.e
-        public void b(int i, qj3 qj3Var) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, qj3Var) == null) {
-                x42.c("PreLoadSubPackageApi", "preload subPackage failed");
-                this.b.d(this.a, new xz1(202, "No SubPackage"));
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.c.w(response, this.a, this.b);
+                return response;
             }
+            return invokeLI.objValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947838023, "Lcom/baidu/tieba/hw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947838023, "Lcom/baidu/tieba/hw1;");
+                return;
+            }
+        }
+        e = qp1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hw1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public hw1(da3 da3Var) {
+        super(da3Var, "/swanAPI/aiRequest");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {da3Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((da3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public static boolean E(@Nullable String str, @Nullable List<xg4> list) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.db3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
-            if (str != null && list != null && !list.isEmpty()) {
-                for (xg4 xg4Var : list) {
-                    if (xg4Var != null && TextUtils.equals(xg4Var.p, str)) {
-                        return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (g93Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
+            }
+            JSONObject a2 = db3.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                return false;
+            }
+            String param = unitedSchemeEntity.getParam(WebChromeClient.KEY_ARG_CALLBACK);
+            if (TextUtils.isEmpty(param)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal callback");
+                return false;
+            }
+            if (e) {
+                Log.d("aiRequestAction", "schema params : " + a2.toString());
+                Log.d("aiRequestAction", "schema cb : " + param);
+            }
+            Request c = gw1.c(g93Var, a2, unitedSchemeEntity);
+            if (c == null) {
+                return false;
+            }
+            if (e) {
+                Log.d("aiRequestAction", "build request : " + c.url().toString());
+            }
+            gw1.p(c.url().toString(), c.body(), new a(this, param, callbackHandler));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void w(Response response, String str, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, str, callbackHandler) == null) {
+            try {
+                String header = response.header("Content-Type", "");
+                if (header != null && header.contains("application/json")) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, response.code());
+                        jSONObject.put("header", i03.s(response.headers()));
+                        jSONObject.put("body", response.body().string());
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                        if (e) {
+                            Log.d("aiRequestAction", "response json : " + UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                            return;
+                        }
+                        return;
+                    } catch (JSONException unused) {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response json error").toString());
+                        return;
                     }
                 }
+                String n = og3.n(g93.g0(), String.valueOf(System.currentTimeMillis()), "");
+                if (TextUtils.isEmpty(n)) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
+                }
+                String J = og3.J(n, g93.g0());
+                if (TextUtils.isEmpty(J)) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
+                }
+                InputStream byteStream = response.body().byteStream();
+                File file = new File(n);
+                if (file.exists()) {
+                    file.delete();
+                    file.createNewFile();
+                }
+                if (np4.a(byteStream, file)) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put("filePath", J);
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, response.code());
+                    jSONObject3.put("header", i03.s(response.headers()));
+                    jSONObject3.put("body", jSONObject2.toString());
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject3, 0).toString());
+                    if (e) {
+                        Log.d("aiRequestAction", "response file : " + UnitedSchemeUtility.wrapCallbackParams(jSONObject3, 0).toString());
+                        return;
+                    }
+                    return;
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "bdfile error").toString());
+            } catch (Exception e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final void C(x73 x73Var, String str, String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x73Var, str, str2, str3) == null) {
-            mb3.l(x73Var.b, x73Var.k0(), "1", str, str2, null, new e(this, str3));
-        }
-    }
-
-    public final void B(x73 x73Var, @Nullable String str, @NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, x73Var, str, jSONArray) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this, x73Var, str, jSONArray), "PreLoadSubPackageApi", 2);
-        }
-    }
-
-    public final void D(x73 x73Var, String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, x73Var, str, str2) == null) {
-            ExecutorUtilsExt.postOnElastic(new d(this, x73Var, str, str2), "doLoadSubPackageAsync", 2);
-        }
-    }
-
-    public xz1 F(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#loadSubPackage", false);
-            return l(str, true, new a(this));
-        }
-        return (xz1) invokeL.objValue;
-    }
-
-    public xz1 G(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            q("#loadSubPackages", false);
-            return l(str, true, new b(this));
-        }
-        return (xz1) invokeL.objValue;
     }
 }

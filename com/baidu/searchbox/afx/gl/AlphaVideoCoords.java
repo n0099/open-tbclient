@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.gl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlphaVideoCoords {
     public static final int FLOAT_SIZE_BYTES = 4;
     public static final int TRIANGLE_VERTICES_DATA_POS_OFFSET = 0;

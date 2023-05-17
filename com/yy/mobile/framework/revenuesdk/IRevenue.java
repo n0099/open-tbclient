@@ -1,17 +1,17 @@
 package com.yy.mobile.framework.revenuesdk;
 
 import androidx.annotation.Keep;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IRevenue {
     IAppPayService getAppPayService();
 
-    IPayEventStatistics getPayEventStatistic();
+    IPayEventStatisticsApi getPayEventStatisticApi();
 
-    IPayServiceStatistics getPayServiceStatistics();
+    IPayServiceStatisticsApi getPayServiceStatisticsApi();
 
     void updateConfig(RevenueConfig revenueConfig);
 }

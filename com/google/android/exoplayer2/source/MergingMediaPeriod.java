@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MergingMediaPeriod implements MediaPeriod, MediaPeriod.Callback {
     public MediaPeriod.Callback callback;
     public MediaPeriod[] enabledPeriods;

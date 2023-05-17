@@ -21,14 +21,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bca;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.kg5;
-import com.baidu.tieba.ng5;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.dea;
+import com.baidu.tieba.fi5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.th5;
 import com.baidu.tieba.video.EditVideoData;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.wh5;
 import com.baidu.tieba.write.write.work.videoview.WorkPublishVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0086\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\n\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u0016\u00101\u001a\u0002022\u0006\u00103\u001a\u00020\t2\u0006\u00104\u001a\u00020\tJ\u0006\u00105\u001a\u000202J\u0010\u00106\u001a\u0002022\u0006\u00107\u001a\u000208H\u0014J\u0006\u00109\u001a\u000202J\u0006\u0010:\u001a\u000202J\u0006\u0010;\u001a\u000202J(\u0010<\u001a\u0002022\u0006\u0010=\u001a\u00020\t2\u0006\u0010>\u001a\u00020\t2\u0006\u0010?\u001a\u00020\t2\u0006\u0010@\u001a\u00020\tH\u0014J\u0006\u0010A\u001a\u000202J\u0010\u0010B\u001a\u0002022\b\u0010C\u001a\u0004\u0018\u00010DJ\u000e\u0010E\u001a\u0002022\u0006\u0010&\u001a\u00020'R\u001b\u0010\u000b\u001a\u00020\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\rR\u001b\u0010\u0010\u001a\u00020\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u000f\u001a\u0004\b\u0011\u0010\rR\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\u0015\u001a\u0004\u0018\u00010\u0016X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0019\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u001c\u0010\u001a\u001a\u0004\u0018\u00010\u001bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u001d\"\u0004\b\u001e\u0010\u001fR\u0010\u0010 \u001a\u0004\u0018\u00010!X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\"\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020$X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010&\u001a\u00020'X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020)X\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010*\u001a\u0004\u0018\u00010+X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010,\u001a\u0004\u0018\u00010+X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010-\u001a\u00020.X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010/\u001a\u000200X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006F"}, d2 = {"Lcom/baidu/tieba/write/write/work/videoview/WorkPublishVideoView;", "Landroid/widget/RelativeLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "MAX_VIDEO_HEIGHT", "getMAX_VIDEO_HEIGHT", "()I", "MAX_VIDEO_HEIGHT$delegate", "Lkotlin/Lazy;", "MAX_VIDEO_WIDTH", "getMAX_VIDEO_WIDTH", "MAX_VIDEO_WIDTH$delegate", "coverBtn", "Landroid/widget/TextView;", "coverPath", "", "coverView", "Lcom/baidu/tbadk/widget/TbImageView;", "editBtn", "iWriteVideoPreviewListener", "Lcom/baidu/tieba/write/write/work/interf/IWriteVideoPreviewListener;", "getIWriteVideoPreviewListener", "()Lcom/baidu/tieba/write/write/work/interf/IWriteVideoPreviewListener;", "setIWriteVideoPreviewListener", "(Lcom/baidu/tieba/write/write/work/interf/IWriteVideoPreviewListener;)V", "mAsyncLocalImageLoader", "Lcom/baidu/tbadk/img/AsyncLocalImageLoader;", "mCurrentVideoPosition", "mRootView", "Landroid/view/View;", "maskView", "percent", "", "playView", "Landroid/widget/ImageView;", "progressBarBackgroundPaint", "Landroid/graphics/Paint;", "progressBarPaint", "rect", "Landroid/graphics/RectF;", "roundPath", "Landroid/graphics/Path;", "adjustSize", "", "videoWidth", "videoHeight", "deleteCoverCache", "dispatchDraw", "canvas", "Landroid/graphics/Canvas;", "initView", "loadCover", "onChangeSkin", "onSizeChanged", "w", "h", "oldw", "oldh", "reset", "setVideoInfo", "editVideoData", "Lcom/baidu/tieba/video/EditVideoData;", "updatePercent", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WorkPublishVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,13 +54,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
     public TextView g;
     public View h;
     public float i;
-    public ng5 j;
+    public wh5 j;
     public Paint k;
     public Paint l;
     public String m;
     public final Path n;
     public final RectF o;
-    public bca p;
+    public dea p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WorkPublishVideoView(Context context) {
@@ -113,7 +113,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Integer.valueOf(ii.g(this.this$0.getContext(), R.dimen.tbds866));
+                    return Integer.valueOf(ri.g(this.this$0.getContext(), R.dimen.tbds866));
                 }
                 return (Integer) invokeV.objValue;
             }
@@ -151,7 +151,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Integer.valueOf(ii.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
+                    return Integer.valueOf(ri.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
                 }
                 return (Integer) invokeV.objValue;
             }
@@ -171,10 +171,10 @@ public final class WorkPublishVideoView extends RelativeLayout {
             super.dispatchDraw(canvas);
             Paint paint = this.k;
             Intrinsics.checkNotNull(paint);
-            canvas.drawRect(0.0f, 0.0f, getWidth(), ii.g(getContext(), R.dimen.tbds5), paint);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), ri.g(getContext(), R.dimen.tbds5), paint);
             Paint paint2 = this.l;
             Intrinsics.checkNotNull(paint2);
-            canvas.drawRect(0.0f, 0.0f, getWidth() * this.i, ii.g(getContext(), R.dimen.tbds5), paint2);
+            canvas.drawRect(0.0f, 0.0f, getWidth() * this.i, ri.g(getContext(), R.dimen.tbds5), paint2);
             canvas.restore();
         }
     }
@@ -231,7 +231,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Integer.valueOf(ii.g(this.this$0.getContext(), R.dimen.tbds866));
+                    return Integer.valueOf(ri.g(this.this$0.getContext(), R.dimen.tbds866));
                 }
                 return (Integer) invokeV.objValue;
             }
@@ -269,7 +269,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Integer.valueOf(ii.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
+                    return Integer.valueOf(ri.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
                 }
                 return (Integer) invokeV.objValue;
             }
@@ -331,7 +331,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Integer.valueOf(ii.g(this.this$0.getContext(), R.dimen.tbds866));
+                    return Integer.valueOf(ri.g(this.this$0.getContext(), R.dimen.tbds866));
                 }
                 return (Integer) invokeV.objValue;
             }
@@ -369,7 +369,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    return Integer.valueOf(ii.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
+                    return Integer.valueOf(ri.l(this.this$0.getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2));
                 }
                 return (Integer) invokeV.objValue;
             }
@@ -383,9 +383,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            bca bcaVar = this$0.p;
-            if (bcaVar != null) {
-                bcaVar.b();
+            dea deaVar = this$0.p;
+            if (deaVar != null) {
+                deaVar.b();
             }
         }
     }
@@ -394,9 +394,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            bca bcaVar = this$0.p;
-            if (bcaVar != null) {
-                bcaVar.a();
+            dea deaVar = this$0.p;
+            if (deaVar != null) {
+                deaVar.a();
             }
         }
     }
@@ -405,23 +405,23 @@ public final class WorkPublishVideoView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            bca bcaVar = this$0.p;
-            if (bcaVar != null) {
-                bcaVar.c();
+            dea deaVar = this$0.p;
+            if (deaVar != null) {
+                deaVar.c();
             }
         }
     }
 
-    public static final void g(WorkPublishVideoView this$0, tm tmVar, String str, boolean z) {
+    public static final void g(WorkPublishVideoView this$0, cn cnVar, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{this$0, tmVar, str, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{this$0, cnVar, str, Boolean.valueOf(z)}) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (this$0.c == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("coverView");
             }
             TbImageView tbImageView = null;
-            if (tmVar != null) {
-                this$0.a(tmVar.r(), tmVar.m());
+            if (cnVar != null) {
+                this$0.a(cnVar.r(), cnVar.m());
                 TbImageView tbImageView2 = this$0.c;
                 if (tbImageView2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("coverView");
@@ -460,13 +460,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
         return invokeV.intValue;
     }
 
-    public final bca getIWriteVideoPreviewListener() {
+    public final dea getIWriteVideoPreviewListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.p;
         }
-        return (bca) invokeV.objValue;
+        return (dea) invokeV.objValue;
     }
 
     public final void i() {
@@ -486,11 +486,11 @@ public final class WorkPublishVideoView extends RelativeLayout {
             int i4 = 0;
             if (i2 > 0) {
                 if (i >= i2) {
-                    g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds504);
-                    g2 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds286);
+                    g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds504);
+                    g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds286);
                 } else {
-                    g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds336);
-                    g2 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds447);
+                    g = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds336);
+                    g2 = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds447);
                 }
                 int i5 = g;
                 i4 = g2;
@@ -546,7 +546,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09af, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09e5, (ViewGroup) this, true);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(context)\n          …h_video_view, this, true)");
             this.h = inflate;
             TextView textView = null;
@@ -578,7 +578,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view4 = null;
             }
-            View findViewById4 = view4.findViewById(R.id.obfuscated_res_0x7f09273d);
+            View findViewById4 = view4.findViewById(R.id.obfuscated_res_0x7f0927a9);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "mRootView.findViewById(R.id.video_cover)");
             this.g = (TextView) findViewById4;
             View view5 = this.h;
@@ -586,7 +586,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view5 = null;
             }
-            View findViewById5 = view5.findViewById(R.id.obfuscated_res_0x7f092743);
+            View findViewById5 = view5.findViewById(R.id.obfuscated_res_0x7f0927b2);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "mRootView.findViewById(R.id.video_edit)");
             this.f = (TextView) findViewById5;
             TbImageView tbImageView = this.c;
@@ -618,9 +618,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
                 view6 = null;
             }
-            g35.d(view6).o(R.string.J_X05);
+            p45.d(view6).o(R.string.J_X05);
             h();
-            this.j = new ng5();
+            this.j = new wh5();
             this.k = new Paint();
             this.l = new Paint();
             View view7 = this.h;
@@ -628,7 +628,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
                 view7 = null;
             }
-            view7.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lca
+            view7.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -645,7 +645,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("coverBtn");
                 textView2 = null;
             }
-            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.nca
+            textView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -663,7 +663,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.mca
+            textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.oea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -683,7 +683,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(this.m);
-            ImageOperation g = wg5.g(getMAX_VIDEO_WIDTH(), getMAX_VIDEO_HEIGHT());
+            ImageOperation g = fi5.g(getMAX_VIDEO_WIDTH(), getMAX_VIDEO_HEIGHT());
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g);
             TbImageView tbImageView = this.c;
@@ -693,9 +693,9 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 tbImageView = null;
             }
             tbImageView.setTag(imageFileInfo.toCachedKey(false));
-            ng5 ng5Var = this.j;
-            Intrinsics.checkNotNull(ng5Var);
-            tm c = ng5Var.c(imageFileInfo, false);
+            wh5 wh5Var = this.j;
+            Intrinsics.checkNotNull(wh5Var);
+            cn c = wh5Var.c(imageFileInfo, false);
             if (c != null) {
                 a(c.r(), c.m());
                 TbImageView tbImageView3 = this.c;
@@ -707,17 +707,17 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 tbImageView2.invalidate();
                 return;
             }
-            ng5 ng5Var2 = this.j;
-            Intrinsics.checkNotNull(ng5Var2);
-            ng5Var2.d(imageFileInfo, new kg5() { // from class: com.baidu.tieba.kca
+            wh5 wh5Var2 = this.j;
+            Intrinsics.checkNotNull(wh5Var2);
+            wh5Var2.d(imageFileInfo, new th5() { // from class: com.baidu.tieba.mea
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.kg5
-                public final void a(tm tmVar, String str, boolean z) {
+                @Override // com.baidu.tieba.th5
+                public final void a(cn cnVar, String str, boolean z) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLLZ(1048576, this, tmVar, str, z) == null) {
-                        WorkPublishVideoView.g(WorkPublishVideoView.this, tmVar, str, z);
+                    if (interceptable2 == null || interceptable2.invokeLLZ(1048576, this, cnVar, str, z) == null) {
+                        WorkPublishVideoView.g(WorkPublishVideoView.this, cnVar, str, z);
                     }
                 }
             }, false);
@@ -741,13 +741,13 @@ public final class WorkPublishVideoView extends RelativeLayout {
                 Intrinsics.throwUninitializedPropertyAccessException("maskView");
                 view2 = null;
             }
-            g35.d(view2).t(R.array.Mask_X003);
+            p45.d(view2).t(R.array.Mask_X003);
             TextView textView2 = this.f;
             if (textView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("editBtn");
                 textView2 = null;
             }
-            g35 d = g35.d(textView2);
+            p45 d = p45.d(textView2);
             d.w(R.color.CAM_X0101);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0607);
@@ -757,7 +757,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             } else {
                 textView = textView3;
             }
-            g35 d2 = g35.d(textView);
+            p45 d2 = p45.d(textView);
             d2.w(R.color.CAM_X0101);
             d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0607);
@@ -772,10 +772,10 @@ public final class WorkPublishVideoView extends RelativeLayout {
         }
     }
 
-    public final void setIWriteVideoPreviewListener(bca bcaVar) {
+    public final void setIWriteVideoPreviewListener(dea deaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bcaVar) == null) {
-            this.p = bcaVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, deaVar) == null) {
+            this.p = deaVar;
         }
     }
 
@@ -799,7 +799,7 @@ public final class WorkPublishVideoView extends RelativeLayout {
             super.onSizeChanged(i, i2, i3, i4);
             this.n.reset();
             this.o.set(0.0f, 0.0f, i, i2);
-            this.n.addRoundRect(this.o, ii.g(getContext(), R.dimen.tbds21), ii.g(getContext(), R.dimen.tbds21), Path.Direction.CW);
+            this.n.addRoundRect(this.o, ri.g(getContext(), R.dimen.tbds21), ri.g(getContext(), R.dimen.tbds21), Path.Direction.CW);
         }
     }
 }

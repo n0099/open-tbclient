@@ -2,7 +2,7 @@ package com.baidu.webkit.sdk;
 
 import android.net.Uri;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface WebResourceRequest {
     String getMethod();
 

@@ -10,12 +10,12 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BottomShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +107,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
             this.f.setAntiAlias(true);
             this.f.setStyle(Paint.Style.FILL);
             this.f.setDither(true);
-            this.c = ii.g(context, R.dimen.obfuscated_res_0x7f0701d5);
-            this.d = ii.g(context, R.dimen.obfuscated_res_0x7f070288);
+            this.c = ri.g(context, R.dimen.obfuscated_res_0x7f0701d5);
+            this.d = ri.g(context, R.dimen.obfuscated_res_0x7f070394);
             setLayerType(1, this.e);
             b();
         }

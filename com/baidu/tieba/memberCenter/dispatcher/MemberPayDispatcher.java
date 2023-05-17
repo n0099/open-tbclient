@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.eg9;
+import com.baidu.tieba.gi9;
 import com.baidu.tieba.memberCenter.memberpay.MemberPayFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class MemberPayDispatcher implements eg9 {
+/* loaded from: classes6.dex */
+public class MemberPayDispatcher implements gi9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public class MemberPayDispatcher implements eg9 {
         }
     }
 
-    @Override // com.baidu.tieba.eg9
+    @Override // com.baidu.tieba.gi9
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

@@ -6,7 +6,7 @@ import android.net.Uri;
 import com.baidu.pass.face.platform.FaceEnvironment;
 import com.baidu.pass.face.platform.FaceStatusNewEnum;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static final String a = "b";
     public Context b;

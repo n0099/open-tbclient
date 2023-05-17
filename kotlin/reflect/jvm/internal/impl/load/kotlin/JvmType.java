@@ -2,10 +2,10 @@ package kotlin.reflect.jvm.internal.impl.load.kotlin;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class JvmType {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Array extends JvmType {
         public final JvmType elementType;
 
@@ -19,7 +19,7 @@ public abstract class JvmType {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Object extends JvmType {
         public final String internalName;
 
@@ -33,7 +33,7 @@ public abstract class JvmType {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Primitive extends JvmType {
         public final JvmPrimitiveType jvmPrimitiveType;
 

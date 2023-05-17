@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.flutter.FlutterPluginManager;
+import com.baidu.tieba.hl;
 import com.baidu.tieba.wallet.WalletPluginManager;
-import com.baidu.tieba.yk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @NonNull
     public final List<String> e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,10 +89,10 @@ public class NpsPluginCenterActivity extends BaseActivity {
     }
 
     @NonNull
-    public final TbSettingTextTipView A1() {
+    public final TbSettingTextTipView z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             TbSettingTextTipView tbSettingTextTipView = new TbSettingTextTipView(this);
             tbSettingTextTipView.c();
             return tbSettingTextTipView;
@@ -103,7 +103,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0204);
             this.b.onChangeSkinType(getPageContext(), i);
@@ -121,9 +121,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06da);
+            setContentView(R.layout.obfuscated_res_0x7f0d06fe);
             x1();
             y1();
         }
@@ -131,7 +131,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
 
     public final void x1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (getIntent() != null) {
                 getIntent().getIntExtra("key_from_type", 0);
             }
@@ -144,23 +144,23 @@ public class NpsPluginCenterActivity extends BaseActivity {
 
     public final void y1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091f91);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091fee);
             this.e.add(LiveMediaPluginManager.BJH_PLUGIN_PKG_NAME);
             this.e.add("com.baidu.live.media.business");
             this.e.add("com.baidu.searchbox.livenps");
             this.e.add("com.baidu.searchbox.yylive.extlib");
             this.e.add(WalletPluginManager.PLUGIN_PKG_NAME);
             this.e.add(FlutterPluginManager.PLUGIN_PKG_NAME);
-            for (BundleInfo bundleInfo : yk.f().c()) {
+            for (BundleInfo bundleInfo : hl.f().c()) {
                 if (this.e.contains(bundleInfo.getPackageName())) {
-                    TbSettingTextTipView A1 = A1();
-                    A1.setText(bundleInfo.getName());
-                    A1.setTip(String.valueOf(bundleInfo.getVersionCode()));
-                    this.d.add(A1);
-                    linearLayout.addView(A1);
+                    TbSettingTextTipView z1 = z1();
+                    z1.setText(bundleInfo.getName());
+                    z1.setTip(String.valueOf(bundleInfo.getVersionCode()));
+                    this.d.add(z1);
+                    linearLayout.addView(z1);
                     if (TbadkCoreApplication.getInst().isDebugMode()) {
-                        A1.setOnClickListener(new a(this, bundleInfo));
+                        z1.setOnClickListener(new a(this, bundleInfo));
                     }
                 }
             }

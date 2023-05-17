@@ -1,98 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.PbPage.RecommendBook;
-/* loaded from: classes4.dex */
-public class gz4 extends pp9 {
+import tbclient.FrsPage.ColorEgg;
+/* loaded from: classes5.dex */
+public class gz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId k1;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b1;
-    public String c1;
-    public String d1;
-    public String e1;
-    public String f1;
-    public String g1;
-    public List<String> h1;
-    public String i1;
-    public String j1;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947811208, "Lcom/baidu/tieba/gz4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947811208, "Lcom/baidu/tieba/gz4;");
-                return;
-            }
-        }
-        k1 = BdUniqueId.gen();
-    }
+    public ArrayList<String> a;
+    public int b;
 
     public gz4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.pp9, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return k1;
+            return this.a;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public boolean s1() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!StringUtils.isNull(this.e1)) {
-                return true;
-            }
-            return false;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void t1(RecommendBook recommendBook) {
+    public boolean c(ColorEgg colorEgg) {
+        InterceptResult invokeL;
+        List<String> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBook) != null) || recommendBook == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, colorEgg)) == null) {
+            this.b = 0;
+            if (colorEgg == null || (list = colorEgg.holiday_words) == null || list.size() <= 0) {
+                return false;
+            }
+            for (String str : colorEgg.holiday_words) {
+                if (!StringUtils.isNull(str)) {
+                    this.a.add(str);
+                }
+            }
+            if (this.a.size() <= 0) {
+                return false;
+            }
+            this.b = colorEgg.style_flag.intValue();
+            return true;
         }
-        this.b1 = recommendBook.recommend_text;
-        this.c1 = recommendBook.suggest_text;
-        this.d1 = recommendBook.suggest_url;
-        this.e1 = recommendBook.book_id;
-        recommendBook.book_type.intValue();
-        this.f1 = recommendBook.book_cover;
-        this.g1 = recommendBook.book_title;
-        this.h1 = recommendBook.book_tips;
-        this.i1 = recommendBook.botton_text;
-        this.j1 = recommendBook.subscript_icon;
+        return invokeL.booleanValue;
     }
 }

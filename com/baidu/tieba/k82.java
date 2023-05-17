@@ -1,55 +1,93 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class k82 extends h82 {
-    public static /* synthetic */ Interceptable $ic;
+/* loaded from: classes6.dex */
+public class k82 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
+    public static th3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866884, "Lcom/baidu/tieba/k82;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947866884, "Lcom/baidu/tieba/k82;");
+        }
+    }
 
     public k82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static k82 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            k82 k82Var = new k82();
-            k82Var.a = 1;
-            k82Var.b = str;
-            k82Var.c = 0L;
-            k82Var.d = bitmap;
-            return k82Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (a == -1) {
+                a = a().getInt(b(), 0);
+            }
+            if (a != 1) {
+                return false;
+            }
+            return true;
         }
-        return (k82) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static k82 b(String str, long j) {
-        InterceptResult invokeLJ;
+    public static th3 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            k82 k82Var = new k82();
-            k82Var.a = 1;
-            k82Var.b = str;
-            k82Var.c = j;
-            return k82Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (k82.class) {
+                    if (b == null) {
+                        b = new th3("swan_about_page_sp", true);
+                    }
+                }
+            }
+            return b;
         }
-        return (k82) invokeLJ.objValue;
+        return (th3) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        String O;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            g93 b0 = g93.b0();
+            if (b0 == null) {
+                O = i12.a(f93.K().getAppId());
+            } else {
+                O = b0.O();
+            }
+            return "pref_tool_" + O;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -27,7 +27,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -320,7 +320,7 @@ public class a extends com.baidu.platform.base.d {
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null) {
                     CityInfo cityInfo = new CityInfo();
-                    cityInfo.num = jSONObject2.optInt(com.baidu.sapi2.views.logindialog.view.a.k);
+                    cityInfo.num = jSONObject2.optInt("number");
                     cityInfo.city = jSONObject2.optString("name");
                     arrayList.add(cityInfo);
                 }

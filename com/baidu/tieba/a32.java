@@ -1,160 +1,100 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import android.graphics.Typeface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.apps.commonsync.CommonSyncServerData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class a32 {
+import org.json.JSONArray;
+/* loaded from: classes4.dex */
+public class a32 extends m22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public float b;
+    public boolean c;
+    public boolean d;
 
-    /* loaded from: classes3.dex */
-    public static class a extends ResponseCallback<CommonSyncServerData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c32 a;
-
-        public a(c32 c32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c32Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            c32 c32Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (c32Var = this.a) != null) {
-                c32Var.onFail();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
-            c32 c32Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) && (c32Var = this.a) != null) {
-                c32Var.a(commonSyncServerData);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    String string = response.body().string();
-                    if (TextUtils.isEmpty(string)) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject(string);
-                    int optInt = jSONObject.optInt("errno");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == a32.b && optJSONObject != null) {
-                        return CommonSyncServerData.parseFromJson(optJSONObject);
-                    }
-                }
-                return null;
-            }
-            return (CommonSyncServerData) invokeLI.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947564169, "Lcom/baidu/tieba/a32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947564169, "Lcom/baidu/tieba/a32;");
+    public a32() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
-        b = 0;
+        this.a = "sans-serif";
+        this.b = xm3.g(10.0f);
+        this.c = false;
+        this.d = false;
     }
 
-    public static void b(c32 c32Var) {
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, c32Var) == null) {
-            if (SwanAppNetworkUtils.h()) {
-                bf4.g().getRequest().cookieManager(er2.q().a()).url(er2.m().processUrl(b32.a())).build().executeAsync(new a(c32Var));
-            } else if (c32Var != null) {
-                c32Var.onFail();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) {
+            if (this.c && this.d) {
+                i = 3;
+            } else if (this.c) {
+                i = 1;
+            } else if (this.d) {
+                i = 2;
+            } else {
+                i = 0;
             }
+            n22Var.e.setTypeface(Typeface.create(this.a, i));
+            n22Var.e.setTextSize(this.b);
         }
     }
 
-    public static RequestBody c(Map<String, Object> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m22
+    public void b(JSONArray jSONArray) {
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map != null && map.size() > 0) {
-                for (String str : map.keySet()) {
-                    try {
-                        jSONObject.put(str, map.get(str));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    for (String str : jSONArray.optString(0).split(" ")) {
+                        if (str.contains("italic")) {
+                            this.d = true;
+                        } else if (str.contains("oblique")) {
+                            this.d = true;
+                        } else if (str.contains("bold")) {
+                            this.c = true;
+                        } else if (!str.contains("normal")) {
+                            if (Character.isDigit(str.charAt(0))) {
+                                int length = str.length();
+                                int i = 0;
+                                while (true) {
+                                    if (i >= str.length()) {
+                                        break;
+                                    } else if (!Character.isDigit(str.charAt(i))) {
+                                        length = i;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                this.b = xm3.g(Float.parseFloat(str.substring(0, length)));
+                            } else {
+                                this.a = str;
+                            }
                         }
                     }
                 }
+            } catch (Exception e) {
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
             }
-            return RequestBody.create(ez2.a, jSONObject.toString());
-        }
-        return (RequestBody) invokeL.objValue;
-    }
-
-    public static void d(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) bf4.g().postRequest().cookieManager(er2.q().a())).url(er2.m().processUrl(b32.b()))).requestBody(c(map)).build().executeAsync(null);
-        }
-    }
-
-    public static void e(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) bf4.g().postRequest().cookieManager(er2.q().a())).url(er2.m().processUrl(b32.c()))).requestBody(c(map)).build().executeAsync(null);
         }
     }
 }

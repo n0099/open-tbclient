@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NoScrollViewPager extends ViewPager {
     public boolean a;
     public SparseIntArray b;

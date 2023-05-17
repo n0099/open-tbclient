@@ -18,11 +18,11 @@ import java.net.URL;
 import java.util.Map;
 import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpUtil {
     public static final Pattern ipv4Pattern = Pattern.compile("\\d+\\.\\d+\\.\\d+\\.\\d+");
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class HttpResp {
         public boolean isSucceed = false;
         public int statusCode = -1;

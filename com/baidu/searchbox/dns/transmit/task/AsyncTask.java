@@ -1,7 +1,7 @@
 package com.baidu.searchbox.dns.transmit.task;
 
 import android.os.Process;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AsyncTask implements Runnable {
     public final String mName;
     public final Dispatcher mTaskDispatcher;

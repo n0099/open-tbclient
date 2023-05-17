@@ -1,5 +1,6 @@
 package com.baidu.spswitch.emotion;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -10,9 +11,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.spswitch.emotion.bean.EmotionItemModel;
 import com.baidu.spswitch.emotion.view.BDEmotionBagLayout;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.spswitch.emotion.view.PopupEmotionManager;
@@ -22,21 +25,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes4.dex */
 public class GlobalOnItemClickListenerManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DELETE_EMOTION = "[delete]";
     public static final int EDIT_CONTENT_DELETE_INTERVAL = 60;
+    @SuppressLint({"StaticFieldLeak"})
     public static GlobalOnItemClickListenerManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
+    public BDEmotionPanelManager.OnDynamicEmotionClickListener mDynamicEmotionClickListener;
     public Runnable mEditContentDeleteRunnable;
     public EditText mEditText;
     public BDEmotionPanelManager.OnEmotionClickListener mEmotionClickListener;
     public int mEmotionShownMaxRow;
     public int mEmotionSlideCount;
+    public HashMap<String, EmotionItemModel> mEmotionTextModelMap;
     public boolean mIsDeleteItemLongClick;
     public Handler mMainHandler;
-    public TextWatcher mTextWatcher;
+    public BDEmotionPanelManager.OnVerticalSendListener mSendClickListener;
+    public List<TextWatcher> mTextWatcherList;
     public BDEmotionPanelManager.OnVerticalEmotionListener mVerticalEmotionListener;
 
     public GlobalOnItemClickListenerManager() {
@@ -88,6 +98,28 @@ public class GlobalOnItemClickListenerManager {
                 }
             }
         };
+        this.mTextWatcherList = new ArrayList();
+        this.mEmotionTextModelMap = new HashMap<>();
+    }
+
+    public void dismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            removeLongClickCallback();
+            if (this.mEditText != null) {
+                for (TextWatcher textWatcher : this.mTextWatcherList) {
+                    this.mEditText.removeTextChangedListener(textWatcher);
+                }
+            }
+            this.mTextWatcherList.clear();
+            this.mEmotionClickListener = null;
+            this.mVerticalEmotionListener = null;
+            this.mDynamicEmotionClickListener = null;
+            this.mSendClickListener = null;
+            this.mEditText = null;
+            mInstance = null;
+            this.mEmotionTextModelMap.clear();
+        }
     }
 
     public static GlobalOnItemClickListenerManager getInstance(Context context) {
@@ -99,17 +131,46 @@ public class GlobalOnItemClickListenerManager {
         return (GlobalOnItemClickListenerManager) invokeL.objValue;
     }
 
+    public void addTextChangedListener(TextWatcher textWatcher) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, textWatcher) == null) && this.mEditText != null && textWatcher != null) {
+            this.mTextWatcherList.add(textWatcher);
+            this.mEditText.addTextChangedListener(textWatcher);
+        }
+    }
+
     public void attachToEditText(EditText editText) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, editText) == null) {
             this.mEditText = editText;
         }
+    }
+
+    public void emotionTextItemClick(EmotionItemModel emotionItemModel) {
+        EditText editText;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, emotionItemModel) == null) && emotionItemModel != null && emotionItemModel.isValid() && (editText = this.mEditText) != null) {
+            this.mEditText.getEditableText().insert(editText.getSelectionStart(), emotionItemModel.getText());
+        }
+    }
+
+    @Nullable
+    public EmotionItemModel getEmotionTextModel(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return this.mEmotionTextModelMap.get(str);
+        }
+        return (EmotionItemModel) invokeL.objValue;
     }
 
     public AdapterView.OnItemLongClickListener getOnItemLongClickListener(EmotionType emotionType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, emotionType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, emotionType)) == null) {
             return new AdapterView.OnItemLongClickListener(this) { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +216,7 @@ public class GlobalOnItemClickListenerManager {
     public View.OnTouchListener getOnTouchListener(EmotionType emotionType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, emotionType)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, emotionType)) == null) {
             return new View.OnTouchListener(this) { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -197,33 +258,37 @@ public class GlobalOnItemClickListenerManager {
         return (View.OnTouchListener) invokeL.objValue;
     }
 
-    public void setEditContentTextWatcher(TextWatcher textWatcher) {
-        EditText editText;
+    public void setOnDynamicEmotionClickListener(@Nullable BDEmotionPanelManager.OnDynamicEmotionClickListener onDynamicEmotionClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, textWatcher) == null) && (editText = this.mEditText) != null && textWatcher != null) {
-            editText.removeTextChangedListener(this.mTextWatcher);
-            this.mEditText.addTextChangedListener(textWatcher);
-            this.mTextWatcher = textWatcher;
+        if (interceptable == null || interceptable.invokeL(1048598, this, onDynamicEmotionClickListener) == null) {
+            this.mDynamicEmotionClickListener = onDynamicEmotionClickListener;
         }
     }
 
     public void setOnEmotionClickListener(BDEmotionPanelManager.OnEmotionClickListener onEmotionClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onEmotionClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, onEmotionClickListener) == null) {
             this.mEmotionClickListener = onEmotionClickListener;
         }
     }
 
     public void setOnVerticalEmotionListener(BDEmotionPanelManager.OnVerticalEmotionListener onVerticalEmotionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onVerticalEmotionListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, onVerticalEmotionListener) == null) {
             this.mVerticalEmotionListener = onVerticalEmotionListener;
+        }
+    }
+
+    public void setOnVerticalSendBtnClick(@Nullable BDEmotionPanelManager.OnVerticalSendListener onVerticalSendListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, onVerticalSendListener) == null) {
+            this.mSendClickListener = onVerticalSendListener;
         }
     }
 
     public void updateEmotionShownMaxRow(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && i > this.mEmotionShownMaxRow) {
+        if ((interceptable == null || interceptable.invokeI(1048602, this, i) == null) && i > this.mEmotionShownMaxRow) {
             this.mEmotionShownMaxRow = i;
         }
     }
@@ -251,26 +316,20 @@ public class GlobalOnItemClickListenerManager {
         }
     }
 
-    public void dismiss() {
+    @Nullable
+    public BDEmotionPanelManager.OnDynamicEmotionClickListener getDynamicEmotionClickListener() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            removeLongClickCallback();
-            EditText editText = this.mEditText;
-            if (editText != null) {
-                editText.removeTextChangedListener(this.mTextWatcher);
-            }
-            this.mTextWatcher = null;
-            this.mEmotionClickListener = null;
-            this.mVerticalEmotionListener = null;
-            this.mEditText = null;
-            mInstance = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.mDynamicEmotionClickListener;
         }
+        return (BDEmotionPanelManager.OnDynamicEmotionClickListener) invokeV.objValue;
     }
 
     public int getEmotionShownMaxRow() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mEmotionShownMaxRow;
         }
         return invokeV.intValue;
@@ -279,7 +338,7 @@ public class GlobalOnItemClickListenerManager {
     public int getEmotionShownSlideCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mEmotionSlideCount;
         }
         return invokeV.intValue;
@@ -288,7 +347,7 @@ public class GlobalOnItemClickListenerManager {
     public PopupEmotionManager.IShowListener getPopupEmotionShowListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return new PopupEmotionManager.IShowListener(this) { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -327,7 +386,7 @@ public class GlobalOnItemClickListenerManager {
     public boolean isDelLongClick() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.mIsDeleteItemLongClick;
         }
         return invokeV.booleanValue;
@@ -336,7 +395,7 @@ public class GlobalOnItemClickListenerManager {
     public boolean isEditContentEmpty() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             EditText editText = this.mEditText;
             if (editText == null || editText.getEditableText().length() <= 0) {
                 return true;
@@ -346,9 +405,22 @@ public class GlobalOnItemClickListenerManager {
         return invokeV.booleanValue;
     }
 
+    public boolean isSendEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            BDEmotionPanelManager.OnVerticalSendListener onVerticalSendListener = this.mSendClickListener;
+            if (onVerticalSendListener != null) {
+                return onVerticalSendListener.isSendEnabled();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void performDelLongClick() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.mIsDeleteItemLongClick && this.mEditText != null) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && !this.mIsDeleteItemLongClick && this.mEditText != null) {
             this.mIsDeleteItemLongClick = true;
             this.mMainHandler.post(this.mEditContentDeleteRunnable);
         }
@@ -356,7 +428,7 @@ public class GlobalOnItemClickListenerManager {
 
     public void performVerticalDelClick() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (!this.mIsDeleteItemLongClick) {
                 this.mEditText.dispatchKeyEvent(new KeyEvent(0, 67));
             }
@@ -364,9 +436,17 @@ public class GlobalOnItemClickListenerManager {
         }
     }
 
+    public void performVerticalSendClick() {
+        BDEmotionPanelManager.OnVerticalSendListener onVerticalSendListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (onVerticalSendListener = this.mSendClickListener) != null) {
+            onVerticalSendListener.onClick();
+        }
+    }
+
     public void removeLongClickCallback() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             this.mMainHandler.removeCallbacks(this.mEditContentDeleteRunnable);
             this.mIsDeleteItemLongClick = false;
         }
@@ -374,16 +454,27 @@ public class GlobalOnItemClickListenerManager {
 
     public void resetEmotionShownData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             this.mEmotionShownMaxRow = 0;
             this.mEmotionSlideCount = 0;
+        }
+    }
+
+    public void addEmotionTextModels(@Nullable List<EmotionItemModel> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && list != null && !list.isEmpty()) {
+            for (EmotionItemModel emotionItemModel : list) {
+                if (emotionItemModel != null && emotionItemModel.isValid()) {
+                    this.mEmotionTextModelMap.put(emotionItemModel.getText(), emotionItemModel);
+                }
+            }
         }
     }
 
     public AdapterView.OnItemClickListener getOnItemClickListener(EmotionType emotionType, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, emotionType, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, emotionType, i)) == null) {
             return new AdapterView.OnItemClickListener(this, emotionType, i) { // from class: com.baidu.spswitch.emotion.GlobalOnItemClickListenerManager.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -449,12 +540,14 @@ public class GlobalOnItemClickListenerManager {
 
     public void verticalOnItemClick(String str, BDEmotionBagVerticalLayout.EmotionGridViewAdapter.StatisticData statisticData, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048595, this, str, statisticData, i) != null) || this.mEditText == null || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeLLI(1048603, this, str, statisticData, i) != null) || this.mEditText == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.mEditText.getEditableText().insert(this.mEditText.getSelectionStart(), EmotionLoader.getInstance().parseEmotion(EmotionType.EMOTION_CLASSIC_TYPE, AppRuntime.getAppContext(), str, this.mEditText));
+        this.mEditText.getEditableText().insert(Math.max(this.mEditText.getSelectionStart(), 0), EmotionLoader.getInstance().parseEmotion(EmotionType.EMOTION_CLASSIC_TYPE, AppRuntime.getAppContext(), str, this.mEditText));
         EmotionUtils.getInstance().playEmotionClickSound();
-        EmotionUsageUtil.recordEmotionUsage(str);
+        if (!EmotionUtils.getInstance().getFixedEmotionPanelList().contains(str)) {
+            EmotionUsageUtil.recordEmotionUsage(str);
+        }
         if (this.mVerticalEmotionListener != null) {
             this.mVerticalEmotionListener.onVerticalEmotionClick(statisticData.type, statisticData.sectionType, EmotionUtils.getInstance().getEmotionIdByName(statisticData.type, str), str, statisticData.rowIndex, i);
         }

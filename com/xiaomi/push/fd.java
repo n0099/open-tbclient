@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.service.bg;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class fd {
     public static final /* synthetic */ int[] a;
 

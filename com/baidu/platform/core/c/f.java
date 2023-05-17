@@ -8,12 +8,13 @@ import com.baidu.mapapi.search.base.LanguageType;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +70,7 @@ public class f extends com.baidu.platform.base.e {
             if (reverseGeoCodeOption.getExtensionsRoad()) {
                 this.a.a("extensions_road", "true");
             } else {
-                this.a.a("extensions_road", "false");
+                this.a.a("extensions_road", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
             }
             String poiType = reverseGeoCodeOption.getPoiType();
             if (!TextUtils.isEmpty(poiType)) {

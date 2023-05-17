@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import com.kwad.components.core.m.o;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DetailWebRecycleView extends b {
     public int GA;
     public int GB;
@@ -22,7 +22,7 @@ public class DetailWebRecycleView extends b {
     public boolean Gy;
     public boolean Gz;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         boolean nW();
     }

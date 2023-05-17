@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,37 +9,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class sg8 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class sg8 extends mg8<AudioMsg, VoiceMsgContent> {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseIntArray a;
-    public static final SparseArray<BdUniqueId> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract <T> lh8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
-
-    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
-
-    public abstract void c();
-
-    public abstract String d();
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948150565, "Lcom/baidu/tieba/sg8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948150565, "Lcom/baidu/tieba/sg8;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948150565, "Lcom/baidu/tieba/sg8;")) == null) {
+            return;
         }
-        a = new SparseIntArray();
-        b = new SparseArray<>();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948150565, "Lcom/baidu/tieba/sg8;");
+        }
+    }
+
+    @Override // com.baidu.tieba.mg8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
     }
 
     public sg8() {
@@ -56,9 +50,55 @@ public abstract class sg8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        c();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mg8
+    /* renamed from: h */
+    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
+        InterceptResult invokeL;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
+            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
+            if (voiceMsgContent != null) {
+                i = voiceMsgContent.a();
+            } else {
+                i = 0;
+            }
+            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
+            if (voiceMsgContent != null) {
+                str = voiceMsgContent.f();
+            } else {
+                str = null;
+            }
+            audioMsg.setRemoteUrl(str);
+            return audioMsg;
+        }
+        return (AudioMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mg8
+    /* renamed from: i */
+    public VoiceMsgContent g(AudioMsg sdkMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
+            String localUrl = sdkMsg.getLocalUrl();
+            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
+            voiceMsgContent.i(localUrl);
+            String remoteUrl = sdkMsg.getRemoteUrl();
+            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
+            voiceMsgContent.k(remoteUrl);
+            voiceMsgContent.h(sdkMsg.getDuration());
+            return voiceMsgContent;
+        }
+        return (VoiceMsgContent) invokeL.objValue;
     }
 }

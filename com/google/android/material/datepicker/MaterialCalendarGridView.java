@@ -16,7 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 import com.baidu.tieba.R;
 import java.util.Calendar;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaterialCalendarGridView extends GridView {
     public final Calendar dayCompute;
 
@@ -70,8 +70,8 @@ public final class MaterialCalendarGridView extends GridView {
         super(context, attributeSet, i);
         this.dayCompute = UtcDates.getUtcCalendar();
         if (MaterialDatePicker.isFullscreen(getContext())) {
-            setNextFocusLeftId(R.id.obfuscated_res_0x7f090510);
-            setNextFocusRightId(R.id.obfuscated_res_0x7f090768);
+            setNextFocusLeftId(R.id.obfuscated_res_0x7f090527);
+            setNextFocusRightId(R.id.obfuscated_res_0x7f090785);
         }
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat() { // from class: com.google.android.material.datepicker.MaterialCalendarGridView.1
             @Override // androidx.core.view.AccessibilityDelegateCompat

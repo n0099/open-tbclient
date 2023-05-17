@@ -1,90 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.qh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class sh3 extends u93 {
+/* loaded from: classes7.dex */
+public class sh3 extends qh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sh3(u83 u83Var, String str) {
-        super(u83Var, str);
+    public sh3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public boolean j(Context context, x73 x73Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, x73Var, unitedSchemeEntity)) == null) {
-            if (x73Var == null) {
-                x42.c("battery", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (u93.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                x42.c("battery", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (u93.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
-                }
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Nullable
-    public JSONObject k(@NonNull qh3.a aVar) {
+    @Override // com.baidu.tieba.qh3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(ph3 ph3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                int i = 100;
-                if (aVar.a <= 100) {
-                    i = aVar.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ph3Var)) == null) {
+            oh3 b = uh3.b(ph3Var.a);
+            if (b == null) {
+                if (!qh3.a) {
+                    return Bundle.EMPTY;
                 }
-                jSONObject.put("level", String.valueOf(i));
-                jSONObject.put("isCharging", aVar.b);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
+                throw new IllegalArgumentException("illegal sp.");
             }
+            int i = ph3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (qh3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                b.putFloat(ph3Var.c, Float.parseFloat(ph3Var.d));
+                            }
+                        } else {
+                            b.putString(ph3Var.c, ph3Var.d);
+                        }
+                    } else {
+                        b.putBoolean(ph3Var.c, Boolean.parseBoolean(ph3Var.d));
+                    }
+                } else {
+                    b.putLong(ph3Var.c, Long.parseLong(ph3Var.d));
+                }
+            } else {
+                b.putInt(ph3Var.c, Integer.parseInt(ph3Var.d));
+            }
+            if (qh3.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + ph3Var);
+            }
+            return Bundle.EMPTY;
         }
-        return (JSONObject) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

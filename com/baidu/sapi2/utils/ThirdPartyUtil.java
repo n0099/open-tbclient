@@ -7,9 +7,10 @@ import android.os.Message;
 import android.text.TextUtils;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.IntentConstants;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThirdPartyUtil implements NoProguard {
     public static final String TYPE_QQ = "qzone";
     public static final String TYPE_WEIBO = "tsina";
@@ -17,7 +18,7 @@ public class ThirdPartyUtil implements NoProguard {
     public static HashMap<String, String> wxAuthCodeMap = new HashMap<>();
 
     public static boolean checkAliPayInstalled(Context context) {
-        if (new Intent("android.intent.action.VIEW", Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null) {
+        if (new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("alipays://platformapi/startApp")).resolveActivity(context.getPackageManager()) != null) {
             return true;
         }
         return false;

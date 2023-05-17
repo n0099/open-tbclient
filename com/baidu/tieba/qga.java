@@ -1,72 +1,94 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class qga {
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
+/* loaded from: classes7.dex */
+public class qga implements cha {
     public static /* synthetic */ Interceptable $ic;
-    public static final qga b;
     public transient /* synthetic */ FieldHolder $fh;
-    public xga a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948092254, "Lcom/baidu/tieba/qga;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948092254, "Lcom/baidu/tieba/qga;");
-                return;
-            }
-        }
-        b = new qga();
-    }
+    public eha a;
+    public IPCService b;
+    public fha c;
 
     public qga() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new xga();
     }
 
-    public static qga a() {
+    @Override // com.baidu.tieba.cha
+    public zga a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new eha();
+            }
+            return this.a;
         }
-        return (qga) invokeV.objValue;
+        return (zga) invokeV.objValue;
     }
 
-    public final void b(String str) {
+    @Override // com.baidu.tieba.cha
+    public bha b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.a(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
+            }
+            return this.b;
         }
+        return (bha) invokeV.objValue;
     }
 
-    public final void c(String str) {
+    @Override // com.baidu.tieba.cha
+    public bga c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.a.b(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return xga.b();
         }
+        return (bga) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cha
+    public fga d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return xga.c();
+        }
+        return (fga) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cha
+    public aha e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new fha();
+            }
+            return this.c;
+        }
+        return (aha) invokeV.objValue;
     }
 }

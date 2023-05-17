@@ -1,7 +1,7 @@
 package com.baidu.searchbox.retrieve.timer.bean;
 
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimerBean extends FetchTimerBasicBean {
     public long mEndTime;
     public int mFrequency;

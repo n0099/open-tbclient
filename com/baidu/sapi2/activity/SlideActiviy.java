@@ -19,7 +19,7 @@ import com.baidu.searchbox.widget.SlideUtil;
 import com.baidu.searchbox.widget.SlidingPaneLayout;
 import com.google.protobuf.CodedInputStream;
 import java.lang.ref.WeakReference;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SlideActiviy extends BaseActivity {
     public static final String A = "SlideActivity";
     public static final String ACCOUNT_CENTER_PAGE_NAME = "accountCenter";
@@ -41,7 +41,7 @@ public class SlideActiviy extends BaseActivity {
     public void loadSlideWebview(String str, String str2, String str3) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class PassSlideInterceptor implements SlideInterceptor {
         public PassSlideInterceptor() {
         }

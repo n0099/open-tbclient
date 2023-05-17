@@ -8,6 +8,6 @@ import kotlin.SinceKotlin;
 @Target({ElementType.ANNOTATION_TYPE})
 @SinceKotlin(version = "1.6")
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface RepeatableContainer {
 }

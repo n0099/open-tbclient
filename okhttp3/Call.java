@@ -2,10 +2,10 @@ package okhttp3;
 
 import java.io.IOException;
 import okio.Timeout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface Call extends Cloneable {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface Factory {
         Call newCall(Request request);
     }
@@ -13,7 +13,7 @@ public interface Call extends Cloneable {
     void cancel();
 
     /* renamed from: clone */
-    Call mo2244clone();
+    Call mo2263clone();
 
     void enqueue(Callback callback);
 

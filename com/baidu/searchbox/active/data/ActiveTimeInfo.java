@@ -1,5 +1,5 @@
 package com.baidu.searchbox.active.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ActiveTimeInfo {
     public long mClientCreatedTime;
     public long mRequestTime;

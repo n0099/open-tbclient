@@ -1,19 +1,30 @@
 package com.baidu.tieba;
+/* loaded from: classes6.dex */
+public interface le {
 
-import com.baidu.tieba.me;
-/* loaded from: classes5.dex */
-public interface le<T> {
-    T a(String str, String str2);
+    /* loaded from: classes6.dex */
+    public interface a extends le {
+        void b();
 
-    void b(String str);
+        void c();
 
-    fe c();
+        String h(ne<?> neVar);
+    }
 
-    void d(String str, String str2);
+    /* loaded from: classes6.dex */
+    public interface b extends le {
+        String d(ne<?> neVar);
 
-    me.b<T> e(String str, String str2);
+        void e();
 
-    void f(String str, String str2, T t, long j);
+        void f();
 
-    void g(String str);
+        String g(ne<?> neVar);
+
+        void release();
+    }
+
+    boolean a();
+
+    int getMaxSize();
 }

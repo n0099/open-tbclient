@@ -3,7 +3,7 @@ package com.kwad.sdk.utils;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static volatile Executor amY = com.kwad.sdk.core.threads.b.vq();
     public static volatile ScheduledExecutorService amZ;

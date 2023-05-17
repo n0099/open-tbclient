@@ -1,8 +1,9 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.schemeauthenticate.dispatcher.UnitedSchemePublicDispatcher;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class dv implements com.kwad.sdk.core.d<com.kwad.sdk.e.kwai.b> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(com.kwad.sdk.e.kwai.b bVar, JSONObject jSONObject) {
@@ -35,7 +36,7 @@ public final class dv implements com.kwad.sdk.core.d<com.kwad.sdk.e.kwai.b> {
         }
         bVar.loadType = jSONObject.optInt("loadType");
         bVar.packageType = jSONObject.optInt("packageType");
-        bVar.aiy = jSONObject.optBoolean("public");
+        bVar.aiy = jSONObject.optBoolean(UnitedSchemePublicDispatcher.MODULE_NAME);
     }
 
     /* renamed from: b  reason: avoid collision after fix types in other method */
@@ -77,7 +78,7 @@ public final class dv implements com.kwad.sdk.core.d<com.kwad.sdk.e.kwai.b> {
         }
         boolean z = bVar.aiy;
         if (z) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "public", z);
+            com.kwad.sdk.utils.r.putValue(jSONObject, UnitedSchemePublicDispatcher.MODULE_NAME, z);
         }
         return jSONObject;
     }

@@ -11,7 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NaviParaOption {
     public LatLng a;
     public String b;
@@ -20,7 +20,7 @@ public class NaviParaOption {
     public WayPoint e;
     public NaviRoutePolicy f = NaviRoutePolicy.DEFAULT;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NaviRoutePolicy {
         BLK,
         TIME,

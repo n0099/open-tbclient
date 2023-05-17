@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callback<SourceLoadable> {
     public static final int INITIAL_SAMPLE_SIZE = 1024;
     public final DataSource.Factory dataSourceFactory;
@@ -55,7 +55,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         return C.TIME_UNSET;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class SampleStreamImpl implements SampleStream {
         public static final int STREAM_STATE_END_OF_STREAM = 2;
         public static final int STREAM_STATE_SEND_FORMAT = 0;
@@ -124,7 +124,7 @@ public final class SingleSampleMediaPeriod implements MediaPeriod, Loader.Callba
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class SourceLoadable implements Loader.Loadable {
         public final DataSource dataSource;
         public byte[] sampleData;

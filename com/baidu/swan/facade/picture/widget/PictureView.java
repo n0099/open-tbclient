@@ -15,10 +15,10 @@ import com.baidu.mobstat.Config;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouch;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.ol3;
-import com.baidu.tieba.pl3;
-import com.baidu.tieba.vk3;
+import com.baidu.tieba.em3;
+import com.baidu.tieba.ns2;
+import com.baidu.tieba.xm3;
+import com.baidu.tieba.ym3;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -28,7 +28,7 @@ import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
 import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PictureView extends FrameLayout {
     public String a;
     public String b;
@@ -40,14 +40,14 @@ public class PictureView extends FrameLayout {
     public boolean h;
     public c i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a();
 
         void b();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements BdImageViewTouch.c {
         public a() {
         }
@@ -64,7 +64,7 @@ public class PictureView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends BaseBitmapDataSubscriber {
         public b() {
         }
@@ -172,7 +172,7 @@ public class PictureView extends FrameLayout {
             if (drawable instanceof BitmapDrawable) {
                 return ((BitmapDrawable) drawable).getBitmap();
             }
-            return vk3.g(drawable);
+            return em3.g(drawable);
         }
         return null;
     }
@@ -192,11 +192,11 @@ public class PictureView extends FrameLayout {
     }
 
     public final void g(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0890, this);
-        this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09291c);
-        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091b69);
-        this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091d73);
-        this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091b6a);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c1, this);
+        this.d = (ZoomImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092995);
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091bbb);
+        this.f = inflate.findViewById(R.id.obfuscated_res_0x7f091dcd);
+        this.g = inflate.findViewById(R.id.obfuscated_res_0x7f091bbc);
         this.d.setDisplayType(BdImageViewTouchBase.DisplayType.FIT_IF_BIGGER);
         this.d.setZoomRange(1.0f, 3.0f);
         this.d.setDoubleTapEnabled(true);
@@ -209,7 +209,7 @@ public class PictureView extends FrameLayout {
         String str = this.a;
         String str2 = this.b;
         String str3 = this.c;
-        Uri p = pl3.p(str);
+        Uri p = ym3.p(str);
         if (p == null) {
             z = true;
         } else {
@@ -238,8 +238,8 @@ public class PictureView extends FrameLayout {
             if (!TextUtils.isEmpty(str3)) {
                 hashMap.put("User-Agent", str3);
             }
-            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(ol3.o(getContext()), ol3.o(getContext())));
-            er2.C().e(resizeOptions, hashMap);
+            ImageRequestBuilder resizeOptions = ImageRequestBuilder.newBuilderWithSource(p).setResizeOptions(new ResizeOptions(xm3.o(getContext()), xm3.o(getContext())));
+            ns2.C().e(resizeOptions, hashMap);
             Fresco.getImagePipeline().fetchDecodedImage(resizeOptions.build(), getContext()).subscribe(new b(), UiThreadImmediateExecutorService.getInstance());
         }
         return !z;

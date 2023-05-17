@@ -1,91 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-/* loaded from: classes3.dex */
-public final class b82 {
+import java.util.HashMap;
+/* loaded from: classes4.dex */
+public class b82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<a82> a;
 
-    public b82() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947598765, "Lcom/baidu/tieba/b82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947598765, "Lcom/baidu/tieba/b82;");
                 return;
             }
         }
-        this.a = new ArrayList();
+        boolean z = qp1.a;
     }
 
-    public synchronized void b() {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a.clear();
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put("data", str2);
+            tu2.U().m(tu2.U().q().a(), new hj2(str, hashMap));
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ov1 A = tu2.U().A(tu2.U().C());
+            if (A != null) {
+                g62.i("ConsoleMessageHelper", "send full San request");
+                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
             }
         }
     }
 
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        boolean z;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = false;
-                Iterator<a82> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (it.next().c()) {
-                        z = true;
-                        break;
-                    }
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a("sanFullData2Console", str);
         }
-        return invokeV.booleanValue;
     }
 
-    public synchronized List<a82> d() {
-        InterceptResult invokeV;
-        List<a82> list;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                list = this.a;
-            }
-            return list;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            a("sanIncData2Console", str);
         }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized boolean a(a82 a82Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a82Var)) == null) {
-            synchronized (this) {
-                if (a82Var != null) {
-                    return this.a.add(a82Var);
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

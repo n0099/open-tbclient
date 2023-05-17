@@ -1,145 +1,143 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.ForwardingSource;
-import okio.Okio;
-import okio.Source;
-/* loaded from: classes4.dex */
-public class gz2 extends ResponseBody {
+/* loaded from: classes5.dex */
+public final class gz2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ResponseBody a;
-    public final dz2 b;
-    public BufferedSource c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    /* loaded from: classes4.dex */
-    public class a extends ForwardingSource {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public final /* synthetic */ gz2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gz2 gz2Var, Source source) {
-            super(source);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gz2Var, source};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Source) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gz2Var;
-            this.a = 0L;
-        }
-
-        @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
-            InterceptResult invokeLJ;
-            long j2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
-                long read = super.read(buffer, j);
-                long j3 = this.a;
-                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
-                if (i != 0) {
-                    j2 = read;
-                } else {
-                    j2 = 0;
-                }
-                this.a = j3 + j2;
-                dz2 dz2Var = this.b.b;
-                long j4 = this.a;
-                long contentLength = this.b.a.contentLength();
-                if (i == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                dz2Var.a(j4, contentLength, z);
-                return read;
-            }
-            return invokeLJ.longValue;
-        }
-    }
-
-    public gz2(ResponseBody responseBody, dz2 dz2Var) {
+    public gz2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {responseBody, dz2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = responseBody;
-        this.b = dz2Var;
     }
 
-    public final Source c(Source source) {
-        InterceptResult invokeL;
+    @Nullable
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) {
-            return new a(this, source);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b(this);
         }
-        return (Source) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // okhttp3.ResponseBody
-    public long contentLength() {
+    @NonNull
+    public Object clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.contentLength();
+            return super.clone();
         }
-        return invokeV.longValue;
+        return invokeV.objValue;
     }
 
-    @Override // okhttp3.ResponseBody
-    public MediaType contentType() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.contentType();
+            return this.a;
         }
-        return (MediaType) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // okhttp3.ResponseBody
-    public BufferedSource source() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.c == null) {
-                this.c = Okio.buffer(c(this.a.source()));
-            }
-            return this.c;
+            return this.b;
         }
-        return (BufferedSource) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(gz2 gz2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gz2Var)) == null) {
+            if (gz2Var == null || TextUtils.isEmpty(gz2Var.a)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(gz2Var.b)) {
+                return gz2Var.a;
+            }
+            return gz2Var.a + "?" + gz2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(gz2 gz2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gz2Var)) == null) {
+            if (gz2Var == null || TextUtils.isEmpty(gz2Var.d)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(gz2Var.b)) {
+                return gz2Var.d;
+            }
+            return gz2Var.d + "?" + gz2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static gz2 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            gz2 gz2Var = new gz2();
+            gz2Var.a = ym3.f(str);
+            gz2Var.b = ym3.o(str);
+            gz2Var.c = str2;
+            gz2Var.d = yc3.b(gz2Var.a);
+            return gz2Var;
+        }
+        return (gz2) invokeLL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

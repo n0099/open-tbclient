@@ -2,7 +2,7 @@ package com.baidu.searchbox.retrieve.inter;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public interface IFetchTask {
     public static final String NAME = "report";
     public static final String NAME_SPACE = "FetchJob";

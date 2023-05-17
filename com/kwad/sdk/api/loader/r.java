@@ -13,12 +13,12 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class r {
     public static Map<String, Resources> SH = new HashMap();
     public static final Object b = new Object();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
@@ -33,7 +33,7 @@ public final class r {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
@@ -54,7 +54,7 @@ public final class r {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
@@ -75,7 +75,7 @@ public final class r {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class d {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
@@ -96,7 +96,7 @@ public final class r {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class e {
         public static Resources a(Resources resources, AssetManager assetManager) {
             try {
@@ -117,7 +117,7 @@ public final class r {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class f {
         public static Resources a(Context context, Resources resources, AssetManager assetManager) {
             try {

@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 import android.graphics.PointF;
 import android.opengl.Matrix;
 import android.text.TextUtils;
-import com.baidu.tieba.mla;
+import com.baidu.tieba.kna;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
@@ -16,7 +16,7 @@ import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnMediaPreviewTouchEventListener {
     public static final int STATUS_DELETE = 106;
     public static final int STATUS_EDIT = 105;
@@ -234,7 +234,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
 
     public void deleteCurrentStickerItem(a aVar, String str, boolean z) {
         int i;
-        if (aVar == null || mla.e(this.mStickerItems)) {
+        if (aVar == null || kna.e(this.mStickerItems)) {
             return;
         }
         if (TextUtils.equals(SubtitleLog.TAG, str)) {
@@ -242,7 +242,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         } else {
             i = this.mStickerItems.indexOf(aVar);
             this.mStickerItems.remove(aVar);
-            if (!mla.e(this.mVisibleStickerItems)) {
+            if (!kna.e(this.mVisibleStickerItems)) {
                 this.mVisibleStickerItems.remove(aVar);
             }
         }

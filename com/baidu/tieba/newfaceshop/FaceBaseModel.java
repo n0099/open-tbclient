@@ -4,17 +4,17 @@ import android.os.Handler;
 import android.os.Looper;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public abstract class FaceBaseModel extends BdBaseModel {
     public void sendMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (ii.E()) {
+            if (ri.E()) {
                 super.sendMessage(message);
             } else {
                 new Handler(Looper.getMainLooper()).post(new a(this, message));

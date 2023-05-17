@@ -11,7 +11,7 @@ import com.kwad.sdk.core.download.DownloadParams;
 import com.kwad.sdk.export.proxy.AdDownloadProxy;
 import com.kwad.sdk.utils.ab;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements AdDownloadProxy {
     public final boolean Xo;
 

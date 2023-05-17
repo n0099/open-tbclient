@@ -2,7 +2,7 @@ package com.baidu.pass.face.platform;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class FaceEnvironment {
     public static final String OS = "android";
     public static final String SDK_SEC_DECOUPLING_VERSION = "4.1.1";

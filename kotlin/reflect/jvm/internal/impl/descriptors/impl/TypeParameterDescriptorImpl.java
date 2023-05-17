@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.ui.animview.base.IResourceProvider;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.functions.Function1;
@@ -15,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.KotlinTypeKt;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class TypeParameterDescriptorImpl extends AbstractTypeParameterDescriptor {
     public boolean initialized;
     public final Function1<KotlinType, Void> reportCycleError;
@@ -71,7 +72,7 @@ public class TypeParameterDescriptorImpl extends AbstractTypeParameterDescriptor
                 objArr[0] = "supertypeLoopsChecker";
                 break;
             case 26:
-                objArr[0] = "bound";
+                objArr[0] = IResourceProvider.PraiseLevelConfig.JSON_KEY_BOUND;
                 break;
             case 27:
                 objArr[0] = "type";
@@ -280,7 +281,7 @@ public class TypeParameterDescriptorImpl extends AbstractTypeParameterDescriptor
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.impl.AbstractTypeParameterDescriptor
     /* renamed from: reportSupertypeLoopError */
-    public void mo2028reportSupertypeLoopError(KotlinType kotlinType) {
+    public void mo2047reportSupertypeLoopError(KotlinType kotlinType) {
         if (kotlinType == null) {
             $$$reportNull$$$0(27);
         }

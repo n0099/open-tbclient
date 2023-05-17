@@ -4,7 +4,7 @@ import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractExpandedDecoder {
     public final GeneralAppIdDecoder generalDecoder;
     public final BitArray information;

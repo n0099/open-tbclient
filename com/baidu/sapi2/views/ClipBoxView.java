@@ -16,7 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClipBoxView extends View {
     public static int G = 0;
     public static int H = 1;
@@ -70,7 +70,7 @@ public class ClipBoxView extends View {
     public float y;
     public float z;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }

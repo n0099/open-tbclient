@@ -7,13 +7,13 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WavHeaderReader {
     public static final String TAG = "WavHeaderReader";
     public static final int TYPE_PCM = 1;
     public static final int TYPE_WAVE_FORMAT_EXTENSIBLE = 65534;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ChunkHeader {
         public static final int SIZE_IN_BYTES = 8;
         public final int id;

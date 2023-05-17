@@ -8,7 +8,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HttpSendController {
     public File cacheDir;
     public int delayStep;

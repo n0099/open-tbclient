@@ -1,100 +1,120 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.baidu.tieba.d41;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class a51 extends c51 {
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes4.dex */
+public class a51 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
-
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ int d;
-
-        public a(String[] strArr, Activity activity, b bVar, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566060, "Lcom/baidu/tieba/a51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = bVar;
-            this.d = i;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947566060, "Lcom/baidu/tieba/a51;");
+                return;
+            }
         }
+        a = TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        b = TimeUnit.MINUTES.toMillis(1L);
+        TimeUnit.SECONDS.toMillis(1L);
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
+    public static int a(@NonNull String str, @NonNull String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
+            String b2 = b(str, str2);
+            if (TextUtils.isEmpty(b2)) {
+                return i;
             }
+            try {
+                return Integer.parseInt(b2);
+            } catch (NumberFormatException unused) {
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static void e(@NonNull String str, @NonNull String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
+            f(str, str2, String.valueOf(i));
         }
     }
 
-    public static boolean b(Activity activity, String str) {
+    @Nullable
+    public static String b(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
-            if (d41.b.d() && b51.a(activity, str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            String string = b21.a().b(str).getString(str2, null);
+            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
+                return null;
+            }
+            return string.substring(indexOf + 1);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean c(long j, long j2, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
+            if (j - j2 > i * b) {
                 return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (d41.b.d()) {
-                b51.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                requestPermissions(activity, strArr, i, (b) activity);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            SharedPreferences.Editor edit = b21.a().b(str).edit();
+            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
+            edit.apply();
         }
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
+    public static boolean d(@Nullable String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
-            if (d41.b.d()) {
-                b51.requestPermissions(activity, strArr, i);
-            } else if (!activity.isFinishing() && bVar != null) {
-                aj0.b(new a(strArr, activity, bVar, i));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
+            long j2 = 0;
+            try {
+                j2 = Long.parseLong(str);
+            } catch (NumberFormatException unused) {
+            }
+            long j3 = a;
+            if (j2 / j3 != j / j3) {
+                return false;
+            }
+            return true;
         }
+        return invokeLJ.booleanValue;
     }
 }

@@ -2,14 +2,14 @@ package kotlin.reflect.jvm.internal.pcollections;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ConsPStack<E> implements Iterable<E> {
     public static final ConsPStack<Object> EMPTY = new ConsPStack<>();
     public final E first;
     public final ConsPStack<E> rest;
     public final int size;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Itr<E> implements Iterator<E> {
         public ConsPStack<E> next;
 

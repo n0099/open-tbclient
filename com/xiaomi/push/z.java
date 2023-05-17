@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class z implements FileFilter {
     @Override // java.io.FileFilter
     public boolean accept(File file) {

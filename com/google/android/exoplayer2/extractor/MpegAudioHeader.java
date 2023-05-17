@@ -8,7 +8,7 @@ import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MpegAudioHeader {
     public static final int MAX_FRAME_SIZE_BYTES = 4096;
     public int bitrate;

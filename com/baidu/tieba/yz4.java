@@ -6,15 +6,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RewardMaterial;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class yz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
+    public int a;
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
+    }
 
     public yz4() {
         Interceptable interceptable = $ic;
@@ -30,66 +38,19 @@ public class yz4 {
         }
     }
 
-    public String a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static yz4 e(RewardMaterial rewardMaterial) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
-            if (rewardMaterial == null) {
-                return null;
-            }
-            yz4 yz4Var = new yz4();
-            yz4Var.a = rewardMaterial.icon;
-            yz4Var.b = rewardMaterial.unlock_level;
-            boolean z2 = false;
-            if (rewardMaterial.is_matched.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            yz4Var.c = z;
-            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
-                z2 = true;
-            }
-            yz4Var.d = z2;
-            return yz4Var;
-        }
-        return (yz4) invokeL.objValue;
     }
 }

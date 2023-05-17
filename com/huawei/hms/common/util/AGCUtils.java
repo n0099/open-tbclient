@@ -5,8 +5,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.fza;
-import com.baidu.tieba.hza;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tieba.d1b;
+import com.baidu.tieba.f1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import com.huawei.hms.utils.IOUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AGCUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +52,7 @@ public class AGCUtils {
                 ApplicationInfo applicationInfo = packageManager.getPackageInfo(context.getPackageName(), 128).applicationInfo;
                 if (applicationInfo != null && applicationInfo.metaData != null && (obj = applicationInfo.metaData.get(Constants.HUAWEI_HMS_CLIENT_APPID)) != null) {
                     String valueOf = String.valueOf(obj);
-                    if (valueOf.startsWith("appid=")) {
+                    if (valueOf.startsWith(AccountConstants.PROFESSION_APPROVE_URL_APPID)) {
                         return valueOf.substring(6);
                     }
                     return valueOf;
@@ -110,9 +111,9 @@ public class AGCUtils {
             }
             String str = null;
             try {
-                fza b = fza.b();
+                d1b b = d1b.b();
                 if (b.getContext() != context) {
-                    b = fza.a(new hza().a(context));
+                    b = d1b.a(new f1b().a(context));
                 }
                 str = b.c().a("client/cp_id");
             } catch (NullPointerException unused) {
@@ -143,10 +144,10 @@ public class AGCUtils {
             InputStream inputStream = null;
             try {
                 try {
-                    hza hzaVar = new hza();
+                    f1b f1bVar = new f1b();
                     inputStream = context.getResources().getAssets().open("agconnect-services.json");
-                    hzaVar.b(inputStream);
-                    str2 = hzaVar.a(context).a(str);
+                    f1bVar.b(inputStream);
+                    str2 = f1bVar.a(context).a(str);
                 } catch (IOException e) {
                     HMSLog.e("AGCUtils", "Get " + str + " failed: " + e);
                     str2 = "";
@@ -197,9 +198,9 @@ public class AGCUtils {
                 str = null;
             }
             try {
-                fza b = fza.b();
+                d1b b = d1b.b();
                 if (b.getContext() != context) {
-                    b = fza.a(new hza().a(context));
+                    b = d1b.a(new f1b().a(context));
                 }
                 str = b.c().a("client/app_id");
             } catch (NullPointerException unused) {

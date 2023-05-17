@@ -15,7 +15,7 @@ import com.baidu.sapi2.utils.Log;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressPresenter extends BasePresenter<IBaseView> {
     public static final int DEL_ADDR_CODE = 1002;
     public static final int GET_ADDR_LIST_CODE = 1000;

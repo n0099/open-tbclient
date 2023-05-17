@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cn implements Runnable {
     public final /* synthetic */ XMPushService a;
 
@@ -19,7 +19,7 @@ public class cn implements Runnable {
                 packageManager.setComponentEnabledSetting(componentName, 2, 1);
             }
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("[Alarm] disable ping receiver may be failure. " + th);
+            com.xiaomi.channel.commonutils.logger.b.m120a("[Alarm] disable ping receiver may be failure. " + th);
         }
     }
 }

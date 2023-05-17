@@ -14,7 +14,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.AnimationDrawable;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends AnimationDrawable {
     public Bitmap AE;
     public Bitmap AF;
@@ -85,12 +85,12 @@ public final class c extends AnimationDrawable {
         float f2;
         Matrix matrix;
         float f3;
-        this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080d1d);
-        this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080d1f);
-        this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080d1e);
-        this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080d21);
-        this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080d20);
-        Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080d26);
+        this.AE = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080e4d);
+        this.AF = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080e4f);
+        this.AG = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080e4e);
+        this.AH = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080e51);
+        this.AI = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080e50);
+        Bitmap decodeResource = BitmapFactory.decodeResource(this.mContext.getResources(), R.drawable.obfuscated_res_0x7f080e56);
         int i = this.Bc;
         if (i != 0) {
             if (i == 1) {
@@ -109,16 +109,16 @@ public final class c extends AnimationDrawable {
         this.AU = new Paint(1);
         int i2 = this.Bc;
         if (i2 == 0) {
-            this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
-            int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
+            this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07053f);
+            int dimension = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070540);
             this.AV = dimension;
             this.AR = (-this.AQ) * 0.22f;
             f = dimension;
             f2 = 0.08f;
         } else if (i2 != 1) {
             if (i2 == 2) {
-                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
-                this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
+                this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070540);
+                this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07053f);
                 this.AR = this.AW * 0.09f;
                 f = -this.AP;
                 f2 = 0.5f;
@@ -145,8 +145,8 @@ public final class c extends AnimationDrawable {
             });
             this.AX.setRepeatCount(-1);
         } else {
-            this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fd);
-            this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703fc);
+            this.AW = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070540);
+            this.AV = (int) this.mContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07053f);
             this.AR = this.AW * 0.09f;
             f = -this.AP;
             f2 = 0.2f;

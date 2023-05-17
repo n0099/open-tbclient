@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static Object c;
@@ -35,7 +35,7 @@ public class l {
     public String h;
     public int i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends com.baidu.location.e.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

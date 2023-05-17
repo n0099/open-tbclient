@@ -1,61 +1,68 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class h42 extends e32 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class h42 extends d42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
+    public List<m22> k;
+    public v22 l;
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h42() {
-        super("input", "viewId");
+    public h42(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.k = new ArrayList();
+        v22 v22Var = new v22(str);
+        this.l = v22Var;
+        this.k.add(v22Var);
     }
 
-    @Override // com.baidu.tieba.e32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
-    public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l.c();
         }
-        super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new dy2();
+        return invokeV.intValue;
+    }
+
+    public List<m22> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
-        }
-        this.N = z2;
+        return (List) invokeV.objValue;
     }
 }

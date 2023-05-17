@@ -1,142 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.ContentValues;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ij2 {
+import java.util.Map;
+/* loaded from: classes6.dex */
+public class ij2 extends hj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static ij2 d;
-    public static ij2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
+    @Nullable
+    public ContentValues d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947855352, "Lcom/baidu/tieba/ij2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947855352, "Lcom/baidu/tieba/ij2;");
-                return;
-            }
-        }
-        c = ho1.a;
-    }
-
-    public ij2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ij2(@NonNull ContentValues contentValues) {
+        super("lifecycle", null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contentValues};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = contentValues;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ij2(@Nullable Map<String, String> map) {
+        super("lifecycle", map);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @NonNull
-    public static ij2 a(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hj2, com.baidu.tieba.gj2
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (d == null) {
-                d = d(e(str));
-            }
-            return d;
-        }
-        return (ij2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static ij2 b(@NonNull gj2 gj2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gj2Var)) == null) {
-            if (gj2Var.c() == 1) {
-                return c(gj2Var.d());
-            }
-            return a(gj2Var.d());
-        }
-        return (ij2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static ij2 c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (e == null) {
-                e = d(e(str));
-            }
-            return e;
-        }
-        return (ij2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static ij2 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            ij2 ij2Var = new ij2();
-            if (jSONObject != null) {
-                ij2Var.a = jSONObject.optString("extension-core-version-name");
-                ij2Var.b = jSONObject.optLong("extension-core-version-code");
-            }
-            return ij2Var;
-        }
-        return (ij2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static JSONObject e(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
-            }
-            String D = bo4.D(AppRuntime.getAppContext(), str);
-            if (TextUtils.isEmpty(D)) {
-                if (c) {
-                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("cuid", ns2.h0().i(ns2.c()));
+            map.put("mtjCuid", ns2.h0().i(ns2.c()));
+            ContentValues contentValues = this.d;
+            if (contentValues != null) {
+                for (String str : contentValues.keySet()) {
+                    Object obj = this.d.get(str);
+                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                        map.put(str, String.valueOf(obj));
+                    } else {
+                        map.put(str, obj);
+                    }
                 }
-                return null;
+                return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(D);
-                if (c) {
-                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
-                }
-                return jSONObject;
-            } catch (JSONException e2) {
-                if (!c) {
-                    return null;
-                }
-                throw new RuntimeException(e2);
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
             }
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

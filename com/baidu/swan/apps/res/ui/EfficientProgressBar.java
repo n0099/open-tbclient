@@ -13,7 +13,7 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.Transformation;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EfficientProgressBar extends View {
     public int a;
     public int b;

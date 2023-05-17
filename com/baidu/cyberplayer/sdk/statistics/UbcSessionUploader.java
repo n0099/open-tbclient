@@ -3,7 +3,7 @@ package com.baidu.cyberplayer.sdk.statistics;
 import com.baidu.cyberplayer.sdk.Keep;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class UbcSessionUploader {
     @Keep
     public static final int PLAY_SESSION_STAGE_TYPE_UBC_LIVE = -1002;

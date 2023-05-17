@@ -12,7 +12,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoUtils {
     public static String a;
     public static String b;

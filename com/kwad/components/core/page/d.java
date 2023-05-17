@@ -13,7 +13,7 @@ import com.google.android.gms.common.internal.BaseGmsClient;
 import com.google.protobuf.CodedInputStream;
 import com.kwad.sdk.utils.ah;
 import com.kwad.sdk.utils.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class d extends com.kwad.components.core.i.b {
     public boolean Ga;
 
@@ -32,15 +32,15 @@ public class d extends com.kwad.components.core.i.b {
 
     private void nJ() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.obfuscated_res_0x7f0f0a92);
-        builder.setMessage(R.string.obfuscated_res_0x7f0f0a8f);
-        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f0a90, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.1
+        builder.setTitle(R.string.obfuscated_res_0x7f0f0b0c);
+        builder.setMessage(R.string.obfuscated_res_0x7f0f0b09);
+        builder.setNegativeButton(R.string.obfuscated_res_0x7f0f0b0a, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.1
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
                 d.this.finish();
             }
         });
-        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f0a91, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.2
+        builder.setPositiveButton(R.string.obfuscated_res_0x7f0f0b0b, new DialogInterface.OnClickListener() { // from class: com.kwad.components.core.page.d.2
             @Override // android.content.DialogInterface.OnClickListener
             public final void onClick(DialogInterface dialogInterface, int i) {
                 d.this.nK();

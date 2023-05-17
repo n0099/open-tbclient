@@ -14,7 +14,7 @@ import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import org.aspectj.runtime.reflect.SignatureImpl;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class o implements IIdProvider {
     public static /* synthetic */ Interceptable $ic;
     @Keep
@@ -30,7 +30,7 @@ public abstract class o implements IIdProvider {
     public boolean d;
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public abstract class o implements IIdProvider {
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

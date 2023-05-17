@@ -6,7 +6,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import com.tencent.open.log.SLog;
 import com.tencent.open.web.security.SecureJsInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c extends b {
     public static boolean a;
     public KeyEvent b;

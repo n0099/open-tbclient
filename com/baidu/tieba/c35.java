@@ -1,131 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.collections.SetsKt___SetsKt;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public final class c35 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes5.dex */
+public class c35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, String> a;
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e6, code lost:
-        if (d(r3, r4) == true) goto L39;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
-        DialogStrategiesData.StrategiesConfigData strategiesConfigData;
-        Object obj;
-        Object obj2;
+    public c35() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                arrayList.add(dialogStrategiesData.getDialogName());
-            }
-            Set set = CollectionsKt___CollectionsKt.toSet(arrayList);
-            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
-            for (DialogStrategiesData dialogStrategiesData2 : list2) {
-                arrayList2.add(dialogStrategiesData2.getDialogName());
-            }
-            for (String name : SetsKt___SetsKt.plus(set, (Iterable) CollectionsKt___CollectionsKt.toSet(arrayList2))) {
-                Iterator<T> it = list.iterator();
-                while (true) {
-                    strategiesConfigData = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), name)) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData3 = (DialogStrategiesData) obj;
-                Iterator<T> it2 = list2.iterator();
-                while (true) {
-                    if (it2.hasNext()) {
-                        obj2 = it2.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj2).getDialogName(), name)) {
-                            break;
-                        }
-                    } else {
-                        obj2 = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData4 = (DialogStrategiesData) obj2;
-                if (dialogStrategiesData3 == null || dialogStrategiesData4 == null) {
-                    YunDialogLog.getInstance().c("YunDialogManager", "本地或远程没有弹窗 " + name + " ，准备重置频次");
-                    a35 a35Var = a35.a;
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    a35Var.b(name);
-                }
-                boolean z = true;
-                if (dialogStrategiesData3 != null && (r3 = c(dialogStrategiesData3, "FREQUENCE_STRATEGY")) != null) {
-                    if (dialogStrategiesData4 != null) {
-                        strategiesConfigData = c(dialogStrategiesData4, "FREQUENCE_STRATEGY");
-                    }
-                }
-                z = false;
-                if (z) {
-                    YunDialogLog.getInstance().c("YunDialogManager", "云弹窗 " + name + " 频次配置更新，准备重置频次");
-                    a35 a35Var2 = a35.a;
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    a35Var2.b(name);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayMap();
     }
 
-    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
+    @NonNull
+    public static c35 b(@NonNull String str, @NonNull String str2) {
         InterceptResult invokeLL;
-        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
-            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
-            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
-            Iterator<T> it = dialogStrategy.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    obj = it.next();
-                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
-                        break;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            c35 c35Var = new c35();
+            if (!str2.startsWith("http") && !str2.startsWith("https")) {
+                if (str2.startsWith("dialoginternal://")) {
+                    Uri parse = Uri.parse(str2);
+                    for (String str3 : parse.getQueryParameterNames()) {
+                        String queryParameter = parse.getQueryParameter(str3);
+                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
+                            c35Var.a.put(str3, queryParameter);
+                        }
                     }
-                } else {
-                    obj = null;
-                    break;
+                    c35Var.a.put("yun_dialogClass", parse.getAuthority());
+                    c35Var.a.put("yun_dialogName", str);
+                    c35Var.a.put("yun_dialogUrl", str2);
                 }
+            } else {
+                c35Var.a.put("yun_dialogClass", "WebViewYunDialog");
+                c35Var.a.put("yun_dialogName", str);
+                c35Var.a.put("yun_dialogUrl", str2);
             }
-            return (DialogStrategiesData.StrategiesConfigData) obj;
+            return c35Var;
         }
-        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
+        return (c35) invokeLL.objValue;
     }
 
-    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
-        InterceptResult invokeLL;
+    public String a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
-            if (strategiesConfigData2 != null) {
-                if (!Intrinsics.areEqual(strategiesConfigData.W().get("startTimestamp"), strategiesConfigData2.W().get("startTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.W().get("endTimestamp"), strategiesConfigData2.W().get("endTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.W().get("frequence"), strategiesConfigData2.W().get("frequence"))) {
-                    return true;
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.a.get(str);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

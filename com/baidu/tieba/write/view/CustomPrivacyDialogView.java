@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f65;
+import com.baidu.tieba.o75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class CustomPrivacyDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,18 +99,18 @@ public class CustomPrivacyDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0220, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091c1a);
-            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090805);
-            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090806);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0232, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091c6e);
+            this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090822);
+            this.c = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090823);
             this.b.setTextSize(R.dimen.tbds34);
-            f65 f65Var = new f65();
-            f65Var.s(R.color.CAM_X0105);
-            this.b.setConfig(f65Var);
+            o75 o75Var = new o75();
+            o75Var.s(R.color.CAM_X0105);
+            this.b.setConfig(o75Var);
             this.c.setTextSize(R.dimen.tbds34);
-            f65 f65Var2 = new f65();
-            f65Var2.q(R.color.CAM_X0302);
-            this.c.setConfig(f65Var2);
+            o75 o75Var2 = new o75();
+            o75Var2.q(R.color.CAM_X0302);
+            this.c.setConfig(o75Var2);
         }
     }
 

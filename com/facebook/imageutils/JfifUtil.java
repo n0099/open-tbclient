@@ -6,7 +6,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class JfifUtil {
     public static final int APP1_EXIF_MAGIC = 1165519206;
     public static final int MARKER_APP1 = 225;

@@ -22,9 +22,9 @@ import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eoa;
+import com.baidu.tieba.cqa;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.tieba.wna;
+import com.baidu.tieba.upa;
 import com.baidu.yalog.Logger;
 import com.baidu.yalog.LoggerManager;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -32,7 +32,7 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DebugYaLogActivity extends Activity {
     public Button mBtnActiveReUpload;
     public Button mBtnActiveSnapReUpload;
@@ -118,7 +118,7 @@ public class DebugYaLogActivity extends Activity {
     public TextView mVoyagerSwitchIntro;
 
     /* renamed from: com.baidu.searchbox.retrieve.debug.provider.DebugYaLogActivity$15  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass15 implements View.OnClickListener {
         public AnonymousClass15() {
         }
@@ -183,7 +183,7 @@ public class DebugYaLogActivity extends Activity {
     }
 
     /* renamed from: com.baidu.searchbox.retrieve.debug.provider.DebugYaLogActivity$17  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass17 implements View.OnClickListener {
         public AnonymousClass17() {
         }
@@ -680,9 +680,9 @@ public class DebugYaLogActivity extends Activity {
             if (jSONObject2.length() > 0) {
                 jSONObject.put("set", jSONObject2);
             }
-            eoa eoaVar = (eoa) ServiceManager.getService(eoa.a);
-            if (eoaVar != null) {
-                eoaVar.a(jSONObject);
+            cqa cqaVar = (cqa) ServiceManager.getService(cqa.a);
+            if (cqaVar != null) {
+                cqaVar.a(jSONObject);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -838,9 +838,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject4.put("only_wifi", str2);
             jSONObject2.put(str20, jSONObject4);
             jSONObject.put("set", jSONObject2);
-            wna wnaVar = (wna) ServiceManager.getService(wna.a);
-            if (wnaVar != null) {
-                wnaVar.d(jSONObject);
+            upa upaVar = (upa) ServiceManager.getService(upa.a);
+            if (upaVar != null) {
+                upaVar.d(jSONObject);
                 Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
             } else {
                 Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -907,9 +907,9 @@ public class DebugYaLogActivity extends Activity {
                 Toast.makeText(this, "无id配置", 0).show();
                 return;
             }
-            eoa eoaVar = (eoa) ServiceManager.getService(eoa.a);
-            if (eoaVar != null) {
-                eoaVar.b(jSONObject, true);
+            cqa cqaVar = (cqa) ServiceManager.getService(cqa.a);
+            if (cqaVar != null) {
+                cqaVar.b(jSONObject, true);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }

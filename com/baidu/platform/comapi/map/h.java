@@ -39,7 +39,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends TextureView implements TextureView.SurfaceTextureListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEBUG_CHECK_GL_ERROR = 1;
@@ -68,7 +68,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public abstract class a implements GLSurfaceView.EGLConfigChooser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,7 +220,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -275,7 +275,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d implements GLSurfaceView.EGLWindowSurfaceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +322,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -478,14 +478,14 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                     }
                     if ((hVar.l & 3) != 0) {
                         int i = 0;
-                        C0127h c0127h = null;
+                        C0131h c0131h = null;
                         if ((hVar.l & 1) != 0) {
                             i = 1;
                         }
                         if ((hVar.l & 2) != 0) {
-                            c0127h = new C0127h();
+                            c0131h = new C0131h();
                         }
-                        return GLDebugHelper.wrap(gl, i, c0127h);
+                        return GLDebugHelper.wrap(gl, i, c0131h);
                     }
                     return gl;
                 }
@@ -534,7 +534,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class f extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1107,7 +1107,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class g {
         public static /* synthetic */ Interceptable $ic = null;
         public static String a = "GLThreadManager";
@@ -1287,13 +1287,13 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
     }
 
     /* renamed from: com.baidu.platform.comapi.map.h$h  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0127h extends Writer {
+    /* loaded from: classes3.dex */
+    public static class C0131h extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public StringBuilder a;
 
-        public C0127h() {
+        public C0131h() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1349,7 +1349,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class i extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

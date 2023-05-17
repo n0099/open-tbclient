@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.h7b;
-import com.baidu.tieba.i7b;
-import com.baidu.tieba.j7b;
-import com.baidu.tieba.m5b;
-import com.baidu.tieba.m7b;
-import com.baidu.tieba.o7b;
-import com.baidu.tieba.s9b;
-import com.baidu.tieba.v9b;
-import com.baidu.tieba.w9b;
+import com.baidu.tieba.g9b;
+import com.baidu.tieba.h9b;
+import com.baidu.tieba.i9b;
+import com.baidu.tieba.k7b;
+import com.baidu.tieba.l9b;
+import com.baidu.tieba.n9b;
+import com.baidu.tieba.rbb;
+import com.baidu.tieba.ubb;
+import com.baidu.tieba.vbb;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final m5b a;
-    public final m5b b;
-    public final m5b c;
+    public final k7b a;
+    public final k7b b;
+    public final k7b c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static m5b computation() {
-        return s9b.f(a().a);
+    public static k7b computation() {
+        return rbb.f(a().a);
     }
 
-    public static m5b immediate() {
-        return j7b.a;
+    public static k7b immediate() {
+        return i9b.a;
     }
 
-    public static m5b io() {
-        return s9b.k(a().b);
+    public static k7b io() {
+        return rbb.k(a().b);
     }
 
-    public static m5b newThread() {
-        return s9b.l(a().c);
+    public static k7b newThread() {
+        return rbb.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            i7b.d.shutdown();
+            h9b.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            i7b.d.start();
+            h9b.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static m5b trampoline() {
-        return o7b.a;
+    public static k7b trampoline() {
+        return n9b.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof m7b) {
-            ((m7b) this.a).shutdown();
+        if (this.a instanceof l9b) {
+            ((l9b) this.a).shutdown();
         }
-        if (this.b instanceof m7b) {
-            ((m7b) this.b).shutdown();
+        if (this.b instanceof l9b) {
+            ((l9b) this.b).shutdown();
         }
-        if (this.c instanceof m7b) {
-            ((m7b) this.c).shutdown();
+        if (this.c instanceof l9b) {
+            ((l9b) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof m7b) {
-            ((m7b) this.a).start();
+        if (this.a instanceof l9b) {
+            ((l9b) this.a).start();
         }
-        if (this.b instanceof m7b) {
-            ((m7b) this.b).start();
+        if (this.b instanceof l9b) {
+            ((l9b) this.b).start();
         }
-        if (this.c instanceof m7b) {
-            ((m7b) this.c).start();
+        if (this.c instanceof l9b) {
+            ((l9b) this.c).start();
         }
     }
 
     public Schedulers() {
-        w9b f = v9b.c().f();
-        m5b g = f.g();
+        vbb f = ubb.c().f();
+        k7b g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = w9b.a();
+            this.a = vbb.a();
         }
-        m5b i = f.i();
+        k7b i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = w9b.c();
+            this.b = vbb.c();
         }
-        m5b j = f.j();
+        k7b j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = w9b.e();
+            this.c = vbb.e();
         }
     }
 
-    public static m5b from(Executor executor) {
-        return new h7b(executor);
+    public static k7b from(Executor executor) {
+        return new g9b(executor);
     }
 }

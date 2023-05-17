@@ -14,7 +14,7 @@ import com.huawei.hms.support.api.entity.core.JosStatusCodes;
 import com.vivo.push.q;
 import com.vivo.push.util.u;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

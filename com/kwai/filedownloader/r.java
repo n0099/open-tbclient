@@ -15,7 +15,7 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public static final Object atE;
@@ -24,7 +24,7 @@ public class r {
     public w atF;
     public volatile v atH;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final r atI;
@@ -115,13 +115,13 @@ public class r {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
-            List<a.InterfaceC0647a> bU = h.CG().bU(i);
+            List<a.InterfaceC0661a> bU = h.CG().bU(i);
             if (bU.isEmpty()) {
                 com.kwai.filedownloader.e.d.f(this, "request pause but not exist %d", Integer.valueOf(i));
                 return 0;
             }
-            for (a.InterfaceC0647a interfaceC0647a : bU) {
-                interfaceC0647a.Ci().pause();
+            for (a.InterfaceC0661a interfaceC0661a : bU) {
+                interfaceC0661a.Ci().pause();
             }
             return bU.size();
         }

@@ -1,257 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.ui.SelectorTextView;
-import com.baidu.tieba.b73;
-import com.baidu.tieba.v63;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class r72 extends v63 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class r72 extends ie3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public View k;
-    public TextView l;
-    public SelectorTextView m;
-    public c n;
+    public CookieManager a;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r72 a;
-
-        public a(r72 r72Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948074460, "Lcom/baidu/tieba/r72;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = r72Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n.k != null) {
-                this.a.n.k.a(view2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r72 a;
-
-        public b(r72 r72Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r72Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r72Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.n.j != null) {
-                this.a.n.j.a(view2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends v63.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int g;
-        public int h;
-        public int i;
-        public v63.c j;
-        public v63.c k;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.b73.a
-        public /* bridge */ /* synthetic */ b73.a U(int i) {
-            g0(i);
-            return this;
-        }
-
-        public c e0(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.g = i;
-                return this;
-            }
-            return (c) invokeI.objValue;
-        }
-
-        public c g0(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                super.U(i);
-                return this;
-            }
-            return (c) invokeI.objValue;
-        }
-
-        @Override // com.baidu.tieba.b73.a
-        public b73 h(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-                return new r72(context);
-            }
-            return (b73) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.b73.a
-        public /* bridge */ /* synthetic */ b73.a v(int i) {
-            e0(i);
-            return this;
-        }
-
-        @Override // com.baidu.tieba.v63.b, com.baidu.tieba.b73.a
-        public b73 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                r72 r72Var = (r72) super.c();
-                r72Var.r(this);
-                return r72Var;
-            }
-            return (b73) invokeV.objValue;
-        }
-
-        public c f0(int i, v63.c cVar) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, cVar)) == null) {
-                this.g = i;
-                this.k = cVar;
-                return this;
-            }
-            return (c) invokeIL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r72(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948074460, "Lcom/baidu/tieba/r72;");
                 return;
             }
         }
+        b = qp1.a;
     }
 
-    public void r(c cVar) {
+    public r72() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.n = cVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = null;
+        this.a = new s72();
     }
 
-    @Override // com.baidu.tieba.v63
-    public View k(ViewGroup viewGroup) {
+    public final Bundle a(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", i);
+            bundle.putString("param1", str);
+            bundle.putString("param2", str2);
+            return bundle;
+        }
+        return (Bundle) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.ie3, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00cf, viewGroup, false);
-            this.k = inflate;
-            TextView textView = (TextView) inflate.findViewById(R.id.safe_dialog_content);
-            this.l = textView;
-            textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060340));
-            SelectorTextView selectorTextView = (SelectorTextView) this.k.findViewById(R.id.safe_dialog_sub_content);
-            this.m = selectorTextView;
-            selectorTextView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06033f));
-            q();
-            return this.k;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.getCookie(str);
+            }
+            v53 c = t53.c(q72.class, a(str, "", 4));
+            if (!c.a()) {
+                return "";
+            }
+            String string = c.a.getString("result");
+            if (b) {
+                Log.d("DelegationCookieManager", "getCookie cookie : " + string);
+            }
+            return string;
         }
-        return (View) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void q() {
-        c cVar;
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (cVar = this.n) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.shouldAcceptCookie(str, str2);
+            }
+            v53 c = t53.c(q72.class, a(str, str2, 1));
+            if (!c.a()) {
+                return false;
+            }
+            return c.a.getBoolean("result");
         }
-        this.l.setText(this.g.getText(cVar.g));
-        this.l.setOnClickListener(new a(this));
-        if (this.n.h > 0) {
-            this.m.setVisibility(0);
-            this.m.setText(this.g.getText(this.n.h));
-            this.m.setOnClickListener(new b(this));
-        } else {
-            this.m.setVisibility(8);
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                return this.a.shouldSendCookie(str, str2);
+            }
+            v53 c = t53.c(q72.class, a(str, str2, 2));
+            if (!c.a()) {
+                return false;
+            }
+            return c.a.getBoolean("result");
         }
-        if (this.n.i > 0) {
-            Drawable drawable = this.g.getResources().getDrawable(this.n.i);
-            cl3.b(getContext(), drawable);
-            drawable.setBounds(0, 0, ol3.f(this.g, 12.0f), ol3.f(this.g, 12.0f));
-            this.m.setCompoundDrawables(drawable, null, null, null);
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (ProcessUtils.isMainProcess()) {
+                this.a.storeCookie(str, list);
+                return;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putInt("type", 3);
+            bundle.putString("param1", str);
+            bundle.putStringArrayList("param2", (ArrayList) list);
+            t53.c(q72.class, bundle);
+            if (b) {
+                Log.d("DelegationCookieManager", "set cookies for " + str);
+            }
         }
     }
 }

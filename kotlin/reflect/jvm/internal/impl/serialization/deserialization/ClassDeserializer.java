@@ -22,14 +22,14 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.ClassDeserializer;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedClassDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ClassDeserializer {
     public final Function1<ClassKey, ClassDescriptor> classes;
     public final DeserializationComponents components;
     public static final Companion Companion = new Companion(null);
     public static final Set<ClassId> BLACK_LIST = SetsKt__SetsJVMKt.setOf(ClassId.topLevel(KotlinBuiltIns.FQ_NAMES.cloneable.toSafe()));
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ClassKey {
         public final ClassData classData;
         public final ClassId classId;
@@ -59,7 +59,7 @@ public final class ClassDeserializer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

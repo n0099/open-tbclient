@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BaseDefaultStatisLogWriter implements IBaseStatisLogWriter {
     public static final int DEFAULT_LEN = 4194304;
     public static final int MAX_LOG_SIZE = 33554432;

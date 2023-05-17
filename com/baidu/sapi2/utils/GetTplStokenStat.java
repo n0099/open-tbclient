@@ -6,7 +6,8 @@ import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.httpwrap.HttpClientWrap;
 import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+/* loaded from: classes3.dex */
 public class GetTplStokenStat implements NoProguard {
     public static final String AUTO_STATISTIC = "auto_statistic";
     public static final String KEY_GET_STOKEN = "key_get_stoken";
@@ -30,7 +31,7 @@ public class GetTplStokenStat implements NoProguard {
         HttpHashMapWrap httpHashMapWrap = new HttpHashMapWrap();
         httpHashMapWrap.put("auto_statistic", Base64.encodeToString(getEventTypeBase64Value(KEY_GET_STOKEN).getBytes(), 0));
         httpHashMapWrap.put("source", "native");
-        httpHashMapWrap.put("data_source", "client");
+        httpHashMapWrap.put("data_source", CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT);
         httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
         httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
         httpHashMapWrap.put(KEY_GET_STOKEN_RESULT_CODE, str2);

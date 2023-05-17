@@ -23,6 +23,7 @@ import androidx.constraintlayout.solver.widgets.ConstraintWidgetContainer;
 import androidx.constraintlayout.solver.widgets.Optimizer;
 import androidx.constraintlayout.solver.widgets.analyzer.BasicMeasure;
 import androidx.exifinterface.media.ExifInterface;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -676,7 +677,7 @@ public class ConstraintLayout extends ViewGroup {
                                         String substring = this.dimensionRatio.substring(0, indexOf);
                                         if (substring.equalsIgnoreCase(ExifInterface.LONGITUDE_WEST)) {
                                             this.dimensionRatioSide = 0;
-                                        } else if (substring.equalsIgnoreCase("H")) {
+                                        } else if (substring.equalsIgnoreCase(IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
                                             this.dimensionRatioSide = 1;
                                         }
                                         i = indexOf + 1;

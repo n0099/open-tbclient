@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class aw {
     public static volatile boolean a;
 
@@ -13,7 +13,7 @@ public class aw {
             a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m120a("mdid:load lib error " + th);
         }
     }
 
@@ -26,7 +26,7 @@ public class aw {
             }
             return false;
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("mdid:check error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m120a("mdid:check error " + th);
             return false;
         }
     }

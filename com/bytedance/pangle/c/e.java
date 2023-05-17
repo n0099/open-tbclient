@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static Executor a = Executors.newCachedThreadPool();
     public static ScheduledExecutorService b = Executors.newSingleThreadScheduledExecutor();

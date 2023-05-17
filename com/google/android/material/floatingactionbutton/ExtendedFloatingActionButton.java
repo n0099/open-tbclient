@@ -28,12 +28,12 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExtendedFloatingActionButton extends MaterialButton implements CoordinatorLayout.AttachedBehavior {
     public static final int ANIM_STATE_HIDING = 1;
     public static final int ANIM_STATE_NONE = 0;
     public static final int ANIM_STATE_SHOWING = 2;
-    public static final int DEF_STYLE_RES = 2131755885;
+    public static final int DEF_STYLE_RES = 2131755896;
     public int animState;
     @NonNull
     public final CoordinatorLayout.Behavior<ExtendedFloatingActionButton> behavior;
@@ -76,7 +76,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class OnChangedCallback {
         public void onExtended(ExtendedFloatingActionButton extendedFloatingActionButton) {
         }
@@ -91,7 +91,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Size {
         int getHeight();
 
@@ -100,14 +100,14 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         int getWidth();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ChangeSizeStrategy extends BaseMotionStrategy {
         public final boolean extending;
         public final Size size;
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {
-            return R.animator.obfuscated_res_0x7f020007;
+            return R.animator.obfuscated_res_0x7f020008;
         }
 
         public ChangeSizeStrategy(AnimatorTracker animatorTracker, Size size, boolean z) {
@@ -185,7 +185,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ExtendedFloatingActionButtonBehavior<T extends ExtendedFloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static final boolean AUTO_HIDE_DEFAULT = false;
         public static final boolean AUTO_SHRINK_DEFAULT = true;
@@ -350,13 +350,13 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class HideStrategy extends BaseMotionStrategy {
         public boolean isCancelled;
 
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {
-            return R.animator.obfuscated_res_0x7f020008;
+            return R.animator.obfuscated_res_0x7f020009;
         }
 
         public HideStrategy(AnimatorTracker animatorTracker) {
@@ -404,11 +404,11 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ShowStrategy extends BaseMotionStrategy {
         @Override // com.google.android.material.floatingactionbutton.MotionStrategy
         public int getDefaultMotionSpecResource() {
-            return R.animator.obfuscated_res_0x7f020009;
+            return R.animator.obfuscated_res_0x7f02000a;
         }
 
         public ShowStrategy(AnimatorTracker animatorTracker) {
@@ -645,7 +645,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402a7);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402b9);
     }
 
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

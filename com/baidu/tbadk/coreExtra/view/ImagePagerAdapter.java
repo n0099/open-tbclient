@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bm7;
-import com.baidu.tieba.dd9;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.on7;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.ze9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ImagePagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,14 +58,14 @@ public class ImagePagerAdapter extends PagerAdapter {
     public boolean v;
     public Object w;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         View a(ViewGroup viewGroup, int i);
 
         void c(ViewGroup viewGroup, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(int i, Object obj);
     }
@@ -111,7 +111,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 return null;
             }
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.big_image_next, (ViewGroup) null);
-            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090ffc)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
+            ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091034)).setImageDrawable(SkinManager.getDrawable(R.drawable.big_image_next_default));
             ((TextView) inflate.findViewById(R.id.thread_name)).setText(this.o);
             viewGroup.addView(inflate);
             inflate.setOnClickListener(this.d);
@@ -352,7 +352,7 @@ public class ImagePagerAdapter extends PagerAdapter {
             } else {
                 str = null;
             }
-            if (StringUtils.isNull(str) || dd9.j(str) || bm7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
+            if (StringUtils.isNull(str) || ze9.j(str) || on7.d(str) || str.startsWith("####mLiveRoomPageProvider")) {
                 return null;
             }
             UrlDragImageView urlDragImageView = new UrlDragImageView(this.a);
@@ -392,7 +392,7 @@ public class ImagePagerAdapter extends PagerAdapter {
                 if (imageUrlData2 != null && !StringUtils.isNull(imageUrlData2.imageUrl)) {
                     urlDragImageView.setAssistUrl(d(imageUrlData2.imageUrl));
                 }
-                String str = (String) ListUtils.getItem(this.c, gg.e(String.valueOf(urlDragImageView.getTag()), -1));
+                String str = (String) ListUtils.getItem(this.c, pg.e(String.valueOf(urlDragImageView.getTag()), -1));
                 if (imageUrlData2 != null && str != null && (imageUrlData = this.b.get(str)) != null && (imageUrlData == imageUrlData2 || Objects.equals(imageUrlData.imageUrl, imageUrlData2.imageUrl))) {
                     return super.getItemPosition(obj);
                 }

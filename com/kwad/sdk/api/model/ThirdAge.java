@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Keep
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface ThirdAge {
     public static final int AGE_BELOW_FIFTY = 4;
     public static final int AGE_BELOW_THIRTY = 2;

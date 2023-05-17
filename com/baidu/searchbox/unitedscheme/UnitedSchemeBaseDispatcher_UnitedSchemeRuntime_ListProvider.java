@@ -1,18 +1,22 @@
 package com.baidu.searchbox.unitedscheme;
 
-import com.baidu.tieba.dj1;
-import com.baidu.tieba.s83;
-import com.baidu.tieba.t83;
-import com.baidu.tieba.zu3;
+import com.baidu.searchbox.schemeauthenticate.dispatcher.UnitedSchemePublicDispatcher;
+import com.baidu.spswitch.scheme.UnitedSchemeEmotionDispatcher;
+import com.baidu.tieba.ba3;
+import com.baidu.tieba.ca3;
+import com.baidu.tieba.iw3;
+import com.baidu.tieba.tj1;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
-public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements dj1 {
-    @Override // com.baidu.tieba.dj1
+/* loaded from: classes4.dex */
+public class UnitedSchemeBaseDispatcher_UnitedSchemeRuntime_ListProvider implements tj1 {
+    @Override // com.baidu.tieba.tj1
     public Object get() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(new s83());
-        arrayList.add(new t83());
-        arrayList.add(new zu3());
+        arrayList.add(new UnitedSchemePublicDispatcher());
+        arrayList.add(new UnitedSchemeEmotionDispatcher());
+        arrayList.add(new ba3());
+        arrayList.add(new ca3());
+        arrayList.add(new iw3());
         return arrayList;
     }
 }

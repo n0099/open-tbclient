@@ -1,7 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.types;
 
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -38,7 +37,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.reflect.jvm.internal.impl.storage.LockBasedStorageManager;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
 import kotlin.reflect.jvm.internal.impl.types.error.ErrorSimpleFunctionDescriptorImpl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ErrorUtils {
     public static final PropertyDescriptor ERROR_PROPERTY;
     public static final Set<PropertyDescriptor> ERROR_PROPERTY_GROUP;
@@ -111,7 +110,7 @@ public class ErrorUtils {
                     objArr[2] = "getPackage";
                     break;
                 case 10:
-                    objArr[2] = BOSTokenRequest.ACCEPT;
+                    objArr[2] = "accept";
                     break;
                 case 11:
                     objArr[2] = "shouldSeeInternalsOf";
@@ -337,7 +336,7 @@ public class ErrorUtils {
         throw new IllegalStateException(format);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ErrorClassDescriptor extends ClassDescriptorImpl {
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
             String str = (i == 2 || i == 5 || i == 8) ? "@NotNull method %s.%s must not return null" : "Argument for @NotNull parameter '%s' of %s.%s must not be null";
@@ -440,7 +439,7 @@ public class ErrorUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ErrorScope implements MemberScope {
         public final String debugMessage;
 
@@ -664,7 +663,7 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
         /* renamed from: getContributedClassifier */
-        public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
             if (name == null) {
                 $$$reportNull$$$0(1);
             }
@@ -744,7 +743,7 @@ public class ErrorUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ThrowingScope implements MemberScope {
         public final String debugMessage;
 
@@ -827,7 +826,7 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
         /* renamed from: getContributedClassifier */
-        public ClassifierDescriptor mo2027getContributedClassifier(Name name, LookupLocation lookupLocation) {
+        public ClassifierDescriptor mo2046getContributedClassifier(Name name, LookupLocation lookupLocation) {
             if (name == null) {
                 $$$reportNull$$$0(1);
             }
@@ -885,7 +884,7 @@ public class ErrorUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class UninferredParameterTypeConstructor implements TypeConstructor {
         public final TypeConstructor errorTypeConstructor;
         public final TypeParameterDescriptor typeParameterDescriptor;
@@ -961,8 +960,8 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public ClassifierDescriptor mo2025getDeclarationDescriptor() {
-            return this.errorTypeConstructor.mo2025getDeclarationDescriptor();
+        public ClassifierDescriptor mo2044getDeclarationDescriptor() {
+            return this.errorTypeConstructor.mo2044getDeclarationDescriptor();
         }
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
@@ -976,12 +975,12 @@ public class ErrorUtils {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getSupertypes */
-        public Collection<KotlinType> mo2026getSupertypes() {
-            Collection<KotlinType> mo2026getSupertypes = this.errorTypeConstructor.mo2026getSupertypes();
-            if (mo2026getSupertypes == null) {
+        public Collection<KotlinType> mo2045getSupertypes() {
+            Collection<KotlinType> mo2045getSupertypes = this.errorTypeConstructor.mo2045getSupertypes();
+            if (mo2045getSupertypes == null) {
                 $$$reportNull$$$0(3);
             }
-            return mo2026getSupertypes;
+            return mo2045getSupertypes;
         }
 
         public TypeParameterDescriptor getTypeParameterDescriptor() {
@@ -1163,7 +1162,7 @@ public class ErrorUtils {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             /* renamed from: getDeclarationDescriptor */
-            public ClassifierDescriptor mo2025getDeclarationDescriptor() {
+            public ClassifierDescriptor mo2044getDeclarationDescriptor() {
                 return ErrorClassDescriptor.this;
             }
 
@@ -1178,7 +1177,7 @@ public class ErrorUtils {
 
             @Override // kotlin.reflect.jvm.internal.impl.types.TypeConstructor
             /* renamed from: getSupertypes */
-            public Collection<KotlinType> mo2026getSupertypes() {
+            public Collection<KotlinType> mo2045getSupertypes() {
                 List emptyList = CollectionsKt__CollectionsKt.emptyList();
                 if (emptyList == null) {
                     $$$reportNull$$$0(1);

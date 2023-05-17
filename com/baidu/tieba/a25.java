@@ -1,38 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public abstract class a25 extends b25 {
+import org.json.JSONObject;
+import tbclient.FrsPage.Yule;
+/* loaded from: classes4.dex */
+public class a25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public TBAlertBuilder b;
-
-    public abstract void b(TBAlertBuilder tBAlertBuilder);
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
+    public int a;
+    public z15 b;
 
     public a25() {
         Interceptable interceptable = $ic;
@@ -44,65 +26,53 @@ public abstract class a25 extends b25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public static final void e(a25 this$0, DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, dialogInterface) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.b25
-    public void a(Context context, t15 data) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!(context instanceof Activity)) {
-                activity = TbadkApplication.getInst().getCurrentActivity();
-            } else {
-                activity = (Activity) context;
-            }
-            this.a = activity;
-            if (activity == null) {
-                c();
-                dj8 yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.c("YunDialogManager", "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
                 return;
             }
-            Intrinsics.checkNotNull(activity);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            this.b = tBAlertBuilder;
-            if (tBAlertBuilder != null) {
-                tBAlertBuilder.s(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.w15
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.content.DialogInterface.OnDismissListener
-                    public final void onDismiss(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            a25.e(a25.this, dialogInterface);
-                        }
-                    }
-                });
-                b(tBAlertBuilder);
-                d();
-            }
         }
+        this.a = 0;
+        this.b = new z15();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public z15 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (z15) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optInt("activity_show");
+            this.b.d(jSONObject.optJSONObject("yule_activity"));
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void d(Yule yule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, yule) != null) || yule == null) {
+            return;
+        }
+        this.a = yule.activity_show.intValue();
+        this.b.e(yule.yule_activity);
     }
 }

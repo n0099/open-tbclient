@@ -2,7 +2,7 @@ package com.meizu.flyme.openidsdk;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SupportInfo {
     @Keep
     public Boolean support;

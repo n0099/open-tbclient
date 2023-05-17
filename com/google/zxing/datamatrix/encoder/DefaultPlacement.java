@@ -1,7 +1,7 @@
 package com.google.zxing.datamatrix.encoder;
 
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DefaultPlacement {
     public final byte[] bits;
     public final CharSequence codewords;

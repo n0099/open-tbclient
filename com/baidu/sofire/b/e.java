@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class e extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

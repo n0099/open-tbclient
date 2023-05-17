@@ -2,7 +2,7 @@ package com.baidu.searchbox.player.event;
 
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PlayerEvent extends VideoEvent {
     public static final String ACTION_BUFFER_UPDATE = "player_event_buffer_update";
     public static final String ACTION_GO_BACK_OR_FOREGROUND = "player_event_go_back_or_foreground";

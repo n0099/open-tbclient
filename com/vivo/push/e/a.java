@@ -1,7 +1,7 @@
 package com.vivo.push.e;
 
 import java.security.PublicKey;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface a {
     String a(String str);
 

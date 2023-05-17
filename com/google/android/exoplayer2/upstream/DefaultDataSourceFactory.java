@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.upstream;
 
 import android.content.Context;
 import com.google.android.exoplayer2.upstream.DataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultDataSourceFactory implements DataSource.Factory {
     public final DataSource.Factory baseDataSourceFactory;
     public final Context context;

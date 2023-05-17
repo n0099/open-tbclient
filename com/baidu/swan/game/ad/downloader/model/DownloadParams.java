@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DownloadParams {
     public String a;
     public String b;
@@ -18,7 +18,7 @@ public class DownloadParams {
         this.b = str2;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum SwanAppDownloadType {
         TYPE_QUERY_STATUS("queryStatus"),
         TYPE_START_DOWNLOAD("startDownload"),

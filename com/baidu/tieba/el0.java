@@ -1,172 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.security.CacheDeviceInfo;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.d41;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Set;
-/* loaded from: classes4.dex */
+import java.util.Map;
+/* loaded from: classes5.dex */
 public class el0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, WeakReference<fl0>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (TextUtils.equals(z01.c(str).optString("direct_download_switch"), "1")) {
-                return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947738048, "Lcom/baidu/tieba/el0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947738048, "Lcom/baidu/tieba/el0;");
+                return;
             }
-            Uri parse = Uri.parse(str2);
-            HashMap hashMap = new HashMap();
-            if (parse != null) {
-                try {
-                    Set<String> queryParameterNames = parse.getQueryParameterNames();
-                    if (queryParameterNames != null) {
-                        for (String str3 : queryParameterNames) {
-                            hashMap.put(str3, parse.getQueryParameter(str3));
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            String str4 = (String) a11.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
-            if (!TextUtils.isEmpty(str4) && (split = str4.split("_")) != null && split.length >= 4 && TextUtils.equals(split[3], "1")) {
-                return true;
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        a = new HashMap();
     }
 
-    public static boolean e(File file, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, file, z)) == null) {
-            if (!f(file)) {
-                return false;
-            }
-            Context b = li0.b();
-            Intent intent = new Intent("android.intent.action.VIEW");
-            try {
-                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                intent.setFlags(1342177280);
-                intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", b.getPackageName());
-                if (z) {
-                    intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                }
-                if (!d41.b.e()) {
-                    intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                }
-                v31.a(b, file, intent);
-                v31.d(b, intent);
-            } catch (Exception unused) {
-                intent.setComponent(null);
-                v31.a(b, file, intent);
-                try {
-                    b.startActivity(intent);
-                } catch (Exception unused2) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public static String b(File file) {
+    public static fl0 a(@NonNull qk0 qk0Var) {
         InterceptResult invokeL;
-        PackageManager packageManager;
-        PackageInfo packageArchiveInfo;
-        ApplicationInfo applicationInfo;
+        fl0 fl0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null || TextUtils.isEmpty(file.getPath()) || (packageManager = li0.b().getPackageManager()) == null || (packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 1)) == null || (applicationInfo = packageArchiveInfo.applicationInfo) == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, qk0Var)) == null) {
+            WeakReference<fl0> weakReference = a.get(qk0Var.e());
+            if (weakReference == null || (fl0Var = weakReference.get()) == null) {
+                fl0 fl0Var2 = new fl0(qk0Var);
+                a.put(qk0Var.e(), new WeakReference<>(fl0Var2));
+                return fl0Var2;
             }
-            return applicationInfo.packageName;
+            return fl0Var;
         }
-        return (String) invokeL.objValue;
+        return (fl0) invokeL.objValue;
     }
 
-    public static boolean f(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
+    public static void b(@NonNull qk0 qk0Var) {
+        WeakReference<fl0> remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            if (file == null || TextUtils.isEmpty(file.getAbsolutePath()) || !file.exists() || (packageManager = li0.b().getPackageManager()) == null || packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 1) == null) {
-                return false;
-            }
-            return true;
+        if ((interceptable == null || interceptable.invokeL(65538, null, qk0Var) == null) && (remove = a.remove(qk0Var.e())) != null) {
+            remove.clear();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                li0.b().getPackageManager().getApplicationInfo(str, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            return e(file, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        ResolveInfo next;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = li0.b().getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
-                return false;
-            }
-            String str2 = next.activityInfo.name;
-            Intent intent2 = new Intent("android.intent.action.MAIN");
-            intent2.addCategory("android.intent.category.LAUNCHER");
-            intent2.setComponent(new ComponentName(str, str2));
-            intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return v31.e(li0.b(), intent2, true);
-        }
-        return invokeL.booleanValue;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PreLoadBaiduClass extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -20,7 +20,7 @@ public class PreLoadBaiduClass extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            Class.forName("com.baidu.tieba.vj1");
+            Class.forName("com.baidu.tieba.lk1");
         } catch (ClassNotFoundException e) {
             Log.e(LaunchTask.TAG, "preLoadClass exception " + e.toString());
             e.printStackTrace();
@@ -44,7 +44,7 @@ public class PreLoadBaiduClass extends LaunchTask {
             e4.printStackTrace();
         }
         try {
-            Class.forName("com.baidu.tieba.gs9");
+            Class.forName("com.baidu.tieba.iu9");
         } catch (ClassNotFoundException e5) {
             Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
             e5.printStackTrace();

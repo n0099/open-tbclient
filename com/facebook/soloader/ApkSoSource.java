@@ -8,7 +8,7 @@ import com.facebook.soloader.UnpackingSoSource;
 import java.io.File;
 import java.io.IOException;
 import java.util.zip.ZipEntry;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ApkSoSource extends ExtractFromZipSoSource {
     public static final byte APK_SO_SOURCE_SIGNATURE_VERSION = 2;
     public static final byte LIBS_DIR_DOESNT_EXIST = 1;
@@ -18,7 +18,7 @@ public class ApkSoSource extends ExtractFromZipSoSource {
     public static final String TAG = "ApkSoSource";
     public final int mFlags;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class ApkUnpacker extends ExtractFromZipSoSource.ZipUnpacker {
         public final int mFlags;
         public File mLibDir;

@@ -1,5 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import androidx.annotation.NonNull;
+/* loaded from: classes5.dex */
 public interface fi0 {
-    void onResult(boolean z);
+    @NonNull
+    gi0 f0();
 }

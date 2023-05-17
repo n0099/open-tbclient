@@ -12,35 +12,35 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webviewx.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm0;
-import com.baidu.tieba.h91;
-import com.baidu.tieba.m91;
-import com.baidu.tieba.n91;
-import com.baidu.tieba.q91;
-import com.baidu.tieba.r91;
-/* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, m91, n91 {
-    public final AbsContainer u = h91.a.b(this, this, fm0.b().a().a("key_webview_core_type", 0));
+import com.baidu.tieba.ca1;
+import com.baidu.tieba.da1;
+import com.baidu.tieba.ga1;
+import com.baidu.tieba.ha1;
+import com.baidu.tieba.vm0;
+import com.baidu.tieba.x91;
+/* loaded from: classes3.dex */
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, ca1, da1 {
+    public final AbsContainer u = x91.a.b(this, this, vm0.b().a().a("key_webview_core_type", 0));
 
-    @Override // com.baidu.tieba.m91
+    @Override // com.baidu.tieba.ca1
+    public boolean f() {
+        return false;
+    }
+
+    @Override // com.baidu.tieba.da1
     public boolean g() {
         return false;
     }
 
-    @Override // com.baidu.tieba.m91
+    @Override // com.baidu.tieba.ca1
     @NonNull
     public Activity getActivity() {
         return this;
     }
 
-    @Override // com.baidu.tieba.n91
-    public boolean i() {
-        return false;
-    }
-
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void F1() {
-        super.F1();
+    public void E1() {
+        super.E1();
         this.u.p();
     }
 
@@ -68,8 +68,8 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, m91
         this.u.u();
     }
 
-    @Override // com.baidu.tieba.m91
-    public void e() {
+    @Override // com.baidu.tieba.ca1
+    public void d() {
         finish();
     }
 
@@ -85,7 +85,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, m91
         }
         this.u.x("1");
         this.u.o();
-        q91.f().a(getActivity());
+        ga1.f().a(getActivity());
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
@@ -108,7 +108,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, m91
             return false;
         }
         requestWindowFeature(1);
-        if (r91.b.a().a(getIntent())) {
+        if (ha1.b.a().a(getIntent())) {
             T1(0, 0, 0, 0);
             forceActivityTransparent(true);
         } else {

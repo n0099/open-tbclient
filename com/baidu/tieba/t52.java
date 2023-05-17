@@ -1,89 +1,18 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+import java.util.List;
+/* loaded from: classes7.dex */
 public class t52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public Map<String, Object> c;
-    public b d;
-    public BufferedWriter e;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t52 a;
-
-        public b(t52 t52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = t52Var;
-        }
-
-        public /* synthetic */ b(t52 t52Var, a aVar) {
-            this(t52Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
-                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry entry : this.a.c.entrySet()) {
-                    try {
-                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                this.a.e(jSONObject.toString());
-                x42.i("PropertyLogcat", jSONObject.toString());
-                if (this.a.d != null) {
-                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -98,95 +27,108 @@ public class t52 {
                 return;
             }
         }
-        boolean z = ho1.a;
+        boolean z = qp1.a;
     }
 
-    public final String f() {
-        InterceptResult invokeV;
+    @Nullable
+    public static <C extends v42> C a(w42 w42Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ff3.n(x73.g0(), this.a, "log");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public t52() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, w42Var)) == null) {
+            if (w42Var == null) {
+                z52.a("Component-Finder", "find a null component: null model");
+                return null;
             }
-        }
-        this.a = "performance_" + System.currentTimeMillis();
-        this.b = 3000;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c != null) {
-                u52.g().i();
-                this.c = null;
-                x42.i("PropertyLogcat", "Stop monitor logcat");
+            String d = w42Var.d();
+            String str = w42Var.c;
+            if (TextUtils.isEmpty(str)) {
+                g62.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
             }
-            bo4.d(this.e);
-            this.e = null;
-            return ff3.I(f(), x73.g0());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void e(String str) {
-        BufferedWriter bufferedWriter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
-            try {
-                bufferedWriter.write(str);
-                this.e.write(10);
-                x42.i("PropertyLogcat", "Export logcat success");
-            } catch (IOException e) {
-                x42.d("PropertyLogcat", "Logcat write fail", e);
+            w52 d2 = d(str);
+            if (d2 == null) {
+                g62.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
             }
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
-            this.b = i;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.c == null) {
-                this.c = u52.g().h();
-                x42.i("PropertyLogcat", "Start monitor logcat");
-            }
-            if (this.d == null) {
-                this.d = new b(this, null);
-            }
-            if (this.e == null) {
-                File file = new File(f());
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    this.e = new BufferedWriter(new FileWriter(file, true));
-                } catch (IOException e) {
-                    x42.d("PropertyLogcat", "Create log file fail", e);
+            String str2 = w42Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                g62.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<v42> list = d2.a().c.get(w42Var.a);
+                if (list == null) {
+                    g62.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    g62.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
+                } else {
+                    g62.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
                 }
+            } else {
+                c = (C) d2.a().b.get(str2);
             }
-            this.d.removeMessages(100);
-            this.d.sendEmptyMessage(100);
+            if (c == null) {
+                g62.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
+            }
+            return c;
         }
+        return (C) invokeL.objValue;
+    }
+
+    @Nullable
+    public static <C extends v42> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            w52 d = d(str);
+            if (d == null) {
+                g62.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
+            }
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                g62.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
+            }
+            return c;
+        }
+        return (C) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static w52 c(w42 w42Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, w42Var)) == null) {
+            if (w42Var == null) {
+                z52.a("Component-Finder", "find component context with a null model");
+                return null;
+            }
+            return d(w42Var.c);
+        }
+        return (w52) invokeL.objValue;
+    }
+
+    @Nullable
+    public static w52 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                g62.c("Component-Finder", "find component context with a null slave id");
+                return null;
+            }
+            ov1 A = tu2.U().A(str);
+            if (!(A instanceof mv1)) {
+                return null;
+            }
+            return ((mv1) A).c0();
+        }
+        return (w52) invokeL.objValue;
     }
 }

@@ -35,7 +35,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ThirdPartyService implements AbstractThirdPartyService {
     public static final long b = 500;
     public static ThirdLoginCallback c = null;

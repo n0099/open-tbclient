@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static void a(DownloadInfo downloadInfo) {
         b(downloadInfo);

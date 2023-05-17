@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lw9;
-import com.baidu.tieba.zv9;
+import com.baidu.tieba.by9;
+import com.baidu.tieba.ny9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,12 +18,12 @@ import tbclient.Error;
 import tbclient.GetBubbleByCategory.DataRes;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryResIdl;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<zv9> mBubbleGroupList;
-    public lw9 mRecommand;
+    public List<by9> mBubbleGroupList;
+    public ny9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupSocketResponseMessage() {
@@ -43,7 +43,7 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<zv9> getGroupList() {
+    public List<by9> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -52,13 +52,13 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public lw9 getRecommand() {
+    public ny9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mRecommand;
         }
-        return (lw9) invokeV.objValue;
+        return (ny9) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -79,17 +79,17 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
             DataRes dataRes = getBubbleByCategoryResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    lw9 lw9Var = new lw9();
-                    this.mRecommand = lw9Var;
-                    lw9Var.d(getBubbleByCategoryResIdl.data.recommend);
+                    ny9 ny9Var = new ny9();
+                    this.mRecommand = ny9Var;
+                    ny9Var.d(getBubbleByCategoryResIdl.data.recommend);
                 }
                 if (getBubbleByCategoryResIdl.data.bubbles != null) {
                     this.mBubbleGroupList = new ArrayList();
                     for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                         if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                            zv9 zv9Var = new zv9();
-                            zv9Var.c(themeBubbleInMain);
-                            this.mBubbleGroupList.add(zv9Var);
+                            by9 by9Var = new by9();
+                            by9Var.c(themeBubbleInMain);
+                            this.mBubbleGroupList.add(by9Var);
                         }
                     }
                 }

@@ -1,204 +1,165 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
-public class cf0 {
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class cf0 extends jf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    a aVar = new a();
+                    aVar.a = jSONObject.optString("name");
+                    aVar.b = jSONObject.optString("path");
+                    aVar.c = jSONObject.optString(PackageTable.MD5);
+                    return aVar;
+                } catch (Exception unused) {
+                    return null;
+                }
+            }
+            return (a) invokeL.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cf0(df0 df0Var) {
+        super(df0Var.b, df0Var.g);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {df0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (File) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static boolean t(File file) {
+        InterceptResult invokeL;
+        File file2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
             try {
-                closeable.close();
+                file2 = new File(file, "files.json");
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
-    }
-
-    public static void b(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
-            c(file, true);
-        }
-    }
-
-    public static boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            if (file == null || !file.exists()) {
+            if (!file2.exists()) {
                 return false;
             }
-            return file.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
-            if (file.isDirectory()) {
-                b(file);
-            } else {
-                d(file);
-            }
-        }
-    }
-
-    public static boolean f(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            if (file != null && file.exists() && file.isFile()) {
-                return true;
+            FileInputStream fileInputStream = new FileInputStream(file2);
+            byte[] bArr = new byte[fileInputStream.available()];
+            fileInputStream.read(bArr);
+            String str = new String(bArr);
+            fileInputStream.close();
+            JSONArray optJSONArray = new JSONObject(str).optJSONArray(NetDiskFileMsg.JSON_KEY_FILES);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    arrayList.add(a.a(optJSONArray.getString(i)));
+                }
+                return u(file, arrayList);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static void c(File file, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) && file != null && file.isDirectory()) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        c(file2, z);
-                    } else {
-                        file2.delete();
-                    }
-                }
-            }
-            if (z) {
-                file.delete();
-            }
-        }
-    }
-
-    public static String g(Context context, String str) {
+    public static boolean u(File file, ArrayList<a> arrayList) {
         InterceptResult invokeLL;
-        InputStreamReader inputStreamReader;
+        File file2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            BufferedReader bufferedReader = null;
-            try {
-                inputStreamReader = new InputStreamReader(context.getAssets().open(str));
-                try {
-                    try {
-                        BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
-                        while (true) {
-                            try {
-                                String readLine = bufferedReader2.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                sb.append(readLine);
-                            } catch (Exception e) {
-                                e = e;
-                                bufferedReader = bufferedReader2;
-                                e.printStackTrace();
-                                a(bufferedReader);
-                                a(inputStreamReader);
-                                return sb.toString();
-                            } catch (Throwable th) {
-                                th = th;
-                                bufferedReader = bufferedReader2;
-                                a(bufferedReader);
-                                a(inputStreamReader);
-                                throw th;
-                            }
-                        }
-                        a(bufferedReader2);
-                    } catch (Exception e2) {
-                        e = e2;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                inputStreamReader = null;
-            } catch (Throwable th3) {
-                th = th3;
-                inputStreamReader = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, file, arrayList)) == null) {
+            if (arrayList == null || arrayList.size() <= 0) {
+                return false;
             }
-            a(inputStreamReader);
-            return sb.toString();
+            try {
+                Iterator<a> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    a next = it.next();
+                    String str = next.b;
+                    if (TextUtils.isEmpty(str)) {
+                        file2 = new File(file, next.a);
+                    } else {
+                        file2 = new File(file, str + File.separator + next.a);
+                    }
+                    if (!file2.exists()) {
+                        return false;
+                    }
+                    String a2 = ff0.a(file2.getAbsolutePath());
+                    boolean equals = TextUtils.equals(a2, next.c);
+                    if (!equals) {
+                        jf0.j(equals + " " + a2 + "!=" + next.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + file2.getAbsolutePath());
+                        return false;
+                    }
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        return (String) invokeLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    public static String h(File file) {
+    @Override // com.baidu.tieba.jf0
+    public boolean i(File file) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            ?? f = f(file);
-            FileInputStream fileInputStream2 = null;
-            try {
-                if (f != 0) {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                        try {
-                            String b = ef0.b(fileInputStream);
-                            ef0.a(fileInputStream);
-                            try {
-                                fileInputStream.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            return b;
-                        } catch (IOException e2) {
-                            e = e2;
-                            e.printStackTrace();
-                            ef0.a(fileInputStream);
-                            if (fileInputStream != null) {
-                                try {
-                                    fileInputStream.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                            return null;
-                        }
-                    } catch (IOException e4) {
-                        e = e4;
-                        fileInputStream = null;
-                    } catch (Throwable th) {
-                        th = th;
-                        ef0.a(fileInputStream2);
-                        if (fileInputStream2 != null) {
-                            try {
-                                fileInputStream2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        throw th;
-                    }
-                }
-                return null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = f;
-            }
-        } else {
-            return (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            return t(file);
         }
+        return invokeL.booleanValue;
     }
 }

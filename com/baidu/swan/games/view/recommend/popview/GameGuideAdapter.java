@@ -12,26 +12,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gb4;
-import com.baidu.tieba.ib4;
-import com.baidu.tieba.tb4;
+import com.baidu.tieba.cd4;
+import com.baidu.tieba.pc4;
+import com.baidu.tieba.rc4;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.OnClickListener {
     public Context a;
     public List<RecommendItemModel> b;
-    public gb4 c = new gb4();
+    public pc4 c = new pc4();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends RecyclerView.ViewHolder {
         public SimpleDraweeView a;
         public TextView b;
 
         public a(GameGuideAdapter gameGuideAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090921);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090942);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -46,9 +46,9 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
     @SuppressLint({"InflateParams"})
     /* renamed from: l */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08b5, (ViewGroup) null));
+        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08e6, (ViewGroup) null));
         aVar.itemView.setOnClickListener(this);
-        tb4.a(aVar.itemView);
+        cd4.a(aVar.itemView);
         return aVar;
     }
 
@@ -79,7 +79,7 @@ public class GameGuideAdapter extends RecyclerView.Adapter<a> implements View.On
         RecommendItemModel recommendItemModel = this.b.get(intValue);
         if (!TextUtils.isEmpty(recommendItemModel.getScheme()) && !TextUtils.isEmpty(recommendItemModel.getAppKey())) {
             SchemeRouter.invokeSchemeForInner(this.a, Uri.parse(recommendItemModel.getScheme()));
-            ib4.d(4, recommendItemModel.getAppKey());
+            rc4.d(4, recommendItemModel.getAppKey());
             this.c.b(3, "popview", recommendItemModel.getAppKey(), String.valueOf(intValue + 1));
         }
     }

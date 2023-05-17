@@ -45,7 +45,7 @@ import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpOptions;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.client.methods.HttpTrace;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class OkHttpURLConnection extends HttpURLConnection implements Callback {
     public Call call;
     public Throwable callFailure;
@@ -66,7 +66,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements Call
     public static final String RESPONSE_SOURCE = Platform.get().getPrefix() + "-Response-Source";
     public static final Set<String> METHODS = new LinkedHashSet(Arrays.asList(HttpOptions.METHOD_NAME, "GET", "HEAD", "POST", HttpPut.METHOD_NAME, HttpDelete.METHOD_NAME, HttpTrace.METHOD_NAME, "PATCH"));
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public final class NetworkInterceptor implements Interceptor {
         public boolean proceed;
 
@@ -147,7 +147,7 @@ public final class OkHttpURLConnection extends HttpURLConnection implements Call
         return new SocketPermission(host + ":" + defaultPort, "connect, resolve");
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class UnexpectedException extends IOException {
         public static final Interceptor INTERCEPTOR = new Interceptor() { // from class: com.baidu.searchbox.http.okurlconnection.OkHttpURLConnection.UnexpectedException.1
             @Override // okhttp3.Interceptor

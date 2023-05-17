@@ -1,52 +1,143 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+/* loaded from: classes6.dex */
 public final class p2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final double a;
-    public final double b;
 
-    public p2b(double d, double d2, double d3, double d4) {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h2b a;
+        public final /* synthetic */ Callable b;
+
+        public a(p2b p2bVar, h2b h2bVar, Callable callable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p2bVar, h2bVar, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = h2bVar;
+            this.b = callable;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.setResult(this.b.call());
+                } catch (Exception e) {
+                    this.a.c(e);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b<TResult> implements Object, e2b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final CountDownLatch a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new CountDownLatch(1);
+        }
+
+        @Override // com.baidu.tieba.e2b
+        public final void onFailure(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.countDown();
+            }
+        }
+
+        public final void onSuccess(TResult tresult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+                this.a.countDown();
+            }
+        }
+    }
+
+    public p2b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = d3;
-        this.b = d4;
     }
 
-    public final double a() {
-        InterceptResult invokeV;
+    public static <TResult> TResult b(g2b<TResult> g2bVar) throws ExecutionException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, g2bVar)) == null) {
+            if (g2bVar.h()) {
+                return g2bVar.e();
+            }
+            throw new ExecutionException(g2bVar.d());
         }
-        return invokeV.doubleValue;
+        return (TResult) invokeL.objValue;
     }
 
-    public final double b() {
-        InterceptResult invokeV;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && Looper.myLooper() == Looper.getMainLooper()) {
+            throw new IllegalStateException(str);
         }
-        return invokeV.doubleValue;
+    }
+
+    public final <TResult> g2b<TResult> a(Executor executor, Callable<TResult> callable) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, executor, callable)) == null) {
+            h2b h2bVar = new h2b();
+            try {
+                executor.execute(new a(this, h2bVar, callable));
+            } catch (Exception e) {
+                h2bVar.c(e);
+            }
+            return h2bVar.b();
+        }
+        return (g2b) invokeLL.objValue;
     }
 }

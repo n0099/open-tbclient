@@ -6,9 +6,9 @@ import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.platform.comapi.UIMsg;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
@@ -16,7 +16,7 @@ import com.google.zxing.client.result.ExpandedProductParsedResult;
 import com.vivo.push.BuildConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class EANManufacturerOrgSupport {
     public final List<int[]> ranges = new ArrayList();
     public final List<String> countryIdentifiers = new ArrayList();
@@ -65,7 +65,7 @@ public final class EANManufacturerOrgSupport {
         add(new int[]{535}, "MT");
         add(new int[]{UIMsg.MsgDefine.MSG_USERINFO_SECURE}, "IE");
         add(new int[]{540, 549}, "BE/LU");
-        add(new int[]{560}, "PT");
+        add(new int[]{CoolPraiseView.START_DELAY_TIME_MS}, "PT");
         add(new int[]{569}, "IS");
         add(new int[]{570, 579}, "DK");
         add(new int[]{590}, "PL");
@@ -116,7 +116,7 @@ public final class EANManufacturerOrgSupport {
         add(new int[]{789, AppConfig.VOICE_ID}, "BR");
         add(new int[]{800, 839}, "IT");
         add(new int[]{840, 849}, "ES");
-        add(new int[]{850}, OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC);
+        add(new int[]{850}, "CU");
         add(new int[]{858}, "SK");
         add(new int[]{859}, "CZ");
         add(new int[]{860}, "YU");

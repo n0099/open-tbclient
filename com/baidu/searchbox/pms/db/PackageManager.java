@@ -6,7 +6,7 @@ import com.baidu.searchbox.pms.bean.PackageInfo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PackageManager {
     public static boolean deleteLatestPackageFile(String str, String str2) {
         PackageInfo packageInfo;

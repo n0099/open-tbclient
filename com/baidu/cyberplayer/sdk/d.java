@@ -19,7 +19,7 @@ import com.baidu.cyberplayer.sdk.videodownload.VideoSourceBean;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static CyberPlayerCoreProvider a = null;
     public static volatile boolean b = false;

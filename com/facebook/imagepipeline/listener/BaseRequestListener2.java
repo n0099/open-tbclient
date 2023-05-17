@@ -6,7 +6,7 @@ import com.facebook.imagepipeline.producers.ProducerContext;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BaseRequestListener2 implements RequestListener2 {
     @Override // com.facebook.imagepipeline.producers.ProducerListener2
     public void onDecoderFinishWithFailure(ImageRequest imageRequest, EncodedImage encodedImage, Throwable th, @Nullable Map<String, String> map) {

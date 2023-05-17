@@ -2,14 +2,14 @@ package com.baidu.nadcore.model;
 
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdOperator {
     public final TYPE a;
     public final a b;
     public final String c;
     public String d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public String a;
 
@@ -44,7 +44,7 @@ public class AdOperator {
         throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum TYPE {
         CHECK("check"),
         DOWNLOAD("download");

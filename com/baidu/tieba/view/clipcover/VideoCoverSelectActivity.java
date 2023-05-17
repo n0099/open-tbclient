@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,15 +46,15 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f0907cb);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0927cd);
+            this.a = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f0907e9);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09283c);
             this.b = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0f76));
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f102f));
             this.d = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080aaf));
+            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bd6));
             TextView addTextButton = this.b.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.next_step));
             this.e = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
@@ -84,7 +84,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0030);
+            setContentView(R.layout.obfuscated_res_0x7f0d0031);
             if (getIntent() != null) {
                 this.f = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
                 this.g = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.huawei.hianalytics.process.HiAnalyticsInstance;
 import com.huawei.hms.utils.HMSBIInitializer;
 import java.util.LinkedHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static HiAnalyticsInstance a;

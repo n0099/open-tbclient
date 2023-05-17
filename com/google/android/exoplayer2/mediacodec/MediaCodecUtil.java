@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.util.SparseIntArray;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
@@ -21,7 +20,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"InlinedApi"})
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MediaCodecUtil {
     public static final SparseIntArray AVC_LEVEL_NUMBER_TO_CONST;
     public static final SparseIntArray AVC_PROFILE_NUMBER_TO_CONST;
@@ -38,7 +37,7 @@ public final class MediaCodecUtil {
     public static final HashMap<CodecKey, List<MediaCodecInfo>> decoderInfosCache = new HashMap<>();
     public static int maxH264DecodableFrameSize = -1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface MediaCodecListCompat {
         int getCodecCount();
 
@@ -82,7 +81,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CodecKey {
         public final String mimeType;
         public final boolean secure;
@@ -125,14 +124,14 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DecoderQueryException extends Exception {
         public DecoderQueryException(Throwable th) {
             super("Failed to query underlying media codecs", th);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaCodecListCompatV16 implements MediaCodecListCompat {
         @Override // com.google.android.exoplayer2.mediacodec.MediaCodecUtil.MediaCodecListCompat
         public boolean secureDecodersExplicit() {
@@ -159,7 +158,7 @@ public final class MediaCodecUtil {
     }
 
     @TargetApi(21)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MediaCodecListCompatV21 implements MediaCodecListCompat {
         public final int codecKind;
         public android.media.MediaCodecInfo[] mediaCodecInfos;
@@ -381,7 +380,7 @@ public final class MediaCodecUtil {
         if (str == null) {
             return null;
         }
-        String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split = str.split("\\.");
         char c = 0;
         String str2 = split[0];
         switch (str2.hashCode()) {

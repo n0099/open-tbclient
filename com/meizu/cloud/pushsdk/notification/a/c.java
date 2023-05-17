@@ -9,7 +9,7 @@ import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class c extends com.meizu.cloud.pushsdk.notification.a {
     public c(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);

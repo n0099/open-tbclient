@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.a67;
+import com.baidu.tieba.n77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a67 mSearchData;
+    public n77 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumHttpResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
                 setErrorString(searchPostForumResIdl.error.usermsg);
             }
             if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
-                a67 a67Var = new a67(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-                this.mSearchData = a67Var;
-                a67Var.b(searchPostForumResIdl.data);
+                n77 n77Var = new n77(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                this.mSearchData = n77Var;
+                n77Var.b(searchPostForumResIdl.data);
             }
         }
     }
 
-    public a67 getSearchData() {
+    public n77 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mSearchData;
         }
-        return (a67) invokeV.objValue;
+        return (n77) invokeV.objValue;
     }
 }

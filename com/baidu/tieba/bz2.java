@@ -1,87 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-/* loaded from: classes3.dex */
-public class bz2 extends RequestBody {
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class bz2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final rz2 b;
-    public final String c;
 
-    public bz2(File file, String str, rz2 rz2Var) {
+    public static void a(Integer num, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, rz2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("level", String.valueOf(num));
+            hashMap.put("percentage", str + "%");
+            tu2.U().u(new hj2("text-size-adjust", hashMap));
+            q02.d(num.intValue());
         }
-        this.a = file;
-        this.c = str;
-        this.b = rz2Var;
     }
 
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
-        InterceptResult invokeV;
+    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
+    public static void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.length();
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return MediaType.parse(this.c);
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-            Source source = null;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
+            mj2 mj2Var = new mj2();
+            ?? jSONObject = new JSONObject();
             try {
-                source = Okio.source(this.a);
-                long j = 0;
-                while (true) {
-                    long read = source.read(bufferedSink.buffer(), 2048L);
-                    if (read != -1) {
-                        j += read;
-                        bufferedSink.flush();
-                        this.b.a(j);
-                    } else {
-                        return;
-                    }
-                }
-            } finally {
-                bo4.d(source);
+                jSONObject.put("type", "text-size-adjust");
+                jSONObject.put("percentage", str3 + "%");
+                jSONObject.put("level", str2);
+            } catch (JSONException e) {
+                y43.b(Log.getStackTraceString(e));
             }
+            mj2Var.c = jSONObject;
+            tu2.U().m(str, mj2Var);
         }
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PbContent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         this.e = true;
     }
 
-    public String V() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -48,7 +48,7 @@ public class TbRichTextLinkImageInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public boolean W() {
+    public boolean V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

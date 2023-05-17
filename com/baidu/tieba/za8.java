@@ -1,51 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class za8 extends kb8 {
+/* loaded from: classes8.dex */
+public class za8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.kb8, com.baidu.tieba.al5
-    public boolean F() {
-        InterceptResult invokeV;
+    public static wb8 a(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, recyclerView, i)) == null) {
+            return new wb8(context, recyclerView, new xa8(), new ya8(), i, 1);
         }
-        return invokeV.booleanValue;
+        return (wb8) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.kb8, com.baidu.tieba.al5
-    public String U() {
-        InterceptResult invokeV;
+    public static wb8 b(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kb8, com.baidu.tieba.zk5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
-    }
-
-    public za8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
+            return new wb8(context, recyclerView, new xa8(), new ya8(), i, 2);
         }
+        return (wb8) invokeLLI.objValue;
+    }
+
+    public static vb8 c(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, recyclerView, i)) == null) {
+            return new vb8(context, recyclerView, new xa8(), new ya8(), i, 1);
+        }
+        return (vb8) invokeLLI.objValue;
     }
 }

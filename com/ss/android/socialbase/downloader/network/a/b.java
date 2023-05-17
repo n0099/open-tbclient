@@ -10,7 +10,7 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.network.j;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static long a;
     public static long b;

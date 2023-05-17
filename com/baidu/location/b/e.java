@@ -49,7 +49,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Timer;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static char[] q;
@@ -61,7 +61,7 @@ public class e {
     public TelephonyManager e;
     public com.baidu.location.c.a f;
     public WifiManager g;
-    public C0100e h;
+    public C0104e h;
     public String i;
     public String j;
     public LocationClientOption k;
@@ -79,7 +79,7 @@ public class e {
     public boolean x;
 
     @TargetApi(29)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends TelephonyManager.CellInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,12 +123,12 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onReceiveLocation(BDLocation bDLocation);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends com.baidu.location.e.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class e {
         public boolean d;
         public final /* synthetic */ e e;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public class a implements LocationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -339,7 +339,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -369,8 +369,8 @@ public class e {
     }
 
     /* renamed from: com.baidu.location.b.e$e  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0100e {
+    /* loaded from: classes3.dex */
+    public static class C0104e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<ScanResult> a;
@@ -379,7 +379,7 @@ public class e {
         public String d;
         public int e;
 
-        public C0100e(List<ScanResult> list) {
+        public C0104e(List<ScanResult> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -417,7 +417,7 @@ public class e {
         private void b() {
             /*
                 r7 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.e.C0100e.$ic
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.e.C0104e.$ic
                 if (r0 != 0) goto L63
             L4:
                 int r0 = r7.a()
@@ -477,7 +477,7 @@ public class e {
                 if (r0 == 0) goto L4
                 return
             */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.e.C0100e.b():void");
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.e.C0104e.b():void");
         }
 
         public int a() {
@@ -663,7 +663,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -973,9 +973,9 @@ public class e {
             }
             this.h = null;
             if (a(this.g) && this.k.priority != 4) {
-                C0100e c0100e = new C0100e(this.g.getScanResults());
-                this.h = c0100e;
-                str2 = c0100e.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
+                C0104e c0104e = new C0104e(this.g.getScanResults());
+                this.h = c0104e;
+                str2 = c0104e.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
                 try {
                     if (this.k != null && this.k.isOnceLocation()) {
                         this.g.startScan();
@@ -1022,9 +1022,9 @@ public class e {
         }
         this.h = null;
         if (a(this.g)) {
-            C0100e c0100e2 = new C0100e(this.g.getScanResults());
-            this.h = c0100e2;
-            str2 = c0100e2.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
+            C0104e c0104e2 = new C0104e(this.g.getScanResults());
+            this.h = c0104e2;
+            str2 = c0104e2.a(i, b(this.g), this.r, com.baidu.location.b.a.a().b);
             if (this.k != null) {
                 this.g.startScan();
             }
@@ -1218,8 +1218,8 @@ public class e {
                 }
                 a2 = null;
             } else {
-                C0100e c0100e = this.h;
-                String a4 = c0100e.a(c0100e.a(), b(this.g), this.r, com.baidu.location.b.a.a().b);
+                C0104e c0104e = this.h;
+                String a4 = c0104e.a(c0104e.a(), b(this.g), this.r, com.baidu.location.b.a.a().b);
                 if (!TextUtils.isEmpty(a4)) {
                     a2 = com.baidu.location.e.k.a(a4.getBytes(), false);
                 }

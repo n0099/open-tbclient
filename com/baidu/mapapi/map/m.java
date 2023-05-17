@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import android.graphics.Point;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class m {
     public final double a;
     public final double b;

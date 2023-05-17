@@ -1,85 +1,58 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 import java.io.InputStream;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-/* loaded from: classes4.dex */
-public class f1b {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SecureX509SingleInstance";
-    public static volatile g1b b;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes5.dex */
+public final class f1b {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947712690, "Lcom/baidu/tieba/f1b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947712690, "Lcom/baidu/tieba/f1b;");
-        }
-    }
+    public String a;
+    public b1b b;
+    public InputStream c;
+    public final Map<String, String> d;
+    public final List<w1b> e;
 
     public f1b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = b1b.b;
+        this.d = new HashMap();
+        this.e = new ArrayList();
     }
 
-    @SuppressLint({"NewApi"})
-    public static g1b a(Context context) throws CertificateException, NoSuchAlgorithmException, KeyStoreException, IOException {
+    public e1b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (context != null) {
-                m1b.b(context);
-                if (b == null) {
-                    synchronized (f1b.class) {
-                        if (b == null) {
-                            InputStream n = k1b.n(context);
-                            if (n == null) {
-                                p1b.e(a, "get assets bks");
-                                n = context.getAssets().open("hmsrootcas.bks");
-                            } else {
-                                p1b.e(a, "get files bks");
-                            }
-                            b = new g1b(n, "");
-                            new n1b().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, context);
-                        }
-                    }
-                }
-                String str = a;
-                p1b.b(str, "SecureX509TrustManager getInstance: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return b;
-            }
-            throw new NullPointerException("context is null");
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? new m1b(context, this.a, this.b, this.c, this.d, this.e, null) : (e1b) invokeL.objValue;
+    }
+
+    public f1b b(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
+            this.c = inputStream;
+            return this;
         }
-        return (g1b) invokeL.objValue;
+        return (f1b) invokeL.objValue;
     }
 }

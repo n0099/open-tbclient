@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.app.Notification;
 import android.content.Context;
 import com.xiaomi.push.aj;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class cd extends aj.a {
     public final /* synthetic */ int a;
 
@@ -28,7 +28,7 @@ public final class cd extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         String b;
         b = cc.b(this.a, this.f969a);
         return b;

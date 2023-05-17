@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fa implements is<fa, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,11 +41,11 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
         int a3;
         int a4;
         if (fa.class.equals(faVar.getClass())) {
-            int compareTo = Boolean.valueOf(m391a()).compareTo(Boolean.valueOf(faVar.m391a()));
+            int compareTo = Boolean.valueOf(m410a()).compareTo(Boolean.valueOf(faVar.m410a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m391a() || (a4 = it.a(this.f352a, faVar.f352a)) == 0) {
+            if (!m410a() || (a4 = it.a(this.f352a, faVar.f352a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(faVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -83,28 +83,28 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo621a();
+        jdVar.mo640a();
         while (true) {
-            ja mo617a = jdVar.mo617a();
-            byte b2 = mo617a.a;
+            ja mo636a = jdVar.mo636a();
+            byte b2 = mo636a.a;
             if (b2 == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            short s = mo617a.f813a;
+            short s = mo636a.f813a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f352a = jdVar.mo622a();
+                    this.f352a = jdVar.mo641a();
                     jdVar.g();
                 }
                 jg.a(jdVar, b2);
                 jdVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    jb mo618a = jdVar.mo618a();
-                    this.f353a = new ArrayList(mo618a.f814a);
-                    for (int i = 0; i < mo618a.f814a; i++) {
+                    jb mo637a = jdVar.mo637a();
+                    this.f353a = new ArrayList(mo637a.f814a);
+                    for (int i = 0; i < mo637a.f814a; i++) {
                         ez ezVar = new ez();
                         ezVar.a(jdVar);
                         this.f353a.add(ezVar);
@@ -116,7 +116,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
                 jdVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f354b = jdVar.mo622a();
+                    this.f354b = jdVar.mo641a();
                     jdVar.g();
                 }
                 jg.a(jdVar, b2);
@@ -126,18 +126,18 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m391a() {
+    public boolean m410a() {
         return this.f352a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m392a(fa faVar) {
+    public boolean m411a(fa faVar) {
         if (faVar == null) {
             return false;
         }
-        boolean m391a = m391a();
-        boolean m391a2 = faVar.m391a();
-        if ((m391a || m391a2) && !(m391a && m391a2 && this.f352a.equals(faVar.f352a))) {
+        boolean m410a = m410a();
+        boolean m410a2 = faVar.m410a();
+        if ((m410a || m410a2) && !(m410a && m410a2 && this.f352a.equals(faVar.f352a))) {
             return false;
         }
         boolean b2 = b();
@@ -177,7 +177,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo625a();
+        jdVar.mo644a();
     }
 
     public boolean b() {
@@ -190,7 +190,7 @@ public class fa implements is<fa, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof fa)) {
-            return m392a((fa) obj);
+            return m411a((fa) obj);
         }
         return false;
     }

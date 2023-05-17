@@ -14,11 +14,11 @@ import android.widget.FrameLayout;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.ol3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.xm3;
+/* loaded from: classes4.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean n = ho1.a;
+    public static final boolean n = qp1.a;
     public View a;
     public int b;
     public int c;
@@ -33,14 +33,14 @@ public class FullScreenFloatView extends FrameLayout {
     public b l;
     public c m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a();
 
         void onClick();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
@@ -188,9 +188,9 @@ public class FullScreenFloatView extends FrameLayout {
 
     public void e() {
         if (this.a != null) {
-            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070669);
-            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07066a);
-            this.a.animate().x((ol3.o(getContext()) - dimensionPixelOffset) - this.b).y((ol3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707bd);
+            int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0707be);
+            this.a.animate().x((xm3.o(getContext()) - dimensionPixelOffset) - this.b).y((xm3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 
@@ -201,7 +201,7 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
                 this.a = findViewById;
                 b(findViewById);
             }
@@ -326,14 +326,14 @@ public class FullScreenFloatView extends FrameLayout {
     }
 
     public void setFloatButtonText(String str) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
         if (findViewById instanceof Button) {
             ((Button) findViewById).setText(str);
         }
     }
 
     public void setFloatImageBackground(int i) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090b1e);
         if (findViewById != null) {
             findViewById.setBackgroundResource(i);
         }

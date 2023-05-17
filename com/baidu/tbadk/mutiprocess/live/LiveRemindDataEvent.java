@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveRemindDataEvent extends SerializableEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 723711522260509238L;

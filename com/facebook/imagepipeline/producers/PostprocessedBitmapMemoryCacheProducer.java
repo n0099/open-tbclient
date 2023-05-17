@@ -1,5 +1,6 @@
 package com.facebook.imagepipeline.producers;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.VisibleForTesting;
@@ -11,7 +12,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.Postprocessor;
 import com.facebook.imagepipeline.request.RepeatedPostprocessor;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PostprocessedBitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static final String PRODUCER_NAME = "PostprocessedBitmapMemoryCacheProducer";
     @VisibleForTesting
@@ -24,7 +25,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
         return PRODUCER_NAME;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class CachedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public final CacheKey mCacheKey;
         public final boolean mIsMemoryCachedEnabled;
@@ -99,7 +100,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
             CachedPostprocessorConsumer cachedPostprocessorConsumer = new CachedPostprocessorConsumer(consumer, postprocessedBitmapCacheKey, postprocessor instanceof RepeatedPostprocessor, this.mMemoryCache, producerContext.getImageRequest().isMemoryCacheEnabled());
             String producerName2 = getProducerName();
             if (producerListener.requiresExtraMap(producerContext, getProducerName())) {
-                map = ImmutableMap.of("cached_value_found", "false");
+                map = ImmutableMap.of("cached_value_found", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
             }
             producerListener.onProducerFinishWithSuccess(producerContext, producerName2, map);
             this.mInputProducer.produceResults(cachedPostprocessorConsumer, producerContext);

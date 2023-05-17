@@ -1,84 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public final class e82 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<a82> a;
-    public boolean b;
+import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
+/* loaded from: classes5.dex */
+public interface e82 {
+    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
 
-    public e82() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.b = false;
-    }
+    void continueTimer();
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String g = lk3.g(System.currentTimeMillis(), "【HH:mm:ss】");
-            List<a82> list = this.a;
-            if (list != null && !list.isEmpty()) {
-                int i = 0;
-                int i2 = 0;
-                int i3 = 0;
-                for (a82 a82Var : this.a) {
-                    if (a82Var.c()) {
-                        i++;
-                        if (a82Var.b()) {
-                            i2++;
-                        } else {
-                            i3++;
-                        }
-                    }
-                }
-                return String.format("\n%s jserror：共%d个，影响渲染%d个（框架%d个，开发者%d个）；", g, Integer.valueOf(this.a.size()), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3));
-            }
-            return String.format("\n%s jserror：共0个；", g);
-        }
-        return (String) invokeV.objValue;
-    }
+    String getContainerId();
 
-    public void c(List<a82> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
-            this.a = list;
-        }
-    }
+    String getUrl();
 
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
+    boolean isDestroyed();
+
+    boolean isWebView();
+
+    void onJSLoaded();
+
+    void suspendTimer();
 }

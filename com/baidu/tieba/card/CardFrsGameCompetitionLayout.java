@@ -12,18 +12,18 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetitionSubNode;
-import com.baidu.tieba.xf;
+import com.baidu.tieba.gg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CardFrsGameCompetitionLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xf<CardFrsGameCompetitionItemView> a;
+    public gg<CardFrsGameCompetitionItemView> a;
     public int b;
     public int c;
     public int d;
@@ -35,7 +35,7 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,10 +160,10 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(xf<CardFrsGameCompetitionItemView> xfVar) {
+    public void setViewPool(gg<CardFrsGameCompetitionItemView> ggVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xfVar) == null) {
-            this.a = xfVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, ggVar) == null) {
+            this.a = ggVar;
         }
     }
 

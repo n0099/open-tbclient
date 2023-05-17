@@ -8,22 +8,22 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.er2;
-import com.baidu.tieba.eu1;
-import com.baidu.tieba.gu1;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.i92;
-import com.baidu.tieba.ol3;
-import com.baidu.tieba.wk3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.fm3;
+import com.baidu.tieba.ns2;
+import com.baidu.tieba.nv1;
+import com.baidu.tieba.pv1;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.ra2;
+import com.baidu.tieba.xm3;
+/* loaded from: classes4.dex */
 public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
-    public static final boolean q = ho1.a;
-    public eu1 m;
+    public static final boolean q = qp1.a;
+    public nv1 m;
     public String n;
     public int o = 0;
     public int p = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -34,22 +34,22 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class b extends i92 {
+    /* loaded from: classes4.dex */
+    public class b extends ra2 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
+        @Override // com.baidu.tieba.ra2, com.baidu.tieba.ua2
         public void d(String str) {
             super.d(str);
             if (!TextUtils.isEmpty(str)) {
-                ((TextView) SwanAppScopeDetailActivity.this.findViewById(R.id.obfuscated_res_0x7f09240b)).setText(str);
+                ((TextView) SwanAppScopeDetailActivity.this.findViewById(R.id.obfuscated_res_0x7f09246f)).setText(str);
             }
         }
     }
 
     public final void C() {
-        findViewById(R.id.obfuscated_res_0x7f090315).setOnClickListener(new a());
+        findViewById(R.id.obfuscated_res_0x7f090322).setOnClickListener(new a());
     }
 
     public final void G() {
@@ -69,22 +69,22 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        eu1 eu1Var = this.m;
-        if (eu1Var != null) {
-            eu1Var.destroy();
+        nv1 nv1Var = this.m;
+        if (nv1Var != null) {
+            nv1Var.destroy();
             this.m = null;
         }
         this.n = null;
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.eu1] */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.baidu.tieba.nv1] */
     public final void D() {
         if (TextUtils.isEmpty(this.n)) {
             return;
         }
-        gu1 c = er2.F0().c(this);
+        pv1 c = ns2.F0().c(this);
         c.Y(new b());
-        this.m = c.s();
+        this.m = c.r();
         c.loadUrl(this.n);
         c.j((FrameLayout) findViewById(R.id.webview_container), this.m.covertToView());
     }
@@ -93,18 +93,18 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         if (intent == null) {
             return;
         }
-        this.n = wk3.h(intent, "url");
+        this.n = fm3.h(intent, "url");
         if (q) {
             Log.d("ScopeDetailActivity", "mUrl=" + this.n);
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.nl4, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, com.baidu.tieba.wm4, android.app.Activity
     public void onCreate(Bundle bundle) {
-        F(R.anim.obfuscated_res_0x7f01001c, R.anim.obfuscated_res_0x7f010025);
+        F(R.anim.obfuscated_res_0x7f01001d, R.anim.obfuscated_res_0x7f010026);
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d08ab);
-        ol3.a(this);
+        setContentView(R.layout.obfuscated_res_0x7f0d08dc);
+        xm3.a(this);
         E(getIntent());
         C();
         D();

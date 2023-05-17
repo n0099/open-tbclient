@@ -1,104 +1,173 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.app.Application;
+import android.graphics.Rect;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.t41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public final class cb1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] AdImageView;
-    public static final int AdImageView_adCornerRadius = 0;
-    public static final int AdImageView_borderColor = 1;
-    public static final int AdImageView_borderColorWidth = 2;
-    public static final int AdImageView_circleType = 3;
-    public static final int AdImageView_errorHolder = 4;
-    public static final int AdImageView_holder = 5;
-    public static final int AdImageView_imageScaleType = 6;
-    public static final int AdImageView_leftBottomRadius = 7;
-    public static final int AdImageView_leftTopRadius = 8;
-    public static final int AdImageView_loadingHolder = 9;
-    public static final int AdImageView_rightBottomRadius = 10;
-    public static final int AdImageView_rightTopRadius = 11;
-    public static final int[] ExpandIconView;
-    public static final int ExpandIconView_animationDuration = 0;
-    public static final int ExpandIconView_color = 1;
-    public static final int ExpandIconView_length = 2;
-    public static final int ExpandIconView_thick = 3;
-    public static final int[] NADUnifyTextView;
-    public static final int NADUnifyTextView_spannable_bottom_padding = 0;
-    public static final int NADUnifyTextView_spannable_top_padding = 1;
-    public static final int[] NadBdThumbSeekBar;
-    public static final int NadBdThumbSeekBar_nad_ThumbSeekBarStyle = 0;
-    public static final int[] NadEnhanceButtonView;
-    public static final int NadEnhanceButtonView_btnBackgroundEndColor = 0;
-    public static final int NadEnhanceButtonView_btnBackgroundStartColor = 1;
-    public static final int NadEnhanceButtonView_btnCornerRadius = 2;
-    public static final int[] NadRoundProgressBar;
-    public static final int NadRoundProgressBar_max = 0;
-    public static final int NadRoundProgressBar_nad_style = 1;
-    public static final int NadRoundProgressBar_reverse = 2;
-    public static final int NadRoundProgressBar_roundColor = 3;
-    public static final int NadRoundProgressBar_roundHintTextSize = 4;
-    public static final int NadRoundProgressBar_roundMax = 5;
-    public static final int NadRoundProgressBar_roundPaintCapRound = 6;
-    public static final int NadRoundProgressBar_roundProgressColor = 7;
-    public static final int NadRoundProgressBar_roundTextColor = 8;
-    public static final int NadRoundProgressBar_roundTextSize = 9;
-    public static final int NadRoundProgressBar_roundWidth = 10;
-    public static final int NadRoundProgressBar_textColor = 11;
-    public static final int NadRoundProgressBar_textIsDisplayable = 12;
-    public static final int NadRoundProgressBar_textSize = 13;
-    public static final int[] NadShadowViewGroup;
-    public static final int NadShadowViewGroup_containerCornerRadius = 0;
-    public static final int NadShadowViewGroup_containerDeltaHeight = 1;
-    public static final int NadShadowViewGroup_containerDeltaWidth = 2;
-    public static final int NadShadowViewGroup_containerShadowColor = 3;
-    public static final int NadShadowViewGroup_containerShadowRadius = 4;
-    public static final int NadShadowViewGroup_deltaX = 5;
-    public static final int NadShadowViewGroup_deltaY = 6;
-    public static final int NadShadowViewGroup_enable = 7;
-    public static final int NadShadowViewGroup_shadowAlpha = 8;
-    public static final int[] NadTextProgressView;
-    public static final int NadTextProgressView_nad_progressGravity = 0;
-    public static final int NadTextProgressView_nad_progressTextColor = 1;
-    public static final int NadTextProgressView_nad_progressTextMode = 2;
-    public static final int NadTextProgressView_nad_progressTextSize = 3;
-    public static final int[] RoundCornerRelativeLayout;
-    public static final int RoundCornerRelativeLayout_round_edge_radius = 0;
-    public static final int[] SimpleAdInfoView;
-    public static final int SimpleAdInfoView_layoutId = 0;
-    public static final int[] nad_bdvideoplayer_bdPlayerProgressView;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressGravity = 0;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextColor = 1;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextMode = 2;
-    public static final int nad_bdvideoplayer_bdPlayerProgressView_nad_bdvideoplayer_progressTextSize = 3;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+/* loaded from: classes5.dex */
+public class cb1 implements ViewTreeObserver.OnGlobalLayoutListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public WeakReference<View> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947668887, "Lcom/baidu/tieba/cb1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public class a implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Application a;
+        public final /* synthetic */ cb1 b;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947668887, "Lcom/baidu/tieba/cb1;");
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public a(cb1 cb1Var, Application application) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cb1Var, application};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = cb1Var;
+            this.a = application;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || (view2 = (View) this.b.c.get()) == null || activity != view2.getContext()) {
+                return;
+            }
+            this.b.a = false;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(@NonNull Activity activity) {
+            View view2;
+            Application application;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext() && (application = this.a) != null) {
+                application.unregisterActivityLifecycleCallbacks(this);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(@NonNull Activity activity) {
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext()) {
+                this.b.a = true;
+            }
+        }
+    }
+
+    public cb1(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        AdImageView = new int[]{R.attr.adCornerRadius, R.attr.obfuscated_res_0x7f0400e9, R.attr.borderColorWidth, R.attr.obfuscated_res_0x7f040154, R.attr.obfuscated_res_0x7f040296, R.attr.obfuscated_res_0x7f04032e, R.attr.imageScaleType, R.attr.leftBottomRadius, R.attr.leftTopRadius, R.attr.loadingHolder, R.attr.rightBottomRadius, R.attr.rightTopRadius};
-        ExpandIconView = new int[]{R.attr.obfuscated_res_0x7f040093, R.attr.obfuscated_res_0x7f04016c, R.attr.obfuscated_res_0x7f040437, R.attr.obfuscated_res_0x7f04071e};
-        NADUnifyTextView = new int[]{R.attr.obfuscated_res_0x7f04065e, R.attr.obfuscated_res_0x7f04065f};
-        NadBdThumbSeekBar = new int[]{R.attr.nad_ThumbSeekBarStyle};
-        NadEnhanceButtonView = new int[]{R.attr.btnBackgroundEndColor, R.attr.btnBackgroundStartColor, R.attr.btnCornerRadius};
-        NadRoundProgressBar = new int[]{R.attr.obfuscated_res_0x7f0404c5, R.attr.nad_style, R.attr.obfuscated_res_0x7f0405d5, R.attr.obfuscated_res_0x7f0405e6, R.attr.roundHintTextSize, R.attr.obfuscated_res_0x7f0405e9, R.attr.roundPaintCapRound, R.attr.obfuscated_res_0x7f0405ec, R.attr.roundTextColor, R.attr.roundTextSize, R.attr.obfuscated_res_0x7f0405f1, R.attr.obfuscated_res_0x7f040708, R.attr.obfuscated_res_0x7f040712, R.attr.obfuscated_res_0x7f040715};
-        NadShadowViewGroup = new int[]{R.attr.containerCornerRadius, R.attr.containerDeltaHeight, R.attr.containerDeltaWidth, R.attr.containerShadowColor, R.attr.containerShadowRadius, R.attr.obfuscated_res_0x7f040216, R.attr.obfuscated_res_0x7f040217, R.attr.obfuscated_res_0x7f040289, R.attr.obfuscated_res_0x7f04062c};
-        NadTextProgressView = new int[]{R.attr.nad_progressGravity, R.attr.nad_progressTextColor, R.attr.nad_progressTextMode, R.attr.nad_progressTextSize};
-        RoundCornerRelativeLayout = new int[]{R.attr.round_edge_radius};
-        SimpleAdInfoView = new int[]{R.attr.obfuscated_res_0x7f040417};
-        nad_bdvideoplayer_bdPlayerProgressView = new int[]{R.attr.nad_bdvideoplayer_progressGravity, R.attr.nad_bdvideoplayer_progressTextColor, R.attr.nad_bdvideoplayer_progressTextMode, R.attr.nad_bdvideoplayer_progressTextSize};
+        this.a = false;
+        this.b = -1;
+        this.c = new WeakReference<>(view2);
+        c();
+    }
+
+    public final void c() {
+        Application application;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (ga1.b() instanceof Application) {
+                application = (Application) ga1.b();
+            } else {
+                application = (Application) ga1.b().getApplicationContext();
+            }
+            application.registerActivityLifecycleCallbacks(new a(this, application));
+        }
+    }
+
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        View view2;
+        int measuredHeight;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (view2 = this.c.get()) == null) {
+            return;
+        }
+        if (this.b >= ((int) (t41.c.f(view2.getContext()) * 0.85f)) && !this.a) {
+            return;
+        }
+        if (ViewCompat.isAttachedToWindow(view2)) {
+            Rect rect = new Rect();
+            view2.getWindowVisibleDisplayFrame(rect);
+            int i = rect.top;
+            if (i == 0) {
+                i = t41.c.g();
+            }
+            measuredHeight = rect.bottom - i;
+        } else {
+            measuredHeight = view2.getMeasuredHeight();
+        }
+        if (this.b != measuredHeight && measuredHeight > 0) {
+            this.b = measuredHeight;
+            view2.getLayoutParams().height = measuredHeight;
+            view2.requestLayout();
+        }
     }
 }

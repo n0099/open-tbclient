@@ -1,60 +1,11 @@
 package com.baidu.tieba;
+/* loaded from: classes7.dex */
+public interface qk6 extends rn {
+    void N(boolean z);
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class qk6 implements v17 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+    void g(boolean z);
 
-    @Override // com.baidu.tieba.v17
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
-    }
+    int getPosition();
 
-    public qk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.v17
-    public Map<String, String> a(hy6 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "1");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            Intrinsics.checkNotNullExpressionValue(currentAccount, "getCurrentAccount()");
-            hashMap.put("obj_id", currentAccount);
-            String str = a.get("user_id");
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_param1", str);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
+    boolean v();
 }

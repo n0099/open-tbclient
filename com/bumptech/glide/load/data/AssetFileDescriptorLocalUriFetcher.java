@@ -6,7 +6,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<AssetFileDescriptor> {
     public AssetFileDescriptorLocalUriFetcher(ContentResolver contentResolver, Uri uri) {
         super(contentResolver, uri);

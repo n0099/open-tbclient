@@ -9,7 +9,7 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cg implements XMPushService.n {
     public static Context a;
 
@@ -83,7 +83,7 @@ public class cg implements XMPushService.n {
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo468a() {
+    public void mo487a() {
         if (f970a.size() > 0) {
             synchronized (f970a) {
                 b();

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class VideoOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public class VideoOption {
     public final boolean g;
 
     /* renamed from: com.qq.e.ads.cfg.VideoOption$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AutoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ALWAYS = 1;
@@ -50,7 +50,7 @@ public class VideoOption {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public class VideoOption {
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoADContainerRender {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DEV = 2;
@@ -190,7 +190,7 @@ public class VideoOption {
     }
 
     @Deprecated
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class VideoPlayPolicy {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int AUTO = 1;

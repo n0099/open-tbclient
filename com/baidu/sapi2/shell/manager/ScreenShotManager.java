@@ -10,7 +10,7 @@ import android.provider.MediaStore;
 import com.baidu.ar.statistic.StatisticConstants;
 import com.baidu.sapi2.shell.listener.IScreenShotListener;
 import com.baidu.sapi2.utils.Log;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ScreenShotManager {
     public static final String[] KEYWORDS = {StatisticConstants.SCREENSHOT, "screen_shot", "screen-shot", "screen shot", "screencapture", "screen_capture", "screen-capture", "screen capture", "screencap", "screen_cap", "screen-cap", "screen cap"};
     public static final String[] MEDIA_PROJECTIONS = {"_data", "datetaken"};
@@ -22,7 +22,7 @@ public class ScreenShotManager {
     public MediaContentObserver mInternalObserver;
     public IScreenShotListener mScreenShotListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class MediaContentObserver extends ContentObserver {
         public final Uri mContentUri;
 

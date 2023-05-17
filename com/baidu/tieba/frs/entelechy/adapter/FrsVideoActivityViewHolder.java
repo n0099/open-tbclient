@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,11 +39,11 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         if (view2 != null) {
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092725);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092724);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092726);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092723);
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f092494);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092791);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092790);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092792);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09278f);
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0924ff);
             this.f = view2.findViewById(R.id.bottom_divider_line);
         }
     }

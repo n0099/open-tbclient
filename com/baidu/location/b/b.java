@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static long c = 0;
@@ -48,13 +48,13 @@ public class b {
     public c n;
 
     /* renamed from: com.baidu.location.b.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -457,8 +457,8 @@ public class b {
     }
 
     /* renamed from: com.baidu.location.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0099b {
+    /* loaded from: classes3.dex */
+    public static class C0103b {
         public static /* synthetic */ Interceptable $ic;
         public static b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -480,7 +480,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -574,7 +574,7 @@ public class b {
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0099b.a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? C0103b.a : (b) invokeV.objValue;
     }
 
     private void a(a aVar) {

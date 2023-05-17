@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.renderer;
 
 import java.util.Set;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface DescriptorRendererOptions {
     AnnotationArgumentsRenderingPolicy getAnnotationArgumentsRenderingPolicy();
 
@@ -40,7 +40,7 @@ public interface DescriptorRendererOptions {
 
     void setWithoutTypeParameters(boolean z);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DefaultImpls {
         public static boolean getIncludeAnnotationArguments(DescriptorRendererOptions descriptorRendererOptions) {
             return descriptorRendererOptions.getAnnotationArgumentsRenderingPolicy().getIncludeAnnotationArguments();

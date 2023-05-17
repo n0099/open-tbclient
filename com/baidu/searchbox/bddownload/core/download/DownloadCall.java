@@ -27,7 +27,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadCall extends NamedRunnable implements Comparable<DownloadCall> {
     public static final ExecutorService EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload Block", false));
     public static final int MAX_COUNT_RETRY_FOR_PRECONDITION_FAILED = 1;

@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class Gson {
     public static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
     public static final boolean DEFAULT_ESCAPE_HTML = true;
@@ -100,7 +100,7 @@ public final class Gson {
         return "{serializeNulls:" + this.serializeNulls + ",factories:" + this.factories + ",instanceCreators:" + this.constructorConstructor + "}";
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         public TypeAdapter<T> delegate;
 

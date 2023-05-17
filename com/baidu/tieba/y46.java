@@ -1,12 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes7.dex */
-public interface y46 {
-    void a(u46 u46Var);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes8.dex */
+public class y46 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile x46 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getView();
-
-    void onChangeSkinType(TbPageContext<?> tbPageContext, int i);
+    public static synchronized x46 a() {
+        InterceptResult invokeV;
+        x46 x46Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (y46.class) {
+                if (a == null) {
+                    a = new x46();
+                }
+                x46Var = a;
+            }
+            return x46Var;
+        }
+        return (x46) invokeV.objValue;
+    }
 }

@@ -5,13 +5,13 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class ChannelInitHelper {
     public static String getFromByFile() {
         String str = null;
@@ -32,7 +32,7 @@ public class ChannelInitHelper {
     }
 
     public static String getFromByShare() {
-        return f55.m().s("from_id", null);
+        return o65.m().s("from_id", null);
     }
 
     public static boolean hasInitFinish() {
@@ -120,6 +120,6 @@ public class ChannelInitHelper {
         if (str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        f55.m().B("from_id", str);
+        o65.m().B("from_id", str);
     }
 }

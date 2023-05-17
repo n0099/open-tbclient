@@ -1,111 +1,72 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
 import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.f0b;
+import com.baidu.tieba.j0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
-public final class m0b {
+import com.hihonor.push.framework.aidl.IPushInvoke;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes6.dex */
+public class m0b implements j0b {
     public static /* synthetic */ Interceptable $ic;
-    public static final m0b b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+    public final AtomicInteger a;
+    public volatile IPushInvoke b;
+    public final j0b.a c;
+    public p0b d;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Executor {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(byte b) {
-            this();
-        }
-
-        @Override // java.util.concurrent.Executor
-        public final void execute(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                new Handler(Looper.getMainLooper()).post(runnable);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920266, "Lcom/baidu/tieba/m0b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920266, "Lcom/baidu/tieba/m0b;");
-                return;
-            }
-        }
-        b = new m0b();
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = availableProcessors + 1;
-        e = (availableProcessors * 2) + 1;
-    }
-
-    public m0b() {
+    public m0b(j0b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a((byte) 0);
+        this.a = new AtomicInteger(1);
+        this.c = aVar;
     }
 
-    public static ExecutorService a() {
-        InterceptResult invokeV;
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 1L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-            threadPoolExecutor.allowCoreThreadTimeOut(true);
-            return threadPoolExecutor;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            Log.i("PushConnectionClient", "notifyFailed result: " + i);
+            j0b.a aVar = this.c;
+            if (aVar != null) {
+                f0b.a aVar2 = (f0b.a) aVar;
+                aVar2.getClass();
+                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
+                    aVar2.b(HonorPushErrorEnum.fromCode(i));
+                } else {
+                    aVar2.f.a.post(new e0b(aVar2, i));
+                }
+            }
         }
-        return (ExecutorService) invokeV.objValue;
     }
 
-    public static Executor b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (Executor) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() != 3 && this.a.get() != 4) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

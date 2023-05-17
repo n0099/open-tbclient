@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public interface if2 {
-    nf2 a(mf2 mf2Var);
+    void onFail();
+
+    void onSuccess();
 }

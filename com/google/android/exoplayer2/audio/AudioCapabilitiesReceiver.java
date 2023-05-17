@@ -6,19 +6,19 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AudioCapabilitiesReceiver {
     public AudioCapabilities audioCapabilities;
     public final Context context;
     public final Listener listener;
     public final BroadcastReceiver receiver;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Listener {
         void onAudioCapabilitiesChanged(AudioCapabilities audioCapabilities);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class HdmiAudioPlugBroadcastReceiver extends BroadcastReceiver {
         public HdmiAudioPlugBroadcastReceiver() {
         }

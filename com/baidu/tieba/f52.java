@@ -1,112 +1,76 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.camera.view.CameraPreview;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class f52 {
+/* loaded from: classes5.dex */
+public final class f52 extends v42<CameraPreview, a22> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715046, "Lcom/baidu/tieba/f52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715046, "Lcom/baidu/tieba/f52;");
-                return;
-            }
-        }
-        i = ho1.a;
-    }
-
-    public f52() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f52(@NonNull Context context, @NonNull a22 a22Var) {
+        super(context, a22Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, a22Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (w42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        g(2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v42
+    /* renamed from: G */
+    public void C(@NonNull CameraPreview cameraPreview, @NonNull a22 a22Var, @NonNull y52 y52Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, a22Var, y52Var) == null) {
+            super.C(cameraPreview, a22Var, y52Var);
+            if (t()) {
+                cameraPreview.x(a22Var);
             }
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.v42
     @NonNull
-    public static f52 c(JSONObject jSONObject) {
+    /* renamed from: F */
+    public CameraPreview v(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            f52 f52Var = new f52();
-            try {
-                f52Var.c = jSONObject.getJSONArray("host");
-                f52Var.b = jSONObject.getString("appKey");
-                f52Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                f52Var.d = jSONObject.getString("serverPort");
-                f52Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                f52Var.g = jSONObject.optString("notInHistory", "1");
-                f52Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
-                }
-            }
-            return f52Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new CameraPreview(context, n());
         }
-        return (f52) invokeL.objValue;
+        return (CameraPreview) invokeL.objValue;
     }
 
-    public String a(int i2) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.v42
+    public void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            if (jSONArray == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.z();
+            CameraPreview q = q();
+            if (q != null) {
+                q.p();
             }
-            return jSONArray.optString(i2);
         }
-        return (String) invokeI.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return "http://" + str + ":" + this.d + "/app.zip";
-        }
-        return (String) invokeL.objValue;
     }
 }

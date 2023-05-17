@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveRoomEntity implements Parcelable {
     public static final Parcelable.Creator<LiveRoomEntity> CREATOR = new Parcelable.Creator<LiveRoomEntity>() { // from class: com.baidu.live.business.model.data.LiveRoomEntity.1
         /* JADX DEBUG: Method merged with bridge method */

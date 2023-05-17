@@ -1,51 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheRequestMessage;
-import com.baidu.tieba.forumMember.member.ForumMemberReadCacheResponseMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class p47 implements CustomMessageTask.CustomRunnable<Object> {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class p47 {
     public static /* synthetic */ Interceptable $ic;
+    public static final p47 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012150, "Lcom/baidu/tieba/p47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948012150, "Lcom/baidu/tieba/p47;");
+                return;
+            }
+        }
+        a = new p47();
+    }
 
     public p47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public final int a(String resName) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (!(customMessage instanceof ForumMemberReadCacheRequestMessage)) {
-                return null;
-            }
-            byte[] a = new n47().a(((ForumMemberReadCacheRequestMessage) customMessage).getForumName());
-            ForumMemberReadCacheResponseMessage forumMemberReadCacheResponseMessage = new ForumMemberReadCacheResponseMessage();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
+            Intrinsics.checkNotNullParameter(resName, "resName");
             try {
-                forumMemberReadCacheResponseMessage.decodeInBackGround(2003009, a);
+                return cy6.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, cy6.a.getPackageName());
             } catch (Exception e) {
-                e.printStackTrace();
+                BdLog.e(e);
+                return 0;
             }
-            return forumMemberReadCacheResponseMessage;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

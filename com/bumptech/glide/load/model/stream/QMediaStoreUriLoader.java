@@ -24,14 +24,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 @RequiresApi(29)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class QMediaStoreUriLoader<DataT> implements ModelLoader<Uri, DataT> {
     public final Context context;
     public final Class<DataT> dataClass;
     public final ModelLoader<File, DataT> fileDelegate;
     public final ModelLoader<Uri, DataT> uriDelegate;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Factory<DataT> implements ModelLoaderFactory<Uri, DataT> {
         public final Context context;
         public final Class<DataT> dataClass;
@@ -53,7 +53,7 @@ public final class QMediaStoreUriLoader<DataT> implements ModelLoader<Uri, DataT
     }
 
     @RequiresApi(29)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public FileDescriptorFactory(Context context) {
             super(context, ParcelFileDescriptor.class);
@@ -61,14 +61,14 @@ public final class QMediaStoreUriLoader<DataT> implements ModelLoader<Uri, DataT
     }
 
     @RequiresApi(29)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class InputStreamFactory extends Factory<InputStream> {
         public InputStreamFactory(Context context) {
             super(context, InputStream.class);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class QMediaStoreUriFetcher<DataT> implements DataFetcher<DataT> {
         public static final String[] PROJECTION = {"_data"};
         public final Context context;

@@ -32,7 +32,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class QualityDetectFlow {
     public static final String TAG = "QualityDetectFlow";
     public static QualityDetectFlow mQualityDetectFlow;

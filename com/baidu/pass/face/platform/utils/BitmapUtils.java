@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BitmapUtils {
     public static final int IMAGEBOUND = 128;
     public static final int MAXLENTH = 1024;

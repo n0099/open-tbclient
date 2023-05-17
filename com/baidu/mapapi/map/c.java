@@ -1,7 +1,7 @@
 package com.baidu.mapapi.map;
 
 import com.baidu.mapapi.map.InfoWindow;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c implements InfoWindow.a {
     public final /* synthetic */ BaiduMap a;
 

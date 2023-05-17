@@ -1,38 +1,39 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.content.Context;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class gh5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class gh5 extends df5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static fh5 a(View view2, boolean z) {
-        InterceptResult invokeLZ;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gh5(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.pb_vote_text), 32, i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
-            if (view2 == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (view2 instanceof LinearLayout) {
-                return new hh5();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new kh5();
-            }
-            if (!(view2 instanceof FrameLayout)) {
-                return null;
-            }
-            if (z) {
-                return new lh5();
-            }
-            return new dh5();
         }
-        return (fh5) invokeLZ.objValue;
+        this.d = R.drawable.ic_icon_pure_more_vote60_svg;
+        this.h = R.drawable.icon_pure_post_more_vote64;
+        this.i = false;
+        this.k = true;
+        this.p = new int[]{22};
     }
 }

@@ -1,64 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class h31 {
+import java.util.concurrent.TimeUnit;
+/* loaded from: classes5.dex */
+public abstract class h31 extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
-    public static g31 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947772675, "Lcom/baidu/tieba/h31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947772675, "Lcom/baidu/tieba/h31;");
-        }
-    }
-
-    public h31() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h31(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = false;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.d || e() >= this.b) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.d) {
+                Log.w(d(), "This executor cell is already opened.");
+                return;
+            }
+            this.d = true;
+            this.c.setKeepAliveTime(5000L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public static g31 a() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (h31.class) {
-                    if (a == null) {
-                        a = (g31) ServiceManager.getService(g31.a);
-                    }
-                    if (a == null) {
-                        a = g31.b;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (!this.d) {
+                Log.w(d(), "This executor cell is already shutdown.");
+                return;
             }
-            return a;
+            this.d = false;
+            this.c.setKeepAliveTime(100L, TimeUnit.MILLISECONDS);
         }
-        return (g31) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public void g(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, elasticTask) == null) {
+            super.g(elasticTask);
+            if (this.d) {
+                t31.f().k();
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.net.update;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UpdateConstants {
     public static final String DETAIL_KEY = "detail";
     public static final String POST_DATA_DATA = "data";

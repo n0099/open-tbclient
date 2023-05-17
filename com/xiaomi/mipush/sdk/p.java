@@ -6,7 +6,7 @@ import com.xiaomi.push.hh;
 import com.xiaomi.push.hu;
 import com.xiaomi.push.ig;
 import com.xiaomi.push.service.bd;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class p extends aj.a {
     public final /* synthetic */ Context a;
 
@@ -20,7 +20,7 @@ public final class p extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return "22";
     }
 

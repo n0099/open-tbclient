@@ -3,7 +3,7 @@ package com.ss.android.downloadad.api.download;
 import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.downloadlib.addownload.j;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdDownloadController implements DownloadController {
     public int mDownloadMode;
     public Object mExtraClickOperation;
@@ -30,7 +30,7 @@ public class AdDownloadController implements DownloadController {
         return false;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public AdDownloadController controller = new AdDownloadController();
 

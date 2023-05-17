@@ -1,7 +1,7 @@
 package com.baidu.livesdk.api.http;
 
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class HttpRequestEntity {
     public int connectTimeout;
     public HashMap<String, String> header;

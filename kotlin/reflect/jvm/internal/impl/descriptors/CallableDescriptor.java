@@ -3,10 +3,10 @@ package kotlin.reflect.jvm.internal.impl.descriptors;
 import java.util.Collection;
 import java.util.List;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface CallableDescriptor extends DeclarationDescriptorNonRoot, DeclarationDescriptorWithVisibility, Substitutable<CallableDescriptor> {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface UserDataKey<V> {
     }
 

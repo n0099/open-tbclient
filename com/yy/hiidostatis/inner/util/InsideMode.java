@@ -2,7 +2,7 @@ package com.yy.hiidostatis.inner.util;
 
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InsideMode {
     public static boolean encriptIMEI;
     public static boolean encriptIMSI;
@@ -10,7 +10,7 @@ public class InsideMode {
     public static EncriptType encriptType = EncriptType.NONE;
     public static HostApp hostApp = HostApp.NONE;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum EncriptType {
         NONE,
         MD5,
@@ -18,7 +18,7 @@ public class InsideMode {
         SHA256
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum HostApp {
         NONE,
         MI,
@@ -27,7 +27,7 @@ public class InsideMode {
     }
 
     /* renamed from: com.yy.hiidostatis.inner.util.InsideMode$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType;
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp;

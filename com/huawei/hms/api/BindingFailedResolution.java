@@ -30,7 +30,7 @@ import com.huawei.hms.utils.HMSPackageManager;
 import com.huawei.hms.utils.ResourceLoaderUtil;
 import com.huawei.hms.utils.UIUtil;
 import com.huawei.hms.utils.Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BindingFailedResolution implements IBridgeActivityDelegate, ServiceConnection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object LOCK_CONNECT_TIMEOUT_HANDLER;
@@ -63,7 +63,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c implements AbstractDialog.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +189,7 @@ public class BindingFailedResolution implements IBridgeActivityDelegate, Service
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d extends AbstractPromptDialog {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

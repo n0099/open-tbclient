@@ -3,9 +3,9 @@ package com.baidu.live.business.model.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
-import com.baidu.tieba.rb0;
+import com.baidu.tieba.hc0;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveBannerEntity implements Parcelable {
     public static final Parcelable.Creator<LiveBannerEntity> CREATOR = new Parcelable.Creator<LiveBannerEntity>() { // from class: com.baidu.live.business.model.data.LiveBannerEntity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class LiveBannerEntity implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class BannerCmdInfo {
         public String action;
         public int type;
@@ -68,7 +68,7 @@ public class LiveBannerEntity implements Parcelable {
     }
 
     public boolean isValid() {
-        return !rb0.a(this.pic);
+        return !hc0.a(this.pic);
     }
 
     public LiveBannerEntity(Parcel parcel) {

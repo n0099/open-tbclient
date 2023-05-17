@@ -1,10 +1,10 @@
 package com.facebook.imagepipeline.memory;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class BitmapCounterConfig {
     public static final int DEFAULT_MAX_BITMAP_COUNT = 384;
     public int mMaxBitmapCount;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public int mMaxBitmapCount;
 

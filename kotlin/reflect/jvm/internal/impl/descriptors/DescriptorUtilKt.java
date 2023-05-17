@@ -5,7 +5,7 @@ import kotlin.reflect.jvm.internal.impl.incremental.components.LookupLocation;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DescriptorUtilKt {
     public static final ClassDescriptor resolveClassByFqName(ModuleDescriptor moduleDescriptor, FqName fqName, LookupLocation lookupLocation) {
         ClassifierDescriptor classifierDescriptor;
@@ -19,11 +19,11 @@ public final class DescriptorUtilKt {
         MemberScope memberScope = moduleDescriptor.getPackage(parent).getMemberScope();
         Name shortName = fqName.shortName();
         Intrinsics.checkExpressionValueIsNotNull(shortName, "fqName.shortName()");
-        ClassifierDescriptor mo2027getContributedClassifier = memberScope.mo2027getContributedClassifier(shortName, lookupLocation);
-        if (!(mo2027getContributedClassifier instanceof ClassDescriptor)) {
-            mo2027getContributedClassifier = null;
+        ClassifierDescriptor mo2046getContributedClassifier = memberScope.mo2046getContributedClassifier(shortName, lookupLocation);
+        if (!(mo2046getContributedClassifier instanceof ClassDescriptor)) {
+            mo2046getContributedClassifier = null;
         }
-        ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2027getContributedClassifier;
+        ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2046getContributedClassifier;
         if (classDescriptor2 != null) {
             return classDescriptor2;
         }
@@ -33,7 +33,7 @@ public final class DescriptorUtilKt {
         if (resolveClassByFqName != null && (unsubstitutedInnerClassesScope = resolveClassByFqName.getUnsubstitutedInnerClassesScope()) != null) {
             Name shortName2 = fqName.shortName();
             Intrinsics.checkExpressionValueIsNotNull(shortName2, "fqName.shortName()");
-            classifierDescriptor = unsubstitutedInnerClassesScope.mo2027getContributedClassifier(shortName2, lookupLocation);
+            classifierDescriptor = unsubstitutedInnerClassesScope.mo2046getContributedClassifier(shortName2, lookupLocation);
         } else {
             classifierDescriptor = null;
         }

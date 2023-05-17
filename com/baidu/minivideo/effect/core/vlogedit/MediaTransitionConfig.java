@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MediaTransitionConfig implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MediaTransitionConfig> CREATOR;
@@ -30,7 +30,7 @@ public class MediaTransitionConfig implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<MediaTransitionConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

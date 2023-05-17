@@ -4,7 +4,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractConfig {
     public static int MAX_DATA_CACHE_DAY = 62;
     public static int MAX_DATA_RETRY_TIME = 20000;

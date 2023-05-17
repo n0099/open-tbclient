@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers;
 
 import kotlin.reflect.jvm.internal.impl.descriptors.CallableDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ExtensionReceiver extends AbstractReceiverValue implements ImplicitReceiver {
     public final CallableDescriptor descriptor;
 

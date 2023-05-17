@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.view.View;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class ol4 extends nl4 {
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class ol4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ol4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public ol4() {
@@ -28,17 +31,99 @@ public abstract class ol4 extends nl4 {
         }
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
+    public static ol4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-            View h = h(view2, str, context, attributeSet);
-            if (h == null && Build.VERSION.SDK_INT >= 11) {
-                return super.onCreateView(view2, str, context, attributeSet);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ol4.class) {
+                    if (a == null) {
+                        a = new ol4();
+                    }
+                }
             }
-            return h;
+            return a;
         }
-        return (View) invokeLLLL.objValue;
+        return (ol4) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return rg4.b().i().getString("web_mode_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (rg4.b().i().getInt("web_mode_switch", 1) == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ArrayList<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String string = rg4.b().i().getString("web_mode_degrade_list", "");
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException unused) {
+            }
+            ArrayList<String> arrayList = new ArrayList<>();
+            if (jSONArray != null && jSONArray.length() > 0) {
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    arrayList.add(jSONArray.optString(i));
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public final String e(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
+            if (optJSONArray != null) {
+                return optJSONArray.toString();
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
+        String e = e(optJSONObject);
+        pg4 b = rg4.b();
+        if (b == null) {
+            return;
+        }
+        ip4 i = b.i();
+        i.putInt("web_mode_switch", optInt);
+        i.putString("web_mode_degrade_list", e);
+        i.putString("web_mode_version", optString);
     }
 }

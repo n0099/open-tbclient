@@ -1,7 +1,7 @@
 package com.baidu.tieba.feed;
 
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tieba.pw6;
+import com.baidu.tieba.cy6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FeedAppStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class FeedAppStatic {
                 return;
             }
         }
-        pw6.a.a(TbadkApplication.getInst().getContext());
+        cy6.a.a(TbadkApplication.getInst().getContext());
     }
 
     public FeedAppStatic() {

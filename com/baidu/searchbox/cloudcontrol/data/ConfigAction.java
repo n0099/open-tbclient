@@ -1,5 +1,5 @@
 package com.baidu.searchbox.cloudcontrol.data;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ConfigAction {
     public String mAction;
     public String mVersion;

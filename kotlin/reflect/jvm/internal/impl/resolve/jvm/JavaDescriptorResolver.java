@@ -13,7 +13,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClass;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.LightClassOriginKind;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaDescriptorResolver {
     public final JavaResolverCache javaResolverCache;
     public final LazyJavaPackageFragmentProvider packageFragmentProvider;
@@ -44,7 +44,7 @@ public final class JavaDescriptorResolver {
                 memberScope = null;
             }
             if (memberScope != null) {
-                classifierDescriptor = memberScope.mo2027getContributedClassifier(javaClass.getName(), NoLookupLocation.FROM_JAVA_LOADER);
+                classifierDescriptor = memberScope.mo2046getContributedClassifier(javaClass.getName(), NoLookupLocation.FROM_JAVA_LOADER);
             } else {
                 classifierDescriptor = null;
             }

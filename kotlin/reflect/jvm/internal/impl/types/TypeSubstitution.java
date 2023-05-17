@@ -4,7 +4,7 @@ import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class TypeSubstitution {
     public static final Companion Companion = new Companion(null);
     @JvmField
@@ -25,7 +25,7 @@ public abstract class TypeSubstitution {
 
         @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
         /* renamed from: get  reason: collision with other method in class */
-        public /* bridge */ /* synthetic */ TypeProjection mo2030get(KotlinType kotlinType) {
+        public /* bridge */ /* synthetic */ TypeProjection mo2049get(KotlinType kotlinType) {
             return (TypeProjection) get(kotlinType);
         }
     };
@@ -43,7 +43,7 @@ public abstract class TypeSubstitution {
     }
 
     /* renamed from: get */
-    public abstract TypeProjection mo2030get(KotlinType kotlinType);
+    public abstract TypeProjection mo2049get(KotlinType kotlinType);
 
     public boolean isEmpty() {
         return false;
@@ -53,7 +53,7 @@ public abstract class TypeSubstitution {
         return kotlinType;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

@@ -49,7 +49,7 @@ import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.fun.ad.sdk.FunAdSdk;
@@ -86,7 +86,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiUtils implements NoProguard {
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
     public static final String COOKIE_HTTPS_URL_PREFIX = "https://";
@@ -832,7 +832,7 @@ public class SapiUtils implements NoProguard {
                 } else {
                     hashMap2.put("islogin", "1");
                 }
-                hashMap2.put("client", "android");
+                hashMap2.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT, "android");
                 StatService.onEvent(StatService.STAT_ENENT_QR_LOGIN_ENTER, hashMap2);
             }
             return urlParamsToMap;
@@ -1461,8 +1461,8 @@ public class SapiUtils implements NoProguard {
         if (!TextUtils.isEmpty(str2)) {
             str3 = str2.replaceAll("[^\\d\\.]+", "");
         }
-        String[] split = replaceAll.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-        String[] split2 = str3.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+        String[] split = replaceAll.split("\\.");
+        String[] split2 = str3.split("\\.");
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (String str4 : split) {

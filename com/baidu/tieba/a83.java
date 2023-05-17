@@ -1,53 +1,53 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
-import com.baidu.tieba.b83;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes3.dex */
-public interface a83 {
-    public static final Set<String> p0 = new HashSet(Arrays.asList("update_tag_by_activity_on_create", "update_tag_by_activity_on_new_intent", "update_tag_by_activity_on_relaunch", "update_tag_by_remote_debug"));
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public final class a83 extends Handler {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final WheelView3d a;
 
-    void A(b83.a aVar);
+    public a83(WheelView3d wheelView3d) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView3d};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = wheelView3d;
+    }
 
-    ha3 B();
-
-    boolean E();
-
-    void G();
-
-    String getAppId();
-
-    int k();
-
-    void l(Bundle bundle, String str);
-
-    SwanAppCores m();
-
-    String n(String... strArr);
-
-    void o(qm3<b83.a> qm3Var);
-
-    void p(String str);
-
-    x73 q();
-
-    void r(SwanAppActivity swanAppActivity);
-
-    void s();
-
-    void t(SwanAppActivity swanAppActivity);
-
-    void u(qm3<b83.a> qm3Var);
-
-    void v(String str, Bundle bundle);
-
-    SwanAppActivity w();
-
-    ap1 x();
-
-    s43 y();
+    @Override // android.os.Handler
+    public final void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            if (i != 1000) {
+                if (i != 2000) {
+                    if (i == 3000) {
+                        this.a.n();
+                        return;
+                    }
+                    return;
+                }
+                this.a.r(WheelView3d.ACTION.FLING);
+                return;
+            }
+            this.a.invalidate();
+        }
+    }
 }

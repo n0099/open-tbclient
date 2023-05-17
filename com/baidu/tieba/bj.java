@@ -1,150 +1,111 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
-public class bj extends OutputStream {
+import java.lang.reflect.Field;
+/* loaded from: classes5.dex */
+public class bj {
     public static /* synthetic */ Interceptable $ic;
+    public static Field a;
+    public static Field b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public ByteBuffer c;
 
-    public bj(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Handler a;
+
+        public a(Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = handler;
+        }
+
+        @Override // android.os.Handler
+        public void dispatchMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                try {
+                    super.dispatchMessage(message);
+                } catch (Exception unused) {
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.handleMessage(message);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448300645, "Lcom/baidu/tieba/bj;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448300645, "Lcom/baidu/tieba/bj;");
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i);
-        this.c = allocateDirect;
-        allocateDirect.clear();
-    }
-
-    public Buffer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c.clear();
-        }
-        return (Buffer) invokeV.objValue;
-    }
-
-    public synchronized void c() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                write(13);
-                write(10);
+        try {
+            if (Build.VERSION.SDK_INT < 28) {
+                Field declaredField = Toast.class.getDeclaredField("mTN");
+                a = declaredField;
+                declaredField.setAccessible(true);
+                Field declaredField2 = a.getType().getDeclaredField("mHandler");
+                b = declaredField2;
+                declaredField2.setAccessible(true);
             }
+        } catch (Exception unused) {
         }
     }
 
-    public Buffer e() {
-        InterceptResult invokeV;
+    public static void a(Toast toast) {
+        Object obj;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.flip();
-        }
-        return (Buffer) invokeV.objValue;
-    }
-
-    public ByteBuffer f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (ByteBuffer) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c.remaining();
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (this) {
-                if (i > this.c.capacity()) {
-                    ByteBuffer byteBuffer = this.c;
-                    int position = this.c.position();
-                    this.c = ByteBuffer.allocateDirect(((i / this.b) + 1) * this.b);
-                    byteBuffer.clear();
-                    this.c.clear();
-                    this.c.put(byteBuffer);
-                    this.c.position(position);
+        if (interceptable == null || interceptable.invokeL(65537, null, toast) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 28 || a == null || b == null || (obj = a.get(toast)) == null || (handler = (Handler) b.get(obj)) == null) {
+                    return;
                 }
-            }
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public synchronized void write(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            synchronized (this) {
-                if (this.c.position() + 1 > this.c.capacity()) {
-                    d(this.c.capacity() + 1);
-                }
-                this.c.put((byte) i);
-            }
-        }
-    }
-
-    public synchronized void h(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this) {
-                write(str.getBytes("UTF-8"));
-            }
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public synchronized void write(byte[] bArr) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr) == null) {
-            synchronized (this) {
-                write(bArr, 0, bArr.length);
-            }
-        }
-    }
-
-    @Override // java.io.OutputStream
-    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, bArr, i, i2) == null) {
-            synchronized (this) {
-                if (this.c.position() + i2 > this.c.capacity()) {
-                    d(this.c.capacity() + i2);
-                }
-                this.c.put(bArr, i, i2);
+                b.set(obj, new a(handler));
+            } catch (Exception unused) {
             }
         }
     }

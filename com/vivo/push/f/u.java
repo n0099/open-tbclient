@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class u extends aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
 

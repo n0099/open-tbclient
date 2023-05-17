@@ -7,7 +7,7 @@ import com.baidu.searchbox.NoProGuard;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UserAccountActionItem implements Parcelable, NoProGuard {
     public static final Parcelable.Creator<UserAccountActionItem> CREATOR = new Parcelable.Creator<UserAccountActionItem>() { // from class: com.baidu.searchbox.account.data.UserAccountActionItem.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -68,7 +68,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         return "";
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum UserAccountAction {
         LOGIN("login"),
         LOGOUT("logout"),
@@ -85,7 +85,7 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum UserAccountType {
         NATIVE("native"),
         PLUGIN("plugin"),
@@ -113,6 +113,10 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
 
     public void setAction(String str) {
         this.mAction = str;
+    }
+
+    public void setSrc(String str) {
+        this.mSrc = str;
     }
 
     public UserAccountActionItem(UserAccountAction userAccountAction, UserAccountType userAccountType, String str) {
@@ -153,11 +157,8 @@ public class UserAccountActionItem implements Parcelable, NoProGuard {
             }
             if (jSONObject.has(KEY_SUB_SRC)) {
                 this.mSubSrc = jSONObject.getString(KEY_SUB_SRC);
-                return;
             }
-            return;
         }
-        throw new JSONException("");
     }
 
     public JSONObject buildUserStatInfo() throws JSONException {

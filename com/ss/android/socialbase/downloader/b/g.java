@@ -3,7 +3,7 @@ package com.ss.android.socialbase.downloader.b;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import com.ss.android.socialbase.downloader.i.i;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     public final SQLiteDatabase a;
     public final String b;

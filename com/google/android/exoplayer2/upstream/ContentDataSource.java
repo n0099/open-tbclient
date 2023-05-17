@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ContentDataSource implements DataSource {
     public AssetFileDescriptor assetFileDescriptor;
     public long bytesRemaining;
@@ -19,7 +19,7 @@ public final class ContentDataSource implements DataSource {
     public final ContentResolver resolver;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ContentDataSourceException extends IOException {
         public ContentDataSourceException(IOException iOException) {
             super(iOException);

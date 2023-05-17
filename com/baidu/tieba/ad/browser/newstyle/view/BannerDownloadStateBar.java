@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BannerDownloadStateBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,12 +91,12 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0064, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0066, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bd);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09028f);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090292);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029c);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09029f);
             setState(0);
         }
     }
@@ -109,45 +109,45 @@ public class BannerDownloadStateBar extends LinearLayout {
                     if (i != 2) {
                         if (i != 3) {
                             if (i != 4) {
-                                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bd);
+                                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
                                 this.c.setVisibility(8);
                                 this.c.setImageDrawable(null);
-                                this.b.setText(R.string.obfuscated_res_0x7f0f009e);
+                                this.b.setText(R.string.obfuscated_res_0x7f0f00c8);
                                 this.b.setTextColor(Color.parseColor("#333333"));
                                 return;
                             }
-                            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+                            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d6);
                             this.c.setVisibility(8);
                             this.c.setImageDrawable(null);
-                            this.b.setText(R.string.obfuscated_res_0x7f0f00a0);
+                            this.b.setText(R.string.obfuscated_res_0x7f0f00ca);
                             this.b.setTextColor(Color.parseColor("#FFFFFF"));
                             return;
                         }
-                        setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
+                        setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d6);
                         this.c.setVisibility(8);
                         this.c.setImageDrawable(null);
-                        this.b.setText(R.string.obfuscated_res_0x7f0f009f);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f00c9);
                         this.b.setTextColor(Color.parseColor("#FFFFFF"));
                         return;
                     }
-                    setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bd);
+                    setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
                     this.c.setVisibility(0);
-                    this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800c0);
-                    this.b.setText(R.string.obfuscated_res_0x7f0f00a2);
+                    this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800d8);
+                    this.b.setText(R.string.obfuscated_res_0x7f0f00cc);
                     this.b.setTextColor(Color.parseColor("#333333"));
                     return;
                 }
-                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bd);
+                setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
                 this.c.setVisibility(0);
-                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800bf);
-                this.b.setText(R.string.obfuscated_res_0x7f0f00a1);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800d7);
+                this.b.setText(R.string.obfuscated_res_0x7f0f00cb);
                 this.b.setTextColor(Color.parseColor("#333333"));
                 return;
             }
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bd);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
             this.c.setVisibility(8);
             this.c.setImageDrawable(null);
-            this.b.setText(R.string.obfuscated_res_0x7f0f009e);
+            this.b.setText(R.string.obfuscated_res_0x7f0f00c8);
             this.b.setTextColor(Color.parseColor("#333333"));
         }
     }

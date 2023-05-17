@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class SsManifest {
     public static final int UNSET_LOOKAHEAD = -1;
     public final long durationUs;
@@ -23,7 +23,7 @@ public class SsManifest {
     public final ProtectionElement protectionElement;
     public final StreamElement[] streamElements;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ProtectionElement {
         public final byte[] data;
         public final UUID uuid;
@@ -34,7 +34,7 @@ public class SsManifest {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class StreamElement {
         public static final String URL_PLACEHOLDER_BITRATE_1 = "{bitrate}";
         public static final String URL_PLACEHOLDER_BITRATE_2 = "{Bitrate}";

@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class p implements Runnable {
     public final /* synthetic */ o a;
 

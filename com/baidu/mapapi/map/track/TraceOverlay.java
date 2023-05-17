@@ -5,7 +5,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.mapsdkplatform.comapi.map.a.b;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TraceOverlay {
     public List<LatLng> c;
     public boolean f;

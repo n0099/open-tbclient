@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ar4;
+import com.baidu.tieba.js4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetToken.GetTokenResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ar4 mData;
+    public js4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetTokenSocketResponsedMessage() {
@@ -36,13 +36,13 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
         }
     }
 
-    public ar4 getData() {
+    public js4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mData;
         }
-        return (ar4) invokeV.objValue;
+        return (js4) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -61,9 +61,9 @@ public class GetTokenSocketResponsedMessage extends SocketResponsedMessage {
                 setErrorString(getTokenResIdl.error.usermsg);
             }
             if (getTokenResIdl.data != null) {
-                ar4 ar4Var = new ar4();
-                this.mData = ar4Var;
-                ar4Var.e(getTokenResIdl.data);
+                js4 js4Var = new js4();
+                this.mData = js4Var;
+                js4Var.e(getTokenResIdl.data);
             }
             return null;
         }

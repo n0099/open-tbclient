@@ -1,10 +1,10 @@
 package com.huawei.hms.opendevice;
 
-import com.baidu.tieba.y0b;
+import com.baidu.tieba.w2b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -13,7 +13,7 @@ public abstract class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            return y0b.a(bArr);
+            return w2b.a(bArr);
         }
         return (String) invokeL.objValue;
     }
@@ -22,7 +22,7 @@ public abstract class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return y0b.b(str);
+            return w2b.b(str);
         }
         return (byte[]) invokeL.objValue;
     }

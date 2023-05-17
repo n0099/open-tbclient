@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NewFaceGroupShareModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class NewFaceGroupShareModel extends FaceBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void V(String str) {
+    public void U(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_FACE_GROUP);

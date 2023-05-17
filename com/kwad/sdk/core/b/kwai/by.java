@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.components.ad.reward.b.e;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class by implements com.kwad.sdk.core.d<e.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(e.a aVar, JSONObject jSONObject) {

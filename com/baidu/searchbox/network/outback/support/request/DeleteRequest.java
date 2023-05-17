@@ -2,10 +2,10 @@ package com.baidu.searchbox.network.outback.support.request;
 
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeleteRequest extends HttpCommonRequest<DeleteRequestBuilder> {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class DeleteRequestBuilder extends HttpCommonRequestBuilder<DeleteRequestBuilder, DeleteRequest> {
         public DeleteRequestBuilder(DeleteRequest deleteRequest) {
             super(deleteRequest);

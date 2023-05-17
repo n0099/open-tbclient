@@ -1,115 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
-import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.CallSuper;
+import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class wu extends ns<qp> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+/* loaded from: classes8.dex */
+public interface wu {
+    @CallSuper
+    void a(SubTaskState subTaskState);
 
-    /* loaded from: classes7.dex */
-    public static final class a<T> implements ss<TaskDialogViewData> {
+    boolean b(TaskInfo taskInfo, int i);
+
+    /* loaded from: classes8.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(267218546, "Lcom/baidu/tieba/wu$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(267218546, "Lcom/baidu/tieba/wu$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
+        public static boolean b(wu wuVar, TaskInfo taskInfo, int i) {
+            InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, wuVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ss
-        /* renamed from: a */
-        public final void onChanged(TaskDialogViewData taskDialogViewData) {
-            Context context;
-            Class cls;
-            yr h;
+        public static void a(wu wuVar, SubTaskState subTaskState) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, taskDialogViewData) == null) && taskDialogViewData != null) {
-                yt v = BDPTask.m.v();
-                if (v != null && (h = v.h()) != null) {
-                    context = h.getAppContext();
-                } else {
-                    context = null;
-                }
-                if (taskDialogViewData.getShowType() == 1) {
-                    cls = SingleBtnDialog.class;
-                } else {
-                    cls = DoubleBtnDialog.class;
-                }
-                Intent intent = new Intent(context, cls);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("data", taskDialogViewData);
-                intent.putExtras(bundle);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (context != null) {
-                    context.startActivity(intent);
-                }
+            if ((interceptable == null || interceptable.invokeLL(65536, null, wuVar, subTaskState) == null) && !wuVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
+                wuVar.a(subTaskState);
             }
         }
-    }
 
-    public wu() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @CallSuper
+        public static void c(wu wuVar, SubTaskState subTaskState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65538, null, wuVar, subTaskState) == null) {
+                zu.c.b(subTaskState);
             }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.os
-    /* renamed from: b */
-    public void a(qp qpVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qpVar) == null) {
-            qpVar.a().l(a.a);
         }
     }
 }

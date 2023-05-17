@@ -25,7 +25,7 @@ import com.baidu.sofire.k.q;
 import com.baidu.sofire.k.r;
 import com.baidu.sofire.k.u;
 import com.baidu.sofire.rp.Report;
-import com.baidu.tieba.y10;
+import com.baidu.tieba.i20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class F implements FI {
     public static /* synthetic */ Interceptable $ic;
     public static F instance;
@@ -476,7 +476,7 @@ public class F implements FI {
                     Object obj = o.a;
                     String[] strArr = {""};
                     boolean[] zArr = {false};
-                    y10.f(context).o(new m(strArr, zArr));
+                    i20.f(context).o(new m(strArr, zArr));
                     if (!zArr[0]) {
                         try {
                             synchronized (o.a) {

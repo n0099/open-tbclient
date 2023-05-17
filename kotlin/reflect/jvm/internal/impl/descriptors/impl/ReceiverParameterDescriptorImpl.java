@@ -1,9 +1,10 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.impl;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ReceiverValue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ReceiverParameterDescriptorImpl extends AbstractReceiverParameterDescriptor {
     public final DeclarationDescriptor containingDeclaration;
     public final ReceiverValue value;
@@ -33,7 +34,7 @@ public class ReceiverParameterDescriptorImpl extends AbstractReceiverParameterDe
             if (i != 5) {
                 objArr[2] = "<init>";
             } else {
-                objArr[2] = "copy";
+                objArr[2] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
             }
         }
         String format = String.format(str, objArr);

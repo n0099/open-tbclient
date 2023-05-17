@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetWorkUtil {
     public static Integer getNetworkState(Context context) {
         NetworkInfo activeNetworkInfo;

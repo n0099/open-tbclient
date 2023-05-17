@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UserVideoChannelInfo extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.INT32)
     public final Integer followChannel;
@@ -11,7 +11,7 @@ public final class UserVideoChannelInfo extends Message {
     public static final Integer DEFAULT_MANCHANNEL = 0;
     public static final Integer DEFAULT_FOLLOWCHANNEL = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<UserVideoChannelInfo> {
         public Integer followChannel;
         public Integer manChannel;

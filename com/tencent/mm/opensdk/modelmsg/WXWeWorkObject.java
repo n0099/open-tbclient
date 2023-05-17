@@ -2,7 +2,7 @@ package com.tencent.mm.opensdk.modelmsg;
 
 import android.os.Bundle;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class WXWeWorkObject implements WXMediaMessage.IMediaObject {
     public static final int SUB_TYPE_MSG_RECORD = 1;
     public static final String TAG = "MicroMsg.SDK.WXWeWorkObject";

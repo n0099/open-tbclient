@@ -1,5 +1,5 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IExceptionHandlerContext {
     long getAppLaunchStartTimeStamp();
 }

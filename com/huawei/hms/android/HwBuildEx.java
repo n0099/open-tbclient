@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HwBuildEx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VERSION {
         public static /* synthetic */ Interceptable $ic;
         public static final int EMUI_SDK_INT;
@@ -52,7 +52,7 @@ public class HwBuildEx {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class VersionCodes {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUR_DEVELOPMENT = 10000;

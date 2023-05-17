@@ -18,7 +18,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.ss.android.download.api.config.n;
 import com.ss.android.download.api.download.DownloadModel;
@@ -30,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static Object[] b = new Object[0];
     public static Object[] c = new Object[73];
@@ -137,8 +136,8 @@ public class l {
                 if (str.equals(str2)) {
                     return 0;
                 }
-                String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = str.split("\\.");
+                String[] split2 = str2.split("\\.");
                 int min = Math.min(split.length, split2.length);
                 int i = 0;
                 int i2 = 0;

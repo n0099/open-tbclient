@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AtSelectFriendList extends HorizontalCustomScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,12 +36,12 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
     public b i;
     public final View.OnClickListener j;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(View view2, Object obj);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -331,7 +331,7 @@ public class AtSelectFriendList extends HorizontalCustomScrollView {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.d = this.b.getResources().getDimensionPixelSize(R.dimen.tbds125);
             this.e = this.b.getResources().getDimensionPixelSize(R.dimen.tbds125);
-            this.f = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023c);
+            this.f = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070352);
             this.c = new LinearLayout(this.b);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.width = -2;

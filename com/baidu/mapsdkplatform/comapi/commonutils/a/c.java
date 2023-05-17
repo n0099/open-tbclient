@@ -21,16 +21,16 @@ import java.util.concurrent.Executors;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService a;
     public int b;
     public List<com.baidu.mapsdkplatform.comapi.commonutils.a.b> c;
-    public InterfaceC0109c d;
+    public InterfaceC0113c d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
 
@@ -38,14 +38,14 @@ public class c {
     }
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.commonutils.a.c$c  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0109c {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0113c {
         void a();
 
         void a(File file);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,11 +237,11 @@ public class c {
         }
     }
 
-    public void a(String str, String str2, String str3, int i, InterfaceC0109c interfaceC0109c) {
+    public void a(String str, String str2, String str3, int i, InterfaceC0113c interfaceC0113c) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Integer.valueOf(i), interfaceC0109c}) == null) && i > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Integer.valueOf(i), interfaceC0113c}) == null) && i > 0 && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
             this.b = i;
-            this.d = interfaceC0109c;
+            this.d = interfaceC0113c;
             a(str, str2, str3);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.player.event;
 
 import com.baidu.searchbox.player.annotation.PublicMethod;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InteractiveEvent extends VideoEvent {
     public static final String ACTION_CALL_PHONE = "interactive_event_phone";
     public static final String ACTION_CUSTOM_NOTIFY = "interactive_event_custom";

@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaRecentHistoryActivity extends AbsTabActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AbsTabPagerAdapter a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends AbsTabActivity.CustomOnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class AlaRecentHistoryActivity extends AbsTabActivity {
     public void setNavigationBar(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
-            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f12d8);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f13a9);
         }
     }
 }

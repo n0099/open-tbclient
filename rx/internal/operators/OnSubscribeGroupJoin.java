@@ -1,47 +1,47 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.b6b;
-import com.baidu.tieba.c6b;
-import com.baidu.tieba.fab;
-import com.baidu.tieba.j5b;
-import com.baidu.tieba.k5b;
-import com.baidu.tieba.n9b;
-import com.baidu.tieba.o9b;
-import com.baidu.tieba.p5b;
-import com.baidu.tieba.q5b;
-import com.baidu.tieba.v5b;
+import com.baidu.tieba.a8b;
+import com.baidu.tieba.ecb;
+import com.baidu.tieba.h7b;
+import com.baidu.tieba.i7b;
+import com.baidu.tieba.mbb;
+import com.baidu.tieba.n7b;
+import com.baidu.tieba.nbb;
+import com.baidu.tieba.o7b;
+import com.baidu.tieba.t7b;
+import com.baidu.tieba.z7b;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import rx.subjects.PublishSubject;
 import rx.subscriptions.RefCountSubscription;
-/* loaded from: classes9.dex */
-public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
-    public final j5b<T1> a;
-    public final j5b<T2> b;
-    public final b6b<? super T1, ? extends j5b<D1>> c;
-    public final b6b<? super T2, ? extends j5b<D2>> d;
-    public final c6b<? super T1, ? super j5b<T2>, ? extends R> e;
+/* loaded from: classes10.dex */
+public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements h7b.a<R> {
+    public final h7b<T1> a;
+    public final h7b<T2> b;
+    public final z7b<? super T1, ? extends h7b<D1>> c;
+    public final z7b<? super T2, ? extends h7b<D2>> d;
+    public final a8b<? super T1, ? super h7b<T2>, ? extends R> e;
 
-    /* loaded from: classes9.dex */
-    public final class ResultManager extends HashMap<Integer, k5b<T2>> implements q5b {
+    /* loaded from: classes10.dex */
+    public final class ResultManager extends HashMap<Integer, i7b<T2>> implements o7b {
         public static final long serialVersionUID = -3035156013812425335L;
         public boolean leftDone;
         public int leftIds;
         public boolean rightDone;
         public int rightIds;
-        public final p5b<? super R> subscriber;
+        public final n7b<? super R> subscriber;
         public final Map<Integer, T2> rightMap = new HashMap();
-        public final fab group = new fab();
+        public final ecb group = new ecb();
         public final RefCountSubscription cancel = new RefCountSubscription(this.group);
 
-        public Map<Integer, k5b<T2>> leftMap() {
+        public Map<Integer, i7b<T2>> leftMap() {
             return this;
         }
 
-        /* loaded from: classes9.dex */
-        public final class a extends p5b<D1> {
+        /* loaded from: classes10.dex */
+        public final class a extends n7b<D1> {
             public final int e;
             public boolean f = true;
 
@@ -49,9 +49,9 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onCompleted() {
-                k5b<T2> remove;
+                i7b<T2> remove;
                 if (this.f) {
                     this.f = false;
                     synchronized (ResultManager.this) {
@@ -64,28 +64,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onError(Throwable th) {
                 ResultManager.this.errorMain(th);
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onNext(D1 d1) {
                 onCompleted();
             }
         }
 
-        /* loaded from: classes9.dex */
-        public final class b extends p5b<T1> {
+        /* loaded from: classes10.dex */
+        public final class b extends n7b<T1> {
             public b() {
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onError(Throwable th) {
                 ResultManager.this.errorAll(th);
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onCompleted() {
                 ArrayList arrayList;
                 synchronized (ResultManager.this) {
@@ -101,39 +101,39 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                 ResultManager.this.complete(arrayList);
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onNext(T1 t1) {
                 int i;
                 ArrayList<Object> arrayList;
                 try {
-                    PublishSubject F = PublishSubject.F();
-                    n9b n9bVar = new n9b(F);
+                    PublishSubject H = PublishSubject.H();
+                    mbb mbbVar = new mbb(H);
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
                         i = resultManager.leftIds;
                         resultManager.leftIds = i + 1;
-                        ResultManager.this.leftMap().put(Integer.valueOf(i), n9bVar);
+                        ResultManager.this.leftMap().put(Integer.valueOf(i), mbbVar);
                     }
-                    j5b a = j5b.a(new a(F, ResultManager.this.cancel));
+                    h7b a = h7b.a(new a(H, ResultManager.this.cancel));
                     a aVar = new a(i);
                     ResultManager.this.group.a(aVar);
-                    OnSubscribeGroupJoin.this.c.call(t1).D(aVar);
+                    OnSubscribeGroupJoin.this.c.call(t1).F(aVar);
                     R call = OnSubscribeGroupJoin.this.e.call(t1, a);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.rightMap.values());
                     }
                     ResultManager.this.subscriber.onNext(call);
                     for (Object obj : arrayList) {
-                        n9bVar.onNext(obj);
+                        mbbVar.onNext(obj);
                     }
                 } catch (Throwable th) {
-                    v5b.f(th, this);
+                    t7b.f(th, this);
                 }
             }
         }
 
-        /* loaded from: classes9.dex */
-        public final class c extends p5b<D2> {
+        /* loaded from: classes10.dex */
+        public final class c extends n7b<D2> {
             public final int e;
             public boolean f = true;
 
@@ -141,7 +141,7 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                 this.e = i;
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onCompleted() {
                 if (this.f) {
                     this.f = false;
@@ -152,28 +152,28 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                 }
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onError(Throwable th) {
                 ResultManager.this.errorMain(th);
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onNext(D2 d2) {
                 onCompleted();
             }
         }
 
-        /* loaded from: classes9.dex */
-        public final class d extends p5b<T2> {
+        /* loaded from: classes10.dex */
+        public final class d extends n7b<T2> {
             public d() {
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onError(Throwable th) {
                 ResultManager.this.errorAll(th);
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onCompleted() {
                 ArrayList arrayList;
                 synchronized (ResultManager.this) {
@@ -189,10 +189,10 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                 ResultManager.this.complete(arrayList);
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onNext(T2 t2) {
                 int i;
-                ArrayList<k5b> arrayList;
+                ArrayList<i7b> arrayList;
                 try {
                     synchronized (ResultManager.this) {
                         ResultManager resultManager = ResultManager.this;
@@ -202,27 +202,27 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
                     }
                     c cVar = new c(i);
                     ResultManager.this.group.a(cVar);
-                    OnSubscribeGroupJoin.this.d.call(t2).D(cVar);
+                    OnSubscribeGroupJoin.this.d.call(t2).F(cVar);
                     synchronized (ResultManager.this) {
                         arrayList = new ArrayList(ResultManager.this.leftMap().values());
                     }
-                    for (k5b k5bVar : arrayList) {
-                        k5bVar.onNext(t2);
+                    for (i7b i7bVar : arrayList) {
+                        i7bVar.onNext(t2);
                     }
                 } catch (Throwable th) {
-                    v5b.f(th, this);
+                    t7b.f(th, this);
                 }
             }
         }
 
-        public ResultManager(p5b<? super R> p5bVar) {
-            this.subscriber = p5bVar;
+        public ResultManager(n7b<? super R> n7bVar) {
+            this.subscriber = n7bVar;
         }
 
-        public void complete(List<k5b<T2>> list) {
+        public void complete(List<i7b<T2>> list) {
             if (list != null) {
-                for (k5b<T2> k5bVar : list) {
-                    k5bVar.onCompleted();
+                for (i7b<T2> i7bVar : list) {
+                    i7bVar.onCompleted();
                 }
                 this.subscriber.onCompleted();
                 this.cancel.unsubscribe();
@@ -239,14 +239,14 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
         }
 
         public void errorAll(Throwable th) {
-            ArrayList<k5b> arrayList;
+            ArrayList<i7b> arrayList;
             synchronized (this) {
                 arrayList = new ArrayList(leftMap().values());
                 leftMap().clear();
                 this.rightMap.clear();
             }
-            for (k5b k5bVar : arrayList) {
-                k5bVar.onError(th);
+            for (i7b i7bVar : arrayList) {
+                i7bVar.onError(th);
             }
             this.subscriber.onError(th);
             this.cancel.unsubscribe();
@@ -257,82 +257,82 @@ public final class OnSubscribeGroupJoin<T1, T2, D1, D2, R> implements j5b.a<R> {
             d dVar = new d();
             this.group.a(bVar);
             this.group.a(dVar);
-            OnSubscribeGroupJoin.this.a.D(bVar);
-            OnSubscribeGroupJoin.this.b.D(dVar);
+            OnSubscribeGroupJoin.this.a.F(bVar);
+            OnSubscribeGroupJoin.this.b.F(dVar);
         }
 
-        @Override // com.baidu.tieba.q5b
+        @Override // com.baidu.tieba.o7b
         public boolean isUnsubscribed() {
             return this.cancel.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.q5b
+        @Override // com.baidu.tieba.o7b
         public void unsubscribe() {
             this.cancel.unsubscribe();
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static final class a<T> implements j5b.a<T> {
+    /* loaded from: classes10.dex */
+    public static final class a<T> implements h7b.a<T> {
         public final RefCountSubscription a;
-        public final j5b<T> b;
+        public final h7b<T> b;
 
         /* renamed from: rx.internal.operators.OnSubscribeGroupJoin$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public final class C0748a extends p5b<T> {
-            public final p5b<? super T> e;
-            public final q5b f;
+        /* loaded from: classes10.dex */
+        public final class C0762a extends n7b<T> {
+            public final n7b<? super T> e;
+            public final o7b f;
 
-            public C0748a(a aVar, p5b<? super T> p5bVar, q5b q5bVar) {
-                super(p5bVar);
-                this.e = p5bVar;
-                this.f = q5bVar;
+            public C0762a(a aVar, n7b<? super T> n7bVar, o7b o7bVar) {
+                super(n7bVar);
+                this.e = n7bVar;
+                this.f = o7bVar;
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onCompleted() {
                 this.e.onCompleted();
                 this.f.unsubscribe();
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onError(Throwable th) {
                 this.e.onError(th);
                 this.f.unsubscribe();
             }
 
-            @Override // com.baidu.tieba.k5b
+            @Override // com.baidu.tieba.i7b
             public void onNext(T t) {
                 this.e.onNext(t);
             }
         }
 
-        public a(j5b<T> j5bVar, RefCountSubscription refCountSubscription) {
+        public a(h7b<T> h7bVar, RefCountSubscription refCountSubscription) {
             this.a = refCountSubscription;
-            this.b = j5bVar;
+            this.b = h7bVar;
         }
 
-        public void call(p5b<? super T> p5bVar) {
-            q5b a = this.a.a();
-            C0748a c0748a = new C0748a(this, p5bVar, a);
-            c0748a.b(a);
-            this.b.D(c0748a);
+        public void call(n7b<? super T> n7bVar) {
+            o7b a = this.a.a();
+            C0762a c0762a = new C0762a(this, n7bVar, a);
+            c0762a.b(a);
+            this.b.F(c0762a);
         }
 
-        @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
+        @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((p5b) ((p5b) obj));
+            call((n7b) ((n7b) obj));
         }
     }
 
-    public void call(p5b<? super R> p5bVar) {
-        ResultManager resultManager = new ResultManager(new o9b(p5bVar));
-        p5bVar.b(resultManager);
+    public void call(n7b<? super R> n7bVar) {
+        ResultManager resultManager = new ResultManager(new nbb(n7bVar));
+        n7bVar.b(resultManager);
         resultManager.init();
     }
 
-    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
+    @Override // com.baidu.tieba.h7b.a, com.baidu.tieba.v7b
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((p5b) ((p5b) obj));
+        call((n7b) ((n7b) obj));
     }
 }

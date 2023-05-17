@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PostprocessorProducer implements Producer<CloseableReference<CloseableImage>> {
     public static final String NAME = "PostprocessorProducer";
     @VisibleForTesting
@@ -24,7 +24,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
     public final Executor mExecutor;
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class PostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         @GuardedBy("PostprocessorConsumer.this")
         public boolean mIsClosed;
@@ -229,7 +229,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class RepeatedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> implements RepeatedPostprocessorRunner {
         @GuardedBy("RepeatedPostprocessorConsumer.this")
         public boolean mIsClosed;
@@ -321,7 +321,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class SingleUsePostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public SingleUsePostprocessorConsumer(PostprocessorConsumer postprocessorConsumer) {
             super(postprocessorConsumer);

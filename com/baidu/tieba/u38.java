@@ -1,78 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class u38 {
     public static /* synthetic */ Interceptable $ic;
+    public static u38 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public rb a;
 
-    public static void a(GroupInfoData groupInfoData, MetaData metaData, int i) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948160175, "Lcom/baidu/tieba/u38;")) == null) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        if (metaData != null) {
-            str = metaData.getUserId();
-        } else {
-            str = null;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        if (!TextUtils.isEmpty(str)) {
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948160175, "Lcom/baidu/tieba/u38;");
         }
-        statisticItem.addParam("obj_type", i);
-        statisticItem.addParam("obj_source", 100);
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void c(GroupInfoData groupInfoData, MetaData metaData, int i) {
-        String str;
+    public u38() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65538, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_SUCCESS);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        if (metaData != null) {
-            str = metaData.getUserId();
-        } else {
-            str = null;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
-        }
-        statisticItem.addParam("obj_type", i);
-        statisticItem.addParam("obj_source", 1);
-        TiebaStatic.log(statisticItem);
+        this.a = null;
+        this.a = new rb(1000, 1000, 1000);
     }
 
-    public static void b(GroupInfoData groupInfoData) {
+    public static u38 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, groupInfoData) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (u38.class) {
+                    if (b == null) {
+                        b = new u38();
+                    }
+                }
+            }
+            return b;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_PANEL_SHOW);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        statisticItem.addParam("obj_source", 1);
-        TiebaStatic.log(statisticItem);
+        return (u38) invokeV.objValue;
+    }
+
+    public rb b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (rb) invokeV.objValue;
     }
 }

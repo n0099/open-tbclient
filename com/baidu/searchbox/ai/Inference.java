@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ai;
 
 import java.lang.reflect.Array;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Inference implements AutoCloseable {
     public int algorithm;
     public int dataType;

@@ -7,6 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -122,7 +123,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("appid=" + this.mAppid);
+            sb.append(AccountConstants.PROFESSION_APPROVE_URL_APPID + this.mAppid);
             sb.append("&account_type=" + this.mAccountType);
             sb.append("&cuid=" + this.mCuid);
             sb.append("&device_type=" + this.mDeviceType);

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     public int e;
     public View.OnClickListener f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,13 +94,13 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 this.a.b.start();
-                this.a.d.i(0, this.a.b.getDuration());
-                this.a.d.p();
+                this.a.d.l(0, this.a.b.getDuration());
+                this.a.d.t();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements MediaPlayer.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
                 this.a.b.start();
-                this.a.d.p();
+                this.a.d.t();
             }
         }
     }
@@ -209,7 +209,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
             if (customVideoView != null) {
                 customVideoView.start();
                 this.b.seekTo(this.e);
-                this.d.p();
+                this.d.t();
             }
         }
     }
@@ -219,7 +219,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d004d);
+            setContentView(R.layout.obfuscated_res_0x7f0d004f);
             B1();
             C1();
             initView();
@@ -230,16 +230,16 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c0d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091c61);
             this.a = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080aaf));
-            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091c0f);
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.f).findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bd6));
+            this.b = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091c63);
             if (!StringUtils.isNull(this.c.getVideoPath())) {
                 this.b.setVideoPath(this.c.getVideoPath());
             }
             this.b.setOnPreparedListener(new b(this));
             this.b.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091c0b);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091c5f);
             this.d = videoControllerView;
             videoControllerView.setPlayer(this.b);
         }

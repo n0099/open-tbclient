@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.BuildingInfo;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PrismOptions extends OverlayOptions {
     public float b;
     public List<LatLng> c;

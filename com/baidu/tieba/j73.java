@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface j73 {
-    void a();
+    int getHeight();
 
-    void b();
+    void onSoftInputShowing(boolean z);
+
+    void refreshHeight(int i);
 }

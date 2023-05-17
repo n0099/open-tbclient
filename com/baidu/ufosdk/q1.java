@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.WebViewFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class q1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 600;

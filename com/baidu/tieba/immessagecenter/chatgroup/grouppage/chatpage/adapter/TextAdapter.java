@@ -17,21 +17,21 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.hw6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.q98;
-import com.baidu.tieba.s78;
-import com.baidu.tieba.t68;
-import com.baidu.tieba.uu6;
+import com.baidu.tieba.k98;
+import com.baidu.tieba.l88;
+import com.baidu.tieba.lb8;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Holder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,8 +83,8 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements t68 {
+    /* loaded from: classes6.dex */
+    public class a implements l88 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -111,7 +111,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
             this.b = textMsg;
         }
 
-        @Override // com.baidu.tieba.t68
+        @Override // com.baidu.tieba.l88
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
@@ -119,7 +119,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
             }
         }
 
-        @Override // com.baidu.tieba.t68
+        @Override // com.baidu.tieba.l88
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -128,8 +128,8 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements uu6.i {
+    /* loaded from: classes6.dex */
+    public class b implements hw6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextMsg a;
@@ -154,11 +154,11 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
             this.b = textView;
         }
 
-        @Override // com.baidu.tieba.uu6.i
+        @Override // com.baidu.tieba.hw6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                q98.a(spannableStringBuilder);
+                lb8.a(spannableStringBuilder);
                 this.a.setCacheText(spannableStringBuilder);
                 this.b.setText(spannableStringBuilder);
             }
@@ -189,7 +189,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     public final void Y(@NonNull ViewGroup viewGroup, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, viewGroup, textView) == null) {
-            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f090e40);
+            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f090e6d);
             if (findViewById != null) {
                 if (findViewById.getVisibility() == 0) {
                     textView.getLayoutParams().width = -1;
@@ -234,7 +234,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setId(R.id.obfuscated_res_0x7f090e47);
+            textView.setId(R.id.obfuscated_res_0x7f090e76);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -242,7 +242,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
             textView.setLayoutParams(layoutParams);
             textView.setPadding(0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
             textView.setLineSpacing(1.0f, 1.2f);
-            g35.d(textView).B(R.dimen.T_X05);
+            p45.d(textView).B(R.dimen.T_X05);
             return textView;
         }
         return (TextView) invokeL.objValue;
@@ -280,15 +280,15 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     public void R(int i, @NonNull ViewGroup viewGroup, @NonNull TextMsg textMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, textMsg, holder, list, Integer.valueOf(i2)}) == null) {
-            s78.q(this.mType, textMsg, viewGroup, new a(this, viewGroup, textMsg));
+            k98.r(this.mType, textMsg, viewGroup, new a(this, viewGroup, textMsg));
             TextView textView = (TextView) holder.getView();
-            q98.b(textMsg.getAtUserInfoList());
+            lb8.b(textMsg.getAtUserInfoList());
             if (textMsg.getCacheText() != null) {
                 textView.setText(textMsg.getCacheText());
             } else {
-                uu6.d(getContext(), textMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new b(this, textMsg, textView));
+                hw6.d(getContext(), textMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new b(this, textMsg, textView));
             }
-            s78.m(textView, textMsg, i2);
+            k98.m(textView, textMsg, i2);
             Z(textView, textMsg);
             Y(viewGroup, textView);
         }

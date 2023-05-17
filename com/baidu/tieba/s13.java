@@ -3,86 +3,233 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class s13 implements t13 {
+/* loaded from: classes7.dex */
+public class s13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String h;
+    public static final MediaType i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public JSONObject e;
+    public b f;
+    public ResponseCallback<JSONObject> g;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onFail(String str);
+
+        void onSuccess(JSONObject jSONObject);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s13 a;
+
+        public a(s13 s13Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s13Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s13Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (this.a.f == null) {
+                    g62.i("PayCheckRequest", "PayCheckRequestCallback is empty and paycheck request failed : \n" + Log.getStackTraceString(exc));
+                    return;
+                }
+                this.a.f.onFail(exc.getMessage());
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                if (this.a.f == null) {
+                    g62.i("PayCheckRequest", "paycheck request success, but PayCheckRequestCallback is empty.");
+                } else if (jSONObject == null) {
+                    this.a.f.onFail("response is empty");
+                } else if (jSONObject.optInt("errno", -1) != 0) {
+                    String optString = jSONObject.optString("tipmsg", "");
+                    b bVar = this.a.f;
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = "errno is non-zero";
+                    }
+                    bVar.onFail(optString);
+                } else {
+                    this.a.f.onSuccess(jSONObject.optJSONObject("data"));
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return gm3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098516, "Lcom/baidu/tieba/s13;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948098516, "Lcom/baidu/tieba/s13;");
+                return;
+            }
+        }
+        boolean z = qp1.a;
+        h = String.format("%s/ma/pay_check", a62.b());
+        i = n03.a;
+    }
 
     public s13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = h;
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = new JSONObject();
+        this.g = new a(this);
+        e();
+        f();
+        g();
     }
 
-    @Override // com.baidu.tieba.t13
-    public List<f13> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String optString = jSONObject.optString("apiName");
-            c("api-name " + optString);
-            if (TextUtils.isEmpty(optString)) {
-                return arrayList;
-            }
-            int optInt = jSONObject.optInt("count");
-            c("api-count " + optInt);
-            if (optInt <= 0) {
-                return arrayList;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("caller");
-            if (optJSONObject == null) {
-                return arrayList;
-            }
-            b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
-            b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<f13> list, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) && jSONObject != null && jSONObject.length() > 0) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
-            if (optJSONArray != null && optJSONArray2 != null) {
-                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
-                for (int i2 = 0; i2 < min; i2++) {
-                    f13 f13Var = new f13();
-                    f13Var.g(i);
-                    f13Var.f(str);
-                    f13Var.i(optJSONArray.optLong(i2));
-                    f13Var.h(optJSONArray2.optLong(i2));
-                    list.add(f13Var);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String O = f93.K().q().O();
+            try {
+                JSONObject jSONObject = this.e;
+                if (TextUtils.isEmpty(O)) {
+                    O = "";
                 }
+                jSONObject.put("appkey", O);
+            } catch (JSONException e) {
+                g62.i("PayCheckRequest", "set post data 'appkey' failed: \n" + Log.getStackTraceString(e));
             }
         }
     }
 
-    public final void c(String str) {
+    public void d(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && t13.a) {
-            Log.d("Api-Parser", str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.f = bVar;
+            c(this.g);
+        }
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, str2) != null) || TextUtils.isEmpty(str) || str2 == null) {
+            return;
+        }
+        this.b.put(str, str2);
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("error: invalid url"));
+                return;
+            }
+            this.a = ym3.b(this.a, this.c);
+            jg4 jg4Var = new jg4(this.a, RequestBody.create(i, this.e.toString()), responseCallback);
+            jg4Var.c = this.b;
+            jg4Var.g = true;
+            g62.b("PayCheckRequest", "start paycheck request : " + this.e);
+            kg4.g().e(jg4Var);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            String i2 = oi4.i(h);
+            this.a = i2;
+            this.a = c62.b(i2);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b("Referer", nm3.b());
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.e.put("order_info", jSONObject);
+            this.d = true;
+        } catch (JSONException e) {
+            g62.i("PayCheckRequest", "set order info failed: \n" + Log.getStackTraceString(e));
         }
     }
 }

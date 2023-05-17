@@ -1,15 +1,32 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class s01 implements tv0 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class s01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract r01 a();
-
-    public abstract t01 b();
-
-    public abstract u01 c();
+    public static final String a(String[] array) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
+            Intrinsics.checkNotNullParameter(array, "array");
+            for (String str : array) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    return str;
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
 }

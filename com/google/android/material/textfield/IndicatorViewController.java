@@ -26,7 +26,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class IndicatorViewController {
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
     public static final int CAPTION_STATE_ERROR = 1;
@@ -75,7 +75,7 @@ public final class IndicatorViewController {
         Context context = textInputLayout.getContext();
         this.context = context;
         this.textInputView = textInputLayout;
-        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070226);
+        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c5);
     }
 
     private ObjectAnimator createCaptionTranslationYAnimator(TextView textView) {
@@ -459,7 +459,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092351);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923b5);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -491,7 +491,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092352);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f0923b6);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

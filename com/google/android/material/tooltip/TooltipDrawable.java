@@ -28,12 +28,12 @@ import com.google.android.material.shape.MarkerEdgeTreatment;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.OffsetEdgeTreatment;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawableHelper.TextDrawableDelegate {
     @StyleRes
-    public static final int DEFAULT_STYLE = 2131755937;
+    public static final int DEFAULT_STYLE = 2131755948;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970446;
+    public static final int DEFAULT_THEME_ATTR = 2130970516;
     public int arrowSize;
     @NonNull
     public final View.OnLayoutChangeListener attachedViewLayoutChangeListener;
@@ -261,12 +261,12 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
 
     private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, R.styleable.Tooltip, i, i2, new int[0]);
-        this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704e6);
+        this.arrowSize = this.context.getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070625);
         setShapeAppearanceModel(getShapeAppearanceModel().toBuilder().setBottomEdge(createMarkerEdge()).build());
         setText(obtainStyledAttributes.getText(5));
         setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));
-        setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) com.baidu.tieba.R.attr.obfuscated_res_0x7f040174, TooltipDrawable.class.getCanonicalName()), 153)))));
-        setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) com.baidu.tieba.R.attr.obfuscated_res_0x7f040180, TooltipDrawable.class.getCanonicalName())));
+        setFillColor(ColorStateList.valueOf(obtainStyledAttributes.getColor(6, MaterialColors.layer(ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, 16842801, TooltipDrawable.class.getCanonicalName()), 229), ColorUtils.setAlphaComponent(MaterialColors.getColor(this.context, (int) com.baidu.tieba.R.attr.obfuscated_res_0x7f04017f, TooltipDrawable.class.getCanonicalName()), 153)))));
+        setStrokeColor(ColorStateList.valueOf(MaterialColors.getColor(this.context, (int) com.baidu.tieba.R.attr.obfuscated_res_0x7f040190, TooltipDrawable.class.getCanonicalName())));
         this.padding = obtainStyledAttributes.getDimensionPixelSize(1, 0);
         this.minWidth = obtainStyledAttributes.getDimensionPixelSize(3, 0);
         this.minHeight = obtainStyledAttributes.getDimensionPixelSize(4, 0);

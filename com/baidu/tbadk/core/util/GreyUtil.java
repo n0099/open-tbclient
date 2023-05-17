@@ -9,12 +9,12 @@ import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.tbadk.switchs.WindowGreySwitch;
-import com.baidu.tieba.d9;
+import com.baidu.tieba.j9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GreyUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class GreyUtil {
             return;
         }
         if (WindowGreySwitch.getIsOn()) {
-            d9.b(view2);
+            j9.b(view2);
         } else {
-            d9.a(view2);
+            j9.a(view2);
         }
     }
 
@@ -64,7 +64,7 @@ public class GreyUtil {
     public static void grey(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, null, view2) == null) && view2 != null && WindowGreySwitch.getIsOn()) {
-            d9.b(view2);
+            j9.b(view2);
         }
     }
 

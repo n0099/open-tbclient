@@ -4,7 +4,7 @@ import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.mapapi.UIMsg;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class HighLevelEncoder {
     public static final int ASCII_ENCODATION = 0;
     public static final int BASE256_ENCODATION = 5;

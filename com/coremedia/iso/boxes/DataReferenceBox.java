@@ -14,7 +14,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DataReferenceBox extends AbstractContainerBox implements FullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "dref";

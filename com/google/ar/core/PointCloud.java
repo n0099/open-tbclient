@@ -2,7 +2,7 @@ package com.google.ar.core;
 
 import java.io.Closeable;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PointCloud implements Closeable {
     public long a;
 

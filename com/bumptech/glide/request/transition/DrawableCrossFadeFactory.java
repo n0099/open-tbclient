@@ -2,13 +2,13 @@ package com.bumptech.glide.request.transition;
 
 import android.graphics.drawable.Drawable;
 import com.bumptech.glide.load.DataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DrawableCrossFadeFactory implements TransitionFactory<Drawable> {
     public final int duration;
     public final boolean isCrossFadeEnabled;
     public DrawableCrossFadeTransition resourceTransition;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static final int DEFAULT_DURATION_MS = 300;
         public final int durationMillis;

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SetPendantRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class SetPendantRequest extends NetMessage {
             builder.props_id = Long.valueOf(this.pendantId);
             builder.type = Integer.valueOf(this.type);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jr5.a(builder, true);
+                ss5.a(builder, true);
             }
             SetPendantReqIdl.Builder builder2 = new SetPendantReqIdl.Builder();
             builder2.data = builder.build(false);

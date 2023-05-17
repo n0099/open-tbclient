@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import androidx.core.app.NotificationCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class fn1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 60000;
-    public static long b;
-    public static long c;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.lang.Thread;
+/* loaded from: classes5.dex */
+public class fn1 implements Thread.UncaughtExceptionHandler {
+    public static /* synthetic */ Interceptable $ic;
+    public static final fn1 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Thread.UncaughtExceptionHandler a;
+    public boolean b;
+    public gn1 c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,52 +34,101 @@ public class fn1 {
                 return;
             }
         }
-        long j = a * 60;
-        b = j;
-        c = j * 24;
+        d = new fn1();
     }
 
-    @SuppressLint({"WrongConstant"})
-    public static void a(Context context, long j) {
-        PendingIntent broadcast;
+    public fn1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
-            return;
-        }
-        try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent();
-            intent.setPackage(context.getPackageName());
-            intent.setAction("sso_action_t_m");
-            if (b(context)) {
-                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
-            } else {
-                broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            alarmManager.cancel(broadcast);
-            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
-        } catch (Throwable th) {
-            gn1.d(th);
         }
     }
 
-    public static boolean b(Context context) {
+    public static fn1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (fn1) invokeV.objValue;
+    }
+
+    public final String a(Throwable th) {
+        PrintWriter printWriter;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
             try {
-                if (context.getApplicationInfo().targetSdkVersion >= 31) {
-                    if (Build.VERSION.SDK_INT >= 31) {
-                        return true;
+                StringWriter stringWriter = new StringWriter();
+                printWriter = new PrintWriter(stringWriter);
+                try {
+                    th.printStackTrace(printWriter);
+                    String obj = stringWriter.toString();
+                    printWriter.close();
+                    return obj;
+                } catch (Throwable unused) {
+                    if (printWriter != null) {
+                        printWriter.close();
+                        return "";
                     }
-                    return false;
+                    return "";
                 }
-                return false;
-            } catch (Throwable th) {
-                gn1.d(th);
-                return false;
+            } catch (Throwable unused2) {
+                printWriter = null;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
+    public synchronized void b(gn1 gn1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gn1Var) == null) {
+            synchronized (this) {
+                try {
+                    this.c = gn1Var;
+                } finally {
+                }
+                if (gn1Var == null) {
+                    return;
+                }
+                if (!gn1Var.a()) {
+                    return;
+                }
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                this.a = Thread.getDefaultUncaughtExceptionHandler();
+                Thread.setDefaultUncaughtExceptionHandler(this);
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // java.lang.Thread.UncaughtExceptionHandler
+    public void uncaughtException(Thread thread, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, thread, th) == null) {
+            try {
+                String a = a(th);
+                if (!TextUtils.isEmpty(a) && ((a.contains("com.baidu.sso") || a.contains("com.cmic.sso.sdk") || a.contains("com.sdk") || a.contains("cn.com.chinatelecom.gateway")) && this.c != null)) {
+                    this.c.a(a);
+                }
+            } catch (Throwable th2) {
+                po1.d(th2);
+            }
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.a;
+            if (uncaughtExceptionHandler != null) {
+                uncaughtExceptionHandler.uncaughtException(thread, th);
+            }
+        }
     }
 }

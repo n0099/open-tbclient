@@ -1,7 +1,7 @@
 package com.baidu.nps.pm;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IBundleInfo {
     int getAbi();
 

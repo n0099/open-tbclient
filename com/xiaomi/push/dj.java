@@ -5,7 +5,7 @@ import android.util.Pair;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class dj implements Runnable {
     public final /* synthetic */ di a;
 
@@ -60,7 +60,7 @@ public class dj implements Runnable {
         }
         try {
             if (aa.d()) {
-                this.a.m282a();
+                this.a.m301a();
                 return;
             }
             str3 = this.a.b;

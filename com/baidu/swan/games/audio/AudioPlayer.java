@@ -10,31 +10,31 @@ import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
 import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.a24;
-import com.baidu.tieba.b24;
-import com.baidu.tieba.d72;
-import com.baidu.tieba.dv2;
-import com.baidu.tieba.ff2;
-import com.baidu.tieba.g72;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.kt2;
-import com.baidu.tieba.ne4;
-import com.baidu.tieba.r14;
-import com.baidu.tieba.u34;
-import com.baidu.tieba.vu2;
-import com.baidu.tieba.w14;
-import com.baidu.tieba.wk2;
-import com.baidu.tieba.x73;
-import com.baidu.tieba.y34;
+import com.baidu.tieba.a34;
+import com.baidu.tieba.d54;
+import com.baidu.tieba.ew2;
+import com.baidu.tieba.f34;
+import com.baidu.tieba.fm2;
+import com.baidu.tieba.g93;
+import com.baidu.tieba.h54;
+import com.baidu.tieba.j34;
+import com.baidu.tieba.k34;
+import com.baidu.tieba.m82;
+import com.baidu.tieba.mw2;
+import com.baidu.tieba.og2;
+import com.baidu.tieba.p82;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.tu2;
+import com.baidu.tieba.wf4;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class AudioPlayer implements vu2, ne4 {
-    public static final boolean o = ho1.a;
-    public dv2 a;
+/* loaded from: classes4.dex */
+public class AudioPlayer implements ew2, wf4 {
+    public static final boolean o = qp1.a;
+    public mw2 a;
     public String d;
-    public b24 e;
+    public k34 e;
     public int h;
     public String i;
     public String j;
@@ -43,11 +43,11 @@ public class AudioPlayer implements vu2, ne4 {
     public long n;
     public PlayerStatus b = PlayerStatus.NONE;
     public UserStatus c = UserStatus.OPEN;
-    public r14 f = new r14();
+    public a34 f = new a34();
     public e g = new e();
     public float l = -1.0f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum PlayerStatus {
         NONE,
         IDLE,
@@ -55,7 +55,7 @@ public class AudioPlayer implements vu2, ne4 {
         PREPARED
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum UserStatus {
         OPEN,
         PLAY,
@@ -64,33 +64,33 @@ public class AudioPlayer implements vu2, ne4 {
         DESTROY
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements TypedCallbackHandler {
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public String f() {
         return null;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public Object i() {
         return this;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public void j(boolean z) {
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public boolean onBackPressed() {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public a() {
             }
@@ -106,22 +106,22 @@ public class AudioPlayer implements vu2, ne4 {
 
         @Override // java.lang.Runnable
         public void run() {
-            a24.h().e().post(new a());
+            j34.h().e().post(new a());
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class c implements w14 {
+    /* loaded from: classes4.dex */
+    public class c implements f34 {
         public c() {
         }
 
-        @Override // com.baidu.tieba.w14
+        @Override // com.baidu.tieba.f34
         public void a(String str, String str2) {
             AudioPlayer.this.j = str2;
             AudioPlayer.this.w();
         }
 
-        @Override // com.baidu.tieba.w14
+        @Override // com.baidu.tieba.f34
         public void fail(int i, String str) {
             String str2;
             AudioPlayer audioPlayer = AudioPlayer.this;
@@ -134,7 +134,7 @@ public class AudioPlayer implements vu2, ne4 {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnBufferingUpdateListener {
         public d() {
         }
@@ -253,10 +253,10 @@ public class AudioPlayer implements vu2, ne4 {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e extends Handler {
         public e() {
-            super(a24.h().e().getLooper());
+            super(j34.h().e().getLooper());
         }
 
         @Override // android.os.Handler
@@ -290,32 +290,32 @@ public class AudioPlayer implements vu2, ne4 {
         return this.n;
     }
 
-    public b24 B() {
-        b24 b24Var = this.e;
-        if (b24Var == null || b24Var.s()) {
-            this.e = a24.h().d(this.j, this.f.f);
+    public k34 B() {
+        k34 k34Var = this.e;
+        if (k34Var == null || k34Var.s()) {
+            this.e = j34.h().d(this.j, this.f.f);
             S();
         }
         return this.e;
     }
 
-    public final ff2 C() {
+    public final og2 C() {
         SwanAppActivity w;
-        x73 M = x73.M();
+        g93 M = g93.M();
         if (M == null || !M.w0() || (w = M.w()) == null) {
             return null;
         }
-        wk2 S = w.S();
-        if (!(S instanceof y34)) {
+        fm2 S = w.S();
+        if (!(S instanceof h54)) {
             return null;
         }
-        return ((y34) S).g1();
+        return ((h54) S).g1();
     }
 
     public float D() {
-        r14 r14Var = this.f;
-        if (r14Var != null) {
-            return r14Var.i;
+        a34 a34Var = this.f;
+        if (a34Var != null) {
+            return a34Var.i;
         }
         return 1.0f;
     }
@@ -327,22 +327,22 @@ public class AudioPlayer implements vu2, ne4 {
 
     public final void F() {
         this.b = PlayerStatus.IDLE;
-        b24 b24Var = this.e;
-        if (b24Var != null) {
-            b24Var.destroy();
+        k34 k34Var = this.e;
+        if (k34Var != null) {
+            k34Var.destroy();
             this.e = null;
         }
         this.g.removeMessages(0);
     }
 
     public final boolean G() {
-        d72 m;
-        if (x73.M() != null && x73.M().w0()) {
-            g72 V = kt2.U().V();
-            if (V == null || (m = V.m()) == null || !(m instanceof u34)) {
+        m82 m;
+        if (g93.M() != null && g93.M().w0()) {
+            p82 V = tu2.U().V();
+            if (V == null || (m = V.m()) == null || !(m instanceof d54)) {
                 return true;
             }
-            return ((u34) m).G3();
+            return ((d54) m).G3();
         }
         return false;
     }
@@ -398,25 +398,25 @@ public class AudioPlayer implements vu2, ne4 {
         X(this.f.i);
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public String b() {
         return this.f.b;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public String c() {
         return this.d;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public void onDestroy() {
-        x73 M = x73.M();
+        g93 M = g93.M();
         if (M != null && M.w0()) {
             T();
         }
     }
 
-    @Override // com.baidu.tieba.ne4
+    @Override // com.baidu.tieba.wf4
     public void onPause() {
         E();
     }
@@ -468,8 +468,8 @@ public class AudioPlayer implements vu2, ne4 {
         }
     }
 
-    public void V(dv2 dv2Var) {
-        this.a = dv2Var;
+    public void V(mw2 mw2Var) {
+        this.a = mw2Var;
     }
 
     public final void W(boolean z) {
@@ -501,35 +501,35 @@ public class AudioPlayer implements vu2, ne4 {
         }
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public void k(boolean z) {
-        ff2 C;
-        x73 M = x73.M();
+        og2 C;
+        g93 M = g93.M();
         if (M != null && M.w0() && !z && (C = C()) != null && !C.s0()) {
             C.runOnJSThread(new b());
         }
     }
 
-    public void update(r14 r14Var) {
-        this.f = r14Var;
-        dv2 dv2Var = this.a;
-        if (dv2Var != null) {
-            dv2Var.d(r14Var.j);
+    public void update(a34 a34Var) {
+        this.f = a34Var;
+        mw2 mw2Var = this.a;
+        if (mw2Var != null) {
+            mw2Var.d(a34Var.j);
         }
         Z();
     }
 
     public final void K(String str, JSONObject jSONObject) {
-        dv2 dv2Var = this.a;
-        if (dv2Var != null) {
-            dv2Var.b(str, jSONObject);
+        mw2 mw2Var = this.a;
+        if (mw2Var != null) {
+            mw2Var.b(str, jSONObject);
         }
     }
 
     public final void M() {
         try {
             if (this.i.contains("http")) {
-                a24 h = a24.h();
+                j34 h = j34.h();
                 File file = new File(h.g(this.i));
                 if (file.exists() && !file.isDirectory()) {
                     this.j = file.getAbsolutePath();
@@ -552,7 +552,7 @@ public class AudioPlayer implements vu2, ne4 {
         try {
             File file = new File(this.j);
             if (file.exists() && !file.isDirectory()) {
-                long f = a24.h().f(this.j);
+                long f = j34.h().f(this.j);
                 this.n = f;
                 if (0 != f) {
                     B().c(this.j);
@@ -572,7 +572,7 @@ public class AudioPlayer implements vu2, ne4 {
         L("10003");
     }
 
-    public void N(r14 r14Var) {
+    public void N(a34 a34Var) {
         if (o) {
             Log.d("SwanAppAudioPlayer", "AudioPlayer open");
         }
@@ -580,9 +580,9 @@ public class AudioPlayer implements vu2, ne4 {
             F();
         }
         this.c = UserStatus.OPEN;
-        this.f = r14Var;
+        this.f = a34Var;
         this.h = 0;
-        this.i = kt2.U().G().a(this.f.c);
+        this.i = tu2.U().G().a(this.f.c);
         this.b = PlayerStatus.IDLE;
         J("onWaiting");
         M();
@@ -665,6 +665,6 @@ public class AudioPlayer implements vu2, ne4 {
         this.e.k(this.k);
         this.e.h(this.k);
         this.e.n(this.k);
-        this.e.e(this);
+        this.e.f(this);
     }
 }

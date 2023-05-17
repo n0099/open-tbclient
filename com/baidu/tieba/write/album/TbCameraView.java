@@ -11,8 +11,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.km6;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.wn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class TbCameraView extends TextureView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,27 +46,27 @@ public class TbCameraView extends TextureView {
     public final Runnable s;
     public Runnable t;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface d {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface e {
         void a(int i, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface f {
         boolean a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface g {
         void a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class a implements TextureView.SurfaceTextureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,13 +133,13 @@ public class TbCameraView extends TextureView {
                     tbCameraView.p = z;
                 }
                 if (this.a.p) {
-                    km6.a(this.a.s, "mTextureAvailable", 1);
+                    wn6.a(this.a.s, "mTextureAvailable", 1);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +174,7 @@ public class TbCameraView extends TextureView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public class TbCameraView extends TextureView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public static class h extends BdAsyncTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +277,7 @@ public class TbCameraView extends TextureView {
         this.s = new b(this);
         this.t = new c(this);
         setSurfaceTextureListener(this.r);
-        this.j = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d2);
+        this.j = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703da);
         this.k = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
     }
 
@@ -443,7 +443,7 @@ public class TbCameraView extends TextureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            jg.a().removeCallbacks(this.t);
+            sg.a().removeCallbacks(this.t);
         }
     }
 

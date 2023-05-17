@@ -1,298 +1,138 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.tq2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-/* loaded from: classes4.dex */
-public class ef2 {
+import java.nio.channels.Channels;
+/* loaded from: classes5.dex */
+public class ef2 extends bf2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public File b;
 
-    /* loaded from: classes4.dex */
-    public class a extends ResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tq2.c a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ ef2 c;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(ef2 ef2Var, tq2.c cVar, File file) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732344, "Lcom/baidu/tieba/ef2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef2Var, cVar, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = ef2Var;
-            this.a = cVar;
-            this.b = file;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.c.c(this.a, 1, 0);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947732344, "Lcom/baidu/tieba/ef2;");
+                return;
             }
         }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.c.d(response, this.a, this.b);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tq2.c a;
-
-        public b(ef2 ef2Var, tq2.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef2Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onSuccess();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tq2.c a;
-
-        public c(ef2 ef2Var, tq2.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef2Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFailed();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tq2.c a;
-        public final /* synthetic */ int b;
-
-        public d(ef2 ef2Var, tq2.c cVar, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef2Var, cVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
-            }
-        }
+        c = qp1.a;
     }
 
     public ef2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final void c(tq2.c cVar, int i, int i2) {
-        Runnable bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLII(1048576, this, cVar, i, i2) != null) || cVar == null) {
-            return;
-        }
-        if (i != 0) {
-            if (i != 2) {
-                bVar = new c(this, cVar);
-            } else {
-                bVar = new d(this, cVar, i2);
-            }
-        } else {
-            bVar = new b(this, cVar);
-        }
-        rl3.e0(bVar);
-    }
-
-    public void e(tq2.d dVar, String str, tq2.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, dVar, str, cVar) == null) {
-            af4 af4Var = new af4(dVar.a, new a(this, cVar, new File(str)));
-            af4Var.f = false;
-            af4Var.g = false;
-            af4Var.h = false;
-            bf4.g().d(af4Var);
-        }
-    }
-
-    public final void d(Response response, tq2.c cVar, File file) throws IOException {
-        FileOutputStream fileOutputStream;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, cVar, file) == null) {
-            ResponseBody body = response.body();
-            if (body == null) {
-                c(cVar, 1, 0);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            byte[] bArr = new byte[2048];
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            if (file.exists()) {
-                file.delete();
-                file.createNewFile();
-            }
-            InputStream inputStream = null;
-            try {
-                InputStream byteStream = body.byteStream();
-                try {
-                    long contentLength = body.contentLength();
-                    fileOutputStream = new FileOutputStream(file);
-                    long j = 0;
-                    while (true) {
-                        try {
-                            int read = byteStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                            j += read;
-                            if (contentLength <= 0) {
-                                i = 0;
-                            } else {
-                                i = (int) (((((float) j) * 1.0f) / ((float) contentLength)) * 100.0f);
-                            }
-                            c(cVar, 2, i);
-                        } catch (Exception unused) {
-                            inputStream = byteStream;
-                            try {
-                                c(cVar, 1, 0);
-                                bo4.d(inputStream);
-                                bo4.d(fileOutputStream);
-                            } catch (Throwable th) {
-                                th = th;
-                                bo4.d(inputStream);
-                                bo4.d(fileOutputStream);
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = byteStream;
-                            bo4.d(inputStream);
-                            bo4.d(fileOutputStream);
-                            throw th;
-                        }
-                    }
-                    fileOutputStream.flush();
-                    c(cVar, 0, 100);
-                    bo4.d(byteStream);
-                } catch (Exception unused2) {
-                    fileOutputStream = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    fileOutputStream = null;
-                }
-            } catch (Exception unused3) {
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-            }
-            bo4.d(fileOutputStream);
         }
+        this.b = o();
+    }
+
+    public final File o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.bf2
+    public boolean e(cf2 cf2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cf2Var)) == null) {
+            if (cf2Var == null || !this.b.exists()) {
+                return false;
+            }
+            File file = this.b;
+            File file2 = new File(file, cf2Var.g + File.separator + cf2Var.q);
+            if (!file2.exists()) {
+                return false;
+            }
+            try {
+                if (!d(Channels.newChannel(new FileInputStream(file2)), cf2Var.m)) {
+                    if (c) {
+                        Log.e("SdCardPresetController", "校验签名失败");
+                    }
+                    return false;
+                }
+                File j = j(cf2Var.h, cf2Var.g, cf2Var.i);
+                if (j == null) {
+                    if (c) {
+                        Log.e("SdCardPresetController", "获取解压路径失败");
+                    }
+                    return false;
+                }
+                return n(new BufferedInputStream(new FileInputStream(file2)), j);
+            } catch (IOException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bf2
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!this.b.exists()) {
+                return null;
+            }
+            File file = this.b;
+            File file2 = new File(file, str + File.separator + "app_info.json");
+            if (!file2.exists()) {
+                return null;
+            }
+            return kp4.E(file2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bf2
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!this.b.exists()) {
+                return null;
+            }
+            File file = new File(this.b, "preset_list.json");
+            if (!file.exists()) {
+                return null;
+            }
+            return kp4.E(file);
+        }
+        return (String) invokeV.objValue;
     }
 }

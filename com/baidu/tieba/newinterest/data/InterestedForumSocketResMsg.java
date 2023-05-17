@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.kt8;
+import com.baidu.tieba.fv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class InterestedForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kt8 pageData;
+    public fv8 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumSocketResMsg() {
@@ -36,13 +36,13 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public kt8 getPageData() {
+    public fv8 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pageData;
         }
-        return (kt8) invokeV.objValue;
+        return (fv8) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -63,9 +63,9 @@ public class InterestedForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getVerticalForumListResIdl.error.usermsg);
             }
-            kt8 kt8Var = new kt8();
-            this.pageData = kt8Var;
-            kt8Var.a(getVerticalForumListResIdl.data);
+            fv8 fv8Var = new fv8();
+            this.pageData = fv8Var;
+            fv8Var.a(getVerticalForumListResIdl.data);
             return getVerticalForumListResIdl;
         }
         return invokeIL.objValue;

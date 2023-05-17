@@ -4,13 +4,13 @@ import com.google.protobuf.GeneratedMessageLite;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ExtensionRegistryLite {
     public static final ExtensionRegistryLite EMPTY = new ExtensionRegistryLite(true);
     public static volatile boolean eagerlyParseMessageSets;
     public final Map<ObjectIntPair, GeneratedMessageLite.GeneratedExtension<?, ?>> extensionsByNumber;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ObjectIntPair {
         public final int number;
         public final Object object;

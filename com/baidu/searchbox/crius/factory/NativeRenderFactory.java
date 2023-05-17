@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import com.baidu.searchbox.crius.data.RenderData;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NativeRenderFactory implements INativeRenderFactory {
     public static volatile NativeRenderFactory sInstance;
     public INativeRenderFactory nativeRenderFactory;

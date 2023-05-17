@@ -1,49 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zx8 extends Thread {
+import java.util.List;
+import tbclient.PbPage.PbSortType;
+/* loaded from: classes8.dex */
+public class zx8 implements rn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public BdUniqueId a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public List<PbSortType> e;
+    public boolean f;
 
-    public zx8(String str, String str2, String str3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375439, "Lcom/baidu/tieba/zx8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948375439, "Lcom/baidu/tieba/zx8;");
+                return;
+            }
+        }
+        g = BdUniqueId.gen();
+        h = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.rn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public zx8(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.a);
-            netWork.addPostData("phonenum", this.b);
-            netWork.addPostData("optype", this.c);
-            netWork.postNetData();
-        }
+        this.a = h;
+        this.b = 0;
+        this.c = false;
+        this.a = bdUniqueId;
     }
 }

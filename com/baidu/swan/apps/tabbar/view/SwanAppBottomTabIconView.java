@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppBottomTabIconView extends RelativeLayout {
     public ImageView a;
     public TextView b;
@@ -19,11 +19,11 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
 
     public SwanAppBottomTabIconView(Context context) {
         super(context);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009b, (ViewGroup) this, true);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090457);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090459);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090458);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090456);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009d, (ViewGroup) this, true);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09046b);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09046d);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09046c);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09046a);
     }
 
     public boolean a() {

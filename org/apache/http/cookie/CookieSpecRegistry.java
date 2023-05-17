@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CookieSpecRegistry {
     public CookieSpecRegistry() {
         throw new RuntimeException("Stub!");

@@ -8,7 +8,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SlideTipsView extends FrameLayout {
     public SlideTipsView(@NonNull Context context) {
         this(context, null);
@@ -24,6 +24,6 @@ public class SlideTipsView extends FrameLayout {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_SlideTipsView, i, 0);
         boolean z = obtainStyledAttributes.getBoolean(0, true);
         obtainStyledAttributes.recycle();
-        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0472 : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0477, this);
+        FrameLayout.inflate(context, z ? com.baidu.tieba.R.layout.obfuscated_res_0x7f0d048f : com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0494, this);
     }
 }

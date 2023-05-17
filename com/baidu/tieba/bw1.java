@@ -1,318 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.FormBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class bw1 extends aw1 {
+/* loaded from: classes5.dex */
+public class bw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public boolean g;
 
-    @Override // com.baidu.tieba.aw1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "Coupon" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "SwanAppCouponApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ bw1 b;
-
-        public a(bw1 bw1Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659277, "Lcom/baidu/tieba/bw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bw1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = bw1Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                bw1 bw1Var = this.b;
-                String str = this.a;
-                bw1Var.d(str, new xz1(1001, "operation fail, msg = " + exc.getMessage()));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947659277, "Lcom/baidu/tieba/bw1;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (jSONObject == null) {
-                    this.b.d(this.a, new xz1(1001, "server response fail"));
-                    return;
-                }
-                int optInt = jSONObject.optInt("errno", 10002);
-                String optString = jSONObject.optString("errmsg", SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
-                if (optInt != 0) {
-                    this.b.d(this.a, new xz1(optInt, optString));
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject == null) {
-                    this.b.d(this.a, new xz1(optInt, optString));
-                    return;
-                }
-                this.b.d(this.a, new xz1(0, optString, optJSONObject));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            ResponseBody body;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && (body = response.body()) != null) {
-                    return xk3.d(body.string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
+        boolean z = qp1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bw1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public bw1(String str, String str2, String str3, int i, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+        this.d = i;
+        this.e = i2;
+        this.f = i3;
+        this.g = z;
     }
 
-    public final void A(String str, x73 x73Var) {
+    public ay2 a() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, x73Var) == null) {
-            ze3 ze3Var = new ze3();
-            ze3Var.a = "swan";
-            ze3Var.b = str;
-            ze3Var.f = x73Var.O();
-            ze3Var.a("host_app", er2.n().a());
-            ee3.i("2267", "83", ze3Var.f());
-        }
-    }
-
-    public final xz1 B(String str, FormBody.Builder builder, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, builder, str2)) == null) {
-            cz2 a2 = cz2.a(builder.build(), ez2.b);
-            String y = y(str);
-            if (TextUtils.isEmpty(y)) {
-                return new xz1(202);
-            }
-            af4 af4Var = new af4(y, a2, new a(this, str2));
-            if (bf4.g().c()) {
-                af4Var.f = true;
-            }
-            af4Var.g = true;
-            bf4.g().e(af4Var);
-            return xz1.f();
-        }
-        return (xz1) invokeLLL.objValue;
-    }
-
-    public xz1 C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#takeCoupons", false);
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return new xz1(1001, "SwanApp is null");
-            }
-            A("coupons_take", b0);
-            if (!dw1.y(getContext())) {
-                return new xz1(10007, "is not baidu account");
-            }
-            if (!b0.N().e(getContext())) {
-                return new xz1(10004, "user not logged in");
-            }
-            Pair<xz1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((xz1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("promotionId");
-                if (TextUtils.isEmpty(optString)) {
-                    return new xz1(202, "couponAppKey is invalid");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new xz1(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", x73.g0());
-                builder.add("promotionId", optString);
-                return B("takeCoupons", builder, optString2);
-            }
-            return new xz1(202);
-        }
-        return (xz1) invokeL.objValue;
-    }
-
-    public xz1 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            q("#getUserCoupons", false);
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return new xz1(1001, "SwanApp is null");
-            }
-            A("coupons_user", b0);
-            if (!dw1.y(getContext())) {
-                return new xz1(10007, "is not baidu account");
-            }
-            if (!b0.N().e(getContext())) {
-                return new xz1(10004, "user not logged in");
-            }
-            Pair<xz1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((xz1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("couponAppKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new xz1(202, "couponAppKey is invalid");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new xz1(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", x73.g0());
-                builder.add("couponAppKey", optString);
-                return B("getUserCoupons", builder, optString2);
-            }
-            return new xz1(202);
-        }
-        return (xz1) invokeL.objValue;
-    }
-
-    public xz1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#getPlatformCoupons", false);
-            x73 b0 = x73.b0();
-            if (b0 == null) {
-                return new xz1(202, "SwanApp is null");
-            }
-            A("coupons_appkey", b0);
-            if (!dw1.y(getContext())) {
-                return new xz1(10007, "is not baidu account");
-            }
-            Pair<xz1, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((xz1) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("couponAppKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new xz1(202, "couponAppKey is invalid");
-                }
-                boolean optBoolean = jSONObject.optBoolean("withUserCoupons", false);
-                if (optBoolean) {
-                    A("coupons_appkey_user", b0);
-                    if (!b0.N().e(getContext())) {
-                        return new xz1(10004, "user not logged in");
-                    }
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new xz1(202, "cb is invalid");
-                }
-                FormBody.Builder builder = new FormBody.Builder();
-                builder.add("appKey", x73.g0());
-                builder.add("couponAppKey", optString);
-                builder.add("withUserCoupons", String.valueOf(optBoolean));
-                return B("getPlatformCoupons", builder, optString2);
-            }
-            return new xz1(202);
-        }
-        return (xz1) invokeL.objValue;
-    }
-
-    public final String y(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1741243770) {
-                if (hashCode != 15750540) {
-                    if (hashCode == 1991726820 && str.equals("getPlatformCoupons")) {
-                        c = 0;
-                    }
-                    c = 65535;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("showMuteBtn", true);
+                jSONObject.put("showCenterPlayBtn", true);
+                ay2 ay2Var = new ay2();
+                ay2Var.j = "SwanAdPlayer";
+                ay2Var.b = "SwanAdPlayer";
+                ay2Var.o = true;
+                ay2Var.k = false;
+                if (!this.g) {
+                    z = true;
                 } else {
-                    if (str.equals("getUserCoupons")) {
-                        c = 1;
-                    }
-                    c = 65535;
+                    z = false;
                 }
-            } else {
-                if (str.equals("takeCoupons")) {
-                    c = 2;
+                ay2Var.x = z;
+                ay2Var.I = false;
+                ay2Var.l = this.a;
+                ay2Var.y = this.b;
+                ay2Var.c = this.c;
+                mz2 mz2Var = new mz2(0, 0, this.d, this.e);
+                ay2Var.h = mz2Var;
+                mz2Var.i(true);
+                ay2Var.m = this.f;
+                if (this.g) {
+                    ay2Var.q = AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY;
                 }
-                c = 65535;
+                return ay2.h(jSONObject, ay2Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return null;
-                    }
-                    return er2.o().j();
-                }
-                return er2.o().f();
-            }
-            return er2.o().K();
         }
-        return (String) invokeL.objValue;
+        return (ay2) invokeV.objValue;
     }
 }

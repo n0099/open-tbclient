@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IDeviceidInterface extends IInterface {
 
     @Keep
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IDeviceidInterface {
         public static /* synthetic */ Interceptable $ic = null;
         @Keep
@@ -34,7 +34,7 @@ public interface IDeviceidInterface extends IInterface {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Keep
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class Proxy implements IDeviceidInterface {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

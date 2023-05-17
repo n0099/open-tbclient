@@ -10,7 +10,7 @@ import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.fluency.BdTracesManager;
 import com.baidu.ubc.UBCManager;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FpsPerfSampleCallback implements PerfSampleManager.IPerfSampleCallback {
     public static final String ACTIVE_FPS_UPLOAD_TYPE = "1";
     public static final String KEY_FPS_ACTIVE_UPLOAD = "key_fluency_fps_active_upload";

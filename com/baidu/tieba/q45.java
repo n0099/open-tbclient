@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.ChatRoomEntranceData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-/* loaded from: classes6.dex */
-public interface q45 {
-    MemberBroadcastData getActivityBroadcastData();
+import android.graphics.Path;
+import android.graphics.RectF;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Arrays;
+/* loaded from: classes7.dex */
+public class q45 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    ChatRoomEntranceData getChatRoomEntranceData();
+    public static Path a(RectF rectF, float[] fArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, rectF, fArr)) == null) {
+            Path path = new Path();
+            path.addRoundRect(rectF, fArr, Path.Direction.CW);
+            return path;
+        }
+        return (Path) invokeLL.objValue;
+    }
 
-    fc5 getFestivalConfigData();
-
-    IconPopData getIconPopData();
-
-    LevePopData getLevePopData();
-
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
-
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
-
-    List<AlaLiveInfo> getLivePicSecondFloor();
-
-    LiveRemindData getLiveRemindData();
-
-    MemberBroadcastData getMemberBroadcastData();
-
-    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
-
-    String getUniqueId();
+    public static float[] b(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            float[] fArr = new float[8];
+            Arrays.fill(fArr, f);
+            return fArr;
+        }
+        return (float[]) invokeF.objValue;
+    }
 }

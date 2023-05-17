@@ -1,26 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes6.dex */
-public final class se8 extends re8<ImageMsg, vc8> {
+/* loaded from: classes7.dex */
+public final class se8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
 
-    @Override // com.baidu.tieba.re8
-    public int c() {
-        InterceptResult invokeV;
+    public final void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
-        return invokeV.intValue;
+    }
+
+    public final void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        }
+    }
+
+    public final void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+        }
     }
 
     public se8() {
@@ -33,36 +45,90 @@ public final class se8 extends re8<ImageMsg, vc8> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = "";
+        this.d = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.re8
-    /* renamed from: h */
-    public ImageMsg e(vc8 vc8Var) {
-        InterceptResult invokeL;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vc8Var)) == null) {
-            return new ImageMsg();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (ImageMsg) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.re8
-    /* renamed from: i */
-    public vc8 g(ImageMsg sdkMsg) {
-        InterceptResult invokeL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            vc8 vc8Var = new vc8();
-            vc8Var.e(sdkMsg.getRemoteUrl());
-            vc8Var.g(sdkMsg.getThumbUrl());
-            vc8Var.d(StringsKt__StringsKt.trim((CharSequence) sdkMsg.getMsgContent().toString()).toString());
-            return vc8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (vc8) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public final void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public final void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
+        }
     }
 }

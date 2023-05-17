@@ -1,447 +1,262 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.business.refresh.LoadAnimStrategy;
-import com.baidu.live.business.view.emotion.EmotionStrategy;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.gc0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.google.protobuf.CodedInputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+/* loaded from: classes5.dex */
 public class dc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static dc0 d;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public xb0 c;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final dc0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-866436805, "Lcom/baidu/tieba/dc0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-866436805, "Lcom/baidu/tieba/dc0$a;");
-                    return;
-                }
-            }
-            a = new dc0();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947699608, "Lcom/baidu/tieba/dc0;")) == null) {
+            return;
         }
-    }
-
-    public dc0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = "day";
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947699608, "Lcom/baidu/tieba/dc0;");
+        }
     }
 
-    public static dc0 f() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                d = a.a;
-            }
-            return d;
+            return a;
         }
-        return (dc0) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String r() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int a(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        xb0 xb0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str2) && (xb0Var = this.c) != null) {
-                return xb0Var.a(context, str, str2);
-            }
-            return -16777216;
-        }
-        return invokeLLL.intValue;
-    }
-
-    public int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recEmptyImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().emptyImageRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return EmotionStrategy.getInstance().emptyImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().emptyImageRes2;
-            }
-            return EmotionStrategy.getInstance().emptyImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recErrorImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().errorImageRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return EmotionStrategy.getInstance().errorImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().errorImageRes2;
-            }
-            return EmotionStrategy.getInstance().errorImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recNetworkImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().networkImageRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return EmotionStrategy.getInstance().networkImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().networkImageRes2;
-            }
-            return EmotionStrategy.getInstance().networkImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080ddc;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str) || LiveFeedPageSdk.VIDEO_BAR.equals(str) || LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080ddd;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080dde;
-            }
-            if (!"dark".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080ddc;
-            }
-            return R.drawable.obfuscated_res_0x7f080ddd;
-        }
-        return invokeL.intValue;
-    }
-
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRecRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieRes2;
-            }
-            return LoadAnimStrategy.getInstance().loadMoreLottieRes;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResRecId;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResId3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResId1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadMoreLottieResId2;
-            }
-            return LoadAnimStrategy.getInstance().loadMoreLottieResId;
-        }
-        return invokeL.intValue;
-    }
-
-    public int i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return EmotionStrategy.getInstance().recEmptyImageRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return EmotionStrategy.getInstance().minorImageRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return EmotionStrategy.getInstance().minorImageRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return EmotionStrategy.getInstance().minorImageRes2;
-            }
-            return EmotionStrategy.getInstance().minorImageRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRecRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRes2;
-            }
-            return LoadAnimStrategy.getInstance().loadingLottieRes;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieRecResId;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().loadingLottieResId3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieResId1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().loadingLottieResId2;
-            }
-            return LoadAnimStrategy.getInstance().loadingLottieResId;
-        }
-        return invokeL.intValue;
-    }
-
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRecRes;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRes3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRes1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRes2;
-            }
-            return LoadAnimStrategy.getInstance().pullDownLottieRes;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if ("recommend".equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieRecResId;
-            }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieResId3;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieResId1;
-            }
-            if ("dark".equals(this.b)) {
-                return LoadAnimStrategy.getInstance().pullDownLottieResId2;
-            }
-            return LoadAnimStrategy.getInstance().pullDownLottieResId;
-        }
-        return invokeL.intValue;
-    }
-
-    public int l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (!LiveFeedPageSdk.VIDEO_BAR.equals(str) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                if ("recommend".equals(str)) {
-                    return EmotionStrategy.getInstance().recPlaceHolderRes;
-                }
-                if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                    return EmotionStrategy.getInstance().placeHolderRes3;
-                }
-                if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                    return EmotionStrategy.getInstance().placeHolderRes1;
-                }
-                if ("dark".equals(this.b)) {
-                    return EmotionStrategy.getInstance().placeHolderRes2;
-                }
-                return EmotionStrategy.getInstance().placeHolderRes;
-            }
-            return EmotionStrategy.getInstance().videoBarPlaceHolderRes;
-        }
-        return invokeL.intValue;
-    }
-
-    public GradientDrawable o(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, context, str)) == null) {
-            float b = m90.b(context, 18.0f);
-            float[] fArr = {b, b, b, b, b, b, b, b};
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadii(fArr);
-            gradientDrawable.setColor(a(context, str, "color_btn_fill"));
-            gradientDrawable.setStroke(1, a(context, str, "color_btn_stroke"));
-            return gradientDrawable;
-        }
-        return (GradientDrawable) invokeLL.objValue;
-    }
-
-    public int p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d8e;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d8f;
-            }
-            if ("dark".equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080d8e;
-            }
-            return R.drawable.obfuscated_res_0x7f080d8d;
-        }
-        return invokeL.intValue;
-    }
-
-    public int q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if ("recommend".equals(str) || LiveFeedPageSdk.IMMERSION.equals(str)) {
-                return R.drawable.obfuscated_res_0x7f080d9f;
-            }
-            if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.b)) {
-                return R.drawable.obfuscated_res_0x7f080da0;
-            }
-            if ("dark".equals(this.b)) {
-            }
-            return R.drawable.obfuscated_res_0x7f080d9e;
-        }
-        return invokeL.intValue;
-    }
-
-    public void s(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, str, str2) == null) {
-            this.a = str;
-            if (t(str2)) {
-                this.b = str2;
-            }
-            if ("baidu".equals(this.a)) {
-                this.c = new wb0();
-            } else if (LiveFeedPageSdk.HOST_HAOKAN.equals(this.a)) {
-                this.c = new yb0();
-            } else if (LiveFeedPageSdk.HOST_QUANMIN.equals(this.a)) {
-                this.c = new ac0();
-            } else if ("tieba".equals(this.a)) {
-                this.c = new cc0();
-            }
-            this.c.b(str2);
-        }
-    }
-
-    public final boolean t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            if (!"day".equals(str) && !LiveFeedPageSdk.UI_MODE_NIGHT.equals(str) && !"dark".equals(str)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String a2 = ac0.a();
+            if (TextUtils.isEmpty(a2)) {
                 return false;
             }
-            return true;
+            return a2.equalsIgnoreCase(RomUtils.MANUFACTURER_XIAOMI);
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public void u(String str) {
+    public static void b(boolean z, Activity activity) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && t(str)) {
-            this.b = str;
-            xb0 xb0Var = this.c;
-            if (xb0Var != null) {
-                xb0Var.b(str);
+        if ((interceptable == null || interceptable.invokeZL(65538, null, z, activity) == null) && activity != null && activity.getWindow() != null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                gc0.b a2 = gc0.a(activity);
+                a2.c(!z);
+                a2.b();
+                return;
             }
+            View decorView = activity.getWindow().getDecorView();
+            if (decorView != null) {
+                int systemUiVisibility = decorView.getSystemUiVisibility();
+                if (z) {
+                    i = systemUiVisibility & (-8193);
+                } else {
+                    if (f()) {
+                        Window window = activity.getWindow();
+                        window.addFlags(Integer.MIN_VALUE);
+                        window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    }
+                    i = systemUiVisibility | 8192;
+                }
+                decorView.setSystemUiVisibility(i);
+            }
+        }
+    }
+
+    public static void h(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, activity, z) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 19 && activity != null) {
+                if (i >= 23) {
+                    m(activity, z);
+                    gc0.a(activity).b();
+                    a = true;
+                    return;
+                } else if (!gc0.a(activity).b()) {
+                    a = false;
+                    return;
+                } else if (Build.VERSION.SDK_INT < 21) {
+                    i(activity);
+                    a = true;
+                    return;
+                } else {
+                    j(activity);
+                    c(activity, true);
+                    a = true;
+                    return;
+                }
+            }
+            a = false;
+        }
+    }
+
+    public static void c(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65539, null, activity, z) == null) && activity != null && Build.VERSION.SDK_INT >= 28) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            if (z) {
+                attributes.layoutInDisplayCutoutMode = 1;
+            } else {
+                attributes.layoutInDisplayCutoutMode = 0;
+            }
+            window.setAttributes(attributes);
+        }
+    }
+
+    public static void m(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65549, null, activity, z) == null) {
+            k(activity, z, true);
+        }
+    }
+
+    public static float d(@Nullable Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+            if (displayMetrics != null) {
+                return displayMetrics.density;
+            }
+            return 0.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static void g(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
+            h(activity, false);
+            b(true, activity);
+        }
+    }
+
+    public static void j(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
+            k(activity, false, false);
+        }
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
+            int i = 0;
+            if (identifier > 0) {
+                try {
+                    i = context.getResources().getDimensionPixelSize(identifier);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (i == 0) {
+                return (int) (d(context) * 25.0f);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void i(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65545, null, activity) != null) || activity == null) {
+            return;
+        }
+        boolean z = false;
+        int i = -1;
+        try {
+            Field field = WindowManager.LayoutParams.class.getField("FLAG_TRANSLUCENT_STATUS");
+            if (field != null) {
+                i = field.getInt(null);
+                z = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (z) {
+            activity.getWindow().setFlags(i, i);
+        }
+    }
+
+    public static void k(Activity activity, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65547, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || activity == null) {
+            return;
+        }
+        l(activity.getWindow(), z, z2);
+    }
+
+    public static void l(Window window, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65548, null, new Object[]{window, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || window == null) {
+            return;
+        }
+        try {
+            Field field = WindowManager.LayoutParams.class.getField("FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS");
+            Field field2 = WindowManager.LayoutParams.class.getField("FLAG_TRANSLUCENT_STATUS");
+            Field field3 = View.class.getField("SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN");
+            Field field4 = View.class.getField("SYSTEM_UI_FLAG_LAYOUT_STABLE");
+            Method method = window.getClass().getMethod("setStatusBarColor", Integer.TYPE);
+            Method method2 = View.class.getMethod("setSystemUiVisibility", Integer.TYPE);
+            if (field != null && field2 != null && field3 != null && field4 != null && method != null && method2 != null) {
+                int i = field.getInt(null);
+                int i2 = field2.getInt(null);
+                int i3 = field3.getInt(null);
+                int i4 = field4.getInt(null);
+                window.clearFlags(i2);
+                if (z2) {
+                    Field field5 = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR");
+                    if (field5 != null) {
+                        window.getDecorView().setSystemUiVisibility(field5.getInt(null) | i3);
+                    }
+                } else {
+                    method2.invoke(window.getDecorView(), Integer.valueOf(i3 | i4));
+                }
+                window.addFlags(i);
+                method.invoke(window, 0);
+                if (z) {
+                    Field field6 = WindowManager.LayoutParams.class.getField("FLAG_FULLSCREEN");
+                    Method method3 = window.getClass().getMethod("setFlags", Integer.TYPE, Integer.TYPE);
+                    int i5 = field6.getInt(null);
+                    method3.invoke(window, Integer.valueOf(i5), Integer.valueOf(i5));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

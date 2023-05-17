@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Looper;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class DefaultRetryPolicy implements RetryPolicy {
     public static final int CANCEL = -1;
     public static final int DEFAULT_INTERVAL_MS = 3000;

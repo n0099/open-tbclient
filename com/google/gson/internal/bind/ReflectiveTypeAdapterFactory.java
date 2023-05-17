@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public final ReflectionAccessor accessor = ReflectionAccessor.getInstance();
     public final ConstructorConstructor constructorConstructor;
@@ -33,7 +33,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public final FieldNamingStrategy fieldNamingPolicy;
     public final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
         public final Map<String, BoundField> boundFields;
         public final ObjectConstructor<T> constructor;
@@ -89,7 +89,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BoundField {
         public final boolean deserialized;
         public final String name;

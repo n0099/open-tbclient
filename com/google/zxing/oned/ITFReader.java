@@ -8,7 +8,7 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ITFReader extends OneDReader {
     public static final float MAX_AVG_VARIANCE = 0.38f;
     public static final float MAX_INDIVIDUAL_VARIANCE = 0.78f;

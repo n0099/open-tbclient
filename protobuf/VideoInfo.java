@@ -4,7 +4,7 @@ import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class VideoInfo extends Message {
     public static final String DEFAULT_FIRSTFRAMETHUMBNAIL = "";
     public static final Double DEFAULT_HTHMIDLOC;
@@ -71,7 +71,7 @@ public final class VideoInfo extends Message {
     public static final Integer DEFAULT_VIDEOTYPE = 0;
     public static final Integer DEFAULT_ISVERTICAL = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<VideoInfo> {
         public String firstFrameThumbnail;
         public Double hthMidLoc;

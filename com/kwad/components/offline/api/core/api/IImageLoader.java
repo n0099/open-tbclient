@@ -8,10 +8,10 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IImageLoader {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class DisplayImageOptionsCompat {
         public final int blurRadius;
         public final boolean cacheInMemory;
@@ -34,7 +34,7 @@ public interface IImageLoader {
         public final int strokeColor;
         public final float strokeWidth;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static class Builder {
             public int blurRadius;
             public int cornerRound;
@@ -306,7 +306,7 @@ public interface IImageLoader {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface ImageLoadingListener {
         boolean onDecode(String str, InputStream inputStream, Bitmap bitmap);
 

@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ParrScores extends Message {
     @ProtoField(tag = 9, type = Message.Datatype.UINT64)
     public final Long iMoney;
@@ -35,7 +35,7 @@ public final class ParrScores extends Message {
     public static final Long DEFAULT_IMONEY = 0L;
     public static final Long DEFAULT_IOTHER = 0L;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<ParrScores> {
         public Long iMoney;
         public Long iOther;

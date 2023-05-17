@@ -3,7 +3,7 @@ package com.google.gson.internal.reflect;
 import com.google.gson.JsonIOException;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class UnsafeReflectionAccessor extends ReflectionAccessor {
     public static Class unsafeClass;
     public final Object theUnsafe = getUnsafeInstance();

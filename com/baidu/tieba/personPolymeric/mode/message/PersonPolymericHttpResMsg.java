@@ -3,14 +3,14 @@ package com.baidu.tieba.personPolymeric.mode.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.v39;
+import com.baidu.tieba.r59;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Personal.PersonalResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class PersonPolymericHttpResMsg extends TbHttpResponsedMessage {
                 if (getError() != 0) {
                     return;
                 }
-                v39 personCenterData = personPolymericReqMsg.getPersonCenterData();
+                r59 personCenterData = personPolymericReqMsg.getPersonCenterData();
                 if (personalResIdl.data != null && personCenterData != null) {
                     personCenterData.a(personalResIdl);
                 }

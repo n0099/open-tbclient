@@ -11,7 +11,7 @@ import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.delegate.AREngineDelegate;
-import com.baidu.tieba.hl1;
+import com.baidu.tieba.lm1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MarioSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MarioSDK";
@@ -29,12 +29,12 @@ public class MarioSDK {
     public b mMarioInitListener;
     public V8Engine mV8Engine;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,26 +142,26 @@ public class MarioSDK {
             if (aVar == null) {
                 return null;
             }
-            hl1 hl1Var = new hl1();
+            lm1 lm1Var = new lm1();
             if (aVar.a != null) {
-                hl1Var.p(aVar.a);
+                lm1Var.p(aVar.a);
             }
             if (aVar.c != null) {
-                hl1Var.setFirstFrameListener(aVar.c);
+                lm1Var.setFirstFrameListener(aVar.c);
             }
-            hl1Var.setRenderMode(aVar.d);
+            lm1Var.setRenderMode(aVar.d);
             if (aVar.f != null) {
-                hl1Var.o(aVar.f);
+                lm1Var.o(aVar.f);
             }
             if (aVar.b != null) {
-                hl1Var.setRenderer(aVar.b);
+                lm1Var.setRenderer(aVar.b);
             }
             if (aVar.g() != null) {
                 for (DebugConsole debugConsole : aVar.g()) {
-                    hl1Var.addDebugConsole(debugConsole);
+                    lm1Var.addDebugConsole(debugConsole);
                 }
             }
-            return hl1Var;
+            return lm1Var;
         }
         return (AREngineDelegate) invokeL.objValue;
     }

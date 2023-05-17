@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 import okhttp3.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchUploadManager {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final int KEEP_ALIVE_TIME = 60000;

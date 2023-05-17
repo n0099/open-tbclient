@@ -2,14 +2,14 @@ package com.tencent.mm.opensdk.modelbase;
 
 import android.os.Bundle;
 import com.baidu.tieba.wallet.YYPayManager;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseResp {
     public int errCode;
     public String errStr;
     public String openId;
     public String transaction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface ErrCode {
         public static final int ERR_AUTH_DENIED = -4;
         public static final int ERR_BAN = -6;

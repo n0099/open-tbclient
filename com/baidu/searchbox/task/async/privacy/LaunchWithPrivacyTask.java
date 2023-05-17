@@ -7,8 +7,8 @@ import com.baidu.searchbox.http.HttpRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.dj9;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.fl9;
+/* loaded from: classes4.dex */
 public class LaunchWithPrivacyTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -20,7 +20,7 @@ public class LaunchWithPrivacyTask extends LaunchTask {
         return -1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public class MyPhoneStateListener extends PhoneStateListener {
         public MyPhoneStateListener() {
         }
@@ -51,6 +51,6 @@ public class LaunchWithPrivacyTask extends LaunchTask {
     public void execute() {
         registerPhoneListener();
         HttpRuntime.getHttpContext().prefetchDnsResult("tbprefetch");
-        HttpManager.getDefault(dj9.a()).setHttpDnsEnable(true);
+        HttpManager.getDefault(fl9.a()).setHttpDnsEnable(true);
     }
 }

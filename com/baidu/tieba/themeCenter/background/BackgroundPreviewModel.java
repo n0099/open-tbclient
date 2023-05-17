@@ -6,14 +6,14 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.za;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public int b;
     public int c;
     public b d;
-    public za e;
+    public fb e;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(int i, String str, DressItemData dressItemData);
     }
@@ -38,8 +38,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class a extends za {
+    /* loaded from: classes7.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundPreviewModel a;
@@ -66,7 +66,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
             this.a = backgroundPreviewModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -120,7 +120,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         registerListener(this.e);
     }
 
-    public void a0(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.d = bVar;
@@ -150,8 +150,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            xo9.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            xo9.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            zq9.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            zq9.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

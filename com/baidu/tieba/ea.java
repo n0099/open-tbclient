@@ -1,115 +1,294 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
+import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+    public static boolean a(LinkedList<ga> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            b(str, i, -1L, i2, str2, i3, str3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, linkedList)) == null) {
+            if (linkedList == null) {
+                return false;
+            }
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && next.i()) {
+                    next.g();
+                    if (next.o() >= next.l()) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static ga k(LinkedList<ga> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, linkedList)) == null) {
+            if (linkedList == null) {
+                return null;
+            }
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && !next.i()) {
+                    it.remove();
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (ga) invokeL.objValue;
+    }
+
+    public static void b(LinkedList<ga> linkedList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, linkedList) != null) || linkedList == null) {
+            return;
+        }
+        Iterator<ga> it = linkedList.iterator();
+        while (it.hasNext()) {
+            ga next = it.next();
+            if (next != null) {
+                next.j();
+            }
         }
     }
 
-    public static void b(String str, int i, long j, int i2, String str2, int i3, String str3) {
-        String valueOf;
+    public static ga f(LinkedList<ga> linkedList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            StringBuilder sb = new StringBuilder(50);
-            if (i != 0 && i2 != 0) {
-                sb.append("cmd = ");
-                sb.append(i);
-                sb.append("\t");
-                sb.append("sequence = ");
-                sb.append(i2);
-                sb.append("\t");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, linkedList)) == null) {
+            if (linkedList != null && linkedList.size() > 0) {
+                return linkedList.peek();
             }
-            sb.append(str3);
-            try {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add("lib");
-                linkedList.add(str);
-                if (i != 0) {
-                    linkedList.add("cmd");
-                    linkedList.add(Integer.valueOf(i));
+            return null;
+        }
+        return (ga) invokeL.objValue;
+    }
+
+    public static ga l(LinkedList<ga> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, linkedList)) == null) {
+            if (linkedList != null && linkedList.size() > 0) {
+                return linkedList.poll();
+            }
+            return null;
+        }
+        return (ga) invokeL.objValue;
+    }
+
+    public static int q(LinkedList<ga> linkedList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, linkedList)) == null) {
+            if (linkedList == null) {
+                return 0;
+            }
+            return linkedList.size();
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean c(LinkedList<ga> linkedList, int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLIL;
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, linkedList, i, bdUniqueId)) == null) {
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && (m = next.m()) != null) {
+                    if (i == 0 || m.getTag() != bdUniqueId || i != m.getCmd()) {
+                        if (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId) {
+                            return true;
+                        }
+                    } else {
+                        return true;
+                    }
                 }
-                if (!TextUtils.isEmpty(str2)) {
-                    linkedList.add("act");
-                    linkedList.add(str2);
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static void m(LinkedList<ga> linkedList, int i, BdUniqueId bdUniqueId) {
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(65548, null, linkedList, i, bdUniqueId) != null) || linkedList == null) {
+            return;
+        }
+        Iterator<ga> it = linkedList.iterator();
+        while (it.hasNext()) {
+            ga next = it.next();
+            if (next != null && (m = next.m()) != null && ((i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) || (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId))) {
+                it.remove();
+                next.w();
+            }
+        }
+    }
+
+    public static boolean d(LinkedList<ga> linkedList, ca caVar, int i) {
+        InterceptResult invokeLLI;
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, linkedList, caVar, i)) == null) {
+            if (caVar == null) {
+                return false;
+            }
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && (m = next.m()) != null && m.getCmd() == i && caVar.onFindMessage(m)) {
+                    return true;
                 }
-                if (i3 != 0) {
-                    linkedList.add("result");
-                    linkedList.add(Integer.valueOf(i3));
+            }
+            return false;
+        }
+        return invokeLLI.booleanValue;
+    }
+
+    public static boolean e(LinkedList<ga> linkedList, int i) {
+        InterceptResult invokeLI;
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedList, i)) == null) {
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
+                    return true;
                 }
-                if (!TextUtils.isEmpty(str3)) {
-                    linkedList.add("comment");
-                    linkedList.add(str3);
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static int g(ga gaVar, LinkedList<ga> linkedList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, gaVar, linkedList)) == null) {
+            if (gaVar != null && linkedList != null) {
+                int size = linkedList.size();
+                int i = 0;
+                while (i < size && linkedList.get(i).n() <= gaVar.n()) {
+                    i++;
                 }
-                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                if (i2 == 0) {
-                    valueOf = null;
+                return i;
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void o(LinkedList<ga> linkedList, int i) {
+        SocketMessage m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65550, null, linkedList, i) == null) {
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
+                    it.remove();
+                }
+            }
+        }
+    }
+
+    public static ga p(int i, LinkedList<ga> linkedList) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, linkedList)) == null) {
+            if (linkedList == null) {
+                return null;
+            }
+            Iterator<ga> it = linkedList.iterator();
+            while (it.hasNext()) {
+                ga next = it.next();
+                if (next != null && next.q() == i) {
+                    it.remove();
+                    next.w();
+                    return next;
+                }
+            }
+            return null;
+        }
+        return (ga) invokeIL.objValue;
+    }
+
+    public static boolean h(ga gaVar, LinkedList<ga> linkedList) {
+        InterceptResult invokeLL;
+        int g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, gaVar, linkedList)) == null) {
+            if (gaVar == null || linkedList == null || (g = g(gaVar, linkedList)) < 0 || g > linkedList.size()) {
+                return false;
+            }
+            linkedList.add(g, gaVar);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean i(LinkedList<ga> linkedList, LinkedList<ga> linkedList2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, linkedList, linkedList2)) == null) {
+            if (linkedList == null || linkedList2 == null || linkedList2.size() <= 0) {
+                return false;
+            }
+            while (true) {
+                ga poll = linkedList2.poll();
+                if (poll != null) {
+                    h(poll, linkedList);
                 } else {
-                    valueOf = String.valueOf(i2 & 4294967295L);
+                    return true;
                 }
-                bdStatisticsManager.newDebug("socket", j, valueOf, linkedList.toArray());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
             }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 
-    public static void c(String str, Message<?> message, int i, String str2, int i2, String str3) {
-        long j;
-        int i3;
+    public static boolean n(ga gaVar, LinkedList<ga> linkedList) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, message, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
-            if (message != null) {
-                i3 = message.getCmd();
-                j = message.getClientLogID();
-            } else {
-                j = 0;
-                i3 = 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, gaVar, linkedList)) == null) {
+            if (gaVar != null && linkedList != null) {
+                return linkedList.remove(gaVar);
             }
-            b(str, i3, j, i, str2, i2, str3);
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void d() {
+    public static boolean j(LinkedList<ga> linkedList, LinkedList<ga> linkedList2, ga gaVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                BdStatisticsManager.getInstance().debug("socket", "url", ij.j().q(), "dns_cost", Long.valueOf(ij.j().h()), TiebaStatic.CON_COST, Long.valueOf(ij.j().g()), "remote_ip", ij.j().o(), ETAG.KEY_LOCAL_DNS, ij.j().m(), "local_dns_bak", ij.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, linkedList, linkedList2, gaVar)) == null) {
+            if (gaVar == null || linkedList == null || linkedList2 == null || !linkedList.remove(gaVar)) {
+                return false;
             }
+            linkedList2.add(gaVar);
+            return true;
         }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                og statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-                statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(ij.j().g()));
-                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, sg.a(BdBaseApplication.getInst()));
-                BdStatisticsManager.getInstance().performance("im", statsItem);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

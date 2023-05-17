@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.Util;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HiAnalyticsUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
@@ -106,7 +105,7 @@ public class HiAnalyticsUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             HashMap hashMap = new HashMap();
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+            String[] split = str.split("\\.");
             if (split.length >= 2) {
                 String str2 = split[0];
                 String str3 = split[1];
@@ -160,7 +159,7 @@ public class HiAnalyticsUtil {
             hashMap.put("service", responseHeader.getSrvName());
             String apiName = responseHeader.getApiName();
             if (!TextUtils.isEmpty(apiName)) {
-                String[] split = apiName.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = apiName.split("\\.");
                 if (split.length >= 2) {
                     hashMap.put("apiName", split[1]);
                 }
@@ -227,7 +226,7 @@ public class HiAnalyticsUtil {
             hashMap.put("service", requestHeader.getSrvName());
             String apiName = requestHeader.getApiName();
             if (!TextUtils.isEmpty(apiName)) {
-                String[] split = apiName.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+                String[] split = apiName.split("\\.");
                 if (split.length >= 2) {
                     hashMap.put("apiName", split[1]);
                 }

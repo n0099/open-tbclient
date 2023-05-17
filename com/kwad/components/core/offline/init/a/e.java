@@ -6,7 +6,7 @@ import com.kwad.components.offline.api.core.video.BaseKsMediaPlayerView;
 import com.kwad.components.offline.api.core.video.IKsMediaPlayer;
 import com.kwad.components.offline.api.core.video.IKsMediaPlayerView;
 import com.kwad.components.offline.api.core.video.IVideo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e implements IVideo {
     @Override // com.kwad.components.offline.api.core.video.IVideo
     public final IKsMediaPlayer createMediaPlayer(IKsMediaPlayerView iKsMediaPlayerView) {

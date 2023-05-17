@@ -1,166 +1,112 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.text.TextUtils;
-import android.text.format.DateFormat;
-import android.text.format.Time;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.RemindRecommendMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Calendar;
+import com.baidu.webkit.sdk.WebChromeClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.GetClientConfig.DataRes;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ns9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static RemindRecommendMessage a(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            if (qi.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
                 return null;
             }
-            try {
-                RemindRecommendMessage remindRecommendMessage = new RemindRecommendMessage();
-                JSONObject jSONObject = new JSONObject(str);
-                remindRecommendMessage.title = jSONObject.optString("title");
-                remindRecommendMessage.url = jSONObject.optString("url");
-                remindRecommendMessage.picture = jSONObject.optString("picture");
-                remindRecommendMessage.name = jSONObject.optString("name");
-                remindRecommendMessage.isLocal = false;
-                return remindRecommendMessage;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (RemindRecommendMessage) invokeL.objValue;
-    }
-
-    public static String g(DataRes dataRes) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dataRes)) == null) {
-            if (dataRes != null && dataRes.local_dialog != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("title", dataRes.local_dialog.title);
-                    jSONObject.put("picture", dataRes.local_dialog.picture);
-                    jSONObject.put("url", dataRes.local_dialog.url);
-                    jSONObject.put("name", dataRes.local_dialog.name);
-                    return jSONObject.toString();
-                } catch (JSONException unused) {
-                }
-            }
-            return null;
+            return split3[split3.length - 1];
         }
         return (String) invokeL.objValue;
     }
 
-    public static long b() {
-        InterceptResult invokeV;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c(System.currentTimeMillis());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (qi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
         }
-        return invokeV.longValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f55.m().n("sync_local_dialog", 1) == 1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (qi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
             }
-            return false;
+            return parse.getQueryParameter("upgrade");
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static long c(long j) {
-        InterceptResult invokeJ;
-        int i;
-        int i2;
-        int i3;
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            String str = "12:05:00";
-            String loadString = TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_dialog_time", "12:05:00");
-            if (!TextUtils.isEmpty(loadString)) {
-                str = loadString;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (qi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
             }
-            String[] split = str.split(":");
-            int i4 = 5;
-            if (split != null && split.length == 3) {
-                i2 = gg.e(split[0], 12);
-                i3 = gg.e(split[1], 5);
-                i = gg.e(split[2], 0);
-            } else {
-                i = 0;
-                i2 = 12;
-                i3 = 5;
-            }
-            if (i2 >= 0 && i2 <= 23 && i3 >= 0 && i3 <= 59 && i >= 0 && i <= 59) {
-                i4 = i3;
-            } else {
-                i = 0;
-                i2 = 12;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
-            calendar.set(12, i4);
-            calendar.set(13, i);
-            Application app = TbadkCoreApplication.getInst().getApp();
-            if (app != null && app.getContentResolver() != null && DateFormat.is24HourFormat(app)) {
-                calendar.set(11, i2);
-            } else {
-                if (i2 >= 12) {
-                    i2 -= 12;
-                    calendar.set(9, 1);
-                } else {
-                    calendar.set(9, 0);
+            return parse.getQueryParameter("notificationName");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!qi.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
                 }
-                calendar.set(10, i2);
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
-            return calendar.getTimeInMillis();
         }
-        return invokeJ.longValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TbadkSettings.getInst().loadInt(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_server_switch", 1) == 1) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (qi.isEmpty(str)) {
+                return new JSONObject();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            Time time = new Time();
-            time.set(j);
-            int i = time.year;
-            int i2 = time.month;
-            int i3 = time.monthDay;
-            time.set(System.currentTimeMillis());
-            if (i == time.year && i2 == time.month && i3 == time.monthDay) {
-                return true;
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
             }
-            return false;
+            String queryParameter = parse.getQueryParameter("params");
+            if (qi.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
         }
-        return invokeJ.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

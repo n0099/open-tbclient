@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class fw implements Cloneable {
     public static String a = "wcc-ml-test10.bj";
     public static final String b = af.a;
@@ -28,11 +28,11 @@ public class fw implements Cloneable {
 
     public static final String a() {
         String str = c;
-        return str != null ? str : ab.m176a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
+        return str != null ? str : ab.m195a() ? "sandbox.xmpush.xiaomi.com" : ab.b() ? b : "app.chat.xiaomi.net";
     }
 
     public static final void a(String str) {
-        if (j.m632a(s.m643a()) && ab.b()) {
+        if (j.m651a(s.m662a()) && ab.b()) {
             return;
         }
         c = str;
@@ -45,7 +45,7 @@ public class fw implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public int m431a() {
+    public int m450a() {
         return this.f421a;
     }
 
@@ -54,12 +54,12 @@ public class fw implements Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m432a() {
+    public boolean m451a() {
         return this.f423a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] mo433a() {
+    public byte[] mo452a() {
         return null;
     }
 

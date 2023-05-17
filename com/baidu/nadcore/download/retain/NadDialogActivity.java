@@ -11,10 +11,10 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.o11;
-import com.baidu.tieba.zj0;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.e21;
+import com.baidu.tieba.pk0;
+/* loaded from: classes3.dex */
 public abstract class NadDialogActivity extends BaseActivity {
     public String A;
     public Intent B;
@@ -52,7 +52,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         return null;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -65,7 +65,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
@@ -81,7 +81,7 @@ public abstract class NadDialogActivity extends BaseActivity {
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void D1(Bundle bundle) {
         super.D1(bundle);
-        setContentView(zj0.a().a());
+        setContentView(pk0.a().a());
         Intent intent = getIntent();
         this.B = intent;
         if (intent != null) {
@@ -100,9 +100,9 @@ public abstract class NadDialogActivity extends BaseActivity {
         this.x = (LinearLayout) findViewById(R.id.ll_dialog_content_container);
         this.y = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
         LayoutInflater.from(this).inflate(e2(), (ViewGroup) this.x, true);
-        this.w.setBackground(li0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
-        this.w.setDividerDrawable(li0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
-        this.y.setDividerDrawable(li0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
+        this.w.setBackground(bj0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
+        this.w.setDividerDrawable(bj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
+        this.y.setDividerDrawable(bj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
         if (i2()) {
             this.u.setText(k2());
             this.u.setOnClickListener(new a());
@@ -118,9 +118,9 @@ public abstract class NadDialogActivity extends BaseActivity {
     }
 
     public final void l2(String str, String str2, String str3, String str4) {
-        if (!NetWorkUtils.b(li0.b())) {
+        if (!NetWorkUtils.b(bj0.b())) {
             return;
         }
-        o11.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        e21.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 }

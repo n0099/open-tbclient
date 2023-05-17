@@ -3,6 +3,7 @@ package okio;
 import android.support.v4.media.session.PlaybackStateCompat;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.google.android.material.slider.BasicLabelFormatter;
 import java.io.Closeable;
@@ -25,7 +26,7 @@ import javax.crypto.spec.SecretKeySpec;
 import kotlin.jvm.internal.ByteCompanionObject;
 import kotlin.text.Typography;
 import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Buffer implements BufferedSource, BufferedSink, Cloneable, ByteChannel {
     public static final byte[] DIGITS = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
     public static final int REPLACEMENT_CHARACTER = 65533;
@@ -62,7 +63,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
         return true;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class UnsafeCursor implements Closeable {
         public Buffer buffer;
         public byte[] data;
@@ -1977,7 +1978,7 @@ public final class Buffer implements BufferedSource, BufferedSink, Cloneable, By
             }
             z = true;
         }
-        if (j < 100000000) {
+        if (j < CoolPraiseView.BILLION) {
             if (j < 10000) {
                 if (j < 100) {
                     if (j >= 10) {

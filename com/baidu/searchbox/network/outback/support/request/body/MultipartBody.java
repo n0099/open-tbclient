@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import kotlin.text.Typography;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MultipartBody extends RequestBody {
     public final String boundary;
     public long contentLength = -1;
@@ -31,7 +31,7 @@ public final class MultipartBody extends RequestBody {
     public static final byte[] CRLF = {13, 10};
     public static final byte[] DASHDASH = {45, 45};
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Builder {
         public final String boundary;
         public final List<Part> parts;
@@ -90,7 +90,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Part {
         public final RequestBody body;
         @Nullable

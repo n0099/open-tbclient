@@ -1,75 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import tbclient.NewFloorInfo;
-/* loaded from: classes7.dex */
-public class zb8 {
+/* loaded from: classes8.dex */
+public abstract class zb8 implements yb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<xb8> a;
+    public bc8 b;
+    public yb8 c;
+    public int d;
 
-    public static void a(qb8 qb8Var, int i) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, qb8Var, i) == null) && qb8Var != null && qb8Var.v() != null && !ListUtils.isEmpty(qb8Var.j()) && qb8Var.j().size() >= 2) {
-            List<NewFloorInfo> j = qb8Var.j();
-            if (j.size() > 2) {
-                if (StringHelper.equals(qb8Var.v().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    if (j.get(1) != null) {
-                        if (j.get(1).is_floor.intValue() == 0) {
-                            b(qb8Var, 12, i);
-                            return;
-                        } else if (j.get(1).is_floor.intValue() == 1) {
-                            b(qb8Var, 13, i);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
-                } else if (j.get(1) != null) {
-                    if (j.get(1).is_floor.intValue() == 0) {
-                        if (qb8Var.p() != null) {
-                            if (StringHelper.equals(qb8Var.p().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                                b(qb8Var, 14, i);
-                                return;
-                            } else {
-                                b(qb8Var, 15, i);
-                                return;
-                            }
-                        }
-                        return;
-                    } else if (j.get(1).is_floor.intValue() == 1) {
-                        b(qb8Var, 16, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
-            }
-            b(qb8Var, 11, i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public static void b(qb8 qb8Var, int i, int i2) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, qb8Var, i, i2) == null) && qb8Var != null && qb8Var.r() != null && qb8Var.k() != null) {
-            StatisticItem statisticItem = new StatisticItem("c12928");
-            statisticItem.param("tid", qb8Var.k().f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", qb8Var.k().e);
-            statisticItem.param("fname", qb8Var.k().d);
-            statisticItem.param("pid", qb8Var.n());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_locate", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public abstract List<xb8> j(List list);
+
+    public zb8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.d = -1;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.size() > 0) {
+                return this.a.size();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public List<xb8> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return Collections.unmodifiableList(this.a);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public xb8 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i < e()) {
+                return f().get(i);
+            }
+            return null;
+        }
+        return (xb8) invokeI.objValue;
+    }
+
+    public void i(int i) {
+        bc8 bc8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && i >= 0 && (bc8Var = this.b) != null) {
+            bc8Var.c(i, 1);
+        }
+    }
+
+    public void k(yb8 yb8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, yb8Var) == null) {
+            this.c = yb8Var;
+        }
+    }
+
+    public void l(bc8 bc8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bc8Var) == null) {
+            this.b = bc8Var;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void g(List list) {
+        List<xb8> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty()) {
+            this.a.addAll(j);
+            bc8 bc8Var = this.b;
+            if (bc8Var != null) {
+                bc8Var.b(0, e());
+            }
+        }
+    }
+
+    public void h(List list) {
+        List<xb8> j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && !list.isEmpty() && (j = j(list)) != null && !j.isEmpty() && this.b != null) {
+            int e = e();
+            this.a.clear();
+            this.b.a(0, e);
+            this.a.addAll(j);
+            this.b.c(0, e());
         }
     }
 }

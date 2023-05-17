@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jd9 implements hy5<id9> {
+/* loaded from: classes6.dex */
+public class jd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jd9() {
+    public static boolean a(si5 si5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, si5Var)) == null) {
+            if (si5Var != null) {
+                return si5Var.isViewAttached();
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hy5
-    /* renamed from: b */
-    public id9 a() {
-        InterceptResult invokeV;
+    public static void b(si5 si5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new id9();
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{si5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(si5Var) && context != null && view2 != null) {
+            if (si5Var == null) {
+                si5Var = new si5(context, onClickListener);
+            }
+            si5Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
+            si5Var.attachView(view2, z);
+            si5Var.p();
+            si5Var.onChangeSkinType();
         }
-        return (id9) invokeV.objValue;
     }
 }

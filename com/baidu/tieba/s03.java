@@ -1,68 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.websocket.WebSocketManager;
+import com.baidu.searchbox.websocket.WebSocketTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class s03 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class s03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile Set<String> a;
 
-    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
-            String b = b(unitedSchemeEntity);
-            if (TextUtils.isEmpty(b)) {
-                x42.i("WxWebViewPayment", "wxPay: url is empty");
-                x42.k("WxWebViewPayment", "param check error - src" + b);
-                qe3.H(false, "wechatH5Action", qe3.m(b, "param check error - src"));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (!pe1.a().b(context)) {
-                p73.g(context, context.getText(R.string.obfuscated_res_0x7f0f01ea)).G();
-                x42.k("WxWebViewPayment", "Error: wechat not install. " + b);
-                qe3.H(false, "wechatH5Action", qe3.m(b, "Error: wechat not install. "));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-                return false;
-            } else {
-                xx2 d = xx2.d(b, b);
-                x42.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
-                if (!l72.g3("wxPay", d)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    x42.k("WxWebViewPayment", "Error: webview fragment not opened.");
-                    return false;
-                }
-                x42.k("WxWebViewPayment", "Success:open wxPay page success");
-                x42.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(l03.c(b), 0));
-                return true;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948097555, "Lcom/baidu/tieba/s03;")) == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948097555, "Lcom/baidu/tieba/s03;");
+        }
     }
 
-    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public s03() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new JSONObject(str).optString("src");
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public final synchronized boolean a() {
+        InterceptResult invokeV;
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                z = false;
+                if (set != null) {
+                    i = set.size();
+                } else {
+                    i = 0;
+                }
+                if (i < 5) {
+                    z = true;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized void b(WebSocketTask task) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(task, "task");
+                if (this.a == null) {
+                    this.a = new LinkedHashSet();
+                }
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.add(task.getTaskId());
+                }
+            }
+        }
+    }
+
+    public final synchronized void c(String taskId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
+            synchronized (this) {
+                Intrinsics.checkNotNullParameter(taskId, "taskId");
+                Set<String> set = this.a;
+                if (set != null) {
+                    set.remove(taskId);
+                }
+            }
+        }
+    }
+
+    public final synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                Set<String> set = this.a;
+                if (set != null) {
+                    for (String str : set) {
+                        try {
+                            WebSocketManager.INSTANCE.close(str, 1001, "aiapp terminate");
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                Set<String> set2 = this.a;
+                if (set2 != null) {
+                    set2.clear();
+                }
+            }
+        }
     }
 }

@@ -1,106 +1,40 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.ClipData;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.os.Parcelable;
-import android.provider.MediaStore;
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.core.content.FileProvider;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Rect;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.nadcore.webarch.permission.NadPermissionActivity;
-import com.baidu.tieba.a51;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
-import java.io.File;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class e61 {
+/* loaded from: classes5.dex */
+public class e61 extends Drawable implements Animatable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ValueCallback<Uri> a;
-    public String b;
-    public ValueCallback<Uri[]> c;
-    public d61 d;
-    public boolean e;
-    public boolean f;
-    public Activity g;
-    public boolean h;
+    public final g61 a;
 
-    /* loaded from: classes4.dex */
-    public class a implements a51.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ e61 b;
-
-        public a(e61 e61Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e61Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e61Var;
-            this.a = i;
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return -3;
         }
-
-        @Override // com.baidu.tieba.a51.b
-        @RequiresApi(api = 21)
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == this.a) {
-                if (iArr.length == 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.b.h = false;
-                    e61 e61Var = this.b;
-                    e61Var.startActivityForResult(e61Var.k(), 11);
-                } else if (this.b.c != null) {
-                    this.b.c.onReceiveValue(null);
-                }
-                d51.b().d(this.a);
-            }
-        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements a51.b {
+    /* loaded from: classes5.dex */
+    public class a implements Drawable.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ e61 a;
 
-        public b(e61 e61Var) {
+        public a(e61 e61Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,85 +52,37 @@ public class e61 {
             this.a = e61Var;
         }
 
-        @Override // com.baidu.tieba.a51.b
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            boolean z;
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void invalidateDrawable(Drawable drawable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
-                if (iArr.length == 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.a.h = true;
-                    e61 e61Var = this.a;
-                    e61Var.startActivityForResult(e61Var.j(), 11);
-                }
-                d51.b().d(4099);
+            if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
+                this.a.invalidateSelf();
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+                this.a.scheduleSelf(runnable, j);
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) {
+                this.a.unscheduleSelf(runnable);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements a51.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e61 a;
-
-        public c(e61 e61Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e61Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e61Var;
-        }
-
-        @Override // com.baidu.tieba.a51.b
-        public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) && i == 4099) {
-                if (iArr.length == 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        z = false;
-                    }
-                }
-                if (z) {
-                    this.a.h = true;
-                    this.a.g.startActivityForResult(this.a.h(), 11);
-                }
-                d51.b().d(4099);
-            }
-        }
-    }
-
-    public e61(Activity activity) {
+    public e61(g61 g61Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {g61Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -206,352 +92,86 @@ public class e61 {
                 return;
             }
         }
-        this.h = false;
-        this.g = activity;
+        this.a = g61Var;
+        this.a.k(new a(this));
     }
 
-    public boolean startActivityForResult(Intent intent, int i) {
-        InterceptResult invokeLI;
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048588, this, intent, i)) == null) {
-            try {
-                try {
-                    this.g.startActivityForResult(intent, i);
-                    return true;
-                } catch (ActivityNotFoundException unused) {
-                    g();
-                    return false;
-                }
-            } catch (ActivityNotFoundException unused2) {
-                this.f = true;
-                this.g.startActivityForResult(m(), i);
-                return true;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    private void requestPermissions(int i, String[] strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65543, this, i, strArr) == null) {
-            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
-            intent.putExtra("request_code", i);
-            intent.putExtra("permissions", strArr);
-            d51.b().a(i, new a(this, i));
-            try {
-                v31.c(this.g, intent);
-            } catch (Exception unused) {
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && !getBounds().isEmpty()) {
+            this.a.d(canvas);
         }
     }
 
-    public void g() {
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ValueCallback<Uri> valueCallback = this.a;
-            if (valueCallback != null) {
-                valueCallback.onReceiveValue(null);
-            }
-            ValueCallback<Uri[]> valueCallback2 = this.c;
-            if (valueCallback2 != null) {
-                valueCallback2.onReceiveValue(null);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, rect) == null) {
+            super.onBoundsChange(rect);
+            this.a.j(rect);
         }
     }
 
-    public Activity getActivity() {
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.i(i);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, colorFilter) == null) {
+            this.a.l(colorFilter);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+            return (int) this.a.g;
         }
-        return (Activity) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final Intent n() {
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return new Intent("android.provider.MediaStore.RECORD_SOUND");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (int) this.a.f;
         }
-        return (Intent) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean o() {
+    @Override // android.graphics.drawable.Animatable
+    public boolean isRunning() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.g();
         }
         return invokeV.booleanValue;
     }
 
-    public final Intent h() {
-        InterceptResult invokeV;
+    @Override // android.graphics.drawable.Animatable
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (h61.a(this.g)) {
-                return new Intent("android.media.action.VIDEO_CAPTURE");
-            }
-            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
-            intent.putExtra("request_code", 4099);
-            intent.putExtra("permissions", new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
-            d51.b().a(4099, new c(this));
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public final Intent m() {
-        InterceptResult invokeV;
-        d61 d61Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Intent intent = new Intent("android.intent.action.GET_CONTENT");
-            intent.addCategory("android.intent.category.OPENABLE");
-            intent.setType("*/*");
-            Intent l = l(i(), h(), n());
-            l.putExtra("android.intent.extra.INTENT", intent);
-            if (Build.VERSION.SDK_INT >= 21 && (d61Var = this.d) != null) {
-                l.putExtra("android.intent.extra.INTENT", d61Var.a());
-            }
-            return l;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public Intent i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (h61.a(this.g) && h61.b(this.g)) {
-                return j();
-            }
-            Intent intent = new Intent(this.g.getApplicationContext(), NadPermissionActivity.class);
-            intent.putExtra("request_code", 4099);
-            String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE, "android.permission.WRITE_EXTERNAL_STORAGE"};
-            if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
-                strArr = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
-            }
-            intent.putExtra("permissions", strArr);
-            d51.b().a(4099, new b(this));
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @SuppressLint({"NewApi", "ObsoleteSdkInt"})
-    public final Intent j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-            File externalFilesDir = li0.b().getExternalFilesDir(Environment.DIRECTORY_DCIM);
-            File file = new File(externalFilesDir.getAbsolutePath() + File.separator + "nad-browser-photos");
-            file.mkdirs();
-            this.b = file.getAbsolutePath() + File.separator + System.currentTimeMillis() + ".jpg";
-            if (Build.VERSION.SDK_INT >= 24) {
-                intent.putExtra("output", FileProvider.getUriForFile(li0.b(), li0.c().a().v(), new File(this.b)));
-            } else {
-                intent.putExtra("output", Uri.fromFile(new File(this.b)));
-            }
-            if (Build.VERSION.SDK_INT >= 19) {
-                intent.setFlags(3);
-            }
-            return intent;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 21)
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final Intent k() {
-        InterceptResult invokeV;
-        String[] strArr;
-        String str;
-        boolean z;
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            d61 d61Var = this.d;
-            if (d61Var != null) {
-                strArr = d61Var.b();
-            } else {
-                strArr = null;
-            }
-            String str2 = "*/*";
-            if (strArr == null || strArr.length <= 0) {
-                str = "*/*";
-            } else {
-                str = strArr[0];
-            }
-            if (str != null && !str.trim().isEmpty()) {
-                str2 = str;
-            }
-            ArrayList arrayList = new ArrayList();
-            d61 d61Var2 = this.d;
-            if (d61Var2 != null && d61Var2.c() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (str2.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
-                arrayList.add(j());
-            } else if (str2.equals(BdUploadHandler.VIDEO_MIME_TYPE)) {
-                arrayList.add(new Intent("android.media.action.VIDEO_CAPTURE"));
-            } else if (str2.equals(BdUploadHandler.AUDIO_MIME_TYPE)) {
-                arrayList.add(n());
-            }
-            if (arrayList.isEmpty()) {
-                arrayList.add(j());
-                arrayList.add(h());
-                arrayList.add(n());
-            }
-            if (str2.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
-                intent = new Intent("android.intent.action.PICK", MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, BdUploadHandler.IMAGE_MIME_TYPE);
-                if (Build.VERSION.SDK_INT >= 18 && z) {
-                    intent.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
-                }
-            } else {
-                Intent intent2 = new Intent("android.intent.action.GET_CONTENT");
-                if (Build.VERSION.SDK_INT >= 18 && z) {
-                    intent2.putExtra("android.intent.extra.ALLOW_MULTIPLE", true);
-                }
-                intent2.setType(str2);
-                intent = intent2;
-            }
-            Intent intent3 = new Intent("android.intent.action.CHOOSER");
-            if (!arrayList.isEmpty()) {
-                intent3.putExtra("android.intent.extra.INITIAL_INTENTS", (Parcelable[]) arrayList.toArray(new Intent[0]));
-            }
-            intent3.putExtra("android.intent.extra.INTENT", intent);
-            return intent3;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public final Intent l(Intent... intentArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, intentArr)) == null) {
-            Intent intent = new Intent("android.intent.action.CHOOSER");
-            intent.putExtra("android.intent.extra.INITIAL_INTENTS", intentArr);
-            intent.putExtra("android.intent.extra.TITLE", li0.b().getResources().getString(R.string.nad_choose_upload));
-            return intent;
-        }
-        return (Intent) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: android.webkit.ValueCallback<android.net.Uri[]> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void p(int i, Intent intent) {
-        Uri uri;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, intent) == null) {
-            if (this.h) {
-                this.h = false;
-                return;
-            }
-            if (i == -1 && intent == null && this.b == null) {
-                i = 0;
-            }
-            if (i == 0 && this.f) {
-                this.f = false;
-                return;
-            }
-            if (intent != null && i == -1) {
-                try {
-                    uri = intent.getData();
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                    return;
-                }
-            } else {
-                uri = null;
-            }
-            if (uri == null && intent == null && i == -1) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        fromFile = FileProvider.getUriForFile(li0.b(), li0.c().a().v(), file);
-                    } else {
-                        fromFile = Uri.fromFile(file);
-                    }
-                    uri = fromFile;
-                    li0.b().sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", uri));
-                }
-            }
-            if (this.c != null) {
-                ArrayList arrayList = new ArrayList();
-                if (uri != null) {
-                    arrayList.add(uri);
-                } else if (intent != null && intent.getClipData() != null) {
-                    ClipData clipData = intent.getClipData();
-                    for (int i2 = 0; i2 < clipData.getItemCount(); i2++) {
-                        arrayList.add(clipData.getItemAt(i2).getUri());
-                    }
-                }
-                this.c.onReceiveValue(arrayList.toArray(new Uri[0]));
-            }
-            if (this.a != null) {
-                this.a.onReceiveValue(uri);
-            }
-            this.e = true;
-            this.f = false;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.n();
         }
     }
 
-    @RequiresApi(api = 21)
-    public boolean q(@NonNull ValueCallback<Uri[]> valueCallback, @NonNull d61 d61Var) {
-        InterceptResult invokeLL;
-        String str;
-        boolean z;
+    @Override // android.graphics.drawable.Animatable
+    public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, valueCallback, d61Var)) == null) {
-            this.c = valueCallback;
-            this.d = d61Var;
-            String[] b2 = d61Var.b();
-            if (b2 != null && b2.length > 0) {
-                str = b2[0];
-            } else {
-                str = "*/*";
-            }
-            ArrayList arrayList = new ArrayList();
-            if (str.equals(BdUploadHandler.IMAGE_MIME_TYPE)) {
-                if (!h61.a(this.g)) {
-                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-                }
-                if (Build.VERSION.SDK_INT >= 29 && !Environment.isExternalStorageLegacy()) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!h61.b(this.g) && z) {
-                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
-                }
-            } else if (str.equals(BdUploadHandler.VIDEO_MIME_TYPE) && !h61.a(this.g)) {
-                arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-            }
-            if (arrayList.isEmpty()) {
-                if (!h61.a(this.g)) {
-                    arrayList.add(PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-                }
-                if (!h61.b(this.g)) {
-                    arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
-                }
-            }
-            if (arrayList.size() > 0) {
-                requestPermissions(4099, (String[]) arrayList.toArray(new String[0]));
-                return true;
-            }
-            try {
-                return startActivityForResult(k(), 11);
-            } catch (Exception unused) {
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.o();
         }
-        return invokeLL.booleanValue;
     }
 }

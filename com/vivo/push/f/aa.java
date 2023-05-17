@@ -17,7 +17,7 @@ import com.vivo.push.model.NotifyArriveCallbackByUser;
 import com.vivo.push.sdk.PushMessageCallback;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.security.PublicKey;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class aa extends com.vivo.push.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

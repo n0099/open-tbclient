@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.cloudcontrol.data.RuleResult;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RouterRule {
     private ICloudControlProcessor getProcessor(String str) {
         return CloudControlManager.getInstance().getProcessor(str);

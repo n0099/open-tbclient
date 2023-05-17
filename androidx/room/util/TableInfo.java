@@ -319,6 +319,34 @@ public class TableInfo {
         return arrayList;
     }
 
+    public boolean equals(Object obj) {
+        Set<Index> set;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || TableInfo.class != obj.getClass()) {
+            return false;
+        }
+        TableInfo tableInfo = (TableInfo) obj;
+        String str = this.name;
+        if (str == null ? tableInfo.name != null : !str.equals(tableInfo.name)) {
+            return false;
+        }
+        Map<String, Column> map = this.columns;
+        if (map == null ? tableInfo.columns != null : !map.equals(tableInfo.columns)) {
+            return false;
+        }
+        Set<ForeignKey> set2 = this.foreignKeys;
+        if (set2 == null ? tableInfo.foreignKeys != null : !set2.equals(tableInfo.foreignKeys)) {
+            return false;
+        }
+        Set<Index> set3 = this.indices;
+        if (set3 == null || (set = tableInfo.indices) == null) {
+            return true;
+        }
+        return set3.equals(set);
+    }
+
     public static Set<ForeignKey> readForeignKeys(SupportSQLiteDatabase supportSQLiteDatabase, String str) {
         HashSet hashSet = new HashSet();
         Cursor query = supportSQLiteDatabase.query("PRAGMA foreign_key_list(`" + str + "`)");
@@ -374,34 +402,6 @@ public class TableInfo {
         } finally {
             query.close();
         }
-    }
-
-    public boolean equals(Object obj) {
-        Set<Index> set;
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || TableInfo.class != obj.getClass()) {
-            return false;
-        }
-        TableInfo tableInfo = (TableInfo) obj;
-        String str = this.name;
-        if (str == null ? tableInfo.name != null : !str.equals(tableInfo.name)) {
-            return false;
-        }
-        Map<String, Column> map = this.columns;
-        if (map == null ? tableInfo.columns != null : !map.equals(tableInfo.columns)) {
-            return false;
-        }
-        Set<ForeignKey> set2 = this.foreignKeys;
-        if (set2 == null ? tableInfo.foreignKeys != null : !set2.equals(tableInfo.foreignKeys)) {
-            return false;
-        }
-        Set<Index> set3 = this.indices;
-        if (set3 == null || (set = tableInfo.indices) == null) {
-            return true;
-        }
-        return set3.equals(set);
     }
 
     public int hashCode() {

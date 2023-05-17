@@ -8,7 +8,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventT
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h {
     public static JSONObject a(Context context) {
         JSONObject jSONObject = new JSONObject();

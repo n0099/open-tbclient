@@ -14,7 +14,7 @@ import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeColorInfo;
 import tbclient.ThreadRecommendInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ThreadRecommendInfoData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUSINESS_TYPE_CONTENT_COLLECTION = 1;

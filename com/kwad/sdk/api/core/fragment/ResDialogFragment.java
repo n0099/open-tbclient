@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ResDialogFragment extends DelegateDialogFragment {
     public ResDialogFragment() {
         super(new KsDialogFragment(null));
@@ -44,7 +44,7 @@ public class ResDialogFragment extends DelegateDialogFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.q1
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.u1
     @Nullable
     public Context getContext() {
         return Wrapper.wrapContextIfNeed(super.getContext());

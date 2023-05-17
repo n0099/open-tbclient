@@ -17,7 +17,7 @@ import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b implements IDetectStrategy {
     public static final String a = "com.baidu.pass.face.platform.c.b";
     public static volatile int p;
@@ -41,7 +41,7 @@ public class b implements IDetectStrategy {
     public HashMap<String, ImageInfo> t = new HashMap<>();
     public HashMap<String, ImageInfo> u = new HashMap<>();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public byte[] b;
 

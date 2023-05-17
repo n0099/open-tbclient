@@ -25,7 +25,7 @@ import com.baidu.searchbox.player.model.VideoUrlModel;
 import com.baidu.searchbox.player.pool.VideoKernelPool;
 import com.baidu.searchbox.player.session.VideoSession;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseKernelLayer extends AbsLayer {
     public static final int MIN_POSITION = 2;
     public static final int SEEK_TO_DELTA = 1;
@@ -43,7 +43,7 @@ public class BaseKernelLayer extends AbsLayer {
     public void setGestureDetector(@Nullable IKernelGestureDetector iKernelGestureDetector) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Dispatcher implements InternalEventDispatcher {
         @Override // com.baidu.searchbox.player.interfaces.InternalEventDispatcher
         public int getExpectOrder() {

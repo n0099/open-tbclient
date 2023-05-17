@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hi;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.pg;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PersonHeaderBackgroundController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public class PersonHeaderBackgroundController {
     public boolean e;
     public View.OnClickListener f;
 
-    /* loaded from: classes5.dex */
-    public class a extends bg<tm> {
+    /* loaded from: classes7.dex */
+    public class a extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonHeaderBackgroundController a;
@@ -66,7 +66,7 @@ public class PersonHeaderBackgroundController {
             this.a = personHeaderBackgroundController;
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.kg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -74,7 +74,7 @@ public class PersonHeaderBackgroundController {
             }
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.kg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -83,19 +83,19 @@ public class PersonHeaderBackgroundController {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tmVar, str, i) == null) {
-                super.onLoaded((a) tmVar, str, i);
-                if (tmVar != null) {
-                    tmVar.h(this.a.b);
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cnVar, str, i) == null) {
+                super.onLoaded((a) cnVar, str, i);
+                if (cnVar != null) {
+                    cnVar.h(this.a.b);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,7 +133,7 @@ public class PersonHeaderBackgroundController {
             String userId = this.a.d.getUserId();
             String bg_pic = this.a.d.getBg_pic();
             try {
-                i = gg.e((String) this.a.f(bg_pic).get("props_id"), -1);
+                i = pg.e((String) this.a.f(bg_pic).get("props_id"), -1);
             } catch (URISyntaxException unused) {
                 i = -1;
             }
@@ -169,7 +169,7 @@ public class PersonHeaderBackgroundController {
         this.a = tbPageContext;
         this.b = tbImageView;
         this.e = z;
-        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0802dd);
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080324);
         this.c = view2;
         view2.setOnClickListener(this.f);
     }
@@ -217,8 +217,8 @@ public class PersonHeaderBackgroundController {
         }
         this.d = userData;
         String bg_pic = userData.getBg_pic();
-        if (!hi.isEmpty(bg_pic)) {
-            cg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
+        if (!qi.isEmpty(bg_pic)) {
+            lg.h().k(bg_pic, 10, new a(this), 0, 0, this.a.getUniqueId(), new Object[0]);
         }
     }
 }

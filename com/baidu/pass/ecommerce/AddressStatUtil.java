@@ -8,7 +8,7 @@ import com.baidu.sapi2.stat.AddressManagerStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressStatUtil {
     public static final String TAG = "AddressStatUtil";
 

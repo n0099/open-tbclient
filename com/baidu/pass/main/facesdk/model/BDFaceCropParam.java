@@ -1,5 +1,5 @@
 package com.baidu.pass.main.facesdk.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceCropParam {
     public float foreheadExtend = 0.0f;
     public float chinExtend = 0.0f;

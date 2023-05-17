@@ -36,7 +36,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDrawableDelegate {
     public static final int BADGE_NUMBER_NONE = -1;
     public static final int BOTTOM_END = 8388693;
@@ -44,9 +44,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static final String DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX = "+";
     public static final int DEFAULT_MAX_BADGE_CHARACTER_COUNT = 4;
     @StyleRes
-    public static final int DEFAULT_STYLE = 2131755853;
+    public static final int DEFAULT_STYLE = 2131755864;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130968769;
+    public static final int DEFAULT_THEME_ATTR = 2130968770;
     public static final int MAX_CIRCULAR_BADGE_NUMBER_COUNT = 9;
     public static final int TOP_END = 8388661;
     public static final int TOP_START = 8388659;
@@ -75,7 +75,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public final TextDrawableHelper textDrawableHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface BadgeGravity {
     }
 
@@ -99,18 +99,18 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         Resources resources = context.getResources();
         this.badgeBounds = new Rect();
         this.shapeDrawable = new MaterialShapeDrawable();
-        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07043a);
-        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070439);
-        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07043d);
+        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070581);
+        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070580);
+        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070585);
         TextDrawableHelper textDrawableHelper = new TextDrawableHelper(this);
         this.textDrawableHelper = textDrawableHelper;
         textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
         this.savedState = new SavedState(context);
-        setTextAppearanceResource(R.style.obfuscated_res_0x7f10020d);
+        setTextAppearanceResource(R.style.obfuscated_res_0x7f100217);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.google.android.material.badge.BadgeDrawable.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -156,10 +156,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         public SavedState(@NonNull Context context) {
             this.alpha = 255;
             this.number = -1;
-            this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f10020d).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bdd);
+            this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f100217).textColor.getDefaultColor();
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0c63);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bdf;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0c65;
         }
 
         public SavedState(@NonNull Parcel parcel) {
@@ -220,9 +220,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
         Resources resources = context.getResources();
         if (hasNumber()) {
-            i = R.dimen.obfuscated_res_0x7f07043b;
+            i = R.dimen.obfuscated_res_0x7f070583;
         } else {
-            i = R.dimen.obfuscated_res_0x7f070438;
+            i = R.dimen.obfuscated_res_0x7f07057f;
         }
         int dimensionPixelSize = resources.getDimensionPixelSize(i);
         int i3 = this.savedState.badgeGravity;
@@ -418,7 +418,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         if (context == null) {
             return "";
         }
-        return context.getString(R.string.obfuscated_res_0x7f0f0be0, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+        return context.getString(R.string.obfuscated_res_0x7f0f0c66, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
     }
 
     private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {

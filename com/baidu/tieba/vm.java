@@ -1,418 +1,427 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import android.text.TextUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.adp.titan.TitanDownloadService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tieba.pm;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
-public abstract class vm<T, V extends TypeAdapter.ViewHolder> {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class vm {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public nn<in> mAdapter;
-    public sn mAdapterItemClickListener;
-    public tn mAdapterItemLongClickListener;
-    public Context mContext;
-    public qm mImagePreloadSizeData;
-    public BdUniqueId mPageId;
-    public BdUniqueId mType;
-    public V viewholder;
 
-    public BdUniqueId getBottomId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448319958, "Lcom/baidu/tieba/vm;")) == null) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public BdUniqueId getContentId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public BdUniqueId getExtendId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public BdUniqueId getHeaderId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public V onCreateBottomViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V onCreateContentViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V onCreateExtendViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V onCreateHeaderViewHolder(ViewGroup viewGroup, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, viewGroup, t)) == null) {
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public abstract V onCreateViewHolder(ViewGroup viewGroup);
-
-    public abstract View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v);
-
-    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t, @NonNull List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), viewGroup, v, t, list}) == null) {
-        }
-    }
-
-    public void setMulDel(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-        }
-    }
-
-    public vm(Context context, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448319958, "Lcom/baidu/tieba/vm;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a extends pm.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sm a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+
+        public a(sm smVar, String str, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {smVar, str, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = smVar;
+            this.b = str;
+            this.c = context;
+        }
+
+        /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pm.b
+        /* renamed from: d */
+        public void b(int i, String str, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, jSONObject) == null) {
+                this.a.onResult(this.b, -1, null);
+                try {
+                    try {
+                        if (jSONObject == null) {
+                            yk8 defaultLog = DefaultLog.getInstance();
+                            defaultLog.b(TitanDownloadService.TAG, "response parse fail:" + this.b);
+                            this.a.onResult(this.b, -1, null);
+                            synchronized (vm.class) {
+                                boolean unused = vm.a = false;
+                            }
+                            return;
+                        }
+                        yk8 defaultLog2 = DefaultLog.getInstance();
+                        defaultLog2.c(TitanDownloadService.TAG, "onResponse " + jSONObject);
+                        PackageInfo j = vm.j(this.c, jSONObject);
+                        if (j.errNo != 0) {
+                            yk8 defaultLog3 = DefaultLog.getInstance();
+                            defaultLog3.b(TitanDownloadService.TAG, "return fail, result errno = " + j.errNo);
+                            this.a.onResult(this.b, -1, null);
+                            synchronized (vm.class) {
+                                boolean unused2 = vm.a = false;
+                            }
+                            return;
+                        }
+                        DefaultLog.getInstance().c(TitanDownloadService.TAG, "start install patch");
+                        wm.b(this.c, this.a, j, true);
+                        synchronized (vm.class) {
+                            boolean unused3 = vm.a = false;
+                        }
+                    } catch (Exception e) {
+                        yk8 defaultLog4 = DefaultLog.getInstance();
+                        defaultLog4.b(TitanDownloadService.TAG, "TitanRequester onResponse Exception:" + e);
+                        this.a.onResult(this.b, -1, null);
+                        synchronized (vm.class) {
+                            boolean unused4 = vm.a = false;
+                        }
+                    }
+                } catch (Throwable th) {
+                    synchronized (vm.class) {
+                        boolean unused5 = vm.a = false;
+                        throw th;
+                    }
+                }
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        this.mImagePreloadSizeData = new qm();
     }
 
-    public vm(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+    /* loaded from: classes7.dex */
+    public static class b implements pm.b<InputStream> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ String b;
+
+        public InputStream d(int i, String str, InputStream inputStream) {
+            InterceptResult invokeILL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, str, inputStream)) == null) ? inputStream : (InputStream) invokeILL.objValue;
+        }
+
+        public b(File file, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            this.b = str;
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.pm.b
+        public /* bridge */ /* synthetic */ InputStream a(int i, String str, InputStream inputStream) throws IOException {
+            d(i, str, inputStream);
+            return inputStream;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pm.b
+        /* renamed from: c */
+        public void b(int i, String str, InputStream inputStream) {
+            MessageDigest messageDigest;
+            FileOutputStream fileOutputStream;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, inputStream) == null) {
+                if (inputStream == null) {
+                    DefaultLog.getInstance().b(TitanDownloadService.TAG, "download patch inputstream is null");
+                    return;
+                }
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        messageDigest = MessageDigest.getInstance("MD5");
+                        fileOutputStream = new FileOutputStream(this.a);
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = inputStream.read(bArr, 0, 1024);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                        messageDigest.update(bArr, 0, read);
+                    }
+                    String d = vm.d(messageDigest.digest());
+                    yk8 defaultLog = DefaultLog.getInstance();
+                    defaultLog.c(TitanDownloadService.TAG, "download file md5 = " + d);
+                    if (!TextUtils.equals(this.b, d)) {
+                        DefaultLog.getInstance().b(TitanDownloadService.TAG, "patch md5 not match");
+                        fileOutputStream.close();
+                        this.a.delete();
+                    }
+                    Closeables.closeSafely(inputStream);
+                    Closeables.closeSafely(fileOutputStream);
+                } catch (Exception e2) {
+                    e = e2;
+                    fileOutputStream2 = fileOutputStream;
+                    this.a.delete();
+                    e.printStackTrace();
+                    Closeables.closeSafely(inputStream);
+                    Closeables.closeSafely(fileOutputStream2);
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    Closeables.closeSafely(inputStream);
+                    Closeables.closeSafely(fileOutputStream2);
+                    throw th;
+                }
+            }
+        }
+    }
+
+    public vm() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        this.mPageId = bdUniqueId2;
-        this.mImagePreloadSizeData = new qm();
     }
 
-    private boolean needCreateNewHolder(View view2) {
-        InterceptResult invokeL;
-        V v;
+    public static String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
-            if (view2 == null || view2.getTag() == null || (v = this.viewholder) == null || !v.getClass().isAssignableFrom(view2.getTag().getClass()) || !view2.getTag().getClass().isAssignableFrom(this.viewholder.getClass())) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return nm.a() + "?runtype=aps_132&appname=tieba";
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public ViewGroup.LayoutParams generateLayoutParamsByParent(ViewGroup viewGroup) {
+    public static File i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            if (viewGroup instanceof ListView) {
-                return new AbsListView.LayoutParams(-1, -2);
-            }
-            if (viewGroup instanceof RecyclerView) {
-                return new RecyclerView.LayoutParams(-1, -2);
-            }
-            return new ViewGroup.LayoutParams(-1, -2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            File file = new File(new File(context.getCacheDir(), "titan_sandbox_cache"), "patch_cache");
+            file.mkdirs();
+            return file;
         }
-        return (ViewGroup.LayoutParams) invokeL.objValue;
+        return (File) invokeL.objValue;
     }
 
-    public in getItem(int i) {
-        InterceptResult invokeI;
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            nn<in> nnVar = this.mAdapter;
-            if (nnVar != null) {
-                return nnVar.getItem(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder("");
+            if (bArr != null && bArr.length > 0) {
+                for (byte b2 : bArr) {
+                    String hexString = Integer.toHexString(b2 & 255);
+                    if (hexString.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(hexString);
+                }
+                return sb.toString();
             }
             return null;
         }
-        return (in) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public int getPositionByType(int i) {
-        InterceptResult invokeI;
-        BdUniqueId bdUniqueId;
+    public static void e(Context context, String str, sm smVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            nn<in> nnVar = this.mAdapter;
-            if (nnVar != null && (bdUniqueId = this.mType) != null) {
-                return nnVar.g(i, bdUniqueId.getId());
+        if (interceptable == null || interceptable.invokeLLL(65542, null, context, str, smVar) == null) {
+            synchronized (vm.class) {
+                if (a) {
+                    DefaultLog.getInstance().b(TitanDownloadService.TAG, "doInstall is installing");
+                    return;
+                }
+                a = true;
+                String z = qm.p().z(h());
+                yk8 defaultLog = DefaultLog.getInstance();
+                defaultLog.c(TitanDownloadService.TAG, "start require patch data, url = " + z);
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json");
+                pm.c(context, z, "POST", g(), hashMap, new a(smVar, str, context));
             }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public sm getPreloadSize(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return this.mImagePreloadSizeData.a(i);
-        }
-        return (sm) invokeI.objValue;
-    }
-
-    public boolean isPreloadSizeReady(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            return this.mImagePreloadSizeData.b(i);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void notifyItemChanged(int i) {
-        nn<in> nnVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && (nnVar = this.mAdapter) != null) {
-            nnVar.notifyItemChanged(i);
         }
     }
 
-    public void setAdapter(nn<in> nnVar) {
+    public static String f(Context context, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, nnVar) == null) {
-            this.mAdapter = nnVar;
-        }
-    }
-
-    public void setOnAdapterItemClickListener(sn snVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, snVar) == null) {
-            this.mAdapterItemClickListener = snVar;
-        }
-    }
-
-    public void setOnAdapterItemLongClickListener(tn tnVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, tnVar) == null) {
-            this.mAdapterItemLongClickListener = tnVar;
-        }
-    }
-
-    public void setPageId(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, bdUniqueId) == null) {
-            this.mPageId = bdUniqueId;
-        }
-    }
-
-    public void setType(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, bdUniqueId) == null) {
-            this.mType = bdUniqueId;
-        }
-    }
-
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            nn<in> nnVar = this.mAdapter;
-            if (nnVar != null) {
-                return nnVar.getCount();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public sn getOnAdapterItemClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.mAdapterItemClickListener;
-        }
-        return (sn) invokeV.objValue;
-    }
-
-    public tn getOnAdapterItemLongClickListener() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.mAdapterItemLongClickListener;
-        }
-        return (tn) invokeV.objValue;
-    }
-
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.mType;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void notifyDataSetChanged() {
-        nn<in> nnVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (nnVar = this.mAdapter) != null) {
-            nnVar.notifyDataSetChanged();
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: com.baidu.tieba.vm<T, V extends com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder> */
-    /* JADX WARN: Multi-variable type inference failed */
-    public View getView(int i, View view2, ViewGroup viewGroup, T t) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t})) == null) {
-            if (needCreateNewHolder(view2)) {
-                V v = (V) onCreateViewHolder(viewGroup, t);
-                this.viewholder = v;
-                view2 = v.getView();
-                if (BdBaseApplication.getInst().isDebugMode()) {
-                    BdLog.i("convertView is creating" + this.viewholder.getClass().getName());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, context, str, str2, str3)) == null) {
+            File i = i(context);
+            if (i != null && (listFiles = i.listFiles()) != null) {
+                for (File file : listFiles) {
+                    if (file != null && file.isFile()) {
+                        file.delete();
+                    }
                 }
             }
-            View view3 = view2;
-            return onFillViewHolder(i, view3, viewGroup, (ViewGroup) t, (T) ((TypeAdapter.ViewHolder) view3.getTag()));
+            File file2 = new File(i, str3);
+            DefaultLog.getInstance().c(TitanDownloadService.TAG, "start download patch");
+            pm.c(context, str, "GET", null, null, new b(file2, str2));
+            if (file2.exists()) {
+                return file2.getAbsolutePath();
+            }
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeLLLL.objValue;
     }
 
-    public void notifyItemChanged(int i, @Nullable Object obj) {
-        nn<in> nnVar;
+    public static byte[] g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048592, this, i, obj) == null) && (nnVar = this.mAdapter) != null) {
-            nnVar.notifyItemChanged(i, obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            JSONObject jSONObject4 = new JSONObject();
+            um d = um.d();
+            d.g();
+            JSONObject jSONObject5 = new JSONObject();
+            try {
+                jSONObject4.put("com.baidu.titan.patch", String.valueOf(d.b()));
+                jSONObject3.put("132", jSONObject4);
+                jSONObject2.put("aps", jSONObject3);
+                jSONObject.put("versions", jSONObject2);
+                jSONObject5.put("bd_version", AppConfig.AppInfo.getVersionName());
+                jSONObject5.put("device_ua", "android");
+                jSONObject.put("pubparam", jSONObject5);
+            } catch (JSONException e) {
+                yk8 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "getCcsPostContent JSONException:" + e);
+            }
+            try {
+                String jSONObject6 = jSONObject.toString();
+                yk8 defaultLog2 = DefaultLog.getInstance();
+                defaultLog2.c(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
+                return jSONObject6.getBytes("UTF-8");
+            } catch (UnsupportedEncodingException e2) {
+                yk8 defaultLog3 = DefaultLog.getInstance();
+                defaultLog3.b(TitanDownloadService.TAG, "getCcsPostContent UnsupportedEncodingException:" + e2);
+                return null;
+            }
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    public V onCreateViewHolder(ViewGroup viewGroup, T t) {
+    public static PackageInfo j(Context context, JSONObject jSONObject) throws JSONException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, viewGroup, t)) == null) {
-            return onCreateViewHolder(viewGroup);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, jSONObject)) == null) {
+            PackageInfo packageInfo = new PackageInfo();
+            int optInt = jSONObject.optInt("errno", -1);
+            packageInfo.errNo = optInt;
+            if (optInt != 0) {
+                yk8 defaultLog = DefaultLog.getInstance();
+                defaultLog.b(TitanDownloadService.TAG, "response errno = " + optInt);
+                return packageInfo;
+            }
+            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+            if (!jSONObject2.has("service")) {
+                packageInfo.errNo = -2;
+                return packageInfo;
+            }
+            JSONObject jSONObject3 = jSONObject2.getJSONObject("service");
+            if (!jSONObject3.has("aps")) {
+                packageInfo.errNo = -2;
+                return packageInfo;
+            }
+            JSONObject jSONObject4 = jSONObject3.getJSONObject("aps");
+            if (!jSONObject4.has("132")) {
+                packageInfo.errNo = -2;
+                return packageInfo;
+            }
+            JSONObject jSONObject5 = jSONObject4.getJSONObject("132");
+            if (!jSONObject5.has("com.baidu.titan.patch")) {
+                packageInfo.errNo = -2;
+                return packageInfo;
+            }
+            JSONObject jSONObject6 = jSONObject5.getJSONObject("com.baidu.titan.patch");
+            String string = jSONObject6.getString("version");
+            JSONObject jSONObject7 = jSONObject6.getJSONObject("data").getJSONObject("pkg_info");
+            String string2 = jSONObject7.getString("version");
+            String string3 = jSONObject7.getString("name");
+            String string4 = jSONObject7.getString(PackageTable.MD5);
+            String string5 = jSONObject7.getString("maxv");
+            String string6 = jSONObject7.getString("minv");
+            String string7 = jSONObject7.getString("download_url");
+            if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string4) && !TextUtils.isEmpty(string) && !TextUtils.isEmpty(string7)) {
+                String f = f(context, string7, string4, "com.baidu.titan.patch_" + string4 + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                if (f == null) {
+                    packageInfo.errNo = -4;
+                    return packageInfo;
+                }
+                packageInfo.filePath = f;
+                packageInfo.packageName = "com.baidu.titan.patch";
+                packageInfo.version = Long.valueOf(string2).longValue();
+                packageInfo.maxHostVersion = string5;
+                packageInfo.minHostVersion = string6;
+                packageInfo.updateVersion = Long.valueOf(string).longValue();
+                return packageInfo;
+            }
+            packageInfo.errNo = -3;
+            return packageInfo;
         }
-        return (V) invokeLL.objValue;
-    }
-
-    public View onFillBottomViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View onFillContentViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View onFillExtendViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public View onFillHeaderViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
-            return onFillViewHolder(i, view2, viewGroup, (ViewGroup) t, (T) v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void onFillViewHolder(int i, ViewGroup viewGroup, V v, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), viewGroup, v, t}) == null) {
-            onFillViewHolder(i, v.getView(), viewGroup, (ViewGroup) t, (T) v);
-        }
-    }
-
-    public boolean setPreloadSize(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048611, this, i, i2, i3)) == null) {
-            return this.mImagePreloadSizeData.c(i, i2, i3);
-        }
-        return invokeIII.booleanValue;
+        return (PackageInfo) invokeLL.objValue;
     }
 }

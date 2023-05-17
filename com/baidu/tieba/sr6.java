@@ -1,48 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsTabInfo;
-/* loaded from: classes6.dex */
+import tbclient.ApkDetail;
+/* loaded from: classes7.dex */
 public class sr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<rr6> a;
 
-    public sr6() {
+    public static void a(hr6 hr6Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65536, null, hr6Var) == null) && hr6Var != null && (itemData = hr6Var.a) != null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+            httpMessage.addParam("item_id", itemData.itemId);
+            httpMessage.addParam("app_name", itemData.mTitle);
+            httpMessage.addParam("source_type", hr6Var.b);
+            httpMessage.addParam("icon_url", itemData.mIconUrl);
+            httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+            httpMessage.addParam(TaskProcess.keyTags, itemData.mTags);
+            httpMessage.addParam("apk_name", itemData.pkgName);
+            ApkDetail apkDetail = itemData.apkDetail;
+            if (apkDetail != null) {
+                httpMessage.addParam("developer", apkDetail.developer);
+                httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+                httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+                httpMessage.addParam("version", itemData.apkDetail.version);
+                httpMessage.addParam("version_code", itemData.apkDetail.version_code);
             }
-        }
-    }
-
-    public void a(List<FrsTabInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            this.a.clear();
-            if (list == null) {
-                return;
-            }
-            for (FrsTabInfo frsTabInfo : list) {
-                if (frsTabInfo != null && !StringUtils.isNull(frsTabInfo.tab_code) && !StringUtils.isNull(frsTabInfo.tab_name)) {
-                    this.a.add(new rr6(frsTabInfo));
-                }
-            }
+            MessageManager.getInstance().sendMessageFromBackground(httpMessage);
         }
     }
 }

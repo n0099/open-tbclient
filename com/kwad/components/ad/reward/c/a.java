@@ -3,7 +3,7 @@ package com.kwad.components.ad.reward.c;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.KsInnerAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a implements KsInnerAd {
     @NonNull
     public final AdTemplate mAdTemplate;

@@ -5,7 +5,8 @@ import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.t7;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+import com.baidu.tieba.x7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -446,9 +447,9 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, cVar)) == null) {
-            t7 t7Var = new t7(512);
-            J(this, t7Var, 0, cVar);
-            return t7Var.toString();
+            x7 x7Var = new x7(512);
+            J(this, x7Var, 0, cVar);
+            return x7Var.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -580,11 +581,11 @@ public class JsonValue implements Iterable<JsonValue> {
         O(z);
     }
 
-    public static void t(int i, t7 t7Var) {
+    public static void t(int i, x7 x7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, null, i, t7Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, x7Var) == null) {
             for (int i2 = 0; i2 < i; i2++) {
-                t7Var.a('\t');
+                x7Var.a('\t');
             }
         }
     }
@@ -778,58 +779,58 @@ public class JsonValue implements Iterable<JsonValue> {
         return invokeV.booleanValue;
     }
 
-    public final void J(JsonValue jsonValue, t7 t7Var, int i, c cVar) {
+    public final void J(JsonValue jsonValue, x7 x7Var, int i, c cVar) {
         boolean z;
         String str;
         char c2;
         String str2;
         char c3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsonValue, t7Var, i, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsonValue, x7Var, i, cVar) == null) {
             JsonWriter$OutputType jsonWriter$OutputType = cVar.a;
             if (jsonValue.C()) {
                 if (jsonValue.f == null) {
-                    t7Var.n(StringUtil.EMPTY_ARRAY);
+                    x7Var.n(StringUtil.EMPTY_ARRAY);
                     return;
                 }
                 boolean z2 = !x(jsonValue);
-                int length = t7Var.length();
+                int length = x7Var.length();
                 loop0: while (true) {
                     if (z2) {
                         str2 = "{\n";
                     } else {
                         str2 = "{ ";
                     }
-                    t7Var.n(str2);
+                    x7Var.n(str2);
                     for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
                         if (z2) {
-                            t(i, t7Var);
+                            t(i, x7Var);
                         }
-                        t7Var.n(jsonWriter$OutputType.quoteName(jsonValue2.e));
-                        t7Var.n(": ");
-                        J(jsonValue2, t7Var, i + 1, cVar);
+                        x7Var.n(jsonWriter$OutputType.quoteName(jsonValue2.e));
+                        x7Var.n(": ");
+                        J(jsonValue2, x7Var, i + 1, cVar);
                         if ((!z2 || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue2.h != null) {
-                            t7Var.a(',');
+                            x7Var.a(',');
                         }
                         if (z2) {
                             c3 = '\n';
                         } else {
                             c3 = WebvttCueParser.CHAR_SPACE;
                         }
-                        t7Var.a(c3);
-                        if (z2 || t7Var.length() - length <= cVar.b) {
+                        x7Var.a(c3);
+                        if (z2 || x7Var.length() - length <= cVar.b) {
                         }
                     }
-                    t7Var.I(length);
+                    x7Var.I(length);
                     z2 = true;
                 }
                 if (z2) {
-                    t(i - 1, t7Var);
+                    t(i - 1, x7Var);
                 }
-                t7Var.a('}');
+                x7Var.a('}');
             } else if (jsonValue.u()) {
                 if (jsonValue.f == null) {
-                    t7Var.n("[]");
+                    x7Var.n("[]");
                     return;
                 }
                 boolean z3 = !x(jsonValue);
@@ -838,53 +839,53 @@ public class JsonValue implements Iterable<JsonValue> {
                 } else {
                     z = true;
                 }
-                int length2 = t7Var.length();
+                int length2 = x7Var.length();
                 loop2: while (true) {
                     if (z3) {
                         str = "[\n";
                     } else {
                         str = "[ ";
                     }
-                    t7Var.n(str);
+                    x7Var.n(str);
                     for (JsonValue jsonValue3 = jsonValue.f; jsonValue3 != null; jsonValue3 = jsonValue3.h) {
                         if (z3) {
-                            t(i, t7Var);
+                            t(i, x7Var);
                         }
-                        J(jsonValue3, t7Var, i + 1, cVar);
+                        J(jsonValue3, x7Var, i + 1, cVar);
                         if ((!z3 || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue3.h != null) {
-                            t7Var.a(',');
+                            x7Var.a(',');
                         }
                         if (z3) {
                             c2 = '\n';
                         } else {
                             c2 = WebvttCueParser.CHAR_SPACE;
                         }
-                        t7Var.a(c2);
-                        if (!z || z3 || t7Var.length() - length2 <= cVar.b) {
+                        x7Var.a(c2);
+                        if (!z || z3 || x7Var.length() - length2 <= cVar.b) {
                         }
                     }
-                    t7Var.I(length2);
+                    x7Var.I(length2);
                     z3 = true;
                 }
                 if (z3) {
-                    t(i - 1, t7Var);
+                    t(i - 1, x7Var);
                 }
-                t7Var.a(']');
+                x7Var.a(']');
             } else if (jsonValue.D()) {
-                t7Var.n(jsonWriter$OutputType.quoteValue(jsonValue.j()));
+                x7Var.n(jsonWriter$OutputType.quoteValue(jsonValue.j()));
             } else if (jsonValue.w()) {
                 double c4 = jsonValue.c();
                 double g = jsonValue.g();
                 if (c4 == g) {
                     c4 = g;
                 }
-                t7Var.b(c4);
+                x7Var.b(c4);
             } else if (jsonValue.y()) {
-                t7Var.g(jsonValue.g());
+                x7Var.g(jsonValue.g());
             } else if (jsonValue.v()) {
-                t7Var.o(jsonValue.a());
+                x7Var.o(jsonValue.a());
             } else if (jsonValue.z()) {
-                t7Var.n(StringUtil.NULL_STRING);
+                x7Var.n(StringUtil.NULL_STRING);
             } else {
                 throw new SerializationException("Unknown object type: " + jsonValue);
             }
@@ -1066,7 +1067,7 @@ public class JsonValue implements Iterable<JsonValue> {
                         } else if (this.d != 0) {
                             return "true";
                         } else {
-                            return "false";
+                            return CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
                         }
                     }
                     String str = this.b;

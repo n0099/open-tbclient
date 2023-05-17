@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.net.InetSocketAddress;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class cs {
     public int a;
 
@@ -30,9 +30,9 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m263a(String str, int i) {
+    public static InetSocketAddress m282a(String str, int i) {
         cs a = a(str, i);
-        return new InetSocketAddress(a.m264a(), a.a());
+        return new InetSocketAddress(a.m283a(), a.a());
     }
 
     public int a() {
@@ -40,7 +40,7 @@ public final class cs {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m264a() {
+    public String m283a() {
         return this.f188a;
     }
 

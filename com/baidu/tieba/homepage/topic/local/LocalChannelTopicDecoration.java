@@ -12,12 +12,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.b = ii.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.a = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.b = ri.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
         this.c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
     }
 

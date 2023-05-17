@@ -1,24 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class j95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
+    public int a;
 
     public j95() {
         Interceptable interceptable = $ic;
@@ -34,29 +27,23 @@ public class j95 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
-        boolean z;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        boolean z2 = true;
-        if (jSONObject.optInt("isShowDownloadNaniPanel", 2) == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.a = z;
-        if (jSONObject.optInt("isActivateNaniApp", 1) != 1) {
-            z2 = false;
-        }
-        this.b = z2;
-        this.c = jSONObject.optInt("downloadNaniShowPosition", 3);
-        this.d = jSONObject.optInt("downloadNaniShowRate", 2);
-        this.e = jSONObject.optString("downloadNaniLinkUrl", null);
-        this.f = jSONObject.optString("downloadNaniTxt", null);
-        this.g = jSONObject.optString("showNaniTailTxt", null);
-        this.h = jSONObject.optInt("showNaniTailVideoType", 0);
-        this.i = jSONObject.optString("preNaniShareUrl", TbConfig.NANI_DEFAULT_H5_PREFIX);
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

@@ -1,170 +1,109 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
+import com.baidu.tieba.personPolymeric.holder.PersonCommentHolder;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class i99 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Pattern;
+/* loaded from: classes5.dex */
+public class i99 extends en<PersonPostModel.PostInfoList, PersonCommentHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public TbPageContext<PersonPolymericActivity> b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808480, "Lcom/baidu/tieba/i99;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947808480, "Lcom/baidu/tieba/i99;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i99(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-        b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-        c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+        this.b = tbPageContext;
     }
 
-    public static List<in> a(List<ThreadData> list) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: s */
+    public PersonCommentHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (ListUtils.isEmpty(list)) {
-                return arrayList;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                ThreadData threadData = (ThreadData) ListUtils.getItem(list, i);
-                if (threadData != null) {
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    qi6 d = d(threadData);
-                    if (d != null) {
-                        arrayList.add(d);
-                    }
-                }
-            }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonCommentHolder(LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ab, viewGroup, false), this.b, this.c);
         }
-        return (List) invokeL.objValue;
+        return (PersonCommentHolder) invokeL.objValue;
     }
 
-    public static List<in> b(List<ThreadData> list) {
-        InterceptResult invokeL;
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(list)) {
-                r89 r89Var = new r89();
-                r89Var.d = c;
-                r89Var.c = b;
-                r89Var.b = a;
-                r89Var.a = R.string.obfuscated_res_0x7f0f0f2b;
-                arrayList.add(r89Var);
-                for (int i = 0; i < list.size(); i++) {
-                    ThreadData threadData = list.get(i);
-                    if (threadData != null) {
-                        AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                        qi6 d = d(threadData);
-                        if (d != null) {
-                            arrayList.add(d);
-                        }
-                    }
-                }
-                AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<in> c(List<in> list) {
-        InterceptResult invokeL;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (ListUtils.isEmpty(list)) {
-                return arrayList;
-            }
-            for (int i = 0; i < list.size(); i++) {
-                in inVar = (in) ListUtils.getItem(list, i);
-                if ((inVar instanceof CardPersonDynamicThreadData) && (threadData = ((CardPersonDynamicThreadData) inVar).p) != null) {
-                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-                    qi6 d = d(threadData);
-                    if (d != null) {
-                        arrayList.add(d);
-                    }
-                }
-            }
-            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
+        t(i, view2, viewGroup, postInfoList, personCommentHolder);
+        return view2;
     }
 
-    public static qi6 d(ThreadData threadData) {
-        InterceptResult invokeL;
+    public View t(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData)) == null) {
-            qi6 qi6Var = null;
-            if (threadData == null) {
-                return null;
-            }
-            threadData.isFromPersonPolymeric = true;
-            threadData.insertItemToTitleOrAbstractText();
-            if (threadData.isShareThread) {
-                qi6Var = new yi6();
-                qi6Var.a = threadData;
-            } else if (ti6.W(threadData)) {
-                qi6Var = new ti6(threadData);
-            } else if (ui6.Z(threadData)) {
-                qi6Var = new ui6(threadData);
-            } else if (!yi6.W(threadData) && !yi6.X(threadData)) {
-                if (zi6.N(threadData)) {
-                    qi6Var = new zi6(threadData);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postInfoList, personCommentHolder})) == null) {
+            if (postInfoList != null && personCommentHolder != null) {
+                if (this.a == null) {
+                    this.a = postInfoList.user_portrait;
                 }
-            } else {
-                qi6Var = new yi6();
-                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
-                    threadData.isGodThread();
+                personCommentHolder.c(postInfoList, false, this.a);
+                personCommentHolder.a.setContent(postInfoList.content);
+                if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
+                    personCommentHolder.b.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                } else {
+                    personCommentHolder.b.setText(postInfoList.title);
                 }
-                qi6Var.a = threadData;
+                personCommentHolder.b.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+                if (postInfoList.thread_type == 33) {
+                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                } else {
+                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                }
+                SkinManager.setBackgroundResource(personCommentHolder.b, R.drawable.person_post_line);
+                SkinManager.setViewTextColor(personCommentHolder.b, R.color.common_color_10039, 1);
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+                personCommentHolder.b.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+                personCommentHolder.a(TbadkCoreApplication.getInst().getSkinType());
             }
-            if (qi6Var != null) {
-                AbsGroupUbsABTest.setCardInfoUbsABTest(qi6Var);
-            }
-            return qi6Var;
+            return view2;
         }
-        return (qi6) invokeL.objValue;
-    }
-
-    public static ThreadData e(in inVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inVar)) == null) {
-            if (inVar == null || !(inVar instanceof ax4)) {
-                return null;
-            }
-            ThreadData threadData = ((ax4) inVar).getThreadData();
-            threadData.isFromPersonPolymeric = true;
-            AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
-            return threadData;
-        }
-        return (ThreadData) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

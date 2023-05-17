@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ActLog {
     public static final int LENGTH_APPKEY = 8;
     public static final String SEND_FAIL_LOG_SUFFIX = "-flog";
@@ -58,12 +58,12 @@ public class ActLog {
     public static volatile boolean isWriteFailLog = false;
     public static volatile String mUploadUrl = "https://config.bigda.com/api/upload";
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ActLogListener {
         void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ILogConfigListener {
         JSONObject getLogConfig();
     }
@@ -72,7 +72,7 @@ public class ActLog {
     public static void setLogNamePre(String str) {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LogWriter {
         public static final int BUFFER_MAX_LEN = 50;
         public volatile AtomicInteger bufferCount;

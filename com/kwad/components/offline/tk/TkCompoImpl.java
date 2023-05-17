@@ -10,7 +10,7 @@ import com.kwad.components.offline.tk.kwai.d;
 import com.kwad.sdk.api.SdkConfig;
 import com.kwad.sdk.components.h;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TkCompoImpl extends DefaultOfflineCompo implements com.kwad.components.core.offline.api.kwai.a {
     public final ITkOfflineCompo mOfflineCompo;
 

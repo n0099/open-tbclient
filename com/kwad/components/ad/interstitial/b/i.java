@@ -11,7 +11,7 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdProductInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i extends com.kwad.components.ad.interstitial.b.b {
     public static int hE = 4;
     public c gh;
@@ -20,7 +20,7 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
     public AdInfo mAdInfo;
     public AdTemplate mAdTemplate;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public ImageView hF;
         public TextView hG;
@@ -28,7 +28,7 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
         public KsPriceView hI;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public String appIconUrl;
         public String hJ;
@@ -93,9 +93,9 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
         } else {
             imageView.setVisibility(0);
             if (com.kwad.sdk.core.response.a.a.bD(adInfo)) {
-                KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ca5));
+                KSImageLoader.loadCircleIcon(imageView, bVar.getAppIconUrl(), getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd5));
             } else {
-                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080ca5);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080dd5);
                 KSImageLoader.loadWithRadius(imageView, bVar.getAppIconUrl(), adTemplate, hE);
             }
         }
@@ -112,8 +112,8 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
     }
 
     private void dy() {
-        View findViewById = this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0911c4);
-        View findViewById2 = this.gh.gj.findViewById(R.id.obfuscated_res_0x7f091367);
+        View findViewById = this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0911ff);
+        View findViewById2 = this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0913a2);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
         layoutParams.weight = 2.68f;
         findViewById.setLayoutParams(layoutParams);
@@ -152,7 +152,7 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
                 string2 = com.kwad.sdk.core.response.a.a.ae(adInfo);
             } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
                 bVar2 = this.hD;
-                string2 = getContext().getString(R.string.obfuscated_res_0x7f0f0a79);
+                string2 = getContext().getString(R.string.obfuscated_res_0x7f0f0af3);
             } else {
                 bVar2 = this.hD;
                 string2 = adInfo.advertiserInfo.adAuthorText;
@@ -167,7 +167,7 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
                 string = com.kwad.sdk.core.response.a.a.af(adInfo);
             } else if (TextUtils.isEmpty(adInfo.advertiserInfo.adAuthorText)) {
                 bVar = this.hD;
-                string = getContext().getString(R.string.obfuscated_res_0x7f0f0a79);
+                string = getContext().getString(R.string.obfuscated_res_0x7f0f0af3);
             } else {
                 bVar = this.hD;
                 string = adInfo.advertiserInfo.adAuthorText;
@@ -186,10 +186,10 @@ public final class i extends com.kwad.components.ad.interstitial.b.b {
         AdTemplate adTemplate = cVar.mAdTemplate;
         this.mAdTemplate = adTemplate;
         this.mAdInfo = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
-        this.hC.hF = (ImageView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0911de);
-        this.hC.hG = (TextView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0911e2);
-        this.hC.hH = (TextView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0911da);
-        this.hC.hI = (KsPriceView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0912b5);
+        this.hC.hF = (ImageView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f091219);
+        this.hC.hG = (TextView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f09121d);
+        this.hC.hH = (TextView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f091215);
+        this.hC.hI = (KsPriceView) this.gh.gj.findViewById(R.id.obfuscated_res_0x7f0912f0);
         e(this.mAdInfo);
         a(this.hC, this.hD, this.mAdInfo, this.mAdTemplate);
     }

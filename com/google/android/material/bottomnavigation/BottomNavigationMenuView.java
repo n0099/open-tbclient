@@ -34,7 +34,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public static final long ACTIVE_ANIMATION_DURATION_MS = 115;
     public static final int[] CHECKED_STATE_SET = {16842912};
@@ -353,11 +353,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         this.selectedItemPosition = 0;
         this.badgeDrawables = new SparseArray<>(5);
         Resources resources = getResources();
-        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f8);
-        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fa);
-        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f2);
-        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f3);
-        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f6);
+        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029b);
+        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029c);
+        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070295);
+        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070296);
+        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070299);
         this.itemTextColorDefault = createDefaultColorStateList(16842808);
         AutoTransition autoTransition = new AutoTransition();
         this.set = autoTransition;
@@ -452,7 +452,7 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             return null;
         }
         ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-        if (!getContext().getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04017a, typedValue, true)) {
+        if (!getContext().getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04018a, typedValue, true)) {
             return null;
         }
         int i2 = typedValue.data;

@@ -14,7 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class AbsMessenger implements IMessenger {
     @Nullable
     public List<InternalEventDispatcher> mDispatcherList;

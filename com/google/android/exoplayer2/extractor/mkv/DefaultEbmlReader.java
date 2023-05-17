@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class DefaultEbmlReader implements EbmlReader {
     public static final int ELEMENT_STATE_READ_CONTENT = 2;
     public static final int ELEMENT_STATE_READ_CONTENT_SIZE = 1;
@@ -23,7 +23,7 @@ public final class DefaultEbmlReader implements EbmlReader {
     public final Stack<MasterElement> masterElementsStack = new Stack<>();
     public final VarintReader varintReader = new VarintReader();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class MasterElement {
         public final long elementEndPosition;
         public final int elementId;

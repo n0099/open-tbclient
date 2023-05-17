@@ -6,7 +6,7 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class w {
     public static w a;
     public Context b;

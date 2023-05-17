@@ -1,11 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-/* loaded from: classes4.dex */
-public interface cp5<T> {
-    void a(Intent intent);
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes5.dex */
+public class cp5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    T b(boolean z);
-
-    wo5 c();
+    public static final boolean a(TbPageContext<?> tbPageContext, View view2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, view2)) == null) {
+            boolean z = false;
+            if (tbPageContext == null || view2 == null) {
+                return false;
+            }
+            hx4 layoutMode = tbPageContext.getLayoutMode();
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                z = true;
+            }
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(view2);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
 }

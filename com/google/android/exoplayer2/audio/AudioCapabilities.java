@@ -8,7 +8,7 @@ import android.content.IntentFilter;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import java.util.Arrays;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AudioCapabilities {
     public static final AudioCapabilities DEFAULT_AUDIO_CAPABILITIES = new AudioCapabilities(new int[]{2}, 2);
     public final int maxChannelCount;

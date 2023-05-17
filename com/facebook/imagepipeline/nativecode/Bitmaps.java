@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Bitmaps {
     @DoNotStrip
     public static native void nativeCopyBitmap(Bitmap bitmap, int i, Bitmap bitmap2, int i2, int i3);

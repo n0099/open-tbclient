@@ -10,7 +10,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsResponse {
     public static final String BACKUP_DATA = "backup";
     public static final String BACKUP_VERSION = "version";

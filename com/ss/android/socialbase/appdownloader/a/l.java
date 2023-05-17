@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.searchbox.common.security.CacheDeviceInfo;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l extends a {
     public l(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         super(context, aVar, str);

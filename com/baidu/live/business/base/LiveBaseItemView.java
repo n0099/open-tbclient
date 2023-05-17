@@ -8,7 +8,7 @@ import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.Live4Ratio5BannerItemView;
 import com.baidu.live.business.model.data.LiveFeedConfig;
 import com.baidu.live.business.model.data.LiveRoomEntity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class LiveBaseItemView extends RelativeLayout {
     public boolean a;
     public float b;
@@ -18,12 +18,12 @@ public abstract class LiveBaseItemView extends RelativeLayout {
     public a f;
     public b g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(String str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
 

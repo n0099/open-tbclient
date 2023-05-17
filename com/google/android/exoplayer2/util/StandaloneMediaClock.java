@@ -2,7 +2,7 @@ package com.google.android.exoplayer2.util;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.PlaybackParameters;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class StandaloneMediaClock implements MediaClock {
     public long baseElapsedMs;
     public long baseUs;

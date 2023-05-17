@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.statemachine.base.BaseStateMachine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class uk9 extends BaseStateMachine {
+/* loaded from: classes7.dex */
+public class uk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tk9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uk9(vk9 spriteStateMap) {
-        super(spriteStateMap);
+    public static synchronized tk9 a() {
+        InterceptResult invokeV;
+        tk9 tk9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spriteStateMap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((mn9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (uk9.class) {
+                if (a == null) {
+                    a = new tk9();
+                }
+                tk9Var = a;
             }
+            return tk9Var;
         }
-        Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
+        return (tk9) invokeV.objValue;
     }
 }

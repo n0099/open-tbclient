@@ -1,5 +1,5 @@
 package com.googlecode.mp4parser.authoring.adaptivestreaming;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AudioQuality {
     public int audioTag;
     public int bitPerSample;

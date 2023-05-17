@@ -1,167 +1,225 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
+import android.content.Context;
+import android.opengl.GLSurfaceView;
+import android.util.Log;
+import android.view.SurfaceHolder;
+import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService;
+import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
+import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-/* loaded from: classes4.dex */
-public class f2 implements o1, MediaPlayer.OnCompletionListener {
+import javax.microedition.khronos.opengles.GL10;
+/* loaded from: classes5.dex */
+public final class f2 extends e2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t1 a;
-    public MediaPlayer b;
-    public boolean c;
-    public boolean d;
-    public o1.a e;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public class a extends GLSurfaceView20 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f2 a;
+        public final /* synthetic */ f2 e;
 
-        public a(f2 f2Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(f2 f2Var, Context context, w2 w2Var) {
+            super(context, w2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {f2Var};
+                Object[] objArr = {f2Var, context, w2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (w2) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = f2Var;
+            this.e = f2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.SurfaceView
+        public SurfaceHolder getHolder() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                f2 f2Var = this.a;
-                f2Var.e.a(f2Var);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.e.y();
             }
+            return (SurfaceHolder) invokeV.objValue;
         }
     }
 
-    public f2(t1 t1Var, MediaPlayer mediaPlayer) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f2(h2 h2Var, v1 v1Var, w2 w2Var) {
+        super(h2Var, v1Var, w2Var, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t1Var, mediaPlayer};
+            Object[] objArr = {h2Var, v1Var, w2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((u1) objArr2[0], (v1) objArr2[1], (w2) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = false;
-        this.a = t1Var;
-        this.b = mediaPlayer;
-        this.e = null;
-        mediaPlayer.setOnCompletionListener(this);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.e2
+    public GLSurfaceView20 i(u1 u1Var, w2 w2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer == null) {
-                return false;
-            }
-            try {
-                return mediaPlayer.isPlaying();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void pause() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            if (mediaPlayer.isPlaying()) {
-                this.b.pause();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.d = false;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.o1$a, android.media.MediaPlayer] */
-    @Override // com.baidu.tieba.r6
-    public void dispose() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            try {
-                mediaPlayer.release();
-            } finally {
-                this.b = null;
-                this.e = null;
-                this.a.d(this);
-            }
-        } catch (Throwable unused) {
-            o0.a.log("AndroidMusic", "error while disposing AndroidMusic instance, non-fatal");
-        }
-    }
-
-    public void f() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (mediaPlayer = this.b) == null) {
-            return;
-        }
-        try {
-            if (mediaPlayer.isPlaying()) {
-                return;
-            }
-            try {
-                if (!this.c) {
-                    this.b.prepare();
-                    this.c = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, u1Var, w2Var)) == null) {
+            if (g()) {
+                GLSurfaceView.EGLConfigChooser l = l();
+                a aVar = new a(this, u1Var.getContext(), w2Var);
+                if (l != null) {
+                    aVar.setEGLConfigChooser(l);
+                } else {
+                    v1 v1Var = this.s;
+                    aVar.setEGLConfigChooser(v1Var.a, v1Var.b, v1Var.c, v1Var.d, v1Var.e, v1Var.f);
                 }
-                this.b.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (IllegalStateException e2) {
-                e2.printStackTrace();
+                aVar.setRenderer(this);
+                return aVar;
             }
-        } catch (Exception e3) {
-            e3.printStackTrace();
+            throw new GdxRuntimeException("Libgdx requires OpenGL ES 2.0");
+        }
+        return (GLSurfaceView20) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.e2
+    public void o() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && AndroidLiveWallpaperService.DEBUG) {
+            super.o();
         }
     }
 
-    @Override // android.media.MediaPlayer.OnCompletionListener
-    public void onCompletion(MediaPlayer mediaPlayer) {
+    public SurfaceHolder y() {
+        InterceptResult invokeV;
+        SurfaceHolder surfaceHolder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) && this.e != null) {
-            o0.a.postRunnable(new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (((h2) this.d).a.sync) {
+                surfaceHolder = ((h2) this.d).a.getSurfaceHolder();
+            }
+            return surfaceHolder;
+        }
+        return (SurfaceHolder) invokeV.objValue;
+    }
+
+    public void z() {
+        GLSurfaceView20 gLSurfaceView20;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gLSurfaceView20 = this.a) != null) {
+            try {
+                gLSurfaceView20.onDetachedFromWindow();
+                if (AndroidLiveWallpaperService.DEBUG) {
+                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
+                }
+            } catch (Throwable th) {
+                Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
+                th.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.e2, android.opengl.GLSurfaceView.Renderer
+    public void onDrawFrame(GL10 gl10) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gl10) == null) {
+            long nanoTime = System.nanoTime();
+            if (!this.q) {
+                this.j = ((float) (nanoTime - this.i)) / 1.0E9f;
+            } else {
+                this.j = 0.0f;
+            }
+            this.i = nanoTime;
+            synchronized (this.v) {
+                z = this.o;
+                z2 = this.p;
+                z3 = this.r;
+                z4 = this.q;
+                if (this.q) {
+                    this.q = false;
+                    this.v.notifyAll();
+                }
+                if (this.p) {
+                    this.p = false;
+                    this.v.notifyAll();
+                }
+                if (this.r) {
+                    this.r = false;
+                    this.v.notifyAll();
+                }
+            }
+            if (z4) {
+                this.d.getApplicationListener().resume();
+                s0.a.log("AndroidGraphics", "resumed");
+            }
+            if (z) {
+                synchronized (this.d.getRunnables()) {
+                    this.d.getExecutedRunnables().clear();
+                    this.d.getExecutedRunnables().b(this.d.getRunnables());
+                    this.d.getRunnables().clear();
+                    for (int i = 0; i < this.d.getExecutedRunnables().b; i++) {
+                        this.d.getExecutedRunnables().get(i).run();
+                    }
+                }
+                this.d.mo6getInput().d1();
+                this.l++;
+                this.d.getApplicationListener().render();
+            }
+            if (z2) {
+                this.d.getApplicationListener().pause();
+                s0.a.log("AndroidGraphics", "paused");
+            }
+            if (z3) {
+                this.d.getApplicationListener().dispose();
+                s0.a.log("AndroidGraphics", "destroyed");
+            }
+            if (nanoTime - this.k > 1000000000) {
+                this.m = 0;
+                this.k = nanoTime;
+            }
+            this.m++;
+        }
+    }
+
+    @Override // com.baidu.tieba.e2
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this.v) {
+                this.o = true;
+                this.q = true;
+                while (this.q) {
+                    try {
+                        c();
+                        this.v.wait();
+                    } catch (InterruptedException unused) {
+                        s0.a.log("AndroidGraphics", "waiting for resume synchronization failed!");
+                    }
+                }
+            }
         }
     }
 }

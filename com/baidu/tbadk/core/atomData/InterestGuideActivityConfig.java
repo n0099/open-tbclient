@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class InterestGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUSTOM_TITLE_DATA_LENGTH = 3;

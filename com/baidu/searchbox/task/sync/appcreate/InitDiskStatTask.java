@@ -2,7 +2,7 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.download.center.clearcache.DiskManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitDiskStatTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.enums;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum PortraitCategory {
     NORMAL(""),
     NEW("new");

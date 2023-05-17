@@ -1,8 +1,13 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.IntRange;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.p42;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,153 +15,205 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class o42 {
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public abstract class o42<V extends SimpleDraweeView, M extends p42> extends t42<V, M> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982204, "Lcom/baidu/tieba/o42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-594862049, "Lcom/baidu/tieba/o42$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-594862049, "Lcom/baidu/tieba/o42$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982204, "Lcom/baidu/tieba/o42;");
-                return;
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
-        b = ho1.a;
-        c = 5;
     }
 
-    public o42(@IntRange(from = 1) int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o42(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {context, m};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (u42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c(i, false);
     }
 
-    public o42(@IntRange(from = 1) int i, boolean z) {
+    public static Uri W(@NonNull String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c(i, z);
-    }
-
-    public final int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return i >> c;
-        }
-        return invokeI.intValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean b(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < 0) {
-                x42.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
-            }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                x42.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return false;
-                }
-                throw new IndexOutOfBoundsException(str);
-            } else if (((1 << i) & iArr[a(i)]) == 0) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = og3.s(str);
+            g93 M = g93.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.k0();
             } else {
-                return true;
+                str2 = null;
+                str3 = null;
             }
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = og3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = og3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
         }
-        return invokeI.booleanValue;
+        return (Uri) invokeL.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void d(@IntRange(from = 0) int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t42
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull y52 y52Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i < 0) {
-                x42.c("Component-DiffBitMap", "diff < 0: " + i);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException("diff < 0: " + i);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, y52Var) == null) {
+            super.C(v, m, y52Var);
+            if (y52Var.a(9)) {
+                U(v, m);
             }
-            int[] iArr = this.a;
-            int length = (iArr.length << c) - 1;
-            if (i > length) {
-                String str = "diff > " + length + ": " + i;
-                x42.c("Component-DiffBitMap", str);
-                if (!b) {
-                    return;
-                }
-                throw new IndexOutOfBoundsException(str);
-            }
-            int a = a(i);
-            iArr[a] = (1 << i) | iArr[a];
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public final void c(@IntRange(from = 1) int i, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.t42, com.baidu.tieba.v42
+    @NonNull
+    /* renamed from: S */
+    public y52 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i <= 0) {
-                String str = "number <= 0: " + i;
-                x42.c("Component-DiffBitMap", str);
-                if (!b) {
-                    i = 500;
-                } else {
-                    throw new NegativeArraySizeException(str);
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
+            y52 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(9);
             }
-            int[] iArr = new int[a(i - 1) + 1];
-            this.a = iArr;
-            int length = iArr.length;
-            if (z) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.a[i2] = -1;
-                }
-            }
+            return k;
         }
+        return (y52) invokeLL.objValue;
+    }
+
+    public void U(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
+            V(v, m, null);
+        }
+    }
+
+    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri W;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
+            return;
+        }
+        if (v42.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
+        }
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
+            return;
+        }
+        g62.i("Component-SimpleDrawee", "Image Uri:" + W);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
+        }
+        HashMap hashMap = new HashMap();
+        String g0 = ag2.U().g0();
+        if (!TextUtils.isEmpty(g0)) {
+            hashMap.put("User-Agent", g0);
+        }
+        String b = nm3.b();
+        if (!TextUtils.isEmpty(b) && nm3.c(W.toString())) {
+            hashMap.put("Referer", b);
+        }
+        au1 C = ns2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

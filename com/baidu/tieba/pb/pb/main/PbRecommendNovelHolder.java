@@ -18,16 +18,16 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.k05;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.p05;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,16 +42,16 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public gz4 l;
+    public p05 l;
     public b m;
     public View.OnClickListener n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a(gz4 gz4Var);
+        void a(p05 p05Var);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && ii.F() && this.a.l != null && !StringUtils.isNull(this.a.l.e1)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && ri.F() && this.a.l != null && !StringUtils.isNull(this.a.l.e1)) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(BookCoverActivityConfig.class)) {
-                    ii.P(this.a.a.getPageActivity(), R.string.book_plugin_not_install_tip);
+                    ri.P(this.a.a.getPageActivity(), R.string.book_plugin_not_install_tip);
                     return;
                 }
                 if (this.a.m != null) {
@@ -89,9 +89,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.e1;
-                    bz4 bz4Var = new bz4();
-                    TbPageContext tbPageContext = (TbPageContext) g9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, bz4Var));
+                    k05 k05Var = new k05();
+                    TbPageContext tbPageContext = (TbPageContext) m9.a(this.a.a.getPageActivity());
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, k05Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.e1).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -99,7 +99,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.e1).param("obj_locate", "1"));
                 } else if (view2 != pbRecommendNovelHolder.c || StringUtils.isNull(pbRecommendNovelHolder.l.d1)) {
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(this.a.a.getPageActivity()), new String[]{this.a.l.d1});
+                    UrlManager.getInstance().dealOneLink((TbPageContext) m9.a(this.a.a.getPageActivity()), new String[]{this.a.l.d1});
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.e1).param("obj_locate", "2"));
                 }
             }
@@ -127,37 +127,37 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235f);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09235e);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918a7);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918b4);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918a6);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918b1);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918af);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918b2);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918b3);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c3);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923c2);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918f3);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091900);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918f2);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918fd);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918fb);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918fe);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918ff);
         this.i = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
         this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091d38);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091d8c);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);
         this.c.setOnClickListener(this.n);
     }
 
-    public void d(gz4 gz4Var) {
+    public void d(p05 p05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, gz4Var) != null) || gz4Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, p05Var) != null) || p05Var == null) {
             return;
         }
-        this.l = gz4Var;
-        this.b.setText(gz4Var.b1);
-        this.c.setText(gz4Var.c1);
-        this.i.N(gz4Var.j1, 10, false);
-        this.d.N(gz4Var.f1, 10, false);
-        this.h.setText(gz4Var.i1);
-        this.e.setText(gz4Var.g1);
-        List<String> list = gz4Var.h1;
+        this.l = p05Var;
+        this.b.setText(p05Var.b1);
+        this.c.setText(p05Var.c1);
+        this.i.N(p05Var.j1, 10, false);
+        this.d.N(p05Var.f1, 10, false);
+        this.h.setText(p05Var.i1);
+        this.e.setText(p05Var.g1);
+        List<String> list = p05Var.h1;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

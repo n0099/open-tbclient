@@ -16,7 +16,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR = new i();
     public String b;
@@ -29,7 +29,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static final Parcelable.Creator<TransitStep> CREATOR = new j();
         public List<TrafficCondition> d;
@@ -48,7 +48,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             return 0;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public static class TrafficCondition implements Parcelable {
             public static final Parcelable.Creator<TrafficCondition> CREATOR = new k();
             public int a;
@@ -137,7 +137,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             return this.mWayPoints;
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes3.dex */
         public enum StepVehicleInfoType {
             ESTEP_TRAIN(1),
             ESTEP_PLANE(2),

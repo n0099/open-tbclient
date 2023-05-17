@@ -2,7 +2,7 @@ package com.baidu.pass.main.facesdk;
 
 import com.baidu.pass.main.facesdk.model.BDFaceOcclusion;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceInfo {
     public int age;
     public float angle;

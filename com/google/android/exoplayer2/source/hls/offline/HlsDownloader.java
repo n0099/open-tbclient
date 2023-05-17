@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, String> {
     public HlsDownloader(Uri uri, DownloaderConstructorHelper downloaderConstructorHelper) {
         super(uri, downloaderConstructorHelper);

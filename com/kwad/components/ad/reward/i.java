@@ -6,12 +6,12 @@ import com.kwad.sdk.core.network.BaseResultData;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class i {
     public volatile boolean fq;
     public com.kwad.sdk.core.network.m<j, BaseResultData> fr;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static i mi = new i((byte) 0);
     }

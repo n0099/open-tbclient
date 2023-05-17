@@ -18,7 +18,7 @@ import com.baidu.sapi2.views.logindialog.bean.QuickLoginResult;
 import com.baidu.sapi2.views.logindialog.enums.QuickLoginType;
 import com.baidu.sapi2.views.logindialog.interf.ILoginConfirmCallback;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OneKeyLoginView extends LinearLayout {
     public Context a;
     public TextView b;
@@ -26,15 +26,15 @@ public class OneKeyLoginView extends LinearLayout {
     public ILoginConfirmCallback d;
     public String e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: com.baidu.sapi2.views.logindialog.view.OneKeyLoginView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0143a extends OneKeyLoginCallback {
+        /* loaded from: classes3.dex */
+        public class C0147a extends OneKeyLoginCallback {
             public final /* synthetic */ long a;
 
-            public C0143a(long j) {
+            public C0147a(long j) {
                 this.a = j;
             }
 
@@ -89,7 +89,7 @@ public class OneKeyLoginView extends LinearLayout {
                     Log.e(QuickLoginDialog.STAG, "onekey login privacy is not agree");
                     return;
                 }
-                CoreViewRouter.getInstance().loadOneKeyLogin(OneKeyLoginView.this.a, new C0143a(System.currentTimeMillis()));
+                CoreViewRouter.getInstance().loadOneKeyLogin(OneKeyLoginView.this.a, new C0147a(System.currentTimeMillis()));
                 return;
             }
             Log.e(QuickLoginDialog.STAG, "onekey login mContext || mConfirmCallback is null");

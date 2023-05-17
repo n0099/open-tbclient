@@ -7,7 +7,7 @@ import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.utils.TPRunnable;
 import com.baidu.sapi2.utils.ThreadPoolService;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareCallPacking {
     public static final String EXTRA_APP_PKG = "PKG";
     public static final String EXTRA_CALL_TYPE_SHARE = "call_type_share";
@@ -23,7 +23,7 @@ public class ShareCallPacking {
     public static final int SHARE_V2_WITH_ACCOUNT_PKG_SDK_VERSION = 190;
     public static StatModel statModel;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static abstract class ShareLoginCallBack {
         public void onFailed(int i, String str) {
         }
@@ -31,7 +31,7 @@ public class ShareCallPacking {
         public abstract void onSuccess();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StatModel {
         public static final String KEY_ACCOUNT_APP = "account_app";
         public static final String KEY_ACCOUNT_TPL = "account_tpl";

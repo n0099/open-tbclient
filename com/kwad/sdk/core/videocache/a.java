@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.videocache;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface a {
     int a(byte[] bArr, long j, int i);
 

@@ -3,7 +3,7 @@ package com.baidu.nadcore.player.tail;
 import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
     public int f() {

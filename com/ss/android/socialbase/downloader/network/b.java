@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static volatile boolean a = false;
     public static final String b = "b";
@@ -17,7 +17,7 @@ public class b {
     public final a e = new a(com.ss.android.socialbase.downloader.h.e.a());
     public long f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

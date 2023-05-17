@@ -1,270 +1,27 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class q92 extends ff2 {
+/* loaded from: classes7.dex */
+public class q92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean o;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public long c;
 
-    @Override // com.baidu.tieba.hf2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends EventTargetImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @V8JavascriptField
-        public gf2 env;
-
-        /* renamed from: com.baidu.tieba.q92$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0409a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public RunnableC0409a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    fl3.a(kt2.U().getActivity());
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(hf2 hf2Var, String str) {
-            super(hf2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hf2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((JSRuntime) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            gf2 gf2Var = new gf2();
-            this.env = gf2Var;
-            gf2Var.basePath = str;
-        }
-
-        @JavascriptInterface
-        public void addMask() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x42.k("SwanAppV8DaemonEngine", "addMask");
-                h52.b();
-            }
-        }
-
-        @JavascriptInterface
-        public boolean freeMaster() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                x42.k("SwanAppV8DaemonEngine", "freeMaster");
-                synchronized (jf2.p) {
-                    try {
-                        try {
-                            jf2.p.notify();
-                        } catch (IllegalMonitorStateException e) {
-                            e.printStackTrace();
-                            return false;
-                        }
-                    } catch (Throwable th) {
-                        throw th;
-                    }
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @JavascriptInterface
-        public void reload() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                x42.k("SwanAppV8DaemonEngine", "reload");
-                rl3.a0(new RunnableC0409a(this));
-            }
-        }
-
-        @JavascriptInterface
-        public void removeMask() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                x42.k("SwanAppV8DaemonEngine", "removeMask");
-                h52.c();
-            }
-        }
-
-        @JavascriptInterface
-        public void shutdown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                x42.k("SwanAppV8DaemonEngine", "shutdown");
-                i52.k().r();
-                kt2.U().exit();
-            }
-        }
-
-        @JavascriptInterface
-        public String closeConnect(JsObject jsObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject)) == null) {
-                if (q92.o) {
-                    Log.d("SwanAppV8DaemonEngine", "closeConnect params = " + jsObject);
-                }
-                return j52.d(jsObject);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @JavascriptInterface
-        public String connectDevTool(JsObject jsObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject)) == null) {
-                if (q92.o) {
-                    Log.d("SwanAppV8DaemonEngine", "connectDevTool params = " + jsObject);
-                }
-                return j52.e(jsObject);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @JavascriptInterface
-        public String sendMsgToDevTool(JsObject jsObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jsObject)) == null) {
-                if (q92.o) {
-                    Log.d("SwanAppV8DaemonEngine", "sendMsgToDevTool params = " + jsObject);
-                }
-                return j52.m(jsObject);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @JavascriptInterface
-        public String getDevToolsResponse() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (q92.o) {
-                    Log.d("SwanAppV8DaemonEngine", "getDevToolsResponse = " + jf2.q);
-                }
-                return jf2.q;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @JavascriptInterface
-        public void setDevToolsResponse(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                if (q92.o) {
-                    Log.d("SwanAppV8DaemonEngine", "setDevToolsResponse = " + str);
-                }
-                jf2.q = str;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948046591, "Lcom/baidu/tieba/q92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948046591, "Lcom/baidu/tieba/q92;");
-                return;
-            }
-        }
-        o = ho1.a;
-    }
-
-    @Override // com.baidu.tieba.ff2
-    @NonNull
-    public EventTarget A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            a aVar = new a(this, this.b.getInitBasePath());
-            aVar.env.config = dh3.b();
-            return aVar;
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q92(@NonNull String str, @NonNull cg2 cg2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, cg2Var, v8ThreadDelegatePolicy);
+    public q92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, cg2Var, v8ThreadDelegatePolicy};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (cg2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

@@ -3,7 +3,7 @@ package com.baidu.mapapi.animation;
 import android.view.animation.Interpolator;
 import com.baidu.mapapi.animation.Animation;
 import com.baidu.mapsdkplatform.comapi.a.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlphaAnimation extends Animation {
     public AlphaAnimation(float... fArr) {
         if (fArr != null && fArr.length != 0) {

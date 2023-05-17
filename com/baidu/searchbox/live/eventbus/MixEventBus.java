@@ -2,13 +2,13 @@ package com.baidu.searchbox.live.eventbus;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MixEventBus {
     public static MixEventBus sInstance;
     public static ConcurrentHashMap<Object, CopyOnWriteArrayList<EventPoster>> sSubscriberMap;
     public MixEventBusCore eventBusCore;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Holder {
         public static final MixEventBus INSTANCE = new MixEventBus();
     }

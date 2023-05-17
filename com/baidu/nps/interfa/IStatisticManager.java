@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IStatisticManager {
     void onPatchResult(int i, String str, int i2, String str2, StatisticExtendInfo statisticExtendInfo);
 
@@ -22,7 +22,7 @@ public interface IStatisticManager {
 
     void recordResult(long j, int i, String str);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StatisticExtendInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

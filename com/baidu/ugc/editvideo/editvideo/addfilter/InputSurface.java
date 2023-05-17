@@ -8,10 +8,10 @@ import android.opengl.EGLDisplay;
 import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
-import com.baidu.tieba.hla;
+import com.baidu.tieba.fna;
 import com.baidu.webkit.internal.monitor.MonitorType;
 @TargetApi(18)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InputSurface {
     public static final int EGL_OPENGL_ES2_BIT = 4;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -42,7 +42,7 @@ public class InputSurface {
             if (eglGetError == 12288) {
                 break;
             }
-            hla.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+            fna.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
             z = true;
         }
         if (!z) {

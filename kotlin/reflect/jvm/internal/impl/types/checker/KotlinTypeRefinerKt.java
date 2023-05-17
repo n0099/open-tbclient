@@ -5,7 +5,7 @@ import java.util.List;
 import kotlin.collections.CollectionsKt__IterablesKt;
 import kotlin.reflect.jvm.internal.impl.descriptors.ModuleDescriptor;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class KotlinTypeRefinerKt {
     public static final ModuleDescriptor.Capability<Ref<KotlinTypeRefiner>> REFINER_CAPABILITY = new ModuleDescriptor.Capability<>("KotlinTypeRefiner");
 

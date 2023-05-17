@@ -10,12 +10,12 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static final m a = new m(101010256);
     public static final n b = new n(38651);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public Properties a;
         public byte[] b;

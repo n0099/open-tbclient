@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class bm {
     public abstract SharedPreferences a(Context context);
 

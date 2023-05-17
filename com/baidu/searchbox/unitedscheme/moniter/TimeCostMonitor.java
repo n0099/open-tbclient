@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import java.util.Hashtable;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class TimeCostMonitor {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "TimeCostMonitor";

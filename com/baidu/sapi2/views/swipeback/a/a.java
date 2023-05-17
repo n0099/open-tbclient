@@ -10,7 +10,7 @@ import android.widget.ScrollView;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.viewpager.widget.ViewPager;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static View a(ViewGroup viewGroup) {
         View a;

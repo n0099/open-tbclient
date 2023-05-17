@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 @SuppressLint({"BDSoLoader"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NativeHideApiBypass {
     public static native Field getDeclaredField(Object obj, String str);
 

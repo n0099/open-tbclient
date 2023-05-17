@@ -1,5 +1,5 @@
 package com.facebook.common.disk;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface DiskTrimmableRegistry {
     void registerDiskTrimmable(DiskTrimmable diskTrimmable);
 

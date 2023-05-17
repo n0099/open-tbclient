@@ -10,7 +10,7 @@ import java.nio.ByteOrder;
 import java.nio.channels.FileChannel;
 import kotlin.UShort;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MinElf {
     public static final int DT_NEEDED = 1;
     public static final int DT_NULL = 0;
@@ -20,14 +20,14 @@ public final class MinElf {
     public static final int PT_DYNAMIC = 2;
     public static final int PT_LOAD = 1;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class ElfError extends RuntimeException {
         public ElfError(String str) {
             super(str);
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public enum ISA {
         NOT_SO("not_so"),
         X86("x86"),

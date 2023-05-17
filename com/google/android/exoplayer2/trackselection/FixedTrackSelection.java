@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.trackselection;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class FixedTrackSelection extends BaseTrackSelection {
     public final Object data;
     public final int reason;
@@ -17,7 +17,7 @@ public final class FixedTrackSelection extends BaseTrackSelection {
     public void updateSelectedTrack(long j, long j2, long j3) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements TrackSelection.Factory {
         public final Object data;
         public final int reason;

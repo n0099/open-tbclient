@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class NoticeMask extends Message {
     public static final Integer DEFAULT_ATTRTYPE = 0;
     public static final String DEFAULT_ATTRVALUE = "";
@@ -11,7 +11,7 @@ public final class NoticeMask extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
     public final String attrValue;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<NoticeMask> {
         public Integer attrType;
         public String attrValue;

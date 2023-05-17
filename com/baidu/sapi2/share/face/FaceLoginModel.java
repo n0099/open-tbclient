@@ -1,5 +1,5 @@
 package com.baidu.sapi2.share.face;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceLoginModel implements Comparable<FaceLoginModel> {
     public String livingUname;
     public long time;

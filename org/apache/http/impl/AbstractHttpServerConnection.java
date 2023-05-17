@@ -16,7 +16,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractHttpServerConnection implements HttpServerConnection {
     public abstract void assertOpen() throws IllegalStateException;
 

@@ -4,21 +4,21 @@ import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     @Nullable
     public b bA;
     public boolean bB = false;
-    public InterfaceC0547a bz;
+    public InterfaceC0561a bz;
     public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0547a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0561a {
         void ax();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         boolean ay();
     }
@@ -28,8 +28,8 @@ public final class a {
     }
 
     @MainThread
-    public final void a(InterfaceC0547a interfaceC0547a) {
-        this.bz = interfaceC0547a;
+    public final void a(InterfaceC0561a interfaceC0561a) {
+        this.bz = interfaceC0561a;
     }
 
     @MainThread
@@ -38,7 +38,7 @@ public final class a {
     }
 
     public final void aw() {
-        InterfaceC0547a interfaceC0547a;
+        InterfaceC0561a interfaceC0561a;
         if (this.bB) {
             return;
         }
@@ -47,8 +47,8 @@ public final class a {
             return;
         }
         b bVar = this.bA;
-        if ((bVar == null || !bVar.ay()) && (interfaceC0547a = this.bz) != null) {
-            interfaceC0547a.ax();
+        if ((bVar == null || !bVar.ay()) && (interfaceC0561a = this.bz) != null) {
+            interfaceC0561a.ax();
         }
     }
 }

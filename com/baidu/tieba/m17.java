@@ -1,28 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
+import tbclient.FeedLiveComponent;
+/* loaded from: classes6.dex */
 public final class m17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(View view2) {
-        InterceptResult invokeL;
+    public static final void a(FeedLiveComponent feedLiveComponent, List<f37<?>> dataList, h07 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f0927cf);
-            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
-                return true;
-            }
-            view2.setTag(R.id.obfuscated_res_0x7f0927cf, Integer.valueOf(SkinManager.getCurrentSkinType()));
-            return false;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            o07 o07Var = new o07();
+            o07Var.a = feedLiveComponent.top_label;
+            o07Var.b = feedLiveComponent.bottom_label;
+            o07Var.c = feedLiveComponent.audience_label;
+            o07Var.d = feedLiveComponent.cover_url;
+            o07Var.f = feedLiveComponent.schema;
+            o07Var.e = i07.b(feedExtraData, "live_head_show");
+            dataList.add(new g37(new cz6(o07Var, null, 2, null), "live"));
         }
-        return invokeL.booleanValue;
     }
 }

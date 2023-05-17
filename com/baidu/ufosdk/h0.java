@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.ui.CustomCheckBox;
 import com.baidu.ufosdk.ui.FeedbackReportActivity;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class h0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +28,7 @@ public class h0 {
     public int g;
     public boolean h;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +98,7 @@ public class h0 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +168,7 @@ public class h0 {
             LinearLayout linearLayout = new LinearLayout(this.c);
             linearLayout.setOrientation(1);
             if (this.f) {
-                i = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
+                i = -15132391;
             } else {
                 i = -1;
             }

@@ -1,7 +1,7 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Point extends TrackableBase {
     private native int nativeGetOrientationMode(long j, long j2);
 
@@ -11,7 +11,7 @@ public class Point extends TrackableBase {
         super(0L, null);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum OrientationMode {
         INITIALIZED_TO_IDENTITY(0),
         ESTIMATED_SURFACE_NORMAL(1);

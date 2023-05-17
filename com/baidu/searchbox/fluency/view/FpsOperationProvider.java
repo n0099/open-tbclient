@@ -13,7 +13,7 @@ import com.baidu.searchbox.fluency.utils.FpsSpUtil;
 import java.util.ArrayList;
 import java.util.List;
 @DebugInfoProvider(enable = false, type = "Debug_Fetures")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FpsOperationProvider extends DebugDataGroupProvider {
     public CompoundButton.OnCheckedChangeListener mSwitchDebugListener = new CompoundButton.OnCheckedChangeListener() { // from class: com.baidu.searchbox.fluency.view.FpsOperationProvider.1
         @Override // android.widget.CompoundButton.OnCheckedChangeListener

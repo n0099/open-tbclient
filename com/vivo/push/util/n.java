@@ -3,6 +3,7 @@ package com.vivo.push.util;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,7 @@ import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class n {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -71,7 +72,7 @@ public final class n {
             synchronized (n.class) {
                 if (g == null && h == null) {
                     try {
-                        Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod("get", String.class, String.class);
+                        Method declaredMethod = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getDeclaredMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class, String.class);
                         f = declaredMethod;
                         declaredMethod.setAccessible(true);
                         g = (String) f.invoke(null, "ro.vivo.rom", "@><@");
@@ -144,7 +145,7 @@ public final class n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
             try {
-                str3 = (String) Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod("get", String.class).invoke(null, str);
+                str3 = (String) Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP).getMethod(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class).invoke(null, str);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str3 = str2;

@@ -1,85 +1,62 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.recapp.adapter.FrsAppEmptyHolder;
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class fe9 extends p67<ThreadData, FrsAppEmptyHolder> implements vd9 {
+/* loaded from: classes5.dex */
+public class fe9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vd9
-    public void setIsFromCDN(boolean z) {
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fe9(wd9 wd9Var, BdUniqueId bdUniqueId) {
-        super(wd9Var.t(), bdUniqueId);
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wd9Var, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: G */
-    public FrsAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View view2 = new View(this.c.getPageActivity());
-            view2.setVisibility(8);
-            return new FrsAppEmptyHolder(view2);
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
         }
-        return (FrsAppEmptyHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.p67, com.baidu.tieba.vm
-    /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsAppEmptyHolder frsAppEmptyHolder) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public static void d(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
-            if (threadData instanceof AdvertAppInfo) {
-                AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
-                fx4 fx4Var = advertAppInfo.i;
-                if (advertAppInfo.c == -1001) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                fx4.c(fx4Var, threadData.position, z);
-            }
-            return frsAppEmptyHolder.getView();
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
+        }
+        return (Ringtone) invokeV.objValue;
     }
 }

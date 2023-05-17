@@ -11,7 +11,7 @@ import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class c<T extends BasicPushStatus> {
     public final Context a;
     public String b;

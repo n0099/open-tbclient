@@ -8,7 +8,7 @@ import org.apache.http.entity.BasicHttpEntity;
 import org.apache.http.entity.ContentLengthStrategy;
 import org.apache.http.io.SessionInputBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EntityDeserializer {
     public EntityDeserializer(ContentLengthStrategy contentLengthStrategy) {
         throw new RuntimeException("Stub!");

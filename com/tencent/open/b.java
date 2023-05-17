@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
 import com.tencent.open.log.SLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class b extends Dialog {
     public a a;
     @SuppressLint({"NewApi"})

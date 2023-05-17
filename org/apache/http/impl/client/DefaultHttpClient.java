@@ -17,7 +17,7 @@ import org.apache.http.protocol.BasicHttpProcessor;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DefaultHttpClient extends AbstractHttpClient {
     public DefaultHttpClient() {
         super(null, null);

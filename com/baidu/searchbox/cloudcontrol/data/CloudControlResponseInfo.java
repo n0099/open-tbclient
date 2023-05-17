@@ -1,7 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlResponseInfo {
     public Object mCheckData;
     public CloudControlErrorBean mCloudControlErrorBean;

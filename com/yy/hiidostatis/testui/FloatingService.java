@@ -15,10 +15,11 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum FloatingService {
     INSTANCT;
     
@@ -35,7 +36,7 @@ public enum FloatingService {
     public LogAdapter adapter = new LogAdapter();
     public volatile boolean init = false;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public long downTime;
         public boolean hasDown;
@@ -63,7 +64,7 @@ public enum FloatingService {
                         FloatingService.this.layoutParams.x += i;
                         FloatingService.this.layoutParams.y += i2;
                         FloatingService.this.windowManager.updateViewLayout(view2, FloatingService.this.layoutParams);
-                    } else if (System.currentTimeMillis() - this.downTime > 1500) {
+                    } else if (System.currentTimeMillis() - this.downTime > BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT) {
                         FloatingService.this.movingState = true;
                         FloatingService.this.listView.setBackgroundColor(FloatingService.MOVING_BG);
                     }
@@ -98,7 +99,7 @@ public enum FloatingService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class LogAdapter extends BaseAdapter {
         @Override // android.widget.Adapter
         public long getItemId(int i) {

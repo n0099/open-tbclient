@@ -1,5 +1,5 @@
 package com.baidu.searchbox.crius.constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CriusAttrConstants {
     public static final String ABSOLUTE = "absolute";
     public static final String ALIGN_CONTENT = "align-content";

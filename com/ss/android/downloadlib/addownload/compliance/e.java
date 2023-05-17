@@ -2,7 +2,7 @@ package com.ss.android.downloadlib.addownload.compliance;
 
 import com.ss.android.downloadlib.addownload.b.f;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static void a(int i, long j) {
         JSONObject jSONObject = new JSONObject();

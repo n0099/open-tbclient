@@ -8,7 +8,7 @@ import android.util.SparseArray;
 import com.xiaomi.push.service.ay;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class e {
 
     /* renamed from: a  reason: collision with other field name */
@@ -35,14 +35,14 @@ public class e {
     }
 
     public static void a(Context context, String str) {
-        List<NotificationChannel> m706a;
-        if (!com.xiaomi.push.j.m632a(context) || TextUtils.isEmpty(str) || (m706a = ax.a(context, str).m706a()) == null) {
+        List<NotificationChannel> m725a;
+        if (!com.xiaomi.push.j.m651a(context) || TextUtils.isEmpty(str) || (m725a = ax.a(context, str).m725a()) == null) {
             return;
         }
         synchronized (e.class) {
             SharedPreferences a2 = a(context);
             ArrayList arrayList = new ArrayList();
-            for (NotificationChannel notificationChannel : m706a) {
+            for (NotificationChannel notificationChannel : m725a) {
                 String str2 = (String) com.xiaomi.push.bj.a(notificationChannel, "mId");
                 if (!TextUtils.isEmpty(str2) && a2.contains(str2)) {
                     arrayList.add(str2);
@@ -55,9 +55,9 @@ public class e {
     }
 
     public static void a(Context context, String str, String str2, int i, String str3, boolean z, int i2) {
-        if (!com.xiaomi.push.j.m632a(context) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            if (com.xiaomi.push.j.m632a(context)) {
-                com.xiaomi.channel.commonutils.logger.b.m101a("ChannelPC: can`t setup permission with permissionCode:" + String.valueOf(str3) + " channelId:" + String.valueOf(str2) + " targetPkg:" + str);
+        if (!com.xiaomi.push.j.m651a(context) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
+            if (com.xiaomi.push.j.m651a(context)) {
+                com.xiaomi.channel.commonutils.logger.b.m120a("ChannelPC: can`t setup permission with permissionCode:" + String.valueOf(str3) + " channelId:" + String.valueOf(str2) + " targetPkg:" + str);
                 return;
             }
             return;
@@ -115,14 +115,14 @@ public class e {
             if ((b.get(i3).intValue() & i2) == 0) {
                 a(str, str2, i3, (i & i3) > 0);
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m101a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i3 + "> :stoped by userLock");
+                com.xiaomi.channel.commonutils.logger.b.m120a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i3 + "> :stoped by userLock");
             }
         }
     }
 
     public static void a(String str, String str2, int i, boolean z) {
-        boolean a2 = ay.a(com.xiaomi.push.s.m643a(), str, str2, a.get(i), z);
-        com.xiaomi.channel.commonutils.logger.b.m101a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i + "=" + z + "> :" + a2);
+        boolean a2 = ay.a(com.xiaomi.push.s.m662a(), str, str2, a.get(i), z);
+        com.xiaomi.channel.commonutils.logger.b.m120a("ChannelPermissions.grantPermission:" + str + ":" + str2 + ": <" + i + "=" + z + "> :" + a2);
     }
 
     public static boolean a(int i, int i2) {
@@ -130,8 +130,8 @@ public class e {
     }
 
     public static boolean a(String str, String str2, int i) {
-        boolean z = ay.a(com.xiaomi.push.s.m643a(), str, str2, a.get(i)) == 1;
-        com.xiaomi.channel.commonutils.logger.b.m101a("ChannelPermissions.checkPermission:" + str + ":" + str2 + ": <" + i + "=" + z + ">");
+        boolean z = ay.a(com.xiaomi.push.s.m662a(), str, str2, a.get(i)) == 1;
+        com.xiaomi.channel.commonutils.logger.b.m120a("ChannelPermissions.checkPermission:" + str + ":" + str2 + ": <" + i + "=" + z + ">");
         return z;
     }
 }

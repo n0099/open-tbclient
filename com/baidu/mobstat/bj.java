@@ -8,11 +8,11 @@ import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class bj implements bh.a {
     public bh a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(View view2, boolean z, Activity activity);
     }
@@ -20,22 +20,22 @@ public abstract class bj implements bh.a {
     public abstract void a();
 
     @TargetApi(14)
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends bj {
         public WeakReference<Activity> a;
         public b b;
-        public final WeakHashMap<View, C0114a> c = new WeakHashMap<>();
+        public final WeakHashMap<View, C0118a> c = new WeakHashMap<>();
 
         /* renamed from: com.baidu.mobstat.bj$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public class C0114a extends View.AccessibilityDelegate {
+        /* loaded from: classes3.dex */
+        public class C0118a extends View.AccessibilityDelegate {
             public View.AccessibilityDelegate b;
             public View c;
             public volatile boolean d;
             public long e;
             public long f;
 
-            public C0114a(WeakReference<Activity> weakReference, View view2, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
+            public C0118a(WeakReference<Activity> weakReference, View view2, String str, View.AccessibilityDelegate accessibilityDelegate, boolean z) {
                 this.b = accessibilityDelegate;
                 a.this.a = weakReference;
                 this.c = view2;
@@ -76,7 +76,7 @@ public abstract class bj implements bh.a {
                         return;
                     }
                     this.f = System.currentTimeMillis();
-                    if (this.b != null && !(this.b instanceof C0114a) && this.b != this) {
+                    if (this.b != null && !(this.b instanceof C0118a) && this.b != this) {
                         this.b.sendAccessibilityEvent(view2, i);
                     } else {
                         super.sendAccessibilityEvent(view2, i);
@@ -103,11 +103,11 @@ public abstract class bj implements bh.a {
 
         @Override // com.baidu.mobstat.bj
         public void a() {
-            WeakHashMap<View, C0114a> weakHashMap = this.c;
+            WeakHashMap<View, C0118a> weakHashMap = this.c;
             if (weakHashMap == null) {
                 return;
             }
-            for (Map.Entry<View, C0114a> entry : weakHashMap.entrySet()) {
+            for (Map.Entry<View, C0118a> entry : weakHashMap.entrySet()) {
                 entry.getKey().setAccessibilityDelegate(entry.getValue().a());
             }
             this.c.clear();
@@ -120,13 +120,13 @@ public abstract class bj implements bh.a {
 
         public void a(WeakReference<Activity> weakReference, View view2, String str, boolean z) {
             View.AccessibilityDelegate a = a(view2);
-            if (!(a instanceof C0114a)) {
-                C0114a c0114a = new C0114a(weakReference, view2, str, a, z);
-                view2.setAccessibilityDelegate(c0114a);
-                this.c.put(view2, c0114a);
+            if (!(a instanceof C0118a)) {
+                C0118a c0118a = new C0118a(weakReference, view2, str, a, z);
+                view2.setAccessibilityDelegate(c0118a);
+                this.c.put(view2, c0118a);
                 return;
             }
-            ((C0114a) a).a(z);
+            ((C0118a) a).a(z);
         }
     }
 

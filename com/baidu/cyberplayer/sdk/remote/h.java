@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class h extends PlayerProvider implements g.b {
     public com.baidu.cyberplayer.sdk.remote.b a;
     public CyberPlayerManager.HttpDNS b;
@@ -40,7 +40,7 @@ public class h extends PlayerProvider implements g.b {
     public boolean p = false;
     public a k = new a(this);
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Handler {
         public final WeakReference<h> a;
 
@@ -136,7 +136,7 @@ public class h extends PlayerProvider implements g.b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b extends d.a {
         public a a;
         public CyberPlayerManager.HttpDNS b;

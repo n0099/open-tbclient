@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class faceunity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FU_ADM_FLAG_ENABLE_READBACK = 2;
@@ -188,7 +188,7 @@ public class faceunity {
 
     public static native int fuUnbindAllItems(int i);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class FUImage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

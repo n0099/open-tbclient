@@ -4,19 +4,19 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class UpdateAttentionMessage extends CustomResponsedMessage<a> {
             String optString = jSONObject.optString("block_content");
             String optString2 = jSONObject.optString("block_confirm");
             String optString3 = jSONObject.optString("block_cancel");
-            if (!hi.isEmpty(optString) && !hi.isEmpty(this.h) && !hi.isEmpty(optString2) && !hi.isEmpty(optString3)) {
+            if (!qi.isEmpty(optString) && !qi.isEmpty(this.h) && !qi.isEmpty(optString2) && !qi.isEmpty(optString3)) {
                 BlockPopInfoData blockPopInfoData = new BlockPopInfoData();
                 this.i = blockPopInfoData;
                 blockPopInfoData.block_info = optString;

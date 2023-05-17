@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ServerIPV6Mgr {
     public static final String TAG = "ServerIPV6Mgr";
     public static String curLocalDNSIp;

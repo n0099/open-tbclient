@@ -192,8 +192,8 @@ public class BaseJsonData {
                             baseJsonData2.setTimestamp(0L);
                         }
                     }
-                    if (jSONObject.has(TAG_REQUESTID) && !jSONObject.isNull(TAG_REQUESTID)) {
-                        baseJsonData2.setRequestId(jSONObject.optString(TAG_REQUESTID));
+                    if (jSONObject.has("requestid") && !jSONObject.isNull("requestid")) {
+                        baseJsonData2.setRequestId(jSONObject.optString("requestid"));
                         return baseJsonData2;
                     }
                     return baseJsonData2;

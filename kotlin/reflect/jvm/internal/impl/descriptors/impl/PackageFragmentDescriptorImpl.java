@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.PackageFragmentDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class PackageFragmentDescriptorImpl extends DeclarationDescriptorNonRootImpl implements PackageFragmentDescriptor {
     public final FqName fqName;
 

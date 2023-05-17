@@ -6,7 +6,7 @@ import org.apache.http.cookie.Cookie;
 import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class CookieSpecBase extends AbstractCookieSpec {
     public CookieSpecBase() {
         throw new RuntimeException("Stub!");

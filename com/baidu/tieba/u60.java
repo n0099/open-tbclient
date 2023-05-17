@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.tieba.d60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.URISyntaxException;
-/* loaded from: classes6.dex */
-public class u60 implements d60 {
+import java.lang.reflect.Method;
+/* loaded from: classes7.dex */
+public class u60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,24 +25,28 @@ public class u60 implements d60 {
         }
     }
 
-    @Override // com.baidu.tieba.d60
-    public Response a(d60.a aVar) throws IOException {
-        InterceptResult invokeL;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            Request request = aVar.request();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                return aVar.a(request);
-            } catch (RuntimeException e) {
-                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
-                    throw new IOException(e);
+                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, u60.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
+                declaredMethod.setAccessible(true);
+                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
+                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, u60.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
+                declaredMethod2.setAccessible(true);
+                if (!booleanValue) {
+                    return false;
                 }
-                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
-                    throw new IOException(e);
+                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
+                    return false;
                 }
-                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
         }
-        return (Response) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

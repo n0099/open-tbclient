@@ -1,7 +1,7 @@
 package com.baidu.mapapi.utils;
 
 import android.content.Context;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class f implements Runnable {
     public final /* synthetic */ Context a;
     public final /* synthetic */ int b;

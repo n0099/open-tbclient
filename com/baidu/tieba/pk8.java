@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class pk8 extends tj1<LiveRealAuthService> {
+/* loaded from: classes7.dex */
+public class pk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public boolean b;
+    public String c;
 
     public pk8() {
         Interceptable interceptable = $ic;
@@ -24,17 +24,5 @@ public class pk8 extends tj1<LiveRealAuthService> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public LiveRealAuthService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new qk8();
-        }
-        return (LiveRealAuthService) invokeV.objValue;
     }
 }

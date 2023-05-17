@@ -11,12 +11,12 @@ import android.util.DisplayMetrics;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.references.CloseableReference;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class PlatformBitmapFactory {
     public abstract CloseableReference<Bitmap> createBitmapInternal(int i, int i2, Bitmap.Config config);
 
     /* renamed from: com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 

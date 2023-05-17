@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import com.faceunity.encoder.TextureMovieEncoder;
-/* loaded from: classes4.dex */
-public interface g0a {
+import android.app.Application;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes5.dex */
+public final class g0a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z, String str);
+    public static final Application a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
+            return inst;
+        }
+        return (Application) invokeV.objValue;
     }
-
-    void a(Camera camera);
-
-    void b(Camera camera);
-
-    void c(a aVar);
-
-    void d(Camera camera);
-
-    void e(Camera camera);
-
-    void setOnEncoderStatusUpdateListener(TextureMovieEncoder.OnEncoderStatusUpdateListener onEncoderStatusUpdateListener);
-
-    void setPreviewSize(int i, int i2);
 }

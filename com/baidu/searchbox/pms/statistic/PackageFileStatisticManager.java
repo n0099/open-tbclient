@@ -4,13 +4,13 @@ import android.content.Context;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.pms.utils.DebugUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PackageFileStatisticManager {
     public static final String TAG = "pmsPackageFileStatistic";
     public static volatile PackageFileStatisticManager sInstance;
     public Context mContext;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Code {
         public static final int DOWNLOAD_RESULT_CODE_CANCEL = 4;
         public static final int DOWNLOAD_RESULT_CODE_FRONT_FAILED = 21;

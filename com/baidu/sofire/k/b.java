@@ -67,7 +67,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = false;
@@ -177,8 +177,8 @@ public class b {
         return invokeL.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:58:0x007c A[LOOP:0: B:15:0x0029->B:58:0x007c, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x007a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x007d A[LOOP:0: B:15:0x002a->B:58:0x007d, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x007b A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -832,40 +832,40 @@ public class b {
         return (JSONObject) invokeLL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x018d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:100:0x018f, code lost:
         r5.put("m", r3.apkMD5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:102:0x0194, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x0196, code lost:
         r5.put("l", r3.key);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:104:0x019c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:104:0x019e, code lost:
         r5.put("v", r3.versionName);
         r0.put(r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:105:0x01a5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:105:0x01a7, code lost:
         r2 = r4.iterator();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:107:0x01ad, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:107:0x01af, code lost:
         if (r2.hasNext() != false) goto L109;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:108:0x01af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:108:0x01b1, code lost:
         r3 = (com.baidu.sofire.core.ApkInfo) r2.next();
         r4 = new org.json.JSONObject();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:110:0x01bc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:110:0x01bf, code lost:
         r4.put(com.meizu.cloud.pushsdk.constants.PushConstants.URI_PACKAGE_NAME, r3.packageName);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:112:0x01c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:112:0x01c6, code lost:
         r4.put("m", r3.apkMD5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:114:0x01ca, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:114:0x01cd, code lost:
         r4.put("l", r3.key);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:116:0x01d2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:116:0x01d5, code lost:
         r4.put("v", r3.versionName);
         r0.put(r4);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:119:0x01dc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:119:0x01df, code lost:
         return r0;
      */
     /* JADX WARN: Code restructure failed: missing block: B:12:0x0027, code lost:
@@ -910,78 +910,78 @@ public class b {
         r10 = r8.optString("version");
         r11 = r8.optInt("id");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0081, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0082, code lost:
         if (r11 > 0) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0083, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0084, code lost:
         r5.add(java.lang.Integer.valueOf(r11));
      */
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x008a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x008b, code lost:
         r8 = r8.optString(com.baidu.searchbox.pms.db.PackageTable.MD5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0094, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0095, code lost:
         if (android.text.TextUtils.isEmpty(r9) == false) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00a6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x00a7, code lost:
         r12 = r3.a.getString("g_l_l_p_v_" + r11, "");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00c4, code lost:
         if (android.text.TextUtils.isEmpty(r12) != false) goto L82;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x00cb, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x00cc, code lost:
         r12 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x00cd, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x00ce, code lost:
         r12 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x00ce, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x00cf, code lost:
         if (r12 == false) goto L45;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x00da, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00db, code lost:
         r15 = r13.versionName;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x00e0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x00e1, code lost:
         if (android.text.TextUtils.isEmpty(r10) == false) goto L49;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00e9, code lost:
-        r6 = r10.split(com.baidu.spswitch.emotion.resource.EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-        r2 = r15.split(com.baidu.spswitch.emotion.resource.EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00ea, code lost:
+        r6 = r10.split("\\.");
+        r2 = r15.split("\\.");
         r15 = 0;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x00f7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x00f8, code lost:
         if (r15 < r6.length) goto L55;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x00fc, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00fd, code lost:
         r14 = java.lang.Integer.valueOf(r6[r15]).intValue() - java.lang.Integer.valueOf(r2[r15]).intValue();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:68:0x0112, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x0113, code lost:
         if (r14 != 0) goto L60;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:69:0x0114, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x0115, code lost:
         if (r14 > 0) goto L62;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:71:0x0117, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x0118, code lost:
         r15 = r15 + 1;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:73:0x011c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x011d, code lost:
         if (r6.length > r2.length) goto L63;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:74:0x011e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:74:0x011f, code lost:
         r2 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:75:0x0120, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x0121, code lost:
         r2 = false;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x0121, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x0122, code lost:
         if (r2 == false) goto L65;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:79:0x0128, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x0129, code lost:
         r14 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:80:0x012a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x012b, code lost:
         r14 = r12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:81:0x012b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x012c, code lost:
         r2 = r8.toLowerCase();
         r6 = new com.baidu.sofire.core.ApkInfo();
         r6.packageName = r9;
@@ -989,40 +989,40 @@ public class b {
         r6.key = r11;
         r6.apkMD5 = r2;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:82:0x013c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x013d, code lost:
         if (r14 != false) goto L70;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x013e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x013f, code lost:
         r4.add(r6);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:84:0x0142, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:84:0x0143, code lost:
         com.baidu.sofire.k.b.o.put(java.lang.Integer.valueOf(r11), r6);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:86:0x0150, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:86:0x0151, code lost:
         r3.a(r5);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x0159, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x015a, code lost:
         if (com.baidu.sofire.k.b.o.size() > 0) goto L93;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:91:0x0162, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x0163, code lost:
         return null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:93:0x0164, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:93:0x0165, code lost:
         r0 = new org.json.JSONArray();
         r2 = com.baidu.sofire.k.b.o.values().iterator();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:95:0x0177, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:95:0x0178, code lost:
         if (r2.hasNext() != false) goto L96;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:96:0x0179, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:96:0x017a, code lost:
         r3 = r2.next();
         r5 = new org.json.JSONObject();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:98:0x0186, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:98:0x0188, code lost:
         r5.put(com.meizu.cloud.pushsdk.constants.PushConstants.URI_PACKAGE_NAME, r3.packageName);
      */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x013e A[Catch: all -> 0x01df, TryCatch #9 {all -> 0x01df, blocks: (B:7:0x0008, B:26:0x003d, B:30:0x0045, B:32:0x004e, B:34:0x0059, B:35:0x0064, B:37:0x006a, B:39:0x0083, B:40:0x008a, B:42:0x0096, B:44:0x009c, B:48:0x00a6, B:50:0x00c5, B:55:0x00d0, B:57:0x00da, B:59:0x00e2, B:77:0x0123, B:81:0x012b, B:83:0x013e, B:84:0x0142, B:85:0x014b, B:86:0x0150, B:88:0x015b, B:93:0x0164, B:94:0x0173, B:96:0x0179, B:98:0x0186, B:100:0x018d, B:102:0x0194, B:104:0x019c, B:105:0x01a5, B:106:0x01a9, B:108:0x01af, B:110:0x01bc, B:112:0x01c3, B:114:0x01ca, B:116:0x01d2, B:33:0x0056, B:9:0x0013, B:23:0x0037, B:19:0x0030, B:20:0x0033), top: B:141:0x0008 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0142 A[Catch: all -> 0x01df, TryCatch #9 {all -> 0x01df, blocks: (B:7:0x0008, B:26:0x003d, B:30:0x0045, B:32:0x004e, B:34:0x0059, B:35:0x0064, B:37:0x006a, B:39:0x0083, B:40:0x008a, B:42:0x0096, B:44:0x009c, B:48:0x00a6, B:50:0x00c5, B:55:0x00d0, B:57:0x00da, B:59:0x00e2, B:77:0x0123, B:81:0x012b, B:83:0x013e, B:84:0x0142, B:85:0x014b, B:86:0x0150, B:88:0x015b, B:93:0x0164, B:94:0x0173, B:96:0x0179, B:98:0x0186, B:100:0x018d, B:102:0x0194, B:104:0x019c, B:105:0x01a5, B:106:0x01a9, B:108:0x01af, B:110:0x01bc, B:112:0x01c3, B:114:0x01ca, B:116:0x01d2, B:33:0x0056, B:9:0x0013, B:23:0x0037, B:19:0x0030, B:20:0x0033), top: B:141:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x013f A[Catch: all -> 0x01e2, TryCatch #2 {all -> 0x01e2, blocks: (B:7:0x0008, B:26:0x003d, B:30:0x0045, B:32:0x004e, B:34:0x0059, B:35:0x0064, B:37:0x006a, B:39:0x0084, B:40:0x008b, B:42:0x0097, B:44:0x009d, B:48:0x00a7, B:50:0x00c6, B:55:0x00d1, B:57:0x00db, B:59:0x00e3, B:77:0x0124, B:81:0x012c, B:83:0x013f, B:84:0x0143, B:85:0x014c, B:86:0x0151, B:88:0x015c, B:93:0x0165, B:94:0x0174, B:96:0x017a, B:98:0x0188, B:100:0x018f, B:102:0x0196, B:104:0x019e, B:105:0x01a7, B:106:0x01ab, B:108:0x01b1, B:110:0x01bf, B:112:0x01c6, B:114:0x01cd, B:116:0x01d5, B:33:0x0056, B:9:0x0013, B:23:0x0037, B:19:0x0030, B:20:0x0033), top: B:137:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0143 A[Catch: all -> 0x01e2, TryCatch #2 {all -> 0x01e2, blocks: (B:7:0x0008, B:26:0x003d, B:30:0x0045, B:32:0x004e, B:34:0x0059, B:35:0x0064, B:37:0x006a, B:39:0x0084, B:40:0x008b, B:42:0x0097, B:44:0x009d, B:48:0x00a7, B:50:0x00c6, B:55:0x00d1, B:57:0x00db, B:59:0x00e3, B:77:0x0124, B:81:0x012c, B:83:0x013f, B:84:0x0143, B:85:0x014c, B:86:0x0151, B:88:0x015c, B:93:0x0165, B:94:0x0174, B:96:0x017a, B:98:0x0188, B:100:0x018f, B:102:0x0196, B:104:0x019e, B:105:0x01a7, B:106:0x01ab, B:108:0x01b1, B:110:0x01bf, B:112:0x01c6, B:114:0x01cd, B:116:0x01d5, B:33:0x0056, B:9:0x0013, B:23:0x0037, B:19:0x0030, B:20:0x0033), top: B:137:0x0008 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2185,9 +2185,13 @@ public class b {
         return (String) invokeL.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0119 A[Catch: all -> 0x012f, LOOP:1: B:52:0x0113->B:54:0x0119, LOOP_END, TRY_LEAVE, TryCatch #5 {all -> 0x0160, blocks: (B:5:0x0009, B:7:0x002a, B:8:0x002f, B:10:0x003d, B:16:0x0061, B:29:0x0090, B:31:0x00a4, B:34:0x00ac, B:35:0x00c4, B:37:0x00c9, B:39:0x00d4, B:61:0x0133, B:63:0x014c, B:66:0x015c, B:12:0x0057, B:18:0x006c, B:20:0x0073, B:22:0x007b, B:24:0x0083, B:26:0x0088, B:49:0x0104, B:51:0x010a, B:52:0x0113, B:54:0x0119, B:57:0x0127, B:46:0x00ff), top: B:74:0x0009 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static JSONObject n(Context context) {
         InterceptResult invokeL;
-        List<PackageInfo> installedPackages;
+        List<PackageInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65588, null, context)) == null) {
             try {
@@ -2229,17 +2233,27 @@ public class b {
                     com.baidu.sofire.j.a a4 = com.baidu.sofire.j.a.a(context);
                     jSONObject2.put("9", String.valueOf(a4.a.getInt("opi", 0)));
                     if (a4.a.getBoolean("r_a_l_t", false)) {
-                        if (q.e(context)) {
-                            installedPackages = context.getPackageManager().getInstalledPackages(0);
-                        } else {
-                            installedPackages = null;
+                        try {
+                        } catch (Throwable unused) {
+                            int i3 = com.baidu.sofire.a.b.a;
                         }
-                        if (installedPackages != null && installedPackages.size() > 0) {
-                            JSONArray jSONArray = new JSONArray();
-                            for (PackageInfo packageInfo2 : installedPackages) {
-                                jSONArray.put(packageInfo2.packageName);
+                        if (q.e(context)) {
+                            list = context.getPackageManager().getInstalledPackages(0);
+                            if (list != null) {
+                                JSONArray jSONArray = new JSONArray();
+                                while (r1.hasNext()) {
+                                }
+                                jSONObject2.put("aps", jSONArray.toString());
                             }
-                            jSONObject2.put("aps", jSONArray.toString());
+                        } else {
+                            list = null;
+                            if (list != null && list.size() > 0) {
+                                JSONArray jSONArray2 = new JSONArray();
+                                for (PackageInfo packageInfo2 : list) {
+                                    jSONArray2.put(packageInfo2.packageName);
+                                }
+                                jSONObject2.put("aps", jSONArray2.toString());
+                            }
                         }
                     }
                     jSONObject2.put("16", a.a(context));
@@ -2256,8 +2270,8 @@ public class b {
                 }
                 d = 6;
                 return null;
-            } catch (Throwable unused) {
-                int i3 = com.baidu.sofire.a.b.a;
+            } catch (Throwable unused2) {
+                int i4 = com.baidu.sofire.a.b.a;
                 return null;
             }
         }

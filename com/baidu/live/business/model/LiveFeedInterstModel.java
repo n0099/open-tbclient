@@ -5,19 +5,19 @@ import androidx.annotation.Nullable;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.live.business.model.data.LiveFeedData;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.fb0;
-import com.baidu.tieba.gb0;
+import com.baidu.tieba.vb0;
+import com.baidu.tieba.wb0;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedInterstModel {
     public static final String FEED_PAGE_INTEREST_URL = "https://tiebac.baidu.com/livefeed/interest";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnInterestDataLoadCallback {
         void onFail(@Nullable int i, @Nullable String str, @Nullable Map<String, String> map);
 
@@ -32,7 +32,7 @@ public class LiveFeedInterstModel {
         hashMap.put("session_id", str);
         hashMap.put("live_tag", str2);
         hashMap.put("feed_tag", str3);
-        gb0.f(FEED_PAGE_INTEREST_URL, hashMap, new fb0<LiveFeedData>() { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
+        wb0.f(FEED_PAGE_INTEREST_URL, hashMap, new vb0<LiveFeedData>() { // from class: com.baidu.live.business.model.LiveFeedInterstModel.1
             /* renamed from: onNetResponse  reason: avoid collision after fix types in other method */
             public void onNetResponse2(NetResponse netResponse, LiveFeedData liveFeedData, Map<String, String> map, List<String> list) {
                 if (netResponse != null) {
@@ -58,14 +58,14 @@ public class LiveFeedInterstModel {
             }
 
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-            @Override // com.baidu.tieba.fb0
+            @Override // com.baidu.tieba.vb0
             public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list) {
                 onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.fb0
+            @Override // com.baidu.tieba.vb0
             public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                 LiveFeedData liveFeedData = new LiveFeedData();
                 if (netResponse != null && !TextUtils.isEmpty(netResponse.decodedResponseStr)) {

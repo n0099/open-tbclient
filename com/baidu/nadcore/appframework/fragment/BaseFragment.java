@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import com.baidu.nadcore.appframework.BaseActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseFragment extends Fragment {
     public Application a;
     public BaseActivity b;

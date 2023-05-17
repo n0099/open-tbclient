@@ -49,7 +49,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ImagePipelineConfig {
     public static DefaultImageRequestConfig sDefaultImageRequestConfig = new DefaultImageRequestConfig();
     @Nullable
@@ -95,7 +95,7 @@ public class ImagePipelineConfig {
     public final boolean mResizeAndRotateEnabledForNetwork;
     public final DiskCacheConfig mSmallImageDiskCacheConfig;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public Bitmap.Config mBitmapConfig;
         @Nullable
@@ -335,7 +335,7 @@ public class ImagePipelineConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultImageRequestConfig {
         public boolean mProgressiveRenderingEnabled;
 

@@ -2,7 +2,7 @@ package com.yy.hiidostatis.defs.monitor;
 
 import android.content.Context;
 import com.yy.hiidostatis.inner.util.ArdUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum TrafficMonitor {
     instance;
     

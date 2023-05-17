@@ -1,178 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Rect;
+import android.os.Build;
+import android.view.View;
+import android.widget.PopupWindow;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveReqMsg;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.ViewCommonUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes7.dex */
-public class xr7 implements kr7 {
+/* loaded from: classes8.dex */
+public class xr7 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public za c;
-    public boolean d;
-    public lr7 e;
-    public final HashMap<String, List<in>> f;
+    public TbPageContext a;
+    public a b;
 
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
+    /* loaded from: classes8.dex */
+    public interface a {
+        void a();
     }
 
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xr7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(xr7 xr7Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xr7Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xr7Var;
-        }
-
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.d = false;
-                if (this.a.e == null) {
-                    return;
-                }
-                if (!(responsedMessage instanceof wr7)) {
-                    this.a.e.c(-1);
-                } else if (responsedMessage.getOrginalMessage() != null && this.a.b == responsedMessage.getOrginalMessage().getTag()) {
-                    if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                        this.a.e.c(responsedMessage.getError());
-                        return;
-                    }
-                    wr7 wr7Var = (wr7) responsedMessage;
-                    if (wr7Var.getDataList() != null && wr7Var.getDataList().size() > 0) {
-                        if (!StringUtils.isNull(this.a.a)) {
-                            this.a.f.put(this.a.a, wr7Var.getDataList());
-                        }
-                        this.a.e.b(responsedMessage.getError(), wr7Var);
-                        return;
-                    }
-                    this.a.e.c(-1);
-                } else {
-                    this.a.e.c(-1);
-                }
-            }
-        }
-    }
-
-    public xr7(lr7 lr7Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xr7(TbPageContext tbPageContext, View view2, int i, int i2) {
+        super(view2, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lr7Var};
+            Object[] objArr = {tbPageContext, view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.f = new HashMap<>();
-        this.e = lr7Var;
-        g();
+        this.a = tbPageContext;
     }
 
-    public void i(String str) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.dismiss();
         }
     }
 
-    public void k(BdUniqueId bdUniqueId) {
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
-        }
-    }
-
-    @Override // com.baidu.tieba.kr7
-    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
-            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                if (this.d) {
-                    return false;
-                }
-                String str4 = this.a;
-                if (str4 != null && str4.equals(str) && this.f.size() > 0) {
-                    this.e.setData(this.f.get(str));
-                    return true;
-                }
-                k(bdUniqueId);
-                i(str);
-                h(str2);
-                j(str3);
-                MoreTreasureTroveReqMsg moreTreasureTroveReqMsg = new MoreTreasureTroveReqMsg();
-                moreTreasureTroveReqMsg.setTag(bdUniqueId);
-                moreTreasureTroveReqMsg.setTabCode(str);
-                moreTreasureTroveReqMsg.setLfUser(str2);
-                moreTreasureTroveReqMsg.setTaskId(str3);
-                boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
-                this.d = sendMessage;
-                return sendMessage;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a aVar = this.b;
+            if (aVar != null) {
+                aVar.a();
+            } else {
+                super.dismiss();
             }
-            lr7 lr7Var = this.e;
-            if (lr7Var != null) {
-                lr7Var.c(-1);
-            }
-            return false;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void g() {
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
-            MessageManager.getInstance().registerListener(this.c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Rect rect = new Rect();
+                view2.getGlobalVisibleRect(rect);
+                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
+            }
+            GreyUtil.grey(this);
+            super.showAsDropDown(view2);
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, view2, i, i2) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                Rect rect = new Rect();
+                view2.getGlobalVisibleRect(rect);
+                setHeight(ViewCommonUtil.getScreenFullSize(this.a.getPageActivity())[1] - rect.bottom);
+            }
+            GreyUtil.grey(this);
+            super.showAsDropDown(view2, i, i2);
         }
     }
 }

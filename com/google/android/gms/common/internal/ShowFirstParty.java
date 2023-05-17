@@ -8,6 +8,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.CONSTRUCTOR})
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public @interface ShowFirstParty {
 }

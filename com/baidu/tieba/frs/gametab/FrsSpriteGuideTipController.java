@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.an6;
+import com.baidu.tieba.bj5;
 import com.baidu.tieba.core.widget.SpriteBottomTipView;
-import com.baidu.tieba.em6;
 import com.baidu.tieba.frs.gametab.FrsSpriteGuideTipController;
-import com.baidu.tieba.ol6;
-import com.baidu.tieba.sh5;
+import com.baidu.tieba.qn6;
 import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
 import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,22 +32,22 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u0000D\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001:\u0001!B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u001a\u001a\u00020\u001bH\u0002J\u0010\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u0002\u001a\u00020\u0003H\u0002J\u0006\u0010\u001e\u001a\u00020\u001fJ\u0006\u0010 \u001a\u00020\u001fR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u001a\u0010\u0007\u001a\u00020\bX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\t\"\u0004\b\n\u0010\u000bR\u001c\u0010\f\u001a\u0004\u0018\u00010\rX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\u001c\u0010\u0012\u001a\u0004\u0018\u00010\u0013X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R\u000e\u0010\u0018\u001a\u00020\u0019X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\""}, d2 = {"Lcom/baidu/tieba/frs/gametab/FrsSpriteGuideTipController;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "getActivity", "()Landroid/app/Activity;", "isTipShowing", "", "()Z", "setTipShowing", "(Z)V", "onBtnClickCallback", "Lcom/baidu/tieba/frs/gametab/FrsSpriteGuideTipController$OnBtnClickCallback;", "getOnBtnClickCallback", "()Lcom/baidu/tieba/frs/gametab/FrsSpriteGuideTipController$OnBtnClickCallback;", "setOnBtnClickCallback", "(Lcom/baidu/tieba/frs/gametab/FrsSpriteGuideTipController$OnBtnClickCallback;)V", "onTipDismissCallback", "Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "getOnTipDismissCallback", "()Lcom/baidu/tieba/controller/TipController$OnDismissListener;", "setOnTipDismissCallback", "(Lcom/baidu/tieba/controller/TipController$OnDismissListener;)V", "spriteAnimationTipManager", "Lcom/baidu/tieba/statemachine/animationtip/SpriteAnimationTipManager;", "createAnimationTipViewLayoutParams", "Landroid/widget/FrameLayout$LayoutParams;", "createViewByData", "Lcom/baidu/tieba/core/widget/SpriteBottomTipView;", "hideTip", "", "showTip", "OnBtnClickCallback", "frs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class FrsSpriteGuideTipController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Activity a;
     public final SpriteAnimationTipManager b;
     public a c;
-    public ol6.e d;
+    public an6.e d;
     public boolean e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onClick();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class b implements SpriteBottomTipView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,18 +82,18 @@ public final class FrsSpriteGuideTipController {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a e = this.a.e();
-                if (e != null) {
-                    e.onClick();
-                }
                 this.a.b.i();
             }
         }
 
         @Override // com.baidu.tieba.core.widget.SpriteBottomTipView.b
-        public void b() {
+        public void onBtnClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                a e = this.a.e();
+                if (e != null) {
+                    e.onClick();
+                }
                 this.a.b.i();
             }
         }
@@ -131,24 +131,24 @@ public final class FrsSpriteGuideTipController {
         } else {
             str = "funny_sprite_appear_dark";
         }
-        em6 a2 = sh5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
+        qn6 a2 = bj5.a(FunnySpriteResDownloadUtil.i(str, "see_res", true), false, 2);
         if (z) {
             str2 = "funny_sprite_show_day";
         } else {
             str2 = "funny_sprite_show_dark";
         }
-        em6 a3 = sh5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
+        qn6 a3 = bj5.a(FunnySpriteResDownloadUtil.i(str2, "see_res", true), true, 2);
         if (z) {
             str3 = "funny_sprite_exit_day";
         } else {
             str3 = "funny_sprite_exit_dark";
         }
-        this.b.u(a2, a3, sh5.a(FunnySpriteResDownloadUtil.i(str3, "see_res", true), false, 2));
+        this.b.u(a2, a3, bj5.a(FunnySpriteResDownloadUtil.i(str3, "see_res", true), false, 2));
         this.b.x(d(this.a));
         this.b.y(4000L);
         this.b.s(UtilHelper.getDimenPixelSize(R.dimen.tbds120), UtilHelper.getDimenPixelSize(R.dimen.tbds239));
         this.b.t(c());
-        this.b.v(new View.OnClickListener() { // from class: com.baidu.tieba.qd7
+        this.b.v(new View.OnClickListener() { // from class: com.baidu.tieba.df7
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -199,7 +199,7 @@ public final class FrsSpriteGuideTipController {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                     this.this$0.k(false);
-                    ol6.e f = this.this$0.f();
+                    an6.e f = this.this$0.f();
                     if (f != null) {
                         f.onDismiss();
                     }
@@ -211,7 +211,7 @@ public final class FrsSpriteGuideTipController {
     public static final void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            String b2 = sh5.b("", 0);
+            String b2 = bj5.b("", 0);
             if (StringsKt__StringsJVMKt.startsWith$default(b2, "tiebaapp://router/portal", false, 2, null)) {
                 UrlManager.getInstance().dealOneLink(TbadkApplication.getInst().getCurrentPageContext(TbadkApplication.getInst().getCurrentActivity()), new String[]{b2});
             }
@@ -225,7 +225,7 @@ public final class FrsSpriteGuideTipController {
         }
     }
 
-    public final void j(ol6.e eVar) {
+    public final void j(an6.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
             this.d = eVar;
@@ -260,13 +260,13 @@ public final class FrsSpriteGuideTipController {
         return (a) invokeV.objValue;
     }
 
-    public final ol6.e f() {
+    public final an6.e f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
-        return (ol6.e) invokeV.objValue;
+        return (an6.e) invokeV.objValue;
     }
 
     public final void g() {
@@ -275,7 +275,7 @@ public final class FrsSpriteGuideTipController {
             DefaultLog.getInstance().c("FrsGuide", "精灵动画提示控件：隐藏吧引导");
             this.b.p();
             this.e = false;
-            ol6.e eVar = this.d;
+            an6.e eVar = this.d;
             if (eVar != null) {
                 eVar.onDismiss();
             }
@@ -316,8 +316,8 @@ public final class FrsSpriteGuideTipController {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
             SpriteBottomTipView.a aVar = new SpriteBottomTipView.a(activity);
-            aVar.c(activity.getString(R.string.obfuscated_res_0x7f0f0776));
-            aVar.i(activity.getString(R.string.obfuscated_res_0x7f0f0777));
+            aVar.c(activity.getString(R.string.obfuscated_res_0x7f0f07e4));
+            aVar.i(activity.getString(R.string.obfuscated_res_0x7f0f07e5));
             aVar.h(true);
             aVar.k(R.dimen.T_X07);
             aVar.j(R.color.CAM_X0610);

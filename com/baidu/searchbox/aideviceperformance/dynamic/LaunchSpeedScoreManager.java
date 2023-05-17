@@ -16,7 +16,7 @@ import com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceW
 import com.baidu.searchbox.aideviceperformance.utils.LaunchSpeedReadUtil;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import java.nio.FloatBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LaunchSpeedScoreManager implements ILaunchSpeedScoreManager {
     public static final boolean DEBUG = Config.isDebug();
     public static final String SP_KEY_LAUNCH_SCORE_TIME = "launch_speed_score_time";

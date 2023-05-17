@@ -19,18 +19,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.edb;
-import com.baidu.tieba.eeb;
-import com.baidu.tieba.fdb;
-import com.baidu.tieba.feb;
-import com.baidu.tieba.hdb;
-import com.baidu.tieba.kdb;
-import com.baidu.tieba.lab;
-import com.baidu.tieba.lbb;
-import com.baidu.tieba.ndb;
-import com.baidu.tieba.odb;
-import com.baidu.tieba.rdb;
-import com.baidu.tieba.zdb;
+import com.baidu.tieba.bgb;
+import com.baidu.tieba.dfb;
+import com.baidu.tieba.efb;
+import com.baidu.tieba.ffb;
+import com.baidu.tieba.hfb;
+import com.baidu.tieba.igb;
+import com.baidu.tieba.jdb;
+import com.baidu.tieba.jgb;
+import com.baidu.tieba.kcb;
+import com.baidu.tieba.mfb;
+import com.baidu.tieba.mgb;
+import com.baidu.tieba.nfb;
+import com.baidu.tieba.pfb;
+import com.baidu.tieba.qfb;
+import com.baidu.tieba.tfb;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -49,13 +52,15 @@ import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.RevenueManager;
 import tv.athena.revenue.api.pay.params.PayFlowType;
+import tv.athena.revenue.payui.YYPayUIKit;
 import tv.athena.revenue.payui.model.BannerItemSelectListener;
+import tv.athena.revenue.payui.model.PayFlowModel;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.IYYPayResultView;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter;
 import tv.athena.revenue.payui.view.banner.PluginCenterTopBanner;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class YYPayResultView extends LinearLayout implements IYYPayResultView {
     public Activity a;
     public int b;
@@ -79,17 +84,18 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
     public List<SplitRecordItem> t;
     public String u;
     public PayFlowType v;
+    public mgb w;
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public void refreshView() {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public a() {
         }
@@ -99,22 +105,25 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             if (YYPayResultView.this.i != null) {
                 YYPayResultView.this.i.b();
             }
-            YYPayResultView.this.I();
+            YYPayResultView.this.J();
+            if (YYPayResultView.this.w != null) {
+                YYPayResultView.this.w.a(new efb());
+            }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public b() {
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            kdb.b(YYPayResultView.this.b, YYPayResultView.this.c, PayUIEventType.failpagecallnum);
+            mfb.b(YYPayResultView.this.b, YYPayResultView.this.c, PayUIEventType.failpagecallnum);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class c implements PaySplitOrderAdapter.c {
         public c() {
         }
@@ -122,23 +131,23 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         @Override // tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter.c
         public void a(SplitRecordItem splitRecordItem) {
             RLog.info("YYPayResultView", "onLinkItemClick item:" + splitRecordItem);
-            zdb.a(YYPayResultView.this.a, splitRecordItem.value);
-            YYPayResultView.this.C();
+            bgb.a(YYPayResultView.this.a, splitRecordItem.value);
+            YYPayResultView.this.D();
         }
 
         @Override // tv.athena.revenue.payui.view.adapter.PaySplitOrderAdapter.c
         public void b(SplitRecordItem splitRecordItem) {
             RLog.info("YYPayResultView", "onPayAmoyntItemClick item:" + splitRecordItem);
             if (YYPayResultView.this.i != null) {
-                edb a = odb.a((int) (eeb.d(splitRecordItem.value) * 100.0d), YYPayResultView.this.k);
-                a.d(splitRecordItem.id);
+                dfb a = qfb.a((int) (igb.d(splitRecordItem.value) * 100.0d), YYPayResultView.this.k);
+                a.e(splitRecordItem.id);
                 YYPayResultView.this.i.a(a);
             }
-            YYPayResultView.this.D(splitRecordItem);
+            YYPayResultView.this.E(splitRecordItem);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class d implements AdapterView.OnItemClickListener {
         public d() {
         }
@@ -151,12 +160,12 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                 if (YYPayResultView.this.n != null && YYPayResultView.this.n.b != null) {
                     YYPayResultView.this.n.b.onBannerClick(bannerInfo);
                 }
-                kdb.d(YYPayResultView.this.b, YYPayResultView.this.c, "23", "", "", bannerInfo.id);
+                nfb.b(YYPayResultView.this.b, YYPayResultView.this.c, "23", "", "", bannerInfo.id);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class e implements BannerItemSelectListener {
         public e() {
         }
@@ -166,12 +175,12 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             if (i >= 0 && i < YYPayResultView.this.m.size()) {
                 BannerConfigItem.BannerInfo bannerInfo = (BannerConfigItem.BannerInfo) YYPayResultView.this.m.get(i);
                 RLog.debug("YYPayResultView", "onItemSelected: item=" + bannerInfo);
-                kdb.d(YYPayResultView.this.b, YYPayResultView.this.c, "22", "", "", bannerInfo.id);
+                nfb.b(YYPayResultView.this.b, YYPayResultView.this.c, "22", "", "", bannerInfo.id);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class f implements IResult<BannerConfigResult> {
         public f() {
         }
@@ -192,7 +201,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             }
             if (list != null && list.size() > 0) {
                 YYPayResultView.this.m.addAll(list);
-                YYPayResultView.this.J();
+                YYPayResultView.this.K();
             }
         }
 
@@ -202,7 +211,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class g implements IResult<SplitOrderConfigResult> {
         public g() {
         }
@@ -212,34 +221,35 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         /* renamed from: a */
         public void onSuccess(SplitOrderConfigResult splitOrderConfigResult, PayCallBackBean payCallBackBean) {
             RLog.info("YYPayResultView", "querySplitOrderConfig onSuccess result:" + splitOrderConfigResult);
-            YYPayResultView.this.v();
+            YYPayResultView.this.w();
             if (splitOrderConfigResult == null) {
-                YYPayResultView.this.w();
+                YYPayResultView.this.x();
                 return;
             }
-            YYPayResultView.this.H(splitOrderConfigResult.splitRecordItemList);
-            YYPayResultView.this.B(splitOrderConfigResult.hintMsg, null);
+            YYPayResultView.this.I(splitOrderConfigResult.splitRecordItemList);
+            YYPayResultView.this.C(splitOrderConfigResult.hintMsg, null);
         }
 
         @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
         public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
             RLog.error("YYPayResultView", "querySplitOrderConfig onFail code:" + i + " failReason:" + str, new Object[0]);
-            YYPayResultView.this.v();
             YYPayResultView.this.w();
+            YYPayResultView.this.x();
         }
     }
 
-    public YYPayResultView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, IYYPayResultView.c cVar, lbb lbbVar) {
+    public YYPayResultView(Activity activity, PayUIKitConfig payUIKitConfig, int i, int i2, IYYPayResultView.c cVar, jdb jdbVar) {
         super(activity);
         PayFlowType payFlowType;
         this.m = new ArrayList();
         this.t = new ArrayList();
         this.u = "0";
+        this.w = null;
         if (cVar == null) {
             RLog.error("YYPayResultView", "YYPayResultView construct error viewParams null", new Object[0]);
         }
         this.k = payUIKitConfig;
-        LayoutInflater.from(new ContextThemeWrapper(activity, feb.a.a(payUIKitConfig))).inflate(R.layout.pay_ui_layout_pay_result_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(activity, jgb.a.a(payUIKitConfig))).inflate(R.layout.pay_ui_layout_pay_result_view, (ViewGroup) this, true);
         this.a = activity;
         this.n = cVar;
         this.d = (TextView) findViewById(R.id.tv_result);
@@ -255,15 +265,15 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             String str = cVar.k;
             this.u = str != null ? str : "0";
         }
-        x(cVar);
-        K(cVar != null ? cVar.a : null);
-        s(cVar);
-        z();
-        E();
+        y(cVar);
+        L(cVar != null ? cVar.a : null);
+        t(cVar);
+        A();
+        F();
         RLog.debug("YYPayResultView", "YYPayResultView construct mPayFlowType:" + this.v);
     }
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public void attachWindow(Window window) {
         RLog.debug("YYPayResultView", "attachWindow window:" + window);
         this.o = window;
@@ -277,10 +287,10 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
     public void setCallback(IYYPayResultView.a aVar) {
         RLog.info("YYPayResultView", "setCallback");
         this.i = aVar;
-        G();
+        H();
     }
 
-    public final int t(List<SplitRecordItem> list) {
+    public final int u(List<SplitRecordItem> list) {
         int i = 0;
         if (list == null) {
             return 0;
@@ -293,7 +303,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         return i;
     }
 
-    public final int u(List<SplitMinAmountInfo> list) {
+    public final int v(List<SplitMinAmountInfo> list) {
         RLog.info("YYPayResultView", "getSplitMinAmount splitMinAmountInfoList:" + list);
         for (SplitMinAmountInfo splitMinAmountInfo : list) {
             if (splitMinAmountInfo.splitType == 2) {
@@ -303,18 +313,72 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         return 0;
     }
 
-    public final void A(edb edbVar, String str) {
-        RLog.info("YYPayResultView", "querySplitOrderConfig payAmount:" + edbVar + " orderId:" + str);
-        lab yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+    public final void A() {
+        kcb yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
+        if (yYPayMiddleService == null) {
+            RLog.info("YYPayResultView", "queryBannerConfig error yyPayMiddleService null");
+        } else {
+            yYPayMiddleService.a(new int[]{2}, new f());
+        }
+    }
+
+    public final void G() {
+        tfb.b(this.p, this.q);
+    }
+
+    public final void H() {
+        boolean z;
+        IYYPayResultView.a aVar = this.i;
+        if (aVar != null) {
+            z = aVar.c();
+        } else {
+            z = false;
+        }
+        RLog.info("YYPayResultView", "showPayGiftDialog:" + z);
+    }
+
+    public final void J() {
+        IYYPayResultView.b bVar = this.j;
+        if (bVar == null) {
+            return;
+        }
+        IYYPayResultView.Result result = bVar.a;
+        if (result == IYYPayResultView.Result.PAY_SUUCESS) {
+            mfb.b(this.b, this.c, PayUIEventType.successpageclose);
+            RLog.info("YYPayResultView", PayUIEventType.successpageclose);
+        } else if (result == IYYPayResultView.Result.PAY_FAIL) {
+            mfb.b(this.b, this.c, PayUIEventType.failpageclose);
+            RLog.info("YYPayResultView", PayUIEventType.failpageclose);
+        }
+    }
+
+    public final void w() {
+        tfb.a(this.p, this.q);
+    }
+
+    public final void x() {
+        RecyclerView recyclerView = this.r;
+        if (recyclerView != null) {
+            recyclerView.setVisibility(8);
+        }
+        Button button = this.f;
+        if (button != null) {
+            button.setVisibility(0);
+        }
+    }
+
+    public final void B(dfb dfbVar, String str) {
+        RLog.info("YYPayResultView", "querySplitOrderConfig payAmount:" + dfbVar + " orderId:" + str);
+        kcb yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
         if (yYPayMiddleService == null) {
             RLog.error("YYPayResultView", "querySplitOrderConfig error yyPayMiddleService null", new Object[0]);
             return;
         }
-        F();
-        yYPayMiddleService.d(2, str, (long) edbVar.c(), new g());
+        G();
+        yYPayMiddleService.e(2, str, (long) dfbVar.c(), new g());
     }
 
-    public final void B(String str, List<SplitRecordItem> list) {
+    public final void C(String str, List<SplitRecordItem> list) {
         if (this.g != null && this.d != null) {
             if (!TextUtils.isEmpty(str)) {
                 this.d.setVisibility(8);
@@ -322,12 +386,12 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             } else if (list != null && !list.isEmpty()) {
                 this.d.setVisibility(0);
                 TextView textView = this.g;
-                textView.setText("还剩" + t(list) + "笔待支付");
+                textView.setText("还剩" + u(list) + "笔待支付");
             }
         }
     }
 
-    public final void C() {
+    public final void D() {
         String str;
         String str2;
         if (this.j == null) {
@@ -342,18 +406,18 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             } else {
                 str2 = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_LINK_ITEM_CLICK;
             }
-            kdb.d(this.b, this.c, str2, "", "", this.u);
+            nfb.b(this.b, this.c, str2, "", "", this.u);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
             if (this.v == PayFlowType.DIOALOG_PAY_FLOW) {
                 str = PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK;
             } else {
                 str = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_LINK_ITEM_CLICK;
             }
-            kdb.d(this.b, this.c, str, "", "", this.u);
+            nfb.b(this.b, this.c, str, "", "", this.u);
         }
     }
 
-    public final void E() {
+    public final void F() {
         String str;
         String str2;
         if (this.j == null) {
@@ -368,14 +432,14 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             } else {
                 str2 = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_PAGE_SHOW;
             }
-            kdb.d(this.b, this.c, str2, "", "", this.u);
+            nfb.b(this.b, this.c, str2, "", "", this.u);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
             if (this.v == PayFlowType.DIOALOG_PAY_FLOW) {
                 str = PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW;
             } else {
                 str = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW;
             }
-            kdb.d(this.b, this.c, str, "", "", this.u);
+            nfb.b(this.b, this.c, str, "", "", this.u);
         }
     }
 
@@ -396,18 +460,18 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             } else {
                 str2 = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_CLOSE_BTN_CLICK;
             }
-            kdb.d(this.b, this.c, str2, "", "", this.u);
+            nfb.b(this.b, this.c, str2, "", "", this.u);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
             if (this.v == PayFlowType.DIOALOG_PAY_FLOW) {
                 str = PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK;
             } else {
                 str = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK;
             }
-            kdb.d(this.b, this.c, str, "", "", this.u);
+            nfb.b(this.b, this.c, str, "", "", this.u);
         }
     }
 
-    public final void D(SplitRecordItem splitRecordItem) {
+    public final void E(SplitRecordItem splitRecordItem) {
         String str;
         String str2;
         if (this.j == null) {
@@ -422,18 +486,18 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             } else {
                 str2 = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_SUCCESS_AMOUNT_ITEM_CLICK;
             }
-            kdb.d(this.b, this.c, str2, "", splitRecordItem.value, this.u);
+            nfb.b(this.b, this.c, str2, "", splitRecordItem.value, this.u);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
             if (this.v == PayFlowType.DIOALOG_PAY_FLOW) {
                 str = PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK;
             } else {
                 str = PayUVEventType.PAY_FULL_SPLIT_ORDER_RESULT_FAIL_AMOUNT_ITEM_CLICK;
             }
-            kdb.d(this.b, this.c, str, "", splitRecordItem.value, this.u);
+            nfb.b(this.b, this.c, str, "", splitRecordItem.value, this.u);
         }
     }
 
-    public final void H(List<SplitRecordItem> list) {
+    public final void I(List<SplitRecordItem> list) {
         Button button;
         if (list != null && !list.isEmpty() && this.r != null && this.s != null && (button = this.f) != null) {
             button.setVisibility(8);
@@ -450,7 +514,38 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         }
     }
 
-    public final void x(IYYPayResultView.c cVar) {
+    public final void M(int i) {
+        List<Integer> list;
+        String string;
+        mgb mgbVar;
+        YYPayUIKit uIKit = YYPayUIKit.getUIKit(this.b, this.c);
+        if (uIKit == null) {
+            RLog.error("YYPayResultView", "willShowPayRetryView null yyPayUIKit", new Object[0]);
+            return;
+        }
+        PayFlowModel payFlowModel = uIKit.getPayFlowModel(this.v);
+        if (payFlowModel != null && (list = payFlowModel.payFailedRetryCode) != null && !list.isEmpty()) {
+            boolean contains = payFlowModel.payFailedRetryCode.contains(Integer.valueOf(i));
+            Activity activity = this.a;
+            if (contains) {
+                string = activity.getString(R.string.pay_ui_pay_result_view_btn_pay_again);
+            } else {
+                string = activity.getString(R.string.pay_ui_pay_result_view_btn_finish);
+            }
+            this.f.setText(string);
+            if (contains) {
+                mgbVar = payFlowModel.payResultViewRetryApi;
+            } else {
+                mgbVar = null;
+            }
+            this.w = mgbVar;
+            RLog.info("YYPayResultView", "willShowPayRetryView showPayRetryView:" + contains + " mPayResultViewRetryApi:" + this.w);
+            return;
+        }
+        RLog.info("YYPayResultView", "willShowPayRetryView ignore payFlowModel:" + payFlowModel);
+    }
+
+    public final void y(IYYPayResultView.c cVar) {
         this.e = (ImageView) findViewById(R.id.img_result);
         this.p = findViewById(R.id.root_loading);
         this.q = (ImageView) findViewById(R.id.iv_loading_circle);
@@ -459,7 +554,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         this.f = button;
         button.setOnClickListener(new a());
         this.g.setOnClickListener(new b());
-        PluginCenterTopBanner pluginCenterTopBanner = (PluginCenterTopBanner) findViewById(R.id.obfuscated_res_0x7f090320);
+        PluginCenterTopBanner pluginCenterTopBanner = (PluginCenterTopBanner) findViewById(R.id.obfuscated_res_0x7f09032e);
         this.h = pluginCenterTopBanner;
         PayUIKitConfig payUIKitConfig = this.k;
         if (payUIKitConfig != null) {
@@ -471,61 +566,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         paySplitOrderAdapter.l(new c());
     }
 
-    public final void F() {
-        rdb.b(this.p, this.q);
-    }
-
-    public final void G() {
-        boolean z;
-        IYYPayResultView.a aVar = this.i;
-        if (aVar != null) {
-            z = aVar.c();
-        } else {
-            z = false;
-        }
-        RLog.info("YYPayResultView", "showPayGiftDialog:" + z);
-    }
-
-    public final void I() {
-        IYYPayResultView.b bVar = this.j;
-        if (bVar == null) {
-            return;
-        }
-        IYYPayResultView.Result result = bVar.a;
-        if (result == IYYPayResultView.Result.PAY_SUUCESS) {
-            kdb.b(this.b, this.c, PayUIEventType.successpageclose);
-            RLog.info("YYPayResultView", PayUIEventType.successpageclose);
-        } else if (result == IYYPayResultView.Result.PAY_FAIL) {
-            kdb.b(this.b, this.c, PayUIEventType.failpageclose);
-            RLog.info("YYPayResultView", PayUIEventType.failpageclose);
-        }
-    }
-
-    public final void v() {
-        rdb.a(this.p, this.q);
-    }
-
-    public final void w() {
-        RecyclerView recyclerView = this.r;
-        if (recyclerView != null) {
-            recyclerView.setVisibility(8);
-        }
-        Button button = this.f;
-        if (button != null) {
-            button.setVisibility(0);
-        }
-    }
-
-    public final void z() {
-        lab yYPayMiddleService = RevenueManager.instance().getYYPayMiddleService(this.b, this.c);
-        if (yYPayMiddleService == null) {
-            RLog.info("YYPayResultView", "queryBannerConfig error yyPayMiddleService null");
-        } else {
-            yYPayMiddleService.a(new int[]{2}, new f());
-        }
-    }
-
-    public final void J() {
+    public final void K() {
         RLog.info("YYPayResultView", "updateBanner: count=" + this.m.size());
         if (this.m.size() == 0) {
             this.h.setVisibility(8);
@@ -541,7 +582,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         this.h.setVisibility(0);
     }
 
-    public final void K(IYYPayResultView.b bVar) {
+    public final void L(IYYPayResultView.b bVar) {
         String str;
         String str2;
         String str3;
@@ -566,17 +607,17 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                     str3 = "Y币";
                 }
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder("成功充值" + str4 + str3);
-                spannableStringBuilder.setSpan(new ForegroundColorSpan(ndb.a("#ffb200")), 4, str4.length() + 4, 33);
+                spannableStringBuilder.setSpan(new ForegroundColorSpan(pfb.a("#ffb200")), 4, str4.length() + 4, 33);
                 this.d.setText(spannableStringBuilder);
             } else {
                 this.d.setText("充值成功");
             }
-            if (fdb.d() != null && fdb.d().successMsg != null) {
-                str5 = fdb.d().successMsg;
+            if (ffb.d() != null && ffb.d().successMsg != null) {
+                str5 = ffb.d().successMsg;
             }
             this.g.setText(str5);
             this.e.setImageResource(R.drawable.pay_ui_pay_success_icon);
-            kdb.b(this.b, this.c, PayUIEventType.successpageshow);
+            mfb.b(this.b, this.c, PayUIEventType.successpageshow);
             RLog.info("YYPayResultView", PayUIEventType.successpageshow);
         } else if (result == IYYPayResultView.Result.PAY_FAIL) {
             String str6 = "充值失败";
@@ -601,19 +642,20 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                 str = str6 + "(" + bVar.b.status + SmallTailInfo.EMOTION_SUFFIX;
             }
             this.d.setText(str);
-            if (fdb.d() != null && fdb.d().customerServiceMsg != null && !fdb.d().customerServiceMsg.isEmpty()) {
-                str2 = fdb.d().customerServiceMsg;
+            if (ffb.d() != null && ffb.d().customerServiceMsg != null && !ffb.d().customerServiceMsg.isEmpty()) {
+                str2 = ffb.d().customerServiceMsg;
             } else {
                 str2 = "如有问题可以联系客服 ";
             }
             this.g.setText(str2);
             this.e.setImageResource(R.drawable.pay_ui_pay_fail_icon);
             RLog.info("YYPayResultView", PayUIEventType.failpageshow);
-            kdb.b(this.b, this.c, PayUIEventType.failpageshow);
+            mfb.b(this.b, this.c, PayUIEventType.failpageshow);
+            M(bVar.c);
         }
     }
 
-    @Override // com.baidu.tieba.ieb
+    @Override // com.baidu.tieba.ogb
     public void refreshWindow(WindowParams windowParams) {
         RLog.debug("YYPayResultView", "refreshWindow params:" + windowParams + " mWindow:" + this.o);
         if (this.o != null && windowParams != null) {
@@ -631,7 +673,7 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
         }
     }
 
-    public final void s(IYYPayResultView.c cVar) {
+    public final void t(IYYPayResultView.c cVar) {
         IYYPayResultView.b bVar;
         String str;
         if (cVar != null && (bVar = cVar.a) != null) {
@@ -639,14 +681,14 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
             if (result == IYYPayResultView.Result.PAY_SUUCESS) {
                 List<SplitRecordItem> list = cVar.d;
                 if (list != null && !list.isEmpty()) {
-                    H(list);
-                    B(null, list);
+                    I(list);
+                    C(null, list);
                     return;
                 }
-                w();
+                x();
             } else if (result == IYYPayResultView.Result.PAY_FAIL) {
-                hdb hdbVar = cVar.g;
-                edb edbVar = cVar.e;
+                hfb hfbVar = cVar.g;
+                dfb dfbVar = cVar.e;
                 boolean z = cVar.i;
                 PayCallBackBean payCallBackBean = cVar.l;
                 if (payCallBackBean != null) {
@@ -654,30 +696,30 @@ public class YYPayResultView extends LinearLayout implements IYYPayResultView {
                 } else {
                     str = "";
                 }
-                if (!z && hdbVar != null && hdbVar.a == PayType.ALI_PAY && bVar.c == 4000 && edbVar != null && y((int) edbVar.c())) {
-                    A(edbVar, str);
+                if (!z && hfbVar != null && hfbVar.a == PayType.ALI_PAY && bVar.c == 4000 && dfbVar != null && z((int) dfbVar.c())) {
+                    B(dfbVar, str);
                 } else {
-                    w();
+                    x();
                 }
             }
         }
     }
 
-    public final boolean y(int i) {
-        PaysSettingInfo d2 = fdb.d();
+    public final boolean z(int i) {
+        PaysSettingInfo d2 = ffb.d();
         if (d2 == null) {
             RLog.error("YYPayResultView", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
             return false;
         }
         List<SplitMinAmountInfo> list = d2.splitMinAmountInfoList;
         if (list != null && !list.isEmpty()) {
-            int u = u(d2.splitMinAmountInfoList);
-            if (u <= 0) {
-                RLog.info("YYPayResultView", "maybeShowSplitOrderDialog false splitMinAmount:" + u);
+            int v = v(d2.splitMinAmountInfoList);
+            if (v <= 0) {
+                RLog.info("YYPayResultView", "maybeShowSplitOrderDialog false splitMinAmount:" + v);
                 return false;
             }
-            RLog.info("YYPayResultView", "maybeShowSplitOrderView inputAmount:" + i + " splitMinAmount:" + u);
-            if (i < u) {
+            RLog.info("YYPayResultView", "maybeShowSplitOrderView inputAmount:" + i + " splitMinAmount:" + v);
+            if (i < v) {
                 return false;
             }
             return true;

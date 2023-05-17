@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LocalContentUriFetchProducer extends LocalFetchProducer {
     public static final String PRODUCER_NAME = "LocalContentUriFetchProducer";
     public static final String[] PROJECTION = {"_id", "_data"};

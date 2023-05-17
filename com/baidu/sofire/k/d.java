@@ -12,7 +12,7 @@ import com.baidu.webkit.sdk.WebChromeClient;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] a;

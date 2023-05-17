@@ -418,7 +418,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> rewind() {
-        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_REWIND, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.7
+        return dispatchRemoteSessionTask(40001, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.7
             @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
             public void run(IMediaSession iMediaSession, int i) throws RemoteException {
                 iMediaSession.rewind(MediaControllerImplBase.this.mControllerStub, i);
@@ -428,7 +428,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> skipBackward() {
-        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SKIP_BACKWARD, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.9
+        return dispatchRemoteSessionTask(40003, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.9
             @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
             public void run(IMediaSession iMediaSession, int i) throws RemoteException {
                 iMediaSession.skipBackward(MediaControllerImplBase.this.mControllerStub, i);
@@ -438,7 +438,7 @@ public class MediaControllerImplBase implements MediaController.MediaControllerI
 
     @Override // androidx.media2.session.MediaController.MediaControllerImpl
     public ListenableFuture<SessionResult> skipForward() {
-        return dispatchRemoteSessionTask(SessionCommand.COMMAND_CODE_SESSION_SKIP_FORWARD, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.8
+        return dispatchRemoteSessionTask(40002, new RemoteSessionTask() { // from class: androidx.media2.session.MediaControllerImplBase.8
             @Override // androidx.media2.session.MediaControllerImplBase.RemoteSessionTask
             public void run(IMediaSession iMediaSession, int i) throws RemoteException {
                 iMediaSession.skipForward(MediaControllerImplBase.this.mControllerStub, i);

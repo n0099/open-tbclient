@@ -11,12 +11,12 @@ import com.baidu.bdtask.model.response.NextActive;
 import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tieba.ar;
-import com.baidu.tieba.bt;
-import com.baidu.tieba.mq;
-import com.baidu.tieba.nq;
-import com.baidu.tieba.sr;
-import com.baidu.tieba.zr;
+import com.baidu.tieba.bs;
+import com.baidu.tieba.is;
+import com.baidu.tieba.jr;
+import com.baidu.tieba.kt;
+import com.baidu.tieba.vq;
+import com.baidu.tieba.wq;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,21 +58,21 @@ public final class a {
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000-\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001\u0000\b\n\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J!\u0010\u000b\u001a\u00020\u00042\b\u0010\b\u001a\u0004\u0018\u00010\u00072\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ#\u0010\u000e\u001a\u0004\u0018\u00010\u00072\b\u0010\b\u001a\u0004\u0018\u00010\r2\u0006\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000e\u0010\u000f¨\u0006\u0012"}, d2 = {"com/baidu/bdtask/ctrl/repo/TaskRepo$finishReq$5", "Lcom/baidu/searchbox/http/callback/ResponseCallback;", "Ljava/lang/Exception;", "exception", "", "onFail", "(Ljava/lang/Exception;)V", "Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "response", "", HiAnalyticsConstant.HaKey.BI_KEY_RESULT, "onSuccess", "(Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;I)V", "Lokhttp3/Response;", "parseResponse", "(Lokhttp3/Response;I)Lcom/baidu/bdtask/ctrl/repo/TaskResponseParser;", "<init>", "(Lcom/baidu/bdtask/ctrl/repo/TaskRepoCallback;)V", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes.dex */
-    public static final class b extends ResponseCallback<nq> {
+    public static final class b extends ResponseCallback<wq> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq a;
+        public final /* synthetic */ vq a;
 
         @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "run"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
         /* renamed from: com.baidu.bdtask.ctrl.repo.a$b$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class RunnableC0071a implements Runnable {
+        public static final class RunnableC0074a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
             public final /* synthetic */ Exception b;
 
-            public RunnableC0071a(b bVar, Exception exc) {
+            public RunnableC0074a(b bVar, Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public final class a {
                     DebugTrace.a.c(new Function0<String>(this) { // from class: com.baidu.bdtask.ctrl.repo.TaskRepo$finishReq$5$onFail$1$1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ a.b.RunnableC0071a this$0;
+                        public final /* synthetic */ a.b.RunnableC0074a this$0;
 
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
@@ -142,27 +142,27 @@ public final class a {
                             return (String) invokeV.objValue;
                         }
                     });
-                    mq mqVar = this.a.a;
+                    vq vqVar = this.a.a;
                     Exception exc = this.b;
-                    mqVar.c((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
+                    vqVar.c((exc == null || (r1 = exc.getMessage()) == null) ? "task complete request failed" : "task complete request failed", 301);
                 }
             }
         }
 
         /* renamed from: com.baidu.bdtask.ctrl.repo.a$b$b  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class RunnableC0072b implements Runnable {
+        public static final class RunnableC0075b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
-            public final /* synthetic */ nq b;
+            public final /* synthetic */ wq b;
 
-            public RunnableC0072b(b bVar, nq nqVar) {
+            public RunnableC0075b(b bVar, wq wqVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, nqVar};
+                    Object[] objArr = {bVar, wqVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -173,7 +173,7 @@ public final class a {
                     }
                 }
                 this.a = bVar;
-                this.b = nqVar;
+                this.b = wqVar;
             }
 
             @Override // java.lang.Runnable
@@ -181,17 +181,17 @@ public final class a {
                 TaskResponseData taskResponseData;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    nq nqVar = this.b;
-                    if (nqVar != null) {
-                        taskResponseData = nqVar.d();
+                    wq wqVar = this.b;
+                    if (wqVar != null) {
+                        taskResponseData = wqVar.d();
                     } else {
                         taskResponseData = null;
                     }
                     if (taskResponseData == null) {
                         this.a.a.c("task complete request failed", 301);
                     } else if (!this.b.a()) {
-                        mq mqVar = this.a.a;
-                        mqVar.c("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
+                        vq vqVar = this.a.a;
+                        vqVar.c("serverErrorNo:" + this.b.b() + " msg:" + this.b.c(), 301);
                     } else {
                         this.a.a.a(this.b.d());
                     }
@@ -199,12 +199,12 @@ public final class a {
             }
         }
 
-        public b(mq mqVar) {
+        public b(vq vqVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mqVar};
+                Object[] objArr = {vqVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -214,21 +214,21 @@ public final class a {
                     return;
                 }
             }
-            this.a = mqVar;
+            this.a = vqVar;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
-                bt.c(new RunnableC0071a(this, exc));
+                kt.c(new RunnableC0074a(this, exc));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
-        public nq parseResponse(Response response, int i) {
+        public wq parseResponse(Response response, int i) {
             InterceptResult invokeLI;
             String str;
             ResponseBody body;
@@ -242,20 +242,20 @@ public final class a {
                 if (str == null || TextUtils.isEmpty(str)) {
                     return null;
                 }
-                nq a = nq.d.a(str).a();
+                wq a = wq.d.a(str).a();
                 this.a.b(a);
                 return a;
             }
-            return (nq) invokeLI.objValue;
+            return (wq) invokeLI.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
-        public void onSuccess(nq nqVar, int i) {
+        public void onSuccess(wq wqVar, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nqVar, i) == null) {
-                bt.c(new RunnableC0072b(this, nqVar));
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wqVar, i) == null) {
+                kt.c(new RunnableC0075b(this, wqVar));
             }
         }
     }
@@ -278,15 +278,15 @@ public final class a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            zr env = ar.c.h().getEnv();
+            is env = jr.c.h().getEnv();
             return "" + env.b() + "/bdtls/ug_task/api/task/external/" + str + "/complete?behavior=" + i;
         }
         return (String) invokeLI.objValue;
     }
 
-    public final void b(TaskInfo taskInfo, TaskStatus taskStatus, mq mqVar) {
+    public final void b(TaskInfo taskInfo, TaskStatus taskStatus, vq vqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus, mqVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, taskStatus, vqVar) == null) {
             TaskProcess process = taskStatus.getProcess();
             JSONObject jSONObject = new JSONObject();
             try {
@@ -294,16 +294,16 @@ public final class a {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            c(taskInfo.getToken(), taskInfo.getId(), taskInfo.getBehavior(), taskInfo.getFingerprint(), jSONObject, null, mqVar);
+            c(taskInfo.getToken(), taskInfo.getId(), taskInfo.getBehavior(), taskInfo.getFingerprint(), jSONObject, null, vqVar);
         }
     }
 
     /* JADX WARN: Type inference failed for: r6v13, types: [T, java.lang.String] */
-    public final void c(String str, String str2, int i, String str3, JSONObject jSONObject, JSONObject jSONObject2, mq mqVar) {
+    public final void c(String str, String str2, int i, String str3, JSONObject jSONObject, JSONObject jSONObject2, vq vqVar) {
         Map map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), str3, jSONObject, jSONObject2, mqVar}) == null) {
-            sr srVar = new sr();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), str3, jSONObject, jSONObject2, vqVar}) == null) {
+            bs bsVar = new bs();
             final Ref.ObjectRef objectRef = new Ref.ObjectRef();
             objectRef.element = "";
             try {
@@ -311,7 +311,7 @@ public final class a {
                 jSONObject3.put("reqId", UUID.randomUUID().toString());
                 jSONObject3.put("token", str);
                 jSONObject3.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, 2);
-                jSONObject3.put(com.heytap.mcssdk.constant.b.C, ar.c.h().getSdkVersion());
+                jSONObject3.put(com.heytap.mcssdk.constant.b.C, jr.c.h().getSdkVersion());
                 jSONObject3.put(TaskInfo.keyFingerprint, str3);
                 if (jSONObject != null) {
                     jSONObject3.put("ext", jSONObject);
@@ -319,7 +319,7 @@ public final class a {
                 if (jSONObject2 != null) {
                     jSONObject3.put(LaunchStatsUtils.EXTERNAL_LAUNCH, jSONObject2);
                 }
-                Map<String, Object> a = ar.c.g().a();
+                Map<String, Object> a = jr.c.g().a();
                 if (a != null) {
                     map = MapsKt__MapsKt.toMap(a);
                 } else {
@@ -370,9 +370,9 @@ public final class a {
                         return (String) invokeV.objValue;
                     }
                 });
-                srVar.j(a(str2, i), (String) objectRef.element, new b(mqVar));
+                bsVar.j(a(str2, i), (String) objectRef.element, new b(vqVar));
             } catch (Exception e) {
-                mqVar.c("task request serialize failed  : " + e.getMessage(), 202);
+                vqVar.c("task request serialize failed  : " + e.getMessage(), 202);
             }
         }
     }

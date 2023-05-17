@@ -2,12 +2,12 @@ package com.baidu.tbadk.mutiprocess.urlmanager;
 
 import androidx.annotation.NonNull;
 import com.baidu.tbadk.mutiprocess.SerializableEvent;
-import com.baidu.tieba.vj5;
+import com.baidu.tieba.el5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UrlDealEvent extends SerializableEvent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class UrlDealEvent extends SerializableEvent {
         if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
             UrlDealEvent urlDealEvent = new UrlDealEvent(3);
             urlDealEvent.url = str;
-            vj5.i(urlDealEvent);
+            el5.i(urlDealEvent);
         }
     }
 }

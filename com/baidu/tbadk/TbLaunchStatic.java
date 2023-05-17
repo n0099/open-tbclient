@@ -2,9 +2,9 @@ package com.baidu.tbadk;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WXEntryActivityConfig;
-import com.baidu.tieba.az7;
 import com.baidu.tieba.im.message.ResponseCommitGroupMessage;
 import com.baidu.tieba.im.message.ResponseDelSystemMessage;
+import com.baidu.tieba.o08;
 import com.baidu.tieba.wxapi.WXEntryActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbLaunchStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";
@@ -60,8 +60,8 @@ public class TbLaunchStatic {
     public static void initRegisterTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            az7.b(202004, ResponseDelSystemMessage.class, false);
-            az7.b(202001, ResponseCommitGroupMessage.class, false);
+            o08.b(202004, ResponseDelSystemMessage.class, false);
+            o08.b(202001, ResponseCommitGroupMessage.class, false);
         }
     }
 }

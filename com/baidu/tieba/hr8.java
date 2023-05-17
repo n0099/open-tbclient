@@ -1,179 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.ForeDrawableImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.gy;
-import com.baidu.tieba.ry;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.relogin.ReloginManager;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.switchs.CheckShowNameDialogSwitch;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tieba.vx4;
+import com.baidu.tieba.wx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hr8 extends fr8<f05, ThreadCardViewHolder<ThreadData>> {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class hr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId c;
-    public TbPageContext<?> d;
-    public boolean e;
-    public on f;
-    public xf<ImageView> g;
-    public xf<GifView> h;
-    public ji6<ThreadData> i;
 
-    /* loaded from: classes4.dex */
-    public class a implements yf<ImageView> {
+    /* loaded from: classes5.dex */
+    public static class b extends BdAsyncTask<String, Integer, AccountData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr8 a;
+        public volatile NetWork a;
+        public final String b;
+        public final String c;
+        public final String d;
+        public String e;
+        public final wx4.a f;
+        public final boolean g;
 
-        public a(hr8 hr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+        /* loaded from: classes5.dex */
+        public class a implements wx4.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.wx4.a
+            public void a(String str, int i, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
                 }
             }
-            this.a = hr8Var;
-        }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ ImageView a(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            e(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ ImageView c(ImageView imageView) {
-            ImageView imageView2 = imageView;
-            h(imageView2);
-            return imageView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: f */
-        public void b(ImageView imageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, imageView) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.R();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
+            @Override // com.baidu.tieba.wx4.a
+            public void b(String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                 }
             }
-        }
 
-        public ImageView e(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, imageView)) == null) {
-                if (imageView instanceof TbImageView) {
-                    TbImageView tbImageView = (TbImageView) imageView;
-                    tbImageView.setTag(null);
-                    if (iw4.c().g()) {
-                        tbImageView.setAdjustViewBounds(false);
-                        tbImageView.setInterceptOnClick(false);
-                    } else {
-                        tbImageView.setDefaultResource(R.drawable.icon_click);
-                        tbImageView.setAdjustViewBounds(true);
-                        tbImageView.setInterceptOnClick(true);
+            @Override // com.baidu.tieba.wx4.a
+            public void c(AccountData accountData) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+                }
+            }
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
-                return imageView;
             }
-            return (ImageView) invokeL.objValue;
         }
 
-        public ImageView h(ImageView imageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, imageView)) == null) {
-                imageView.setBackgroundDrawable(null);
-                imageView.setImageDrawable(null);
-                imageView.setTag(null);
-                imageView.setOnClickListener(null);
-                if (imageView instanceof ForeDrawableImageView) {
-                    ForeDrawableImageView foreDrawableImageView = (ForeDrawableImageView) imageView;
-                    foreDrawableImageView.R();
-                    foreDrawableImageView.setForegroundDrawable(0);
-                    foreDrawableImageView.setDefaultBgResource(R.color.common_color_10220);
-                    foreDrawableImageView.H();
-                }
-                return imageView;
-            }
-            return (ImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: g */
-        public ImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.d.getPageActivity());
-                boolean g = iw4.c().g();
-                foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    foreDrawableImageView.setAdjustViewBounds(false);
-                    foreDrawableImageView.setInterceptOnClick(false);
-                } else {
-                    foreDrawableImageView.setDefaultResource(R.drawable.icon_click);
-                    foreDrawableImageView.setAdjustViewBounds(true);
-                    foreDrawableImageView.setInterceptOnClick(true);
-                }
-                return foreDrawableImageView;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements yf<GifView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr8 a;
-
-        public b(hr8 hr8Var) {
+        public b(String str, String str2, String str3, wx4.a aVar, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hr8Var};
+                Object[] objArr = {str, str2, str3, aVar, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -183,113 +97,187 @@ public class hr8 extends fr8<f05, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.a = hr8Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ GifView a(GifView gifView) {
-            GifView gifView2 = gifView;
-            e(gifView2);
-            return gifView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ GifView c(GifView gifView) {
-            GifView gifView2 = gifView;
-            h(gifView2);
-            return gifView2;
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.g = z;
+            this.f = aVar == null ? new a(this) : aVar;
+            setPriority(3);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: f */
-        public void b(GifView gifView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, gifView) == null) {
-                gifView.setBackgroundDrawable(null);
-                gifView.setImageDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                gifView.e0();
-            }
-        }
-
-        public GifView h(GifView gifView) {
+        /* JADX WARN: Removed duplicated region for block: B:51:0x01ca  */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public AccountData doInBackground(String... strArr) {
             InterceptResult invokeL;
+            AccountData accountData;
+            int i;
+            int i2;
+            wx4.b d;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, gifView)) == null) {
-                gifView.h0();
-                gifView.e0();
-                gifView.setImageDrawable(null);
-                gifView.i0();
-                gifView.setBackgroundDrawable(null);
-                gifView.setTag(null);
-                gifView.setOnClickListener(null);
-                gifView.setDefaultBgResource(R.color.common_color_10220);
-                return gifView;
-            }
-            return (GifView) invokeL.objValue;
-        }
-
-        public GifView e(GifView gifView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
-                gifView.setTag(null);
-                if (iw4.c().g()) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                this.a = new NetWork(TbConfig.LOGIN_FULL_ADDRESS);
+                boolean z = false;
+                this.a.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                this.a.addPostData("bdusstoken", this.c + "|" + this.d);
+                if (!StringUtils.isNull(this.e)) {
+                    this.a.addPostData("stoken", this.e);
                 }
-                return gifView;
+                this.a.addPostData("channel_id", TbadkCoreApplication.getInst().getPushChannelId());
+                this.a.addPostData("channel_uid", TbadkCoreApplication.getInst().getPushChannelUserId());
+                this.a.addPostData("first_login", TbadkCoreApplication.getInst().getDeviceIsFirstLogin());
+                this.a.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                String postNetData = this.a.postNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                    d05 d05Var = new d05();
+                    d05Var.d(postNetData);
+                    accountData = new AccountData();
+                    accountData.setAccount(d05Var.c().getUserName());
+                    accountData.setPassword("");
+                    accountData.setID(d05Var.c().getUserId());
+                    String str = this.c;
+                    if (this.g && (d = kr8.d(wx4.b().c(str))) != null) {
+                        str = d.a + "|" + d.b;
+                    }
+                    accountData.setBDUSS(str);
+                    accountData.setPortrait(d05Var.c().getPortrait());
+                    accountData.setStoken(this.e);
+                    accountData.setIsActive(1);
+                    if (d05Var.a() != null) {
+                        accountData.setTbs(d05Var.a().getTbs());
+                    }
+                    accountData.setGrowthSwitch(d05Var.b());
+                } else {
+                    accountData = null;
+                }
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_CHECK_SHOW_INIT_NAME_DIALOG);
+                netWork.getNetContext().getRequest().mNeedBackgroundLogin = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                if (accountData != null) {
+                    netWork.addPostData(HttpRequest.BDUSS, accountData.getBDUSS());
+                    netWork.addPostData("stoken", vx4.a(accountData));
+                }
+                String postNetData2 = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess() && postNetData2 != null) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(postNetData2);
+                        JSONArray optJSONArray = jSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH);
+                        if (optJSONArray != null) {
+                            int length = optJSONArray.length();
+                            for (int i3 = 0; i3 < length; i3++) {
+                                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                                if (optJSONObject != null && CheckShowNameDialogSwitch.KEY.equals(optJSONObject.optString("name"))) {
+                                    i = optJSONObject.optInt("type", 0);
+                                    break;
+                                }
+                            }
+                        }
+                        i = 0;
+                        try {
+                            JSONObject jSONObject2 = jSONObject.getJSONObject("user_info");
+                            if (accountData != null && jSONObject2 != null) {
+                                accountData.setNameShow(jSONObject2.optString("name_show"));
+                            }
+                        } catch (JSONException e) {
+                            i2 = i;
+                            e = e;
+                            e.printStackTrace();
+                            i = i2;
+                            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+                            if (i == 1) {
+                            }
+                            inst.setNeedCheckUserNameDialog(z);
+                            return accountData;
+                        }
+                    } catch (JSONException e2) {
+                        e = e2;
+                        i2 = 0;
+                    }
+                } else {
+                    i = 0;
+                }
+                TbadkCoreApplication inst2 = TbadkCoreApplication.getInst();
+                if (i == 1) {
+                    z = true;
+                }
+                inst2.setNeedCheckUserNameDialog(z);
+                return accountData;
             }
-            return (GifView) invokeL.objValue;
+            return (AccountData) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: g */
-        public GifView d() {
-            InterceptResult invokeV;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(AccountData accountData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                GifView gifView = new GifView(this.a.d.getPageActivity());
-                boolean g = iw4.c().g();
-                gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
-                if (g) {
-                    gifView.setAdjustViewBounds(false);
-                    gifView.setInterceptOnClick(false);
-                } else {
-                    gifView.setDefaultResource(R.drawable.icon_click);
-                    gifView.setAdjustViewBounds(true);
-                    gifView.setInterceptOnClick(true);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+                super.onPostExecute(accountData);
+                int i = 0;
+                ReloginManager.g().o(false);
+                d65.a(DI.ACCOUNT, -1L, 0, "cslogin_result", this.a.getServerErrorCode(), this.a.getErrorString(), new Object[0]);
+                if (accountData != null && accountData.getBDUSS() != null) {
+                    this.f.c(accountData);
+                    return;
                 }
-                return gifView;
+                String str = null;
+                if (this.a != null) {
+                    str = this.a.getErrorString();
+                    i = this.a.getServerErrorCode();
+                }
+                if (str == null) {
+                    str = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.data_load_error);
+                }
+                this.f.a(this.b, i, str);
             }
-            return (GifView) invokeV.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                this.f.b(this.b);
+            }
+        }
+
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.e = str;
+            }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends ji6<ThreadData> {
+    /* loaded from: classes5.dex */
+    public static class a implements vx4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr8 b;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ wx4.a b;
+        public final /* synthetic */ String c;
 
-        public c(hr8 hr8Var) {
+        public a(b bVar, wx4.a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hr8Var};
+                Object[] objArr = {bVar, aVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -299,155 +287,46 @@ public class hr8 extends fr8<f05, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.b = hr8Var;
+            this.a = bVar;
+            this.b = aVar;
+            this.c = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ji6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
+        @Override // com.baidu.tieba.vx4.b
+        public void onFailed() {
+            wx4.a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                ci6.b().d(true);
-                this.b.C(view2, threadData);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.b) != null) {
+                aVar.a(this.c, 1, null);
             }
         }
-    }
 
-    /* loaded from: classes4.dex */
-    public class d implements sn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hr8 a;
-
-        public d(hr8 hr8Var) {
+        @Override // com.baidu.tieba.vx4.b
+        public void onSuccess(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.d(str);
+                this.a.execute(new String[0]);
+            }
+        }
+    }
+
+    public static BdAsyncTask<?, ?, ?> a(String str, String str2, String str3, String str4, wx4.a aVar) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65536, null, str, str2, str3, str4, aVar)) == null) {
+            vx4 vx4Var = new vx4();
+            b bVar = new b(str, str2, str3, aVar, false);
+            if (vx4.b() && StringUtils.isNull(str4)) {
+                vx4Var.c(str2, new a(bVar, aVar, str));
+            } else {
+                if (vx4.b()) {
+                    bVar.d(str4);
                 }
+                bVar.execute(new String[0]);
             }
-            this.a = hr8Var;
+            return bVar;
         }
-
-        @Override // com.baidu.tieba.sn
-        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof f05) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((f05) inVar).t;
-                threadData.objType = 1;
-                if (this.a.i != null) {
-                    this.a.i.a(threadCardViewHolder.getView(), threadData);
-                }
-                Context context = view2.getContext();
-                String A1 = this.a.b.getOrignalPage().A1();
-                if (this.a.s()) {
-                    str = "3";
-                } else {
-                    str = "2";
-                }
-                ThreadCardUtils.jumpToPB(threadData, context, 17, false, A1, str);
-                threadCardViewHolder.a().p(new ry.a(1));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hr8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = true;
-        this.g = new xf<>(new a(this), 12, 0);
-        this.h = new xf<>(new b(this), 20, 0);
-        this.i = new c(this);
-        this.d = tbPageContext;
-        this.c = bdUniqueId2;
-    }
-
-    public void D(on onVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onVar) == null) {
-            this.f = onVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: A */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            gy.b bVar = new gy.b(this.d.getPageActivity(), false);
-            gx gxVar = new gx(this.d.getPageActivity());
-            gxVar.setFrom(ImageViewerConfig.FROM_OTHER);
-            gxVar.E(2);
-            gxVar.H(this.g, this.h);
-            gxVar.J(0, ii.g(this.mContext, R.dimen.tbds44), 0, 0);
-            gxVar.D(this.e);
-            gxVar.C(1);
-            bVar.n(gxVar);
-            gy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
-            k.s(17);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.c);
-            setOnAdapterItemClickListener(new d(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: B */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f05 f05Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f05Var, threadCardViewHolder})) == null) {
-            if (f05Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = f05Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(f05Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().q(this.i);
-                cr8.c(this, f05Var);
-                return threadCardViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void C(View view2, ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) {
-            cr8.b(this, threadData);
-        }
+        return (BdAsyncTask) invokeLLLLL.objValue;
     }
 }

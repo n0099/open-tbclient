@@ -17,10 +17,10 @@ import com.baidu.tbadk.browser.XiubaTbJsBridge;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.cq9;
-import com.baidu.tieba.dg6;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.es9;
 import com.baidu.tieba.lego.card.model.ImmersiveWebViewCard;
+import com.baidu.tieba.ph6;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,16 +28,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout m;
     public TbWebView n;
-    public cq9 o;
+    public es9 o;
     public XiubaTbJsBridge p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +72,8 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements dg6 {
+    /* loaded from: classes6.dex */
+    public class b implements ph6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewImmersiveWebViewCardView a;
@@ -96,7 +96,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
             this.a = newImmersiveWebViewCardView;
         }
 
-        @Override // com.baidu.tieba.dg6
+        @Override // com.baidu.tieba.ph6
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -127,9 +127,9 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
             }
         }
         this.i = tbPageContext;
-        cq9 cq9Var = new cq9();
-        this.o = cq9Var;
-        cq9Var.a(new XiubaTbJsBridge(this.i));
+        es9 es9Var = new es9();
+        this.o = es9Var;
+        es9Var.a(new XiubaTbJsBridge(this.i));
         this.o.a(new CommonTbJsBridge(this.i.getPageActivity()));
     }
 
@@ -202,7 +202,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
         if (immersiveWebViewCard.getHeight() > 0) {
             setWebviewHeight(immersiveWebViewCard.getHeight());
         } else {
-            setWebviewHeight(ii.j(getContext()));
+            setWebviewHeight(ri.j(getContext()));
         }
         if (!immersiveWebViewCard.mHasShown) {
             String pageUrl = immersiveWebViewCard.getPageUrl();
@@ -218,7 +218,7 @@ public class NewImmersiveWebViewCardView extends BaseCardView<ImmersiveWebViewCa
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d8, (ViewGroup) null);
+            this.m = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01df, (ViewGroup) null);
             D();
             return this.m;
         }

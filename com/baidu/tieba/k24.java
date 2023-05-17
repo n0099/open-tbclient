@@ -1,85 +1,77 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8EngineConfiguration;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+/* loaded from: classes6.dex */
 public class k24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static volatile k24 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<m24> a;
 
-    public static int b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public k24() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (z && z2) {
-                return 3;
-            }
-            if (z) {
-                return 1;
-            }
-            return z2 ? 2 : 0;
-        }
-        return invokeCommon.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947861180, "Lcom/baidu/tieba/k24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947861180, "Lcom/baidu/tieba/k24;");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ho1.a;
+        this.a = new CopyOnWriteArrayList();
     }
 
-    @NonNull
-    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    public static k24 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (k24.class) {
+                    if (b == null) {
+                        b = new k24();
+                    }
+                }
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                i24 a2 = j24.a();
-                codeCacheSetting.maxCount = a2.a;
-                codeCacheSetting.sizeLimit = a2.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
-            }
-            if (a) {
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
-            }
-            return codeCacheSetting;
+            return b;
         }
-        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
+        return (k24) invokeV.objValue;
+    }
+
+    public void a(m24 m24Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, m24Var) == null) && m24Var != null && !this.a.contains(m24Var)) {
+            this.a.add(m24Var);
+        }
+    }
+
+    public void d(m24 m24Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m24Var) == null) && this.a.contains(m24Var)) {
+            this.a.remove(m24Var);
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            for (m24 m24Var : this.a) {
+                if (i == 16) {
+                    m24Var.c();
+                } else if (i == 17) {
+                    m24Var.b(str);
+                }
+                d(m24Var);
+            }
+        }
     }
 }

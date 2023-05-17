@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class h34 extends ff2 {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
+/* loaded from: classes5.dex */
+public class h34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public n74 a;
+    public String b;
+    public String c;
+    public f34 d;
 
-    @Override // com.baidu.tieba.hf2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
-    public int getInvokeSourceType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements V8Engine.WorkerFactory {
+    /* loaded from: classes5.dex */
+    public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ h34 a;
@@ -49,65 +51,174 @@ public class h34 extends ff2 {
             this.a = h34Var;
         }
 
-        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
-        public V8Engine onCreateWorker() {
-            InterceptResult invokeV;
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                i34 i34Var = new i34(this.a.getInitBasePath());
-                i34Var.H0();
-                i34Var.u(new rf2(i34Var));
-                i34Var.G0(new sf2(i34Var));
-                return i34Var.l0();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (h34.e) {
+                    Log.e("AudioDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
+                }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
+                }
             }
-            return (V8Engine) invokeV.objValue;
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    InputStream byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            String d = c34.d(this.a.b);
+                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
+                            File file2 = new File(str);
+                            if (!file2.exists() || !file2.isDirectory()) {
+                                file2.mkdirs();
+                            }
+                            String substring = d.substring(d.lastIndexOf("/") + 1);
+                            file = new File(str, substring + ".bddownload");
+                            try {
+                                fileOutputStream = new FileOutputStream(file);
+                                while (true) {
+                                    try {
+                                        int read = byteStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } catch (Exception e) {
+                                        e = e;
+                                        inputStream = byteStream;
+                                        try {
+                                            if (h34.e) {
+                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
+                                            }
+                                            if (file != null) {
+                                                file.delete();
+                                            }
+                                            if (this.a.d != null) {
+                                                this.a.d.fail(-1, this.a.b);
+                                            }
+                                            kp4.d(inputStream);
+                                            kp4.d(fileOutputStream);
+                                            kp4.d(response);
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            kp4.d(inputStream);
+                                            kp4.d(fileOutputStream);
+                                            kp4.d(response);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        inputStream = byteStream;
+                                        kp4.d(inputStream);
+                                        kp4.d(fileOutputStream);
+                                        kp4.d(response);
+                                        throw th;
+                                    }
+                                }
+                                fileOutputStream.flush();
+                                File file3 = new File(str, substring);
+                                if (file3.exists() && !file3.isDirectory()) {
+                                    file3.delete();
+                                }
+                                String absolutePath = file3.getAbsolutePath();
+                                if (file.renameTo(file3)) {
+                                    if (h34.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
+                                    }
+                                    if (this.a.d != null) {
+                                        this.a.d.a(this.a.b, absolutePath);
+                                    }
+                                } else {
+                                    if (h34.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
+                                    }
+                                    file.delete();
+                                    if (this.a.d != null) {
+                                        this.a.d.fail(-1, absolutePath);
+                                    }
+                                }
+                                kp4.d(byteStream);
+                            } catch (Exception e2) {
+                                e = e2;
+                                fileOutputStream = null;
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            file = null;
+                            fileOutputStream = null;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                }
+                kp4.d(fileOutputStream);
+                kp4.d(response);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h34(@NonNull String str, @NonNull cg2 cg2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        super(str, cg2Var, v8ThreadDelegatePolicy);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772768, "Lcom/baidu/tieba/h34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947772768, "Lcom/baidu/tieba/h34;");
+                return;
+            }
+        }
+        e = qp1.a;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
+        }
+    }
+
+    public h34(n74 n74Var, String str, String str2, f34 f34Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, cg2Var, v8ThreadDelegatePolicy};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {n74Var, str, str2, f34Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (cg2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        V8Engine v8Engine = this.a;
-        if (v8Engine == null) {
-            return;
-        }
-        v8Engine.setWorkerFactoryDelegate(new a(this));
-    }
-
-    @Override // com.baidu.tieba.ff2
-    @NonNull
-    public EventTarget A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new e24(this);
-        }
-        return (EventTarget) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ff2
-    public EventTarget D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new h24(this);
-        }
-        return (EventTarget) invokeV.objValue;
+        this.b = "";
+        this.c = "";
+        this.a = n74Var;
+        this.c = str;
+        this.b = str2;
+        this.d = f34Var;
     }
 }

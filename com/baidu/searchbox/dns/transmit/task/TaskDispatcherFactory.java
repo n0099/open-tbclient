@@ -1,5 +1,5 @@
 package com.baidu.searchbox.dns.transmit.task;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class TaskDispatcherFactory {
     public static final int PRIORITY_DISPATCHER = 1;
     public static final int SIMPLE_DISPATCHER = 0;

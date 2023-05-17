@@ -1,125 +1,198 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.br9;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes3.dex */
-public class bu6 implements iu6 {
+/* loaded from: classes5.dex */
+public class bu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public du6 a;
-    public boolean b;
+    public LikeModel a;
+    public br9 b;
     public boolean c;
-    public au6 d;
-    public boolean e;
+    public b d;
+    public a e;
+    public TbPageContext f;
 
-    public bu6(boolean z) {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
+
+        void c(Object obj);
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends f9 implements br9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
+        public final /* synthetic */ bu6 b;
+
+        public b(bu6 bu6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bu6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bu6Var;
+        }
+
+        public void d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+                this.a = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.br9.a
+        public void a(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+                this.b.c = false;
+                ri.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.b(str, j);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.br9.a
+        public void b(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                this.b.c = false;
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a(str, j);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.f9
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.b.c = false;
+                if (this.b.a.getErrorCode() == 22) {
+                    ri.Q(this.b.f.getPageActivity(), this.b.f.getString(R.string.had_liked_forum));
+                } else if (obj == null) {
+                } else {
+                    if (this.b.a.getErrorCode() != 0) {
+                        ri.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
+                        return;
+                    }
+                    a aVar = this.a;
+                    if (aVar != null) {
+                        aVar.c(obj);
+                    }
+                }
+            }
+        }
+    }
+
+    public bu6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = false;
-        this.e = false;
-        this.a = new du6();
-        this.e = z;
     }
 
-    @Override // com.baidu.tieba.iu6
-    public void a(String str, ju6 ju6Var) {
-        au6 au6Var;
-        au6 au6Var2;
-        float f;
-        float f2;
+    public void g(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ju6Var) != null) || ju6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void h(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
+            this.f = tbPageContext;
+        }
+    }
+
+    public final boolean d(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
+            if (!ri.F()) {
+                UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0db6));
+                return false;
+            } else if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || this.c || !d(this.f)) {
             return;
         }
-        if (this.b) {
-            File file = new File(ju6Var.a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(ju6Var.a);
-            if (file.exists() && decodeFile != null) {
-                float height = decodeFile.getHeight();
-                float width = decodeFile.getWidth();
-                float f3 = height * 1.0f;
-                float f4 = f3 / width;
-                if (f4 > 1.0f) {
-                    f = 1.7777778f;
-                } else {
-                    f = 0.75f;
-                }
-                float f5 = 0.0f;
-                if (f4 > f) {
-                    float f6 = f * width;
-                    f2 = (height - f6) * 0.5f;
-                    height = f6;
-                } else {
-                    float f7 = f3 / f;
-                    f5 = (width - f7) * 0.5f;
-                    width = f7;
-                    f2 = 0.0f;
-                }
-                ju6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
-            }
+        if (this.d == null) {
+            b bVar = new b(this);
+            this.d = bVar;
+            bVar.d(this.e);
         }
-        if ("default".equals(str)) {
-            if (!this.c && (au6Var2 = this.d) != null) {
-                au6Var2.b0(ju6Var.a);
-            }
-        } else if ("manual".equals(str) && (au6Var = this.d) != null) {
-            au6Var.b0(ju6Var.a);
+        if (this.a == null) {
+            LikeModel likeModel = new LikeModel(this.f);
+            this.a = likeModel;
+            likeModel.setLoadDataCallBack(this.d);
         }
+        this.c = true;
+        this.a.m0(str, str2);
     }
 
-    public void b(ku6 ku6Var, String str) {
+    public void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ku6Var, str) == null) {
-            this.a.a(str, this.e).a(ku6Var, this);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) != null) || this.c || !d(this.f)) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.iu6
-    public void onError(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        if (this.d == null) {
+            b bVar = new b(this);
+            this.d = bVar;
+            bVar.d(this.e);
         }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
+        if (this.b == null) {
+            br9 br9Var = new br9();
+            this.b = br9Var;
+            br9Var.b(this.d);
         }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
+        long g = pg.g(str2, -1L);
+        if (g == -1) {
+            return;
         }
-    }
-
-    public void e(au6 au6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, au6Var) == null) {
-            this.d = au6Var;
-        }
+        this.c = true;
+        this.b.c(str, g);
     }
 }

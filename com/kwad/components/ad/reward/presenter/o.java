@@ -23,7 +23,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.internal.api.SceneImpl;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a, e.b {
     public KsLogoView ln;
     public AdTemplate mAdTemplate;
@@ -198,7 +198,7 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     }
 
     private int b(float f) {
-        return (int) (f + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d2) + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d3));
+        return (int) (f + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070513) + getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070514));
     }
 
     private void g(List<AdTemplate> list) {
@@ -212,8 +212,8 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
         com.kwad.components.ad.reward.k kVar = this.nM;
         hVar2.a(frameLayout, kVar.mRootContainer, this.mAdTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
         com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "startPreloadWebView");
-        this.mp.a(new b.InterfaceC0558b() { // from class: com.kwad.components.ad.reward.presenter.o.2
-            @Override // com.kwad.components.ad.i.b.InterfaceC0558b
+        this.mp.a(new b.InterfaceC0572b() { // from class: com.kwad.components.ad.reward.presenter.o.2
+            @Override // com.kwad.components.ad.i.b.InterfaceC0572b
             public final void hk() {
                 com.kwad.sdk.core.e.b.d("RewardPreEndCardPresenter", "onPreloadSuccess");
                 o.this.nM.mJ = true;
@@ -324,12 +324,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.qA = findViewById(R.id.obfuscated_res_0x7f09127d);
-        this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913a5);
-        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091372);
-        this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ee);
-        this.qD = findViewById(R.id.obfuscated_res_0x7f09129d);
-        this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09127e);
+        this.qA = findViewById(R.id.obfuscated_res_0x7f0912b8);
+        this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913e0);
+        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0913ad);
+        this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f091229);
+        this.qD = findViewById(R.id.obfuscated_res_0x7f0912d8);
+        this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912b9);
     }
 
     @Override // com.kwad.components.ad.reward.e.a

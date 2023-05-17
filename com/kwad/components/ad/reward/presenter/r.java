@@ -9,7 +9,7 @@ import com.baidu.tieba.R;
 import com.kwad.components.core.video.DetailVideoView;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ag;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class r extends a {
     public DetailVideoView mj;
     public ViewGroup rd;
@@ -35,9 +35,9 @@ public final class r extends a {
         this.rd.setVisibility(z2 ? 4 : 0);
         if (aY) {
             this.rf.setVisibility(8);
-            i = R.layout.obfuscated_res_0x7f0d0486;
+            i = R.layout.obfuscated_res_0x7f0d04a3;
         } else {
-            i = R.layout.obfuscated_res_0x7f0d043f;
+            i = R.layout.obfuscated_res_0x7f0d045c;
         }
         P(i);
         if (!com.kwad.sdk.core.response.a.a.ay(bQ)) {
@@ -60,10 +60,10 @@ public final class r extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913a5);
-        this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09129a);
-        this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f09129b);
-        this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09129c);
+        this.mj = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913e0);
+        this.rd = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912d5);
+        this.rf = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912d6);
+        this.re = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912d7);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

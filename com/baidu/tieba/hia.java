@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hia implements pia {
+import java.util.List;
+/* loaded from: classes5.dex */
+public final class hia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uha a;
-    public float b;
-    public boolean c;
+    public gia a;
 
     public hia() {
         Interceptable interceptable = $ic;
@@ -28,104 +26,52 @@ public class hia implements pia {
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.a = new gia();
     }
 
-    @Override // com.baidu.tieba.pia
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            uha uhaVar = this.a;
-            if (uhaVar == null || !uhaVar.putBytes(bArr, i)) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.pia
-    public boolean a() {
+    public final List<com.baidu.ubs.analytics.a.n> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pia
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (uha) xla.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-            }
-            uha uhaVar = this.a;
-            if (uhaVar != null) {
-                uhaVar.init(i3, i2);
-                this.a.setSpeed(1.0f);
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.c();
         }
-        return invokeIIII.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pia
-    public byte[] a(int i) {
-        InterceptResult invokeI;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            uha uhaVar = this.a;
-            return uhaVar != null ? uhaVar.getOutPutBytes() : new byte[0];
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-            uha uhaVar = this.a;
-            if (uhaVar != null) {
-                uhaVar.setSpeed(f);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.a(str);
         }
     }
 
-    @Override // com.baidu.tieba.pia
-    public boolean b() {
-        InterceptResult invokeV;
+    public final boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pia
-    public void c() {
-        uha uhaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (uhaVar = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.b(str);
         }
-        uhaVar.flush();
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pia
-    public void d() {
-        uha uhaVar;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (uhaVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.a.a(str);
         }
-        uhaVar.close();
-        this.a = null;
     }
 
-    @Override // com.baidu.tieba.pia
-    public void e() {
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.e(nVar);
+        }
+    }
+
+    public final void f(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, nVar) == null) {
+            this.a.d(nVar);
         }
     }
 }

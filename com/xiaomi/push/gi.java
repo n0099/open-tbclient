@@ -1,6 +1,6 @@
 package com.xiaomi.push;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface gi {
     /* renamed from: a */
-    boolean mo421a(gm gmVar);
+    boolean mo440a(gm gmVar);
 }

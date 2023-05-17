@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public class f0 {
     public volatile boolean b;
     public a c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

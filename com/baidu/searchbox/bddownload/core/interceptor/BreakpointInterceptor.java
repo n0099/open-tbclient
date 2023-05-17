@@ -17,7 +17,7 @@ import com.baidu.searchbox.bddownload.core.interceptor.Interceptor;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointInterceptor implements Interceptor.Connect, Interceptor.Fetch {
     public static final Pattern CONTENT_RANGE_RIGHT_VALUE = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
     public static final String TAG = "BreakpointInterceptor";

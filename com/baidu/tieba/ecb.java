@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes4.dex */
-public class ecb implements lbb.b {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+/* loaded from: classes5.dex */
+public final class ecb implements o7b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<o7b> a;
+    public volatile boolean b;
 
     public ecb() {
         Interceptable interceptable = $ic;
@@ -23,25 +27,85 @@ public class ecb implements lbb.b {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        RLog.info("PayGiftDialogCallback", "create PayGiftDialogCallback");
     }
 
-    @Override // com.baidu.tieba.lbb.b
-    public void b() {
+    @Override // com.baidu.tieba.o7b
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RLog.info("PayGiftDialogCallback", "showPayGiftDialog onKonwn");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.o7b
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
+            synchronized (this) {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                Set<o7b> set = this.a;
+                this.a = null;
+                c(set);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.lbb.b
-    public void a(CancelType cancelType) {
+    public static void c(Collection<o7b> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayGiftDialogCallback", "PayGiftDialog onNotifyCancelType clickArea:" + cancelType);
+        if ((interceptable != null && interceptable.invokeL(65537, null, collection) != null) || collection == null) {
+            return;
+        }
+        ArrayList arrayList = null;
+        for (o7b o7bVar : collection) {
+            try {
+                o7bVar.unsubscribe();
+            } catch (Throwable th) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(th);
+            }
+        }
+        t7b.d(arrayList);
+    }
+
+    public void a(o7b o7bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, o7bVar) != null) || o7bVar.isUnsubscribed()) {
+            return;
+        }
+        if (!this.b) {
+            synchronized (this) {
+                if (!this.b) {
+                    if (this.a == null) {
+                        this.a = new HashSet(4);
+                    }
+                    this.a.add(o7bVar);
+                    return;
+                }
+            }
+        }
+        o7bVar.unsubscribe();
+    }
+
+    public void b(o7b o7bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o7bVar) == null) && !this.b) {
+            synchronized (this) {
+                if (!this.b && this.a != null) {
+                    boolean remove = this.a.remove(o7bVar);
+                    if (remove) {
+                        o7bVar.unsubscribe();
+                    }
+                }
+            }
         }
     }
 }

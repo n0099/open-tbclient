@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes4.dex */
-public class dd2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public final class dd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ed2 a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,58 +34,58 @@ public class dd2 {
                 return;
             }
         }
-        a = ho1.a;
+        b = qp1.a;
     }
 
-    public static cd2 a(PMSAppInfo pMSAppInfo, String str) {
-        InterceptResult invokeLL;
+    public dd2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
-            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
-                return null;
-            }
-            File i = tq2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
-            if (!i.exists()) {
-                if (a) {
-                    Log.w("PrefetchUtils", "aiapp dir not exist ");
-                }
-                return null;
-            }
-            cd2 cd2Var = new cd2();
-            if (new File(i, "app.json").exists()) {
-                if (a) {
-                    Log.d("PrefetchUtils", "find main pkg's app config file");
-                }
-                cd2Var.a = i;
-                return cd2Var;
-            } else if (TextUtils.isEmpty(str)) {
-                return null;
-            } else {
-                String g = pl3.g(str);
-                int lastIndexOf = g.lastIndexOf(File.separator);
-                if (lastIndexOf >= 0) {
-                    g = g.substring(0, lastIndexOf);
-                }
-                if (!new File(i, g).exists()) {
-                    return null;
-                }
-                int lastIndexOf2 = g.lastIndexOf(File.separator);
-                while (lastIndexOf2 >= 0) {
-                    g = g.substring(0, lastIndexOf2);
-                    if (new File(i, g + File.separator + "app.json").exists()) {
-                        if (a) {
-                            Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
-                        }
-                        cd2Var.b = true;
-                        cd2Var.c = g;
-                        cd2Var.a = new File(i, g);
-                        return cd2Var;
-                    }
-                    lastIndexOf2 = g.lastIndexOf(File.separator);
-                }
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (cd2) invokeLL.objValue;
+        this.a = ed2.a;
+    }
+
+    public final void a(@NonNull f63 f63Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, f63Var, prefetchEvent, pMSAppInfo) == null) {
+            Bundle bundle = new Bundle();
+            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
+            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
+            if (pMSAppInfo == null) {
+                pMSAppInfo = dh4.i().u(prefetchEvent.appId);
+            }
+            if (pMSAppInfo == null) {
+                return;
+            }
+            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
+            if (!this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
+                return;
+            }
+            w53 e = w53.e();
+            y53 y53Var = new y53(120, bundle);
+            y53Var.b(f63Var.b);
+            y53Var.p(false);
+            e.h(y53Var);
+        }
+    }
+
+    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull f63 f63Var, @Nullable PMSAppInfo pMSAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, f63Var, pMSAppInfo) == null) {
+            a(f63Var, prefetchEvent, pMSAppInfo);
+            f63Var.j0(prefetchEvent);
+            if (b) {
+                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
+                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + f63Var.b.index);
+            }
+        }
     }
 }

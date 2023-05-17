@@ -1,111 +1,77 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.KVStorageFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class t8 {
+/* loaded from: classes7.dex */
+public class t8 implements s8 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
-    public static t8 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SharedPreferences a;
+    public Context b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448316393, "Lcom/baidu/tieba/t8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448316393, "Lcom/baidu/tieba/t8;");
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public t8() {
+    public t8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = context;
+        this.a = KVStorageFactory.getSharedPreferences("abtesting", 0);
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.getString("abtest_sap_data", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.s8
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a.getString("abtest_sap_version", "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("switch_config", "");
         }
         return (String) invokeV.objValue;
     }
 
-    public Set<String> f() {
+    @Override // com.baidu.tieba.s8
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getString("conf_version", "0");
         }
-        return (Set) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static t8 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s8
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (t8.class) {
-                if (b == null) {
-                    b = new t8();
-                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString("conf_version", str);
+            edit.apply();
         }
-        return (t8) invokeV.objValue;
     }
 
-    public String e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s8
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return sharedPreferences.getString("abtest_" + str, "");
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString("switch_config", str);
+            edit.apply();
         }
-        return (String) invokeL.objValue;
     }
 }

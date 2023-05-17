@@ -12,7 +12,7 @@ import com.baidu.searchbox.net.update.v2.UpdateAction;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = FpsConfigCommandListener.CLOUD_FLUENCY_FPS_ACTION, module = "aap_share_20")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FpsConfigCommandListener extends JSONObjectCommandListener {
     public static final String CLOUD_FLUENCY_FPS_ACTION = "apm_fluency_fps";
     public static final String CLOUD_FLUENCY_FPS_AUTH = "auth";

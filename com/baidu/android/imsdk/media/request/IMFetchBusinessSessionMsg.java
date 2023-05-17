@@ -291,10 +291,10 @@ public class IMFetchBusinessSessionMsg extends Message {
             this.mResponse = jSONObject;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:20:0x008c  */
-        /* JADX WARN: Removed duplicated region for block: B:31:0x00d3  */
-        /* JADX WARN: Removed duplicated region for block: B:36:0x00e3  */
-        /* JADX WARN: Removed duplicated region for block: B:50:0x0134 A[ADDED_TO_REGION] */
+        /* JADX WARN: Removed duplicated region for block: B:20:0x008f  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x00d6  */
+        /* JADX WARN: Removed duplicated region for block: B:36:0x00e6  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x0137 A[ADDED_TO_REGION] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -304,7 +304,6 @@ public class IMFetchBusinessSessionMsg extends Message {
             int i2;
             int i3;
             int i4;
-            int i5;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -321,31 +320,31 @@ public class IMFetchBusinessSessionMsg extends Message {
                             list = this.this$0.parseBusinessSessions(this.mResponse.optJSONArray("sessions"));
                             i = this.mResponse.getInt("has_more");
                             try {
-                                i5 = this.mResponse.getInt("total_unread_num");
+                                int i5 = this.mResponse.getInt("total_unread_num");
                                 this.mResponse.optInt("consult_unread_num");
                                 i2 = this.mResponse.getInt("top_has_more");
-                            } catch (JSONException unused) {
-                                i2 = 0;
-                                i3 = 1005;
-                                if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
-                                }
-                                i4 = i3;
-                                if (list != null) {
-                                    while (r1.hasNext()) {
+                                try {
+                                    int i6 = this.mResponse.getInt("stranger_unread_num");
+                                    if (this.this$0.mMode != 2) {
+                                        MediaSessionManager.getInstance(this.mContext).setMediaTotalUnread(i5);
+                                        MediaSessionManager.getInstance(this.mContext).setStrangerUnread(i6);
                                     }
-                                }
-                                if (i == 1) {
-                                }
-                                z = true;
-                                this.this$0.completeSessionInfo(i4, z, i2, hashMap, hashMap2, hashMap3, arrayList);
-                            }
-                            try {
-                                int i6 = this.mResponse.getInt("stranger_unread_num");
-                                if (this.this$0.mMode != 2) {
-                                    MediaSessionManager.getInstance(this.mContext).setMediaTotalUnread(i5);
-                                    MediaSessionManager.getInstance(this.mContext).setStrangerUnread(i6);
+                                } catch (JSONException unused) {
+                                    i3 = 1005;
+                                    if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
+                                    }
+                                    i4 = i3;
+                                    if (list != null) {
+                                        while (r1.hasNext()) {
+                                        }
+                                    }
+                                    if (i == 1) {
+                                    }
+                                    z = true;
+                                    this.this$0.completeSessionInfo(i4, z, i2, hashMap, hashMap2, hashMap3, arrayList);
                                 }
                             } catch (JSONException unused2) {
+                                i2 = 0;
                                 i3 = 1005;
                                 if (!TextUtils.isEmpty(this.this$0.mScreenKey)) {
                                 }

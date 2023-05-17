@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,10 +40,10 @@ public class PrivateMgrApplyViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = 3;
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e43);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091c23);
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c24);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c27);
-        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c22);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e9f);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091c77);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c78);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c7b);
+        this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c76);
     }
 }

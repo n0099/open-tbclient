@@ -25,7 +25,7 @@ import okhttp3.internal.http2.Http2Codec;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public Map<String, String> Sm = new HashMap();
     public IKsAdSDK Sn;
@@ -33,7 +33,7 @@ public final class f {
     public String b;
     public int c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -201,15 +201,15 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong("result");
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0623a c0623a = new a.C0623a();
-                        bVar.Sg = c0623a;
+                        a.C0637a c0637a = new a.C0637a();
+                        bVar.Sg = c0637a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0623a.a = optJSONObject.optInt("dynamicType");
-                            c0623a.b = optJSONObject.optString("dynamicUrl");
-                            c0623a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0623a.Se = optJSONObject.optLong("interval");
-                            c0623a.e = optJSONObject.optString(com.heytap.mcssdk.constant.b.C);
+                            c0637a.a = optJSONObject.optInt("dynamicType");
+                            c0637a.b = optJSONObject.optString("dynamicUrl");
+                            c0637a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0637a.Se = optJSONObject.optLong("interval");
+                            c0637a.e = optJSONObject.optString(com.heytap.mcssdk.constant.b.C);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

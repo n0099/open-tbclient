@@ -5,15 +5,15 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.tieba.dh8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RankScoreCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,14 +54,14 @@ public class RankScoreCard extends BaseCardInfo {
         this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
         this.desc = jSONObject.optString("desc");
         this.desc2 = jSONObject.optString("desc2");
-        this.d2Color = dh8.b(jSONObject.optString("d2Color", ""));
-        this.d2ColorN = dh8.b(jSONObject.optString("d2ColorN", ""));
+        this.d2Color = yi8.b(jSONObject.optString("d2Color", ""));
+        this.d2ColorN = yi8.b(jSONObject.optString("d2ColorN", ""));
         this.d2Scheme = jSONObject.optString("d2Scheme");
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
         this.picUrl = jSONObject.optString("picUrl");
         this.subTitle = jSONObject.optString("subTitle");
-        this.sColor = dh8.b(jSONObject.optString("sColor", ""));
-        this.sColorNight = dh8.b(jSONObject.optString("sColorN", ""));
+        this.sColor = yi8.b(jSONObject.optString("sColor", ""));
+        this.sColorNight = yi8.b(jSONObject.optString("sColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

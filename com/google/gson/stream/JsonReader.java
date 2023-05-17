@@ -2,6 +2,7 @@ package com.google.gson.stream;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.gson.Gson;
 import com.google.gson.internal.JsonReaderInternalAccess;
 import com.google.gson.internal.bind.JsonTreeReader;
@@ -11,7 +12,7 @@ import java.io.IOException;
 import java.io.Reader;
 import kotlin.text.Typography;
 import org.apache.commons.codec.language.bm.ResourceConstants;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class JsonReader implements Closeable {
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;
     public static final char[] NON_EXECUTE_PREFIX = Gson.JSON_NON_EXECUTABLE_PREFIX.toCharArray();
@@ -596,7 +597,7 @@ public class JsonReader implements Closeable {
                 str2 = "NULL";
             } else {
                 i = 6;
-                str = "false";
+                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
                 str2 = "FALSE";
             }
         } else {

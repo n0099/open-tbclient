@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.q5a;
-import com.baidu.tieba.r5a;
+import com.baidu.tieba.s7a;
+import com.baidu.tieba.t7a;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic;
     public static final String f;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public r5a a;
-    public q5a b;
+    public t7a a;
+    public s7a b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -117,7 +117,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new r5a(this);
+            this.a = new t7a(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -136,11 +136,11 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     } else {
                         z = false;
                     }
-                    newWriteModel2.r0(z);
+                    newWriteModel2.q0(z);
                 }
-                q5a q5aVar = new q5a(this.a, this.c);
-                this.b = q5aVar;
-                this.a.l(q5aVar);
+                s7a s7aVar = new s7a(this.a, this.c);
+                this.b = s7aVar;
+                this.a.l(s7aVar);
                 this.b.h(x1());
                 return;
             }

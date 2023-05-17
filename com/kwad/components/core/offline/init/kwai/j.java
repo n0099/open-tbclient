@@ -4,7 +4,7 @@ import com.kwad.components.offline.api.core.api.IZipper;
 import com.kwad.sdk.utils.bk;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class j implements IZipper {
     @Override // com.kwad.components.offline.api.core.api.IZipper
     public final boolean unZip(InputStream inputStream, String str) {

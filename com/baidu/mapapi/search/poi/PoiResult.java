@@ -6,7 +6,7 @@ import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PoiResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiResult> CREATOR = new f();
     public int a;

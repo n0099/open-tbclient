@@ -19,7 +19,7 @@ import com.fun.module.gdt.u;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class GDTNativeUnifiedImg3View extends u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,10 +123,10 @@ public class GDTNativeUnifiedImg3View extends u {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b2);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b3);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b4);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bf);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
         }
     }
 

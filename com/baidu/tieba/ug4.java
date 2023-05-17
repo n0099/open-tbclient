@@ -1,13 +1,72 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ug4 extends vg4 {
+import java.io.File;
+import java.io.IOException;
+import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
+/* loaded from: classes7.dex */
+public abstract class ug4<T> implements xg4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.xg4
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public void c(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public void e(T t, ai4 ai4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, ai4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public void f(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+        }
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 100;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public void j(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+        }
+    }
 
     public ug4() {
         Interceptable interceptable = $ic;
@@ -21,5 +80,27 @@ public class ug4 extends vg4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public Map<String, Object> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("queue_priority", Integer.valueOf(g()));
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xg4
+    public ai4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
+            return new ai4(2302, "业务层默认不处理下载流");
+        }
+        return (ai4) invokeCommon.objValue;
     }
 }

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.google.protobuf.CodedInputStream;
 import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.q;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class e {
     public static void a(@NonNull Activity activity, int i, boolean z) {
         a(activity, 0, true, true);

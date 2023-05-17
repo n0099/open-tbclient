@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.meizu.cloud.pushinternal.DebugLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.c.f.1
         /* JADX DEBUG: Method merged with bridge method */

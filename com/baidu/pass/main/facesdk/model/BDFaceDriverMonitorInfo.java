@@ -1,5 +1,5 @@
 package com.baidu.pass.main.facesdk.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceDriverMonitorInfo {
     public float calling;
     public float drinking;

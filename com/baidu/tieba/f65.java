@@ -1,129 +1,95 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class f65 extends TBSpecificationButtonConfig {
+import java.util.LinkedList;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class f65 {
     public static /* synthetic */ Interceptable $ic;
+    public static final LinkedList<String> a;
+    public static final LinkedList<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
-    public int v;
-    public int w;
 
-    public f65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716100, "Lcom/baidu/tieba/f65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716100, "Lcom/baidu/tieba/f65;");
                 return;
             }
         }
-        this.v = R.dimen.tbds1;
-        this.w = R.string.A_X07;
-        this.b = R.color.CAM_X0302;
-        this.u = false;
+        a = new LinkedList<>();
+        b = new LinkedList<>();
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    public static JSONObject a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return u(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void q(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
+            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
+            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
+            b(jSONObject, "continuous_crash_times", String.valueOf(l65.q().o()));
+            b(jSONObject, "trigger_safe_mode_status", String.valueOf(l65.q().s()));
+            b(jSONObject, "fid_info", String.valueOf(a));
+            b(jSONObject, "tid_info", String.valueOf(b));
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public void r(@ColorInt int i) {
+    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.u = false;
-            this.q = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-    }
-
-    public void s(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-            this.c = R.color.CAM_X0902;
-            this.u = true;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = R.color.CAM_X0101;
-            this.u = false;
-            this.q = true;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
-            }
-        }
-    }
-
-    public final Drawable u(float f) {
-        InterceptResult invokeF;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            if (this.u) {
-                gradientDrawable.setStroke(ii.g(TbadkCoreApplication.getInst().getContext(), this.v), SkinManager.getColor(this.r, this.c));
-            } else {
-                int g = ii.g(TbadkCoreApplication.getInst().getContext(), this.v);
-                if (this.q) {
-                    i = SkinManager.getColor(this.r, this.b);
-                } else {
-                    i = this.b;
+            if (str != null && str2 != null) {
+                try {
+                    jSONObject.put(str, str2);
+                } catch (JSONException e) {
+                    BdLog.e(e);
                 }
-                gradientDrawable.setStroke(g, un9.a(i, e35.b(this.w)));
             }
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
+            return jSONObject;
         }
-        return (Drawable) invokeF.objValue;
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.offer(str);
+            if (a.size() > 10) {
+                a.poll();
+            }
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b.offer(str);
+            if (b.size() > 10) {
+                b.poll();
+            }
+        }
     }
 }

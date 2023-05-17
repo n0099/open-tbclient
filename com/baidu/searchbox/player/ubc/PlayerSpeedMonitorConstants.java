@@ -1,5 +1,5 @@
 package com.baidu.searchbox.player.ubc;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PlayerSpeedMonitorConstants {
     public static final String PART_ACTIVITY_CREATE = "P12_ActivityCreate";
     public static final String PART_AFTER_INIT_PLAYER_TO_START = "P24_AfterInitPlayerToStart";

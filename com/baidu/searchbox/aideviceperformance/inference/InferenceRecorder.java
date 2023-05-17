@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InferenceRecorder {
     public static final String TAG = "InferenceRecorder";
     public static volatile InferenceRecorder mInstance;

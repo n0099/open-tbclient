@@ -1,7 +1,7 @@
 package com.baidu.searchbox.pms.bean;
 
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PackageParams {
     public String packageName;
     public String uniqueVersion;

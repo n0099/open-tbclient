@@ -17,19 +17,19 @@ import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResul
 import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.RequestParams;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
+import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequest;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.response.IResponse;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PayRespDispatcher {
     public static final String TAG = "PayRespDispatcher";
-    public IPayServiceStatistics mPayReporter;
+    public IPayServiceStatisticsApi mPayReporter;
     public IPayServiceCallback mPayServiceCallback;
 
-    public PayRespDispatcher(IPayServiceStatistics iPayServiceStatistics, IPayServiceCallback iPayServiceCallback) {
-        this.mPayReporter = iPayServiceStatistics;
+    public PayRespDispatcher(IPayServiceStatisticsApi iPayServiceStatisticsApi, IPayServiceCallback iPayServiceCallback) {
+        this.mPayReporter = iPayServiceStatisticsApi;
         this.mPayServiceCallback = iPayServiceCallback;
     }
 

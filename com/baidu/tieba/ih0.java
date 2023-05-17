@@ -1,124 +1,159 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.FloatRange;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.model.MonitorUrl;
-import com.baidu.tieba.cq0;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.business.inserting.NadImageInsertingView;
+import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ih0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(cq0 cq0Var) {
-        InterceptResult invokeL;
-        cq0.b bVar;
-        cq0.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cq0Var)) == null) {
-            if (cq0Var == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(cq0Var.f) && TextUtils.isEmpty(cq0Var.d) && (((bVar = cq0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = cq0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onFail();
+
+        void onSuccess();
     }
 
-    public static void b(@Nullable List<MonitorUrl> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a(@NonNull NadInsertingBaseView nadInsertingBaseView);
+
+        void onFail();
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements NadRequester.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NadRequester.b a;
+
+        public a(NadRequester.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
         }
-        for (MonitorUrl monitorUrl : list) {
-            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.clickUrl)) {
-                p11.b(monitorUrl.clickUrl);
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void a(@NonNull NadRequester.Error error) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
+                this.a.a(error);
+            }
+        }
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void b(@NonNull List<AdBaseModel> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                if (list.size() > 0 && list.get(0) != null) {
+                    AdBaseModel adBaseModel = (AdBaseModel) o11.d(list, 0);
+                    if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
+                        aq0 aq0Var = (aq0) o11.d(adBaseModel.f.k, 0);
+                        if (aq0Var != null && !TextUtils.isEmpty(aq0Var.a)) {
+                            ib1.a().d(aq0Var.a);
+                        } else {
+                            this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
+                            return;
+                        }
+                    }
+                    this.a.b(list);
+                    return;
+                }
+                this.a.a(new NadRequester.Error("返回数据为空"));
             }
         }
     }
 
-    public static void c(@Nullable List<MonitorUrl> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, list) != null) || list == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ NadInsertingBaseView b;
+
+        public b(d dVar, NadInsertingBaseView nadInsertingBaseView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, nadInsertingBaseView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = nadInsertingBaseView;
         }
-        for (MonitorUrl monitorUrl : list) {
-            if (monitorUrl != null && !TextUtils.isEmpty(monitorUrl.showUrl)) {
-                p11.b(monitorUrl.showUrl);
+
+        @Override // com.baidu.tieba.ih0.c
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onFail();
+            }
+        }
+
+        @Override // com.baidu.tieba.ih0.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.a(this.b);
             }
         }
     }
 
-    public static int d(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    public static void a(String str, NadRequester.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == i2) {
-                return i;
-            }
-            if (f <= 0.0f) {
-                return i;
-            }
-            if (f >= 1.0f) {
-                return i2;
-            }
-            int red = Color.red(i);
-            int blue = Color.blue(i);
-            int green = Color.green(i);
-            int alpha = Color.alpha(i);
-            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, bVar) == null) {
+            RequestParameters.b bVar2 = new RequestParameters.b();
+            bVar2.q(str);
+            bVar2.p(1);
+            NadRequester.a(bVar2.o(), new a(bVar));
         }
-        return invokeCommon.intValue;
     }
 
-    public static String e(@FloatRange(from = 0.0d, to = 1.0d) float f, String str) {
-        InterceptResult invokeCommon;
+    public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull hh0 hh0Var, @NonNull d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), str})) == null) {
-            String hexString = Integer.toHexString(Math.round(f * 255.0f));
-            if (hexString.length() < 2) {
-                hexString = "0" + hexString;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, hh0Var, dVar) == null) {
+            if (o11.l(list) < 1) {
+                dVar.onFail();
+                return;
             }
-            if (hexString.length() != 2) {
-                return "";
+            AdBaseModel adBaseModel = (AdBaseModel) o11.d(list, 0);
+            if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
+                NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, hh0Var);
+                nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));
             }
-            return "#" + hexString + str;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(li0.b(), i);
-            }
-            try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(li0.b(), i);
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static void g(View view2) {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, view2) == null) && view2 != null && (viewGroup = (ViewGroup) view2.getParent()) != null) {
-            viewGroup.removeView(view2);
         }
     }
 }

@@ -10,11 +10,11 @@ import androidx.annotation.MainThread;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public Application a;
     public c b;
-    public final List<InterfaceC0699a> c;
+    public final List<InterfaceC0713a> c;
     public int d;
     public WeakReference<Activity> e;
     public volatile int f;
@@ -22,8 +22,8 @@ public class a {
     public final Application.ActivityLifecycleCallbacks h;
 
     /* renamed from: com.ss.android.socialbase.downloader.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0699a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0713a {
         @MainThread
         void b();
 
@@ -31,11 +31,11 @@ public class a {
         void c();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface c {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public static final a a = new a();
     }
@@ -135,7 +135,7 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0699a) obj).b();
+                ((InterfaceC0713a) obj).b();
             }
         }
     }
@@ -146,12 +146,12 @@ public class a {
         Object[] d = d();
         if (d != null) {
             for (Object obj : d) {
-                ((InterfaceC0699a) obj).c();
+                ((InterfaceC0713a) obj).c();
             }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r0v2, types: [int, boolean] */
     public boolean b() {
         int i = this.f;
         int i2 = i;
@@ -208,19 +208,19 @@ public class a {
         }
     }
 
-    public void b(InterfaceC0699a interfaceC0699a) {
+    public void b(InterfaceC0713a interfaceC0713a) {
         synchronized (this.c) {
-            this.c.remove(interfaceC0699a);
+            this.c.remove(interfaceC0713a);
         }
     }
 
-    public void a(InterfaceC0699a interfaceC0699a) {
-        if (interfaceC0699a == null) {
+    public void a(InterfaceC0713a interfaceC0713a) {
+        if (interfaceC0713a == null) {
             return;
         }
         synchronized (this.c) {
-            if (!this.c.contains(interfaceC0699a)) {
-                this.c.add(interfaceC0699a);
+            if (!this.c.contains(interfaceC0713a)) {
+                this.c.add(interfaceC0713a);
             }
         }
     }

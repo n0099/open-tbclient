@@ -6,7 +6,7 @@ import android.os.Build;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import java.util.Map;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebResourceRequestImpl implements WebResourceRequest {
     public final android.webkit.WebResourceRequest mRequest;
 

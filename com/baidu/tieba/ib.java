@@ -1,76 +1,109 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ib extends kb {
+import java.util.LinkedList;
+/* loaded from: classes6.dex */
+public class ib extends kb<CustomMessage<?>, CustomMessageTask, va, CustomResponsedMessage<?>> {
     public static /* synthetic */ Interceptable $ic;
-    public static ib d;
     public transient /* synthetic */ FieldHolder $fh;
-    public lb c;
+    public ba i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448307124, "Lcom/baidu/tieba/ib;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448307124, "Lcom/baidu/tieba/ib;");
-        }
-    }
-
-    public ib() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ib(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = new lb(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new lb(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
+        this.i = null;
+        this.i = new ba(messageManager);
+        this.e = nb.c();
     }
 
-    public static ib d() {
-        InterceptResult invokeV;
+    public <T> CustomResponsedMessage<T> A(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ib.class) {
-                    if (d == null) {
-                        d = new ib();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, customMessage, customMessageTask, cls)) == null) {
+            return this.i.k(customMessage, customMessageTask, cls);
         }
-        return (ib) invokeV.objValue;
+        return (CustomResponsedMessage) invokeLLL.objValue;
     }
 
-    public lb c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x9
+    /* renamed from: B */
+    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage, customMessageTask) == null) {
+            this.i.f(customMessage, customMessageTask);
         }
-        return (lb) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x9
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId)) == null) {
+            return this.i.e(i, bdUniqueId);
+        }
+        return (LinkedList) invokeIL.objValue;
+    }
+
+    @Override // com.baidu.tieba.x9
+    public void h(int i, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kb
+    /* renamed from: y */
+    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, customMessage, customMessageTask)) == null) {
+            return this.a.getController().e(customMessage, customMessageTask);
+        }
+        return (CustomMessage) invokeLL.objValue;
+    }
+
+    public LinkedList<CustomMessage<?>> x(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) {
+            return this.i.i(bdUniqueId);
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public void z(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.i.j(bdUniqueId);
+        }
     }
 }

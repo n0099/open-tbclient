@@ -3,7 +3,7 @@ package com.baidu.pass.ecommerce.common;
 import com.baidu.sapi2.utils.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JsonFieldConverter {
     public static final String TAG = "JsonFieldConverter";
 

@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BOSTokenRequest {
     public static final String ACCEPT = "accept";
     public static final String ACCEPT_VALUE = "application/json";
@@ -49,7 +49,7 @@ public class BOSTokenRequest {
                 httpURLConnection.setUseCaches(false);
                 httpURLConnection.setRequestProperty(CHARSET, "UTF-8");
                 httpURLConnection.setRequestProperty("Content-type", "application/json");
-                httpURLConnection.setRequestProperty(ACCEPT, "application/json");
+                httpURLConnection.setRequestProperty("accept", "application/json");
                 String createRequest = ContentUtil.createRequest(str);
                 if (createRequest != null && !TextUtils.isEmpty(createRequest)) {
                     httpURLConnection.setRequestProperty("Content-Length", String.valueOf(createRequest.getBytes("UTF-8").length));

@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String e = "a";
@@ -30,8 +30,8 @@ public class a {
     public com.huawei.hms.framework.network.grs.e.c d;
 
     /* renamed from: com.huawei.hms.framework.network.grs.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0542a implements com.huawei.hms.framework.network.grs.b {
+    /* loaded from: classes9.dex */
+    public static class C0556a implements com.huawei.hms.framework.network.grs.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -41,7 +41,7 @@ public class a {
         public GrsBaseInfo e;
         public com.huawei.hms.framework.network.grs.e.a f;
 
-        public C0542a(String str, Map<String, String> map, IQueryUrlsCallBack iQueryUrlsCallBack, Context context, GrsBaseInfo grsBaseInfo, com.huawei.hms.framework.network.grs.e.a aVar) {
+        public C0556a(String str, Map<String, String> map, IQueryUrlsCallBack iQueryUrlsCallBack, Context context, GrsBaseInfo grsBaseInfo, com.huawei.hms.framework.network.grs.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,7 +107,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b implements com.huawei.hms.framework.network.grs.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,7 +387,7 @@ public class a {
             com.huawei.hms.framework.network.grs.e.b bVar = new com.huawei.hms.framework.network.grs.e.b();
             Map<String, String> a = a(str, bVar, context);
             if (!bVar.a()) {
-                this.c.a(new com.huawei.hms.framework.network.grs.g.k.c(this.a, context), new C0542a(str, a, iQueryUrlsCallBack, context, this.a, this.b), str, this.d);
+                this.c.a(new com.huawei.hms.framework.network.grs.g.k.c(this.a, context), new C0556a(str, a, iQueryUrlsCallBack, context, this.a, this.b), str, this.d);
                 return;
             }
             Logger.i(e, "get unexpired cache localUrls");

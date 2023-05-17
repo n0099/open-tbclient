@@ -19,7 +19,7 @@ import com.kuaishou.weapon.p0.u;
 import java.util.Hashtable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PermissionCheck {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 200;
@@ -36,7 +36,7 @@ public class PermissionCheck {
     public static boolean l;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(b bVar);
     }
@@ -56,7 +56,7 @@ public class PermissionCheck {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements LBSAuthManagerListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,7 +122,7 @@ public class PermissionCheck {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

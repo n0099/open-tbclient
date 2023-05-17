@@ -6,7 +6,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.sapi2.utils.ParamsUtil;
 import com.baidu.sapi2.utils.enums.SocialType;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class QQSSOLoginActivity extends QQOauthLoginActivity {
     public static final String r = "QQSSOLoginActivity";
 

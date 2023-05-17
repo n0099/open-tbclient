@@ -2,7 +2,7 @@ package com.baidu.pass.common;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SharedPreferencesUtil implements com.baidu.pass.a {
     public static SharedPreferencesUtil a = null;
     public static SharedPreferences b = null;

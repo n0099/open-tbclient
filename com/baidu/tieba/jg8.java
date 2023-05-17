@@ -1,53 +1,42 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.impersonal.components.PersonalMsgContainer;
+import com.baidu.tieba.je8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class jg8 {
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+/* loaded from: classes6.dex */
+public abstract class jg8<T, V extends View, M extends je8<T>> implements e37<PersonalMsgContainer<T, V>, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, fs4> a;
+    public final String a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
+    public abstract void d(V v, M m);
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final jg8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-690729456, "Lcom/baidu/tieba/jg8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-690729456, "Lcom/baidu/tieba/jg8$b;");
-                    return;
-                }
-            }
-            a = new jg8(null);
+    public void f(ViewGroup container) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
         }
     }
 
-    public jg8() {
+    public abstract V g(ViewGroup viewGroup);
+
+    public jg8(String name) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -57,42 +46,76 @@ public class jg8 {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.a = name;
     }
 
-    public static jg8 a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e37
+    /* renamed from: e */
+    public void b(PersonalMsgContainer<T, V> view2, M data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, data) == null) {
+            Intrinsics.checkNotNullParameter(view2, "view");
+            Intrinsics.checkNotNullParameter(data, "data");
+            view2.h(data);
+            d(view2.getChild(), data);
+            f(view2.getChildContainer());
+        }
+    }
+
+    @Override // com.baidu.tieba.e37
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        return (jg8) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ jg8(a aVar) {
-        this();
-    }
-
-    public void b(fs4 fs4Var) {
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fs4Var) == null) {
-            c(fs4Var.a(), fs4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_left", false, 2, null);
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(String str, fs4 fs4Var) {
+    public final boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fs4Var) == null) {
-            this.a.put(str, fs4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return StringsKt__StringsJVMKt.endsWith$default(c(), "_right", false, 2, null);
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(String str, HashMap<String, String> hashMap, gs4 gs4Var) {
-        fs4 fs4Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.e37
+    /* renamed from: h */
+    public PersonalMsgContainer<T, V> a(ViewGroup parent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, gs4Var) != null) || str == null || hashMap == null || hashMap.isEmpty() || gs4Var == null || (fs4Var = this.a.get(str)) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            if (i()) {
+                Context context = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer = new PersonalMsgContainer<>(true, context, null, 4, null);
+                personalMsgContainer.e(g(parent));
+                return personalMsgContainer;
+            } else if (j()) {
+                Context context2 = parent.getContext();
+                Intrinsics.checkNotNullExpressionValue(context2, "parent.context");
+                PersonalMsgContainer<T, V> personalMsgContainer2 = new PersonalMsgContainer<>(false, context2, null, 4, null);
+                personalMsgContainer2.e(g(parent));
+                return personalMsgContainer2;
+            } else {
+                throw new IllegalArgumentException("unknown template: " + c());
+            }
         }
-        fs4Var.b(hashMap, gs4Var);
+        return (PersonalMsgContainer) invokeL.objValue;
     }
 }

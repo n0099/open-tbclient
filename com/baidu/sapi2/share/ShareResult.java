@@ -1,7 +1,7 @@
 package com.baidu.sapi2.share;
 
 import com.baidu.sapi2.result.SapiResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareResult extends SapiResult {
     public static final int ERROR_CODE_EXPIRED_LOGIN_FAIL = -3008;
     public static final int ERROR_CODE_REASON_BDUSS_EXPIRED = -3004;

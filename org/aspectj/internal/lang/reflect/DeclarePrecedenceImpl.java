@@ -4,7 +4,7 @@ import java.util.StringTokenizer;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.DeclarePrecedence;
 import org.aspectj.lang.reflect.TypePattern;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DeclarePrecedenceImpl implements DeclarePrecedence {
     public AjType<?> declaringType;
     public TypePattern[] precedenceList;

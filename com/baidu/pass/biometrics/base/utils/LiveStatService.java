@@ -17,7 +17,7 @@ import com.baidu.searchbox.launch.SmartLaunchStats;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class LiveStatService {
     public static final String DOMAIN_NSCLICK_URL = "https://nsclick.baidu.com/v.gif";
     public static final String TAG = "LiveStatService";

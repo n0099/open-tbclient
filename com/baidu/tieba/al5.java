@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface al5 extends zk5 {
-    boolean F();
+/* loaded from: classes4.dex */
+public interface al5 {
+    void a(xk5 xk5Var);
 
-    String U();
+    void b(zk5 zk5Var);
 
-    boolean isNeedUid();
+    void startService();
 }

@@ -5,7 +5,7 @@ import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
 import org.apache.http.HttpRequestInterceptor;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestTargetHost implements HttpRequestInterceptor {
     public RequestTargetHost() {
         throw new RuntimeException("Stub!");

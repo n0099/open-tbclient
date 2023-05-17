@@ -1,40 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class dx1 extends aw1 {
+/* loaded from: classes5.dex */
+public class dx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String h() {
-        InterceptResult invokeV;
+    public static ObjectAnimator a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Network" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new kf4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dx1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public static ObjectAnimator b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeL.objValue;
+    }
+
+    public static ObjectAnimator d(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, i);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new kf4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
+        }
+        return (ObjectAnimator) invokeLI.objValue;
     }
 }

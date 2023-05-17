@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.ss.android.socialbase.downloader.depend.aa;
 import com.ss.android.socialbase.downloader.depend.ab;
 import com.ss.android.socialbase.downloader.depend.af;
@@ -30,7 +32,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static volatile com.ss.android.socialbase.downloader.d.b A;
     public static volatile aa B;
@@ -84,18 +86,18 @@ public class c {
     public static final int L = Runtime.getRuntime().availableProcessors() + 1;
     public static final int M = (Runtime.getRuntime().availableProcessors() * 2) + 1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface a {
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.c$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public interface InterfaceC0718a {
+        /* loaded from: classes10.dex */
+        public interface InterfaceC0732a {
             void a();
         }
 
         o a();
 
-        t a(InterfaceC0718a interfaceC0718a);
+        t a(InterfaceC0732a interfaceC0732a);
 
         m b();
     }
@@ -275,7 +277,7 @@ public class c {
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
             a.registerReceiver(x, intentFilter);
             J = true;
         } catch (Throwable th) {
@@ -351,7 +353,7 @@ public class c {
             try {
                 com.ss.android.socialbase.downloader.network.i downloadWithConnection = d2.downloadWithConnection(i2, str, list);
                 if (z2) {
-                    com.ss.android.socialbase.downloader.d.a.a(downloadWithConnection, str, str2, System.currentTimeMillis() - j2, "get", i3, null, downloadInfo);
+                    com.ss.android.socialbase.downloader.d.a.a(downloadWithConnection, str, str2, System.currentTimeMillis() - j2, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, i3, null, downloadInfo);
                 }
                 return downloadWithConnection;
             } catch (IOException e3) {
@@ -363,7 +365,7 @@ public class c {
             th = th2;
             IOException iOException22 = iOException;
             if (z2) {
-                com.ss.android.socialbase.downloader.d.a.a(null, str, str2, System.currentTimeMillis() - j2, "get", i3, iOException22, downloadInfo);
+                com.ss.android.socialbase.downloader.d.a.a(null, str, str2, System.currentTimeMillis() - j2, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, i3, iOException22, downloadInfo);
             }
             throw th;
         }

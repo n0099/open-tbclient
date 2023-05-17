@@ -1,67 +1,14 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public final class cl3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678559, "Lcom/baidu/tieba/cl3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947678559, "Lcom/baidu/tieba/cl3;");
-                return;
-            }
-        }
-        boolean z = ho1.a;
-    }
-
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
-            int d = d(context);
-            if (i >= 0 && i < 255) {
-                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
-            }
-            drawable.setColorFilter(d, mode);
-        }
-    }
-
-    public static void b(Context context, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            c(context, drawable, 255);
-        }
-    }
-
-    public static void c(Context context, Drawable drawable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
-        }
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return context.getResources().getColor(R.color.obfuscated_res_0x7f06034f);
-        }
-        return invokeL.intValue;
-    }
+/* loaded from: classes5.dex */
+public interface cl3 {
+    public static final bl3<Long> b = new bl3<>("index_cost_recent_launch_total");
+    public static final bl3<Long> c = new bl3<>("index_cost_recent_download");
+    public static final bl3<Long> d = new bl3<>("index_cost_recent_page_switch");
+    public static final bl3<Long> e = new bl3<>("index_cost_recent_page_rendered_initial");
+    public static final bl3<Long> f = new bl3<>("index_cost_current_page_rendered");
+    public static final bl3<Long> g = new bl3<>("index_cost_startup_page_first_rendered");
+    public static final bl3<Long> h = new bl3<>("index_storage_size");
+    public static final bl3<Long> i = new bl3<>("index_cost_on_screen");
+    public static final bl3<String> j = new bl3<>("index_start_up_api_info");
+    public static final bl3<String> k = new bl3<>("index_prelink_info");
 }

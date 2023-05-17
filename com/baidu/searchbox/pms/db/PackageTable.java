@@ -1,5 +1,5 @@
 package com.baidu.searchbox.pms.db;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class PackageTable {
     public static final String ABI = "abi";
     public static final String CHANNEL_ID = "channel_id";

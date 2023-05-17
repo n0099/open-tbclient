@@ -9,12 +9,12 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface DrawAdListener {
         @KsAdSdkApi
         @Keep
@@ -29,7 +29,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FeedAdListener {
         @KsAdSdkApi
         @Keep
@@ -44,7 +44,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FullScreenVideoAdListener {
         @KsAdSdkApi
         @Keep
@@ -64,7 +64,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface InterstitialAdListener {
         @KsAdSdkApi
         @Keep
@@ -83,7 +83,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface NativeAdListener {
         @KsAdSdkApi
         @Keep
@@ -98,7 +98,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface RewardVideoAdListener {
         @KsAdSdkApi
         @Keep
@@ -118,7 +118,7 @@ public interface KsLoadManager {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface SplashScreenAdListener {
         @KsAdSdkApi
         @Keep

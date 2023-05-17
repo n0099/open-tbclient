@@ -36,7 +36,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MatroskaExtractor implements Extractor {
     public static final int BLOCK_STATE_DATA = 2;
     public static final int BLOCK_STATE_HEADER = 1;
@@ -237,7 +237,7 @@ public final class MatroskaExtractor implements Extractor {
     public static final UUID WAVE_SUBFORMAT_PCM = new UUID(72057594037932032L, -9223371306706625679L);
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Flags {
     }
 
@@ -339,7 +339,7 @@ public final class MatroskaExtractor implements Extractor {
     public void release() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class InnerEbmlReaderOutput implements EbmlReaderOutput {
         public InnerEbmlReaderOutput() {
         }
@@ -385,7 +385,7 @@ public final class MatroskaExtractor implements Extractor {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Track {
         public static final int DEFAULT_MAX_CLL = 1000;
         public static final int DEFAULT_MAX_FALL = 200;

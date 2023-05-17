@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCardVew> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: G */
     public MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -80,7 +80,7 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.vm
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.tieba.en
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         x(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -93,7 +93,7 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgPhotoLiveCardVew a2 = msgViewHolder.a();
-            a2.v0(this.a, chatMessage, viewGroup);
+            a2.w0(this.a, chatMessage, viewGroup);
             a2.S(this.b);
             a2.U(i);
             this.a.getLayoutMode().l(false);

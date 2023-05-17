@@ -4,13 +4,13 @@ import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.Util;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class SegmentBase {
     public final RangedUri initialization;
     public final long presentationTimeOffset;
     public final long timescale;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static abstract class MultiSegmentBase extends SegmentBase {
         public final long duration;
         public final List<SegmentTimelineElement> segmentTimeline;
@@ -97,7 +97,7 @@ public abstract class SegmentBase {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SegmentList extends MultiSegmentBase {
         public final List<RangedUri> mediaSegments;
 
@@ -122,7 +122,7 @@ public abstract class SegmentBase {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SegmentTemplate extends MultiSegmentBase {
         public final UrlTemplate initializationTemplate;
         public final UrlTemplate mediaTemplate;
@@ -171,7 +171,7 @@ public abstract class SegmentBase {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SegmentTimelineElement {
         public final long duration;
         public final long startTime;
@@ -182,7 +182,7 @@ public abstract class SegmentBase {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class SingleSegmentBase extends SegmentBase {
         public final long indexLength;
         public final long indexStart;

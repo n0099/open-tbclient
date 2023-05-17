@@ -3,8 +3,8 @@ package com.baidu.tbadk.abtest.group;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.in;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.rn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsGroupUbsABTest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,17 +40,17 @@ public abstract class AbsGroupUbsABTest {
         }
     }
 
-    public static void setCardInfoUbsABTest(List<in> list) {
+    public static void setCardInfoUbsABTest(List<rn> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
             return;
         }
         HashMap hashMap = new HashMap(UbsABTestHelper.getUbsABTestMap());
-        for (in inVar : list) {
-            if (inVar instanceof ax4) {
-                ax4 ax4Var = (ax4) inVar;
+        for (rn rnVar : list) {
+            if (rnVar instanceof jy4) {
+                jy4 jy4Var = (jy4) rnVar;
                 for (Map.Entry entry : hashMap.entrySet()) {
-                    ax4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
+                    jy4Var.setABTest((BdUniqueId) entry.getKey(), (UsbAbTestSwitch) entry.getValue());
                 }
             }
         }

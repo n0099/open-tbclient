@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.audio.AudioProcessor;
 import com.google.android.exoplayer2.util.Util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TrimmingAudioProcessor implements AudioProcessor {
     public ByteBuffer buffer;
     public int channelCount;

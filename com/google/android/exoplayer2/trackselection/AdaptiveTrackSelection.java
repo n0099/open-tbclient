@@ -9,7 +9,7 @@ import com.google.android.exoplayer2.source.chunk.MediaChunk;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class AdaptiveTrackSelection extends BaseTrackSelection {
     public static final float DEFAULT_BANDWIDTH_FRACTION = 0.75f;
     public static final float DEFAULT_BUFFERED_FRACTION_TO_LIVE_EDGE_FOR_QUALITY_INCREASE = 0.75f;
@@ -32,7 +32,7 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
         return null;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Factory implements TrackSelection.Factory {
         public final float bandwidthFraction;
         public final BandwidthMeter bandwidthMeter;

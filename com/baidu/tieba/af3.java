@@ -1,186 +1,384 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.us2;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class af3 extends ze3 {
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.zip.ZipFile;
+/* loaded from: classes4.dex */
+public class af3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
+    public static final boolean c;
+    public static final String[] d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanCoreVersion k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
 
-    public af3() {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "v8.engine" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.af3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public static class RunnableC0221a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public RunnableC0221a() {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    af3.a();
+                }
+            }
+        }
+
+        public static void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+                ExecutorUtilsExt.postOnElastic(new RunnableC0221a(), "V8SoCleaner", 3);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947613211, "Lcom/baidu/tieba/af3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947613211, "Lcom/baidu/tieba/af3;");
                 return;
             }
         }
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = "";
-        this.q = "";
-        this.r = "";
-        this.s = "";
-        this.t = "";
-        pe3.i(this);
-        pe3.h(this);
-        pe3.f(this);
-        pe3.g(this);
+        a = qp1.a;
+        b = cs2.g() + "/v8_so/";
+        c = ns2.e0().b();
+        d = ns2.e0().a();
+        e = null;
     }
 
-    @Override // com.baidu.tieba.ze3
-    public JSONObject f() {
-        int i;
-        InterceptResult invokeV;
+    public static void a() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                x73 D = kt2.U().D();
-                if (TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                String i2 = ch3.i(this.k, i);
-                if (D != null && D.Y() != null) {
-                    us2.a Y = D.Y();
-                    if (TextUtils.isEmpty(this.l)) {
-                        this.l = D.k0();
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            File file = new File(b);
+            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
+                String D = an3.D();
+                for (File file2 : listFiles) {
+                    if (!TextUtils.equals(file2.getName(), D)) {
+                        kp4.L(file2);
                     }
-                    if (TextUtils.isEmpty(this.m)) {
-                        this.m = Y.w1();
-                    }
-                    Bundle P = Y.P();
-                    if (P != null) {
-                        this.o = P.getString("aiapp_extra_need_download", "");
-                    }
-                    if (TextUtils.isEmpty(this.p)) {
-                        this.p = Y.W();
-                    }
-                    this.p = pe3.b(this.p);
-                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
-                        this.s = Y.e0();
-                    }
-                    String b = pe3.b(this.s);
-                    this.s = b;
-                    if (b == null) {
-                        this.s = "";
-                    }
-                    if (TextUtils.isEmpty(this.u)) {
-                        this.u = Y.V();
-                    }
-                }
-                this.n = SwanAppNetworkUtils.f().type;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                this.h.put("swan", i2);
-                this.h.put("appversion", this.l);
-                this.h.put("thirdversion", this.m);
-                this.h.put("net", this.n);
-                this.h.put("needdown", this.o);
-                this.h.put("scheme", this.p);
-                this.h.put("page", this.s);
-                this.h.put("launchid", this.u);
-                if (!TextUtils.isEmpty(this.t)) {
-                    this.h.put("error_code", this.t);
-                }
-                if (!TextUtils.isEmpty(this.q)) {
-                    this.h.put("canceltime", this.q);
-                }
-                if (!TextUtils.isEmpty(this.r)) {
-                    this.h.put("successtime", this.r);
-                }
-                if (ze3.j) {
-                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
-                }
-            } catch (JSONException e) {
-                if (ze3.j) {
-                    e.printStackTrace();
                 }
             }
-            return super.f();
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    public String g() {
+    @NonNull
+    public static ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            arrayList.add("v8.engine");
+            arrayList.add("zeusv8");
+            if (c) {
+                arrayList.add("com.baidu.zeus");
+            }
+            String[] strArr = d;
+            if (strArr != null && strArr.length != 0) {
+                arrayList.addAll(Arrays.asList(strArr));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c) {
+                return e;
+            }
+            return null;
         }
         return (String) invokeV.objValue;
     }
 
-    public void h(xs2 xs2Var) {
+    @SuppressLint({"BDSoLoader"})
+    public static boolean e(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xs2Var) == null) {
-            if (xs2Var == null) {
-                if (ze3.j) {
-                    Log.w("SwanAppUBCEvent", "launchinfo is null");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            this.f = xs2Var.H();
-            this.c = xs2Var.T();
-            this.o = xs2Var.s0().getString("aiapp_extra_need_download", "");
-            this.p = xs2Var.W();
-            this.s = xs2Var.e0();
-            this.u = xs2Var.V();
+            try {
+                System.loadLibrary(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadLibsSo: " + th.getMessage());
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    public void i(xs2 xs2Var) {
+    @SuppressLint({"UnsafeDynamicallyLoadedCode", "BDSoLoader"})
+    public static boolean f(@Nullable String str, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xs2Var) == null) {
-            h(xs2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, soLoader)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                System.load(str);
+                return true;
+            } catch (Throwable th) {
+                soLoader.appendErrorLog("loadSoByPath: " + th.getMessage());
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 
-    public void j(xs2 xs2Var) {
+    public static boolean l(@Nullable HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xs2Var) == null) {
-            h(xs2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, hashMap, soLoader)) == null) {
+            String[] strArr = d;
+            boolean z = true;
+            if (strArr != null && strArr.length != 0) {
+                for (String str : strArr) {
+                    if (hashMap == null) {
+                        f = e(str, soLoader);
+                    } else {
+                        f = f(hashMap.get(str), soLoader);
+                    }
+                    if (!f) {
+                        z = false;
+                    }
+                }
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void k(String str) {
+    public static boolean g(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.u = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, soLoader)) == null) {
+            if (c) {
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, "com.baidu.zeus");
+                if (findSoFilesInLibrary == null || findSoFilesInLibrary.length() == 0) {
+                    return false;
+                }
+                e = findSoFilesInLibrary.getAbsolutePath();
+                m("loadV8EngineSo: v8 dependentFile:" + e);
+            }
+            boolean l = l(null, soLoader);
+            boolean e2 = e("v8.engine", soLoader);
+            if (!l || !e2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static bf3 h(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, soLoader)) == null) {
+            if (g(context, soLoader)) {
+                m("loadV8EngineBySystemMethod:success.");
+                return bf3.e();
+            }
+            bf3 k = k(context, soLoader);
+            if (k.b()) {
+                m("loadV8EngineSoWithSystemPath:success.");
+                return k;
+            }
+            bf3 j = j(context, soLoader);
+            if (!j.b()) {
+                SoUtils.onEvent("26", soLoader.getErrorLog());
+            } else {
+                m("loadV8EngineSoWithCustomPath:success.");
+            }
+            return j;
+        }
+        return (bf3) invokeLL.objValue;
+    }
+
+    public static bf3 k(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            Iterator<String> it = b().iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(context, next);
+                if (findSoFilesInLibrary != null && findSoFilesInLibrary.exists() && findSoFilesInLibrary.length() != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (z) {
+                    str = findSoFilesInLibrary.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            return i(hashMap, soLoader);
+        }
+        return (bf3) invokeLL.objValue;
+    }
+
+    public static bf3 i(@NonNull HashMap<String, String> hashMap, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, hashMap, soLoader)) == null) {
+            m("loadV8EngineSoByMap:" + hashMap);
+            String str = hashMap.get("com.baidu.zeus");
+            boolean z = false;
+            if (c && str == null) {
+                return bf3.d(false, false);
+            }
+            boolean f = f(hashMap.get("zeusv8"), soLoader);
+            boolean l = l(hashMap, soLoader);
+            boolean f2 = f(hashMap.get("v8.engine"), soLoader);
+            if (f2) {
+                e = str;
+            }
+            if (l && f2) {
+                z = true;
+            }
+            return bf3.d(f, z);
+        }
+        return (bf3) invokeLL.objValue;
+    }
+
+    public static bf3 j(@NonNull Context context, @NonNull SoLoader soLoader) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, soLoader)) == null) {
+            e = null;
+            HashMap hashMap = new HashMap();
+            String D = an3.D();
+            File file = new File(b, D);
+            Iterator<String> it = b().iterator();
+            while (true) {
+                boolean z = true;
+                if (!it.hasNext()) {
+                    break;
+                }
+                String next = it.next();
+                File file2 = new File(file, SoUtils.getFullName(next));
+                if ((!file2.exists() || file2.length() == 0) ? false : false) {
+                    str = file2.getAbsolutePath();
+                } else {
+                    str = null;
+                }
+                hashMap.put(next, str);
+            }
+            if (!hashMap.containsValue(null)) {
+                return i(hashMap, soLoader);
+            }
+            String str2 = "swan_v8so_unzip_times_" + D;
+            int i = uh3.a().getInt(str2, 0);
+            if (i >= 3) {
+                soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:reach max unzip times.");
+                return k(context, soLoader);
+            }
+            uh3.a().putInt(str2, i + 1);
+            String str3 = "lib" + File.separator + SoUtils.getCurrentCpuAbi();
+            ZipFile apkZipFile = soLoader.getApkZipFile(context);
+            try {
+                if (apkZipFile == null) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:zipFile is null.");
+                    return k(context, soLoader);
+                }
+                try {
+                    for (String str4 : hashMap.keySet()) {
+                        if (hashMap.get(str4) == null) {
+                            String fullName = SoUtils.getFullName(str4);
+                            File file3 = new File(file, fullName);
+                            if (soLoader.executeRelease(apkZipFile, fullName, str3, file3)) {
+                                hashMap.put(str4, file3.getAbsolutePath());
+                            }
+                        }
+                    }
+                } catch (Exception e2) {
+                    soLoader.appendErrorLog("loadV8EngineSoWithCustomPath:" + e2.getMessage());
+                    if (a) {
+                        Log.e("V8InnerSoLoader", "loadV8EngineSoWithCustomPath:" + e2);
+                    }
+                }
+                return i(hashMap, soLoader);
+            } finally {
+                kp4.d(apkZipFile);
+            }
+        }
+        return (bf3) invokeLL.objValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && a) {
+            Log.d("V8InnerSoLoader", str);
         }
     }
 }

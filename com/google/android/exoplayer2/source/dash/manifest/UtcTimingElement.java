@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 
 import com.baidu.android.common.others.lang.StringUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class UtcTimingElement {
     public final String schemeIdUri;
     public final String value;

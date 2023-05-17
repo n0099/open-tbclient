@@ -1,32 +1,145 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kc1;
+import com.baidu.tieba.mc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class oc1 {
+/* loaded from: classes6.dex */
+public class oc1 extends kc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout i;
+    public a j;
 
-    public abstract void a(boolean z, long j);
+    /* loaded from: classes6.dex */
+    public static class a extends kc1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View g;
 
-    public abstract void b(@NonNull xp0 xp0Var);
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
 
-    public abstract void c();
+        @Override // com.baidu.tieba.mc1.a
+        public mc1 f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new oc1(context);
+            }
+            return (mc1) invokeL.objValue;
+        }
 
-    public oc1() {
+        @Override // com.baidu.tieba.mc1.a
+        public /* bridge */ /* synthetic */ mc1.a q(int i) {
+            y(i);
+            return this;
+        }
+
+        public a x(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                this.g = view2;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                super.q(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @Override // com.baidu.tieba.kc1.b, com.baidu.tieba.mc1.a
+        public mc1 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                oc1 oc1Var = (oc1) super.a();
+                oc1Var.o(this);
+                return oc1Var;
+            }
+            return (mc1) invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oc1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.kc1
+    public View i(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.nad_view_ssl_certificate_dialog, viewGroup, false);
+            this.i = (FrameLayout) inflate.findViewById(R.id.ssl_certificate_container);
+            n();
+            return inflate;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void o(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.j = aVar;
+        }
+    }
+
+    public final void n() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.j) != null) {
+            this.i.addView(aVar.g);
         }
     }
 }

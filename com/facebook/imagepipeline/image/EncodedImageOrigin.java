@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.image;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public enum EncodedImageOrigin {
     NOT_SET("not_set"),
     NETWORK("network"),

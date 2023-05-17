@@ -2,7 +2,7 @@ package okio;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ForwardingSource implements Source {
     public final Source delegate;
 

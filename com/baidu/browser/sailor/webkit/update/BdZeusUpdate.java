@@ -11,9 +11,8 @@ import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tieba.dw;
-import com.baidu.tieba.nw;
+import com.baidu.tieba.mw;
+import com.baidu.tieba.ww;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +34,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdZeusUpdate {
     public static /* synthetic */ Interceptable $ic;
     public static BdZeusUpdate e;
@@ -45,7 +44,7 @@ public class BdZeusUpdate {
     public String c;
     public boolean d;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class BdZesuUpdateTask extends BdNetTask implements INetListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +201,7 @@ public class BdZeusUpdate {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +244,7 @@ public class BdZeusUpdate {
             } else if (bdZeusUpdate.d) {
                 return;
             } else {
-                if (nw.d(context)) {
+                if (ww.d(context)) {
                     BdZesuUpdateTask bdZesuUpdateTask = new BdZesuUpdateTask(bdZeusUpdate, context, "https://mbrowser.baidu.com/api/update/kernel?version=");
                     BdNet bdNet = new BdNet(context);
                     bdNet.setEventListener(bdZesuUpdateTask);
@@ -323,7 +322,7 @@ public class BdZeusUpdate {
                 d(sb, "sdk", sdkVersionName);
             }
             String cuid = BdSailorPlatform.getInstance().getCuid();
-            String f = !TextUtils.isEmpty(cuid) ? nw.f(cuid) : "";
+            String f = !TextUtils.isEmpty(cuid) ? ww.f(cuid) : "";
             if (!TextUtils.isEmpty(f)) {
                 d(sb, "cuid", f);
             }
@@ -339,7 +338,7 @@ public class BdZeusUpdate {
             stringBuffer.append(i);
             stringBuffer.append("_");
             stringBuffer.append(str4.replace("_", "-"));
-            String f2 = nw.f(stringBuffer.toString().replace(" ", "-"));
+            String f2 = ww.f(stringBuffer.toString().replace(" ", "-"));
             if (!TextUtils.isEmpty(f2)) {
                 d(sb, BdZeusUtil.URL_KEY_MACHINE, f2);
             }
@@ -393,8 +392,8 @@ public class BdZeusUpdate {
                     jArr[i] = 0;
                 }
                 try {
-                    String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
-                    String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, 4);
+                    String[] split = str.split("\\.", 4);
+                    String[] split2 = str2.split("\\.", 4);
                     jArr[0] = Long.parseLong(split[0]);
                     jArr[1] = Long.parseLong(split[1]);
                     jArr[2] = Long.parseLong(split[2]);
@@ -541,7 +540,7 @@ public class BdZeusUpdate {
             }
             if (z) {
                 try {
-                    float a2 = dw.a() / 1024.0f;
+                    float a2 = mw.a() / 1024.0f;
                     String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("update_zeus_mem_size_mb");
                     if (a2 < (TextUtils.isEmpty(GetCloudSettingsValue) ? 1024 : Integer.valueOf(GetCloudSettingsValue).intValue())) {
                         return;

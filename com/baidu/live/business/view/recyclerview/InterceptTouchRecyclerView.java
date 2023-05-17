@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InterceptTouchRecyclerView extends RecyclerView {
     public InterceptTouchRecyclerView(@NonNull Context context) {
         super(context);

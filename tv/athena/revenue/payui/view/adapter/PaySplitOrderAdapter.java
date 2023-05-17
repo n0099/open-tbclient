@@ -9,19 +9,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.feb;
+import com.baidu.tieba.jgb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public final Activity a;
     public List<SplitRecordItem> b;
     public PayUIKitConfig c;
     public c d = null;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(SplitRecordItem splitRecordItem);
 
@@ -33,7 +33,7 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         return i;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class SplitOrderItemViewHolder extends RecyclerView.ViewHolder {
         public TextView a;
         public TextView b;
@@ -51,7 +51,7 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public final /* synthetic */ SplitRecordItem a;
 
@@ -68,7 +68,7 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class b implements View.OnClickListener {
         public final /* synthetic */ SplitRecordItem a;
 
@@ -140,6 +140,6 @@ public class PaySplitOrderAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     @NonNull
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, feb.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
+        return new SplitOrderItemViewHolder(this, LayoutInflater.from(new ContextThemeWrapper(this.a, jgb.a.a(this.c))).inflate(R.layout.pay_ui_item_pay_split_order_item_layout, viewGroup, false));
     }
 }

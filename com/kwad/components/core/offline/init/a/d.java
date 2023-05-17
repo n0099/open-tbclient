@@ -10,7 +10,7 @@ import com.kwad.components.offline.api.core.video.mdoel.KsPlayerLogParams;
 import com.kwad.components.offline.api.core.video.mdoel.PlayVideoInfo;
 import com.kwad.sdk.contentalliance.kwai.kwai.b;
 import com.kwad.sdk.core.video.kwai.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static b.a a(final ReleaseCallback releaseCallback) {
         if (releaseCallback == null) {
@@ -124,12 +124,12 @@ public final class d {
         };
     }
 
-    public static c.InterfaceC0637c a(final IMediaPlayer iMediaPlayer, final IMediaPlayer.OnErrorListener onErrorListener) {
+    public static c.InterfaceC0651c a(final IMediaPlayer iMediaPlayer, final IMediaPlayer.OnErrorListener onErrorListener) {
         if (onErrorListener == null) {
             return null;
         }
-        return new c.InterfaceC0637c() { // from class: com.kwad.components.core.offline.init.a.d.7
-            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0637c
+        return new c.InterfaceC0651c() { // from class: com.kwad.components.core.offline.init.a.d.7
+            @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0651c
             public final boolean j(int i, int i2) {
                 return IMediaPlayer.OnErrorListener.this.onError(iMediaPlayer, i, i2);
             }

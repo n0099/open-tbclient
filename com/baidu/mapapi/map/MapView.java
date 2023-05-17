@@ -28,7 +28,7 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapSurfaceView;
 import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class MapView extends ViewGroup {
     public static String b;
     public static final SparseIntArray q;

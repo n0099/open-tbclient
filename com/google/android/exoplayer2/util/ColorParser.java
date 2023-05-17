@@ -2,13 +2,14 @@ package com.google.android.exoplayer2.util;
 
 import android.text.TextUtils;
 import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ColorParser {
     public static final Map<String, Integer> COLOR_MAP;
     public static final String RGB = "rgb";
@@ -29,7 +30,7 @@ public final class ColorParser {
         COLOR_MAP.put("bisque", -6972);
         COLOR_MAP.put("black", -16777216);
         COLOR_MAP.put("blanchedalmond", -5171);
-        COLOR_MAP.put("blue", -16776961);
+        COLOR_MAP.put("blue", Integer.valueOf((int) BaseAnimatedElement.DEBUG_PAINT_COLOR));
         COLOR_MAP.put("blueviolet", -7722014);
         COLOR_MAP.put("brown", -5952982);
         COLOR_MAP.put("burlywood", -2180985);

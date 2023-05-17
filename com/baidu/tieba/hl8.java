@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.mainentrance.RequestSearchPersonHistoryWriteMessage;
+import com.baidu.tieba.mainentrance.ResponseSearchPersonHistoryWriteMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class hl8 extends tj1<ExtLiveJumpPageService> {
+/* loaded from: classes5.dex */
+public class hl8 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,15 +31,31 @@ public class hl8 extends tj1<ExtLiveJumpPageService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public ExtLiveJumpPageService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new il8();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof RequestSearchPersonHistoryWriteMessage)) {
+                RequestSearchPersonHistoryWriteMessage requestSearchPersonHistoryWriteMessage = (RequestSearchPersonHistoryWriteMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                c25.d();
+                se<String> f = c25.f("tb.searchperson_history", currentAccount);
+                if (requestSearchPersonHistoryWriteMessage.isClear()) {
+                    BdCacheService.n().l(f);
+                } else {
+                    Object data = requestSearchPersonHistoryWriteMessage.getData();
+                    if (data != null && (data instanceof String)) {
+                        f.g((String) data, null);
+                    }
+                }
+                return new ResponseSearchPersonHistoryWriteMessage();
+            }
+            return null;
         }
-        return (ExtLiveJumpPageService) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class VCardResultParser extends ResultParser {
     public static final Pattern BEGIN_VCARD = Pattern.compile("BEGIN:VCARD", 2);
     public static final Pattern VCARD_LIKE_DATE = Pattern.compile("\\d{4}-?\\d{2}-?\\d{2}");

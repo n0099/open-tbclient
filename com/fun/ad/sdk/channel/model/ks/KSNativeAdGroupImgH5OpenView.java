@@ -20,7 +20,7 @@ import com.kwad.sdk.api.KsImage;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class KSNativeAdGroupImgH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,12 +101,12 @@ public class KSNativeAdGroupImgH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a5);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b2);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b3);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b4);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900e1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c2);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bf);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ee);
             this.h = (TextView) findViewById(R.id.ad_h5_description);
             this.i = (Button) findViewById(R.id.ad_h5_open);
         }

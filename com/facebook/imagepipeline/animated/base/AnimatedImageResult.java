@@ -6,7 +6,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimatedImageResult {
     @Nullable
     public BitmapTransformation mBitmapTransformation;

@@ -1,166 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.Constant;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IPrivateReflectAbility;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import java.lang.reflect.Method;
+@Autowired
+/* loaded from: classes7.dex */
 public class ud1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ud1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, wd1> a;
 
-    public ud1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes7.dex */
+    public static class a implements IPrivateReflectAbility {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.a = new HashMap();
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Class<?> forName(String str) throws ClassNotFoundException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return ze1.a(str);
+            }
+            return (Class) invokeL.objValue;
+        }
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Field getField(Class<?> cls, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls, str)) == null) {
+                return ze1.b(cls, str);
+            }
+            return (Field) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.nps.interfa.IPrivateReflectAbility
+        public Method getMethod(Class<?> cls, String str, Class<?>... clsArr) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cls, str, clsArr)) == null) {
+                return ze1.c(cls, str, clsArr);
+            }
+            return (Method) invokeLLL.objValue;
+        }
     }
 
-    public static ud1 d() {
+    public static Class<?> a(String str) throws ClassNotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return c().forName(str);
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
+            return c().getMethod(cls, str, clsArr);
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    @Inject(force = false)
+    public static IPrivateReflectAbility c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new a();
+        }
+        return (IPrivateReflectAbility) invokeV.objValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (ud1.class) {
-                    if (b == null) {
-                        b = new ud1();
-                    }
-                }
+            if ((c() instanceof a) && Build.VERSION.SDK_INT >= 28) {
+                return false;
             }
-            return b;
+            return true;
         }
-        return (ud1) invokeV.objValue;
-    }
-
-    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
-            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
-            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
-            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
-            return tArr;
-        }
-        return (T[]) ((Object[]) invokeLLL.objValue);
-    }
-
-    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
-            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
-        }
-    }
-
-    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
-            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
-            for (Object obj : objArr2) {
-                if (!arrayList.contains(obj)) {
-                    arrayList.add(obj);
-                }
-            }
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
-            for (int i = 0; i < objArr3.length; i++) {
-                objArr3[i] = arrayList.get(i);
-            }
-            return objArr3;
-        }
-        return (Object[]) invokeLL.objValue;
-    }
-
-    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
-            List list = (List) field.get(obj);
-            list.addAll((List) field.get(obj2));
-            field.set(obj, list);
-            Field b2 = je1.b(obj.getClass(), "nativeLibraryPathElements");
-            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
-        }
-    }
-
-    public static ClassLoader g(wd1 wd1Var, wd1 wd1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, wd1Var, wd1Var2)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                h(wd1Var, wd1Var2);
-                return wd1Var;
-            }
-            return null;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public static ClassLoader h(wd1 wd1Var, wd1 wd1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, wd1Var, wd1Var2)) == null) {
-            Field b2 = je1.b(wd1.class, "pathList");
-            try {
-                Object obj = b2.get(wd1Var);
-                Field b3 = je1.b(obj.getClass(), "dexElements");
-                Field b4 = je1.b(obj.getClass(), "nativeLibraryDirectories");
-                Object[] objArr = (Object[]) b3.get(obj);
-                Object obj2 = b2.get(wd1Var2);
-                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    f(b4, obj, obj2);
-                } else {
-                    e(b4, obj, obj2);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return wd1Var;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public wd1 b(BundleInfo bundleInfo, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
-            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
-            wd1 wd1Var = new wd1(ee1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), ee1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), ee1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                wd1 wd1Var2 = this.a.get(bundleInfo.getGroupName());
-                if (wd1Var2 == null) {
-                    this.a.put(bundleInfo.getGroupName(), wd1Var);
-                    return wd1Var;
-                }
-                g(wd1Var2, wd1Var);
-                return wd1Var2;
-            }
-            return wd1Var;
-        }
-        return (wd1) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 }

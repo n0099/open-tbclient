@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.PbContent;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TbRichTextVoiceInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         }
     }
 
-    public int V() {
+    public int U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -41,7 +41,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String W() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -50,7 +50,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public Object X() {
+    public Object W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -114,7 +114,7 @@ public class TbRichTextVoiceInfo extends OrmObject {
         this.c = pbContent.is_sub.intValue();
     }
 
-    public void Y(Object obj) {
+    public void X(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
             this.d = obj;

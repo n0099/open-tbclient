@@ -5,8 +5,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.eg5;
-import com.baidu.tieba.fg5;
+import com.baidu.tieba.nh5;
+import com.baidu.tieba.oh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eg5 mData;
+    public nh5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -39,13 +39,13 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public eg5 getData() {
+    public nh5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mData;
         }
-        return (eg5) invokeV.objValue;
+        return (nh5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -54,9 +54,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            eg5 eg5Var = this.mData;
-            if (eg5Var != null && eg5Var.a() != null) {
-                fg5.d().i(this.mData.a());
+            nh5 nh5Var = this.mData;
+            if (nh5Var != null && nh5Var.a() != null) {
+                oh5.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -82,9 +82,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
             if (getError() != 0) {
                 return getUserInfoResIdl;
             }
-            eg5 eg5Var = new eg5();
-            this.mData = eg5Var;
-            eg5Var.b(getUserInfoResIdl.data);
+            nh5 nh5Var = new nh5();
+            this.mData = nh5Var;
+            nh5Var.b(getUserInfoResIdl.data);
             return getUserInfoResIdl;
         }
         return invokeIL.objValue;

@@ -9,7 +9,7 @@ import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist;
 import com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler;
 import com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class DownloadSpeedListener extends DownloadBlockProgressListener implements ListenerSpeedAssistExtend.Listener4SpeedCallback {
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist.Listener4Callback
     public final void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo) {
@@ -31,7 +31,7 @@ public abstract class DownloadSpeedListener extends DownloadBlockProgressListene
     public final void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull DownloadBlockProgressListenerAssist.Listener4Model listener4Model) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Listener4WithSpeedModelCreator implements ListenerModelHandler.ModelCreator<ListenerSpeedAssistExtend.Listener4SpeedModel> {
         public Listener4WithSpeedModelCreator() {
         }

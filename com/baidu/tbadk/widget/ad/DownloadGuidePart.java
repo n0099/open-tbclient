@@ -13,7 +13,7 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.widget.ProgressButton;
 import com.baidu.tbadk.widget.ad.DownloadGuidePart;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import kotlin.ranges.RangesKt___RangesKt;
 import kotlin.text.StringsKt__StringsKt;
 import tbclient.TiebaPlusInfo;
 @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u001b2\u00020\u0001:\u0001\u001bB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u000b\u001a\u00020\fH\u0002J\u0010\u0010\r\u001a\u00020\f2\u0006\u0010\u000e\u001a\u00020\u000fH\u0016J\b\u0010\u0010\u001a\u00020\fH\u0016J\u0010\u0010\u0011\u001a\u00020\f2\u0006\u0010\u0012\u001a\u00020\u0013H\u0016J\u0010\u0010\u0014\u001a\u00020\f2\u0006\u0010\u0015\u001a\u00020\u0016H\u0002J\u0010\u0010\u0017\u001a\u00020\f2\u0006\u0010\u0018\u001a\u00020\u0019H\u0016J\b\u0010\u001a\u001a\u00020\fH\u0016R\u0010\u0010\u0005\u001a\u0004\u0018\u00010\u0006X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u001c"}, d2 = {"Lcom/baidu/tbadk/widget/ad/DownloadGuidePart;", "Lcom/baidu/tbadk/widget/ad/AbsDownloadGuide;", "mContext", "Landroid/content/Context;", "(Landroid/content/Context;)V", "mGuideContent", "Landroid/widget/TextView;", "mGuideProgress", "Lcom/baidu/tbadk/widget/ProgressButton;", "mRootView", "Landroid/view/View;", "initView", "", "installOrUnUpdateInfo", "installOrUnType", "", "onSkinChanged", "setData", "data", "Lcom/baidu/tbadk/core/data/ThreadData;", "setProgressText", "info", "", "updateInfo", "downloadData", "Lcom/baidu/tbadk/download/DownloadData;", "updateJustStart", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class DownloadGuidePart extends AbsDownloadGuide {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -191,10 +191,10 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            g35.d(this).f(R.color.CAM_X0905);
+            p45.d(this).f(R.color.CAM_X0905);
             TextView textView = this.m;
             if (textView != null) {
-                g35.d(textView).w(R.color.CAM_X0304);
+                p45.d(textView).w(R.color.CAM_X0304);
             }
             ProgressButton progressButton = this.n;
             if (progressButton != null) {
@@ -312,7 +312,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
                 progressButton = (ProgressButton) view2.findViewById(R.id.guide_progress);
             }
             this.n = progressButton;
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.gt5
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.su5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -326,7 +326,7 @@ public final class DownloadGuidePart extends AbsDownloadGuide {
             });
             ProgressButton progressButton2 = this.n;
             if (progressButton2 != null) {
-                progressButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.it5
+                progressButton2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.uu5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

@@ -8,7 +8,7 @@ import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.report.k;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public double fV;
     public double fW;
@@ -17,7 +17,7 @@ public final class b {
     public double fZ;
     public double ga;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final b gb = new b((byte) 0);
     }

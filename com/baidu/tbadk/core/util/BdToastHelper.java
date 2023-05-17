@@ -11,17 +11,17 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.pt4;
-import com.baidu.tieba.un9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
+import com.baidu.tieba.wp9;
+import com.baidu.tieba.yu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class BdToastHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_COLOR = 1;
@@ -98,7 +98,7 @@ public class BdToastHelper {
                 if (contentBean2 != null) {
                     if (TbadkApplication.getInst().getSkinType() == 4) {
                         if (StringUtils.isNotNull(contentBean2.getTextColorDark())) {
-                            foregroundColorSpan = new ForegroundColorSpan(un9.f(contentBean2.getTextColorDark()));
+                            foregroundColorSpan = new ForegroundColorSpan(wp9.f(contentBean2.getTextColorDark()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -113,7 +113,7 @@ public class BdToastHelper {
                         }
                     } else {
                         if (StringUtils.isNotNull(contentBean2.getTextColor())) {
-                            foregroundColorSpan = new ForegroundColorSpan(un9.f(contentBean2.getTextColor()));
+                            foregroundColorSpan = new ForegroundColorSpan(wp9.f(contentBean2.getTextColor()));
                         } else {
                             if (contentBean2.getHasColor() == 1) {
                                 foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
@@ -177,7 +177,7 @@ public class BdToastHelper {
     public static void showToastByUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            TbWebViewActivityConfig g = pt4.g(TbadkCoreApplication.getInst(), null, str, true);
+            TbWebViewActivityConfig g = yu4.g(TbadkCoreApplication.getInst(), null, str, true);
             g.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
             g.start();
             if (mBdToastData.getTaskIds() != null && mBdToastData.getTaskIds().length > 0) {
@@ -209,11 +209,11 @@ public class BdToastHelper {
                 return;
             }
             if (!TextUtils.isEmpty(bdToastData.getUrl()) && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                if (ii.E()) {
+                if (ri.E()) {
                     showToastByUrl(bdToastData.getUrl());
                     return;
                 } else {
-                    jg.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                    sg.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToastData val$data;
@@ -251,14 +251,14 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                int f = un9.f(bdToastData.getBackground());
+                int f = wp9.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     b.c(f);
                 }
-                if (ii.E()) {
+                if (ri.E()) {
                     b.o();
                 } else {
-                    jg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
+                    sg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToast val$bdToast;

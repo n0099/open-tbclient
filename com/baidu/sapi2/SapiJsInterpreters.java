@@ -58,6 +58,7 @@ import com.baidu.sapi2.views.logindialog.view.a;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.net.update.UpdateConstants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -69,7 +70,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SapiJsInterpreters {
     public static final String TAG = "SapiJsInterpreters";
     public Context context;
@@ -79,7 +80,7 @@ public class SapiJsInterpreters {
     public HashMap<String, AbstractInterpreter> interpreterHashMap = new HashMap<>();
     public SapiConfiguration configuration = SapiAccountManager.getInstance().getSapiConfiguration();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public abstract class AbstractInterpreter {
         public abstract String interpret(SapiWebView.Command command);
 
@@ -87,7 +88,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionBindWidgetPhoneNumberExist extends AbstractInterpreter {
         public ActionBindWidgetPhoneNumberExist() {
             super();
@@ -104,7 +105,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionFaceLoginSwitch extends AbstractInterpreter {
         public ActionFaceLoginSwitch() {
             super();
@@ -126,7 +127,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionForgetPwd extends AbstractInterpreter {
         public ActionForgetPwd() {
             super();
@@ -147,7 +148,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionGenerateSign extends AbstractInterpreter {
         public ActionGenerateSign() {
             super();
@@ -171,7 +172,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionGetLoadtime extends AbstractInterpreter {
         public ActionGetLoadtime() {
             super();
@@ -188,7 +189,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionGetSmsCheckCodeFromClip extends AbstractInterpreter {
         public ActionGetSmsCheckCodeFromClip() {
             super();
@@ -217,7 +218,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionGloryLogin extends AbstractInterpreter {
         public ActionGloryLogin() {
             super();
@@ -237,7 +238,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionHuaweiLogin extends AbstractInterpreter {
         public ActionHuaweiLogin() {
             super();
@@ -257,7 +258,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionJoinLogin extends AbstractInterpreter {
         public ActionJoinLogin() {
             super();
@@ -271,11 +272,12 @@ public class SapiJsInterpreters {
                 jSONObject.put("icon", pkgIconAndName[0]);
                 jSONObject.put("name", pkgIconAndName[1]);
                 List<ShareStorage.StorageModel> shareStorageModel = ShareUtils.getShareStorageModel();
-                Object obj = "false";
-                if (SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback != null && shareStorageModel.size() > 0) {
+                SapiWebView.ShareAccountClickCallback shareAccountClickCallback = SapiJsInterpreters.this.jsCallBacks.shareAccountClickCallback;
+                Object obj = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
+                if (shareAccountClickCallback != null && shareStorageModel.size() > 0) {
                     jSONObject.put("openShareLogin", "true");
                 } else {
-                    jSONObject.put("openShareLogin", "false");
+                    jSONObject.put("openShareLogin", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
                 }
                 if (SapiJsInterpreters.this.jsCallBacks.joinLoginParams != null) {
                     obj = SapiJsInterpreters.this.jsCallBacks.joinLoginParams.hasThirdAccount + "";
@@ -299,7 +301,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionLoadExternalWebview extends AbstractInterpreter {
         public ActionLoadExternalWebview() {
             super();
@@ -318,7 +320,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionLoadSlideWebview extends AbstractInterpreter {
         public ActionLoadSlideWebview() {
             super();
@@ -347,7 +349,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionRemoveShareAccount extends AbstractInterpreter {
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         public String interpret(SapiWebView.Command command) {
@@ -359,7 +361,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSetTitle extends AbstractInterpreter {
         public ActionSetTitle() {
             super();
@@ -376,7 +378,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareAccountsViewBtnClicked extends AbstractInterpreter {
         public ActionShareAccountsViewBtnClicked() {
             super();
@@ -392,7 +394,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareClickOther extends AbstractInterpreter {
         public ActionShareClickOther() {
             super();
@@ -405,7 +407,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareV2Login extends AbstractInterpreter {
         public ActionShareV2Login() {
             super();
@@ -417,7 +419,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareV2LoginClick extends AbstractInterpreter {
         public ActionShareV2LoginClick() {
             super();
@@ -430,7 +432,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionShareV2LoginFail extends AbstractInterpreter {
         public ActionShareV2LoginFail() {
             super();
@@ -443,7 +445,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialMeizuSso extends AbstractInterpreter {
         public ActionSocialMeizuSso() {
             super();
@@ -463,7 +465,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialQqSso extends AbstractInterpreter {
         public ActionSocialQqSso() {
             super();
@@ -483,7 +485,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialSinaSso extends AbstractInterpreter {
         public ActionSocialSinaSso() {
             super();
@@ -503,7 +505,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialSso extends AbstractInterpreter {
         public ActionSocialSso() {
             super();
@@ -634,7 +636,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionSocialWeixinSso extends AbstractInterpreter {
         public ActionSocialWeixinSso() {
             super();
@@ -654,7 +656,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionStopSlideWebview extends AbstractInterpreter {
         public ActionStopSlideWebview() {
             super();
@@ -676,7 +678,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ActionXiaoMiSso extends AbstractInterpreter {
         public ActionXiaoMiSso() {
             super();
@@ -696,7 +698,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AddressManageGetPasteboard extends AbstractInterpreter {
         public AddressManageGetPasteboard() {
             super();
@@ -709,7 +711,7 @@ public class SapiJsInterpreters {
                 jSONObject.put("errno", 0);
                 ClipboardManager clipboardManager = (ClipboardManager) SapiJsInterpreters.this.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
                 if (clipboardManager.hasPrimaryClip()) {
-                    jSONObject.put("paste", clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
+                    jSONObject.put(CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_PASTE, clipboardManager.getPrimaryClip().getItemAt(0).getText().toString());
                 }
             } catch (Throwable th) {
                 Log.e(th);
@@ -718,7 +720,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class AuthorizedResponse extends AbstractInterpreter {
         public AuthorizedResponse() {
             super();
@@ -804,7 +806,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Back extends AbstractInterpreter {
         public Back() {
             super();
@@ -817,7 +819,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ConfigFastloginFeatures extends AbstractInterpreter {
         public ConfigFastloginFeatures() {
             super();
@@ -854,7 +856,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class ConfigLoginShareStrategy extends AbstractInterpreter {
         public ConfigLoginShareStrategy() {
             super();
@@ -866,7 +868,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CurrentAccountBdussExpired extends AbstractInterpreter {
         public CurrentAccountBdussExpired() {
             super();
@@ -882,7 +884,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class CurrentPageName extends AbstractInterpreter {
         public CurrentPageName() {
             super();
@@ -903,7 +905,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class Finish extends AbstractInterpreter {
         public Finish() {
             super();
@@ -935,7 +937,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class FocusEdittextCoordinateY extends AbstractInterpreter {
         public FocusEdittextCoordinateY() {
             super();
@@ -956,7 +958,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GetAllClientAccounts extends AbstractInterpreter {
         public GetAllClientAccounts() {
             super();
@@ -1083,7 +1085,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GetCurrentAccountInfo extends AbstractInterpreter {
         public GetCurrentAccountInfo() {
             super();
@@ -1108,7 +1110,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GetPresetPhoneNumber extends AbstractInterpreter {
         public GetPresetPhoneNumber() {
             super();
@@ -1130,7 +1132,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class GrantWebLogin extends AbstractInterpreter {
         public GrantWebLogin() {
             super();
@@ -1152,7 +1154,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class InvoiceBuildSelectedInvoice extends AbstractInterpreter {
         public InvoiceBuildSelectedInvoice() {
             super();
@@ -1172,7 +1174,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class NormalizeGuestAccount extends AbstractInterpreter {
         public NormalizeGuestAccount() {
             super();
@@ -1224,7 +1226,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class NormalizeGuestDescription extends AbstractInterpreter {
         public NormalizeGuestDescription() {
             super();
@@ -1245,7 +1247,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class OauthCallBaidu extends AbstractInterpreter {
         public OauthCallBaidu() {
             super();
@@ -1261,7 +1263,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class OauthSsoHash extends AbstractInterpreter {
         public OauthSsoHash() {
             super();
@@ -1280,7 +1282,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class RealNameVerifySucceed extends AbstractInterpreter {
         public RealNameVerifySucceed() {
             super();
@@ -1296,7 +1298,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionAccountCenterFastloginFeatures extends AbstractInterpreter {
         public SapiActionAccountCenterFastloginFeatures() {
             super();
@@ -1334,7 +1336,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionAccountDestroy extends AbstractInterpreter {
         public SapiActionAccountDestroy() {
             super();
@@ -1350,7 +1352,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionAccountFreeze extends AbstractInterpreter {
         public SapiActionAccountFreeze() {
             super();
@@ -1366,7 +1368,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionBdussChanged extends AbstractInterpreter {
         public SapiActionBdussChanged() {
             super();
@@ -1411,7 +1413,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionCertGuardianResult extends AbstractInterpreter {
         public SapiActionCertGuardianResult() {
             super();
@@ -1438,7 +1440,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionCheckLoginStatus extends AbstractInterpreter {
         public SapiActionCheckLoginStatus() {
             super();
@@ -1458,7 +1460,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionCheckMethodSupport extends AbstractInterpreter {
         public SapiActionCheckMethodSupport() {
             super();
@@ -1509,7 +1511,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionChinaMobileOauth extends AbstractInterpreter {
         public SapiActionChinaMobileOauth() {
             super();
@@ -1522,11 +1524,11 @@ public class SapiJsInterpreters {
                 public void onGetTokenComplete(JSONObject jSONObject) {
                     Log.d(OneKeyLoginSdkCall.TAG, "SapiActionChinaMobileOauth onGetTokenComplete result=" + jSONObject);
                     String operatorType = new OneKeyLoginSdkCall().getOperatorType();
-                    if (OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC.equals(operatorType)) {
+                    if ("CM".equals(operatorType)) {
                         SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CM.getName());
-                    } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC.equals(operatorType)) {
+                    } else if ("CU".equals(operatorType)) {
                         SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CU.getName());
-                    } else if (OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC.equals(operatorType)) {
+                    } else if ("CT".equals(operatorType)) {
                         SapiContext.getInstance().setPreLoginType(Enums.LastLoginType.ONEKEYLOGIN_CT.getName());
                     }
                     SapiJsInterpreters.this.jsCallBacks.promptResult.confirm(jSONObject.toString());
@@ -1536,7 +1538,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionCoverWebBduss extends AbstractInterpreter {
         public SapiActionCoverWebBduss() {
             super();
@@ -1559,7 +1561,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionCurrentLoginType extends AbstractInterpreter {
         public SapiActionCurrentLoginType() {
             super();
@@ -1581,7 +1583,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionDeliverParams extends AbstractInterpreter {
         public SapiActionDeliverParams() {
             super();
@@ -1610,7 +1612,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionDirectedLogin extends AbstractInterpreter {
         public SapiActionDirectedLogin() {
             super();
@@ -1630,7 +1632,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionGetAppTpl extends AbstractInterpreter {
         public SapiActionGetAppTpl() {
             super();
@@ -1642,7 +1644,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionGetNaUiConfig extends AbstractInterpreter {
         public String TAG;
 
@@ -1671,7 +1673,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionGetSecurityZid extends AbstractInterpreter {
         public SapiActionGetSecurityZid() {
             super();
@@ -1692,7 +1694,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionHandleBackButton extends AbstractInterpreter {
         public SapiActionHandleBackButton() {
             super();
@@ -1709,7 +1711,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionHideSuccessTip extends AbstractInterpreter {
         public SapiActionHideSuccessTip() {
             super();
@@ -1734,7 +1736,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionJumpToUri extends AbstractInterpreter {
         public SapiActionJumpToUri() {
             super();
@@ -1766,7 +1768,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionLastLoginType extends AbstractInterpreter {
         public SapiActionLastLoginType() {
             super();
@@ -1785,7 +1787,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionListenIsForbidRecord extends AbstractInterpreter {
         public SapiActionListenIsForbidRecord() {
             super();
@@ -1808,7 +1810,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionLoginStatusChange extends AbstractInterpreter {
         public SapiActionLoginStatusChange() {
             super();
@@ -1824,7 +1826,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionMakeVibrate extends AbstractInterpreter {
         public SapiActionMakeVibrate() {
             super();
@@ -1862,7 +1864,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionMiniDi extends AbstractInterpreter {
         public SapiActionMiniDi() {
             super();
@@ -1890,7 +1892,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionOpenDuVip extends AbstractInterpreter {
         public SapiActionOpenDuVip() {
             super();
@@ -1937,7 +1939,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionPasteboardSet extends AbstractInterpreter {
         public SapiActionPasteboardSet() {
             super();
@@ -1957,7 +1959,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionPickDate extends AbstractInterpreter {
         public SapiActionPickDate() {
             super();
@@ -2004,7 +2006,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionPickImage extends AbstractInterpreter {
         public SapiActionPickImage() {
             super();
@@ -2041,7 +2043,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionQrLogin extends AbstractInterpreter {
         public SapiActionQrLogin() {
             super();
@@ -2083,7 +2085,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionRealname extends AbstractInterpreter {
         public SapiActionRealname() {
             super();
@@ -2113,7 +2115,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionRealnameSubError extends AbstractInterpreter {
         public SapiActionRealnameSubError() {
             super();
@@ -2139,7 +2141,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionScAppCheck extends AbstractInterpreter {
         public SapiActionScAppCheck() {
             super();
@@ -2161,7 +2163,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionScAppInvoke extends AbstractInterpreter {
         public SapiActionScAppInvoke() {
             super();
@@ -2195,7 +2197,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionSwitchAccount extends AbstractInterpreter {
         public SapiActionSwitchAccount() {
             super();
@@ -2234,7 +2236,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionSyncAccountInfo extends AbstractInterpreter {
         public SapiActionSyncAccountInfo() {
             super();
@@ -2276,7 +2278,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionThirdInstalledInfo extends AbstractInterpreter {
         public SapiActionThirdInstalledInfo() {
             super();
@@ -2306,7 +2308,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionThirdSafetyVerification extends AbstractInterpreter {
         public SapiActionThirdSafetyVerification() {
             super();
@@ -2332,7 +2334,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionUpdateNavigator extends AbstractInterpreter {
         public SapiActionUpdateNavigator() {
             super();
@@ -2349,7 +2351,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiActionUpsms extends AbstractInterpreter {
         public SapiActionUpsms() {
             super();
@@ -2369,7 +2371,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiBiometricsIdentification extends AbstractInterpreter {
         public SapiBiometricsIdentification() {
             super();
@@ -2429,7 +2431,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiBiometricsIdentificationLive extends AbstractInterpreter {
         public SapiBiometricsIdentificationLive() {
             super();
@@ -2484,7 +2486,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiBiometricsIdentificationNoBduss extends AbstractInterpreter {
         public SapiBiometricsIdentificationNoBduss() {
             super();
@@ -2536,7 +2538,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiBiometricsIdentificationWithAuthtoken extends AbstractInterpreter {
         public SapiBiometricsIdentificationWithAuthtoken() {
             super();
@@ -2583,7 +2585,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiBiometricsIdentificationWithUid extends AbstractInterpreter {
         public SapiBiometricsIdentificationWithUid() {
             super();
@@ -2625,7 +2627,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiClientHistoryLogin extends AbstractInterpreter {
         public SapiClientHistoryLogin() {
             super();
@@ -2668,7 +2670,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiGoBack extends AbstractInterpreter {
         public SapiGoBack() {
             super();
@@ -2685,7 +2687,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiIdcardOcrImage extends AbstractInterpreter {
         public SapiIdcardOcrImage() {
             super();
@@ -2740,7 +2742,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiOnekeyOauthToken extends AbstractInterpreter {
         public SapiOnekeyOauthToken() {
             super();
@@ -2759,7 +2761,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiRemoveLoginHistory extends AbstractInterpreter {
         public SapiRemoveLoginHistory() {
             super();
@@ -2820,7 +2822,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SapiShareAccountClick extends AbstractInterpreter {
         public SapiShareAccountClick() {
             super();
@@ -2853,7 +2855,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SpeechRecognitionGetContent extends AbstractInterpreter {
         public SpeechRecognitionGetContent() {
             super();
@@ -2880,7 +2882,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SwitchAccountGetAccounts extends AbstractInterpreter {
         public SwitchAccountGetAccounts() {
             super();
@@ -2912,7 +2914,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SwitchAccountGetConfig extends AbstractInterpreter {
         public SwitchAccountGetConfig() {
             super();
@@ -2942,7 +2944,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SwitchAccountRemoveAccount extends AbstractInterpreter {
         public SwitchAccountRemoveAccount() {
             super();
@@ -2971,7 +2973,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class SwitchStyleForCloseBtnAndStatusBar extends AbstractInterpreter {
         public SwitchStyleForCloseBtnAndStatusBar() {
             super();
@@ -2992,7 +2994,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TouchidChangeStatus extends AbstractInterpreter {
         public TouchidChangeStatus() {
             super();
@@ -3066,7 +3068,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TouchidCheckGuideStatus extends AbstractInterpreter {
         public TouchidCheckGuideStatus() {
             super();
@@ -3135,7 +3137,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TouchidGetStatus extends AbstractInterpreter {
         public TouchidGetStatus() {
             super();
@@ -3178,7 +3180,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TouchidLogin extends AbstractInterpreter {
         public TouchidLogin() {
             super();
@@ -3209,7 +3211,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class TouchidOpenGuide extends AbstractInterpreter {
         public TouchidOpenGuide() {
             super();
@@ -3258,7 +3260,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class UniteVerifyResult extends AbstractInterpreter {
         public UniteVerifyResult() {
             super();

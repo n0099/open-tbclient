@@ -7,30 +7,30 @@ import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.yk3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.hm3;
+/* loaded from: classes4.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public Context w;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            yk3.a(AccountSmsLoginView.this.w, ((FragmentActivity) AccountSmsLoginView.this.w).getWindow().getDecorView().getWindowToken());
+            hm3.a(AccountSmsLoginView.this.w, ((FragmentActivity) AccountSmsLoginView.this.w).getWindow().getDecorView().getWindowToken());
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public b() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            yk3.b(AccountSmsLoginView.this.w, false);
+            hm3.b(AccountSmsLoginView.this.w, false);
         }
     }
 
@@ -64,7 +64,7 @@ public class AccountSmsLoginView extends SmsLoginView {
     }
 
     public void p() {
-        ((EditText) findViewById(R.id.obfuscated_res_0x7f091b4c)).requestFocus();
+        ((EditText) findViewById(R.id.obfuscated_res_0x7f091b9e)).requestFocus();
         new Handler().postDelayed(new b(), 100L);
     }
 }

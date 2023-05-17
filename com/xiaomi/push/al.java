@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.aj;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class al extends aj.b {
     public final /* synthetic */ aj a;
 
@@ -19,7 +19,7 @@ public class al extends aj.b {
         obj = this.a.f98a;
         synchronized (obj) {
             map = this.a.f99a;
-            map.remove(super.a.mo221a());
+            map.remove(super.a.mo240a());
         }
     }
 }

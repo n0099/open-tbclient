@@ -1,11 +1,11 @@
 package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
-import com.baidu.tieba.tia;
+import com.baidu.tieba.rka;
 import com.baidu.ugc.bean.MusicData;
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EffectInfo implements Serializable {
     public String finalFilePath;
     public String iconPath;
@@ -25,7 +25,7 @@ public class EffectInfo implements Serializable {
     public boolean isSelected = false;
     public int fixNum = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class EffectMusicData implements Serializable {
         public String cover;
         public String duration;
@@ -67,7 +67,7 @@ public class EffectInfo implements Serializable {
             return null;
         }
         try {
-            return (EffectInfo) new tia().b(str, EffectInfo.class);
+            return (EffectInfo) new rka().b(str, EffectInfo.class);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -92,7 +92,7 @@ public class EffectInfo implements Serializable {
             return null;
         }
         try {
-            return new tia().a(effectInfo);
+            return new rka().a(effectInfo);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

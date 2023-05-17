@@ -7,7 +7,7 @@ import com.baidu.android.common.others.java.Supplier;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogPipelineSingleton {
     public static final String CRASH_PAD_DIR = "crashpad";
     public static final String TAG = "LogPipelineSingleton";

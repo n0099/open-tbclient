@@ -4,7 +4,7 @@ import com.yy.hiidostatis.defs.obj.ParamableElem;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmClassName;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JvmAnnotationNames {
     public static final FqName METADATA_FQ_NAME = new FqName("kotlin.Metadata");
     public static final String METADATA_DESC = "L" + JvmClassName.byFqNameWithoutInnerClasses(METADATA_FQ_NAME).getInternalName() + ParamableElem.DIVIDE_PARAM;

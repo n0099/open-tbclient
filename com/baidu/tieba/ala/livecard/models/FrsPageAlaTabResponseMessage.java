@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.livecard.models;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.in;
-import com.baidu.tieba.l87;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.y97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int alaLiveCount;
     public int errCode;
     public String errMsg;
-    public ArrayList<in> mAltList;
-    public ArrayList<in> mThreadList;
-    public l87 pageInfo;
+    public ArrayList<rn> mAltList;
+    public ArrayList<rn> mThreadList;
+    public y97 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -54,13 +54,13 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
                 this.errMsg = jSONObject.optString("errmsg");
                 this.alaLiveCount = jSONObject.optInt("ala_live_count");
                 JSONObject optJSONObject = jSONObject.optJSONObject("page");
-                l87 l87Var = new l87();
-                this.pageInfo = l87Var;
+                y97 y97Var = new y97();
+                this.pageInfo = y97Var;
                 boolean z = true;
                 if (optJSONObject.optInt("has_more") != 1) {
                     z = false;
                 }
-                l87Var.g = z;
+                y97Var.g = z;
                 this.pageInfo.c = optJSONObject.optInt("pn");
                 if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                     FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();

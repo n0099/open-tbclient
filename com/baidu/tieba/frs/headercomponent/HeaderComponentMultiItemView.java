@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ke7;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.view.TbImageAutoSwitch;
+import com.baidu.tieba.xf7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HeaderComponentMultiItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int l;
@@ -45,13 +45,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public TbImageView d;
     public ViewGroup e;
     public TbImageAutoSwitch f;
-    public ke7 g;
+    public xf7 g;
     public List<String> h;
     public LiveFuseForumData i;
     public boolean j;
     public TbImageAutoSwitch.b k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements TbImageAutoSwitch.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,14 +65,14 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentMultiItemView$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0272a implements View.OnClickListener {
+        /* loaded from: classes5.dex */
+        public class View$OnClickListenerC0298a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0272a(a aVar, int i) {
+            public View$OnClickListenerC0298a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -124,7 +124,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.N((String) this.a.h.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0272a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0298a(this, i));
             }
         }
 
@@ -163,7 +163,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -228,7 +228,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         this.c.m0(this.i.icon_url, 38);
         this.c.setAlpha(1.0f);
-        g35 d = g35.d(this.e);
+        p45 d = p45.d(this.e);
         d.o(R.string.J_X06);
         d.f(R.color.CAM_X0201);
     }
@@ -236,7 +236,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            g35.d(this.b).w(R.color.CAM_X0105);
+            p45.d(this.b).w(R.color.CAM_X0105);
             if (!ListUtils.isEmpty(this.f.getChildViews())) {
                 for (View view2 : this.f.getChildViews()) {
                     if (view2 instanceof HeadImageView) {
@@ -297,14 +297,14 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         h();
     }
 
-    public void g(LiveFuseForumData liveFuseForumData, ke7 ke7Var) {
+    public void g(LiveFuseForumData liveFuseForumData, xf7 xf7Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, ke7Var) != null) || liveFuseForumData == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, liveFuseForumData, xf7Var) != null) || liveFuseForumData == null) {
             return;
         }
         this.i = liveFuseForumData;
-        this.g = ke7Var;
+        this.g = xf7Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -322,9 +322,9 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         j();
         setOnClickListener(new b(this, liveFuseForumData));
-        ke7 ke7Var2 = this.g;
-        if (ke7Var2 != null) {
-            ke7Var2.a(2, liveFuseForumData);
+        xf7 xf7Var2 = this.g;
+        if (xf7Var2 != null) {
+            xf7Var2.a(2, liveFuseForumData);
         }
     }
 
@@ -356,27 +356,27 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033a, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0351, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            this.d = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09074c);
-            ViewGroup viewGroup = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090756);
+            this.d = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090769);
+            ViewGroup viewGroup = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090773);
             this.e = viewGroup;
-            viewGroup.getLayoutParams().width = (ii.l(getContext()) - (getResources().getDimensionPixelSize(R.dimen.M_W_X004) * 3)) / 2;
-            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09074c);
+            viewGroup.getLayoutParams().width = (ri.l(getContext()) - (getResources().getDimensionPixelSize(R.dimen.M_W_X004) * 3)) / 2;
+            TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090769);
             this.d = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.d.setDrawCorner(true);
             this.d.setRadiusById(R.string.J_X06);
             this.d.setPlaceHolder(2);
             this.d.setConrers(15);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090755);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f090751);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090772);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09076e);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090750);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f09076d);
             this.f = tbImageAutoSwitch;
             int i = l;
             tbImageAutoSwitch.l(4, i, i, m);

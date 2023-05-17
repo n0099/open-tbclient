@@ -18,7 +18,7 @@ import java.net.HttpURLConnection;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class WebViewFactoryProvider {
     public static final String LOG_TAG = "WebViewFactoryProvider";
     public static final String SETTING_AD_BLOCK = "ADBlock";
@@ -59,7 +59,7 @@ public abstract class WebViewFactoryProvider {
     public static final Boolean SETTING_JS_ENABLE_ON_FILE_SCHEMA_VALUE = Boolean.FALSE;
     public static final Boolean SETTING_FIX_WEBVIEW_HOLES_VALUE = Boolean.TRUE;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface SettingsStatics {
         void addPreConnectPrefixes(String str);
 
@@ -404,7 +404,7 @@ public abstract class WebViewFactoryProvider {
         boolean useCronet();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Statics {
         int AdBlockInit(String str, boolean z);
 

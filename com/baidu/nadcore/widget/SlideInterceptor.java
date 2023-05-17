@@ -1,7 +1,7 @@
 package com.baidu.nadcore.widget;
 
 import android.view.MotionEvent;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface SlideInterceptor {
     public static final int TOUCH_MODE_SCROLL_START = 6;
 

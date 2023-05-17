@@ -1,86 +1,89 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
-public class qr {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
+public final class qr {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static lr a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            lr lrVar = null;
-            if (bArr == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315308, "Lcom/baidu/tieba/qr;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                lrVar = new lr();
-                wrap.get();
-                wrap.get();
-                lrVar.a(wrap.get());
-                lrVar.f(wrap.get());
-                int i = wrap.getShort();
-                lrVar.c(i);
-                int i2 = wrap.getInt();
-                lrVar.b(i2);
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                lrVar.j(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    lrVar.l(bArr3);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448315308, "Lcom/baidu/tieba/qr;");
+                return;
             }
-            return lrVar;
         }
-        return (lr) invokeL.objValue;
+        a = new a(null);
     }
 
-    public static byte[] b(lr lrVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, lrVar)) == null) {
-            if (lrVar == null) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(lrVar.m() + 12 + lrVar.n());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (lrVar.e() != null && lrVar.e().length == 2) {
-                allocate.put(lrVar.e()[0]);
-                allocate.put(lrVar.e()[1]);
-                allocate.put(lrVar.i());
-                allocate.put(lrVar.k());
-                if (lrVar.o() != null && lrVar.o().length != 0) {
-                    int length = lrVar.o().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (lrVar.p() != null && lrVar.p().length != 0) {
-                        allocate.putInt(lrVar.p().length);
-                    } else {
-                        allocate.putInt(0);
-                    }
-                    if (lrVar.o() != null) {
-                        allocate.put(lrVar.o());
-                    }
-                    if (lrVar.p() != null) {
-                        allocate.put(lrVar.p());
-                    }
-                    return allocate.array();
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return null;
         }
-        return (byte[]) invokeL.objValue;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public final <T extends tr> JSONArray a(List<T> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                JSONArray jSONArray = new JSONArray();
+                if (list != null) {
+                    for (T t : list) {
+                        jSONArray.put(t.c());
+                    }
+                }
+                return jSONArray;
+            }
+            return (JSONArray) invokeL.objValue;
+        }
+
+        public final JSONArray b(List<byte[]> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+                JSONArray jSONArray = new JSONArray();
+                if (list != null) {
+                    for (byte[] bArr : list) {
+                        jSONArray.put(ot.a(bArr));
+                    }
+                }
+                return jSONArray;
+            }
+            return (JSONArray) invokeL.objValue;
+        }
     }
 }

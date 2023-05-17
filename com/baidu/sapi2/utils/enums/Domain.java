@@ -2,7 +2,7 @@ package com.baidu.sapi2.utils.enums;
 
 import com.baidu.sapi2.utils.SapiHost;
 import com.baidu.sapi2.utils.SapiUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum Domain {
     DOMAIN_ONLINE("aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==", SapiHost.DOMAIN_ONLINE_WAPPASS_URL, SapiHost.DOMAIN_ONLINE_DEVICE_URL, SapiHost.DOMAIN_ONLINE_CONFIG_HTTPS_URL, SapiHost.DOMAIN_ONLINE_PORTRAIT_URL),
     DOMAIN_QA(SapiHost.DOMAIN_QA_PASSPORT_URL, SapiHost.DOMAIN_QA_WAPPASS_URL, SapiHost.DOMAIN_QA_DEVICE_URL, SapiHost.DOMAIN_QA_CONFIG_HTTPS_URL, "aHR0cDovL3Bhc3Nwb3J0LmJhaWR1LmNvbQ==");

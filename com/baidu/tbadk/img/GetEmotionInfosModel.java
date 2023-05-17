@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.og5;
-import com.baidu.tieba.vt4;
+import com.baidu.tieba.ev4;
+import com.baidu.tieba.xh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,18 +20,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
     public final HttpMessageListener b;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List<og5> list);
+        void onSuccess(List<xh5> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -44,7 +44,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void X(List<String> list, b bVar) {
+    public void W(List<String> list, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, bVar) == null) {
             this.a = bVar;
@@ -122,7 +122,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                     }
                 }
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-                httpMessage.addParam("pic_urls", vt4.t(jSONArray.toString()));
+                httpMessage.addParam("pic_urls", ev4.t(jSONArray.toString()));
                 sendMessage(httpMessage);
             } else if (bVar != null) {
                 bVar.onFail(0, "list is empty");

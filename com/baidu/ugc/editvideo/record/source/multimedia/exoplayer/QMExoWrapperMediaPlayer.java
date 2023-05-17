@@ -4,8 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.view.Surface;
 import android.view.SurfaceHolder;
-import com.baidu.tieba.kha;
-import com.baidu.tieba.lha;
+import com.baidu.tieba.ija;
+import com.baidu.tieba.jja;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.player.IPlayer;
 import com.baidu.ugc.editvideo.player.VideoPlayData;
@@ -16,7 +16,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSeekCompleteListener {
     public IMediaPlayer mInnerMediaPlayer;
     public boolean mIsSeeking;
@@ -24,7 +24,7 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
     public long mSeekToEndPosition;
 
     public QMExoWrapperMediaPlayer() {
-        lha d = kha.c().d();
+        jja d = ija.c().d();
         if (d != null) {
             this.mInnerMediaPlayer = d.a();
         }

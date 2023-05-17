@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class wh2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,11 +24,30 @@ public class wh2 {
                 return;
             }
         }
-        a = ho1.a;
-        er2.g0().getSwitch("swan_js_event_dispatch_opt", 0);
-        b = false;
-        if (a) {
-            Log.d("MessageDispatchOptSwitch", "swan_js_event_dispatch_opt - " + b);
+        boolean z = qp1.a;
+        a = b("swan_clean_pkg_opt", 0);
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            ns2.g0().getSwitch(str, i);
+            g62.k("CleanPkgSwitcher", str + " value from AB : " + i);
+            if (i == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

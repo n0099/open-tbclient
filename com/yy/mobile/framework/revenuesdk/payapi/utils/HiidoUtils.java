@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.utils;
 import android.content.Context;
 import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HiidoUtils {
     public static final String TAG = "HiidoUtils";
 

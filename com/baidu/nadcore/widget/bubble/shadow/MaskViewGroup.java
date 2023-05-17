@@ -9,8 +9,8 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.tieba.cb1;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.sb1;
+/* loaded from: classes3.dex */
 public class MaskViewGroup extends ViewGroup {
     public float a;
     public float b;
@@ -24,7 +24,7 @@ public class MaskViewGroup extends ViewGroup {
     public float j;
     public int k;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public LayoutParams(int i, int i2) {
             super(i, i2);
@@ -122,7 +122,7 @@ public class MaskViewGroup extends ViewGroup {
     }
 
     public final void b(AttributeSet attributeSet) {
-        TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, cb1.NadShadowViewGroup);
+        TypedArray obtainStyledAttributes = this.f.obtainStyledAttributes(attributeSet, sb1.NadShadowViewGroup);
         this.g = obtainStyledAttributes.getColor(3, -16777216);
         this.h = obtainStyledAttributes.getDimension(4, 0.0f);
         this.i = obtainStyledAttributes.getDimension(5, 0.0f);

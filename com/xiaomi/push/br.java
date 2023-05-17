@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class br implements Runnable {
     public Context a;
 
@@ -39,7 +39,7 @@ public class br implements Runnable {
                 str = "perf_last_upload_time";
                 currentTimeMillis = System.currentTimeMillis();
             }
-            a.m225a("sp_client_report_status", str, currentTimeMillis);
+            a.m244a("sp_client_report_status", str, currentTimeMillis);
         } catch (Exception e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);
         }

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.datacollector.growth.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class GrowthConstant {
     public static final long DEVICE_RECORD_TIMEOUT = 86400000;
     public static final long KEEP_ALIVE_TIME = 600000;

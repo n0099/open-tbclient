@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTaskManager {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String JSON_TIMER_JOB_ID_KEY = "jobId";

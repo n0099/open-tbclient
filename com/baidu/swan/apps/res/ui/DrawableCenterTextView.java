@@ -16,9 +16,9 @@ import android.util.AttributeSet;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.tieba.ol3;
+import com.baidu.tieba.xm3;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DrawableCenterTextView extends TextView {
     public GradientDrawable a;
     public Paint b;
@@ -174,7 +174,7 @@ public class DrawableCenterTextView extends TextView {
             this.a.setCornerRadius(4.0f);
         }
         if (this.h) {
-            int f2 = ol3.f(getContext(), 0.5f);
+            int f2 = xm3.f(getContext(), 0.5f);
             Object obj = this.d;
             if (obj instanceof String) {
                 this.a.setStroke(f2, Color.parseColor(obj.toString()));
@@ -217,7 +217,7 @@ public class DrawableCenterTextView extends TextView {
         float width = getWidth();
         float height = getHeight();
         Paint paint = new Paint();
-        paint.setStrokeWidth(ol3.f(getContext(), 0.5f));
+        paint.setStrokeWidth(xm3.f(getContext(), 0.5f));
         Object obj = this.e;
         if (obj instanceof String) {
             paint.setColor(Color.parseColor(obj.toString()));
@@ -279,8 +279,8 @@ public class DrawableCenterTextView extends TextView {
         }
         drawable = null;
         i = -1;
-        int w = ol3.w(this);
-        int v = ol3.v(this);
+        int w = xm3.w(this);
+        int v = xm3.v(this);
         int compoundDrawablePadding = getCompoundDrawablePadding();
         if (drawable != null) {
             Rect bounds = drawable.getBounds();

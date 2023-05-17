@@ -8,10 +8,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractMessageLite implements MessageLite {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Builder<BuilderType extends Builder> implements MessageLite.Builder {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // 
@@ -22,7 +22,7 @@ public abstract class AbstractMessageLite implements MessageLite {
         @Override // com.google.protobuf.MessageLite.Builder
         public abstract BuilderType mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes9.dex */
         public static final class LimitedInputStream extends FilterInputStream {
             public int limit;
 

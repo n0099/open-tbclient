@@ -3,7 +3,7 @@ package com.baidu.searchbox.player.event;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.annotation.PublicMethod;
 import com.baidu.searchbox.player.interfaces.INeuron;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PluginEvent extends VideoEvent {
     @PublicMethod(version = "12.8.0.0")
     public static VideoEvent obtainEvent(@NonNull String str, int i) {

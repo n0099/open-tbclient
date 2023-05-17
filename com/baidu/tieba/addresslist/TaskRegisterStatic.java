@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
-import com.baidu.tieba.az7;
-import com.baidu.tieba.d16;
-import com.baidu.tieba.e16;
+import com.baidu.tieba.o08;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.q26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TaskRegisterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class TaskRegisterStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2001322, new d16());
+                return new CustomResponsedMessage<>(2001322, new p26());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -69,8 +69,8 @@ public class TaskRegisterStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(AddressListActivityConfig.class, AddressListActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NewFriendsActivityConfig.class, NewFriendsActivity.class);
-        az7.b(304101, ResponsePassFriendMessage.class, false);
-        MessageManager.getInstance().addResponsedMessageRule(new e16());
+        o08.b(304101, ResponsePassFriendMessage.class, false);
+        MessageManager.getInstance().addResponsedMessageRule(new q26());
         CustomMessageTask customMessageTask = new CustomMessageTask(2001322, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

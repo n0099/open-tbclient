@@ -21,7 +21,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     public static AnimatedImageDecoder sGifAnimatedImageDecoder = loadIfPresent("com.facebook.animated.gif.GifImage");
     public static AnimatedImageDecoder sWebpAnimatedImageDecoder = loadIfPresent("com.facebook.animated.webp.WebPImage");

@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Transformation;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RotateYAnimation extends Animation {
     public Camera camera = new Camera();
     public int centerX;

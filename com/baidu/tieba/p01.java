@@ -1,211 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.d41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
 public class p01 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008120, "Lcom/baidu/tieba/p01;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements CyberPlayerManager.InstallListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948008120, "Lcom/baidu/tieba/p01;");
-                return;
-            }
-        }
-        a = as0.f();
-        b = -1;
-        c = n51.a(15.0f);
-    }
-
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String c2 = q41.c();
-            if (TextUtils.equals(c2, "EMUI") && b(context)) {
-                return 1;
-            }
-            if (TextUtils.equals(c2, "MIUI") && e(context)) {
-                return 1;
-            }
-            if (TextUtils.equals(c2, "OPPO") && c(context)) {
-                return 1;
-            }
-            if ((TextUtils.equals(c2, "VIVO") && d(context)) || "ONEPLUS A6000".equals(Build.MODEL)) {
-                return 1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean d(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("android.util.FtFeature");
-                return ((Boolean) loadClass.getMethod("isFeatureSupport", Integer.TYPE).invoke(loadClass, 32)).booleanValue();
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                if (((Integer) loadClass.getMethod("getInt", String.class, Integer.TYPE).invoke(loadClass, "ro.miui.notch", 0)).intValue() != 1) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (a) {
-                lj0.e("VideoNotchUtils", "isNotch start");
-            }
-            if (b == -1) {
-                if (Build.VERSION.SDK_INT < 24) {
-                    b = 0;
-                } else if (b == -1) {
-                    b = a(context);
-                    lj0.e("VideoNotchUtils", "isNotch from getNotchState");
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            if (a) {
-                lj0.e("VideoNotchUtils", "isNotch end");
-            }
-            if (b != 1) {
-                return false;
-            }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
 
-    public static boolean b(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Class<?> loadClass = context.getClassLoader().loadClass("com.huawei.android.util.HwNotchSizeUtil");
-                return ((Boolean) loadClass.getMethod("hasNotchInScreen", new Class[0]).invoke(loadClass, new Object[0])).booleanValue();
-            } catch (Exception e) {
-                if (!a) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
+                bk0.c("BdCyberUtils", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + str);
             }
         }
-        return invokeL.booleanValue;
-    }
 
-    public static boolean c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return context.getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(@NonNull vx0 vx0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65544, null, vx0Var) == null) && vx0Var.getContentView() != null && (vx0Var.getContentView() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) vx0Var.getContentView();
-            viewGroup.setPadding(0, 0, 0, 0);
-            viewGroup.setLayoutParams(viewGroup.getLayoutParams());
-        }
-    }
-
-    public static void i(@NonNull vx0 vx0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, vx0Var) == null) && g(li0.b())) {
-            h(vx0Var);
-        }
-    }
-
-    public static void k(@NonNull vx0 vx0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, vx0Var) == null) && g(li0.b())) {
-            j(vx0Var, d41.c.g(), d41.c.g());
-        }
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m"};
-            if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i = 0; i < 6; i++) {
-                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
-                        return true;
-                    }
-                }
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+                bk0.c("BdCyberUtils", "onInstallSuccess: type=" + i + ", ver=" + str);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static void j(@NonNull vx0 vx0Var, int i, int i2) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65546, null, vx0Var, i, i2) == null) {
-            int max = Math.max(i, c);
-            int max2 = Math.max(i2, c);
-            if (vx0Var.getContentView() != null && (vx0Var.getContentView() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) vx0Var.getContentView();
-                viewGroup.setPadding(max, 0, max2, 0);
-                viewGroup.setLayoutParams(viewGroup.getLayoutParams());
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            b(new b(null), 31);
+        }
+    }
+
+    public static void b(@Nullable CyberPlayerManager.InstallListener installListener, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, installListener, i) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
+            z01.a(bj0.a().g(), g11.m(), i, hashMap, installListener, null);
         }
     }
 }

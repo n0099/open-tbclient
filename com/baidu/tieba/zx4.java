@@ -1,42 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.data.PersonPrivateData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zx4 extends ax4 implements xk5 {
+import java.util.HashMap;
+/* loaded from: classes8.dex */
+public class zx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
-    public static final int[] c;
+    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-
-    @Override // com.baidu.tieba.ax4
-    public yy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (yy4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ax4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -51,39 +27,39 @@ public class zx4 extends ax4 implements xk5 {
                 return;
             }
         }
-        b = BdUniqueId.gen();
-        c = new int[]{0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        a = new HashMap<>();
     }
 
-    public zx4() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
+            if (a.containsKey(str)) {
+                return a.get(str).intValue();
             }
+            a.put(str, 1);
+            return 1;
         }
-        this.a = 6;
+        return invokeI.intValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public static void b(PersonPrivateData personPrivateData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(65538, null, personPrivateData) != null) || personPrivateData == null) {
+            return;
         }
-        return invokeV.intValue;
+        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
+        int U = personPrivateData.U();
+        if (!a.containsKey(str)) {
+            a.put(str, Integer.valueOf(U));
+        }
     }
 
-    public void d(int i) {
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
         }
     }
 }

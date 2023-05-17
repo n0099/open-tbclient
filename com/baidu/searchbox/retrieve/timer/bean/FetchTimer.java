@@ -6,7 +6,7 @@ import com.baidu.searchbox.retrieve.file.util.Constants;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchTimer extends FetchBasicTimer {
     public static final String END_TIME = "endTime";
     public static final String FREQUENCY = "frequency";

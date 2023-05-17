@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class de {
     public static volatile de a;
 
@@ -20,7 +20,7 @@ public class de {
     /* renamed from: a  reason: collision with other field name */
     public final ConcurrentLinkedQueue<b> f210a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a extends b {
         public a() {
             super();
@@ -32,7 +32,7 @@ public class de {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends am.b {
         public long a = System.currentTimeMillis();
 
@@ -50,12 +50,12 @@ public class de {
 
         /* JADX DEBUG: Possible override for method com.xiaomi.push.am.b.b()V */
         /* renamed from: b  reason: collision with other method in class */
-        public final boolean m279b() {
+        public final boolean m298b() {
             return System.currentTimeMillis() - this.a > 172800000;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c extends b {
         public int a;
 
@@ -122,9 +122,9 @@ public class de {
             try {
                 if (c()) {
                     HashMap hashMap = new HashMap();
-                    hashMap.put("uid", com.xiaomi.push.service.bv.m725a());
+                    hashMap.put("uid", com.xiaomi.push.service.bv.m744a());
                     hashMap.put("token", this.b);
-                    hashMap.put("net", bi.m209a(de.this.f209a));
+                    hashMap.put("net", bi.m228a(de.this.f209a));
                     bi.a(this.f213a, hashMap, this.f212a, "file");
                 }
                 this.f214a = true;
@@ -134,7 +134,7 @@ public class de {
 
         @Override // com.xiaomi.push.am.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo280c() {
+        public void mo299c() {
             if (!this.f214a) {
                 int i = this.a + 1;
                 this.a = i;
@@ -180,7 +180,7 @@ public class de {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        if (aa.b() || aa.m175a()) {
+        if (aa.b() || aa.m194a()) {
             return;
         }
         try {
@@ -205,7 +205,7 @@ public class de {
         while (!this.f210a.isEmpty()) {
             b peek = this.f210a.peek();
             if (peek != null) {
-                if (!peek.m279b() && this.f210a.size() <= 6) {
+                if (!peek.m298b() && this.f210a.size() <= 6) {
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");

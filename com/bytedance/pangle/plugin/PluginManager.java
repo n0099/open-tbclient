@@ -18,7 +18,7 @@ import java.util.concurrent.ExecutorService;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PluginManager {
     public static final String TAG = "PluginManager";
     public static volatile PluginManager sInstance;

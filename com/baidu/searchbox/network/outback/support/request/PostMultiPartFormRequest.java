@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PostMultiPartFormRequest extends Request {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PostBytes {
         public byte[] bytes;
         public String contentType;
@@ -38,7 +38,7 @@ public class PostMultiPartFormRequest extends Request {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PostFile {
         public String contentType;
         public File file;
@@ -69,7 +69,7 @@ public class PostMultiPartFormRequest extends Request {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class PostMultiPartFormRequestBuilder extends Request.Builder<PostMultiPartFormRequestBuilder> {
         public LinkedHashMap<String, String> params;
         public List<PostBytes> postBytes;

@@ -27,6 +27,7 @@ import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
 import java.io.UnsupportedEncodingException;
@@ -36,7 +37,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static double A = 0.0d;
     public static double B = 0.0d;
@@ -252,7 +253,7 @@ public class b {
         sb.append(p);
         sb.append("&mode=");
         sb.append("driving");
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         context.startActivity(intent);
     }
@@ -286,7 +287,7 @@ public class b {
         sb.append(p);
         sb.append("&mode=");
         sb.append("neweng");
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         context.startActivity(intent);
     }
@@ -313,7 +314,7 @@ public class b {
             sb.append(l.longitude);
             sb.append("&src=");
             sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
         }
@@ -341,7 +342,7 @@ public class b {
             sb.append(l.longitude);
             sb.append("&src=");
             sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
         }
@@ -372,7 +373,7 @@ public class b {
             sb.append("&src=");
             sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Log.e(DebugActiveUploadResult.SOURCE, sb.toString());
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
         }
@@ -626,7 +627,7 @@ public class b {
         sb.append("detail_page");
         sb.append("&src=");
         sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         context.startActivity(intent);
     }
@@ -693,7 +694,7 @@ public class b {
         sb.append("1");
         sb.append("&src=");
         sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         context.startActivity(intent);
     }
@@ -718,7 +719,7 @@ public class b {
         sb.append(u);
         sb.append("&src=");
         sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
-        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+        Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
         intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
         context.startActivity(intent);
     }
@@ -808,7 +809,7 @@ public class b {
                                             if (i7 > 0 && i7 <= 100) {
                                                 sb.append("&load_weight=");
                                                 sb.append(L);
-                                                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
+                                                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(sb.toString()));
                                                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                                                 context.startActivity(intent);
                                                 return;

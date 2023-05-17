@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class CollapseState implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class CollapseState implements Cloneable {
     public String e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Icon {
         public static final /* synthetic */ Icon[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class CollapseState implements Cloneable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -152,7 +152,7 @@ public class CollapseState implements Cloneable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static final class Tip {
         public static final /* synthetic */ Tip[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

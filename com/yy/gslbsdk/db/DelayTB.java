@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.db;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DelayTB implements Serializable {
     public static final String DELAY = "delay";
     public static final String HOST = "host";

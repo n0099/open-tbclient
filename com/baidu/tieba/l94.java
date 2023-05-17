@@ -1,37 +1,39 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class l94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<long[]> b;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i, long j, long j2);
-
-        void b(int i);
-
-        void success();
+    public l94() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    public static void a(String str, a aVar) {
-        x73 M;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, aVar) != null) || aVar == null || TextUtils.isEmpty(str) || (M = x73.M()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "[ videoPath = " + this.a + "; clipPath = " + this.c + "; clipList = " + this.b + " ]";
         }
-        if (k94.b().d(str)) {
-            aVar.success();
-            return;
-        }
-        String a2 = k94.b().a(str);
-        if (TextUtils.isEmpty(a2)) {
-            aVar.b(2112);
-        } else {
-            hf4.h(new cj4(M.b, M.k0(), a2, 1), new o94(M.b, M.k0(), k94.b().c(str, 2), aVar));
-        }
+        return (String) invokeV.objValue;
     }
 }

@@ -9,12 +9,12 @@ import android.os.RemoteException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.gms.common.annotation.KeepForSdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IGmsServiceBroker extends IInterface {
     @KeepForSdk
     void getService(@NonNull IGmsCallbacks iGmsCallbacks, @Nullable GetServiceRequest getServiceRequest) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements IGmsServiceBroker {
         @Override // android.os.IInterface
         @NonNull

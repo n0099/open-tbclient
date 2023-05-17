@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.FormatHolder;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.source.SampleStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class HlsSampleStream implements SampleStream {
     public final int group;
     public final HlsSampleStreamWrapper sampleStreamWrapper;

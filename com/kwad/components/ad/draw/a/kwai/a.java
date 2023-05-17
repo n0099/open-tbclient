@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.k;
 import com.kwad.sdk.widget.j;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a extends com.kwad.components.ad.draw.kwai.a {
     public List<Integer> bv;
     public AdInfo mAdInfo;

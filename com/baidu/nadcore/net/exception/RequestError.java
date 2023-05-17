@@ -1,5 +1,5 @@
 package com.baidu.nadcore.net.exception;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RequestError extends Exception {
     public RequestError() {
     }

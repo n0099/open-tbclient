@@ -33,7 +33,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ClearCacheUbcController {
     public static final String BOS_BIZ_TYPE = "basis-functions";
     public static final String CLEAN = "clean";
@@ -466,7 +466,7 @@ public class ClearCacheUbcController {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("from", "tool");
             jSONObject.put("type", "click");
             jSONObject.put("value", VALUE_DOWNLOADED_FILE);
             if (!TextUtils.isEmpty(str)) {
@@ -483,7 +483,7 @@ public class ClearCacheUbcController {
     public static void toFeedBackToUBC(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("from", "tool");
             jSONObject.put("type", "click");
             jSONObject.put("value", "feedback");
             if (!TextUtils.isEmpty(str)) {
@@ -498,7 +498,7 @@ public class ClearCacheUbcController {
     public static void ubc(String str) {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("from", "tool");
             jSONObject.put("type", str);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("total", StorageUtils.getTotalExternalMemorySize());
@@ -516,7 +516,7 @@ public class ClearCacheUbcController {
     public void showToUBC(String str) {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("from", "tool");
             jSONObject.put("type", "show");
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("source", str);
@@ -537,7 +537,7 @@ public class ClearCacheUbcController {
     public void cleanConfirmToUBC(String str) {
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("from", FROM_VALUE);
+            jSONObject.put("from", "tool");
             jSONObject.put("type", CLEAN_CONFIRM);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject.put("source", str);
@@ -560,7 +560,7 @@ public class ClearCacheUbcController {
     public void clearCacheTOUBC(String str, long j, JSONObject jSONObject, String str2) {
         JSONObject jSONObject2 = new JSONObject();
         try {
-            jSONObject2.put("from", FROM_VALUE);
+            jSONObject2.put("from", "tool");
             jSONObject2.put("type", str);
             if (!TextUtils.isEmpty(str2)) {
                 jSONObject2.put("source", str2);
@@ -601,7 +601,7 @@ public class ClearCacheUbcController {
     public void scanToUBC(JSONObject jSONObject, String str) {
         try {
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("from", FROM_VALUE);
+            jSONObject2.put("from", "tool");
             jSONObject2.put("type", SCAN);
             if (!TextUtils.isEmpty(str)) {
                 jSONObject2.put("source", str);

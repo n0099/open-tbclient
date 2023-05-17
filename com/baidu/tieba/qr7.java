@@ -1,35 +1,91 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.homepage.gamevideo.view.GameVideoGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public List<vm> b;
-    public on c;
-    public pr7 d;
-    public ur7 e;
-    public or7 f;
-    public sr7 g;
-    public rr7 h;
-    public tr7 i;
-    public vr7 j;
+    public View b;
+    public GameVideoGridView c;
+    public lr7 d;
+    public TextView e;
+    public b f;
+    public BdUniqueId g;
+    public AdapterView.OnItemClickListener h;
 
-    public qr7(TbPageContext tbPageContext, on onVar) {
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(tr7 tr7Var);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements AdapterView.OnItemClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qr7 a;
+
+        public a(qr7 qr7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qr7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qr7Var;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.d != null && i < this.a.d.getCount() && this.a.d.getItem(i) != null && (this.a.d.getItem(i) instanceof tr7)) {
+                tr7 tr7Var = (tr7) this.a.d.getItem(i);
+                if (tr7Var.d == 1) {
+                    this.a.d.c(tr7Var.a);
+                    if (this.a.f != null) {
+                        this.a.f.a(tr7Var);
+                    }
+                    this.a.d();
+                    o65.m().z("key_game_video_tab_has_choosed_sub_class_id", tr7Var.a);
+                    o65.m().B("key_game_video_tab_has_choosed_sub_class_name", tr7Var.b);
+                    TiebaStatic.log(new StatisticItem("c13485").param("obj_type", tr7Var.a));
+                }
+            }
+        }
+    }
+
+    public qr7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, onVar};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,81 +95,82 @@ public class qr7 {
                 return;
             }
         }
+        this.h = new a(this);
         this.a = tbPageContext;
-        this.c = onVar;
-        a();
+        this.g = bdUniqueId;
+        e();
     }
 
-    public final void a() {
+    public void h(List<tr7> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = new ArrayList();
-            pr7 pr7Var = new pr7(this.a);
-            this.d = pr7Var;
-            pr7Var.x(this.c);
-            this.b.add(this.d);
-            ur7 ur7Var = new ur7(this.a);
-            this.e = ur7Var;
-            ur7Var.x(this.c);
-            this.b.add(this.e);
-            or7 or7Var = new or7(this.a);
-            this.f = or7Var;
-            or7Var.x(this.c);
-            this.b.add(this.f);
-            sr7 sr7Var = new sr7(this.a);
-            this.g = sr7Var;
-            sr7Var.x(this.c);
-            this.b.add(this.g);
-            rr7 rr7Var = new rr7(this.a);
-            this.h = rr7Var;
-            rr7Var.x(this.c);
-            this.b.add(this.h);
-            tr7 tr7Var = new tr7(this.a);
-            this.i = tr7Var;
-            tr7Var.x(this.c);
-            this.b.add(this.i);
-            vr7 vr7Var = new vr7(this.a);
-            this.j = vr7Var;
-            vr7Var.x(this.c);
-            this.b.add(this.j);
-            this.c.addAdapters(this.b);
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.d.b(list);
+        this.d.notifyDataSetChanged();
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.f = bVar;
         }
     }
 
-    public void b() {
-        on onVar;
+    public void c(ViewGroup viewGroup) {
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onVar = this.c) != null) {
-            onVar.getListAdapter().notifyDataSetChanged();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && viewGroup != null && (view2 = this.b) != null) {
+            if (view2.getParent() != null) {
+                ((ViewGroup) this.b.getParent()).removeView(this.b);
+            }
+            viewGroup.addView(this.b);
+            TiebaStatic.log("c13484");
         }
     }
 
-    public void c(List<in> list) {
-        on onVar;
+    public void d() {
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (onVar = this.c) != null) {
-            onVar.setData(list);
-            b();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (view2 = this.b) != null && view2.getParent() != null) {
+            ((ViewGroup) this.b.getParent()).removeView(this.b);
         }
     }
 
-    public void d(qv4 qv4Var) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qv4Var) == null) {
-            for (vm vmVar : this.b) {
-                if (vmVar instanceof nr7) {
-                    ((nr7) vmVar).u(qv4Var);
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            }
+            View view2 = this.b;
+            if (view2 != null) {
+                SkinManager.setBackgroundResource(view2, R.color.CAM_X0201);
             }
         }
     }
 
-    public void e(BdUniqueId bdUniqueId) {
+    public void g() {
+        GameVideoGridView gameVideoGridView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            for (vm vmVar : this.b) {
-                vmVar.setPageId(bdUniqueId);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (gameVideoGridView = this.c) != null) {
+            gameVideoGridView.d();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03b5, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (GameVideoGridView) inflate.findViewById(R.id.obfuscated_res_0x7f090fc9);
+            this.d = new lr7(this.a, 101, this.g);
+            this.c.setNumColumns(4);
+            this.c.setAdapter((ListAdapter) this.d);
+            this.c.setOnItemClickListener(this.h);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090fca);
+            f();
         }
     }
 }

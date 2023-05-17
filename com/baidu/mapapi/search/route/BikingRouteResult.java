@@ -5,7 +5,7 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BikingRouteResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BikingRouteResult> CREATOR = new c();
     public List<BikingRouteLine> a;

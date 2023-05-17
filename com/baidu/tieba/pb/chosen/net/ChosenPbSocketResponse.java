@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ev8;
-import com.baidu.tieba.me;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.c25;
+import com.baidu.tieba.se;
+import com.baidu.tieba.zw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 import tbclient.ExcPbPage.UserInfo;
 import tbclient.Post;
 import tbclient.User;
-/* loaded from: classes5.dex */
-public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev8 {
+/* loaded from: classes7.dex */
+public class ChosenPbSocketResponse extends SocketResponsedMessage implements zw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Post> postList;
@@ -49,7 +49,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         }
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public int getErroCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -59,7 +59,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public String getErrorText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public List<Post> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -79,7 +79,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public ExcellentPbThreadInfo getThreadInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,7 +89,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         return (ExcellentPbThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         return (UserInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public List<User> getUserList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ev8
+    @Override // com.baidu.tieba.zw8
     public boolean isEmpty() {
         InterceptResult invokeV;
         List<ExcContent> list;
@@ -131,8 +131,8 @@ public class ChosenPbSocketResponse extends SocketResponsedMessage implements ev
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0) {
-                t05.d();
-                me<byte[]> b = t05.b("tb.pb_normal");
+                c25.d();
+                se<byte[]> b = c25.b("tb.pb_normal");
                 b.remove("chosen_pb_page_cache");
                 b.g("chosen_pb_page_cache", bArr);
             }

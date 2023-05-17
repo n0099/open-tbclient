@@ -144,8 +144,8 @@ public class ActionBarContextView extends AbsActionBarView {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0000, this);
             LinearLayout linearLayout = (LinearLayout) getChildAt(getChildCount() - 1);
             this.mTitleLayout = linearLayout;
-            this.mTitleView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090065);
-            this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(R.id.obfuscated_res_0x7f090064);
+            this.mTitleView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090072);
+            this.mSubtitleView = (TextView) this.mTitleLayout.findViewById(R.id.obfuscated_res_0x7f090071);
             if (this.mTitleStyleRes != 0) {
                 this.mTitleView.setTextAppearance(getContext(), this.mTitleStyleRes);
             }
@@ -285,7 +285,7 @@ public class ActionBarContextView extends AbsActionBarView {
         } else if (view2.getParent() == null) {
             addView(this.mClose);
         }
-        this.mClose.findViewById(R.id.obfuscated_res_0x7f090072).setOnClickListener(new View.OnClickListener() { // from class: androidx.appcompat.widget.ActionBarContextView.1
+        this.mClose.findViewById(R.id.obfuscated_res_0x7f09007f).setOnClickListener(new View.OnClickListener() { // from class: androidx.appcompat.widget.ActionBarContextView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
                 actionMode.finish();

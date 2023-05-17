@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public interface ia2 {
-    void onReady();
+    void a();
 }

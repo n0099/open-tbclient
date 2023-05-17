@@ -1,7 +1,7 @@
 package com.baidu.searchbox.account;
 
 import com.baidu.searchbox.account.data.OnGetTplStokenResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface IGetTplStokenCallback {
     void onFailure(OnGetTplStokenResult onGetTplStokenResult);
 

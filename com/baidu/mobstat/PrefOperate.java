@@ -2,7 +2,8 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
+/* loaded from: classes3.dex */
 public class PrefOperate {
     public static String getAppKey(Context context) {
         return CooperService.instance().getAppKey(context);
@@ -61,7 +62,7 @@ public class PrefOperate {
             if (!TextUtils.isEmpty(a4)) {
                 if ("true".equals(a4)) {
                     bp.a().a(context, true);
-                } else if ("false".equals(a4)) {
+                } else if (CommandUBCHelper.COMMAND_UBC_VALUE_FALSE.equals(a4)) {
                     bp.a().a(context, false);
                 }
             }

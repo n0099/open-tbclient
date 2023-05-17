@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.cy9;
-import com.baidu.tieba.ep7;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.e0a;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.lx;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rq7;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,8 +37,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes4.dex */
-public class RecommendCollectLayout extends RelativeLayout implements lx {
+/* loaded from: classes5.dex */
+public class RecommendCollectLayout extends RelativeLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,14 +47,14 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
     public BdRecyclerView c;
     public EMTextView d;
     public int e;
-    public ep7 f;
+    public rq7 f;
     public int g;
     public BdUniqueId h;
     public Boolean i;
-    public final bg<tm> j;
+    public final kg<cn> j;
 
-    /* loaded from: classes4.dex */
-    public class a extends bg<tm> {
+    /* loaded from: classes5.dex */
+    public class a extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendCollectLayout a;
@@ -78,12 +78,12 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
-                if (tmVar != null && tmVar.j() != null) {
-                    this.a.setBackground(tmVar.j());
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, cnVar, str, i) == null) {
+                if (cnVar != null && cnVar.j() != null) {
+                    this.a.setBackground(cnVar.j());
                 } else {
                     this.a.c(true);
                 }
@@ -134,15 +134,15 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
     }
 
     public final void c(boolean z) {
-        ep7 ep7Var;
+        rq7 rq7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (ep7Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (rq7Var = this.f) == null) {
             return;
         }
-        if (!z && ep7Var.d() != null && !TextUtils.isEmpty(cy9.h(this.f.d()))) {
-            tm tmVar = (tm) cg.h().m(cy9.h(this.f.d()), 45, this.j, this.h);
-            if (tmVar != null) {
-                setBackground(tmVar.j());
+        if (!z && rq7Var.d() != null && !TextUtils.isEmpty(e0a.h(this.f.d()))) {
+            cn cnVar = (cn) lg.h().m(e0a.h(this.f.d()), 45, this.j, this.h);
+            if (cnVar != null) {
+                setBackground(cnVar.j());
                 return;
             }
             return;
@@ -152,11 +152,11 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
 
     private int getDefaultIdByNumber() {
         InterceptResult invokeV;
-        ep7 ep7Var;
+        rq7 rq7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            ep7 ep7Var2 = this.f;
-            if ((ep7Var2 != null && ep7Var2.e()) || (ep7Var = this.f) == null || ListUtils.getCount(ep7Var.getDataList()) <= k.intValue()) {
+            rq7 rq7Var2 = this.f;
+            if ((rq7Var2 != null && rq7Var2.e()) || (rq7Var = this.f) == null || ListUtils.getCount(rq7Var.getDataList()) <= k.intValue()) {
                 return R.drawable.bg_home_card_heji_two;
             }
             return R.drawable.bg_home_card_heji;
@@ -167,26 +167,26 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d6, (ViewGroup) this, true);
-            int g = ii.g(getContext(), R.dimen.M_W_X004);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0805, (ViewGroup) this, true);
+            int g = ri.g(getContext(), R.dimen.M_W_X004);
             setPadding(g, 0, g, 0);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f090716);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09071c);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09072e);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090734);
             this.b = new ContentCollectListAdapter(this.a);
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.c.setAdapter(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.g != i) {
-            g35 d = g35.d(this.d);
+            p45 d = p45.d(this.d);
             d.C(R.string.F_X02);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);
@@ -205,19 +205,19 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
                 }
                 ShadowDrawable shadowColor = makeShadowDrawable.setBgColor(i2).setShadowColor(R.color.CAM_X0802);
                 if (this.i.booleanValue()) {
-                    i3 = ii.g(getContext(), R.dimen.tbds31);
+                    i3 = ri.g(getContext(), R.dimen.tbds31);
                 } else {
                     i3 = 0;
                 }
                 ShadowDrawable shadowSide = shadowColor.setShapeRadius(i3).setShadowSide(ShadowDrawable.ALL);
                 if (this.i.booleanValue()) {
-                    i4 = ii.g(getContext(), R.dimen.tbds10);
+                    i4 = ri.g(getContext(), R.dimen.tbds10);
                 } else {
                     i4 = 0;
                 }
                 ShadowDrawable offsetX = shadowSide.setShadowRadius(i4).setOffsetX(0);
                 if (this.i.booleanValue()) {
-                    i5 = ii.g(getContext(), R.dimen.tbds5);
+                    i5 = ri.g(getContext(), R.dimen.tbds5);
                 }
                 offsetX.setOffsetY(i5).into(this.c);
             }
@@ -225,35 +225,35 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
         }
     }
 
-    public void setData(ep7 ep7Var) {
+    public void setData(rq7 rq7Var) {
         int i;
         int i2;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, ep7Var) != null) || ep7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, rq7Var) != null) || rq7Var == null) {
             return;
         }
-        this.f = ep7Var;
+        this.f = rq7Var;
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (ep7Var.c() > 0) {
-                marginLayoutParams.topMargin = ii.g(getContext(), R.dimen.M_H_X001);
+            if (rq7Var.c() > 0) {
+                marginLayoutParams.topMargin = ri.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
             }
             setLayoutParams(marginLayoutParams);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e7, SkinManager.getColor(R.color.CAM_X0306), null);
-        pureDrawable.setBounds(0, 0, ii.g(getContext(), R.dimen.tbds96), ii.g(getContext(), R.dimen.T_X07));
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080b0e, SkinManager.getColor(R.color.CAM_X0306), null);
+        pureDrawable.setBounds(0, 0, ri.g(getContext(), R.dimen.tbds96), ri.g(getContext(), R.dimen.T_X07));
         this.d.setCompoundDrawables(pureDrawable, null, null, null);
-        this.d.setCompoundDrawablePadding(ii.g(getContext(), R.dimen.M_W_X001));
-        this.d.setText(ep7Var.getTitle());
-        this.b.q(ep7Var.getDataList());
+        this.d.setCompoundDrawablePadding(ri.g(getContext(), R.dimen.M_W_X001));
+        this.d.setText(rq7Var.getTitle());
+        this.b.q(rq7Var.getDataList());
         this.b.r(this.e);
         Boolean bool = this.i;
-        if (bool == null || bool.booleanValue() != ep7Var.e()) {
-            boolean e = ep7Var.e();
+        if (bool == null || bool.booleanValue() != rq7Var.e()) {
+            boolean e = rq7Var.e();
             if (e) {
                 this.b.p(ContentCollectListAdapter.CornerType.FULL);
             } else {
@@ -267,19 +267,19 @@ public class RecommendCollectLayout extends RelativeLayout implements lx {
             }
             ShadowDrawable shadowColor = makeShadowDrawable.setBgColor(i).setShadowColor(R.color.CAM_X0802);
             if (e) {
-                i2 = ii.g(getContext(), R.dimen.tbds31);
+                i2 = ri.g(getContext(), R.dimen.tbds31);
             } else {
                 i2 = 0;
             }
             ShadowDrawable shadowSide = shadowColor.setShapeRadius(i2).setShadowSide(ShadowDrawable.ALL);
             if (e) {
-                i3 = ii.g(getContext(), R.dimen.tbds10);
+                i3 = ri.g(getContext(), R.dimen.tbds10);
             } else {
                 i3 = 0;
             }
             ShadowDrawable offsetX = shadowSide.setShadowRadius(i3).setOffsetX(0);
             if (e) {
-                i4 = ii.g(getContext(), R.dimen.tbds5);
+                i4 = ri.g(getContext(), R.dimen.tbds5);
             } else {
                 i4 = 0;
             }

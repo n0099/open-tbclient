@@ -1,45 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class xk4 {
+/* loaded from: classes8.dex */
+public class xk4 extends pk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    public xk4() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "unknown" : "swanplugin" : "swandynamiclib" : "swangameconsole" : SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan" : (String) invokeI.objValue;
-    }
-
-    public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), jSONObject}) == null) {
-            if4.b().K(b(i), str, str2, i2, jSONObject, c(str, i2));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
+    @Override // com.baidu.tieba.pk4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            boolean equals = TextUtils.equals(str, "cs_protocol");
-            if (i != 2000) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            wk4 c = wk4.c();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", c.a());
+                jSONObject.put("ceres_info", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("version", c.b());
+                jSONObject.put("global_info", jSONObject3);
+            } catch (JSONException unused) {
             }
-            if (equals && z) {
-                return true;
-            }
-            return false;
+            return jSONObject;
         }
-        return invokeLI.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

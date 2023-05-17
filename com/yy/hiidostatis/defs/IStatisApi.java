@@ -12,7 +12,7 @@ import com.yy.hiidostatis.defs.obj.ShareType;
 import com.yy.hiidostatis.message.Packer;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IStatisApi extends IStatisAPI {
     void addActAdditionListener(ActListener actListener);
 

@@ -17,13 +17,13 @@ import java.util.Iterator;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class MiTinyDataClient {
     public static final String PENDING_REASON_APPID = "com.xiaomi.xmpushsdk.tinydataPending.appId";
     public static final String PENDING_REASON_CHANNEL = "com.xiaomi.xmpushsdk.tinydataPending.channel";
     public static final String PENDING_REASON_INIT = "com.xiaomi.xmpushsdk.tinydataPending.init";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static volatile a a;
 
@@ -37,14 +37,14 @@ public class MiTinyDataClient {
         public String f40a;
 
         /* renamed from: a  reason: collision with other field name */
-        public C0738a f38a = new C0738a();
+        public C0752a f38a = new C0752a();
 
         /* renamed from: a  reason: collision with other field name */
         public final ArrayList<hl> f41a = new ArrayList<>();
 
         /* renamed from: com.xiaomi.mipush.sdk.MiTinyDataClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0738a {
+        /* loaded from: classes10.dex */
+        public class C0752a {
 
             /* renamed from: a  reason: collision with other field name */
             public ScheduledFuture<?> f44a;
@@ -58,7 +58,7 @@ public class MiTinyDataClient {
             /* renamed from: a  reason: collision with other field name */
             public final Runnable f42a = new ab(this);
 
-            public C0738a() {
+            public C0752a() {
             }
 
             /* JADX INFO: Access modifiers changed from: private */
@@ -71,7 +71,7 @@ public class MiTinyDataClient {
             /* JADX INFO: Access modifiers changed from: private */
             public void b() {
                 hl remove = this.f43a.remove(0);
-                for (ig igVar : bz.a(Arrays.asList(remove), a.this.f37a.getPackageName(), b.m145a(a.this.f37a).m146a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
+                for (ig igVar : bz.a(Arrays.asList(remove), a.this.f37a.getPackageName(), b.m164a(a.this.f37a).m165a(), TbConfig.VOICE_CHUNK_UPLOAD_SIZE)) {
                     com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item by PushServiceClient.sendMessage(XmActionNotification)." + remove.d());
                     ao.a(a.this.f37a).a((ao) igVar, hh.Notification, true, (hu) null);
                 }
@@ -105,7 +105,7 @@ public class MiTinyDataClient {
         }
 
         private boolean a(Context context) {
-            if (ao.a(context).m138a()) {
+            if (ao.a(context).m157a()) {
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
                     if (packageInfo == null) {
@@ -120,7 +120,7 @@ public class MiTinyDataClient {
         }
 
         private boolean b(Context context) {
-            return b.m145a(context).m146a() == null && !a(this.f37a);
+            return b.m164a(context).m165a() == null && !a(this.f37a);
         }
 
         private boolean b(hl hlVar) {
@@ -137,9 +137,9 @@ public class MiTinyDataClient {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m116a(Context context) {
+        public void m135a(Context context) {
             if (context == null) {
-                com.xiaomi.channel.commonutils.logger.b.m101a("context is null, MiTinyDataClientImp.init() failed.");
+                com.xiaomi.channel.commonutils.logger.b.m120a("context is null, MiTinyDataClientImp.init() failed.");
                 return;
             }
             this.f37a = context;
@@ -149,7 +149,7 @@ public class MiTinyDataClient {
 
         public synchronized void a(String str) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m101a("channel is null, MiTinyDataClientImp.setChannel(String) failed.");
+                com.xiaomi.channel.commonutils.logger.b.m120a("channel is null, MiTinyDataClientImp.setChannel(String) failed.");
                 return;
             }
             this.f40a = str;
@@ -157,7 +157,7 @@ public class MiTinyDataClient {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public boolean m117a() {
+        public boolean m136a() {
             return this.f37a != null;
         }
 
@@ -168,7 +168,7 @@ public class MiTinyDataClient {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public synchronized boolean m118a(hl hlVar) {
+        public synchronized boolean m137a(hl hlVar) {
             String str;
             boolean z = false;
             if (hlVar == null) {
@@ -177,15 +177,15 @@ public class MiTinyDataClient {
             if (bz.a(hlVar, true)) {
                 return false;
             }
-            boolean z2 = TextUtils.isEmpty(hlVar.m473a()) && TextUtils.isEmpty(this.f40a);
-            boolean z3 = !m117a();
+            boolean z2 = TextUtils.isEmpty(hlVar.m492a()) && TextUtils.isEmpty(this.f40a);
+            boolean z3 = !m136a();
             z = (this.f37a == null || b(this.f37a)) ? true : true;
             if (!z3 && !z2 && !z) {
                 com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient Send item immediately." + hlVar.d());
                 if (TextUtils.isEmpty(hlVar.d())) {
                     hlVar.f(bd.a());
                 }
-                if (TextUtils.isEmpty(hlVar.m473a())) {
+                if (TextUtils.isEmpty(hlVar.m492a())) {
                     hlVar.a(this.f40a);
                 }
                 if (TextUtils.isEmpty(hlVar.c())) {
@@ -218,19 +218,19 @@ public class MiTinyDataClient {
             }
             Iterator it = arrayList.iterator();
             while (it.hasNext()) {
-                m118a((hl) it.next());
+                m137a((hl) it.next());
             }
         }
     }
 
     public static void init(Context context, String str) {
         if (context == null) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("context is null, MiTinyDataClient.init(Context, String) failed.");
+            com.xiaomi.channel.commonutils.logger.b.m120a("context is null, MiTinyDataClient.init(Context, String) failed.");
             return;
         }
-        a.a().m116a(context);
+        a.a().m135a(context);
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("channel is null or empty, MiTinyDataClient.init(Context, String) failed.");
+            com.xiaomi.channel.commonutils.logger.b.m120a("channel is null or empty, MiTinyDataClient.init(Context, String) failed.");
         } else {
             a.a().a(str);
         }
@@ -238,10 +238,10 @@ public class MiTinyDataClient {
 
     public static boolean upload(Context context, hl hlVar) {
         com.xiaomi.channel.commonutils.logger.b.c("MiTinyDataClient.upload " + hlVar.d());
-        if (!a.a().m117a()) {
-            a.a().m116a(context);
+        if (!a.a().m136a()) {
+            a.a().m135a(context);
         }
-        return a.a().m118a(hlVar);
+        return a.a().m137a(hlVar);
     }
 
     public static boolean upload(Context context, String str, String str2, long j, String str3) {
@@ -261,6 +261,6 @@ public class MiTinyDataClient {
         hlVar.c(str2);
         hlVar.a(j);
         hlVar.b(str3);
-        return a.a().m118a(hlVar);
+        return a.a().m137a(hlVar);
     }
 }

@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SingleSampleMediaChunk extends BaseMediaChunk {
     public volatile int bytesLoaded;
     public volatile boolean loadCanceled;

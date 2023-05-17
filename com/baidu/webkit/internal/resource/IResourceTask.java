@@ -1,23 +1,23 @@
 package com.baidu.webkit.internal.resource;
 
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IResourceTask extends INoProGuard {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum OutputType {
         FILE,
         STRING
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public enum ResultType {
         RESULT_OK,
         RESULT_CACHE,
         RESULT_FAILED
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface TaskPriority extends INoProGuard {
         public static final int HIGH = 1;
         public static final int IDLE = 4;

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @Nullsafe(Nullsafe.Mode.STRICT)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImmutableList<E> extends ArrayList<E> {
     public ImmutableList(int i) {
         super(i);

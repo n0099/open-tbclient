@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.text.TextUtils;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class BM3DModelOptions extends OverlayOptions {
     public String a;
     public String b;
@@ -18,7 +18,7 @@ public final class BM3DModelOptions extends OverlayOptions {
     public boolean l = true;
     public BM3DModelType m = BM3DModelType.BM3DModelTypeObj;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum BM3DModelType {
         BM3DModelTypeObj,
         BM3DModelTypeglTF

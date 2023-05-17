@@ -12,7 +12,7 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class AuthActivity extends Activity {
     public static final String ACTION_KEY = "action";
     public static final String ACTION_SHARE_PRIZE = "sharePrize";

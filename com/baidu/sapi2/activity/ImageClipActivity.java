@@ -31,7 +31,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ImageClipActivity extends Activity {
     public static final int BUSSINESS_FROM_INVOICE_BUILD = 1;
     public static final int BUSSINESS_ID_CARD_OCR = 2;

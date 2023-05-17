@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HostConfig {
     public static final String HOSTID_BAIDUAPP = "3";
     public static final String HOSTID_BAIDUAPP_LITE = "7";

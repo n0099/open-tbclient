@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,307 +18,431 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.binaryresource.BinaryResource;
-import com.facebook.binaryresource.FileBinaryResource;
-import com.facebook.cache.common.CacheKey;
-import com.facebook.cache.common.WriterCallbacks;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.core.ImagePipelineFactory;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-/* loaded from: classes4.dex */
-public class hc2 implements ac2, gc2 {
+import java.util.List;
+import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class hc2 extends gc2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean F;
     public transient /* synthetic */ FieldHolder $fh;
-    public ic2 b;
+    public final g93 D;
+    public final ea2 E;
 
-    @Override // com.baidu.tieba.ac2
-    public boolean isClosed() {
+    @Override // com.baidu.tieba.kc2
+    public int K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return 1;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements kc2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bc2 a;
-
-        @Override // com.baidu.tieba.kc2
-        public void a(ImageRequest imageRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageRequest) == null) {
-            }
-        }
-
-        public a(hc2 hc2Var, bc2 bc2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hc2Var, bc2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bc2Var;
-        }
-
-        @Override // com.baidu.tieba.kc2
-        public void b(ImageRequest imageRequest) {
-            bc2 bc2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) && (bc2Var = this.a) != null) {
-                bc2Var.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.kc2
-        public void onCancel(String str) {
-            bc2 bc2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (bc2Var = this.a) != null) {
-                bc2Var.a();
-            }
-        }
-
-        @Override // com.baidu.tieba.kc2
-        public void c(ImageRequest imageRequest, Throwable th) {
-            bc2 bc2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) && (bc2Var = this.a) != null) {
-                bc2Var.a();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements ic2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(hc2 hc2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hc2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ic2
-        public CacheKey a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return DefaultCacheKeyFactory.getInstance().getEncodedCacheKey(ImageRequest.fromUri(Uri.parse(str)), null);
-            }
-            return (CacheKey) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static hc2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-751860557, "Lcom/baidu/tieba/hc2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-751860557, "Lcom/baidu/tieba/hc2$c;");
-                    return;
-                }
-            }
-            a = new hc2(null);
-        }
-    }
-
-    public hc2() {
+    @Override // com.baidu.tieba.gc2
+    public int j0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return 200;
+        }
+        return invokeV.intValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818834, "Lcom/baidu/tieba/hc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947818834, "Lcom/baidu/tieba/hc2;");
                 return;
             }
         }
-        this.b = new b(this);
+        F = qp1.a;
     }
 
-    public static hc2 d() {
+    @Override // com.baidu.tieba.gc2, com.baidu.tieba.bh4
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            J0();
+            l23.p("startup").F(new UbcFlowEvent("aps_start_req"));
+            super.D();
+        }
+    }
+
+    @Override // com.baidu.tieba.gc2, com.baidu.tieba.bh4
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.E();
+            l23.p("startup").F(new UbcFlowEvent("aps_end_req"));
+            K0();
+        }
+    }
+
+    public du2 I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.D.W();
         }
-        return (hc2) invokeV.objValue;
+        return (du2) invokeV.objValue;
     }
 
-    public /* synthetic */ hc2(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.ac2
-    public void a(String str, File file, bc2 bc2Var) {
+    public final void J0() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, file, bc2Var) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.D.k() != 1) {
+            this.E.f();
+        }
+    }
+
+    public final void K0() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.D.k() != 1) {
+            this.E.g();
+            if (F) {
+                Log.d("PkgSyncDownloadCallback", "PMS CS协议信息获取成功");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gc2
+    public PMSDownloadType k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return PMSDownloadType.SYNC;
+        }
+        return (PMSDownloadType) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hc2(g93 g93Var) {
+        super(g93Var.b);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g93Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.D = g93Var;
+        this.E = new ea2();
+    }
+
+    public static void H0(du2 du2Var, zk3 zk3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, du2Var, zk3Var) != null) || du2Var == null) {
             return;
         }
-        boolean z = false;
-        if (file != null && file.exists()) {
-            z = b(str, file);
+        jg3 jg3Var = new jg3();
+        jg3Var.a = zf3.n(du2Var.G());
+        jg3Var.f = du2Var.H();
+        jg3Var.c = du2Var.T();
+        jg3Var.b = "launch";
+        jg3Var.e = "success";
+        jg3Var.a("status", "1");
+        if (zk3Var != null) {
+            jg3Var.a("errcode", String.valueOf(zk3Var.a()));
+            jg3Var.a("msg", zk3Var.g().toString());
         }
-        if (z) {
-            bc2Var.a();
-        } else {
-            e(str, new a(this, bc2Var));
+        jg3Var.d(du2Var.s0().getString("ubc"));
+        jg3Var.j(du2Var);
+        zf3.onEvent(jg3Var);
+        HybridUbcFlow d = l23.d("startup");
+        if (d != null) {
+            d.E("value", "na_success");
         }
     }
 
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
+    @Override // com.baidu.tieba.bh4, com.baidu.tieba.yg4
+    public void n(String str, String str2) {
+        List<UbcFlowEvent> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a2 = this.b.a(str);
-            boolean z = false;
-            FileInputStream fileInputStream2 = null;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            super.n(str, str2);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 53647) {
+                    if (hashCode == 54608 && str.equals("770")) {
+                        c = 1;
+                    }
+                } else if (str.equals("670")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c == 1 && (list = this.p) != null) {
+                        list.add(new UbcFlowEvent(str2));
+                        return;
+                    }
+                    return;
+                }
+                l23.p("startup").F(new UbcFlowEvent(str2));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gc2, com.baidu.tieba.bh4
+    public void C(ai4 ai4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ai4Var) == null) {
+            super.C(ai4Var);
+            if (F) {
+                Log.e("PkgSyncDownloadCallback", "onFetchError: " + ai4Var.toString());
+            }
+            L0(ai4Var);
+            zk3 zk3Var = new zk3();
+            zk3Var.k(10L);
+            zk3Var.c(ai4Var);
+            if (yc2.j(ai4Var) && ns2.T().a(ns2.c(), this.o, zk3Var)) {
+                t0(false, zk3Var);
+                H0(this.D.W(), zk3Var);
+            } else if (ai4Var != null && ai4Var.a == 1020) {
+                t0(false, zk3Var);
+                H0(this.D.W(), zk3Var);
+            } else {
+                t0(true, zk3Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gc2
+    public void w0(Throwable th) {
+        zk3 zk3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, th) == null) {
+            if (th instanceof PkgDownloadError) {
+                PkgDownloadError pkgDownloadError = (PkgDownloadError) th;
+                if (F) {
+                    Log.e("PkgSyncDownloadCallback", "PkgDownloadError:  pkg:" + pkgDownloadError.getPackage() + ", message:" + pkgDownloadError.getMessage() + ", ErrCode: " + pkgDownloadError.getErrCode());
+                }
+                zk3Var = pkgDownloadError.getErrCode();
+            } else {
+                if (F) {
+                    Log.e("PkgSyncDownloadCallback", "未知错误");
+                }
+                zk3Var = new zk3();
+                zk3Var.k(10L);
+                zk3Var.i(2900L);
+                zk3Var.d("包下载过程未知错误");
+            }
+            t0(true, zk3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.bh4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.F();
+            if (this.n != null) {
+                u0();
+            }
+            zk3 zk3Var = new zk3();
+            zk3Var.k(10L);
+            zk3Var.i(2901L);
+            zk3Var.d("同步获取-> Server无包");
+            t0(true, zk3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.gc2, com.baidu.tieba.bh4
+    public void G(om4 om4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, om4Var) == null) {
+            l23.p("startup").F(new UbcFlowEvent("aps_start_download"));
+            super.G(om4Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.bh4
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            super.H(str, i);
+            li4 a = li4.a(str);
+            if (a == null) {
+                return;
+            }
+            boolean b = nm4.b(a.c());
+            g62.i("PkgSyncDownloadCallback", "resetCore: " + b + ";statusCode:" + i);
+            if (b) {
+                w53 e = w53.e();
+                y53 y53Var = new y53(129);
+                y53Var.f(true);
+                e.h(y53Var);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0018 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: java.lang.String */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r6v2 */
+    /* JADX WARN: Type inference failed for: r6v5, types: [java.lang.StringBuilder] */
+    /* JADX WARN: Type inference failed for: r6v7 */
+    /* JADX WARN: Type inference failed for: r6v8 */
+    /* JADX WARN: Type inference failed for: r6v9 */
+    @Override // com.baidu.tieba.bh4
+    public void I(String str, String str2, JSONObject jSONObject) {
+        String jSONObject2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, str, str2, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (F) {
+            String str3 = 0;
+            str3 = 0;
             try {
                 try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (IOException e) {
-                    e = e;
+                    jSONObject2 = jSONObject.toString(4);
+                    str3 = new StringBuilder();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    jSONObject2 = jSONObject.toString();
+                    str3 = new StringBuilder();
                 }
+                str3.append("onStatRecord: url:");
+                str3.append(str);
+                str3.append(" networkStatRecord:\n");
+                str3.append(jSONObject2);
+                Log.i("PkgSyncDownloadCallback", str3.toString());
             } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                BinaryResource insert = Fresco.getImagePipelineFactory().getMainFileCache().insert(a2, WriterCallbacks.from(fileInputStream));
-                if (insert != null) {
-                    if (insert.size() > 0) {
-                        z = true;
-                    }
-                }
-                bo4.d(fileInputStream);
-                return z;
-            } catch (IOException e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                if (gc2.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
-                bo4.d(fileInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                bo4.d(fileInputStream2);
+                Log.i("PkgSyncDownloadCallback", "onStatRecord: url:" + str + " networkStatRecord:\n" + str3);
                 throw th;
             }
         }
-        return invokeLL.booleanValue;
+        long optLong = jSONObject.optLong("stat_recode_start_time", System.currentTimeMillis());
+        long optLong2 = jSONObject.optLong("dnsEndTime", optLong);
+        long optLong3 = jSONObject.optLong("dnsStartTime", optLong);
+        long optLong4 = jSONObject.optLong("connectedTime", optLong);
+        long optLong5 = jSONObject.optLong("startTime", optLong);
+        HybridUbcFlow p = l23.p("startup");
+        UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("pms_network_start");
+        ubcFlowEvent.h(optLong5);
+        p.F(ubcFlowEvent);
+        UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("pms_network_conn");
+        ubcFlowEvent2.h(optLong4);
+        p.F(ubcFlowEvent2);
+        UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("pms_dns_start");
+        ubcFlowEvent3.h(optLong3);
+        p.F(ubcFlowEvent3);
+        UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("pms_dns_end");
+        ubcFlowEvent4.h(optLong2);
+        p.F(ubcFlowEvent4);
+        UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("pms_network_response");
+        ubcFlowEvent5.h(jSONObject.optLong("responseTime", optLong));
+        p.F(ubcFlowEvent5);
+        UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("pms_send_header");
+        ubcFlowEvent6.h(jSONObject.optLong("sendHeaderTime", optLong));
+        p.F(ubcFlowEvent6);
+        UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("pms_receive_header");
+        ubcFlowEvent7.h(jSONObject.optLong("receiveHeaderTime", optLong));
+        p.F(ubcFlowEvent7);
+        g62.i("PkgSyncDownloadCallback", "pms dns time : " + (optLong2 - optLong3));
+        g62.i("PkgSyncDownloadCallback", "pms connect time : " + (optLong4 - optLong5));
     }
 
-    public final DataSource<Void> e(String str, kc2 kc2Var) {
+    public final void L0(ai4 ai4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, ai4Var) != null) || ai4Var == null) {
+            return;
+        }
+        try {
+            PMSAppInfo a = nm4.a(new JSONObject(ai4Var.c));
+            a.appId = a.appKey;
+            f93.K().q().N0(a);
+            g62.i("PkgSyncDownloadCallback", "onFetchError: pms info:" + a.toString());
+        } catch (Exception e) {
+            if (F) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bh4, com.baidu.tieba.zg4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, kc2Var)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                ImagePipeline imagePipeline = Fresco.getImagePipeline();
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(str));
-                if (kc2Var != null) {
-                    newBuilderWithSource.setRequestListener(er2.B().a(kc2Var));
-                }
-                return imagePipeline.prefetchToDiskCache(newBuilderWithSource.build(), null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, bundle, set)) == null) {
+            Bundle m = super.m(bundle, set);
+            if (set.contains("get_launch_id")) {
+                m.putString("launch_id", this.D.W().V());
             }
-            if (kc2Var != null) {
-                kc2Var.c(null, new Exception(ExceptionMessage.URL_EMPTY));
-            }
-            return null;
+            return m;
         }
-        return (DataSource) invokeLL.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 
-    public final File c(String str) {
-        InterceptResult invokeL;
-        BinaryResource resource;
+    @Override // com.baidu.tieba.gc2
+    public void v0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a2 = this.b.a(str);
-            if (a2 == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            super.v0();
+            if (F) {
+                Log.i("PkgSyncDownloadCallback", "onDownloadProcessComplete: ");
             }
-            if (ImagePipelineFactory.getInstance().getMainFileCache().hasKey(a2)) {
-                BinaryResource resource2 = ImagePipelineFactory.getInstance().getMainFileCache().getResource(a2);
-                if (resource2 == null) {
-                    return null;
+            HybridUbcFlow p = l23.p("startup");
+            p.F(new UbcFlowEvent("aps_end_download"));
+            p.E("type", "0");
+            lr2.d("0");
+            this.p.add(new UbcFlowEvent("na_start_update_db"));
+            zk3 F0 = F0();
+            this.p.add(new UbcFlowEvent("na_end_update_db"));
+            if (F0 == null) {
+                if (F) {
+                    Log.d("PkgSyncDownloadCallback", "同步获取-> DB 存储成功");
                 }
-                return ((FileBinaryResource) resource2).getFile();
-            } else if (!ImagePipelineFactory.getInstance().getSmallImageFileCache().hasKey(a2) || (resource = ImagePipelineFactory.getInstance().getSmallImageFileCache().getResource(a2)) == null) {
-                return null;
-            } else {
-                return ((FileBinaryResource) resource).getFile();
-            }
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ac2
-    public InputStream get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            File c2 = c(str);
-            if (c2 != null && c2.exists()) {
-                try {
-                    return new FileInputStream(c2);
-                } catch (IOException e) {
-                    if (gc2.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(e));
-                        return null;
-                    }
-                    return null;
+                du2 I0 = I0();
+                di4 di4Var = this.l;
+                if (di4Var != null && di4Var.h == 0) {
+                    I0.Z0(li3.e(0));
+                    I0.E(1);
                 }
+                di4 di4Var2 = this.l;
+                if (di4Var2 != null && di4Var2.h == 1) {
+                    I0.Z0(li3.e(1));
+                    I0.E(1);
+                }
+                bi4 bi4Var = this.m;
+                if (bi4Var != null && bi4Var.h == 0) {
+                    I0.C0(pj2.c(0));
+                    I0.E(2);
+                }
+                bi4 bi4Var2 = this.m;
+                if (bi4Var2 != null && bi4Var2.h == 1) {
+                    I0.C0(pj2.c(1));
+                    I0.E(2);
+                }
+                gi4 gi4Var = this.q;
+                if (gi4Var != null) {
+                    I0.F0(gi4Var.r);
+                    I0.V0(this.q.p);
+                }
+                s0(this.n);
+                A0("main_download", "0");
+                return;
             }
-            return null;
+            if (F) {
+                Log.e("PkgSyncDownloadCallback", "同步获取-> DB 存储失败");
+            }
+            t0(true, F0);
         }
-        return (InputStream) invokeL.objValue;
     }
 }

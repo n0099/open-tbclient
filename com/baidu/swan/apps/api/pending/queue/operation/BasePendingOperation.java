@@ -1,5 +1,5 @@
 package com.baidu.swan.apps.api.pending.queue.operation;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class BasePendingOperation implements Runnable {
     public boolean a() {
         return false;
@@ -17,7 +17,7 @@ public abstract class BasePendingOperation implements Runnable {
         return OperationType.OPERATION_TYPE_WORK_THREAD;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum OperationType {
         OPERATION_TYPE_REQUEST("Type_Request"),
         OPERATION_TYPE_WORK_THREAD("Type_Work_Thread"),

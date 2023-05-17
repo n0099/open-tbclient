@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WebvttCssStyle {
     public static final int FONT_SIZE_UNIT_EM = 2;
     public static final int FONT_SIZE_UNIT_PERCENT = 3;
@@ -37,12 +37,12 @@ public final class WebvttCssStyle {
     public int underline;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface FontSizeUnit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface StyleFlags {
     }
 

@@ -27,11 +27,11 @@ import java.util.Arrays;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static final g a = g.a();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends IOException {
         public a(String str) {
             super(str);

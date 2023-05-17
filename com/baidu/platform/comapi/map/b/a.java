@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public static final C0124a a;
-    public static final C0124a b;
-    public static final C0124a c;
+    public static final C0128a a;
+    public static final C0128a b;
+    public static final C0128a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.platform.comapi.map.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static class C0124a {
+    /* loaded from: classes3.dex */
+    public static class C0128a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
         public b b;
 
-        public C0124a(b bVar, b bVar2) {
+        public C0128a(b bVar, b bVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,13 +44,13 @@ public class a {
             this.b = bVar2;
         }
 
-        public static C0124a a(MotionEvent motionEvent) {
+        public static C0128a a(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
-                return new C0124a(new b(motionEvent.getX(0), motionEvent.getY(0)), new b(motionEvent.getX(1), motionEvent.getY(1)));
+                return new C0128a(new b(motionEvent.getX(0), motionEvent.getY(0)), new b(motionEvent.getX(1), motionEvent.getY(1)));
             }
-            return (C0124a) invokeL.objValue;
+            return (C0128a) invokeL.objValue;
         }
 
         public b a() {
@@ -96,13 +96,13 @@ public class a {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return C0124a.class.getSimpleName() + "  a : " + this.a.toString() + " b : " + this.b.toString();
+                return C0128a.class.getSimpleName() + "  a : " + this.a.toString() + " b : " + this.b.toString();
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,12 +146,12 @@ public class a {
         public final double b;
         public final d c;
 
-        public c(C0124a c0124a, C0124a c0124a2) {
+        public c(C0128a c0128a, C0128a c0128a2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c0124a, c0124a2};
+                Object[] objArr = {c0128a, c0128a2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -161,9 +161,9 @@ public class a {
                     return;
                 }
             }
-            this.c = new d(c0124a.a(), c0124a2.a());
-            this.b = c0124a2.b() / c0124a.b();
-            this.a = d.a(c0124a.c(), c0124a2.c());
+            this.c = new d(c0128a.a(), c0128a2.a());
+            this.b = c0128a2.b() / c0128a.b();
+            this.a = d.a(c0128a.c(), c0128a2.c());
         }
 
         public String toString() {
@@ -176,7 +176,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,8 +259,8 @@ public class a {
                 return;
             }
         }
-        a = new C0124a(new b(0.0d, 0.0d), new b(1.0d, 0.0d));
-        b = new C0124a(new b(0.0d, 0.0d), new b(0.0d, 1.0d));
-        c = new C0124a(new b(0.0d, 1.0d), new b(0.0d, 0.0d));
+        a = new C0128a(new b(0.0d, 0.0d), new b(1.0d, 0.0d));
+        b = new C0128a(new b(0.0d, 0.0d), new b(0.0d, 1.0d));
+        c = new C0128a(new b(0.0d, 1.0d), new b(0.0d, 0.0d));
     }
 }

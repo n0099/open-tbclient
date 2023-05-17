@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DataCore {
     public static JSONObject a = new JSONObject();
     public static String b = "";

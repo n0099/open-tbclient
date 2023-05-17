@@ -1,45 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.j5b;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class dab<T, R> extends j5b<R> implements k5b<T> {
+import rx.internal.util.atomic.LinkedQueueNode;
+/* loaded from: classes5.dex */
+public abstract class dab<E> extends fab<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedQueueNode<E> consumerNode;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dab(j5b.a<R> aVar) {
-        super(aVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699236, "Lcom/baidu/tieba/dab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947699236, "Lcom/baidu/tieba/dab;");
+                return;
+            }
+        }
+        b = hbb.a(dab.class, "consumerNode");
+    }
+
+    public dab() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j5b.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final cab<T, R> E() {
+    public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (getClass() == cab.class) {
-                return (cab) this;
-            }
-            return new cab<>(this);
+            return (LinkedQueueNode) hbb.a.f(this, b);
         }
-        return (cab) invokeV.objValue;
+        return (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final void d(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.consumerNode = linkedQueueNode;
+        }
     }
 }

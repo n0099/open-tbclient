@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public final ExecutorService aeY = com.kwad.sdk.core.threads.b.vh();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements Callable<Void> {
         public final File file;
 

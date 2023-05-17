@@ -18,26 +18,26 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.x77;
-import com.baidu.tieba.z67;
-import com.baidu.tieba.zl5;
+import com.baidu.tieba.in5;
+import com.baidu.tieba.k97;
+import com.baidu.tieba.m87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class FrsAllThreadFragment extends BaseFragment implements x77 {
+/* loaded from: classes5.dex */
+public class FrsAllThreadFragment extends BaseFragment implements k97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public RecyclerView b;
     public String c;
 
-    @Override // com.baidu.tieba.x77
-    public void o0(boolean z) {
+    @Override // com.baidu.tieba.k97
+    public void p0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
         }
     }
 
@@ -55,8 +55,8 @@ public class FrsAllThreadFragment extends BaseFragment implements x77 {
         }
     }
 
-    @Override // com.baidu.tieba.x77
-    public void B1() {
+    @Override // com.baidu.tieba.k97
+    public void C1() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (recyclerView = this.b) != null) {
@@ -65,7 +65,7 @@ public class FrsAllThreadFragment extends BaseFragment implements x77 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public zl5 getTbPageExtra() {
+    public in5 getTbPageExtra() {
         InterceptResult invokeV;
         Intent intent;
         Interceptable interceptable = $ic;
@@ -76,43 +76,43 @@ public class FrsAllThreadFragment extends BaseFragment implements x77 {
             } else {
                 intent = baseFragmentActivity.getIntent();
             }
-            return new zl5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
+            return new in5(getUniqueId(), "a006", this.mTbPageExtraPageTabName, intent);
         }
-        return (zl5) invokeV.objValue;
+        return (in5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x77
+    @Override // com.baidu.tieba.k97
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            B1();
-            z67 z67Var = new z67();
-            z67Var.a = 1;
-            z67Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, z67Var));
+            C1();
+            m87 m87Var = new m87();
+            m87Var.a = 1;
+            m87Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, m87Var));
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-                F1(2, "4");
+                G1(2, "4");
             } else {
-                F1(2, "5");
+                G1(2, "5");
             }
         }
     }
 
-    public final void F1(int i, String str) {
+    public final void G1(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             TiebaStatic.log(new StatisticItem("c13008").param("fid", this.c).param("obj_type", str).param("obj_locate", i).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public final void G1() {
+    public final void H1() {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (view2 = this.a) != null && (view2.getParent() instanceof ViewGroup)) {
@@ -121,12 +121,12 @@ public class FrsAllThreadFragment extends BaseFragment implements x77 {
         }
     }
 
-    public void H1(View view2) {
+    public void I1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.a = view2;
-            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090cb8);
-            G1();
+            this.b = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090ce3);
+            H1();
         }
     }
 
@@ -135,12 +135,12 @@ public class FrsAllThreadFragment extends BaseFragment implements x77 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             Bundle arguments = getArguments();
             if (arguments != null) {
                 this.c = arguments.getString("forum_id", "");
             }
-            G1();
+            H1();
             return this.a;
         }
         return (View) invokeLLL.objValue;

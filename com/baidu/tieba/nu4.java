@@ -1,64 +1,126 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class nu4 implements xf6 {
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+/* loaded from: classes6.dex */
+public abstract class nu4 {
     public static /* synthetic */ Interceptable $ic;
+    public static WeakReference<TbPageContext<?>> a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        wf6.a(this, webView, str, jSONObject);
+    /* loaded from: classes6.dex */
+    public interface a {
     }
 
-    @Override // com.baidu.tieba.xf6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948014940, "Lcom/baidu/tieba/nu4;")) == null) {
+            return;
         }
-        return invokeLLLLL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948014940, "Lcom/baidu/tieba/nu4;");
+        }
     }
 
-    @Override // com.baidu.tieba.xf6
-    public /* synthetic */ void onDestroy() {
-        wf6.b(this);
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g(int i);
+
+    public abstract void i();
+
+    public abstract void k(a aVar);
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
     }
+
+    public abstract void m();
 
     public nu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        new ArrayList(5);
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        WeakReference<TbPageContext<?>> weakReference;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (weakReference = a) != null) {
+            weakReference.get();
+            a.clear();
+            a = null;
         }
     }
 
-    public hq9 c(WebView webView, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public static nu4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
-            hq9 hq9Var = new hq9();
-            if (hashMap != null && hashMap.get("result") != null) {
-                hq9Var.o(hashMap.get("result"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, nu4.class, baseFragmentActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (nu4) runTask.getData();
             }
-            return hq9Var;
+            return null;
         }
-        return (hq9) invokeLL.objValue;
+        return (nu4) invokeL.objValue;
+    }
+
+    public void j(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
+            WeakReference<TbPageContext<?>> weakReference = a;
+            if (weakReference == null) {
+                a = new WeakReference<>(tbPageContext);
+                return;
+            }
+            weakReference.clear();
+            a = null;
+            a = new WeakReference<>(tbPageContext);
+        }
     }
 }

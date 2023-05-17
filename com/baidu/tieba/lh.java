@@ -1,32 +1,81 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class lh extends xg {
+/* loaded from: classes6.dex */
+public class lh {
     public static /* synthetic */ Interceptable $ic;
+    public static lh b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lh(th thVar) {
-        super(thVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448310193, "Lcom/baidu/tieba/lh;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448310193, "Lcom/baidu/tieba/lh;");
+        }
+    }
+
+    public lh() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((th) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.o = "dbg";
+        this.a = 0L;
+    }
+
+    public static lh b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (lh.class) {
+                    if (b == null) {
+                        b = new lh();
+                    }
+                }
+            }
+            return b;
+        }
+        return (lh) invokeV.objValue;
+    }
+
+    public synchronized long a() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a > 0) {
+                    this.a++;
+                } else {
+                    this.a = System.currentTimeMillis();
+                }
+                j = this.a;
+            }
+            return j;
+        }
+        return invokeV.longValue;
     }
 }

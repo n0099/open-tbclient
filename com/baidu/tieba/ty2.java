@@ -1,96 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class ty2 extends ry2 {
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public abstract class ty2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ty2() {
+    public abstract boolean a(oy2 oy2Var, qy2 qy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197468, "Lcom/baidu/tieba/ty2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948197468, "Lcom/baidu/tieba/ty2;");
+                return;
+            }
+        }
+        a = qp1.a;
+    }
+
+    public ty2(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ry2
-    public boolean a(Bitmap bitmap, Rect rect) {
-        InterceptResult invokeLL;
-        boolean z;
-        Set<Integer> set;
+    @Nullable
+    public oy2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        ew2 f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
-            if (ry2.c) {
-                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3) || (f = fw2.f(str, str2, str3)) == null || !(f.i() instanceof oy2)) {
+                return null;
             }
-            if (bitmap == null) {
+            return (oy2) f.i();
+        }
+        return (oy2) invokeLLLLL.objValue;
+    }
+
+    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, g93Var)) == null) {
+            if (a) {
+                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                g62.c("vrvideo", "param is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            if (!b(bitmap, rect)) {
-                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            }
-            try {
-                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
-                if (pixel != -1 && pixel != -657931) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z && (set = this.b) != null) {
-                    Iterator<Integer> it = set.iterator();
-                    while (true) {
-                        if (it.hasNext()) {
-                            if (it.next().intValue() == pixel) {
-                                z = true;
-                                break;
-                            }
-                        } else {
-                            break;
-                        }
-                    }
-                }
-                if (!z) {
+            oy2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("sanId"), optParamsAsJo.optString("videoId"), optParamsAsJo);
+            if (b != null && context != null) {
+                qy2 h = qy2.h(optParamsAsJo, b.d());
+                if (!h.isValid()) {
+                    g62.c("vrvideo", "param is invalid");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                     return false;
                 }
-                for (int i = rect.left + 1; i < rect.right - 1; i++) {
-                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
-                        if (pixel != bitmap.getPixel(i, i2)) {
-                            if (ho1.a) {
-                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
-                            }
-                            return false;
-                        }
-                    }
-                }
-                if (ry2.c) {
-                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
-                }
-                return true;
-            } catch (IllegalArgumentException e) {
-                if (ry2.c) {
-                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
-                    e.printStackTrace();
-                }
-                return false;
+                return a(b, h, context, unitedSchemeEntity, callbackHandler, g93Var);
             }
+            g62.c("vrvideo", "player id is invalid or context is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

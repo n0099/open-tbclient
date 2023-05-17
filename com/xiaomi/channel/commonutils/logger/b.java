@@ -7,7 +7,7 @@ import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.xiaomi.push.j;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public abstract class b {
     public static int a = 2;
 
@@ -36,7 +36,7 @@ public abstract class b {
     /* renamed from: a  reason: collision with other field name */
     public static AtomicInteger f16a = new AtomicInteger(1);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a implements LoggerInterface {
         public String a = b.f14a;
 
@@ -73,7 +73,7 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m100a(String str) {
+    public static String m119a(String str) {
         return b() + str;
     }
 
@@ -108,10 +108,10 @@ public abstract class b {
 
     public static void a(Context context) {
         f11a = context;
-        if (j.m632a(context)) {
+        if (j.m651a(context)) {
             f17a = true;
         }
-        if (j.m631a()) {
+        if (j.m650a()) {
             f18b = true;
         }
     }
@@ -130,17 +130,17 @@ public abstract class b {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m101a(String str) {
-        a(2, m100a(str));
+    public static void m120a(String str) {
+        a(2, m119a(str));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m102a(String str, String str2) {
+    public static void m121a(String str, String str2) {
         a(2, b(str, str2));
     }
 
     public static void a(String str, Throwable th) {
-        a(4, m100a(str), th);
+        a(4, m119a(str), th);
     }
 
     public static void a(Throwable th) {
@@ -156,24 +156,24 @@ public abstract class b {
     }
 
     public static void b(String str) {
-        a(0, m100a(str));
+        a(0, m119a(str));
     }
 
     public static void c(String str) {
-        a(1, m100a(str));
+        a(1, m119a(str));
     }
 
     public static void d(String str) {
-        a(4, m100a(str));
+        a(4, m119a(str));
     }
 
     public static void e(String str) {
         if (!f17a) {
-            Log.w(f14a, m100a(str));
+            Log.w(f14a, m119a(str));
             if (f18b) {
                 return;
             }
         }
-        m101a(str);
+        m120a(str);
     }
 }

@@ -1,67 +1,186 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemView;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton;
+import com.baidu.tieba.frs.mc.FrsNewAreaFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class zc7 extends vm<oc7, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
+import java.util.List;
+import tbclient.FrsTabInfo;
+/* loaded from: classes8.dex */
+public class zc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public View a;
+    public BaseFragment b;
+    public TextView c;
+    public FrsTabSortSwitchButton d;
+    public int e;
+    public String f;
+    public FrsTabSortSwitchButton.e g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zc7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes8.dex */
+    public class a implements FrsTabSortSwitchButton.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zc7 a;
+
+        public a(zc7 zc7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zc7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zc7Var;
+        }
+
+        @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.e
+        public boolean a(int i) {
+            InterceptResult invokeI;
+            gb7 Y1;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                boolean z = false;
+                if (!t77.f().i() && !s77.h().j()) {
+                    if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+                        this.a.b.showToast(R.string.obfuscated_res_0x7f0f0db6);
+                        return false;
+                    }
+                    if (this.a.b instanceof FrsNewAreaFragment) {
+                        if (((FrsNewAreaFragment) this.a.b).q2() == null || ((FrsNewAreaFragment) this.a.b).m2() == null) {
+                            return false;
+                        }
+                    } else if ((this.a.b instanceof FrsCommonTabFragment) && (Y1 = ((FrsCommonTabFragment) this.a.b).Y1()) != null && ((FrsCommonTabFragment) this.a.b).X1() != null) {
+                        if (Y1.j()) {
+                            return false;
+                        }
+                    }
+                    z = true;
+                    if (this.a.e == i) {
+                        return true;
+                    }
+                    this.a.e = i;
+                    if (this.a.e != 7) {
+                        at5.c();
+                        us9.a();
+                    } else {
+                        us9.b();
+                    }
+                    if (this.a.b instanceof FrsNewAreaFragment) {
+                        ((FrsNewAreaFragment) this.a.b).q2().k0(this.a.d.w(this.a.e));
+                        if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
+                            FrsTabTestHelper.storeFrsNewAreaTabSort(this.a.d.w(this.a.e));
+                        }
+                        ((FrsNewAreaFragment) this.a.b).m2().P();
+                    } else {
+                        ((FrsCommonTabFragment) this.a.b).f2(xl7.d(this.a.d.w(this.a.e)));
+                        ((FrsCommonTabFragment) this.a.b).X1().x(true);
+                    }
+                    this.a.f();
+                }
+                return z;
+            }
+            return invokeI.booleanValue;
+        }
+    }
+
+    public zc7(BaseFragment baseFragment, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {baseFragment, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.e = -1;
+        this.g = new a(this);
+        if (baseFragment != null && relativeLayout != null) {
+            this.b = baseFragment;
+            View inflate = LayoutInflater.from(baseFragment.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0387, relativeLayout);
+            this.a = inflate;
+            inflate.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09214e);
+            FrsTabSortSwitchButton frsTabSortSwitchButton = (FrsTabSortSwitchButton) this.a.findViewById(R.id.obfuscated_res_0x7f09214f);
+            this.d = frsTabSortSwitchButton;
+            frsTabSortSwitchButton.setOnSwitchChangeListener(this.g);
+            this.e = this.d.getState();
+            h();
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsGameStrategyItemView.FrsGameStrategyItemViewHolder(new FrsGameStrategyItemView(this.a));
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.d != null) {
+            this.d.t(xl7.f(i));
+            this.e = this.d.getState();
         }
-        return (FrsGameStrategyItemView.FrsGameStrategyItemViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oc7 oc7Var, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
-        InterceptResult invokeCommon;
+    public void i(List<FrsTabInfo> list) {
+        FrsTabSortSwitchButton frsTabSortSwitchButton;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oc7Var, frsGameStrategyItemViewHolder})) == null) {
-            frsGameStrategyItemViewHolder.a.i(oc7Var);
-            return frsGameStrategyItemViewHolder.getView();
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && (frsTabSortSwitchButton = this.d) != null) {
+            frsTabSortSwitchButton.setData(list);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c11437");
+            statisticItem.param("obj_type", this.d.w(this.e));
+            statisticItem.param("fid", this.f);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            FrsTabSortSwitchButton frsTabSortSwitchButton = this.d;
+            if (frsTabSortSwitchButton != null) {
+                frsTabSortSwitchButton.D();
+            }
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
+        }
     }
 }

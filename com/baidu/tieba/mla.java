@@ -1,105 +1,179 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+/* loaded from: classes6.dex */
 public class mla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> boolean a(List<T> list, List<T> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
-            if (!e(list2) && list != null) {
-                return list.addAll(list2);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return false;
+            this.a = i;
+            this.b = i2;
         }
-        return invokeLL.booleanValue;
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        }
     }
 
-    public static <T> T c(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public static int[] a(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int[] iArr = new int[2];
+            if (f > 1.0f) {
+                iArr[0] = i;
+                iArr[1] = (int) (i * f);
+                int i2 = iArr[1] % 16;
+                if (i2 > 8) {
+                    iArr[1] = iArr[1] + (16 - i2);
+                } else {
+                    iArr[1] = iArr[1] - i2;
+                }
+            } else {
+                iArr[1] = i;
+                iArr[0] = (int) (i * (1.0f / f));
+                int i3 = iArr[0] % 16;
+                if (i3 > 8) {
+                    iArr[0] = iArr[0] + (16 - i3);
+                } else {
+                    iArr[0] = iArr[0] - i3;
+                }
             }
-            return list.get(i);
+            return iArr;
         }
-        return (T) invokeLI.objValue;
+        return (int[]) invokeCommon.objValue;
     }
 
-    public static <T> T g(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public static int[] b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (!e(list) && list != null && i >= 0 && i < list.size()) {
-                return list.remove(i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int[] iArr = new int[2];
+            if (i > i2) {
+                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i3 == 0) {
+                    iArr[0] = c(i);
+                    iArr[1] = c(i);
+                    return iArr;
+                }
+                if (i3 > 0) {
+                    iArr[1] = i;
+                    iArr[0] = (int) (i * (1.0f / f));
+                } else {
+                    iArr[1] = i2;
+                    iArr[0] = (int) (i2 * (1.0f / f));
+                }
+                iArr[0] = c(iArr[0]);
+            } else {
+                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i4 == 0) {
+                    iArr[0] = c(i2);
+                    iArr[1] = c(i2);
+                    return iArr;
+                }
+                if (i4 > 0) {
+                    iArr[0] = i;
+                    iArr[1] = (int) (i * f);
+                } else {
+                    iArr[0] = i2;
+                    iArr[1] = (int) (i2 * f);
+                }
+                iArr[1] = c(iArr[1]);
             }
-            return null;
+            return iArr;
         }
-        return (T) invokeLI.objValue;
+        return (int[]) invokeCommon.objValue;
     }
 
-    public static <T> int b(List<T> list) {
-        InterceptResult invokeL;
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i % 16;
+            return i2 > 8 ? i + (16 - i2) : i - i2;
         }
-        return invokeL.intValue;
+        return invokeI.intValue;
     }
 
-    public static <T> T d(List<T> list) {
-        InterceptResult invokeL;
+    public static a d(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return (T) c(list, list.size() - 1);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i > 1920 || i2 > 1920) {
+                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                return new a(a2[0], a2[1]);
             }
-            return null;
+            return new a(i, i2);
         }
-        return (T) invokeL.objValue;
+        return (a) invokeII.objValue;
     }
 
-    public static <T> boolean e(List<T> list) {
-        InterceptResult invokeL;
+    public static a e(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (b(list) <= 0) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
             }
-            return false;
+            int[] a2 = a(f, i);
+            return new a(a2[0], a2[1]);
         }
-        return invokeL.booleanValue;
+        return (a) invokeCommon.objValue;
     }
 
-    public static <T> boolean f(Map map) {
-        InterceptResult invokeL;
+    public static a f(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
             }
-            return true;
+            int[] b = b(f, i, i2);
+            return new a(b[0], b[1]);
         }
-        return invokeL.booleanValue;
+        return (a) invokeCommon.objValue;
     }
 
-    public static <T> void h(List<T> list, int i, int i2) {
+    public static boolean g(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) && !e(list) && i >= 0 && i2 >= 0 && i <= b(list) - 1 && i2 <= b(list) - 1) {
-            Collections.swap(list, i, i2);
-        }
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MyBalanceInfo {
     public long imid;
     public long minAmountLimit;
@@ -15,7 +15,7 @@ public class MyBalanceInfo {
         this.imid = j2;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Account {
         public int accountFrozen;
         public long amount;
@@ -29,7 +29,7 @@ public class MyBalanceInfo {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class AccountPeriod {
         public int amount;
         public int currencyType;

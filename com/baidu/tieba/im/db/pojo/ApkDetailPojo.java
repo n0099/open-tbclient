@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.ApkDetail;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class ApkDetailPojo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ApkDetailPojo extends OrmObject {
         }
     }
 
-    public static ApkDetailPojo V(ApkDetail apkDetail) {
+    public static ApkDetailPojo U(ApkDetail apkDetail) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, apkDetail)) == null) {
@@ -61,7 +61,7 @@ public class ApkDetailPojo extends OrmObject {
         return (ApkDetailPojo) invokeL.objValue;
     }
 
-    public static ApkDetailPojo W(tbclient.ApkDetail apkDetail) {
+    public static ApkDetailPojo V(tbclient.ApkDetail apkDetail) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, apkDetail)) == null) {

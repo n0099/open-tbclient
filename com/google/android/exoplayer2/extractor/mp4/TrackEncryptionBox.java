@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TrackEncryptionBox {
     public static final String TAG = "TrackEncryptionBox";
     public final TrackOutput.CryptoData cryptoData;

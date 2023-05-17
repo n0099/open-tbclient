@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
+
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import java.util.List;
+/* loaded from: classes5.dex */
 public interface hw5 {
-    boolean a(int i);
+    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
+
+    int b(int i);
 }

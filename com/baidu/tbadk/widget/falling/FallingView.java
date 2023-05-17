@@ -29,21 +29,22 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.BoxAccountManager;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.data.FallingData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bg;
-import com.baidu.tieba.cg;
-import com.baidu.tieba.g35;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.mx9;
-import com.baidu.tieba.st5;
-import com.baidu.tieba.tm;
-import com.baidu.tieba.tt5;
-import com.baidu.tieba.ut5;
+import com.baidu.tieba.cn;
+import com.baidu.tieba.ev5;
+import com.baidu.tieba.fv5;
+import com.baidu.tieba.gv5;
+import com.baidu.tieba.kg;
+import com.baidu.tieba.lg;
+import com.baidu.tieba.oz9;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,12 +61,12 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class FallingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public o a;
-    public final List<st5> b;
+    public final List<ev5> b;
     public final Context c;
     public int d;
     public int e;
@@ -81,35 +82,35 @@ public abstract class FallingView extends FrameLayout {
     public r o;
     public View.OnClickListener p;
     @NonNull
-    public tt5 q;
+    public fv5 q;
     @Nullable
-    public ut5 r;
+    public gv5 r;
     public final Runnable s;
     public final Runnable t;
     public final Runnable u;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface r {
         void onAnimationEnd();
 
         void onAnimationStart();
     }
 
-    public abstract tt5 p();
+    public abstract fv5 p();
 
-    public abstract st5 q(Bitmap bitmap);
+    public abstract ev5 q(Bitmap bitmap);
 
     public abstract void u(@NonNull View view2, @NonNull FallingData fallingData);
 
-    /* loaded from: classes3.dex */
-    public class g extends bg<tm> {
+    /* loaded from: classes4.dex */
+    public class g extends kg<cn> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
         public final /* synthetic */ FallingData b;
         public final /* synthetic */ FallingView c;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a extends BaseBitmapDataSubscriber {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +145,7 @@ public abstract class FallingView extends FrameLayout {
             public void onNewResultImpl(Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                    jg.a().removeCallbacks(this.a.c.u);
+                    sg.a().removeCallbacks(this.a.c.u);
                     g gVar = this.a;
                     gVar.c.y(gVar.a, gVar.b, bitmap);
                 }
@@ -171,7 +172,7 @@ public abstract class FallingView extends FrameLayout {
             this.b = fallingData;
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.kg
         public void onCancelled(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -179,7 +180,7 @@ public abstract class FallingView extends FrameLayout {
             }
         }
 
-        @Override // com.baidu.tieba.bg
+        @Override // com.baidu.tieba.kg
         public void onProgressUpdate(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
@@ -188,14 +189,14 @@ public abstract class FallingView extends FrameLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String str, int i) {
+        @Override // com.baidu.tieba.kg
+        public void onLoaded(cn cnVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tmVar, str, i) == null) {
-                super.onLoaded((g) tmVar, str, i);
-                if (tmVar != null) {
-                    jg.a().removeCallbacks(this.c.u);
-                    this.c.y(this.a, this.b, tmVar.p());
+            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cnVar, str, i) == null) {
+                super.onLoaded((g) cnVar, str, i);
+                if (cnVar != null) {
+                    sg.a().removeCallbacks(this.c.u);
+                    this.c.y(this.a, this.b, cnVar.p());
                     return;
                 }
                 Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.b.getEggPic())).setProgressiveRenderingEnabled(true).build(), this.c.c).subscribe(new a(this), CallerThreadExecutor.getInstance());
@@ -203,7 +204,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -237,7 +238,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +280,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -313,13 +314,13 @@ public abstract class FallingView extends FrameLayout {
                 if (this.b.q.f()) {
                     this.b.k.start();
                 } else {
-                    mx9.b(this.b.a.b, 600);
+                    oz9.b(this.b.a.b, 600);
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,7 +353,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -385,7 +386,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -419,7 +420,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class h implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -457,7 +458,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class i implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -494,7 +495,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class j implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -529,7 +530,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class k implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -568,7 +569,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class l implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -605,7 +606,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class m extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -639,7 +640,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class n implements TypeEvaluator<PointF> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -680,7 +681,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -723,7 +724,7 @@ public abstract class FallingView extends FrameLayout {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class p extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -761,7 +762,7 @@ public abstract class FallingView extends FrameLayout {
                     return;
                 }
                 for (int i = 0; i < this.b.b.size(); i++) {
-                    ((st5) this.b.b.get(i)).c();
+                    ((ev5) this.b.b.get(i)).c();
                 }
                 this.b.invalidate();
                 sendEmptyMessageDelayed(0, 5L);
@@ -769,7 +770,7 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -838,20 +839,20 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public final void m(st5 st5Var, int i2) {
+    public final void m(ev5 ev5Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, st5Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, ev5Var, i2) == null) {
             if (this.d == 0) {
-                this.d = ii.l(this.c);
+                this.d = ri.l(this.c);
             }
             if (this.e == 0) {
-                this.e = ii.j(this.c);
+                this.e = ri.j(this.c);
             }
             this.b.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                st5 st5Var2 = new st5(st5Var.i, this.d, this.e);
-                st5Var2.e = (-i3) * 180;
-                this.b.add(st5Var2);
+                ev5 ev5Var2 = new ev5(ev5Var.i, this.d, this.e);
+                ev5Var2.e = (-i3) * 180;
+                this.b.add(ev5Var2);
             }
         }
     }
@@ -905,10 +906,10 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public void setEventCallback(@NonNull ut5 ut5Var) {
+    public void setEventCallback(@NonNull gv5 gv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ut5Var) == null) {
-            this.r = ut5Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, gv5Var) == null) {
+            this.r = gv5Var;
         }
     }
 
@@ -1035,18 +1036,18 @@ public abstract class FallingView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
             this.a = o.d(LayoutInflater.from(context).inflate(R.layout.rain_falling_click_view, (ViewGroup) null, false));
             this.n = new p(this, this);
-            g35 d2 = g35.d(this.a.c);
+            p45 d2 = p45.d(this.a.c);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            g35 d3 = g35.d(this.a.e);
+            p45 d3 = p45.d(this.a.e);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0101);
-            g35 d4 = g35.d(this.a.d);
+            p45 d4 = p45.d(this.a.d);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0317);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             this.a.f.setConrers(15);
-            this.a.f.setPadding(ii.g(context, R.dimen.tbds10), ii.g(context, R.dimen.tbds5), ii.g(context, R.dimen.tbds10), ii.g(context, R.dimen.tbds5));
+            this.a.f.setPadding(ri.g(context, R.dimen.tbds10), ri.g(context, R.dimen.tbds5), ri.g(context, R.dimen.tbds10), ri.g(context, R.dimen.tbds5));
             this.a.f.setPlaceHolder(2);
             this.a.f.setLayerType(1, null);
             addView(this.a.b, layoutParams);
@@ -1090,18 +1091,18 @@ public abstract class FallingView extends FrameLayout {
         ofFloat.setRepeatCount(-1);
         ofFloat.setInterpolator(new AccelerateInterpolator());
         ofFloat.addUpdateListener(new i(this));
-        int j2 = ii.j(this.c);
-        int l2 = ii.l(this.c);
+        int j2 = ri.j(this.c);
+        int l2 = ri.l(this.c);
         float f2 = l2;
         PointF pointF = new PointF(((3.0f * f2) / 4.0f) - (this.a.f.getWidth() / 2), (-j2) / 4.0f);
-        PointF pointF2 = new PointF(ii.g(this.c, R.dimen.tbds50), ii.g(this.c, R.dimen.tbds400));
+        PointF pointF2 = new PointF(ri.g(this.c, R.dimen.tbds50), ri.g(this.c, R.dimen.tbds400));
         float f3 = j2;
-        PointF pointF3 = new PointF((f2 / 2.0f) - ii.g(this.c, R.dimen.tbds50), f3 - ii.g(this.c, R.dimen.tbds655));
-        int g2 = ii.g(this.c, R.dimen.tbds0);
+        PointF pointF3 = new PointF((f2 / 2.0f) - ri.g(this.c, R.dimen.tbds50), f3 - ri.g(this.c, R.dimen.tbds655));
+        int g2 = ri.g(this.c, R.dimen.tbds0);
         if (!this.q.f()) {
             g2 = -(l2 / 4);
         }
-        ValueAnimator ofObject = ValueAnimator.ofObject(new n(pointF2, pointF3), pointF, new PointF(g2, f3 - ii.g(this.c, R.dimen.tbds552)));
+        ValueAnimator ofObject = ValueAnimator.ofObject(new n(pointF2, pointF3), pointF, new PointF(g2, f3 - ri.g(this.c, R.dimen.tbds552)));
         ofObject.setDuration(this.q.b());
         ofObject.addUpdateListener(new j(this));
         ValueAnimator ofInt = ValueAnimator.ofInt(0, o(this.a.c));
@@ -1159,13 +1160,13 @@ public abstract class FallingView extends FrameLayout {
             } else {
                 this.a.e.setText(this.c.getString(R.string.check_immediately));
             }
-            jg.a().postDelayed(this.u, fallingData.getDelayTime());
+            sg.a().postDelayed(this.u, fallingData.getDelayTime());
             if (!StringUtils.isNull(fallingData.getBuoyPic())) {
                 this.a.f.N(fallingData.getBuoyPic(), 10, false);
             } else {
                 this.a.f.setVisibility(8);
             }
-            cg.h().m(fallingData.getEggPic(), 10, new g(this, tbPageContext, fallingData), tbPageContext.getUniqueId());
+            lg.h().m(fallingData.getEggPic(), 10, new g(this, tbPageContext, fallingData), tbPageContext.getUniqueId());
             this.n.sendEmptyMessage(0);
             return true;
         }
@@ -1176,7 +1177,7 @@ public abstract class FallingView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048593, this, tbPageContext, fallingData, bitmap) == null) {
             m(q(bitmap), this.q.c());
-            postDelayed(this.t, 1500L);
+            postDelayed(this.t, BoxAccountManager.GET_SHARE_LOGIN_INFO_DEFAULT_TIMEOUT);
             this.f = true;
             invalidate();
             this.p = new h(this, tbPageContext, fallingData);

@@ -7,7 +7,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
     public static final String PRODUCER_NAME = "PriorityStarvingThrottlingProducer";
     public final Executor mExecutor;
@@ -18,7 +18,7 @@ public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
     @GuardedBy("this")
     public int mNumCurrentRequests = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Item<T> {
         public final Consumer<T> consumer;
         public final ProducerContext producerContext;
@@ -31,7 +31,7 @@ public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class ThrottlerConsumer extends DelegatingConsumer<T, T> {
         public ThrottlerConsumer(Consumer<T> consumer) {
             super(consumer);
@@ -82,7 +82,7 @@ public class PriorityStarvingThrottlingProducer<T> implements Producer<T> {
         this.mInputProducer = (Producer) Preconditions.checkNotNull(producer);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class PriorityComparator<T> implements Comparator<Item<T>> {
         public int compare(Item<T> item, Item<T> item2) {
             Priority priority = item.producerContext.getPriority();

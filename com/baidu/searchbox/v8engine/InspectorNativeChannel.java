@@ -1,6 +1,6 @@
 package com.baidu.searchbox.v8engine;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class InspectorNativeChannel {
     public abstract String awaitMessage();
 

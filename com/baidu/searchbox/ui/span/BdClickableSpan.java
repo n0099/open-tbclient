@@ -5,7 +5,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public abstract class BdClickableSpan extends ClickableSpan implements ITouchableSpan {
     public boolean isNeedUnderLine = false;
     public boolean mIsPressed;

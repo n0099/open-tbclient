@@ -1,142 +1,142 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.kn6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import kotlin.collections.CollectionsKt__MutableCollectionsJVMKt;
-import kotlin.collections.CollectionsKt__MutableCollectionsKt;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public abstract class in6 extends gn6 implements z {
+/* loaded from: classes6.dex */
+public class in6 {
     public static /* synthetic */ Interceptable $ic;
+    public static kn6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b0 e;
-    public final Comparator<y> f;
-    public final List<y> g;
-    public boolean h;
 
-    @Override // com.baidu.tieba.gn6
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947859320, "Lcom/baidu/tieba/in6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947859320, "Lcom/baidu/tieba/in6;");
         }
     }
 
-    public abstract void l(y yVar, float f);
+    /* loaded from: classes6.dex */
+    public static class a implements kn6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public in6(dn6 context, b0 family, Comparator<y> comparator) {
-        super(context);
+        @Override // com.baidu.tieba.kn6
+        public <T extends jn6> void b(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.kn6
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.kn6
+        public <T extends jn6> void a(@NonNull Object obj, @NonNull ln6<T> ln6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, ln6Var) == null) {
+                throw new IllegalStateException("Unable to find eventbus service!");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final kn6.a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-712953542, "Lcom/baidu/tieba/in6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-712953542, "Lcom/baidu/tieba/in6$b;");
+                    return;
+                }
+            }
+            a = (kn6.a) ServiceManager.getService(kn6.a.a);
+        }
+    }
+
+    public in6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, family, comparator};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dn6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(family, "family");
-        Intrinsics.checkNotNullParameter(comparator, "comparator");
-        this.e = family;
-        this.f = comparator;
-        this.g = new ArrayList();
-    }
-
-    public /* synthetic */ in6(dn6 dn6Var, b0 b0Var, Comparator comparator, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(dn6Var, b0Var, (i & 4) != 0 ? new hn6() : comparator);
-    }
-
-    public void a(y entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.remove(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.z
-    public void b(y entity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, entity) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            this.g.add(entity);
-            this.h = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.gn6, com.baidu.tieba.a0
-    public void g(x engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            super.g(engine);
-            engine.o(this);
-            this.g.clear();
-            this.h = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.a0
-    public void update(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
-            m();
-            for (y yVar : this.g) {
-                l(yVar, f);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.a0
-    public void c(x engine) {
+    public static void a(@NonNull BdUniqueId bdUniqueId) {
+        kn6.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-            this.g.clear();
-            i0<y> newEntities = engine.j(this.e);
-            if (newEntities.size() > 0) {
-                List<y> list = this.g;
-                Intrinsics.checkNotNullExpressionValue(newEntities, "newEntities");
-                CollectionsKt__MutableCollectionsKt.addAll(list, newEntities);
-            }
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-            engine.f(this.e, this);
+        if ((interceptable == null || interceptable.invokeL(65538, null, bdUniqueId) == null) && (aVar = b.a) != null) {
+            aVar.a(bdUniqueId);
         }
     }
 
-    public final List<y> k() {
+    public static kn6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            m();
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (in6.class) {
+                    if (a == null) {
+                        a = (kn6) ServiceManager.getService(kn6.a);
+                    }
+                    if (a == null) {
+                        a = new a();
+                    }
+                }
+            }
+            return a;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.h) {
-            CollectionsKt__MutableCollectionsJVMKt.sortWith(this.g, this.f);
-            this.h = false;
-        }
+        return (kn6) invokeV.objValue;
     }
 }

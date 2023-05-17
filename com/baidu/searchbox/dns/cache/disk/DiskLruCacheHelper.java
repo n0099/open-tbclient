@@ -15,7 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DiskLruCacheHelper implements ICache {
     public static final int DEFAULT_APP_VERSION = 1;
     public static final int DEFAULT_VALUE_COUNT = 1;

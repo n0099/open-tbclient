@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InvoiceBuildActivity extends SlideActiviy {
     public static final String EXTRA_PARAMS_ISCHECK = "isCheck";
     public static final String EXTRA_PARAMS_ISCHECKTAG = "isCheckTag";
@@ -91,7 +91,7 @@ public class InvoiceBuildActivity extends SlideActiviy {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         try {
-            setContentView(R.layout.obfuscated_res_0x7f0d053b);
+            setContentView(R.layout.obfuscated_res_0x7f0d0558);
             init();
             setupViews();
         } catch (Throwable th) {

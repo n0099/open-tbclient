@@ -27,7 +27,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class Http2Codec implements HttpCodec {
     public static final String CONNECTION = "connection";
     public static final String HOST = "host";
@@ -45,7 +45,7 @@ public final class Http2Codec implements HttpCodec {
     public static final List<String> HTTP_2_SKIPPED_REQUEST_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade", Header.TARGET_METHOD_UTF8, Header.TARGET_PATH_UTF8, Header.TARGET_SCHEME_UTF8, Header.TARGET_AUTHORITY_UTF8);
     public static final List<String> HTTP_2_SKIPPED_RESPONSE_HEADERS = Util.immutableList("connection", "host", KEEP_ALIVE, "proxy-connection", TE, "transfer-encoding", ENCODING, "upgrade");
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class StreamFinishingSource extends ForwardingSource {
         public long bytesRead;
         public boolean completed;

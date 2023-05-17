@@ -1,7 +1,7 @@
 package com.baidu.mapsdkplatform.comapi.map.a;
 
 import com.baidu.mapapi.map.track.TraceOverlay;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface b {
     void a(TraceOverlay traceOverlay);
 

@@ -10,8 +10,8 @@ import android.graphics.PorterDuffXfermode;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.tieba.ne1;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.df1;
+/* loaded from: classes3.dex */
 public class RoundWebview extends SapiWebView {
     public float a;
     public float b;
@@ -61,7 +61,7 @@ public class RoundWebview extends SapiWebView {
         Paint paint2 = new Paint();
         this.j = paint2;
         paint2.setXfermode(null);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ne1.sapi_sdk_RoundWebview);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, df1.sapi_sdk_RoundWebview);
         this.a = obtainStyledAttributes.getDimension(2, 0.0f);
         this.b = obtainStyledAttributes.getDimension(3, 0.0f);
         this.c = obtainStyledAttributes.getDimension(0, 0.0f);

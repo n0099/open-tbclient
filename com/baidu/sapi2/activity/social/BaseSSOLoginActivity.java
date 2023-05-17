@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BaseSSOLoginActivity extends SocialLoginBase {
     public static final String k = "extraJson";
     public static final String l = "sceneFrom";
@@ -59,7 +59,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public com.baidu.sapi2.a.a.b i = new b();
     public AuthorizationListener j = new c();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends WebAuthResult {
         public a() {
         }
@@ -90,7 +90,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b implements com.baidu.sapi2.a.a.b {
         public b() {
         }
@@ -110,7 +110,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends AuthorizationListener {
         public c() {
         }
@@ -183,7 +183,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d implements SapiWebView.OnBackCallback {
         public d() {
         }
@@ -199,7 +199,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class e implements SapiWebView.OnFinishCallback {
         public e() {
         }
@@ -211,7 +211,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class f implements Runnable {
         public final /* synthetic */ SapiAccount a;
 
@@ -233,7 +233,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class g implements Runnable {
         public final /* synthetic */ SocialResponse a;
 
@@ -251,7 +251,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class h extends HttpHandlerWrap {
         public final /* synthetic */ String a;
 

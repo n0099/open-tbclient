@@ -1,172 +1,191 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.net.Uri;
 import android.text.TextUtils;
+import android.util.AtomicFile;
+import android.util.SparseArray;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.k72;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class qn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097555, "Lcom/baidu/tieba/qn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948097555, "Lcom/baidu/tieba/qn3;");
-                return;
-            }
-        }
-        a = ho1.a;
-    }
-
-    @NonNull
-    public static String d() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
+        InterceptResult invokeLLI;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
+        FileLock fileLock;
+        AtomicFile atomicFile;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String string = lg3.a().getString("web_mode_host_key", "");
-            if (TextUtils.isEmpty(string)) {
-                return "http://radar.bcc-szth.baidu.com:8312";
-            }
-            return string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (rl3.G()) {
-                return PayUVEventType.PAY_FULL_SPLIT_ORDER_LINK_ITME_CLICK;
-            }
-            return "42";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String n = w73.K().q().W().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return str;
-            }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            AtomicFile atomicFile2 = null;
+            r1 = null;
+            FileLock fileLock2 = null;
+            FileChannel fileChannel2 = null;
             try {
-                List<String> c = pl3.c(new URI(n).getRawQuery());
-                if (c.size() > 0) {
-                    for (int i = 0; i < c.size(); i++) {
-                        String str2 = c.get(i);
-                        if (!TextUtils.isEmpty(str2)) {
-                            String[] split = str2.split("=");
-                            if (split.length > 1) {
-                                str = pl3.a(str, split[0], split[1]);
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                    SparseArray sparseArray = new SparseArray(i);
+                    ArrayList arrayList = new ArrayList();
+                    for (int i2 = 0; i2 < i; i2++) {
+                        arrayList.add(bufferedReader.readLine());
+                    }
+                    for (int i3 = 0; i3 < i; i3++) {
+                        String str = (String) arrayList.get(i3);
+                        if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
+                            return false;
+                        }
+                        HashMap hashMap = new HashMap();
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
+                            hashMap.put(jSONObject.optString("name"), jSONObject);
+                        }
+                        sparseArray.put(i3, hashMap);
+                    }
+                    for (int i5 = 0; i5 < jSONArray.length(); i5++) {
+                        JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
+                        String optString = jSONObject2.optString("name");
+                        int i6 = 0;
+                        while (true) {
+                            if (i6 >= i) {
+                                break;
+                            } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
+                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                                break;
+                            } else {
+                                if (i6 == i - 1) {
+                                    ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                                }
+                                i6++;
                             }
                         }
                     }
+                    for (int i7 = 0; i7 < i; i7++) {
+                        JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
+                        JSONArray jSONArray2 = new JSONArray();
+                        jSONObject3.optJSONArray("descriptions");
+                        for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
+                            jSONArray2.put(entry.getValue());
+                        }
+                        jSONObject3.put("descriptions", jSONArray2);
+                        if (i7 != i - 1) {
+                            sb.append(jSONObject3.toString());
+                            sb.append("\n");
+                        } else {
+                            sb.append(jSONObject3.toString());
+                        }
+                    }
+                    bufferedReader.close();
+                    atomicFile = new AtomicFile(file);
+                    try {
+                        atomicFile.startWrite();
+                        fileOutputStream = atomicFile.startWrite();
+                        try {
+                            fileChannel = fileOutputStream.getChannel();
+                        } catch (IOException | JSONException unused) {
+                            fileChannel = null;
+                            fileLock = fileChannel;
+                            atomicFile2 = atomicFile;
+                            if (atomicFile2 != null) {
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException unused2) {
+                                    }
+                                }
+                                atomicFile2.failWrite(fileOutputStream);
+                            }
+                            if (fileChannel != null) {
+                                try {
+                                    fileChannel.close();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            return false;
+                        }
+                    } catch (IOException | JSONException unused4) {
+                        fileOutputStream = null;
+                        fileChannel = null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (fileChannel2 != null) {
+                        try {
+                            fileChannel2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
                 }
-                return str;
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
+                try {
+                    try {
+                        fileLock = fileChannel.lock();
+                    } catch (IOException | JSONException unused6) {
+                        fileLock = fileLock2;
+                    }
+                    try {
+                        fileOutputStream.write(sb.toString().getBytes());
+                        if (fileLock != null) {
+                            fileLock.release();
+                        } else {
+                            fileLock2 = fileLock;
+                        }
+                        atomicFile.finishWrite(fileOutputStream);
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                                return true;
+                            } catch (IOException unused7) {
+                                return true;
+                            }
+                        }
+                        return true;
+                    } catch (IOException | JSONException unused8) {
+                        atomicFile2 = atomicFile;
+                        if (atomicFile2 != null) {
+                        }
+                        if (fileChannel != null) {
+                        }
+                        return false;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel2 = fileChannel;
+                    if (fileChannel2 != null) {
+                    }
+                    throw th;
                 }
-                x42.i("SwanWebModeUtils", "appendWebUrlQuery: " + e.getMessage());
-                return str;
+            } catch (IOException | JSONException unused9) {
+                fileOutputStream = null;
+                fileChannel = null;
+                fileLock = null;
             }
+        } else {
+            return invokeLLI.booleanValue;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDOfflineUrl"})
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (k72.b.a()) {
-                str = d() + "?appKey=" + w73.K().q().getAppId();
-            }
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String e = e();
-            String valueOf = String.valueOf(pn3.c().g());
-            String a2 = a(str);
-            String c = c();
-            x42.i("SwanWebModeUtils", "appendWebUrlQuery: launchUrl : " + a2 + " rawPath : " + c);
-            return Uri.parse(a2).buildUpon().path(c).appendQueryParameter("_swebfr", e).appendQueryParameter("_swebcode", valueOf).appendQueryParameter("_swebHost", er2.n().a()).build().toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String n = w73.K().q().W().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return "";
-            }
-            try {
-                return new URI(n).getPath();
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean f(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String optString = jSONObject.optString("invokeFrom");
-            if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "swanWeb")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(qj3 qj3Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, qj3Var, i)) == null) {
-            if (i == 6) {
-                return true;
-            }
-            if (qj3Var == null) {
-                return false;
-            }
-            if (qj3Var.h() == 1013 || qj3Var.h() == 1015) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
     }
 }

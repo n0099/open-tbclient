@@ -1,89 +1,142 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.view.View;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+/* loaded from: classes5.dex */
 public class fo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<String> a;
+    public go4<List<eo4>> b;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException unused) {
-                    i = 0;
-                }
-                if (i != -1) {
-                    byteArrayOutputStream.write(bArr, 0, i);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    bo4.d(byteArrayOutputStream);
-                    return byteArray;
-                }
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    @RequiresApi(api = 21)
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    bo4.d(inputStream);
-                    return str;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                bo4.d(inputStream);
-                throw th;
-            }
-            bo4.d(inputStream);
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final fo4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-797977056, "Lcom/baidu/tieba/fo4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-797977056, "Lcom/baidu/tieba/fo4$b;");
+                    return;
+                }
             }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
+            a = new fo4(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770846, "Lcom/baidu/tieba/fo4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770846, "Lcom/baidu/tieba/fo4;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        String str = ProcessUtils.getCurProcessName() + ".trace";
+        AppRuntime.getAppContext().getExternalFilesDir(null);
+    }
+
+    public fo4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static fo4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (fo4) invokeV.objValue;
+    }
+
+    public go4<List<eo4>> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (go4) invokeV.objValue;
+    }
+
+    public Set<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<String> set = this.a;
+            if (set != null) {
+                return set;
+            }
+            HashSet hashSet = new HashSet();
+            this.a = hashSet;
+            hashSet.add("V8JavaScriptContext");
+            this.a.add("main");
+            return this.a;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public /* synthetic */ fo4(a aVar) {
+        this();
     }
 }

@@ -17,13 +17,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class EmotionUsageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_USAGE_FILE_NAME = "emotion-usage.json";
@@ -109,7 +108,7 @@ public class EmotionUsageUtil {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    Map jsonToMap;
+                    ArrayList jsonToArrayList;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         EmotionUsageUtil.makeRootDirIfNecessary();
@@ -118,13 +117,10 @@ public class EmotionUsageUtil {
                             return;
                         }
                         String readFileData = FileUtils.readFileData(file);
-                        if (!TextUtils.isEmpty(readFileData) && (jsonToMap = EmotionUsageUtil.jsonToMap(readFileData)) != null && !jsonToMap.isEmpty()) {
+                        if (!TextUtils.isEmpty(readFileData) && (jsonToArrayList = EmotionUsageUtil.jsonToArrayList(readFileData)) != null && !jsonToArrayList.isEmpty()) {
                             EmotionUsageUtil.sUsageData.evictAll();
-                            Set<Map.Entry> entrySet = jsonToMap.entrySet();
-                            if (entrySet != null) {
-                                for (Map.Entry entry : entrySet) {
-                                    EmotionUsageUtil.sUsageData.put(entry.getKey(), entry.getValue());
-                                }
+                            for (int i = 0; i < jsonToArrayList.size(); i++) {
+                                EmotionUsageUtil.sUsageData.put((String) jsonToArrayList.get(i), new Object());
                             }
                         }
                     }
@@ -180,21 +176,27 @@ public class EmotionUsageUtil {
         saveToDisk();
     }
 
-    public static List<String> getEmotionUsageList(Map<String, EmotionUtils.EmotionClassic> map) {
-        InterceptResult invokeL;
+    public static List<String> getEmotionUsageList(Map<String, EmotionUtils.EmotionClassic> map, List<String> list) {
+        InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, map)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, map, list)) == null) {
             if (sUsageData.size() > 0) {
+                boolean z2 = true;
                 if (map != null && map.size() > 0) {
                     z = true;
                 } else {
                     z = false;
                 }
+                z2 = (list == null || list.size() <= 0) ? false : false;
                 ArrayList arrayList = new ArrayList();
                 for (Map.Entry<String, Object> entry : sUsageData.snapshot().entrySet()) {
                     if (z) {
-                        if (map.containsKey(entry.getKey())) {
+                        if (z2) {
+                            if (map.containsKey(entry.getKey()) && list.contains(entry.getKey())) {
+                                arrayList.add(entry.getKey());
+                            }
+                        } else if (map.containsKey(entry.getKey())) {
                             arrayList.add(entry.getKey());
                         }
                     } else {
@@ -206,17 +208,17 @@ public class EmotionUsageUtil {
             }
             return null;
         }
-        return (List) invokeL.objValue;
+        return (List) invokeLL.objValue;
     }
 
-    public static Map<String, Object> jsonToMap(String str) {
+    public static ArrayList<String> jsonToArrayList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            HashMap hashMap = new HashMap();
+            ArrayList<String> arrayList = new ArrayList<>();
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 for (int i = 0; i < jSONArray.length(); i++) {
@@ -224,19 +226,19 @@ public class EmotionUsageUtil {
                     if (optJSONObject != null) {
                         String optString = optJSONObject.optString("id", "");
                         if (!TextUtils.isEmpty(optString)) {
-                            hashMap.put(optString, new Object());
+                            arrayList.add(optString);
                         }
                     }
                 }
-                if (hashMap.isEmpty()) {
+                if (arrayList.isEmpty()) {
                     return null;
                 }
-                return hashMap;
+                return arrayList;
             } catch (Exception unused) {
                 return null;
             }
         }
-        return (Map) invokeL.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
     public static String mapToJson(Map<String, Object> map) {

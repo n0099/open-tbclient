@@ -21,7 +21,7 @@ import com.yy.hiidostatis.message.provider.PackerProvider;
 import com.yy.hiidostatis.message.provider.SendDispatchTaskProvider;
 import com.yy.hiidostatis.message.provider.SessionReportProvider;
 import com.yy.hiidostatis.message.provider.SessionReportWrapperProvider;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DefaultProviderLoader {
     public static boolean init;
 

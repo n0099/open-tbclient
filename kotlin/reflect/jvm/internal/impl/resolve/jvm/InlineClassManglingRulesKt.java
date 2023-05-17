@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.InlineClassesUtilsKt;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class InlineClassManglingRulesKt {
     public static final boolean isDontMangleClass(ClassDescriptor classDescriptor) {
         return Intrinsics.areEqual(DescriptorUtilsKt.getFqNameSafe(classDescriptor), DescriptorUtils.RESULT_FQ_NAME);
@@ -30,11 +30,11 @@ public final class InlineClassManglingRulesKt {
     }
 
     public static final boolean isTypeParameterWithUpperBoundThatRequiresMangling(KotlinType kotlinType) {
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (!(mo2025getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-            mo2025getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (!(mo2044getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+            mo2044getDeclarationDescriptor = null;
         }
-        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2025getDeclarationDescriptor;
+        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2044getDeclarationDescriptor;
         if (typeParameterDescriptor != null) {
             return requiresFunctionNameMangling(TypeUtilsKt.getRepresentativeUpperBound(typeParameterDescriptor));
         }
@@ -49,8 +49,8 @@ public final class InlineClassManglingRulesKt {
     }
 
     public static final boolean isInlineClassThatRequiresMangling(KotlinType kotlinType) {
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (mo2025getDeclarationDescriptor != null && isInlineClassThatRequiresMangling(mo2025getDeclarationDescriptor)) {
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (mo2044getDeclarationDescriptor != null && isInlineClassThatRequiresMangling(mo2044getDeclarationDescriptor)) {
             return true;
         }
         return false;

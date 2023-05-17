@@ -4,13 +4,13 @@ import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.util.Log;
 import com.google.android.exoplayer2.text.Cue;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class WebvttCue extends Cue {
     public final long endTime;
     public final long startTime;
 
     /* renamed from: com.google.android.exoplayer2.text.webvtt.WebvttCue$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$text$Layout$Alignment;
 
@@ -32,7 +32,7 @@ public final class WebvttCue extends Cue {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Builder {
         public static final String TAG = "WebvttCueBuilder";
         public long endTime;

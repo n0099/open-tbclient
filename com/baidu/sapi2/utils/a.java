@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.graphics.YuvImage;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static Bitmap a(byte[] bArr, int i, int i2) {
         YuvImage yuvImage = new YuvImage(bArr, 17, i, i2, null);

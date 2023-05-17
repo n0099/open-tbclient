@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsCodeCacheCallback;
-import com.baidu.searchbox.v8engine.JsCodeCacheResult;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,18 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class x92 implements t92 {
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+/* loaded from: classes8.dex */
+public class x92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public w92 a;
-    public String b;
-    public boolean c;
-    public boolean d;
+    public Timer a;
+    public volatile boolean b;
+    public final y92 c;
 
-    /* loaded from: classes7.dex */
-    public class a implements JsCodeCacheCallback {
+    /* loaded from: classes8.dex */
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x92 a;
@@ -52,103 +47,38 @@ public class x92 implements t92 {
             this.a = x92Var;
         }
 
-        @Override // com.baidu.searchbox.v8engine.JsCodeCacheCallback
-        public void onJsCodeCacheFinished(JsCodeCacheResult jsCodeCacheResult) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jsCodeCacheResult) == null) {
-                if (x92.e) {
-                    if (jsCodeCacheResult != null) {
-                        str = jsCodeCacheResult.toString();
-                    } else {
-                        str = StringUtil.NULL_STRING;
-                    }
-                    Log.d("V8MasterAdapter", str);
-                }
-                if (jsCodeCacheResult != null && jsCodeCacheResult.isCacheUsed) {
-                    if (!TextUtils.equals(jsCodeCacheResult.businessId, "appframe")) {
-                        if (!TextUtils.equals(jsCodeCacheResult.businessId, "appjs")) {
-                            return;
-                        }
-                        this.a.d = true;
-                        return;
-                    }
-                    this.a.c = true;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements pf2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l62 a;
-        public final /* synthetic */ x92 b;
-
-        public b(x92 x92Var, l62 l62Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x92Var, l62Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x92Var;
-            this.a = l62Var;
-        }
-
-        @Override // com.baidu.tieba.pf2
-        public void a(ff2 ff2Var) {
-            l62 l62Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, ff2Var) == null) && (l62Var = this.a) != null) {
-                l62Var.a(this.b.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public c(x92 x92Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x92Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
+        @Override // java.util.TimerTask, java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    Process.setThreadPriority(this.a);
-                } catch (Throwable th) {
-                    x42.c("V8MasterAdapter", th.getMessage());
+                if (x92.d) {
+                    Log.d("RequestMonitor", ">> finish collecting request info.");
+                }
+                this.a.b = false;
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final x92 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-332582054, "Lcom/baidu/tieba/x92$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-332582054, "Lcom/baidu/tieba/x92$b;");
+                    return;
                 }
             }
+            a = new x92(null);
         }
     }
 
@@ -165,133 +95,112 @@ public class x92 implements t92 {
                 return;
             }
         }
-        e = ho1.a;
+        d = qp1.a;
     }
 
-    @Override // com.baidu.tieba.t92
-    public void destroy() {
-        w92 w92Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (w92Var = this.a) != null) {
-            w92Var.g();
-        }
-    }
-
-    @Override // com.baidu.tieba.t92
-    public v62 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.i();
-        }
-        return (v62) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return p62.b(this.c, this.d);
-        }
-        return invokeV.intValue;
-    }
-
-    public x92(Context context) {
+    public x92() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = true;
+        this.c = new y92();
     }
 
-    @Override // com.baidu.tieba.t92
-    public void attachActivity(Activity activity) {
-        w92 w92Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (w92Var = this.a) != null) {
-            w92Var.d(activity);
-        }
-    }
-
-    @Override // com.baidu.tieba.t92
-    public void b(l62 l62Var) {
-        w92 w92Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, l62Var) == null) && (w92Var = this.a) != null) {
-            w92Var.l(new b(this, l62Var));
-        }
-    }
-
-    public w92 h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return new w92(str, "runtime/index.js");
-        }
-        return (w92) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.t92
-    @AnyThread
-    public void p(int i) {
-        w92 w92Var;
-        ff2 i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (w92Var = this.a) != null && (i2 = w92Var.i()) != null) {
-            i2.runOnJSThread(new c(this, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.t92
-    public void D(le2 le2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, le2Var) != null) || le2Var == null) {
-            return;
-        }
-        if (e) {
-            Log.d("V8MasterAdapter", "pathList item: " + le2Var.b);
-        }
-        this.a.j(p62.a("appjs", le2Var.b));
-    }
-
-    @Override // com.baidu.tieba.t92
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            if (this.a == null) {
-                w92 h = h(re2.U().c0());
-                this.a = h;
-                this.b = str;
-                h.k(new a(this));
-            } else if (e) {
-                Log.e("V8MasterAdapter", Log.getStackTraceString(new Exception("same instance loadUrl should not be call twice.")));
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t92
-    public String a() {
+    public static x92 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            w92 w92Var = this.a;
-            if (w92Var != null) {
-                return w92Var.h();
-            }
-            if (e) {
-                Log.d("V8MasterAdapter", Log.getStackTraceString(new Exception("illegal state")));
-                return "";
-            }
-            return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (x92) invokeV.objValue;
+    }
+
+    public List<w92> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.a.d();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            h();
+            this.c.h();
+        }
+    }
+
+    public final void h() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (timer = this.a) != null) {
+            timer.cancel();
+            this.a = null;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = false;
+            h();
+            if (d) {
+                Log.d("RequestMonitor", ">> stop to collect request info.");
+            }
+        }
+    }
+
+    public /* synthetic */ x92(a aVar) {
+        this();
+    }
+
+    public void e(w92 w92Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w92Var) == null) && this.b) {
+            if (d) {
+                Log.d("RequestMonitor", ">> add request " + w92Var.toString());
+            }
+            this.c.a(w92Var);
+        }
+    }
+
+    @NonNull
+    public z92 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            z92 g = this.c.g();
+            if (d) {
+                Log.d("RequestMonitor", ">> requestResult: " + g.d() + g.c());
+            }
+            return g;
+        }
+        return (z92) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (d) {
+                Log.d("RequestMonitor", ">> start to collect request info. ");
+            }
+            this.c.i();
+            h();
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+        }
     }
 }

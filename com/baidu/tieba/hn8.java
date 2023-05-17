@@ -1,79 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipDailyList;
-import tbclient.GetVipInfo.VipThemeItem;
-/* loaded from: classes4.dex */
-public class hn8 implements in {
+/* loaded from: classes5.dex */
+public class hn8 extends jk1<LiveLocationService> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public en8 a;
-    public List<in8> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829591, "Lcom/baidu/tieba/hn8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947829591, "Lcom/baidu/tieba/hn8;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public hn8(VipDailyList vipDailyList) {
-        List<VipThemeItem> list;
+    public hn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipDailyList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
-            String str = vipDailyList.card_id;
-            en8 en8Var = new en8();
-            this.a = en8Var;
-            en8Var.e(1);
-            this.a.d(vipDailyList.class_name);
-            this.a.f(vipDailyList.class_url_name);
-            this.a.g(vipDailyList.class_url);
-            this.b = new ArrayList();
-            for (VipThemeItem vipThemeItem : vipDailyList.item) {
-                this.b.add(new in8(vipThemeItem));
-            }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.jk1
+    /* renamed from: a */
+    public LiveLocationService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new in8();
         }
+        return (LiveLocationService) invokeV.objValue;
     }
 }

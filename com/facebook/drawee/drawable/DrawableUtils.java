@@ -2,7 +2,7 @@ package com.facebook.drawee.drawable;
 
 import android.graphics.drawable.Drawable;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DrawableUtils {
     public static int getOpacityFromColor(int i) {
         int i2 = i >>> 24;

@@ -1,42 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes4.dex */
-public class h1a extends ld5 {
+import java.io.File;
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public class h1a {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile h1a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
     }
 
-    /* loaded from: classes4.dex */
-    public class a implements kd5 {
+    /* loaded from: classes5.dex */
+    public class a implements ne5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g1a a;
-        public final /* synthetic */ h1a b;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ h1a c;
 
-        public a(h1a h1aVar, g1a g1aVar) {
+        @Override // com.baidu.tieba.ne5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ne5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a(h1a h1aVar, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {h1aVar, g1aVar};
+                Object[] objArr = {h1aVar, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,38 +73,59 @@ public class h1a extends ld5 {
                     return;
                 }
             }
-            this.b = h1aVar;
-            this.a = g1aVar;
+            this.c = h1aVar;
+            this.a = bVar;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.kd5
-        public void C(jd5 jd5Var) {
-            g1a g1aVar;
+        @Override // com.baidu.tieba.ne5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, jd5Var) != null) || (g1aVar = this.a) == null || g1aVar.b() == null || jd5Var == null) {
-                return;
-            }
-            int i = jd5Var.a;
-            if (i != 4) {
-                if (i != 7) {
-                    if (i == 8) {
-                        this.a.z();
-                        if (!this.b.h(this.a.getContext(), 25066)) {
-                            return;
-                        }
-                        this.a.p();
-                        if (this.b.a != null) {
-                            this.b.a.a(this.a.m());
-                            return;
-                        }
-                        return;
-                    }
-                    return;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
                 }
-                this.a.getContext().showToast((int) R.string.over_limit_tip);
-                return;
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
             }
-            this.a.v((String) jd5Var.c);
+        }
+
+        @Override // com.baidu.tieba.ne5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                if (this.a != null) {
+                    this.c.a.put(downloadData.getPath().substring(m0a.h.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.a.c(this.b, downloadData.getPath());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ne5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
+            }
         }
     }
 
@@ -95,75 +143,86 @@ public class h1a extends ld5 {
         }
     }
 
-    @Override // com.baidu.tieba.ld5
-    public nd5 b(Context context) {
+    public static h1a g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
+                synchronized (h1a.class) {
+                    if (c == null) {
+                        c = new h1a();
+                    }
+                }
+            }
+            return c;
+        }
+        return (h1a) invokeV.objValue;
+    }
+
+    public void d() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            File file = new File(m0a.h);
+            if (!file.exists() || (listFiles = file.listFiles()) == null) {
+                return;
+            }
+            for (File file2 : listFiles) {
+                if (file2 != null && file2.isFile()) {
+                    this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
+                }
+            }
+        }
+    }
+
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
+        }
+        if (this.b != null) {
+            oe5.k().h(this.b.getUrl(), true);
+        }
+        File file = new File(m0a.h);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData = new DownloadData();
+        downloadData.setType(18);
+        downloadData.setId(str);
+        downloadData.setUrl(str2);
+        downloadData.setPath(m0a.h + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData.setCallback(new a(this, bVar, str2));
+        this.b = downloadData;
+        oe5.k().l(downloadData);
+    }
+
+    public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new g1a(editorTools);
-        }
-        return (nd5) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ld5
-    public void c(nd5 nd5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nd5Var) != null) || !(nd5Var instanceof g1a)) {
-            return;
-        }
-        EditorTools b2 = nd5Var.b();
-        a aVar = new a(this, (g1a) nd5Var);
-        b2.setActionListener(4, aVar);
-        b2.setActionListener(7, aVar);
-        b2.setActionListener(8, aVar);
-    }
-
-    @Override // com.baidu.tieba.ld5
-    public void d(nd5 nd5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nd5Var) != null) || nd5Var == null) {
-            return;
-        }
-        EditorTools b2 = nd5Var.b();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        b2.h(arrayList);
-        ud5 p = b2.p(5);
-        if (p != null) {
-            p.e(false);
-            p.d = 0;
-        }
-        b2.d(new i1a(b2.getContext()));
-        b2.f();
-        b2.C(new jd5(35, 5, Boolean.FALSE));
-        b2.q();
-    }
-
-    public nd5 g(Context context, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
-        }
-        return (nd5) invokeLL.objValue;
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
             }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                d();
+                if (this.a.size() <= 0) {
+                    return null;
+                }
+                return this.a.get(nameMd5FromUrl);
+            }
+            return hashMap.get(nameMd5FromUrl);
         }
-        return invokeLI.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

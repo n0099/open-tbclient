@@ -7,7 +7,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class DataChunk extends Chunk {
     public static final int READ_GRANULARITY = 16384;
     public byte[] data;

@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.gy;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ms7 extends vm<vt7, ThreadCardViewHolder<vt7>> {
+/* loaded from: classes6.dex */
+public class ms7 extends en<ao, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public on c;
+    public int a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ms7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public ms7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), ao.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,51 +41,41 @@ public class ms7 extends vm<vt7, ThreadCardViewHolder<vt7>> {
                 return;
             }
         }
-        this.b = tbPageContext;
-    }
-
-    public void u(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-        }
+        this.a = 3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
+    @Override // com.baidu.tieba.en
     /* renamed from: s */
-    public ThreadCardViewHolder<vt7> onCreateViewHolder(ViewGroup viewGroup) {
+    public NoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            gy.b bVar = new gy.b(this.b.getPageActivity(), false);
-            bVar.n(new mu7(this.b, this.a));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<vt7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.a);
-            ci6.b().a(mi6.c("c13620", 1));
-            oz5.c().a(mi6.c("c13620", 1));
-            return threadCardViewHolder;
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.adapter_no_data_item_layout, viewGroup, false);
+            inflate.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
+            return new NoDataItemViewHolder(inflate);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
+        return (NoDataItemViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vt7 vt7Var, ThreadCardViewHolder<vt7> threadCardViewHolder) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.en
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ao aoVar, NoDataItemViewHolder noDataItemViewHolder) {
+        t(i, view2, viewGroup, aoVar, noDataItemViewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, ao aoVar, NoDataItemViewHolder noDataItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vt7Var, threadCardViewHolder})) == null) {
-            if (vt7Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                threadCardViewHolder.e(vt7Var);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, aoVar, noDataItemViewHolder})) == null) {
+            noDataItemViewHolder.a.setText(aoVar.a);
+            if (this.a != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setImageResource(noDataItemViewHolder.b, aoVar.b);
+                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
+                this.a = TbadkCoreApplication.getInst().getSkinType();
             }
-            return null;
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

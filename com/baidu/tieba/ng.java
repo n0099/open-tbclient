@@ -1,21 +1,39 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ng {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
-    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public long c;
+    public int d;
+    public int e;
+    public long f;
+    public int g;
+    public int h;
+    public long i;
+    public int j;
+    public long k;
+    public int l;
+    public long m;
+    public int n;
+    public long o;
+    public int p;
+    public long q;
+    public int r;
+    public long s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public long z;
 
     public ng() {
         Interceptable interceptable = $ic;
@@ -31,73 +49,35 @@ public class ng {
         }
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ng.class) {
-                    if (b == null) {
-                        HandlerThread handlerThread = new HandlerThread("UiUtils-Background");
-                        handlerThread.start();
-                        b = new Handler(handlerThread.getLooper());
-                    }
-                }
-            }
-            return b;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static Handler b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (ng.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
-                }
-            }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            b().post(runnable);
-        }
-    }
-
-    public static void d(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) == null) {
-            if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
-        }
-    }
-
-    public static void e(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                b().post(runnable);
-            } else {
-                runnable.run();
-            }
-        }
-    }
-
-    public static void f(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, runnable, j) == null) {
-            b().postDelayed(runnable, j);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = 0L;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0L;
+            this.g = 0;
+            this.h = 0;
+            this.i = 0L;
+            this.j = 0;
+            this.k = 0L;
+            this.l = 0;
+            this.m = 0L;
+            this.n = 0;
+            this.o = 0L;
+            this.p = 0;
+            this.q = 0L;
+            this.r = 0;
+            this.s = 0L;
+            this.t = 0;
+            this.u = 0;
+            this.v = 0;
+            this.w = 0;
+            this.x = 0;
+            this.y = 0;
+            this.z = 0L;
         }
     }
 }

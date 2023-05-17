@@ -2,8 +2,8 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.uj5;
+import com.baidu.tieba.dl5;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DisableZanSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "tb_disable_zan_switch";
@@ -35,7 +35,7 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,10 +65,10 @@ public class DisableZanSwitch extends BaseNormalSwitch {
                 return false;
             }
             if (mCachedSwitchValue < 0) {
-                mCachedSwitchValue = f55.m().n(KEY_SWITCH, 0);
-                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (c = uj5.c(KEY_SWITCH, -1)) >= 0) {
+                mCachedSwitchValue = o65.m().n(KEY_SWITCH, 0);
+                if (!TbadkCoreApplication.getInst().isMainProcess(false) && (c = dl5.c(KEY_SWITCH, -1)) >= 0) {
                     mCachedSwitchValue = c;
-                    f55.m().z(KEY_SWITCH, c);
+                    o65.m().z(KEY_SWITCH, c);
                 }
             }
             if (mCachedSwitchValue != 1) {
@@ -83,8 +83,8 @@ public class DisableZanSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
             mCachedSwitchValue = i;
-            f55.m().z(KEY_SWITCH, i);
-            uj5.i(KEY_SWITCH, i);
+            o65.m().z(KEY_SWITCH, i);
+            dl5.i(KEY_SWITCH, i);
         }
     }
 }

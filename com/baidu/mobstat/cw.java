@@ -1,10 +1,10 @@
 package com.baidu.mobstat;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface cw {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         CONTINUOUS,
         TEXT,

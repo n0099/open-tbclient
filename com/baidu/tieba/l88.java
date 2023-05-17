@@ -1,5 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import android.graphics.drawable.Drawable;
+/* loaded from: classes6.dex */
 public interface l88 {
-    void a(String str, int i);
+    void a(Drawable drawable);
+
+    void onFailed();
 }

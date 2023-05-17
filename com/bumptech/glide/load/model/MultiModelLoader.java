@@ -14,12 +14,12 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiModelLoader<Model, Data> implements ModelLoader<Model, Data> {
     public final Pools.Pool<List<Throwable>> exceptionListPool;
     public final List<ModelLoader<Model, Data>> modelLoaders;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class MultiFetcher<Data> implements DataFetcher<Data>, DataFetcher.DataCallback<Data> {
         public DataFetcher.DataCallback<? super Data> callback;
         public int currentIndex;

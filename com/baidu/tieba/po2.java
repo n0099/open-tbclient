@@ -1,84 +1,74 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import androidx.core.content.FileProvider;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class po2 extends oo2 {
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class po2 extends an2<rp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ ap2 b;
-
-        public a(po2 po2Var, List list, ap2 ap2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po2Var, list, ap2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
-            this.b = ap2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.a) {
-                    this.b.e(str);
-                }
-            }
-        }
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enterRoom" : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public po2(u83 u83Var) {
-        super(u83Var, "/swanAPI/removeComponentFromFullScreenSync");
+    public po2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.oo2
-    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull ap2 ap2Var, @NonNull List<String> list) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.an2
+    public void c(@NonNull ZeusPlugin.Command command) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, ap2Var, list)) == null) {
-            rl3.a0(new a(this, list, ap2Var));
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                command.ret = new up2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString(FileProvider.DISPLAYNAME_FIELD), jSONObject.optString("rtcAppId"), jSONObject.optString("token")).a() ? 1 : 0;
+            }
         }
-        return invokeLLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rp2 rp2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, rp2Var) == null) {
+            String str = command.what;
+            d(rp2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof JSONObject) {
+                JSONObject jSONObject = (JSONObject) obj;
+                up2 up2Var = new up2(jSONObject.optString("roomName"), jSONObject.optLong("userId", -1L), jSONObject.optString(FileProvider.DISPLAYNAME_FIELD), jSONObject.optString("rtcAppId"), jSONObject.optString("token"));
+                boolean a = up2Var.a();
+                if (a) {
+                    rp2Var.u(up2Var);
+                }
+                command.ret = a ? 1 : 0;
+            }
+            String str2 = command.what;
+            d(rp2Var, str2, "result: " + command.ret, true);
+        }
     }
 }

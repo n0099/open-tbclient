@@ -1,106 +1,41 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
+/* loaded from: classes5.dex */
 public class hr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public gr4 a;
-    public c15 b;
 
-    public hr4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833311, "Lcom/baidu/tieba/hr4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947833311, "Lcom/baidu/tieba/hr4;");
+                return;
             }
         }
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
     }
 
-    public void a() {
-        c15 c15Var;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c15Var = this.b) != null) {
-            c15Var.f();
-            this.b = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
         }
-    }
-
-    public final void b(String str) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !hi.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !StringUtils.isNull(str)) {
-            pt4.v(currentActivity, "", str, true);
-        }
-    }
-
-    public void c(gr4 gr4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gr4Var) == null) {
-            this.a = gr4Var;
-        }
-    }
-
-    public void d() {
-        gr4 gr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (gr4Var = this.a) == null) {
-            return;
-        }
-        int i = gr4Var.c;
-        if (i == gr4.y) {
-            c15 h = c15.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
-            h.j();
-            this.b = h;
-        } else if (i == gr4.z) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            ww4 ww4Var = new ww4(currentActivity);
-            ww4Var.d(currentActivity, this.a);
-            ww4Var.i();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            vw4 b = vw4.b();
-            vw4 b2 = vw4.b();
-            b2.i("business_count_hint" + currentAccount + this.a.a, b.c("business_count_hint" + currentAccount + this.a.a) - 1);
-        } else if (i == gr4.A) {
-            int i2 = gr4Var.d;
-            if (i2 == gr4.E) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.l) && !hi.isEmpty(this.a.k)) {
-                    b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                }
-            } else if (i2 == gr4.F && !hi.isEmpty(gr4Var.k)) {
-                b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            }
-        } else if (i == gr4.B && !TextUtils.isEmpty(gr4Var.e)) {
-            CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            gr4 gr4Var2 = this.a;
-            completeTaskToastData.activityId = gr4Var2.a;
-            completeTaskToastData.missionId = gr4Var2.b;
-            completeTaskToastData.duration = gr4Var2.i;
-            completeTaskToastData.message = gr4Var2.e;
-            completeTaskToastData.url = gr4Var2.k;
-            completeTaskToastData.pageId = dq4.w().v();
-            CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
-            competeTaskEvent.taskToastData = completeTaskToastData;
-            vj5.i(competeTaskEvent);
-            gr4 gr4Var3 = this.a;
-            ir4.c(gr4Var3.a, gr4Var3.b);
-        }
+        return invokeV.booleanValue;
     }
 }

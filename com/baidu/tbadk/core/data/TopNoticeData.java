@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.FrsPage.TopNotice;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TopNoticeData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

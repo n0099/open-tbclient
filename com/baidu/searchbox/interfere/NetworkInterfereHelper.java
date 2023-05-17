@@ -1,5 +1,5 @@
 package com.baidu.searchbox.interfere;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkInterfereHelper {
     public static boolean a;
 

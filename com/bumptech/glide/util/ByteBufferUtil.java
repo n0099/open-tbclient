@@ -12,12 +12,12 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ByteBufferUtil {
     public static final AtomicReference<byte[]> BUFFER_REF = new AtomicReference<>();
     public static final int BUFFER_SIZE = 16384;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ByteBufferStream extends InputStream {
         public static final int UNSET = -1;
         @NonNull
@@ -82,7 +82,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SafeArray {
         public final byte[] data;
         public final int limit;

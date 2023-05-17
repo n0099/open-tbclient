@@ -10,7 +10,7 @@ import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStoreOnCache;
 import com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BreakpointStoreOnSQLite implements DownloadStore {
     public static final String TAG = "BreakpointStoreOnSQLite";
     public final BreakpointSQLiteHelper helper;

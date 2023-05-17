@@ -3,14 +3,14 @@ package com.baidu.tieba.interestlabel.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.mf8;
+import com.baidu.tieba.hh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,17 +47,17 @@ public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
         if (getError() != 0) {
             return;
         }
-        mf8 mf8Var = null;
+        hh8 hh8Var = null;
         if (getOrginalMessage().getExtra() instanceof RequestGetLabelMessage) {
             requestGetLabelMessage = (RequestGetLabelMessage) getOrginalMessage().getExtra();
         } else {
             requestGetLabelMessage = null;
         }
         if (requestGetLabelMessage != null) {
-            mf8Var = requestGetLabelMessage.getLabelDataSet();
+            hh8Var = requestGetLabelMessage.getLabelDataSet();
         }
-        if (mf8Var != null) {
-            mf8Var.c(getTagListResIdl.data);
+        if (hh8Var != null) {
+            hh8Var.c(getTagListResIdl.data);
         }
     }
 }

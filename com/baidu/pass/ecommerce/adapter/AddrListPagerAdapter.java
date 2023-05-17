@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.pass.ecommerce.view.addressdialog.ListPagerView;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddrListPagerAdapter extends PagerAdapter {
     public static final int MAX_PAGER_NUMBER = 4;
     public List<ListPagerView> mViews;

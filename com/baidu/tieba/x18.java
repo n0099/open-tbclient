@@ -1,59 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.v18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class x18 extends oa {
+/* loaded from: classes8.dex */
+public class x18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x18() {
-        super(2016004);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public static class a implements v18.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
+        }
+
+        @Override // com.baidu.tieba.v18.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                boolean isOpen = ChatStatusManager.getInst().getIsOpen(1);
+                String curId = ChatStatusManager.getInst().getCurId(1);
+                if (!TextUtils.isEmpty(str) && isOpen && str.equals(curId)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ua
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
-        InterceptResult invokeL;
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, v18.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            if (customResponsedMessage == null) {
-                return null;
-            }
-            if (customResponsedMessage instanceof MemoryChangedMessage) {
-                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-                ImMessageCenterPojo data = memoryChangedMessage.getData();
-                if (data != null && data.getCustomGroupType() == -8) {
-                    return new MemoryChangedMessage(bz7.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-                if (data != null && data.getCustomGroupType() == -7) {
-                    return new MemoryChangedMessage(cz7.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-            }
-            return customResponsedMessage;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            v18.d(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(4));
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

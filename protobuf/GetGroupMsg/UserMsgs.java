@@ -5,13 +5,13 @@ import com.squareup.wire.ProtoField;
 import java.util.Collections;
 import java.util.List;
 import protobuf.MsgInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UserMsgs extends Message {
     public static final List<MsgInfo> DEFAULT_MSGS = Collections.emptyList();
     @ProtoField(label = Message.Label.REPEATED, tag = 1)
     public final List<MsgInfo> msgs;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<UserMsgs> {
         public List<MsgInfo> msgs;
 

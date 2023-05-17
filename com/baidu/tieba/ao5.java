@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
-import com.baidu.tieba.cp5;
-import com.baidu.tieba.dp5;
+import android.app.Activity;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class ao5<Q extends cp5, P extends dp5> implements bo5<Q, P> {
+import java.util.Map;
+/* loaded from: classes4.dex */
+public class ao5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public BdUniqueId a;
     public int b;
-    public int c;
+    public String c;
+    public Activity d;
+    public Map<String, String> e;
+    public Map<String, String> f;
+    public boolean g;
 
     public ao5() {
         Interceptable interceptable = $ic;
@@ -27,68 +29,7 @@ public class ao5<Q extends cp5, P extends dp5> implements bo5<Q, P> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bo5
-    public void a(Q q, P p) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
-            return;
-        }
-        if (p.getPageInfo() != null) {
-            xo5 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
-            }
-        }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
-        }
-        sp5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
-    }
-
-    @Override // com.baidu.tieba.bo5
-    public void b(Q q, boolean z) {
-        LoadType loadType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
-            wo5 c = q.c();
-            if (z) {
-                if (!c.a()) {
-                    this.c = this.b;
-                }
-                if (c.a()) {
-                    loadType = LoadType.PREPEND;
-                } else {
-                    loadType = LoadType.REFRESH;
-                }
-                c.b = loadType;
-                c.c = this.c;
-            } else {
-                int i = this.c + 1;
-                this.c = i;
-                c.b = LoadType.APPEND;
-                c.c = i;
-            }
-            sp5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
         }
     }
 }

@@ -15,7 +15,6 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
@@ -29,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +37,7 @@ public class HeadPendantClickableView extends HeadPendantView {
     public View.OnClickListener p;
     public View.OnClickListener q;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +119,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                     }
                     personInfoActivityConfig.setIsVideoThread(z);
                     if (this.a.n.getResource() == 1) {
-                        personInfoActivityConfig.setVideoPersonFrom(PersonPolymericActivityConfig.VIDEO_PERSON_FROM_HOME);
+                        personInfoActivityConfig.setVideoPersonFrom("home");
                     } else if (this.a.n.getResource() == 2) {
                         personInfoActivityConfig.setVideoPersonFrom("frs");
                     } else if (this.a.n.getResource() == 5) {

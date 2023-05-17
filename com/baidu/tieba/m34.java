@@ -1,43 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-/* loaded from: classes5.dex */
-public class m34 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
+public final class m34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    public void a(og2 og2Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            File b = b();
-            if (b.exists()) {
-                bo4.j(b);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, og2Var, context) == null) {
         }
     }
 
-    public static File b() {
-        InterceptResult invokeV;
+    public m34() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return n44.e("aigames_debug_extension_core");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File b = b();
-            if (!b.exists()) {
-                b.mkdirs();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return new File(b, "debugExtensionCore.zip");
         }
-        return (File) invokeV.objValue;
     }
 }

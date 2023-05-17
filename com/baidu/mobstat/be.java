@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import com.baidu.mobstat.bj;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class be {
     public static volatile int a;
     public static final be k = new be();
@@ -27,7 +27,7 @@ public class be {
     public final Handler g = new Handler(Looper.getMainLooper());
     public bd j = new bd();
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements ViewTreeObserver.OnGlobalLayoutListener, Runnable {
         public final WeakReference<View> c;
         public final bj d;

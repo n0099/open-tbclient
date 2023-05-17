@@ -1,47 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-/* loaded from: classes5.dex */
-public final class ng0 extends rl0 {
+/* loaded from: classes6.dex */
+public class ng0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
-    @JvmField
-    public boolean h;
-    @JvmField
-    public String i;
 
-    public ng0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        boolean z;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948001362, "Lcom/baidu/tieba/ng0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948001362, "Lcom/baidu/tieba/ng0;");
                 return;
             }
         }
-        AdDownloadStatus adDownloadStatus = AdDownloadStatus.NONE;
+        try {
+            z = yt9.a;
+        } catch (Throwable unused) {
+            z = false;
+        }
+        a = z;
     }
 }

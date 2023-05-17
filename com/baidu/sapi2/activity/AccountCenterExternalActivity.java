@@ -11,7 +11,7 @@ import com.baidu.sapi2.dto.WebLoginDTO;
 import com.baidu.sapi2.result.AccountCenterResult;
 import com.baidu.sapi2.utils.Log;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AccountCenterExternalActivity extends AccountCenterActivity {
     public static final String EXTRA_EXTERNAL_IS_ACCOUNT_CENTER_TITLEBAR = "extra_external_is_account_center_titlebar";
     public static final String EXTRA_EXTERNAL_URL = "extra_external_url";

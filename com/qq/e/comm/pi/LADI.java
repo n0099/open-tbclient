@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface LADI extends ApkDownloadComplianceInterface {
     int getECPM();
 

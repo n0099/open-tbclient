@@ -1,7 +1,7 @@
 package com.yy.gslbsdk.db;
 
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ServerTB implements Serializable {
     public static final String ID = "_id";
     public static final String IP = "ip";

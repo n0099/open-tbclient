@@ -5,13 +5,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.airbnb.lottie.LottieComposition;
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.py3;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.yz3;
 import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GameGuideConfigInfo implements Serializable {
     public static final String KEY_APP_KEY = "app_key";
     public static final String KEY_APP_NAME = "app_name";
@@ -73,7 +73,7 @@ public class GameGuideConfigInfo implements Serializable {
     public int perCoinNum = 0;
     public int maxNums = 0;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CloseInfo implements Serializable {
         public static final int TARGET_TYPE_GAME = 1;
         public String exitBackgroundColor;
@@ -122,7 +122,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class DialogInfo implements Serializable {
         public String iconUrl = "";
         public String content1 = "";
@@ -152,7 +152,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class RecommendGameInfo implements Serializable {
         public String appKey;
         public String appName;
@@ -170,7 +170,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ViewInfo implements Serializable {
         public LottieComposition iconDoneLottie;
         public Bitmap iconNormalImg;
@@ -194,7 +194,7 @@ public class GameGuideConfigInfo implements Serializable {
 
     public static GameGuideConfigInfo parseData(JSONObject jSONObject) {
         if (jSONObject == null) {
-            if (ho1.a) {
+            if (qp1.a) {
                 Log.d(TAG, "data 为空");
             }
             return null;
@@ -202,7 +202,7 @@ public class GameGuideConfigInfo implements Serializable {
         GameGuideConfigInfo gameGuideConfigInfo = new GameGuideConfigInfo();
         int optInt = jSONObject.optInt("status", 0);
         gameGuideConfigInfo.status = optInt;
-        py3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
+        yz3.p(Boolean.valueOf(jSONObject.optBoolean(KEY_OPEN_INSTALL_BOOT, false)).booleanValue());
         gameGuideConfigInfo.expirationTime = jSONObject.optLong(KEY_EXPIRATION_TIME, 0L);
         gameGuideConfigInfo.packageExpire = jSONObject.optLong(KEY_PACKAGE_EXPIRE, 0L);
         gameGuideConfigInfo.install_result = jSONObject.optBoolean(KEY_INSTALL_RESULT, true);
@@ -216,7 +216,7 @@ public class GameGuideConfigInfo implements Serializable {
         }
         gameGuideConfigInfo.popupSelection = jSONObject.optInt(KEY_POPUP_SELECTION, 0);
         if (optInt == 0) {
-            if (ho1.a) {
+            if (qp1.a) {
                 Log.d(TAG, "配置数据标明不展示");
             }
             return gameGuideConfigInfo;

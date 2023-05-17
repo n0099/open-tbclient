@@ -14,9 +14,9 @@ import com.baidu.tieba.R;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialToolbar extends Toolbar {
-    public static final int DEF_STYLE_RES = 2131755933;
+    public static final int DEF_STYLE_RES = 2131755944;
 
     public MaterialToolbar(@NonNull Context context) {
         this(context, null);
@@ -48,7 +48,7 @@ public class MaterialToolbar extends Toolbar {
     }
 
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04074b);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040791);
     }
 
     public MaterialToolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

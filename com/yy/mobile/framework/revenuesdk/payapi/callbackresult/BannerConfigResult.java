@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
 import java.util.List;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class BannerConfigResult {
     public List<BannerConfigItem> bannerConfigItemList;
 
@@ -18,5 +18,9 @@ public class BannerConfigResult {
 
     public List<BannerConfigItem> getBannerConfigItemList() {
         return this.bannerConfigItemList;
+    }
+
+    public String toString() {
+        return "BannerConfigResult{bannerConfigItemList=" + this.bannerConfigItemList + '}';
     }
 }

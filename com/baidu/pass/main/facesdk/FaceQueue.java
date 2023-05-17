@@ -1,18 +1,18 @@
 package com.baidu.pass.main.facesdk;
 
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FaceQueue {
     public int nThreads;
     public LinkedList queue;
     public PoolWorker[] threads;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HolderClass {
         public static final FaceQueue instance = new FaceQueue(1);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class PoolWorker extends Thread {
         public PoolWorker() {
         }

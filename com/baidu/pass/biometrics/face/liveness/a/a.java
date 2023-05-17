@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.face.liveness.a;
 
 import com.baidu.pass.biometrics.base.dto.PassBiometricDto;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static a b = null;
     public static final String c = "request_data";

@@ -8,7 +8,7 @@ import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mapsdkplatform.comapi.map.s;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MKOfflineMap {
     public static final int TYPE_DOWNLOAD_UPDATE = 0;
     public static final int TYPE_NETWORK_ERROR = 2;

@@ -10,7 +10,7 @@ import okhttp3.EventListener;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.internal.platform.Platform;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PreConnectRunnable implements Runnable {
     public static Map<HttpUrl, Integer> mPreConnectHttpUrlMap;
     public OkHttpClient mClient;

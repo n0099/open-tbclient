@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class SearchEditView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,14 +33,14 @@ public class SearchEditView extends RelativeLayout {
     public LinearLayout d;
     public d e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface d {
-        void D1(String str);
+        void E1(String str);
 
-        void c0(String str);
+        void f0(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class SearchEditView extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (this.a.e != null) {
-                    this.a.e.c0(editable.toString().trim());
+                    this.a.e.f0(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
                     this.a.d.setVisibility(4);
@@ -94,7 +94,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class b implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,7 +126,7 @@ public class SearchEditView extends RelativeLayout {
                 if (i == 3) {
                     String trim = this.a.a.getText().toString().trim();
                     if (!TextUtils.isEmpty(trim) && this.a.e != null) {
-                        this.a.e.D1(trim);
+                        this.a.e.E1(trim);
                         return true;
                     }
                     return true;
@@ -137,7 +137,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

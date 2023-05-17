@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotationOwner;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class JavaAnnotationMapper {
     public static final Name DEPRECATED_ANNOTATION_MESSAGE;
     public static final Name RETENTION_ANNOTATION_VALUE;

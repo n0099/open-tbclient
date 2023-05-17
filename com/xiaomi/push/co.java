@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.os.Build;
 import android.system.Os;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class co {
     public static long a(String str) {
         if (Build.VERSION.SDK_INT >= 21) {

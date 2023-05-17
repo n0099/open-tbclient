@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Call;
 import okhttp3.Response;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OkHttpDownloader extends OkHttpRequest implements Downloader {
     @Override // com.baidu.livesdk.api.http.download.Downloader
     public void download(DownloadCallback downloadCallback) {

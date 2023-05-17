@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.resolve.constants;
 
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ClassLiteralValue {
     public final int arrayNestedness;
     public final ClassId classId;

@@ -1,5 +1,5 @@
 package com.baidu.searchbox.retrieve.inter.constants;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchConstants {
     public static final String FETCH_UBC_ID = "1289";
     public static final String KEY_COUNT = "count";

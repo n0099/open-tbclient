@@ -2,7 +2,7 @@ package com.xiaomi.clientreport.data;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class PerfClientReport extends a {
     public static final long DEFAULT_VALUE = -1;
     public int code;

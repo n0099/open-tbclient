@@ -1,12 +1,13 @@
 package com.tencent.open.web.security;
 
 import android.webkit.WebView;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.tencent.open.a;
 import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class c extends a.C0732a {
+/* loaded from: classes10.dex */
+public class c extends a.C0746a {
     public String d;
 
     public c(WebView webView, long j, String str, String str2) {
@@ -31,17 +32,17 @@ public class c extends a.C0732a {
         }
     }
 
-    @Override // com.tencent.open.a.C0732a
+    @Override // com.tencent.open.a.C0746a
     public void a() {
         SLog.d("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
     }
 
-    @Override // com.tencent.open.a.C0732a
+    @Override // com.tencent.open.a.C0746a
     public void a(Object obj) {
         SLog.v("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
     }
 
-    @Override // com.tencent.open.a.C0732a
+    @Override // com.tencent.open.a.C0746a
     public void a(String str) {
         int i;
         SLog.v("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);
@@ -53,7 +54,7 @@ public class c extends a.C0732a {
         }
         try {
             jSONObject.put("result", i);
-            jSONObject.put("sn", this.b);
+            jSONObject.put(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, this.b);
             jSONObject.put("data", str);
         } catch (JSONException e) {
             e.printStackTrace();

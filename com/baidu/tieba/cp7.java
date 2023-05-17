@@ -1,65 +1,85 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class cp7 implements in {
+import tbclient.ActivityPage.ActivityPageReqIdl;
+import tbclient.ActivityPage.DataReq;
+/* loaded from: classes5.dex */
+public class cp7 implements lq5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public BdUniqueId e;
+    public String a;
+    public final fq5 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682527, "Lcom/baidu/tieba/cp7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947682527, "Lcom/baidu/tieba/cp7;");
-                return;
-            }
+    @Override // com.baidu.tieba.lq5
+    public void a(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
         }
-        f = BdUniqueId.gen();
-        g = BdUniqueId.gen();
     }
 
-    public cp7() {
+    public cp7(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = g;
+        this.b = new fq5(false);
+        this.a = str2;
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.lq5
+    public fq5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (fq5) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lq5
+    /* renamed from: d */
+    public ActivityPageReqIdl b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.activity_name = this.a;
+                builder.pn = Integer.valueOf(this.b.c);
+                builder.rn = 20;
+                builder.scr_h = Integer.valueOf(ri.j(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(ri.l(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) ri.i(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(rx4.c().e());
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    ss5.a(builder, true);
+                }
+                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.SharedPreferences;
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ak extends aj.b {
     public final /* synthetic */ aj a;
 

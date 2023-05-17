@@ -11,7 +11,7 @@ import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.w;
 import org.json.JSONArray;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public String Ig;
     public String LM;
@@ -106,7 +106,7 @@ public class b extends com.kwad.sdk.core.response.kwai.a {
         bVar.Ig = az.AL();
         bVar.acr = ac.cu(context);
         bVar.acJ = az.AU();
-        bVar.acK = az.ea("/data/data");
+        bVar.acK = az.ea(com.baidu.searchbox.antivr.b.a);
         return bVar;
     }
 

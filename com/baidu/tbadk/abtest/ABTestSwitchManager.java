@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ABTestSwitchManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFERENCES_NAME = "pref_name_abtest";
@@ -204,7 +204,7 @@ public class ABTestSwitchManager {
                     this.mSwitchs.putAll(hashMap);
                 }
                 EditorHelper.putString(getSharedPreferences(), PREF_KEY_SWITCHS, jSONArray.toString());
-                f55 m = f55.m();
+                o65 m = o65.m();
                 if (isATest(ABTestConst.KEY_PERF_START_TEST)) {
                     i = 1;
                 }

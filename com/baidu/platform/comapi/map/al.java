@@ -4,7 +4,7 @@ import android.graphics.Point;
 import android.view.MotionEvent;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public interface al {
     void a();
 

@@ -1,147 +1,112 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.text.TextPaint;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
-/* loaded from: classes4.dex */
-public class e12 implements Cloneable {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
+public class e12 implements c12 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile e12 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<e12> a;
-    public Paint b;
-    public Paint c;
-    public Paint d;
-    public TextPaint e;
-    public Path f;
-    public boolean g;
-    public CanvasView h;
-    public n22 i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
+    public List<c12> a;
 
-    public e12(CanvasView canvasView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681411, "Lcom/baidu/tieba/e12;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681411, "Lcom/baidu/tieba/e12;");
+                return;
+            }
+        }
+        b = qp1.a;
+    }
+
+    public e12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {canvasView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Stack<>();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.d = new Paint();
-        this.e = new TextPaint();
-        this.f = new Path();
-        this.g = false;
-        this.j = -1;
-        this.k = 0;
-        this.l = 0;
-        this.m = -16777216;
-        this.h = canvasView;
-        d();
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add(new d12());
     }
 
-    public int a() {
+    public static e12 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (e12.class) {
+                    if (c == null) {
+                        c = new e12();
+                    }
+                }
+            }
+            return c;
         }
-        return invokeV.intValue;
+        return (e12) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public synchronized void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.l = i;
-        }
-    }
-
-    public void c(Paint paint) {
-        n22 n22Var;
-        l12 l12Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) != null) || paint == null) {
-            return;
-        }
-        if (this.h != null && (n22Var = this.i) != null && (l12Var = n22Var.d) != null && !l12Var.c()) {
-            n22 n22Var2 = this.i;
-            paint.setShadowLayer(n22Var2.c, n22Var2.a, n22Var2.b, n22Var2.d.a());
-        }
-        int i = this.j;
-        if (i >= 0 && i <= 255) {
-            paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m = -16777216;
-            this.c.setStyle(Paint.Style.STROKE);
-            this.b.setColor(-16777216);
-            this.c.setColor(-16777216);
-            this.d.setColor(-16777216);
-            this.e.setColor(-16777216);
-            this.c.setStrokeWidth(ol3.g(1.0f));
-            this.c.setAntiAlias(true);
-            this.e.setAntiAlias(true);
-            this.d.setAntiAlias(true);
-            this.f.reset();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.d("Api-Marker", "release: ");
+                }
+                if (c == null) {
+                    return;
+                }
+                c = null;
+            }
         }
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.c12
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.empty()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markStart: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).a(str);
+            }
         }
-        e12 pop = this.a.pop();
-        this.b = pop.b;
-        this.c = pop.c;
-        this.d = pop.d;
-        this.e = pop.e;
-        this.f = pop.f;
-        this.g = pop.g;
-        this.a = pop.a;
-        this.i = pop.i;
-        this.j = pop.j;
-        this.k = pop.k;
-        this.l = pop.l;
-        this.m = pop.m;
     }
 
-    public void f() throws CloneNotSupportedException {
+    @Override // com.baidu.tieba.c12
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e12 e12Var = (e12) super.clone();
-            e12Var.b = new Paint(this.b);
-            e12Var.c = new Paint(this.c);
-            e12Var.d = new Paint(this.d);
-            e12Var.e = new TextPaint(this.e);
-            e12Var.f = new Path(this.f);
-            e12Var.k = this.k;
-            e12Var.l = this.l;
-            e12Var.m = this.m;
-            this.a.push(e12Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (b) {
+                Log.d("Api-Marker", "markEnd: " + str);
+            }
+            for (int i = 0; i < this.a.size(); i++) {
+                this.a.get(i).b(str);
+            }
         }
     }
 }

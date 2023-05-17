@@ -1,74 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.ubc.Flow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import org.json.JSONObject;
-@Deprecated
-/* loaded from: classes5.dex */
-public class nf3 extends u93 {
+/* loaded from: classes6.dex */
+public class nf3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nf3(u83 u83Var) {
-        super(u83Var, "/swanAPI/getStorage");
+    public static mf3 a(String str) {
+        InterceptResult invokeL;
+        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Flow d = mo4.d(str);
+            if (g()) {
+                obj = ns2.A0().beginFlow(str);
+            } else {
+                obj = null;
+            }
+            return new mf3(obj, d);
+        }
+        return (mf3) invokeL.objValue;
+    }
+
+    public static void b(@NonNull mf3 mf3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, mf3Var) == null) {
+            if (g()) {
+                ns2.A0().b(mf3Var.b());
+            }
+            Flow a = mf3Var.a();
+            if (a != null) {
+                a.cancel();
             }
         }
     }
 
-    @Override // com.baidu.tieba.u93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
-        InterceptResult invokeLLLL;
+    public static void c(@NonNull mf3 mf3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
-            if (u93.b) {
-                Log.d("SwanAppAction", "start get storage");
+        if (interceptable == null || interceptable.invokeL(65538, null, mf3Var) == null) {
+            if (g()) {
+                ns2.A0().c(mf3Var.b());
             }
-            if (x73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
+            Flow a = mf3Var.a();
+            if (a != null) {
+                a.end();
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String Q = yx1.Q(optParamsAsJo);
-            if (Q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            JSONObject O = yx1.O(x73Var.f0().g().getString(Q, null));
-            if (O == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "JSONException");
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(O, 0));
-            return true;
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void d(@NonNull mf3 mf3Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, mf3Var, str, str2) == null) {
+            if (g()) {
+                ns2.A0().a(mf3Var.b(), str, str2);
+            }
+            Flow a = mf3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2);
+            }
+        }
+    }
+
+    public static void i(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
+            if (g()) {
+                ns2.A0().f(str, jSONObject);
+            }
+            mo4.l(str2, jSONObject);
+        }
+    }
+
+    public static void e(@NonNull mf3 mf3Var, String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{mf3Var, str, str2, Long.valueOf(j)}) == null) {
+            if (g()) {
+                ns2.A0().g(mf3Var.b(), str, str2, j);
+            }
+            Flow a = mf3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2, j);
+            }
+        }
+    }
+
+    public static void f(@NonNull mf3 mf3Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, mf3Var, str) == null) {
+            if (g()) {
+                ns2.A0().h(mf3Var.b(), str);
+            }
+            Flow a = mf3Var.a();
+            if (a != null) {
+                a.setValueWithDuration(str);
+            }
+        }
+    }
+
+    public static void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            if (g()) {
+                ns2.A0().i(str, str2);
+            }
+            mo4.h(str, str2);
+        }
+    }
+
+    public static void j(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
+            if (g()) {
+                ns2.A0().d(str, map);
+            }
+            mo4.j(str, map);
+        }
+    }
+
+    public static void k(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
+            if (g()) {
+                ns2.A0().f(str, jSONObject);
+            }
+            mo4.l(str, jSONObject);
+        }
+    }
+
+    public static void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            ns2.A0().i(str, str2);
+        }
+    }
+
+    public static void m(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
+            ns2.A0().f(str, jSONObject);
+        }
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ns2.A0().e();
+        }
+        return invokeV.booleanValue;
     }
 }

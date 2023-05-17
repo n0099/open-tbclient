@@ -48,9 +48,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ki;
-import com.baidu.tieba.xr9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ti;
+import com.baidu.tieba.zt9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -349,8 +349,8 @@ public class TbTabLayout extends HorizontalScrollView {
                                 textView = gVar.e;
                             }
                             if (textView != null) {
-                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - ii.g(getContext(), R.dimen.tbds3);
-                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + ii.g(getContext(), R.dimen.tbds10);
+                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - ri.g(getContext(), R.dimen.tbds3);
+                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + ri.g(getContext(), R.dimen.tbds10);
                                 gVar.g.setBounds(right, top, gVar.g.getIntrinsicWidth() + right, gVar.g.getIntrinsicHeight() + top);
                                 gVar.g.draw(canvas);
                                 if (!TextUtils.isEmpty(gVar.h)) {
@@ -358,8 +358,8 @@ public class TbTabLayout extends HorizontalScrollView {
                                         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_news_white_dot);
                                         int intrinsicWidth = right + (gVar.g.getIntrinsicWidth() / 2);
                                         int intrinsicHeight2 = top + (gVar.g.getIntrinsicHeight() / 2);
-                                        int g = ii.g(getContext(), R.dimen.tbds6);
-                                        int g2 = ii.g(getContext(), R.dimen.tbds7);
+                                        int g = ri.g(getContext(), R.dimen.tbds6);
+                                        int g2 = ri.g(getContext(), R.dimen.tbds7);
                                         int i5 = g / 2;
                                         int i6 = intrinsicWidth - i5;
                                         int i7 = intrinsicHeight2 - i5;
@@ -376,7 +376,7 @@ public class TbTabLayout extends HorizontalScrollView {
                                     } else {
                                         Paint paint = new Paint(1);
                                         paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
-                                        paint.setTextSize(ii.g(getContext(), R.dimen.tbfontsize26));
+                                        paint.setTextSize(ri.g(getContext(), R.dimen.tbfontsize26));
                                         paint.setTextAlign(Paint.Align.CENTER);
                                         paint.setTypeface(Typeface.MONOSPACE);
                                         paint.getTextBounds(gVar.h, 0, gVar.h.length(), new Rect());
@@ -1323,12 +1323,12 @@ public class TbTabLayout extends HorizontalScrollView {
                 boolean z = false;
                 if (this.d == null) {
                     if (this.c == null) {
-                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) this, false);
+                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0243, (ViewGroup) this, false);
                         addView(imageView2, 0);
                         this.c = imageView2;
                     }
                     if (this.b == null) {
-                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) this, false);
+                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0244, (ViewGroup) this, false);
                         addView(textView3);
                         this.b = textView3;
                         this.i = TextViewCompat.getMaxLines(textView3);
@@ -1410,7 +1410,7 @@ public class TbTabLayout extends HorizontalScrollView {
                 return;
             }
         }
-        I = new int[]{R.attr.obfuscated_res_0x7f04017a};
+        I = new int[]{R.attr.obfuscated_res_0x7f04018a};
         J = new FastOutSlowInInterpolator();
         K = new Pools.SynchronizedPool(16);
     }
@@ -1649,44 +1649,44 @@ public class TbTabLayout extends HorizontalScrollView {
         e eVar = new e(this, context);
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10033f);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, xr9.TbTabLayout);
-        this.c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10034a);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, zt9.TbTabLayout);
+        this.c.h(obtainStyledAttributes.getDimensionPixelSize(12, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
-        this.c.g(obtainStyledAttributes.getColor(7, 0));
-        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(15, 0);
+        this.c.g(obtainStyledAttributes.getColor(9, 0));
+        int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(18, 0);
         this.g = dimensionPixelSize;
         this.f = dimensionPixelSize;
         this.e = dimensionPixelSize;
         this.d = dimensionPixelSize;
-        this.d = obtainStyledAttributes.getDimensionPixelSize(18, dimensionPixelSize);
-        this.e = obtainStyledAttributes.getDimensionPixelSize(19, this.e);
-        this.f = obtainStyledAttributes.getDimensionPixelSize(17, this.f);
-        this.g = obtainStyledAttributes.getDimensionPixelSize(16, this.g);
-        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f10020c);
+        this.d = obtainStyledAttributes.getDimensionPixelSize(21, dimensionPixelSize);
+        this.e = obtainStyledAttributes.getDimensionPixelSize(22, this.e);
+        this.f = obtainStyledAttributes.getDimensionPixelSize(20, this.f);
+        this.g = obtainStyledAttributes.getDimensionPixelSize(19, this.g);
+        int resourceId = obtainStyledAttributes.getResourceId(25, R.style.obfuscated_res_0x7f100216);
         this.h = resourceId;
         TypedArray obtainStyledAttributes3 = context.obtainStyledAttributes(resourceId, androidx.appcompat.R.styleable.TextAppearance);
         try {
             this.j = obtainStyledAttributes3.getDimensionPixelSize(0, 0);
             this.i = obtainStyledAttributes3.getColorStateList(3);
             obtainStyledAttributes3.recycle();
-            if (obtainStyledAttributes.hasValue(23)) {
-                this.i = obtainStyledAttributes.getColorStateList(23);
+            if (obtainStyledAttributes.hasValue(26)) {
+                this.i = obtainStyledAttributes.getColorStateList(26);
             }
-            if (obtainStyledAttributes.hasValue(21)) {
-                this.i = o(this.i.getDefaultColor(), obtainStyledAttributes.getColor(21, 0));
+            if (obtainStyledAttributes.hasValue(24)) {
+                this.i = o(this.i.getDefaultColor(), obtainStyledAttributes.getColor(24, 0));
             }
-            this.p = obtainStyledAttributes.getDimensionPixelSize(13, -1);
-            this.q = obtainStyledAttributes.getDimensionPixelSize(12, -1);
-            this.n = obtainStyledAttributes.getResourceId(0, 0);
-            this.s = obtainStyledAttributes.getDimensionPixelSize(1, 0);
-            this.u = obtainStyledAttributes.getInt(14, 1);
-            this.t = obtainStyledAttributes.getInt(2, 0);
+            this.p = obtainStyledAttributes.getDimensionPixelSize(16, -1);
+            this.q = obtainStyledAttributes.getDimensionPixelSize(15, -1);
+            this.n = obtainStyledAttributes.getResourceId(1, 0);
+            this.s = obtainStyledAttributes.getDimensionPixelSize(2, 0);
+            this.u = obtainStyledAttributes.getInt(17, 1);
+            this.t = obtainStyledAttributes.getInt(4, 0);
             obtainStyledAttributes.recycle();
             obtainStyledAttributes2.recycle();
             Resources resources = getResources();
-            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070223);
-            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070221);
+            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c4);
+            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702c2);
             k();
             x();
         } catch (Throwable th) {
@@ -2139,9 +2139,9 @@ public class TbTabLayout extends HorizontalScrollView {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
-            String g2 = ki.g();
+            String g2 = ti.g();
             if (g2.contains("vivo") && g2.contains("X20")) {
-                this.H = ii.g(getContext(), R.dimen.tbds2);
+                this.H = ri.g(getContext(), R.dimen.tbds2);
             }
         }
     }

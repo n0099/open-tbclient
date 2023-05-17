@@ -2,7 +2,7 @@ package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberRTCAudioSamples {
     public final int a;
     public final int b;
@@ -10,7 +10,7 @@ public class CyberRTCAudioSamples {
     public final byte[] d;
 
     @Keep
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface CyberRTCSamplesReadyCallback {
         void onRtcAudioRecordSamplesReady(CyberRTCAudioSamples cyberRTCAudioSamples);
     }

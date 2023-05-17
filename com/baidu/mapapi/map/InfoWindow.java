@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.view.View;
 import com.baidu.mapapi.common.SysOSUtil;
 import com.baidu.mapapi.model.LatLng;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InfoWindow {
     public String a;
     public BitmapDescriptor b;
@@ -18,12 +18,12 @@ public class InfoWindow {
     public boolean k;
     public boolean l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnInfoWindowClickListener {
         void onInfoWindowClick();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(InfoWindow infoWindow);
 

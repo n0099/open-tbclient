@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.text.Layout;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class Cue {
     public static final int ANCHOR_TYPE_END = 2;
     public static final int ANCHOR_TYPE_MIDDLE = 1;
@@ -27,12 +27,12 @@ public class Cue {
     public final boolean windowColorSet;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface AnchorType {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface LineType {
     }
 

@@ -13,7 +13,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadSerialQueueTaskStartEndListener extends DownloadTaskStartEndListener implements Runnable {
     public static final int ID_INVALID = 0;
     public static final Executor SERIAL_EXECUTOR = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 30, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BdDownload DynamicSerial", false));

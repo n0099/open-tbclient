@@ -6,13 +6,13 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseVideoPlayEndUI extends FrameLayout {
     public a a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a(View view2);
+        void onItemClick(View view2);
     }
 
     public abstract View b(Context context);

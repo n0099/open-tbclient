@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class jh4 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class jh4 extends gh4<di4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract zh4 a();
-
-    public abstract boolean b(zh4 zh4Var);
-
-    public abstract void c(boolean z);
 
     public jh4() {
         Interceptable interceptable = $ic;
@@ -30,12 +29,54 @@ public abstract class jh4 {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gh4
+    /* renamed from: f */
+    public ContentValues c(di4 di4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, di4Var)) == null) {
+            return a(di4Var);
         }
-        return (String) invokeV.objValue;
+        return (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.gh4
+    /* renamed from: g */
+    public di4 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                di4 di4Var = new di4();
+                if (b(cursor, di4Var)) {
+                    return di4Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (di4) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gh4
+    public List<di4> e(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
+                do {
+                    di4 di4Var = new di4();
+                    if (b(cursor, di4Var)) {
+                        arrayList.add(di4Var);
+                    }
+                } while (cursor.moveToNext());
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ClassLiteralValue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ReadKotlinClassHeaderAnnotationVisitor implements KotlinJvmBinaryClass.AnnotationVisitor {
     public static final Map<ClassId, KotlinClassHeader.Kind> HEADER_KINDS;
     public static final boolean IGNORE_OLD_METADATA = "true".equals(System.getProperty("kotlin.ignore.old.metadata"));
@@ -44,7 +44,7 @@ public class ReadKotlinClassHeaderAnnotationVisitor implements KotlinJvmBinaryCl
     public void visitEnd() {
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class CollectStringArrayAnnotationVisitor implements KotlinJvmBinaryClass.AnnotationArrayArgumentVisitor {
         public final List<String> strings = new ArrayList();
 
@@ -98,7 +98,7 @@ public class ReadKotlinClassHeaderAnnotationVisitor implements KotlinJvmBinaryCl
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class KotlinMetadataArgumentVisitor implements KotlinJvmBinaryClass.AnnotationArgumentVisitor {
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
             Object[] objArr = new Object[3];
@@ -255,7 +255,7 @@ public class ReadKotlinClassHeaderAnnotationVisitor implements KotlinJvmBinaryCl
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class OldDeprecatedAnnotationArgumentVisitor implements KotlinJvmBinaryClass.AnnotationArgumentVisitor {
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
             Object[] objArr = new Object[3];

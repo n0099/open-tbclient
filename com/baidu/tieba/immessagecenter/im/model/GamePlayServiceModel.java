@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.Gson;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GamePlayServiceModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREFIX = "GamePlayService_";
@@ -26,12 +26,12 @@ public class GamePlayServiceModel {
     public final Gson mGson;
     public b mPostAsyncTask;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(GamePlayServiceData gamePlayServiceData);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends BdAsyncTask<Object, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class GamePlayServiceModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            f55 m = f55.m();
+            o65 m = o65.m();
             return m.s(PREFIX + str, "");
         }
         return (String) invokeL.objValue;
@@ -199,11 +199,11 @@ public class GamePlayServiceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, gamePlayServiceData) == null) {
             if (gamePlayServiceData == null) {
-                f55 m = f55.m();
+                o65 m = o65.m();
                 m.B(PREFIX + str, "");
                 return;
             }
-            f55 m2 = f55.m();
+            o65 m2 = o65.m();
             m2.B(PREFIX + str, new Gson().toJson(gamePlayServiceData));
         }
     }

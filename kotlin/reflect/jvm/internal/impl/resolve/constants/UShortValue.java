@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class UShortValue extends UnsignedValueConstant<Short> {
     public UShortValue(short s) {
         super(Short.valueOf(s));

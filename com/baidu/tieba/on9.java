@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public abstract class on9 {
+@Service
+/* loaded from: classes6.dex */
+public class on9 implements a45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ln9> a;
+
+    @Override // com.baidu.tieba.a45
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SPRITE_RES_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public on9() {
         Interceptable interceptable = $ic;
@@ -25,26 +30,17 @@ public abstract class on9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public final List<ln9> b() {
+    @Override // com.baidu.tieba.a45
+    public y35 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new nn9();
         }
-        return (List) invokeV.objValue;
-    }
-
-    public final void a(ln9 action) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.a.add(action);
-        }
+        return (y35) invokeV.objValue;
     }
 }

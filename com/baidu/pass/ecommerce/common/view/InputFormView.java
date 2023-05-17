@@ -13,7 +13,7 @@ import com.baidu.pass.ecommerce.AddressStatUtil;
 import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.pass.ecommerce.view.LengthLimitEditText;
 import com.baidu.sapi2.ecommerce.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class InputFormView extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener {
     public static final int MAX_LENGTH = 1000;
     public static final int MIN_LINES = 1;
@@ -33,7 +33,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     public int mMinLines;
     public boolean mSingleLine;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum InputType {
         PHONE,
         NAME,
@@ -76,12 +76,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
 
     private void init() {
         int i;
-        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0530, (ViewGroup) this, true);
-        this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f02);
-        this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f04);
-        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f05);
-        this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f00);
-        this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f01);
+        View inflate = LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d054d, (ViewGroup) this, true);
+        this.mEditText = (LengthLimitEditText) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f5e);
+        this.mImg = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f60);
+        this.mBottomLine = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f61);
+        this.mCleanEtBtn = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f5c);
+        this.mCleanEtBtnDarkShape = inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f5d);
         this.mCleanEtBtn.setOnClickListener(this);
         this.mEditText.setOnFocusChangeListener(this);
         this.mEditText.setLengthLimit(this.mMaxLength);
@@ -135,9 +135,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     public void setDarkMode(boolean z) {
         this.isDarkMode = z;
         if (z) {
-            this.mEditText.setHintTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06081c));
-            this.mEditText.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060820));
-            this.mBottomLine.setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06081a));
+            this.mEditText.setHintTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060993));
+            this.mEditText.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060997));
+            this.mBottomLine.setBackgroundColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060991));
         }
     }
 
@@ -183,7 +183,7 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091f00) {
+        if (view2.getId() == com.baidu.tieba.R.id.obfuscated_res_0x7f091f5c) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }

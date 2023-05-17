@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Loader implements LoaderErrorThrower {
     public static final int DONT_RETRY = 2;
     public static final int DONT_RETRY_FATAL = 3;
@@ -21,7 +21,7 @@ public final class Loader implements LoaderErrorThrower {
     public final ExecutorService downloadExecutorService;
     public IOException fatalError;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Callback<T extends Loadable> {
         void onLoadCanceled(T t, long j, long j2, boolean z);
 
@@ -30,7 +30,7 @@ public final class Loader implements LoaderErrorThrower {
         int onLoadError(T t, long j, long j2, IOException iOException);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface Loadable {
         void cancelLoad();
 
@@ -39,13 +39,13 @@ public final class Loader implements LoaderErrorThrower {
         void load() throws IOException, InterruptedException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface ReleaseCallback {
         void onLoaderReleased();
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public final class LoadTask<T extends Loadable> extends Handler implements Runnable {
         public static final int MSG_CANCEL = 1;
         public static final int MSG_END_OF_SOURCE = 2;
@@ -228,7 +228,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class ReleaseTask extends Handler implements Runnable {
         public final ReleaseCallback callback;
 
@@ -249,7 +249,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class UnexpectedLoaderException extends IOException {
         public UnexpectedLoaderException(Throwable th) {
             super("Unexpected " + th.getClass().getSimpleName() + ": " + th.getMessage(), th);

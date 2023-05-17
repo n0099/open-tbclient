@@ -3,11 +3,11 @@ package com.kwad.components.core.webview.jshandler;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ab implements com.kwad.sdk.core.webview.kwai.a {
     public final a MK;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         @MainThread
         void dd();

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewPropertyAnimator;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class SwipeDismissTouchListener implements View.OnTouchListener {
     public int a;
     public int b;
@@ -27,7 +27,7 @@ public class SwipeDismissTouchListener implements View.OnTouchListener {
     public boolean o;
     public boolean p;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface DismissCallbacks {
         boolean canDismiss(Object obj);
 

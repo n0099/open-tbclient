@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.protobuf;
 
 import com.squareup.wire.WireInput;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InvalidProtocolBufferException extends IOException {
     public MessageLite unfinishedMessage;
 

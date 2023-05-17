@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadingUtil {
     public static Toast mToast;
 
@@ -25,11 +25,11 @@ public class LoadingUtil {
         LayoutInflater from = LayoutInflater.from(context);
         SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
         if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-            inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0532, (ViewGroup) null);
+            inflate = from.inflate(R.layout.obfuscated_res_0x7f0d054f, (ViewGroup) null);
         } else {
-            inflate = from.inflate(R.layout.obfuscated_res_0x7f0d0531, (ViewGroup) null);
+            inflate = from.inflate(R.layout.obfuscated_res_0x7f0d054e, (ViewGroup) null);
         }
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f52)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091faf)).setText(str);
         return inflate;
     }
 

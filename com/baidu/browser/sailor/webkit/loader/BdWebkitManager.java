@@ -8,8 +8,8 @@ import com.baidu.browser.sailor.BdSailor;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.browser.sailor.platform.BdSailorPlatform;
 import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.tieba.kw;
-import com.baidu.tieba.pw;
+import com.baidu.tieba.tw;
+import com.baidu.tieba.yw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdWebkitManager implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "com.baidu.browser.sailor.webkit.loader.BdWebkitManager";
@@ -37,10 +37,10 @@ public class BdWebkitManager implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsWebkitBuiltin;
     public List<IWebkitLoaderListener> mListenerLst;
-    public pw mLoader;
+    public yw mLoader;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
@@ -134,7 +134,7 @@ public class BdWebkitManager implements INoProGuard {
         }
         this.mIsWebkitBuiltin = true;
         this.mListenerLst = new ArrayList();
-        this.mLoader = new pw();
+        this.mLoader = new yw();
     }
 
     private String makeErrorInfo(LoadErrorCode loadErrorCode) {
@@ -201,7 +201,7 @@ public class BdWebkitManager implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
             this.mIsWebkitBuiltin = z;
-            pw pwVar = this.mLoader;
+            yw ywVar = this.mLoader;
             Context appContext = BdSailorPlatform.getInstance().getAppContext();
             a aVar = mWebkitType;
             if (z && (a.b == aVar || a.c == aVar)) {
@@ -213,29 +213,29 @@ public class BdWebkitManager implements INoProGuard {
                 WebKitFactory.setEmulator(BdZeusUtil.checkEmulator());
                 if (WebKitFactory.isZeusSupported()) {
                     if (a.c == aVar) {
-                        kw kwVar = BdSailorPlatform.getStatic();
-                        kwVar.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
+                        tw twVar = BdSailorPlatform.getStatic();
+                        twVar.b("emulator-check", "emulator:" + BdZeusUtil.checkEmulator());
                         z2 = WebKitFactory.setEngine(1);
-                        String str3 = pw.c;
+                        String str3 = yw.c;
                         Log.d(str3, "zeus version = " + WebKitFactory.getZeusVersionName());
                     } else {
                         z2 = false;
                     }
                     if (z2) {
-                        String str4 = pw.c;
+                        String str4 = yw.c;
                         Log.d(str4, "zeus version = " + WebKitFactory.getZeusVersionName());
-                        String str5 = pw.c;
+                        String str5 = yw.c;
                         Log.d(str5, "sdk version = " + WebKitFactory.getSdkVersionName());
                         BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                         BdSailorPlatform.getStatic().b("init-webkit", "success");
                         BdSailorPlatform.getStatic().d = true;
                     } else {
                         LoadErrorCode loadErrorCode = WebKitFactory.getLoadErrorCode();
-                        pwVar.a(loadErrorCode);
-                        pw.c(loadErrorCode);
+                        ywVar.a(loadErrorCode);
+                        yw.c(loadErrorCode);
                     }
                 } else {
-                    pwVar.a(new LoadErrorCode(99, "not support"));
+                    ywVar.a(new LoadErrorCode(99, "not support"));
                     BdSailorPlatform.getStatic().b("init-webkit", "notSupport");
                 }
                 BdSailorPlatform.getStatic().d = false;
@@ -246,11 +246,11 @@ public class BdWebkitManager implements INoProGuard {
                 WebKitFactory.setApkLibLoadType(z);
                 if (a.c == aVar || a.b == aVar) {
                     WebKitFactory.setEngine(1);
-                    str2 = pw.c;
+                    str2 = yw.c;
                     sb = new StringBuilder("zeus version =");
                 } else {
                     WebKitFactory.setEngine(0);
-                    str2 = pw.c;
+                    str2 = yw.c;
                     sb = new StringBuilder("zeus version =");
                 }
                 sb.append(WebKitFactory.getZeusVersionName());
@@ -262,8 +262,8 @@ public class BdWebkitManager implements INoProGuard {
                     BdSailorPlatform.getWebkitManager().onLoadZeusSDKSuccess();
                 } else {
                     LoadErrorCode loadErrorCode2 = WebKitFactory.getLoadErrorCode();
-                    pwVar.a(loadErrorCode2);
-                    pw.c(loadErrorCode2);
+                    ywVar.a(loadErrorCode2);
+                    yw.c(loadErrorCode2);
                     BdSailorPlatform.getWebkitManager().onLoadSysSDKSuccess();
                 }
             }
@@ -328,11 +328,11 @@ public class BdWebkitManager implements INoProGuard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
                             Log.i(EngineManager.LOG_TAG, "installZeusFromDownload after onLoadSysSDKSuccess");
-                            pw pwVar = this.this$0.mLoader;
+                            yw ywVar = this.this$0.mLoader;
                             BdSailorPlatform.getInstance().getAppContext();
                             String str2 = this.val$zeusPath;
                             a unused = BdWebkitManager.mWebkitType;
-                            pwVar.b(str2);
+                            ywVar.b(str2);
                         }
                     }
 
@@ -349,19 +349,19 @@ public class BdWebkitManager implements INoProGuard {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048581, this) == null) {
                             Log.i(EngineManager.LOG_TAG, "installZeusFromDownload after onLoadZeusSDKSuccess");
-                            pw pwVar = this.this$0.mLoader;
+                            yw ywVar = this.this$0.mLoader;
                             BdSailorPlatform.getInstance().getAppContext();
                             String str2 = this.val$zeusPath;
                             a unused = BdWebkitManager.mWebkitType;
-                            pwVar.b(str2);
+                            ywVar.b(str2);
                         }
                     }
                 });
                 return;
             }
-            pw pwVar = this.mLoader;
+            yw ywVar = this.mLoader;
             BdSailorPlatform.getInstance().getAppContext();
-            pwVar.b(str);
+            ywVar.b(str);
         }
     }
 

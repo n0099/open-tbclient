@@ -2,7 +2,7 @@ package com.baidu.mapapi.map;
 
 import android.util.Log;
 import java.util.HashSet;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class af implements Runnable {
     public final /* synthetic */ int a;
     public final /* synthetic */ int b;

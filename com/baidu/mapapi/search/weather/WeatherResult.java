@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class WeatherResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<WeatherResult> CREATOR = new b();
     public WeatherSearchRealTime a;

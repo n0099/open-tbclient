@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class af {
     public static String a = "10.237.14.141";
 

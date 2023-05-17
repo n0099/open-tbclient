@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPeriod.Listener {
     public static final int DEFAULT_LOADING_CHECK_INTERVAL_BYTES = 1048576;
     public static final int DEFAULT_MIN_LOADABLE_RETRY_COUNT_LIVE = 6;
@@ -29,7 +29,7 @@ public final class ExtractorMediaSource implements MediaSource, ExtractorMediaPe
     public boolean timelineIsSeekable;
     public final Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface EventListener {
         void onLoadError(IOException iOException);
     }

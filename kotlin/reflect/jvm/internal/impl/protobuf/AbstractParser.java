@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import kotlin.reflect.jvm.internal.impl.protobuf.AbstractMessageLite;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractParser<MessageType extends MessageLite> implements Parser<MessageType> {
     public static final ExtensionRegistryLite EMPTY_REGISTRY = ExtensionRegistryLite.getEmptyRegistry();
 

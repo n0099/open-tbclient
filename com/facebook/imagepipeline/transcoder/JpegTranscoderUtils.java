@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class JpegTranscoderUtils {
     @VisibleForTesting
     public static final int DEFAULT_JPEG_QUALITY = 85;

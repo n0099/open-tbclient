@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadCircleView extends View {
     public static final int MAX_ALPHA_VALUE = 255;
     public static final int MSG_REFRESH_ANIMATION = 4097;
@@ -48,7 +48,7 @@ public class LoadCircleView extends View {
     public Timer mTimer;
     public int mWidth;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MainThreadHandler extends Handler {
         public WeakReference<LoadCircleView> mWeakLoadCircleView;
 
@@ -153,8 +153,8 @@ public class LoadCircleView extends View {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 LoadCircleView.this.mCurrentRadius = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                LoadCircleView.this.mPrimaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f0608d1), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f0608d0), Shader.TileMode.MIRROR));
-                LoadCircleView.this.mSecondaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f0608d3), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f0608d2), Shader.TileMode.MIRROR));
+                LoadCircleView.this.mPrimaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a47), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a46), Shader.TileMode.MIRROR));
+                LoadCircleView.this.mSecondaryPaint.setShader(new LinearGradient((LoadCircleView.this.mWidth / 2) - LoadCircleView.this.mCurrentRadius, 0.0f, (LoadCircleView.this.mWidth / 2) + LoadCircleView.this.mCurrentRadius, 0.0f, LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a49), LoadCircleView.this.getResources().getColor(R.color.obfuscated_res_0x7f060a48), Shader.TileMode.MIRROR));
             }
         };
         float f = this.mEndRadius;

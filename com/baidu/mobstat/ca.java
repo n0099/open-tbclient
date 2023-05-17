@@ -2,7 +2,7 @@ package com.baidu.mobstat;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ca {
     public static ca a = new ca();
     public static String b = "";

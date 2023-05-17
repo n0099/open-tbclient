@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MABottomToolBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,12 @@ public class MABottomToolBar {
     public OnCommonToolMenuClickListener mOnCommonToolMenuClickListener;
 
     @Deprecated
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnCommonToolBarClickListener {
         void onBackClick();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnCommonToolBarItemClickListener {
         public static final int TOOL_ITEM_BACK = 1;
         public static final int TOOL_ITEM_SHARE = 2;
@@ -34,7 +34,7 @@ public class MABottomToolBar {
     }
 
     @Deprecated
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnCommonToolMenuClickListener {
         void onRefreshClick();
 
@@ -43,7 +43,7 @@ public class MABottomToolBar {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CommonMenuType {
         public static final /* synthetic */ CommonMenuType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class MABottomToolBar {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class CommonToolBarType {
         public static final /* synthetic */ CommonToolBarType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

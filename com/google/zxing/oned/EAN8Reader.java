@@ -3,7 +3,7 @@ package com.google.zxing.oned;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class EAN8Reader extends UPCEANReader {
     public final int[] decodeMiddleCounters = new int[4];
 

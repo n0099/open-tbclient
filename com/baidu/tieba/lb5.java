@@ -1,67 +1,155 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.kb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Map;
+/* loaded from: classes6.dex */
 public class lb5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "表情包";
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static WeakReference<kb5> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947937130, "Lcom/baidu/tieba/lb5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947937130, "Lcom/baidu/tieba/lb5;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kb5 a;
 
-    public static String a(String str, String str2, float f, TextPaint textPaint) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            return b(textPaint, str, f - textPaint.measureText(str2), str2);
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(TextPaint textPaint, String str, float f, String str2) {
-        InterceptResult invokeCommon;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
-            float measureText = textPaint.measureText(str);
-            if (measureText > f) {
-                if (str.endsWith(a)) {
-                    str = str.substring(0, str.length() - 3);
+        public a(kb5 kb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                str3 = StringHelper.STRING_MORE + a;
-            } else if (!str.endsWith(a)) {
-                str3 = a;
-            } else {
-                str3 = "";
             }
-            while (str.length() > 0 && measureText > f) {
-                str = cs5.m(str, cs5.e(str) - 1);
-                measureText = textPaint.measureText(str);
-            }
-            return str + str3;
+            this.a = kb5Var;
         }
-        return (String) invokeCommon.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A();
+                boolean unused = lb5.a = true;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kb5 a;
+
+        public b(kb5 kb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kb5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.t();
+            }
+        }
+    }
+
+    public static kb5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            WeakReference<kb5> weakReference = b;
+            if (weakReference != null) {
+                return weakReference.get();
+            }
+            return null;
+        }
+        return (kb5) invokeV.objValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            o65.m().A("key_live_remind_float_view", System.currentTimeMillis());
+        }
+    }
+
+    public static kb5 d(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2, kb5.h hVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2), hVar})) == null) {
+            kb5 kb5Var = new kb5(tbPageContext, map);
+            if (hVar != null) {
+                kb5Var.x(hVar);
+            }
+            if (view2 != null) {
+                kb5Var.y(view2);
+            }
+            if (j <= 0) {
+                kb5Var.A();
+                a = true;
+            } else {
+                sg.a().postDelayed(new a(kb5Var), j);
+            }
+            if (j2 > 0) {
+                sg.a().postDelayed(new b(kb5Var), j2);
+            }
+            b = new WeakReference<>(kb5Var);
+            return kb5Var;
+        }
+        return (kb5) invokeCommon.objValue;
+    }
+
+    public static kb5 f(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            if (tbPageContext != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !mc5.j()) {
+                return d(view2, tbPageContext, map, j, j2, null);
+            }
+            return null;
+        }
+        return (kb5) invokeCommon.objValue;
     }
 }

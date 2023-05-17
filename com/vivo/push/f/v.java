@@ -11,7 +11,7 @@ import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.model.NotifyArriveCallbackByUser;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,7 +9,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MD5Utils {
     public static final boolean DEBUG = false;
     public static final int FILE_STREAM_BUFFER_SIZE = 8192;

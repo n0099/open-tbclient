@@ -1,29 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class o91 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+/* loaded from: classes6.dex */
+public interface o91 extends u81 {
+    void F(AbsNadBrowserView absNadBrowserView, float f, float f2);
 
-    public static <T> void a(@NonNull ha1 ha1Var, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, ha1Var, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (!str.startsWith("javascript:")) {
-            str = "javascript:" + str;
-        }
-        ha1Var.loadUrl(str, null);
-    }
+    void F0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
 
-    public static <T> void b(@NonNull ha1 ha1Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{ha1Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            a(ha1Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
-        }
-    }
+    void G0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+
+    void L0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    boolean O0(AbsNadBrowserView absNadBrowserView, String str);
+
+    boolean P(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    void V(AbsNadBrowserView absNadBrowserView, String str);
+
+    void V0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    void X0(AbsNadBrowserView absNadBrowserView, p91 p91Var, String str, String str2);
+
+    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    void b1();
+
+    void i(AbsNadBrowserView absNadBrowserView, String str);
+
+    void j(AbsNadBrowserView absNadBrowserView);
+
+    void n0();
+
+    r91 q0(AbsNadBrowserView absNadBrowserView, String str);
+
+    void q1(AbsNadBrowserView absNadBrowserView, int i);
+
+    void u0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
+
+    void y(AbsNadBrowserView absNadBrowserView, String str);
 }

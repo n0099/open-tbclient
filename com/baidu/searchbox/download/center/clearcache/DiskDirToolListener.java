@@ -12,7 +12,7 @@ import com.baidu.searchbox.net.update.v2.UpdateAction;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = DiskDirToolListener.DISK_DIR_TOOL_ACTION, module = "disk_dir")
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DiskDirToolListener extends JSONObjectCommandListener {
     public static final String DISK_DIR_TOOL_ACTION = "disk_dir_tool";
     public static final String DISK_DIR_TOOL_DATA = "disk_dir_tool_data";

@@ -1,108 +1,151 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imageutils.JfifUtil;
-import java.util.HashMap;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class gx2 {
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class gx2 implements Comparable<Object> {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public static final HashMap<String, Integer> b;
-    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809224, "Lcom/baidu/tieba/gx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947809224, "Lcom/baidu/tieba/gx2;");
-                return;
-            }
-        }
-        HashMap<String, Integer> hashMap = new HashMap<>(16);
-        a = hashMap;
-        hashMap.put("VRModeProjectionSphere", 201);
-        a.put("VRModeProjectionDome180", 202);
-        a.put("VRModeProjectionDome230", 203);
-        a.put("VRModeProjectionDome180Upper", 204);
-        a.put("VRModeProjectionDome230Upper", 205);
-        a.put("VRModeProjectionPlaneFit", 207);
-        a.put("VRModeProjectionPlaneCrop", 208);
-        a.put("VRModeProjectionPlaneFull", 209);
-        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
-        a.put("VRModeProjectionMultiFishEyeVertical", 211);
-        a.put("VRModeProjectionStereoSphereHorizontal", 212);
-        a.put("VRModeProjectionStereoSphereVertical", 213);
-        a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
-        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
-        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
-        a.put("VRModeProjectionPlaneFullVertical", 217);
-        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
-        b = hashMap2;
-        hashMap2.put("VRModeDisplayNormal", 101);
-        b.put("VRModeDisplayGlass", 102);
-        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
-        c = hashMap3;
-        hashMap3.put("VRModeInteractiveMotion", 1);
-        c.put("VRModeInteractiveTouch", 2);
-        c.put("VRModeInteractiveMotionWithTouch", 3);
-        c.put("VRModeInteractiveGVRMotion", 4);
-        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
-    }
+    public String a;
+    public String b;
+    public long c;
+    public ArrayList<MediaModel> d;
 
     public gx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public gx2 a(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public ArrayList<MediaModel> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return super.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaModel) == null) {
+            if (this.d == null) {
+                this.d = new ArrayList<>();
+            }
+            this.d.add(mediaModel);
+        }
+    }
+
+    @Override // java.lang.Comparable
+    public int compareTo(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            gx2 gx2Var = new gx2();
-            if (jSONObject == null) {
-                return gx2Var;
-            }
-            String optString = jSONObject.optString("projectionMode");
-            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
-                a.get(optString).intValue();
-            }
-            String optString2 = jSONObject.optString("displayMode");
-            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
-                b.get(optString2).intValue();
-            }
-            String optString3 = jSONObject.optString("interactiveMode");
-            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
-                c.get(optString3).intValue();
-            }
-            jSONObject.optInt("fov", -1);
-            jSONObject.optInt("minFov", -1);
-            jSONObject.optInt("maxFov", -1);
-            jSONObject.optBoolean("pinchEnable", true);
-            return gx2Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            return Long.valueOf(((gx2) obj).e()).compareTo(Long.valueOf(this.c));
         }
-        return (gx2) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (!(obj instanceof gx2)) {
+                return false;
+            }
+            return this.a.equals(((gx2) obj).a);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return "MediaDir [firstImgPath=, dirName=" + this.a + ", imageCount=" + d() + PreferencesUtil.RIGHT_MOUNT;
+        }
+        return (String) invokeV.objValue;
     }
 }

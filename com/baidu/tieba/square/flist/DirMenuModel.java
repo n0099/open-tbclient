@@ -9,17 +9,17 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.fm9;
-import com.baidu.tieba.gm9;
-import com.baidu.tieba.me;
-import com.baidu.tieba.t05;
+import com.baidu.tieba.c25;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.ho9;
+import com.baidu.tieba.io9;
+import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,23 +31,23 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public boolean f;
     public boolean g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c {
-        void a(boolean z, int i, gm9 gm9Var, String str, boolean z2);
+        void a(boolean z, int i, io9 io9Var, String str, boolean z2);
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, Integer, fm9> {
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Object, Integer, ho9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public fm9 b;
+        public ho9 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new fm9();
+            this.b = new ho9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,14 +90,14 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public fm9 doInBackground(Object... objArr) {
+        public ho9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                t05.d();
-                me<String> e = t05.e("tb.my_posts");
+                c25.d();
+                se<String> e = c25.e("tb.my_posts");
                 if (e != null) {
                     str = e.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (fm9) invokeL.objValue;
+            return (ho9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(fm9 fm9Var) {
+        public void onPostExecute(ho9 ho9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fm9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho9Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, fm9Var.b(), this.c.g);
-                } else if (fm9Var.h() != null) {
-                    this.c.b.a(true, fm9Var.a(), fm9Var.h(), fm9Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, ho9Var.b(), this.c.g);
+                } else if (ho9Var.h() != null) {
+                    this.c.b.a(true, ho9Var.a(), ho9Var.h(), ho9Var.b(), this.c.g);
                 }
             }
         }
@@ -177,7 +177,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -190,9 +190,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         this.e = str3;
     }
 
-    public void d0(c cVar) {
+    public void c0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             this.b = cVar;
         }
     }
@@ -201,7 +201,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             b bVar = this.a;
             if (bVar != null) {
                 bVar.cancel();

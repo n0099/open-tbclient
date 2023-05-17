@@ -13,7 +13,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class UPCEANReader extends OneDReader {
     public static final int[][] L_AND_G_PATTERNS;
     public static final int[][] L_PATTERNS;

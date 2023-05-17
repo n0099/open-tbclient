@@ -3,7 +3,7 @@ package com.xiaomi.mipush.sdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ad extends BroadcastReceiver {
     public final /* synthetic */ NotificationClickedActivity a;
 

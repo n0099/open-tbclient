@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class e implements Parcelable {
     public static final Parcelable.Creator<e> CREATOR = new Parcelable.Creator<e>() { // from class: com.baidu.cyberplayer.sdk.remote.e.1
         /* JADX DEBUG: Method merged with bridge method */

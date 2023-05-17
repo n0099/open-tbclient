@@ -17,14 +17,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class bl extends bv.a implements cu.a {
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f944a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements cu.b {
         @Override // com.xiaomi.push.cu.b
         public String a(String str) {
@@ -39,7 +39,7 @@ public class bl extends bv.a implements cu.a {
             int port = url.getPort() == -1 ? 80 : url.getPort();
             try {
                 long currentTimeMillis = System.currentTimeMillis();
-                String a = com.xiaomi.push.bi.a(com.xiaomi.push.s.m643a(), url);
+                String a = com.xiaomi.push.bi.a(com.xiaomi.push.s.m662a(), url);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 fi.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                 return a;
@@ -50,7 +50,7 @@ public class bl extends bv.a implements cu.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends com.xiaomi.push.cu {
         public b(Context context, com.xiaomi.push.ct ctVar, cu.b bVar, String str) {
             super(context, ctVar, bVar, str);
@@ -59,8 +59,8 @@ public class bl extends bv.a implements cu.a {
         @Override // com.xiaomi.push.cu
         public String a(ArrayList<String> arrayList, String str, String str2, boolean z) {
             try {
-                if (fg.m396a().m401a()) {
-                    str2 = bv.m725a();
+                if (fg.m415a().m420a()) {
+                    str2 = bv.m744a();
                 }
                 return super.a(arrayList, str, str2, z);
             } catch (IOException e) {
@@ -95,31 +95,31 @@ public class bl extends bv.a implements cu.a {
     @Override // com.xiaomi.push.service.bv.a
     public void a(dw.b bVar) {
         com.xiaomi.push.cq b2;
-        if (bVar.m311b() && bVar.m310a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m101a("fetch bucket :" + bVar.m310a());
+        if (bVar.m330b() && bVar.m329a() && System.currentTimeMillis() - this.a > 3600000) {
+            com.xiaomi.channel.commonutils.logger.b.m120a("fetch bucket :" + bVar.m329a());
             this.a = System.currentTimeMillis();
             com.xiaomi.push.cu a2 = com.xiaomi.push.cu.a();
-            a2.m268a();
-            a2.m271b();
-            fv m666a = this.f944a.m666a();
-            if (m666a == null || (b2 = a2.b(m666a.m424a().c())) == null) {
+            a2.m287a();
+            a2.m290b();
+            fv m685a = this.f944a.m685a();
+            if (m685a == null || (b2 = a2.b(m685a.m443a().c())) == null) {
                 return;
             }
-            ArrayList<String> m256a = b2.m256a();
+            ArrayList<String> m275a = b2.m275a();
             boolean z = true;
-            Iterator<String> it = m256a.iterator();
+            Iterator<String> it = m275a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m666a.mo425a())) {
+                } else if (it.next().equals(m685a.mo444a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m256a.isEmpty()) {
+            if (!z || m275a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m101a("bucket changed, force reconnect");
+            com.xiaomi.channel.commonutils.logger.b.m120a("bucket changed, force reconnect");
             this.f944a.a(0, (Exception) null);
             this.f944a.a(false);
         }

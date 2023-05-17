@@ -2,13 +2,13 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tieba.tm;
+import com.baidu.tieba.cn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public tm decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public cn decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -47,8 +47,8 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
             if (fastblur != p) {
                 p.recycle();
             }
-            return new tm(fastblur);
+            return new cn(fastblur);
         }
-        return (tm) invokeLII.objValue;
+        return (cn) invokeLII.objValue;
     }
 }

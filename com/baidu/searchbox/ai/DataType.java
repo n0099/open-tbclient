@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ai;
 
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum DataType {
     FLOAT(1),
     DOUBLE(2),

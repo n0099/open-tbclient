@@ -1,63 +1,116 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
-public final class axa implements Runnable {
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+/* loaded from: classes4.dex */
+public class axa {
     public static /* synthetic */ Interceptable $ic;
+    public static final ixa<Reporter> a;
+    public static final ixa<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ wwa b;
-    public final /* synthetic */ vwa c;
 
-    public axa(vwa vwaVar, Activity activity, wwa wwaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vwaVar, activity, wwaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947631935, "Lcom/baidu/tieba/axa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947631935, "Lcom/baidu/tieba/axa;");
                 return;
             }
         }
-        this.c = vwaVar;
-        this.a = activity;
-        this.b = wwaVar;
+        a = new a();
+        b = new b();
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                vwa vwaVar = this.c;
-                l = vwa.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new bxa(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                vwa vwaVar2 = this.c;
-                vwa.n(this.a, this.b);
+    /* loaded from: classes4.dex */
+    public static class a extends ixa<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.ixa
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new fxa("https://rpe.xdplt.com/evt/", true);
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends ixa<Reporter> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
+        @Override // com.baidu.tieba.ixa
+        public Reporter a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new dxa("https://rpd.xdplt.com/evt/");
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
+    public static Reporter a() {
+        InterceptResult invokeV;
+        Reporter reporter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ixa<Reporter> ixaVar = a;
+            synchronized (ixaVar) {
+                if (ixaVar.a == null) {
+                    ixaVar.a = ixaVar.a();
+                }
+                reporter = ixaVar.a;
+            }
+            return reporter;
+        }
+        return (Reporter) invokeV.objValue;
     }
 }

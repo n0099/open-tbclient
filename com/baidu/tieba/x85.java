@@ -2,84 +2,125 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.gson.annotations.SerializedName;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class x85 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class x85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("funny_sprite_support_text")
-    public final String a;
-    @SerializedName("funny_sprite_loop_time")
-    public final Integer b;
-    @SerializedName("funny_sprite_bubble_text_length")
-    public final Integer c;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public x85() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (obj instanceof x85) {
-                x85 x85Var = (x85) obj;
-                return Intrinsics.areEqual(this.a, x85Var.a) && Intrinsics.areEqual(this.b, x85Var.b) && Intrinsics.areEqual(this.c, x85Var.c);
-            }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String str = this.a;
-            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-            Integer num = this.b;
-            int hashCode2 = (hashCode + (num == null ? 0 : num.hashCode())) * 31;
-            Integer num2 = this.c;
-            return hashCode2 + (num2 != null ? num2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "FunnySpriteConfig(funnySpriteSupportText=" + this.a + ", funnySpriteLoopTime=" + this.b + ", funnySpriteBubbleTextLength=" + this.c + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final Integer a() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (Integer) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final Integer b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.d;
         }
-        return (Integer) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final String c() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return jj.a(R.string.voice_cache_error_internal);
+                case 2:
+                    return jj.a(R.string.voice_cache_error_no_space);
+                case 3:
+                    return jj.a(R.string.obfuscated_res_0x7f0f0db6);
+                case 4:
+                    return jj.a(R.string.voice_cache_error_no_file);
+                case 5:
+                    return jj.a(R.string.voice_cache_error_md5);
+                case 6:
+                    return jj.a(R.string.voice_cache_error_no_input);
+                case 7:
+                    return jj.a(R.string.voice_cache_error_no_dir);
+                default:
+                    return "";
+            }
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
     }
 }

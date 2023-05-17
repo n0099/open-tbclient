@@ -6,7 +6,7 @@ import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum DescriptorRendererModifier {
     VISIBILITY(true),
     MODALITY(true),
@@ -28,7 +28,7 @@ public enum DescriptorRendererModifier {
     public static final Companion Companion = new Companion(null);
     public final boolean includeByDefault;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

@@ -19,9 +19,9 @@ import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a9;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.m9;
+import com.baidu.tieba.ri;
 import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ import com.bumptech.glide.Glide;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HeadPendantView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class HeadPendantView extends RelativeLayout {
     public boolean l;
     public boolean m;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,8 +105,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = ii.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ri.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ri.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -176,8 +176,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = ii.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ri.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ri.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -205,8 +205,8 @@ public class HeadPendantView extends RelativeLayout {
         }
         this.g = false;
         this.h = false;
-        this.i = ii.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.j = ii.g(TbadkApplication.getInst(), R.dimen.tbds5);
+        this.i = ri.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.j = ri.g(TbadkApplication.getInst(), R.dimen.tbds5);
         this.l = true;
         this.m = false;
         this.a = context;
@@ -259,7 +259,7 @@ public class HeadPendantView extends RelativeLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.i = ii.g(getContext(), R.dimen.tbds42);
+            this.i = ri.g(getContext(), R.dimen.tbds42);
             b();
             d();
             c();
@@ -314,7 +314,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new TbImageView(this.a);
-            a9<?> a2 = g9.a(this.a);
+            g9<?> a2 = m9.a(this.a);
             if (a2 != null) {
                 this.b.setPageId(a2.getUniqueId());
             }
@@ -398,7 +398,7 @@ public class HeadPendantView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
             if (i > 0) {
-                this.i = ii.g(getContext(), i);
+                this.i = ri.g(getContext(), i);
             }
             if (this.i > 0 && (imageView = this.e) != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();

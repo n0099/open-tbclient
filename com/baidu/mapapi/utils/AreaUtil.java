@@ -2,7 +2,7 @@ package com.baidu.mapapi.utils;
 
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AreaUtil {
     public static double calculateArea(LatLng latLng, LatLng latLng2) {
         if (latLng != null && latLng2 != null) {

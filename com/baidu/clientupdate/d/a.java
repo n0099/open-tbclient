@@ -26,7 +26,7 @@ import java.io.File;
 import java.net.URI;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;

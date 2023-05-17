@@ -57,10 +57,10 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FloatingActionButton extends VisibilityAwareImageButton implements TintableBackgroundView, TintableImageSourceView, ExpandableTransformationWidget, Shapeable, CoordinatorLayout.AttachedBehavior {
     public static final int AUTO_MINI_LARGEST_SCREEN_WIDTH = 470;
-    public static final int DEF_STYLE_RES = 2131755835;
+    public static final int DEF_STYLE_RES = 2131755846;
     public static final String EXPANDABLE_WIDGET_HELPER_KEY = "expandableWidgetHelper";
     public static final String LOG_TAG = "FloatingActionButton";
     public static final int NO_CUSTOM_SIZE = 0;
@@ -91,7 +91,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     public int size;
     public final Rect touchArea;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class OnVisibilityChangedListener {
         public void onHidden(FloatingActionButton floatingActionButton) {
         }
@@ -102,11 +102,11 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface Size {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class BaseBehavior<T extends FloatingActionButton> extends CoordinatorLayout.Behavior<T> {
         public static final boolean AUTO_HIDE_DEFAULT = true;
         public boolean autoHideEnabled;
@@ -261,7 +261,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Behavior extends BaseBehavior<FloatingActionButton> {
         public Behavior() {
         }
@@ -307,7 +307,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ShadowDelegateImpl implements ShadowViewDelegate {
         public ShadowDelegateImpl() {
         }
@@ -338,7 +338,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class TransformationCallbackWrapper<T extends FloatingActionButton> implements FloatingActionButtonImpl.InternalTransformationCallback {
         @NonNull
         public final TransformationCallback<T> listener;
@@ -686,7 +686,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c9);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402df);
     }
 
     public static int resolveAdjustedSize(int i, int i2) {
@@ -738,7 +738,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         float dimension2 = obtainStyledAttributes.getDimension(9, 0.0f);
         float dimension3 = obtainStyledAttributes.getDimension(11, 0.0f);
         this.compatPadding = obtainStyledAttributes.getBoolean(16, false);
-        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0704b1);
+        int dimensionPixelSize = getResources().getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0705f4);
         this.maxImageSize = obtainStyledAttributes.getDimensionPixelSize(10, 0);
         MotionSpec createFromAttribute = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 15);
         MotionSpec createFromAttribute2 = MotionSpec.createFromAttribute(context2, obtainStyledAttributes, 8);
@@ -980,9 +980,9 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
         Resources resources = getResources();
         if (i != -1) {
             if (i != 1) {
-                return resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070206);
+                return resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0702a7);
             }
-            return resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f070205);
+            return resources.getDimensionPixelSize(com.baidu.tieba.R.dimen.obfuscated_res_0x7f0702a6);
         } else if (Math.max(resources.getConfiguration().screenWidthDp, resources.getConfiguration().screenHeightDp) < 470) {
             return getSizeDimension(1);
         } else {

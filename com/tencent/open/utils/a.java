@@ -6,7 +6,6 @@ import android.os.Build;
 import android.security.KeyPairGeneratorSpec;
 import android.security.keystore.KeyGenParameterSpec;
 import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
 import com.tencent.open.log.SLog;
 import java.math.BigInteger;
 import java.security.KeyPairGenerator;
@@ -20,7 +19,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
     public KeyStore a;
     public SharedPreferences b;
@@ -74,11 +73,11 @@ public class a {
         SLog.d("KEYSTORE", "Build.VERSION.SDK_INT=" + Build.VERSION.SDK_INT);
         int i = Build.VERSION.SDK_INT;
         if (i >= 23) {
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
             keyPairGenerator.initialize(new KeyGenParameterSpec.Builder("KEYSTORE_AES", 3).setDigests("SHA-256", "SHA-512").setEncryptionPaddings("PKCS1Padding").build());
             keyPairGenerator.generateKeyPair();
         } else if (i >= 18) {
-            KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
+            KeyPairGenerator keyPairGenerator2 = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
             Calendar calendar = Calendar.getInstance();
             Calendar calendar2 = Calendar.getInstance();
             calendar2.add(1, 30);

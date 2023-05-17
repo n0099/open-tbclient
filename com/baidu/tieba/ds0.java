@@ -1,81 +1,188 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.CallSuper;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class ds0 extends cs0 {
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.List;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
+/* loaded from: classes5.dex */
+public class ds0 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public es0 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ds0(@NonNull uv0 uv0Var, @Nullable Context context) {
-        super(uv0Var, context);
+    public ds0(es0 es0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uv0Var, context};
+            Object[] objArr = {es0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((uv0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = es0Var;
     }
 
-    @Override // com.baidu.tieba.bs0
-    @NonNull
-    public vv0 E() {
-        InterceptResult invokeV;
+    public static int a(@NonNull String str, int i, int i2, char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.v == null) {
-                this.v = this.y.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c) {
+                    return i;
+                }
+                i++;
             }
-            return this.v;
+            return i2;
         }
-        return (vv0) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 
-    @Override // com.baidu.tieba.bs0
-    public void h0() {
+    public static int d(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E().a(this);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
         }
+        return invokeLII.intValue;
     }
 
-    @Override // com.baidu.tieba.bs0
-    public void F0(@Nullable px0 px0Var) {
+    public static String f(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, px0Var) == null) {
-            super.F0(E().b(this, px0Var));
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            int d = d(str, i, i2);
+            return str.substring(d, e(str, d, i2));
         }
+        return (String) invokeLII.objValue;
     }
 
-    @Override // com.baidu.tieba.cs0
-    @CallSuper
-    public void F1(boolean z) {
+    public static int e(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            E().c(this, z);
-            vu0 w = ju0.w(InteractiveEvent.ACTION_SWITCH_INTERACTIVE_KERNEL);
-            w.n(9, Boolean.valueOf(z));
-            q0(w);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i3 + 1;
+                }
+            }
+            return i;
         }
+        return invokeLII.intValue;
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final List<Cookie> c(@NonNull HttpUrl httpUrl, @NonNull String str) {
+        InterceptResult invokeLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int length = str.length();
+            int i = 0;
+            while (i < length) {
+                int a = a(str, i, length, WebvttCueParser.CHAR_SEMI_COLON);
+                int a2 = a(str, i, a, '=');
+                String f = f(str, i, a2);
+                if (a2 < a) {
+                    str2 = f(str, a2 + 1, a);
+                } else {
+                    str2 = "";
+                }
+                if (str2.startsWith("\"") && str2.endsWith("\"")) {
+                    str2 = str2.substring(1, str2.length() - 1);
+                }
+                String b = b(f);
+                String b2 = b(str2);
+                if (!TextUtils.isEmpty(b) && this.a.shouldSendCookie(httpUrl.toString(), b)) {
+                    arrayList.add(new Cookie.Builder().name(b).value(b2).domain(httpUrl.host()).build());
+                }
+                i = a + 1;
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        es0 es0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (httpUrl != null && (es0Var = this.a) != null) {
+                String cookie = es0Var.getCookie(httpUrl.toString());
+                if (!TextUtils.isEmpty(cookie)) {
+                    arrayList.addAll(c(httpUrl, cookie));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // okhttp3.CookieJar
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, httpUrl, list) != null) || httpUrl == null || o11.g(list) || this.a == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        String httpUrl2 = httpUrl.toString();
+        for (Cookie cookie : list) {
+            if (cookie != null) {
+                String cookie2 = cookie.toString();
+                if (!TextUtils.isEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
+                    arrayList.add(cookie2);
+                }
+            }
+        }
+        this.a.storeCookie(httpUrl.toString(), arrayList);
     }
 }

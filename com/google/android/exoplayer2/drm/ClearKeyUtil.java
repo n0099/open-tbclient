@@ -10,7 +10,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ClearKeyUtil {
     public static final Pattern REQUEST_KIDS_PATTERN = Pattern.compile("\"kids\":\\[\"(.*?)\"]");
     public static final String TAG = "ClearKeyUtil";

@@ -8,7 +8,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.deserialization.NameResolver;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.JvmProtoBuf;
 import kotlin.reflect.jvm.internal.impl.metadata.jvm.deserialization.JvmMemberSignature;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class MemberSignature {
     public static final Companion Companion = new Companion(null);
     public final String signature;
@@ -32,7 +32,7 @@ public final class MemberSignature {
         return "MemberSignature(signature=" + this.signature + SmallTailInfo.EMOTION_SUFFIX;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }

@@ -6,12 +6,13 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.platform.base.e;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,13 +63,13 @@ public class d extends e {
             if (suggestionSearchOption.mCityLimit.booleanValue()) {
                 this.a.a("city_limit", "true");
             } else {
-                this.a.a("city_limit", "false");
+                this.a.a("city_limit", CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
             }
             this.a.a("from", "android_map_sdk");
             this.a.a("output", "json");
             com.baidu.platform.util.a aVar2 = this.a;
             if (!suggestionSearchOption.isExtendAdcode()) {
-                str = "false";
+                str = CommandUBCHelper.COMMAND_UBC_VALUE_FALSE;
             }
             aVar2.a("extensions_adcode", str);
         }

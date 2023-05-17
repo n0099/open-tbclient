@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory;
 import kotlin.reflect.jvm.internal.impl.types.KotlinTypeKt;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IntersectionTypeKt {
     public static final UnwrappedType intersectTypes(List<? extends UnwrappedType> list) {
         SimpleType lowerBound;

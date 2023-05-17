@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
 import android.content.Context;
-import com.baidu.tieba.lwa;
-import com.baidu.tieba.qwa;
+import com.baidu.tieba.jya;
+import com.baidu.tieba.oya;
 import com.google.ar.core.exceptions.AnchorNotSupportedForHostingException;
 import com.google.ar.core.exceptions.CameraNotAvailableException;
 import com.google.ar.core.exceptions.CloudAnchorsNotConfiguredException;
@@ -26,10 +26,10 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.ar.core.exceptions.UnsupportedConfigurationException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Session {
     public final Object b = new Object();
-    public final qwa c = new qwa();
+    public final oya c = new oya();
     public long a = 0;
 
     private native long[] nativeAcquireAllAnchors(long j);
@@ -76,19 +76,19 @@ public class Session {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* JADX WARN: Unknown enum class pattern. Please report as an issue! */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class c {
         public static final c g;
         public static final /* synthetic */ c[] i;
         public final int b;
         public final Class<?> h;
-        public static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, lwa.class);
+        public static final c c = new ad("BASE_TRACKABLE", 0, 1095893248, jya.class);
         public static final c a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
         public static final c d = new af("PLANE", 2, 1095893249, Plane.class);
         public static final c e = new ag("POINT", 3, 1095893250, Point.class);
         public static final c f = new ah("AUGMENTED_IMAGE", 4, 1095893252, AugmentedImage.class);
 
-        public abstract lwa a(long j, Session session);
+        public abstract jya a(long j, Session session);
 
         static {
             ai aiVar = new ai("FACE", 5, 1095893253, AugmentedFace.class);
@@ -105,7 +105,7 @@ public class Session {
             this(str, i2, i3, cls);
         }
 
-        public static c a(Class<? extends lwa> cls) {
+        public static c a(Class<? extends jya> cls) {
             c[] values;
             for (c cVar : values()) {
                 Class<?> cls2 = cVar.h;
@@ -139,7 +139,7 @@ public class Session {
         return frame;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum Feature {
         FRONT_CAMERA(1),
         SHARED_CAMERA(1000);
@@ -151,7 +151,7 @@ public class Session {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum a {
         END_OF_LIST(0);
         
@@ -161,7 +161,7 @@ public class Session {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum b {
         SUCCESS(0, null),
         ERROR_INVALID_ARGUMENT(-1, IllegalArgumentException.class),

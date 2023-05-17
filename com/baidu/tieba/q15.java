@@ -8,28 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class q15 {
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Post;
+/* loaded from: classes7.dex */
+public final class q15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final q15 c;
-    public static final q15 d;
-    public static final q15 e;
-    public static final q15 f;
-    public static final q15 g;
-    public static final q15 h;
-    public static final q15 i;
-    public static final q15 j;
-    public static final q15 k;
-    public static final q15 l;
-    public static final q15 m;
-    public static final q15 n;
-    public static final q15 o;
-    public static final q15 p;
-    public static final q15 q;
-    public static final q15 r;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final boolean b;
+    public final String b;
+    public final boolean c;
+    public final String d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,67 +35,162 @@ public class q15 {
                 return;
             }
         }
-        c = new q15("sync_finish", false);
-        d = new q15("main_page_load_finish", false);
-        e = new q15("pb_load_finish", false);
-        f = new q15("frs_load_finish", false);
-        g = new q15("main_page_recommend", true);
-        h = new q15("main_page_common_tab", true);
-        i = new q15("main_page_hot_topic", true);
-        j = new q15("main_page_concern", true);
-        k = new q15("main_page_enter_forum", true);
-        l = new q15("main_page_message", true);
-        m = new q15("main_page_person_info", true);
-        n = new q15("write_page", true);
-        o = new q15("pb_page", true);
-        p = new q15("frs_page", true);
-        q = new q15("main_page_idle", false);
-        r = new q15("splash_close", false);
+        e = new a(null);
     }
 
-    public q15(String str, boolean z) {
+    @JvmStatic
+    public static final q15 e(Post post) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, post)) == null) ? e.a(post) : (q15) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof q15) {
+                q15 q15Var = (q15) obj;
+                return Intrinsics.areEqual(this.a, q15Var.a) && Intrinsics.areEqual(this.b, q15Var.b) && this.c == q15Var.c && Intrinsics.areEqual(this.d, q15Var.d);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b.hashCode()) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return ((hashCode + i) * 31) + this.d.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "TopPostTagInfo(tag=" + this.a + ", color=" + this.b + ", shieldIcon=" + this.c + ", iconUrl=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final q15 a(Post post) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, post)) == null) {
+                Intrinsics.checkNotNullParameter(post, "post");
+                if (!qi.isEmpty(post.toutiao_card_tag) && !qi.isEmpty(post.toutiao_card_tag_color)) {
+                    String str = post.toutiao_card_tag;
+                    Intrinsics.checkNotNullExpressionValue(str, "post.toutiao_card_tag");
+                    String str2 = post.toutiao_card_tag_color;
+                    Intrinsics.checkNotNullExpressionValue(str2, "post.toutiao_card_tag_color");
+                    Integer num = post.shield_icon;
+                    boolean z = true;
+                    z = (num == null || num.intValue() != 1) ? false : false;
+                    String str3 = post.icon_url;
+                    Intrinsics.checkNotNullExpressionValue(str3, "post.icon_url");
+                    return new q15(str, str2, z, str3);
+                }
+                return null;
+            }
+            return (q15) invokeL.objValue;
+        }
+    }
+
+    public q15(String tag, String color, boolean z, String iconUrl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
+            Object[] objArr = {tag, color, Boolean.valueOf(z), iconUrl};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        Intrinsics.checkNotNullParameter(color, "color");
+        Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+        this.a = tag;
+        this.b = color;
+        this.c = z;
+        this.d = iconUrl;
     }
 
-    public static q15 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new q15("main_page_common_tab_" + str, true);
-        }
-        return (q15) invokeL.objValue;
-    }
-
-    public String b() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean c() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -4,10 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.ho1;
+import com.baidu.tieba.qp1;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppBearInfo extends SwanAppIPCData {
     public static final String BEAR_DESC = "sign";
     public static final String BEAR_ID = "office_id";
@@ -22,7 +22,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
     public String bearLogo;
     public String bearName;
     public String bearVipType;
-    public static final boolean DEBUG = ho1.a;
+    public static final boolean DEBUG = qp1.a;
     public static final Parcelable.Creator<SwanAppBearInfo> CREATOR = new a();
 
     @Override // android.os.Parcelable
@@ -43,7 +43,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
         return !TextUtils.isEmpty(this.bearId);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanAppBearInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator

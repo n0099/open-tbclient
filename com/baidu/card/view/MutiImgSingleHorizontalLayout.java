@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.iw4;
-import com.baidu.tieba.ji6;
-import com.baidu.tieba.kx;
-import com.baidu.tieba.rm;
+import com.baidu.tieba.an;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.rx4;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.vj6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,8 +36,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax4> {
+/* loaded from: classes3.dex */
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements tx<jy4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -48,11 +48,11 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public ji6<ax4> e;
+    public vj6<jy4> e;
 
-    public void setPreloadSizeReadyCallback(rm rmVar) {
+    public void setPreloadSizeReadyCallback(an anVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rmVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, anVar) == null) {
         }
     }
 
@@ -69,8 +69,8 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
                 return;
             }
         }
-        f = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
-        int l = ii.l(TbadkCoreApplication.getInst());
+        f = ri.g(TbadkCoreApplication.getInst(), R.dimen.tbds88);
+        int l = ri.l(TbadkCoreApplication.getInst());
         g = l;
         int i2 = l - f;
         h = i2;
@@ -125,7 +125,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (iw4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (rx4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < medias.size(); i2++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i2);
@@ -152,12 +152,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kx
+    @Override // com.baidu.tieba.tx
     /* renamed from: c */
-    public void a(ax4 ax4Var) {
+    public void a(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) {
-            ThreadData threadData = ax4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jy4Var) == null) {
+            ThreadData threadData = jy4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             setImageData(threadData);
         }
@@ -170,10 +170,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
         }
     }
 
-    public void setSubClickListener(ji6<ax4> ji6Var) {
+    public void setSubClickListener(vj6<jy4> vj6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ji6Var) == null) {
-            this.e = ji6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, vj6Var) == null) {
+            this.e = vj6Var;
         }
     }
 
@@ -208,7 +208,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
                 tbImageView.H();
             }
             if (z) {
-                tbImageView.setRadius(ii.g(getContext(), R.dimen.tbds10));
+                tbImageView.setRadius(ri.g(getContext(), R.dimen.tbds10));
                 tbImageView.setDrawBorder(true);
                 tbImageView.setForegroundColor(0);
                 tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
@@ -219,13 +219,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax
         }
     }
 
-    public ji6<ax4> getSubClickListener() {
+    public vj6<jy4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (ji6) invokeV.objValue;
+        return (vj6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

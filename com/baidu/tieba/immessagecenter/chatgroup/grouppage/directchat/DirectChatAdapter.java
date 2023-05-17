@@ -19,10 +19,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a78;
-import com.baidu.tieba.g35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.v98;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.qb8;
+import com.baidu.tieba.s88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,10 +43,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int f;
     public final int g;
     @NonNull
-    public a78 h;
+    public s88 h;
     public View.OnClickListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,13 +72,13 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090891);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090890);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090893);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0908ae);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908ad);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908b0);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,17 +112,17 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                 if (abilityItem.getStyleConf() != null && abilityItem.getStyleConf().getContent() != null) {
                     str = abilityItem.getStyleConf().getContent();
                 }
-                v98.e("c15187", str, this.a.c);
+                qb8.e("c15187", str, this.a.c);
             }
         }
     }
 
-    public DirectChatAdapter(Context context, @NonNull a78 a78Var) {
+    public DirectChatAdapter(Context context, @NonNull s88 s88Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, a78Var};
+            Object[] objArr = {context, s88Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -135,7 +135,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.d = new ArrayList();
         this.i = new a(this);
         this.a = context;
-        this.h = a78Var;
+        this.h = s88Var;
         this.f = context.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.M_W_X004);
         this.g = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
@@ -158,7 +158,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
             String content = styleConf.getContent();
             if (!TextUtils.isEmpty(content) && !this.d.contains(content)) {
-                v98.e("c15186", content, this.c);
+                qb8.e("c15186", content, this.c);
                 this.d.add(content);
             }
             viewHolder.a.setTag(abilityItem);
@@ -280,7 +280,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0250, viewGroup, false));
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0263, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }
@@ -288,10 +288,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final void s(@NonNull ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, viewHolder) == null) {
-            g35 d = g35.d(viewHolder.a);
+            p45 d = p45.d(viewHolder.a);
             d.o(R.string.J_X01);
             d.f(R.color.CAM_X0208);
-            g35 d2 = g35.d(viewHolder.c);
+            p45 d2 = p45.d(viewHolder.c);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
@@ -301,10 +301,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final void t(@NonNull ViewHolder viewHolder, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, viewHolder, str, str2) == null) {
-            g35 d = g35.d(viewHolder.a);
+            p45 d = p45.d(viewHolder.a);
             d.o(R.string.J_X01);
             d.g(str);
-            g35 d2 = g35.d(viewHolder.c);
+            p45 d2 = p45.d(viewHolder.c);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X02);
             viewHolder.c.setTextColor(Color.parseColor(str2));

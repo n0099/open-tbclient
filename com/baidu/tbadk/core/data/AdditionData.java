@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbPage.AddPost;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AdditionData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6760087984237848132L;

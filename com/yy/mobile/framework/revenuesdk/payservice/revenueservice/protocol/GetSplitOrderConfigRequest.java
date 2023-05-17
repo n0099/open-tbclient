@@ -7,7 +7,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class GetSplitOrderConfigRequest implements IRequestProtocol {
     public long amount;
     public int appId;

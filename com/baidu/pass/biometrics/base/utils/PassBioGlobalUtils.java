@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tieba.R;
 @SuppressLint({"InlinedApi", "NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class PassBioGlobalUtils {
     public static String getZid(Context context, String str, int i) {
         String gzfi = FH.gzfi(context, str, i);
@@ -32,11 +32,11 @@ public final class PassBioGlobalUtils {
         if (context.getApplicationContext() != null) {
             context = context.getApplicationContext();
         }
-        if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06fc, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091df5)) == null) {
+        if (TextUtils.isEmpty(charSequence) || (inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0724, (ViewGroup) null)) == null || (textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e51)) == null) {
             return;
         }
         textView.setText(charSequence);
-        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091df4);
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091e50);
         if (imageView != null && i > 0) {
             imageView.setImageResource(i);
             imageView.setVisibility(0);

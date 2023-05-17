@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dy7;
+import com.baidu.tieba.rz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +15,11 @@ import tbclient.GetTopicRelateThread.DataRes;
 import tbclient.GetTopicRelateThread.GetTopicRelateThreadResIdl;
 import tbclient.Page;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dy7 hotThreadItemListData;
+    public rz7 hotThreadItemListData;
     public Page page;
     public List<ThreadInfo> thread_list;
 
@@ -41,13 +41,13 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
         }
     }
 
-    public dy7 getHotThreadItemListData() {
+    public rz7 getHotThreadItemListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.hotThreadItemListData;
         }
-        return (dy7) invokeV.objValue;
+        return (rz7) invokeV.objValue;
     }
 
     public Page getPage() {
@@ -84,9 +84,9 @@ public class ResponseSocketGetTopicRelateThreadMessage extends SocketResponsedMe
                 DataRes dataRes = getTopicRelateThreadResIdl.data;
                 this.thread_list = dataRes.thread_list;
                 this.page = dataRes.page;
-                dy7 dy7Var = new dy7();
-                this.hotThreadItemListData = dy7Var;
-                dy7Var.h(getTopicRelateThreadResIdl.data);
+                rz7 rz7Var = new rz7();
+                this.hotThreadItemListData = rz7Var;
+                rz7Var.i(getTopicRelateThreadResIdl.data);
             }
             return getTopicRelateThreadResIdl;
         }

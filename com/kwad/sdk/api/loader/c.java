@@ -3,10 +3,10 @@ package com.kwad.sdk.api.loader;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Application {
         public final Context a;
 

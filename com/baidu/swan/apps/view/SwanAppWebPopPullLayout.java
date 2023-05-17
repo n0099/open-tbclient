@@ -12,10 +12,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import com.baidu.tieba.ho1;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.qp1;
+/* loaded from: classes4.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
-    public static final boolean f = ho1.a;
+    public static final boolean f = qp1.a;
     public final ViewDragHelper a;
     public final int b;
     @Nullable
@@ -23,12 +23,12 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     public b d;
     public View e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         boolean a(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a();
 
@@ -39,7 +39,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         void d(float f);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends ViewDragHelper.Callback {
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public boolean tryCaptureView(View view2, int i) {

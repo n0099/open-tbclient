@@ -1,5 +1,5 @@
 package com.huawei.hms.support.log;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface LogLevel {
     public static final int DEBUG = 3;
     public static final int ERROR = 6;

@@ -2,18 +2,18 @@ package com.baidu.tieba.immessagecenter.mention;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.hb8;
+import com.baidu.tieba.cd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hb8 msgData;
+    public cd8 msgData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgReminderHttpRespMessage(int i) {
@@ -45,20 +45,20 @@ public class MsgReminderHttpRespMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0 && jSONObject != null) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("message");
                 if (jSONObject != null) {
-                    hb8 hb8Var = new hb8();
-                    hb8Var.f(optJSONObject);
-                    this.msgData = hb8Var;
+                    cd8 cd8Var = new cd8();
+                    cd8Var.f(optJSONObject);
+                    this.msgData = cd8Var;
                 }
             }
         }
     }
 
-    public hb8 getMsgData() {
+    public cd8 getMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.msgData;
         }
-        return (hb8) invokeV.objValue;
+        return (cd8) invokeV.objValue;
     }
 }

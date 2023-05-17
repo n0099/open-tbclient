@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.aj;
 import com.xiaomi.push.ci;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cj extends aj.a {
     public final /* synthetic */ ci a;
 
@@ -13,7 +13,7 @@ public class cj extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return "100957";
     }
 

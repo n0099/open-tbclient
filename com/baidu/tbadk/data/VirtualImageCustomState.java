@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.CustomState;
 import tbclient.StateInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class VirtualImageCustomState implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ICON_TYPE_CUSTOM = "url";

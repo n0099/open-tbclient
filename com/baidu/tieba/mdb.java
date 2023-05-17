@@ -1,20 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.ClipData;
-import android.content.ClipboardManager;
-import android.content.Context;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
-public class mdb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.app.Activity;
+import com.baidu.tieba.sgb;
+import com.baidu.tieba.tgb;
+import com.baidu.tieba.ugb;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+/* loaded from: classes6.dex */
+public interface mdb {
+    IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, jdb jdbVar);
 
-    public static void a(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
-            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
-        }
-    }
+    qgb b(Activity activity);
+
+    pgb c(Activity activity);
+
+    rgb d(Activity activity);
+
+    IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, jdb jdbVar);
+
+    sgb f(Activity activity, sgb.b bVar, PayUIKitConfig payUIKitConfig);
+
+    ugb g(Activity activity, ugb.b bVar, odb odbVar);
+
+    tgb h(Activity activity, PayUIKitConfig payUIKitConfig, tgb.b bVar, odb odbVar);
 }

@@ -2,7 +2,7 @@ package com.google.android.exoplayer2;
 
 import android.util.Pair;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class Timeline {
     public static final Timeline EMPTY = new Timeline() { // from class: com.google.android.exoplayer2.Timeline.1
         @Override // com.google.android.exoplayer2.Timeline
@@ -41,7 +41,7 @@ public abstract class Timeline {
 
     public abstract int getWindowCount();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Period {
         public int[] adCounts;
         public long[][] adDurationsUs;
@@ -175,7 +175,7 @@ public abstract class Timeline {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Window {
         public long defaultPositionUs;
         public long durationUs;

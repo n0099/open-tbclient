@@ -8,7 +8,7 @@ import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NavigationMenuView extends RecyclerView implements MenuView {
     @Override // androidx.appcompat.view.menu.MenuView
     public int getWindowAnimations() {

@@ -1,80 +1,47 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.win.opensdk.PBDrawVideo;
-import com.win.opensdk.PBDrawVideoListener;
-/* loaded from: classes6.dex */
-public class rta extends FunNativeAd2Bridger<PBDrawVideo, View> {
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+/* loaded from: classes7.dex */
+public class rta extends hta<TTFullScreenVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ qta b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rta(qta qtaVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public rta(TTFullScreenVideoAd tTFullScreenVideoAd) {
+        super(tTFullScreenVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {qtaVar, reporterPidLoader};
+            Object[] objArr = {tTFullScreenVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = qtaVar;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    @Override // com.baidu.tieba.hta
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTFullScreenVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(PBDrawVideo pBDrawVideo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pBDrawVideo)) == null) {
-            return pBDrawVideo.getDrawVideoView();
-        }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, PBDrawVideo pBDrawVideo, BaseNativeAd2<PBDrawVideo, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Ssp.Pid pid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, pBDrawVideo, baseNativeAd2, funAdInteractionListener}) == null) {
-            qta qtaVar = this.b;
-            FunNativeAdListenerHelper<PBDrawVideo, PBDrawVideoListener> funNativeAdListenerHelper = qtaVar.e;
-            pid = qtaVar.mPid;
-            funNativeAdListenerHelper.startShow(pBDrawVideo, str, pid, null, funAdInteractionListener);
-            expressInflater.inflate();
-        }
+        return (String) invokeV.objValue;
     }
 }

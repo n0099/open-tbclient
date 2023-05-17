@@ -9,7 +9,7 @@ import com.kwad.components.core.webview.jshandler.s;
 import com.kwad.components.core.webview.jshandler.x;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends Presenter {
     public NestedScrollWebView Gg;
     public x.b bM = new x.b() { // from class: com.kwad.components.core.page.kwai.b.1
@@ -58,7 +58,7 @@ public final class b extends Presenter {
     public final void aq() {
         super.aq();
         this.mAdTemplate = ((com.kwad.components.core.page.recycle.e) xR()).adTemplate;
-        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0913b3);
+        NestedScrollWebView nestedScrollWebView = (NestedScrollWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f0913ee);
         this.Gg = nestedScrollWebView;
         this.Gg.setClientConfig(nestedScrollWebView.getClientConfig().R(this.mAdTemplate));
         this.Gg.setNestedScrollingEnabled(true);

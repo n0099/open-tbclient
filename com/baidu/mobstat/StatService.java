@@ -19,7 +19,7 @@ import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StatService {
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
@@ -27,12 +27,12 @@ public class StatService {
     public static boolean b;
     public static boolean c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface OnZidReceiveListener {
         String getZid();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }

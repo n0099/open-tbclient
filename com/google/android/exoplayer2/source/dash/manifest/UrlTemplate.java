@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.source.dash.manifest;
 
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class UrlTemplate {
     public static final String BANDWIDTH = "Bandwidth";
     public static final int BANDWIDTH_ID = 3;

@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.extractor.mp3;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.extractor.mp3.Mp3Extractor;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ConstantBitrateSeeker implements Mp3Extractor.Seeker {
     public static final int BITS_PER_BYTE = 8;
     public final int bitrate;

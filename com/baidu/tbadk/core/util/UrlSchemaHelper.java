@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
@@ -244,7 +245,7 @@ public class UrlSchemaHelper {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921361, str));
                 return;
             }
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
             intent.addFlags(805306368);
             if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
                 TbadkCoreApplication.getInst().startActivity(intent);

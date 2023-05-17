@@ -41,7 +41,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapController {
     public static /* synthetic */ Interceptable $ic = null;
     public static float A = 0.0f;
@@ -134,7 +134,7 @@ public class MapController {
     public int w;
     public int x;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface MapFirstFrameCallback {
         void onFirstFrameDrawing(MapController mapController);
     }
@@ -238,7 +238,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class HeatMapType {
         public static /* synthetic */ Interceptable $ic;
         public static final HeatMapType CEMETERY;
@@ -318,7 +318,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MapControlMode {
         public static /* synthetic */ Interceptable $ic;
         public static final MapControlMode DEFAULT;
@@ -391,7 +391,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MapLayerType {
         public static /* synthetic */ Interceptable $ic;
         public static final MapLayerType DEFAULT;
@@ -464,7 +464,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MapSceneMode {
         public static /* synthetic */ Interceptable $ic;
         public static final MapSceneMode DEFAULT;
@@ -548,7 +548,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class MapStyleMode {
         public static /* synthetic */ Interceptable $ic;
         public static final MapStyleMode DEFAULT;
@@ -640,7 +640,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class RecommendPoiScene {
         public static /* synthetic */ Interceptable $ic;
         public static final RecommendPoiScene BASE;
@@ -709,7 +709,7 @@ public class MapController {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class RecycleMemoryLevel {
         public static /* synthetic */ Interceptable $ic;
         public static final RecycleMemoryLevel FULL;
@@ -786,7 +786,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -827,7 +827,7 @@ public class MapController {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends com.baidu.platform.comapi.util.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

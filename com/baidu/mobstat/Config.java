@@ -1,7 +1,7 @@
 package com.baidu.mobstat;
 
 import android.os.Build;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Config {
     public static final String APPKEY_META_NAME = "BaiduMobAd_STAT_ID";
     public static final String APP_KEY = "k";
@@ -261,14 +261,14 @@ public class Config {
     public static final String ZID = "zid";
     public static final String replace = "_";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AppLaunchType {
         public static final int AppCall = 1;
         public static final int DirectCall = 0;
         public static final int PushCall = 2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class CrashChannel {
         public static final int SYS_TRACK = 0;
         public static final int USER_UPLOAD_ERROR = 12;
@@ -276,7 +276,7 @@ public class Config {
         public static final int USER_UPLOAD_OTHER = 13;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SessionInvokeCategory {
         public static final int ActivityInvoke = 1;
         public static final int ApiInvoke = 0;
@@ -284,13 +284,13 @@ public class Config {
         public static final int FragmentInvoke = 2;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class StartType {
         public static final int NORMAL_START = 0;
         public static final int QUICK_START = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TraceType {
         public static final int AUTO_TRACE = 1;
         public static final int CODE_TRACE = 0;
@@ -298,7 +298,7 @@ public class Config {
         public static final int FULL_TRACE = 3;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum EventViewType {
         EDIT(0),
         BUTTON(1);

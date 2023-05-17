@@ -17,7 +17,7 @@ import com.huawei.hms.activity.IBridgeActivityDelegate;
 import com.huawei.hms.adapter.sysobs.SystemManager;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.update.ui.NotInstalledHmsDialogHelper;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NotInstalledHmsAdapter implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic;
     public static final Object c;
@@ -26,7 +26,7 @@ public class NotInstalledHmsAdapter implements IBridgeActivityDelegate {
     public Activity a;
     public Dialog b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class NotInstalledHmsAdapter implements IBridgeActivityDelegate {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

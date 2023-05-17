@@ -3,7 +3,7 @@ package com.google.zxing.pdf417.decoder;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class PDF417CodewordDecoder {
     public static final float[][] RATIOS_TABLE = (float[][]) Array.newInstance(float.class, PDF417Common.SYMBOL_TABLE.length, 8);
 

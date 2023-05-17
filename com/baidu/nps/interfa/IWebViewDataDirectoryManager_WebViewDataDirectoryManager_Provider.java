@@ -1,14 +1,14 @@
 package com.baidu.nps.interfa;
 
-import com.baidu.tieba.dj1;
-import com.baidu.tieba.el;
+import com.baidu.tieba.nl;
+import com.baidu.tieba.tj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider implements dj1 {
+/* loaded from: classes3.dex */
+public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider implements tj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,10 +26,10 @@ public class IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider i
         }
     }
 
-    @Override // com.baidu.tieba.dj1
+    @Override // com.baidu.tieba.tj1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new el() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new nl() : invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.google.android.exoplayer2.source.chunk;
 import android.util.Log;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ChunkedTrackBlacklistUtil {
     public static final long DEFAULT_TRACK_BLACKLIST_MS = 60000;
     public static final String TAG = "ChunkedTrackBlacklist";

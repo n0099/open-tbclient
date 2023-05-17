@@ -1,10 +1,10 @@
 package com.baidu.searchbox.aideviceperformance.data;
 
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DBTableConfig {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class LaunchTimeDBTable {
         public static final String APP_LUNCH_TIME_COLUMN = "app_launch_time";
         public static final String CREATE_TABLE_SQL = "create table app_launch_time (event_time long default 0,app_launch_time long default 0);";
@@ -17,7 +17,7 @@ public class DBTableConfig {
         public static final int VERSION = 1;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UserStickinessDBTable {
         public static final String DB_NAME = "behavior_info.db";
         public static final boolean ENABLE_COUNT_RESTRICTION_FLAG = true;

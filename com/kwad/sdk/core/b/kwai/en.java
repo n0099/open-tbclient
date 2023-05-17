@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.a.b;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class en implements com.kwad.sdk.core.d<b.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(b.a aVar, JSONObject jSONObject) {

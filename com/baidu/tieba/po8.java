@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.live.interfaces.service.ToastService;
+import com.baidu.searchbox.live.interfaces.toast.ToastClickListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class po8 {
+/* loaded from: classes7.dex */
+public class po8 implements ToastService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public String b;
-    public View c;
+
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastCenter(@NonNull Context context, @NonNull String str, @NonNull Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(1048579, this, context, str, drawable, i) == null) {
+        }
+    }
 
     public po8() {
         Interceptable interceptable = $ic;
@@ -34,71 +37,27 @@ public class po8 {
         }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showClickableToast(Context context, String str, String str2, int i, ToastClickListener toastClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public View a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08d5, (ViewGroup) null);
-            this.a = inflate;
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f092298);
-            this.a.setTag(this);
-            return this.a;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-            this.a.setBackgroundColor(jp8.a(str));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), toastClickListener}) == null) {
+            ri.Q(TbadkCoreApplication.getInst(), str);
         }
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showNormal(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i) == null) {
+            ri.Q(TbadkCoreApplication.getInst(), str);
         }
     }
 
-    public void f(boolean z) {
-        int i;
+    @Override // com.baidu.searchbox.live.interfaces.service.ToastService
+    public void showToastBottom(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            View view2 = this.c;
-            if (z) {
-                i = 0;
-            } else {
-                i = 4;
-            }
-            view2.setVisibility(i);
-        }
-    }
-
-    public void c(TbPageContext<?> tbPageContext) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            yv4 layoutMode = tbPageContext.getLayoutMode();
-            if (skinType == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            tbPageContext.getLayoutMode().k(this.a);
-            this.a.setBackgroundColor(jp8.a(this.b));
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, i) == null) {
+            ri.Q(TbadkCoreApplication.getInst(), str);
         }
     }
 }

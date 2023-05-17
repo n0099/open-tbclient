@@ -16,7 +16,7 @@ import com.baidu.searchbox.retrieve.log.FetchLogJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerJob;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class FetchConnManager {
     public static final String ACTION_FETCH_LOG_NOTICE = "fetch_log_notice";
     public static final String DATA = "data";

@@ -1,5 +1,5 @@
 package com.baidu.live.arch.utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MiniUniqueId {
     public static final int MIN_ID = 1000000;
     public static volatile int sBaseId;

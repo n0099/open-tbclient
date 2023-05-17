@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LoadingProgressBar extends ProgressBar {
     public int a;
     public Drawable b;

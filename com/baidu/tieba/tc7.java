@@ -1,13 +1,42 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+/* loaded from: classes7.dex */
 public interface tc7 {
-    xc7 a(int i);
+    void a(String str);
 
-    void b(int i, int i2);
+    void b();
 
-    void c(int i, int i2);
+    int c();
 
-    boolean d(int i, int i2);
+    void d(bo boVar);
 
-    String w();
+    void e();
+
+    List<rn> f();
+
+    void g(ArrayList<rn> arrayList, FrsViewData frsViewData);
+
+    HashMap<Integer, ThreadData> h();
+
+    int i();
+
+    int j();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void l(x77 x77Var);
+
+    void m(boolean z);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setFromCDN(boolean z);
 }

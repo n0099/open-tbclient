@@ -5,7 +5,7 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.zn5;
+import com.baidu.tieba.ip5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class HomePageStatic {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -56,12 +56,12 @@ public class HomePageStatic {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
             tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            zn5 zn5Var = new zn5(303111);
-            zn5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
-            zn5Var.g(true);
-            zn5Var.h(false);
-            zn5Var.f(SocketMessageTask.DupLicateMode.NONE);
-            messageManager.registerTask(zn5Var);
+            ip5 ip5Var = new ip5(303111);
+            ip5Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
+            ip5Var.g(true);
+            ip5Var.h(false);
+            ip5Var.f(SocketMessageTask.DupLicateMode.NONE);
+            messageManager.registerTask(ip5Var);
         }
     }
 }

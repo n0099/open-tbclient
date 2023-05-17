@@ -10,11 +10,11 @@ import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
 import com.baidu.searchbox.bddownload.core.cause.EndCause;
 import com.baidu.searchbox.bddownload.core.listener.assist.DownloadBlockProgressListenerAssist;
 import com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerAssist.AssistExtend, ListenerModelHandler.ModelCreator<Listener4SpeedModel> {
     public Listener4SpeedCallback callback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface Listener4SpeedCallback {
         void blockEnd(@NonNull DownloadTask downloadTask, int i, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator);
 
@@ -27,7 +27,7 @@ public class ListenerSpeedAssistExtend implements DownloadBlockProgressListenerA
         void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Listener4SpeedModel extends DownloadBlockProgressListenerAssist.Listener4Model {
         public SparseArray<SpeedCalculator> blockSpeeds;
         public SpeedCalculator taskSpeed;

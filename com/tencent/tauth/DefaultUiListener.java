@@ -1,5 +1,5 @@
 package com.tencent.tauth;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DefaultUiListener implements IUiListener {
     @Override // com.tencent.tauth.IUiListener
     public void onCancel() {

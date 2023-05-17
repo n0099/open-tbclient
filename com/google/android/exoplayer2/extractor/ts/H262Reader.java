@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class H262Reader implements ElementaryStreamReader {
     public static final double[] FRAME_RATE_VALUES = {23.976023976023978d, 24.0d, 25.0d, 29.97002997002997d, 30.0d, 50.0d, 59.94005994005994d, 60.0d};
     public static final int START_EXTENSION = 181;
@@ -36,7 +36,7 @@ public final class H262Reader implements ElementaryStreamReader {
     public void packetFinished() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CsdBuffer {
         public static final byte[] START_CODE = {0, 0, 1};
         public byte[] data;

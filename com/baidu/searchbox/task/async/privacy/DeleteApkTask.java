@@ -6,10 +6,10 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mg;
+import com.baidu.tieba.vg;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DeleteApkTask extends LaunchTask {
     public static final String DOWNLOAD_DIR = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/";
     public static final String QUICK_WEB_VIEW_DIR_NAME = "bdtbWCache";
@@ -54,7 +54,7 @@ public class DeleteApkTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        mg.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+        vg.a().b(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
             @Override // java.lang.Runnable
             public void run() {
                 DeleteApkTask.this.deleteApkFile();

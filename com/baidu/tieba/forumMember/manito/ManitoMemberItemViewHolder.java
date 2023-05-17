@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,14 +39,14 @@ public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.f = 3;
-        GodHeadImageView godHeadImageView = (GodHeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091121);
+        GodHeadImageView godHeadImageView = (GodHeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091159);
         this.a = godHeadImageView;
         godHeadImageView.setShapeType(0);
         this.a.setShowType(1);
         this.a.setRadius(14);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09112f);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09112e);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09112d);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0908c6);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091168);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091167);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091166);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0908e3);
     }
 }

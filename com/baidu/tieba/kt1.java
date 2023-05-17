@@ -1,5 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import android.content.Context;
+import java.io.File;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public interface kt1 {
-    void a();
+    void a(String str, String str2);
+
+    File b(Context context, String str);
+
+    JSONObject c(Context context, String str);
+
+    void d();
 }

@@ -5,7 +5,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Sink;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface HttpCodec {
     public static final int DISCARD_STREAM_TIMEOUT_MILLIS = 100;
 

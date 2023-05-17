@@ -1,69 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.util.CommonParam;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class q26 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class q26 extends db {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static String a(Context context, AdInfo adInfo) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q26() {
+        super(304001);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, adInfo)) == null) {
-            if (adInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("placeId", adInfo.placeId);
-                    jSONObject.put(com.heytap.mcssdk.constant.b.C, "1.1.4");
-                    jSONObject.put("adType", adInfo.adShowType.getValue());
-                    if (TextUtils.isEmpty(adInfo.redirectUrl)) {
-                        jSONObject.put("landingPage", adInfo.downLoadUrl);
-                    } else {
-                        jSONObject.put("landingPage", adInfo.redirectUrl);
-                    }
-                    jSONObject.put("showStamp", String.valueOf(System.currentTimeMillis()));
-                    jSONObject.put("packageName", adInfo.packageName);
-                    jSONObject.put("finalPrice", adInfo.finalPrice);
-                    jSONObject.put("chargingMode", adInfo.chargingMode);
-                    jSONObject.put("token", adInfo.token);
-                    jSONObject.put("adpUserId", adInfo.adpUserId);
-                    jSONObject.put("bdId", CommonParam.getCUID(context));
-                    jSONObject.put("unitId", adInfo.unitId);
-                    jSONObject.put("planId", adInfo.planId);
-                    jSONObject.put("ideaId", adInfo.ideaId);
-                    jSONObject.put("ideaType", adInfo.sourceType);
-                    jSONObject.put("s", "0");
-                    return jSONObject.toString();
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                    return "";
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(Context context) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.ab
+    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+        c(socketResponsedMessage2);
+        return socketResponsedMessage2;
+    }
+
+    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.e(e);
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
+                y26 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
+                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
+                if (addressListData != null) {
+                    for (c36 c36Var : addressListData.a()) {
+                        List<ac5> a = c36Var.a();
+                        ArrayList arrayList = new ArrayList();
+                        for (ac5 ac5Var : a) {
+                            if (!this.a && ac5Var.h() == 1) {
+                                arrayList.add(ac5Var);
+                            }
+                        }
+                        a.removeAll(arrayList);
+                    }
+                }
             }
+            return socketResponsedMessage;
         }
-        return (String) invokeL.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

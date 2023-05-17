@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.xi8;
+import com.baidu.tieba.sk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xi8 mLocationData;
+    public sk8 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchHttpResponsedMessage(int i) {
@@ -49,26 +49,26 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            xi8 xi8Var = new xi8();
-            this.mLocationData = xi8Var;
-            xi8Var.b(getSuggestionByAddrNameResIdl.data);
+            sk8 sk8Var = new sk8();
+            this.mLocationData = sk8Var;
+            sk8Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }
     }
 
-    public xi8 getLocationData() {
+    public sk8 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mLocationData;
         }
-        return (xi8) invokeV.objValue;
+        return (sk8) invokeV.objValue;
     }
 
-    public void setLocationData(xi8 xi8Var) {
+    public void setLocationData(sk8 sk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xi8Var) == null) {
-            this.mLocationData = xi8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, sk8Var) == null) {
+            this.mLocationData = sk8Var;
         }
     }
 }

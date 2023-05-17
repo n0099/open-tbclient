@@ -26,14 +26,14 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t86;
+import com.baidu.tieba.fa6;
 import com.baidu.tieba.view.NoScrollGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,12 +45,12 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public NoScrollGridView f;
     public View g;
     public LinearLayout h;
-    public t86 i;
+    public fa6 i;
     public int j;
     public ArrayList<AlaSquareTabInfo> k;
     public IAlaSquareTabController l;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +83,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -169,28 +169,28 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00e8, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getPageContext().getPageActivity(), R.layout.obfuscated_res_0x7f0d00ea, null);
             this.a = linearLayout;
             NavigationBar navigationBar = (NavigationBar) linearLayout.findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0200));
-            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091faa);
+            this.b.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f022a));
+            LinearLayout linearLayout2 = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092007);
             this.c = linearLayout2;
-            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091fd7);
+            TextView textView = (TextView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f092033);
             this.d = textView;
             textView.setClickable(false);
-            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091fbd);
+            this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f092019);
             this.c.setOnClickListener(new a(this));
             if (this.j == 1) {
                 this.c.setVisibility(0);
             } else {
                 this.c.setVisibility(8);
             }
-            this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) null);
-            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091f93);
-            this.i = new t86(getPageContext());
-            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901eb);
+            this.h = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
+            this.g = this.a.findViewById(R.id.obfuscated_res_0x7f091ff0);
+            this.i = new fa6(getPageContext());
+            NoScrollGridView noScrollGridView = (NoScrollGridView) this.a.findViewById(R.id.obfuscated_res_0x7f0901f8);
             this.f = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));
             this.f.setAdapter((ListAdapter) this.i);

@@ -7,13 +7,14 @@ import android.util.Base64;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.smallgame.sdk.Log;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class WebGLImage {
     public static final boolean DEBUG = false;
     public static final String TAG = "WebGLImage";
@@ -37,7 +38,7 @@ public class WebGLImage {
 
     public native boolean nativeLoadAsset(long j, Bitmap bitmap);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class CanvasResult {
         @V8JavascriptField
         public String errMsg;
@@ -95,7 +96,7 @@ public class WebGLImage {
         String str2 = "jpg";
         if (!"jpg".equalsIgnoreCase(str) && !"image/jpg".equalsIgnoreCase(str)) {
             str2 = "jpeg";
-            if (!"jpeg".equalsIgnoreCase(str) && !"image/jpeg".equalsIgnoreCase(str)) {
+            if (!"jpeg".equalsIgnoreCase(str) && !WordCommandManager.IMAGE_JPEG.equalsIgnoreCase(str)) {
                 return "png";
             }
         }

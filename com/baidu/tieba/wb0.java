@@ -1,8 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Color;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.arch.utils.MiniPluginUtils;
+import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
+import com.baidu.live.framework.net.LiveNetwork;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.BundleInfoGroup;
+import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.searchbox.live.interfaces.net.LiveNetConstants;
+import com.baidu.searchbox.live.model.requester.MixRequesterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,104 +19,449 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class wb0 extends xb0 {
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.TuplesKt;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public final class wb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948264676, "Lcom/baidu/tieba/wb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static final class a<T> implements Comparator<Map.Entry<? extends String, ? extends String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-323406457, "Lcom/baidu/tieba/wb0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-323406457, "Lcom/baidu/tieba/wb0$a;");
+                    return;
+                }
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948264676, "Lcom/baidu/tieba/wb0;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
-        b = new HashMap<>();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public final int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+                return entry.getKey().compareTo(entry2.getKey());
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    public wb0() {
+    /* loaded from: classes8.dex */
+    public static final class b<T> implements Comparator<Map.Entry<? extends String, ? extends String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-323406426, "Lcom/baidu/tieba/wb0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-323406426, "Lcom/baidu/tieba/wb0$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public final int compare(Map.Entry<String, String> entry, Map.Entry<String, String> entry2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entry, entry2)) == null) {
+                return entry.getKey().compareTo(entry2.getKey());
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    public static final Map<String, String> a(Map<String, String> map, Map<String, String> map2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, map, map2, z)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("timestamp", String.valueOf(System.currentTimeMillis()));
+            hashMap.put("livefeed_sdk_version", "6.4.5.0");
+            hashMap.put(MiniPluginUtils.MIX_PLUGIN_VER_PARAM_KEY, m());
+            if (z) {
+                hashMap.put("sign", i(map, hashMap, map2));
+            } else {
+                hashMap.put("sign", j(map, hashMap, map2));
             }
+            return hashMap;
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "#666666", "", "#858585", "#E6FFFFFF"});
-        b.put("color_white1", new String[]{"#FFFFFF", "#191919", "", "#161823", "#161823"});
-        b.put("color_white2", new String[]{"#FFFFFF", "#222222", "", "#1F2337", "#1F2337"});
-        b.put("color_white3", new String[]{"#FFFFFF", "#4DFFFFFF", "", "#FFFFFF", "#E6FFFFFF"});
-        b.put("color_F5F5F51", new String[]{"#F5F5F5", "#191919", "", "#161823", "#00000000"});
-        b.put("color_F5F5F52", new String[]{"#F5F5F5", "#121212", "", "#161823", "#161823"});
-        b.put("color_F5F5F53", new String[]{"#F5F5F5", "#121212", "", "#1AFFFFFF", "#1AFFFFFF"});
-        b.put("color_FF33551", new String[]{"#FF3355", "#80192A", "", "#FF3355", "#FF3355"});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "#1A80192A", "", "#26FF3355", "#26FF3355"});
-        b.put("color_858585", new String[]{"#858585", "#444444", "", "#858585", "#80FFFFFF"});
-        b.put("color_525252", new String[]{"#525252", "#555555", "", "#858585", "#858585"});
-        b.put("color_FF3333", new String[]{"#FF3333", "#7F1919", "", "#FF3333", "#FF3333"});
-        b.put("color_768CAE", new String[]{"#768CAE", "#3A4556", "", "#768CAE", "#768CAE"});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "#263678", "", "#4E6EF2", "#4E6EF2"});
-        b.put("color_8585852", new String[]{"#858585", "#444444", "", "#858585", "#858585"});
-        b.put("color_5252522", new String[]{"#525252", "#555555", "", "#99FFFFFF", "#99FFFFFF"});
-        b.put("color_btn_stroke", new String[]{"#B8B8B8", "#00000000", "", "#00000000", "#00000000"});
-        b.put("color_btn_fill", new String[]{"#00000000", "#303030", "", "#66666666", "#66666666"});
-        b.put("color_sub_tab_normal", new String[]{"#1F1F1F", "#666666", "", "#858585", "#858585"});
-        b.put("color_main_bg", new String[]{"#FFFFFF", "#191919", "", "#161823", "#00000000"});
-        b.put("color_white4", new String[]{"#1F1F1F", "#666666", "", "#FFFFFF", "#E6FFFFFF"});
-        b.put("color_gradient_1", new String[]{"#FFFFFF", "#191919", "", "#161823", "#161823"});
-        b.put("color_gradient_2", new String[]{"#00FFFFFF", "#00191919", "", "#00161823", "#00161823"});
-        b.put("color_4367B4", new String[]{"#4367B4", "#21335A", "", "#BF75B1FF", "#BF75B1FF"});
-        b.put("color_8585853", new String[]{"#858585", "#444444", "", "#7FFFFFFF", "#7FFFFFFF"});
-        b.put("color_B8B8B8", new String[]{"#B8B8B8", "#4D4D4D", "", "#66FFFFFF", "#66FFFFFF"});
-        b.put("color_E0E0E0", new String[]{"#E0E0E0", "#33ffffff", "", ""});
-        b.put("color_EEEEEE", new String[]{"#eeeeee", "#121212", "", ""});
+        return (Map) invokeLLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.xb0
-    public int a(Context context, String str, String str2) {
+    public static /* synthetic */ Map b(Map map, Map map2, boolean z, int i, Object obj) {
+        if ((i & 4) != 0) {
+            z = false;
+        }
+        return a(map, map2, z);
+    }
+
+    public static final String c(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
+            String fullUrl = cc0.b(str);
+            if (map != null) {
+                String a2 = cc0.a(fullUrl, map);
+                Intrinsics.checkExpressionValueIsNotNull(a2, "CommonUrlParamUtils.addParam(fullUrl, params)");
+                return a2;
+            }
+            Intrinsics.checkExpressionValueIsNotNull(fullUrl, "fullUrl");
+            return fullUrl;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static final StringBuffer d(StringBuffer stringBuffer, ArrayList<Map.Entry<String, String>> arrayList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, stringBuffer, arrayList)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                Iterator<Map.Entry<String, String>> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    Map.Entry<String, String> next = it.next();
+                    String key = next.getKey();
+                    String value = next.getValue();
+                    if (!"sign".equals(key)) {
+                        stringBuffer.append(key);
+                        stringBuffer.append("=");
+                        stringBuffer.append(value);
+                        stringBuffer.append("&");
+                    }
+                }
+            }
+            return stringBuffer;
+        }
+        return (StringBuffer) invokeLL.objValue;
+    }
+
+    public static final StringBuffer e(StringBuffer stringBuffer, ArrayList<Map.Entry<String, String>> arrayList) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, stringBuffer, arrayList)) == null) {
+            if (arrayList != null && !arrayList.isEmpty()) {
+                Iterator<Map.Entry<String, String>> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    Map.Entry<String, String> next = it.next();
+                    String key = next.getKey();
+                    String value = next.getValue();
+                    if (!"sign".equals(key)) {
+                        stringBuffer.append(key);
+                        stringBuffer.append("=");
+                        stringBuffer.append(value);
+                    }
+                }
+            }
+            return stringBuffer;
+        }
+        return (StringBuffer) invokeLL.objValue;
+    }
+
+    public static final <T> void f(String str, Map<String, String> map, vb0<T> vb0Var, int i, int i2, Map<String, String> map2, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, map, vb0Var, Integer.valueOf(i), Integer.valueOf(i2), map2, list}) == null) {
+            LiveNetwork liveNetwork = new LiveNetwork();
+            String c = c(str, map2);
+            LiveFeedPageSdk liveFeedPageSdk = LiveFeedPageSdk.getInstance();
+            Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk, "LiveFeedPageSdk.getInstance()");
+            if (liveFeedPageSdk.getInvoker() != null) {
+                LiveFeedPageSdk liveFeedPageSdk2 = LiveFeedPageSdk.getInstance();
+                Intrinsics.checkExpressionValueIsNotNull(liveFeedPageSdk2, "LiveFeedPageSdk.getInstance()");
+                ILiveFeedPageInvoke invoker = liveFeedPageSdk2.getInvoker();
+                if (invoker == null) {
+                    Intrinsics.throwNpe();
+                }
+                Intrinsics.checkExpressionValueIsNotNull(invoker, "LiveFeedPageSdk.getInstance().invoker!!");
+                String iid = invoker.getIID();
+                if (!TextUtils.isEmpty(iid)) {
+                    LinkedHashMap linkedHashMap = new LinkedHashMap();
+                    Intrinsics.checkExpressionValueIsNotNull(iid, "iid");
+                    linkedHashMap.put("iid_bak", iid);
+                    c = cc0.a(c, linkedHashMap);
+                    Intrinsics.checkExpressionValueIsNotNull(c, "CommonUrlParamUtils.addParam(fullUrl, iidParam)");
+                }
+            }
+            Map b2 = b(map, n(c), false, 4, null);
+            liveNetwork.f(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, Integer.valueOf(i)), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, Integer.valueOf(i2))));
+            liveNetwork.g(c);
+            liveNetwork.d(q(MapsKt__MapsKt.plus(new HashMap(b2), map)), vb0Var, list);
+        }
+    }
+
+    public static /* synthetic */ void g(String str, Map map, vb0 vb0Var, int i, int i2, Map map2, List list, int i3, Object obj) {
+        int i4;
+        int i5;
+        Map map3;
+        List list2;
+        if ((i3 & 8) != 0) {
+            i4 = 0;
+        } else {
+            i4 = i;
+        }
+        if ((i3 & 16) != 0) {
+            i5 = 0;
+        } else {
+            i5 = i2;
+        }
+        if ((i3 & 32) != 0) {
+            map3 = null;
+        } else {
+            map3 = map2;
+        }
+        if ((i3 & 64) != 0) {
+            list2 = null;
+        } else {
+            list2 = list;
+        }
+        f(str, map, vb0Var, i4, i5, map3, list2);
+    }
+
+    public static final <T> void h(String str, Map<String, String> map, vb0<T> vb0Var, int i, int i2, Map<String, String> map2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, map, vb0Var, Integer.valueOf(i), Integer.valueOf(i2), map2}) == null) {
+            LiveNetwork liveNetwork = new LiveNetwork();
+            String c = c(str, map2);
+            Map<String, String> a2 = a(map, n(c), true);
+            liveNetwork.f(MapsKt__MapsKt.mapOf(TuplesKt.to(LiveNetConstants.EXTRA_KEY_ENABLE_STAT, Boolean.TRUE), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_FROM, Integer.valueOf(i)), TuplesKt.to(LiveNetConstants.EXTRA_KEY_REQUEST_SUB_FROM, Integer.valueOf(i2))));
+            liveNetwork.g(c);
+            LiveNetwork.e(liveNetwork, q(MapsKt__MapsKt.plus(new HashMap(a2), map)), vb0Var, null, 4, null);
+        }
+    }
+
+    public static final String i(Map<String, String> map, Map<String, String> map2, Map<String, String> map3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
-            String[] strArr = b.get(str2);
-            if (strArr == null) {
-                return -16777216;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, map, map2, map3)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (map != null) {
+                arrayList.addAll(map.entrySet());
             }
-            String str3 = strArr[0];
-            if ("recommend".equals(str)) {
-                return bc0.c().a(context, str, str2);
+            if (map2 != null) {
+                arrayList.addAll(map2.entrySet());
             }
-            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
-                str3 = strArr[3];
-            } else if (!LiveFeedPageSdk.VIDEO_BAR.equals(str) && !LiveFeedPageSdk.FOLLOW_VIDEO.equals(str)) {
-                if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(this.a)) {
-                    str3 = strArr[1];
-                }
-            } else {
-                str3 = strArr[4];
+            if (map3 != null) {
+                arrayList.addAll(map3.entrySet());
             }
-            if (rb0.a(str3)) {
-                return -16777216;
+            Collections.sort(arrayList, a.a);
+            StringBuffer stringBuffer = new StringBuffer(1024);
+            e(stringBuffer, arrayList);
+            stringBuffer.append("tiebaclient!!!");
+            String stringBuffer2 = stringBuffer.toString();
+            Intrinsics.checkExpressionValueIsNotNull(stringBuffer2, "md5Source.toString()");
+            Charset charset = Charsets.UTF_8;
+            if (stringBuffer2 != null) {
+                byte[] bytes = stringBuffer2.getBytes(charset);
+                Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+                String b2 = fc0.b(bytes, true);
+                Intrinsics.checkExpressionValueIsNotNull(b2, "Md5Utils.toMd5(md5Source…ng().toByteArray(), true)");
+                return b2;
             }
+            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static final String j(Map<String, String> map, Map<String, String> map2, Map<String, String> map3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, map, map2, map3)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (map != null) {
+                arrayList.addAll(map.entrySet());
+            }
+            if (map2 != null) {
+                arrayList.addAll(map2.entrySet());
+            }
+            if (map3 != null) {
+                arrayList.addAll(map3.entrySet());
+            }
+            Collections.sort(arrayList, b.a);
+            StringBuffer stringBuffer = new StringBuffer(1024);
+            d(stringBuffer, arrayList);
+            stringBuffer.append(MixRequesterKt.SIGN_SUFFIX2);
+            String stringBuffer2 = stringBuffer.toString();
+            Intrinsics.checkExpressionValueIsNotNull(stringBuffer2, "md5Source.toString()");
+            Charset charset = Charsets.UTF_8;
+            if (stringBuffer2 != null) {
+                byte[] bytes = stringBuffer2.getBytes(charset);
+                Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
+                String b2 = fc0.b(bytes, true);
+                Intrinsics.checkExpressionValueIsNotNull(b2, "Md5Utils.toMd5(md5Source…ng().toByteArray(), true)");
+                return b2;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static final int k(String str) {
+        InterceptResult invokeL;
+        yb0 yb0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            SparseArray<yb0> l = l(str);
+            if (l != null && (yb0Var = l.get(3)) != null) {
+                return yb0Var.a();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static final SparseArray<yb0> l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(str);
+            if (bundleGroup != null) {
+                return o(bundleGroup);
+            }
+            return null;
+        }
+        return (SparseArray) invokeL.objValue;
+    }
+
+    public static final Map<String, String> n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return cc0.g(cc0.d(str));
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static final String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("com.baidu.searchbox.livenps", String.valueOf(k("com.baidu.searchbox.livenps")));
+            String jSONObject2 = jSONObject.toString();
+            Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "json.toString()");
+            return jSONObject2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final SparseArray<yb0> o(BundleInfoGroup bundleInfoGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bundleInfoGroup)) == null) {
+            SparseArray<yb0> sparseArray = new SparseArray<>();
             try {
-                return Color.parseColor(str3);
+                sparseArray.append(1, p(bundleInfoGroup.getBundleByType(1)));
             } catch (Exception e) {
                 e.printStackTrace();
-                return -16777216;
             }
+            try {
+                sparseArray.append(2, p(bundleInfoGroup.getBundleByType(2)));
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+            try {
+                sparseArray.append(3, p(bundleInfoGroup.getBundleByType(3)));
+            } catch (Exception e3) {
+                e3.printStackTrace();
+            }
+            return sparseArray;
         }
-        return invokeLLL.intValue;
+        return (SparseArray) invokeL.objValue;
+    }
+
+    public static final yb0 p(BundleInfo bundleInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, bundleInfo)) == null) {
+            if (bundleInfo == null) {
+                return null;
+            }
+            String packageName = bundleInfo.getPackageName();
+            Intrinsics.checkExpressionValueIsNotNull(packageName, "bundle.packageName");
+            return new yb0(packageName, bundleInfo.getVersionCode(), bundleInfo.needForceUpdate(), bundleInfo.getExt());
+        }
+        return (yb0) invokeL.objValue;
+    }
+
+    public static final Map<String, String> q(Map<String, String> map) {
+        InterceptResult invokeL;
+        String key;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            if (map != null) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    if (entry != null && (key = entry.getKey()) != null) {
+                        hashMap.put(key, entry.getValue());
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

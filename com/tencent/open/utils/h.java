@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import com.tencent.open.log.SLog;
 import java.lang.ref.WeakReference;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class h {
     public static h a;
     public volatile WeakReference<SharedPreferences> b = null;

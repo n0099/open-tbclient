@@ -1,5 +1,5 @@
 package com.baidu.sapi2.enums;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum LoginTypes {
     ONE_KEY_LOGIN(1, "one_key_login"),
     SHARE(2, "share"),

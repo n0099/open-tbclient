@@ -15,7 +15,7 @@ import kotlin.jvm.JvmName;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.CLASS})
 @Retention(RetentionPolicy.CLASS)
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public @interface SerializedIr {
     @JvmName(name = "b")
     String[] b() default {};

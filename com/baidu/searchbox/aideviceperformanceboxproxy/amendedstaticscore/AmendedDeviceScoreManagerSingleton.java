@@ -2,7 +2,7 @@ package com.baidu.searchbox.aideviceperformanceboxproxy.amendedstaticscore;
 
 import com.baidu.searchbox.aideviceperformance.amendeddevicescore.AmendedDeviceScoreManager;
 import com.baidu.searchbox.aideviceperformanceboxproxy.model.ModelProviderRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AmendedDeviceScoreManagerSingleton extends AmendedDeviceScoreManager {
     public static AmendedDeviceScoreManagerSingleton sInstance = new AmendedDeviceScoreManagerSingleton();
 

@@ -13,9 +13,11 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GroupChatEntranceStatisticUtils {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String CHAT_ENTRANCE_IS_DISTURB = "1";
+    public static final String CHAT_ENTRANCE_NOT_DISTURB = "2";
     public static final int FEED_GROUP_CHAT_CARD_CLICK = 6;
     public static final int FEED_GROUP_CHAT_ENTRANCE_CLICK = 14;
     public static final int FEED_GROUP_CHAT_ENTRANCE_EXPOSE_COLLAPSE_MULTIPLE = 2;

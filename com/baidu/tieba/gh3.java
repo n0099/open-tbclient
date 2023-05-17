@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,124 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-/* loaded from: classes4.dex */
-public final class gh3 {
+import java.io.File;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+/* loaded from: classes5.dex */
+public abstract class gh3 implements kh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gh3 c;
+    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<qm3<Exception>> a;
-    public ArrayList<qm3<Exception>> b;
+    public File a;
+    public final long b;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-
-        public a(gh3 gh3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gh3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x42.k("PresetSwanCoreUpdater", "onPresetCheck start.");
-                fh3.s(this.a);
-                x42.k("PresetSwanCoreUpdater", "onPresetCheck end.");
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ gh3 b;
-
-        public b(gh3 gh3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gh3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = gh3Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x42.k("PresetSwanCoreUpdater", "onPresetUpdate start.");
-                gh3 gh3Var = this.b;
-                int i = this.a;
-                gh3Var.c(i, fh3.t(i));
-                x42.k("PresetSwanCoreUpdater", "onPresetUpdate end.");
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qm3 a;
-        public final /* synthetic */ Exception b;
-
-        public c(gh3 gh3Var, qm3 qm3Var, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gh3Var, qm3Var, exc};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qm3Var;
-            this.b = exc;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
+    @NonNull
+    public abstract String c();
 
     static {
         InterceptResult invokeClinit;
@@ -140,7 +37,7 @@ public final class gh3 {
                 return;
             }
         }
-        boolean z = ho1.a;
+        c = new ReentrantReadWriteLock();
     }
 
     public gh3() {
@@ -156,94 +53,88 @@ public final class gh3 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
+        this.a = d();
+        this.b = getMaxSize();
     }
 
-    public static gh3 b() {
+    @Override // com.baidu.tieba.kh3
+    public boolean a(long j) {
+        InterceptResult invokeJ;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            c.readLock().lock();
+            try {
+                if (e() + j > this.b) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                return z;
+            } finally {
+                c.readLock().unlock();
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kh3
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c.writeLock().lock();
+            try {
+                try {
+                    if (this.a == null) {
+                        this.a = d();
+                    }
+                    File file = this.a;
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    kp4.O(String.valueOf(e() + j).getBytes(), file);
+                } catch (Exception e) {
+                    if (qp1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } finally {
+                c.writeLock().unlock();
+            }
+        }
+    }
+
+    public final File d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (gh3.class) {
-                    if (c == null) {
-                        c = new gh3();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(c() + File.separator + "record.pro");
         }
-        return (gh3) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public final void c(int i, Exception exc) {
+    public final long e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-            synchronized (gh3.class) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                this.a = d();
+            }
+            File file = this.a;
+            if (file.exists() && file.isFile()) {
+                String E = kp4.E(file);
                 try {
-                    if (i == 0) {
-                        Iterator<qm3<Exception>> it = this.a.iterator();
-                        while (it.hasNext()) {
-                            d(it.next(), exc);
-                        }
-                        this.a.clear();
-                    } else if (i == 1) {
-                        Iterator<qm3<Exception>> it2 = this.b.iterator();
-                        while (it2.hasNext()) {
-                            d(it2.next(), exc);
-                        }
-                        this.b.clear();
+                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
+                        return Long.parseLong(E.trim());
                     }
-                } catch (Throwable th) {
-                    throw th;
+                } catch (Exception e) {
+                    if (qp1.a) {
+                        e.printStackTrace();
+                    }
                 }
             }
+            return 0L;
         }
-    }
-
-    public final void d(qm3<Exception> qm3Var, Exception exc) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm3Var, exc) == null) && qm3Var != null) {
-            rl3.e0(new c(this, qm3Var, exc));
-        }
-    }
-
-    public void e(qm3<Exception> qm3Var, int i) {
-        ArrayList<qm3<Exception>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, qm3Var, i) == null) {
-            x42.k("PresetSwanCoreUpdater", "updateSwanCoreAsync start.");
-            synchronized (gh3.class) {
-                boolean q = fh3.q(i);
-                x42.k("PresetSwanCoreUpdater", "updateSwanCoreAsync isNeedUpdateStatus = " + q);
-                if (!q && i == 0 && !fh3.r(i)) {
-                    fh3.w(true, i);
-                    new Thread(new a(this, i), "onPresetCheck").start();
-                }
-                if (!q) {
-                    d(qm3Var, null);
-                    return;
-                }
-                if (i == 1) {
-                    arrayList = this.b;
-                } else {
-                    arrayList = this.a;
-                }
-                if (arrayList.isEmpty()) {
-                    new Thread(new b(this, i), "updateSwanCoreAsync").start();
-                }
-                arrayList.add(qm3Var);
-                x42.k("PresetSwanCoreUpdater", "updateSwanCoreAsync end.");
-            }
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            synchronized (gh3.class) {
-                c(i, fh3.t(i));
-            }
-        }
+        return invokeV.longValue;
     }
 }

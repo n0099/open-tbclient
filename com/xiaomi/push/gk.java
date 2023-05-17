@@ -1,18 +1,19 @@
 package com.xiaomi.push;
 
 import android.os.Bundle;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class gk extends gm {
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f438a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a {
-        public static final a a = new a("get");
+        public static final a a = new a(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE);
         public static final a b = new a("set");
         public static final a c = new a("result");
         public static final a d = new a("error");
@@ -82,13 +83,13 @@ public class gk extends gm {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a()Ljava/lang/String; */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a()Ljava/util/Collection; */
     /* renamed from: a  reason: collision with other method in class */
-    public a m449a() {
+    public a m468a() {
         return this.a;
     }
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a  reason: collision with other method in class */
-    public String mo450a() {
+    public String mo469a() {
         String str;
         StringBuilder sb = new StringBuilder();
         sb.append("<iq ");
@@ -120,7 +121,7 @@ public class gk extends gm {
             str = "type=\"get\">";
         } else {
             sb.append("type=\"");
-            sb.append(m449a());
+            sb.append(m468a());
             str = "\">";
         }
         sb.append(str);
@@ -129,9 +130,9 @@ public class gk extends gm {
             sb.append(b);
         }
         sb.append(o());
-        gq m451a = m451a();
-        if (m451a != null) {
-            sb.append(m451a.m454a());
+        gq m470a = m470a();
+        if (m470a != null) {
+            sb.append(m470a.m473a());
         }
         sb.append("</iq>");
         return sb.toString();

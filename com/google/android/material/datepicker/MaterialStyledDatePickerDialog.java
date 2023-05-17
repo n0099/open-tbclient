@@ -18,12 +18,12 @@ import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP, RestrictTo.Scope.TESTS})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     @AttrRes
     public static final int DEF_STYLE_ATTR = 16843612;
     @StyleRes
-    public static final int DEF_STYLE_RES = 2131755310;
+    public static final int DEF_STYLE_RES = 2131755314;
     @NonNull
     public final Drawable background;
     @NonNull
@@ -47,7 +47,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     public MaterialStyledDatePickerDialog(@NonNull Context context, int i, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i2, int i3, int i4) {
         super(context, i, onDateSetListener, i2, i3, i4);
         Context context2 = getContext();
-        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f040180, MaterialStyledDatePickerDialog.class.getCanonicalName());
+        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f040190, MaterialStyledDatePickerDialog.class.getCanonicalName());
         MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, DEF_STYLE_RES);
         if (Build.VERSION.SDK_INT >= 21) {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(resolveOrThrow));

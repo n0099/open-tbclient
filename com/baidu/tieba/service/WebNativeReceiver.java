@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class WebNativeReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FROM = "aladdin_wake";
@@ -48,37 +48,37 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 stringExtra2 = DEFAULT_FROM;
             }
             if (stringExtra == null) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 3);
+                intent2.putExtra("class", 3);
             } else if (stringExtra.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 0);
+                intent2.putExtra("class", 0);
                 intent2.putExtra("url", intent.getStringExtra("url"));
                 intent2.putExtra("from", stringExtra2);
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "aladdin", null, 1, "st_type", stringExtra2, "st_param", intent.getStringExtra("url"));
             } else if (stringExtra.equals("pb")) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 1);
+                intent2.putExtra("class", 1);
                 intent2.putExtra("id", intent.getStringExtra("id"));
                 intent2.putExtra("from", stringExtra2);
             } else if (stringExtra.equals("frs")) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 2);
+                intent2.putExtra("class", 2);
                 intent2.putExtra("fname", intent.getStringExtra("fname"));
                 intent2.putExtra("from", stringExtra2);
             } else if (stringExtra.equals("groupinfo")) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 13);
+                intent2.putExtra("class", 13);
                 intent2.putExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID, intent.getStringExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
             } else if (stringExtra.equals(TiebaStatic.DQPay.TYPE_VALUE)) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 15);
+                intent2.putExtra("class", 15);
                 intent2.putExtra(MemberPayActivityConfig.PAY_TYPE, intent.getStringExtra(MemberPayActivityConfig.PAY_TYPE));
                 intent2.putExtra("props_id", intent.getStringExtra("props_id"));
                 intent2.putExtra("quan_num", intent.getStringExtra("quan_num"));
                 intent2.putExtra("is_left", intent.getStringExtra("is_left"));
                 intent2.putExtra("props_mon", intent.getStringExtra("props_mon"));
             } else if (stringExtra.equals("officialba_msg")) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 22);
+                intent2.putExtra("class", 22);
                 intent2.putExtra("barid", intent.getStringExtra("barid"));
                 intent2.putExtra("barname", intent.getStringExtra("barname"));
                 intent2.putExtra("portrait", intent.getStringExtra("portrait"));
             } else if (stringExtra.equals("recommendpb")) {
-                intent2.putExtra(DealIntentService.KEY_CLASS, 28);
+                intent2.putExtra("class", 28);
                 intent2.putExtra(PbChosenActivityConfig.KEY_TID, intent.getStringExtra(PbChosenActivityConfig.KEY_TID));
             } else {
                 return;

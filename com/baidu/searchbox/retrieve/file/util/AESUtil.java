@@ -8,7 +8,6 @@ import android.security.KeyPairGeneratorSpec;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
-import com.baidu.android.common.security.RSAUtil;
 import java.math.BigInteger;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -23,7 +22,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class AESUtil {
     public static final String ALGORITHM_NAME = "AES";
     public static final String CBC_TRANSFORMATION = "AES/CBC/PKCS5Padding";
@@ -38,7 +37,7 @@ public class AESUtil {
     public SecretKey mSecretKey;
     public String nameSpace;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class Builder {
         public Context context;
         public String nameSpace;
@@ -64,7 +63,7 @@ public class AESUtil {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class CryptResult {
         public static final int FAIL = -1;
         public static final int NOT_INITIALIZED = 1;
@@ -81,7 +80,7 @@ public class AESUtil {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static class ModeNotMatchException extends Exception {
         public ModeNotMatchException() {
         }
@@ -188,7 +187,7 @@ public class AESUtil {
             KeyPairGeneratorSpec.Builder builder = new KeyPairGeneratorSpec.Builder(context);
             KeyPairGeneratorSpec.Builder alias = builder.setAlias("default" + this.nameSpace);
             KeyPairGeneratorSpec build = alias.setSubject(new X500Principal("C=CN,ST=BJ,L=BJ,O=BaiDu,OU=BaiDu,CN=default" + this.nameSpace)).setSerialNumber(BigInteger.ONE).setStartDate(gregorianCalendar.getTime()).setEndDate(gregorianCalendar2.getTime()).build();
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
+            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
             keyPairGenerator.initialize(build);
             keyPairGenerator.generateKeyPair();
         }

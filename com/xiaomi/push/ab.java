@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ab {
     public static int a;
 
@@ -53,7 +53,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m176a() {
+    public static boolean m195a() {
         return a == 2;
     }
 

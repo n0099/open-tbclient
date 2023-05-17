@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ContentLengthInputStream extends FilterInputStream {
     public static final String TAG = "ContentLengthStream";
     public static final int UNKNOWN = -1;

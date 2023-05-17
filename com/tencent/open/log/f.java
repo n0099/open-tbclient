@@ -5,7 +5,7 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class f implements Iterable<String> {
     public ConcurrentLinkedQueue<String> a;
     public AtomicInteger b;

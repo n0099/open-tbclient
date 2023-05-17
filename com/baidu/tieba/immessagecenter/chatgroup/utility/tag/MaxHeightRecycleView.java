@@ -4,12 +4,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tieba.c58;
+import com.baidu.tieba.t68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MaxHeightRecycleView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class MaxHeightRecycleView extends RecyclerView {
                 return;
             }
         }
-        this.a = context.obtainStyledAttributes(attributeSet, c58.MaxHeightRecycleView).getDimension(0, 0.0f);
+        this.a = context.obtainStyledAttributes(attributeSet, t68.MaxHeightRecycleView).getDimension(0, 0.0f);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.View

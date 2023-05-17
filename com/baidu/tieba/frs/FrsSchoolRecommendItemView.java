@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.hi;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.j87;
-import com.baidu.tieba.vx7;
+import com.baidu.tieba.jz7;
+import com.baidu.tieba.q85;
+import com.baidu.tieba.qi;
+import com.baidu.tieba.w97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,14 +34,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public h75 f;
+    public q85 f;
     public BdUniqueId g;
-    public j87 h;
+    public w97 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null && !hi.isEmpty(this.a.h.a.getUserName()) && !hi.isEmpty(this.a.h.a.getUserId())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null && !qi.isEmpty(this.a.h.a.getUserName()) && !qi.isEmpty(this.a.h.a.getUserId())) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getView().getContext(), this.a.h.a.getUserId(), this.a.h.a.getUserName(), null, AddFriendActivityConfig.TYPE_FRS_HEAD)));
             }
         }
@@ -96,17 +96,17 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.k = new a(this);
         this.g = bdUniqueId;
         this.j = tbPageContext;
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d0d);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d61);
         this.b = headImageView;
         headImageView.setPageId(this.g);
         this.b.setIsRound(true);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d0c);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d0a);
-        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091d0b);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d60);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d5e);
+        EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091d5f);
         this.e = entelechyUserLikeButton;
-        h75 h75Var = new h75(tbPageContext, entelechyUserLikeButton);
-        this.f = h75Var;
-        h75Var.m("1");
+        q85 q85Var = new q85(tbPageContext, entelechyUserLikeButton);
+        this.f = q85Var;
+        q85Var.m("1");
         this.f.l(bdUniqueId);
     }
 
@@ -134,14 +134,14 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(vx7 vx7Var) {
+    public void a(jz7 jz7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, vx7Var) != null) || !(vx7Var instanceof j87)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jz7Var) != null) || !(jz7Var instanceof w97)) {
             return;
         }
-        j87 j87Var = (j87) vx7Var;
-        this.h = j87Var;
-        if (StringUtils.isNull(j87Var.a.getUserId())) {
+        w97 w97Var = (w97) jz7Var;
+        this.h = w97Var;
+        if (StringUtils.isNull(w97Var.a.getUserId())) {
             return;
         }
         this.b.N(this.h.a.getPortrait(), 28, false);

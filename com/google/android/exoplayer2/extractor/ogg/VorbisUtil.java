@@ -4,7 +4,7 @@ import android.util.Log;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class VorbisUtil {
     public static final String TAG = "VorbisUtil";
 
@@ -17,7 +17,7 @@ public final class VorbisUtil {
         return i2;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CodeBook {
         public final int dimensions;
         public final int entries;
@@ -34,7 +34,7 @@ public final class VorbisUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class CommentHeader {
         public final String[] comments;
         public final int length;
@@ -47,7 +47,7 @@ public final class VorbisUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Mode {
         public final boolean blockFlag;
         public final int mapping;
@@ -62,7 +62,7 @@ public final class VorbisUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class VorbisIdHeader {
         public final int bitrateMax;
         public final int bitrateMin;

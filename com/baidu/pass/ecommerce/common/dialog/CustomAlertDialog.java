@@ -6,7 +6,7 @@ import android.content.DialogInterface;
 import android.view.View;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CustomAlertDialog extends Dialog {
     public TextView contentTv;
     public TextView negativeBtn;
@@ -14,7 +14,7 @@ public class CustomAlertDialog extends Dialog {
     public TextView titleTv;
 
     public CustomAlertDialog(Context context) {
-        super(context, R.style.obfuscated_res_0x7f10018e);
+        super(context, R.style.obfuscated_res_0x7f100198);
         init();
     }
 
@@ -51,11 +51,11 @@ public class CustomAlertDialog extends Dialog {
     }
 
     private void init() {
-        setContentView(R.layout.obfuscated_res_0x7f0d0539);
+        setContentView(R.layout.obfuscated_res_0x7f0d0556);
         setCanceledOnTouchOutside(true);
-        this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee6);
-        this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee3);
-        this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee5);
-        this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091ee4);
+        this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091f42);
+        this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091f3f);
+        this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091f41);
+        this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091f40);
     }
 }

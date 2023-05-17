@@ -9,7 +9,7 @@ import com.google.android.exoplayer2.util.CodecSpecificDataUtil;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class AudioTagPayloadReader extends TagPayloadReader {
     public static final int AAC_PACKET_TYPE_AAC_RAW = 1;
     public static final int AAC_PACKET_TYPE_SEQUENCE_HEADER = 0;

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
     public static final String n = "a";
     public com.meizu.cloud.pushsdk.d.b.a b;
@@ -26,8 +26,8 @@ public abstract class a {
     public final AtomicBoolean m = new AtomicBoolean(true);
 
     /* renamed from: com.meizu.cloud.pushsdk.d.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0671a {
+    /* loaded from: classes9.dex */
+    public static class C0685a {
         public final com.meizu.cloud.pushsdk.d.b.a a;
         public final String b;
         public final String c;
@@ -42,50 +42,50 @@ public abstract class a {
         public int l = 10;
         public TimeUnit m = TimeUnit.SECONDS;
 
-        public C0671a(com.meizu.cloud.pushsdk.d.b.a aVar, String str, String str2, Context context, Class<? extends a> cls) {
+        public C0685a(com.meizu.cloud.pushsdk.d.b.a aVar, String str, String str2, Context context, Class<? extends a> cls) {
             this.a = aVar;
             this.b = str;
             this.c = str2;
             this.d = context;
         }
 
-        public C0671a a(int i) {
+        public C0685a a(int i) {
             this.l = i;
             return this;
         }
 
-        public C0671a a(c cVar) {
+        public C0685a a(c cVar) {
             this.e = cVar;
             return this;
         }
 
-        public C0671a a(com.meizu.cloud.pushsdk.d.f.b bVar) {
+        public C0685a a(com.meizu.cloud.pushsdk.d.f.b bVar) {
             this.g = bVar;
             return this;
         }
 
-        public C0671a a(Boolean bool) {
+        public C0685a a(Boolean bool) {
             this.f = bool.booleanValue();
             return this;
         }
     }
 
-    public a(C0671a c0671a) {
-        this.b = c0671a.a;
-        this.f = c0671a.c;
-        this.g = c0671a.f;
-        this.e = c0671a.b;
-        this.c = c0671a.e;
-        this.h = c0671a.g;
-        this.i = c0671a.h;
-        this.j = c0671a.k;
-        int i = c0671a.l;
+    public a(C0685a c0685a) {
+        this.b = c0685a.a;
+        this.f = c0685a.c;
+        this.g = c0685a.f;
+        this.e = c0685a.b;
+        this.c = c0685a.e;
+        this.h = c0685a.g;
+        this.i = c0685a.h;
+        this.j = c0685a.k;
+        int i = c0685a.l;
         this.k = i < 2 ? 2 : i;
-        this.l = c0671a.m;
+        this.l = c0685a.m;
         if (this.i) {
-            this.d = new b(c0671a.i, c0671a.j, c0671a.m, c0671a.d);
+            this.d = new b(c0685a.i, c0685a.j, c0685a.m, c0685a.d);
         }
-        com.meizu.cloud.pushsdk.d.f.c.a(c0671a.g);
+        com.meizu.cloud.pushsdk.d.f.c.a(c0685a.g);
         com.meizu.cloud.pushsdk.d.f.c.c(n, "Tracker created successfully.", new Object[0]);
     }
 

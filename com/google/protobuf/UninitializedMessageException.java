@@ -3,7 +3,7 @@ package com.google.protobuf;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UninitializedMessageException extends RuntimeException {
     public static final long serialVersionUID = -7466929953374883507L;
     public final List<String> missingFields;

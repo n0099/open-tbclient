@@ -43,11 +43,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static final int[] CHECKABLE_STATE_SET = {16842911};
     public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int DEF_STYLE_RES = 2131755862;
+    public static final int DEF_STYLE_RES = 2131755873;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;
@@ -76,16 +76,16 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
@@ -258,7 +258,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         setChecked(!this.checked);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.button.MaterialButton.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -598,7 +598,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404b7);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404d5);
     }
 
     @Override // android.widget.TextView, android.view.View

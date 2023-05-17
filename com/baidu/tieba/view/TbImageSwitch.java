@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
     public d x;
     public final c y;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(View view2, int i);
 
@@ -64,7 +64,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         int getCount();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void onAnimationCancel(Animator animator);
 
@@ -75,7 +75,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         void onAnimationStart(Animator animator);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         public PropertyValuesHolder m;
         public final Animator.AnimatorListener n;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes7.dex */
         public class a implements Animator.AnimatorListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -233,7 +233,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,7 +293,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class e extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -326,7 +326,7 @@ public class TbImageSwitch extends FrameLayout implements View.OnAttachStateChan
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class f extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

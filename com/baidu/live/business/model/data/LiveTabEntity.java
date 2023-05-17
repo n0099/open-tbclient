@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveTabEntity implements Parcelable {
     public static final Parcelable.Creator<LiveTabEntity> CREATOR = new Parcelable.Creator<LiveTabEntity>() { // from class: com.baidu.live.business.model.data.LiveTabEntity.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -35,7 +35,7 @@ public class LiveTabEntity implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class TabLabelInfo implements Parcelable {
         public static final Parcelable.Creator<TabLabelInfo> CREATOR = new Parcelable.Creator<TabLabelInfo>() { // from class: com.baidu.live.business.model.data.LiveTabEntity.TabLabelInfo.1
             /* JADX DEBUG: Method merged with bridge method */

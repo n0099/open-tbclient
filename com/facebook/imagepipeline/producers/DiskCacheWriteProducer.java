@@ -7,7 +7,7 @@ import com.facebook.imagepipeline.cache.BufferedDiskCache;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     @VisibleForTesting
     public static final String PRODUCER_NAME = "DiskCacheWriteProducer";
@@ -16,7 +16,7 @@ public class DiskCacheWriteProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final BufferedDiskCache mSmallImageBufferedDiskCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class DiskCacheWriteConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final CacheKeyFactory mCacheKeyFactory;
         public final BufferedDiskCache mDefaultBufferedDiskCache;

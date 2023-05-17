@@ -9,7 +9,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class QueuedMuxer {
     public static final int BUFFER_SIZE = 65536;
     public static final String TAG = "QueuedMuxer";
@@ -20,13 +20,13 @@ public class QueuedMuxer {
     public MediaFormat mVideoFormat;
     public int mVideoTrackIndex;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum SampleType {
         VIDEO
     }
 
     /* renamed from: com.baidu.searchbox.afx.recode.QueuedMuxer$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$recode$QueuedMuxer$SampleType;
 
@@ -40,7 +40,7 @@ public class QueuedMuxer {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class SampleInfo {
         public final int mFlags;
         public final long mPresentationTimeUs;

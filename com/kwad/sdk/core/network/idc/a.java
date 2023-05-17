@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public final Map<String, String> Za;
     public final com.kwad.sdk.core.network.idc.kwai.a Zb;
@@ -25,8 +25,8 @@ public final class a {
     public Context mContext;
 
     /* renamed from: com.kwad.sdk.core.network.idc.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C0633a {
+    /* loaded from: classes9.dex */
+    public static final class C0647a {
         public static final a Zf = new a((byte) 0);
     }
 
@@ -133,7 +133,7 @@ public final class a {
     }
 
     public static a tH() {
-        return C0633a.Zf;
+        return C0647a.Zf;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

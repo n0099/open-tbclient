@@ -1,47 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class lm3 implements Runnable {
+/* loaded from: classes6.dex */
+public final class lm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mm3 a;
 
-    public lm3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947947639, "Lcom/baidu/tieba/lm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947947639, "Lcom/baidu/tieba/lm3;");
+                return;
             }
         }
+        boolean z = qp1.a;
     }
 
-    public void a() {
-        mm3 mm3Var;
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mm3Var = this.a) != null) {
-            mm3Var.a(this);
-            this.a = null;
+        if ((interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
+            int d = d(context);
+            if (i >= 0 && i < 255) {
+                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
+            }
+            drawable.setColorFilter(d, mode);
         }
     }
 
-    public lm3 b(mm3 mm3Var) {
+    public static void b(Context context, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
+            c(context, drawable, 255);
+        }
+    }
+
+    public static void c(Context context, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        }
+    }
+
+    public static int d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mm3Var)) == null) {
-            this.a = mm3Var;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return context.getResources().getColor(R.color.obfuscated_res_0x7f060464);
         }
-        return (lm3) invokeL.objValue;
+        return invokeL.intValue;
     }
 }

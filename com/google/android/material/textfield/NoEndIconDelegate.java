@@ -2,7 +2,7 @@ package com.google.android.material.textfield;
 
 import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class NoEndIconDelegate extends EndIconDelegate {
     public NoEndIconDelegate(@NonNull TextInputLayout textInputLayout) {
         super(textInputLayout);

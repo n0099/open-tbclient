@@ -2,7 +2,7 @@ package com.google.zxing.common;
 
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class BitMatrix implements Cloneable {
     public final int[] bits;
     public final int height;
@@ -175,7 +175,7 @@ public final class BitMatrix implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitMatrix m91clone() {
+    public BitMatrix m110clone() {
         return new BitMatrix(this.width, this.height, this.rowSize, (int[]) this.bits.clone());
     }
 

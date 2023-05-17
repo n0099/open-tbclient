@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
-public final class wu2 {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class wu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<vu2> a;
+    public static List<WeakReference<vu2>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -29,144 +28,96 @@ public final class wu2 {
                 return;
             }
         }
-        a = new ArrayList<>();
+        a = new ArrayList();
     }
 
-    public static void b() {
+    public static void a(ov1 ov1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a.clear();
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, ov1Var) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
-                vu2 vu2Var = a.get(size);
-                if (vu2Var != null) {
-                    vu2Var.onDestroy();
+                vu2 vu2Var = a.get(size).get();
+                if (vu2Var == null) {
+                    a.remove(size);
+                } else {
+                    vu2Var.d(ov1Var);
                 }
             }
         }
     }
 
-    public static void a(vu2 vu2Var) {
+    public static void b(ov1 ov1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, vu2Var) == null) && vu2Var != null && !a.contains(vu2Var)) {
-            a.add(vu2Var);
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, ov1Var) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
-                vu2 vu2Var = a.get(size);
-                if (vu2Var != null) {
-                    vu2Var.j(z);
+                vu2 vu2Var = a.get(size).get();
+                if (vu2Var == null) {
+                    a.remove(size);
+                } else {
+                    vu2Var.b(ov1Var);
                 }
             }
         }
     }
 
-    public static void j(boolean z) {
+    public static void c(ov1 ov1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, ov1Var) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
-                vu2 vu2Var = a.get(size);
-                if (vu2Var != null) {
-                    vu2Var.k(z);
+                vu2 vu2Var = a.get(size).get();
+                if (vu2Var == null) {
+                    a.remove(size);
+                } else {
+                    vu2Var.c(ov1Var);
                 }
             }
         }
     }
 
-    public static void k(vu2 vu2Var) {
+    public static void d(ov1 ov1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65547, null, vu2Var) != null) || vu2Var == null) {
-            return;
-        }
-        a.remove(vu2Var);
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            vu2 vu2Var = a.get(size);
-            if (vu2Var != null && TextUtils.equals(str, vu2Var.b())) {
-                vu2Var.onDestroy();
-            }
-        }
-    }
-
-    public static vu2 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ov1Var) == null) {
             for (int size = a.size() - 1; size >= 0; size--) {
-                vu2 vu2Var = a.get(size);
-                if (vu2Var != null && TextUtils.equals(str, vu2Var.c())) {
-                    return vu2Var;
+                vu2 vu2Var = a.get(size).get();
+                if (vu2Var == null) {
+                    a.remove(size);
+                } else {
+                    vu2Var.a(ov1Var);
                 }
             }
-            return null;
         }
-        return (vu2) invokeL.objValue;
     }
 
-    public static boolean g(String str) {
-        InterceptResult invokeL;
+    public static void f(vu2 vu2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                vu2 vu2Var = a.get(size);
-                if (vu2Var != null && TextUtils.equals(str, vu2Var.b()) && vu2Var.onBackPressed()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static vu2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
-            }
-            for (int size = a.size() - 1; size >= 0; size--) {
-                vu2 vu2Var = a.get(size);
-                if (vu2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, vu2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, vu2Var.f())) || TextUtils.equals(str3, vu2Var.c())))) {
-                    return vu2Var;
-                }
-            }
-            return null;
-        }
-        return (vu2) invokeLLL.objValue;
-    }
-
-    public static void i(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(65542, null, vu2Var) != null) || vu2Var == null) {
             return;
         }
         for (int size = a.size() - 1; size >= 0; size--) {
-            vu2 vu2Var = a.get(size);
-            if (vu2Var != null && TextUtils.equals(str, vu2Var.b())) {
-                vu2Var.k(z);
+            vu2 vu2Var2 = a.get(size).get();
+            if (vu2Var2 == null || vu2Var == vu2Var2) {
+                a.remove(size);
             }
+        }
+    }
+
+    public static void e(vu2 vu2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, vu2Var) != null) || vu2Var == null) {
+            return;
+        }
+        boolean z = false;
+        for (int size = a.size() - 1; size >= 0; size--) {
+            vu2 vu2Var2 = a.get(size).get();
+            if (vu2Var2 == null) {
+                a.remove(size);
+            } else if (vu2Var2 == vu2Var) {
+                z = true;
+            } else {
+                z = false;
+            }
+        }
+        if (!z) {
+            a.add(new WeakReference<>(vu2Var));
         }
     }
 }

@@ -2,7 +2,7 @@ package com.xiaomi.push.service;
 
 import com.xiaomi.push.hn;
 import com.xiaomi.push.ho;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public /* synthetic */ class bc {
     public static final /* synthetic */ int[] a;
     public static final /* synthetic */ int[] b;

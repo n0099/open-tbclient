@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import com.baidu.searchbox.crius.parser.CriusData;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class RoundCornerCirusLayout extends CriusLayout {
     public Paint mBitmapPaint;
     public int mStrokeColor;

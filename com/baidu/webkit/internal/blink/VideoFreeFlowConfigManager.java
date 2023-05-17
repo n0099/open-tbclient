@@ -6,7 +6,7 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
     public static final String DIRECT = "DIRECT";
     public static final String HOST_MATCH = "HOSTMATCH";
@@ -24,7 +24,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
     public ArrayList<a> mPacRulesList = new ArrayList<>();
     public byte[] mListLock = new byte[0];
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public String a;
         public String b;

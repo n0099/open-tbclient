@@ -5,14 +5,14 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     public Object a = new Object();
     public Queue<b> b = new ConcurrentLinkedQueue();
     public a c;
     public Handler d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class a extends HandlerThread {
         public a(String str) {
             super(str);
@@ -32,7 +32,7 @@ public class g {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class b {
         public Runnable a;
         public long b;

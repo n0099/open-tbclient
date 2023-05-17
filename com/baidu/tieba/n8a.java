@@ -1,46 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.location.Address;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.coreExtra.data.WriteVoteData;
-import com.baidu.tieba.aba;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-/* loaded from: classes5.dex */
-public class n8a extends p8a<n9a> {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class n8a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public RelativeLayout g;
-    @Nullable
-    public aba h;
+    public String a;
+    public BdUniqueId b;
+    public m8a c;
 
-    /* loaded from: classes5.dex */
-    public class a implements aba.b {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<k8a, Integer, l8a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ n8a a;
 
-        public a(n8a n8aVar) {
+        public b(n8a n8aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -58,224 +65,182 @@ public class n8a extends p8a<n9a> {
             this.a = n8aVar;
         }
 
-        @Override // com.baidu.tieba.aba.b
-        public void a(WriteVoteData writeVoteData) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(l8a l8aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, writeVoteData) == null) {
-                if (this.a.b != null) {
-                    this.a.b.w();
-                }
-                ((n9a) this.a.d).a = writeVoteData;
-                if (this.a.e != null) {
-                    this.a.e.setWriteVoteData(writeVoteData);
-                }
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l8aVar) == null) && this.a.c != null) {
+                this.a.c.a(l8aVar);
             }
+        }
+
+        public /* synthetic */ b(n8a n8aVar, a aVar) {
+            this(n8aVar);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public l8a doInBackground(k8a... k8aVarArr) {
+            InterceptResult invokeL;
+            k8a k8aVar;
+            int netErrorCode;
+            ImageUploadResult.picInfo picinfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k8aVarArr)) == null) {
+                String str = null;
+                if (k8aVarArr.length == 0 || (k8aVar = k8aVarArr[0]) == null) {
+                    return null;
+                }
+                ec ecVar = new ec("images", TbMd5.getNameMd5FromUrl(k8aVar.i + 42), DiskFileOperate.Action.READ);
+                ecVar.setSubFolder(true);
+                ecVar.setIsFormatData(false);
+                ImageUploadResult uploadInBackground = new ImageUploader(null).uploadInBackground(c(ecVar.buildPath(), ecVar.getName()), true, false);
+                if (uploadInBackground != null && (picinfo = uploadInBackground.picInfo) != null) {
+                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
+                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                        str = uploadInBackground.picInfo.originPic.picUrl;
+                    } else {
+                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = uploadInBackground.picInfo.bigPic;
+                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
+                            str = uploadInBackground.picInfo.bigPic.picUrl;
+                        } else {
+                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = uploadInBackground.picInfo.smallPic;
+                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
+                                str = uploadInBackground.picInfo.smallPic.picUrl;
+                            }
+                        }
+                    }
+                }
+                if (StringUtils.isNull(str)) {
+                    str = k8aVar.j;
+                }
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                netWork.addPostData("anonymous", "1");
+                netWork.addPostData("can_no_forum", "0");
+                netWork.addPostData("is_feedback", "0");
+                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
+                    netWork.addPostData("vcode_tag", "12");
+                }
+                netWork.addPostData("new_vcode", "1");
+                netWork.addPostData("content", k8aVar.m);
+                netWork.addPostData("fid", k8aVar.e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, k8aVar.f);
+                netWork.addPostData("is_hide", "0");
+                netWork.addPostData(IntentConfig.CALL_FROM, "2");
+                netWork.addPostData("title", k8aVar.m);
+                netWork.addPostData("is_ntitle", "1");
+                netWork.addPostData("st_type", "notitle");
+                netWork.addPostData("is_location", "2");
+                Address j = lf.n().j(false);
+                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn()) {
+                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+                }
+                LocationData b = ps9.a().b();
+                if (b != null) {
+                    netWork.addPostData("name", b.getFormatted_address());
+                    netWork.addPostData(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, b.getSn());
+                }
+                netWork.addPostData("is_link_thread", "0");
+                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                }
+                netWork.addPostData("tbopen_app_key", k8aVar.a);
+                netWork.addPostData("tbopen_app_icon", k8aVar.d);
+                netWork.addPostData("tbopen_app_name", k8aVar.c);
+                netWork.addPostData("share_abstract", k8aVar.h);
+                netWork.addPostData("share_image", str);
+                netWork.addPostData("share_h5_url", k8aVar.k);
+                netWork.addPostData("share_naws_app_key", k8aVar.b);
+                netWork.addPostData("share_naws_path", k8aVar.l);
+                String postNetData = netWork.postNetData();
+                l8a l8aVar = new l8a();
+                try {
+                    JSONObject jSONObject = new JSONObject(postNetData);
+                    jSONObject.optString("msg");
+                    jSONObject.optString("pre_msg");
+                    l8aVar.b = k8aVar.e;
+                    l8aVar.c = jSONObject.optString("tid");
+                    jSONObject.optString("pid");
+                    jSONObject.optString("video_id");
+                } catch (Exception unused) {
+                }
+                ErrorData errorData = new ErrorData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    errorData.parserJson(postNetData);
+                } else {
+                    if (netWork.isNetSuccess()) {
+                        netErrorCode = netWork.getServerErrorCode();
+                    } else {
+                        netErrorCode = netWork.getNetErrorCode();
+                    }
+                    errorData.setError_code(netErrorCode);
+                    errorData.setError_msg(netWork.getErrorString());
+                }
+                if (errorData.error_code != 0 && !BdNetTypeUtil.isNetWorkAvailable()) {
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0db6));
+                }
+                l8aVar.a = errorData;
+                try {
+                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
+                } catch (Exception unused2) {
+                }
+                return l8aVar;
+            }
+            return (l8a) invokeL.objValue;
+        }
+
+        public String c(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                String str3 = this.a.a + str2;
+                if (str != null) {
+                    return this.a.a + str + "/" + str2;
+                }
+                return str3;
+            }
+            return (String) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteVoteData a;
-        public final /* synthetic */ n8a b;
-
-        public b(n8a n8aVar, WriteVoteData writeVoteData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n8aVar, writeVoteData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n8aVar;
-            this.a = writeVoteData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
-                return;
-            }
-            this.b.F(this.a);
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 3));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n8a(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, n9a.class);
+    public n8a(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        this.b = bdUniqueId;
     }
 
-    public final void F(WriteVoteData writeVoteData) {
+    public void c(m8a m8aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, writeVoteData) == null) {
-            WriteVoteActivityConfig writeVoteActivityConfig = new WriteVoteActivityConfig(this.a.getPageActivity(), 25048);
-            if (writeVoteData != null) {
-                writeVoteActivityConfig.setExtraData(writeVoteData);
-            }
-            this.a.sendMessage(new CustomMessage(2002001, writeVoteActivityConfig));
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) && this.e != null && writeData.getWriteVoteData() != null) {
-            this.e.setWriteVoteData(writeData.getWriteVoteData());
-            G();
+        if (interceptable == null || interceptable.invokeL(1048576, this, m8aVar) == null) {
+            this.c = m8aVar;
         }
     }
 
-    @Override // com.baidu.tieba.u8a
-    public void c(WriteData writeData) {
-        aba abaVar;
+    public void d(k8a k8aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && (abaVar = this.h) != null) {
-            writeData.setWriteVoteData(abaVar.c());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k8aVar) == null) {
+            b bVar = new b(this, null);
+            bVar.setTag(this.b);
+            bVar.execute(k8aVar);
         }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-            writeData.setWriteVoteData(((n9a) this.d).a);
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public void onChangeSkinType(int i) {
-        aba abaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (abaVar = this.h) != null) {
-            abaVar.d(i);
-        }
-    }
-
-    public final void G() {
-        WriteData writeData;
-        WriteVoteData writeVoteData;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (writeData = this.e) == null || this.h == null) {
-            return;
-        }
-        D d = this.d;
-        if (((n9a) d).a != null) {
-            writeVoteData = ((n9a) d).a;
-            writeData.setWriteVoteData(writeVoteData);
-        } else if (writeData.getWriteVoteData() != null) {
-            ((n9a) this.d).a = this.e.getWriteVoteData();
-            writeVoteData = this.e.getWriteVoteData();
-        } else {
-            ((n9a) this.d).a = null;
-            return;
-        }
-        b bVar = new b(this, writeVoteData);
-        this.h.g(bVar);
-        this.h.f(bVar);
-        this.h.h(writeVoteData);
-        this.h.i(true);
-        w8a w8aVar = this.b;
-        if (w8aVar != null) {
-            w8aVar.i();
-        }
-    }
-
-    @Override // com.baidu.tieba.p8a, com.baidu.tieba.u8a
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 != -1 || i != 25048 || intent == null) {
-                return;
-            }
-            Serializable serializableExtra = intent.getSerializableExtra(IntentConfig.WRITE_VOTE_DATA);
-            if (serializableExtra instanceof WriteVoteData) {
-                ((n9a) this.d).a = (WriteVoteData) serializableExtra;
-                G();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.p8a, com.baidu.tieba.u8a
-    public void r(jd5 jd5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jd5Var) == null) {
-            super.r(jd5Var);
-            if (jd5Var.a == 22) {
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 10));
-                WriteVoteData writeVoteData = null;
-                aba abaVar = this.h;
-                if (abaVar != null && abaVar.c() != null) {
-                    writeVoteData = this.h.c();
-                }
-                F(writeVoteData);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 2));
-                w8a w8aVar = this.b;
-                if (w8aVar != null) {
-                    w8aVar.E();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.u8a
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0562, viewGroup, false);
-            this.c = inflate;
-            RelativeLayout relativeLayout = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092850);
-            this.g = relativeLayout;
-            aba abaVar = new aba(this.a, relativeLayout);
-            this.h = abaVar;
-            abaVar.e(new a(this));
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                ((n9a) this.d).a = writeData.getWriteVoteData();
-                G();
-            }
-            return this.c;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.p8a, com.baidu.tieba.u8a
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (((n9a) this.d).a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

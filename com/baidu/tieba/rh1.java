@@ -1,141 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class rh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<a> b;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public Long g;
-        public int h;
-        public String i;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static void a(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
+            return;
         }
-
-        public a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            if (jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("display_name");
-            this.d = jSONObject.optString("pay_text");
-            this.f = jSONObject.optString("icon");
-            this.e = jSONObject.optString("valid_info");
-            this.i = jSONObject.optString("host_marketing_detail");
-            this.g = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.h = jSONObject.optInt("is_selected");
-            this.b = jSONObject.optInt("style");
-            this.a = jSONObject.optInt("type");
-        }
-
-        public JSONObject a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        try {
+            String string = bundle.getString("zid");
+            if (!TextUtils.isEmpty(string)) {
+                bundle.remove("zid");
                 JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("display_name", this.c);
-                    jSONObject.put("pay_text", this.d);
-                    jSONObject.put("icon", this.f);
-                    jSONObject.put("valid_info", this.e);
-                    jSONObject.put("host_marketing_detail", this.i);
-                    jSONObject.put("available_par_money", this.g);
-                    jSONObject.put("is_selected", this.h);
-                    jSONObject.put("style", this.b);
-                    jSONObject.put("type", this.a);
-                } catch (JSONException e) {
-                    if (yg1.d) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject;
+                jSONObject.put("c", bundle.getString("cuid"));
+                jSONObject.put("z", string);
+                jSONObject.put("mac", hh1.c());
+                jSONObject.put("app", "android");
+                jSONObject.put("ver", ih1.a(context));
+                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
             }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CouponItem{type=" + this.a + ", style=" + this.b + ", displayName='" + this.c + "', payText='" + this.d + "', validInfo='" + this.e + "', icon='" + this.f + "', cutMoney=" + this.g + ", isSelected=" + this.h + ", hostMarketingDetail='" + this.i + "'}";
-            }
-            return (String) invokeV.objValue;
+        } catch (Exception e) {
+            oh1.b(e.getMessage());
         }
     }
 
-    public rh1(JSONArray jSONArray) {
+    public static Bundle b(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
+            if (bundle == null) {
+                return new Bundle();
             }
-        }
-        if (jSONArray == null) {
-            return;
-        }
-        this.b = new ArrayList();
-        int length = jSONArray.length();
-        for (int i3 = 0; i3 < length; i3++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i3);
-            if (jSONObject != null) {
-                this.b.add(new a(jSONObject));
+            fh1.a = bundle.getString("bduss");
+            fh1.b = bundle.getString("tpOrderId");
+            fh1.g = bundle.getString("nativeAppId");
+            fh1.h = bundle.getString("sceneSource");
+            fh1.c = bundle.getString("appKey");
+            fh1.d = bundle.getString("dealId");
+            bundle.putString("deviceType", "ANDROID");
+            bundle.putString("channel", "cashiersdk");
+            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
+            String[] stringArray = bundle.getStringArray("blockedPayChannels");
+            if (stringArray != null && stringArray.length > 0) {
+                bundle.remove("blockedPayChannels");
+                JSONArray jSONArray = new JSONArray();
+                for (String str : stringArray) {
+                    jSONArray.put(str);
+                }
+                bundle.putString("bannedChannels", jSONArray.toString());
             }
+            a(context, bundle);
+            return bundle;
         }
-        this.a = this.b.size() > 1;
+        return (Bundle) invokeLL.objValue;
     }
 }

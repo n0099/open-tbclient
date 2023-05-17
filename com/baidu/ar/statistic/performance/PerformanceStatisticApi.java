@@ -9,7 +9,7 @@ import com.baidu.ar.statistic.performance.a;
 import java.util.Random;
 /* loaded from: classes.dex */
 public class PerformanceStatisticApi implements f {
-    public a.C0059a xf;
+    public a.C0062a xf;
     public int xc = 0;
     public boolean xd = false;
     public a xe = new a();
@@ -17,12 +17,12 @@ public class PerformanceStatisticApi implements f {
 
     private void gs() {
         if (this.xf == null) {
-            a.C0059a c0059a = new a.C0059a();
-            this.xf = c0059a;
+            a.C0062a c0062a = new a.C0062a();
+            this.xf = c0062a;
             int i = this.xc + 1;
             this.xc = i;
-            c0059a.xn = i;
-            this.xe.xm.add(c0059a);
+            c0062a.xn = i;
+            this.xe.xm.add(c0062a);
         }
     }
 
@@ -70,12 +70,12 @@ public class PerformanceStatisticApi implements f {
         try {
             if (this.xd) {
                 gs();
-                a.C0059a.C0060a c0060a = new a.C0059a.C0060a();
-                c0060a.name = str;
-                c0060a.xr = str2;
-                c0060a.xs = j;
-                c0060a.count = i;
-                this.xf.xq.add(c0060a);
+                a.C0062a.C0063a c0063a = new a.C0062a.C0063a();
+                c0063a.name = str;
+                c0063a.xr = str2;
+                c0063a.xs = j;
+                c0063a.count = i;
+                this.xf.xq.add(c0063a);
             }
         } catch (RuntimeException e) {
             e.printStackTrace();

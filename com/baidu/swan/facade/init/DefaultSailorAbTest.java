@@ -2,7 +2,7 @@ package com.baidu.swan.facade.init;
 
 import com.baidu.browser.sailor.ISailorAbTestInterface;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class DefaultSailorAbTest implements ISailorAbTestInterface {
     @Override // com.baidu.webkit.sdk.IABTestInterface
     public double getSwitch(String str, double d) {

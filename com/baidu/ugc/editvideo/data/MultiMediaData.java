@@ -9,8 +9,8 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.annotation.IntRange;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.mla;
-import com.baidu.tieba.tia;
+import com.baidu.tieba.kna;
+import com.baidu.tieba.rka;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.google.gson.reflect.TypeToken;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public static final Parcelable.Creator<MultiMediaData> CREATOR = new Parcelable.Creator<MultiMediaData>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -87,7 +87,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public float y;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface MultiMediaType {
         public static final int TYPE_IMAGE = 0;
         public static final int TYPE_VIDEO = 1;
@@ -152,7 +152,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     }
 
     public static String arratToJson(List<MultiMediaData> list) {
-        if (mla.e(list)) {
+        if (kna.e(list)) {
             return "";
         }
         ArrayList arrayList = new ArrayList();
@@ -161,11 +161,11 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             multiMediaData.textureId = 0;
             arrayList.add(multiMediaData);
         }
-        return mla.e(arrayList) ? "" : new tia().a(arrayList);
+        return kna.e(arrayList) ? "" : new rka().a(arrayList);
     }
 
     public static List<String> getExtList(List<MultiMediaData> list, String str) {
-        if (mla.e(list) || TextUtils.isEmpty(str)) {
+        if (kna.e(list) || TextUtils.isEmpty(str)) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
@@ -186,7 +186,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         }
         new ArrayList();
         try {
-            return (List) new tia().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
+            return (List) new rka().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
             }.getType());
         } catch (Exception unused) {
             return null;

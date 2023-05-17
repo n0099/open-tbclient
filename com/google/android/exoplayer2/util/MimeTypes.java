@@ -6,7 +6,7 @@ import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.googlecode.mp4parser.boxes.AC3SpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class MimeTypes {
     public static final String APPLICATION_CAMERA_MOTION = "application/x-camera-motion";
     public static final String APPLICATION_CEA608 = "application/cea-608";

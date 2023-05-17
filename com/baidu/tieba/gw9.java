@@ -1,344 +1,173 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.Activity;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.UserIconBox;
-import com.baidu.tbadk.data.IconData;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.data.UserPendantData;
+import com.baidu.tieba.person.ProfileHttpResponseMessage;
+import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class gw9 {
+import tbclient.Pendant;
+/* loaded from: classes5.dex */
+public class gw9 extends fb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PersonalCardDetailActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public NoNetworkView e;
-    public TbImageView f;
-    public TextView g;
-    public TbImageView h;
-    public TextView i;
-    public TextView j;
-    public HeadImageView k;
-    public TextView l;
-    public TextView m;
-    public TextView n;
-    public TextView o;
-    public TbImageView p;
-    public UserIconBox q;
-    public View r;
-    public View s;
-    public gv9 t;
-    public View.OnClickListener u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
+    public final MainTabActivity a;
+    public final tu9 b;
 
-    public gw9(PersonalCardDetailActivity personalCardDetailActivity, View.OnClickListener onClickListener) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gw9(MainTabActivity mainTabActivity, iu9 iu9Var) {
+        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {personalCardDetailActivity, onClickListener};
+            Object[] objArr = {mainTabActivity, iu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = 0;
-        this.w = 0;
-        this.x = 0;
-        this.y = 0;
-        this.a = personalCardDetailActivity;
-        View inflate = LayoutInflater.from(personalCardDetailActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d078d, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
-        this.v = ii.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
-        this.w = ii.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070231);
-        this.x = ii.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
-        this.y = ii.g(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201);
-        this.u = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0f6a);
-        this.e = (NoNetworkView) this.b.findViewById(R.id.view_no_network);
-        this.m = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b2b);
-        this.n = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b2a);
-        this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091b2a);
-        this.c = this.b.findViewById(R.id.content_view);
-        this.s = this.b.findViewById(R.id.obfuscated_res_0x7f092495);
-        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0905cc);
-        this.f = tbImageView;
-        tbImageView.setDefaultBgResource(R.drawable.transparent_bg);
-        this.f.setDefaultResource(R.drawable.transparent_bg);
-        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0926ce);
-        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0926b4);
-        this.k = headImageView;
-        headImageView.setIsRound(true);
-        this.k.setDrawBorder(false);
-        this.q = (UserIconBox) this.b.findViewById(R.id.obfuscated_res_0x7f09060b);
-        this.p = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0926f3);
-        this.r = this.b.findViewById(R.id.obfuscated_res_0x7f0908db);
-        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0905da);
-        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090575);
-        this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09060a);
-        TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060d);
-        this.h = tbImageView2;
-        tbImageView2.setDefaultResource(R.drawable.transparent_bg);
-        this.h.setDefaultBgResource(R.drawable.transparent_bg);
-        this.j.setOnClickListener(this.u);
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public void a() {
+    public final void a() {
+        tu9 tu9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tu9Var = this.b) != null && tu9Var.a() != null && this.a.A == 1) {
+            this.b.a().d();
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            MainTabActivity mainTabActivity = this.a;
+            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
+                this.b.a().f();
+            }
+        }
+    }
+
+    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
         boolean z;
+        boolean z2;
+        tu9 tu9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yv4 layoutMode = this.a.getLayoutMode();
-            if (TbadkApplication.getInst().getSkinType() == 4) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
+                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1 && (tu9Var = this.b) != null && tu9Var.a() != null) {
+                    this.b.a().d();
+                    this.b.a().f();
+                }
+                a();
+                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
+                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
+                d(profileHttpResponseMessage.GetUser().pendant);
             }
-            layoutMode.l(z);
-            this.a.getLayoutMode().k(this.b);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            NoNetworkView noNetworkView = this.e;
-            if (noNetworkView != null) {
-                noNetworkView.d(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            if (this.a.getLayoutMode() != null) {
-                this.a.getLayoutMode().k(this.n);
-                g35.d(this.n).w(R.color.CAM_X0108);
-            }
-            if (this.a.getLayoutMode() != null) {
-                this.a.getLayoutMode().k(this.m);
-                g35.d(this.m).w(R.color.CAM_X0108);
-            }
-            if (this.a.getLayoutMode() != null) {
-                this.a.getLayoutMode().k(this.o);
-                g35.d(this.o).w(R.color.CAM_X0108);
+            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
             }
         }
     }
 
-    public void b() {
+    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setVisibility(0);
-            this.s.setVisibility(0);
-            this.f.setVisibility(0);
-            this.r.setVisibility(0);
-            this.g.setVisibility(0);
-            this.i.setVisibility(0);
-            this.h.setVisibility(0);
-            this.j.setVisibility(0);
-            this.a.hideNetRefreshView(this.b);
-        }
-    }
-
-    public final void e() {
-        gv9 gv9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (gv9Var = this.t) == null) {
-            return;
-        }
-        this.g.setText(gv9Var.j());
-        this.i.setText(this.t.d());
-        this.h.N(this.t.i(), 10, false);
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public View d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void f() {
-        String str;
-        String str2;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.t == null) {
-            return;
-        }
-        if (!TbadkCoreApplication.isLogin()) {
-            this.q.setVisibility(8);
-            this.p.setVisibility(8);
-            this.l.setPadding(this.x, 0, 0, 0);
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
-            this.l.setText(R.string.obfuscated_res_0x7f0f04d5);
-        } else {
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            String str3 = null;
-            if (currentAccountInfo != null) {
-                String portrait = currentAccountInfo.getPortrait();
-                str = currentAccountInfo.getAccountNameShow();
-                String memberIconUrl = currentAccountInfo.getMemberIconUrl();
-                i = currentAccountInfo.getMemberType();
-                str2 = portrait;
-                str3 = memberIconUrl;
-            } else {
-                str = null;
-                str2 = null;
-                i = 0;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
+            boolean z3 = true;
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
+                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
+                if (this.a.A == 1) {
+                    tu9 tu9Var = this.b;
+                    if (tu9Var != null && tu9Var.a() != null) {
+                        this.b.a().d();
+                    }
+                    a();
+                }
+                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
+                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
+                d(profileSocketResponseMessage.GetUser().pendant);
             }
-            if (i > 0) {
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
-            } else {
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0108, 1);
-            }
-            if (StringUtils.isNull(str3)) {
-                this.p.setVisibility(8);
-                this.l.setPadding(this.x, 0, 0, 0);
-                this.l.setText(str);
-            } else {
-                this.p.setVisibility(0);
-                this.p.N(str3, 10, false);
-                this.l.setPadding(this.v, 0, 0, 0);
-                this.l.setText(str);
-            }
-            this.q.setVisibility(0);
-            if (currentAccountInfo != null && currentAccountInfo.getUserIcons() != null) {
-                i2 = currentAccountInfo.getUserIcons().size();
-            } else {
-                i2 = 0;
-            }
-            if (i2 >= 8 || (i3 = i2 - 1) >= 4) {
-                i4 = 4;
-            } else {
-                i4 = i3;
-            }
-            if (currentAccountInfo != null) {
-                UserIconBox userIconBox = this.q;
-                List<IconData> userIcons = currentAccountInfo.getUserIcons();
-                int i5 = this.y;
-                userIconBox.h(userIcons, i4, i5, i5, this.w, true);
-            }
-            this.k.N(str2, 12, false);
-        }
-        this.f.N(this.t.e(), 10, false);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.setVisibility(8);
-            this.f.setVisibility(8);
-            this.r.setVisibility(8);
-            this.s.setVisibility(8);
-            this.g.setVisibility(8);
-            this.i.setVisibility(8);
-            this.h.setVisibility(8);
-            this.j.setVisibility(8);
-            this.a.showNetRefreshView(this.b, this.a.getPageContext().getResources().getString(R.string.no_data_text), true);
-        }
-    }
-
-    public void h(int i, gv9 gv9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, gv9Var) == null) {
-            if (gv9Var == null) {
-                g();
-            } else if (i != 0) {
-            } else {
-                this.t = gv9Var;
-                b();
-                f();
-                e();
-                i(gv9Var);
+            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
+                MainTabActivity mainTabActivity = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                mainTabActivity.L = z;
+                MainTabActivity mainTabActivity2 = this.a;
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                mainTabActivity2.M = z2;
+                TbSingleton tbSingleton = TbSingleton.getInstance();
+                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
+                    z3 = false;
+                }
+                tbSingleton.setUserBan(z3);
             }
         }
     }
 
-    public void i(gv9 gv9Var) {
+    public final void d(Pendant pendant) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gv9Var) != null) || gv9Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
+            UserPendantData userPendantData = new UserPendantData();
+            userPendantData.parserProtobuf(pendant);
+            TbSingleton.getInstance().setUserPendantData(userPendantData);
         }
-        this.t = gv9Var;
-        if (gv9Var == null) {
-            this.j.setVisibility(8);
-            return;
-        }
-        int f = gv9Var.f();
-        this.j.setVisibility(0);
-        if (this.t.g() == 1) {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f053c);
-        } else if (this.t.c() == 1) {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.use_immediately);
-        } else if (f == 0) {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f162b);
-        } else if (f == 100) {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);
-            if (this.t.h() == 0) {
-                this.j.setText(R.string.obfuscated_res_0x7f0f008d);
-            } else {
-                this.j.setText(R.string.use_immediately);
+    }
+
+    @Override // com.baidu.tieba.fb
+    public void onMessage(ResponsedMessage<?> responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
+            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
+            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
+                return;
             }
-        } else if (f == 101) {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f0312);
-        } else if (f > 1) {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
-            this.j.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0318), Integer.valueOf(f)));
-        } else {
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
-            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
-            this.j.setText(R.string.obfuscated_res_0x7f0f0315);
+            if (z) {
+                c((ProfileSocketResponseMessage) responsedMessage);
+            }
+            if (responsedMessage instanceof ProfileHttpResponseMessage) {
+                b((ProfileHttpResponseMessage) responsedMessage);
+            }
         }
     }
 }

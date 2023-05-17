@@ -7,14 +7,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.ki;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.ti;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ItemFetchUrlHttpMsg extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
                 return;
             }
         }
-        addParam("screen_width", ii.l(TbadkCoreApplication.getInst().getContext()));
-        addParam("screen_length", ii.j(TbadkCoreApplication.getInst().getContext()));
-        addParam("os_ver", ki.k());
+        addParam("screen_width", ri.l(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_length", ri.j(TbadkCoreApplication.getInst().getContext()));
+        addParam("os_ver", ti.k());
         addParam("package", itemData.pkgName);
         addParam("query", str);
         if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {

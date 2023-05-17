@@ -3,7 +3,7 @@ package com.baidu.pass.ecommerce.common.mvp;
 import android.os.Bundle;
 import com.baidu.pass.ecommerce.common.mvp.IPresenter;
 import com.baidu.sapi2.activity.BaseOptionActivity;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionActivity implements IBaseView {
     public P presenter;
 

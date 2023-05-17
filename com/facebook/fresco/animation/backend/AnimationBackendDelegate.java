@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.IntRange;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
     public static final int ALPHA_UNSET = -1;
     @IntRange(from = -1, to = 255)

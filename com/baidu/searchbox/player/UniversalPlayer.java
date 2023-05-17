@@ -28,7 +28,7 @@ import com.baidu.searchbox.player.utils.BdActivityUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.searchbox.player.utils.BdViewOpUtils;
 @SuppressLint({"KotlinPropertyAccess"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     public static final String TAG = "UniversalPlayer";
     public static boolean sIsOrientationLock;
@@ -58,7 +58,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     public void setupLayers(@NonNull Context context) {
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         public static final int DELAY_TIME = 1000;
         public long mChangedTime = 0;

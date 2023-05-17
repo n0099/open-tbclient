@@ -2,25 +2,25 @@ package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.c66;
+import com.baidu.tieba.o76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LiveTabConcernItemViewLineHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c66 a;
+    public o76 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LiveTabConcernItemViewLineHolder(c66 c66Var) {
-        super(c66Var.h());
+    public LiveTabConcernItemViewLineHolder(o76 o76Var) {
+        super(o76Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c66Var};
+            Object[] objArr = {o76Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class LiveTabConcernItemViewLineHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = c66Var;
+        this.a = o76Var;
     }
 }

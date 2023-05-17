@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.renderer;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public enum RenderingFormat {
     PLAIN { // from class: kotlin.reflect.jvm.internal.impl.renderer.RenderingFormat.PLAIN
         @Override // kotlin.reflect.jvm.internal.impl.renderer.RenderingFormat

@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2.extractor;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface SeekMap {
     long getDurationUs();
 
@@ -7,7 +7,7 @@ public interface SeekMap {
 
     boolean isSeekable();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class Unseekable implements SeekMap {
         public final long durationUs;
 

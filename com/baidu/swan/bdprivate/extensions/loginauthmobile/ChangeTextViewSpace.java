@@ -5,7 +5,7 @@ import android.text.SpannableString;
 import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ChangeTextViewSpace extends TextView {
     public float a;
     public CharSequence b;

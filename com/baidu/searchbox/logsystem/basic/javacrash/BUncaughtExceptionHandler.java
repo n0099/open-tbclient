@@ -24,13 +24,13 @@ import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.ij1;
+import com.baidu.tieba.yj1;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     public static final String TAG = "BaseUncaughtException";
     public final Context mContext;
@@ -60,7 +60,7 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         this.mProcessLaunchTime = System.currentTimeMillis();
         Context applicationContext = context.getApplicationContext();
         this.mContext = applicationContext != null ? applicationContext : context;
-        this.mProcessName = ij1.b();
+        this.mProcessName = yj1.b();
     }
 
     private LogExtra createLogExtra(@NonNull Thread thread) {

@@ -7,7 +7,7 @@ import android.os.Build;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MiniScreenOrientationCompat {
     public static final boolean DEBUG = false;
     public static final String TAG = "ScreenOrientationCompat";

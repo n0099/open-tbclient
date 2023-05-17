@@ -11,7 +11,7 @@ import com.baidu.sapi2.SapiContext;
 import com.baidu.sofire.ac.FH;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Security {
     public static String getZid(Context context, int i) {
         String gzfi = FH.gzfi(context, null, i);

@@ -1,40 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.app.Application;
+import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.retrieve.YaLogInitManager;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.log.TbLogManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-/* loaded from: classes6.dex */
-public class tea extends tj1<UBCManager> {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class tea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tea() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            oi.d().h(SwanKV.LIB_CPP_SHARED, 2);
+            YaLogInitManager.getInstance().initYaLog(true, true, true, String.valueOf(10773430L));
+            TbLogManager.initTbUbcLog(new sea());
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            String s = o65.m().s("key_ubc_yalog_config", "");
+            if (TextUtils.isEmpty(s)) {
+                return;
+            }
+            try {
+                ((cqa) ServiceManager.getService(cqa.a)).a(new JSONObject(s));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.tj1
-    /* renamed from: a */
-    public UBCManager createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static void b(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new uea();
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            YaLogInitManager.getInstance().initYaLogBaseContext(application);
         }
-        return (UBCManager) invokeV.objValue;
     }
 }

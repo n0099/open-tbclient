@@ -13,7 +13,7 @@ import androidx.constraintlayout.motion.widget.Key;
 import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
 import com.kwad.sdk.utils.bd;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public View BA;
     public Runnable BB;
@@ -34,7 +34,7 @@ public final class a {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, f2);
         ofFloat.setDuration(j);
         ofFloat.setInterpolator(PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f));
-        final float dimension = view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0703a3);
+        final float dimension = view2.getResources().getDimension(R.dimen.obfuscated_res_0x7f0704e1);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.g.a.3
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public final void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -94,9 +94,9 @@ public final class a {
     }
 
     private void initView() {
-        this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0912d3);
-        this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0912d5);
-        this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f0912d4);
+        this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09130e);
+        this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091310);
+        this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f09130f);
     }
 
     public final void iO() {

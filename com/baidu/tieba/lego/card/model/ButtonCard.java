@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-import com.baidu.tieba.dh8;
+import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ButtonCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUTTON_COLOR_FILL = 2;
@@ -52,12 +52,12 @@ public class ButtonCard extends BaseCardInfo {
         this.defaultWidth = PassBiometricUtil.k;
         this.defaultHeight = 80;
         this.title = jSONObject.optString("title", "");
-        this.titleColor = dh8.b(jSONObject.optString("title_color"));
-        this.buttonColor = dh8.b(jSONObject.optString("btn_color"));
+        this.titleColor = yi8.b(jSONObject.optString("title_color"));
+        this.buttonColor = yi8.b(jSONObject.optString("btn_color"));
         this.btnScheme = jSONObject.optString("btn_scheme", "");
         this.cardWidth = jSONObject.optInt("width", this.defaultWidth);
         this.cardHeight = jSONObject.optInt("height", this.defaultHeight);
-        this.bgColor = dh8.b(jSONObject.optString("bg_color"));
+        this.bgColor = yi8.b(jSONObject.optString("bg_color"));
         this.bgPicUrl = jSONObject.optString("bg_pic_url", "");
         this.btnColorStyle = jSONObject.optInt("btn_color_style", -1);
         extractPhoneNumber(this.btnScheme);

@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Paint;
+import android.text.style.LineHeightSpan;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class q42 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class q42 implements LineHeightSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,32 +30,50 @@ public class q42 {
                 return;
             }
         }
-        a = ho1.a;
+        b = qp1.a;
     }
 
-    public static void a(@NonNull String str, @NonNull String str2) {
+    public q42(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            b(str, str2, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = i;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void b(@NonNull String str, @NonNull String str2, @Nullable Throwable th) {
+    @Override // android.text.style.LineHeightSpan
+    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
+        int i5;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            if (th == null) {
-                x42.c(str, str2);
-                if (a) {
-                    throw new RuntimeException(str2);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
+            if (b) {
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
+                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
+            }
+            if (this.a >= 0 && (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) >= 0) {
+                if (b) {
+                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
                 }
-                return;
+                int i6 = (this.a - i5) / 2;
+                if (b) {
+                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
+                }
+                fontMetricsInt.descent += i6;
+                fontMetricsInt.ascent -= i6;
+                if (b) {
+                    Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
+                }
             }
-            x42.d(str, str2, th);
-            if (!a) {
-                return;
-            }
-            throw new RuntimeException(str2, th);
         }
     }
 }

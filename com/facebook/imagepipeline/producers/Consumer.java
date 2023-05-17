@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.producers;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public interface Consumer<T> {
     public static final int DO_NOT_CACHE_ENCODED = 2;
     public static final int IS_LAST = 1;
@@ -12,7 +12,7 @@ public interface Consumer<T> {
     public static final int NO_FLAGS = 0;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Status {
     }
 

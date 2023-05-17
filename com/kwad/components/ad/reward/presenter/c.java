@@ -2,7 +2,7 @@ package com.kwad.components.ad.reward.presenter;
 
 import com.baidu.tieba.R;
 import com.kwad.components.core.widget.ComplianceTextView;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class c extends a {
     public ComplianceTextView bc;
     public com.kwad.components.core.webview.b.d.b gp = new com.kwad.components.core.webview.b.d.b() { // from class: com.kwad.components.ad.reward.presenter.c.1
@@ -34,7 +34,7 @@ public final class c extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091203);
+        this.bc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f09123e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

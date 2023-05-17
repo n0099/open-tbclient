@@ -3,7 +3,7 @@ package com.baidu.searchbox.retrieve.stats;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.stats.service.StatTaskManager;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class StatTask implements IStatTask {
     @Override // com.baidu.searchbox.retrieve.inter.statistics.IStatTask
     public void recordActiveUploadData(boolean z, String str, String str2, String str3, String str4) {

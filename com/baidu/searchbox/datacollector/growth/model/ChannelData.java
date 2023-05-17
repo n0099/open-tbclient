@@ -2,7 +2,7 @@ package com.baidu.searchbox.datacollector.growth.model;
 
 import android.text.TextUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ChannelData {
     public String mDownChannel;
     public JSONObject mExtend;
@@ -11,7 +11,7 @@ public class ChannelData {
     public String mSource;
     public String mType;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Builder {
         public JSONObject extend;
         public String type;

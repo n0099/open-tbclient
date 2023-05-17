@@ -8,13 +8,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.cv9;
-import com.baidu.tieba.dj8;
-import com.baidu.tieba.jg;
+import com.baidu.tieba.ex9;
+import com.baidu.tieba.sg;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$mainTabTipCloseListener$2;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$splashCloseListener$2;
 import com.baidu.tieba.sprite.homepage.HomeSpriteShowController$spriteShowListener$2;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\u0010\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u0002\n\u0002\b\u0004\u0018\u0000 \u001b2\u00020\u0001:\u0001\u001bB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0017\u001a\u00020\u0018H\u0002J\u0006\u0010\u0019\u001a\u00020\u0018J\u0006\u0010\u001a\u001a\u00020\u0018R*\u0010\u0005\u001a\u001e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\b0\u0006j\u000e\u0012\u0004\u0012\u00020\u0007\u0012\u0004\u0012\u00020\b`\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\n\u001a\u00020\u000b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\rR\u0010\u0010\u0010\u001a\u0004\u0018\u00010\u0003X\u0082\u000e¢\u0006\u0002\n\u0000R\u001b\u0010\u0011\u001a\u00020\u000b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0013\u0010\u000f\u001a\u0004\b\u0012\u0010\rR\u001b\u0010\u0014\u001a\u00020\u000b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0016\u0010\u000f\u001a\u0004\b\u0015\u0010\r¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/sprite/homepage/HomeSpriteShowController;", "", "owner", "Landroidx/lifecycle/Lifecycle;", "(Landroidx/lifecycle/Lifecycle;)V", "checkList", "Ljava/util/HashMap;", "", "", "Lkotlin/collections/HashMap;", "mainTabTipCloseListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "getMainTabTipCloseListener", "()Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mainTabTipCloseListener$delegate", "Lkotlin/Lazy;", "page", "splashCloseListener", "getSplashCloseListener", "splashCloseListener$delegate", "spriteShowListener", "getSpriteShowListener", "spriteShowListener$delegate", "checkStatusAndShow", "", "release", "unRegisterListener", "Companion", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class HomeSpriteShowController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public final class HomeSpriteShowController {
                 this.this$0 = this;
             }
 
-            /* loaded from: classes6.dex */
+            /* loaded from: classes7.dex */
             public static final class a extends CustomMessageListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -176,7 +176,7 @@ public final class HomeSpriteShowController {
                 this.this$0 = this;
             }
 
-            /* loaded from: classes6.dex */
+            /* loaded from: classes7.dex */
             public static final class a extends CustomMessageListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -260,7 +260,7 @@ public final class HomeSpriteShowController {
                 this.this$0 = this;
             }
 
-            /* loaded from: classes6.dex */
+            /* loaded from: classes7.dex */
             public static final class a extends CustomMessageListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -309,7 +309,7 @@ public final class HomeSpriteShowController {
                                 homeSpriteShowController.c();
                                 return;
                             }
-                            HomeSpriteEdgeFloatManager.j.c().I();
+                            HomeSpriteEdgeFloatManager.j.c().H();
                         }
                     }
                 }
@@ -329,11 +329,11 @@ public final class HomeSpriteShowController {
         });
         this.d = owner;
         this.e = new HashMap<>();
-        if (cv9.d.a().c()) {
+        if (ex9.d.a().c()) {
             if (HomeSpriteEdgeFloatManager.j.b() && (lifecycle = this.d) != null) {
                 lifecycle.addObserver(HomeSpriteEdgeFloatManager.j.c());
             }
-            cv9.d.a().e(false);
+            ex9.d.a().e(false);
             return;
         }
         if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
@@ -382,16 +382,16 @@ public final class HomeSpriteShowController {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             for (Map.Entry<String, Boolean> entry : this.e.entrySet()) {
                 if (!entry.getValue().booleanValue()) {
-                    dj8 defaultLog = DefaultLog.getInstance();
+                    yk8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c("HomeSpriteShow", "当前状态不可用展示精灵：" + this.e);
                     return;
                 }
             }
-            dj8 defaultLog2 = DefaultLog.getInstance();
+            yk8 defaultLog2 = DefaultLog.getInstance();
             defaultLog2.c("HomeSpriteShow", "开始展示首页小精灵:" + HomeSpriteEdgeFloatManager.j.b());
             if (HomeSpriteEdgeFloatManager.j.b()) {
                 if (HomeSpriteEdgeFloatManager.j.g()) {
-                    jg.a().post(new Runnable() { // from class: com.baidu.tieba.gl9
+                    sg.a().post(new Runnable() { // from class: com.baidu.tieba.in9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -405,7 +405,7 @@ public final class HomeSpriteShowController {
                     });
                     return;
                 }
-                jg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.hl9
+                sg.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.jn9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -417,7 +417,7 @@ public final class HomeSpriteShowController {
                         }
                     }
                 }, 3000L);
-                jg.a().post(new Runnable() { // from class: com.baidu.tieba.el9
+                sg.a().post(new Runnable() { // from class: com.baidu.tieba.gn9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

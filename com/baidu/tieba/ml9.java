@@ -1,24 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
 @Service
-/* loaded from: classes5.dex */
-public class ml9 implements r25 {
+/* loaded from: classes6.dex */
+public class ml9 implements cga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.r25
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SPRITE_RES_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public ml9() {
         Interceptable interceptable = $ic;
@@ -34,13 +29,13 @@ public class ml9 implements r25 {
         }
     }
 
-    @Override // com.baidu.tieba.r25
-    public p25 a() {
+    @Override // com.baidu.tieba.cga
+    public boolean isAgreePrivacy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ll9();
+            return PermissionUtil.isAgreePrivacyPolicy();
         }
-        return (p25) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.swan.bdtls;
 import androidx.annotation.Keep;
 import java.nio.charset.StandardCharsets;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AES {
     @Keep
     public static native byte[] decrypt(byte[] bArr, byte[] bArr2);

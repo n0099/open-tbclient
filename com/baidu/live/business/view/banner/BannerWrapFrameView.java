@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.baidu.live.business.model.data.LiveBannerEntity;
 import com.baidu.tieba.R;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BannerWrapFrameView extends FrameLayout {
     public Context a;
     public SimpleDraweeView b;
@@ -40,10 +40,10 @@ public class BannerWrapFrameView extends FrameLayout {
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0580, this);
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d059f, this);
         this.d = inflate;
-        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0914c6);
-        this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0914c8);
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091502);
+        this.c = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f091504);
     }
 
     public LiveBannerEntity getLiveBannerEntity() {

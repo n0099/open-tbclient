@@ -20,7 +20,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsTransmitter extends HttpGetDataTransmitter<DnsResponse> {
     public static final int ADDRESS_BGP_IP = 1;
     public static final int ADDRESS_IDC_IP = 2;
@@ -55,7 +55,7 @@ public class DnsTransmitter extends HttpGetDataTransmitter<DnsResponse> {
         return 0;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HttpDnsHostnameVerifier implements HostnameVerifier {
         public static HttpDnsHostnameVerifier get() {
             return new HttpDnsHostnameVerifier();

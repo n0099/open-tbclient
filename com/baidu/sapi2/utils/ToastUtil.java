@@ -12,7 +12,7 @@ import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.views.logindialog.utils.ViewUtils;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ToastUtil implements NoProguard {
     public static final int a = -1;
     public static Toast b;
@@ -26,8 +26,8 @@ public class ToastUtil implements NoProguard {
         } else {
             inflate = from.inflate(R.layout.layout_sapi_sdk_common_toast, (ViewGroup) null);
         }
-        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091f51);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f52);
+        ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091fae);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091faf);
         if (-1 == i) {
             imageView.setVisibility(8);
         } else {

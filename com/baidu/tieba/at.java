@@ -1,55 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.DisplayMetrics;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
-public class at {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class at<T> extends zs<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final DisplayMetrics a;
-    public static final float b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448299994, "Lcom/baidu/tieba/at;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448299994, "Lcom/baidu/tieba/at;");
-                return;
+    public at() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        DisplayMetrics displayMetrics = ar.c.h().getAppContext().getResources().getDisplayMetrics();
-        a = displayMetrics;
-        b = displayMetrics.density;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zs
+    public void o(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int identifier = ar.c.h().getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
-            int i = 0;
-            if (identifier > 0) {
-                try {
-                    i = ar.c.h().getAppContext().getResources().getDimensionPixelSize(identifier);
-                } catch (Exception unused) {
-                }
-            }
-            if (i == 0) {
-                return (int) (b * 25.0f);
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            super.o(t);
         }
-        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.zs
+    public void p(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            super.p(t);
+        }
     }
 }

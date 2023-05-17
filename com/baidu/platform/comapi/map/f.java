@@ -33,7 +33,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class f implements ah {
     public static /* synthetic */ Interceptable $ic;
     public static final j c;
@@ -45,34 +45,34 @@ public class f implements ah {
     public aq f;
     public boolean g;
     public e h;
-    public InterfaceC0126f i;
+    public InterfaceC0130f i;
     public g j;
     public k k;
     public int l;
     public int m;
     public boolean n;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         EGLConfig a(EGL10 egl10, EGLDisplay eGLDisplay);
     }
 
     /* renamed from: com.baidu.platform.comapi.map.f$f  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public interface InterfaceC0126f {
+    /* loaded from: classes3.dex */
+    public interface InterfaceC0130f {
         EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface g {
         EGLSurface a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, Object obj);
 
         void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLSurface eGLSurface);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface k {
         GL a(GL gl);
     }
@@ -85,7 +85,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public abstract class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +163,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,8 +251,8 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements InterfaceC0126f {
+    /* loaded from: classes3.dex */
+    public class c implements InterfaceC0130f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ f a;
@@ -281,7 +281,7 @@ public class f implements ah {
             this(fVar);
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0130f
         public EGLContext a(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
@@ -296,7 +296,7 @@ public class f implements ah {
             return (EGLContext) invokeLLL.objValue;
         }
 
-        @Override // com.baidu.platform.comapi.map.f.InterfaceC0126f
+        @Override // com.baidu.platform.comapi.map.f.InterfaceC0130f
         public void a(EGL10 egl10, EGLDisplay eGLDisplay, EGLContext eGLContext) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, egl10, eGLDisplay, eGLContext) == null) && !egl10.eglDestroyContext(eGLDisplay, eGLContext)) {
@@ -306,7 +306,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class d implements g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +353,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -610,7 +610,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class i extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1146,7 +1146,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class j {
         public static /* synthetic */ Interceptable $ic = null;
         public static String a = "GLThreadManager";
@@ -1203,7 +1203,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class l extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1266,7 +1266,7 @@ public class f implements ah {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class m extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1614,11 +1614,11 @@ public class f implements ah {
         }
     }
 
-    public void a(InterfaceC0126f interfaceC0126f) {
+    public void a(InterfaceC0130f interfaceC0130f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0126f) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0130f) == null) {
             n();
-            this.i = interfaceC0126f;
+            this.i = interfaceC0130f;
         }
     }
 

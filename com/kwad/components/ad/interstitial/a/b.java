@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
 @KsJson
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public static SimpleDateFormat em = new SimpleDateFormat("yyyy-MM-dd");
     public long en = -1;

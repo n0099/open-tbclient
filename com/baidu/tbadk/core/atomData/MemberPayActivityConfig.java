@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTOPAY_FROM_LOW_INCOME_FEEDBACK = "autopay_from_low_income_feedback";

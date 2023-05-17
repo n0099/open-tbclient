@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class cb implements Runnable {
     public final /* synthetic */ Context a;
 
@@ -26,7 +26,7 @@ public final class cb implements Runnable {
             try {
                 try {
                     File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                    com.xiaomi.push.y.m764a(file);
+                    com.xiaomi.push.y.m783a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {

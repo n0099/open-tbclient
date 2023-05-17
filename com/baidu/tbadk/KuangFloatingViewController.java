@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.qx9;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.sz9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class KuangFloatingViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static String STORY_PACKAGE = "com.baidu.tieba.story";
@@ -270,7 +270,7 @@ public class KuangFloatingViewController {
             } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f09109b)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0910d6)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -287,11 +287,11 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = qx9.a(2002);
+            layoutParams.type = sz9.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = ii.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028b) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = ri.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070397) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

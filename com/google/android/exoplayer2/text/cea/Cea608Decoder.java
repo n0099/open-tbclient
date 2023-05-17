@@ -13,6 +13,7 @@ import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.location.BDLocation;
 import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.searchbox.ui.animview.base.BaseAnimatedElement;
 import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 import com.facebook.imageutils.JfifUtil;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class Cea608Decoder extends CeaDecoder {
     public static final int CC_FIELD_FLAG = 1;
     public static final byte CC_IMPLICIT_DATA_HEADER = -4;
@@ -64,7 +65,7 @@ public final class Cea608Decoder extends CeaDecoder {
     public final int selectedField;
     public static final int[] ROW_INDICES = {11, 1, 3, 12, 14, 5, 7, 9};
     public static final int[] COLUMN_INDICES = {0, 4, 8, 12, 16, 20, 24, 28};
-    public static final int[] COLORS = {-1, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, -16776961, -16711681, -65536, -256, -65281};
+    public static final int[] COLORS = {-1, DebugControllerOverlayDrawable.TEXT_COLOR_IMAGE_OK, BaseAnimatedElement.DEBUG_PAINT_COLOR, -16711681, -65536, -256, -65281};
     public static final int[] BASIC_CHARACTER_SET = {32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 225, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 233, 93, Constants.METHOD_IM_CONSULT_IM_UPDATE_MSG, 243, 250, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 231, GDiffPatcher.DATA_USHORT, 209, MatroskaExtractor.ID_CUE_CLUSTER_POSITION, 9632};
     public static final int[] SPECIAL_CHARACTER_SET = {MatroskaExtractor.ID_TRACK_ENTRY, MatroskaExtractor.ID_PIXEL_WIDTH, PsExtractor.PRIVATE_STREAM_1, 191, 8482, BDLocation.TypeServerDecryptError, MatroskaExtractor.ID_SIMPLE_BLOCK, 9834, 224, 32, 232, Constants.METHOD_MEDIA_NOTIFY, 234, 238, GDiffPatcher.COPY_UBYTE_UBYTE, 251};
     public static final int[] SPECIAL_ES_FR_CHARACTER_SET = {193, 201, 211, 218, PassFaceRecogManager.j, GDiffPatcher.COPY_INT_UBYTE, 8216, 161, 42, 39, 8212, 169, 8480, 8226, 8220, 8221, 192, 194, Constants.METHOD_IM_DEL_BUSINESS_SESSION_MSG, 200, 202, 203, 235, 206, 207, Constants.METHOD_IM_CONSULT_IM_FILTER_SESSION_MSG, 212, 217, 249, 219, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, MatroskaExtractor.ID_CUE_POINT};
@@ -102,7 +103,7 @@ public final class Cea608Decoder extends CeaDecoder {
     public void release() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class CueBuilder {
         public static final int BASE_ROW = 15;
         public static final int POSITION_UNSET = -1;
@@ -118,7 +119,7 @@ public final class Cea608Decoder extends CeaDecoder {
         public final List<SpannableString> rolledUpCaptions = new LinkedList();
         public final SpannableStringBuilder captionStringBuilder = new SpannableStringBuilder();
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes9.dex */
         public static class CueStyle {
             public final int nextStyleIncrement;
             public final int start;

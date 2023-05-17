@@ -1,31 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
+import java.util.List;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.Size;
+/* loaded from: classes6.dex */
 public class jz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public cz4 c;
-    public int d;
-    public int e;
-    public boolean f;
-    public String g;
-    public int h;
-    public String i;
-    public int j;
+    public ArrayList<mz4> a;
+    public String b;
+    public my4 c;
 
     public jz4() {
         Interceptable interceptable = $ic;
@@ -41,20 +34,18 @@ public class jz4 {
             }
         }
         this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new cz4();
     }
 
-    public ArrayList<UserData> a() {
+    public my4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (ArrayList) invokeV.objValue;
+        return (my4) invokeV.objValue;
     }
 
-    public ArrayList<UserData> b() {
+    public ArrayList<mz4> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -63,74 +54,70 @@ public class jz4 {
         return (ArrayList) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(ActivityHead activityHead, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048579, this, activityHead, j) != null) || activityHead == null) {
             return;
         }
-        try {
-            boolean z = true;
-            if (jSONObject.optJSONObject("page") != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(userData);
-                    }
-                }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        userData2.mAttentionType = 1;
-                        this.b.add(userData2);
-                    }
-                }
-                this.c.i(jSONObject.optJSONObject("page"));
-                if (this.c != null) {
-                    this.d = this.c.a();
-                    this.e = this.c.f();
-                    if (this.c.b() != 1) {
-                        z = false;
-                    }
-                    this.f = z;
-                }
-                jSONObject.optInt("tafriendnum", 0);
-                jSONObject.optInt("commonfriendnum", 0);
-            } else {
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        UserData userData3 = new UserData();
-                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.a.add(userData3);
-                    }
-                }
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        UserData userData4 = new UserData();
-                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        userData4.mAttentionType = 1;
-                        userData4.setHave_attention(1);
-                        this.b.add(userData4);
-                    }
-                }
-                this.d = jSONObject.optInt("pn");
-                this.e = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM, 0);
-                if (jSONObject.optInt("has_more", 0) != 1) {
-                    z = false;
-                }
-                this.f = z;
-                this.j = jSONObject.optInt("follow_list_switch", 0);
-            }
-            this.i = jSONObject.optString("tips_text");
-            this.h = jSONObject.optInt("type", 0);
-            this.g = jSONObject.optString("block_text");
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        activityHead.activity_type.intValue();
+        String str = activityHead.activity_title;
+        Size size = activityHead.top_size;
+        if (size != null) {
+            size.width.intValue();
+        }
+        Size size2 = activityHead.top_size;
+        if (size2 != null) {
+            size2.height.intValue();
+        }
+        this.b = activityHead.obj_id;
+        f(activityHead.head_imgs);
+        my4 my4Var = new my4();
+        my4Var.a = activityHead.pull_down_pic_android;
+        my4Var.b = activityHead.pull_down_url;
+        my4Var.c = activityHead.pull_down_interval.intValue();
+        my4Var.d = activityHead.pull_down_exposure_url;
+        my4Var.e = activityHead.pull_down_click_url;
+        my4Var.f = activityHead.pull_down_schema;
+        my4Var.g = activityHead.pull_down_package_name;
+        my4Var.h = activityHead.is_ad.booleanValue();
+        my4Var.i = activityHead.obj_id;
+        my4Var.j = j;
+        this.c = my4Var;
+    }
+
+    public void e(HeadImgs headImgs) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headImgs) != null) || headImgs == null) {
+            return;
+        }
+        mz4 mz4Var = new mz4();
+        mz4Var.o(headImgs);
+        this.a.add(mz4Var);
+    }
+
+    public void f(List<HeadImgs> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (HeadImgs headImgs : list) {
+            e(headImgs);
+        }
+    }
+
+    public void g(ArrayList<mz4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+            this.a = arrayList;
         }
     }
 }

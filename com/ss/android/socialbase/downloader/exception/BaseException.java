@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.exception;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class BaseException extends Exception implements Parcelable {
     public static final Parcelable.Creator<BaseException> CREATOR = new Parcelable.Creator<BaseException>() { // from class: com.ss.android.socialbase.downloader.exception.BaseException.1
         /* JADX DEBUG: Method merged with bridge method */

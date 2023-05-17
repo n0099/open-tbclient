@@ -1,7 +1,7 @@
 package com.baidu.nadcore.thread.task;
 
 import android.os.SystemClock;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ElasticTask implements Runnable {
     public Runnable a;
     public a b;
@@ -12,14 +12,14 @@ public class ElasticTask implements Runnable {
     public long g;
     public Status h = Status.WAITING;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum Status {
         WAITING,
         RUNNING,
         COMPLETE
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void afterExecuteTask();
 

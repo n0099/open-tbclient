@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.IntBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class EnvDrawText {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEVICE_VIVOX3L = "vivo X3L";

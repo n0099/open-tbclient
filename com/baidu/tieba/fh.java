@@ -1,86 +1,79 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class fh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
 
-    public fh() {
+    public static void a(xg xgVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.b = null;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            zb zbVar = new zb("statisticConfig", "switchsConfig", DiskFileOperate.Action.READ);
-            zbVar.setSdCard(false);
-            zbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            ub.f().call(zbVar);
-            if (zbVar.isSuccess()) {
-                str = zbVar.a();
-            } else {
-                str = null;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeL(65536, null, xgVar) == null) && d() && xgVar != null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
             try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.a = jSONObject.getLong("time");
-                this.b = jSONObject.getString("data");
-                return true;
+                jSONObject.put("ext", xgVar.h());
+                uBCManager.onEvent("3102", jSONObject);
             } catch (JSONException e) {
                 e.printStackTrace();
-                return true;
             }
+        }
+    }
+
+    public static void b(xg xgVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, xgVar) == null) && d() && xgVar != null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", xgVar.h());
+                uBCManager.onEvent("3052", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void c(xg xgVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, xgVar) == null) && d() && xgVar != null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext", xgVar.h());
+                uBCManager.onEvent("3103", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return zg.isOn();
         }
         return invokeV.booleanValue;
     }
 
-    public void b(String str) {
+    public static void e(gh ghVar, xg xgVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("time", currentTimeMillis);
-            jSONObject.put("data", str);
-            zb zbVar = new zb("statisticConfig", "switchsConfig", DiskFileOperate.Action.WRITE_FORCE);
-            zbVar.setSdCard(false);
-            zbVar.b(jSONObject.toString());
-            zbVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            ub.f().call(zbVar);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ghVar, xgVar) == null) {
+            if (ghVar instanceof vh) {
+                c(xgVar);
+            } else if (ghVar instanceof uh) {
+                b(xgVar);
+            } else if (ghVar instanceof th) {
+                a(xgVar);
+            }
         }
     }
 }

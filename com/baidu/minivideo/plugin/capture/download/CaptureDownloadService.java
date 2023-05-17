@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CaptureDownloadService extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CANCEL = "com.baidu.ugc.download.ACTION_CANCEL";
@@ -41,7 +41,7 @@ public class CaptureDownloadService extends Service {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ProgressCallback extends DownloadCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

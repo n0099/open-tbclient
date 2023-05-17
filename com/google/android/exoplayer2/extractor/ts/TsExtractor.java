@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class TsExtractor implements Extractor {
     public static final int BUFFER_SIZE = 9400;
     public static final int MAX_PID_PLUS_ONE = 8192;
@@ -71,7 +71,7 @@ public final class TsExtractor implements Extractor {
     public static final long HEVC_FORMAT_IDENTIFIER = Util.getIntegerCodeForString("HEVC");
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public @interface Mode {
     }
 
@@ -79,7 +79,7 @@ public final class TsExtractor implements Extractor {
     public void release() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class PatReader implements SectionPayloadReader {
         public final ParsableBitArray patScratch = new ParsableBitArray(new byte[4]);
 
@@ -115,7 +115,7 @@ public final class TsExtractor implements Extractor {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class PmtReader implements SectionPayloadReader {
         public static final int TS_PMT_DESC_AC3 = 106;
         public static final int TS_PMT_DESC_DTS = 123;

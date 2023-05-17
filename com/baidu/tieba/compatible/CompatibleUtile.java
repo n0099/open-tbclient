@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class CompatibleUtile {
     public static /* synthetic */ Interceptable $ic;
     public static CompatibleUtile mCompatibleUtile;
@@ -65,7 +65,7 @@ public class CompatibleUtile {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static class FullscreenableChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class CompatibleUtile {
         public FrameLayout mFullscreenContainer;
         public int mOriginalOrientation;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         public class FullscreenHolder extends FrameLayout {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -199,7 +199,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class Object11 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -298,7 +298,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class Object14 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,7 +336,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class Object5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -413,7 +413,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class Object7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -454,7 +454,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class Object8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,7 +535,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public class Object9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

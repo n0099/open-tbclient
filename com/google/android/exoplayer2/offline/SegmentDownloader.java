@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.util.PriorityTaskManager;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public abstract class SegmentDownloader<M, K> implements Downloader {
     public static final int BUFFER_SIZE_BYTES = 131072;
     public final Cache cache;
@@ -33,7 +33,7 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
 
     public abstract List<Segment> getSegments(DataSource dataSource, M m, K[] kArr, boolean z) throws InterruptedException, IOException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class Segment implements Comparable<Segment> {
         public final DataSpec dataSpec;
         public final long startTimeUs;

@@ -1,34 +1,26 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-/* loaded from: classes6.dex */
-public class wl2 implements ZeusPluginFactory {
+/* loaded from: classes8.dex */
+public class wl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String data;
+    @V8JavascriptField
+    public String errMsg;
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_input" : (String) invokeV.objValue;
-    }
-
-    public wl2(@NonNull String str) {
+    public wl2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,20 +30,17 @@ public class wl2 implements ZeusPluginFactory {
                 return;
             }
         }
-        this.a = str;
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            xl2 xl2Var = new xl2(invoker, this.a);
-            if (ho1.a) {
-                Log.i("【InlineInputFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline input「Hash:" + xl2Var.hashCode() + "」");
-            }
-            return new vl2(xl2Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ReadFileStringCallBack" + this.b;
         }
-        return (ZeusPlugin) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

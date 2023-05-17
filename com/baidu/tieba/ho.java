@@ -1,11 +1,5 @@
 package com.baidu.tieba;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.TYPE})
-@Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes4.dex */
-public @interface ho {
+/* loaded from: classes5.dex */
+public interface ho extends io {
+    void d(boolean z, int i, int i2, int i3, int i4);
 }

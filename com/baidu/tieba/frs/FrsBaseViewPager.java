@@ -6,13 +6,13 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tieba.ii;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
     public boolean k;
     public boolean l;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
@@ -95,7 +95,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         this.l = true;
         Activity activity = (Activity) context;
         this.h = activity;
-        this.f = ii.d(activity, 0);
+        this.f = ri.d(activity, 0);
         BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.h);
         aVar.b(1000);
         aVar.a(this);

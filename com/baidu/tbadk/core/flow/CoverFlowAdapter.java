@@ -11,12 +11,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be9;
-import com.baidu.tieba.dy4;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.j35;
-import com.baidu.tieba.k35;
-import com.baidu.tieba.m67;
+import com.baidu.tieba.mz4;
+import com.baidu.tieba.ri;
+import com.baidu.tieba.s45;
+import com.baidu.tieba.t45;
+import com.baidu.tieba.xf9;
+import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
+/* loaded from: classes4.dex */
+public class CoverFlowAdapter<T extends t45> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<TbImageView> a;
@@ -35,7 +35,7 @@ public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
     public View.OnClickListener d;
     public ArrayList<TbImageView> e;
     public ArrayList<RelativeLayout> f;
-    public j35 g;
+    public s45 g;
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(Object obj) {
@@ -139,12 +139,12 @@ public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
         }
     }
 
-    public void e(List<T> list, j35 j35Var) {
+    public void e(List<T> list, s45 s45Var) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, list, j35Var) == null) && list != null && !list.isEmpty()) {
-            this.g = j35Var;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, list, s45Var) == null) && list != null && !list.isEmpty()) {
+            this.g = s45Var;
             this.b.clear();
             this.b.addAll(list);
             d(this.b);
@@ -152,9 +152,9 @@ public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
             int size2 = this.b.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
-                    tbImageView = j35Var.d(this.c);
+                    tbImageView = s45Var.d(this.c);
                     this.a.add(tbImageView);
-                    tbImageView2 = j35Var.d(this.c);
+                    tbImageView2 = s45Var.d(this.c);
                     this.e.add(tbImageView2);
                     this.f.add(new RelativeLayout(this.c));
                 } else {
@@ -163,15 +163,15 @@ public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
                     this.f.get(i);
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof m67) {
+                    if (this.b.get(i) instanceof z77) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.N(this.b.get(i).getPicUrl(), 10, false);
                     }
                     tbImageView.setOnClickListener(this.d);
-                    if ((this.b.get(i) instanceof dy4) && !((dy4) this.b.get(i)).n()) {
-                        dy4 dy4Var = (dy4) this.b.get(i);
-                        be9.k(dy4Var.j(), tbImageView2, dy4Var.k(), ii.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                    if ((this.b.get(i) instanceof mz4) && !((mz4) this.b.get(i)).n()) {
+                        mz4 mz4Var = (mz4) this.b.get(i);
+                        xf9.k(mz4Var.j(), tbImageView2, mz4Var.k(), ri.g(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }
@@ -205,7 +205,7 @@ public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
             if (tbImageView == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if ((ListUtils.getItem(this.b, i) instanceof dy4) && !((dy4) ListUtils.getItem(this.b, i)).n()) {
+            if ((ListUtils.getItem(this.b, i) instanceof mz4) && !((mz4) ListUtils.getItem(this.b, i)).n()) {
                 RelativeLayout relativeLayout = (RelativeLayout) ListUtils.getItem(this.f, i);
                 TbImageView tbImageView2 = (TbImageView) ListUtils.getItem(this.e, i);
                 relativeLayout.removeView(tbImageView2);
@@ -218,7 +218,7 @@ public class CoverFlowAdapter<T extends k35> extends PagerAdapter {
                     layoutParams.addRule(12);
                     layoutParams.addRule(9);
                 } else {
-                    layoutParams.setMargins(0, ii.g(this.c, R.dimen.obfuscated_res_0x7f07027b) - ii.g(this.c, R.dimen.obfuscated_res_0x7f0701e8), 0, 0);
+                    layoutParams.setMargins(0, ri.g(this.c, R.dimen.obfuscated_res_0x7f070389) - ri.g(this.c, R.dimen.obfuscated_res_0x7f0701e8), 0, 0);
                 }
                 relativeLayout.addView(tbImageView2, layoutParams);
                 if (relativeLayout.getParent() == null) {

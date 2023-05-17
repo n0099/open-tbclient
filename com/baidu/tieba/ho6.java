@@ -1,82 +1,132 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class ho6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Canvas a;
+    public Bitmap b;
+    public int c;
+    public int d;
 
-    public static final <T extends fn6> T a(gn6 gn6Var, Class<T> type, y entity, ym6 item) {
-        InterceptResult invokeLLLL;
-        T t;
+    public ho6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, gn6Var, type, entity, item)) == null) {
-            Intrinsics.checkNotNullParameter(gn6Var, "<this>");
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            Intrinsics.checkNotNullParameter(item, "item");
-            x f = gn6Var.f();
-            if (f != null && (t = (T) f.h(type)) != null) {
-                entity.a(t);
-                t.b(item);
-                return t;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (T) invokeLLLL.objValue;
+        this.a = new Canvas();
+        this.b = sp6.b();
     }
 
-    public static final long b(gn6 gn6Var) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gn6Var)) == null) {
-            Intrinsics.checkNotNullParameter(gn6Var, "<this>");
-            return d(gn6Var).a();
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.b.isRecycled()) {
+            return;
         }
-        return invokeL.longValue;
+        this.b.eraseColor(0);
     }
 
-    public static final yo6 c(gn6 gn6Var) {
-        InterceptResult invokeL;
+    public final Bitmap c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, gn6Var)) == null) {
-            Intrinsics.checkNotNullParameter(gn6Var, "<this>");
-            return gn6Var.i().d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (yo6) invokeL.objValue;
+        return (Bitmap) invokeV.objValue;
     }
 
-    public static final bp6 d(gn6 gn6Var) {
-        InterceptResult invokeL;
+    public final Canvas d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gn6Var)) == null) {
-            Intrinsics.checkNotNullParameter(gn6Var, "<this>");
-            return gn6Var.i().f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (bp6) invokeL.objValue;
+        return (Canvas) invokeV.objValue;
     }
 
-    public static final boolean e(gn6 gn6Var) {
-        InterceptResult invokeL;
-        en6 en6Var;
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gn6Var)) == null) {
-            Intrinsics.checkNotNullParameter(gn6Var, "<this>");
-            x f = gn6Var.f();
-            if (f instanceof en6) {
-                en6Var = (en6) f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || Intrinsics.areEqual(this.b, sp6.b())) {
+            return;
+        }
+        this.a.setBitmap(null);
+        this.b = sp6.b();
+        this.c = 0;
+        this.d = 0;
+    }
+
+    public final void a(int i, int i2, int i3, boolean z, int i4) {
+        boolean z2;
+        Bitmap.Config config;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)}) == null) {
+            if (!z ? !(i > this.c || i2 > this.d) : !(i != this.c || i2 != this.d)) {
+                z2 = true;
             } else {
-                en6Var = null;
+                z2 = false;
             }
-            if (en6Var != null) {
-                return en6Var.x();
+            if (!Intrinsics.areEqual(this.b, sp6.b()) && !this.b.isRecycled() && z2) {
+                this.b.eraseColor(0);
+                this.a.setBitmap(this.b);
+                return;
             }
-            return true;
+            this.c = Math.max(1, i);
+            this.d = Math.max(1, i2);
+            if (i4 == 32) {
+                config = Bitmap.Config.ARGB_8888;
+            } else {
+                config = Bitmap.Config.ARGB_4444;
+            }
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(this.c, this.d, config);
+                if (i3 > 0) {
+                    createBitmap.setDensity(i3);
+                }
+                this.a.setBitmap(createBitmap);
+                this.a.setDensity(i3);
+                Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(width, heig…y = density\n            }");
+                this.b = createBitmap;
+            } catch (Exception unused) {
+                this.b = sp6.b();
+                this.a.setBitmap(null);
+                this.c = 0;
+                this.d = 0;
+            }
         }
-        return invokeL.booleanValue;
     }
 }

@@ -14,13 +14,13 @@ import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static void loadNativeAd(KsScene ksScene, @NonNull final KsLoadManager.NativeAdListener nativeAdListener) {
         boolean a = m.oF().a(ksScene, "loadNativeAd");
         ksScene.setAdStyle(10000);
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0601a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.e.b.1
+        KsAdLoadManager.a(new a.C0615a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.e.b.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.g
             public final void a(@NonNull AdResultData adResultData) {
                 final ArrayList arrayList = new ArrayList();

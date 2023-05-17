@@ -2,7 +2,7 @@ package com.qq.e.comm.managers;
 
 import com.qq.e.ads.dfa.GDTAppDialogClickListener;
 import com.qq.e.comm.managers.devtool.DevTools;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface IGDTAdManager {
     String getBuyerId();
 

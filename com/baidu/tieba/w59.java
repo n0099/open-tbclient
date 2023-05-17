@@ -1,65 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class w59 extends BaseCardInfo implements in {
+import tbclient.UcCard;
+import tbclient.UcCardInfo;
+/* loaded from: classes8.dex */
+public class w59 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ApkDownloadInfoData> a;
-    public List<ApkDownloadInfoData> b;
+    public List<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221710, "Lcom/baidu/tieba/w59;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+        public boolean c;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948221710, "Lcom/baidu/tieba/w59;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        c = BdUniqueId.gen();
+
+        public void a(UcCardInfo ucCardInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, ucCardInfo) != null) || ucCardInfo == null) {
+                return;
+            }
+            this.a = ucCardInfo.title;
+            String str = ucCardInfo.pic;
+            String str2 = ucCardInfo.jmp;
+            String str3 = ucCardInfo.tip;
+            this.b = ucCardInfo.st.intValue();
+        }
     }
 
     public w59() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(UcCard ucCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ucCard) != null) || ucCard == null) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        String str = ucCard.name;
+        String str2 = ucCard.icon;
+        String str3 = ucCard.doc;
+        String str4 = ucCard.jmp;
+        this.a = new ArrayList();
+        List<UcCardInfo> list = ucCard.uc_cards;
+        if (list != null) {
+            for (UcCardInfo ucCardInfo : list) {
+                if (ucCardInfo != null) {
+                    a aVar = new a();
+                    aVar.a(ucCardInfo);
+                    this.a.add(aVar);
+                }
+            }
+        }
     }
 }

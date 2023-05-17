@@ -6,13 +6,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h31;
-import com.baidu.tieba.li0;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.x31;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdNetUtils {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public enum NetStatus {
         NET_DOWN,
         NET_WIFI,
@@ -41,7 +41,7 @@ public class BdNetUtils {
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         try {
-            return ((ConnectivityManager) li0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+            return ((ConnectivityManager) bj0.b().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception unused) {
             return null;
         }
@@ -92,6 +92,6 @@ public class BdNetUtils {
             sb.append(str);
             sb.append("MB");
         }
-        h31.a().showToast(context, sb.toString());
+        x31.a().showToast(context, sb.toString());
     }
 }

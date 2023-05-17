@@ -1,7 +1,7 @@
 package com.baidu.live.utils;
 
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NetworkState implements Serializable {
     public static final long serialVersionUID = 6342610950738914764L;
     public long mCurChangedTime;

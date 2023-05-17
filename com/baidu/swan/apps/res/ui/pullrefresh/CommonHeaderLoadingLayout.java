@@ -9,8 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ol3;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.xm3;
+/* loaded from: classes4.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
     public int e;
     public int f;
@@ -20,7 +20,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public RefreshingAnimView j;
     public HeaderRefreshIndicator k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public a() {
         }
@@ -31,7 +31,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements Animator.AnimatorListener {
         public final /* synthetic */ Runnable a;
 
@@ -62,14 +62,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091d6a);
-        int f = ol3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091dc4);
+        int f = xm3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i = (int) (f * 1.5f);
         this.h = i;
         this.g = i;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091d68);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091dc1);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -116,7 +116,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a0, viewGroup, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a2, viewGroup, false);
         this.i = inflate;
         return inflate;
     }
@@ -126,7 +126,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (z) {
             this.j.setAlpha(0.0f);
             if (TextUtils.isEmpty(str)) {
-                this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01af));
+                this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01d9));
             } else {
                 this.k.setText(str);
             }
@@ -158,7 +158,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (view2 != null) {
             return view2.getHeight();
         }
-        return ol3.f(getContext(), 50.0f);
+        return xm3.f(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout

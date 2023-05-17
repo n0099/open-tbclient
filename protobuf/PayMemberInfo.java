@@ -2,7 +2,7 @@ package protobuf;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class PayMemberInfo extends Message {
     public static final String DEFAULT_EXPIREREMIND = "";
     public static final String DEFAULT_PICURL = "";
@@ -20,7 +20,7 @@ public final class PayMemberInfo extends Message {
     public static final Integer DEFAULT_PROPSID = 0;
     public static final Integer DEFAULT_ENDTIME = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<PayMemberInfo> {
         public Integer endTime;
         public String expireRemind;

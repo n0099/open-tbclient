@@ -3,28 +3,28 @@ package com.baidu.nadcore.requester;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.li0;
-import com.baidu.tieba.x01;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.n11;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class NadRequester {
-    public static final x01 a;
+    public static final n11 a;
 
-    /* loaded from: classes2.dex */
-    public static class a implements x01 {
-        @Override // com.baidu.tieba.x01
+    /* loaded from: classes3.dex */
+    public static class a implements n11 {
+        @Override // com.baidu.tieba.n11
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(@NonNull Error error);
 
         void b(@NonNull List<AdBaseModel> list);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class Error extends Exception {
         public Error() {
         }
@@ -43,15 +43,15 @@ public class NadRequester {
     }
 
     static {
-        x01 x01Var = (x01) ServiceManager.getService(x01.a);
-        if (x01Var == null) {
-            x01Var = new a();
+        n11 n11Var = (n11) ServiceManager.getService(n11.a);
+        if (n11Var == null) {
+            n11Var = new a();
         }
-        a = x01Var;
+        a = n11Var;
     }
 
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
-        if (li0.a().A()) {
+        if (bj0.a().A()) {
             a.a(requestParameters, bVar);
         } else {
             bVar.a(new Error("Blocked by client"));

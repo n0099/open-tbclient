@@ -1,5 +1,5 @@
 package com.baidu.searchbox.cloudcommand.dao;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudCommandTable {
     public static final String CREATE_TABLE = "create table cloudcommand(msgId text primary key,type text ,dispatched integer,version text,timestamp integer)";
     public static final String DISPATCHED = "dispatched";

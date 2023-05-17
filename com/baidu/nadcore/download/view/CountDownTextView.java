@@ -10,9 +10,9 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ll0;
-/* loaded from: classes2.dex */
-public class CountDownTextView extends LinearLayout implements ll0 {
+import com.baidu.tieba.bm0;
+/* loaded from: classes3.dex */
+public class CountDownTextView extends LinearLayout implements bm0 {
     public TextView a;
     public TextView b;
     public String c;
@@ -21,7 +21,7 @@ public class CountDownTextView extends LinearLayout implements ll0 {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.ll0
+    @Override // com.baidu.tieba.bm0
     public void a(long j) {
         this.b.setText(String.format(this.c, 0));
     }
@@ -45,17 +45,17 @@ public class CountDownTextView extends LinearLayout implements ll0 {
         this(context, attributeSet, 0);
     }
 
-    @Override // com.baidu.tieba.ll0
+    @Override // com.baidu.tieba.bm0
     public void b(long j, long j2) {
         this.b.setText(String.format(this.c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
     }
 
-    @Override // com.baidu.tieba.ll0
+    @Override // com.baidu.tieba.bm0
     public void c(long j, long j2) {
         this.b.setText(String.format(this.c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
     }
 
-    @Override // com.baidu.tieba.ll0
+    @Override // com.baidu.tieba.bm0
     public void onProgress(long j, long j2) {
         this.b.setText(String.format(this.c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
     }

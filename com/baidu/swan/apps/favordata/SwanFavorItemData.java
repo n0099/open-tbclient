@@ -3,9 +3,9 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
-import com.baidu.tieba.vs2;
+import com.baidu.tieba.eu2;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
     public static final int IS_NEW_FAVOR = 1;
     public static final int IS_NOT_NEW_FAVOR = 0;
@@ -88,7 +88,7 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         if (TextUtils.isEmpty(str)) {
             return "";
         }
-        return vs2.h1(getAppKey(), str, getAppFrameType());
+        return eu2.h1(getAppKey(), str, getAppFrameType());
     }
 
     public void setAppFrameType(int i) {

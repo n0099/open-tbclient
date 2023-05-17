@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDrawable> {
     public static final GifDecoderFactory GIF_DECODER_FACTORY = new GifDecoderFactory();
     public static final GifHeaderParserPool PARSER_POOL = new GifHeaderParserPool();
@@ -38,7 +38,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     public final GifBitmapProvider provider;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class GifDecoderFactory {
         public GifDecoder build(GifDecoder.BitmapProvider bitmapProvider, GifHeader gifHeader, ByteBuffer byteBuffer, int i) {
             return new StandardGifDecoder(bitmapProvider, gifHeader, byteBuffer, i);
@@ -46,7 +46,7 @@ public class ByteBufferGifDecoder implements ResourceDecoder<ByteBuffer, GifDraw
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class GifHeaderParserPool {
         public final Queue<GifHeaderParser> pool = Util.createQueue(0);
 

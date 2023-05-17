@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bq extends aj.a {
     public Context a;
 
@@ -11,12 +11,12 @@ public class bq extends aj.a {
     }
 
     private boolean a() {
-        return com.xiaomi.clientreport.manager.a.a(this.a).m106a().isPerfUploadSwitchOpen();
+        return com.xiaomi.clientreport.manager.a.a(this.a).m125a().isPerfUploadSwitchOpen();
     }
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo221a() {
+    public String mo240a() {
         return "100887";
     }
 

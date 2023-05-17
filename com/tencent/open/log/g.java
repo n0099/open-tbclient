@@ -6,7 +6,7 @@ import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.common.others.IStringUtil;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.huawei.hms.common.internal.TransactionIdCreater;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static final g a = new g();
 

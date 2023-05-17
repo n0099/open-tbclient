@@ -40,10 +40,10 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static final int CORNER_ANIMATION_DURATION = 500;
-    public static final int DEF_STYLE_RES = 2131755833;
+    public static final int DEF_STYLE_RES = 2131755844;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int PEEK_HEIGHT_AUTO = -1;
@@ -111,7 +111,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Nullable
     public WeakReference<V> viewRef;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BottomSheetCallback {
         public abstract void onSlide(@NonNull View view2, float f);
 
@@ -120,13 +120,13 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface SaveFlags {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public @interface State {
     }
 
@@ -134,7 +134,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public void onNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view2, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class SettleRunnable implements Runnable {
         public boolean isPosted;
         public int targetState;
@@ -447,7 +447,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         this.viewDragHelper = null;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomsheet.BottomSheetBehavior.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -695,7 +695,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
                 return false;
             }
         };
-        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704be);
+        this.peekHeightGestureInsetBuffer = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070601);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.BottomSheetBehavior_Layout);
         this.shapeThemingEnabled = obtainStyledAttributes.hasValue(11);
         boolean hasValue = obtainStyledAttributes.hasValue(1);
@@ -989,7 +989,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     private void createMaterialShapeDrawable(@NonNull Context context, AttributeSet attributeSet, boolean z, @Nullable ColorStateList colorStateList) {
         if (this.shapeThemingEnabled) {
-            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400f6, DEF_STYLE_RES).build();
+            this.shapeAppearanceModelDefault = ShapeAppearanceModel.builder(context, attributeSet, (int) R.attr.obfuscated_res_0x7f0400fc, DEF_STYLE_RES).build();
             MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(this.shapeAppearanceModelDefault);
             this.materialShapeDrawable = materialShapeDrawable;
             materialShapeDrawable.initializeElevationOverlay(context);
@@ -1244,7 +1244,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
             v.setFitsSystemWindows(true);
         }
         if (this.viewRef == null) {
-            this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070200);
+            this.peekHeightMin = coordinatorLayout.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a2);
             setSystemGestureInsets(v);
             this.viewRef = new WeakReference<>(v);
             if (this.shapeThemingEnabled && (materialShapeDrawable = this.materialShapeDrawable) != null) {

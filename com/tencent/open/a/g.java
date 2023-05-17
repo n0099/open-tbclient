@@ -43,7 +43,7 @@ import org.apache.http.entity.ByteArrayEntity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static g a;
     public HandlerThread e;

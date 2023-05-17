@@ -2,7 +2,7 @@ package com.bun.miitmdid.interfaces;
 
 import androidx.annotation.Keep;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IIdProvider extends IdSupplier {
     @Keep
     void doStart();

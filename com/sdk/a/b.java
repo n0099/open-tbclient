@@ -21,7 +21,7 @@ import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.a.b";

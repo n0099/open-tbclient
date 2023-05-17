@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
-import com.baidu.tieba.gg;
+import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.Map;
 import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class UpdateClientInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = gg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = gg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = pg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = pg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
         } catch (Exception e) {
             BdLog.e(e.getMessage());

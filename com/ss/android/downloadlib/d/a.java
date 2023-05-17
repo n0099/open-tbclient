@@ -17,12 +17,12 @@ import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: com.ss.android.downloadlib.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0690a {
+    /* loaded from: classes10.dex */
+    public static class C0704a {
         public static a a = new a();
     }
 
@@ -30,7 +30,7 @@ public class a {
     }
 
     public static a a() {
-        return C0690a.a;
+        return C0704a.a;
     }
 
     private void a(com.ss.android.download.api.model.c cVar) {

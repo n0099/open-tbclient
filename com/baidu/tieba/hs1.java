@@ -1,94 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Message;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpRequest;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public interface hs1 {
-    @Nullable
-    String A();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class hs1 implements uu1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String B();
+    @Override // com.baidu.tieba.uu1
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    String C();
-
-    String D();
-
-    long E();
-
-    HttpRequest F(Context context, Map<String, String> map);
-
-    String G();
-
-    String H();
-
-    String I();
-
-    boolean J();
-
-    String K();
-
-    String L();
-
-    HttpRequest M(Context context, Map<String, String> map);
-
-    boolean N();
-
-    String O();
-
-    HttpRequest a(Context context, Map<String, String> map);
-
-    String b();
-
-    String c();
-
-    void d();
-
-    String e();
-
-    String f();
-
-    HttpRequest g(Context context, Map<String, String> map);
-
-    String h();
-
-    String i();
-
-    boolean isDebug();
-
-    String j();
-
-    void k();
-
-    String l();
-
-    String m(String str);
-
-    String n();
-
-    HttpRequest o(Context context, Map<String, String> map);
-
-    String p();
-
-    String q();
-
-    int r();
-
-    HttpRequest s(Context context, Map<String, String> map);
-
-    String t();
-
-    HttpRequest u(Context context, Map<String, String> map);
-
-    String v();
-
-    String w();
-
-    void x(Message message, xu2 xu2Var);
-
-    String y();
-
-    String z(Context context);
+    public hs1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

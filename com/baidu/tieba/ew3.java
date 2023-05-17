@@ -1,18 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ew3 {
+@Singleton
+@Service
+/* loaded from: classes5.dex */
+public class ew3 implements ISchemeHeadIoc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadState a;
-    public String b;
-    public int c;
 
     public ew3() {
         Interceptable interceptable = $ic;
@@ -24,21 +25,17 @@ public class ew3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = DownloadState.NOT_START;
-        this.c = Integer.parseInt("0");
     }
 
-    public static ew3 a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
+    public String getSchemeHead() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            ew3 ew3Var = new ew3();
-            ew3Var.b = str2;
-            return ew3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ns2.n().getSchemeHeader();
         }
-        return (ew3) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

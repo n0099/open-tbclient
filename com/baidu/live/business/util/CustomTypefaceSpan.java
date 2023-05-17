@@ -4,7 +4,7 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.text.style.TypefaceSpan;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CustomTypefaceSpan extends TypefaceSpan {
     public final Typeface newType;
 

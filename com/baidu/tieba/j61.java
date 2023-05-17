@@ -1,32 +1,96 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webpanel.PanelScrollView;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class j61 {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class j61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p61 a;
-    public PanelScrollView b;
-    public final Activity c;
-    public final ViewGroup d;
+    public String a;
+    public String b;
+    @NonNull
+    public List<a> c;
 
-    public j61(Activity activity, ViewGroup rootView) {
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public int[] a;
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Nullable
+        public static a a(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = b(jSONObject.optString("range"));
+                aVar.b = jSONObject.optString("color");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Nullable
+        public static int[] b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                String[] split = str.split("_");
+                if (split.length != 2) {
+                    return null;
+                }
+                try {
+                    int parseInt = Integer.parseInt(split[0]);
+                    int parseInt2 = Integer.parseInt(split[1]);
+                    if (parseInt < 0 || parseInt >= parseInt2) {
+                        return null;
+                    }
+                    return new int[]{parseInt, parseInt2};
+                } catch (NumberFormatException unused) {
+                    return null;
+                }
+            }
+            return (int[]) invokeL.objValue;
+        }
+    }
+
+    public j61() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, rootView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,108 +100,31 @@ public final class j61 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.c = activity;
-        this.d = rootView;
-        this.a = k61.a().a(this.c);
-        this.b = new PanelScrollView(this.c);
+        this.c = new ArrayList();
     }
 
-    public final void a(r61 listener) {
-        PanelScrollView panelScrollView;
+    @Nullable
+    public static j61 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, listener) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            p61 p61Var = this.a;
-            if (p61Var != null && (panelScrollView = this.b) != null) {
-                panelScrollView.k(p61Var, listener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            PanelScrollView panelScrollView2 = this.b;
-            if (panelScrollView2 != null) {
-                this.d.setClipChildren(false);
-                this.d.addView(panelScrollView2, new FrameLayout.LayoutParams(-1, -1));
+            j61 j61Var = new j61();
+            try {
+                j61Var.a = jSONObject.optString("text");
+                j61Var.b = jSONObject.optString("color");
+                JSONArray optJSONArray = jSONObject.optJSONArray("highlight");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        o11.b(j61Var.c, a.a(optJSONArray.getJSONObject(i)));
+                    }
+                }
+            } catch (JSONException unused) {
             }
+            return j61Var;
         }
-    }
-
-    public final PanelScrollView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (PanelScrollView) invokeV.objValue;
-    }
-
-    public final View.OnTouchListener c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View.OnTouchListener) invokeV.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.r();
-            }
-            p61 p61Var = this.a;
-            if (p61Var != null) {
-                p61Var.onDestroy();
-            }
-        }
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            p61 p61Var = this.a;
-            if (p61Var != null) {
-                return p61Var.h();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public final void d(String javaScript) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, javaScript) == null) {
-            Intrinsics.checkNotNullParameter(javaScript, "javaScript");
-            p61 p61Var = this.a;
-            if (p61Var != null) {
-                p61Var.r(javaScript);
-            }
-        }
-    }
-
-    public final void f(t61 nadWebPanelModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, nadWebPanelModel) == null) {
-            Intrinsics.checkNotNullParameter(nadWebPanelModel, "nadWebPanelModel");
-            p61 p61Var = this.a;
-            if (p61Var != null) {
-                p61Var.l(nadWebPanelModel);
-            }
-            PanelScrollView panelScrollView = this.b;
-            if (panelScrollView != null) {
-                panelScrollView.setPanelData(nadWebPanelModel);
-            }
-        }
+        return (j61) invokeL.objValue;
     }
 }

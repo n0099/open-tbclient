@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class xz5 extends AbsDataRecorder {
+/* loaded from: classes8.dex */
+public class xz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xz5() {
-        super(AbsDataRecorder.Scene.FRS_HOT);
+    public static rz5 a(sz5 sz5Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((AbsDataRecorder.Scene) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sz5Var)) == null) {
+            if (sz5Var != null && (sz5Var.a() instanceof TbPageContext) && (((TbPageContext) sz5Var.a()).getPageActivity() instanceof rz5)) {
+                return (rz5) ((TbPageContext) sz5Var.a()).getPageActivity();
             }
+            return null;
         }
+        return (rz5) invokeL.objValue;
     }
 }

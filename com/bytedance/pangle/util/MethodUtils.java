@@ -7,7 +7,7 @@ import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MethodUtils {
     public static final Class<?>[] EMPTY_CLASS_ARRAY;
     public static Map<String, Method> sMethodCache = new HashMap();

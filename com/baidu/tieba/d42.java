@@ -1,49 +1,92 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class d42 extends g32 {
+/* loaded from: classes5.dex */
+public class d42 extends w42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public boolean j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d42() {
-        super("coverImage", "viewId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654503, "Lcom/baidu/tieba/d42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947654503, "Lcom/baidu/tieba/d42;");
                 return;
             }
         }
-        this.u = false;
+        boolean z = qp1.a;
     }
 
-    @Override // com.baidu.tieba.g32, com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
+    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
         }
-        super.a(jSONObject);
-        this.u = jSONObject.optBoolean("loadState", false);
-        dy2 dy2Var = this.h;
-        if (dy2Var != null && (jSONObject2 = this.j) != null) {
-            dy2Var.i(jSONObject2.optBoolean("fixed", false));
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d42(String str) {
+        super("canvas", "canvasId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = false;
+        try {
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            g62.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
+        }
+    }
+
+    @Override // com.baidu.tieba.w42, com.baidu.tieba.fz2
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
+                z = false;
+            } else {
+                z = true;
+            }
+            this.f = z;
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString("gesture"), "0");
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class ac {
     public static int a(byte[] bArr) {
         if (bArr.length == 4) {

@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.homeready;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class InitCyberPlayerTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {

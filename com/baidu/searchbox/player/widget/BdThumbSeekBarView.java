@@ -15,7 +15,7 @@ import android.view.View;
 import com.baidu.searchbox.player.utils.BdPlayerUtils;
 import com.baidu.searchbox.player.utils.BdVideoLog;
 import com.baidu.tieba.R;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class BdThumbSeekBarView extends View {
     public static final int BUFFERING_PAINT_COLOR = -2039584;
     public static final float DEFAULT_MAX = 100.0f;
@@ -56,19 +56,19 @@ public class BdThumbSeekBarView extends View {
     public final int mUISpace;
     public final int mUITraceHeight;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum BdSeeBarStatus {
         None,
         Seek
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum BdSeekBarStyle {
         LINE,
         ROUND_RECT
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public interface OnBdSeekBarChangeListener {
         void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
 
@@ -77,14 +77,14 @@ public class BdThumbSeekBarView extends View {
         void onStopTrackingTouch(BdThumbSeekBarView bdThumbSeekBarView);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public enum SeekBarDirect {
         Vertical,
         Horizontal
     }
 
     /* renamed from: com.baidu.searchbox.player.widget.BdThumbSeekBarView$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle;
 
@@ -143,20 +143,20 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.mPaint = paint;
         paint.setAntiAlias(true);
-        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06037b));
+        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060494));
         Paint paint2 = new Paint();
         this.mSeekPaint = paint2;
         paint2.setAntiAlias(true);
-        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06037d));
+        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060496));
         Paint paint3 = new Paint();
         this.mBufferingPaint = paint3;
         paint3.setAntiAlias(true);
-        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06037c));
+        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060495));
         this.mMax = 100.0f;
         this.mProgress = 0.0f;
         this.mBufferingProgress = 0;
         if (this.mThumb == null) {
-            this.mThumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080223);
+            this.mThumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f08026b);
         }
         this.mThumbPadding = BdPlayerUtils.dp2px(this, 0.0f);
         if (this.mThumbScale == null) {

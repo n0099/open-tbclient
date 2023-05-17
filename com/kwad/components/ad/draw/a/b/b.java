@@ -4,7 +4,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.components.ad.i.b;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public com.kwad.sdk.core.webview.a.kwai.a bJ = new com.kwad.sdk.core.webview.a.kwai.a() { // from class: com.kwad.components.ad.draw.a.b.b.1
         @Override // com.kwad.sdk.core.webview.a.kwai.a
@@ -31,13 +31,13 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
         FrameLayout frameLayout = this.bS;
         com.kwad.components.ad.draw.kwai.b bVar3 = this.aK;
         bVar2.a(frameLayout, bVar3.mRootContainer, bVar3.mAdTemplate, bVar3.mApkDownloadHelper);
-        this.bb.a((b.InterfaceC0558b) null);
+        this.bb.a((b.InterfaceC0572b) null);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091299);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912d4);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

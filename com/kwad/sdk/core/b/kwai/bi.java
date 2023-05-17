@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.kwad.components.core.webview.jshandler.t;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class bi implements com.kwad.sdk.core.d<t.a> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(t.a aVar, JSONObject jSONObject) {

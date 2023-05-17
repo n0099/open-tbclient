@@ -1,5 +1,5 @@
 package org.apache.commons.codec.digest4util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class MessageDigestAlgorithms {
     public static final String MD2 = "MD2";
     public static final String MD5 = "MD5";

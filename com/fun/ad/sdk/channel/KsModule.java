@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel;
 
-import com.baidu.tieba.zta;
+import com.baidu.tieba.xva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +15,12 @@ import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.kwad.sdk.api.KsAdSDK;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class KsModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class a implements PersonalRecommendObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class KsModule implements Module {
                 KsAdSDK.init(funAdConfig.appContext, new SdkConfig.Builder().appId(str).appName(funAdConfig.appName).showNotification(true).debug(funAdConfig.logEnabled).canReadICCID(moduleConfigKs.ksCanReadICCID).canReadNearbyWifiList(moduleConfigKs.ksCanReadNearbyWifiList).canReadMacAddress(moduleConfigKs.ksCanReadMacAddress).customController(moduleConfigKs.ksCustomCtr).build());
                 KsAdSDK.setPersonalRecommend(funAdConfig.runtimeAdConfig.personalRecommendStatus);
                 funAdConfig.runtimeAdConfig.registerPersonalRecommendObserver(new a());
-                return new zta(moduleConfigKs);
+                return new xva(moduleConfigKs);
             }
             throw new RuntimeException("The ks config need ModuleConfigKs!");
         }

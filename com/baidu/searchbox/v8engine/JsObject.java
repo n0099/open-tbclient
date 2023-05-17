@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class JsObject extends JsReleaser {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final int JARRAY = 6;

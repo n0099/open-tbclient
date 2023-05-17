@@ -13,7 +13,7 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
 @Keep
 @SuppressLint({"MissingSuperCall", "NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PluginApplicationWrapper extends Application {
     public Application mOriginApplication;
     public PluginContext mPluginContext;

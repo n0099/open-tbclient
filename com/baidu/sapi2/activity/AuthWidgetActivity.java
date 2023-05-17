@@ -10,7 +10,7 @@ import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.tieba.R;
 import java.net.URLDecoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AuthWidgetActivity extends BaseActivity {
     public static final String EXTRA_PARAM_AUTH_URL = "auth_url";
     public String t;

@@ -21,7 +21,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 @SuppressLint({"BDOfflineUrl"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AppConfig {
     public static final String CONFIG_FILE = "searchbox_config.ini";
     public static final String DAILY_CONFIG_FILE = "daily_searchbox_config.ini";
@@ -44,7 +44,7 @@ public class AppConfig {
     public File mConfigFile;
     public File mTimestampFile;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
@@ -69,7 +69,7 @@ public class AppConfig {
         return false;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class AppInfo {
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
         public static final String PREVIEW_PACKAGE_NAME = "com.baidu.searchbox.preview";
@@ -142,14 +142,14 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Debug {
         public static String getJacocoUploadUrl() {
             return AppConfig.getStringConfig("JACOCO_UPLOAD_URL", "http://cp01-searchbbox-andriod-cqa01.epc.baidu.com:8666/Coverage/fileUploadAPI/fileManager.php");
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Downloads {
         public static String getDestinationDir() {
             return AppConfig.getStringConfig("DOWNLOAD_DEST_DIR", "");
@@ -160,7 +160,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class HTTPSConfig {
         public static final long TMP_USE_HTTP_DELTA = 518400000;
 
@@ -182,7 +182,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class Speed {
         public static boolean getSpeedEnable() {
             return AppConfig.getBooleanConfig("SPEED_MONITOR", false);
@@ -306,7 +306,7 @@ public class AppConfig {
         return sDebug;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ConfigWhiteList {
         public static final String[] WHITE_LIST = {"GRAB_SERVER_COMMAND", "XSEARCH_FORCE_HTML5", "DREAM_QR_PAGEID", "USER_PROTOCOL_SWITCH", "SILENT_WEBKIT", "SILENT_VIDEO", "FORBID_CONFIG_FILE_WARNING", "ANTIHIJACK_WEBSEARCH_URL", "ANTIHIJACK_UPLOAD_URL", "USE_AUTO_FOCUS", "VOICE_PID", "IMG_SEARCH_URL", "LOAD_IN_MAIN_BROWSER", "DOWNLOAD_DEST_MODE", "DOWNLOAD_DEST_DIR", "USER_PROFILE_FORBIDDEN_CONFIG", "NETTRAFFIC_UPLOAD_NUM_LIMIT", "SPEED_MONITOR", "SPEED_MONITOR_UPLOAD"};
 

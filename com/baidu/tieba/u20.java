@@ -1,241 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class u20 {
     public static /* synthetic */ Interceptable $ic;
-    public static u20 i;
+    public static final byte[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Thread a;
-    public AtomicInteger b;
-    public v20 c;
-    public e30 d;
-    public HashMap<String, String> e;
-    public HashMap<String, String> f;
-    public c30 g;
-    public Context h;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes7.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u20 a;
+        public byte[] a;
 
-        public a(u20 u20Var) {
+        public a(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u20Var};
+                Object[] objArr = {bArr, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = u20Var;
+            this.a = bArr;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u20 u20Var = this.a;
-                u20Var.c = new z20(u20Var.h);
-                if (this.a.g != null) {
-                    this.a.g.a(this.a.c.a());
-                    z = this.a.g.a();
-                } else {
-                    z = false;
-                }
-                if (z && this.a.k()) {
-                    this.a.m();
-                    this.a.o();
-                }
-                this.a.a = null;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static b a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (context == null) {
-                throw new NullPointerException("context should not be null");
-            }
-            if (u20.i == null) {
-                synchronized (u20.class) {
-                    if (u20.i == null) {
-                        u20 unused = u20.i = new u20(context.getApplicationContext(), null);
-                    }
-                }
-            }
-        }
-
-        public static b c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                if (a == null) {
-                    synchronized (u20.class) {
-                        if (a == null) {
-                            a = new b(context);
-                        }
-                    }
-                }
-                return a;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                u20.i.e = new HashMap();
-                u20.i.e.put(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
-                u20.i.e.put("Content-type", "application/json");
-                u20.i.d = new m30();
-            }
-        }
-
-        public u20 b() {
+        public byte[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (u20.i.d == null) {
-                    a();
-                }
-                return u20.i;
-            }
-            return (u20) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (byte[]) invokeV.objValue;
         }
     }
 
-    public u20(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948158966, "Lcom/baidu/tieba/u20;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948158966, "Lcom/baidu/tieba/u20;");
                 return;
             }
         }
-        this.b = new AtomicInteger(0);
-        new AtomicBoolean(false);
-        this.h = context;
-        this.g = new j30(context);
+        a = new byte[][]{new byte[]{0, 0}, new byte[]{0, 1}, new byte[]{0, 2}, new byte[]{1, 0}, new byte[]{1, 1}, new byte[]{1, 2}, new byte[]{2, 0}, new byte[]{2, 1}};
     }
 
-    public /* synthetic */ u20(Context context, t20 t20Var) {
-        this(context);
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i % 3;
+            char c = 1;
+            if (i2 == 1) {
+                i += 2;
+                c = 2;
+            } else if (i2 == 2) {
+                i++;
+            } else {
+                c = 0;
+            }
+            int i3 = (i / 3) * 2;
+            return c > 0 ? i3 + 1 : i3;
+        }
+        return invokeI.intValue;
     }
 
-    public final String e(String str) {
+    public static a b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("url should not be empty");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            int length = (((bArr.length - 1) / 2) * 3) - (bArr.length % 2 != 0 ? bArr[bArr.length - 1] : 0);
+            int i = length / 8;
+            if (length % 8 > 0) {
+                i++;
             }
-            HashMap<String, String> hashMap = this.f;
-            return hashMap == null ? str : l30.b(str, hashMap);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final Runnable h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (Runnable) invokeV.objValue;
-    }
-
-    public final boolean k() {
-        InterceptResult invokeV;
-        f30 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String e = e("https://mbd.baidu.com/store");
-            e30 e30Var = this.d;
-            JSONObject a3 = i30.a((e30Var == null || (a2 = e30Var.a()) == null) ? null : a2.a(e, "POST", this.e, this.c.a()));
-            return a3 != null && a3.optInt("errno", -1) == 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void m() {
-        c30 c30Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (c30Var = this.g) == null) {
-            return;
-        }
-        c30Var.b(this.c.a());
-    }
-
-    public final void o() {
-        AtomicInteger atomicInteger;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (atomicInteger = this.b) == null) {
-            return;
-        }
-        atomicInteger.set(2);
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (u20.class) {
-                if (this.b.get() == 0) {
-                    if (this.h == null) {
-                        throw new NullPointerException("context should not be null");
+            byte[] bArr2 = new byte[i];
+            int i2 = 0;
+            int i3 = 8;
+            for (int i4 = 0; i4 < bArr.length - 1; i4 += 2) {
+                byte b = (byte) (((bArr[i4] * 3) + bArr[i4 + 1]) & 255);
+                for (int i5 = 2; i5 >= 0; i5--) {
+                    if (i3 <= 0) {
+                        i2++;
+                        i3 = 8;
                     }
-                    this.b.set(1);
-                    if (this.a == null) {
-                        this.a = new Thread(h());
+                    if (i2 >= i) {
+                        break;
                     }
-                    this.a.start();
+                    bArr2[i2] = (byte) ((bArr2[i2] << 1) | ((b >> i5) & 1));
+                    i3--;
                 }
             }
+            if (i3 > 0 && i2 < i) {
+                bArr2[i2] = (byte) (bArr2[i2] << i3);
+            }
+            return new a(bArr2, length);
         }
+        return (a) invokeL.objValue;
+    }
+
+    public static byte[] c(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        byte b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            int i3 = i % 3;
+            if (i3 == 1) {
+                i2 = i + 2;
+                b = 2;
+            } else if (i3 == 2) {
+                i2 = i + 1;
+                b = 1;
+            } else {
+                i2 = i;
+                b = 0;
+            }
+            int i4 = (i2 / 3) * 2;
+            if (b > 0) {
+                i4++;
+            }
+            byte[] bArr2 = new byte[i4];
+            int i5 = 0;
+            int i6 = 0;
+            for (byte b2 : bArr) {
+                for (int i7 = 7; i7 >= 0; i7--) {
+                    bArr2[i5] = (byte) ((bArr2[i5] << 1) | ((b2 >> i7) & 1));
+                    if (i6 % 3 == 2) {
+                        byte[][] bArr3 = a;
+                        bArr2[i5 + 1] = bArr3[bArr2[i5]][1];
+                        bArr2[i5] = bArr3[bArr2[i5]][0];
+                        i5 += 2;
+                    }
+                    i6++;
+                    if (i6 == i) {
+                        break;
+                    }
+                }
+                if (i6 == i) {
+                    break;
+                }
+            }
+            if (b > 0) {
+                bArr2[i5] = (byte) (bArr2[i5] << b);
+                byte[][] bArr4 = a;
+                bArr2[i5 + 1] = bArr4[bArr2[i5]][1];
+                bArr2[i5] = bArr4[bArr2[i5]][0];
+                bArr2[i5 + 2] = b;
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeLI.objValue;
     }
 }

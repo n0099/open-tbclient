@@ -3,7 +3,7 @@ package com.baidu.pass.biometrics.base.utils;
 import android.annotation.TargetApi;
 import android.util.Base64;
 @TargetApi(8)
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Base64Utils {
     public static final int NO_WRAP = 2;
 

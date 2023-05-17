@@ -15,7 +15,7 @@ import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.ColorInt;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ScaleAnimSeekBar extends View {
     public int afA;
     public int afB;
@@ -60,7 +60,7 @@ public class ScaleAnimSeekBar extends View {
     public int aga;
     public boolean agb;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(ScaleAnimSeekBar scaleAnimSeekBar);
 

@@ -12,7 +12,7 @@ import com.baidubce.http.HttpMethodName;
 import com.baidubce.model.AbstractBceRequest;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GeneratePresignedUrlRequest extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

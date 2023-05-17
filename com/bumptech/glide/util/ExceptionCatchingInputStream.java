@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static final Queue<ExceptionCatchingInputStream> QUEUE = Util.createQueue(0);
     public IOException exception;

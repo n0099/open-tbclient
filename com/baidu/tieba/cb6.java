@@ -1,189 +1,134 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.downloader.ResourceDownloader;
-import com.baidu.ala.gift.AlaDynamicGift;
-import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes3.dex */
-public class cb6 {
+/* loaded from: classes5.dex */
+public class cb6 extends en<rb6, CardViewHolder<uc6>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public b b;
-    public BdAsyncTask c;
-    public HttpMessageListener d;
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage);
-    }
-
-    /* loaded from: classes3.dex */
-    public class a extends HttpMessageListener {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cb6 a;
+        public final /* synthetic */ rb6 a;
+        public final /* synthetic */ cb6 b;
 
-        /* renamed from: com.baidu.tieba.cb6$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0234a extends BdAsyncTask {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ List a;
-            public final /* synthetic */ HttpResponsedMessage b;
-            public final /* synthetic */ a c;
-
-            public C0234a(a aVar, List list, HttpResponsedMessage httpResponsedMessage) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, list, httpResponsedMessage};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = list;
-                this.b = httpResponsedMessage;
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public Object doInBackground(Object[] objArr) {
-                InterceptResult invokeL;
-                AlaDynamicGift alaDynamicGift;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                    for (in inVar : this.a) {
-                        if (inVar instanceof AlaEnterEffectData) {
-                            AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) inVar;
-                            if (alaEnterEffectData.type == 1 && (alaDynamicGift = alaEnterEffectData.gift) != null && alaDynamicGift.giftZip != null) {
-                                if (ResourceDownloader.checkDirNeedToDownload(AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName, AlaDynamicGiftLocalInfoConfig.PIC_MD5_PREFIX + alaEnterEffectData.gift.giftName)) {
-                                    alaEnterEffectData.downLoadStatus = 100;
-                                } else {
-                                    alaEnterEffectData.downLoadStatus = 101;
-                                }
-                            }
-                        }
-                    }
-                    return null;
-                }
-                return invokeL.objValue;
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onCancelled() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    super.onCancelled();
-                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
-                }
-            }
-
-            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-            public void onPostExecute(Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                    super.onPostExecute(obj);
-                    this.c.a.b.a((AlaGetEnterEffectResponsedMessage) this.b);
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cb6 cb6Var, int i) {
-            super(i);
+        public a(cb6 cb6Var, rb6 rb6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cb6Var, Integer.valueOf(i)};
+                Object[] objArr = {cb6Var, rb6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = cb6Var;
+            this.b = cb6Var;
+            this.a = rb6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaGetEnterEffectResponsedMessage)) {
-                AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage = (AlaGetEnterEffectResponsedMessage) httpResponsedMessage;
-                List<in> effectList = alaGetEnterEffectResponsedMessage.getEffectList();
-                if (ListUtils.isEmpty(effectList)) {
-                    this.a.b.a(alaGetEnterEffectResponsedMessage);
-                    return;
-                }
-                this.a.c = new C0234a(this, effectList, httpResponsedMessage).execute(new Object[0]);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.u(this.a);
             }
         }
     }
 
-    public cb6(TbPageContext tbPageContext, b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cb6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), rb6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-        this.d = aVar;
         this.a = tbPageContext;
-        this.b = bVar;
-        tbPageContext.registerListener(aVar);
     }
 
-    public void c() {
-        BdAsyncTask bdAsyncTask;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: x */
+    public CardViewHolder<uc6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.c) != null) {
-            bdAsyncTask.cancel();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new uc6(this.a));
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public final void t(rb6 rb6Var, uc6 uc6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rb6Var, uc6Var) != null) || rb6Var.c() == null) {
+            return;
+        }
+        uc6Var.y(0);
+        uc6Var.z(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0269));
+        uc6Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public final void u(rb6 rb6Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, rb6Var) == null) && rb6Var != null && rb6Var.c() != null) {
+            nb6 c = rb6Var.c();
+            if (c.b() != null && c.c()) {
+                str = c.b().live_id;
+            } else {
+                str = "";
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaAdminListActivityConfig(this.a.getPageActivity(), str)));
         }
     }
 
-    public void d() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.en
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rb6 rb6Var, CardViewHolder<uc6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_ENTER_EFFECT);
-            httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-            this.a.sendMessage(httpMessage);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rb6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
+            }
+            t(rb6Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this, rb6Var));
+            return cardViewHolder.a().h();
         }
+        return (View) invokeCommon.objValue;
     }
 }

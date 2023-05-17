@@ -1,49 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes7.dex */
-public final class x94 {
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class x94 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile x94 c;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    @JvmField
-    public final String address;
-    @V8JavascriptField
-    @JvmField
-    public final String family;
-    @V8JavascriptField
-    @JvmField
-    public final int port;
-    @V8JavascriptField
-    @JvmField
-    public final int size;
+    public int a;
+    public volatile ArrayList<w94> b;
 
-    public x94(String address, int i, int i2, String family) {
+    public x94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {address, Integer.valueOf(i), Integer.valueOf(i2), family};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(address, "address");
-        Intrinsics.checkNotNullParameter(family, "family");
-        this.address = address;
-        this.size = i;
-        this.port = i2;
-        this.family = family;
+        this.b = new ArrayList<>(20);
+    }
+
+    public static x94 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (x94.class) {
+                    if (c == null) {
+                        c = new x94();
+                    }
+                }
+            }
+            return c;
+        }
+        return (x94) invokeV.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
+            }
+        }
+    }
+
+    public synchronized void a(w94 w94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, w94Var) == null) {
+            synchronized (this) {
+                if (w94Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(w94Var);
+                } else {
+                    this.a++;
+                }
+            }
+        }
+    }
+
+    public synchronized JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<w94> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

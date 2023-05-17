@@ -1,64 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppTransmitData;
-/* loaded from: classes5.dex */
-public class jq5 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+/* loaded from: classes6.dex */
+public abstract class jq5<T> extends kq5<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
+    public abstract List<jy4> e();
+
+    public abstract List<ThreadData> f();
+
+    public void g(iq5 iq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, iq5Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.mq5
+    public gq5 getPageInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
-                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
-                jSONObject.put("yy_version", "");
-            } catch (JSONException e) {
-                BdLog.e(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (gq5) invokeV.objValue;
+    }
+
+    public void h(List<ThreadData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+        }
+    }
+
+    public abstract List<rn> i(List<? extends rn> list);
+
+    public jq5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
     }
 
-    public static AppTransmitData b() {
-        InterceptResult invokeV;
+    public final List<rn> d(List<? extends rn> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AppTransmitData.Builder builder = new AppTransmitData.Builder();
-            builder.wise_sample_id = c();
-            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
-            builder.yy_version = "";
-            return builder.build(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            return i(list);
         }
-        return (AppTransmitData) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
-        }
+        return (List) invokeL.objValue;
     }
 }

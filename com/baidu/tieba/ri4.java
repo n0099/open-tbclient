@@ -1,106 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ri4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public int c;
-        public wg4 d;
-        public List<xg4> e;
-        public List<yg4> f;
-        public PMSAppInfo g;
-        public boolean h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static void a(@NonNull ak4 ak4Var, @Nullable List<gi4> list, @Nullable List<hi4> list2, @NonNull bh4 bh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, ak4Var, list, list2, bh4Var) == null) {
+            lj4 b = ti4.b(ak4Var, bh4Var);
+            if (list != null && !list.isEmpty()) {
+                ti4.a(b, kj4.h(list, bh4Var));
             }
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                wg4 wg4Var = this.d;
-                if (wg4Var == null) {
-                    return super.hashCode();
-                }
-                return wg4Var.hashCode();
+            if (list2 != null && !list2.isEmpty()) {
+                ti4.a(b, kj4.e(list2, bh4Var));
             }
-            return invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            wg4 wg4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (super.equals(obj)) {
-                    return true;
-                }
-                if (obj == null || (wg4Var = this.d) == null || !(obj instanceof a)) {
-                    return false;
-                }
-                return wg4Var.equals(((a) obj).d);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("PMS Item: ");
-                sb.append(this.b);
-                if (this.d != null) {
-                    sb.append(",pkgMain=");
-                    sb.append(this.d);
-                }
-                if (this.g != null) {
-                    sb.append(",appInfo=");
-                    sb.append(this.g);
-                }
-                return sb.toString();
-            }
-            return (String) invokeV.objValue;
+            b.e();
         }
     }
 
-    public ri4() {
+    public static void b(bk4 bk4Var, bh4 bh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65537, null, bk4Var, bh4Var) == null) {
+            ti4.c(bk4Var, bh4Var);
+        }
+    }
+
+    public static void c(ck4 ck4Var, bh4 bh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, ck4Var, bh4Var) == null) {
+            ti4.d(ck4Var, bh4Var);
+        }
+    }
+
+    public static void d(dk4 dk4Var, bh4 bh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, dk4Var, bh4Var) == null) {
+            ti4.e(dk4Var, bh4Var);
+        }
+    }
+
+    public static void e(yl4 yl4Var, bh4 bh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, yl4Var, bh4Var) == null) {
+            ti4.f(yl4Var, bh4Var);
+        }
+    }
+
+    public static synchronized void f(List<hi4> list, bh4 bh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, bh4Var) == null) {
+            synchronized (ri4.class) {
+                ti4.g(list, bh4Var);
             }
         }
     }

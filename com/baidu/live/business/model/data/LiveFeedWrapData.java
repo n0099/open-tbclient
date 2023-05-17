@@ -4,14 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.o90;
-import com.baidu.tieba.ob0;
+import com.baidu.tieba.ea0;
+import com.baidu.tieba.ec0;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedWrapData implements Parcelable {
     public static final Parcelable.Creator<LiveFeedWrapData> CREATOR = new Parcelable.Creator<LiveFeedWrapData>() { // from class: com.baidu.live.business.model.data.LiveFeedWrapData.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -108,7 +108,7 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && ob0.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && ec0.c(this.roomInfoList)) ? true : true;
     }
 
     public void parserJson(JSONObject jSONObject, int i, boolean z) {
@@ -120,7 +120,7 @@ public class LiveFeedWrapData implements Parcelable {
             } catch (JSONException e) {
                 LiveFeedPageSdk.liveLog("Feed 缓存记录时间失败 " + e.getMessage());
             }
-            o90.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
+            ea0.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
         }
     }
 

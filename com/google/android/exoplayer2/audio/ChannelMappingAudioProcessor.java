@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ChannelMappingAudioProcessor implements AudioProcessor {
     public boolean active;
     public ByteBuffer buffer;

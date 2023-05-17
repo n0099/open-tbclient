@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.TypeAliasDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.ValueParameterDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.VariableDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DeclarationDescriptorVisitorEmptyBodies<R, D> implements DeclarationDescriptorVisitor<R, D> {
     public R visitDeclarationDescriptor(DeclarationDescriptor declarationDescriptor, D d) {
         return null;

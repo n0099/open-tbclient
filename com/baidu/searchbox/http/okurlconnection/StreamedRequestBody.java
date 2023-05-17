@@ -7,7 +7,7 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Pipe;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class StreamedRequestBody extends OutputStreamRequestBody implements UnrepeatableRequestBody {
     public final Pipe pipe;
 

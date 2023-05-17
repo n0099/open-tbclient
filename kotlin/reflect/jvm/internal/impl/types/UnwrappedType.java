@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.types;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class UnwrappedType extends KotlinType {
     public abstract UnwrappedType makeNullableAsSpecified(boolean z);
 

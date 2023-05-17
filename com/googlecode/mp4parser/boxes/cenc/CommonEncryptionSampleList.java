@@ -17,14 +17,14 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public static Cipher cipher;
     public List<CencSampleAuxiliaryDataFormat> auxiliaryDataFormats;
     public List<Sample> parent;
     public SecretKey secretKey;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class EncryptedSampleImpl implements Sample {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public final CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat;

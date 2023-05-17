@@ -1,164 +1,147 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.tieba.lv2;
+import com.baidu.tieba.mv2;
+import com.baidu.tieba.nv2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class jv2 extends BaseAdapter {
+import java.util.Collections;
+import java.util.List;
+/* loaded from: classes6.dex */
+public class jv2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String b;
-    public ArrayList<xv2> c;
-    public int d;
+    public final List<lv2> a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SimpleDraweeView a;
-        public TextView b;
-        public TextView c;
-
-        public a(jv2 jv2Var, View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896675, "Lcom/baidu/tieba/jv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jv2Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090250);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090253);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090252);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947896675, "Lcom/baidu/tieba/jv2;");
+                return;
+            }
         }
+        b = qp1.a;
     }
 
-    public jv2(Activity activity, String str, ArrayList<xv2> arrayList) {
+    public jv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = activity;
-        this.b = str;
-        this.c = arrayList;
-        this.d = (int) (ol3.f(activity, 50.0f) / 2.0f);
+        this.a = new ArrayList();
+        e();
     }
 
-    public final String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (TextUtils.equals(this.b, "Image")) {
-                return this.a.getString(R.string.obfuscated_res_0x7f0f13c9, new Object[]{Integer.valueOf(i)});
-            }
-            return this.a.getString(R.string.obfuscated_res_0x7f0f1398, new Object[]{Integer.valueOf(i)});
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @NonNull
+    public List<lv2> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<xv2> arrayList = this.c;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.unmodifiableList(this.a);
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i >= 0 && i <= this.c.size()) {
-                return this.c.get(i);
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && d()) {
+            g62.c("SwanLocalABTestAutoRegister", "test 'first install updateCore delay' register failed'");
         }
-        return invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
+    @Nullable
+    public final mv2 a(@NonNull String str, int i, int i2, @NonNull String str2, @NonNull Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, obj})) == null) {
+            mv2.a aVar = new mv2.a();
+            aVar.e(str);
+            aVar.g(i);
+            aVar.c(i2);
+            aVar.b(str2);
+            aVar.f(obj);
+            mv2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build branch(" + str + ") fail: " + aVar.d().getMessage());
+                    return null;
+                }
+                return null;
+            }
+            return a;
+        }
+        return (mv2) invokeCommon.objValue;
+    }
+
+    @Nullable
+    public final nv2 b(int i, @NonNull String str, @NonNull Object obj) {
         InterceptResult invokeILL;
-        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d089e, (ViewGroup) null);
-                aVar = new a(this, view2);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, obj)) == null) {
+            nv2.a aVar = new nv2.a();
+            aVar.e(i);
+            aVar.d(str);
+            aVar.b(obj);
+            nv2 a = aVar.a();
+            if (a == null) {
+                if (b) {
+                    Log.e("SwanLocalABTestAutoRegister", "build switch(" + str + ") fail: " + aVar.c().getMessage());
+                }
+                return null;
             }
-            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081247));
-            xv2 xv2Var = this.c.get(i);
-            if (xv2Var == null) {
-                return view2;
-            }
-            aVar.b.setText(xv2Var.c());
-            ArrayList<MediaModel> arrayList = xv2Var.d;
-            if (arrayList == null) {
-                return view2;
-            }
-            aVar.c.setText(a(arrayList.size()));
-            if (xv2Var.d.get(0) != null && !TextUtils.isEmpty(xv2Var.d.get(0).getPath())) {
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(xv2Var.d.get(0).getPath())));
-                int i2 = this.d;
-                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
-                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
-            }
-            return view2;
+            return a;
         }
-        return (View) invokeILL.objValue;
+        return (nv2) invokeILL.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            nv2 b2 = b(3, "swan_local_first_installation_update_core_delay", 0L);
+            if (b2 == null) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(a("local_1000", 0, 20, "control group", 0L));
+            arrayList.add(a("local_1001", 1, 20, "test group 1", 100L));
+            arrayList.add(a("local_1002", 1, 20, "test group 2", 500L));
+            arrayList.add(a("local_1003", 1, 20, "test group 3", 1000L));
+            arrayList.add(a("local_1004", 1, 20, "test group 4", 2000L));
+            lv2.a aVar = new lv2.a();
+            aVar.c(b2);
+            aVar.a(arrayList);
+            lv2 b3 = aVar.b();
+            if (b3 == null) {
+                return false;
+            }
+            return this.a.add(b3);
+        }
+        return invokeV.booleanValue;
     }
 }

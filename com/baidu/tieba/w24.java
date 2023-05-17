@@ -1,46 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLEncoder;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
 public class w24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public int c;
+    public long d;
 
-    public static void a(e24 e24Var, JsObject jsObject) {
+    public w24() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, e24Var, jsObject) == null) {
-            x24 x24Var = new x24();
-            e02 F = e02.F(jsObject);
-            if (F == null) {
-                F = new e02();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            boolean z = false;
-            if (e24Var == null) {
-                x24Var.errMsg = "openCustomerServiceConversation:fail";
-                ja4.call(F, false, x24Var);
-                return;
-            }
-            if (h44.c()) {
-                x73 M = x73.M();
-                if (M != null) {
-                    String str = "{\"appKey\":\"" + M.O() + "\"}";
-                    if (SchemeRouter.invoke(er2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
-                        x24Var.errMsg = "openCustomerServiceConversation:ok";
-                        z = true;
-                    } else {
-                        x24Var.errMsg = "openCustomerServiceConversation:fail";
-                    }
-                } else {
-                    x24Var.errMsg = "openCustomerServiceConversation:fail";
-                }
-            } else {
-                x24Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
-            }
-            ja4.call(F, z, x24Var);
         }
+    }
+
+    public static w24 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            w24 w24Var = new w24();
+            w24Var.a = jSONObject.optInt("state");
+            w24Var.b = jSONObject.optString("msg");
+            w24Var.c = jSONObject.optInt("switch_open");
+            w24Var.d = jSONObject.optLong("heartbeat_time");
+            return w24Var;
+        }
+        return (w24) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "UpUseTimeModel{state=" + this.a + ", limit='" + this.b + "', open=" + this.c + ", interval=" + this.d + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

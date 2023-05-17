@@ -5,7 +5,7 @@ import com.baidu.smallgame.sdk.Log;
 import java.util.ArrayList;
 import java.util.List;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class V8NetFunctionTable {
     public static final String TAG = "V8NetFunctionTable";
     public static long sNativeGlobalFunctionTablePointer;

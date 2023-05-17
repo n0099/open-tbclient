@@ -5,7 +5,7 @@ import android.database.Cursor;
 import com.xiaomi.push.ci;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class cd extends ci.b<Long> {
     public long a;
 
@@ -33,7 +33,7 @@ public class cd extends ci.b<Long> {
 
     @Override // com.xiaomi.push.ci.a
     /* renamed from: a */
-    public Object mo252a() {
+    public Object mo271a() {
         return Long.valueOf(this.a);
     }
 

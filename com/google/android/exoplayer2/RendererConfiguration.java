@@ -1,5 +1,5 @@
 package com.google.android.exoplayer2;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class RendererConfiguration {
     public static final RendererConfiguration DEFAULT = new RendererConfiguration(0);
     public final int tunnelingAudioSessionId;

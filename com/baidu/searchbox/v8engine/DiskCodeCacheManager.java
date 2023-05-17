@@ -10,7 +10,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes4.dex */
 public class DiskCodeCacheManager {
     public static final String DISK_CODE_CACHE_DIR_NAME_PREFIX = "v8_codecache_";
     public static final String DISK_CODE_CACHE_INDEX_SUFFIX = "idx";

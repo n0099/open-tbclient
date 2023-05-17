@@ -7,21 +7,21 @@ import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.fj;
 import com.baidu.tieba.g9;
-import com.baidu.tieba.hr9;
-import com.baidu.tieba.wi;
-import com.baidu.tieba.yi;
+import com.baidu.tieba.hj;
+import com.baidu.tieba.jt9;
+import com.baidu.tieba.m9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class VoiceButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yi a;
+    public hj a;
     public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,7 +46,7 @@ public class VoiceButton extends ImageView {
         this.b = false;
     }
 
-    public hr9 getRecorderManager() {
+    public jt9 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -56,7 +56,7 @@ public class VoiceButton extends ImageView {
             }
             return null;
         }
-        return (hr9) invokeV.objValue;
+        return (jt9) invokeV.objValue;
     }
 
     public VoiceManager getVoiceManager() {
@@ -66,10 +66,10 @@ public class VoiceButton extends ImageView {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).y0();
+                return ((VoiceManager.j) context).x0();
             }
-            if ((g9.a(getContext()) instanceof a9) && (tbPageContext = (TbPageContext) g9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).y0();
+            if ((m9.a(getContext()) instanceof g9) && (tbPageContext = (TbPageContext) m9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).x0();
             }
             return null;
         }
@@ -81,7 +81,7 @@ public class VoiceButton extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            hr9 recorderManager = getRecorderManager();
+            jt9 recorderManager = getRecorderManager();
             if (motionEvent.getAction() == 0) {
                 if (recorderManager == null || !recorderManager.f()) {
                     return false;
@@ -103,14 +103,14 @@ public class VoiceButton extends ImageView {
         return invokeL.booleanValue;
     }
 
-    public void setRecorderView(yi yiVar) {
+    public void setRecorderView(hj hjVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yiVar) == null) {
-            this.a = yiVar;
-            hr9 recorderManager = getRecorderManager();
+        if (interceptable == null || interceptable.invokeL(1048579, this, hjVar) == null) {
+            this.a = hjVar;
+            jt9 recorderManager = getRecorderManager();
             if (recorderManager != null) {
-                recorderManager.e(yiVar);
-                recorderManager.d(wi.a);
+                recorderManager.e(hjVar);
+                recorderManager.d(fj.a);
             }
         }
     }

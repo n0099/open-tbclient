@@ -2,7 +2,7 @@ package com.baidu.searchbox.dns.util;
 
 import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DnsChecker {
     public static native boolean isIPv4Reachable();
 

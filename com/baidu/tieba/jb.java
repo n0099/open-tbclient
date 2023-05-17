@@ -1,79 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class jb extends kb {
+import java.util.LinkedList;
+/* loaded from: classes6.dex */
+public class jb extends kb<HttpMessage, HttpMessageTask, xa, HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
-    public static jb c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpClient i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448308085, "Lcom/baidu/tieba/jb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448308085, "Lcom/baidu/tieba/jb;");
-        }
+    public HttpMessage x(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, httpMessage, httpMessageTask)) == null) ? httpMessage : (HttpMessage) invokeLL.objValue;
     }
 
-    public jb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jb(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new lb(20000, 10000, 5000);
-        this.b = 3;
+        this.i = null;
+        this.i = new HttpClient(messageManager);
+        this.e = ob.d();
     }
 
-    public static jb c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x9
+    public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (jb.class) {
-                    if (c == null) {
-                        c = new jb();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+            return this.i.e(i, bdUniqueId);
         }
-        return (jb) invokeV.objValue;
+        return (LinkedList) invokeIL.objValue;
     }
 
-    public void d(int i, int i2, int i3) {
+    @Override // com.baidu.tieba.x9
+    public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-            if (i < 3000) {
-                i = 3000;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.tieba.kb
+    public /* bridge */ /* synthetic */ HttpMessage m(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        x(httpMessage2, httpMessageTask);
+        return httpMessage2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x9
+    /* renamed from: z */
+    public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask) == null) {
+            if (httpMessageTask.getConnectTimeOut() == null) {
+                httpMessageTask.setConnectTimeOut(((ob) this.e).c());
             }
-            if (i2 < 3000) {
-                i2 = 3000;
-            }
-            if (i3 < 3000) {
-                i3 = 3000;
-            }
-            this.a = new lb(i, i2, i3);
+            this.i.f(httpMessage, httpMessageTask);
+        }
+    }
+
+    public void y(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.i.j(bdUniqueId);
         }
     }
 }

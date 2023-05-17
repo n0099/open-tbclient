@@ -11,12 +11,13 @@ import com.baidu.sapi2.httpwrap.HttpHandlerWrap;
 import com.baidu.sapi2.httpwrap.HttpHashMapWrap;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.searchbox.performance.speed.launcher.NetworkRequestScheduler;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class StatService implements NoProguard {
     public static final String AUTO_STATISTIC = "auto_statistic";
     public static final String STAT_ENENT_QR_LOGIN_ENTER = "qrlogin_enter";
@@ -110,7 +111,7 @@ public final class StatService implements NoProguard {
         httpHashMapWrap.put("auto_statistic", encodeToString);
         httpHashMapWrap.putAll(commonParams);
         httpHashMapWrap.put("source", "native");
-        httpHashMapWrap.put("data_source", "client");
+        httpHashMapWrap.put("data_source", CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT);
         httpHashMapWrap.put("v", String.valueOf(System.currentTimeMillis()));
         httpHashMapWrap.put("clientfrom", "mobilesdk_enhanced");
         if (map != null) {
@@ -145,7 +146,7 @@ public final class StatService implements NoProguard {
         Log.d(TAG, "onEventAutoStatistic content=" + sb.toString());
         map.put("auto_statistic", Base64.encodeToString(sb.toString().getBytes(), 0));
         map.put("source", "native");
-        map.put("data_source", "client");
+        map.put("data_source", CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_CLIENT);
         onEvent("auto_statistic", map);
     }
 }

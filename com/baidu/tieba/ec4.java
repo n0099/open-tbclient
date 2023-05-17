@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.text.TextUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.w54;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import java.io.File;
+/* loaded from: classes5.dex */
 public class ec4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,8 +27,35 @@ public class ec4 {
                 return;
             }
         }
-        SDKInitializer.initialize(AppRuntime.getAppContext());
-        SDKInitializer.setCoordType(CoordType.GCJ02);
-        SDKInitializer.setHttpsEnable(true);
+        boolean z = qp1.a;
+    }
+
+    public static PathType a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return PathType.ERROR;
+            }
+            if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                return PathType.RELATIVE;
+            }
+            return PathType.NETWORK;
+        }
+        return (PathType) invokeL.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        File h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            g93 q = f93.K().q();
+            if (!q.I() || q.k0() == null || (h = w54.d.h(q.getAppId(), q.k0())) == null || !h.exists()) {
+                return null;
+            }
+            return "file://" + h.getAbsolutePath();
+        }
+        return (String) invokeV.objValue;
     }
 }

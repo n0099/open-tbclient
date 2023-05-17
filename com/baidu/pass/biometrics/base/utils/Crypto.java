@@ -2,7 +2,7 @@ package com.baidu.pass.biometrics.base.utils;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Crypto {
     public static String sha1(String str) throws Exception {
         return sha1(str.getBytes());

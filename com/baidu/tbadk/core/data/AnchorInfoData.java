@@ -12,7 +12,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class AnchorInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.v8engine.net.io;
 
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class g extends d {
     public final transient byte[][] f;
     public final transient int[] g;

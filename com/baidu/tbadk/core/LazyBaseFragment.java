@@ -12,13 +12,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qb;
+import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class LazyBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,24 +29,24 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
-    public abstract int G1();
+    public abstract int H1();
 
-    public abstract void I1(View view2, Bundle bundle);
+    public abstract void J1(View view2, Bundle bundle);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LazyBaseFragment a;
 
         /* renamed from: com.baidu.tbadk.core.LazyBaseFragment$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0194a implements Runnable {
+        /* loaded from: classes4.dex */
+        public class RunnableC0206a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0194a(a aVar) {
+            public RunnableC0206a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -68,7 +68,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.H1();
+                    this.a.a.I1();
                 }
             }
         }
@@ -102,10 +102,10 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 LazyBaseFragment lazyBaseFragment = this.a;
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
-                } else if (qb.b().c()) {
-                    this.a.H1();
+                } else if (wb.b().c()) {
+                    this.a.I1();
                 } else {
-                    this.a.a.post(new RunnableC0194a(this));
+                    this.a.a.post(new RunnableC0206a(this));
                 }
             }
         }
@@ -141,13 +141,13 @@ public abstract class LazyBaseFragment extends BaseFragment {
         }
     }
 
-    public synchronized void H1() {
+    public synchronized void I1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    I1(this.d.inflate(), this.e);
+                    J1(this.d.inflate(), this.e);
                 }
             }
         }
@@ -159,7 +159,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
             if (isPrimary() && !this.b && getView() != null) {
-                H1();
+                I1();
             }
         }
     }
@@ -174,15 +174,15 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
                 ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
                 this.d = viewStub;
-                viewStub.setLayoutResource(G1());
+                viewStub.setLayoutResource(H1());
                 if (this.c) {
-                    H1();
+                    I1();
                     return inflate;
                 }
                 return inflate;
             }
-            View inflate2 = layoutInflater.inflate(G1(), viewGroup, false);
-            I1(inflate2, bundle);
+            View inflate2 = layoutInflater.inflate(H1(), viewGroup, false);
+            J1(inflate2, bundle);
             return inflate2;
         }
         return (View) invokeLLL.objValue;

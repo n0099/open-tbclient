@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class os3 {
+import java.util.Arrays;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes6.dex */
+public final class os3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public ns3 i;
-    public ns3 j;
-    public ns3 k;
-    public ns3 l;
+    public Bdtls$ClientHello a;
+    public Bdtls$ServerHello b;
+    public byte[] c;
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public os3() {
+        this(null, null, null, 7, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -34,113 +30,82 @@ public class os3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Bdtls$ClientHello) objArr[0], (Bdtls$ServerHello) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = -1;
-        this.d = -1;
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
     }
 
-    public int a() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof os3) {
+                    os3 os3Var = (os3) obj;
+                    return Intrinsics.areEqual(this.a, os3Var.a) && Intrinsics.areEqual(this.b, os3Var.b) && Intrinsics.areEqual(this.c, os3Var.c);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.h) {
-                return b(this.l);
-            }
-            ns3 ns3Var = this.k;
-            if (ns3Var != null) {
-                return ns3Var.c;
-            }
-            ns3 ns3Var2 = this.i;
-            if (ns3Var2 != null) {
-                return ns3Var2.c;
-            }
-            ns3 ns3Var3 = this.j;
-            if (ns3Var3 != null) {
-                return ns3Var3.c;
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Bdtls$ClientHello bdtls$ClientHello = this.a;
+            int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
+            Bdtls$ServerHello bdtls$ServerHello = this.b;
+            int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
+            byte[] bArr = this.c;
+            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.g != -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int b(ns3 ns3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ns3Var)) == null) {
-            if (ns3Var != null) {
-                return ns3Var.c;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int c(ns3 ns3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ns3Var)) == null) {
-            if (ns3Var != null) {
-                return ns3Var.b;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @NonNull
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cores", this.a);
-                jSONObject.put("is_biglittle", this.h);
-                if (this.h) {
-                    jSONObject.put("little_freq_min", c(this.j));
-                    jSONObject.put("little_freq_max", b(this.j));
-                    jSONObject.put("big_freq_min", c(this.i));
-                    jSONObject.put("big_freq_max", b(this.i));
-                    jSONObject.put("little_cores", this.b);
-                    jSONObject.put("big_cores", this.d);
-                    jSONObject.put("little_index", this.c);
-                    jSONObject.put("big_index", this.e);
-                    if (this.g != -1) {
-                        jSONObject.put("super_freq_min", c(this.k));
-                        jSONObject.put("super_freq_max", b(this.k));
-                        jSONObject.put("super_cores", this.f);
-                        jSONObject.put("super_index", this.g);
-                    }
-                } else {
-                    jSONObject.put("freq_min", c(this.l));
-                    jSONObject.put("freq_max", b(this.l));
-                }
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
+    }
+
+    public os3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdtls$ClientHello, bdtls$ServerHello, bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = bdtls$ClientHello;
+        this.b = bdtls$ServerHello;
+        this.c = bArr;
+    }
+
+    public /* synthetic */ os3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? null : bdtls$ClientHello, (i & 2) != 0 ? null : bdtls$ServerHello, (i & 4) != 0 ? null : bArr);
+    }
+
+    public final void a(Bdtls$ServerHello bdtls$ServerHello) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdtls$ServerHello) == null) {
+            this.b = bdtls$ServerHello;
+        }
     }
 }

@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ParamableElem implements Serializable {
     public static final String DIVIDE_PARAM = ";";
     public static final String DIVIDE_PARAM_TMP = "@@$$@@";

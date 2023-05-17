@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DownloadStrategy {
     public static final long FOUR_CONNECTION_UPPER_LIMIT = 104857600;
     public static final long ONE_CONNECTION_UPPER_LIMIT = 1048576;
@@ -42,7 +42,7 @@ public class DownloadStrategy {
         return 10240L;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FilenameHolder {
         public volatile String filename;
         public final boolean filenameProvidedByConstruct = false;
@@ -91,7 +91,7 @@ public class DownloadStrategy {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class ResumeAvailableResponseCheck {
         public int blockIndex;
         @NonNull

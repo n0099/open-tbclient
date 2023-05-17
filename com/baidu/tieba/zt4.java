@@ -1,17 +1,7 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface zt4 {
+    void a(boolean z);
 
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Deprecated
-/* loaded from: classes7.dex */
-public class zt4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(String str, WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, webView) == null) {
-        }
-    }
+    void onFail();
 }

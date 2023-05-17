@@ -1,5 +1,5 @@
 package com.baidu.nadcore.video.plugin.videoplayer.logo;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum DownloadStatus {
     NOT_START,
     DOWNLOADING,

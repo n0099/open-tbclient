@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PinnedHeaderListView extends ListView {
     public b a;
     public View b;
@@ -16,14 +16,14 @@ public class PinnedHeaderListView extends ListView {
     public int e;
     public AbsListView.OnScrollListener f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(View view2, int i, int i2);
 
         int b(int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a implements AbsListView.OnScrollListener {
         public a() {
         }

@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import java.util.Collection;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface CallableMemberDescriptor extends CallableDescriptor, MemberDescriptor {
     CallableMemberDescriptor copy(DeclarationDescriptor declarationDescriptor, Modality modality, Visibility visibility, Kind kind, boolean z);
 
@@ -15,7 +15,7 @@ public interface CallableMemberDescriptor extends CallableDescriptor, MemberDesc
 
     void setOverriddenDescriptors(Collection<? extends CallableMemberDescriptor> collection);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Kind {
         DECLARATION,
         FAKE_OVERRIDE,

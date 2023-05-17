@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GifMetadataDecoder {
     public static final int CONTROL_INDEX_DELAY = 1;
     public static final int CONTROL_INDEX_DISPOSE = 0;

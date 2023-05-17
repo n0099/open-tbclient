@@ -1,5 +1,5 @@
 package com.baidu.searchbox.bddownload.core.cause;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public enum EndCause {
     COMPLETED,
     ERROR,

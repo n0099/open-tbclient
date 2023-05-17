@@ -5,7 +5,7 @@ import java.util.List;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaValueParameter;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ReflectJavaValueParameter extends ReflectJavaElement implements JavaValueParameter {
     public final boolean isVararg;
     public final Annotation[] reflectAnnotations;

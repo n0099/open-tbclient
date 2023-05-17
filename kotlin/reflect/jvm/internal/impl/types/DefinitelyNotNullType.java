@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.types.checker.NewTypeVariableConstructor
 import kotlin.reflect.jvm.internal.impl.types.checker.NullabilityChecker;
 import kotlin.reflect.jvm.internal.impl.types.model.DefinitelyNotNullTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DefinitelyNotNullType extends DelegatingSimpleType implements CustomTypeVariable, DefinitelyNotNullTypeMarker {
     public static final Companion Companion = new Companion(null);
     public final SimpleType original;
@@ -19,7 +19,7 @@ public final class DefinitelyNotNullType extends DelegatingSimpleType implements
         return false;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -98,7 +98,7 @@ public final class DefinitelyNotNullType extends DelegatingSimpleType implements
 
     @Override // kotlin.reflect.jvm.internal.impl.types.CustomTypeVariable
     public boolean isTypeVariable() {
-        if (!(getDelegate().getConstructor() instanceof NewTypeVariableConstructor) && !(getDelegate().getConstructor().mo2025getDeclarationDescriptor() instanceof TypeParameterDescriptor)) {
+        if (!(getDelegate().getConstructor() instanceof NewTypeVariableConstructor) && !(getDelegate().getConstructor().mo2044getDeclarationDescriptor() instanceof TypeParameterDescriptor)) {
             return false;
         }
         return true;

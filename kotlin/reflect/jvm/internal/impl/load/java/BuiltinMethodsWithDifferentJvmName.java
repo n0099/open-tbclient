@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.load.java;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.google.android.exoplayer2.source.dash.manifest.UrlTemplate;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -24,7 +25,7 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.SignatureBuildingComponents;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class BuiltinMethodsWithDifferentJvmName {
     public static final BuiltinMethodsWithDifferentJvmName INSTANCE = new BuiltinMethodsWithDifferentJvmName();
     public static final Map<Name, List<Name>> JVM_SHORT_NAME_TO_BUILTIN_SHORT_NAMES_MAP;
@@ -76,7 +77,7 @@ public final class BuiltinMethodsWithDifferentJvmName {
         Intrinsics.checkExpressionValueIsNotNull(desc8, "JvmPrimitiveType.INT.desc");
         String desc9 = JvmPrimitiveType.CHAR.getDesc();
         Intrinsics.checkExpressionValueIsNotNull(desc9, "JvmPrimitiveType.CHAR.desc");
-        method8 = SpecialBuiltinMembers.method(javaLang7, "get", desc8, desc9);
+        method8 = SpecialBuiltinMembers.method(javaLang7, CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, desc8, desc9);
         Map<NameAndSignature, Name> mapOf = MapsKt__MapsKt.mapOf(TuplesKt.to(method2, Name.identifier("byteValue")), TuplesKt.to(method3, Name.identifier("shortValue")), TuplesKt.to(method4, Name.identifier("intValue")), TuplesKt.to(method5, Name.identifier("longValue")), TuplesKt.to(method6, Name.identifier("floatValue")), TuplesKt.to(method7, Name.identifier("doubleValue")), TuplesKt.to(REMOVE_AT_NAME_AND_SIGNATURE, Name.identifier("remove")), TuplesKt.to(method8, Name.identifier("charAt")));
         NAME_AND_SIGNATURE_TO_JVM_REPRESENTATION_NAME_MAP = mapOf;
         LinkedHashMap linkedHashMap = new LinkedHashMap(MapsKt__MapsJVMKt.mapCapacity(mapOf.size()));

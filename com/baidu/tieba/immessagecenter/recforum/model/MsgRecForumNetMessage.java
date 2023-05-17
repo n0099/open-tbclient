@@ -3,7 +3,7 @@ package com.baidu.tieba.immessagecenter.recforum.model;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.jr5;
+import com.baidu.tieba.ss5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.GetMsgRecForumlist.DataReq;
 import tbclient.GetMsgRecForumlist.GetMsgRecForumlistReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MsgRecForumNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class MsgRecForumNetMessage extends NetMessage {
             builder.rn = this.mRn;
             builder.user_id = this.userId;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jr5.a(builder, true);
+                ss5.a(builder, true);
             }
             GetMsgRecForumlistReqIdl.Builder builder2 = new GetMsgRecForumlistReqIdl.Builder();
             builder2.data = builder.build(false);

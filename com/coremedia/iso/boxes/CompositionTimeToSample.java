@@ -19,7 +19,7 @@ import java.util.Collections;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -45,7 +45,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
         ajc$preClinit();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

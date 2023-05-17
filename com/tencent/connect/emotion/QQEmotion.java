@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.BaseApi;
@@ -18,7 +19,7 @@ import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class QQEmotion extends BaseApi {
     public IUiListener a;
 
@@ -98,7 +99,7 @@ public class QQEmotion extends BaseApi {
                 stringBuffer.append("&set_uri_list=" + a2);
             }
             SLog.v("QQEMOTION", "-->set avatar, url: " + stringBuffer.toString());
-            Intent intent = new Intent("android.intent.action.VIEW");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
             intent.setData(Uri.parse(stringBuffer.toString()));
             intent.putParcelableArrayListExtra("android.intent.extra.STREAM", arrayList);
             if (a(intent)) {

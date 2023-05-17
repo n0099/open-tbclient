@@ -15,8 +15,8 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.cb0;
-/* loaded from: classes2.dex */
+import com.baidu.tieba.sb0;
+/* loaded from: classes3.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public LiveTabEntity a;
     public LiveFeedWrapData b;
@@ -38,7 +38,7 @@ public abstract class LiveBaseFragment extends Fragment {
     public String o = "";
     public String q = "";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onBannerItemClick(LiveBannerEntity liveBannerEntity);
 
@@ -69,12 +69,12 @@ public abstract class LiveBaseFragment extends Fragment {
         void onTabPageShowLog(String str, String str2);
     }
 
-    public abstract RecyclerView G1();
+    public abstract RecyclerView H1();
 
-    public abstract void J1(boolean z);
+    public abstract void K1(boolean z);
 
-    public int F1() {
-        RecyclerView.LayoutManager layoutManager = G1().getLayoutManager();
+    public int G1() {
+        RecyclerView.LayoutManager layoutManager = H1().getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager) {
             return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
         }
@@ -86,17 +86,17 @@ public abstract class LiveBaseFragment extends Fragment {
     }
 
     public void b() {
-        I1(null);
+        J1(null);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
         this.b = null;
-        cb0.a().e(this);
+        sb0.a().e(this);
     }
 
-    public boolean H1(String str, String str2, int i) {
+    public boolean I1(String str, String str2, int i) {
         if (str == null) {
             str = "";
         }
@@ -106,7 +106,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return (str + "_" + str2 + "_" + i).equals(this.q);
     }
 
-    public void I1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
+    public void J1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
         this.s = onLoadMoreListener;
         this.p = 1;
         String str = this.q;
@@ -122,27 +122,27 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public void K1(boolean z) {
-        J1(z);
+    public void L1(boolean z) {
+        K1(z);
     }
 
-    public void O1(String str) {
+    public void P1(String str) {
         this.f = str;
     }
 
-    public void P1(LiveFeedConfig liveFeedConfig) {
+    public void Q1(LiveFeedConfig liveFeedConfig) {
         this.c = liveFeedConfig;
     }
 
-    public void Q1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
+    public void R1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
         this.d = liveFeedReserveWrapData;
     }
 
-    public void R1(LiveFeedWrapData liveFeedWrapData) {
+    public void S1(LiveFeedWrapData liveFeedWrapData) {
         this.b = liveFeedWrapData;
     }
 
-    public void S1(a aVar) {
+    public void T1(a aVar) {
         this.r = aVar;
     }
 
@@ -151,7 +151,7 @@ public abstract class LiveBaseFragment extends Fragment {
         super.onCreate(bundle);
     }
 
-    public boolean L1() {
+    public boolean M1() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -168,7 +168,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean M1() {
+    public boolean N1() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -185,7 +185,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean N1() {
+    public boolean O1() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {

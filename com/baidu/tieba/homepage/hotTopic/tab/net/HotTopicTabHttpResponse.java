@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.gr7;
-import com.baidu.tieba.in;
-import com.baidu.tieba.pq7;
+import com.baidu.tieba.cs7;
+import com.baidu.tieba.rn;
+import com.baidu.tieba.ts7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes4.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements gr7 {
+/* loaded from: classes5.dex */
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements ts7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<in> mHotTopicDataList;
+    public List<rn> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabHttpResponse() {
@@ -39,8 +39,8 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements g
         }
     }
 
-    @Override // com.baidu.tieba.gr7
-    public List<in> getDataList() {
+    @Override // com.baidu.tieba.ts7
+    public List<rn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -49,7 +49,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements g
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.gr7
+    @Override // com.baidu.tieba.ts7
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -74,7 +74,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements g
             if (getError() != 0 || hotThreadListResIdl.data == null) {
                 return;
             }
-            this.mHotTopicDataList = pq7.c(hotThreadListResIdl);
+            this.mHotTopicDataList = cs7.c(hotThreadListResIdl);
         }
     }
 }

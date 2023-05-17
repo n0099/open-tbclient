@@ -5,7 +5,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.MemoryTrimType;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class LruBitmapPool implements BitmapPool {
     public int mCurrentSize;
     public int mMaxBitmapSize;

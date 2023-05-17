@@ -1,118 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.e73;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class rw1 extends qw1 {
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class rw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final rw1 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rw1(@NonNull yv1 yv1Var) {
-        super(yv1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135933, "Lcom/baidu/tieba/rw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135933, "Lcom/baidu/tieba/rw1;");
                 return;
             }
         }
+        rw1 rw1Var = new rw1();
+        a = rw1Var;
+        Intrinsics.checkNotNullExpressionValue(rw1Var.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
     }
 
-    public xz1 x() {
+    public rw1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#hideLoading", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new xz1(1001, "context not support");
-            }
-            g72 Z = ((SwanAppActivity) context).Z();
-            if (Z == null) {
-                return new xz1(1001, "none fragmentManger");
-            }
-            d72 m = Z.m();
-            if (!(m instanceof e73.a)) {
-                return new xz1(1001, "fragment not support");
-            }
-            if (m.getContext() == null) {
-                return new xz1(1001, "fragment has detached");
-            }
-            f73.c(m);
-            x42.i("LoadingViewApi", "hide loading success");
-            return xz1.f();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ym3.l(new r72().getCookie(".baidu.com"), "OPENBDUSS");
         }
-        return (xz1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public xz1 y(String str) {
-        InterceptResult invokeL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#showLoading", false);
-            if (n()) {
-                x42.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
-                return new xz1(1001, "LoadingViewApi does not supported when app is invisible.");
-            }
-            Pair<xz1, JSONObject> s = s(str);
-            xz1 xz1Var = (xz1) s.first;
-            if (!xz1Var.isSuccess()) {
-                return xz1Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            x42.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
-            String optString = jSONObject.optString("title");
-            if (TextUtils.isEmpty(optString)) {
-                return new xz1(202, "none title");
-            }
-            boolean optBoolean = jSONObject.optBoolean("mask", false);
-            Context context = getContext();
-            if (!(context instanceof SwanAppActivity)) {
-                return new xz1(1001, "context not support");
-            }
-            g72 Z = ((SwanAppActivity) context).Z();
-            if (Z == null) {
-                return new xz1(1001, "none fragment");
-            }
-            d72 m = Z.m();
-            if (!(m instanceof e73.a)) {
-                return new xz1(1001, "fragment not support");
-            }
-            e73 d = ((e73.a) m).d();
-            if (d == null) {
-                return new xz1(1001, "can't get floatLayer");
-            }
-            f73.f(d, context, optString, optBoolean);
-            x42.i("LoadingViewApi", "show loading success");
-            return xz1.f();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ow1.b(ns2.c(), "");
         }
-        return (xz1) invokeL.objValue;
     }
 }

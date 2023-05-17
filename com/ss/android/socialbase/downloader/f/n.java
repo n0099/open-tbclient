@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.f;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class n {
     public final JSONObject a;
     public int b;

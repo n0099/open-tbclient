@@ -1,261 +1,129 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tieba.aw1;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeAbsDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class db3 extends wy1 {
+/* loaded from: classes5.dex */
+public abstract class db3 extends ha3<UnitedSchemeBaseDispatcher> {
     public static /* synthetic */ Interceptable $ic;
-    public static df2 f;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.aw1
-    public String j() {
+    public abstract boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, g93 g93Var);
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947698740, "Lcom/baidu/tieba/db3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947698740, "Lcom/baidu/tieba/db3;");
+                return;
+            }
+        }
+        b = qp1.a;
+    }
+
+    public g93 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadPackageApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements aw1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db3 a;
-
-        /* renamed from: com.baidu.tieba.db3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0240a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONObject a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ String c;
-            public final /* synthetic */ a d;
-
-            /* renamed from: com.baidu.tieba.db3$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes4.dex */
-            public class C0241a implements mf4 {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ String a;
-                public final /* synthetic */ RunnableC0240a b;
-
-                public C0241a(RunnableC0240a runnableC0240a, String str) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {runnableC0240a, str};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = runnableC0240a;
-                    this.a = str;
-                }
-
-                @Override // com.baidu.tieba.mf4
-                public void a(@Nullable Map<String, String> map) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-                        if (map == null) {
-                            x42.c("PreloadPackageApi", "preloadPackage keyMap null");
-                            return;
-                        }
-                        RunnableC0240a runnableC0240a = this.b;
-                        runnableC0240a.d.a.z(map.get(this.b.b), this.a, runnableC0240a.c);
-                    }
-                }
-
-                @Override // com.baidu.tieba.mf4
-                public void onFail(Exception exc) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                        x42.c("PreloadPackageApi", "preloadPackage transform openBundleId fail");
-                    }
-                }
-            }
-
-            public RunnableC0240a(a aVar, JSONObject jSONObject, String str, String str2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONObject, str, str2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.d = aVar;
-                this.a = jSONObject;
-                this.b = str;
-                this.c = str2;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    boolean g = mk4.e().g(!rl3.G());
-                    String optString = this.a.optString(PrefetchEvent.EVENT_KEY_PAGE_URL);
-                    if (g) {
-                        hf4.e(Collections.singletonList(this.b), db3.f.c(), new C0241a(this, optString));
-                    } else {
-                        this.d.a.z(this.b, optString, this.c);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return g93.M();
         }
-
-        public a(db3 db3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {db3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = db3Var;
-        }
-
-        @Override // com.baidu.tieba.aw1.a
-        public xz1 a(x73 x73Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, x73Var, jSONObject, str)) == null) {
-                String optString = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString)) {
-                    return new xz1(202, "appKey must not empty");
-                }
-                if (!db3.f.a(1)) {
-                    return new xz1(402, "over single max limit");
-                }
-                rk3.h().execute(new RunnableC0240a(this, jSONObject, optString, str), "PreloadPackageApi");
-                return xz1.f();
-            }
-            return (xz1) invokeLLL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                String string = bundle.getString("appKey");
-                String e1 = vs2.e1(string, bundle.getString(PrefetchEvent.EVENT_KEY_PAGE_URL), 0, null);
-                PrefetchEvent.b bVar = new PrefetchEvent.b();
-                bVar.e("show");
-                bVar.d(e1);
-                bVar.c("10");
-                bVar.a(string);
-                wb2.g().f(bVar.b());
-                return null;
-            }
-            return (Bundle) invokeL.objValue;
-        }
+        return (g93) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public db3(@NonNull yv1 yv1Var) {
-        super(yv1Var);
+    public db3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher, String str) {
+        super(unitedSchemeBaseDispatcher, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {unitedSchemeBaseDispatcher, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yv1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeAbsDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public xz1 A(String str) {
-        InterceptResult invokeL;
+    @Nullable
+    public static JSONObject a(UnitedSchemeEntity unitedSchemeEntity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#preloadPackage", false);
-            String a2 = zz1.a(w73.K().getAppId());
-            if (TextUtils.isEmpty(a2)) {
-                return new xz1(101, "runtime parameter error");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, unitedSchemeEntity, str)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
             }
-            df2 df2Var = f;
-            if (df2Var == null || !df2Var.d(a2)) {
-                f = new df2(a2, jk4.b(a2));
+            String param = unitedSchemeEntity.getParam(str);
+            if (TextUtils.isEmpty(param)) {
+                return null;
             }
-            if (f.e()) {
-                return new xz1(402, "over max limit");
+            try {
+                return new JSONObject(param);
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return null;
             }
-            if (!f.b()) {
-                return new xz1(402, "over time interval limit");
-            }
-            return l(str, false, new a(this));
         }
-        return (xz1) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    public final void z(String str, String str2, String str3) {
+    public boolean h(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("appKey", str);
-            bundle.putString(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
-            k43.b(b.class, bundle);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str)) == null) {
+            try {
+                if (TextUtils.equals(this.a, str)) {
+                    return d(context, unitedSchemeEntity, callbackHandler, c());
+                }
+                return i(context, unitedSchemeEntity, callbackHandler, str, c());
+            } catch (Throwable th) {
+                if (b) {
+                    Log.e("SwanAppAction", Log.getStackTraceString(th));
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "execute with exception: " + Log.getStackTraceString(th));
+                return false;
+            }
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, g93 g93Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, g93Var)) == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101, "not support such action ：" + unitedSchemeEntity.getUri().getPath());
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

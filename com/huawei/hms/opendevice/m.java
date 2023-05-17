@@ -2,14 +2,14 @@ package com.huawei.hms.opendevice;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.tieba.jza;
+import com.baidu.tieba.h1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class m extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class m extends Thread {
                 HMSLog.d("ReportAaidToken", "This time need not report.");
                 return;
             }
-            String a2 = jza.c(this.a).a("region");
+            String a2 = h1b.c(this.a).a("region");
             if (TextUtils.isEmpty(a2)) {
                 HMSLog.i("ReportAaidToken", "The data storage region is empty.");
                 return;

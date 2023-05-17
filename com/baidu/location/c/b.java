@@ -48,7 +48,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"NewApi"})
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
@@ -70,7 +70,7 @@ public class b {
     public boolean l;
     public boolean m;
     public a p;
-    public C0101b q;
+    public C0105b q;
     public c r;
     public boolean s;
     public boolean t;
@@ -82,13 +82,13 @@ public class b {
     public Handler z;
 
     /* renamed from: com.baidu.location.c.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a extends TelephonyManager.CellInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,13 +136,13 @@ public class b {
     }
 
     /* renamed from: com.baidu.location.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class C0101b extends TelephonyManager.CellInfoCallback {
+    /* loaded from: classes3.dex */
+    public class C0105b extends TelephonyManager.CellInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public C0101b(b bVar) {
+        public C0105b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -160,7 +160,7 @@ public class b {
             this.a = bVar;
         }
 
-        public /* synthetic */ C0101b(b bVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0105b(b bVar, AnonymousClass1 anonymousClass1) {
             this(bVar);
         }
 
@@ -180,7 +180,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class c extends TelephonyManager.CellInfoCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -224,7 +224,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class d extends PhoneStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class e implements Comparator<g> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1479,7 +1479,7 @@ public class b {
                                             createForSubscriptionId2 = this.d.createForSubscriptionId(i2);
                                         }
                                         if (this.q == null) {
-                                            this.q = new C0101b(this, null);
+                                            this.q = new C0105b(this, null);
                                         }
                                         if (this.e != null) {
                                             this.e.requestCellInfoUpdate(com.baidu.location.f.getServiceContext().getMainExecutor(), this.q);

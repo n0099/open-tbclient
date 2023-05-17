@@ -10,12 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ShareLoginStat implements NoProguard {
     public static final String TAG = "ShareLoginStat";
     public static final String UBC_ID = "4833";
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class GetShareListStat implements NoProguard {
         public static final String KEY_ACCOUNT_APPS = "account_apps";
         public static final String KEY_ACCOUNT_SIZE = "account_size";
@@ -93,7 +93,7 @@ public class ShareLoginStat implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MakeShareLoginStat implements NoProguard {
         public static final String KEY_ERRMSG = "errorMsg";
         public static final String KEY_ERRNO = "errorNo";

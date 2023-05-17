@@ -1,18 +1,39 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.RoundTbImageView;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class u88 {
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsJVMKt;
+import kotlin.collections.SetsKt__SetsKt;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public abstract class u88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public RoundTbImageView b;
+    public s88 a;
+
+    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
     public u88() {
         Interceptable interceptable = $ic;
@@ -28,35 +49,33 @@ public class u88 {
         }
     }
 
-    public RoundTbImageView a() {
+    public Set<String> e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (d.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return SetsKt__SetsKt.emptySet();
+            }
+            return SetsKt__SetsJVMKt.setOf(d);
         }
-        return (RoundTbImageView) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(RoundTbImageView roundTbImageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, roundTbImageView) == null) {
-            this.b = roundTbImageView;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            s88 s88Var = this.a;
+            if (s88Var != null) {
+                s88Var.b(abilityItem, baseMsg);
+            }
         }
     }
 }

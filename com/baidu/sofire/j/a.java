@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.sofire.k.f;
 import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] k;
@@ -123,18 +124,6 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             return this.a.getInt("wi_fa_pu_cl", 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
-                return this.e.getInt("re_net_hr", 24);
-            }
-            return this.e.getInt("re_net_hr", 3);
         }
         return invokeV.intValue;
     }
@@ -360,7 +349,7 @@ public class a {
                 a = a(string2);
             }
             char c = 0;
-            if (string.startsWith("get")) {
+            if (string.startsWith(CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE)) {
                 String string4 = bundle.getString("defult_value");
                 if ((!"getString".equals(string) && TextUtils.isEmpty(string4)) || a == null) {
                     return null;
@@ -659,5 +648,17 @@ public class a {
             return arrayList;
         }
         return (List) invokeV.objValue;
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            if ("com.baidu.BaiduMap.meizu".equals(this.g.getPackageName())) {
+                return this.e.getInt("re_net_hr", 24);
+            }
+            return this.e.getInt("re_net_hr", 3);
+        }
+        return invokeV.intValue;
     }
 }

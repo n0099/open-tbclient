@@ -10,7 +10,7 @@ import com.baidu.sapi2.dto.SapiWebDTO;
 import com.baidu.sapi2.result.CertGuardianResult;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CertGuardianActivity extends BaseActivity {
     public static final String EXTRA_SCENE = "EXTRA_SCENE";
     public String t;

@@ -4,10 +4,10 @@ import android.os.Bundle;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public final class SendAuth {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Req extends BaseReq {
         public static final int LENGTH_LIMIT = 1024;
         public static final String TAG = "MicroMsg.SDK.SendAuth.Req";
@@ -61,7 +61,7 @@ public final class SendAuth {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class Resp extends BaseResp {
         public static final int ERR_SCOPE_SNSAPI_WXAAPP_INFO_CAN_ONLY_AUTHORIZED_SEPARATELY = -1000;
         public static final int LENGTH_LIMIT = 1024;

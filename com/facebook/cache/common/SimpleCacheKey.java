@@ -2,7 +2,7 @@ package com.facebook.cache.common;
 
 import android.net.Uri;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SimpleCacheKey implements CacheKey {
     public final boolean mIsResourceIdForDebugging;
     public final String mKey;

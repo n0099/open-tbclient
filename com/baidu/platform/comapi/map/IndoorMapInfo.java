@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class IndoorMapInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

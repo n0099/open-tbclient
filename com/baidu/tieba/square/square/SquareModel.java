@@ -5,22 +5,22 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.a9;
-import com.baidu.tieba.im9;
-import com.baidu.tieba.me;
-import com.baidu.tieba.t05;
-import com.baidu.tieba.yl9;
+import com.baidu.tieba.ao9;
+import com.baidu.tieba.c25;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.ko9;
+import com.baidu.tieba.se;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class SquareModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public im9 b;
+    public ko9 b;
     public a c;
     public long d;
     public long e;
@@ -28,28 +28,28 @@ public class SquareModel extends BdBaseModel<Object> {
     public long g;
     public long h;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        void a(boolean z, String str, im9 im9Var);
+        void a(boolean z, String str, ko9 ko9Var);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, im9, im9> {
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Object, ko9, ko9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public yl9 a;
+        public ao9 a;
         public int b;
-        public me<String> c;
+        public se<String> c;
         public final /* synthetic */ SquareModel d;
 
         public b(SquareModel squareModel, int i) {
@@ -78,14 +78,14 @@ public class SquareModel extends BdBaseModel<Object> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public im9 doInBackground(Object... objArr) {
+        public ko9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
-            im9 im9Var;
+            ko9 ko9Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                this.a = new yl9();
-                t05.d();
-                me<String> e = t05.e("tb.square");
+                this.a = new ao9();
+                c25.d();
+                se<String> e = c25.e("tb.square");
                 this.c = e;
                 String str = null;
                 if (this.b == 0) {
@@ -93,20 +93,20 @@ public class SquareModel extends BdBaseModel<Object> {
                     if (str2 == null) {
                         return null;
                     }
-                    im9 im9Var2 = new im9();
-                    im9Var2.j(str2);
-                    this.d.h = im9Var2.f();
-                    if (im9Var2.g()) {
+                    ko9 ko9Var2 = new ko9();
+                    ko9Var2.j(str2);
+                    this.d.h = ko9Var2.f();
+                    if (ko9Var2.g()) {
                         this.d.h = 0L;
                     }
-                    if (im9Var2.c()) {
-                        return im9Var2;
+                    if (ko9Var2.c()) {
+                        return ko9Var2;
                     }
                     this.b = 1;
                     str = str2;
-                    im9Var = im9Var2;
+                    ko9Var = ko9Var2;
                 } else {
-                    im9Var = null;
+                    ko9Var = null;
                 }
                 if (this.b == 1) {
                     this.d.d = System.currentTimeMillis();
@@ -117,45 +117,45 @@ public class SquareModel extends BdBaseModel<Object> {
                     this.d.g = System.currentTimeMillis();
                 }
                 if (this.a.e()) {
-                    im9Var = new im9();
-                    im9Var.j(str);
-                    Long valueOf = Long.valueOf(im9Var.f());
+                    ko9Var = new ko9();
+                    ko9Var.j(str);
+                    Long valueOf = Long.valueOf(ko9Var.f());
                     if (valueOf.longValue() > this.d.h) {
                         this.c.e("square_cache_key", str, 86400000L);
                     } else {
                         String str3 = this.c.get("square_cache_key");
                         if (str3 != null) {
-                            im9 im9Var3 = new im9();
-                            im9Var3.j(str3);
-                            im9Var3.m(im9Var.e());
-                            im9Var3.n(valueOf.longValue());
-                            this.c.e("square_cache_key", im9Var3.d(), 86400000L);
-                            im9Var = im9Var3;
+                            ko9 ko9Var3 = new ko9();
+                            ko9Var3.j(str3);
+                            ko9Var3.m(ko9Var.e());
+                            ko9Var3.n(valueOf.longValue());
+                            this.c.e("square_cache_key", ko9Var3.d(), 86400000L);
+                            ko9Var = ko9Var3;
                         } else {
                             this.c.e("square_cache_key", str, 86400000L);
                         }
                     }
                     this.d.h = valueOf.longValue();
                 }
-                return im9Var;
+                return ko9Var;
             }
-            return (im9) invokeL.objValue;
+            return (ko9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(im9 im9Var) {
+        public void onPostExecute(ko9 ko9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, im9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko9Var) == null) {
                 this.d.a = null;
-                this.d.b = im9Var;
+                this.d.b = ko9Var;
                 if (this.d.c != null) {
                     if (this.b != 0 && !this.a.e()) {
-                        this.d.c.a(false, this.a.c(), im9Var);
+                        this.d.c.a(false, this.a.c(), ko9Var);
                         return;
                     }
-                    this.d.c.a(true, null, im9Var);
+                    this.d.c.a(true, null, ko9Var);
                 }
             }
         }
@@ -165,9 +165,9 @@ public class SquareModel extends BdBaseModel<Object> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 super.cancel();
-                yl9 yl9Var = this.a;
-                if (yl9Var != null) {
-                    yl9Var.b();
+                ao9 ao9Var = this.a;
+                if (ao9Var != null) {
+                    ao9Var.b();
                 }
                 this.d.a = null;
             }
@@ -186,7 +186,7 @@ public class SquareModel extends BdBaseModel<Object> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -199,10 +199,10 @@ public class SquareModel extends BdBaseModel<Object> {
         this.e = 0L;
         this.f = 0L;
         this.g = 0L;
-        this.b = new im9();
+        this.b = new ko9();
     }
 
-    public boolean j0(int i) {
+    public boolean i0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
@@ -217,9 +217,9 @@ public class SquareModel extends BdBaseModel<Object> {
         return invokeI.booleanValue;
     }
 
-    public void m0(a aVar) {
+    public void l0(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             this.c = aVar;
         }
     }
@@ -239,16 +239,16 @@ public class SquareModel extends BdBaseModel<Object> {
         return invokeV.booleanValue;
     }
 
-    public im9 e0() {
+    public ko9 d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (im9) invokeV.objValue;
+        return (ko9) invokeV.objValue;
     }
 
-    public long f0() {
+    public long e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -257,7 +257,7 @@ public class SquareModel extends BdBaseModel<Object> {
         return invokeV.longValue;
     }
 
-    public long g0() {
+    public long f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -266,7 +266,7 @@ public class SquareModel extends BdBaseModel<Object> {
         return invokeV.longValue;
     }
 
-    public long h0() {
+    public long g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -275,7 +275,7 @@ public class SquareModel extends BdBaseModel<Object> {
         return invokeV.longValue;
     }
 
-    public long i0() {
+    public long h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -284,20 +284,20 @@ public class SquareModel extends BdBaseModel<Object> {
         return invokeV.longValue;
     }
 
-    public boolean k0() {
+    public boolean j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return j0(0);
+            return i0(0);
         }
         return invokeV.booleanValue;
     }
 
-    public boolean l0() {
+    public boolean k0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return j0(1);
+            return i0(1);
         }
         return invokeV.booleanValue;
     }

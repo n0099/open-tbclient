@@ -10,7 +10,7 @@ import kotlin.TypeCastException;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class SignatureBuildingComponents {
     public static final SignatureBuildingComponents INSTANCE = new SignatureBuildingComponents();
 

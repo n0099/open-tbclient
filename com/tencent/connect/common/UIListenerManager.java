@@ -12,12 +12,12 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class UIListenerManager {
     public static UIListenerManager a;
     public Map<String, ApiTask> b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public class ApiTask {
         public IUiListener mListener;
         public int mRequestCode;

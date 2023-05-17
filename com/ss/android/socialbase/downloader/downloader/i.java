@@ -14,7 +14,7 @@ import com.ss.android.socialbase.downloader.depend.y;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public interface i extends IInterface {
     int a(String str, String str2) throws RemoteException;
 
@@ -128,7 +128,7 @@ public interface i extends IInterface {
 
     com.ss.android.socialbase.downloader.depend.g s(int i) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a extends Binder implements i {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -136,12 +136,12 @@ public interface i extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.downloader.i$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C0719a implements i {
+        /* loaded from: classes10.dex */
+        public static class C0733a implements i {
             public static i a;
             public IBinder b;
 
-            public C0719a(IBinder iBinder) {
+            public C0733a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -1353,7 +1353,7 @@ public interface i extends IInterface {
         }
 
         public static i g() {
-            return C0719a.a;
+            return C0733a.a;
         }
 
         public static i a(IBinder iBinder) {
@@ -1364,7 +1364,7 @@ public interface i extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof i)) {
                 return (i) queryLocalInterface;
             }
-            return new C0719a(iBinder);
+            return new C0733a(iBinder);
         }
 
         @Override // android.os.Binder
@@ -1385,7 +1385,7 @@ public interface i extends IInterface {
                 switch (i) {
                     case 1:
                         parcel.enforceInterface("com.ss.android.socialbase.downloader.downloader.IDownloadAidlService");
-                        a(a.AbstractBinderC0723a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC0737a.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
                     case 2:

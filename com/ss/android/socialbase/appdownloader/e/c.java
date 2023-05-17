@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static int a = 8;
     public static volatile c b;
     public a<Integer, Bitmap> c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
         public final int a;
 

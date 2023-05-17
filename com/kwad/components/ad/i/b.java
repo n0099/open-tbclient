@@ -28,14 +28,14 @@ import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class b {
     public View BT;
     public String Cd;
     public c.a Ce;
     public a Cf;
     @Nullable
-    public InterfaceC0558b Cg;
+    public InterfaceC0572b Cg;
     public KsAdWebView bF;
     public aa bI;
     @Nullable
@@ -71,14 +71,14 @@ public class b {
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(b bVar);
     }
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0558b {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC0572b {
         void hk();
     }
 
@@ -115,7 +115,7 @@ public class b {
     }
 
     public static int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d044a;
+        return R.layout.obfuscated_res_0x7f0d0467;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -183,8 +183,8 @@ public class b {
         this.Cf = aVar;
     }
 
-    public final void a(@Nullable InterfaceC0558b interfaceC0558b) {
-        this.Cg = interfaceC0558b;
+    public final void a(@Nullable InterfaceC0572b interfaceC0572b) {
+        this.Cg = interfaceC0572b;
         this.bS.setVisibility(4);
         this.bH = -1;
         String l = l(this.mAdTemplate);
@@ -290,7 +290,7 @@ public class b {
         this.bS.removeAllViews();
         this.bS.setVisibility(4);
         this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0913b7);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0913f2);
         this.bF = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.bF.getBackground().setAlpha(0);

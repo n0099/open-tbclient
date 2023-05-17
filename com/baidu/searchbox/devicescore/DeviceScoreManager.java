@@ -11,7 +11,7 @@ import com.baidu.searchbox.devicescore.dynamic.IDynamicScoreManager;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, IDeviceScoreConfig {
     public static final String SP_KEY_FINAL_DYNAMIC_SCORE = "device_store_final_dynamic_score_float";
     public static final String SP_KEY_FINAL_SCORE_FLOAT = "device_store_final_score_float";

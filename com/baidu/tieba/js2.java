@@ -1,96 +1,262 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.Arrays;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class js2 extends is2 {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.nio.charset.Charset;
+/* loaded from: classes6.dex */
+public class js2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ms2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "RequestDescInterceptor" : (String) invokeV.objValue;
-    }
-
-    public js2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947893792, "Lcom/baidu/tieba/js2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947893792, "Lcom/baidu/tieba/js2;");
+                return;
             }
         }
+        a = qp1.a;
     }
 
-    @Override // com.baidu.tieba.ms2
-    public boolean enable() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00be A[Catch: all -> 0x00f5, TryCatch #3 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:13:0x0020, B:23:0x0079, B:24:0x007c, B:51:0x00b6, B:53:0x00be, B:54:0x00da, B:27:0x0081, B:28:0x0087, B:59:0x00e3, B:60:0x00e6, B:64:0x00f4, B:63:0x00eb, B:46:0x00a7, B:47:0x00aa, B:50:0x00af), top: B:76:0x0007, inners: #1, #6, #9 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x00e3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized String a(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        String str2;
+        String stackTraceString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return hx1.h();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ms2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (SchemeCollecter.CLASSIFY_SWAN_V8.equals(str) && "request".equals(str2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ms2
-    @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            try {
-                jSONObject.put("invoke", "swan.method.v8BindingObject");
-                jSONObject.put("method", "_naSwan.naRequest");
-                JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
-                if (optJSONArray != null) {
-                    List asList = Arrays.asList("cb", "ping", "__requestDataType__");
-                    for (int length = optJSONArray.length() - 1; length >= 0; length--) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(length);
-                        if (optJSONObject != null && asList.contains(optJSONObject.optString("name"))) {
-                            optJSONArray.remove(length);
-                        }
-                    }
-                    optJSONArray.put(d("success", "function="));
-                    optJSONArray.put(d(com.baidu.pass.biometrics.face.liveness.b.a.g0, "function="));
-                    optJSONArray.put(d(TaskProcessData.keyComplete, "function="));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            synchronized (js2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                FileLock fileLock = null;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is empty");
+                    return null;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                StringBuffer stringBuffer = new StringBuffer();
+                try {
+                    FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                    FileLock lock = channel.lock(0L, Long.MAX_VALUE, true);
+                    try {
+                        bufferedReader = new BufferedReader(Channels.newReader(channel, Charset.defaultCharset().name()));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(readLine);
+                            } catch (IOException e) {
+                                e = e;
+                                fileLock = lock;
+                                try {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e));
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e2) {
+                                            str2 = "SwanAppFile";
+                                            stackTraceString = Log.getStackTraceString(e2);
+                                            Log.e(str2, stackTraceString);
+                                            long currentTimeMillis2 = System.currentTimeMillis();
+                                            if (a) {
+                                            }
+                                            return stringBuffer.toString();
+                                        }
+                                    }
+                                    kp4.d(bufferedReader);
+                                    long currentTimeMillis22 = System.currentTimeMillis();
+                                    if (a) {
+                                    }
+                                    return stringBuffer.toString();
+                                } catch (Throwable th) {
+                                    th = th;
+                                    if (fileLock != null) {
+                                        try {
+                                            fileLock.release();
+                                        } catch (IOException e3) {
+                                            Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                            throw th;
+                                        }
+                                    }
+                                    kp4.d(bufferedReader);
+                                    throw th;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                fileLock = lock;
+                                if (fileLock != null) {
+                                }
+                                kp4.d(bufferedReader);
+                                throw th;
+                            }
+                        }
+                        if (a) {
+                            Log.d("SwanAppFile", "Read file: " + stringBuffer.toString());
+                        }
+                        if (lock != null) {
+                            try {
+                                lock.release();
+                            } catch (IOException e4) {
+                                str2 = "SwanAppFile";
+                                stackTraceString = Log.getStackTraceString(e4);
+                                Log.e(str2, stackTraceString);
+                                long currentTimeMillis222 = System.currentTimeMillis();
+                                if (a) {
+                                }
+                                return stringBuffer.toString();
+                            }
+                        }
+                        kp4.d(bufferedReader);
+                    } catch (IOException e5) {
+                        e = e5;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        bufferedReader = null;
+                    }
+                } catch (IOException e6) {
+                    e = e6;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+                long currentTimeMillis2222 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Read file done: cost time = " + (currentTimeMillis2222 - currentTimeMillis) + "ms");
+                }
+                return stringBuffer.toString();
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c3 A[Catch: all -> 0x00f6, TRY_LEAVE, TryCatch #4 {, blocks: (B:6:0x0007, B:8:0x0012, B:10:0x0016, B:28:0x007e, B:32:0x008c, B:49:0x00bb, B:51:0x00c3, B:31:0x0083, B:56:0x00e4, B:60:0x00f2, B:61:0x00f5, B:59:0x00e9, B:44:0x00aa, B:48:0x00b8, B:47:0x00af), top: B:73:0x0007, inners: #2, #5, #8 }] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x00e4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @SuppressLint({"SwanDebugLog"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized boolean b(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        FileChannel fileChannel;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, str2, z)) == null) {
+            synchronized (js2.class) {
+                long currentTimeMillis = System.currentTimeMillis();
+                boolean z2 = false;
+                if (TextUtils.isEmpty(str) && a) {
+                    Log.w("SwanAppFile", "path name is null");
+                    return false;
+                }
+                FileLock fileLock = null;
+                try {
+                    File file = new File(str);
+                    File file2 = new File(file.getParent());
+                    if (!file2.exists()) {
+                        file2.mkdirs();
+                    }
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    FileChannel channel = new FileOutputStream(file, z).getChannel();
+                    try {
+                        fileLock = channel.lock();
+                        if (TextUtils.isEmpty(str2)) {
+                            str2 = "";
+                        }
+                        channel.write(ByteBuffer.wrap(str2.getBytes()));
+                        z2 = true;
+                        if (a) {
+                            Log.d("SwanAppFile", "Write file：" + str2);
+                        }
+                        if (fileLock != null) {
+                            try {
+                                fileLock.release();
+                            } catch (IOException e) {
+                                Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            }
+                        }
+                        kp4.d(channel);
+                    } catch (IOException e2) {
+                        fileChannel = channel;
+                        e = e2;
+                        try {
+                            Log.e("SwanAppFile", Log.getStackTraceString(e));
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e3) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e3));
+                                }
+                            }
+                            kp4.d(fileChannel);
+                            long currentTimeMillis2 = System.currentTimeMillis();
+                            if (a) {
+                            }
+                            return z2;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (fileLock != null) {
+                                try {
+                                    fileLock.release();
+                                } catch (IOException e4) {
+                                    Log.e("SwanAppFile", Log.getStackTraceString(e4));
+                                }
+                            }
+                            kp4.d(fileChannel);
+                            throw th;
+                        }
+                    } catch (Throwable th2) {
+                        fileChannel = channel;
+                        th = th2;
+                        if (fileLock != null) {
+                        }
+                        kp4.d(fileChannel);
+                        throw th;
+                    }
+                } catch (IOException e5) {
+                    e = e5;
+                    fileChannel = null;
+                } catch (Throwable th3) {
+                    th = th3;
+                    fileChannel = null;
+                }
+                long currentTimeMillis22 = System.currentTimeMillis();
+                if (a) {
+                    Log.d("SwanAppFile", "Write file done: cost time =" + (currentTimeMillis22 - currentTimeMillis) + "ms");
+                }
+                return z2;
+            }
+        }
+        return invokeLLZ.booleanValue;
     }
 }

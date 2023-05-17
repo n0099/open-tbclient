@@ -1,51 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
-/* loaded from: classes6.dex */
-public class qj9 implements sj9 {
+/* loaded from: classes7.dex */
+public class qj9 implements gc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public Context a;
 
-    public qj9(int i, int i2) {
+    public qj9(Context context, fc5 fc5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {context, fc5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        this.a = null;
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.sj9
-    public boolean a(NetworkStatRecord networkStatRecord) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gc5
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
-            if (networkStatRecord == null) {
-                return false;
-            }
-            if ((networkStatRecord.from == 3 && aw4.e()) || new Random().nextInt(this.b) >= this.a) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void b(ShareItem shareItem, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
+            IntentConfig intentConfig = new IntentConfig(this.a);
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.setTitle(shareItem.v);
+            shareEntity.setContent(shareItem.w);
+            shareEntity.setReadCount(shareItem.W);
+            int i2 = shareItem.R;
+            if (i2 != 2 && i2 != 6 && i2 != 8) {
+                z = false;
+            } else {
+                z = true;
+            }
+            shareEntity.setIsVideoThread(z);
+            shareEntity.setFestivalTaskTid(shareItem.Y);
+            shareEntity.setFestivalTaskType(shareItem.Z);
+            shareEntity.setImageUri(shareItem.z);
+            shareEntity.canShareBySmartApp = shareItem.v0;
+            String str = shareItem.x;
+            if (i == 6 && !StringUtils.isNull(shareItem.y)) {
+                str = shareItem.y;
+            }
+            shareEntity.setLinkUrl(str);
+            shareEntity.setLocalFile(shareItem.B);
+            shareEntity.setLocation(shareItem.F);
+            shareEntity.setShareTo(i);
+            shareEntity.setStats(shareItem.g());
+            shareEntity.setPreferImageToLink(shareItem.k0);
+            shareEntity.setTid(shareItem.O);
+            shareEntity.setFloorAuthorUid(shareItem.P);
+            shareEntity.setfName(shareItem.t);
+            shareEntity.setTypeShareToSmallApp(shareItem.C);
+            shareEntity.topic = shareItem.T;
+            if (i == 6 && !StringUtils.isNull(shareItem.V)) {
+                shareEntity.topic = shareItem.U + shareItem.V;
+                shareEntity.setContent("");
+            }
+            shareEntity.taskCompleteId = shareItem.X;
+            shareEntity.diskPicOperate = shareItem.E;
+            shareEntity.setExtLiveInfo(shareItem.A0);
+            shareEntity.setFromDuXiaoMan(shareItem.m);
+            shareEntity.setTopicId(shareItem.B0);
+            shareEntity.groupData = shareItem.L0;
+            shareEntity.shareMediaType = shareItem.N0;
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("extra_share_data", shareEntity);
+            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+            intentConfig.getIntent().putExtras(bundle);
+            shareItem.q(true);
+            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
+        }
     }
 }

@@ -1,5 +1,15 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+/* loaded from: classes6.dex */
 public interface of {
-    void onProgress(int i, int i2);
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("tbadkcore", "INetExperiment");
+
+    boolean netABTest();
+
+    boolean netBdABTest();
+
+    boolean qaHttpsTest();
 }

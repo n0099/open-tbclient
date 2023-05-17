@@ -9,7 +9,7 @@ import com.baidu.searchbox.aideviceperformance.utils.DeviceInfoSharedPreferenceW
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class StickinessScoreManager implements IStickinessScoreManager {
     public static final boolean DEBUG = Config.isDebug();
     public static final int MAX_DATA_COUNT = 50;

@@ -31,7 +31,7 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapTextureView extends h implements MapRenderModeChangeListener, MapViewInterface, ak {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class MapTextureView extends h implements MapRenderModeChangeListener, Ma
     public List<BmLayer> l;
     public c m;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(int i);
     }
@@ -162,7 +162,7 @@ public class MapTextureView extends h implements MapRenderModeChangeListener, Ma
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements GLSurfaceView.EGLContextFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,7 +281,7 @@ public class MapTextureView extends h implements MapRenderModeChangeListener, Ma
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vt8;
+import com.baidu.tieba.qv8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ import com.tencent.mm.opensdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,7 +106,7 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
             this.c = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0b36));
+            this.c.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0bb5));
             try {
                 this.a = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -191,10 +191,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        vt8 vt8Var = new vt8();
-        vt8Var.a = this;
-        vt8Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, vt8Var);
+        qv8 qv8Var = new qv8();
+        qv8Var.a = this;
+        qv8Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, qv8Var);
         closeActivity();
     }
 }

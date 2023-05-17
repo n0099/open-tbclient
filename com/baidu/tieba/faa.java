@@ -1,54 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.BaseWriteConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.httpNet.WebClient;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tbadk.util.InsertGalleryAsyncTask;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class faa {
+/* loaded from: classes5.dex */
+public class faa extends raa<gba> implements taa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    public final List<s8a> b;
-    public WriteImagesInfo c;
+    @Nullable
+    public ForumTabSelectedView g;
+    @Nullable
+    public View h;
+    public String i;
+    public final ForumTabSelectedView.d j;
 
-    /* loaded from: classes4.dex */
-    public class a extends InsertGalleryAsyncTask.a {
+    @Override // com.baidu.tieba.waa
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.waa
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements ForumTabSelectedView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ faa a;
-
-        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
 
         public a(faa faaVar) {
             Interceptable interceptable = $ic;
@@ -68,102 +70,20 @@ public class faa {
             this.a = faaVar;
         }
 
-        @Override // com.baidu.tbadk.util.InsertGalleryAsyncTask.a
-        public void b(String str) {
+        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
+        public void a(FrsTabItemData frsTabItemData) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && new File(str).exists()) {
-                this.a.g().clear();
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(str);
-                imageFileInfo.isFromMoreForum = true;
-                this.a.g().addChooseFile(imageFileInfo);
-                this.a.g().setMaxImagesAllowed(1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
+                ((gba) this.a.d).b = frsTabItemData;
                 faa faaVar = this.a;
-                faaVar.l(faaVar.g().toJsonString());
+                faaVar.y(faaVar.d);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends vr5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-
-        public b(faa faaVar, WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {faaVar, writeData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = writeData;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vr5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            byte[] downloadImageBytes;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                String str = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath() + "/imageCache" + pi.d(downloadImageBytes);
-                FileHelper.saveFileByAbsolutePath(str, new WebClient().downloadImageBytes(this.a.getNetImgUrl()));
-                return str;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements zq5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ faa a;
-
-        public c(faa faaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {faaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = faaVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.zq5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-                this.a.g().clear();
-                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.setFilePath(str);
-                this.a.g().addChooseFile(imageFileInfo);
-                faa faaVar = this.a;
-                faaVar.l(faaVar.g().toJsonString());
-            }
-        }
-    }
-
-    public faa(@NonNull TbPageContext<?> tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public faa(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, gba.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,214 +93,142 @@ public class faa {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-        this.c = writeImagesInfo;
-        this.a = tbPageContext;
-        writeImagesInfo.setMaxImagesAllowed(9);
+        this.j = new a(this);
+        this.i = this.a.getString(R.string.obfuscated_res_0x7f0f079a);
     }
 
-    public void d(@NonNull WriteData writeData) {
+    public final void C(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
-            writeData.setWriteImagesInfo(this.c);
-            WriteImagesInfo writeImagesInfo = this.c;
-            if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
-                Iterator<ImageFileInfo> it = this.c.getChosedFiles().iterator();
-                int i = 0;
-                while (it.hasNext()) {
-                    ImageFileInfo next = it.next();
-                    if (next != null && next.isFromCamera()) {
-                        i++;
-                    }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, frsTabInfoData) == null) && frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
+            ArrayList arrayList = new ArrayList();
+            for (FrsTabItemData frsTabItemData : frsTabInfoData.tabList) {
+                String str = this.i;
+                if ((str != null && frsTabItemData != null && str.equals(frsTabItemData.name)) || frsTabItemData.isNoShowInPublisher) {
+                    arrayList.add(frsTabItemData);
                 }
-                writeData.setTakePhotoNum(i);
+            }
+            frsTabInfoData.tabList.removeAll(arrayList);
+        }
+    }
+
+    @Override // com.baidu.tieba.waa
+    public void c(WriteData writeData) {
+        ForumTabSelectedView forumTabSelectedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
+            return;
+        }
+        D d = this.d;
+        if (((gba) d).a != null) {
+            writeData.setIsForumBusinessAccount(((gba) d).a.isForumBusinessAccount);
+        }
+        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
+        if (selectedTabItemData == null) {
+            return;
+        }
+        writeData.setTabId(selectedTabItemData.tabId);
+        writeData.setTabName(selectedTabItemData.name);
+        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
+    }
+
+    @Override // com.baidu.tieba.waa
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.o(i);
+            }
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
+        }
+    }
+
+    @Override // com.baidu.tieba.raa, com.baidu.tieba.waa
+    public void q(@NonNull List<waa<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            super.q(list);
+            for (waa<?> waaVar : list) {
+                if (waaVar instanceof aaa) {
+                    w((aaa) waaVar);
+                }
             }
         }
     }
 
-    public void f(@NonNull w8a w8aVar, @NonNull WriteData writeData) {
+    @Override // com.baidu.tieba.taa
+    public void onUpdate(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, w8aVar, writeData) != null) || this.a.getPageActivity() == null || StringUtils.isNull(writeData.getNetImgUrl())) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
             return;
         }
-        zr5.b(new b(this, writeData), new c(this));
-    }
-
-    public ImageFileInfo b(@NonNull w8a w8aVar, @NonNull v85 v85Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, w8aVar, v85Var)) == null) {
-            PermissionJudgePolicy t = w8aVar.t();
-            t.clearRequestPermissionList();
-            t.appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (t.startRequestPermission(this.a.getPageActivity())) {
-                return null;
+        SelectForumData selectForumData = (SelectForumData) obj;
+        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
+            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
+            frsTabInfoData.selectedTabId = -1;
+            List<FrsTabItemData> list = selectForumData.tabInfoList;
+            frsTabInfoData.tabList = list;
+            if (selectForumData.isForumBusinessAccount && list != null) {
+                FrsTabItemData frsTabItemData = new FrsTabItemData();
+                frsTabItemData.tabId = 505;
+                frsTabItemData.name = "官方";
+                frsTabInfoData.tabList.add(0, frsTabItemData);
             }
-            if (this.c.size() >= this.c.getMaxImagesAllowed()) {
-                this.a.showToast(String.format(this.a.getString(R.string.max_choose_image_count), Integer.valueOf(this.c.getMaxImagesAllowed())));
-                return null;
+            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
+            if (this.g != null) {
+                C(frsTabInfoData);
+                this.g.setData(frsTabInfoData);
+                if (this.g.getVisibility() == 0) {
+                    this.c.setVisibility(0);
+                } else {
+                    this.c.setVisibility(8);
+                }
             }
-            ImageFileInfo imageFileInfo = new ImageFileInfo();
-            imageFileInfo.setImageType(1);
-            imageFileInfo.setFilePath(v85Var.d());
-            imageFileInfo.width = v85Var.h();
-            imageFileInfo.height = v85Var.b();
-            this.c.addChooseFile(imageFileInfo);
-            this.c.updateQuality();
-            return imageFileInfo;
-        }
-        return (ImageFileInfo) invokeLL.objValue;
-    }
-
-    public void e(@NonNull w8a w8aVar, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, w8aVar, writeData) != null) || this.a.getPageActivity() == null || !WriteActivityConfig.FROM_FORUM_SHARE.equals(writeData.getFrom()) || StringUtils.isNull(writeData.getMoreForumImg())) {
-            return;
-        }
-        w8aVar.t().clearRequestPermissionList();
-        w8aVar.t().appendRequestPermission(this.a.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-        if (w8aVar.t().startRequestPermission(this.a.getPageActivity())) {
-            return;
-        }
-        InsertGalleryAsyncTask insertGalleryAsyncTask = new InsertGalleryAsyncTask(this.a.getPageActivity(), writeData.getMoreForumImg(), new a(this));
-        insertGalleryAsyncTask.setFrom(1);
-        insertGalleryAsyncTask.execute(new String[0]);
-    }
-
-    public void c(s8a s8aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s8aVar) != null) || this.b.contains(s8aVar)) {
-            return;
-        }
-        this.b.add(s8aVar);
-    }
-
-    public final void i(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, intent) != null) || intent == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
-        for (s8a s8aVar : this.b) {
-            s8aVar.v(stringExtra);
-        }
-    }
-
-    public final void j(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) != null) || intent == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
-        for (s8a s8aVar : this.b) {
-            s8aVar.u(stringExtra);
-        }
-    }
-
-    public final void k(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, intent) != null) || intent == null) {
-            return;
-        }
-        String stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT);
-        for (s8a s8aVar : this.b) {
-            s8aVar.k(stringExtra);
-        }
-    }
-
-    public final void l(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        for (s8a s8aVar : this.b) {
-            s8aVar.i(str);
-        }
-    }
-
-    public void n(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048588, this, intent) != null) || intent == null) {
-            return;
-        }
-        i(intent);
-    }
-
-    public void o(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, bundle) != null) || bundle == null) {
-            return;
-        }
-        bundle.putString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, this.c.toJsonString());
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !StringUtils.isNull(str)) {
-            this.c.parseJson(str);
-            this.c.updateQuality();
-        }
-    }
-
-    public void q(s8a s8aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, s8aVar) == null) {
-            this.b.remove(s8aVar);
-        }
-    }
-
-    public void r(@NonNull WriteImagesInfo writeImagesInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, writeImagesInfo) == null) {
-            this.c = writeImagesInfo;
-        }
-    }
-
-    @NonNull
-    public WriteImagesInfo g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (WriteImagesInfo) invokeV.objValue;
-    }
-
-    public void h(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
-        WriteData writeData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, bundle, intent, writeData) == null) {
-            if (writeData.isFromErrorDialog() && (writeData2 = nr9.f) != null) {
-                this.c = writeData2.getWriteImagesInfo();
+            ((gba) this.d).a = frsTabInfoData;
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setFrsTabInfoData(frsTabInfoData);
                 return;
             }
-            String str = null;
-            if (bundle != null) {
-                str = bundle.getString(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
-            } else if (intent != null) {
-                str = intent.getStringExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING);
-                intent.putExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, "");
-            }
-            p(str);
-            writeData.setWriteImagesInfo(g());
-        }
-    }
-
-    public void m(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIIL(1048587, this, i, i2, intent) != null) || intent == null || i2 != -1) {
             return;
         }
-        if (i == 12002) {
-            j(intent);
-        } else if (i == 12012) {
-            k(intent);
+        this.c.setVisibility(8);
+    }
+
+    @Override // com.baidu.tieba.waa
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0503, viewGroup, false);
+            this.c = inflate;
+            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090d44);
+            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090d41);
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    C(writeData.getFrsTabInfoData());
+                    this.g.setData(this.e.getFrsTabInfoData());
+                    if (this.g.getVisibility() == 0) {
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
+                }
+                this.g.setActivity(this.a);
+                this.g.setTabSelectedListener(this.j);
+            }
+            return this.c;
         }
+        return (View) invokeL.objValue;
     }
 }

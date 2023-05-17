@@ -17,6 +17,7 @@ import androidx.annotation.RestrictTo;
 import androidx.core.widget.AutoScrollHelper;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.wordscommand.WordCommandManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.TbErrInfo;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
@@ -2965,7 +2966,7 @@ public class ExifInterface {
                     }
                     break;
                 case -1487394660:
-                    if (lowerCase.equals("image/jpeg")) {
+                    if (lowerCase.equals(WordCommandManager.IMAGE_JPEG)) {
                         c = 0;
                         break;
                     }
@@ -2989,7 +2990,7 @@ public class ExifInterface {
                     }
                     break;
                 case -879258763:
-                    if (lowerCase.equals("image/png")) {
+                    if (lowerCase.equals(WordCommandManager.IMAGE_PNG)) {
                         c = '\r';
                         break;
                     }
@@ -4326,14 +4327,14 @@ public class ExifInterface {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0098 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x009a */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0160 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x009a */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x009c */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0162 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x00b8 A[Catch: all -> 0x0116, Exception -> 0x0119, TryCatch #10 {Exception -> 0x0119, all -> 0x0116, blocks: (B:43:0x00af, B:45:0x00b8, B:52:0x00d8, B:46:0x00c0, B:48:0x00c4, B:50:0x00c8), top: B:110:0x00af }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00c0 A[Catch: all -> 0x0116, Exception -> 0x0119, TryCatch #10 {Exception -> 0x0119, all -> 0x0116, blocks: (B:43:0x00af, B:45:0x00b8, B:52:0x00d8, B:46:0x00c0, B:48:0x00c4, B:50:0x00c8), top: B:110:0x00af }] */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00e7 A[Catch: all -> 0x010a, Exception -> 0x010c, TryCatch #14 {Exception -> 0x010c, all -> 0x010a, blocks: (B:54:0x00e2, B:56:0x00e7, B:57:0x00eb, B:59:0x00f1, B:60:0x00f5, B:62:0x00fb), top: B:104:0x00e2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00eb A[Catch: all -> 0x010a, Exception -> 0x010c, TryCatch #14 {Exception -> 0x010c, all -> 0x010a, blocks: (B:54:0x00e2, B:56:0x00e7, B:57:0x00eb, B:59:0x00f1, B:60:0x00f5, B:62:0x00fb), top: B:104:0x00e2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00ba A[Catch: all -> 0x0118, Exception -> 0x011b, TryCatch #10 {Exception -> 0x011b, all -> 0x0118, blocks: (B:43:0x00b1, B:45:0x00ba, B:52:0x00da, B:46:0x00c2, B:48:0x00c6, B:50:0x00ca), top: B:110:0x00b1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00c2 A[Catch: all -> 0x0118, Exception -> 0x011b, TryCatch #10 {Exception -> 0x011b, all -> 0x0118, blocks: (B:43:0x00b1, B:45:0x00ba, B:52:0x00da, B:46:0x00c2, B:48:0x00c6, B:50:0x00ca), top: B:110:0x00b1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00e9 A[Catch: all -> 0x010c, Exception -> 0x010e, TryCatch #14 {Exception -> 0x010e, all -> 0x010c, blocks: (B:54:0x00e4, B:56:0x00e9, B:57:0x00ed, B:59:0x00f3, B:60:0x00f7, B:62:0x00fd), top: B:104:0x00e4 }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00ed A[Catch: all -> 0x010c, Exception -> 0x010e, TryCatch #14 {Exception -> 0x010e, all -> 0x010c, blocks: (B:54:0x00e4, B:56:0x00e9, B:57:0x00ed, B:59:0x00f3, B:60:0x00f7, B:62:0x00fd), top: B:104:0x00e4 }] */
     /* JADX WARN: Type inference failed for: r7v0 */
     /* JADX WARN: Type inference failed for: r7v1 */
     /* JADX WARN: Type inference failed for: r7v10, types: [java.io.OutputStream, java.io.FileOutputStream] */

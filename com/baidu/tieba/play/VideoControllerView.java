@@ -8,22 +8,25 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ha9;
+import com.baidu.tieba.dc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes7.dex */
 public class VideoControllerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,18 +44,19 @@ public class VideoControllerView extends RelativeLayout {
     public int l;
     public Handler m;
     public SeekBar.OnSeekBarChangeListener n;
+    public Boolean o;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface c {
         void a();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public interface d {
         void a(int i);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,16 +87,16 @@ public class VideoControllerView extends RelativeLayout {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && !this.a.e && this.a.f && this.a.b != null && this.a.b.isPlaying()) {
-                int o = this.a.o();
+                int s = this.a.s();
                 if (this.a.h != null) {
-                    this.a.h.a(o);
+                    this.a.h.a(s);
                 }
-                sendMessageDelayed(obtainMessage(1), this.a.a - (o % this.a.a));
+                sendMessageDelayed(obtainMessage(1), this.a.a - (s % this.a.a));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes7.dex */
     public class b implements SeekBar.OnSeekBarChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,7 +124,8 @@ public class VideoControllerView extends RelativeLayout {
         public void onStartTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, seekBar) == null) {
-                this.a.l(seekBar);
+                this.a.o(seekBar);
+                this.a.h();
             }
         }
 
@@ -128,7 +133,8 @@ public class VideoControllerView extends RelativeLayout {
         public void onStopTrackingTouch(SeekBar seekBar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, seekBar) == null) {
-                this.a.m(seekBar);
+                this.a.p(seekBar);
+                this.a.r();
             }
         }
 
@@ -136,7 +142,7 @@ public class VideoControllerView extends RelativeLayout {
         public void onProgressChanged(SeekBar seekBar, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                this.a.k(seekBar, i, z);
+                this.a.n(seekBar, i, z);
             }
         }
     }
@@ -165,12 +171,13 @@ public class VideoControllerView extends RelativeLayout {
         this.l = 0;
         this.m = new a(this, Looper.getMainLooper());
         this.n = new b(this);
-        h(context);
+        this.o = null;
+        k(context);
     }
 
-    public void m(SeekBar seekBar) {
+    public void p(SeekBar seekBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, seekBar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds12));
             seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_normal));
             this.b.seekTo(this.l);
@@ -208,12 +215,13 @@ public class VideoControllerView extends RelativeLayout {
         this.l = 0;
         this.m = new a(this, Looper.getMainLooper());
         this.n = new b(this);
-        h(context);
+        this.o = null;
+        k(context);
     }
 
     public void setCurrentDuration(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (i < 0) {
                 i = 0;
             }
@@ -228,7 +236,7 @@ public class VideoControllerView extends RelativeLayout {
                 if (textView != null) {
                     textView.setText(StringHelper.stringForVideoTime(i));
                 }
-                p();
+                t();
             }
             if (!this.b.isPlaying()) {
                 this.g.setProgress((int) (((i * 1.0f) / this.k) * 10000.0f));
@@ -261,22 +269,23 @@ public class VideoControllerView extends RelativeLayout {
         this.l = 0;
         this.m = new a(this, Looper.getMainLooper());
         this.n = new b(this);
-        h(context);
+        this.o = null;
+        k(context);
     }
 
-    public View f(Context context) {
+    public View i(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             return LayoutInflater.from(context).inflate(R.layout.video_controller, (ViewGroup) null);
         }
         return (View) invokeL.objValue;
     }
 
-    public String g(int i) {
+    public String j(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             if (i < 0) {
                 i = 0;
             }
@@ -285,9 +294,9 @@ public class VideoControllerView extends RelativeLayout {
         return (String) invokeI.objValue;
     }
 
-    public void j(int i) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.k = i;
             this.f = false;
             this.m.removeMessages(1);
@@ -300,36 +309,53 @@ public class VideoControllerView extends RelativeLayout {
 
     public void setOnDragingListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, cVar) == null) {
             this.i = cVar;
         }
     }
 
     public void setOnProgressUpdatedListener(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, dVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, dVar) == null) {
             this.h = dVar;
         }
     }
 
     public void setOnSeekBarChangeListener(SeekBar.OnSeekBarChangeListener onSeekBarChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onSeekBarChangeListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, onSeekBarChangeListener) == null) {
             this.j = onSeekBarChangeListener;
         }
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, mediaPlayerControl) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, mediaPlayerControl) == null) {
             this.b = mediaPlayerControl;
         }
+    }
+
+    @Nullable
+    private SwipeBackLayout getSwipeBackLayout() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
+            ViewParent parent = getParent();
+            while (parent != null && !(parent instanceof SwipeBackLayout)) {
+                parent = parent.getParent();
+            }
+            if (parent != null) {
+                return (SwipeBackLayout) parent;
+            }
+            return null;
+        }
+        return (SwipeBackLayout) invokeV.objValue;
     }
 
     public int getCurProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             SeekBar seekBar = this.g;
             if (seekBar != null) {
                 return seekBar.getProgress();
@@ -342,15 +368,27 @@ public class VideoControllerView extends RelativeLayout {
     public int getSeekPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.l;
         }
         return invokeV.intValue;
     }
 
-    public void n() {
+    public final void h() {
+        SwipeBackLayout swipeBackLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (swipeBackLayout = getSwipeBackLayout()) == null) {
+            return;
+        }
+        if (this.o == null) {
+            this.o = Boolean.valueOf(swipeBackLayout.isSwipeBackEnabled());
+        }
+        swipeBackLayout.setSwipeBackEnabled(false);
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.f = false;
             this.m.removeMessages(1);
             this.g.setProgress(0);
@@ -361,22 +399,32 @@ public class VideoControllerView extends RelativeLayout {
         }
     }
 
-    public final void h(Context context) {
+    public final void r() {
+        SwipeBackLayout swipeBackLayout;
+        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            View f = f(context);
-            addView(f, -1, -2);
-            this.c = (TextView) f.findViewById(R.id.textview_cur_time);
-            this.d = (TextView) f.findViewById(R.id.textview_duration);
-            SeekBar seekBar = (SeekBar) f.findViewById(R.id.pb_video_controller_seekBar);
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (swipeBackLayout = getSwipeBackLayout()) == null || (bool = this.o) == null) {
+            return;
+        }
+        swipeBackLayout.setSwipeBackEnabled(bool.booleanValue());
+    }
+
+    public final void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
+            View i = i(context);
+            addView(i, -1, -2);
+            this.c = (TextView) i.findViewById(R.id.textview_cur_time);
+            this.d = (TextView) i.findViewById(R.id.textview_duration);
+            SeekBar seekBar = (SeekBar) i.findViewById(R.id.pb_video_controller_seekBar);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.n);
         }
     }
 
-    public void l(SeekBar seekBar) {
+    public void o(SeekBar seekBar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, seekBar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, seekBar) == null) {
             seekBar.setThumbOffset(TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds18));
             seekBar.setThumb(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.video_seekbar_thumb_pressed));
             this.e = true;
@@ -388,9 +436,9 @@ public class VideoControllerView extends RelativeLayout {
         }
     }
 
-    public void i(int i, int i2) {
+    public void l(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
             this.k = i2;
             this.f = false;
             this.m.removeMessages(1);
@@ -406,9 +454,9 @@ public class VideoControllerView extends RelativeLayout {
         }
     }
 
-    public void k(SeekBar seekBar, int i, boolean z) {
+    public void n(SeekBar seekBar, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !z) {
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{seekBar, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || !z) {
             return;
         }
         int duration = (int) ((this.b.getDuration() * i) / 10000);
@@ -427,17 +475,17 @@ public class VideoControllerView extends RelativeLayout {
         }
     }
 
-    public int o() {
+    public int s() {
         InterceptResult invokeV;
         int currentPosition;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             MediaController.MediaPlayerControl mediaPlayerControl = this.b;
             if (mediaPlayerControl != null && !this.e) {
                 int duration = mediaPlayerControl.getDuration();
                 MediaController.MediaPlayerControl mediaPlayerControl2 = this.b;
-                if (mediaPlayerControl2 instanceof ha9) {
-                    currentPosition = ((ha9) mediaPlayerControl2).getCurrentPositionSync();
+                if (mediaPlayerControl2 instanceof dc9) {
+                    currentPosition = ((dc9) mediaPlayerControl2).getCurrentPositionSync();
                 } else {
                     currentPosition = mediaPlayerControl2.getCurrentPosition();
                 }
@@ -467,10 +515,10 @@ public class VideoControllerView extends RelativeLayout {
         return invokeV.intValue;
     }
 
-    public void p() {
+    public void t() {
         MediaController.MediaPlayerControl mediaPlayerControl;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || (mediaPlayerControl = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || (mediaPlayerControl = this.b) == null) {
             return;
         }
         int duration = ((mediaPlayerControl.getDuration() / 200) / 50) * 50;

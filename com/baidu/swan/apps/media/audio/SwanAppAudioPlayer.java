@@ -13,39 +13,39 @@ import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.df3;
-import com.baidu.tieba.dv2;
-import com.baidu.tieba.el3;
-import com.baidu.tieba.fr2;
-import com.baidu.tieba.ho1;
-import com.baidu.tieba.kt2;
-import com.baidu.tieba.re2;
-import com.baidu.tieba.rl3;
-import com.baidu.tieba.tg3;
-import com.baidu.tieba.vu2;
-import com.baidu.tieba.wu2;
-import com.baidu.tieba.x73;
-import com.baidu.tieba.yu2;
+import com.baidu.tieba.ag2;
+import com.baidu.tieba.an3;
+import com.baidu.tieba.ci3;
+import com.baidu.tieba.ew2;
+import com.baidu.tieba.fw2;
+import com.baidu.tieba.g93;
+import com.baidu.tieba.hw2;
+import com.baidu.tieba.mg3;
+import com.baidu.tieba.mw2;
+import com.baidu.tieba.nm3;
+import com.baidu.tieba.os2;
+import com.baidu.tieba.qp1;
+import com.baidu.tieba.tu2;
 import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class SwanAppAudioPlayer implements vu2 {
-    public static final boolean l = ho1.a;
+/* loaded from: classes4.dex */
+public class SwanAppAudioPlayer implements ew2 {
+    public static final boolean l = qp1.a;
     public String a;
     public MediaPlayer b;
     public d d;
-    public dv2 e;
+    public mw2 e;
     public AudioManager h;
     public boolean i;
     public b j;
-    public yu2 c = new yu2();
+    public hw2 c = new hw2();
     public PlayerStatus f = PlayerStatus.NONE;
     public UserStatus g = UserStatus.OPEN;
     public boolean k = false;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum PlayerStatus {
         NONE,
         IDLE,
@@ -53,7 +53,7 @@ public class SwanAppAudioPlayer implements vu2 {
         PREPARED
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum UserStatus {
         OPEN,
         PLAY,
@@ -62,25 +62,25 @@ public class SwanAppAudioPlayer implements vu2 {
         DESTROY
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public String f() {
         return null;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public Object i() {
         return this;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public boolean onBackPressed() {
         return false;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class b implements AudioManager.OnAudioFocusChangeListener {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public class a implements Runnable {
             public final /* synthetic */ int a;
 
@@ -118,11 +118,11 @@ public class SwanAppAudioPlayer implements vu2 {
 
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
-            rl3.e0(new a(i));
+            an3.e0(new a(i));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class c implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnBufferingUpdateListener {
         public c() {
         }
@@ -188,7 +188,7 @@ public class SwanAppAudioPlayer implements vu2 {
             if (i2 == -1007) {
                 str = "10004";
             }
-            df3.b("audio", 2008, "audio fail, src: " + SwanAppAudioPlayer.this.c.c, Integer.parseInt(str), "");
+            mg3.b("audio", 2008, "audio fail, src: " + SwanAppAudioPlayer.this.c.c, Integer.parseInt(str), "");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt(StatConstants.KEY_EXT_ERR_CODE, str);
@@ -214,7 +214,7 @@ public class SwanAppAudioPlayer implements vu2 {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class d extends Handler {
         public d() {
         }
@@ -263,26 +263,7 @@ public class SwanAppAudioPlayer implements vu2 {
             dVar.removeMessages(0);
             this.d = null;
         }
-        wu2.k(this);
-    }
-
-    public void J() {
-        this.g = UserStatus.STOP;
-        if (this.f == PlayerStatus.PREPARED) {
-            if (l) {
-                Log.d("SwanAppAudioPlayer", "===stop");
-            }
-            v().stop();
-            this.f = PlayerStatus.IDLE;
-            d dVar = this.d;
-            if (dVar != null) {
-                dVar.removeMessages(0);
-            }
-            dv2 dv2Var = this.e;
-            if (dv2Var != null) {
-                dv2Var.a(MissionEvent.MESSAGE_STOP);
-            }
-        }
+        fw2.k(this);
     }
 
     public final void K() {
@@ -307,28 +288,28 @@ public class SwanAppAudioPlayer implements vu2 {
         }
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public String b() {
         return this.c.b;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public String c() {
         return this.a;
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public void onDestroy() {
         if (l) {
             Log.d("SwanAppAudioPlayer", "--onDestroy");
         }
-        x73 M = x73.M();
+        g93 M = g93.M();
         if (M != null && M.w0()) {
             C();
         }
     }
 
-    public yu2 u() {
+    public hw2 u() {
         return this.c;
     }
 
@@ -343,9 +324,9 @@ public class SwanAppAudioPlayer implements vu2 {
     public final void z() {
         if (v().isPlaying()) {
             v().pause();
-            dv2 dv2Var = this.e;
-            if (dv2Var != null) {
-                dv2Var.a(MissionEvent.MESSAGE_PAUSE);
+            mw2 mw2Var = this.e;
+            if (mw2Var != null) {
+                mw2Var.a(MissionEvent.MESSAGE_PAUSE);
             }
             d dVar = this.d;
             if (dVar != null) {
@@ -357,7 +338,7 @@ public class SwanAppAudioPlayer implements vu2 {
     public SwanAppAudioPlayer(String str) {
         this.a = "";
         this.a = str;
-        wu2.a(this);
+        fw2.a(this);
     }
 
     public final void G(boolean z) {
@@ -373,7 +354,7 @@ public class SwanAppAudioPlayer implements vu2 {
         v().setVolume(f, f);
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public void j(boolean z) {
         if (l) {
             Log.d("SwanAppAudioPlayer", "--onAppForegroundChanged -> " + z);
@@ -385,7 +366,7 @@ public class SwanAppAudioPlayer implements vu2 {
 
     public void A() {
         this.g = UserStatus.PLAY;
-        if (fr2.f().b()) {
+        if (os2.f().b()) {
             return;
         }
         if (l) {
@@ -399,9 +380,9 @@ public class SwanAppAudioPlayer implements vu2 {
             if (dVar != null) {
                 dVar.sendEmptyMessage(0);
             }
-            dv2 dv2Var = this.e;
-            if (dv2Var != null) {
-                dv2Var.a("onPlay");
+            mw2 mw2Var = this.e;
+            if (mw2Var != null) {
+                mw2Var.a("onPlay");
             }
         } else if (playerStatus == PlayerStatus.IDLE) {
             v().prepareAsync();
@@ -439,19 +420,19 @@ public class SwanAppAudioPlayer implements vu2 {
                 Log.d("SwanAppAudioPlayer", "===seekTo ->" + i);
             }
             v().seekTo((int) (i * 1000));
-            dv2 dv2Var = this.e;
-            if (dv2Var != null) {
-                dv2Var.a("onSeeking");
+            mw2 mw2Var = this.e;
+            if (mw2Var != null) {
+                mw2Var.a("onSeeking");
             }
         }
     }
 
-    @Override // com.baidu.tieba.vu2
+    @Override // com.baidu.tieba.ew2
     public void k(boolean z) {
         if (l) {
             Log.d("SwanAppAudioPlayer", "--onForegroundChanged -> " + z);
         }
-        x73 M = x73.M();
+        g93 M = g93.M();
         if (M != null && M.w0()) {
             if (!z) {
                 z();
@@ -463,23 +444,23 @@ public class SwanAppAudioPlayer implements vu2 {
 
     public final void F(String str) {
         try {
-            str = kt2.U().G().a(str);
+            str = tu2.U().G().a(str);
             if (TextUtils.isEmpty(str)) {
                 return;
             }
             HashMap hashMap = new HashMap();
-            String b2 = el3.b();
-            if (!TextUtils.isEmpty(b2) && el3.c(str)) {
+            String b2 = nm3.b();
+            if (!TextUtils.isEmpty(b2) && nm3.c(str)) {
                 if (l) {
                     Log.d("SwanAppAudioPlayer", "set referer for AudioPlayer; referer is" + b2);
                 }
                 hashMap.put("Referer", b2);
             }
-            String g0 = re2.U().g0();
+            String g0 = ag2.U().g0();
             if (!TextUtils.isEmpty(g0)) {
                 hashMap.put("User-Agent", g0);
             }
-            String j = tg3.l().j(str);
+            String j = ci3.l().j(str);
             if (!TextUtils.isEmpty(j)) {
                 hashMap.put("Cookie", j);
                 if (l) {
@@ -489,7 +470,7 @@ public class SwanAppAudioPlayer implements vu2 {
             v().setDataSource(AppRuntime.getAppContext(), Uri.parse(str), hashMap);
             this.f = PlayerStatus.IDLE;
         } catch (IOException unused) {
-            df3.b("audio", 1001, "src replace fail, src is" + str, -1, "");
+            mg3.b("audio", 1001, "src replace fail, src is" + str, -1, "");
             if (l) {
                 Log.e("SwanAppAudioPlayer", "set data source fail");
             }
@@ -515,17 +496,36 @@ public class SwanAppAudioPlayer implements vu2 {
         if (dVar != null) {
             dVar.sendEmptyMessage(0);
         }
-        dv2 dv2Var = this.e;
-        if (dv2Var != null) {
-            dv2Var.a("onPlay");
+        mw2 mw2Var = this.e;
+        if (mw2Var != null) {
+            mw2Var.a("onPlay");
         }
         K();
         int i = this.c.d;
         if (i > 0) {
             E(i);
         }
-        if (fr2.f().b()) {
+        if (os2.f().b()) {
             z();
+        }
+    }
+
+    public void J() {
+        this.g = UserStatus.STOP;
+        if (this.f == PlayerStatus.PREPARED) {
+            if (l) {
+                Log.d("SwanAppAudioPlayer", "===stop");
+            }
+            v().stop();
+            this.f = PlayerStatus.IDLE;
+            d dVar = this.d;
+            if (dVar != null) {
+                dVar.removeMessages(0);
+            }
+            mw2 mw2Var = this.e;
+            if (mw2Var != null) {
+                mw2Var.a(MissionEvent.MESSAGE_STOP);
+            }
         }
     }
 
@@ -546,7 +546,7 @@ public class SwanAppAudioPlayer implements vu2 {
 
     public final boolean w() {
         boolean booleanValue;
-        x73 M = x73.M();
+        g93 M = g93.M();
         if (M == null) {
             booleanValue = false;
         } else {
@@ -558,37 +558,37 @@ public class SwanAppAudioPlayer implements vu2 {
         return booleanValue;
     }
 
-    public void update(yu2 yu2Var) {
+    public void update(hw2 hw2Var) {
         if (l) {
-            Log.d("SwanAppAudioPlayer", "===update -> " + yu2Var);
+            Log.d("SwanAppAudioPlayer", "===update -> " + hw2Var);
         }
         String str = this.c.c;
-        this.c = yu2Var;
-        dv2 dv2Var = this.e;
-        if (dv2Var != null) {
-            dv2Var.d(yu2Var.j);
+        this.c = hw2Var;
+        mw2 mw2Var = this.e;
+        if (mw2Var != null) {
+            mw2Var.d(hw2Var.j);
         }
         K();
-        if (!TextUtils.equals(yu2Var.c, str)) {
+        if (!TextUtils.equals(hw2Var.c, str)) {
             if (l) {
-                Log.d("SwanAppAudioPlayer", "update src: " + yu2Var.c);
+                Log.d("SwanAppAudioPlayer", "update src: " + hw2Var.c);
             }
             this.k = true;
             B();
         }
     }
 
-    public void x(yu2 yu2Var, CallbackHandler callbackHandler) {
+    public void x(hw2 hw2Var, CallbackHandler callbackHandler) {
         if (l) {
             Log.d("SwanAppAudioPlayer", "===openPlayer");
         }
         this.g = UserStatus.OPEN;
-        this.c = yu2Var;
-        if (yu2Var.j != null) {
+        this.c = hw2Var;
+        if (hw2Var.j != null) {
             try {
-                this.e = new dv2(callbackHandler, new JSONObject(this.c.j));
+                this.e = new mw2(callbackHandler, new JSONObject(this.c.j));
             } catch (JSONException unused) {
-                df3.b("audio", 2009, "Audio callback is not jsonObject", -1, "");
+                mg3.b("audio", 2009, "Audio callback is not jsonObject", -1, "");
                 if (l) {
                     Log.e("SwanAppAudioPlayer", "Audio callback is not jsonObject");
                 }

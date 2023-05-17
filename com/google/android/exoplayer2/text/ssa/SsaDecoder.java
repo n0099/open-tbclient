@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SsaDecoder extends SimpleSubtitleDecoder {
     public static final String DIALOGUE_LINE_PREFIX = "Dialogue: ";
     public static final String FORMAT_LINE_PREFIX = "Format: ";

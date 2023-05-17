@@ -17,14 +17,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.g35;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.p45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PushPermissionDialogViewV2 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
     public int f;
     public final CustomMessageListener g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,10 +178,10 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09240b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09246f);
             this.a = textView;
             if (textView != null) {
-                g35 d = g35.d(textView);
+                p45 d = p45.d(textView);
                 d.w(R.color.CAM_X0105);
                 d.B(R.dimen.T_X05);
                 d.C(R.string.F_X02);
@@ -189,7 +189,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             TextView textView2 = (TextView) findViewById(R.id.description);
             this.b = textView2;
             if (textView2 != null) {
-                g35 d2 = g35.d(textView2);
+                p45 d2 = p45.d(textView2);
                 d2.w(R.color.CAM_X0108);
                 d2.B(R.dimen.T_X07);
                 d2.C(R.string.F_X01);
@@ -202,7 +202,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
                 this.e.setText(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_confirm_button_text_2));
-                this.e.setConfig(new d65());
+                this.e.setConfig(new m75());
             }
             this.f = skinType;
         }

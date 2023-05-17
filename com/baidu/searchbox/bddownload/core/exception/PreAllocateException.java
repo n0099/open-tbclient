@@ -1,7 +1,7 @@
 package com.baidu.searchbox.bddownload.core.exception;
 
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class PreAllocateException extends IOException {
     public final long freeSpace;
     public final long requireSpace;

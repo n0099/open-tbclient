@@ -2,7 +2,7 @@ package com.baidu.nadcore.video.plugin.videoplayer.model;
 
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdVideoAd implements Serializable {
     public static final String AD_VIDEO_DAPAGE = "da_page";
     public String channelId;
@@ -20,7 +20,7 @@ public class BdVideoAd implements Serializable {
     public String type;
     public Object userInfoData;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class b {
         public boolean a;
         public String b;

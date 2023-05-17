@@ -12,19 +12,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u05;
+import com.baidu.tieba.d25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NoTipAgainView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public ImageView b;
     public boolean c;
-    public u05.f d;
+    public d25.f d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoTipAgainView(Context context) {
@@ -96,7 +96,7 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.view_no_tip_again, this);
             this.a = (TextView) findViewById(R.id.no_tip_again_text);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b3);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906cb);
             b();
             this.b.setOnClickListener(this);
         }
@@ -131,14 +131,14 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
         if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.b) {
             this.c = !this.c;
             c();
-            u05.f fVar = this.d;
+            d25.f fVar = this.d;
             if (fVar != null) {
                 fVar.a();
             }
         }
     }
 
-    public void setOnNoTipAgainCheckListener(u05.f fVar) {
+    public void setOnNoTipAgainCheckListener(d25.f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
             this.d = fVar;

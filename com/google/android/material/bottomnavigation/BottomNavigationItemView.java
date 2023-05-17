@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.badge.BadgeUtils;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomNavigationItemView extends FrameLayout implements MenuView.ItemView {
     public static final int[] CHECKED_STATE_SET = {16842912};
     public static final int INVALID_ITEM_POSITION = -1;
@@ -284,12 +284,12 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         super(context, attributeSet, i);
         this.itemPosition = -1;
         Resources resources = getResources();
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d022c, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0804ad);
-        this.defaultMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb);
-        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f77);
-        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0920dc);
-        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d1);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d023f, (ViewGroup) this, true);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f080560);
+        this.defaultMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07029d);
+        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fab);
+        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f09213e);
+        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f09140c);
         ViewCompat.setImportantForAccessibility(this.smallLabel, 2);
         ViewCompat.setImportantForAccessibility(this.largeLabel, 2);
         setFocusable(true);
@@ -366,7 +366,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
             wrap.setClickable(false);
             wrap.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
         }
-        wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0a6f));
+        wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0ae9));
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView

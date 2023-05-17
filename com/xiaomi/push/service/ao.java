@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.hl;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ao {
     public static int a = 0;
 
@@ -42,8 +42,8 @@ public class ao {
     }
 
     public static boolean a(Context context) {
-        String m758a = u.m758a(context);
-        return !TextUtils.isEmpty(m758a) && m758a.length() >= 3 && com.xiaomi.push.t.a(m758a.substring(m758a.length() - 3), 1) < 1;
+        String m777a = u.m777a(context);
+        return !TextUtils.isEmpty(m777a) && m777a.length() >= 3 && com.xiaomi.push.t.a(m777a.substring(m777a.length() - 3), 1) < 1;
     }
 
     public static boolean a(Context context, String str, an anVar) {

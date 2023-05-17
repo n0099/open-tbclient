@@ -28,37 +28,37 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static final String a = "b";
     public static c b;
     public static a c;
 
     /* renamed from: com.ss.android.socialbase.appdownloader.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0696b {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC0710b {
         boolean a(@NonNull Context context);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public interface c {
         void a(DownloadInfo downloadInfo, com.ss.android.socialbase.appdownloader.a aVar);
     }
 
-    /* loaded from: classes8.dex */
-    public static class a implements a.InterfaceC0699a {
+    /* loaded from: classes10.dex */
+    public static class a implements a.InterfaceC0713a {
         public final e a;
         public final int b;
         public JSONObject c;
 
-        public a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0696b interfaceC0696b) {
+        public a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0710b interfaceC0710b) {
             this.c = jSONObject;
             int optInt = jSONObject.optInt("query_interval", 1000);
             this.b = optInt;
-            this.a = new e(context, intent, i, interfaceC0696b, optInt);
+            this.a = new e(context, intent, i, interfaceC0710b, optInt);
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
         public void b() {
             if (!this.a.i) {
                 Message obtain = Message.obtain();
@@ -69,7 +69,7 @@ public class b {
             a unused = b.c = null;
         }
 
-        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0699a
+        @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0713a
         public void c() {
             int optInt = this.c.optInt("time_out_second", 20);
             Message obtain = Message.obtain();
@@ -83,16 +83,16 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class d implements Callable<Boolean> {
         public final Context a;
-        public final InterfaceC0696b b;
+        public final InterfaceC0710b b;
         public final Handler c;
         public final long d;
 
-        public d(Handler handler, Context context, InterfaceC0696b interfaceC0696b, long j) {
+        public d(Handler handler, Context context, InterfaceC0710b interfaceC0710b, long j) {
             this.a = context;
-            this.b = interfaceC0696b;
+            this.b = interfaceC0710b;
             this.c = handler;
             this.d = j;
         }
@@ -121,23 +121,23 @@ public class b {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes10.dex */
     public static class e implements h.a {
         public static int a;
         public static int b;
         public final Context c;
         public final Intent d;
-        public final InterfaceC0696b e;
+        public final InterfaceC0710b e;
         public final Handler f;
         public final long g;
         public Future<Boolean> h;
         public boolean i = false;
 
-        public e(Context context, Intent intent, int i, InterfaceC0696b interfaceC0696b, long j) {
+        public e(Context context, Intent intent, int i, InterfaceC0710b interfaceC0710b, long j) {
             this.c = context;
             this.d = intent;
             b = i;
-            this.e = interfaceC0696b;
+            this.e = interfaceC0710b;
             this.f = new com.ss.android.socialbase.downloader.h.h(Looper.getMainLooper(), this);
             this.g = j;
         }
@@ -400,12 +400,12 @@ public class b {
         com.ss.android.socialbase.downloader.downloader.c.P().b(i, "guide_auth_result", jSONObject);
     }
 
-    public static void a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0696b interfaceC0696b) {
+    public static void a(Context context, Intent intent, int i, JSONObject jSONObject, InterfaceC0710b interfaceC0710b) {
         if (c != null) {
             com.ss.android.socialbase.downloader.a.a.a().b(c);
             c = null;
         }
-        c = new a(context, intent, i, jSONObject, interfaceC0696b);
+        c = new a(context, intent, i, jSONObject, interfaceC0710b);
         com.ss.android.socialbase.downloader.a.a.a().a(c);
     }
 
@@ -464,8 +464,8 @@ public class b {
             if (com.ss.android.socialbase.appdownloader.f.d.b() && Build.VERSION.SDK_INT < 26 && !d(context)) {
                 com.ss.android.socialbase.appdownloader.a.f fVar = new com.ss.android.socialbase.appdownloader.a.f(context);
                 if (fVar.a()) {
-                    a(context, intent, i, jSONObject, new InterfaceC0696b() { // from class: com.ss.android.socialbase.appdownloader.b.1
-                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0696b
+                    a(context, intent, i, jSONObject, new InterfaceC0710b() { // from class: com.ss.android.socialbase.appdownloader.b.1
+                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0710b
                         public boolean a(@NonNull Context context2) {
                             return b.d(context2);
                         }
@@ -475,8 +475,8 @@ public class b {
             } else if (Build.VERSION.SDK_INT >= 26 && context.getApplicationInfo().targetSdkVersion >= 26 && !e(context)) {
                 com.ss.android.socialbase.appdownloader.a.b bVar = new com.ss.android.socialbase.appdownloader.a.b(context);
                 if (bVar.a()) {
-                    a(context, intent, i, jSONObject, new InterfaceC0696b() { // from class: com.ss.android.socialbase.appdownloader.b.2
-                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0696b
+                    a(context, intent, i, jSONObject, new InterfaceC0710b() { // from class: com.ss.android.socialbase.appdownloader.b.2
+                        @Override // com.ss.android.socialbase.appdownloader.b.InterfaceC0710b
                         public boolean a(@NonNull Context context2) {
                             return b.e(context2);
                         }

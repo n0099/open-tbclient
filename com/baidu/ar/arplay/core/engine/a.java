@@ -93,7 +93,7 @@ public class a {
 
     /* renamed from: com.baidu.ar.arplay.core.engine.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public enum EnumC0048a {
+    public enum EnumC0051a {
         EGESTURE_CLICK,
         EGESTURE_DOUBLE_CLICK,
         EGESTURE_LONG_PRESS,
@@ -315,7 +315,7 @@ public class a {
         if (bVar == null || !bVar.aW()) {
             return;
         }
-        a(EnumC0048a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0051a.EGESTURE_CLICK.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
         aS();
     }
 
@@ -324,7 +324,7 @@ public class a {
         if (bVar == null || !bVar.aZ()) {
             return;
         }
-        a(EnumC0048a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0051a.EGESTURE_SINGLE_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9) {
@@ -332,7 +332,7 @@ public class a {
         if (bVar == null || !bVar.ba()) {
             return;
         }
-        a(EnumC0048a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
+        a(EnumC0051a.EGESTURE_TWO_FINGER_SCROLL.ordinal(), j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
     }
 
     private void a(long j, int i, float f2, float f3, float f4, float f5, int i2, float f6, float f7, float f8, float f9, boolean z) {
@@ -346,9 +346,9 @@ public class a {
             }
             this.eJ = z;
         }
-        int ordinal = EnumC0048a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
+        int ordinal = EnumC0051a.EGESTURE_TWO_FINGER_UNPINCH.ordinal();
         if (z) {
-            ordinal = EnumC0048a.EGESTURE_TWO_FINGER_PINCH.ordinal();
+            ordinal = EnumC0051a.EGESTURE_TWO_FINGER_PINCH.ordinal();
         }
         a(ordinal, j, i, f2, f3, f4, f5, i2, f6, f7, f8, f9, -1, 0.0f);
         if (this.eI) {
@@ -361,7 +361,7 @@ public class a {
         if (bVar == null || !bVar.bd()) {
             return;
         }
-        a(EnumC0048a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
+        a(EnumC0051a.EGESTURE_TWO_FINGER_ROTATE.ordinal(), j, i, f2, f3, -1.0f, -1.0f, i2, f4, f5, -1.0f, -1.0f, -1, f6);
     }
 
     private void a(long j, int i, int i2) {
@@ -369,7 +369,7 @@ public class a {
         if (bVar == null || !bVar.bb()) {
             return;
         }
-        a(EnumC0048a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
+        a(EnumC0051a.EGESTURE_SWIPE.ordinal(), j, i, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, i2, 0.0f);
         clearStatus();
     }
 
@@ -461,11 +461,11 @@ public class a {
     }
 
     private void aS() {
-        a(EnumC0048a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0051a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void aT() {
-        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0048a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
+        ARPEngine.getInstance().onGestureUpdateWithScaleFinish(EnumC0051a.EGESTURE_CLEAR.ordinal(), -1L, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f, true);
     }
 
     private void aU() {
@@ -485,7 +485,7 @@ public class a {
         if (bVar == null || !bVar.aY()) {
             return;
         }
-        a(EnumC0048a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
+        a(EnumC0051a.EGESTURE_LONG_PRESS.ordinal(), j, i, f2, f3, -1.0f, -1.0f, -1, -1.0f, -1.0f, -1.0f, -1.0f, -1, 0.0f);
     }
 
     private void b(MotionEvent motionEvent) {

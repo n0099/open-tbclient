@@ -13,7 +13,7 @@ import java.util.List;
 import tbclient.Error;
 import tbclient.GetStoreRemindTime.DataRes;
 import tbclient.GetStoreRemindTime.GetStoreRemindTimeResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class GetStoreRemindTimeHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

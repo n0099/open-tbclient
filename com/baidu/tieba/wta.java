@@ -9,116 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBSplash;
-import com.win.opensdk.PBSplashListener;
-/* loaded from: classes7.dex */
-public class wta extends ReporterPidLoader<PBSplash> {
+import java.util.List;
+/* loaded from: classes8.dex */
+public class wta extends fta<sta> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements PBSplashListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ PBSplash c;
-        public final /* synthetic */ wta d;
-
-        public a(wta wtaVar, PBSplash pBSplash) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wtaVar, pBSplash};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = wtaVar;
-            this.c = pBSplash;
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked(this.c, this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayError(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.d();
-                this.d.onAdError(this.c, pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) {
-                LogPrinter.e("JySplashAd onError code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
-            }
-        }
-
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((wta) this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBSplashListener
-        public void onTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wta(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,7 +37,7 @@ public class wta extends ReporterPidLoader<PBSplash> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -137,24 +45,86 @@ public class wta extends ReporterPidLoader<PBSplash> {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            PBSplash pBSplash = new PBSplash(context.getApplicationContext(), this.mPid.pid);
-            pBSplash.setLoadTimeOut(5000L);
-            pBSplash.setSplashListener(new a(this, pBSplash));
-            pBSplash.load();
+    /* loaded from: classes8.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ wta b;
+
+        public a(wta wtaVar, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wtaVar, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wtaVar;
+            this.a = funAdSlot;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    wta wtaVar = this.b;
+                    sta staVar = new sta(tTNativeExpressAd);
+                    this.a.getSid();
+                    wtaVar.getClass();
+                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.AdInteractionListener) new zta(wtaVar, staVar));
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
+            }
         }
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void destroyInternal(Object obj) {
-        PBSplash pBSplash;
+        sta staVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBSplash = (PBSplash) obj) != null) {
-            pBSplash.destroy();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (staVar = (sta) obj) != null) {
+            ((TTNativeExpressAd) staVar.a).destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
+            onLoadStart(funAdSlot);
+            this.e.loadInteractionExpressAd(build, new a(this, funAdSlot));
         }
     }
 
@@ -163,9 +133,10 @@ public class wta extends ReporterPidLoader<PBSplash> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            PBSplash pBSplash = (PBSplash) obj;
-            onShowStart(pBSplash);
-            pBSplash.show(viewGroup);
+            sta staVar = (sta) obj;
+            onShowStart(staVar);
+            ((TTNativeExpressAd) staVar.a).setDownloadListener(new xsa(null));
+            ((TTNativeExpressAd) staVar.a).showInteractionExpressAd(activity);
             return true;
         }
         return invokeLLLL.booleanValue;

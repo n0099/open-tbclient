@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
 import com.baidu.cyberplayer.sdk.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static a a;
 

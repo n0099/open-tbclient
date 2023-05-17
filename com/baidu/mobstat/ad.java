@@ -6,7 +6,7 @@ import android.webkit.WebView;
 import com.baidu.mobstat.ActivityLifeObserver;
 import com.baidu.mobstat.BaiduStatJSInterface;
 import org.json.JSONArray;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class ad {
     public static volatile boolean a = true;
     public static volatile boolean b;
@@ -16,7 +16,7 @@ public class ad {
         al.a().a(str);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a implements ActivityLifeObserver.IActivityLifeCallback {
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
         public void onActivityDestroyed(Activity activity) {
@@ -59,7 +59,7 @@ public class ad {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class b implements BaiduStatJSInterface.IWebviewPageLoadCallback {
         @Override // com.baidu.mobstat.BaiduStatJSInterface.IWebviewPageLoadCallback
         public void onPageFinished(WebView webView, String str, bk bkVar) {

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CommonSessionState implements SessionReport.StatisContentAble {
     public volatile Map<String, Map<String, CalValue>> stateStore = new HashMap();
     public volatile Map<String, Map<String, String>> extras = new HashMap();

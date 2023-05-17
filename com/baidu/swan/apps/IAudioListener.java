@@ -5,10 +5,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface IAudioListener extends IInterface {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class Default implements IAudioListener {
         @Override // android.os.IInterface
         public IBinder asBinder() {
@@ -94,7 +94,7 @@ public interface IAudioListener extends IInterface {
 
     void onTimeUpdate(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Stub extends Binder implements IAudioListener {
         public static final String DESCRIPTOR = "com.baidu.swan.apps.IAudioListener";
         public static final int TRANSACTION_onCanPlay = 1;
@@ -116,7 +116,7 @@ public interface IAudioListener extends IInterface {
             return this;
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class Proxy implements IAudioListener {
             public static IAudioListener sDefaultImpl;
             public IBinder mRemote;

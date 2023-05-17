@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class x {
     public static final HashMap<String, String> a;
 

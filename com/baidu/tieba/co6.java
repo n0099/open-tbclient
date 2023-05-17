@@ -1,124 +1,158 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes3.dex */
-public final class co6 extends gn6 {
+/* loaded from: classes5.dex */
+public final class co6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sm6 e;
+    public final int a;
+    public final int b;
+    public final String c;
 
-    @Override // com.baidu.tieba.a0
-    public void c(x engine) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
-            Intrinsics.checkNotNullParameter(engine, "engine");
-        }
-    }
-
-    @Override // com.baidu.tieba.gn6
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public co6(dn6 context) {
-        super(context);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public co6() {
+        this(0, 0, null, 7, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((dn6) newInitContext.callArgs[0]);
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue(), (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public final sm6 k() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof co6) {
+                co6 co6Var = (co6) obj;
+                return this.a == co6Var.a && this.b == co6Var.b && Intrinsics.areEqual(this.c, co6Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((this.a * 31) + this.b) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "TbPatternImage(width=" + this.a + ", height=" + this.b + ", url=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public co6(int i, int i2, String url) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), url};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(url, "url");
+        this.a = i;
+        this.b = i2;
+        this.c = url;
+    }
+
+    public /* synthetic */ co6(int i, int i2, String str, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i3 & 1) != 0 ? 0 : i, (i3 & 2) != 0 ? 0 : i2, (i3 & 4) != 0 ? "" : str);
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            return this.a;
         }
-        return (sm6) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void l() {
-        boolean z;
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            sm6 sm6Var = this.e;
-            if (sm6Var != null) {
-                sm6 c = i().c();
-                if (c.j() != sm6Var.j() || c.g() != sm6Var.g()) {
-                    BdLog.w("DanmakuEngine [Config] density from " + c.j() + " to " + sm6Var.j());
-                    sm6Var.G();
-                    sm6Var.I();
-                    sm6Var.F();
-                    sm6Var.C();
-                }
-                boolean z2 = true;
-                if (c.v() == sm6Var.v()) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    BdLog.w("DanmakuEngine [Config] textSizeScale change from " + c.v() + " to " + sm6Var.v());
-                    sm6Var.I();
-                    sm6Var.F();
-                    sm6Var.G();
-                    sm6Var.C();
-                }
-                if (c.w() != sm6Var.w()) {
-                    sm6Var.J();
-                }
-                if (c.u() != sm6Var.u()) {
-                    z2 = false;
-                }
-                if (!z2 || c.e() != sm6Var.e()) {
-                    sm6Var.F();
-                    sm6Var.J();
-                    sm6Var.I();
-                }
-                if (c.n().size() != sm6Var.n().size() || c.l() != sm6Var.l()) {
-                    sm6Var.D();
-                }
-                i().h(sm6Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!e() && !f()) {
+                return false;
             }
-            this.e = null;
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void m(sm6 danmakuConfig) {
+    public final boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
-            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
-            this.e = danmakuConfig;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a > 0 && this.b > 0) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.a0
-    public void update(float f) {
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            l();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = this.c;
+            if (str != null && str.length() != 0) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

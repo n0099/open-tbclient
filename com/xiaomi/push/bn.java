@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class bn {
     public static String a(byte b) {
         int i = (b & ByteCompanionObject.MAX_VALUE) + (b < 0 ? 128 : 0);
@@ -29,7 +29,7 @@ public class bn {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m218a(String str) {
+    public static byte[] m237a(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

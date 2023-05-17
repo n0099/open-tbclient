@@ -17,14 +17,14 @@ import com.baidu.webkit.sdk.FirstScreenImageInfomation;
 import com.baidu.webkit.sdk.JsCodeCacheResult;
 import com.baidu.webkit.sdk.VideoSniffingInfo;
 import com.baidu.webkit.sdk.WebViewClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BdSailorWebViewClientExt implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final BdSailorWebViewClientExt DEFAULT;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static final class ENativeViewType {
         public static final /* synthetic */ ENativeViewType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -83,7 +83,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class FirstScreenInfo implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class BdSailorWebViewClientExt implements INoProGuard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

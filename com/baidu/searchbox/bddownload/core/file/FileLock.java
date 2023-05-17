@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.LockSupport;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FileLock {
     public static final String TAG = "FileLock";
     public static final long WAIT_RELEASE_LOCK_NANO = TimeUnit.MILLISECONDS.toNanos(100);

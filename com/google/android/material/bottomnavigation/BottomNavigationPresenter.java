@@ -15,7 +15,7 @@ import androidx.appcompat.view.menu.SubMenuBuilder;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class BottomNavigationPresenter implements MenuPresenter {
     public int id;
     public MenuBuilder menu;
@@ -50,7 +50,7 @@ public class BottomNavigationPresenter implements MenuPresenter {
     public void setCallback(MenuPresenter.Callback callback) {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.google.android.material.bottomnavigation.BottomNavigationPresenter.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

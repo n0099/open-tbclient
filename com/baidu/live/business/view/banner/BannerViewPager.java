@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
 import java.lang.reflect.Field;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BannerViewPager extends ViewPager {
     public a a;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Scroller {
         public int a;
 

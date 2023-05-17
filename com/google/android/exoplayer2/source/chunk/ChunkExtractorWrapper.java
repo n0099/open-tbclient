@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class ChunkExtractorWrapper implements ExtractorOutput {
     public final SparseArray<BindingTrackOutput> bindingTrackOutputs = new SparseArray<>();
     public final Extractor extractor;
@@ -22,12 +22,12 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
     public SeekMap seekMap;
     public TrackOutputProvider trackOutputProvider;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public interface TrackOutputProvider {
         TrackOutput track(int i, int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static final class BindingTrackOutput implements TrackOutput {
         public final int id;
         public final Format manifestFormat;

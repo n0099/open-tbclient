@@ -3,7 +3,7 @@ package com.baidu.webkit.sdk.system;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
     public static Method cloneMethod;
     public final android.webkit.WebBackForwardList mList;
@@ -30,7 +30,7 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.webkit.sdk.WebBackForwardList
     /* renamed from: clone */
-    public final WebBackForwardList mo81clone() {
+    public final WebBackForwardList mo100clone() {
         try {
             if (cloneMethod != null && this.mList != null) {
                 return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));

@@ -11,7 +11,7 @@ import android.util.Log;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class Mp4ComposerEngine {
     public static final long PROGRESS_INTERVAL_STEPS = 10;
     public static final float PROGRESS_UNKNOWN = -1.0f;
@@ -20,7 +20,7 @@ public class Mp4ComposerEngine {
     public long mDurationUs;
     public ProgressCallback mProgressCallback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public interface ProgressCallback {
         void onProgress(float f);
     }

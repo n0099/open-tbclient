@@ -1,96 +1,122 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.view.BdTopToast;
+import android.app.Application;
+import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class hx9 {
     public static /* synthetic */ Interceptable $ic;
+    public static hx9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static boolean d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Application application);
+
+        void b(Context context);
+
+        void c(Context context, WebView webView, WebChromeClient webChromeClient);
+
+        void d(Context context, String str, boolean z);
     }
 
-    public static void a(h15 h15Var, int i) {
+    public hx9() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, h15Var, i) == null) && h15Var != null && i >= 0) {
-            int i2 = 1;
-            int i3 = i + 1;
-            boolean d = h15Var.d();
-            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
-            if (d) {
-                i2 = 2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
         }
+        this.a = c();
     }
 
-    public static boolean b(Activity activity, int i, String str) {
-        InterceptResult invokeLIL;
+    public static hx9 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
-            if (d(i)) {
-                e(activity, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (hx9.class) {
+                    if (b == null) {
+                        b = new hx9();
+                    }
+                }
+            }
+            return b;
+        }
+        return (hx9) invokeV.objValue;
+    }
+
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (e() && (runTask = MessageManager.getInstance().runTask(2156671, a.class)) != null) {
+                return (a) runTask.getData();
+            }
+            return null;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (o65.m().n("pref_key_stat_sdk_enable", 1) != 0) {
                 return true;
             }
             return false;
         }
-        return invokeLIL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void g(ViewGroup viewGroup, String str, boolean z) {
+    public void a(Context context) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
-            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
-            bdTopToast.h(z);
-            bdTopToast.g(str);
-            bdTopToast.i(viewGroup);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.b(context);
         }
     }
 
-    public static String c(View view2) {
-        InterceptResult invokeL;
+    public void d(Application application) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            Object tag = view2.getTag();
-            if (tag instanceof pp9) {
-                pp9 pp9Var = (pp9) tag;
-                if (pp9Var.p() != null) {
-                    return pp9Var.p().getUserId();
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void e(Activity activity, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
-            g((ViewGroup) activity.findViewById(16908290), str, false);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.a(application);
         }
     }
 
-    public static void f(View view2, pp9 pp9Var) {
+    public void f(Context context, String str, boolean z) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, pp9Var) != null) || view2 == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLZ(1048580, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.d(context, str, z);
         }
-        view2.setTag(pp9Var);
+    }
+
+    public void g(Context context, WebView webView, WebChromeClient webChromeClient) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048581, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.c(context, webView, webChromeClient);
+        }
     }
 }

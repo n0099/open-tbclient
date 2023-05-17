@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import java.io.ByteArrayOutputStream;
 @KeepForSdk
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class DataUtils {
     @KeepForSdk
     public static void copyStringToBuffer(@Nullable String str, @NonNull CharArrayBuffer charArrayBuffer) {

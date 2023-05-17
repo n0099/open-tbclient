@@ -3,7 +3,7 @@ package com.baidu.pass.ecommerce.request;
 import com.baidu.pass.ecommerce.common.MapObject;
 import com.baidu.pass.ecommerce.common.request.BaseMapObjectRequest;
 import com.baidu.pass.ecommerce.common.request.BaseRequest;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AddressRequestFactory {
     public static final String ADDRESS_GET_REGION = "/address/get/region";
     public static final String ADD_ADDRESS_URL = "/v3/ucenter/addr/additem";

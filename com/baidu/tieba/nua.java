@@ -1,81 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.kwad.sdk.api.KsNativeAd;
-/* loaded from: classes5.dex */
-public class nua extends FunNativeAd2Bridger<KsNativeAd, com.fun.module.ks.x> {
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class nua extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lua.b b;
-    public final /* synthetic */ Context c;
-    public final /* synthetic */ lua d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nua(lua luaVar, ReporterPidLoader reporterPidLoader, KsNativeAd ksNativeAd, Context context) {
-        super(reporterPidLoader);
+    public nua(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {luaVar, reporterPidLoader, ksNativeAd, context};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = luaVar;
-        this.c = context;
-        this.b = new lua.b(luaVar, ksNativeAd);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
-    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.ks.x] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public com.fun.module.ks.x createExpressView(KsNativeAd ksNativeAd) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object obj2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ksNativeAd)) == null) {
-            return this.d.e(this.c, ksNativeAd);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
+            }
+            try {
+                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                obj2 = declaredField.get(obj);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+            }
+            if (obj2 == null) {
+                return null;
+            }
+            Field declaredField2 = obj2.getClass().getDeclaredField("b");
+            declaredField2.setAccessible(true);
+            Object obj3 = declaredField2.get(obj2);
+            if (obj3 == null) {
+                return null;
+            }
+            Field declaredField3 = obj3.getClass().getDeclaredField("b");
+            declaredField3.setAccessible(true);
+            Object obj4 = declaredField3.get(obj3);
+            if (obj4 == null) {
+                return null;
+            }
+            Field declaredField4 = obj4.getClass().getDeclaredField("x");
+            declaredField4.setAccessible(true);
+            Object obj5 = declaredField4.get(obj4);
+            if (obj5 == null) {
+                return null;
+            }
+            Field declaredField5 = obj5.getClass().getSuperclass().getDeclaredField("L");
+            declaredField5.setAccessible(true);
+            JSONObject jSONObject = (JSONObject) declaredField5.get(obj5);
+            if (jSONObject != null) {
+                return lua.a(jSONObject);
+            }
+            return null;
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.d.i(ksNativeAd, str, customInflater.inflate(), customInflater.getClickViews(), this.b, funAdInteractionListener);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, KsNativeAd ksNativeAd, BaseNativeAd2<KsNativeAd, com.fun.module.ks.x> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, ksNativeAd, baseNativeAd2, funAdInteractionListener}) == null) {
-            this.d.i(ksNativeAd, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.b, funAdInteractionListener);
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

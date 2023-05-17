@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BuildConfig {
     @Deprecated
     public static final String APPLICATION_ID = "com.facebook.imagepipeline.animated";

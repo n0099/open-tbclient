@@ -1,29 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.pms.IPmsContext;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class wl {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.List;
+@Singleton
+@Service
+/* loaded from: classes8.dex */
+public class wl implements IPmsContext {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448320888, "Lcom/baidu/tieba/wl;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448320888, "Lcom/baidu/tieba/wl;");
-                return;
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public boolean checkChannelAllow(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<String> getAutoClearChannelIdList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public wl() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = String.format("aps_%s", "137");
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<RequestParams.Channel> getLongConnectParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.emptyList();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public StatisticCallback getStatisticCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return new yl();
+        }
+        return (StatisticCallback) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return getRegisterParams(str, "aps");
+        }
+        return (RequestParams) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "aps";
+            }
+            requestParams.setRunNode(str2);
+            if ("0".equals(str)) {
+                requestParams.addChannel(hl.f().d());
+                requestParams.addChannel(new tm());
+                requestParams.addChannel(new em());
+            }
+            return requestParams;
+        }
+        return (RequestParams) invokeLL.objValue;
     }
 }

@@ -5,7 +5,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.soloader.SoLoader;
 import java.io.IOException;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class NativeCodeInitializer {
     @DoNotStrip
     public static void init(Context context) throws IOException {

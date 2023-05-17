@@ -1,102 +1,69 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.gy;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.er7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class yo7 extends vm<dp7, ThreadCardViewHolder<dp7>> implements qz5 {
+import com.squareup.wire.Message;
+/* loaded from: classes8.dex */
+public class yo7 implements wj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdUniqueId b;
-    public on c;
-    public String d;
-    public byte e;
+    public er7.c a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yo7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    @Override // com.baidu.tieba.wj8
+    public void c(long j, String str, Message message, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        }
+    }
+
+    public yo7(er7.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.e = b;
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.qz5
-    public void g(String str) {
+    @Override // com.baidu.tieba.wj8
+    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void u(on onVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onVar) == null) {
-            this.c = onVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public ThreadCardViewHolder<dp7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            gy.b bVar = new gy.b(this.a.getPageActivity(), false);
-            bVar.n(new kp7(this.a, this.b, this.e));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder<dp7> threadCardViewHolder = new ThreadCardViewHolder<>(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.c));
-            threadCardViewHolder.i(this.b);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dp7 dp7Var, ThreadCardViewHolder<dp7> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dp7Var, threadCardViewHolder})) == null) {
-            threadCardViewHolder.e(dp7Var);
-            if (threadCardViewHolder.a() != null) {
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.a().b(this.d);
-                threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
+            zo7 zo7Var = new zo7();
+            pj8 pj8Var = new pj8();
+            pj8Var.a = j;
+            pj8Var.b = str;
+            lj8 a = uj8.d().a(pj8Var);
+            if (a != null) {
+                a.b(z, message, z2, i);
             }
-            return threadCardViewHolder.getView();
+            zo7Var.b(a);
+            er7.c cVar = this.a;
+            if (cVar != null) {
+                cVar.d(z, zo7Var, z2, "", str, true);
+            }
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.wj8
+    public void b(long j, String str, String str2, int i) {
+        er7.c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) && (cVar = this.a) != null) {
+            cVar.b(str, str2, i, true, 1);
+        }
     }
 }

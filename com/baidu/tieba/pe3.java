@@ -1,20 +1,199 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.us2;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.swan.apps.setting.oauth.OAuthException;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.tieba.ox1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public final class pe3 {
+/* loaded from: classes7.dex */
+public class pe3 extends re3<d> {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
+    public static final boolean r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Activity m;
+    public ox1.d n;
+    public c o;
+    public Bundle p;
+    public String q;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends fe3 implements sp1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pe3 c;
+
+        public b(pe3 pe3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pe3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = pe3Var;
+        }
+
+        public /* synthetic */ b(pe3 pe3Var, a aVar) {
+            this(pe3Var);
+        }
+
+        @Override // com.baidu.tieba.fe3
+        public boolean f() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                tp1 N = this.c.M().N();
+                boolean e = N.e(this.c.m);
+                if (pe3.r) {
+                    Log.d("LoginRequest", "LoginPreparation isLogin : " + e + " call stack:" + Log.getStackTraceString(new Exception()));
+                }
+                if (!e) {
+                    zf3.T(this.c.l, "passLogin");
+                    pe3 pe3Var = this.c;
+                    N.f(pe3Var.m, pe3Var.p, this);
+                }
+                return e;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.sp1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                ee3.k("onResult :: " + i, Boolean.FALSE);
+                if (i != -2) {
+                    if (i != 0) {
+                        ee3.k("login error ERR_BY_LOGIN", Boolean.TRUE);
+                        e(new OAuthException(10004));
+                        return;
+                    }
+                    ee3.k("Login Preparation ok, is already login", Boolean.FALSE);
+                    d();
+                    return;
+                }
+                ee3.k("login error ERR_BY_UESR_REFUSE", Boolean.TRUE);
+                e(new OAuthException(10004));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<pe3> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(Looper looper, pe3 pe3Var) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper, pe3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(pe3Var);
+        }
+
+        public /* synthetic */ c(Looper looper, pe3 pe3Var, a aVar) {
+            this(looper, pe3Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            pe3 pe3Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (pe3Var = this.a.get()) != null && message.what == 1) {
+                if (pe3.r) {
+                    Log.d("LoginRequest", "handleMessage: timeout");
+                }
+                ee3.k("request timeout", Boolean.TRUE);
+                pe3Var.d(new OAuthException(10002));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+
+        public d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str == null ? "" : str;
+        }
+
+        public /* synthetic */ d(String str, a aVar) {
+            this(str);
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return String.format("Result code(%s)", this.a);
+            }
+            return (String) invokeV.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,135 +208,152 @@ public final class pe3 {
                 return;
             }
         }
-        boolean z = ho1.a;
-        a = 0;
+        r = qp1.a;
     }
 
-    public static int c() {
+    @NonNull
+    public fe3 Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(this, null);
         }
-        return invokeV.intValue;
+        return (fe3) invokeV.objValue;
     }
 
-    public static void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.de3
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            h(Q());
+            return super.k();
         }
-        us2.a W = w73.K().q().W();
-        String i = ch3.i(W.j0(), W.G());
-        if (!jSONObject.has("appid")) {
-            xk3.f(jSONObject, "appid", W.H());
-        }
-        if (!jSONObject.has("swan")) {
-            xk3.f(jSONObject, "swan", i);
-        }
-        if (!jSONObject.has("appversion")) {
-            xk3.f(jSONObject, "appversion", W.v1());
-        }
-        if (!jSONObject.has("swanNativeVersion")) {
-            xk3.f(jSONObject, "swanNativeVersion", io1.a());
-        }
-        if (!jSONObject.has("thirdversion")) {
-            xk3.f(jSONObject, "thirdversion", W.w1());
-        }
-        if (w73.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
-            xk3.f(jSONObject, "isWebDowngrade", "1");
-        }
+        return invokeV.booleanValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.re3
+    public SwanInterfaceType z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return SwanInterfaceType.LOGIN;
+        }
+        return (SwanInterfaceType) invokeV.objValue;
+    }
+
+    public pe3(Activity activity, ox1.d dVar, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, dVar, bundle};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            String o = pl3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
+        }
+        this.m = activity;
+        this.n = dVar;
+        this.o = new c(Looper.getMainLooper(), this, null);
+        if (bundle != null && bundle.containsKey("__plugin__")) {
+            this.q = bundle.getString("__plugin__");
+            bundle.remove("__plugin__");
+            g62.k("LoginRequest", "Info: Remove previous account.");
+        }
+        this.p = bundle;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.de3
+    /* renamed from: R */
+    public d m(JSONObject jSONObject) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            JSONObject c2 = ee3.c(jSONObject);
+            int optInt = c2.optInt("errno", 10001);
+            if (optInt != 0) {
+                if (11001 == optInt) {
+                    ee3.m(c2);
+                    ee3.t("LoginRequest", c2.toString());
+                }
+                if (r) {
+                    throw new OAuthException(c2.optString("errmsg"), optInt);
+                }
             }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = pl3.i(o, hashSet);
-            String f = pl3.f(str);
-            return f + "?" + i;
+            JSONObject jSONObject2 = c2.getJSONObject("data");
+            String str = "";
+            if (jSONObject2 != null) {
+                str = jSONObject2.optString("code", "");
+            }
+            return new d(str, null);
         }
-        return (String) invokeL.objValue;
+        return (d) invokeL.objValue;
     }
 
-    public static void d(int i) {
+    @Override // com.baidu.tieba.de3
+    public void d(@Nullable Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            super.d(exc);
+            if (r) {
+                Log.d("LoginRequest", "finish: remove timeout msg");
+            }
+            this.o.removeMessages(1);
         }
     }
 
-    public static <EvenT extends ze3> EvenT f(EvenT event) {
+    @Override // com.baidu.tieba.re3
+    public HttpRequest w(re3 re3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(w73.K().q().F0() ? 1 : 0));
-            return event;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, re3Var)) == null) {
+            return ns2.o().s(this.m, re3Var.B());
         }
-        return (EvenT) invokeL.objValue;
+        return (HttpRequest) invokeL.objValue;
     }
 
-    public static <EvenT extends ze3> EvenT g(EvenT event) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.de3
+    public boolean j() {
+        InterceptResult invokeV;
+        Object obj;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            if (c() == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                boolean isEmpty = TextUtils.isEmpty(this.q);
+                if (isEmpty) {
+                    obj = M().O();
+                } else {
+                    obj = this.q;
+                }
+                jSONObject.put("ma_id", obj);
+                JSONObject jSONObject2 = new JSONObject();
+                if (isEmpty) {
+                    str = M().O();
+                } else {
+                    str = this.q;
+                }
+                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+                jSONObject2.put("host_pkgname", AppRuntime.getApplication().getPackageName());
+                jSONObject2.put("host_key_hash", ee3.g());
+                String l = ns2.o().l();
+                if (!TextUtils.isEmpty(l)) {
+                    jSONObject2.put("host_api_key", l);
+                }
+                jSONObject.put("open", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if (z) {
-                str = "2";
-            } else {
-                str = "1";
-            }
-            e(event, "launchType", str);
-            return event;
+            v("data", jSONObject.toString());
+            return true;
         }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends ze3> EvenT h(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(w73.K().q().E0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends ze3> EvenT i(EvenT event) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(re2.B0()));
-            return event;
-        }
-        return (EvenT) invokeL.objValue;
-    }
-
-    public static <EvenT extends ze3> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
-            }
-            return event;
-        }
-        return (EvenT) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 }

@@ -2,48 +2,28 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ns3 implements Object {
+/* loaded from: classes6.dex */
+public class ns3 extends qp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public final int c;
 
-    public ns3(int i, int i2, int i3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ns3() {
+        super("bdtls_session_params");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public int compareTo(ns3 ns3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ns3Var)) == null) {
-            if (this.c < ns3Var.c) {
-                return -1;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
     }
 }

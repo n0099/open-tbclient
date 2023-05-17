@@ -20,7 +20,7 @@ import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ComponentManager {
     public static HashMap<String, String> target2StubActivity = new HashMap<>();
     public static HashMap<String, String> targetString2StubActivity = new HashMap<>();

@@ -32,7 +32,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static final Pattern YW = Pattern.compile("Unexpected response code for CONNECT: ([0-9]+)", 2);
     public static String YX = "UTF-8";

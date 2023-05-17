@@ -12,7 +12,7 @@ import com.baidu.searchbox.config.AppConfig;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CloudControlResponseParse {
     public static final String FAIL_VALID = "0";
     public static final String FILTER_VALID = "2";

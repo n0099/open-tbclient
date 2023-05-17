@@ -1,49 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.AlaLiveInfo;
-/* loaded from: classes5.dex */
-public class ni6 extends ax4 {
+/* loaded from: classes6.dex */
+public class ni6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<AlaLiveInfo> b;
-    public BdUniqueId c;
+    public final qe6<WebView> a;
 
-    @Override // com.baidu.tieba.ax4
-    public yy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (yy4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ax4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    public ni6() {
+    public ni6(qe6<WebView> qe6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qe6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,58 +28,56 @@ public class ni6 extends ax4 {
                 return;
             }
         }
-        this.a = "recommend";
+        this.a = qe6Var;
     }
 
-    public List<AlaLiveInfo> c() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            WebView call = this.a.call();
+            if (call != null) {
+                return call.canGoBack();
+            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public String d() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            WebView call = this.a.call();
+            if (call != null) {
+                return call.getTitle();
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c() {
+        WebView call;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (call = this.a.call()) != null) {
+            call.goBack();
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 
-    public ni6(BdUniqueId bdUniqueId, List<AlaLiveInfo> list, String str) {
+    public void d() {
+        WebView call;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, list, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (call = this.a.call()) != null) {
+            call.reload();
         }
-        this.a = "recommend";
-        this.c = bdUniqueId;
-        this.a = str;
-        this.b = new ArrayList();
-        if (!ListUtils.isEmpty(list)) {
-            this.b.addAll(list);
+    }
+
+    public void e() {
+        WebView call;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (call = this.a.call()) != null) {
+            call.stopLoading();
         }
     }
 }

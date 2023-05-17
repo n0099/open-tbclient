@@ -13,21 +13,22 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.IntentConstants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ii;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.iv4;
+import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class HkMWebView extends BaseWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +72,7 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class b implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,9 +100,9 @@ public class HkMWebView extends BaseWebView {
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
                 if (this.a.getPackageManager().resolveActivity(intent, 0) == null) {
-                    ii.R("您的手机未安装任何浏览器应用，无法完成下载", 0, false);
+                    ri.R("您的手机未安装任何浏览器应用，无法完成下载", 0, false);
                 } else {
                     this.a.startActivity(intent);
                 }
@@ -109,7 +110,7 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +148,7 @@ public class HkMWebView extends BaseWebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                zt4.a("HkMWebView", webView);
+                iv4.a("HkMWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -169,10 +170,10 @@ public class HkMWebView extends BaseWebView {
                 try {
                     if (this.a != null) {
                         if (str.startsWith("tel:")) {
-                            this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.a.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str)));
                             return true;
                         } else if (str.startsWith("wtai://wp/mc;")) {
-                            this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                            this.a.startActivity(new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse("tel:" + str.substring(13))));
                             return true;
                         } else if (str.startsWith("mailto:")) {
                             this.a.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));

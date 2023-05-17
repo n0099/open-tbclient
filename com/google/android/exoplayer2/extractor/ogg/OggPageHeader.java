@@ -6,7 +6,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class OggPageHeader {
     public static final int EMPTY_PAGE_HEADER_SIZE = 27;
     public static final int MAX_PAGE_PAYLOAD = 65025;

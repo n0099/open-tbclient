@@ -2,7 +2,7 @@ package protobuf.CommitReceivedPmsg;
 
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class DataReq extends Message {
     @ProtoField(tag = 1, type = Message.Datatype.INT64)
     public final Long groupId;
@@ -20,7 +20,7 @@ public final class DataReq extends Message {
     public static final Long DEFAULT_MSGID = 0L;
     public static final Integer DEFAULT_TOUSERTYPE = 0;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.Builder<DataReq> {
         public Long groupId;
         public Long msgId;

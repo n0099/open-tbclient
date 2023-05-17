@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class SectionReader implements TsPayloadReader {
     public static final int DEFAULT_SECTION_BUFFER_LENGTH = 32;
     public static final int MAX_SECTION_LENGTH = 4098;

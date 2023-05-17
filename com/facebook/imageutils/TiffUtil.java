@@ -3,7 +3,7 @@ package com.facebook.imageutils;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class TiffUtil {
     public static final Class<?> TAG = TiffUtil.class;
     public static final int TIFF_BYTE_ORDER_BIG_END = 1296891946;
@@ -21,7 +21,7 @@ public class TiffUtil {
         return 180;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static class TiffHeader {
         public int byteOrder;
         public int firstIfdOffset;

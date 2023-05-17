@@ -8,7 +8,7 @@ import com.baidu.sapi2.shell.SapiErrorCode;
 import com.baidu.sapi2.shell.listener.WebAuthListener;
 import com.baidu.sapi2.shell.result.WebAuthResult;
 import com.baidu.sapi2.utils.ParamsUtil;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class YYInnerSSOLoginActivity extends BaseSSOLoginActivity {
     public static final String o = "accessCode";
     public String n;

@@ -7,7 +7,7 @@ import android.widget.FrameLayout;
 import androidx.collection.SimpleArrayMap;
 import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.searchbox.live.widget.LiveContainer;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class AlaLoopViewPagerAdapter extends PagerAdapter {
     public Context mContext;
     public SimpleArrayMap<Integer, FrameLayout> mPagerList = new SimpleArrayMap<>();

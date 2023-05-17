@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class MapBundleKey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MapLayerType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int EMAP_BACKG = 1;
@@ -71,7 +71,7 @@ public class MapBundleKey {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class MapObjKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String AD_LOG = "ad_log";
@@ -148,7 +148,7 @@ public class MapBundleKey {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class OfflineMapKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OFFLINE_ARRAY = "dataset";
@@ -180,7 +180,7 @@ public class MapBundleKey {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public static class UpdateType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ECOMPULSORY_UPDATE = 1;

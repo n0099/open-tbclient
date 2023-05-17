@@ -2,9 +2,10 @@ package com.baidu.swan.apps.page.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.baidu.searchbox.IntentConstants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwanAppPageInfo implements Parcelable {
     public static final Parcelable.Creator<SwanAppPageInfo> CREATOR = new a();
     public String appDesc;
@@ -22,7 +23,7 @@ public class SwanAppPageInfo implements Parcelable {
         return 0;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanAppPageInfo> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
@@ -81,7 +82,7 @@ public class SwanAppPageInfo implements Parcelable {
         this.iconUrl = jSONObject.optString("iconUrl");
         this.appDesc = jSONObject.optString("appDesc");
         this.scheme = jSONObject.optString("scheme");
-        this.fragmentId = jSONObject.optString("pageId");
+        this.fragmentId = jSONObject.optString(IntentConstants.XSearch.XSEARCH_EXTRA_PAGEID);
     }
 
     public String toString() {

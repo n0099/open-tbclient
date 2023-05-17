@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SplitRecordItem {
     public static final int ITEM_TYPE_LINK = 2;
     public static final int ITEN_TYPE_AMOUNT = 1;

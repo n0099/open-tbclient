@@ -10,7 +10,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.security.cert.Certificate;
 @RequiresApi(api = 21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static o a(String str) {
         int[] iArr;
@@ -27,7 +27,7 @@ public final class d {
                                 try {
                                     m mVar = f.a.get(str).get(-262969152);
                                     if (mVar != null) {
-                                        c.C0521c a = c.a(randomAccessFile2, mVar);
+                                        c.C0535c a = c.a(randomAccessFile2, mVar);
                                         Signature[] a2 = a(new Certificate[][]{a.a});
                                         if (a.b != null) {
                                             int size = a.b.a.size();

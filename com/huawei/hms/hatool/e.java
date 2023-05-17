@@ -1,8 +1,7 @@
 package com.huawei.hms.hatool;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.tieba.y0b;
+import com.baidu.tieba.w2b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +19,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +64,7 @@ public class e {
                 return "";
             }
             try {
-                return y0b.a(a(bArr, a(y0b.b(str))));
+                return w2b.a(a(bArr, a(w2b.b(str))));
             } catch (NoSuchAlgorithmException unused) {
                 str2 = "encrypt(): getInstance - No such algorithm,transformation";
                 y.f("hmsSdk", str2);
@@ -82,7 +81,7 @@ public class e {
     public static PublicKey a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
     }
 
     public static byte[] a(byte[] bArr, PublicKey publicKey) {

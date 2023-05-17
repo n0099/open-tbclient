@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBMediaView;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class JYNativeAdView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,15 +97,15 @@ public final class JYNativeAdView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a5);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900c2);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             PBMediaView pBMediaView = new PBMediaView(getContext());
             this.c = pBMediaView;
             this.b.addView(pBMediaView, layoutParams);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090106);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ad);
-            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f0900a1);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090113);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ba);
+            this.f = (Button) findViewById(R.id.obfuscated_res_0x7f0900ae);
         }
     }
 

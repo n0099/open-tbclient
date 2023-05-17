@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.lw9;
+import com.baidu.tieba.ny9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,14 +16,14 @@ import tbclient.Error;
 import tbclient.GetBgList.DataRes;
 import tbclient.GetBgList.GetBgListResIdl;
 import tbclient.ThemeBgProp;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public lw9 mRecommand;
+    public ny9 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListHttpResponseMessage(int i) {
@@ -65,9 +65,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    lw9 lw9Var = new lw9();
-                    this.mRecommand = lw9Var;
-                    lw9Var.d(getBgListResIdl.data.recommend);
+                    ny9 ny9Var = new ny9();
+                    this.mRecommand = ny9Var;
+                    ny9Var.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {
@@ -107,13 +107,13 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
         return invokeV.booleanValue;
     }
 
-    public lw9 getRecommand() {
+    public ny9 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mRecommand;
         }
-        return (lw9) invokeV.objValue;
+        return (ny9) invokeV.objValue;
     }
 
     public boolean hasMore() {

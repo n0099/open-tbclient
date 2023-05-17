@@ -7,7 +7,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassifierDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class IndexedParametersSubstitution extends TypeSubstitution {
     public final boolean approximateCapturedTypes;
     public final TypeProjection[] arguments;
@@ -73,12 +73,12 @@ public final class IndexedParametersSubstitution extends TypeSubstitution {
 
     @Override // kotlin.reflect.jvm.internal.impl.types.TypeSubstitution
     /* renamed from: get */
-    public TypeProjection mo2030get(KotlinType kotlinType) {
-        ClassifierDescriptor mo2025getDeclarationDescriptor = kotlinType.getConstructor().mo2025getDeclarationDescriptor();
-        if (!(mo2025getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
-            mo2025getDeclarationDescriptor = null;
+    public TypeProjection mo2049get(KotlinType kotlinType) {
+        ClassifierDescriptor mo2044getDeclarationDescriptor = kotlinType.getConstructor().mo2044getDeclarationDescriptor();
+        if (!(mo2044getDeclarationDescriptor instanceof TypeParameterDescriptor)) {
+            mo2044getDeclarationDescriptor = null;
         }
-        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2025getDeclarationDescriptor;
+        TypeParameterDescriptor typeParameterDescriptor = (TypeParameterDescriptor) mo2044getDeclarationDescriptor;
         if (typeParameterDescriptor != null) {
             int index = typeParameterDescriptor.getIndex();
             TypeParameterDescriptor[] typeParameterDescriptorArr = this.parameters;

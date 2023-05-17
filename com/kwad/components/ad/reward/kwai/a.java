@@ -5,7 +5,7 @@ import com.kwad.sdk.core.config.item.d;
 import com.kwad.sdk.core.config.item.f;
 import com.kwad.sdk.core.config.item.j;
 import com.kwad.sdk.core.config.item.o;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class a {
     public static j nR = new j("rewardSkipType", 0);
     public static j nS = new j("rewardActiveAppTaskMinSecond", 15);

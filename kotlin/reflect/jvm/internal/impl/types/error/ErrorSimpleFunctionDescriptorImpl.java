@@ -1,5 +1,6 @@
 package kotlin.reflect.jvm.internal.impl.types.error;
 
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Collection;
@@ -23,7 +24,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ErrorSimpleFunctionDescriptorImpl extends SimpleFunctionDescriptorImpl {
     public final ErrorUtils.ErrorScope ownerScope;
 
@@ -62,7 +63,7 @@ public class ErrorSimpleFunctionDescriptorImpl extends SimpleFunctionDescriptorI
         } else if (i != 7) {
             objArr[1] = "kotlin/reflect/jvm/internal/impl/types/error/ErrorSimpleFunctionDescriptorImpl";
         } else {
-            objArr[1] = "copy";
+            objArr[1] = CommandUBCHelper.COMMAND_UBC_TYPE_COPY;
         }
         switch (i) {
             case 2:

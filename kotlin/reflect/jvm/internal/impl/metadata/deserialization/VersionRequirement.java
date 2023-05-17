@@ -11,7 +11,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.metadata.ProtoBuf;
 import kotlin.reflect.jvm.internal.impl.protobuf.MessageLite;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class VersionRequirement {
     public static final Companion Companion = new Companion(null);
     public final Integer errorCode;
@@ -20,7 +20,7 @@ public final class VersionRequirement {
     public final String message;
     public final Version version;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Version {
         public static final Companion Companion = new Companion(null);
         @JvmField
@@ -44,7 +44,7 @@ public final class VersionRequirement {
             return (((this.major * 31) + this.minor) * 31) + this.patch;
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static final class Companion {
             public Companion() {
             }
@@ -99,10 +99,10 @@ public final class VersionRequirement {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Companion {
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public final /* synthetic */ class WhenMappings {
             public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

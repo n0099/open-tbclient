@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static void a(File[] fileArr, String str) {
         a(fileArr, str, -1);

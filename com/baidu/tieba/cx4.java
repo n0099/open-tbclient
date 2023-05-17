@@ -1,199 +1,150 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import java.io.File;
+/* loaded from: classes5.dex */
 public class cx4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public float e;
-    public String f;
-    @Nullable
-    public b g;
-    @Nullable
-    public a h;
-    public String i;
-    public String j;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947690122, "Lcom/baidu/tieba/cx4;")) == null) {
+            return;
         }
-
-        @Nullable
-        public static a a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("desc", "权限");
-                String optString = jSONObject.optString("url");
-                aVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    aVar.b = jSONObject.optString("cmd");
-                }
-                aVar.c = jSONObject.optString("cmd");
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Nullable
-        public static b a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                b bVar = new b();
-                bVar.a = jSONObject.optString("desc", "隐私");
-                String optString = jSONObject.optString("url");
-                bVar.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    bVar.b = jSONObject.optString("cmd");
-                }
-                bVar.c = jSONObject.optString("cmd");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    public cx4() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947690122, "Lcom/baidu/tieba/cx4;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.cx4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0256a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public RunnableC0256a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                        cx4.c(TbadkCoreApplication.getInst().getCacheDir());
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                long o = o65.m().o("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (o == 0) {
+                    o65.m().A("key_clear_resource", currentTimeMillis);
+                    o = currentTimeMillis;
+                }
+                if (currentTimeMillis - o > cx4.a) {
+                    wn6.a(new RunnableC0256a(this), "clearResource", 3);
+                    o65.m().A("key_clear_resource", currentTimeMillis);
+                }
+            }
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2005016));
+        }
+    }
+
+    public static void c(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, file) != null) || file == null) {
+            return;
+        }
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            c(listFiles[i]);
+                        } else {
+                            listFiles[i].delete();
+                        }
+                    }
+                    return;
+                }
                 return;
             }
+            file.delete();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        this.e = -1.0f;
-    }
-
-    public static boolean a(cx4 cx4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cx4Var)) == null) {
-            if (cx4Var == null) {
-                return false;
-            }
-            if (TextUtils.isEmpty(cx4Var.f) && TextUtils.isEmpty(cx4Var.d) && (((bVar = cx4Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = cx4Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Nullable
-    public static cx4 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            cx4 cx4Var = new cx4();
-            cx4Var.a = TextUtils.equals(jSONObject.optString("strict_mode", "1"), "1");
-            cx4Var.b = jSONObject.optString("app_icon");
-            cx4Var.c = jSONObject.optString("app_name");
-            cx4Var.d = jSONObject.optString("developer_name");
-            cx4Var.f = jSONObject.optString("version");
-            cx4Var.g = b.a(jSONObject.optJSONObject("privacy"));
-            cx4Var.h = a.a(jSONObject.optJSONObject(ShareLoginStat.GetShareListStat.KEY_PERMISSION));
-            cx4Var.i = jSONObject.optString("apk_size");
-            cx4Var.j = jSONObject.optString("apk_url");
-            try {
-                float parseFloat = Float.parseFloat(jSONObject.optString("score"));
-                if (parseFloat <= 5.0f && parseFloat >= 0.0f) {
-                    cx4Var.e = parseFloat;
-                } else {
-                    cx4Var.e = -1.0f;
-                }
-            } catch (NumberFormatException unused) {
-                cx4Var.e = -1.0f;
-            }
-            return cx4Var;
-        }
-        return (cx4) invokeL.objValue;
-    }
-
-    public static boolean c(cx4 cx4Var) {
-        InterceptResult invokeL;
-        b bVar;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cx4Var)) == null) {
-            if (cx4Var == null || !cx4Var.a) {
-                return true;
-            }
-            if (!TextUtils.isEmpty(cx4Var.f) && !TextUtils.isEmpty(cx4Var.d) && (bVar = cx4Var.g) != null && !TextUtils.isEmpty(bVar.b) && (aVar = cx4Var.h) != null && !TextUtils.isEmpty(aVar.b)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

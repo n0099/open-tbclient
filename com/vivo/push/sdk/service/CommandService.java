@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.d.a;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.u;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class CommandService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

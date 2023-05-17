@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0006\u0018\u0000 !2\u00020\u0001:\u0003!\"#B\u0011\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0004B\u001b\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006¢\u0006\u0002\u0010\u0007B#\b\u0016\u0012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u0005\u001a\u0004\u0018\u00010\u0006\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\u000e\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\rJ\u0006\u0010 \u001a\u00020\u001eR!\u0010\u000b\u001a\u0012\u0012\u0004\u0012\u00020\r0\fj\b\u0012\u0004\u0012\u00020\r`\u000e¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u001c\u0010\u0011\u001a\u0004\u0018\u00010\u0012X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\u001c\u0010\u0017\u001a\u0004\u0018\u00010\u0018X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u001a\"\u0004\b\u001b\u0010\u001c¨\u0006$"}, d2 = {"Lcom/baidu/tieba/write/view/AssociatedItemContainer;", "Landroid/widget/LinearLayout;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "defStyleAttr", "", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "itemDataList", "Ljava/util/ArrayList;", "Lcom/baidu/tbadk/core/data/ItemData;", "Lkotlin/collections/ArrayList;", "getItemDataList", "()Ljava/util/ArrayList;", "onAddedListener", "Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;", "getOnAddedListener", "()Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;", "setOnAddedListener", "(Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnAddedListener;)V", "onDeletedListener", "Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;", "getOnDeletedListener", "()Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;", "setOnDeletedListener", "(Lcom/baidu/tieba/write/view/AssociatedItemContainer$OnDeletedListener;)V", "addAssociatedItem", "", "itemData", "onChangeSkin", "Companion", "OnAddedListener", "OnDeletedListener", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public final class AssociatedItemContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public final class AssociatedItemContainer extends LinearLayout {
     public a b;
     public final ArrayList<ItemData> c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(ItemData itemData);
     }
@@ -142,7 +142,7 @@ public final class AssociatedItemContainer extends LinearLayout {
                     this$0.removeViewAt(this$0.getChildCount() - 1);
                 }
                 this$0.requestLayout();
-                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f0911b6);
+                Object tag = itemCardView.getTag(R.id.obfuscated_res_0x7f0911f1);
                 if (tag != null) {
                     ItemData itemData = (ItemData) tag;
                     this$0.c.remove(itemData);
@@ -176,8 +176,8 @@ public final class AssociatedItemContainer extends LinearLayout {
             final ItemCardView itemCardView = new ItemCardView(getContext());
             itemCardView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             itemCardView.N();
-            itemCardView.setTag(R.id.obfuscated_res_0x7f0911b6, itemData);
-            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.w6a
+            itemCardView.setTag(R.id.obfuscated_res_0x7f0911f1, itemData);
+            itemCardView.setOnCloseListener(new View.OnClickListener() { // from class: com.baidu.tieba.y8a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

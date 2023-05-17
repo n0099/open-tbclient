@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.f55;
+import com.baidu.tieba.o65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GifLibrarySwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "tieba_gif_switch_android";
@@ -33,7 +33,7 @@ public class GifLibrarySwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.ze
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class GifLibrarySwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 1) {
-                type = f55.m().n("key_live_gif_load_library_key", 1);
+                type = o65.m().n("key_live_gif_load_library_key", 1);
             }
             if (type == 1) {
                 return true;

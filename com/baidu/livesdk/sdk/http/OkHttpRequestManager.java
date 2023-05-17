@@ -5,7 +5,7 @@ import com.baidu.livesdk.api.http.HttpRequestManager;
 import java.util.concurrent.TimeUnit;
 import okhttp3.ConnectionPool;
 import okhttp3.OkHttpClient;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class OkHttpRequestManager implements HttpRequestManager {
     public OkHttpClient mClient;
 

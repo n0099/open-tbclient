@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tieba.R;
 import com.kwad.components.core.widget.KsLogoView;
 import com.kwad.sdk.core.response.model.AdInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class b extends e {
     public KsLogoView bq;
 
@@ -28,7 +28,7 @@ public final class b extends e {
     public final void aq() {
         AdInfo.AdSplashInfo adSplashInfo;
         super.aq();
-        KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091372);
+        KsLogoView ksLogoView = (KsLogoView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913ad);
         this.bq = ksLogoView;
         h(ksLogoView);
         if (this.yF.mAdTemplate.adInfoList.isEmpty() || (adSplashInfo = this.yF.mAdTemplate.adInfoList.get(0).adSplashInfo) == null) {

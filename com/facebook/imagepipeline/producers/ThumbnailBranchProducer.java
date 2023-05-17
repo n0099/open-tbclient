@@ -3,11 +3,11 @@ package com.facebook.imagepipeline.producers;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThumbnailBranchProducer implements Producer<EncodedImage> {
     public final ThumbnailProducer<EncodedImage>[] mThumbnailProducers;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class ThumbnailConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public final ProducerContext mProducerContext;
         public final int mProducerIndex;

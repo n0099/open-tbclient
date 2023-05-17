@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,13 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public n95 a;
+    public n95 b;
 
     public m95() {
         Interceptable interceptable = $ic;
@@ -29,46 +29,42 @@ public class m95 {
         }
     }
 
-    public String a() {
+    public n95 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (n95) invokeV.objValue;
     }
 
-    public String b() {
+    public n95 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (String) invokeV.objValue;
+        return (n95) invokeV.objValue;
     }
 
-    public static m95 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            m95 m95Var = new m95();
-            if (jSONObject != null) {
-                m95Var.a = jSONObject.optString("scene_name");
-                jSONObject.optString("style");
-                m95Var.b = jSONObject.optString("title");
-                m95Var.c = jSONObject.optString("text");
-            }
-            return m95Var;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (m95) invokeL.objValue;
+        JSONObject optJSONObject = jSONObject.optJSONObject(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
+        if (optJSONObject != null) {
+            n95 n95Var = new n95();
+            this.a = n95Var;
+            n95Var.q = 1;
+            n95Var.e(optJSONObject);
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            n95 n95Var2 = new n95();
+            this.b = n95Var2;
+            n95Var2.q = 2;
+            n95Var2.e(optJSONObject2);
+        }
     }
 }

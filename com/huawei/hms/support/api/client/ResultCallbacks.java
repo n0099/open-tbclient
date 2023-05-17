@@ -9,7 +9,7 @@ import com.huawei.hms.common.api.Releasable;
 import com.huawei.hms.support.api.client.Result;
 import com.huawei.hms.support.log.HMSLog;
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ResultCallbacks<R extends Result> implements ResultCallback<R> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResultCallbacks";

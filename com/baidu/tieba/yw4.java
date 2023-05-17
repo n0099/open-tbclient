@@ -1,12 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes7.dex */
-public interface yw4 {
-    void a(@Nullable BdUniqueId bdUniqueId);
-
-    int b();
-
-    void run();
+import android.view.View;
+/* loaded from: classes8.dex */
+public interface yw4<T> {
+    void d(View view2, T t, int i, long j);
 }

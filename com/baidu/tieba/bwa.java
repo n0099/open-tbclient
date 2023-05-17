@@ -1,147 +1,49 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-/* loaded from: classes3.dex */
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class bwa {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    public static final SimpleDateFormat b;
-    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                File[] f = yva.f();
-                if (f != null && f.length > 0) {
-                    synchronized (bwa.a) {
-                        for (File file : f) {
-                            if (currentTimeMillis - file.lastModified() > 172800000) {
-                                file.delete();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947660765, "Lcom/baidu/tieba/bwa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947660765, "Lcom/baidu/tieba/bwa;");
-                return;
-            }
-        }
-        a = new Object();
-        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
-        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            awa.b().post(new a());
-        }
-    }
-
-    public static String c(String str) {
+    public static RippedAd a(AdInfo adInfo) {
         InterceptResult invokeL;
-        String d;
+        String str;
+        String str2;
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            synchronized (a) {
-                d = d("looper", str);
-            }
-            return d;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String str3 = "";
-            BufferedWriter bufferedWriter = null;
-            try {
-                File c2 = yva.c();
-                long currentTimeMillis = System.currentTimeMillis();
-                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
-                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
-                try {
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("**********************");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.write(str2);
-                    bufferedWriter2.write("\r\n");
-                    bufferedWriter2.flush();
-                    bufferedWriter2.close();
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedWriter = bufferedWriter2;
-                    try {
-                        Log.e("LogWriter", "save: ", th);
-                        return str3;
-                    } finally {
-                        if (bufferedWriter != null) {
-                            try {
-                                bufferedWriter.close();
-                            } catch (Exception e) {
-                                Log.e("LogWriter", "save: ", e);
-                            }
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
+            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
+            RippedAd.Builder builder = new RippedAd.Builder();
+            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
+            ArrayList arrayList = null;
+            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
+                str = null;
+            } else if (adMaterialInfo.materialType == 1) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+                str2 = materialFeature.materialUrl;
+                str = materialFeature.coverUrl;
+                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+                return builder.build();
+            } else {
+                ArrayList arrayList2 = new ArrayList();
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
+                    arrayList2.add(materialFeature2.materialUrl);
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                str = null;
+                arrayList = arrayList2;
             }
-            return str3;
+            str2 = str;
+            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+            return builder.build();
         }
-        return (String) invokeLL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

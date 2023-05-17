@@ -1,267 +1,61 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes4.dex */
-public class cr2 extends DataInputStream {
+/* loaded from: classes5.dex */
+public class cr2 extends an2<rr2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final br2<String, byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements br2<String, byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.br2
-        @Nullable
-        public String call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                if (bArr == null) {
-                    return null;
-                }
-                if (bArr.length == 0) {
-                    return "";
-                }
-                return new String(bArr);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements br2<Boolean, byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cr2 a;
-
-        public b(cr2 cr2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cr2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cr2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.br2
-        @Nullable
-        public Boolean call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-                if (bArr != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                return Boolean.valueOf(z);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684294, "Lcom/baidu/tieba/cr2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684294, "Lcom/baidu/tieba/cr2;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    public Map<String, Boolean> a() throws IOException {
+    @Override // com.baidu.tieba.an2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f(new b(this));
-        }
-        return (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
     }
 
-    public byte[] c() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int readInt = readInt();
-            if (readInt >= 0) {
-                byte[] bArr = new byte[readInt];
-                if (readInt == read(bArr)) {
-                    return bArr;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return a.call(c());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> j() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return e(a);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Map<String, String> l() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return f(a);
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cr2(InputStream inputStream) throws IOException {
-        super(inputStream);
+    public cr2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public <T> List<T> e(br2<T, byte[]> br2Var) throws IOException {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.an2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull rr2 rr2Var) {
+        Object obj;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, br2Var)) == null) {
-            int readInt = readInt();
-            if (readInt < 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(readInt);
-            for (int i = 0; i < readInt; i++) {
-                try {
-                    arrayList.add(br2Var.call(c()));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return arrayList;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, rr2Var) != null) || (obj = command.obj) == null) {
+            return;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public <T> T d(@NonNull br2<T, byte[]> br2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, br2Var)) == null) {
-            try {
-                return br2Var.call(c());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        ArrayList arrayList = (ArrayList) obj;
+        if (command.arg1 != 0) {
+            z = true;
+        } else {
+            z = false;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public List<String> k(List<String> list) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
-            List<String> j = j();
-            if (j == null) {
-                return list;
-            }
-            return j;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public <T> Map<String, T> f(br2<T, byte[]> br2Var) throws IOException {
-        InterceptResult invokeL;
-        List<String> j;
-        List<T> e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, br2Var)) == null) {
-            if (readInt() < 0 || (j = j()) == null || (e = e(br2Var)) == null || j.size() != e.size()) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < j.size(); i++) {
-                hashMap.put(j.get(i), e.get(i));
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
+        String str = (String) arrayList.get(0);
+        String f = ci3.l().f(str, (String) arrayList.get(1));
+        command.ret = rr2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
+        String str2 = command.what;
+        d(rr2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

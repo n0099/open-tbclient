@@ -1,6 +1,5 @@
 package com.baidu.clientupdate.b;
 
-import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,7 +13,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +23,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
-                return (RSAPublicKey) KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(a.a(str)));
+                return (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(a.a(str)));
             } catch (NullPointerException unused) {
                 throw new Exception("公钥数据为空");
             } catch (NoSuchAlgorithmException unused2) {
@@ -42,7 +41,7 @@ public class b {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, rSAPublicKey, bArr)) == null) {
             if (rSAPublicKey != null) {
                 try {
-                    Cipher cipher = Cipher.getInstance(RSAUtil.ALGORITHM_RSA);
+                    Cipher cipher = Cipher.getInstance("RSA");
                     cipher.init(2, rSAPublicKey);
                     return cipher.doFinal(bArr);
                 } catch (InvalidKeyException unused) {

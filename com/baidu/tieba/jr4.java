@@ -1,606 +1,286 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskHTTPResMsg;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskSocketResMsg;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class jr4 implements Handler.Callback {
+/* loaded from: classes6.dex */
+public class jr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<c> a;
-    public BdUniqueId b;
-    public lv4<cq4> c;
-    public hr4 d;
-    public boolean e;
-    public final Handler f;
-    public za g;
-    public CustomMessageListener h;
 
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    /* loaded from: classes6.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final jr4 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jr4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(jr4 jr4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jr4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-680689920, "Lcom/baidu/tieba/jr4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-680689920, "Lcom/baidu/tieba/jr4$a;");
                     return;
                 }
             }
-            this.a = jr4Var;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: com.baidu.tieba.jr4$f */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            gr4 gr4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.e = false;
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (responsedMessage.hasError() || responsedMessage.getError() != 0) {
-                    this.a.r(responsedMessage);
-                    return;
-                }
-                e eVar = null;
-                eVar = null;
-                if (responsedMessage instanceof CompleteTaskHTTPResMsg) {
-                    gr4Var = ((CompleteTaskHTTPResMsg) responsedMessage).getData();
-                } else if (responsedMessage instanceof CompleteTaskSocketResMsg) {
-                    gr4Var = ((CompleteTaskSocketResMsg) responsedMessage).getData();
-                } else {
-                    gr4Var = null;
-                }
-                if (gr4Var == null) {
-                    return;
-                }
-                if (this.a.d == null) {
-                    this.a.d = new hr4();
-                }
-                this.a.d.c(gr4Var);
-                this.a.d.d();
-                Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
-                if (obj instanceof f) {
-                    f fVar = (f) obj;
-                    cq4 cq4Var = fVar.a;
-                    if (gr4Var != null && gr4Var.x == 1) {
-                        cq4Var.z = true;
-                    }
-                    this.a.t(cq4Var);
-                    eVar = fVar;
-                } else if (obj instanceof e) {
-                    e eVar2 = (e) obj;
-                    this.a.s(eVar2.a);
-                    eVar = eVar2;
-                } else if (obj instanceof g) {
-                    oq4.b().g();
-                }
-                if (eVar != null) {
-                    this.a.a.remove(eVar);
-                }
-                this.a.u();
-            }
+            a = new jr4();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jr4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(jr4 jr4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jr4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jr4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d)) {
-                d dVar = (d) customResponsedMessage.getData();
-                this.a.k(dVar.a);
-                this.a.l(dVar.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<iq4> a;
-        public List<cq4> b;
-        public List<cq4> c;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(cq4 cq4Var) {
-            List<cq4> list;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, cq4Var) == null) && (list = this.b) != null) {
-                list.add(cq4Var);
-            }
-        }
-
-        public void b(iq4 iq4Var) {
-            List<iq4> list;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iq4Var) == null) && (list = this.a) != null) {
-                list.add(iq4Var);
-            }
-        }
-
-        public void c(cq4 cq4Var) {
-            List<cq4> list;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cq4Var) == null) && (list = this.c) != null) {
-                list.add(cq4Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class f extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public cq4 a;
-
-        public f(cq4 cq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cq4Var;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class g extends c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public jr4(BdUniqueId bdUniqueId) {
+    public jr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LinkedList();
-        this.e = false;
-        this.f = new Handler(Looper.getMainLooper(), this);
-        this.g = new a(this, CmdConfigHttp.CMD_COMPLETE_TASK, 309627);
-        this.h = new b(this, 2921379);
-        this.b = bdUniqueId;
-        p();
-        q();
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
+    public static final jr4 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (jr4) invokeV.objValue;
+    }
+
+    public synchronized long a(lr4 lr4Var) {
+        InterceptResult invokeL;
+        long h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lr4Var)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                h = h(f, lr4Var);
+                f.setTransactionSuccessful();
+                f.endTransaction();
+            }
+            return h;
+        }
+        return invokeL.longValue;
+    }
+
+    public synchronized long i(lr4 lr4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (message.what == 1) {
-                x();
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, lr4Var)) == null) {
+            synchronized (this) {
+                if (lr4Var == null) {
+                    return -1L;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                long j = j(f, lr4Var);
+                f.setTransactionSuccessful();
+                f.endTransaction();
+                return j;
             }
-            return false;
+        }
+        return invokeL.longValue;
+    }
+
+    public synchronized void b(List<lr4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this) {
+                if (ListUtils.isEmpty(list)) {
+                    return;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                for (lr4 lr4Var : list) {
+                    h(f, lr4Var);
+                }
+                f.setTransactionSuccessful();
+                f.endTransaction();
+            }
+        }
+    }
+
+    public synchronized boolean e(lr4 lr4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, lr4Var)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (lr4Var == null) {
+                    return false;
+                }
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(lr4Var.d()), String.valueOf(lr4Var.q())});
+                f.setTransactionSuccessful();
+                f.endTransaction();
+                if (delete >= 0) {
+                    z = true;
+                }
+                return z;
+            }
         }
         return invokeL.booleanValue;
     }
 
-    public final void o(cq4 cq4Var) {
-        lv4<cq4> lv4Var;
+    public synchronized void k(List<lr4> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, cq4Var) == null) && cq4Var != null && (lv4Var = this.c) != null) {
-            lv4Var.a(cq4Var);
-        }
-    }
-
-    public final void t(cq4 cq4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, cq4Var) != null) || cq4Var == null) {
-            return;
-        }
-        o(cq4Var);
-    }
-
-    public void w(lv4<cq4> lv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, lv4Var) == null) {
-            this.c = lv4Var;
-        }
-    }
-
-    public final void k(List<iq4> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        LinkedList<cq4> linkedList = new LinkedList();
-        for (iq4 iq4Var : list) {
-            if (iq4Var != null && iq4Var.c() != null) {
-                cq4 c2 = iq4Var.c();
-                if (c2.N()) {
-                    c2.f0(c2.F());
-                    o(c2);
-                } else if (c2.d() != 0 && c2.q() != 0) {
-                    linkedList.add(c2);
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            synchronized (this) {
+                if (ListUtils.isEmpty(list)) {
+                    return;
                 }
-            }
-        }
-        if (ListUtils.isEmpty(linkedList)) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        for (cq4 cq4Var : linkedList) {
-            if (cq4Var != null) {
-                HashSet hashSet = (HashSet) hashMap.get(Integer.valueOf(cq4Var.d()));
-                if (hashSet == null) {
-                    hashSet = new HashSet();
-                    hashMap.put(Integer.valueOf(cq4Var.d()), hashSet);
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                for (lr4 lr4Var : list) {
+                    j(f, lr4Var);
                 }
-                hashSet.add(Integer.valueOf(cq4Var.q()));
+                f.setTransactionSuccessful();
+                f.endTransaction();
             }
         }
-        JSONObject jSONObject = new JSONObject();
-        for (Map.Entry entry : hashMap.entrySet()) {
-            StringBuilder sb = new StringBuilder();
-            Iterator it = ((HashSet) entry.getValue()).iterator();
-            while (it.hasNext()) {
-                sb.append(it.next() + ",");
-            }
-            if (sb.length() > 0) {
-                sb.deleteCharAt(sb.length() - 1);
-            }
-            try {
-                jSONObject.put(String.valueOf(entry.getKey()), sb);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-        }
-        JSONObject jSONObject2 = new JSONObject();
-        for (cq4 cq4Var2 : linkedList) {
-            if (cq4Var2 != null) {
-                ir4.a(jSONObject2, cq4Var2.d(), cq4Var2.q(), cq4Var2.E());
-            }
-        }
-        e eVar = new e(jSONObject.toString());
-        eVar.b = jSONObject2.toString();
-        this.a.add(eVar);
-        u();
     }
 
-    public final void l(List<cq4> list) {
+    public final ContentValues c(lr4 lr4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        for (cq4 cq4Var : list) {
-            if (cq4Var.N()) {
-                cq4Var.f0(cq4Var.F());
-                o(cq4Var);
-            } else {
-                this.a.add(new f(cq4Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lr4Var)) == null) {
+            if (lr4Var == null) {
+                return null;
             }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("activityid", Integer.valueOf(lr4Var.d()));
+            contentValues.put("missionid", Integer.valueOf(lr4Var.q()));
+            contentValues.put("activitysource", lr4Var.e());
+            contentValues.put("calltype", Integer.valueOf(lr4Var.i()));
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(lr4Var.x()));
+            contentValues.put("browsetimepage", lr4Var.g());
+            contentValues.put("browsetime", Long.valueOf(lr4Var.f()));
+            contentValues.put("threadnum", Integer.valueOf(lr4Var.A()));
+            contentValues.put("forumnum", Integer.valueOf(lr4Var.p()));
+            contentValues.put("cleartype", Integer.valueOf(lr4Var.k()));
+            contentValues.put("cleartime", Long.valueOf(lr4Var.j()));
+            contentValues.put("specificcleartime", Long.valueOf(lr4Var.t()));
+            contentValues.put("tid", Long.valueOf(lr4Var.C()));
+            contentValues.put("fid", Long.valueOf(lr4Var.o()));
+            contentValues.put("threadtext", lr4Var.B());
+            contentValues.put("threadimg", lr4Var.z());
+            contentValues.put("threadforum", Long.valueOf(lr4Var.y()));
+            contentValues.put("totalLimit", Integer.valueOf(lr4Var.F()));
+            contentValues.put("completedLimitCount", Integer.valueOf(lr4Var.w()));
+            contentValues.put("token", lr4Var.E());
+            contentValues.put("executingMissionList", lr4Var.b());
+            return contentValues;
         }
-        u();
+        return (ContentValues) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: com.baidu.tieba.jr4$f */
-    /* JADX WARN: Multi-variable type inference failed */
-    public final void r(ResponsedMessage<?> responsedMessage) {
+    public final lr4 d(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, responsedMessage) != null) || responsedMessage == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
+            if (cursor != null && !cursor.isClosed()) {
+                lr4 lr4Var = new lr4();
+                lr4Var.T(cursor.getInt(cursor.getColumnIndex("activityid")));
+                lr4Var.c0(cursor.getInt(cursor.getColumnIndex("missionid")));
+                lr4Var.U(cursor.getString(cursor.getColumnIndex("activitysource")));
+                lr4Var.X(cursor.getInt(cursor.getColumnIndex("calltype")));
+                lr4Var.g0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
+                lr4Var.W(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+                lr4Var.V(cursor.getLong(cursor.getColumnIndex("browsetime")));
+                lr4Var.j0(cursor.getInt(cursor.getColumnIndex("threadnum")));
+                lr4Var.b0(cursor.getInt(cursor.getColumnIndex("forumnum")));
+                lr4Var.Z(cursor.getInt(cursor.getColumnIndex("cleartype")));
+                lr4Var.Y(cursor.getLong(cursor.getColumnIndex("cleartime")));
+                lr4Var.e0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
+                lr4Var.l0(cursor.getLong(cursor.getColumnIndex("tid")));
+                lr4Var.a0(cursor.getLong(cursor.getColumnIndex("fid")));
+                lr4Var.k0(cursor.getString(cursor.getColumnIndex("threadtext")));
+                lr4Var.i0(cursor.getString(cursor.getColumnIndex("threadimg")));
+                lr4Var.h0(cursor.getInt(cursor.getColumnIndex("threadforum")));
+                lr4Var.n0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
+                lr4Var.f0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
+                lr4Var.Q(lr4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
+                lr4Var.m0(cursor.getString(cursor.getColumnIndex("token")));
+                return lr4Var;
+            }
+            return null;
         }
-        e eVar = null;
-        Object obj = ((CompleteTaskReqMsg) responsedMessage.getOrginalMessage().getExtra()).extra;
-        if (obj instanceof f) {
-            f fVar = (f) obj;
-            o(fVar.a);
-            eVar = fVar;
-        } else if (obj instanceof e) {
-            eVar = (e) obj;
-        }
-        if (eVar != null) {
-            this.a.remove(eVar);
-        }
-        u();
+        return (lr4) invokeL.objValue;
     }
 
-    public void m() {
-        hr4 hr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hr4Var = this.d) != null) {
-            hr4Var.a();
-        }
-    }
-
-    public BdUniqueId n() {
+    public synchronized List<lr4> f() {
         InterceptResult invokeV;
+        LinkedList linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            this.f.sendMessage(obtain);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            xo9.h(309627, CompleteTaskSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMPLETE_TASK, xo9.a(TbConfig.COMPLETE_TASK_URL, 309627));
-            tbHttpMessageTask.setResponsedClass(CompleteTaskHTTPResMsg.class);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g.setTag(n());
-            this.h.setTag(n());
-            MessageManager.getInstance().registerListener(this.g);
-            MessageManager.getInstance().registerListener(this.h);
-        }
-    }
-
-    public final void s(String str) {
-        String[] split;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || str == null) {
-            return;
-        }
-        JSONObject jSONObject = null;
-        try {
-            jSONObject = new JSONObject(str);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-        if (jSONObject == null) {
-            return;
-        }
-        LinkedList<cq4> linkedList = new LinkedList();
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            try {
-                String string = jSONObject.getString(next);
-                if (string != null && (split = string.split(",")) != null) {
-                    for (String str2 : split) {
-                        cq4 cq4Var = new cq4();
-                        cq4Var.T(gg.e(next, 0));
-                        cq4Var.c0(gg.e(str2, 0));
-                        if (cq4Var.d() != 0 && cq4Var.q() != 0) {
-                            linkedList.add(cq4Var);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f.beginTransaction();
+                linkedList = new LinkedList();
+                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
+                while (rawQuery.moveToNext()) {
+                    lr4 d = d(rawQuery);
+                    if (d != null) {
+                        linkedList.add(d);
                     }
                 }
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+                f.setTransactionSuccessful();
+                si.a(rawQuery);
+                f.endTransaction();
             }
+            return linkedList;
         }
-        for (cq4 cq4Var2 : linkedList) {
-            o(cq4Var2);
-        }
+        return (List) invokeV.objValue;
     }
 
-    public void v(String str, int i, String str2, Object obj) {
+    public final long h(SQLiteDatabase sQLiteDatabase, lr4 lr4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLILL(1048588, this, str, i, str2, obj) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
-            return;
-        }
-        this.e = true;
-        CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(i);
-        completeTaskReqMsg.setTag(this.b);
-        completeTaskReqMsg.completeId = str;
-        completeTaskReqMsg.setToken(str2);
-        completeTaskReqMsg.extra = obj;
-        completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-        MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        c peek;
-        e eVar;
-        String str;
-        cq4 cq4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, lr4Var)) == null) {
             try {
-                if (this.e || (peek = this.a.peek()) == null) {
-                    return false;
-                }
-                if (peek instanceof f) {
-                    f fVar = (f) peek;
-                    if (fVar == null || (cq4Var = fVar.a) == null) {
-                        return false;
-                    }
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(String.valueOf(cq4Var.d()), String.valueOf(cq4Var.q()));
-                    v(jSONObject.toString(), 1, cq4Var.E(), fVar);
-                    return true;
-                } else if (!(peek instanceof e) || (eVar = (e) peek) == null || (str = eVar.a) == null) {
-                    return false;
-                } else {
-                    v(str, 1, eVar.b, eVar);
-                    return true;
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                return sQLiteDatabase.insert("activity_mission_info", null, c(lr4Var));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
             }
-        } else {
-            return invokeV.booleanValue;
         }
-        return false;
+        return invokeLL.longValue;
+    }
+
+    public final long j(SQLiteDatabase sQLiteDatabase, lr4 lr4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, lr4Var)) == null) {
+            try {
+                return sQLiteDatabase.update("activity_mission_info", c(lr4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(lr4Var.d()), String.valueOf(lr4Var.q())});
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
     }
 }

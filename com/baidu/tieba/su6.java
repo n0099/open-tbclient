@@ -1,391 +1,139 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.external.sticker.data.QmStickerItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.zip.ZipException;
-/* loaded from: classes6.dex */
-public class su6 implements ru6 {
+import tbclient.GeneralResource;
+import tbclient.HotUserRankEntry;
+import tbclient.Tabfeedlist.DataRes;
+import tbclient.ThreadInfo;
+/* loaded from: classes7.dex */
+public class su6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public im6 a;
-    public HashMap<String, String> b;
-    public List<DownloadData> c;
-    public b d;
-    public QmStickerItem e;
-    public ed5 f;
+    public ArrayList<rn> a;
+    public ArrayList<f15> b;
+    public z05 c;
+    public uu6 d;
+    public boolean e;
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-
-        void c(QmStickerItem qmStickerItem);
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements ed5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ su6 a;
-
-        @Override // com.baidu.tieba.ed5
-        public boolean onFileDownloaded(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ed5
-        public boolean onPreDownload(DownloadData downloadData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a(su6 su6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = su6Var;
-        }
-
-        @Override // com.baidu.tieba.ed5
-        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.l(downloadData);
-                if (this.a.d != null && this.a.e != null && this.a.e.fileUrl != null && this.a.e.fileUrl.equals(downloadData.getUrl())) {
-                    this.a.d.a(str);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0089 */
-        @Override // com.baidu.tieba.ed5
-        public void onFileDownloadSucceed(DownloadData downloadData) {
-            File file;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath()) && !StringUtils.isNull(su6.g)) {
-                this.a.l(downloadData);
-                if (this.a.d != null && this.a.e != null && this.a.e.fileUrl != null && this.a.e.fileUrl.equals(downloadData.getUrl()) && downloadData.getPath().endsWith(".zip")) {
-                    String substring = downloadData.getPath().substring(su6.g.length() + 1, downloadData.getPath().lastIndexOf("."));
-                    String str = su6.g + "/" + substring;
-                    try {
-                        try {
-                            n45.c(new File(downloadData.getPath()), str);
-                            this.a.b.put(substring, str);
-                            this.a.e.localPath = str;
-                            this.a.d.c(this.a.e);
-                            String path = downloadData.getPath();
-                            file = new File(path);
-                            downloadData = path;
-                        } catch (ZipException e) {
-                            this.a.d.a("解压失败，请点击重试");
-                            FileHelper.deleteFileOrDir(new File(str));
-                            BdLog.e(e);
-                            String path2 = downloadData.getPath();
-                            file = new File(path2);
-                            downloadData = path2;
-                        } catch (IOException e2) {
-                            this.a.d.a("解压失败，请点击重试");
-                            FileHelper.deleteFileOrDir(new File(str));
-                            BdLog.e(e2);
-                            String path3 = downloadData.getPath();
-                            file = new File(path3);
-                            downloadData = path3;
-                        }
-                        FileHelper.deleteFileOrDir(file);
-                    } catch (Throwable th) {
-                        FileHelper.deleteFileOrDir(new File(downloadData.getPath()));
-                        throw th;
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ed5
-        public void onFileUpdateProgress(DownloadData downloadData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
-                File file = new File(downloadData.getPath());
-                if (file.exists()) {
-                    file.delete();
-                }
-                this.a.l(downloadData);
-                if (this.a.d != null && this.a.e != null && this.a.e.fileUrl != null && this.a.e.fileUrl.equals(downloadData.getUrl())) {
-                    this.a.d.b();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        String str;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163957, "Lcom/baidu/tieba/su6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948163957, "Lcom/baidu/tieba/su6;");
-                return;
-            }
-        }
-        if (FileHelper.CreateFileIfNotFound(".stickers") != null) {
-            str = FileHelper.CreateFileIfNotFound(".stickers").getAbsolutePath();
-        } else {
-            str = "";
-        }
-        g = str;
-    }
-
-    public su6(im6 im6Var) {
+    public su6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {im6Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new QmStickerItem();
-        this.f = new a(this);
-        this.a = im6Var;
-        j();
-    }
-
-    public final boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (!ListUtils.isEmpty(this.c) && str != null) {
-                for (DownloadData downloadData : this.c) {
-                    if (downloadData != null && str.equals(downloadData.getUrl())) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ru6
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
-            if (nameMd5FromUrl == null) {
-                return null;
-            }
-            if (this.b == null) {
-                this.b = new HashMap<>();
-                e();
-            }
-            return this.b.get(nameMd5FromUrl);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ru6
-    public boolean b(QmStickerItem qmStickerItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qmStickerItem)) == null) {
-            m(qmStickerItem);
-            if (qmStickerItem == null) {
-                reset();
-                return true;
-            } else if (!StringUtils.isNull(qmStickerItem.localPath)) {
-                im6 im6Var = this.a;
-                if (im6Var == null) {
-                    return true;
-                }
-                return im6Var.b(qmStickerItem);
-            } else {
-                reset();
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ru6
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void m(QmStickerItem qmStickerItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qmStickerItem) == null) {
-            if (qmStickerItem == null) {
-                this.e = new QmStickerItem();
-            } else {
-                this.e = qmStickerItem;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ru6
-    public void d(QmStickerItem qmStickerItem) {
-        QmStickerItem qmStickerItem2;
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public su6 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qmStickerItem) == null) {
-            m(qmStickerItem);
-            if (qmStickerItem == null) {
-                return;
-            }
-            if (!TextUtils.isEmpty(qmStickerItem.fileUrl) && !StringUtils.isNull(g)) {
-                String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(qmStickerItem.fileUrl);
-                if (nameMd5FromUrl == null) {
-                    return;
-                }
-                File file = new File(g);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append(".");
-                String str2 = qmStickerItem.fileUrl;
-                sb.append(str2.substring(str2.lastIndexOf(".") + 1));
-                String sb2 = sb.toString();
-                if (this.c == null) {
-                    this.c = new ArrayList();
-                }
-                if (k(qmStickerItem.fileUrl)) {
-                    return;
-                }
-                DownloadData downloadData = new DownloadData();
-                downloadData.setType(10);
-                downloadData.setUrl(qmStickerItem.fileUrl);
-                downloadData.setPath(g + "/" + nameMd5FromUrl + sb2);
-                downloadData.setCallback(this.f);
-                this.c.add(downloadData);
-                fd5.k().l(downloadData);
-                return;
-            }
-            b(null);
-            if (this.d != null && (qmStickerItem2 = this.e) != null && (str = qmStickerItem2.fileUrl) != null && str.equals(qmStickerItem.fileUrl)) {
-                this.d.b();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            su6 su6Var = new su6();
+            su6Var.a = this.a;
+            su6Var.b = this.b;
+            su6Var.c = this.c;
+            su6Var.d = this.d;
+            su6Var.e = this.e;
+            return su6Var;
         }
+        return (su6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ru6
-    public void e() {
-        File[] listFiles;
+    public uu6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || StringUtils.isNull(g)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (uu6) invokeV.objValue;
+    }
+
+    public z05 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (z05) invokeV.objValue;
+    }
+
+    public ArrayList<f15> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<rn> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.b;
-        if (hashMap == null) {
-            this.b = new HashMap<>();
-        } else {
-            hashMap.clear();
+        this.a = new ArrayList<>(ListUtils.getCount(dataRes.thread_list));
+        for (ThreadInfo threadInfo : dataRes.thread_list) {
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(threadInfo);
+            threadData.insertItemToTitleOrAbstractText();
+            this.a.add(threadData);
         }
-        File file = new File(g);
-        if (!file.exists() || (listFiles = file.listFiles()) == null) {
-            return;
-        }
-        for (File file2 : listFiles) {
-            if (file2 != null && file2.isDirectory()) {
-                this.b.put(file2.getName(), file2.getAbsolutePath());
+        this.b = new ArrayList<>();
+        if (!ListUtils.isEmpty(dataRes.resource_list)) {
+            for (GeneralResource generalResource : dataRes.resource_list) {
+                f15 f15Var = new f15();
+                f15Var.c(generalResource);
+                this.b.add(f15Var);
             }
         }
-    }
-
-    public final void l(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, downloadData) == null) && !ListUtils.isEmpty(this.c) && downloadData != null) {
-            int i = -1;
-            int i2 = 0;
-            while (true) {
-                if (i2 < this.c.size()) {
-                    if (this.c.get(i2) != null && this.c.get(i2).getUrl() != null && this.c.get(i2).getUrl().equals(downloadData.getUrl())) {
-                        i = i2;
-                        break;
-                    }
-                    i2++;
-                } else {
-                    break;
-                }
-            }
-            this.c.remove(i);
+        z05 z05Var = new z05();
+        this.c = z05Var;
+        z05Var.f(dataRes.recommend_forum_info);
+        if (dataRes.hot_userrank_entry != null) {
+            uu6 uu6Var = new uu6();
+            this.d = uu6Var;
+            HotUserRankEntry hotUserRankEntry = dataRes.hot_userrank_entry;
+            uu6Var.a = hotUserRankEntry.hot_user;
+            uu6Var.b = hotUserRankEntry.module_name;
+            uu6Var.c = hotUserRankEntry.module_icon;
         }
-    }
-
-    @Override // com.baidu.tieba.ru6
-    public void reset() {
-        im6 im6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (im6Var = this.a) != null) {
-            im6Var.b(null);
+        boolean z = true;
+        if (dataRes.is_new_url.intValue() != 1) {
+            z = false;
         }
+        this.e = z;
     }
 }

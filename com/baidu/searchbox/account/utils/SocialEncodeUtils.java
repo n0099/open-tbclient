@@ -5,12 +5,15 @@ import android.util.Log;
 import com.baidu.searchbox.NativeBds;
 import com.baidu.searchbox.config.AppConfig;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class SocialEncodeUtils {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "SocialEncodeUtils";
+    public static final String TAG_ACCOUNT = "account_";
+    public static final String TAG_BDUSS = "bduss";
     public static final String TAG_SOCIAL = "baiduuid_";
     public static final String TAG_TEL = "tel_";
+    public static final String TAG_USERNAME = "username_";
 
     public static String getSocialDecrypt(String str, String str2) {
         if (TextUtils.isEmpty(str)) {

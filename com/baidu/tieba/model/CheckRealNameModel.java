@@ -6,18 +6,18 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.a9;
+import com.baidu.tieba.fb;
+import com.baidu.tieba.g9;
 import com.baidu.tieba.model.message.CheckRealNameHttpResponseMessage;
 import com.baidu.tieba.model.message.CheckRealNameRequestNetMessage;
 import com.baidu.tieba.model.message.CheckRealNameSocketResponseMessage;
-import com.baidu.tieba.xo9;
-import com.baidu.tieba.za;
+import com.baidu.tieba.zq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class CheckRealNameModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_APP_FIRST_START = "app_first_start";
@@ -25,9 +25,9 @@ public class CheckRealNameModel extends BdBaseModel {
     public static final String TYPE_PB_SHARE = "pb_share";
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public za b;
+    public fb b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(int i, String str, String str2, Object obj);
     }
@@ -52,8 +52,8 @@ public class CheckRealNameModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    /* loaded from: classes6.dex */
+    public class a extends fb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CheckRealNameModel a;
@@ -80,7 +80,7 @@ public class CheckRealNameModel extends BdBaseModel {
             this.a = checkRealNameModel;
         }
 
-        @Override // com.baidu.tieba.za
+        @Override // com.baidu.tieba.fb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -108,18 +108,18 @@ public class CheckRealNameModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
+                super((g9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
-        Y();
+        X();
         registerListener(this.b);
     }
 
-    public void W(String str) {
+    public void V(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -128,14 +128,14 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public void Z(b bVar) {
+    public void Y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void X(String str, Object obj) {
+    public void W(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -145,11 +145,11 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public final void Y() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            xo9.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            xo9.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            zq9.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            zq9.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

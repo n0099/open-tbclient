@@ -5,7 +5,7 @@ import com.facebook.common.internal.Preconditions;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public class ThrottlingProducer<T> implements Producer<T> {
     public static final String PRODUCER_NAME = "ThrottlingProducer";
     public final Executor mExecutor;
@@ -16,7 +16,7 @@ public class ThrottlingProducer<T> implements Producer<T> {
     @GuardedBy("this")
     public int mNumCurrentRequests = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public class ThrottlerConsumer extends DelegatingConsumer<T, T> {
         public ThrottlerConsumer(Consumer<T> consumer) {
             super(consumer);

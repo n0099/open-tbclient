@@ -29,7 +29,7 @@ import java.util.concurrent.Future;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class LogSender {
     public static LogSender a = new LogSender();
     public boolean b = false;
@@ -39,7 +39,7 @@ public class LogSender {
     public Timer f;
     public Handler g;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes3.dex */
     public class a implements Callable<Object> {
         public Context b;
         public String c;

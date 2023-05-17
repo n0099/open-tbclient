@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MusicData extends MusicBaseBean {
     public static final String MUSIC_DATA_KEY = "musicData";
     public static final String MUSIC_LOC_HOME_TAB = "music_home_";

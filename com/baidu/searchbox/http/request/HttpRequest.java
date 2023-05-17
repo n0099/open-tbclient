@@ -11,6 +11,8 @@ import com.baidu.searchbox.http.callback.StatResponseCallback;
 import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.searchbox.http.interceptor.LogInterceptor;
 import com.baidu.searchbox.http.model.MultipleConnectParams;
+import com.baidu.searchbox.http.multipath.IMultiPath;
+import com.baidu.searchbox.http.multipath.MultiPathRuntime;
 import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.searchbox.http.statistics.NetworkStat;
 import com.baidu.searchbox.http.statistics.NetworkStatRecord;
@@ -25,7 +27,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public static final String EXT_HEADER_MULTIPLE_CONNECT_DELAY_TIME_MS = "Multiple-Connect-Delay-Time";
     public static final String EXT_HEADER_MULTIPLE_CONNECT_NUM = "Multiple-Connect-Num";
@@ -40,6 +42,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public CookieManager cookieManager;
     public Handler deliver;
     public Dns dns;
+    public String enableBindMobilePolicy;
     public boolean enableRetry;
     public JSONObject extraUserLog;
     public boolean followRedirects;
@@ -81,6 +84,7 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
     public abstract T newBuilder(AbstractHttpManager abstractHttpManager);
 
     public HttpRequest(T t) {
+        String str;
         this.connectionTimeout = 0;
         this.readTimeout = 0;
         this.writeTimeout = 0;
@@ -122,6 +126,19 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
             addMultiConnectHeader(t.headersBuilder);
             if (t.enableBrotli) {
                 t.headersBuilder.add("bdapp-support-brotli", "1");
+            }
+            IMultiPath iMultiPath = MultiPathRuntime.sMultiPath;
+            if (iMultiPath != null && iMultiPath.getBindMobileFromList() != null && iMultiPath.getBindMobileFromList().contains(Integer.valueOf(this.requestFrom))) {
+                String str2 = t.enableBindMobilePolicy;
+                if (str2 != null) {
+                    t.enableBindMobile(str2);
+                } else {
+                    t.enableBindMobile("1");
+                }
+            }
+            if (t.enableBindMobile && (str = t.enableBindMobilePolicy) != null) {
+                t.headersBuilder.add("X-Bind-Mobile", str);
+                this.enableBindMobilePolicy = t.enableBindMobilePolicy;
             }
             this.headers = t.headersBuilder.build();
             if (this.isReqNetStatEnable) {
@@ -216,6 +233,10 @@ public abstract class HttpRequest<T extends HttpRequestBuilder> {
 
     public Dns getDns() {
         return this.dns;
+    }
+
+    public String getEnableBindMobilePolicy() {
+        return this.enableBindMobilePolicy;
     }
 
     public JSONObject getExtraUserLog() {

@@ -3,7 +3,7 @@ package com.yy.hiidostatis.message.module.sessionreport;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class EventValue {
     public CalAction calAction;
     public Map<String, String> dimens;

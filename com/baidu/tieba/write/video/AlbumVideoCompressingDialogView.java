@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes8.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,9 +87,9 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0224, this);
-            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f0927cb);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092643);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0237, this);
+            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f09283a);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0926af);
         }
     }
 

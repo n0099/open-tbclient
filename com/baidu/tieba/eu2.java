@@ -1,39 +1,41 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.app.Application;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.SwanAppLauncherActivity;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.tieba.eu2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes4.dex */
-public final class eu2 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public abstract class eu2<SelfT extends eu2<SelfT>> extends gu2<SelfT> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
-    public final int c;
 
-    /* loaded from: classes4.dex */
-    public static class a {
+    /* loaded from: classes5.dex */
+    public static final class a extends eu2<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Object b;
-        public int c;
-        public RuntimeException d;
+
+        public a i1() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (a) invokeV.objValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,207 +51,138 @@ public final class eu2 {
             }
         }
 
-        public Exception c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Exception) invokeV.objValue;
+        @Override // com.baidu.tieba.co3
+        public /* bridge */ /* synthetic */ co3 d() {
+            i1();
+            return this;
         }
 
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public eu2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.d != null) {
-                    if (!eu2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else if (this.a == null) {
-                    this.d = new IllegalStateException("key == null");
-                    if (!eu2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else {
-                    synchronized (a.class) {
-                        if (eu2.e.contains(this.a)) {
-                            this.d = new IllegalStateException("the key of switch has been occupied");
-                            if (!eu2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (this.b == null) {
-                            this.d = new IllegalStateException("defaultValue == null");
-                            if (!eu2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (!eu2.c(this.c, this.b)) {
-                            this.d = new IllegalStateException("valueType error");
-                            if (!eu2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else {
-                            eu2.e.add(this.a);
-                            return new eu2(this);
-                        }
-                    }
-                }
-            }
-            return (eu2) invokeV.objValue;
-        }
-
-        public a b(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.b = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.c = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a d(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.d = new IllegalArgumentException("the key of switch must not be empty");
-                    if (!eu2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else if (TextUtils.equals(Config.SID, str)) {
-                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
-                    if (!eu2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
+        @Override // com.baidu.tieba.eu2, com.baidu.tieba.ju2
+        public /* bridge */ /* synthetic */ ju2 update(Bundle bundle) {
+            return super.update(bundle);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746759, "Lcom/baidu/tieba/eu2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746759, "Lcom/baidu/tieba/eu2;");
-                return;
-            }
-        }
-        d = ho1.a;
-        e = new HashSet();
-    }
-
-    public Object d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public eu2(@NonNull a aVar) {
+    public eu2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
     }
 
-    public static boolean c(int i, Object obj) {
-        InterceptResult invokeIL;
+    public static String d1(String str, int i, JSONObject jSONObject) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                return false;
-                            }
-                            return obj instanceof String;
-                        }
-                        return obj instanceof Long;
-                    }
-                    return obj instanceof Integer;
-                }
-                return obj instanceof Double;
-            }
-            return obj instanceof Boolean;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, str, i, jSONObject)) == null) {
+            return e1(str, null, i, jSONObject);
         }
-        return invokeIL.booleanValue;
+        return (String) invokeLIL.objValue;
     }
 
-    @NonNull
+    public static String e1(String str, String str2, int i, JSONObject jSONObject) {
+        InterceptResult invokeLLIL;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65538, null, str, str2, i, jSONObject)) == null) {
+            if (i == 1) {
+                str3 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+            } else {
+                str3 = "swan";
+            }
+            Uri.Builder builder = new Uri.Builder();
+            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str);
+            if (!TextUtils.isEmpty(str2)) {
+                builder.appendEncodedPath(str2);
+            } else if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            if (jSONObject != null) {
+                builder.appendQueryParameter("_baiduboxapp", jSONObject.toString());
+            }
+            builder.build();
+            return builder.toString();
+        }
+        return (String) invokeLLIL.objValue;
+    }
+
+    public static eu2 f1(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bundle)) == null) {
+            a aVar = new a();
+            aVar.update(bundle);
+            return aVar;
+        }
+        return (eu2) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ju2
+    public SelfT update(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            j62.h(bundle);
+            return (SelfT) super.update(bundle);
+        }
+        return (SelfT) invokeL.objValue;
+    }
+
+    public static Intent g1(Context context, eu2 eu2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, eu2Var)) == null) {
+            if (context != null && eu2Var != null) {
+                Intent intent = new Intent();
+                intent.setAction("com.baidu.searchbox.action.aiapps.LAUNCH");
+                intent.setComponent(new ComponentName(context, SwanAppLauncherActivity.class));
+                if (context instanceof Application) {
+                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                }
+                intent.putExtras(eu2Var.D());
+                return intent;
+            }
+            return null;
+        }
+        return (Intent) invokeLL.objValue;
+    }
+
+    public static String h1(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, str, str2, i)) == null) {
+            if (i == 1) {
+                str3 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+            } else {
+                str3 = "swan";
+            }
+            Uri.Builder builder = new Uri.Builder();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            builder.scheme(UnitedSchemeConstants.UNITED_SCHEME).authority(str3).appendPath(str).appendQueryParameter("_baiduboxapp", jSONObject.toString()).build();
+            return builder.toString();
+        }
+        return (String) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.ju2
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (d) {
-                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
-            }
-            return super.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanAppLaunchParams{appId='" + H() + "', from='" + T() + "', page='" + e0() + "', isDebug=" + n0() + ", extraData=" + P() + ", clickId='" + L() + "', launchScheme='" + W() + "', notInHistory='" + c0() + "'}";
         }
         return (String) invokeV.objValue;
     }

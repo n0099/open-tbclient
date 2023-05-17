@@ -6,7 +6,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapapi.search.core.BuildingInfo;
 import com.baidu.mapapi.search.core.SearchResult;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BuildingResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<BuildingResult> CREATOR = new a();
     public List<BuildingInfo> a;

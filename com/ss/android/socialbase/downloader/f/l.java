@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class l implements e {
     public final i a;
     public final com.ss.android.socialbase.downloader.model.e b;

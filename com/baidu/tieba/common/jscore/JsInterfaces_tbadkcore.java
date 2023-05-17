@@ -2,15 +2,15 @@ package com.baidu.tieba.common.jscore;
 
 import androidx.annotation.Keep;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ag6;
-import com.baidu.tieba.wu4;
-import com.baidu.tieba.xu4;
+import com.baidu.tieba.fw4;
+import com.baidu.tieba.gw4;
+import com.baidu.tieba.mh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class JsInterfaces_tbadkcore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public final class JsInterfaces_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ag6.a().c("local_obj", wu4.class);
-            ag6.a().c(BaseWebView.TB_NA_CHANNEL, xu4.class);
+            mh6.a().c("local_obj", fw4.class);
+            mh6.a().c(BaseWebView.TB_NA_CHANNEL, gw4.class);
         }
     }
 }

@@ -6,8 +6,9 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String a = DownloadReceiver.class.getSimpleName();
 
@@ -88,7 +89,7 @@ public class DownloadReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(action)) {
             return;
         }
-        if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
+        if (action.equals(NetworkMonitor.NET_CHANGE_ACTION)) {
             if (com.ss.android.socialbase.downloader.c.a.a()) {
                 com.ss.android.socialbase.downloader.c.a.a(a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }

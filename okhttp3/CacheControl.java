@@ -1,12 +1,13 @@
 package okhttp3;
 
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.schemeauthenticate.dispatcher.UnitedSchemePublicDispatcher;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.internal.http.HttpHeaders;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CacheControl {
     @Nullable
     public String headerValue;
@@ -25,7 +26,7 @@ public final class CacheControl {
     public static final CacheControl FORCE_NETWORK = new Builder().noCache().build();
     public static final CacheControl FORCE_CACHE = new Builder().onlyIfCached().maxStale(Integer.MAX_VALUE, TimeUnit.SECONDS).build();
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public boolean immutable;
         public int maxAgeSeconds = -1;
@@ -313,7 +314,7 @@ public final class CacheControl {
                             i5 = HttpHeaders.parseSeconds(str2, -1);
                         } else if (PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE.equalsIgnoreCase(trim)) {
                             z4 = true;
-                        } else if ("public".equalsIgnoreCase(trim)) {
+                        } else if (UnitedSchemePublicDispatcher.MODULE_NAME.equalsIgnoreCase(trim)) {
                             z5 = true;
                         } else if ("must-revalidate".equalsIgnoreCase(trim)) {
                             z6 = true;

@@ -1,5 +1,5 @@
 package com.baidu.pass.main.facesdk.model;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class BDFaceDetectListConf {
     public boolean usingDetect = false;
     public boolean usingAlign = true;

@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.response.model.AdMatrixInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class dn implements com.kwad.sdk.core.d<AdMatrixInfo.MatrixTemplate> {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public static void a2(AdMatrixInfo.MatrixTemplate matrixTemplate, JSONObject jSONObject) {

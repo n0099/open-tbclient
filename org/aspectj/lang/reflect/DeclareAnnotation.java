@@ -1,10 +1,10 @@
 package org.aspectj.lang.reflect;
 
 import java.lang.annotation.Annotation;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface DeclareAnnotation {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum Kind {
         Field,
         Method,

@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jy7;
+import com.baidu.tieba.xz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.TopicList.TopicListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jy7 ranklistData;
+    public xz7 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotRanklistMessage() {
@@ -35,13 +35,13 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public jy7 getHotRanklistData() {
+    public xz7 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.ranklistData;
         }
-        return (jy7) invokeV.objValue;
+        return (xz7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,9 +64,9 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            jy7 jy7Var = new jy7();
-            this.ranklistData = jy7Var;
-            jy7Var.b(topicListResIdl.data);
+            xz7 xz7Var = new xz7();
+            this.ranklistData = xz7Var;
+            xz7Var.b(topicListResIdl.data);
         }
     }
 }

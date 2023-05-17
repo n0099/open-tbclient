@@ -6,17 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
-public final class zfa {
+/* loaded from: classes8.dex */
+public class zfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aga a;
+    public String a;
+    public String b;
+    public boolean c;
 
-    public zfa() {
+    public zfa(String str, String str2, String str3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,29 +29,36 @@ public final class zfa {
                 return;
             }
         }
-        this.a = new aga();
+        this.c = false;
+        this.a = str;
+        this.b = str2;
+        this.c = z;
     }
 
-    public final List<com.baidu.ubs.analytics.a.a> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.a();
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void b(int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void c(com.baidu.ubs.analytics.a.a aVar) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a.c(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return invokeV.booleanValue;
     }
 }

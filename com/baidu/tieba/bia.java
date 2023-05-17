@@ -1,37 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.util.List;
-/* loaded from: classes3.dex */
-public abstract class bia {
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes5.dex */
+public final class bia {
     public static /* synthetic */ Interceptable $ic;
+    public static bia c;
+    public static SQLiteOpenHelper d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
-    public bia c;
-    public yha d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public String g;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(bia biaVar);
-
-        void b(bia biaVar);
-
-        void c(int i, int i2);
-
-        void d(String str, bia biaVar);
-    }
+    public AtomicInteger a;
+    public SQLiteDatabase b;
 
     public bia() {
         Interceptable interceptable = $ic;
@@ -43,141 +28,54 @@ public abstract class bia {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicInteger();
     }
 
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String fileNameWithOutExtention;
-        StringBuilder sb;
+    public static synchronized bia a() {
+        InterceptResult invokeV;
+        bia biaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (bia.class) {
+                if (c == null) {
+                    b(wha.h().getContext());
+                }
+                biaVar = c;
             }
-            if (str2 == null) {
-                str2 = "";
+            return biaVar;
+        }
+        return (bia) invokeV.objValue;
+    }
+
+    public final synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.a.incrementAndGet() == 1) {
+                    xia.a("***************新建立了 一个数据库的实例****************");
+                    this.b = d.getWritableDatabase();
+                }
+                sQLiteDatabase = this.b;
             }
-            if (TextUtils.isEmpty(this.g)) {
-                sb = new StringBuilder();
-                fileNameWithOutExtention = FileUtils.removeExtention(str);
-            } else {
-                fileNameWithOutExtention = FileUtils.getFileNameWithOutExtention(str);
-                sb = new StringBuilder();
-                sb.append(this.g);
-            }
-            sb.append(fileNameWithOutExtention);
-            sb.append(str2);
-            return sb.toString();
+            return sQLiteDatabase;
         }
-        return (String) invokeLL.objValue;
+        return (SQLiteDatabase) invokeV.objValue;
     }
 
-    public abstract void b();
-
-    public void c(int i) {
+    public static synchronized void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public abstract void d(yha yhaVar);
-
-    public void e(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    public void f(bia biaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, biaVar) == null) {
-            this.c = biaVar;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.f) {
-            return;
-        }
-        this.e = true;
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.d(getClass().getName() + str, this);
-        }
-    }
-
-    public abstract void h();
-
-    public void i(int i) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.c(this.b, i);
-    }
-
-    public boolean j(yha yhaVar) {
-        InterceptResult invokeL;
-        List<wha> a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, yhaVar)) == null) {
-            if (yhaVar != null && yhaVar.c() != null && yhaVar.c().size() == 1 && yhaVar.c().get(0).a() != null && (a2 = yhaVar.c().get(0).a()) != null && a2.size() == 1) {
-                wha whaVar = a2.get(0);
-                if (whaVar.b() != null && !whaVar.b().isNeedEdit()) {
-                    return false;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            synchronized (bia.class) {
+                if (c == null) {
+                    c = new bia();
+                    d = new zha(context);
                 }
             }
-            return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void l(yha yhaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, yhaVar) == null) {
-            this.d = yhaVar;
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.c(this.b, 100);
-                this.a.b(this);
-            }
-            bia biaVar = this.c;
-            if (biaVar != null) {
-                biaVar.d(yhaVar);
-            }
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.c == null : invokeV.booleanValue;
-    }
-
-    public yha n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : (yha) invokeV.objValue;
-    }
-
-    public void o() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (aVar = this.a) == null) {
-            return;
-        }
-        aVar.a(this);
     }
 }

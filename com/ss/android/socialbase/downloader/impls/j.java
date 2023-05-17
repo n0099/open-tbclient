@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.downloader.impls;
 
 import com.ss.android.socialbase.downloader.downloader.s;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class j implements s {
     @Override // com.ss.android.socialbase.downloader.downloader.s
     public long a(int i, int i2) {

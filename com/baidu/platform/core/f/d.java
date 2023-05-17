@@ -4,6 +4,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
 import com.baidu.mobstat.Config;
+import com.baidu.searchbox.ui.animview.praise.ComboPraiseManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.p0.i1;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public class d extends com.baidu.platform.base.e {
             this.a.a("rp_format", "json");
             this.a.a("rp_filter", "mobile");
             this.a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
-            this.a.a("sn", a(drivingRoutePlanOption.mFrom));
+            this.a.a(ComboPraiseManager.PRAISE_SOURCE_PREFIX_HN_SN, a(drivingRoutePlanOption.mFrom));
             this.a.a("en", a(drivingRoutePlanOption.mTo));
             String str = drivingRoutePlanOption.mCityName;
             if (str != null) {

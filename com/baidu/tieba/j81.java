@@ -1,175 +1,232 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class j81 {
     public static /* synthetic */ Interceptable $ic;
-    public static z51 a;
-    public static m81 b;
-    public static b61 c;
-    public static l81 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<z71> a;
+    public final List<e81> b;
+    public final d81 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947837062, "Lcom/baidu/tieba/j81;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947837062, "Lcom/baidu/tieba/j81;");
-        }
-    }
-
-    public j81() {
+    public j81(d81 contextHelper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contextHelper};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(contextHelper, "contextHelper");
+        this.c = contextHelper;
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    @JvmStatic
-    public static final Context a() {
-        InterceptResult invokeV;
+    public final boolean g(String url) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context b2 = li0.b();
-            Intrinsics.checkNotNullExpressionValue(b2, "AdRuntime.applicationContext()");
-            return b2;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    @JvmStatic
-    public static final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (fm0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) != 1) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, url)) == null) {
+            Intrinsics.checkNotNullParameter(url, "url");
+            while (true) {
+                boolean z = false;
+                for (e81 e81Var : this.b) {
+                    if (z || e81Var.a(this.c, url)) {
+                        z = true;
+                    }
+                }
+                return z;
             }
-            return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @JvmStatic
-    public static final boolean f() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (fm0.b().a().a("nairobi_kernel_type", e71.b()) == e71.b()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var instanceof a81) {
+                    return z71Var.b();
+                }
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final l81 c() {
-        InterceptResult invokeV;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                synchronized (j81.class) {
-                    if (d == null) {
-                        d = (l81) ServiceManager.getService(l81.a);
-                    }
-                    if (d == null) {
-                        d = l81.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.m();
                 }
             }
-            return d;
         }
-        return (l81) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final b61 d() {
-        InterceptResult invokeV;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (j81.class) {
-                    if (c == null) {
-                        c = (b61) ServiceManager.getService(b61.a);
-                    }
-                    if (c == null) {
-                        c = b61.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.c();
                 }
             }
-            return c;
         }
-        return (b61) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final z51 e() {
-        InterceptResult invokeV;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (a == null) {
-                synchronized (j81.class) {
-                    if (a == null) {
-                        a = (z51) ServiceManager.getService(z51.a);
-                    }
-                    if (a == null) {
-                        a = z51.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.d();
                 }
             }
-            return a;
         }
-        return (z51) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final m81 g() {
-        InterceptResult invokeV;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (b == null) {
-                synchronized (j81.class) {
-                    if (b == null) {
-                        b = (m81) ServiceManager.getService(m81.a);
-                    }
-                    if (b == null) {
-                        b = m81.b;
-                    }
-                    Unit unit = Unit.INSTANCE;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.i();
                 }
             }
-            return b;
         }
-        return (m81) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.l();
+                }
+            }
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public final boolean b(AbsNadBrowserView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            for (z71 z71Var : this.a) {
+                if (z71Var instanceof c81) {
+                    return z71Var.f(webView, str);
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void c(AbsNadBrowserView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.g(webView, str);
+                }
+            }
+            if (str != null) {
+                for (e81 e81Var : this.b) {
+                    e81Var.b(this.c, str);
+                }
+            }
+        }
+    }
+
+    public final void d(AbsNadBrowserView webView, String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.h(webView, str, bitmap);
+                }
+            }
+        }
+    }
+
+    public final void e(AbsNadBrowserView webView, int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i, str, str2) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.j(webView, i, str, str2);
+                }
+            }
+        }
+    }
+
+    public final void f(AbsNadBrowserView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.k(webView, str);
+                }
+            }
+        }
+    }
+
+    public final void k(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
+            for (z71 z71Var : this.a) {
+                if (z71Var != null) {
+                    z71Var.e(intent);
+                }
+            }
+        }
+    }
+
+    public final void n(e81 action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, action) == null) {
+            Intrinsics.checkNotNullParameter(action, "action");
+            this.b.add(action);
+        }
+    }
+
+    public final void o(z71 z71Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, z71Var) == null) {
+            this.a.add(z71Var);
+        }
     }
 }

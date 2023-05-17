@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.metadata.id3.CommentFrame;
 import com.google.android.exoplayer2.metadata.id3.Id3Decoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class GaplessInfoHolder {
     public static final String GAPLESS_COMMENT_ID = "iTunSMPB";
     public int encoderDelay = -1;

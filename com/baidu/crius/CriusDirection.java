@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CriusDirection {
     public static final /* synthetic */ CriusDirection[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

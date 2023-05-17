@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ProtocolException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class FieldEncoding {
     public static final /* synthetic */ FieldEncoding[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +22,7 @@ public final class FieldEncoding {
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;

@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.is;
 import java.io.Serializable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface is<T extends is, F> extends Serializable, Comparable<T> {
     void a(jd jdVar);
 

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.language.bm.Rule;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @DoNotStrip
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public final class CriusEdge {
     public static final /* synthetic */ CriusEdge[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

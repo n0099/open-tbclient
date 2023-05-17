@@ -1,28 +1,255 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class le4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
 
-    public le4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONObject a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = new JSONObject();
+        }
+
+        public static a a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new a();
+            }
+            return (a) invokeV.objValue;
+        }
+
+        public JSONObject b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public a c(String str, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj)) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    try {
+                        this.a.put(str, obj);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                return this;
+            }
+            return (a) invokeLL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939982, "Lcom/baidu/tieba/le4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947939982, "Lcom/baidu/tieba/le4;");
+                return;
+            }
+        }
+        a = qp1.a;
+    }
+
+    public static void a(qe4 qe4Var, aw2 aw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, qe4Var, aw2Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", qe4Var.j);
+            a2.c("markerId", aw2Var.a);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "callouttap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            no3.d(qe4Var.i, qe4Var.j, "map", "callouttap", jSONObject);
+        }
+    }
+
+    public static void b(View view2, qe4 qe4Var) {
+        String str;
+        yv2 yv2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, qe4Var) == null) {
+            oe4 G = qe4Var.G(view2);
+            if (G != null && (yv2Var = G.a) != null) {
+                str = yv2Var.a;
+            } else {
+                str = "";
+            }
+            a a2 = a.a();
+            a2.c("mapId", qe4Var.j);
+            a2.c("controlId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "controltap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            no3.d(qe4Var.i, qe4Var.j, "map", "controltap", jSONObject);
+        }
+    }
+
+    public static void e(Marker marker, qe4 qe4Var) {
+        String str;
+        aw2 aw2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, marker, qe4Var) == null) {
+            pe4 H = qe4Var.H(marker);
+            if (H != null && (aw2Var = H.a) != null) {
+                str = aw2Var.a;
+            } else {
+                str = "";
+            }
+            a a2 = a.a();
+            a2.c("mapId", qe4Var.j);
+            a2.c("markerId", str);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "markertap");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            no3.d(qe4Var.i, qe4Var.j, "map", "markertap", jSONObject);
+        }
+    }
+
+    public static void c(qe4 qe4Var, LatLng latLng) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, qe4Var, latLng) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(latLng.latitude));
+            a2.c("longitude", Double.valueOf(latLng.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("mapId", qe4Var.j);
+            a3.c(CriusAttrConstants.POSITION, b);
+            JSONObject b2 = a3.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "tap");
+                jSONObject.put("data", b2.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            no3.d(qe4Var.i, qe4Var.j, "map", "tap", jSONObject);
+        }
+    }
+
+    public static void d(qe4 qe4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qe4Var) == null) {
+            a a2 = a.a();
+            a2.c("mapId", qe4Var.j);
+            JSONObject b = a2.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "updated");
+                jSONObject.put("data", b.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            no3.d(qe4Var.i, qe4Var.j, "map", "updated", jSONObject);
+        }
+    }
+
+    public static void f(qe4 qe4Var, MapStatus mapStatus, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65542, null, qe4Var, mapStatus, i) == null) {
+            a a2 = a.a();
+            a2.c("latitude", Double.valueOf(mapStatus.bound.northeast.latitude));
+            a2.c("longitude", Double.valueOf(mapStatus.bound.northeast.longitude));
+            JSONObject b = a2.b();
+            a a3 = a.a();
+            a3.c("latitude", Double.valueOf(mapStatus.bound.southwest.latitude));
+            a3.c("longitude", Double.valueOf(mapStatus.bound.southwest.longitude));
+            JSONObject b2 = a3.b();
+            a a4 = a.a();
+            a4.c("mapId", qe4Var.j);
+            a4.c("northeast", b);
+            a4.c("southwest", b2);
+            a4.c("scale", Float.valueOf(mapStatus.zoom));
+            a4.c("reason", Integer.valueOf(i));
+            JSONObject b3 = a4.b();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("vtype", "regionchange");
+                jSONObject.put("data", b3.toString());
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, qe4Var.i);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            no3.d(qe4Var.i, qe4Var.j, "map", "regionchange", jSONObject);
         }
     }
 }

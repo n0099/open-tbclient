@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
+/* loaded from: classes10.dex */
 public class V1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -102,13 +102,13 @@ public class V1 {
                 if (!a(context, Uri.parse(str), info)) {
                     if (info.getOpent() == 1) {
                         if (N.d.c) {
-                            Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1701), 1).show();
+                            Toast.makeText(context, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f2), 1).show();
                             e1.a(context).c(new f1(info), 5).a();
                             return;
                         }
                         if (!TextUtils.isEmpty(info.getDl_name())) {
                             Context applicationContext = context.getApplicationContext();
-                            Toast.makeText(applicationContext, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f1705) + info.getDl_name(), 0).show();
+                            Toast.makeText(applicationContext, context.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f17f6) + info.getDl_name(), 0).show();
                         }
                         d1 a = e1.a(context);
                         f1 f1Var = new f1(info);

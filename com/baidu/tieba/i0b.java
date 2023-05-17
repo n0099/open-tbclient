@@ -4,8 +4,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class i0b<TResult> {
+/* loaded from: classes5.dex */
+public class i0b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,20 +22,4 @@ public abstract class i0b<TResult> {
             }
         }
     }
-
-    public abstract i0b<TResult> a(f0b<TResult> f0bVar);
-
-    public abstract i0b<TResult> b(g0b g0bVar);
-
-    public abstract i0b<TResult> c(h0b<TResult> h0bVar);
-
-    public abstract Exception d();
-
-    public abstract TResult e();
-
-    public abstract boolean f();
-
-    public abstract boolean g();
-
-    public abstract boolean h();
 }

@@ -4,7 +4,7 @@ import android.graphics.Path;
 import android.graphics.PointF;
 import androidx.annotation.NonNull;
 import androidx.transition.PathMotion;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MaterialArcMotion extends PathMotion {
     public static PointF getControlPoint(float f, float f2, float f3, float f4) {
         if (f2 > f4) {

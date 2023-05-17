@@ -1,61 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class t32 extends i32<TextView, v32> {
+import org.json.JSONArray;
+/* loaded from: classes7.dex */
+public class t32 extends m22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint.Align a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t32(@Nullable Context context, @NonNull v32 v32Var) {
-        super(context, v32Var);
+    public t32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, v32Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (j32) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i32
-    /* renamed from: a0 */
-    public void X(@NonNull TextView textView, @NonNull v32 v32Var) {
+    @Override // com.baidu.tieba.m22
+    public void a(n22 n22Var, Canvas canvas) {
+        Paint.Align align;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, v32Var) == null) {
-            Y(textView, v32Var, 16);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, n22Var, canvas) == null) && (align = this.a) != null) {
+            n22Var.e.setTextAlign(align);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.m32
-    @NonNull
-    /* renamed from: Z */
-    public TextView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m22
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new TextView(context);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "left")) {
+                        this.a = Paint.Align.LEFT;
+                    } else if (TextUtils.equals(optString, "center")) {
+                        this.a = Paint.Align.CENTER;
+                    } else if (TextUtils.equals(optString, "right")) {
+                        this.a = Paint.Align.RIGHT;
+                    }
+                }
+            } catch (Exception e) {
+                if (qp1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return (TextView) invokeL.objValue;
     }
 }

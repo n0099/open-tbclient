@@ -13,7 +13,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.utils.ExceptionUtilsKt;
 import kotlin.reflect.jvm.internal.impl.utils.WrappedValues;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LockBasedStorageManager implements StorageManager {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final String debugText;
@@ -35,7 +35,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     };
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ExceptionHandlingStrategy {
         public static final ExceptionHandlingStrategy THROW = new ExceptionHandlingStrategy() { // from class: kotlin.reflect.jvm.internal.impl.storage.LockBasedStorageManager.ExceptionHandlingStrategy.1
             public static /* synthetic */ void $$$reportNull$$$0(int i) {
@@ -54,7 +54,7 @@ public class LockBasedStorageManager implements StorageManager {
         RuntimeException handleException(Throwable th);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public enum NotValue {
         NOT_COMPUTED,
         COMPUTING,
@@ -188,7 +188,7 @@ public class LockBasedStorageManager implements StorageManager {
         throw new IllegalStateException(format);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CacheWithNotNullValuesBasedOnMemoizedFunction<K, V> extends CacheWithNullableValuesBasedOnMemoizedFunction<K, V> implements CacheWithNotNullValues<K, V> {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
 
@@ -244,7 +244,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CacheWithNullableValuesBasedOnMemoizedFunction<K, V> extends MapBasedMemoizedFunction<KeyWithComputation<K, V>, V> {
         public static /* synthetic */ void $$$reportNull$$$0(int i) {
             Object[] objArr = new Object[3];
@@ -292,7 +292,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class KeyWithComputation<K, V> {
         public final Function0<? extends V> computation;
         public final K key;
@@ -317,7 +317,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LockBasedLazyValue<T> implements NullableLazyValue<T> {
         public final Function0<? extends T> computable;
         public final LockBasedStorageManager storageManager;
@@ -418,7 +418,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class LockBasedLazyValueWithPostCompute<T> extends LockBasedLazyValue<T> {
         public volatile SingleThreadValue<T> valuePostCompute;
 
@@ -468,7 +468,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class LockBasedNotNullLazyValue<T> extends LockBasedLazyValue<T> implements NotNullLazyValue<T> {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
 
@@ -517,7 +517,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class LockBasedNotNullLazyValueWithPostCompute<T> extends LockBasedLazyValueWithPostCompute<T> implements NotNullLazyValue<T> {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
 
@@ -566,7 +566,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MapBasedMemoizedFunction<K, V> implements MemoizedFunctionToNullable<K, V> {
         public final ConcurrentMap<K, Object> cache;
         public final Function1<? super K, ? extends V> compute;
@@ -664,7 +664,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class MapBasedMemoizedFunctionToNotNull<K, V> extends MapBasedMemoizedFunction<K, V> implements MemoizedFunctionToNotNull<K, V> {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
 
@@ -718,7 +718,7 @@ public class LockBasedStorageManager implements StorageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class RecursionDetectedResult<T> {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public final boolean fallThrough;

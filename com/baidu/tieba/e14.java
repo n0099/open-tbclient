@@ -1,101 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.app.NotificationCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public final class e14 {
+/* loaded from: classes5.dex */
+public class e14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public f24 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681473, "Lcom/baidu/tieba/e14;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947681473, "Lcom/baidu/tieba/e14;");
-                return;
-            }
-        }
-        b = ho1.a;
-    }
-
-    public e14() {
+    public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
+            ((NotificationManager) context.getSystemService("notification")).cancel(i);
         }
     }
 
-    public void c() {
-        f24 f24Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (f24Var = this.a) != null) {
-            f24Var.c();
-        }
-    }
-
-    public static e14 d(e02 e02Var) {
+    public static final Bitmap b(Drawable drawable) {
         InterceptResult invokeL;
+        Bitmap.Config config;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e02Var)) == null) {
-            if (e02Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
+            int intrinsicWidth = drawable.getIntrinsicWidth();
+            int intrinsicHeight = drawable.getIntrinsicHeight();
+            if (drawable.getOpacity() != -1) {
+                config = Bitmap.Config.ARGB_8888;
+            } else {
+                config = Bitmap.Config.RGB_565;
             }
-            e14 e14Var = new e14();
-            e14Var.a = f24.e(e02Var);
-            return e14Var;
+            Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
+            Canvas canvas = new Canvas(createBitmap);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            drawable.draw(canvas);
+            return createBitmap;
         }
-        return (e14) invokeL.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void b(String str) {
+    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
+        NotificationCompat.Builder builder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            JSONObject a = a(str);
-            f24 f24Var = this.a;
-            if (f24Var != null) {
-                f24Var.b(a);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
+            if (Build.VERSION.SDK_INT >= 26) {
+                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
+                builder = new NotificationCompat.Builder(context, String.valueOf(i));
+            } else {
+                builder = new NotificationCompat.Builder(context);
             }
-        }
-    }
-
-    public final JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", kx3.a(str));
-            } catch (Exception e) {
-                if (b) {
-                    e.printStackTrace();
-                }
+            if (!TextUtils.isEmpty(str3)) {
+                h14.c("notifyShow", str3, str4);
             }
-            return jSONObject;
+            if (pendingIntent != null) {
+                builder.setContentIntent(pendingIntent);
+            }
+            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f080183);
+            if (bitmap == null) {
+                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080183));
+            }
+            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

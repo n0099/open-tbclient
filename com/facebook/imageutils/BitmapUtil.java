@@ -13,7 +13,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes9.dex */
 public final class BitmapUtil {
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
     public static final int ARGB_4444_BYTES_PER_PIXEL = 2;
@@ -26,7 +26,7 @@ public final class BitmapUtil {
     public static final int RGB_565_BYTES_PER_PIXEL = 2;
 
     /* renamed from: com.facebook.imageutils.BitmapUtil$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
 

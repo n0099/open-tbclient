@@ -4,13 +4,13 @@ import com.baidu.webkit.sdk.Log;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
-    public C0513a a;
+    public C0527a a;
 
     /* renamed from: com.baidu.webkit.internal.monitor.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C0513a {
+    /* loaded from: classes8.dex */
+    public class C0527a {
         public boolean a;
         public boolean b;
         public long c;
@@ -19,14 +19,14 @@ public final class a {
         public boolean f;
         public Map<String, Long> g;
 
-        public C0513a() {
+        public C0527a() {
             this.b = true;
             this.c = -1L;
             this.d = -1L;
             this.g = new HashMap();
         }
 
-        public /* synthetic */ C0513a(a aVar, byte b) {
+        public /* synthetic */ C0527a(a aVar, byte b) {
             this();
         }
 

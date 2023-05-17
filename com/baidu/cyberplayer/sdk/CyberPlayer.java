@@ -9,6 +9,7 @@ import android.view.SurfaceHolder;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.FileDescriptor;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaInstanceManagerProvider.OnClientInstanceHandler {
     public PlayerProvider a;
     public boolean b;
@@ -526,7 +527,7 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
             boolean booleanValue = ((Boolean) obj).booleanValue();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("is_feed_video", booleanValue ? "true" : "false");
+                jSONObject.put("is_feed_video", booleanValue ? "true" : CommandUBCHelper.COMMAND_UBC_VALUE_FALSE);
                 sendCommand(1003, 0, 0L, jSONObject.toString());
             } catch (JSONException e) {
                 e.printStackTrace();
